@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/06/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 11f57f866981cd4d376705dd24e2f0c54126e337
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 26c77b706f17f49eff782e6d0d73087050739874
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-stack-1803-update"></a>Azure-Stack 1803 update
 
@@ -44,10 +44,11 @@ Het buildnummer van Azure Stack 1803 update **20180329.1**.
 
 
 ### <a name="post-update-steps"></a>Stappen na het bijwerken
-Na de installatie van 1803 toepasselijke Hotfixes te installeren. Raadpleeg voor meer informatie de volgende knowledge base-artikelen, evenals onze [beleid onderhoud](azure-stack-servicing-policy.md).
+- Na de installatie van 1803 toepasselijke Hotfixes te installeren. Raadpleeg voor meer informatie de volgende knowledge base-artikelen, evenals onze [beleid onderhoud](azure-stack-servicing-policy.md).
 
-- [KB 4103348 - API van de netwerkcontroller-service vastloopt wanneer u probeert een Azure-Stack-update te installeren](https://support.microsoft.com/en-us/help/4103348)
+  - [KB 4103348 - API van de netwerkcontroller-service vastloopt wanneer u probeert een Azure-Stack-update te installeren](https://support.microsoft.com/en-us/help/4103348)
 
+- Nadat deze update is geïnstalleerd, Controleer de firewallconfiguratie van uw om ervoor te zorgen [nodig poorten](azure-stack-integrate-endpoints.md) zijn geopend. Deze update introduceert bijvoorbeeld Azure-Monitor die een wijziging van controlelogboeken voor activiteitenlogboeken bevat. Met deze wijziging wordt poort 13012 wordt nu gebruikt en moet ook zijn geopend.  
 
 ### <a name="new-features"></a>Nieuwe functies 
 Deze update bevat de volgende verbeteringen en oplossingen voor Azure-Stack.
@@ -169,7 +170,7 @@ Hieronder vindt u na de installatie bekende problemen voor de build **20180323.2
     - *Toestaan:*
  
       ```powershell    
-      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+      Add-AzureRmAccount -EnvironmentName AzureStackAdmin
       
       $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
       
@@ -199,7 +200,7 @@ Hieronder vindt u na de installatie bekende problemen voor de build **20180323.2
 
         ```powershell
         
-        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+        Add-AzureRmAccount -EnvironmentName AzureStackAdmin
         
         $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
         

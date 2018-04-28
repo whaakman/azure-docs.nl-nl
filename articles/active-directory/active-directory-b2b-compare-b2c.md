@@ -2,12 +2,12 @@
 title: Vergelijk B2B-samenwerking en B2C in Azure Active Directory | Microsoft Docs
 description: Wat is het verschil tussen Azure Active Directory B2B-samenwerking en Azure AD B2C?
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: twooley
 manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 03/15/2017
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: ae3ebdceb65c04b98965f81f52997da457bd7845
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 32d7d135e67a05b59279e647c1fb2aa8c9686cef
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>Vergelijk B2B-samenwerking en B2C in Azure Active Directory
 
@@ -36,7 +36,7 @@ Eenmalige aanmelding (SSO) naar alle Azure AD verbonden apps wordt ondersteund. 
 De levenscyclus van de partner: beheerd door de host/uitgenodigd organisatie.  | De levenscyclus van de klant: eigen beheer of beheerd door de toepassing.
 Beveiligingsbeleid en naleving: beheerd door de host/uitgenodigd organisatie.  | Beveiligingsbeleid en naleving: beheerd door de toepassing.
 De huisstijl: Merk van Host/uitgenodigd organisatie wordt gebruikt.  |    De huisstijl: Beheerd door de toepassing. Doorgaans is doorgaans product huisstijl met de organisatie geleidelijk in de achtergrond.
-Meer informatie: [blogbericht](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [documentatie](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  | Meer informatie: [productpagina](https://azure.microsoft.com/en-us/services/active-directory-b2c/), [documentatie](https://docs.microsoft.com/azure/active-directory-b2c/)
+Meer informatie: [blogbericht](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [documentatie](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  | Meer informatie: [productpagina](https://azure.microsoft.com/services/active-directory-b2c/), [documentatie](https://docs.microsoft.com/azure/active-directory-b2c/)
 
 
 ### <a name="next-steps"></a>Volgende stappen

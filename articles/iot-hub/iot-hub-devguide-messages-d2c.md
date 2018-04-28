@@ -5,7 +5,7 @@ services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 48b904818c80b9175d45b88345634f11cf4a4812
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 54b2961713f529438f5508bb0615824ec6bec214
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="send-device-to-cloud-messages-to-iot-hub"></a>Apparaat-naar-cloud-berichten verzenden met IoT Hub
 
@@ -32,7 +32,7 @@ Apparaat-naar-cloud-berichten met IoT Hub heeft de volgende kenmerken:
 * Apparaat-naar-cloud-berichten worden duurzame en bewaard in een IoT-hub standaard **berichten/gebeurtenissen** eindpunt voor maximaal zeven dagen.
 * Apparaat-naar-cloud-berichten kunnen niet groter zijn dan 256 KB en kunnen worden gegroepeerd in batches te optimaliseren verzendt. Batches mag hoogstens 256 KB.
 * Zoals wordt beschreven in de [toegangsbeheer met IoT Hub] [ lnk-devguide-security] gedeelte, IoT-Hub kunt per apparaat authenticatie en toegangsbeheer.
-* IoT-Hub kunt u maximaal 10 aangepaste eindpunten maken. Berichten worden afgeleverd bij de eindpunten op basis van de routes geconfigureerd op uw IoT-hub. Zie voor meer informatie [routering regels](#routing-rules).
+* IoT-Hub kunt u maximaal 10 aangepaste eindpunten maken. Berichten worden afgeleverd bij de eindpunten op basis van de routes geconfigureerd op uw IoT-hub. Zie voor meer informatie [routering regels](iot-hub-devguide-query-language.md#device-to-cloud-message-routes-query-expressions).
 * IoT-Hub kunt miljoenen gelijktijdig verbonden apparaten (Zie [quota's en beperking][lnk-quotas]).
 * IoT Hub is niet toegestaan voor het partitioneren van willekeurige. Apparaat-naar-cloud-berichten worden gepartitioneerd op basis van hun oorspronkelijke **deviceId**.
 

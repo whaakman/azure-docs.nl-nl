@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: damaerte
-ms.openlocfilehash: efee0842a2fca2afac28f179bba07c3b6682ee57
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e3e59395b7066169b8a7863f45a446051b830a71
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Quick Start voor PowerShell in de Azure-Cloud-Shell (Preview)
 
@@ -274,13 +274,13 @@ Voor verificatie op servers of virtuele machines met SSH, het openbaar / persoon
 
 ### <a name="using-a-custom-profile-to-persist-git-and-ssh-settings"></a>Met behulp van een aangepast profiel voor het persistent maken van GIT en SSH-instellingen
 
-Aangezien sessies blijven niet behouden bij het ze afmelden Sla uw `$env:USERPROFILE\.ssh` map naar `CloudDrive` of maak een symlink wanneer Cloud Shell wordt gestart.
-Plaats de volgende codefragment in uw profile.ps1 een symlink om CloudDrive te maken.
+Aangezien sessies blijven niet behouden bij het ze afmelden Sla uw `$env:USERPROFILE\.ssh` map naar `clouddrive` of maak een symlink wanneer Cloud Shell wordt gestart.
+Plaats de volgende codefragment in uw profile.ps1 voor het maken van een symlink naar `clouddrive`.
 
 ``` PowerShell
 # Check if the .ssh directory exists
-if( -not (Test-Path $home\CloudDrive\.ssh)){
-    mkdir $home\CloudDrive\.ssh
+if( -not (Test-Path $home\clouddrive\.ssh)){
+    mkdir $home\clouddrive\.ssh
 }
 
 # .ssh path relative to this script
@@ -347,21 +347,21 @@ PS Azure:\> Get-Help Get-AzureRmVM
 
 ## <a name="use-azure-files-to-store-your-data"></a>Azure-bestanden gebruiken voor het opslaan van uw gegevens
 
-Kunt u een script spreek `helloworld.ps1`, en sla deze op uw `CloudDrive` gebruiken over de shell-sessies.
+Kunt u een script spreek `helloworld.ps1`, en sla deze op uw `clouddrive` gebruiken over de shell-sessies.
 
 ``` PowerShell
-cd C:\users\ContainerAdministrator\CloudDrive
-PS C:\users\ContainerAdministrator\CloudDrive> vim .\helloworld.ps1
+cd C:\users\ContainerAdministrator\clouddrive
+PS C:\users\ContainerAdministrator\clouddrive> vim .\helloworld.ps1
 # Add the content, such as 'Hello World!'
-PS C:\users\ContainerAdministrator\CloudDrive> .\helloworld.ps1
+PS C:\users\ContainerAdministrator\clouddrive> .\helloworld.ps1
 Hello World!
 ```
 
-Wanneer u PowerShell in de Cloud-Shell gebruiken zodra de `helloworld.ps1` bestand blijft aanwezig in de `CloudDrive` map die uw Azure-bestanden-share koppelt.
+Wanneer u PowerShell in de Cloud-Shell gebruiken zodra de `helloworld.ps1` bestand blijft aanwezig in de `clouddrive` map die uw Azure-bestanden-share koppelt.
 
 ## <a name="use-custom-profile"></a>Aangepast profiel gebruiken
 
-U kunt uw PowerShell-omgeving aanpassen door het maken van PowerShell-profielen - `profile.ps1` of `Microsoft.PowerShell_profile.ps1`. Sla deze onder de `CloudDrive` zodat deze kan worden geladen in elke PowerShell-sessie wanneer het starten van de Cloud-Shell.
+U kunt uw PowerShell-omgeving aanpassen door het maken van PowerShell-profielen - `profile.ps1` of `Microsoft.PowerShell_profile.ps1`. Sla deze onder de `clouddrive` zodat deze kan worden geladen in elke PowerShell-sessie wanneer het starten van de Cloud-Shell.
 
 Voor het maken van een profiel, verwijzen naar [over profielen][profile].
 
@@ -373,7 +373,7 @@ Als u wilt een Git-opslagplaats in de Cloud-Shell klonen, moet u maken een [pers
   git clone https://<your-access-token>@github.com/username/repo.git
 
 ```
-Aangezien sessies in de Cloud-Shell, blijven niet behouden ze wanneer u zich afmeldt of de sessietime-out optreedt, bestaat de Git-configuratiebestand niet bij de volgende aanmelding. Als u wilt dat uw Git-config behouden, moet u uw .gitconfig naar opslaan uw `CloudDrive` en kopieert u deze of een symlink te maken wanneer de Cloud-Shell wordt gestart. Gebruik het volgende codefragment in uw profile.ps1 voor het maken van een symlink naar `CloudDrive`.
+Aangezien sessies in de Cloud-Shell, blijven niet behouden ze wanneer u zich afmeldt of de sessietime-out optreedt, bestaat de Git-configuratiebestand niet bij de volgende aanmelding. Als u wilt dat uw Git-config behouden, moet u uw .gitconfig naar opslaan uw `clouddrive` en kopieert u deze of een symlink te maken wanneer de Cloud-Shell wordt gestart. Gebruik het volgende codefragment in uw profile.ps1 voor het maken van een symlink naar `clouddrive`.
 
  ``` PowerShell
  

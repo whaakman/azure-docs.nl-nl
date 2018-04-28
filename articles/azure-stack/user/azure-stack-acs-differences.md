@@ -2,11 +2,11 @@
 title: 'Azure Storage Stack: Verschillen en overwegingen'
 description: Het verschil tussen Azure Stack Storage en Azure Storage, samen met aandachtspunten voor implementatie van Azure-Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
 ms.reviwer: xiaofmao
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/21/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 7c4f030018f388302c3b60a41086bbd97c86513d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 165a899dbad0893b3a2bddcfc68c9b5d737e9d3d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Storage Stack: Verschillen en overwegingen
 
@@ -47,6 +47,7 @@ Voorlopig verwijderen voor blob-opslag|Preview|Nog niet ondersteund.
 |Maximale grootte voor pagina-blob|8 TB|1 TB
 |Paginagrootte voor pagina-blob|512 bytes|4 KB
 |De partitiesleutel tabel- en rijkoppen sleutelgrootte|1024 tekens (2048 bytes)|400 tekens (800 bytes)
+|BLOB-momentopname|Het maximum aantal momentopnamen van een blob is niet beperkt.|Het maximum aantal momentopnamen van een blob is 1000.|
 
 ### <a name="metrics"></a>Metrische gegevens
 Er zijn ook enkele verschillen met opslag metrische gegevens:
@@ -59,14 +60,14 @@ De volgende versies worden ondersteund met Azure Stack Storage:
 Azure Storage-services API's:
 
 1802 bijwerken of hoger:
- - [2017-04-17](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2017-04-17)
- - [2016-05-31](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2016-05-31)
- - [2015-12-11](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-12-11)
- - [2015-07-08 ](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-07-08)
- - [2015-04-05](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-04-05)
+ - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
+ - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
+ - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
+ - [2015-07-08 ](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
+ - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 Vorige versies:
- - [2015-04-05](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-04-05)
+ - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 
 Azure Storage services management API's:
@@ -87,7 +88,7 @@ De volgende clientbibliotheken worden ondersteund met Azure Stack Storage:
 | C++            | Van 2.4.0 naar 3.1.0           | Nuget-pakket:<br>https://www.nuget.org/packages/wastorage.v140/<br> <br>De versie van GitHub:<br>https://github.com/Azure/azure-storage-cpp/releases                                                                                                                                                                                          | Verbinding tekenreeks instellen      |
 | PHP            | Van 0.15.0 naar 1.0.0          | De versie van GitHub:<br>https://github.com/Azure/azure-storage-php/releases<br> <br>Installeren via de Composer (Zie hieronder voor meer informatie)                                                                                                                                                                                                                  | Verbinding tekenreeks instellen      |
 | Python         | Van 0.30.0 naar 1.0.0          | De versie van GitHub:<br>https://github.com/Azure/azure-storage-python/releases                                                                                                                                                                                                                                                                | Service-exemplaar declaratie |
-| Ruby           | Van 0.12.1 naar 1.0.1          | RubyGems pakket:<br>Algemene:<br>https://rubygems.org/gems/azure-storage-common/<br>Blob: https://rubygems.org/gems/azure-storage-blob/<br>Queue: https://rubygems.org/gems/azure-storage-queue/<br>Tabel: https://rubygems.org/gems/azure-storage-table/<br> <br>De versie van GitHub:<br>https://github.com/Azure/azure-storage-ruby/releases | Verbinding tekenreeks instellen      |
+| Ruby           | Van 0.12.1 naar 1.0.1          | RubyGems pakket:<br>Algemene:<br>https://rubygems.org/gems/azure-storage-common/<br>BLOB: https://rubygems.org/gems/azure-storage-blob/<br>Wachtrij: https://rubygems.org/gems/azure-storage-queue/<br>Tabel: https://rubygems.org/gems/azure-storage-table/<br> <br>De versie van GitHub:<br>https://github.com/Azure/azure-storage-ruby/releases | Verbinding tekenreeks instellen      |
 
 ## <a name="next-steps"></a>Volgende stappen
 

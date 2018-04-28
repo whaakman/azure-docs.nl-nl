@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: skwan
-ms.openlocfilehash: 507986e4fa83e1821b1d7a1938b356feee81e9d2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 692bc5eb401ccda36ef42006de509144170f7757
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-a-linux-vm-msi-to-access-azure-cosmos-db"></a>Gebruik van een Linux-VM-MSI voor toegang tot Azure Cosmos-DB 
 
@@ -113,7 +113,7 @@ Het antwoord bevat de details van het systeem toegewezen MSI-bestand (Opmerking:
 ```
 ## <a name="grant-your-linux-vm-msi-access-to-the-cosmos-db-account-access-keys"></a>Uw Linux VM MSI toegang verlenen tot de toegangssleutels van de Cosmos-DB-account
 
-Cosmos DB biedt geen systeemeigen ondersteuning voor Azure AD-verificatie.  U kunt echter een MSI-bestand gebruiken voor het ophalen van een Cosmos-DB-toegangssleutel van de Resource Manager en vervolgens de sleutel gebruiken voor toegang tot Cosmos DB.  In deze stap verleent u dat uw systeem toegewezen MSI toegang tot de sleutels aan het account van de Cosmos-DB.
+Cosmos DB biedt geen systeemeigen ondersteuning voor Azure AD-verificatie. U kunt echter een MSI-bestand gebruiken voor het ophalen van een Cosmos-DB-toegangssleutel van de Resource Manager en vervolgens de sleutel gebruiken voor toegang tot Cosmos DB. In deze stap maakt u uw MSI toegang verlenen tot de sleutels aan het account van de Cosmos-DB.
 
 Werk de waarden voor de MSI identiteit om toegang te verlenen aan de database van de Cosmos-account in Azure Resource Manager met de Azure CLI, `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, en `<COSMOS DB ACCOUNT NAME>` voor uw omgeving. Vervang `<MSI PRINCIPALID>` met de `principalId` eigenschap die is geretourneerd door de `az resource show` opdracht in [ophalen van de principalID van de Linux-VM MSI](#retrieve-the-principalID-of-the-linux-VM's-MSI).  Cosmos DB ondersteunt twee detailniveaus bij gebruik van toegangstoetsen: lezen/schrijven toegang tot het account en alleen-lezen toegang tot het account.  Wijs de `DocumentDB Account Contributor` rol als u wilt lezen/schrijven-sleutels voor het account ophalen of toe te wijzen de `Cosmos DB Account Reader Role` functie, indien u wilt ophalen, alleen-lezen sleutels voor het account:
 
@@ -149,7 +149,7 @@ Deze stappen uit te voeren, moet u een SSH-client. Als u van Windows gebruikmaak
 4. Gebruik CURL voor een toegangstoken ophalen voor Azure Resource Manager: 
      
     ```bash
-    curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true   
+    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true   
     ```
  
     > [!NOTE]

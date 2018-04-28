@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: anupams
-ms.openlocfilehash: 1a5671eda967c1bba585d31b001bb465526709f3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3817d58cd61fb349d7815984420d0deb1ae0edd9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="cortana-intelligence-appsource-publishing-guide"></a>Cortana Intelligence AppSource publishing handleiding
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/28/2018
 AppSource is één bestemming voor besluitvormers (BDM) detecteert en naadloos probeert business oplossingen /-apps gebouwd door partners en geëvalueerd door Microsoft. Bekijk [in deze video](https://youtu.be/hpq_Y9LuIB8) voor meer informatie over de werking van AppSource. 
 
 Als een Microsoft-Partner kunt u echt profiteren van op AppSource publiceren als u hebt:
-- Gebouwd een intelligente oplossing /-Apps met behulp van [Cortana Intelligence Suite](https://azure.microsoft.com/en-us/suites/cortana-intelligence-suite/?cdn=disable).
+- Gebouwd een intelligente oplossing /-Apps met behulp van [Cortana Intelligence Suite](https://azure.microsoft.com/suites/cortana-intelligence-suite/?cdn=disable).
 - Uw oplossing of app lost specifieke zakelijke problemen.
 - U hebt ontwikkeld modules of intellectueel eigendom dat uw klanten relatief snel op een voorspelbare wijze hergebruiken kunnen.
 

@@ -3,16 +3,16 @@ title: Upgrade van een klassieke Azure-container-register
 description: Profiteren van de uitgevouwen functieset van Basic, Standard en Premium container registers beheerd door uw niet-beheerde klassieke container register upgraden.
 services: container-registry
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: marsma
-ms.openlocfilehash: c5a61941bab2aa49cd8205e0a07dd2b5f7378ce9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 084dfc8f87aaea4b5bbad7cb5fdb9d445d566206
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Upgrade van een container klassieke register
 
@@ -27,7 +27,7 @@ Beheerde registers bieden:
 * Azure Active Directory-integratie voor [afzonderlijke aanmelding](container-registry-authentication.md#individual-login-with-azure-ad)
 * Ondersteuning voor image en label verwijderen
 * [Geo-replicatie](container-registry-geo-replication.md)
-* [Webhooks](container-registry-webhook.md)
+* [Webhooks.](container-registry-webhook.md)
 
 Een klassieke-register is meest, afhankelijk van het opslagaccount dat Azure automatisch in uw Azure-abonnement voorziet bij het maken van het register. Daarentegen is de Basic, Standard en Premium-SKU's profiteren van Azure [geavanceerde functies van storage](container-registry-storage.md) op transparante wijze de opslag van uw afbeeldingen voor u. Een afzonderlijke opslagaccount is niet gemaakt in uw eigen abonnement.
 

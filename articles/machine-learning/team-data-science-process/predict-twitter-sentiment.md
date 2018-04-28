@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: bradsev
-ms.openlocfilehash: f22da892868a10ac18fdcd703249eaa172f8bf65
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 47c8b9c9d364a7959066132a873b93c2bb001e26
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="predict-twitter-sentiment-with-word-embeddings-by-using-the-team-data-science-process"></a>Twitter-gevoel met word insluitingen voorspellen met behulp van het Team gegevens wetenschap proces
 
-Dit artikel laat zien hoe effectief samen te werken met behulp van de _Word2Vec_ word insluiten algoritme en de _gevoel-specifieke Word insluiten (SSWE)_ algoritme te voorspellen Twitter-gevoel met [Azure Machine Learning](../preview/index.yml). Zie voor meer informatie over het voorspellen van Twitter-gevoel polariteit de [MachineLearningSamples TwitterSentimentPrediction opslagplaats](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction) op GitHub. De sleutel te vergemakkelijken effectieve teamsamenwerking voor gegevenswetenschap projecten is de structuur en de documentatie van de projecten met een levenscyclus voor gegevenswetenschap tot stand gebrachte standaardiseren. De [Team gegevens wetenschap proces (TDSP)](overview.md) biedt dit soort gestructureerde [lifecycle](lifecycle.md). 
+Dit artikel laat zien hoe effectief samen te werken met behulp van de _Word2Vec_ word insluiten algoritme en de _gevoel-specifieke Word insluiten (SSWE)_ algoritme te voorspellen Twitter-gevoel met [Azure Machine Learning](../service/index.yml). Zie voor meer informatie over het voorspellen van Twitter-gevoel polariteit de [MachineLearningSamples TwitterSentimentPrediction opslagplaats](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction) op GitHub. De sleutel te vergemakkelijken effectieve teamsamenwerking voor gegevenswetenschap projecten is de structuur en de documentatie van de projecten met een levenscyclus voor gegevenswetenschap tot stand gebrachte standaardiseren. De [Team gegevens wetenschap proces (TDSP)](overview.md) biedt dit soort gestructureerde [lifecycle](lifecycle.md). 
 
-Maken van gegevenswetenschap projecten met de _TDSP sjabloon_ biedt u de gestandaardiseerde framework voor Azure Machine Learning-projecten. Voorheen werd door het team TDSP uitgebracht een [GitHub-opslagplaats voor de structuur van TDSP-project en sjablonen](https://github.com/Azure/Azure-TDSP-ProjectTemplate). Nu Machine Learning-projecten die zijn gemaakt met [TDSP sjablonen voor Azure Machine Learning](https://github.com/amlsamples/tdsp) zijn ingeschakeld. Zie voor instructies hoe u [TDSP structuur projecten met de sjabloon TDSP](../preview/how-to-use-tdsp-in-azure-ml.md) in Azure Machine Learning. 
+Maken van gegevenswetenschap projecten met de _TDSP sjabloon_ biedt u de gestandaardiseerde framework voor Azure Machine Learning-projecten. Voorheen werd door het team TDSP uitgebracht een [GitHub-opslagplaats voor de structuur van TDSP-project en sjablonen](https://github.com/Azure/Azure-TDSP-ProjectTemplate). Nu Machine Learning-projecten die zijn gemaakt met [TDSP sjablonen voor Azure Machine Learning](https://github.com/amlsamples/tdsp) zijn ingeschakeld. Zie voor instructies hoe u [TDSP structuur projecten met de sjabloon TDSP](../desktop-workbench/how-to-use-tdsp-in-azure-ml.md) in Azure Machine Learning. 
 
 
 ## <a name="twitter-sentiment-polarity-sample"></a>Twitter-gevoel polariteit voorbeeld
@@ -131,7 +131,7 @@ De laatste stap is implementatie van het model van de voorspelling getraind gevo
 
 ![Kubernetes-dashboard](./media/predict-twitter-sentiment/kubernetes-dashboard.PNG)
 
-Zie voor meer informatie over het proces uitoefening [implementeren van een Azure Machine Learning-model als een webservice](../preview/model-management-service-deploy.md).
+Zie voor meer informatie over het proces uitoefening [implementeren van een Azure Machine Learning-model als een webservice](../desktop-workbench/model-management-service-deploy.md).
 
 ## <a name="conclusion"></a>Conclusie
 
@@ -143,8 +143,8 @@ In dit artikel hebt u geleerd hoe u een word-insluiting model trainen met behulp
 * [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) 
 * [Het gebruik van Team gegevens wetenschap proces (TDSP) in Azure Machine Learning](https://aka.ms/how-to-use-tdsp-in-aml)
 * [De projectsjablonen TDSP voor Azure Machine Learning](https://aka.ms/tdspamlgithubrepo)
-* [Azure Machine Learning Workbench](../preview/index.yml)
+* [Azure Machine Learning Workbench](../service/index.yml)
 * [VS inkomsten gegevensset uit UCI ML-opslagplaats](https://archive.ics.uci.edu/ml/datasets/adult)
-* [Herkenning met behulp van sjablonen TDSP biomedische entiteit](../preview/scenario-tdsp-biomedical-recognition.md)
+* [Herkenning met behulp van sjablonen TDSP biomedische entiteit](../desktop-workbench/scenario-tdsp-biomedical-recognition.md)
 * [Mikolov, Tomas, et al. 'Representaties van woorden en woordgroepen en hun Compositionality gedistribueerd. Verplaatst in neural informatie verwerkingssystemen." 2013.](https://arxiv.org/abs/1310.4546)
 * [Mat, Duyu, et al. 'Learning gevoel-specifieke Word insluiten voor Twitter-gevoel classificatie'. ACL (1). 2014.](http://www.aclweb.org/anthology/P14-1146)

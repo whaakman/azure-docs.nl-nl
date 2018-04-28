@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3f57eb3ede3b57e28c13e053b86ab022fdd21b7e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 2245fcdaa8b7e85ea37e9af9c939cd188c4d7ed9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights voor ASP.NET Core
 
@@ -187,13 +187,13 @@ U kunt testen en controleren of alles werkt nu dat u de vorige stappen hebt volt
 
    ![Schermafbeelding van de Stream Live metrische gegevens](./media/app-insights-asp-net-core/0020-live-metrics-stream.png)
 
-   (Als uw PowerShell-script nog steeds uitgevoerd is, u live metrische gegevens en ziet als is gestopt met het script opnieuw uitvoeren met Live Stream openen.)
+   (Als uw PowerShell script wordt nog steeds uitgevoerd u ziet live metrische gegevens en als deze is gestopt uitvoeren voor het script opnieuw Live Stream openen)
 
 ## <a name="app-insights-sdk-comparison"></a>Vergelijking van App Insights-SDK
 
 De Application Insights-productgroep werken hard aan bereiken zo dicht mogelijk bij functie pariteit mogelijk tussen de [.NET Framework SDK volledige](https://github.com/Microsoft/ApplicationInsights-dotnet) en de .net Core SDK. De 2.2.0 release van de [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore) voor de afstand van de functie grotendeels door Application Insights is gesloten.
 
-Voor meer informatie over de verschillen en de wisselwerking tussen [.NET en .NET Core](https://docs.microsoft.com/en-us/dotnet/standard/choosing-core-framework-server).
+Voor meer informatie over de verschillen en de wisselwerking tussen [.NET en .NET Core](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server).
 
    | Vergelijking van de SDK | ASP.NET        | ASP.NET Core 2.1.0    | ASP.NET Core 2.2.0 |
   |:-- | :-------------: |:------------------------:|:----------------------:|
@@ -203,7 +203,7 @@ Voor meer informatie over de verschillen en de wisselwerking tussen [.NET en .NE
    | **Aanroepen van de SQL-afhankelijkheden**     | **+** |**-** | **+**|
    | **Prestatiemeteritems*** | **+** | **-**| **-**|
 
-_Prestatiemeteritems_ in deze context verwijst naar [serverzijde prestatiemeteritems](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-performance-counters) , zoals processors, geheugen en schijfgebruik.
+_Prestatiemeteritems_ in deze context verwijst naar [serverzijde prestatiemeteritems](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) , zoals processors, geheugen en schijfgebruik.
 
 ## <a name="open-source-sdk"></a>Open-source SDK
 [Lees- en bijdragen aan de code](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates)

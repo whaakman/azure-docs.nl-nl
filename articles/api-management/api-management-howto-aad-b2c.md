@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 1268905d8a992d0cac65174142f6a3870f38f0d8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 1ef0d6cc34b19b9bc8fe8d0b88f73a2657848747
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 > [!WARNING]
-> Integratie van Azure Active Directory B2C is beschikbaar in de [Developer- en Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/) alleen lagen.
+> Integratie van Azure Active Directory B2C is beschikbaar in de [Developer, Standard en Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/) alleen lagen.
 
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Hoe ontwikkelaarsaccounts autoriseren met behulp van Azure Active Directory B2C in Azure API Management
 ## <a name="overview"></a>Overzicht

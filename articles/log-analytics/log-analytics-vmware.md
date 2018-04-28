@@ -2,10 +2,10 @@
 title: Bewaking van de VMware-oplossing in Log Analytics | Microsoft Docs
 description: Meer informatie over hoe de oplossing VMware bewaking kunt logboeken beheren en controleren van ESXi-hosts.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 16516639-cc1e-465c-a22f-022f3be297f1
 ms.service: log-analytics
 ms.workload: na
@@ -14,15 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: magoedte
-ms.openlocfilehash: f54d24659ad13aa02462938711482326c5bf763c
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 98969cf2f6604843bc1502990222264e7acc363b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>VMware Monitoring (Preview)-oplossing in Log Analytics
 
 ![VMware symbool](./media/log-analytics-vmware/vmware-symbol.png)
+
+> [!NOTE]
+> De bewaking van de VMware-oplossing is afgeschaft.  Klanten die de oplossing al hebt geïnstalleerd kunnen blijven gebruiken, maar VMware bewaking kan niet worden toegevoegd aan eventuele nieuwe werkruimten.
 
 De oplossing VMware bewaking in Log Analytics is een oplossing waarmee u een centrale logboekregistratie en controle benadering voor grote VMware logboeken maken. Dit artikel wordt beschreven hoe u kunt oplossen, vastleggen en beheren van de ESXi-hosts op één locatie met de oplossing. Met de oplossing kunt u gedetailleerde gegevens bekijken voor uw ESXi-hosts op één locatie. U ziet de bovenste gebeurtenis aantallen, status en trends van VM- en ESXi-hosts via de logboeken van de ESXi-host. Als u problemen met het weergeven en zoeken naar Logboeken van gecentraliseerde ESXi-host. En u waarschuwingen op basis van het logboek zoekquery's kunt maken.
 
@@ -77,7 +80,7 @@ De oplossing VMware bewaking verzamelt verschillende metrische gegevens en logbo
 
 De volgende tabel bevat de methoden van de collectie en andere informatie over hoe gegevens worden verzameld.
 
-| platform | OMS-Agent voor Linux | SCOM-agents | Azure Storage | SCOM vereist? | SCOM-agent gegevens die worden verzonden via de beheergroep | Frequentie van de verzameling |
+| Platform | OMS-Agent voor Linux | SCOM-agents | Azure Storage | SCOM vereist? | SCOM-agent gegevens die worden verzonden via de beheergroep | Frequentie van de verzameling |
 | --- | --- | --- | --- | --- | --- | --- |
 | Linux |&#8226; |  |  |  |  |om de 3 minuten |
 

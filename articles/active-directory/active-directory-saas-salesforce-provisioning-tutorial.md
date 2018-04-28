@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 3d300eb397b58b4e1f8c8a6516e0a279980d8d09
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b5a85dd7d4ac6bdabcbab49f654ebfe4adae73cd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Zelfstudie: Salesforce configureren voor het automatisch gebruikers inrichten
 
@@ -27,9 +27,13 @@ Het doel van deze zelfstudie is om de stappen die nodig zijn om uit te voeren in
 
 Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende items hebt:
 
-*   Een Azure Active directory-tenant.
-*   U moet een geldige tenant voor Salesforce voor werk- of Salesforce voor onderwijs hebben. U kunt een gratis proefaccount voor de service.
-*   Een gebruikersaccount in Salesforce met beheerdersmachtigingen Team.
+*   Een Azure Active directory-tenant
+*   Een Salesforce.com-tenant
+
+>[!IMPORTANT] 
+>Als u van een Salesforce.com-proefaccount gebruikmaakt, klikt u vervolgens kunt u zich kan niet worden geconfigureerd geautomatiseerde gebruikersinrichting. Proefaccounts hoeft niet de benodigde API-toegang ingeschakeld totdat ze zijn aangeschaft. U kunt deze beperking omzeilen met behulp van een gratis [ontwikkelaarsaccount](https://developer.salesforce.com/signup) om deze zelfstudie te voltooien.
+
+Als u van een Salesforce Sandbox-omgeving gebruikmaakt, raadpleegt u de [Salesforce Sandbox integratie zelfstudie](https://go.microsoft.com/fwLink/?LinkID=521879).
 
 ## <a name="assigning-users-to-salesforce"></a>Gebruikers toewijzen aan Salesforce
 
@@ -89,7 +93,7 @@ Het doel van deze sectie is het inschakelen van de gebruiker het inrichten van A
 
 10. Kopiëren van het token, Ga naar uw Azure AD-venster en plak deze in de **geheim Token** veld.
 
-11. De **Tenant-URL** moet worden opgegeven als het exemplaar van Salesforce in de Cloud van de overheid Salesforce. Anders is optioneel. Voer de tenant-URL met de indeling van https://your-instance.my.salesforce.com, uw instantie vervangen door de naam van uw Salesforce-exemplaar.
+11. De **Tenant-URL** moet worden opgegeven als het exemplaar van Salesforce in de Cloud van de overheid Salesforce. Anders is optioneel. Voer de URL van de tenant met behulp van de indeling van https://your-instance.my.salesforce.com, uw instantie vervangen door de naam van uw Salesforce-exemplaar.
 
 12. Klik in de Azure-portal op **testverbinding** om te controleren of Azure AD, kan verbinding maken met uw Salesforce-app.
 

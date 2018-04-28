@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 12/08/2017
-ms.openlocfilehash: b09d4a1aea56a4e306f80a1b43d519d313fd73ab
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 8355248f28a019ef4712f542c8eac731362330ce
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Time Series Insights-resources met behulp van Azure Resource Manager-sjablonen maken
 
@@ -28,7 +28,7 @@ Time Series Insights ondersteunt de volgende bronnen:
    | Omgeving | Een omgeving Time Series Insights is een logische groepering van gebeurtenissen die zijn gelezen uit de gebeurtenis beleggingsmakelaars, opgeslagen en beschikbaar gesteld voor query. Zie voor meer informatie [plannen van uw Azure Time Series Insights-omgeving](time-series-insights-environment-planning.md) |
    | Bron van gebeurtenis | De bron van een gebeurtenis is een verbinding met een broker gebeurtenis waaruit Time Series Insights leest en gebeurtenissen opgenomen in de omgeving. Ondersteunde gebeurtenisbronnen zijn IoT Hub en Event Hub. |
    | Referentie-gegevensset | Sets van verwijzingsgegevens bieden metagegevens over de gebeurtenissen in de omgeving. Metagegevens in de sets van verwijzingsgegevens wordt gekoppeld aan gebeurtenissen tijdens inkomend. Sets van verwijzingsgegevens worden gedefinieerd als resources door de sleuteleigenschappen van de gebeurtenis. De metagegevens van de werkelijke waaruit de gegevensset verwijzing is geüpload of gewijzigd via data vlak API's. |
-   | Beleid voor toegang | Toegangsbeleid verlenen machtigingen voor gegevensquery's uitgeven, referentiegegevens in de omgeving bewerken en opgeslagen query's en perspectieven die zijn gekoppeld aan de omgeving delen. Zie voor meer informatie [gegevenstoegang verlenen tot een tijd reeks Insights-omgeving met Azure portal](time-series-insights-data-access.md) |
+   | Toegangsbeleid | Toegangsbeleid verlenen machtigingen voor gegevensquery's uitgeven, referentiegegevens in de omgeving bewerken en opgeslagen query's en perspectieven die zijn gekoppeld aan de omgeving delen. Zie voor meer informatie [gegevenstoegang verlenen tot een tijd reeks Insights-omgeving met Azure portal](time-series-insights-data-access.md) |
 
 Resource Manager-sjabloon is een JSON-bestand dat de infrastructuur en configuratie van resources in een resourcegroep definieert. Zie de volgende documenten voor meer informatie:
 
@@ -153,7 +153,7 @@ Zie voor meer informatie de [Parameters](../azure-resource-manager/resource-grou
 Voer de volgende opdracht vanaf een PowerShell-prompt:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 U wordt gevraagd om aan te melden bij uw Azure-account. Voer de volgende opdracht om de beschikbare abonnementen weer te geven na aanmelding:
@@ -266,7 +266,8 @@ Outputs                 :
 
 De startpagina van de sjabloon Quick Start op GitHub bevat ook een **implementeren in Azure** knop. Erop te klikken, opent een aangepaste implementatie-pagina in de Azure portal. Op deze pagina kunt u opgeven of waarden selecteren voor elk van de parameters van de [vereiste parameters](time-series-insights-manage-resources-using-azure-resource-manager-template.md#required-parameters) of [optionele parameters](time-series-insights-manage-resources-using-azure-resource-manager-template.md#optional-parameters) tabellen. Na het invullen van de instellingen, te klikken op de **aankoop** knop initieert de sjabloonimplementatie.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank"> <img src="http://azuredeploy.net/deploybutton.png"/>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
 ## <a name="next-steps"></a>Volgende stappen

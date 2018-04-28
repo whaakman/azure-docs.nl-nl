@@ -1,8 +1,8 @@
 ---
 title: Gegevensbronnen configureren in Azure Log Analytics | Microsoft Docs
-description: "De gegevens of Log Analytics verzamelt van agents en andere bronnen verbonden definiëren gegevensbronnen  Dit artikel wordt het concept van hoe Log Analytics maakt gebruik van gegevensbronnen, worden de details van het configureren ervan uitgelegd en bevat een samenvatting van de verschillende beschikbare gegevensbronnen."
+description: De gegevens of Log Analytics verzamelt van agents en andere bronnen verbonden definiëren gegevensbronnen  Dit artikel wordt het concept van hoe Log Analytics maakt gebruik van gegevensbronnen, worden de details van het configureren ervan uitgelegd en bevat een samenvatting van de verschillende beschikbare gegevensbronnen.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/19/2017
+ms.date: 04/19/2018
 ms.author: bwren
-ms.openlocfilehash: 4237df0934d6191b77ff82c86a66585e72191ac9
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 5201d02b4f70f964f39b4fe135e4715732b9741a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="data-sources-in-log-analytics"></a>Gegevensbronnen in Log Analytics
 Log Analytics verzamelt gegevens van uw verbonden bronnen en slaat ze op in de werkruimte voor logboekanalyse.  De gegevens die worden verzameld van elk wordt gedefinieerd door de gegevensbronnen die u configureert.  Gegevens in Log Analytics wordt opgeslagen als een reeks records.  Records van een bepaald type elke gegevensbron gemaakt met elk type met een eigen set eigenschappen.
@@ -29,16 +29,19 @@ Gegevensbronnen zijn anders dan [beheeroplossingen](log-analytics-add-solutions.
 
 
 ## <a name="summary-of-data-sources"></a>Samenvatting van gegevensbronnen
-De gegevensbronnen die momenteel beschikbaar in logboekanalyse zijn worden weergegeven in de volgende tabel.  Elk heeft een koppeling naar een apart artikel bieden details voor de gegevensbron.
+De volgende tabel bevat de gegevensbronnen die momenteel beschikbaar in logboekanalyse zijn.  Elk heeft een koppeling naar een apart artikel bieden details voor de gegevensbron.   Het bevat ook informatie van de methode en de frequentie van verzamelen van gegevens in logboekanalyse.  Gebruik de informatie in dit artikel voor het identificeren van de verschillende beschikbare oplossingen en de gegevens stroom en de verbinding met de vereisten voor andere beheeroplossingen te begrijpen. Zie voor een uitleg van de kolommen [verzameling Gegevensdetails voor oplossingen in Azure](../monitoring/monitoring-solutions-inventory.md).
 
-| Gegevensbron | Gebeurtenistype | Beschrijving |
-|:--- |:--- |:--- |
-| [Aangepaste logboeken](log-analytics-data-sources-custom-logs.md) |\<Logboeknaam\>_CL |Tekstbestanden op Windows of Linux-agents met de informatie in het foutenlogboek. |
-| [Windows-gebeurtenislogboeken](log-analytics-data-sources-windows-events.md) |Gebeurtenis |Gebeurtenissen verzameld van de gebeurtenis aanmelding Windows-computers. |
-| [Windows-prestatiemeteritems](log-analytics-data-sources-performance-counters.md) |Perf |Prestatiemeteritems van Windows-computers worden verzameld. |
-| [Linux-prestatiemeteritems](log-analytics-data-sources-performance-counters.md) |Perf |Prestatiemeteritems worden verzameld van Linux-computers. |
-| [IIS-logboeken](log-analytics-data-sources-iis-logs.md) |W3CIISLog |Internet Information Services registreert W3C-indeling. |
-| [Syslog](log-analytics-data-sources-syslog.md) |Syslog |Syslog-gebeurtenissen op Windows of Linux-computers. |
+
+| Gegevensbron | Platform | Microsoft monitoring agent | Operations Manager-agent | Azure Storage | Operations Manager is vereist? | Operations Manager-agent gegevens verzonden via de beheergroep | Verzamelingsfrequentie |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| [Aangepaste logboeken](log-analytics-data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | bij ontvangst |
+| [Aangepaste logboeken](log-analytics-data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | bij ontvangst |
+| [IIS-logboeken](log-analytics-data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |5 minuten |
+| [Prestatiemeteritems](log-analytics-data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |Als gepland, minimaal 10 seconden |
+| [Prestatiemeteritems](log-analytics-data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |Als gepland, minimaal 10 seconden |
+| [Syslog](log-analytics-data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |naar Azure storage: 10 minuten. Agent: bij ontvangst |
+| [Windows-gebeurtenislogboeken](log-analytics-data-sources-windows-events.md) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | bij ontvangst |
+
 
 ## <a name="configuring-data-sources"></a>Gegevensbronnen configureren
 Configureren van gegevensbronnen van de **gegevens** menu van logboekanalyse **geavanceerde instellingen**.  Een willekeurige configuratie is geleverd aan alle verbonden bronnen in uw werkruimte.  U uitsluiten niet alle agents momenteel van deze configuratie.

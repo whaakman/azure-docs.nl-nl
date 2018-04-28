@@ -2,24 +2,24 @@
 title: Azure AD v2.0 OAuth2.0 op namens-stroom | Microsoft Docs
 description: In dit artikel wordt beschreven hoe het gebruik van HTTP-berichten voor het implementeren van services-verificatie met behulp van de OAuth2.0 op namens-stroom.
 services: active-directory
-documentationcenter: 
-author: navyasric
+documentationcenter: ''
+author: hpsin
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
-ms.author: nacanuma
+ms.date: 04/18/2018
+ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7c03c6cb78fd020b7574a8cd9f924b513bacaf10
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ccec8df0741870f3dd3ed21be43f96aa8ba90927
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory-v2.0 en OAuth 2.0 On-Behalf-Of stroom
 De OAuth 2.0 On-Behalf-Of stroom fungeert de gebruiksvoorbeeld waar een toepassing wordt aangeroepen met een service of web-API, die op zijn beurt moet aan te roepen op een andere service of web-API. Het idee is het doorgeven van de gedelegeerde gebruikersidentiteit en machtigingen via de aanvraagketen. Voor de middelste laag-service voor geverifieerde aanvragen naar de downstream-service maken, moet deze voor het beveiligen van een toegangstoken van Azure Active Directory (Azure AD), namens de gebruiker.
@@ -30,14 +30,17 @@ De OAuth 2.0 On-Behalf-Of stroom fungeert de gebruiksvoorbeeld waar een toepassi
 >
 
 ## <a name="protocol-diagram"></a>Protocol-diagram
-Wordt ervan uitgegaan dat de gebruiker is geverifieerd op een toepassing met behulp van de [autorisatiecodetoekenning OAuth 2.0](active-directory-v2-protocols-oauth-code.md). De toepassing is op dit moment een toegangstoken (token A) met de claims van de gebruiker en toestemming voor toegang tot de web-API (A-API) voor de middelste laag. API A moet nu een geverifieerde aanvraag om aan te brengen de downstream web-API (API-B).
+Wordt ervan uitgegaan dat de gebruiker is geverifieerd op een toepassing met behulp van de [autorisatiecodetoekenning OAuth 2.0](active-directory-v2-protocols-oauth-code.md).  Op dit punt wordt de toepassing heeft een toegangstoken *voor API-A* (token A) met de claims van de gebruiker en toestemming voor toegang tot de middelste laag web-API (A-API). API A moet nu een geverifieerde aanvraag om aan te brengen de downstream web-API (API-B).
+
+> [!IMPORTANT]
+> Tokens die zijn aangeschaft via de [impliciete grant](active-directory-v2-protocols-implicit.md) kan niet worden gebruikt voor de On-namens-stroom.  De client in implcit stroomt is niet geverifieerd (via bijvoorbeeld een clientgeheim) en daarom niet mogen bootstrap uitvoeren naar een andere, mogelijk krachtigere token.
 
 Welke stappen volgen vormen van de On-namens-stroom en met behulp van het volgende diagram worden uitgelegd.
 
 ![OAuth2.0 op namens-stroom](media/active-directory-protocols-oauth-on-behalf-of/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 
-1. De clienttoepassing indient een aanvraag bij API A met het token A.
+1. De clienttoepassing een aanvraag indient bij API A met het token A (met een `aud` claim A API).
 2. API-A met het eindpunt van de uitgifte van tokens Azure AD verifieert en vraagt een token voor toegang tot API B.
 3. Het eindpunt van de uitgifte van tokens Azure AD API A van referenties met een token valideert en problemen met het toegangstoken voor de API-B (token B).
 4. Het token B is ingesteld in de autorisatie-header van het verzoek om API B.
@@ -65,11 +68,11 @@ Wanneer u een gedeeld geheim, bevat een tokenaanvraag voor service-naar-service 
 | client_id |Vereist | De aanvraag-ID die de [Registratieportal toepassing](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) toegewezen aan uw app. |
 | client_secret |Vereist | Het geheim van de toepassing die u voor uw app in de Portal van de registratie van de toepassing hebt gegenereerd. |
 | Verklaring |Vereist | De waarde van het token dat wordt gebruikt in de aanvraag. |
-| Bereik |Vereist | Een spatie gescheiden lijst met bereiken voor de tokenaanvraag. Zie voor meer informatie [scopes](active-directory-v2-scopes.md).|
+| scope |Vereist | Een spatie gescheiden lijst met bereiken voor de tokenaanvraag. Zie voor meer informatie [scopes](active-directory-v2-scopes.md).|
 | requested_token_use |Vereist | Hiermee geeft u op hoe de aanvraag moet worden verwerkt. In de On-namens-stroom, de waarde moet **on_behalf_of**. |
 
 #### <a name="example"></a>Voorbeeld
-De volgende HTTP POST-aanvragen een toegangstoken met `user.read` bereik voor de https://graph.microsoft.com web-API.
+De volgende HTTP POST-aanvragen een toegangstoken en een vernieuwingstoken met `user.read` bereik voor de https://graph.microsoft.com web-API.
 
 ```
 //line breaks for legibility only
@@ -82,7 +85,7 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 &client_id=2846f71b-a7a4-4987-bab3-760035b2f389
 &client_secret=BYyVnAt56JpLwUcyo47XODd
 &assertion=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCJ9.eyJhdWQiOiIyODQ2ZjcxYi1hN2E0LTQ5ODctYmFiMy03NjAwMzViMmYzODkiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3L3YyLjAiLCJpYXQiOjE0OTM5MjA5MTYsIm5iZiI6MTQ5MzkyMDkxNiwiZXhwIjoxNDkzOTI0ODE2LCJhaW8iOiJBU1FBMi84REFBQUFnZm8vNk9CR0NaaFV2NjJ6MFFYSEZKR0VVYUIwRUlIV3NhcGducndMMnVrPSIsIm5hbWUiOiJOYXZ5YSBDYW51bWFsbGEiLCJvaWQiOiJkNWU5NzljNy0zZDJkLTQyYWYtOGYzMC03MjdkZDRjMmQzODMiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJuYWNhbnVtYUBtaWNyb3NvZnQuY29tIiwic3ViIjoiZ1Q5a1FMN2hXRUpUUGg1OWJlX1l5dVZNRDFOTEdiREJFWFRhbEQzU3FZYyIsInRpZCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsInV0aSI6IjN5U3F4UHJweUVPd0ZsTWFFMU1PQUEiLCJ2ZXIiOiIyLjAifQ.TPPJSvpNCSCyUeIiKQoLMixN1-M-Y5U0QxtxVkpepjyoWNG0i49YFAJC6ADdCs5nJXr6f-ozIRuaiPzy29yRUOdSz_8KqG42luCyC1c951HyeDgqUJSz91Ku150D9kP5B9-2R-jgCerD_VVuxXUdkuPFEl3VEADC_1qkGBiIg0AyLLbz7DTMp5DvmbC09DhrQQiouHQGFSk2TPmksqHm3-b3RgeNM1rJmpLThis2ZWBEIPx662pjxL6NJDmV08cPVIcGX4KkFo54Z3rfwiYg4YssiUc4w-w3NJUBQhnzfTl4_Mtq2d7cVlul9uDzras091vFy32tWkrpa970UvdVfQ
-&scope=https://graph.microsoft.com/user.read
+&scope=https://graph.microsoft.com/user.read+offline_access
 &requested_token_use=on_behalf_of
 ```
 
@@ -93,16 +96,16 @@ Een service-naar-service toegang tokenaanvraag met een certificaat bevat de volg
 | --- | --- | --- |
 | grant_type |Vereist | Het type van de tokenaanvraag. Voor een aanvraag met behulp van een JWT, moet de waarde **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
 | client_id |Vereist | De aanvraag-ID die de [Registratieportal toepassing](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) toegewezen aan uw app. |
-| client_assertion_type |Vereist |De waarde moet liggen`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion_type |Vereist |De waarde moet liggen `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
 | client_assertion |Vereist | Een bewering (een JSON Web Token) die u nodig hebt voor het maken en te ondertekenen met het certificaat u geregistreerd als referenties voor uw toepassing.  Meer informatie over [referenties van het certificaat](active-directory-certificate-credentials.md) voor informatie over het registreren van uw certificaat en de indeling van de bevestiging.|
 | Verklaring |Vereist | De waarde van het token dat wordt gebruikt in de aanvraag. |
 | requested_token_use |Vereist | Hiermee geeft u op hoe de aanvraag moet worden verwerkt. In de On-namens-stroom, de waarde moet **on_behalf_of**. |
-| Bereik |Vereist | Een spatie gescheiden lijst met bereiken voor de tokenaanvraag. Zie voor meer informatie [scopes](active-directory-v2-scopes.md).|
+| scope |Vereist | Een spatie gescheiden lijst met bereiken voor de tokenaanvraag. Zie voor meer informatie [scopes](active-directory-v2-scopes.md).|
 
 De parameters zijn bijna hetzelfde is in het geval van de aanvraag door een gedeeld geheim, behalve dat de parameter client_secret wordt vervangen door twee parameters: een client_assertion_type en client_assertion.
 
 #### <a name="example"></a>Voorbeeld
-De volgende HTTP POST-aanvragen een toegangstoken met `user.read` bereik voor de web-https://graph.microsoft.com API met een certificaat.
+De volgende HTTP POST-aanvragen een toegangstoken met `user.read` bereik voor de https://graph.microsoft.com web-API met een certificaat.
 
 ```
 // line breaks for legibility only
@@ -117,7 +120,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &client_assertion=eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJ{a lot of characters here}M8U3bSUKKJDEg
 &assertion=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCIsImtpZCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCJ9.eyJhdWQiOiJodHRwczovL2Rkb2JhbGlhbm91dGxvb2sub25taWNyb3NvZnQuY29tLzE5MjNmODYyLWU2ZGMtNDFhMy04MWRhLTgwMmJhZTAwYWY2ZCIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzI2MDM5Y2NlLTQ4OWQtNDAwMi04MjkzLTViMGM1MTM0ZWFjYi8iLCJpYXQiOjE0OTM0MjMxNTIsIm5iZiI6MTQ5MzQyMzE1MiwiZXhwIjoxNDkzNDY2NjUyLCJhY3IiOiIxIiwiYWlvIjoiWTJaZ1lCRFF2aTlVZEc0LzM0L3dpQndqbjhYeVp4YmR1TFhmVE1QeG8yYlN2elgreHBVQSIsImFtciI6WyJwd2QiXSwiYXBwaWQiOiJiMzE1MDA3OS03YmViLTQxN2YtYTA2YS0zZmRjNzhjMzI1NDUiLCJhcHBpZGFjciI6IjAiLCJlX2V4cCI6MzAyNDAwLCJmYW1pbHlfbmFtZSI6IlRlc3QiLCJnaXZlbl9uYW1lIjoiTmF2eWEiLCJpcGFkZHIiOiIxNjcuMjIwLjEuMTc3IiwibmFtZSI6Ik5hdnlhIFRlc3QiLCJvaWQiOiIxY2Q0YmNhYy1iODA4LTQyM2EtOWUyZi04MjdmYmIxYmI3MzkiLCJwbGF0ZiI6IjMiLCJzY3AiOiJ1c2VyX2ltcGVyc29uYXRpb24iLCJzdWIiOiJEVXpYbkdKMDJIUk0zRW5pbDFxdjZCakxTNUllQy0tQ2ZpbzRxS1MzNEc4IiwidGlkIjoiMjYwMzljY2UtNDg5ZC00MDAyLTgyOTMtNWIwYzUxMzRlYWNiIiwidW5pcXVlX25hbWUiOiJuYXZ5YUBkZG9iYWxpYW5vdXRsb29rLm9ubWljcm9zb2Z0LmNvbSIsInVwbiI6Im5hdnlhQGRkb2JhbGlhbm91dGxvb2sub25taWNyb3NvZnQuY29tIiwidmVyIjoiMS4wIn0.R-Ke-XO7lK0r5uLwxB8g5CrcPAwRln5SccJCfEjU6IUqpqcjWcDzeDdNOySiVPDU_ZU5knJmzRCF8fcjFtPsaA4R7vdIEbDuOur15FXSvE8FvVSjP_49OH6hBYqoSUAslN3FMfbO6Z8YfCIY4tSOB2I6ahQ_x4ZWFWglC3w5mK-_4iX81bqi95eV4RUKefUuHhQDXtWhrSgIEC0YiluMvA4TnaJdLq_tWXIc4_Tq_KfpkvI004ONKgU7EAMEr1wZ4aDcJV2yf22gQ1sCSig6EGSTmmzDuEPsYiyd4NhidRZJP4HiiQh-hePBQsgcSgYGvz9wC6n57ufYKh2wm_Ti3Q
 &requested_token_use=on_behalf_of
-&scope=https://graph.microsoft.com/user.read
+&scope=https://graph.microsoft.com/user.read+offline_access
 ```
 
 ## <a name="service-to-service-access-token-response"></a>Antwoord token service-access-service
@@ -126,13 +129,13 @@ Een geslaagde reactie is een JSON OAuth 2.0-antwoord met de volgende parameters.
 | Parameter | Beschrijving |
 | --- | --- |
 | token_type |Geeft de waarde van het type token. Het enige type dat ondersteunt Azure AD is **Bearer**. Zie voor meer informatie over bearer-tokens, de [OAuth 2.0 autorisatie Framework: Bearer-Token gebruik (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt). |
-| Bereik |Het bereik van toegang verleend in het token. |
+| scope |Het bereik van toegang verleend in het token. |
 | expires_in |Hoe lang het toegangstoken is ongeldig (in seconden). |
 | access_token |Het aangevraagde toegangstoken. De aanroepende service kunt u dit token gebruiken om de ontvangende service te verifiëren. |
-| refresh_token |Het vernieuwingstoken voor het aangevraagde toegangstoken. De aanroepende service kunt u dit token gebruiken om aan te vragen van een andere toegangstoken nadat het huidige toegangstoken is verlopen. |
+| refresh_token |Het vernieuwingstoken voor het aangevraagde toegangstoken. De aanroepende service kunt u dit token gebruiken om aan te vragen van een andere toegangstoken nadat het huidige toegangstoken is verlopen. Het vernieuwingstoken dat is alleen beschikbaar als de `offline_access` bereik is aangevraagd.|
 
 ### <a name="success-response-example"></a>Geslaagd antwoord voorbeeld
-Het volgende voorbeeld toont een geslaagde reactie op een aanvraag voor een toegangstoken voor de https://graph.microsoft.com web-API.
+Het volgende voorbeeld toont een geslaagde reactie op een aanvraag voor een toegang token voor de https://graph.microsoft.com web-API.
 
 ```
 {
@@ -144,6 +147,10 @@ Het volgende voorbeeld toont een geslaagde reactie op een aanvraag voor een toeg
   "refresh_token": "OAQABAAAAAABnfiG-mA6NTae7CdWW7QfdAALzDWjw6qSn4GUDfxWzJDZ6lk9qRw4AnqPnvFqnzS3GiikHr5wBM1bV1YyjH3nUeIhKhqJWGwqJFRqs2sE_rqUfz7__3J92JDpi6gDdCZNNaXgreQsH89kLCVNYZeN6kGuFGZrjwxp1wS2JYc97E_3reXBxkHrA09K5aR-WsSKCEjf6WI23FhZMTLhk_ZKOe_nWvcvLj13FyvSrTMZV2cmzyCZDqEHtPVLJgSoASuQlD2NXrfmtcmgWfc3uJSrWLIDSn4FEmVDA63X6EikNp9cllH3Gp7Vzapjlnws1NQ1_Ff5QrmBHp_LKEIwfzVKnLLrQXN0EzP8f6AX6fdVTaeKzm7iw6nH0vkPRpUeLc3q_aNsPzqcTOnFfgng7t2CXUsMAGH5wclAyFCAwL_Cds7KnyDLL7kzOS5AVZ3Mqk2tsPlqopAiHijZaJumdTILDudwKYCFAMpUeUwEf9JmyFjl2eIWPmlbwU7cHKWNvuRCOYVqbsTTpJthwh4PvsL5ov5CawH_TaV8omG_tV6RkziHG9urk9yp2PH9gl7Cv9ATa3Vt3PJWUS8LszjRIAJmyw_EhgHBfYCvEZ8U9PYarvgqrtweLcnlO7BfnnXYEC18z_u5wemAzNBFUje2ttpGtRmRic4AzZ708tBHva2ePJWGX6pgQbiWF8esOrvWjfrrlfOvEn1h6YiBW291M022undMdXzum6t1Y1huwxHPHjCAA"
 }
 ```
+
+> [!NOTE]
+> U ziet dat het bovenstaande toegangstoken een token V1-indeling is.  Dit is omdat het token is opgegeven op basis van de resource wordt geopend.  Microsoft Graph aanvragen V1-tokens, zodat de Azure AD levert V1-toegangstokens wanneer een client tokens voor Microsoft Graph aanvraagt.  Alleen toepassingen toegangstokens kijken moeten-clients niet nodig om te onderzoeken. 
+
 
 ### <a name="error-response-example"></a>Fout antwoord voorbeeld
 Reactie op een fout is geretourneerd door Azure AD-tokeneindpunt als bij het verkrijgen van een toegangstoken voor de downstream-API als de downstream-API een beleid voor voorwaardelijke toegang zoals multi-factor authentication-server erop is ingesteld heeft. De service voor de middelste laag moet deze fout aan de clienttoepassing surface, zodat de clienttoepassing de interactie van de gebruiker om te voldoen aan het beleid voor voorwaardelijke toegang kunt bieden.

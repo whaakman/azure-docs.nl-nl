@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: anupams
-ms.openlocfilehash: f678cb9819a2c03f97bcca5a2092160212779328
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 24e6ab7e94d8a1bdbfa0b5ee9112aaaff7e358ae
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="cortana-intelligence-solution-evaluation-tool"></a>Evaluatieprogramma voor Cortana Intelligence-oplossing
 ## <a name="overview"></a>Overzicht
@@ -195,7 +195,7 @@ Zie voor meer informatie over het maken van de retraining-webservices in AzureML
 Zie voor meer informatie over het automatiseren van het model trainen-proces gebruik van Azure Data Factory [bijwerken van Azure Machine Learning-modellen Update Resource activiteit](https://docs.microsoft.com/azure//data-factory/v1/data-factory-azure-ml-update-resource-activity).
 
 ## <a name="existing-documentation"></a>Bestaande documentatie
-[Microsoft Azure is gecertificeerd voor uw bedrijf cloud uitbreiden](https://azure.microsoft.com/en-us/marketplace/programs/certified/)
+[Microsoft Azure is gecertificeerd voor uw bedrijf cloud uitbreiden](https://azure.microsoft.com/marketplace/programs/certified/)
 
-[Microsoft Azure is gecertificeerd voor Cortana Intellignece](https://azure.microsoft.com/en-us/marketplace/programs/certified/cortana/)
+[Microsoft Azure is gecertificeerd voor Cortana Intellignece](https://azure.microsoft.com/marketplace/programs/certified/cortana/)
 

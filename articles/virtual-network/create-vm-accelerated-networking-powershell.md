@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: jimdial
-ms.openlocfilehash: f3c8853331121fc1e267f6c569279f7d8df907b5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 995f40599c059434c419bea95019f8700f756ad8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Een Windows-machine maken met versnelde toegang
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Virtuele machines moeten worden gemaakt met de versnelde netwerken ingeschakeld. Deze functie kan niet worden ingeschakeld op de bestaande virtuele machines. Voer de volgende stappen uit om in te schakelen versnelde netwerken:
 >   1. Verwijder de virtuele machine
 >   2. Maak de virtuele machine met versnelde netwerken is ingeschakeld
@@ -52,7 +52,7 @@ Versnelde netwerken wordt ondersteund op de meest algemene doeleinden en geoptim
 Zie voor meer informatie over VM-instanties [Windows VM-grootten](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="regions"></a>Regio's
-Beschikbaar in alle openbare Azure-regio's en Azure Government Cloud. 
+Beschikbaar in alle openbare Azure-regio's en Azure Government Cloud.
 
 ## <a name="limitations"></a>Beperkingen
 De volgende beperkingen bestaan wanneer deze wordt met deze mogelijkheid:
@@ -65,11 +65,11 @@ Hoewel dit artikel stappen bevat voor het maken van een virtuele machine met ver
 
 ## <a name="create-a-virtual-network"></a>Een virtueel netwerk maken
 
-Installeer [Azure PowerShell](/powershell/azure/install-azurerm-ps) versie 5.1.1 of hoger. Ga voor de momenteel geïnstalleerde versie uitvoeren `Get-Module -ListAvailable AzureRM`. Als u wilt installeren of upgraden, installeert u de nieuwste versie van de module AzureRM op basis van de [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureRM). In een PowerShell-sessie, meld u aan bij uw Azure-account met behulp [Add-AzureRmAccount](/powershell/module/AzureRM.Profile/Add-AzureRmAccount).
+Installeer [Azure PowerShell](/powershell/azure/install-azurerm-ps) versie 5.1.1 of hoger. Ga voor de momenteel geïnstalleerde versie uitvoeren `Get-Module -ListAvailable AzureRM`. Als u wilt installeren of upgraden, installeert u de nieuwste versie van de module AzureRM op basis van de [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureRM). In een PowerShell-sessie, meld u aan bij uw Azure-account met behulp [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount).
 
 In de volgende voorbeelden kunt u de parameternamen voorbeeld vervangen door uw eigen waarden. Voorbeeld parameternamen opgenomen *myResourceGroup*, *myNic*, en *myVM*.
 
-Maak een resourcegroep met [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup). Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* in de *centralus* locatie:
+Maak een resourcegroep met behulp van de opdracht [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup). Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* in de *centralus* locatie:
 
 ```powershell
 New-AzureRmResourceGroup -Name "myResourceGroup" -Location "centralus"
@@ -200,13 +200,13 @@ New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "cent
 
 ## <a name="confirm-the-driver-is-installed-in-the-operating-system"></a>Bevestig dat het stuurprogramma in het besturingssysteem is geïnstalleerd
 
-Zodra u de virtuele machine in Azure maakt, verbinding maken met de virtuele machine en controleer of het stuurprogramma in Windows is geïnstalleerd. 
+Zodra u de virtuele machine in Azure maakt, verbinding maken met de virtuele machine en controleer of het stuurprogramma in Windows is geïnstalleerd.
 
 1. Open Azure in een internetbrowser [portal](https://portal.azure.com) en meld u aan met uw Azure-account.
 2. In het vak dat de tekst bevat *zoeken bronnen* aan de bovenkant van de Azure-portal, typ *myVm*. Wanneer **myVm** wordt weergegeven in de zoekresultaten, klik erop. Als **maken** zichtbaar onder de **Connect** knop Azure is nog niet voltooid voor het maken van de virtuele machine. Klik op **Connect** in de linkerbovenhoek van het overzicht nadat u hebt niet langer bekijken **maken** onder de **Connect** knop.
 3. Geef de gebruikersnaam en wachtwoord die u hebt ingevoerd in [Maak de virtuele machine](#create-the-virtual-machine). Als u niet met een Windows-VM in Azure verbonden hebt, Zie [verbinding maken met virtuele machine](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine).
 4. Met de rechtermuisknop op de knop Start en klik op **Apparaatbeheer**. Vouw de **netwerkadapters** knooppunt. Controleer of de **Mellanox ConnectX 3 virtuele functie Ethernet-Adapter** wordt weergegeven, zoals wordt weergegeven in de volgende afbeelding:
-   
+
     ![Apparaatbeheer](./media/create-vm-accelerated-networking/device-manager.png)
 
 Versnelde netwerken is nu ingeschakeld voor uw virtuele machine.

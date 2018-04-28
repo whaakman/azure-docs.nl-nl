@@ -5,9 +5,9 @@ services: vpn-gateway
 documentationcenter: na
 author: chadmath
 manager: jasmc
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: troubleshooting
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2017
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: e7e3c641791e7c72f5c2d6f8ecf674d1d7ee7ffa
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: cad7719eb077d7aca9c1db5741a5fe1e0ca910a2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Het valideren van de VPN-doorvoer met een virtueel netwerk
 
@@ -121,7 +121,7 @@ Download [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Zie
 ## <a name="address-slow-file-copy-issues"></a>Problemen met adres trage bestanden kopiëren
 Er kunnen optreden langzaam bestand kopiëren wanneer u Windows Verkenner of slepen en neerzetten via een RDP-sessie. Dit probleem wordt normaal gesproken veroorzaakt door een of beide van de volgende factoren:
 
-- Bestand kopiëren toepassingen, zoals Windows Verkenner en RDP, meerdere threads niet gebruiken tijdens het kopiëren van bestanden. Gebruik voor betere prestaties een kopie-toepassing met meerdere threads bestand, zoals [Richcopy](https://technet.microsoft.com/en-us/magazine/2009.04.utilityspotlight.aspx) kopiëren van bestanden met behulp van 16 of 32 threads. Het nummer van de thread voor het kopiëren van bestanden in Richcopy, klikt u op **actie** > **opties kopiëren** > **bestanden zijn gekopieerd**.<br><br>
+- Bestand kopiëren toepassingen, zoals Windows Verkenner en RDP, meerdere threads niet gebruiken tijdens het kopiëren van bestanden. Gebruik voor betere prestaties een kopie-toepassing met meerdere threads bestand, zoals [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx) kopiëren van bestanden met behulp van 16 of 32 threads. Het nummer van de thread voor het kopiëren van bestanden in Richcopy, klikt u op **actie** > **opties kopiëren** > **bestanden zijn gekopieerd**.<br><br>
 ![Problemen met trage bestanden kopiëren](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 - Onvoldoende VM schijf lezen/schrijven-snelheid. Zie voor meer informatie [Azure Storage probleemoplossing](../storage/common/storage-e2e-troubleshooting.md).
 

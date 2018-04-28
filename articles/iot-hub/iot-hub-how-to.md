@@ -2,10 +2,10 @@
 title: Azure IoT Hub hoe | Microsoft Docs
 description: Als een ontwikkelaar hoe gebruik ik de verschillende functies van de IoT Hub?
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 24376318-5344-4a81-a1e6-0003ed587d53
 ms.service: iot-hub
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: dobett
-ms.openlocfilehash: b451ea2d42f0ff2f64746bcb296fb9128472fea8
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 9b112d2d7fc1756b74e98335831175f5d4c13320
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-use-azure-iot-hub"></a>Het gebruik van Azure IoT Hub
 
@@ -52,7 +52,7 @@ Als u liever voor meer informatie over specifieke functies van de IoT Hub prakti
 
 - [Gewenste eigenschappen gebruiken om apparaten te configureren][lnk-properties-tutorial]. Deze zelfstudie ziet dat u hoe het apparaat kunnen gebruiken van twin gewenst en gerapporteerd eigenschappen, tot op afstand configureert uw apparaat.
 
-- [Apparaattaken gebruiken om te zetten van een apparaat firmware-update][lnk-jobs-tutorial]. Deze zelfstudie laat zien hoe u de beheerfuncties van de belangrijkste apparaten zoals horende en rechtstreekse methoden. U informatie over het gebruik van deze functies op afstand van uw apparaat firmware bijwerken.
+- [Beheer van apparaten gebruiken voor het bijwerken van apparaatfirmware][lnk-jobs-tutorial]. Deze zelfstudie laat zien hoe u de beheerfuncties van de belangrijkste apparaten zoals horende en rechtstreekse methoden. U informatie over het gebruik van deze functies op afstand van uw apparaat firmware bijwerken.
 
 - [Planning en broadcast taken][lnk-schedule-tutorial]. Deze zelfstudie laat zien hoe u de gewenste eigenschappen en direct methoden gebruiken om te communiceren met meerdere apparaten op een gepland tijdstip.
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 9f3669d205ab4bd24ccba53ffb532fe1d88131ac
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b0476865b19cd078b05e5def4a51c2df17315daa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Ontwikkelaarsaccounts autoriseren met behulp van Azure Active Directory in Azure API Management
 
@@ -100,6 +100,11 @@ In dit artikel laat zien hoe toegang inschakelen voor de portal voor ontwikkelaa
 31. Ga terug naar uw API Management-toepassing. 
 
     In de **toevoegen identiteitsprovider** venster plakt u de sleutel in de **clientgeheim** in het tekstvak.
+
+    > [!IMPORTANT]
+    > Zorg ervoor dat de **clientgeheim** voordat de sleutel is verlopen. 
+    >  
+    >
 32. De **toevoegen identiteitsprovider** venster bevat ook de **Tenants toegestaan** in het tekstvak. Er, geef de domeinen van de Azure AD-exemplaren die u wilt toegang verlenen tot de API's van het exemplaar van API Management-service. U kunt meerdere domeinen scheiden met nieuwe regels, spaties of komma's.
 
     U kunt opgeven dat meerdere domeinen in de **Tenants toegestaan** sectie. Voordat een gebruiker met een ander domein dan het oorspronkelijke domein waar de toepassing is geregistreerd aanmelden kunt, moet een globale beheerder van het andere domein machtiging voor de toepassing directorygegevens toegang verlenen. Als u wilt machtigen, moet de globale beheerder van het volgende doen:

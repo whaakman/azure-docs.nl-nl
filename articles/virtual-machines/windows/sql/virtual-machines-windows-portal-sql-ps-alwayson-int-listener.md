@@ -1,5 +1,5 @@
 ---
-title: "Configureer altijd op beschikbaarheidsgroep-Listeners – Microsoft Azure | Microsoft Docs"
+title: Configureer altijd op beschikbaarheidsgroep-Listeners – Microsoft Azure | Microsoft Docs
 description: Beschikbaarheid van groep Listeners configureren op het Azure Resource Manager-model, met behulp van een interne load balancer met een of meer IP-adressen.
 services: virtual-machines
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
-ms.openlocfilehash: 5efb72f450261e098b638af023001ddb2a5015cf
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 11aecd9b2bc1bc1521a0e27fc3cd06fe7426a26d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Een of meer altijd op beschikbaarheid beschikbaarheidsgroeplisteners - Resource Manager configureren
 Dit onderwerp wordt beschreven hoe:
@@ -48,10 +48,10 @@ De Windows Firewall configureren voor toegang tot SQL Server. De firewall-regels
 > 
 > 
 
-De volgende PowerShell-script maakt een interne load balancer, configureert u de load-balancingregels en stelt een IP-adres voor de load balancer. Het script wordt uitgevoerd, opent u Windows PowerShell ISE en plak het script in de Script-veld. Gebruik `Login-AzureRMAccount` aan te melden PowerShell. Als u meerdere Azure-abonnementen hebt, gebruikt u `Select-AzureRmSubscription ` instellen van het abonnement. 
+De volgende PowerShell-script maakt een interne load balancer, configureert u de load-balancingregels en stelt een IP-adres voor de load balancer. Het script wordt uitgevoerd, opent u Windows PowerShell ISE en plak het script in de Script-veld. Gebruik `Connect-AzureRmAccount` aan te melden PowerShell. Als u meerdere Azure-abonnementen hebt, gebruikt u `Select-AzureRmSubscription ` instellen van het abonnement. 
 
 ```powershell
-# Login-AzureRmAccount
+# Connect-AzureRmAccount
 # Select-AzureRmSubscription -SubscriptionId <xxxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx>
 
 $ResourceGroupName = "<Resource Group Name>" # Resource group name
@@ -112,7 +112,7 @@ De front-endpoort is de poort die toepassingen gebruiken voor verbinding met de 
 Het volgende script voegt een nieuwe IP-adres toe aan een bestaande load balancer. De ILB maakt gebruik van de listener-poort voor de front-endpoort voor taakverdeling. Deze poort kan de poort die SQL Server naar luistert zijn. Standaard-exemplaren van SQL Server is de poort 1433. De taakverdelingsregel voor een beschikbaarheidsgroep vereist een zwevend IP (direct server return) zodat de back-end-poort hetzelfde als de front-endpoort is. De variabelen voor uw omgeving bijwerken. 
 
 ```powershell
-# Login-AzureRmAccount
+# Connect-AzureRmAccount
 # Select-AzureRmSubscription -SubscriptionId <xxxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx>
 
 $ResourceGroupName = "<ResourceGroup>"          # Resource group name

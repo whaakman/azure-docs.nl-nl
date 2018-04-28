@@ -4,7 +4,7 @@ description: Informatie over het wijzigen van de beschikbaarheidsset voor uw vir
 keywords: ''
 services: virtual-machines-windows
 documentationcenter: ''
-author: Drewm3
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2016
-ms.author: drewm
-ms.openlocfilehash: 938614d7427f691dcacbafa324694a9a7f37d3ca
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: cynthn
+ms.openlocfilehash: 4ce76c35082775dd3fdabfb23d312c7653cb4e73
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="change-the-availability-set-for-a-windows-vm"></a>Wijzig de beschikbaarheidsset voor een virtuele machine van Windows
 De volgende stappen beschrijven het wijzigen van de beschikbaarheidsset van een virtuele machine met Azure PowerShell. Een virtuele machine kan alleen worden toegevoegd aan een beschikbaarheidsset wanneer deze wordt gemaakt. Wijzigen van de beschikbaarheid instellen, moet u verwijderen en opnieuw maken van de virtuele machine. 
@@ -47,7 +47,7 @@ De volgende stappen beschrijven het wijzigen van de beschikbaarheidsset van een 
     $vm.NetworkProfile.NetworkInterfaces[0].Id
     ```
    
-    OS Disk Profile
+    Profiel van de Besturingssysteemschijf
    
     ```powershell
     $vm.StorageProfile.OsDisk.OsType

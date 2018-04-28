@@ -2,24 +2,24 @@
 title: Azure Active Directory-v2.0 tokens verwijzing | Microsoft Docs
 description: De typen tokens en claims die door het Azure AD v2.0-eindpunt
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: hpsin
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: dc58c282-9684-4b38-b151-f3e079f034fd
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 04/22/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4479b3d34824b88f0a666b6185a6bc89337358a9
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 4a408fb40c976c6e06f00d074504de6a3ec29bd1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Overzicht van Azure Active Directory v2.0-tokens
 Het v2.0-eindpunt voor Azure Active Directory (Azure AD) verzendt verschillende typen beveiligingstokens in elk [authenticatiestroom](active-directory-v2-flows.md). Deze verwijzing beschrijft de indeling, de beveiligingskenmerken en de inhoud van elk type token.
@@ -49,7 +49,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 ```
 
 > [!TIP]
-> Plak de voorbeeldtoken-ID in om te controleren van de claims in het voorbeeld-ID-token, verdient het aanbeveling [calebb.net](http://calebb.net/).
+> Plak de voorbeeldtoken-ID in om te controleren van de claims in het voorbeeld-ID-token, verdient het aanbeveling [jwt.ms](http://jwt.ms/).
 >
 >
 
@@ -62,7 +62,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | verlooptijd |`exp` |`1452289231` |De tijd waarop het token ongeldig is, weergegeven in de epoche tijd. Uw app moet deze claim gebruiken om de geldigheid van de levensduur van tokens. |
 | niet voor |`nbf` |`1452285331` |Het tijdstip waarop het token geldig is, wordt weergegeven in de epoche tijd. Het is doorgaans hetzelfde zijn als de uitgifte-tijd. Uw app moet deze claim gebruiken om de geldigheid van de levensduur van tokens. |
 | versie |`ver` |`2.0` |De versie van het token ID, zoals gedefinieerd door Azure AD. De waarde voor het v2.0-eindpunt heeft `2.0`. |
-| Tenant-ID |`tid` |`b9419818-09af-49c2-b0c3-653adc1f376e` |Een GUID die de Azure AD-tenant waarvan de gebruiker van vertegenwoordigt. De GUID is voor werk- en schoolaccounts-accounts, niet-wijzigbaar tenant-ID van de organisatie die de gebruiker behoort. De waarde voor persoonlijke accounts heeft `9188040d-6c67-4c5b-b112-36a304b66dad`. De `profile` bereik is vereist voor deze claim wordt ontvangen. |
+| tenant-id |`tid` |`b9419818-09af-49c2-b0c3-653adc1f376e` |Een GUID die de Azure AD-tenant waarvan de gebruiker van vertegenwoordigt. De GUID is voor werk- en schoolaccounts-accounts, niet-wijzigbaar tenant-ID van de organisatie die de gebruiker behoort. De waarde voor persoonlijke accounts heeft `9188040d-6c67-4c5b-b112-36a304b66dad`. De `profile` bereik is vereist voor deze claim wordt ontvangen. |
 | code-hash |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |De hash van de code is opgenomen in de ID-tokens, alleen wanneer het token ID is uitgegeven door een OAuth 2.0-autorisatie-code. Het kan worden gebruikt om de echtheid van een autorisatiecode te valideren. Zie voor meer informatie over het uitvoeren van deze validatie de [specificatie van het OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html). |
 | token hash toegang |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |De toegang token hash is opgenomen in de ID tokens alleen wanneer het token ID uitgegeven met een OAuth 2.0-toegangstoken. Het kan worden gebruikt om de echtheid van een toegangstoken te valideren. Zie voor meer informatie over het uitvoeren van deze validatie de [specificatie van het OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html). |
 | nonce |`nonce` |`12345` |De nonce is een strategie voor beperkende token replay-aanvallen. Uw app een nonce kunt opgeven in een aanvraag voor verificatie met behulp van de `nonce` queryparameter. De waarde die u in de aanvraag opgeeft is verzonden in het ID-token `nonce` claim, ongewijzigd. Uw app kunt controleren of de waarde met de waarde die het opgegeven op de aanvraag die sessie van de app aan een specifieke ID-token koppelt. Uw app moet deze validatie tijdens de validatie van token ID uitvoeren. |
@@ -73,9 +73,8 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | object-ID |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | De onveranderbare id voor een object in de Microsoft identity-systeem, in dit geval een gebruikersaccount.  Het kan ook worden gebruikt voor het uitvoeren van autorisatie controles veilig en als een sleutel in databasetabellen. Deze ID is uniek voor de gebruiker alle toepassingen - twee verschillende toepassingen dezelfde gebruiker aanmelden ontvangt dezelfde waarde in de `oid` claim.  Dit betekent dat deze kan worden gebruikt bij het maken van query's bij Microsoft online services, zoals Microsoft Graph.  Microsoft Graph retourneert deze ID als de `id` eigenschap voor een bepaald gebruikersaccount.  Omdat de `oid` meerdere apps met elkaar correleren gebruikers, kan de `profile` bereik is vereist voor deze claim wordt ontvangen. Houd er rekening mee dat als een enkele gebruiker in meerdere tenants bestaat, de gebruiker een ander object-ID in elke tenant bevat-deze worden beschouwd als andere accounts, zelfs als de gebruiker zich bij elk account met dezelfde aanmeldingsgegevens aanmeldt. |
 
 ### <a name="access-tokens"></a>Toegangstokens
-Toegangstokens die zijn uitgegeven door het v2.0-eindpunt kunnen op dit moment wordt alleen door Microsoft-Services worden verbruikt. Uw apps nodig niet voor het uitvoeren van de validatie of inspectie van toegangstokens voor een van de momenteel ondersteunde scenario's. U kunt toegangstokens behandelen als een mat. Ze zijn alleen tekenreeksen die uw app naar Microsoft in HTTP-aanvragen doorgeven kunt.
 
-In de nabije toekomst vindt het v2.0-eindpunt de mogelijkheid voor uw app toegangstokens ontvangen van andere clients. Op dat moment wordt de informatie in dit naslagonderwerp worden bijgewerkt met de informatie die u nodig hebt voor uw app validatie van servertoegang op token en andere vergelijkbare taken uit te voeren.
+Het eindpunt v2.0 kan apps van derden die zijn geregistreerd met Azure Active Directory uitgeven toegangstokens voor beveiligde bronnen zoals Web-API's. Zie voor meer informatie over het instellen van een toepassing uitgeven toegangstokens [het registreren van een app aan het eindpunt v2.0](active-directory-v2-app-registration.md). Bij het registreren van de toepassing aan het eindpunt v2.0, de ontwikkelaar van de toegangsniveaus, genaamd kunt opgeven **bereiken**, voor welke access tokens kunnen worden afgegeven. Bijvoorbeeld, de **calendars.read** bereik is gedefinieerd in de API Microsoft Graph geeft het recht om te lezen van de agenda van de gebruiker. Als uw toepassing een toegangstoken van het eindpunt v2.0 ontvangt, moet u de handtekening van het token, uitgever, doelgroep, verlooptijd en alle andere vorderingen valideren afhankelijk van uw scenario. 
 
 Wanneer u een toegangstoken van het v2.0-eindpunt aanvraagt, retourneert het v2.0-eindpunt ook metagegevens over het toegangstoken voor uw app te gebruiken. Deze informatie omvat de verlooptijd van het toegangstoken en de bereiken waarvoor geldig is. Uw app gebruikmaakt van deze metagegevens uitvoeren Intelligente caching van toegangstokens zonder parseren open het toegangstoken zelf.
 
@@ -143,7 +142,7 @@ Details van de verwachte waarden voor deze claims worden opgenomen in de [ID-tok
 ## <a name="token-lifetimes"></a>Levensduur van token
 We bieden de volgende token levensduur uitsluitend ter informatie. De informatie die kan u helpen bij het ontwikkelen en foutopsporing van apps. Uw apps worden niet kunnen verwachten van een van deze levensduur ongewijzigd geschreven. Token kan levensduur en op elk gewenst moment wordt gewijzigd.
 
-| Token | Lifetime | Beschrijving |
+| Token | Levensduur | Beschrijving |
 | --- | --- | --- |
 | ID-tokens (werk of school-accounts) |1 uur |ID-tokens zijn meestal geldig 1 uur. Uw web-app kan deze dezelfde levensduur via een eigen sessie bijhouden met de gebruiker (aanbevolen) of u kunt de levensduur van een andere sessie. Als uw app een nieuwe ID-token ophalen moet, moet deze Maak een nieuwe aanmelding aanvraag naar het v2.0 eindpunt autoriseren. Als de gebruiker een ongeldig browsersessie met het v2.0-eindpunt heeft, is de gebruiker mogelijk niet vereist voor het hun referenties opnieuw invoeren. |
 | ID-tokens (persoonlijke accounts) |24 uur |ID-tokens voor persoonlijke accounts zijn meestal geldig 24 uur. Uw web-app kan deze dezelfde levensduur via een eigen sessie bijhouden met de gebruiker (aanbevolen) of u kunt de levensduur van een andere sessie. Als uw app een nieuwe ID-token ophalen moet, moet deze Maak een nieuwe aanmelding aanvraag naar het v2.0 eindpunt autoriseren. Als de gebruiker een ongeldig browsersessie met het v2.0-eindpunt heeft, is de gebruiker mogelijk niet vereist voor het hun referenties opnieuw invoeren. |

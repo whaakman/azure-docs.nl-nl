@@ -3,7 +3,7 @@ title: Windows 10 roaming naslaginformatie | Microsoft Docs
 description: Een volledige lijst van alle instellingen die worden verplaatste of een back-up in Windows 10.
 services: active-directory
 keywords: Enterprise status tijdens roaming windows cloud
-documentationcenter: 
+documentationcenter: ''
 author: tanning
 manager: mtillman
 editor: curtand
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
-ms.openlocfilehash: 21d21c945b622c1695d8856c4baff02c098218cf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 741b76935b5a6d9b2a6869ef57caa0ac0dc6351a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Naslaginformatie over roaminginstellingen voor Windows 10
 Hier volgt een volledige lijst van alle instellingen die worden verplaatste of een back-up in Windows 10. 
@@ -47,11 +47,15 @@ De volgende Instellingengroepen zijn beschikbaar voor eindgebruikers van synchro
 * Toegankelijkheid: narrator, Schermtoetsenbord Vergrootglas 
 * Andere Windows-instellingen: Zie details van de Windows-instellingen
 
-![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-individual-sync-settings.png)
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
 Rand browser instelling groep (Favorieten, leeslijst zijn vermeld) synchroniseren kan ingeschakeld of uitgeschakeld door eindgebruikers via Edge-browser optie instellingen.
 
-![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-sync-content.png)
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-edge.png)
+
+Voor Windows 10 versie 1803 of hoger, Internet Explorer instellingengroep (Favorieten, getypt URL's) synchroniseren kunt ingeschakeld of uitgeschakeld door eindgebruikers tot en met de menuoptie instellingen voor Internet Explorer. 
+
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-ie.png)
 
 ## <a name="windows-settings-details"></a>Details van Windows-instellingen
 In de volgende tabel andere vermeldingen in de kolom instellingengroep verwijst naar instellingen die kunnen worden uitgeschakeld door te gaan naar Instellingen > Accounts > uw instellingen synchroniseren > andere Windows-instellingen. 

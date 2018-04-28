@@ -5,8 +5,8 @@ services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 keywords: Azure-functies, functies, gebeurtenisverwerking, webhooks, dynamisch berekenen, architectuur zonder server
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.service: functions
@@ -16,14 +16,13 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/04/2018
 ms.author: tdykstra
-ms.openlocfilehash: 9d63c95c849c8ef6011557c72240e56071ba614f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e593f58f6b92e562067401381cfce06d5fb18e29
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript-handleiding voor ontwikkelaars
-[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
 
 De JavaScript-ervaring voor Azure Functions maakt het gemakkelijk te exporteren van een functie die wordt doorgegeven als een `context` voor communicatie met de runtime en voor het ontvangen en verzenden van gegevens via bindingen-object.
 
@@ -120,7 +119,7 @@ Hiermee kunt u om te schrijven naar de logboeken van de streaming-console op het
 | ---------------------- | ------------------------------------------ |
 | **fout (_bericht_)**   | Schrijft naar foutniveau registreren of lager.   |
 | **waarschuwen (_bericht_)**    | Schrijft naar waarschuwingsniveau registreren of lager. |
-| **info(_message_)**    | Schrijft naar info-niveau registreren of lager.    |
+| **Info (_bericht_)**    | Schrijft naar info-niveau registreren of lager.    |
 | **uitgebreide (_bericht_)** | Schrijft naar de uitgebreide logboekregistratie.           |
 
 Het volgende voorbeeld wordt geschreven naar de console op het niveau voor het traceren van waarschuwing:
@@ -208,7 +207,7 @@ De `request` object heeft de volgende eigenschappen:
 
 | Eigenschap      | Beschrijving                                                    |
 | ------------- | -------------------------------------------------------------- |
-| _body_        | Een object dat de hoofdtekst van de aanvraag bevat.               |
+| _Hoofdtekst_        | Een object dat de hoofdtekst van de aanvraag bevat.               |
 | _Headers_     | Een object dat de aanvraagheaders bevat.                   |
 | _Methode_      | De HTTP-methode van de aanvraag.                                |
 | _originalUrl_ | De URL van de aanvraag.                                        |
@@ -223,7 +222,7 @@ De `response` object heeft de volgende eigenschappen:
 
 | Eigenschap  | Beschrijving                                               |
 | --------- | --------------------------------------------------------- |
-| _body_    | Een object dat de hoofdtekst van het antwoord bevat.         |
+| _Hoofdtekst_    | Een object dat de hoofdtekst van het antwoord bevat.         |
 | _Headers_ | Een object met de antwoordheaders.             |
 | _isRaw_   | Hiermee wordt aangegeven dat opmaak voor het antwoord is overgeslagen.    |
 | _status_  | De HTTP-statuscode van het antwoord.                     |

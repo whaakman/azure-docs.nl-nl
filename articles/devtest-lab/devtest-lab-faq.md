@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: v-craic
-ms.openlocfilehash: d8b9e48db9e75fb41ecad1958b3aa930a6bce3aa
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 7a65ba691b9cf8b0ce989f0c54bd0b74edd43b85
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-devtest-labs-faq"></a>Veelgestelde vragen over Azure DevTest Labs
 Vind antwoorden op enkele veelgestelde vragen over Azure DevTest Labs.
@@ -128,9 +128,9 @@ Ja, kunt u meerdere schijven toevoegen aan uw virtuele machines.
 Voor het gebruik van Windows clientinstallatiekopieën van het besturingssysteem (Windows 7 of hoger) voor de ontwikkeling of tests in Azure, moet u het volgende doen:
 
 - [Een MSDN-abonnement aanschaffen](https://www.visualstudio.com/products/how-to-buy-vs).
-- Als u een Enterprise Agreement hebt, maakt u een Azure-abonnement met de [Enterprise ontwikkelen en testen aanbieding](https://azure.microsoft.com/en-us/offers/ms-azr-0148p).
+- Als u een Enterprise Agreement hebt, maakt u een Azure-abonnement met de [Enterprise ontwikkelen en testen aanbieding](https://azure.microsoft.com/offers/ms-azr-0148p).
 
-Zie voor meer informatie over de Azure-krediet voor elke aanbieding MSDN [maandelijkse Azure-tegoed voor Visual Studio-abonnees](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/).
+Zie voor meer informatie over de Azure-krediet voor elke aanbieding MSDN [maandelijkse Azure-tegoed voor Visual Studio-abonnees](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ## <a name="how-do-i-automate-the-process-of-uploading-vhd-files-to-create-custom-images"></a>Hoe ik het proces van het VHD-bestanden voor het maken van aangepaste installatiekopieën uploaden automatiseren?
 Als u wilt uploaden VHD-bestanden voor het maken van aangepaste installatiekopieën automatiseren, hebt u twee opties:

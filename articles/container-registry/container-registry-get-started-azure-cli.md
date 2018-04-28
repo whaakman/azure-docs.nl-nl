@@ -1,23 +1,23 @@
 ---
-title: 'Snelstart: een persoonlijk Docker-register in Azure maken met Azure CLI'
+title: 'Snelstartgids: een persoonlijk Docker-register in Azure maken met Azure CLI'
 description: Leer snel hoe u een persoonlijk Docker-containerregister maakt met behulp van Azure CLI.
 services: container-registry
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 8426d395d294144135c1c11593ecaf7fdc5bee69
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ed5c2d0b925d92f318b36b36d060ebc923499ee5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-create-a-container-registry-using-the-azure-cli"></a>Snelstart: een containerregister maken met de Azure CLI
 
-Azure Container Registry is een beheerde service voor Docker-containerregisters die wordt gebruikt voor het opslaan van installatiekopieën van persoonlijke Docker-containers. In deze snelstart gaat u een exemplaar van Azure Container Registry maken met behulp van de Azure CLI, een containerinstallatiekopie naar het register pushen en ten slotte de container vanuit het register in Azure Container Instances (ACI) implementeren.
+Azure Container Registry is een beheerde service voor Docker-containerregisters die wordt gebruikt voor het opslaan van installatiekopieën van persoonlijke Docker-containers. In deze snelstartgids gaat u een exemplaar van Azure Container Registry maken met behulp van de Azure CLI, een containerinstallatiekopie naar het register pushen en ten slotte de container vanuit het register in Azure Container Instances (ACI) implementeren.
 
 Voor deze snelstart moet u versie 2.0.27 of hoger van Azure CLI uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli].
 

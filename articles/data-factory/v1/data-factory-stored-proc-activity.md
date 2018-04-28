@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 60df540d847a1e7422e87bc375220819dac4b25c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a628374841126a750ebf6881f8adec66340c1d29
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQL Server opgeslagen Procedure-activiteit
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -161,7 +161,7 @@ U ziet de volgende eigenschappen:
 
 - De **type** eigenschap is ingesteld op **SqlServerStoredProcedure**. 
 - De **storedProcedureName** in het type eigenschappen is ingesteld op **sp_sample** (naam van de opgeslagen procedure).
-- De **storedProcedureParameters** sectie bevat een parameter met de naam **datum/tijd**. Naam en het hoofdlettergebruik van de parameter in JSON moeten overeenkomen met de naam en het hoofdlettergebruik van de parameter in de definitie van de opgeslagen procedure. Als u null zijn voor een parameter doorgeven moet, gebruikt u de syntaxis: `"param1": null` (alle kleine letters).
+- De **storedProcedureParameters** sectie bevat een parameter met de naam **DateTime**. Naam en het hoofdlettergebruik van de parameter in JSON moeten overeenkomen met de naam en het hoofdlettergebruik van de parameter in de definitie van de opgeslagen procedure. Als u null zijn voor een parameter doorgeven moet, gebruikt u de syntaxis: `"param1": null` (alle kleine letters).
  
 1. Klik op **... Meer** op de opdrachtbalk klikken en op **nieuwe pijplijn**.
 2. Kopiëren en plakken in het volgende JSON-fragment:   

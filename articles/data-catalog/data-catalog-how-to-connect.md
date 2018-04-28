@@ -2,11 +2,11 @@
 title: Verbinding maken met gegevensbronnen | Microsoft Docs
 description: Hoe kan ik artikel verbinding maken met gegevensbronnen die worden gedetecteerd met Azure Data Catalog is gemarkeerd.
 services: data-catalog
-documentationcenter: 
+documentationcenter: ''
 author: steelanddata
 manager: NA
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 4e6b27a5-cf75-4012-b88c-333c1fe638e8
 ms.service: data-catalog
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: b5bed534d9fa1a64b0e90c268407281724185ce8
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: b4dfc7a900e42b348c416d2d8c05b73fb15847ae
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-connect-to-data-sources"></a>Verbinding maken met gegevensbronnen
 ## <a name="introduction"></a>Inleiding
@@ -48,7 +48,7 @@ Wanneer u de "openen in... ' menu voor gegevensbronnen in de Azure Data Catalog-
 | Power Query |.xlsx |Excel 2016 of Excel 2010 of Excel 2013 met de Power Query voor Excel-invoegtoepassing geïnstalleerd |
 | Power BI Desktop |.pbix |Power BI Desktop juli 2016 of hoger |
 | SQL Server Data Tools |vsweb:// |Visual Studio 2013 Update 4 of hoger met SQL Server tooling geïnstalleerd |
-| Rapportbeheer |http:// |Zie [Browservereisten voor het SQL Server Reporting Services](https://technet.microsoft.com/en-us/library/ms156511.aspx) |
+| Rapportbeheer |http:// |Zie [Browservereisten voor het SQL Server Reporting Services](https://technet.microsoft.com/library/ms156511.aspx) |
 
 ## <a name="your-data-your-tools"></a>Uw gegevens, de hulpprogramma 's
 De beschikbare opties in het menu is afhankelijk van het type van de geselecteerde gegevensasset. Natuurlijk niet alle mogelijke hulpprogramma's worden opgenomen in de "openen in... ' menu, maar is nog steeds eenvoudig verbinding maken met de gegevensbron met behulp van een clienthulpprogramma. Wanneer een gegevensasset is geselecteerd in de **Azure Data Catalog** portal, de volledige locatie wordt weergegeven in het deelvenster properties.

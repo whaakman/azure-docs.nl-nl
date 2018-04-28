@@ -2,12 +2,12 @@
 title: Azure virtuele Machines-implementatie voor SAP NetWeaver | Microsoft Docs
 description: Informatie over het implementeren van SAP-software op Linux virtuele machines in Azure.
 services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: MSSedusch
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 1c4f1951-3613-4a5a-a0af-36b85750c84e
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
-ms.openlocfilehash: 2b3c93abcfe8f1f18719dd5ce79211deccef44db
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 2b141c96ad3f71cf35ddfbd08ce1eff14e36d8d0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure virtuele Machines-implementatie voor SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -204,7 +204,7 @@ ms.lasthandoff: 03/09/2018
 [planning-guide-7]:planning-guide.md#96a77628-a05e-475d-9df3-fb82217e8f14 (Concepten van Cloud-implementatie van SAP-exemplaren)
 [planning-guide-9.1]:planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3 (Azure Bewakingsoplossing voor SAP)
 [planning-guide-azure-premium-storage]:planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Azure Premium Storage)
-[planning-guide-managed-disks]:planning-guide.md#c55b2c6e-3ca1-4476-be16-16c81927550f (Managed Disks)
+[planning-guide-managed-disks]:planning-guide.md#c55b2c6e-3ca1-4476-be16-16c81927550f (Beheerde schijven)
 [planning-guide-figure-100]:media/virtual-machines-shared-sap-planning-guide/100-single-vm-in-azure.png
 [planning-guide-figure-1300]:media/virtual-machines-shared-sap-planning-guide/1300-ref-config-iaas-for-sap.png
 [planning-guide-figure-1400]:media/virtual-machines-shared-sap-planning-guide/1400-attach-detach-disks.png
@@ -234,7 +234,7 @@ ms.lasthandoff: 03/09/2018
 [powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
-[resource-groups-networking]:../../../virtual-network/resource-groups-networking.md
+[resource-groups-networking]:../../../networking/network-overview.md
 [sap-pam]:https://support.sap.com/pam (SAP Product beschikbaarheid Matrix)
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image-md%2Fazuredeploy.json
@@ -291,7 +291,7 @@ ms.lasthandoff: 03/09/2018
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
 [virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
-[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
+[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
@@ -405,7 +405,7 @@ De eenvoudigste manier om een nieuwe virtuele machine maken met een installatiek
 
 De wizard begeleidt u bij het instellen van de vereiste parameters voor het maken van de virtuele machine, naast alle vereiste bronnen, zoals netwerkinterfaces en storage-accounts. Enkele van deze parameters zijn:
 
-1. **Basics**:
+1. **Basisprincipes**:
  * **Naam**: de naam van de resource (de naam van de virtuele machine).
  * **VM-schijftype**: Selecteer het schijftype van de besturingssysteemschijf. Als u gebruiken van Premium-opslag voor uw gegevensschijven wilt, raden wij u Premium-opslag voor de OS-schijf.
  * **Gebruikersnaam en wachtwoord** of **openbare SSH-sleutel**: Geef de gebruikersnaam en wachtwoord van de gebruiker die is gemaakt tijdens het inrichten. Voor een virtuele Linux-machine, kunt u de openbare sleutel voor Secure Shell (SSH) die u aan te melden bij de computer gebruikt.
@@ -427,7 +427,7 @@ De wizard begeleidt u bij het instellen van de vereiste parameters voor het make
     * **Netwerkbeveiligingsgroep**: Zie voor meer informatie [beheren van netwerkverkeer met netwerkbeveiligingsgroepen][virtual-networks-nsg].
   * **Extensies**: U kunt extensies van virtuele machine installeren door ze toe te voegen aan de implementatie. U hoeft niet de extensies toevoegen in deze stap. De extensies die zijn vereist voor ondersteuning van SAP worden later geïnstalleerd. Zie hoofdstuk [configureren van de Azure verbeterde extensie Monitoring voor SAP] [ deployment-guide-4.5] in deze handleiding.
   * **Hoge beschikbaarheid**: een beschikbaarheidsset selecteren of geef de parameters voor het maken van een nieuwe beschikbaarheidsset. Zie voor meer informatie [Azure beschikbaarheidssets][planning-guide-3.2.3].
-  * **Monitoring**
+  * **Bewaking**
     * **Diagnostische gegevens starten**: U kunt selecteren **uitschakelen** voor diagnostische gegevens over opstarten.
     * **Gastbesturingssysteem diagnostics**: U kunt selecteren **uitschakelen** voor het bewaken van diagnostische gegevens.
 
@@ -455,7 +455,7 @@ U kunt een virtuele machine maken met behulp van een van de SAP-sjablonen gepubl
 
 Voer de volgende parameters voor de sjabloon in de Azure-portal:
 
-1. **Basics**:
+1. **Basisprincipes**:
   * **Abonnement**: het abonnement moet worden gebruikt om de sjabloon te implementeren.
   * **Resourcegroep**: de resourcegroep moet worden gebruikt om de sjabloon te implementeren. U kunt een nieuwe resourcegroep maken of u kunt een bestaande resourcegroep selecteren in het abonnement.
   * **Locatie**: waar u de sjabloon implementeert. Als u een bestaande resourcegroep hebt geselecteerd, wordt de locatie van die resourcegroep wordt gebruikt.
@@ -537,7 +537,7 @@ De eenvoudigste manier om een nieuwe virtuele machine maken van een beheerd schi
 
 De wizard begeleidt u bij het instellen van de vereiste parameters voor het maken van de virtuele machine, naast alle vereiste bronnen, zoals netwerkinterfaces en storage-accounts. Enkele van deze parameters zijn:
 
-1. **Basics**:
+1. **Basisprincipes**:
  * **Naam**: de naam van de resource (de naam van de virtuele machine).
  * **VM-schijftype**: Selecteer het schijftype van de besturingssysteemschijf. Als u gebruiken van Premium-opslag voor uw gegevensschijven wilt, raden wij u Premium-opslag voor de OS-schijf.
  * **Gebruikersnaam en wachtwoord** of **openbare SSH-sleutel**: Geef de gebruikersnaam en wachtwoord van de gebruiker die is gemaakt tijdens het inrichten. Voor een virtuele Linux-machine, kunt u de openbare sleutel voor Secure Shell (SSH) die u aan te melden bij de computer gebruikt.
@@ -558,7 +558,7 @@ De wizard begeleidt u bij het instellen van de vereiste parameters voor het make
     * **Netwerkbeveiligingsgroep**: Zie voor meer informatie [beheren van netwerkverkeer met netwerkbeveiligingsgroepen][virtual-networks-nsg].
   * **Extensies**: U kunt extensies van virtuele machine installeren door ze toe te voegen aan de implementatie. U hoeft niet te-extensie toevoegen in deze stap. De extensies die zijn vereist voor ondersteuning van SAP worden later geïnstalleerd. Zie hoofdstuk [configureren van de Azure verbeterde extensie Monitoring voor SAP] [ deployment-guide-4.5] in deze handleiding.
   * **Hoge beschikbaarheid**: een beschikbaarheidsset selecteren of geef de parameters voor het maken van een nieuwe beschikbaarheidsset. Zie voor meer informatie [Azure beschikbaarheidssets][planning-guide-3.2.3].
-  * **Monitoring**
+  * **Bewaking**
     * **Diagnostische gegevens starten**: U kunt selecteren **uitschakelen** voor diagnostische gegevens over opstarten.
     * **Gastbesturingssysteem diagnostics**: U kunt selecteren **uitschakelen** voor het bewaken van diagnostische gegevens.
 
@@ -585,7 +585,7 @@ Voor het maken van een implementatie met behulp van een persoonlijke installatie
 
 Voer de volgende parameters voor de sjabloon in de Azure-portal:
 
-1. **Basics**:
+1. **Basisprincipes**:
   * **Abonnement**: het abonnement moet worden gebruikt om de sjabloon te implementeren.
   * **Resourcegroep**: de resourcegroep moet worden gebruikt om de sjabloon te implementeren. U kunt een nieuwe resourcegroep maken of een bestaande resourcegroep selecteren in het abonnement.
   * **Locatie**: waar u de sjabloon implementeert. Als u een bestaande resourcegroep hebt geselecteerd, wordt de locatie van die resourcegroep wordt gebruikt.
@@ -675,7 +675,7 @@ Maakt u een implementatie met behulp van een persoonlijke besturingssysteemschij
 
 Voer de volgende parameters voor de sjabloon in de Azure-portal:
 
-1. **Basics**:
+1. **Basisprincipes**:
   * **Abonnement**: het abonnement moet worden gebruikt om de sjabloon te implementeren.
   * **Resourcegroep**: de resourcegroep moet worden gebruikt om de sjabloon te implementeren. U kunt een nieuwe resourcegroep maken of een bestaande resourcegroep selecteren in het abonnement.
   * **Locatie**: waar u de sjabloon implementeert. Als u een bestaande resourcegroep hebt geselecteerd, wordt de locatie van die resourcegroep wordt gebruikt.
@@ -895,7 +895,7 @@ De Azure verbeterde extensie Monitoring voor SAP installeren met behulp van Powe
 
     ```powershell
     $env = Get-AzureRmEnvironment -Name <name of the environment>
-    Login-AzureRmAccount -Environment $env
+    Connect-AzureRmAccount -Environment $env
     Set-AzureRmContext -SubscriptionName <subscription name>
 
     Set-AzureRmVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
@@ -1058,7 +1058,7 @@ Als sommige van de bewaking gegevens niet bezorgd correct zoals aangegeven door 
 2.  Voer de volgende PowerShell-cmdlet uit. Voor een lijst met beschikbare omgevingen, voert u de cmdlet `Get-AzureRmEnvironment`. Als u globale Azure, schakelt de **AzureCloud** omgeving. Selecteer voor Azure China **AzureChinaCloud**.
   ```powershell
   $env = Get-AzureRmEnvironment -Name <name of the environment>
-  Login-AzureRmAccount -Environment $env
+  Connect-AzureRmAccount -Environment $env
   Set-AzureRmContext -SubscriptionName <subscription name>
   Test-AzureRmVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
   ```

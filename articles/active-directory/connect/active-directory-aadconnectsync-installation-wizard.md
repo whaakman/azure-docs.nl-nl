@@ -3,10 +3,10 @@ title: Wizard opnieuw uitvoeren van de Azure AD Connect installeren | Microsoft 
 description: Wordt uitgelegd hoe de installatiewizard werkt de tweede keer dat u deze uitvoert.
 keywords: De Azure AD Connect-installatiewizard kunt u de tweede keer dat u het uitvoeren van onderhoudsinstellingen configureren
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: d800214e-e591-4297-b9b5-d0b1581cc36a
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: a5a55b15bbffbcfa18e07e251180820e3d9cb6d8
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 56cc38275a23eb4529558b876db619768a885a25
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect-synchronisatie: uitvoeren van de installatiewizard van een tweede keer
 De eerste keer dat u de wizard Azure AD Connect-installatie uitvoert begeleidt het u bij het configureren van uw installatie. Als u de installatiewizard opnieuw uitvoert, biedt opties voor onderhoud.
@@ -79,7 +79,7 @@ Selecteer deze optie om de status wijzigt, en selecteer of schakel het selectiev
 ![Optie dat ook de huidige status van de faseringsmodus wordt weergegeven](./media/active-directory-aadconnectsync-installation-wizard/stagingmodeenable.png)
 
 ## <a name="change-user-sign-in"></a>Gebruikersaanmelding wijzigen
-Deze optie kunt u wijzigen van Wachtwoordsynchronisatie in Federatie of andersom. U kunt niet wijzigen naar **niet configureert**.
+Deze optie kunt u de gebruiker aanmelden methode wijzigen en naar Wachtwoordsynchronisatie-hash, Pass through-verificatie of federation. U kunt niet wijzigen naar **niet configureert**.
 
 Zie voor meer informatie over deze optie [gebruikersaanmelding](active-directory-aadconnect-user-signin.md#changing-the-user-sign-in-method).
 

@@ -2,10 +2,10 @@
 title: Azure API Management-beperking beleid | Microsoft Docs
 description: Meer informatie over de beperking toegangsbeleid beschikbaar voor gebruik in Azure API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 034febe3-465f-4840-9fc6-c448ef520b0f
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 11cc5841d2f804f0d120dddda226bf05a0612607
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5fbb4f8a15ee7ee8b6cecbe76391e2b2a7e4be1b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="api-management-access-restriction-policies"></a>Beperking van API Management toegangsbeleid
 Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels. Zie voor meer informatie over het toevoegen en configureren van beleid [-beleid in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -57,14 +57,14 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
   
 |Naam|Beschrijving|Vereist|  
 |----------|-----------------|--------------|  
-|check-header|Hoofdelement.|Ja|  
+|controle-header|Hoofdelement.|Ja|  
 |waarde|Toegestane waarde voor HTTP-header. Als meerdere elementen van de waarde worden opgegeven, de controle wordt beschouwd als geslaagd als een van de waarden een overeenkomst.|Nee|  
   
 ### <a name="attributes"></a>Kenmerken  
   
 |Naam|Beschrijving|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
-|failed-check-error-message|Het foutbericht te retourneren in de HTTP-antwoordtekst als de header bestaat niet of een ongeldige waarde heeft. Dit bericht moet de speciale tekens escape hebben.|Ja|N/A|  
+|kan de niet-controle-foutbericht|Het foutbericht te retourneren in de HTTP-antwoordtekst als de header bestaat niet of een ongeldige waarde heeft. Dit bericht moet de speciale tekens escape hebben.|Ja|N/A|  
 |failed-check-httpcode|HTTP-statuscode te retourneren als de header bestaat niet of een ongeldige waarde heeft.|Ja|N/A|  
 |header-naam|De naam van de HTTP-Header om te controleren.|Ja|N/A|  
 |negeren geval|Kan worden ingesteld op True of False. Als is ingesteld op True aanvraag wordt genegeerd wanneer de waarde voor header met de set van acceptabele waarden vergeleken.|Ja|N/A|  
@@ -88,8 +88,8 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
   
 ```xml  
 <rate-limit calls="number" renewal-period="seconds">  
-    <api name="name" calls="number" renewal-period="seconds">  
-        <operation name="name" calls="number" renewal-period="seconds" />  
+    <api name="API name" id="API id" calls="number" renewal-period="seconds" />  
+        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />  
     </api>  
 </rate-limit>  
 ```  
@@ -113,8 +113,8 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 |Naam|Beschrijving|Vereist|  
 |----------|-----------------|--------------|  
 |opgegeven limiet|Hoofdelement.|Ja|  
-|api|Voeg een of meer van deze elementen te leggen frequentielimiet aanroep op API's binnen het product. Producten en -API aanroepen snelheid limieten onafhankelijk worden toegepast.|Nee|  
-|bewerking|Een of meer van deze elementen te leggen van de frequentielimiet van een aanroep op bewerkingen binnen een API toevoegen. Product, API en bewerking aanroepen snelheid limieten onafhankelijk worden toegepast.|Nee|  
+|api|Voeg een of meer van deze elementen te leggen frequentielimiet aanroep op API's binnen het product. Producten en -API aanroepen snelheid limieten onafhankelijk worden toegepast. API kan worden verwezen via `name` of `id`. Als beide kenmerken worden opgegeven, `id` wordt gebruikt en `name` worden genegeerd.|Nee|  
+|bewerking|Een of meer van deze elementen te leggen van de frequentielimiet van een aanroep op bewerkingen binnen een API toevoegen. Product, API en bewerking aanroepen snelheid limieten onafhankelijk worden toegepast. Bewerking kan worden verwezen via `name` of `id`. Als beide kenmerken worden opgegeven, `id` wordt gebruikt en `name` worden genegeerd.|Nee|  
   
 ### <a name="attributes"></a>Kenmerken  
   
@@ -178,7 +178,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 |Naam|Beschrijving|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
 |oproepen|Het maximum aantal aanroepen toegestaan tijdens het tijdsinterval die is opgegeven in de `renewal-period`.|Ja|N/A|  
-|counter-key|De sleutel moet worden gebruikt voor het frequentielimietbeleid.|Ja|N/A|  
+|tegenpartij sleutel|De sleutel moet worden gebruikt voor het frequentielimietbeleid.|Ja|N/A|  
 |verhoging voorwaarde|De Boole-expressie opgeven als de aanvraag moet worden geteld voor het quotum (`true`).|Nee|N/A|  
 |vernieuwingsperiode|De tijd in seconden waarna het quotum wordt opnieuw ingesteld.|Ja|N/A|  
   
@@ -223,7 +223,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 |Naam|Beschrijving|Vereist|Standaard|  
 |----------|-----------------|--------------|-------------|  
 |adresbereik van = 'adres' naar 'adres' =|Een bereik van IP-adressen wilt toestaan of weigeren van toegang voor.|Vereist wanneer de `address-range` element wordt gebruikt.|N/A|  
-|IP-filteractie = ' toestaan dat &#124; verbieden"|Geeft aan of aanroepen moeten worden toegestaan of niet voor het opgegeven IP-adressen en de bereiken.|Ja|N/A|  
+|IP-filteractie = "toestaan &#124; verbieden"|Geeft aan of aanroepen moeten worden toegestaan of niet voor het opgegeven IP-adressen en de bereiken.|Ja|N/A|  
   
 ### <a name="usage"></a>Gebruik  
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -243,8 +243,8 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
   
 ```xml  
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">  
-    <api name="name" calls="number" bandwidth="kilobytes">  
-        <operation name="name" calls="number" bandwidth="kilobytes" />  
+    <api name="API name" id="API id" calls="number" renewal-period="seconds" />  
+        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />  
     </api>  
 </quota>  
 ```  
@@ -267,9 +267,9 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
   
 |Naam|Beschrijving|Vereist|  
 |----------|-----------------|--------------|  
-|quota|Hoofdelement.|Ja|  
-|api|Voeg een of meer van deze elementen te leggen een quotum op API's binnen het product. Product- en API-quota worden onafhankelijk toegepast.|Nee|  
-|bewerking|Een of meer van deze elementen te leggen een quotum op bewerkingen binnen een API toevoegen. Product, API en bewerking quota's worden onafhankelijk van elkaar toegepast.|Nee|  
+|quotum|Hoofdelement.|Ja|  
+|api|Voeg een of meer van deze elementen te leggen aanroep quotum op API's binnen het product. Product- en API-aanroep quota onafhankelijk toegepast. API kan worden verwezen via `name` of `id`. Als beide kenmerken worden opgegeven, `id` wordt gebruikt en `name` worden genegeerd.|Nee|  
+|bewerking|Een of meer van deze elementen te leggen aanroep quotum op bewerkingen binnen een API toevoegen. Product, API en bewerking aanroep quota's worden onafhankelijk van elkaar toegepast. Bewerking kan worden verwezen via `name` of `id`. Als beide kenmerken worden opgegeven, `id` wordt gebruikt en `name` worden genegeerd.|Nee|  
   
 ### <a name="attributes"></a>Kenmerken  
   
@@ -328,7 +328,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
   
 |Naam|Beschrijving|Vereist|  
 |----------|-----------------|--------------|  
-|quota|Hoofdelement.|Ja|  
+|quotum|Hoofdelement.|Ja|  
   
 ### <a name="attributes"></a>Kenmerken  
   
@@ -336,7 +336,7 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 |----------|-----------------|--------------|-------------|  
 |Bandbreedte|Het maximum aantal kilobytes is toegestaan tijdens het tijdsinterval die is opgegeven in de `renewal-period`.|Beide `calls`, `bandwidth`, of beide moeten samen worden opgegeven.|N/A|  
 |oproepen|Het maximum aantal aanroepen toegestaan tijdens het tijdsinterval die is opgegeven in de `renewal-period`.|Beide `calls`, `bandwidth`, of beide moeten samen worden opgegeven.|N/A|  
-|counter-key|De sleutel moet worden gebruikt voor het quotumbeleid.|Ja|N/A|  
+|tegenpartij sleutel|De sleutel moet worden gebruikt voor het quotumbeleid.|Ja|N/A|  
 |verhoging voorwaarde|De Boole-expressie opgeven als de aanvraag moet worden geteld voor het quotum (`true`)|Nee|N/A|  
 |vernieuwingsperiode|De tijd in seconden waarna het quotum wordt opnieuw ingesteld.|Ja|N/A|  
   
@@ -488,10 +488,10 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 |validate-jwt|Hoofdelement.|Ja|  
 |doelgroepen|Bevat een lijst van toegestane doelgroep claims die gebruikt op het token worden kunnen. Als meerdere doelgroep waarden aanwezig zijn, wordt elke waarde wordt geprobeerd totdat alle (in dat geval validatie mislukt) zijn uitgeput of tot er één lukt. Ten minste één doelgroep moet worden opgegeven.|Nee|  
 |ondertekening-sleutels van uitgever|Een lijst met Base64-gecodeerd beveiligingssleutels gebruikt om ondertekende tokens te valideren. Als meerdere beveiligingssleutels aanwezig zijn, wordt elke sleutel wordt geprobeerd totdat alle (in dat geval validatie mislukt) zijn uitgeput of tot er één lukt (dit is nuttig voor de overschakeling van token). De belangrijkste elementen hebben een optioneel `id` kenmerk dat wordt gebruikt voor het vergelijken van `kid` claim.|Nee|  
-|issuers|Een lijst met toegestane principals die het token heeft uitgegeven. Als meerdere verlener waarden aanwezig zijn, wordt elke waarde wordt geprobeerd totdat alle (in dat geval validatie mislukt) zijn uitgeput of tot er één lukt.|Nee|  
+|uitgevers van certificaten|Een lijst met toegestane principals die het token heeft uitgegeven. Als meerdere verlener waarden aanwezig zijn, wordt elke waarde wordt geprobeerd totdat alle (in dat geval validatie mislukt) zijn uitgeput of tot er één lukt.|Nee|  
 |openid-config|Het element dat wordt gebruikt voor het opgeven van een compatibele configuratie-eindpunt voor Open-ID is waar ondertekenen van sleutels en uitgever kan worden verkregen.|Nee|  
 |vereist claims|Bevat een lijst met claims aanwezig zijn op het token als geldig beschouwd als deze wordt verwacht. Wanneer de `match` kenmerk is ingesteld op `all` elke claimwaarde in het beleid moet aanwezig zijn in het token voor de validatie mislukt. Wanneer de `match` kenmerk is ingesteld op `any` ten minste één claim moet aanwezig zijn in het token voor de validatie mislukt.|Nee|  
-|zumo-master-key|Hoofdsleutel voor tokens die zijn uitgegeven door Azure Mobile Services|Nee|  
+|zumo hoofdsleutel|Hoofdsleutel voor tokens die zijn uitgegeven door Azure Mobile Services|Nee|  
   
 ### <a name="attributes"></a>Kenmerken  
   
@@ -504,9 +504,9 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 |id|De `id` -kenmerk uit voor de `key` element kunt u opgeven van de tekenreeks die wordt vergeleken met `kid` claim in het token (indien aanwezig) om erachter te komen met de juiste sleutel moet worden gebruikt voor validatie van handtekening.|Nee|N/A|  
 |Overeenkomst|De `match` -kenmerk uit voor de `claim` element geeft aan of de waarde van elke claim in het beleid aanwezig zijn in het token voor de validatie moet mislukt. Mogelijke waarden zijn:<br /><br /> -                          `all` -de waarde van elke claim in het beleid moet aanwezig zijn in het token voor de validatie mislukt.<br /><br /> -                          `any` -ten minste één claimwaarde moet aanwezig zijn in het token voor de validatie mislukt.|Nee|all|  
 |query-paremeter-naam|De naam van de de queryparameter van het token.|Ofwel `header-name` of `query-paremeter-name` moet worden opgegeven, maar niet beide.|N/A|  
-|vereisen verlooptijd vallen|Booleaanse waarde. Hiermee geeft u op of een claim vervaldatum in het token is vereist.|Nee|waar|
+|vereisen verlooptijd vallen|Booleaanse waarde. Hiermee geeft u op of een claim vervaldatum in het token is vereist.|Nee|true|
 |vereisen schema|De naam van het token schema, bijvoorbeeld 'Bearer'. Wanneer dit kenmerk is ingesteld, kan het beleid zorgt ervoor dat het opgegeven schema is aanwezig in de waarde van de autorisatie-header.|Nee|N/A|
-|vereisen ondertekend-tokens|Booleaanse waarde. Geeft aan of een token vereist om te worden ondertekend.|Nee|waar|  
+|vereisen ondertekend-tokens|Booleaanse waarde. Geeft aan of een token vereist om te worden ondertekend.|Nee|true|  
 |Scheidingsteken|De tekenreeks. Hiermee geeft u een scheidingsteken (bijvoorbeeld ",") moet worden gebruikt voor een set waarden extraheren uit een claim meerdere waarden.|Nee|N/A| 
 |url|Open ID configuratie eindpunt-URL op waar de metagegevens van de Open-ID-configuratie kan worden verkregen. Het antwoord moet volgens specificaties zoals gedefinieerd in URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`.  Gebruik de volgende URL voor Azure Active Directory: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` waarbij u de naam van uw directory-tenant, bijvoorbeeld vervangt `contoso.onmicrosoft.com`.|Ja|N/A|  
   

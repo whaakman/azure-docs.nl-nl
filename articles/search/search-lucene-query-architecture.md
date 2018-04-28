@@ -1,22 +1,19 @@
 ---
 title: Volledige tekst zoeken (Lucene)-engine-architectuur in Azure Search | Microsoft Docs
 description: Uitleg van de Lucene query verwerking en document ophalen concepten voor zoeken in volledige tekst, met betrekking tot de Azure Search.
-services: search
-manager: jhubbard
+manager: jlembicz
 author: yahnoosh
-documentationcenter: ''
+services: search
 ms.service: search
 ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 04/06/2017
 ms.author: jlembicz
-ms.openlocfilehash: 0b2e66cd40c1b49832b865e5bf59edcf78996eb8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: MT
+ms.openlocfilehash: d05aade97ea5713b63b921d9e39d4df0c30b8fa0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Hoe vol tekst zoeken werkt in Azure Search
 
@@ -261,7 +258,7 @@ Terugkeren naar het voorbeeld voor het **titel** veld omgekeerde index ziet er a
 | hotel | 1, 3 |
 | Oceaan | 4  |
 | playa | 3 |
-| resort | 3 |
+| toevlucht | 3 |
 | Terugtrekken | 4 |
 
 In het titelveld alleen *hotel* wordt weergegeven in twee documenten: 1, 3.
@@ -276,7 +273,7 @@ Voor de **beschrijving** veld de index is als volgt:
 | voorwaarde | 3
 | vertrouwd | 3
 | afstand | 1
-| island | 2
+| eiland | 2
 | kauaʻi | 2
 | zich bevindt | 2
 | Noord | 2

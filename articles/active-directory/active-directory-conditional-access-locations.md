@@ -3,24 +3,24 @@ title: Voorwaarden van de locatie van voorwaardelijke toegang van Azure Active D
 description: Informatie over het gebruik van de voorwaarde locatie toegang tot uw cloud-apps op basis van de netwerklocatie van de gebruiker.
 services: active-directory
 keywords: voorwaardelijke toegang tot apps, voorwaardelijke toegang met Azure AD, beveiligde toegang tot bedrijfsresources, beleidsregels voor voorwaardelijke toegang
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/01/2018
+ms.date: 04/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: c9712cf0cf20bbcfc089eb18896370f9e02eb571
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 842fe8c194f1c88c7dabb073e0fa7b7806d92d44
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="location-conditions-in-azure-active-directory-conditional-access"></a>Voorwaarden van de locatie van voorwaardelijke toegang van Azure Active Directory 
 
@@ -43,7 +43,14 @@ Een locatie is een label voor een netwerklocatie van de multi-factor authenticat
 
 U kunt logische groeperingen van IP-adresbereiken, landen en regio's te maken met benoemde locaties. 
 
- De locatie van een naam heeft de volgende onderdelen:
+U hebt toegang tot uw benoemde locaties in de **beheren** sectie van de pagina voorwaardelijke toegang.
+
+![Locaties](./media/active-directory-conditional-access-locations/02.png)
+
+ 
+
+
+Een benoemde locatie heeft de volgende onderdelen:
 
 ![Locaties](./media/active-directory-conditional-access-locations/42.png)
 
@@ -68,13 +75,13 @@ Het aantal benoemde locaties die u kunt configureren, wordt beperkt door de groo
 
 ## <a name="trusted-ips"></a>Goedgekeurde IP-adressen
 
-U kunt ook configureren met IP-adresbereiken van uw organisatie lokaal intranet in voor de [instellingen voor multi-factor authentication-service](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). Deze functie kunt u maximaal 50 IP-adresbereiken configureren. Er zijn de IP-adresbereiken in CIDR-notatie. Zie voor meer informatie [goedgekeurde IP-adressen](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).  
+U kunt ook configureren met IP-adresbereiken van uw organisatie lokaal intranet in voor de [instellingen voor multi-factor authentication-service](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). Deze functie kunt u maximaal 50 IP-adresbereiken configureren. Er zijn de IP-adresbereiken in CIDR-notatie. Zie voor meer informatie [goedgekeurde IP-adressen](authentication/howto-mfa-mfasettings.md#trusted-ips).  
 
 Als u IP-adressen geconfigureerd vertrouwde een, ze worden weergegeven als **MFA goedgekeurde IP-Adressen** in de lijst met locaties voor de locatie-voorwaarde.   
 
 ### <a name="skipping-multi-factor-authentication"></a>Meervoudige verificatie overslaan
 
-U kunt op de instellingenpagina van multi-factor authentication-service bedrijfsintranet gebruikers identificeren door te selecteren **multi-factor authentication overslaan voor aanvragen van federatieve gebruikers op mijn intranet**. Deze instelling geeft aan dat de zakelijke binnen claim, dat is uitgegeven door AD FS, netwerk moeten worden vertrouwd en gebruikt om de gebruiker als in het bedrijfsnetwerk te identificeren. Zie voor meer informatie [de goedgekeurde IP-adressen inschakelen met behulp van voorwaardelijke toegang](../multi-factor-authentication/multi-factor-authentication-whats-next.md#enable-the-trusted-ips-feature-by-using-conditional-access).
+U kunt op de instellingenpagina van multi-factor authentication-service bedrijfsintranet gebruikers identificeren door te selecteren **multi-factor authentication overslaan voor aanvragen van federatieve gebruikers op mijn intranet**. Deze instelling geeft aan dat de zakelijke binnen claim, dat is uitgegeven door AD FS, netwerk moeten worden vertrouwd en gebruikt om de gebruiker als in het bedrijfsnetwerk te identificeren. Zie voor meer informatie [de goedgekeurde IP-adressen inschakelen met behulp van voorwaardelijke toegang](authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access).
 
 Nadat u deze optie inschakelt, met inbegrip van de benoemde locatie **MFA goedgekeurde IP-Adressen** voor elk beleid wordt toegepast met dit geselecteerd.
 
@@ -112,7 +119,7 @@ Deze optie is van toepassing op:
 
 ### <a name="selected-locations"></a>Geselecteerde locaties
 
-Met deze optie kunt u een of meer benoemde locaties selecteren. Voor een beleid met deze instelling toe te passen, moet een gebruiker verbinding maken via een van de geselecteerde locaties. U klikt op Whe **selecteren** het benoemde netwerk Selectiebesturingselement waarin de lijst met benoemde netwerken wordt geopend. De lijst worden ook weergegeven als de netwerklocatie is gemarkeerd als vertrouwd. De benoemde locatie aangeroepen **MFA goedgekeurde IP-adressen** wordt gebruikt om op te nemen van de IP-instellingen die kunnen worden geconfigureerd in de pagina multi-factor authentication-service-instelling.
+Met deze optie kunt u een of meer benoemde locaties selecteren. Voor een beleid met deze instelling toe te passen, moet een gebruiker verbinding maken via een van de geselecteerde locaties. Wanneer u klikt op **Selecteer** het benoemde netwerk Selectiebesturingselement waarin de lijst met benoemde netwerken wordt geopend. De lijst worden ook weergegeven als de netwerklocatie is gemarkeerd als vertrouwd. De benoemde locatie aangeroepen **MFA goedgekeurde IP-adressen** wordt gebruikt om op te nemen van de IP-instellingen die kunnen worden geconfigureerd in de pagina multi-factor authentication-service-instelling.
 
 ## <a name="what-you-should-know"></a>Wat u moet weten
 

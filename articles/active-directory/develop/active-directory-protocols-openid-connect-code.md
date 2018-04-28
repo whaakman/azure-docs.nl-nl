@@ -3,23 +3,23 @@ title: Inzicht in de stroom OpenID Connect verificatie code in Azure AD | Micros
 description: Dit artikel wordt beschreven hoe u met HTTP-berichten toestaan van toegang tot webtoepassingen en web-API's in uw tenant met behulp van Azure Active Directory en OpenID Connect.
 services: active-directory
 documentationcenter: .net
-author: dstrockis
+author: hpsin
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 29142f7e-d862-4076-9a1a-ecae5bcd9d9b
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
-ms.author: dastrock
+ms.date: 04/17/2018
+ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3a813d73dc8a80c46e1b7500ec72ccb2a47bc6d5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4d9593aad789a9888c32297d634ba19e669bd461
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Toegang tot webtoepassingen die gebruikmaken van OpenID Connect en Azure Active Directory autoriseren
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) is een eenvoudige identiteitlaag gebouwd op het OAuth 2.0-protocol. OAuth 2.0 definieert mechanismen voor het verkrijgen en gebruiken van **toegang tot tokens** voor toegang tot beveiligde bronnen, maar ze niet bepalen standaardmethoden om identiteit informatie te geven. OpenID Connect implementeert verificatie als een uitbreiding van het autorisatieproces OAuth 2.0. Biedt informatie over de gebruiker in de vorm van een `id_token` die de identiteit van de gebruiker wordt geverifieerd en basisprofiel informatie over de gebruiker.
@@ -73,7 +73,7 @@ Dus eruit als volgt een voorbeeld van een aanvraag:
 GET https://login.microsoftonline.com/{tenant}/oauth2/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=id_token
-&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
+&redirect_uri=http%3A%2F%2Flocalhost%3a12345
 &response_mode=form_post
 &scope=openid
 &state=12345
@@ -82,15 +82,15 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parameter |  | Beschrijving |
 | --- | --- | --- |
-| Tenant |Vereist |De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie bij de toepassing aanmelden kunt.  De toegestane waarden zijn tenant-id's, bijvoorbeeld `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` of `contoso.onmicrosoft.com` of `common` voor tenant-onafhankelijke tokens |
+| tenant |Vereist |De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie bij de toepassing aanmelden kunt.  De toegestane waarden zijn tenant-id's, bijvoorbeeld `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` of `contoso.onmicrosoft.com` of `common` voor tenant-onafhankelijke tokens |
 | client_id |Vereist |De toepassings-Id toegewezen aan uw app bij de registratie met Azure AD. U kunt dit vinden in de Azure Portal. Klik op **Azure Active Directory**, klikt u op **App registraties**, kies de toepassing en zoekt u de Id op de pagina van de toepassing. |
 | response_type |Vereist |Moet bevatten `id_token` voor OpenID Connect aanmelden.  Het kan ook betekenen dat andere response_types zoals `code`. |
-| Bereik |Vereist |Een door spaties gescheiden lijst met bereiken.  Voor het OpenID Connect, het bereik moet bevatten `openid`, die wordt omgezet in de machtiging 'Aanmelden u' in de gebruikersinterface van de toestemming.  U mogelijk ook andere bereiken opnemen in deze aanvraag voor het aanvragen van toestemming. |
+| scope |Vereist |Een door spaties gescheiden lijst met bereiken.  Voor het OpenID Connect, het bereik moet bevatten `openid`, die wordt omgezet in de machtiging 'Aanmelden u' in de gebruikersinterface van de toestemming.  U mogelijk ook andere bereiken opnemen in deze aanvraag voor het aanvragen van toestemming. |
 | nonce |Vereist |Een waarde die is opgenomen in de aanvraag, die worden gegenereerd door de app, die is opgenomen in de resulterende `id_token` als een claim.  De app kunt vervolgens controleren of deze waarde om te beperken token replay-aanvallen.  De waarde is meestal een unieke tekenreeks van willekeurige of GUID die kan worden gebruikt voor het identificeren van de oorsprong van de aanvraag. |
 | redirect_uri |Aanbevolen |De redirect_uri van uw app, waarbij verificatie reacties kunnen worden verzonden en ontvangen door uw app.  Er moet een van de redirect_uris die u in de portal hebt geregistreerd, behalve het url-codering moet exact overeenkomen. |
-| response_mode |Aanbevolen |Hiermee geeft u de methode die moet worden gebruikt voor het verzenden van de resulterende authorization_code terug naar uw app.  Ondersteunde waarden zijn `form_post` voor *HTTP Formulierbericht* of `fragment` voor *URL-fragment*.  Voor webtoepassingen, wordt u aangeraden `response_mode=form_post` om te controleren of de meest beveiligde overdracht van tokens voor uw toepassing. |
+| response_mode |Aanbevolen |Hiermee geeft u de methode die moet worden gebruikt voor het verzenden van de resulterende authorization_code terug naar uw app.  Ondersteunde waarden zijn `form_post` voor *HTTP Formulierbericht* en `fragment` voor *URL-fragment*.  Voor webtoepassingen, wordt u aangeraden `response_mode=form_post` om te controleren of de meest beveiligde overdracht van tokens voor uw toepassing. De standaardwaarde als `response_mode` niet is opgenomen, is `fragment`.|
 | state |Aanbevolen |Een waarde die is opgenomen in de aanvraag die in het token antwoord wordt geretourneerd.  Een tekenreeks van inhoud die u wenst dat kan zijn.  Een willekeurig gegenereerde unieke waarde wordt doorgaans gebruikt voor [voorkomen van aanvraagvervalsing op meerdere sites aanvallen](http://tools.ietf.org/html/rfc6749#section-10.12).  De status wordt ook gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat het verificatieverzoek opgetreden, zoals de pagina of de weergave op. |
-| prompt |optioneel |Geeft het type van de interactie van de gebruiker die is vereist.  Op dit moment de enige geldige waarden zijn 'aanmelding', 'none', ' toestemming geven '.  `prompt=login`Hiermee wordt de gebruiker gevraagd hun referenties op die aanvraag, het negatief maken van eenmalige aanmelding.  `prompt=none`is het tegenovergestelde - zorgt ervoor dat de gebruiker niet vragen beeïndigen krijgt.  Als de aanvraag kan achtergrond via eenmalige aanmelding worden voltooid, wordt door het eindpunt een fout geretourneerd.  `prompt=consent`de OAuth-triggers toestemming dialoogvenster nadat de gebruiker zich aanmeldt, de gebruiker machtigen om de app wordt gevraagd. |
+| prompt |optioneel |Geeft het type van de interactie van de gebruiker die is vereist.  Op dit moment de enige geldige waarden zijn 'aanmelding', 'none', ' toestemming geven '.  `prompt=login` Hiermee wordt de gebruiker gevraagd hun referenties op die aanvraag, het negatief maken van eenmalige aanmelding.  `prompt=none` is het tegenovergestelde - zorgt ervoor dat de gebruiker niet vragen beeïndigen krijgt.  Als de aanvraag kan achtergrond via eenmalige aanmelding worden voltooid, wordt door het eindpunt een fout geretourneerd.  `prompt=consent` de OAuth-triggers toestemming dialoogvenster nadat de gebruiker zich aanmeldt, de gebruiker machtigen om de app wordt gevraagd. |
 | login_hint |optioneel |Kan worden gebruikt voor het veld gebruikersnaam, e-mailadres van de aanmeldingspagina voor de gebruiker vooraf worden ingevuld als u hun gebruikersnaam tevoren weten.  Vaak apps Gebruik deze parameter tijdens verificatie wordt uitgevoerd, de gebruikersnaam die al worden opgehaald uit een eerdere aanmelden met de `preferred_username` claim. |
 
 Op dit punt wordt wordt de gebruiker gevraagd om hun referenties invoeren en de verificatie te voltooien.
@@ -99,8 +99,8 @@ Op dit punt wordt wordt de gebruiker gevraagd om hun referenties invoeren en de 
 Een voorbeeldantwoord kan nadat de gebruiker is geverifieerd, uitzien:
 
 ```
-POST /myapp/ HTTP/1.1
-Host: localhost
+POST / HTTP/1.1
+Host: localhost:12345
 Content-Type: application/x-www-form-urlencoded
 
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
@@ -115,8 +115,8 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 Foutberichten kunnen ook worden verzonden naar de `redirect_uri` zodat de app ze op de juiste wijze kan verwerken:
 
 ```
-POST /myapp/ HTTP/1.1
-Host: localhost
+POST / HTTP/1.1
+Host: localhost:12345
 Content-Type: application/x-www-form-urlencoded
 
 error=access_denied&error_description=the+user+canceled+the+authentication
@@ -174,10 +174,10 @@ Wanneer het omleiden van de gebruiker de `end_session_endpoint`, Azure AD de geb
 1. Navigeer naar de [Azure-Portal](https://portal.azure.com).
 2. Kies uw Active Directory door te klikken op uw account in de rechterbovenhoek van de pagina.
 3. Kies in het navigatievenster aan de linkerkant **Azure Active Directory**, en kies vervolgens **App registraties** en selecteer uw toepassing.
-4. Klik op **eigenschappen** en zoek de **afmelding URL** in het tekstvak. 
+4. Klik op **instellingen**, klikt u vervolgens **eigenschappen** en zoek de **afmelding URL** in het tekstvak. 
 
 ## <a name="token-acquisition"></a>Token verkrijgen
-Veel WebApps moeten niet alleen Meld u aan de gebruiker in, maar ook toegang tot een webservice namens een gebruiker met OAuth. Dit scenario combineert OpenID Connect voor de verificatie bij het ophalen van tegelijkertijd een `authorization_code` die kunnen worden gebruikt om op te halen `access_tokens` met behulp van OAuth Authorization Code stromen.
+Veel WebApps moeten niet alleen Meld u aan de gebruiker in, maar ook toegang tot een webservice namens een gebruiker met OAuth. Dit scenario combineert OpenID Connect voor de verificatie bij het ophalen van tegelijkertijd een `authorization_code` die kunnen worden gebruikt om op te halen `access_tokens` met behulp van de [OAuth-autorisatie Code stromen](active-directory-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token).
 
 ## <a name="get-access-tokens"></a>Toegangstokens ophalen
 Te verkrijgen toegangstokens, moet u de aanmeldingsverzoek van bovenaf wijzigen:
@@ -188,8 +188,8 @@ Te verkrijgen toegangstokens, moet u de aanmeldingsverzoek van bovenaf wijzigen:
 GET https://login.microsoftonline.com/{tenant}/oauth2/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Application Id
 &response_type=id_token+code
-&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F       // Your registered Redirect Uri, url encoded
-&response_mode=form_post                              // form_post', or 'fragment'
+&redirect_uri=http%3A%2F%2Flocalhost%3a12345          // Your registered Redirect Uri, url encoded
+&response_mode=form_post                              // `form_post' or 'fragment'
 &scope=openid
 &resource=https%3A%2F%2Fservice.contoso.com%2F                                     
 &state=12345                                          // Any value, provided by your app
@@ -233,4 +233,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 Zie voor een beschrijving van de mogelijke foutcodes en hun aanbevolen clientactie [foutcodes voor autorisatie eindpunt fouten](#error-codes-for-authorization-endpoint-errors).
 
-Als u toegang hebt verkregen van een vergunning `code` en een `id_token`, kunt u de gebruiker aanmelden en toegangstokens ophalen in hun naam.  De gebruiker in ondertekenen, moet u controleren de `id_token` precies zoals hierboven is beschreven. Als u toegangstokens, kunt u de stappen in de sectie "De autorisatiecode gebruiken om aan te vragen van een toegangstoken" van onze [OAuth-protocoldocumentatie](active-directory-protocols-oauth-code.md).
+Als u toegang hebt verkregen van een vergunning `code` en een `id_token`, kunt u de gebruiker aanmelden en toegangstokens ophalen in hun naam.  De gebruiker in ondertekenen, moet u controleren de `id_token` precies zoals hierboven is beschreven. Als u toegangstokens, kunt u de stappen in de sectie "De autorisatiecode gebruiken om aan te vragen van een toegangstoken" van onze [OAuth-protocoldocumentatie](active-directory-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token).

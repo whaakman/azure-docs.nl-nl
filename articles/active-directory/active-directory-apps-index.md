@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: ffb8e822644ba8f0bccc3e81edc4da6085ff3ec7
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 2c9a60aaa627a41d023e5d5d7464046df5b55b05
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Article Index for Application Management in Azure Active Directory (Engelstalig)
 Deze pagina bevat een uitgebreide lijst met elk document dat is geschreven over de verschillende functies van de toepassing-gerelateerde in Azure Active Directory (Azure AD).
@@ -43,7 +43,7 @@ Deze sectie biedt snel toegang tot de relevante gidsen voor het oplossen van pro
 | Federatieve eenmalige aanmelding |[Het oplossen van problemen op basis van SAML eenmalige aanmelding](active-directory-saml-debugging.md) |
 | Op basis van wachtwoorden eenmalige aanmelding |[De uitbreiding van het deelvenster toegang tot het oplossen van problemen voor Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
 | Toepassingsproxy |[Toepassingsproxy-handleiding voor probleemoplossing](active-directory-application-proxy-troubleshoot.md) |
-| Eenmalige aanmelding tussen on-premises AD en Azure AD |[Synchronisatie van wachtwoordhash probleemoplossing](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[Wachtwoord terugschrijven probleemoplossing](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| Eenmalige aanmelding tussen on-premises AD en Azure AD |[Synchronisatie van wachtwoordhash probleemoplossing](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[Wachtwoord terugschrijven probleemoplossing](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Lidmaatschap van dynamische groepen |[Het lidmaatschap van dynamische groepen oplossen](active-directory-accessmanagement-troubleshooting.md) |
 
 ## <a name="single-sign-on-sso"></a>Eenmalige aanmelding (SSO)
@@ -96,7 +96,7 @@ Als uw organisatie een Windows Server Active Directory on-premises samen met uw 
 | Een overzicht van de opties voor eenmalige aanmelding die worden aangeboden in Azure AD Connect, evenals informatie over het beheren van hybride omgevingen |[Aanmelding van de gebruiker op opties in Azure AD Connect](active-directory-aadconnect-user-signin.md) |
 | Algemene richtlijnen voor het beheren van omgevingen met zowel on-premises Active Directory en Azure Active Directory |[Ontwerpoverwegingen voor Azure AD-hybride identiteit](active-directory-hybrid-identity-design-considerations-overview.md)<br /><br />[Uw On-Premises identiteiten integreren met Azure Active Directory](active-directory-aadconnect.md) |
 | Hulp bij het gebruik van Wachtwoordsynchronisatie voor het inschakelen van eenmalige aanmelding |[Wachtwoordsynchronisatie implementeren met Azure AD Connect](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)<br /><br />[Probleem met Wachtwoordsynchronisatie oplossen](https://support.microsoft.com/en-us/kb/2855271) |
-| Hulp bij het gebruik van terugschrijven van wachtwoord voor het inschakelen van eenmalige aanmelding |[Aan de slag met wachtwoordbeheer in Azure AD](active-directory-passwords-getting-started.md)<br /><br />[Problemen met Wachtwoord terugschrijven oplossen](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| Hulp bij het gebruik van terugschrijven van wachtwoord voor het inschakelen van eenmalige aanmelding |[Aan de slag met wachtwoordbeheer in Azure AD](authentication/quickstart-sspr.md)<br /><br />[Problemen met Wachtwoord terugschrijven oplossen](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Hulp bij het gebruik van derden id-providers voor het inschakelen van eenmalige aanmelding |[Lijst met compatibele onafhankelijke ID-Providers die kunnen worden gebruikt voor eenmalige aanmelding inschakelen](https://aka.ms/ssoproviders) |
 | Hoe Windows 10-gebruikers kunnen profiteren van de voordelen van eenmalige aanmelding via de Azure AD Join |[Cloudfunctionaliteit uitbreiden naar Windows Join 10-apparaten via Azure Active Directory](active-directory-azureadjoin-overview.md) |
 
@@ -172,7 +172,7 @@ Als uw bedrijf met andere bedrijven samen werkt, is het waarschijnlijk dat u moe
 | Artikel handleiding |  |
 |:---:| --- |
 | Een overzicht van andere Azure AD functies dat kunt u helpt externe gebruikers zoals partners, klanten, enzovoort. |[Vergelijking van mogelijkheden voor het beheren van externe identiteiten in Azure AD](active-directory-b2b-compare-external-identities.md) |
-| Een inleiding tot B2B-samenwerking en hoe u aan de slag |[Veilige, eenvoudige Cloud Partner-integratie met Azure AD](active-directory-b2b-what-is-azure-ad-b2b.md)<br /><br />[Azure Active Directory B2B Collaboration](active-directory-b2b-collaboration-overview.md) |
+| Een inleiding tot B2B-samenwerking en hoe u aan de slag |[Veilige, eenvoudige Cloud Partner-integratie met Azure AD](active-directory-b2b-what-is-azure-ad-b2b.md)<br /><br />[B2B-samenwerking Azure Active Directory](active-directory-b2b-collaboration-overview.md) |
 | Zie voor meer informatie naar Azure AD B2B-samenwerking en het gebruik ervan |[B2B-samenwerking: Hoe het werkt](active-directory-b2b-how-it-works.md)<br /><br />[Huidige beperkingen van Azure AD B2B-samenwerking](active-directory-b2b-current-limitations.md)<br /><br />[Gedetailleerd overzicht van het gebruik van Azure AD B2B-samenwerking](active-directory-b2b-detailed-walkthrough.md) |
 | Verwijzing naar artikelen met technische gegevens over de werking van Azure AD B2B-samenwerking |[CSV-indeling voor het toevoegen van gebruikers van partners](active-directory-b2b-references-csv-file-format.md)<br /><br />[De kenmerken van de gebruiker is van invloed op een Azure AD B2B-samenwerking](active-directory-b2b-references-external-user-object-attribute-changes.md)<br /><br />[Token indeling van de gebruiker voor de Partner-gebruikers](active-directory-b2b-references-external-user-token-format.md) |
 
@@ -186,7 +186,7 @@ De Azure AD-Toegangsvenster is waar eindgebruikers kunnen hun apps starten en to
 | Een vergelijking van de verschillende opties die beschikbaar zijn voor het implementeren van apps voor eenmalige aanmelding voor gebruikers |[Implementatie van Azure AD geïntegreerde toepassingen voor gebruikers](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) |
 | Een overzicht van het toegangsvenster en de mobiele gelijkwaardige MyApps |[Inleiding tot het toegangsvenster en MyApps](active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | Toegang tot Azure AD-apps van de Office 365-website |[Via de Office 365-App starten](https://support.office.com/en-us/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
-| Toegang tot Azure AD-apps uit de mobiele app van Intune Managed Browser |[Intune Managed Browser](https://technet.microsoft.com/en-us/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
+| Toegang tot Azure AD-apps uit de mobiele app van Intune Managed Browser |[Intune Managed Browser](https://technet.microsoft.com/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
 | Toegang tot Azure AD-apps met dieptekoppelingen initiëren eenmalige aanmelding |[Directe aanmelding koppelingen naar uw Apps ophalen](active-directory-appssoaccess-whatis.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
 
 Toegangspaneel is beschikbaar voor [alle edities van Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -210,4 +210,4 @@ Om te zien welke rapporten zijn opgenomen in verschillende versies van Azure Act
 
 [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/)
 
-[Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
+[Azure multi-factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)

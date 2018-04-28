@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: agummadi
-ms.openlocfilehash: 7d6f064be21f717c825843780fac28bc874f46ce
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0d8bee936717a5668e16fbd66d416fcc4e738814
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configureren van netwerk-Prestatiemeter voor ExpressRoute
 
@@ -73,7 +73,7 @@ Maak een werkruimte in het abonnement waarvoor de VNets koppelen aan de ExpressR
 1. In de [Azure-portal](https://portal.azure.com), selecteer het abonnement waarvoor de VNETs brengen aan uw ExpressRoute-circuit. Zoek in de lijst van services in de **Marketplace** voor 'Prestatiemeter netwerk'. Klik in het retourtype op om de **netwerk Prestatiemeter** pagina.
 
    >[!NOTE]
-   >U kunt een nieuwe werkruimte maken of gebruik een bestaande werkruimte.  Als u gebruiken van een bestaande werkruimte wilt, moet u ervoor zorgen dat de werkruimte is gemigreerd naar de nieuwe querytaal. [Meer informatie...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
+   >U kunt een nieuwe werkruimte maken of gebruik een bestaande werkruimte.  Als u gebruiken van een bestaande werkruimte wilt, moet u ervoor zorgen dat de werkruimte is gemigreerd naar de nieuwe querytaal. [Meer informatie...](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-upgrade)
    >
 
    ![portal](.\media\how-to-npm\3.png)<br><br>
@@ -118,7 +118,7 @@ Het is raadzaam dat u ten minste twee agents voor elke zijde van de ExpressRoute
   >
   
   >[!NOTE]
-  >Agents gepusht door SCOM (omvat [MMA](https://technet.microsoft.com/en-us/library/dn465154(v=sc.12).aspx)) mogelijk niet voor het detecteren van consistent hun locatie, als ze worden gehost in Azure.  U wordt aangeraden dat u niet deze agents in Azure VNETs gebruikt ExpressRoute bewaken.
+  >Agents gepusht door SCOM (omvat [MMA](https://technet.microsoft.com/library/dn465154(v=sc.12).aspx)) mogelijk niet voor het detecteren van consistent hun locatie, als ze worden gehost in Azure.  U wordt aangeraden dat u niet deze agents in Azure VNETs gebruikt ExpressRoute bewaken.
   >
   >
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
+ms.date: 04/27/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 168301bbd0e7a59330ee6c87d1821db3fca39f67
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: b3096fbec6a7cc30d1ae3452b6c8b872cf3aec8f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Voorwaarden in Azure Active Directory voorwaardelijke toegang 
 
@@ -45,17 +45,23 @@ In dit artikel biedt een overzicht van de voorwaarden en hoe ze worden gebruikt 
 
 De voorwaarde voor gebruikers en groepen is verplicht in een beleid voor voorwaardelijke toegang. In het beleid, kunt u select **alle gebruikers** of specifieke gebruikers en groepen selecteren.
 
-![Besturingselement](./media/active-directory-conditional-access-conditions/02.png)
+![Besturingselement](./media/active-directory-conditional-access-conditions/111.png)
 
 Wanneer u selecteert:
 
-- **Alle gebruikers**, het beleid wordt toegepast op alle gebruikers met in de map. Dit omvat gastgebruikers.
+- **Alle gebruikers**, het beleid wordt toegepast op alle gebruikers in de map. Dit omvat gastgebruikers.
 
-- **Selecteer gebruikers en groepen**, kunt u bepaalde groepen gebruikers richt. Selecteer bijvoorbeeld een groep met alle leden van de afdeling Personeelszaken wanneer er een HR-app als een cloud-app geselecteerd. 
+- **Selecteer gebruikers en groepen**, kunt u de volgende opties instellen:
 
-- Een groep kan het zijn een type groep in Azure AD, met inbegrip van dynamische of toegewezen beveiligings- en -groepen.
+    - **Alle gastgebruikers** -kunt u een beleid voor gastgebruikers B2B als doel. Deze voorwaarde overeenkomt met een gebruikersaccount met de *userType* -kenmerk ingesteld op *Gast*. U kunt deze instelling gebruiken in gevallen waarin een beleid moet worden toegepast als het account is gemaakt in een stroom uitnodiging In Azure AD.
 
-U kunt ook bepaalde gebruikers of groepen uitsluiten van een beleid. Een veelvoorkomend gebruik geval zijn serviceaccounts als uw beleid zorgt ervoor dat multi-factor authentication-server. 
+    - **Directory-functies** -kunt u een beleid op basis van een gebruiker roltoewijzing. Deze voorwaarde ondersteunt directory-functies, zoals *hoofdbeheerder* of *wachtwoordbeheerder*.
+
+    - **Gebruikers en groepen** -kunt u aan bepaalde groepen gebruikers doel. Selecteer bijvoorbeeld een groep met alle leden van de afdeling Personeelszaken wanneer er een HR-app als een cloud-app geselecteerd.
+
+Een groep kan het type van de groep worden in Azure AD, met inbegrip van dynamische of toegewezen beveiligings- en -groepen
+
+U kunt ook bepaalde gebruikers of groepen uitsluiten van een beleid. Een veelvoorkomend gebruik geval zijn serviceaccounts als uw beleid zorgt ervoor dat multi-factor authentication (MFA). 
 
 Die gericht is op bepaalde groepen gebruikers is nuttig voor de implementatie van een nieuw beleid. In een nieuw beleid, moet u het doel een eerste reeks gebruikers voor het valideren van het gedrag van het beleid. 
 
@@ -105,6 +111,17 @@ Zie voor een volledige lijst met de ondersteunde apparaatplatforms [apparaat pla
 
 
 Een algemeen gebruiksvoorbeeld voor deze voorwaarde is een beleid dat de toegang tot uw cloud-apps naar beperkt [vertrouwde apparaten](active-directory-conditional-access-policy-connected-applications.md#trusted-devices). Zie voor meer scenario's met inbegrip van de voorwaarde van de platform apparaat [voorwaardelijke toegang voor Azure Active Directory op basis van een app](active-directory-conditional-access-mam.md).
+
+
+
+## <a name="device-state"></a>Apparaatstatus
+
+De voorwaarde van de status van apparaten kan die lid zijn van hybride Azure AD en apparaten gemarkeerd als compatibel moeten worden uitgesloten van een beleid voor voorwaardelijke toegang. Dit is handig wanneer een beleid moet alleen van toepassing op een onbeheerd apparaat om extra sessiebeveiliging te bieden. Bijvoorbeeld alleen afdwingen voor het beheer van de Microsoft Cloud App Security-sessies een apparaat is onbeheerd. 
+
+
+![Voorwaarden](./media/active-directory-conditional-access-conditions/112.png)
+
+Als u toegang blokkeren voor onbeheerde apparaten wilt, moet u implementeren [voorwaardelijke toegang op basis van apparaten](active-directory-conditional-access-policy-connected-applications.md).
 
 
 ## <a name="locations"></a>Locaties

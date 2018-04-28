@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 8f41d8f508bb6ee5b50b7f304c703c4d9bed75d8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 8f3d97e26b71c2e17753943f7004d7eb7ee19e44
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>Zelfstudie: Azure Active Directory-integratie met Cisco-Cloud
 
@@ -117,33 +117,17 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     In de **aanmeldings-URL** textbox, typ een URL: `https://<subdomain>.cloudapps.cisco.com`
      
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Deze waarden met de werkelijke id, antwoord-URL en meld u op de URL voor bijwerken. Neem contact op met [Cisco Cloud Client ondersteuningsteam](mailto:cpr-ops@cisco.com) ophalen van deze waarden. 
+    > Deze waarden zijn niet echt. Deze waarden met de werkelijke id, antwoord-URL en meld u op de URL voor bijwerken. Neem contact op met [Cisco Cloud Client ondersteuningsteam](mailto:cpr-ops@cisco.com) ophalen van deze waarden.
 
-5. Klik op **opslaan** knop.
+5. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en plak deze in Kladblok.
+
+    ![De downloadkoppeling certificaat](./media/active-directory-saas-ciscocloud-tutorial/tutorial_ciscocloud_certificate.png)
+
+6. Klik op **opslaan** knop.
 
     ![Knop Single Sign-On opslaan configureren](./media/active-directory-saas-ciscocloud-tutorial/tutorial_general_400.png)
 
-6. Voor het genereren van de **metagegevens-URL**, voer de volgende stappen uit:
-
-    a. Klik op **App registraties**.
-    
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-ciscocloud-tutorial/tutorial_ciscocloud_appregistrations.png)
-   
-    b. Klik op **eindpunten** openen **eindpunten** in het dialoogvenster.  
-    
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-ciscocloud-tutorial/tutorial_ciscocloud_endpointicon.png)
-
-    c. Klik op de knop kopiëren om te kopiëren **DOCUMENT met federatieve metagegevens** url en plak deze in Kladblok.
-    
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-ciscocloud-tutorial/tutorial_ciscocloud_endpoint.png)
-     
-    d. Nu gaat u naar de eigenschappenpagina van **Cisco Cloud** en kopieer de **toepassings-ID** met **kopie** knop en plak deze in Kladblok.
- 
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-ciscocloud-tutorial/tutorial_ciscocloud_appid.png)
-
-    e. Genereren van de **metagegevens-URL** met het volgende patroon volgen: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-7. Eenmalige aanmelding configureren op **Cisco Cloud** zijde, moet u de gedownloade verzenden **metagegevens-URL** naar [Cisco Cloud ondersteuningsteam](mailto:cpr-ops@cisco.com). Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
+7. Eenmalige aanmelding configureren op **Cisco Cloud** kant die u wilt verzenden de **App-Url voor federatieve metagegevens** naar [Cisco Cloud ondersteuningsteam](mailto:cpr-ops@cisco.com). Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 

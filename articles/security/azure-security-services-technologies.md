@@ -3,7 +3,7 @@ title: Azure-beveiligingsservices en -technologieën | Microsoft Docs
 description: Het artikel biedt een samengestelde lijst van de beveiliging van de Azure-services en -technologieën.
 services: security
 documentationcenter: na
-author: TomShinder
+author: barclayn
 manager: MBaldwin
 editor: TomSh
 ms.assetid: a5a7f60a-97e2-49b4-a8c5-7c010ff27ef8
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: yurid
-ms.openlocfilehash: 838987e7fa5e638a980c592f5cdf775d3110fab0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 04/26/2018
+ms.author: barclayn
+ms.openlocfilehash: eedfca2506f9e34b8e5039b0f101b1d4e68ef5a7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-security-services-and-technologies"></a>Azure-beveiligingsservices en -technologieën
+
 In onze overleg met de huidige en toekomstige Azure-klanten, we vaak gevraagd ' hebt u een lijst van de beveiliging van alle gerelateerde services en -technologieën die Azure te bieden heeft? '
 
 Bij het evalueren van de opties voor cloud serviceprovider is het handig om deze informatie.
@@ -28,6 +29,7 @@ Bij het evalueren van de opties voor cloud serviceprovider is het handig om deze
 Hier volgt onze inspanning initiële op een lijst te leveren. Deze lijst wordt gedurende een periode, wijzigen en toenemen, net zoals Azure biedt. De lijst is gecategoriseerd, en de lijst met categorieën ook na verloop van tijd zal toenemen. Controleer of deze pagina regelmatig op de hoogte blijven van onze services betrekking hebben op beveiliging en -technologieën.
 
 ## <a name="azure-security---general"></a>Azure Security - algemeen
+
 * [Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/)
 * [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/)
 * [Azure Disk Encryption](azure-security-disk-encryption.md)
@@ -35,6 +37,7 @@ Hier volgt onze inspanning initiële op een lijst te leveren. Deze lijst wordt g
 * [Azure ontwikkelen en testen Labs](https://azure.microsoft.com/documentation/services/devtest-lab/)
 
 ## <a name="azure-storage-security"></a>Azure Storage-beveiliging
+
 * [Azure Storage-Service: versleuteling](../storage/common/storage-service-encryption.md)
 * [StorSimple versleuteld hybride opslag](https://azure.microsoft.com/documentation/services/storsimple/)
 * [Azure-Client-side '-versleuteling](../storage/common/storage-client-side-encryption.md)
@@ -44,6 +47,7 @@ Hier volgt onze inspanning initiële op een lijst te leveren. Deze lijst wordt g
 * [Azure Storage Analytics](https://msdn.microsoft.com/library/hh343270.aspx)
 
 ## <a name="azure-database-security"></a>Beveiliging van de Azure-Database
+
 * [Azure SQL-Firewall](../sql-database/sql-database-firewall-configure.md)
 * [Versleuteling op Azure SQL-cel](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/)
 * [Versleuteling voor Azure SQL-verbinding](../sql-database/sql-database-control-access.md)
@@ -54,17 +58,20 @@ Hier volgt onze inspanning initiële op een lijst te leveren. Deze lijst wordt g
 * [Azure SQL Database Auditing](../sql-database/sql-database-auditing.md)
 
 ## <a name="azure-identity-and-access-management"></a>Azure Identity and Access Management
+
 * [Toegangsbeheer op basis van een Azure-functie](../role-based-access-control/role-assignments-portal.md)
 * [Azure Active Directory](../active-directory/active-directory-whatis.md)
 * [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-get-started.md)
 * [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-overview.md)
-* [Azure multi-factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
+* [Azure multi-factor Authentication](../active-directory/authentication/multi-factor-authentication.md)
 
 ## <a name="backup-and-disaster-recovery"></a>Back-up en herstel na noodgevallen
+
 * [Azure Backup](https://azure.microsoft.com/documentation/services/backup/)
 * [Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery/)
 
 ## <a name="azure-networking"></a>Azure-netwerken
+
 * [Netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md)
 * [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 * [Azure Application Gateway](../application-gateway/application-gateway-introduction.md)

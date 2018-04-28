@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 0694c45363eb2534416f1dad59196ecfa1dacd17
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3b4d99fe883cf52ca7f1ef98e70b7f3a1bccd5ae
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Status van resourcetypen en controleert in Azure resourcestatus
 Hieronder ziet u een volledige lijst met alle controles uitgevoerd via een resourcestatus door resourcetypen.
@@ -48,7 +48,7 @@ Hieronder ziet u een volledige lijst met alle controles uitgevoerd via een resou
 |---|
 |<ul><li>Het account kan worden bereikt vanaf binnen het datacenter?</li><li>Is de cognitieve Services Resource Provider beschikbaar?</li><li>De cognitieve Service beschikbaar is in de juiste regio?</li><li>Kan lezen bewerkingen worden uitgevoerd op het opslagaccount van de resource-metagegevens?</li><li>Het quotum van API-aanroep is bereikt?</li><li>Is de API-aanroep lezen-limiet bereikt?</li></ul>|
 
-## <a name="microsoftcomputevirtualmachines"></a>Microsoft.compute/virtualmachines
+## <a name="microsoftcomputevirtualmachines"></a>Microsoft.COMPUTE/virtualmachines
 |Uitgevoerde controles|
 |---|
 |<ul><li>De server die als host fungeert deze virtuele machine omhoog en uitgevoerd?</li><li>Is de host-OS opstarten voltooid?</li><li>De container voor de virtuele machine is ingericht en ingeschakeld?</li><li>Er is een netwerkverbinding tussen de host en het storage-account?</li><li>Is het opstarten van het gastbesturingssysteem voltooid?</li><li>Is er lopende gepland onderhoud?</li></ul>|
@@ -75,7 +75,7 @@ Hieronder ziet u een volledige lijst met alle controles uitgevoerd via een resou
 |---|
 |<ul><li>Er is een database of een verzameling aanvragen niet worden geleverd vanwege een Cosmos-DB Azure-service niet beschikbaar zijn?</li><li>Er zijn aanvragen-document niet worden geleverd vanwege een Cosmos-DB Azure-service niet beschikbaar zijn?</li></ul>|
 
-## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
+## <a name="microsoftnetworkconnections"></a>Microsoft.Network/Connections
 |Uitgevoerde controles|
 |---|
 |<ul><li>Is de VPN-tunnel aangesloten?</li><li>Zijn er conflicten bij de configuratie in de verbinding?</li><li>De vooraf gedeelde sleutels juist zijn geconfigureerd?</li><li>De on-premises VPN-apparaat bereikbaar is?</li><li>Zijn er verschillen in het beveiligingsbeleid IPSec/IKE?</li><li>Is de S2S VPN-verbinding juist is ingericht of in een foutstatus?</li><li>Is de VNET-naar-VNET-verbinding juist is ingericht of in een foutstatus?</li></ul>|
@@ -113,7 +113,7 @@ Hieronder ziet u een volledige lijst met alle controles uitgevoerd via een resou
 ## <a name="microsoftwebserverfarms"></a>Microsoft.web/serverFarms
 |Uitgevoerde controles|
 |---|
-|<ul><li>De hostserver is actief en werkend?</li><li>Internet Information Services wordt uitgevoerd</li><li>Is de Load balancer wordt uitgevoerd?</li><li>Kan de Web Service-Plan worden bereikt vanaf binnen het datacenter?</li><li>Het opslagaccount als host fungeert voor de sites inhoud voor de serverFarm beschikbaar veldnamenrij?</li></ul>|
+|<ul><li>De hostserver is actief en werkend?</li><li>Internet Information Services wordt uitgevoerd</li><li>Is de Load balancer wordt uitgevoerd?</li><li>Kan de App Service-Plan worden bereikt vanaf binnen het datacenter?</li><li>Het opslagaccount als host fungeert voor de sites inhoud voor de serverFarm beschikbaar veldnamenrij?</li></ul>|
 
 ## <a name="microsoftwebsites"></a>Microsoft.web/sites
 |Uitgevoerde controles|

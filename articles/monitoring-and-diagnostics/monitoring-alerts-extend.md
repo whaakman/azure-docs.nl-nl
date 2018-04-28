@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/06/2018
 ms.author: vinagara
-ms.openlocfilehash: 445adb7f57332a285494c744763f633806d2675e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 54ec12f24ddbad6227a306aeae86658807f85b4e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="extend-copy-alerts-from-oms-portal-into-azure"></a>Waarschuwingen (kopiëren) van OMS-portal in Azure uitbreiden
 De portal Operations Management Suite (OMS) bevat alleen logboekanalyse waarschuwingen.  De nieuwe waarschuwingen is nu geïntegreerd ervaring voor de waarschuwingen over verschillende services en onderdelen in Microsoft Azure. De nieuwe ervaring beschikbaar als **waarschuwingen** onder Azure Monitor in de Azure portal bevat activiteit logboek waarschuwingen, metrische waarschuwingen en logboek waarschuwingen voor logboekanalyse en Application Insights. 
@@ -43,7 +43,7 @@ Wanneer de waarschuwingen in een werkruimte voor logboekanalyse ophalen gepland 
  ![Tijdens de geplande periode, in te grijpen op waarschuwingen omgeleid naar Azure](./media/monitor-alerts-extend/ScheduledDirection.png)
 
 > [!NOTE]
-> Waarschuwingen van OMS-portal uitbreiden naar Azure is niet in rekening gebracht en informatie over het gebruik van Azure waarschuwingen voor de query op basis van logboekanalyse waarschuwingen wordt niet in rekening gebracht, wanneer gebruikt binnen de grenzen en voorwaarden die worden vermeld in de [prijsbeleid Azure-Monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/)  
+> Waarschuwingen van OMS-portal uitbreiden naar Azure is niet in rekening gebracht en informatie over het gebruik van Azure waarschuwingen voor de query op basis van logboekanalyse waarschuwingen wordt niet in rekening gebracht, wanneer gebruikt binnen de grenzen en voorwaarden die worden vermeld in de [prijsbeleid Azure-Monitor](https://azure.microsoft.com/pricing/details/monitor/)  
 
 Gebruikers kunnen profiteren van de voordelen van het uitbreiden van waarschuwingen voor deze datum; door vrijwillig uitschakelen zodat hun waarschuwingen beheren in Azure.
 

@@ -2,10 +2,10 @@
 title: Beveiligingsfuncties die beschermen hybride back-ups die gebruikmaken van Azure Backup | Microsoft Docs
 description: Informatie over het gebruik van beveiligingsfuncties in Azure Backup back-ups om veiliger te maken
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: JPallavi
 manager: vijayts
-editor: 
+editor: ''
 ms.assetid: 47bc8423-0a08-4191-826d-3f52de0b4cb8
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: pajosh
-ms.openlocfilehash: f856303d4abf05178eb11a242b87390ff1484e1b
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 2529d19dbf0ca0fb59f5abe48be3e8b14e862e29
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Beveiligingsfuncties die beschermen hybride back-ups die gebruikmaken van Azure Backup
 Opmerkingen over beveiligingsproblemen, zoals malware, ransomware en inbraakdetectie, meer. Deze beveiligingsproblemen kunnen kostbare in termen van gegevens en geld zijn. Azure Backup biedt nu beveiligingsfuncties ter bescherming van back-ups hybride als bescherming tegen dergelijke aanvallen. In dit artikel bevat informatie over het inschakelen en gebruiken van deze functies met behulp van een Azure Recovery Services-agent en de Azure Backup-Server. Deze functies:
@@ -55,7 +55,7 @@ Als u een Recovery Services-kluis maakt, kunt u alle beveiligingsfuncties. Als u
     ![Schermopname van Recovery Services-kluis eigenschappen](./media/backup-azure-security-feature/security-settings-update.png)
 
     Hiermee opent u de koppeling voor het bijwerken de **beveiligingsinstellingen** blade die bevat een samenvatting van de functies en kunt u ze inschakelen.
-5. In de lijst vervolgkeuzelijst **hebt geconfigureerd Azure multi-factor Authentication?**, selecteert u een waarde om te bevestigen of u hebt ingeschakeld [Azure multi-factor Authentication](../multi-factor-authentication/multi-factor-authentication.md). Als deze is ingeschakeld, wordt u gevraagd om te verifiëren vanaf een ander apparaat (bijvoorbeeld een mobiele telefoon) tijdens het aanmelden bij de Azure-portal.
+5. In de lijst vervolgkeuzelijst **hebt geconfigureerd Azure multi-factor Authentication?**, selecteert u een waarde om te bevestigen of u hebt ingeschakeld [Azure multi-factor Authentication](../active-directory/authentication/multi-factor-authentication.md). Als deze is ingeschakeld, wordt u gevraagd om te verifiëren vanaf een ander apparaat (bijvoorbeeld een mobiele telefoon) tijdens het aanmelden bij de Azure-portal.
 
    Wanneer u kritieke bewerkingen in back-up uitvoert, hebt u een PINCODE, beschikbaar is op de Azure portal-beveiliging opgeven. Azure multi-factor Authentication inschakelt, wordt een beveiligingslaag toegevoegd. Alleen gebruikers met een geldige Azure-referenties geautoriseerde en van een tweede apparaat is geverifieerd, toegang tot de Azure-portal.
 6. Selecteren om op te slaan beveiligingsinstellingen, **inschakelen** en klik op **opslaan**. U kunt selecteren **inschakelen** pas nadat u een waarde van de **hebt geconfigureerd Azure multi-factor Authentication?** lijst in de vorige stap.
@@ -106,7 +106,7 @@ Wanneer een kritieke bewerking wordt uitgevoerd, wordt de abonnementsbeheerder n
 
 De beveiligingsfuncties in dit artikel genoemde bieden verdediging mechanismen tegen gerichte aanvallen. Belangrijker is, als een aanval gebeurt, bieden deze functies u de mogelijkheid om uw gegevens te herstellen.
 
-## <a name="troubleshooting-errors"></a>Het oplossen van problemen
+## <a name="troubleshooting-errors"></a>Fouten oplossen
 | Bewerking | Foutdetails | Oplossing |
 | --- | --- | --- |
 | Beleid wijzigen |Het back-upbeleid kan niet worden gewijzigd. Fout: De huidige bewerking is mislukt vanwege een interne servicefout [0x29834]. Probeer het later opnieuw. Neem contact op met Microsoft Ondersteuning als het probleem zich blijft voordoen. |**Oorzaak:**<br/>Deze fout wordt geleverd wanneer beveiligingsinstellingen zijn ingeschakeld, u probeert te verkort de bewaartermijn lager dan de minimale waarden die hierboven is opgegeven en u zich op een niet-ondersteunde versie (ondersteunde versies zijn opgegeven in de eerste notitie van dit artikel). <br/>**Aanbevolen actie:**<br/> In dit geval moet u de bewaarperiode boven de minimale periode opgegeven bewaarperiode (zeven dagen voor dagelijks, vier weken wekelijks, drie weken voor maandelijks of één jaar voor per jaar) instellen om door te gaan met het beleid betrekking updates. Gewenste aanpak kan eventueel worden back-upagent, Azure Backup-Server en/of DPM UR gebruikmaken van alle beveiligingsupdates bijwerken. |

@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: .net
 author: pkcsf
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/26/2018
 ms.author: pkc
-ms.openlocfilehash: 970f1ff59560beaf898f22eb4e701088a6d5902a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ec634dd19cf1e944c768e1d368f114f66e9c38a9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-service-fabric-support-options"></a>Opties voor Azure Service Fabric-ondersteuning
 
@@ -30,7 +30,7 @@ Open een ticket voor de ondersteuning voor het melden van problemen op uw Servic
 
 Meer informatie over:
  
-- [Ondersteuning van Microsoft voor Azure](https://azure.microsoft.com/en-us/support/plans/?b=16.44).
+- [Ondersteuning van Microsoft voor Azure](https://azure.microsoft.com/support/plans/?b=16.44).
 - [Microsoft premier support](https://support.microsoft.com/en-us/premier).
 
 <a id="getlivesitesupportonprem"></a>
@@ -63,8 +63,8 @@ Zorg ervoor dat het cluster een ondersteunde versie van Service Fabric altijd wo
 
 Raadpleeg de volgende documenten voor meer informatie over hoe u uw een ondersteunde versie van Service Fabric-cluster.
 
-- [Upgrade van Service Fabric-versie op een Azure-cluster](service-fabric-cluster-upgrade.md)
-- [Upgrade van Service Fabric-versie op een zelfstandige windows server-cluster](service-fabric-cluster-upgrade-windows-server.md)
+- [Upgrade van Service Fabric-versie op een Azure-cluster ](service-fabric-cluster-upgrade.md)
+- [Upgrade van Service Fabric-versie op een zelfstandige windows server-cluster ](service-fabric-cluster-upgrade-windows-server.md)
  
 Hier vindt u de lijst met de Service Fabric-versies die worden ondersteund en de einddatum van de ondersteuning.
 
@@ -77,7 +77,8 @@ Hier vindt u de lijst met de Service Fabric-versies die worden ondersteund en de
 | 5.6.* | 5.4.164.* |Kleiner dan of gelijk zijn aan versie 2.6 |Oktober 13,2017   |
 | 5.7.* | 5.4.164.* |Kleiner dan of gelijk zijn aan versie 2.7 |December 15,2017  |
 | 6.0.* | 5.6.205.* |Kleiner dan of gelijk zijn aan versie 2.8 |30,2018 maart     | 
-| 6.1.* | 5.7.221.* |Kleiner dan of gelijk zijn aan versie 3.0 |Huidige versie en dus geen einddatum |
+| 6.1.* | 5.7.221.* |Kleiner dan of gelijk zijn aan versie 3.0 |Juni 15,2018      |
+| 6.2. * | 6.0.232.* |Kleiner dan of gelijk zijn aan versie 3.1 |Huidige versie en dus geen einddatum |
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Service Fabric-Preview versies - wordt niet ondersteund voor gebruik in productieomgevingen.
 Van tijd tot tijd brengen we versies die we feedback willen, belangrijke functies die worden uitgebracht als voorbeelden hebben. Deze preview-versies mag alleen worden gebruikt voor testdoeleinden. Uw productiecluster moet altijd een ondersteunde, stabiele, Service Fabric-versie worden uitgevoerd. Een preview-versie begint altijd met een primaire en secundaire versienummer van 255. Bijvoorbeeld, als er een Service Fabric versie 255.255.5703.949, die versie alleen moet worden gebruikt in testclusters en is Preview-versie. Deze preview-versies worden ook vermeld in de [Service Fabric-teamblog](https://blogs.msdn.microsoft.com/azureservicefabric) en details hebben op de functies die worden.
@@ -86,8 +87,8 @@ Er is geen ondersteuningsoptie betaalde voor deze preview-versies. Gebruik een v
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Upgrade van service fabric-versie op een Azure-cluster](service-fabric-cluster-upgrade.md)
-- [Upgrade van Service Fabric-versie op een zelfstandige windows server-cluster](service-fabric-cluster-upgrade-windows-server.md)
+- [Upgrade van service fabric-versie op een Azure-cluster ](service-fabric-cluster-upgrade.md)
+- [Upgrade van Service Fabric-versie op een zelfstandige windows server-cluster ](service-fabric-cluster-upgrade-windows-server.md)
 
 <!--references-->
 [msdn-forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric

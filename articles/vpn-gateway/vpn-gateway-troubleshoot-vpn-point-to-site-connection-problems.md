@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2018
 ms.author: genli
-ms.openlocfilehash: 51076c225167accaf386190eeda4ec159cb5657d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 503dcd87bf87ffb204b03780fc11f30825ac35ef
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Voor probleemoplossing: Problemen met de Azure-punt-naar-site-verbinding
 
@@ -30,7 +30,7 @@ Dit artikel worden veelvoorkomende problemen met de punt-naar-site-verbinding di
 
 Wanneer u probeert verbinding maken met een Azure-netwerk met behulp van de VPN-client, wordt het volgende foutbericht weergegeven:
 
-**Een certificaat kan niet worden gevonden die kan worden gebruikt met dit Extensible Authentication Protocol. (Error 798)**
+**Een certificaat kan niet worden gevonden die kan worden gebruikt met dit Extensible Authentication Protocol. (Fout 798)**
 
 ### <a name="cause"></a>Oorzaak
 
@@ -318,7 +318,7 @@ Deze fout treedt op als de RADIUS-server die u hebt gebruikt voor het verifiëre
 
 ### <a name="solution"></a>Oplossing
 
-Zorg ervoor dat de RADIUS-server correct is geconfigureerd. Zie voor meer informatie [integreren RADIUS-verificatie met Azure multi-factor Authentication-Server](../multi-factor-authentication/multi-factor-authentication-get-started-server-radius.md).
+Zorg ervoor dat de RADIUS-server correct is geconfigureerd. Zie voor meer informatie [integreren RADIUS-verificatie met Azure multi-factor Authentication-Server](../active-directory/authentication/howto-mfaserver-dir-radius.md).
 
 ## <a name="error-405-when-you-download-root-certificate-from-vpn-gateway"></a>'Fout 405' wanneer u een basiscertificaat downloaden van de VPN-Gateway
 

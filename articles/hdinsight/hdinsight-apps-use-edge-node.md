@@ -12,13 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2018
+ms.date: 04/23/2018
 ms.author: jgao
-ms.openlocfilehash: 6cb7bb982da36256707d080a7f5118127deb3a9c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 95ffc033a442fcf6074998398104ccb01e7a01a7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Lege edge-knooppunten op Hadoop-clusters in HDInsight gebruiken
 
@@ -73,12 +73,11 @@ Nadat u een edge-knooppunt hebt gemaakt, kunt u verbinding maken met het edge-kn
 > Hetzelfde als de clusters, edge-knooppunten zijn ook patch beheerd.  Zie voor meer informatie [OS patches voor HDInsight](./hdinsight-os-patching.md).
 
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Een edge-knooppunt toevoegen aan een bestaand cluster
-In deze sectie kunt u een Resource Manager-sjabloon gebruiken een edge-knooppunt toevoegen aan een bestaand HDInsight-cluster.  De Resource Manager-sjabloon kunt u vinden in [GitHub](https://azure.microsoft.com/en-us/resources/templates/101-hdinsight-linux-add-edge-node/). De Resource Manager-sjabloon roept een scriptactie zich bevindt op https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. Het script heeft geen acties uitvoeren.  Het is voor het demonstreren van aanroepen scriptactie van Resource Manager-sjabloon.
+In deze sectie kunt u een Resource Manager-sjabloon gebruiken een edge-knooppunt toevoegen aan een bestaand HDInsight-cluster.  De Resource Manager-sjabloon kunt u vinden in [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-add-edge-node/). De Resource Manager-sjabloon roept een scriptactie zich bevindt op https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. Het script heeft geen acties uitvoeren.  Het is voor het demonstreren van aanroepen scriptactie van Resource Manager-sjabloon.
 
 **Een leeg edge-knooppunt toevoegen aan een bestaand cluster**
 
-1. Een HDInsight-cluster maken als u nog niet hebt.  Zie [Hadoop-zelfstudie: aan de slag met Hadoop in HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
-2. Klik op de volgende afbeelding om te melden bij Azure en open de Azure Resource Manager-sjabloon in de Azure-portal. 
+1. Klik op de volgende afbeelding om te melden bij Azure en open de Azure Resource Manager-sjabloon in de Azure-portal. 
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-add-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>
 3. Configureer de volgende eigenschappen:
@@ -98,7 +97,7 @@ In deze sectie kunt u een Resource Manager-sjabloon gebruiken een edge-knooppunt
 ## <a name="add-an-edge-node-when-creating-a-cluster"></a>Een edge-knooppunt toevoegen bij het maken van een cluster
 In deze sectie kunt u een Resource Manager-sjabloon maken van HDInsight-cluster met een edge-knooppunt.  De Resource Manager-sjabloon kunt u vinden in de [galerie van Azure-Snelstartsjablonen](https://azure.microsoft.com/documentation/templates/101-hdinsight-linux-with-edge-node/). De Resource Manager-sjabloon roept een scriptactie zich bevindt op https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh. Het script heeft geen acties uitvoeren.  Het is voor het demonstreren van aanroepen scriptactie van Resource Manager-sjabloon.
 
-**Een leeg edge-knooppunt toevoegen aan een bestaand cluster**
+**Maken van een HDInsight-cluster met een edge-knooppunt**
 
 1. Een HDInsight-cluster maken als u nog niet hebt.  Zie [aan de slag met Hadoop in HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 2. Klik op de volgende afbeelding om te melden bij Azure en open de Azure Resource Manager-sjabloon in de Azure-portal. 
@@ -132,7 +131,7 @@ Het edge-knooppunt wordt weergegeven als een toepassing op de Azure-portal.  De 
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Open het HDInsight-cluster met een edge-knooppunt.
-3. Klik op **toepassingen** uit de cluster-blade. U ziet het edge-knooppunt.  De standaardnaam is **nieuwe edgenode**.
+3. Klik op **toepassingen**. U ziet het edge-knooppunt.  De standaardnaam is **nieuwe edgenode**.
 4. Klik op de edge-knooppunt. U ziet het SSH-eindpunt.
 
 **Hive gebruiken op de edge-knooppunt**
@@ -153,7 +152,7 @@ U kunt een edge-knooppunt verwijderen uit de Azure-portal.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Open het HDInsight-cluster met een edge-knooppunt.
-3. Klik op **toepassingen** uit de cluster-blade. U ziet een lijst met knooppunten van de rand.  
+3. Klik op **toepassingen**. U ziet een lijst met knooppunten van de rand.  
 4. Met de rechtermuisknop op de edge-knooppunt dat u wilt verwijderen en klik vervolgens op **verwijderen**.
 5. Klik op **Ja** om te bevestigen.
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: migreene
-ms.openlocfilehash: e23d0a70cdfcc1b37f02d86dd6418aa28c5bbf2c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: b6bfe48df685952d2b465d9549e2f1c086c1c490
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Inleiding tot de handler van de extensie Azure Desired State Configuration
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/06/2018
 
 De Azure VM-Agent en de bijbehorende extensies uitmaken deel van Microsoft Azure-infrastructuurservices. VM-extensies zijn softwareonderdelen die VM-functionaliteit uitbreiden en verschillende bewerkingen VM vereenvoudigen.
 
-De primaire gebruiksvoorbeeld voor de extensie Azure Desired State Configuration (DSC) wordt bootstrap van een virtuele machine naar de [Azure Automation DSC-service](../../automation/automation-dsc-overview.md). Een virtuele machine uitvoeren van de bootstrap biedt [voordelen](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#pull-service) die voortdurend beheer van de VM-configuratie en integratie met andere operationele's, zoals Azure-bewaking bevatten.
+De primaire gebruiksvoorbeeld voor de extensie Azure Desired State Configuration (DSC) wordt bootstrap van een virtuele machine naar de [Azure Automation DSC-service](../../automation/automation-dsc-overview.md). Een virtuele machine uitvoeren van de bootstrap biedt [voordelen](https://docs.microsoft.com/powershell/dsc/metaconfig#pull-service) die voortdurend beheer van de VM-configuratie en integratie met andere operationele's, zoals Azure-bewaking bevatten.
 
 U kunt de DSC-uitbreiding onafhankelijk van de service Automation DSC. Dit omvat echter een enkelvoud actie op die tijdens de implementatie plaatsvindt. Er zijn geen actieve rapportage of Configuratiebeheer is beschikbaar, anders dan lokaal in de virtuele machine.
 
@@ -49,7 +49,7 @@ Deze handleiding wordt ervan uitgegaan dat bekend bent met de volgende concepten
 
 ## <a name="architecture"></a>Architectuur
 
-De extensie Azure DSC maakt gebruik van het framework Azure VM-Agent te leveren, nemen en een rapport over DSC-configuraties die zijn uitgevoerd op Azure Virtual machines. De DSC-uitbreiding accepteert een configuratie-document en een aantal parameters. Als geen bestand is opgegeven, een [standaard configuratiescript](#default-configuration-script) met de extensie is ingesloten. Een script voor de configuratie van de standaard wordt alleen gebruikt om het instellen van metagegevens in [Local Configuration Manager](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig).
+De extensie Azure DSC maakt gebruik van het framework Azure VM-Agent te leveren, nemen en een rapport over DSC-configuraties die zijn uitgevoerd op Azure Virtual machines. De DSC-uitbreiding accepteert een configuratie-document en een aantal parameters. Als geen bestand is opgegeven, een [standaard configuratiescript](#default-configuration-script) met de extensie is ingesloten. Een script voor de configuratie van de standaard wordt alleen gebruikt om het instellen van metagegevens in [Local Configuration Manager](https://docs.microsoft.com/powershell/dsc/metaconfig).
 
 Als de extensie voor het eerst wordt aangeroepen, wordt een versie van WMF geïnstalleerd met behulp van de volgende logica:
 
@@ -61,7 +61,7 @@ Installeren van WMF opnieuw worden opgestart. Start opnieuw op en de uitbreiding
 
 ### <a name="default-configuration-script"></a>Standaard-configuratiescript
 
-De extensie Azure DSC bevat een standaard-configuratiescript die is bedoeld om te worden gebruikt wanneer u met het voorbereiden een virtuele machine met de service Azure Automation DSC. De scriptparameters zijn uitgelijnd met de configureerbare eigenschappen van [Local Configuration Manager](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig). Zie voor scriptparameters [standaard configuratiescript](extensions-dsc-template.md#default-configuration-script) in [Desired State Configuration-extensie met Azure Resource Manager-sjablonen](extensions-dsc-template.md). Zie voor het volledige script de [Azure quickstart-sjabloon in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
+De extensie Azure DSC bevat een standaard-configuratiescript die is bedoeld om te worden gebruikt wanneer u met het voorbereiden een virtuele machine met de service Azure Automation DSC. De scriptparameters zijn uitgelijnd met de configureerbare eigenschappen van [Local Configuration Manager](https://docs.microsoft.com/powershell/dsc/metaconfig). Zie voor scriptparameters [standaard configuratiescript](extensions-dsc-template.md#default-configuration-script) in [Desired State Configuration-extensie met Azure Resource Manager-sjablonen](extensions-dsc-template.md). Zie voor het volledige script de [Azure quickstart-sjabloon in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>DSC-extensie in de Resource Manager-sjablonen
 

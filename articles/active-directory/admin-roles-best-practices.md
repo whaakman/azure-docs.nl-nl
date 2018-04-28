@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 09ee56627f6c254362d9fbc3c665494418efb1dc
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 109a5b50688ca0b2c4edc63b6ba5c89bac74a6d3
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Bevoegde toegang voor hybride en cloud-implementaties beveiligen in Azure AD
 
@@ -118,7 +118,7 @@ Denk na over de accounts die toegewezen of komt in aanmerking voor de rol global
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Meervoudige verificatie inschakelen en alle andere maximaal bevoegdheden één gebruiker niet-gefedereerde beheerdersaccounts registreren 
 
-Azure multi-factor Authentication (MFA) vereist bij het aanmelden voor alle afzonderlijke gebruikers die permanent zijn toegewezen aan een of meer van de Azure AD-beheerdersrollen: hoofdbeheerder, beheerder met bevoorrechte rol beheerder van Exchange Online en SharePoint Online-beheerder. De gids gebruiken om in te schakelen [multi-factor Authentication (MFA) voor uw beheerdersaccounts](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) en zorg ervoor dat alle gebruikers hebt geregistreerd bij [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup). Meer informatie vindt u in stap 2 en 3 van de handleiding [beveiligen van toegang tot gegevens en services in Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Azure multi-factor Authentication (MFA) vereist bij het aanmelden voor alle afzonderlijke gebruikers die permanent zijn toegewezen aan een of meer van de Azure AD-beheerdersrollen: hoofdbeheerder, beheerder met bevoorrechte rol beheerder van Exchange Online en SharePoint Online-beheerder. De gids gebruiken om in te schakelen [multi-factor Authentication (MFA) voor uw beheerdersaccounts](authentication/howto-mfa-userstates.md) en zorg ervoor dat alle gebruikers hebt geregistreerd bij [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup). Meer informatie vindt u in stap 2 en 3 van de handleiding [beveiligen van toegang tot gegevens en services in Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>Stap 2: De meest gebruikte aanval technieken beperken
 
@@ -164,8 +164,8 @@ Azure AD raadt aan dat u multi-factor authentication (MFA) voor alle gebruikers,
 
 Inschakelen:
 
-* [MFA voor hoge blootstelling accounts](../multi-factor-authentication/multi-factor-authentication-security-best-practices.md) zoals accounts van managers in een organisatie 
-* [MFA voor elke beheeraccount die is gekoppeld aan een afzonderlijke gebruiker](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) voor andere SaaS-apps verbonden 
+* [MFA voor hoge blootstelling accounts](authentication/multi-factor-authentication-security-best-practices.md) zoals accounts van managers in een organisatie 
+* [MFA voor elke beheeraccount die is gekoppeld aan een afzonderlijke gebruiker](authentication/howto-mfa-userstates.md) voor andere SaaS-apps verbonden 
 * MFA voor alle beheerders voor Microsoft SaaS-apps, inclusief beheerders in rollen beheerd Exchange Online en de Office-portal
 
 Als u Windows Hello voor bedrijven, kan de MFA-vereiste worden voldaan met behulp van het Windows Hello teken in de gebruikerservaring. Zie voor meer informatie [Windows Hello](https://docs.microsoft.com/windows/uwp/security/microsoft-passport). 

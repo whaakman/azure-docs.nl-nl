@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2017
+ms.date: 04/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4f82e436e25d01bbfa09ec1e8a2efcdf0be8c006
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 81c5b6051b8e1b1812e47cfcb64538c25ee8bfe5
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Een rondleiding van Analytics in Application Insights
 [Analytics](app-insights-analytics.md) is de functie krachtige zoeken van [Application Insights](app-insights-overview.md). Deze pagina's worden de Log Analytics query language beschreven.
@@ -33,7 +33,7 @@ Analytics openen vanuit uw app [overzichtsblade](app-insights-dashboards.md) in 
 
 ![Open portal.azure.com open uw Application Insights-resource en klik op Analytics.](./media/app-insights-analytics-tour/001.png)
 
-## <a name="takehttpsdocsloganalyticsioquerylanguagequerylanguagetakeoperatorhtml-show-me-n-rows"></a>[Nemen](https://docs.loganalytics.io/queryLanguage/query_language_takeoperator.html): n rijen weergeven
+## <a name="takehttpsdocsloganalyticsiodocslanguage-referencetabular-operators-show-me-n-rows"></a>[Nemen](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators): n rijen weergeven
 Gegevenspunten die zich gebruiker operations (meestal HTTP-aanvragen ontvangen door uw web-app aanmelden) worden opgeslagen in een tabel met de naam `requests`. Elke rij is een telemetrie gegevenspunt ontvangen van de Application Insights-SDK in uw app.
 
 Begin met het onderzoeken van een paar voorbeeld-rijen van de tabel:
@@ -68,7 +68,7 @@ Als u gegevens uit meerdere Application Insights-toepassingen wilt, gebruikt u d
     
 ```
 
-## <a name="tophttpsdocsloganalyticsioquerylanguagequerylanguagetopoperatorhtml-and-sorthttpsdocsloganalyticsioquerylanguagequerylanguagesortoperatorhtml"></a>[Top](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) en [sorteren](https://docs.loganalytics.io/queryLanguage/query_language_sortoperator.html)
+## <a name="tophttpsdocsloganalyticsiodocslanguage-referencetabular-operatorstop-operator-and-sorthttpsdocsloganalyticsiodocslanguage-referencetabular-operatorssort-operator"></a>[Top](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/top-operator) en [sorteren](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator)
 `take` is handig om een snel voorbeeld van een resultaat, maar er rijen uit de tabel wordt weergegeven in een willekeurige volgorde. Als u een geordende weergeven, gebruikt `top` (voor een voorbeeld) of `sort` (via de hele tabel).
 
 De eerste n rijen, geordend op een bepaalde kolom weergeven:
@@ -94,7 +94,7 @@ Het resultaat zou zijn hetzelfde, maar deze zou iets langzamer uitgevoerd. (U ku
 
 De kolomkoppen in de tabelweergave kunnen ook worden gebruikt om te sorteren van de resultaten op het scherm. Maar natuurlijk, als u hebt gebruikt `take` of `top` om op te halen, alleen deel uitmaken van een tabel, te klikken op de kolomkop wordt alleen opnieuw rangschikken de records die u hebt opgehaald.
 
-## <a name="wherehttpsdocsloganalyticsioquerylanguagequerylanguagewhereoperatorhtml-filtering-on-a-condition"></a>[Waar](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html): voor het filteren van een voorwaarde
+## <a name="wherehttpsdocsloganalyticsiodocslanguage-referencetabular-operatorswhere-operator-filtering-on-a-condition"></a>[Waar](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator): voor het filteren van een voorwaarde
 
 Laten we zien alleen aanvragen die een bepaalde resultaatcode geretourneerd:
 
@@ -173,7 +173,7 @@ Andere voorbeelden:
 [Datums en tijden verwijzing](https://docs.loganalytics.io/docs/Language-Reference/Data-types/datetime).
 
 
-## <a name="projecthttpsdocsloganalyticsioquerylanguagequerylanguageprojectoperatorhtml-select-rename-and-compute-columns"></a>[Project](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html): selecteren en de namen van kolommen berekenen
+## <a name="projecthttpsdocsloganalyticsiodocslanguage-referencetabular-operatorsproject-operator-select-rename-and-compute-columns"></a>[Project](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator): selecteren en de namen van kolommen berekenen
 Gebruik [ `project` ](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html) te pikken kolommen u wilt:
 
 ```AIQL
@@ -207,7 +207,7 @@ U kunt ook wijzigen van kolommen en definiëren van nieuwe:
 Expressies kunnen bevatten de gebruikelijke operators (`+`, `-`,...), en er is een aantal handige functies.
 
 ## <a name="extend"></a>Breid uit
-Als u alleen kolommen toevoegen aan een bestaande wilt, gebruikt u [ `extend` ](https://docs.loganalytics.io/queryLanguage/query_language_extendoperator.html):
+Als u alleen kolommen toevoegen aan een bestaande wilt, gebruikt u [ `extend` ](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/extend-operator):
 
 ```AIQL
 
@@ -216,7 +216,7 @@ Als u alleen kolommen toevoegen aan een bestaande wilt, gebruikt u [ `extend` ](
     | extend timeOfDay = floor(timestamp % 1d, 1s)
 ```
 
-Met behulp van [ `extend` ](https://docs.loganalytics.io/queryLanguage/query_language_extendoperator.html) is minder uitgebreid dan [ `project` ](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html) als u wilt behouden de bestaande kolommen.
+Met behulp van [ `extend` ](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/extend-operator) is minder uitgebreid dan [ `project` ](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator) als u wilt behouden de bestaande kolommen.
 
 ### <a name="convert-to-local-time"></a>Converteren naar de lokale tijd
 
@@ -229,8 +229,7 @@ Tijdstempels worden altijd in UTC. Dus als u bijvoorbeeld op de westkust ons Pac
     | extend localTime = timestamp - 8h
 ```
 
-
-## <a name="summarizehttpsdocsloganalyticsioquerylanguagequerylanguagesummarizeoperatorhtml-aggregate-groups-of-rows"></a>[Overzicht van](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html): cumulatieve groepen rijen
+## <a name="summarizehttpsdocsloganalyticsiodocslanguage-referencetabular-operatorssummarize-operator-aggregate-groups-of-rows"></a>[Overzicht van](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator): cumulatieve groepen rijen
 `Summarize` van toepassing is een opgegeven *aggregatiefunctie* via Rijgroepen koppelen.
 
 Bijvoorbeeld, de tijd die uw web-app nodig is om te reageren op een aanvraag wordt aangegeven in het veld `duration`. De gemiddelde reactietijd voor alle aanvragen laten we zien:
@@ -268,7 +267,7 @@ Berekening van het itemCount daarom resulteert in een goede indicatie van het oo
 
 Er is ook een `count()` aggregatie (en een aantal bewerking) voor gevallen waarin u echt wilt om het aantal rijen in een groep.
 
-Er is een bereik van [aggregatiefuncties](https://docs.loganalytics.io/learn/tutorials/aggregations.html).
+Er is een bereik van [aggregatiefuncties](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions).
 
 ## <a name="charting-the-results"></a>De resultaten voor grafieken
 ```AIQL
@@ -409,7 +408,7 @@ De `where` component eindresultaat sessies worden uitgesloten (sessionDuration =
 
 ![](./media/app-insights-analytics-tour/290.png)
 
-## <a name="percentileshttpsdocsloganalyticsioquerylanguagequerylanguagepercentilesaggfunctionhtml"></a>[Percentielen](https://docs.loganalytics.io/queryLanguage/query_language_percentiles_aggfunction.html)
+## <a name="percentileshttpsdocsloganalyticsiodocslanguage-referenceaggregation-functionspercentiles"></a>[Percentielen](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/percentiles())
 Welke bereiken van duur hebben betrekking op verschillende percentages van sessies?
 
 Gebruik de bovenstaande query, maar vervang de laatste regel:
@@ -470,7 +469,7 @@ Als u de uitzonderingen die betrekking hebben op een aanvraag die is geretournee
 Het is raadzaam om gebruik van `project` selecteren van kolommen moet voordat u de join uitvoert.
 In de dezelfde kunnen we de naam van de timestamp-kolom.
 
-## <a name="lethttpsdocsloganalyticsioquerylanguagequerylanguageletstatementhtml-assign-a-result-to-a-variable"></a>[Laat](https://docs.loganalytics.io/queryLanguage/query_language_letstatement.html): een resultaat toewijzen aan een variabele
+## <a name="lethttpsdocsloganalyticsiodocslanguage-referencequery-statementslet-statement-assign-a-result-to-a-variable"></a>[Laat](https://docs.loganalytics.io/docs/Language-Reference/Query-statements/Let-statement): een resultaat toewijzen aan een variabele
 
 Gebruik `let` voor het scheiden van de onderdelen van de vorige expressie. De resultaten zijn niet gewijzigd:
 
@@ -541,7 +540,7 @@ Bijvoorbeeld, als uw app bevat:
 ```csharp
 
     var dimensions = new Dictionary<string, string>
-                     {{"p1", "v1"},{"p2", "v2"}};
+                     {{"p1", "v1"},{"p2.d2", "v2"}};
     var measurements = new Dictionary<string, double>
                      {{"m1", 42.0}, {"m2", 43.2}};
     telemetryClient.TrackEvent("myEvent", dimensions, measurements);
@@ -554,7 +553,6 @@ Uitpakken van deze waarden in Analytics:
     customEvents
     | extend p1 = customDimensions.p1,
       m1 = todouble(customMeasurements.m1) // cast to expected type
-
 ```
 
 Controleren of een aangepaste dimensie van een bepaald type is:
@@ -565,6 +563,18 @@ Controleren of een aangepaste dimensie van een bepaald type is:
     | extend p1 = customDimensions.p1,
       iff(notnull(todouble(customMeasurements.m1)), ...
 ```
+
+### <a name="special-characters"></a>Speciale tekens
+
+Voor de id's met speciale tekens of trefwoorden in hun naam, moet u toegang tot deze via `['` en `']` of met behulp van `["` en `"]`.
+
+```AIQL
+
+    customEvents
+    | extend p2d2 = customDimensions.['p2.d2'], ...
+```
+
+[Naamgevingsregels voor id verwijst naar](https://docs.loganalytics.io/docs/Learn/References/Naming-principles)
 
 ## <a name="dashboards"></a>Dashboards
 U kunt uw resultaten aan een dashboard vastmaken om het samenbrengen van uw belangrijkste grafieken en tabellen.

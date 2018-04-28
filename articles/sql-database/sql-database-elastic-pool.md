@@ -10,11 +10,11 @@ ms.custom: DBs & servers
 ms.date: 04/10/2018
 ms.author: ninarn
 ms.topic: article
-ms.openlocfilehash: 930b5607f343b87adc253cc99d74ddf28235a50b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 33f4430baacbe50f3d4c7da857ee4345d4f74928
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Elastische pools helpen u te beheren en schalen van meerdere Azure SQL-databases
 
@@ -32,9 +32,9 @@ Elastische pools oplossen dit probleem door ervoor te zorgen dat databases ophal
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
 
-Elastische pools inschakelen kopen van resources voor een groep die wordt gedeeld door meerdere databases voor onvoorspelbare perioden van geheugengebruik door afzonderlijke databases van de ontwikkelaar. U kunt resources configureren voor de groep op op basis van de [DTU gebaseerde aankoopmodel (preview)](sql-database-service-tiers.md#dtu-based-purchasing-model) of de [vCore gebaseerde aankoopmodel (preview)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview). De Resourcevereiste voor een pool wordt bepaald door het totale gebruik van de databases. De hoeveelheid resources beschikbaar voor de pool wordt bepaald door de ontwikkelaar budget. De ontwikkelaar gewoon databases toegevoegd aan de groep, stelt u de minimale en maximale resources voor de databases (dtu's minumumn en maximum of minimum of maximum vCores, afhankelijk van uw keuze van resourceing model), en stelt u de resources van de groep op basis van hun budget. Met groepen kan een ontwikkelaar services naadloos met een alsmaar groeiende schaal uitbreiden van een kleine startende ondernemer tot een volwassen bedrijf.
+Elastische pools inschakelen kopen van resources voor een groep die wordt gedeeld door meerdere databases voor onvoorspelbare perioden van geheugengebruik door afzonderlijke databases van de ontwikkelaar. U kunt resources configureren voor de groep op op basis van de [DTU gebaseerde aankoopmodel (preview)](sql-database-service-tiers.md#dtu-based-purchasing-model) of de [vCore gebaseerde aankoopmodel (preview)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview). De Resourcevereiste voor een pool wordt bepaald door het totale gebruik van de databases. De hoeveelheid resources beschikbaar voor de pool wordt bepaald door de ontwikkelaar budget. De ontwikkelaar gewoon databases toegevoegd aan de groep, stelt u de minimale en maximale resources voor de databases (minimum en maximum aantal dtu's of minimum of maximum vCores, afhankelijk van uw keuze op voor het model resourcing), en stelt u de resources van de groep op basis van hun budget. Met groepen kan een ontwikkelaar services naadloos met een alsmaar groeiende schaal uitbreiden van een kleine startende ondernemer tot een volwassen bedrijf.
 
-Binnen de pool hebben afzonderlijke databases de flexibiliteit om de schaal automatisch aan te passen binnen ingestelde parameters. Een database kan meer bronnen om te voldoen aan de vraag gebruiken onder een zware belasting. Databases onder lichte lading verbruiken kleiner en databases onder geen load geen resources gebruiken. De inrichting van resources voor de hele pool in plaats van afzonderlijke databases vereenvoudigt uw beheertaken. Bovendien hebt u een voorspelbaar budget voor de pool. Aanvullende resources kunnen worden toegevoegd aan een bestaande toepassingen zonder uitvaltijd database, behalve dat de databases moet mogelijk worden verplaatst naar de aanvullende rekenresources voor de nieuwe eDTU-reservering bieden. Op dezelfde manier als extra resources niet meer nodig zijn kunnen ze worden verwijderd uit een bestaande pool op elk gewenst moment in de tijd. Daarnaast kunt u databases aan de groep toevoegen of uit de groep verwijderen. Als een database naar verwachting minder resources nodig heeft, kunt u deze verwijderen.
+Binnen de pool hebben afzonderlijke databases de flexibiliteit om de schaal automatisch aan te passen binnen ingestelde parameters. Een database kan meer bronnen om te voldoen aan de vraag gebruiken onder een zware belasting. Databases onder lichte lading verbruiken kleiner en databases onder geen load geen resources gebruiken. De inrichting van resources voor de hele pool in plaats van afzonderlijke databases vereenvoudigt uw beheertaken. Bovendien hebt u een voorspelbare budget voor de groep. Aanvullende resources kunnen worden toegevoegd aan een bestaande toepassingen zonder uitvaltijd database, behalve dat de databases moet mogelijk worden verplaatst naar de aanvullende rekenresources voor de nieuwe eDTU-reservering bieden. Op dezelfde manier als extra resources niet meer nodig zijn kunnen ze worden verwijderd uit een bestaande pool op elk gewenst moment in de tijd. Daarnaast kunt u databases aan de groep toevoegen of uit de groep verwijderen. Als een database naar verwachting minder resources nodig heeft, kunt u deze verwijderen.
 
 ## <a name="when-should-you-consider-a-sql-database-elastic-pool"></a>Wanneer moet u rekening houden met een elastische pool in SQL-Database?
 
@@ -81,7 +81,7 @@ Er zijn ten minste twee S3-databases of ten minste 15 S0-databases nodig wil een
 
 ### <a name="maximum-number-of-concurrently-peaking-databases"></a>Maximum aantal gelijktijdig piekende databases
 
-Resourcess wordt gedeeld, kunnen niet alle databases in een pool resourcess tot de maximaal beschikbare tegelijkertijd gebruik voor individuele databases. De minder databases dat gelijktijdig piekuren, des te lager de resources van toepassingen kunnen worden ingesteld en wordt het meest efficiënt is de groep. In het algemeen moeten niet meer dan 2/3 (of 67%) van de databases in de groep tegelijkertijd pieksnelheden aan hun limiet resources.
+Door het delen van resources, kunnen niet alle databases in een groep resources tot maximaal de maximaal beschikbare tegelijkertijd gebruik voor individuele databases. De minder databases dat gelijktijdig piekuren, des te lager de resources van toepassingen kunnen worden ingesteld en wordt het meest efficiënt is de groep. In het algemeen moeten niet meer dan 2/3 (of 67%) van de databases in de groep tegelijkertijd pieksnelheden aan hun limiet resources.
 
 ***Voorbeeld aankopen model op basis van DTU***<br>
 Om de kosten voor drie S3-databases in een groep van 200 eDTU's te verlagen, kunnen maximaal twee van deze databases tegelijkertijd pieken in hun gebruik. Of, als meer dan twee van deze vier S3-databases gelijktijdig pieken, zou de groep moeten worden uitgebreid tot meer dan 200 eDTU's. Als de groep wordt uitgebreid tot meer dan 200 eDTU's, moeten er meer S3-databases aan de groep worden toegevoegd om de kosten lager te houden dan bij prestatieniveaus voor individuele databases.
@@ -98,7 +98,7 @@ Een S3-database die piekt tot 100 DTU's en gemiddeld 67 DTU's of minder gebruikt
 
 De aanbevolen grootte voor een groep is afhankelijk van de totale benodigde resources voor alle databases in de groep. Dit omvat het volgende bepalen:
 
-* Maximum aantal bronnen worden gebruikt door alle databases in de groep (maximum aantal dtu's of maximale vCores, afhankelijk van uw keuze van resourceing model).
+* Maximum aantal bronnen worden gebruikt door alle databases in de groep (maximum aantal dtu's of maximale vCores, afhankelijk van uw keuze op voor het model resourcing).
 * De maximum opslag in bytes die door alle databases in de groep wordt gebruikt.
 
 Zie voor beschikbare Servicelagen voor elk resourcemodel, de [aankoopmodel op basis van het DTU](sql-database-service-tiers.md#dtu-based-purchasing-model) of de [vCore gebaseerde aankoopmodel (preview)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview).
@@ -269,17 +269,17 @@ Groepen gebruiken voor het maken en beheren van de elastische SQL-Database deze 
 |[Elastische Pools - ophalen](/rest/api/sql/elasticpools/get)|Hiermee haalt u een elastische pool.|
 |[Elastische Pools - lijst per Server](/rest/api/sql/elasticpools/listbyserver)|Retourneert een lijst met elastische pools in een server.|
 |[Elastische Pools - Update](/rest/api/sql/elasticpools/update)|Een bestaande elastische pool-updates.|
-|[Aanbevolen elastische Pools - ophalen](/rest/api/sql/recommendedelasticpools/get)|Hiermee haalt u een recommented elastische pool.|
+|[Aanbevolen elastische Pools - ophalen](/rest/api/sql/recommendedelasticpools/get)|Hiermee haalt u een aanbevolen elastische pool.|
 |[Aanbevolen elastische Pools - lijst per Server](/rest/api/sql/recommendedelasticpools/listbyserver)|Retourneert aanbevolen elastische pools.|
-|[Aanbevolen elastische Pools - lijst metrische gegevens](/rest/api/sql/recommendedelasticpools/listmetrics)|Retourneert recommented elastische pool metrische gegevens.|
+|[Aanbevolen elastische Pools - lijst metrische gegevens](/rest/api/sql/recommendedelasticpools/listmetrics)|Retourneert aanbevolen elastische pool metrische gegevens.|
 |[Activiteiten van de elastische groep](/rest/api/sql/elasticpoolactivities)|Retourneert de elastische groep activiteiten.|
 |[Elastische Pool databaseactiviteiten](/rest/api/sql/elasticpooldatabaseactivities)|Retourneert de activiteit op databases binnen een elastische pool.|
 |[Databases - maken of bijwerken](/rest/api/sql/databases/createorupdate)|Een nieuwe database maken of bijwerken van een bestaande database.|
 |[Databases - Get](/rest/api/sql/databases/get)|Hiermee haalt u een database.|
 |[Databases - verkrijgen door de elastische groep](/rest/api/sql/databases/getbyelasticpool)|Hiermee haalt u een database in een elastische pool.|
-|[Databases - verkrijgen door aanbevolen elastische Pool](/rest/api/sql/databases/getbyrecommendedelasticpool)|Hiermee haalt u een database binnen een recommented elastische pool.|
+|[Databases - verkrijgen door aanbevolen elastische Pool](/rest/api/sql/databases/getbyrecommendedelasticpool)|Hiermee haalt u een database binnen een aanbevolen elastische pool.|
 |[Databases - lijst door de elastische groep](/rest/api/sql/databases/listbyelasticpool)|Retourneert een lijst met databases in een elastische pool.|
-|[Databases - lijst met aanbevolen elastische Pool](/rest/api/sql/databases/listbyrecommendedelasticpool)|Retourneert een lijst met databases binnen een recommented elastische pool.|
+|[Databases - lijst met aanbevolen elastische Pool](/rest/api/sql/databases/listbyrecommendedelasticpool)|Retourneert een lijst met databases binnen een aanbevolen elastische pool.|
 |[Databases - lijst per Server](/rest/api/sql/databases/listbyserver)|Retourneert een lijst met databases in een server.|
 |[Databases - Update](/rest/api/sql/databases/update)|Een bestaande database-updates.|
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 8e128e057e45f6966067ebaaf039d9b14349d926
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3e23bab6d67cc4911dd46c226ebc9b87e40e2fa2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>IP-adres bewaren voor failover van de virtuele machine van Azure
 
@@ -34,20 +34,20 @@ Gezien de vereiste IP-retentieperiode (zoals voor bindingen van toepassing), hee
 
 Hier ziet u hoe de netwerkarchitectuur uitziet voordat failover wordt uitgevoerd:
 - Toepassing virtuele machines worden gehost in Azure Oost-Azië, met behulp van een Azure-netwerk met adresruimte 10.1.0.0/16. Dit virtuele netwerk heet **bron VNet**.
-- Toepassingsworkloads zijn gesplitst in drie subnetten – 10.1.0.0/24, 10.1.1.0/24, 10.1.2.0/24, respectievelijk met de naam **Subnet 1**, **Subnet 2**, **Subnet 3**.
+- Toepassingsworkloads zijn gesplitst in drie subnetten – 10.1.1.0/24, 10.1.2.0/24, 10.1.3.0/24, respectievelijk met de naam **Subnet 1**, **Subnet 2**, **Subnet 3**.
 - Azure Zuidoost-Azië is de doelregio en een herstel virtueel netwerk dat lijkt op de-ruimte en subnet adresconfiguratie op de bron. Dit virtuele netwerk heet **herstel VNet**.
-- Replica knooppunten zoals die nodig zijn voor Always On, domeincontroller, enz., worden in een virtueel netwerk met adresruimte 20.1.0.0/16 binnen het Subnet 4 met adres 20.1.0.0/24 geplaatst. De naam van het virtuele netwerk **Azure VNet** en op Azure Zuidoost-Azië.
+- Replica knooppunten zoals die nodig zijn voor Always On, domeincontroller, enz., worden in een virtueel netwerk met adresruimte 10.2.0.0/16 binnen het Subnet 4 met adres 10.2.4.0/24 geplaatst. De naam van het virtuele netwerk **Azure VNet** en op Azure Zuidoost-Azië.
 - **Bron VNet** en **Azure VNet** zijn verbonden via VPN-site-naar-site-verbinding.
 - **Herstel VNet** niet met een virtueel netwerk is verbonden.
 - **Een bedrijf** wijst/controleert of IP-adres van doel voor gerepliceerde items. Voor dit voorbeeld is IP-adres doel hetzelfde als bron-IP voor elke virtuele machine.
 
-![Azure naar Azure-connectiviteit voor failover](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-before-failover.png)
+![Azure naar Azure-connectiviteit voor failover](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-before-failover2.png)
 
 ### <a name="full-region-failover"></a>Volledige regio failover
 
 In het geval van een storing regionale **bedrijf A** kunt herstellen van de volledige implementatie snel en eenvoudig met behulp van Azure Site Recovery krachtige [herstelplannen](site-recovery-create-recovery-plans.md). Dat het IP-adres van het doel al ingesteld voor elke VM voordat failover, **bedrijf A** kan failover indelen en verbinding tot stand brengen tussen VNet Recovery en Azure Vnet automatiseren, zoals wordt weergegeven in het onderstaande diagram.
 
-![Failover van Azure naar Azure-verbinding volledige regio](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-full-region-failover.png)
+![Failover van Azure naar Azure-verbinding volledige regio](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-full-region-failover2.png)
 
 Afhankelijk van de vereisten van webtoepassingen verbindingen tussen de twee VNets op het gebied van het doel kunnen worden gebracht voor, tijdens (als een tussenstap) of na een failover. Gebruik [herstelplannen](site-recovery-create-recovery-plans.md) scripts toevoegen en de failovervolgorde definiëren.
 
@@ -62,23 +62,23 @@ Een betere manier ter compensatie van failover op subnetniveau toepassingsvereis
 Als u wilt bouwen afzonderlijke toepassingen voor tolerantie, wordt u aangeraden bevatten van een toepassing in een eigen toegewezen virtueel netwerk en stel de verbinding tussen deze virtuele netwerken, zoals vereist. Hierdoor geïsoleerde toepassing failover terwijl de oorspronkelijke privé IP-adressen behouden.
 
 De configuratie van de pre-failover vervolgens ziet er als volgt uit:
-- Toepassing virtuele machines worden gehost in Azure Oost-Azië, met behulp van een Azure-netwerk met adresruimte 10.1.0.0/16 voor de eerste toepassing en 15.1.0.0/16 voor de tweede toepassing. De virtuele netwerken zijn benoemde **bron VNet1** en **bron VNet2** voor de eerste en tweede toepassing, respectievelijk.
+- Toepassing virtuele machines worden gehost in Azure Oost-Azië, met behulp van een Azure-netwerk met adresruimte 10.1.0.0/16 voor de eerste toepassing en 10.2.0.0/16 voor de tweede toepassing. De virtuele netwerken zijn benoemde **bron VNet1** en **bron VNet2** voor de eerste en tweede toepassing, respectievelijk.
 - Elke VNet verdere gesplitst in twee subnetten.
 - Azure Zuidoost-Azië is de doelregio en virtuele netwerken recovery herstel VNet1 en herstel VNet2.
-- Replica knooppunten zoals die nodig zijn voor altijd aan, domeincontroller, enzovoort worden geplaatst in een virtueel netwerk met adresruimte 20.1.0.0/16 binnen **Subnet 4** met adres 20.1.0.0/24. Het virtuele netwerk heet Azure VNet en is op Azure Zuidoost-Azië.
+- Replica knooppunten zoals die nodig zijn voor altijd aan, domeincontroller, enzovoort worden geplaatst in een virtueel netwerk met adresruimte 10.3.0.0/16 binnen **Subnet 4** met adres 10.3.4.0/24. Het virtuele netwerk heet Azure VNet en is op Azure Zuidoost-Azië.
 - **Bron VNet1** en **Azure VNet** zijn verbonden via VPN-site-naar-site-verbinding. Op deze manier **bron VNet2** en **Azure VNet** ook zijn verbonden via VPN-site-naar-site-verbinding.
 - **Bron VNet1** en **bron VNet2** zijn ook aangesloten via S2S VPN-verbinding in dit voorbeeld. Aangezien de twee VNets in dezelfde regio, kan VNet-peering ook worden gebruikt in plaats van de S2S-VPN.
 - **Herstel VNet1** en **herstel VNet2** niet zijn verbonden met een virtueel netwerk.
 - Als u beoogde hersteltijd (RTO), VPN-gateways zijn geconfigureerd op **herstel VNet1** en **herstel VNet2** voordat failover.
 
-![De toepassing Azure naar Azure-connectiviteit geïsoleerd voordat failover](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-before-failover.png)
+![De toepassing Azure naar Azure-connectiviteit geïsoleerd voordat failover](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-before-failover2.png)
 
 In het geval van een noodherstel situatie die van invloed is op slechts één toepassing (in dit voorbeeld in bron VNet2 was opgenomen), herstellen bedrijf A als volgt de desbetreffende toepassing:
 - VPN-verbindingen tussen **bron VNet1** en **bron VNet2**, en tussen **bron VNet2** en **Azure VNet** verbinding wordt verbroken.
 - VPN-verbindingen worden tot stand gebracht tussen **bron VNet1** en **herstel VNet2**, en tussen **herstel VNet2** en **Azure VNet**.
 - Virtuele machines van **bron VNet2** mislukt via **herstel VNet2**.
 
-![Azure naar Azure-connectiviteit geïsoleerd toepassing na een failover](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-after-failover.png)
+![Azure naar Azure-connectiviteit geïsoleerd toepassing na een failover](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-after-failover2.png)
 
 De bovenstaande geïsoleerde failover voorbeeld kan worden uitgebreid bevatten meer toepassingen en netwerkverbindingen. Aanbevolen wordt een model like-achtige verbinding zoveel mogelijk uitvoeren als failover wordt uitgevoerd van bron naar doel.
 
@@ -92,13 +92,13 @@ Voor het tweede scenario we beschouwen **bedrijf B** die een deel van de infrast
 
 Hier ziet u hoe de netwerkarchitectuur uitziet voordat failover wordt uitgevoerd:
 - Toepassing virtuele machines worden gehost in Azure Oost-Azië, met behulp van een Azure-netwerk met adresruimte 10.1.0.0/16. Dit virtuele netwerk heet **bron VNet**.
-- Toepassingsworkloads zijn gesplitst in drie subnetten – 10.1.0.0/24, 10.1.1.0/24, 10.1.2.0/24, respectievelijk met de naam **Subnet 1**, **Subnet 2**, **Subnet 3**.
+- Toepassingsworkloads zijn gesplitst in drie subnetten – 10.1.1.0/24, 10.1.2.0/24, 10.1.3.0/24, respectievelijk met de naam **Subnet 1**, **Subnet 2**, **Subnet 3**.
 - Azure Zuidoost-Azië is de doelregio en een herstel virtueel netwerk dat lijkt op de-ruimte en subnet adresconfiguratie op de bron. Dit virtuele netwerk heet **herstel VNet**.
 - Virtuele machines in Azure Oost-Azië zijn verbonden met on-premises datacentrum via ExpressRoute of Site-naar-Site VPN.
 - Als u beoogde hersteltijd (RTO), voorziet in bedrijf B gateways op herstel VNet in Azure Zuidoost-Azië voordat failover.
 - **Bedrijf B** wijst/controleert of IP-adres van doel voor gerepliceerde items. In dit voorbeeld is IP-adres doel hetzelfde als de bron-IP voor elke virtuele machine
 
-![Connectiviteit vóór de failover op lokale-die naar Azure](./media/site-recovery-retain-ip-azure-vm-failover/on-premises-to-azure-connectivity-before-failover.png)
+![Connectiviteit vóór de failover op lokale-die naar Azure](./media/site-recovery-retain-ip-azure-vm-failover/on-premises-to-azure-connectivity-before-failover2.png)
 
 ### <a name="full-region-failover"></a>Volledige regio failover
 
@@ -106,7 +106,7 @@ In het geval van een storing regionale **bedrijf B** kunt herstellen van de voll
 
 De oorspronkelijke verbinding tussen Oost-Azië Azure en de on-premises datacentrum moet worden verbroken voordat het maken van de verbinding tussen Zuidoost-Azië Azure en on-premises datacentrum. De on-premises routering ook opnieuw wordt geconfigureerd om te verwijzen naar de doelregio en gateways na de failover.
 
-![Connectiviteit na een failover op lokale-die naar Azure](./media/site-recovery-retain-ip-azure-vm-failover/on-premises-to-azure-connectivity-after-failover.png)
+![Connectiviteit na een failover op lokale-die naar Azure](./media/site-recovery-retain-ip-azure-vm-failover/on-premises-to-azure-connectivity-after-failover2.png)
 
 ### <a name="subnet-failover"></a>Subnet failover
 

@@ -3,17 +3,17 @@ title: Een Azure-bestanden volume in Azure Containerexemplaren koppelen
 description: Meer informatie over het koppelen van een Azure-bestanden volume om te blijven behouden status met exemplaren van Azure-Container
 services: container-instances
 author: seanmck
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 98be7e65c2280aa58cf904cbca265f87610eff55
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 239150c1e752ce6a4f2a19fa1192cd1a910ebea9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Een Azure-bestandsshare in Azure Containerexemplaren koppelen
 
@@ -83,7 +83,7 @@ az container create \
     --azure-file-volume-mount-path /aci/logs/
 ```
 
-De `--dns-name-label` waarde moet uniek zijn binnen de Azure-regio maken van het exemplaar van de container. Werk de waarde in de voorgaande opdracht als u krijgt een **label DNS-naam** foutbericht wordt weergegeven wanneer u de opdracht niet uitvoeren.
+De waarde `--dns-name-label` moet uniek zijn voor de Azure-regio waar u de containerinstallatiekopie maakt. Werk de waarde in de voorgaande opdracht als u krijgt een **label DNS-naam** foutbericht wordt weergegeven wanneer u de opdracht niet uitvoeren.
 
 ## <a name="manage-files-in-mounted-volume"></a>Bestanden in gekoppelde volume beheren
 

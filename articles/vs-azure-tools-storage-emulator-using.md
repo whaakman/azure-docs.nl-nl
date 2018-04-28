@@ -2,23 +2,20 @@
 title: Configureren en gebruiken van de Opslagemulator met Visual Studio | Microsoft Docs
 description: Configureren en gebruiken van de Opslagemulator met Visual Studio
 services: visual-studio-online
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
-ms.assetid: c8e7996f-6027-4762-806e-614b93131867
-ms.service: storage
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+assetId: c8e7996f-6027-4762-806e-614b93131867
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 8/17/2017
 ms.author: ghogen
-ms.openlocfilehash: ecf9df0d94f34df69750a8baa7f5502764cf9b06
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: c502d5e0869d35ded5c3ba7e790da0558d219e0e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>Configureren en gebruiken van de Opslagemulator met Visual Studio
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
@@ -54,5 +51,5 @@ De eerste keer dat u uitvoert of fouten opsporen in uw service vanuit Visual Stu
 De opslagemulator biedt een gebruikersinterface voor de status van de services van de lokale opslag weergeven en om te starten, stoppen en opnieuw ingesteld. Zodra de service storage emulator wordt gestart, kunt u de gebruikersinterface worden weergegeven of starten of stoppen van de service met de rechtermuisknop op het pictogram voor de Microsoft Azure-Emulator in de taakbalk van Windows.
 
 ## <a name="viewing-storage-emulator-data-in-server-explorer"></a>Storage emulator gegevens in Server Explorer bekijken
-Het Azure Storage-knooppunt in Server Explorer kunt u instellingen voor blob- en gegevens in uw storage-accounts, met inbegrip van de opslagemulator gegevens weergeven en wijzigen. Zie [beheren Azure Blob Storage-resources met Opslagverkenner (Preview)](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs) voor meer informatie.
+Het Azure Storage-knooppunt in Server Explorer kunt u instellingen voor blob- en gegevens in uw storage-accounts, met inbegrip van de opslagemulator gegevens weergeven en wijzigen. Zie [beheren Azure Blob Storage-resources met Opslagverkenner](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs) voor meer informatie.
 

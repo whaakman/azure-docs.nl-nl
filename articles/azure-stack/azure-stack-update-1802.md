@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 04/19/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 6f654e7897a9a00b0e53849002d5d4b16eab2bd6
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: c5237f8e97f76e5dc348322abeb16682aee62f3b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-stack-1802-update"></a>Azure-Stack 1802 update
 
@@ -56,9 +56,10 @@ Het buildnummer van Azure Stack 1802 update **20180302.1**.
 
 
 ### <a name="post-update-steps"></a>Stappen na het bijwerken
-Na de installatie van 1802 toepasselijke Hotfixes te installeren. Raadpleeg voor meer informatie de volgende knowledge base-artikelen, evenals onze [beleid onderhoud](azure-stack-servicing-policy.md).  
-- [KB 4103348 - API van de netwerkcontroller-service vastloopt wanneer u probeert een Azure-Stack-update te installeren](https://support.microsoft.com/help/4103348)
+Na de installatie van 1802 toepasselijke Hotfixes te installeren. Raadpleeg voor meer informatie de volgende knowledge base-artikelen, evenals onze [beleid onderhoud](azure-stack-servicing-policy.md). 
+- Azure Stack hotfix **1.0.180302.4**. [KB 4131152 - bestaande virtuele-Machineschaalsets mogelijk onbruikbaar]( https://support.microsoft.com/help/4131152) 
 
+  Deze oplossing worden ook de problemen opgelost uiteengezet in [KB 4103348 - API van de netwerkcontroller-service loopt vast wanneer u probeert te installeren van een Azure-Stack-update](https://support.microsoft.com/help/4103348).
 
 
 ### <a name="new-features-and-fixes"></a>Nieuwe functies en oplossingen

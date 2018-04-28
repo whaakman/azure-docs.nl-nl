@@ -3,7 +3,7 @@ title: Adressen van Azure instantieniveau openbare IP-adres (klassiek) | Microso
 description: Begrijpen exemplaar niveau openbare IP (ILPIP adressen) en hoe deze te beheren met behulp van PowerShell.
 services: virtual-network
 documentationcenter: na
-author: genli
+author: genlin
 manager: cshepard
 editor: tysonn
 ms.assetid: 07eef6ec-7dfe-4c4d-a2c2-be0abfb48ec5
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: genli
-ms.openlocfilehash: 631b667b12941781a7e69361a0e731f94b7119f8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4b4350e6b1616450ce45f9e947cc3b639a341ae7
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Exemplaar niveau openbare IP (klassiek)-overzicht
 Een instantie niveau openbare IP (ILPIP) is een openbaar IP-adres die u rechtstreeks naar een exemplaar van de rol virtuele machine of Cloud Services, in plaats van met de cloudservice die uw exemplaar van de virtuele machine of rol zich bevinden in kunt toewijzen. Een ILPIP ter niet vervanging van het virtuele IP (VIP) dat is toegewezen aan de cloudservice. Het is in plaats daarvan een extra IP-adres waarmee u kunt rechtstreeks verbinding maken met uw exemplaar van de virtuele machine of de rol.

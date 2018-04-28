@@ -92,7 +92,7 @@
 #### [Veelgestelde vragen over implementatie](cloud-services-deployment-faq.md)
 
 # Naslaginformatie
-## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=cloud-services)
+## [Codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=cloud-services)
 ## [.csdef XML Schema](schema-csdef-file.md)
 ### [LoadBalancerProbe Schema](schema-csdef-loadbalancerprobe.md)
 ### [WebRole Schema](schema-csdef-webrole.md)

@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: 04ea6f728e59ec8b47e54fe45e1adc6cbbfb85ff
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bfb9b62a8965fa1f7daf62d814665ca23491cc04
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Verzamelen van prestatiemeteritems voor Linux-toepassingen in Log Analytics 
 Dit artikel bevat informatie voor het configureren van de [OMS-Agent voor Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) voor het verzamelen van prestatiemeteritems voor specifieke toepassingen.  De toepassingen die zijn opgenomen in dit artikel zijn:  
 
 - [MySQL](#MySQL)
-- [Apache HTTP Server](#apache-http-server)
+- [Apache HTTP-Server](#apache-http-server)
 
 ## <a name="mysql"></a>MySQL
 Als MySQL-Server of MariaDB Server wordt gedetecteerd op de computer wanneer de OMS-agent is geïnstalleerd, wordt een provider voor de MySQL-Server voor prestatiebewaking automatisch geïnstalleerd. Deze provider verbinding maakt met de lokale MySQL/MariaDB-server om prestatiestatistieken weer te geven. MySQL-gebruikersreferenties moeten worden geconfigureerd zodat de provider toegang heeft tot de MySQL-Server.
@@ -53,7 +53,7 @@ De vermeldingen in het verificatiebestand worden in de volgende tabel beschreven
 | BIND-adres| Huidige MySQL bind-adres. |
 | gebruikersnaam| MySQL-gebruiker gebruikt om te gebruiken voor het bewaken van de MySQL-server-exemplaar. |
 | Base64-gecodeerd wachtwoord| Wachtwoord van de MySQL bewaking gebruiker gecodeerd in Base64. |
-| AutoUpdate| Geeft aan of opnieuw scannen op wijzigingen in het bestand my.cnf en het bestand MySQL OMI verificatie overschrijven wanneer de MySQL OMI-Provider is bijgewerkt. |
+| Automatisch bijwerken| Geeft aan of opnieuw scannen op wijzigingen in het bestand my.cnf en het bestand MySQL OMI verificatie overschrijven wanneer de MySQL OMI-Provider is bijgewerkt. |
 
 ### <a name="default-instance"></a>Standaard-instantie
 Het bestand MySQL OMI-verificatie kunt definiëren een standaard exemplaar en het poortnummer nummer zodat meerdere exemplaren van MySQL op een Linux-host eenvoudiger beheren.  Het standaardexemplaar wordt aangeduid door een instantie met poort 0. Alle extra exemplaren worden overgenomen eigenschappen instellen van het standaardexemplaar, tenzij ze verschillende waarden opgeven. Bijvoorbeeld, als MySQL exemplaar luisteren op poort '3308' wordt toegevoegd, wordt het standaardexemplaar bind-adres, gebruikersnaam en wachtwoord Base64-gecodeerd worden gebruikt om te controleren van het exemplaar op 3308 luistert. Als het exemplaar op 3308 is gebonden aan een ander adres en dezelfde MySQL gebruikersnaam en wachtwoord twee gebruikt alleen de binding-adres nodig is en de overige eigenschappen worden overgenomen.
@@ -78,9 +78,9 @@ De volgende tabel biedt details over de syntaxis voor het gebruik van mycimprova
 
 | Bewerking | Voorbeeld | Beschrijving
 |:--|:--|:--|
-| AutoUpdate *false\|true* | mycimprovauth autoupdate false | Stelt de verificatiebestand al dan niet automatisch bijgewerkt op opnieuw opstarten of bijwerken. |
+| AutoUpdate *false of true* | mycimprovauth autoupdate false | Stelt de verificatiebestand al dan niet automatisch bijgewerkt op opnieuw opstarten of bijwerken. |
 | standaard *gebruikersnaamwachtwoord bind-adres* | mycimprovauth standaard 127.0.0.1 hoofdmap pwd | Hiermee stelt u het standaardexemplaar in de MySQL OMI verificatiebestand.<br>Het wachtwoordveld moet worden ingevoerd als tekst zonder opmaak: het wachtwoord in het bestand MySQL OMI-verificatie wordt Base 64 gecodeerde. |
-| Verwijder *standaard\|port_num* | mycimprovauth 3308 | Verwijdert het opgegeven exemplaar van een standaard of door poortnummer. |
+| Verwijder *standaard of port_num* | mycimprovauth 3308 | Verwijdert het opgegeven exemplaar van een standaard of door poortnummer. |
 | help | mycimprov help | Afdrukken een lijst met opdrachten te gebruiken. |
 | afdrukken | mycimprov afdrukken | Afdrukken een gemakkelijk te lezen MySQL OMI verificatiebestand. |
 | bijwerken van port_num *gebruikersnaamwachtwoord bind-adres* | mycimprov update 3307 127.0.0.1 hoofdmap pwd | Het opgegeven exemplaar van updates of het exemplaar wordt toegevoegd als deze niet bestaat. |

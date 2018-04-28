@@ -3,7 +3,7 @@ title: Azure Active Directory-v2.0 en het protocol OpenID Connect | Microsoft Do
 description: Webtoepassingen bouwen met behulp van de Azure AD v2.0-implementatie van het OpenID Connect-verificatieprotocol.
 services: active-directory
 documentationcenter: ''
-author: dstrockis
+author: hpsin
 manager: mtillman
 editor: ''
 ms.assetid: a4875997-3aac-4e4c-b7fe-2b4b829151ce
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
-ms.author: dastrock
+ms.date: 04/18/2018
+ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3f5b6a68cf6ee38d1dc2317381ec33f035c57569
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: fd1f29f5c2920ea9956d883b9668f36c934a5e59
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory-v2.0 en het protocol OpenID Connect
 OpenID Connect is een authenticatieprotocol dat is gebaseerd op OAuth 2.0 die u gebruiken kunt voor het veilig Meld u aan een gebruiker aan een webtoepassing. Wanneer u het v2.0-eindpunt implementatie van OpenID Connect gebruikt, kunt u aanmelden en toegang tot API toevoegen aan uw web gebaseerde apps. In dit artikel wordt beschreven hoe u te doen dit onafhankelijk van de taal. We beschrijven hoe verzenden en ontvangen van HTTP-berichten zonder een Microsoft open source-bibliotheken.
@@ -42,6 +42,9 @@ Beschrijving van een document met metagegevens die de meeste van de vereiste inf
 ```
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 ```
+> [!TIP] 
+> Probeer het! Klik op [ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration ](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) om te zien de `common` tenants configuratie. 
+>
 
 De `{tenant}` kan duren voordat een van de vier waarden:
 
@@ -52,7 +55,7 @@ De `{tenant}` kan duren voordat een van de vier waarden:
 | `consumers` |Alleen gebruikers met een persoonlijk Microsoft-account kunnen aanmelden bij de toepassing. |
 | `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` of `contoso.onmicrosoft.com` |Alleen gebruikers met een werk- of schoolaccount van een specifieke Azure AD tenant kan aanmelden bij de toepassing. Ofwel de aangepaste domeinnaam van de Azure AD-tenant of GUID-id van de tenant kan worden gebruikt. |
 
-De metagegevens is een eenvoudige JSON JavaScript Object Notation ()-document. Zie het volgende fragment voor een voorbeeld. De inhoud van het codefragment is volledig worden beschreven in de [specificatie van het OpenID Connect](https://openid.net).
+De metagegevens is een eenvoudige JSON JavaScript Object Notation ()-document. Zie het volgende fragment voor een voorbeeld. De inhoud van het codefragment is volledig worden beschreven in de [specificatie van het OpenID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html#rfc.section.4.2).
 
 ```
 {
@@ -78,6 +81,9 @@ Als uw web-app moet de gebruiker te verifiëren, kan de gebruiker worden doorges
 * De `response_type` vergezeld gaan van de parameter `id_token`.
 * De aanvraag moet bevatten de `nonce` parameter.
 
+> [!IMPORTANT]
+> Vragen om met succes is een token ID, de registratie van de app in de [registratieportal](https://apps.dev.microsoft.com) moet de **[impliciete grant](active-directory-v2-protocols-implicit.md)** ingeschakeld voor de de webclient.  Als deze niet is ingeschakeld, een `unsupported_response` fout geretourneerd: "de opgegeven waarde voor de invoerparameter 'response_type' is niet toegestaan voor deze client. Verwachte waarde is 'code' '
+
 Bijvoorbeeld:
 
 ```
@@ -94,8 +100,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [!TIP]
-> Klik op de volgende koppeling om het uitvoeren van deze aanvraag. Nadat u zich aanmeldt, kunt u uw browser wordt omgeleid naar https://localhost/myapp/, met een token ID in de adresbalk. Let op: maakt gebruik van deze aanvraag `response_mode=query` (voor demonstratiedoeleinden alleen). Het is raadzaam dat u `response_mode=form_post`.
-> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=query&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
+> Klik op de volgende koppeling om het uitvoeren van deze aanvraag. Nadat u zich aanmeldt, kunt u uw browser wordt omgeleid naar https://localhost/myapp/, met een token ID in de adresbalk. Let op: maakt gebruik van deze aanvraag `response_mode=fragment` (voor demonstratiedoeleinden alleen). Het is raadzaam dat u `response_mode=form_post`.
+> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 > 
 > 
 
@@ -107,11 +113,11 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | redirect_uri |Aanbevolen |De omleidings-URI van uw app, waarbij verificatie reacties kunnen worden verzonden en ontvangen door uw app. Moet exact overeenkomen met een van de omleidings-URI's die u in de portal hebt geregistreerd, behalve dat het moet een URL zijn gecodeerd. |
 | scope |Vereist |Een door spaties gescheiden lijst met bereiken. Voor het OpenID Connect, het bereik moet bevatten `openid`, die wordt omgezet in de machtiging 'Aanmelden u' in de gebruikersinterface van de toestemming. U kunt ook andere bereiken opnemen in deze aanvraag voor toestemming wordt gevraagd. |
 | nonce |Vereist |Een waarde die is opgenomen in de aanvraag, die worden gegenereerd door de app, die wordt opgenomen in de resulterende id_token-waarde als een claim. De app kunt controleren of deze waarde om te beperken token replay-aanvallen. De waarde is doorgaans een willekeurige, unieke tekenreeks die kan worden gebruikt voor het identificeren van de oorsprong van de aanvraag. |
-| response_mode |Aanbevolen |Hiermee geeft u de methode die moet worden gebruikt voor het verzenden van de resulterende autorisatiecode terug naar uw app. Een van `query`, `form_post`, of `fragment`. Voor webtoepassingen, wordt u aangeraden `response_mode=form_post`, zodat de meest beveiligde overdracht van tokens voor uw toepassing. |
+| response_mode |Aanbevolen |Hiermee geeft u de methode die moet worden gebruikt voor het verzenden van de resulterende autorisatiecode terug naar uw app. Deze waarde kan `form_post` of `fragment` zijn. Voor webtoepassingen, wordt u aangeraden `response_mode=form_post`, zodat de meest beveiligde overdracht van tokens voor uw toepassing. |
 | state |Aanbevolen |Een waarde die is opgenomen in de aanvraag die ook in het token antwoord worden geretourneerd. Een tekenreeks van alle inhoud die u wilt dat kan zijn. Een willekeurig gegenereerde unieke waarde wordt doorgaans gebruikt voor [aanvraagvervalsing op meerdere sites aanvallen te voorkomen](http://tools.ietf.org/html/rfc6749#section-10.12). De status wordt ook gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat het verificatieverzoek opgetreden, zoals de pagina of de gebruiker is op weergave. |
 | prompt |Optioneel |Geeft het type van de interactie van de gebruiker die is vereist. De enige geldige waarden op dit moment zijn `login`, `none`, en `consent`. De `prompt=login` claim zorgt ervoor dat gebruikers hun referenties invoeren voor deze aanvraag dat eenmalige aanmelding wordt genegeerd. De `prompt=none` claim is het tegenovergestelde. Deze claim zorgt ervoor dat de gebruiker niet vragen beeïndigen krijgt. Als de aanvraag kan achtergrond via eenmalige aanmelding worden voltooid, het v2.0-eindpunt een fout geretourneerd. De `prompt=consent` claim het toestemming OAuth dialoogvenster wordt geactiveerd nadat de gebruiker zich aanmeldt. Het dialoogvenster vraagt de gebruiker machtigingen verlenen voor de app. |
 | login_hint |Optioneel |Deze parameter kunt u het veld username en e-mail van het adres van de aanmeldingspagina voor de gebruiker vooraf worden ingevuld als u de gebruikersnaam tevoren weten. Vaak apps deze parameter gebruiken tijdens de hervalidatie na al uitpakken van de gebruikersnaam van een eerdere aanmelden met behulp van de `preferred_username` claim. |
-| domain_hint |Optioneel |Deze waarde kan zijn `consumers` of `organizations`. Als de opgenomen, slaat deze het detectieproces op basis van e-mail die de gebruiker zich op het v2.0-aanmeldingspagina, voor een iets meer gestroomlijnde gebruikerservaring doorloopt. Vaak apps Gebruik deze parameter tijdens opnieuw worden geverifieerd door het uitpakken van de `tid` claim uit het token ID. Als de `tid` claim waarde is `9188040d-6c67-4c5b-b112-36a304b66dad`, gebruik `domain_hint=consumers`. Gebruik anders `domain_hint=organizations`. |
+| domain_hint |Optioneel |Deze waarde kan zijn `consumers` of `organizations`. Als de opgenomen, slaat deze het detectieproces op basis van e-mail die de gebruiker zich op het v2.0-aanmeldingspagina, voor een iets meer gestroomlijnde gebruikerservaring doorloopt. Vaak apps Gebruik deze parameter tijdens opnieuw worden geverifieerd door het uitpakken van de `tid` claim uit het token ID. Als de `tid` claim waarde is `9188040d-6c67-4c5b-b112-36a304b66dad` (de Microsoft-Account consumer tenant), gebruik `domain_hint=consumers`. Gebruik anders `domain_hint=organizations`. |
 
 Op dit moment wordt de gebruiker gevraagd om hun referenties invoeren en de verificatie te voltooien. Het v2.0-eindpunt verifieert dat de gebruiker heeft ingestemd met de machtigingen die zijn aangegeven in de `scope` queryparameter. Als de gebruiker niet aan een van deze machtigingen heeft ingestemd, wordt het v2.0-eindpunt de gebruiker toe te staan de vereiste machtigingen. U kunt meer lezen over [machtigingen, toestemming en multitenant apps](active-directory-v2-scopes.md).
 
@@ -195,7 +201,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 ## <a name="single-sign-out"></a>Eenmalige afmelding
 Wanneer het omleiden van de gebruiker de `end_session_endpoint`, het v2.0-eindpunt wist de gebruikerssessie vanuit de browser. Echter, de gebruiker mogelijk nog steeds zijn aangemeld bij andere toepassingen die Microsoft-accounts voor verificatie gebruiken. Voor deze toepassingen voor het ondertekenen van de gebruiker uit tegelijk, het v2.0 eindpunt een HTTP GET-aanvraag verzendt naar de geregistreerde `LogoutUrl` van alle toepassingen die de gebruiker momenteel is aangemeld bij. Toepassingen op deze aanvraag moeten reageren door alle sessies waarin de gebruiker te wissen en retourneren een `200` antwoord.  Als u afmelden ondersteuning voor eenmalige aanmelding in uw toepassing wilt, moet u deze implementeren een `LogoutUrl` in de code van uw toepassing.  U kunt instellen de `LogoutUrl` van de app-portal voor wachtwoordregistratie.
 
-## <a name="protocol-diagram-token-acquisition"></a>Protocol diagram: Token verkrijgen
+## <a name="protocol-diagram-access-token-acquisition"></a>Protocol diagram: toegang tot token verkrijgen
 Veel WebApps moeten niet alleen de gebruiker te melden bij, maar ook voor toegang tot een webservice namens de gebruiker met behulp van OAuth. Dit scenario combineert OpenID Connect voor de verificatie bij het ophalen van een autorisatiecode die u gebruiken kunt voor toegangstokens ophalen als u van de OAuth-autorisatiecodestroom gebruikmaakt tegelijk.
 
 De volledige OpenID Connect aanmelden en tokens verkrijgen stroom lijkt op het volgende diagram. Elke stap in de volgende secties van het artikel in detail worden beschreven.
@@ -212,7 +218,7 @@ GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Application ID
 &response_type=id_token%20code
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F       // Your registered redirect URI, URL encoded
-&response_mode=form_post                              // 'query', 'form_post', or 'fragment'
+&response_mode=form_post                              // 'form_post' or 'fragment'
 &scope=openid%20                                      // Include both 'openid' and scopes that your app needs  
 offline_access%20                                         
 https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
@@ -221,8 +227,8 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
 ```
 
 > [!TIP]
-> Klik op de volgende koppeling om het uitvoeren van deze aanvraag. Nadat u zich aanmeldt, uw browser wordt omgeleid naar https://localhost/myapp/, met een token ID en een code in de adresbalk. Let op: maakt gebruik van deze aanvraag `response_mode=query` (voor demonstratiedoeleinden alleen). Het is raadzaam dat u `response_mode=form_post`.
-> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
+> Klik op de volgende koppeling om het uitvoeren van deze aanvraag. Nadat u zich aanmeldt, uw browser wordt omgeleid naar https://localhost/myapp/, met een token ID en een code in de adresbalk. Let op: maakt gebruik van deze aanvraag `response_mode=fragment` (voor demonstratiedoeleinden alleen). Het is raadzaam dat u `response_mode=form_post`.
+> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=fragment&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 > 
 > 
 

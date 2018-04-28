@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/26/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: b2b740c2ececba2c3f95f8fbfbfb55e7f4811112
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a9e8ef7243fcef990dae6ddc6509cd31b3f36e3d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Prestaties controleren met de Windows Azure Diagnostics-extensie
 
@@ -44,7 +44,9 @@ Voor het verzamelen van prestatiemeteritems via af, moet u de configuratie op de
 
     De `scheduledTransferPeriod` definieert hoe de waarden van de items die zijn verzameld worden overgebracht naar uw Azure-opslag-tabel en op elk frquently sink geconfigureerd. 
 
-3. Voeg de prestatiemeteritems die u verzamelen wilt voor de `PerformanceCounterConfiguration` dat is gedeclareerd in de vorige stap. Elk item dat u wilt verzamelen is gedefinieerd met een `counterSpecifier`, `sampleRate`, `unit`, `annotation`, en alle relevante `sinks`. Hier volgt een voorbeeld van een configuratie met de teller voor de *totale processortijd* (de hoeveelheid tijd die de CPU-capaciteit in gebruik is voor de verwerking van bewerkingen) en *Service Fabric Actor-methode aanroepen per seconde*, een van de aangepaste Service Fabric-prestatiemeteritems. Raadpleeg [betrouwbare Actor-prestatiemeteritems](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters) en [prestatiemeteritems voor betrouwbare Service](service-fabric-reliable-serviceremoting-diagnostics.md#list-of-performance-counters) voor een volledige lijst met aangepaste Service Fabric-prestatiemeteritems.
+3. Voeg de prestatiemeteritems die u verzamelen wilt voor de `PerformanceCounterConfiguration` dat is gedeclareerd in de vorige stap. Elk item dat u wilt verzamelen is gedefinieerd met een `counterSpecifier`, `sampleRate`, `unit`, `annotation`, en alle relevante `sinks`.
+
+Hier volgt een voorbeeld van een configuratie met de teller voor de *totale processortijd* (de hoeveelheid tijd die de CPU-capaciteit in gebruik is voor de verwerking van bewerkingen) en *Service Fabric Actor-methode aanroepen per seconde*, een van de aangepaste Service Fabric-prestatiemeteritems. Raadpleeg [betrouwbare Actor-prestatiemeteritems](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters) en [prestatiemeteritems voor betrouwbare Service](service-fabric-reliable-serviceremoting-diagnostics.md#list-of-performance-counters) voor een volledige lijst met aangepaste Service Fabric-prestatiemeteritems.
 
  ```json
  "WadCfg": {
@@ -112,9 +114,8 @@ Voor het verzamelen van prestatiemeteritems via af, moet u de configuratie op de
     New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
     ```
 
-5. Zodra de upgrade is voltooid (vergt tussen 15-45 minuten) af rolt moet worden verzamelt de prestatiemeteritems en ze worden verzonden naar de tabel met de naam WADPerformanceCountersTable in het opslagaccount die is gekoppeld aan het cluster.
+5. Zodra de upgrade is voltooid (vergt tussen 15-45 minuten) af rolt moet worden verzamelt de prestatiemeteritems en ze worden verzonden naar de tabel met de naam WADPerformanceCountersTable in het opslagaccount die is gekoppeld aan het cluster. Zie de prestatiemeteritems in Application Insights door [de Sink AI toe te voegen aan de Resource Manager-sjabloon](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-ai-sink-to-the-resource-manager-template).
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie de prestatiemeteritems in Application Insights door [de Sink AI toe te voegen aan de Resource Manager-sjabloon](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-ai-sink-to-the-resource-manager-template)
 * Verzamel meer prestatiemeteritems voor uw cluster. Zie [maatstaven voor prestaties](service-fabric-diagnostics-event-generation-perf.md) voor een lijst met items die u moet verzamelen.
 * [Gebruik controle en diagnostische gegevens met een virtuele machine van Windows en Azure Resource Manager-sjablonen](../virtual-machines/windows/extensions-diagnostics-template.md) verdere wijzigingen aan te brengen uw `WadCfg`, inclusief het configureren van extra opslagaccounts voor het verzenden van diagnostische gegevens.

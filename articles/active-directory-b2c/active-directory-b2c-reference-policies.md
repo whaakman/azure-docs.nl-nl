@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: davidmu
-ms.openlocfilehash: c733f919189dadcf1181ddbe2a1057b2bcf66fc4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ce65b9b532ca6f594334f3eb0194d700aca1c735
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-b2c-built-in-policies"></a>Azure Active Directory B2C: Ingebouwde beleid
 
@@ -62,7 +62,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ## <a name="create-a-sign-up-or-sign-in-policy"></a>Registratie- of aanmeldingsbeleid maken
 
-Dit beleid verwerkt beide ervaringen consumenten registreren en aanmelden met een configuratie voor één. Consumenten worden omlaag het juiste pad (registreren of aanmelden) zijn afhankelijk van de context geleid. Hierin worden ook de inhoud van de tokens die de toepassing na geslaagde aanmelding-ups of aanmeldingen ontvangen.  Een voorbeeld van code voor het registreren of aanmelden beleid is [beschikbaar hier](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  Het verdient aanbeveling gebruik te maken van dit beleid via een registratiebeleid en beleid voor aanmelden.  
+Dit beleid verwerkt beide ervaringen consumenten registreren en aanmelden met een configuratie voor één. Consumenten worden omlaag het juiste pad (registreren of aanmelden) zijn afhankelijk van de context geleid. Hierin worden ook de inhoud van de tokens die de toepassing na geslaagde aanmelding-ups of aanmeldingen ontvangen.  Een voorbeeld van code voor de **registreren of aanmelden** beleid is [beschikbaar hier](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  Het is raadzaam dat u dit beleid via gebruiken een **aanmelding** beleid of een **aanmelden** beleid.  
 
 [!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
 
@@ -85,16 +85,16 @@ Dit beleid verwerkt beide ervaringen consumenten registreren en aanmelden met ee
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
 ### <a name="how-do-i-link-a-sign-up-or-sign-in-policy-with-a-password-reset-policy"></a>Hoe kan ik een beleid registreren of aanmelden met een beleid voor wachtwoordherstel koppelen?
-Wanneer u een beleid registreren of aanmelden (met lokale accounts) maakt, ziet u een **wachtwoord vergeten?** koppeling op de eerste pagina van de gebruikerservaring. Op deze koppeling klikt herstellen niet automatisch trigger een wachtwoord beleid. 
+Bij het maken van een **registreren of aanmelden** -beleid (met lokale accounts), ziet u een **wachtwoord vergeten?** koppeling op de eerste pagina van de gebruikerservaring. Op deze koppeling klikt herstellen niet automatisch trigger een wachtwoord beleid. 
 
 In plaats daarvan de foutcode **`AADB2C90118`** wordt geretourneerd naar uw app. Uw app moet deze foutcode verwerkt door het aanroepen van een specifiek wachtwoord opnieuw instellen van beleid. Zie voor meer informatie een [voorbeeldbestand dat laat zien van de aanpak van het koppelen van beleidsregels](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
 
 ### <a name="should-i-use-a-sign-up-or-sign-in-policy-or-a-sign-up-policy-and-a-sign-in-policy"></a>Moet ik een beleid registreren of aanmelden of een registratiebeleid en een beleid voor aanmelden gebruiken?
-Het is raadzaam dat u een beleid registreren of aanmelden via een registratiebeleid en een beleid voor aanmelden.  
+Het is raadzaam dat u een **registreren of aanmelden** beleid via een **aanmelding** beleid en een **aanmelden** beleid.  
 
-Het registreren of aanmelden beleid heeft meer mogelijkheden dan het beleid voor aanmelden. Ook kunt u gebruikmaken van pagina UI-aanpassing en biedt een betere ondersteuning voor lokalisatie. 
+De **registreren of aanmelden** beleid heeft meer mogelijkheden dan het **aanmelden** beleid. Ook kunt u gebruikmaken van pagina UI-aanpassing en biedt een betere ondersteuning voor lokalisatie. 
 
-Het beleid voor aanmelden wordt aanbevolen als u niet nodig hebt voor uw beleid lokalisatie, alleen secundaire aanpassingsfuncties voor huisstijl nodig hebt en wilt wachtwoord opnieuw instellen die zijn ingebouwd.
+De **aanmelden** beleid wordt aanbevolen als u niet nodig hebt voor uw beleid lokalisatie, alleen secundaire aanpassingsfuncties voor huisstijl nodig hebt en wilt wachtwoord opnieuw instellen die zijn ingebouwd.
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Token, sessie en configuratie voor één aanmelding](active-directory-b2c-token-session-sso.md)

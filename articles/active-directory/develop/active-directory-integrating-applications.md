@@ -3,7 +3,7 @@ title: Toepassingen integreren met Azure Active Directory
 description: Informatie over het toevoegen, bijwerken of verwijderen van een toepassing in Azure Active Directory (Azure AD).
 services: active-directory
 documentationcenter: ''
-author: PatAltimore
+author: mtillman
 manager: mtillman
 editor: mbaldwin
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/04/2017
-ms.author: bryanla
+ms.date: 04/18/2018
+ms.author: mtillman
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: 472a1746a338857d457a7b8d5e7fec3ddbf65895
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ebf6653fada0897c23ebb84ab14de1040a963552
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Toepassingen integreren met Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -56,7 +56,7 @@ Alle toepassingen die gebruikmaken van de mogelijkheden van Azure AD wil moet ee
 5. Wanneer u klaar bent, klikt u op **maken**. Azure AD een unieke ID van de toepassing toegewezen aan uw toepassing en u bent getroffen om de belangrijkste registratiepagina van uw toepassing. Afhankelijk van of uw toepassing een web- of systeemeigen toepassing is, worden de verschillende opties opgegeven aanvullende mogelijkheden toevoegen aan uw toepassing. Zie de volgende sectie voor een overzicht van toestemming en details over het inschakelen van aanvullende configuratie-functies in uw toepassing registreren (referenties, machtigingen aanmeldingspagina inschakelen voor gebruikers van andere tenants).
 
   > [!NOTE]
-  > De zojuist geregistreerde toepassing is standaard geconfigureerd om toe te staan **alleen** gebruikers van dezelfde tenant aan te melden bij uw toepassing.
+  > Standaard wordt een nieuw ingeschreven webtoepassing geconfigureerd zodat **alleen** gebruikers van dezelfde tenant aan te melden bij uw toepassing.
   > 
   > 
 
@@ -65,7 +65,7 @@ Als uw toepassing met Azure AD is geregistreerd, moet deze mogelijk worden bijge
 
 ### <a name="overview-of-the-consent-framework"></a>Overzicht van het framework toestemming
 
-Het framework van Azure AD toestemming kunt eenvoudig ontwikkelen van multitenant-web- en native client-toepassingen, met inbegrip van toepassingen met meerdere lagen. Deze toepassingen kunnen aanmelden door gebruikersaccounts van een Azure AD-tenant, verschilt van de waar de toepassing is geregistreerd. Ze kunnen ook toegang nodig tot web-API's zoals de Microsoft Graph-API (voor toegang tot Azure Active Directory, Intune en services in Office 365) en andere Microsoft-services-API's, naast uw eigen web-API's. Het framework is gebaseerd op een gebruiker of beheerder toestemming verlenen tot een toepassing waarin u wordt gevraagd om te worden geregistreerd in de directory, waarbij toegang tot Active directory-gegevens.
+Het framework van Azure AD toestemming kunt eenvoudig ontwikkelen van multitenant-web- en native client-toepassingen. Deze toepassingen kunnen aanmelden door gebruikersaccounts van een Azure AD-tenant, verschilt van de waar de toepassing is geregistreerd. Ze kunnen ook toegang nodig tot web-API's zoals de Microsoft Graph-API (voor toegang tot Azure Active Directory, Intune en services in Office 365) en andere Microsoft-services-API's, naast uw eigen web-API's. Het framework is gebaseerd op een gebruiker of beheerder toestemming verlenen tot een toepassing waarin u wordt gevraagd om te worden geregistreerd in de directory, waarbij toegang tot Active directory-gegevens.
 
 Bijvoorbeeld als een webtoepassing voor de client moet lezen agenda-informatie over de gebruiker van Office 365, is die gebruiker vereist voor het eerst toestemming aan de clienttoepassing. Nadat u toestemming is opgegeven, is de clienttoepassing worden kunnen de Microsoft Graph-API aanroepen namens de gebruiker en het gebruik van de agenda-informatie, indien nodig. De [Microsoft Graph API](https://graph.microsoft.io) biedt toegang tot gegevens in Office 365 (zoals agenda's en berichten van Exchange, sites en lijsten van SharePoint, documenten van OneDrive, OneNote-notitieblokken, taken van de Planner, werkmappen van Excel, enz.) en de gebruikers en groepen van Azure AD en andere gegevensobjecten van meer Microsoft-cloudservices. 
 
@@ -93,17 +93,17 @@ De volgende stappen ziet u hoe de toestemming ondervinden werkt voor de ontwikke
 
 5. Nadat de gebruiker toestemming verleent, wordt een autorisatiecode wordt geretourneerd naar uw toepassing wordt ingewisseld verkrijgen van een toegangstoken en vernieuwen van tokens. Zie voor meer informatie over deze stroom, de [webtoepassing voor web-API-sectie in scenario's voor verificatie voor Azure AD](active-directory-authentication-scenarios.md#web-application-to-web-api).
 
-6. Als beheerder, kunt u ook akkoord gedelegeerde machtigingen van een toepassing namens de gebruikers in uw tenant. Administratieve toestemming voorkomt u het dialoogvenster toestemming worden weergegeven voor elke gebruiker in de tenant en uw toepassing wordt uitgevoerd pagina in de [Azure-portal](https://portal.azure.com). Van de **instellingen** pagina voor uw toepassing, klikt u op **Required Permissions** en klik op de **machtiging verlenen** knop. 
+6. Als beheerder, kunt u ook akkoord gedelegeerde machtigingen van een toepassing namens de gebruikers in uw tenant. Administratieve toestemming voorkomt u het dialoogvenster toestemming worden weergegeven voor elke gebruiker in de tenant en kan worden uitgevoerd in de [Azure-portal](https://portal.azure.com) door gebruikers met de beheerdersrol. Van de **instellingen** pagina voor uw toepassing, klikt u op **Required Permissions** en klik op de **machtiging verlenen** knop. 
 
   ![Machtigingen voor expliciete admin toestemming verlenen](./media/active-directory-integrating-applications/grantpermissions.png)
     
   > [!NOTE]
-  > Verlenen expliciete toestemming geven met behulp van de **machtiging verlenen** knop momenteel vereist is voor één pagina toepassingen (SPA) die gebruikmaken van ADAL.js. Anders mislukt de toepassing wanneer het toegangstoken is aangevraagd.   
+  > Verlenen expliciete toestemming geven met behulp van de **machtiging verlenen** knop momenteel vereist is voor één pagina toepassingen (SPA) die gebruikmaken van ADAL.js. Anders mislukt de toepassing wanneer het toegangstoken is aangevraagd. 
 
 ### <a name="configure-a-client-application-to-access-web-apis"></a>Een clienttoepassing voor toegang tot web-API's configureren
-Om een web/vertrouwelijk clienttoepassing kunnen deelnemen aan een machtiging grant-stroom die verificatie vereist (en verkrijgen van een toegangstoken), moet deze beveiligde referenties maken. De standaardmethode voor verificatie wordt ondersteund door de Azure-portal is de Client-ID + geheime sleutel. Deze sectie bevat de configuratiestappen vereist voor het bieden van de geheime sleutel met de referenties van de client.
+Om een web/vertrouwelijk clienttoepassing kunnen deelnemen aan een machtiging grant-stroom die verificatie vereist (en verkrijgen van een toegangstoken), moet deze beveiligde referenties maken. De standaardmethode voor verificatie wordt ondersteund door de Azure-portal is de client-ID + geheime sleutel. Deze sectie bevat de configuratiestappen vereist voor het bieden van de geheime sleutel met de referenties van de client.
 
-Bovendien voordat een client toegang heeft tot een web-API die worden weergegeven door een resource-toepassing (zoals Microsoft Graph API), het framework toestemming zorgt ervoor dat de client verkrijgt de machtiging grant vereist, op basis van de machtigingen die zijn aangevraagd. Standaard kunnen alle toepassingen machtigingen kiezen uit 'Windows Azure Active Directory' (Graph API) en 'Windows Azure Service Management-API'. De [Graph API 'aanmelden en gebruikersprofiel lezen' machtiging](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) wordt ook standaard geselecteerd. Als de client wordt geregistreerd in een tenant met accounts die zijn geabonneerd op Office 365, zijn machtigingen voor SharePoint en Exchange Online en Web-API's beschikbaar voor selectie. U kunt kiezen uit [twee soorten machtigingen](active-directory-dev-glossary.md#permissions) voor elke web-API gewenste:
+Bovendien voordat een client toegang heeft tot een web-API die worden weergegeven door een resource-toepassing (zoals de Microsoft Graph-API), het framework toestemming zorgt ervoor dat de client verkrijgt de machtiging grant vereist, op basis van de machtigingen die zijn aangevraagd. Standaard kunnen alle toepassingen machtigingen kiezen uit 'Windows Azure Active Directory' (Graph API) en 'Windows Azure Service Management-API'. De [Graph API 'aanmelden en gebruikersprofiel lezen' machtiging](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) wordt ook standaard geselecteerd. Als de client wordt geregistreerd in een tenant met accounts die zijn geabonneerd op Office 365, zijn machtigingen voor SharePoint en Exchange Online en web-API's beschikbaar voor selectie. U kunt kiezen uit [twee soorten machtigingen](active-directory-dev-glossary.md#permissions) voor elke web-API gewenste:
 
 - Toepassingsmachtigingen: Uw clienttoepassing moet toegang tot de web-API als zelf (geen gebruikerscontext). Dit type machtiging beheerder toestemming nodig en is ook niet beschikbaar voor systeemeigen clienttoepassingen.
 
@@ -120,7 +120,7 @@ Bovendien voordat een client toegang heeft tot een web-API die worden weergegeve
    ![Registratie van een toepassing bijwerken](./media/active-directory-integrating-applications/update-app-registration.png)
 
 4. Gaat u naar de pagina belangrijkste registratie van de toepassing, die wordt geopend de **instellingen** pagina voor de toepassing. Een geheime sleutel om de referenties van uw webtoepassing toevoegen:
-  - Klik op de **sleutels** sectie op de **instellingen** pagina.  
+  - Klik op de **sleutels** sectie op de **instellingen** pagina. 
   - Een beschrijving voor uw sleutel toevoegen.
   - Selecteer een of twee jaar duur.
   - Klik op **Opslaan**. De meest rechtse kolom bevat de waarde van de sleutel, nadat u de wijzigingen in de configuratie hebt opgeslagen. **Zorg ervoor dat de sleutel wilt kopiëren** voor gebruik in uw toepassingscode client, zoals niet toegankelijk eenmaal is u deze pagina verlaten.
@@ -141,7 +141,7 @@ Bovendien voordat een client toegang heeft tot een web-API die worden weergegeve
 6. Wanneer u klaar bent, klikt u op de **Selecteer** knop op **toegang inschakelen** pagina wordt de **gedaan** knop op de **API toevoegen toegang** pagina. U keert terug naar de **vereist machtigingen** pagina, waar de nieuwe resource is toegevoegd aan de lijst met API's.
 
   > [!NOTE]
-  > Te klikken op de **gedaan** knop stelt ook automatisch de machtigingen voor uw toepassing in uw directory op basis van de machtigingen voor andere toepassingen die u hebt geconfigureerd.  U kunt deze Toepassingsmachtigingen weergeven door te kijken naar de toepassing **instellingen** pagina.
+  > Te klikken op de **gedaan** knop stelt ook automatisch de machtigingen voor uw toepassing in uw directory op basis van de machtigingen voor andere toepassingen die u hebt geconfigureerd. U kunt deze Toepassingsmachtigingen weergeven door te kijken naar de toepassing **instellingen** pagina.
   > 
   > 
 
@@ -182,7 +182,7 @@ De volgende sectie leest u hoe toegangsbereiken, door het wijzigen van de resour
   > Extra scopes later zo nodig kan worden blootgesteld. U kunt uw web-API kan meerdere scopes die zijn gekoppeld met tal van verschillende functies worden blootgesteld. De resource toegang tot de web-API tijdens runtime, beheren door te evalueren van het bereik (`scp`) claim (s) in de ontvangen toegangstoken van OAuth 2.0.
   > 
 
-6. Wanneer u klaar bent, klikt u op **opslaan**. Uw web-API is nu geconfigureerd voor gebruik door andere toepassingen in uw directory.  
+6. Wanneer u klaar bent, klikt u op **opslaan**. Uw web-API is nu geconfigureerd voor gebruik door andere toepassingen in uw directory. 
 
   ![Registratie van een toepassing bijwerken](./media/active-directory-integrating-applications/update-app-registration-manifest.png)
 
@@ -210,7 +210,7 @@ Voor meer informatie over application manifest concepten over het algemeen, Zie 
 
 Zoals eerder gezegd blootstellen/hebt u toegang tot API's voor uw eigen toepassingen, kunt u uw clienttoepassing toegang krijgt tot de API's die worden weergegeven door de Microsoft-resources kunt registreren. De Microsoft Graph-API aangeduid als 'Microsoft Graph' in de portal-resource/API-lijst is beschikbaar voor alle toepassingen die zijn geregistreerd bij Azure AD. Als u de clienttoepassing in een tenant met accounts die zich hebben geregistreerd voor Office 365-abonnement registreert, kunt u ook toegang tot de bereiken die worden weergegeven door de verschillende bronnen voor Office 365.
 
-Zie voor een volledige bespreking van de bereiken die worden weergegeven door Microsoft Graph API, de [-machtigingsbereiken | Microsoft Graph API concepten](https://graph.microsoft.io/docs/authorization/permission_scopes) artikel.
+Zie voor een volledige bespreking van de bereiken die worden weergegeven door Microsoft Graph API, de [Microsoft Graph machtigingen verwijzing](https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference) artikel.
 
 > [!NOTE]
 > Vanwege een beperking, kunnen native client-toepassingen alleen aanroepen in de Azure AD Graph API als ze de machtiging 'Toegang tot de directory van uw organisatie' gebruiken. Deze beperking geldt niet voor webtoepassingen.
@@ -247,7 +247,7 @@ Nadat u de wijzigingen hebt aangebracht, kunnen gebruikers en beheerders van and
 
 #### <a name="changing-the-application-to-support-multi-tenant"></a>Het wijzigen van de toepassing voor de ondersteuning van meerdere tenants
 
-Ondersteuning voor meerdere tenants toepassingen is sterk afhankelijk van het kader van Azure AD toestemming. Toestemming is het mechanisme dat toestaat dat een gebruiker van een andere tenant, de toepassing toegang geven tot bronnen die zijn beveiligd door de gebruiker tenant. Deze ervaring wordt aangeduid als "toestemming van de gebruiker."
+Ondersteuning voor meerdere tenants toepassingen is sterk afhankelijk van het kader van Azure AD toestemming. Toestemming is het mechanisme dat toestaat dat een gebruiker uit een andere tenant om de App toegang verlenen tot resources die zijn beveiligd door de gebruiker tenant. Deze ervaring wordt aangeduid als "toestemming van de gebruiker."
 
 De webtoepassing kan ook worden geboden:
 
@@ -289,7 +289,7 @@ Impliciete Grant OAuth 2.0 is standaard uitgeschakeld voor toepassingen. U kunt 
 Deze sectie wordt beschreven hoe een toepassing registreren verwijderen uit uw Azure AD-tenant.
 
 ### <a name="removing-an-application-authored-by-your-organization"></a>Verwijderen van een toepassing die is geschreven door uw organisatie
-Toepassingen die uw organisatie is geregistreerd worden weergegeven onder de 'Mijn apps' filter op uw tenant belangrijkste 'App registraties' pagina. Deze toepassingen zijn die u handmatig geregistreerd via de Azure-portal of via een programma via PowerShell of de Graph API. Meer specifiek, worden ze weergegeven door een toepassing en Service-Principal object in uw tenant. Zie voor meer informatie [toepassingsobjecten en Service-Principal objecten](active-directory-application-objects.md).
+Toepassingen die uw organisatie is geregistreerd, worden vermeld onder de 'Mijn apps' filter op uw tenant belangrijkste 'App registraties' pagina. Deze toepassingen zijn die u handmatig geregistreerd via de Azure-portal of via een programma via PowerShell of de Graph API. Meer specifiek, worden ze weergegeven door een toepassing en Service-Principal object in uw tenant. Zie voor meer informatie [toepassingsobjecten en Service-Principal objecten](active-directory-application-objects.md).
 
 #### <a name="to-remove-a-single-tenant-application-from-your-directory"></a>Een toepassing voor één tenant verwijderen uit uw directory
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
@@ -309,13 +309,13 @@ Toepassingen die uw organisatie is geregistreerd worden weergegeven onder de 'Mi
 ### <a name="removing-a-multi-tenant-application-authorized-by-another-organization"></a>Verwijderen van een multitenant-toepassing geautoriseerd door een andere organisatie
 Een subset van de toepassingen die worden weergegeven onder het filter 'Alle apps' (met uitzondering van de 'Mijn apps' registraties) zijn op uw tenant 'App registraties' hoofdpagina van multitenant-toepassingen. Deze toepassingen met meerdere tenants zijn van een andere tenant en in uw tenant zijn geregistreerd tijdens het proces toestemming in technische voorwaarden. Ze zijn meer specifiek, vertegenwoordigd door alleen een service principal-object in uw tenant, waarbij geen bijbehorende application-object. Zie voor meer informatie over de verschillen tussen de toepassing en service-principals [toepassing en service-principal objecten in Azure AD](active-directory-application-objects.md).
 
-Als u wilt verwijderen een multitenant-toepassing toegang tot uw directory (na heeft toestemming verleend), moet de company administrator de service-principal verwijderen. De beheerder moet globale beheerderstoegang hebt, en kunnen verwijderen via de Azure portal of gebruik de [Azure AD PowerShell-Cmdlets](http://go.microsoft.com/fwlink/?LinkId=294151) om toegang te verwijderen.
+Als u wilt verwijderen een multitenant-toepassing toegang tot uw directory (na heeft toestemming verleend), moet de company administrator de service-principal verwijderen. De beheerder moet globale beheerderstoegang hebt en kunt verwijderen via de Azure portal of gebruik de [Azure AD PowerShell-Cmdlets](http://go.microsoft.com/fwlink/?LinkId=294151).
 
 ## <a name="next-steps"></a>Volgende stappen
 - Zie voor meer informatie over de werking van verificatie in Azure AD [verificatie scenario's voor Azure AD](active-directory-authentication-scenarios.md).
 - Zie de [huisstijl richtlijnen voor geïntegreerde Apps](active-directory-branding-guidelines.md) voor tips over visual richtlijnen voor uw app.
 - Zie voor meer informatie over de relatie tussen de toepassing en Service-Principal objecten van een toepassing [toepassingsobjecten en Service-Principal objecten](active-directory-application-objects.md).
 - Zie voor meer informatie over de rol van de app-manifest wordt afgespeeld, [inzicht in de Azure Active Directory-toepassingsmanifest](active-directory-application-manifest.md)
-- Zie de [verklarende woordenlijst voor Azure AD-ontwikkelaar](active-directory-dev-glossary.md) voor definities van de concepten voor ontwikkelaars van core Azure Active Directory (AD).
+- Zie de [verklarende woordenlijst voor Azure AD-ontwikkelaar](active-directory-dev-glossary.md) voor definities van de belangrijkste Azure AD-concepten voor ontwikkelaars.
 - Ga naar de [ontwikkelaarshandleiding Active Directory](active-directory-developers-guide.md) voor een overzicht van alle inhoud die relevant zijn voor ontwikkelaars.
 

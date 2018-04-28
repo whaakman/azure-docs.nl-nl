@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: e5310c59cbfe4080911768f29e1b8f635a611e63
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c1b04968f83271006240fc0e099175e9017574ae
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# referentie voor ontwikkelaars
 
@@ -44,7 +44,7 @@ In Visual Studio de **Azure Functions** projectsjabloon maakt u een C# class lib
 > [!IMPORTANT]
 > De buildproces maakt een *function.json* -bestand voor elke functie. Dit *function.json* bestand is niet bedoeld om rechtstreeks worden bewerkt. Bindingconfiguratie wijzigen kan of de functie uitschakelen door dit bestand te bewerken. U kunt een functie uitschakelen met de [uitschakelen](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs) kenmerk. Bijvoorbeeld, een Boole-app instellen MY_TIMER_DISABLED toevoegen en toepassen `[Disable("MY_TIMER_DISABLED")]` aan de functie. U kunt inschakelen en uitschakelen door de appinstelling te wijzigen.
 
-### <a name="functionname-and-trigger-attributes"></a>Functienaam en trigger kenmerken
+## <a name="methods-recognized-as-functions"></a>Methoden die als functies
 
 In een class-bibliotheek is een functie een statische methode met een `FunctionName` en een trigger-kenmerk, zoals wordt weergegeven in het volgende voorbeeld:
 
@@ -61,13 +61,24 @@ public static class SimpleExample
 } 
 ```
 
-De `FunctionName` kenmerk markeert de methode als een functie-ingangspunt. De naam moet uniek zijn binnen een project.
+De `FunctionName` kenmerk markeert de methode als een functie-ingangspunt. De naam moet uniek zijn binnen een project. Projectsjablonen maken vaak een methode met de naam `Run`, maar de methodenaam kan geldige C#-methodenaam.
 
 Het kenmerk trigger geeft het triggertype en invoergegevens koppelt aan een methodeparameter. De voorbeeldfunctie wordt geactiveerd door een wachtrijbericht en bericht uit de wachtrij wordt doorgegeven aan de methode in de `myQueueItem` parameter.
 
-### <a name="additional-binding-attributes"></a>Aanvullende binding kenmerken
+## <a name="method-signature-parameters"></a>Methodeparameters handtekening
 
-Extra invoer en uitvoer binding kenmerken kunnen worden gebruikt. Het volgende voorbeeld wijzigt het vorige item door een binding van de wachtrij uitvoer toe te voegen. De functie schrijft de invoerwachtrij-bericht naar een nieuwe wachtrijbericht in een andere wachtrij.
+De methodehandtekening kan parameters dan die wordt gebruikt in combinatie met het kenmerk trigger bevatten. Hier volgen enkele van de extra parameters die u kunt opnemen:
+
+* [Invoer en uitvoer bindingen](functions-triggers-bindings.md) als zodanig gemarkeerd door ze versieren met kenmerken.  
+* Een `ILogger` of `TraceWriter` parameter voor [logboekregistratie](#logging).
+* Een `CancellationToken` parameter voor [correct afsluiten](#cancellation-tokens).
+* [Bindingsexpressies](functions-triggers-bindings.md#binding-expressions-and-patterns) parameters ophalen van metagegevens activeren.
+
+De volgorde van de parameters in de functiehandtekening niet van belang. Bijvoorbeeld, kunt u trigger parameters plaatsen vóór of na andere bindingen en kunt u de parameter berichtenlogboek plaatsen vóór of na de trigger of bindende parameters.
+
+### <a name="output-binding-example"></a>Voorbeeld van uitvoer binding
+
+Het volgende voorbeeld wijzigt het vorige item door een binding van de wachtrij uitvoer toe te voegen. De functie schrijft bericht uit de wachtrij die de functie naar een nieuwe wachtrijbericht in een andere wachtrij activeert.
 
 ```csharp
 public static class SimpleExampleWithOutput
@@ -84,13 +95,11 @@ public static class SimpleExampleWithOutput
 }
 ```
 
-### <a name="order-of-parameters"></a>De volgorde van de parameters
+De binding verwijzing artikelen ([opslagwachtrijen](functions-bindings-storage-queue.md), bijvoorbeeld) wordt uitgelegd welke parametertypen die u kunt gebruiken met trigger, invoer of uitvoer voor het binden van kenmerken.
 
-De volgorde van de parameters in de functiehandtekening niet van belang. Bijvoorbeeld, kunt u trigger parameters plaatsen vóór of na andere bindingen en kunt u de parameter berichtenlogboek plaatsen vóór of na de trigger of bindende parameters.
+### <a name="binding-expressions-example"></a>Voorbeeld van de binding-expressies
 
-### <a name="binding-expressions"></a>Expressies voor gegevensbinding
-
-U kunt de expressies voor gegevensbinding in kenmerk constructorparameters en parameters van de functie. Bijvoorbeeld de volgende code haalt de naam van de wachtrij voor het bewaken van een app-instelling en het ophalen van de wachttijd voor het maken van bericht de `insertionTime` parameter.
+De volgende code haalt de naam van de wachtrij voor het bewaken van een app-instelling en het ophalen van de wachttijd voor het maken van bericht de `insertionTime` parameter.
 
 ```csharp
 public static class BindingExpressionsExample
@@ -107,9 +116,7 @@ public static class BindingExpressionsExample
 }
 ```
 
-Zie voor meer informatie **Binding expressies en patronen** in [Triggers en bindingen](functions-triggers-bindings.md#binding-expressions-and-patterns).
-
-### <a name="conversion-to-functionjson"></a>Conversie naar function.json
+## <a name="autogenerated-functionjson"></a>Automatisch gegenereerde function.json
 
 De buildproces maakt een *function.json* bestand in de map van een functie in de build-map. Zoals eerder opgemerkt, wordt dit bestand niet bedoeld om rechtstreeks worden bewerkt. Bindingconfiguratie wijzigen kan of de functie uitschakelen door dit bestand te bewerken. 
 
@@ -134,7 +141,7 @@ De gegenereerde *function.json* bestand bevat een `configurationSource` eigensch
 }
 ```
 
-### <a name="microsoftnetsdkfunctions-nuget-package"></a>Microsoft.NET.Sdk.Functions NuGet-pakket
+## <a name="microsoftnetsdkfunctions"></a>Microsoft.NET.Sdk.Functions
 
 De *function.json* Bestandsgeneratie wordt uitgevoerd door het NuGet-pakket [Microsoft\.NET\.Sdk\.functies](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
 
@@ -169,7 +176,7 @@ De `Sdk` pakket ook afhankelijk van [Newtonsoft.Json](http://www.nuget.org/packa
 
 De broncode voor `Microsoft.NET.Sdk.Functions` is beschikbaar in de GitHub-repo [azure\-functies\-tegenover\-bouwen\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 
-### <a name="runtime-version"></a>Runtime-versi
+## <a name="runtime-version"></a>Runtime-versi
 
 Visual Studio gebruikt de [kernonderdelen van Azure Functions](functions-run-local.md#install-the-azure-functions-core-tools) projecten functies uitvoeren. De Core-hulpprogramma's is een opdrachtregelinterface voor de runtime van Functions.
 

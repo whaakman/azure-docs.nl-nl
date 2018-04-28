@@ -2,26 +2,24 @@
 title: Bulksgewijs laden in Apache Phoenix met psql - Azure HDInsight | Microsoft Docs
 description: Gebruik het hulpprogramma psql bulksgewijs laden gegevens laadt in Phoenix tabellen.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: ashishth
-ms.openlocfilehash: 0a623113ee9f3fe2c0f5f616ecd79b8311a8ffc1
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 2c192707c6cf8f84d2ca1c0307770cadd5cdb8bd
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="bulk-load-data-into-phoenix-using-psql"></a>Bulksgewijs laden gegevens in Phoenix psql gebruiken
+# <a name="bulk-load-data-into-phoenix-using-psql"></a>Bulksgewijs gegevens laden in Phoenix met psql
 
 [Apache Phoenix](http://phoenix.apache.org/) is een open-source, massively parallelle relationele database gebouwd op [HBase](../hbase/apache-hbase-overview.md). Phoenix bevat een SQL-achtige query's over HBase. Phoenix gebruikt JDBC-stuurprogramma's voor gebruikers te maken, verwijderen en SQL-tabellen, indexen, weergaven en reeksen en upsert rijen afzonderlijk en bulksgewijs veranderen. Phoenix maakt gebruik van systeemeigen noSQL-compilatie in plaats van de MapReduce voor het compileren van query's, lage latentie toepassingen boven op HBase te maken. Phoenix voegt CO-processoren ter ondersteuning van de client opgegeven code uitgevoerd in de adresruimte van de server, de code CO-locatie met de gegevens uitvoert. Hierdoor minimaliseert client/server-gegevens worden overgedragen.  Als u wilt werken met gegevens met Phoenix in HDInsight, eerst tabellen maken en vervolgens gegevens laden in deze.
 

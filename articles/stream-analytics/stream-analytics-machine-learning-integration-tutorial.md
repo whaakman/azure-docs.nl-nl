@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/01/2018
-ms.openlocfilehash: 93397e5370863b11b7c153bbf234d6bfdd808718
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/16/2018
+ms.openlocfilehash: 63648dfe02a0b5ed00d0a7206a6aabbe200f94c4
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Gevoel analyse uitvoeren met behulp van Azure Stream Analytics en Azure Machine Learning
 In dit artikel wordt beschreven hoe snel een eenvoudige Azure Stream Analytics-taak die Azure Machine Learning integreert instellen. U kunt een Machine Learning gevoel analytics-model van de Cortana Intelligence Gallery streaming tekstgegevens analyseren en te bepalen van de score gevoel in realtime. Met de Cortana Intelligence Suite kunt u deze taak uitvoeren zonder dat u de beschrijving van het bouwen van een gevoel analytics-model.
@@ -25,7 +25,7 @@ U kunt toepassen wat u leert van dit artikel voor dergelijke scenario's:
 * Evalueren van opmerkingen over forums, blogs en video's. 
 * Veel andere realtime, voorspellende scoreprofiel scenario's.
 
-In een Praktijkscenario krijgt u de gegevens rechtstreeks vanuit een gegevensstroom Twitter. Voor het vereenvoudigen van de zelfstudie we hebt geschreven zodat de Streaming Analytics-taak tweets opgehaald uit een CSV-bestand in Azure Blob-opslag. U kunt uw eigen CSV-bestand maken of u kunt een CSV-voorbeeldbestand, zoals wordt weergegeven in de volgende afbeelding:
+In een Praktijkscenario krijgt u de gegevens rechtstreeks vanuit een gegevensstroom Twitter. Om te vereenvoudigen de zelfstudie, wordt zodat de Streaming Analytics-taak tweets opgehaald uit een CSV-bestand in Azure Blob-opslag geschreven. U kunt uw eigen CSV-bestand maken of u kunt een CSV-voorbeeldbestand, zoals wordt weergegeven in de volgende afbeelding:
 
 ![voorbeeld tweets in een CSV-bestand](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-2.png)  
 
@@ -39,7 +39,7 @@ De volgende afbeelding ziet deze configuratie. Zoals aangegeven voor een meer re
 Voordat u begint, zorg er dan voor dat u hebt het volgende:
 
 * Een actief Azure-abonnement.
-* Een CSV-bestand met sommige gegevens in het. U kunt de eerder vermelde uit bestand downloaden [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/sampleinput.csv), of u kunt uw eigen bestand maken. Voor dit artikel nemen we aan dat u het bestand vanuit GitHub.
+* Een CSV-bestand met sommige gegevens in het. U kunt de eerder vermelde uit bestand downloaden [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/sampleinput.csv), of u kunt uw eigen bestand maken. Voor dit artikel wordt ervan uitgegaan dat u het bestand vanuit GitHub.
 
 Op een hoog niveau voor het voltooien van de taken in dit artikel wordt uitgelegd doen u het volgende:
 
@@ -157,7 +157,7 @@ De taak verzendt resultaten naar dezelfde blobopslag-waar deze invoer opgehaald.
 
    |Veld  |Waarde  |
    |---------|---------|
-   |**Uitvoeraliassen** | Gebruik de naam `datainput` en selecteer **Selecteer blobopslag uit uw abonnement**       |
+   |**Uitvoeraliassen** | Gebruik de naam `datamloutput` en selecteer **Selecteer blobopslag uit uw abonnement**       |
    |**Opslagaccount**  |  Selecteer het opslagaccount dat u eerder hebt gemaakt.  |
    |**Container**  | Selecteer de container die u eerder hebt gemaakt (`azuresamldemoblob`)        |
    |**Gebeurtenis serialisatie-indeling**  |  Selecteer **CSV**       |
@@ -168,7 +168,7 @@ De taak verzendt resultaten naar dezelfde blobopslag-waar deze invoer opgehaald.
 
 
 ### <a name="add-the-machine-learning-function"></a>De Machine Learning-functie toevoegen 
-U kunt eerder een Machine Learning-model gepubliceerd naar een webservice. In ons scenario wordt elke tweet voorbeeld verzonden wanneer de stroom Analysis-taak wordt uitgevoerd, uit de invoer met de webservice voor gevoel analyse. De Machine Learning-webservice retourneert een gevoel (`positive`, `neutral`, of `negative`) en een kans van de tweet wordt positief. 
+U kunt eerder een Machine Learning-model gepubliceerd naar een webservice. In dit scenario wordt elke tweet voorbeeld verzonden wanneer de stroom Analysis-taak wordt uitgevoerd, uit de invoer met de webservice voor gevoel analyse. De Machine Learning-webservice retourneert een gevoel (`positive`, `neutral`, of `negative`) en een kans van de tweet wordt positief. 
 
 In deze sectie van de zelfstudie definieert u een functie in de stroom Analysis-taak. De functie kan worden aangeroepen om een tweet wordt verzonden naar de webservice en krijgt u het antwoord terug. 
 
@@ -200,12 +200,13 @@ Stream Analytics maakt gebruik van een declaratieve, op basis van SQL-query te o
 
     ```
     WITH sentiment AS (  
-    SELECT text, sentiment(text) as result from datainput  
+    SELECT text, sentiment(text) as result 
+    FROM datainput  
     )  
 
-    Select text, result.[Score]  
-    Into datamloutput
-    From sentiment  
+    SELECT text, result.[Score]  
+    INTO datamloutput
+    FROM sentiment  
     ```    
 
     De query roept de functie die u eerder hebt gemaakt (`sentiment`) om te kunnen gevoel analyses uitvoeren op elke tweet in de invoer. 

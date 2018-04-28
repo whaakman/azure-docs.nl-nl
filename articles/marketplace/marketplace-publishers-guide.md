@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: f090bcd56377d167dddab1b8f942d473aecb66a2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 999c9bc04cffcfe3e352d877ebf9e19fc7c7df35
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Handleiding voor Azure Marketplace en AppSource uitgever
 
@@ -253,7 +253,7 @@ Elke klant met een Enterprise Agreement kan Azure toevoegen aan de overeenkomst 
 
 |**Vereiste**  | **Details**  |**Publicatieoptie**  |
 |---------|---------|---------|
-|**Gratis proefperiode en evaluatiesoftware**     |  Een klant moet kan uw app gratis gebruiken voor een beperkte periode.<br><br>Dit betekent dat de klant niet gebruikt voor licentie of abonnement kosten voor het product, noch de kosten van de onderliggende directe-Microsoft-product of service worden. Omdat alle proefversie opties op de publisher Microsoft product abonnement worden geïmplementeerd, bepaalt de uitgever uitsluitend kostenoptimalisatie op de proefversie en beheer.<br><br>U kunt ervoor kiezen een gratis proefversie, interactieve demo of uitprobeert. Ongeacht wat u kiest moet de gratis proefversie bieden de klant de minimale hoeveelheid tijd om de app voor zonder extra kosten.<br><br>Om te beginnen met het maken van een test-station bereiken cloudmarketplace@microsoft.com. <br><br>Let op: Azure Marketplace SaaS proefversie optreedt, moet gebruikers zich aanmelden met hun werkreferenties Active Directory toestaan. [Meer informatie](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences). |   Proefversie      | 
+|**Gratis proefperiode en evaluatiesoftware**     |  Een klant moet kan uw app gratis gebruiken voor een beperkte periode.<br><br>Dit betekent dat de klant niet gebruikt voor licentie of abonnement kosten voor het product, noch de kosten van de onderliggende directe-Microsoft-product of service worden. Omdat alle proefversie opties op de publisher Microsoft product abonnement worden geïmplementeerd, bepaalt de uitgever uitsluitend kostenoptimalisatie op de proefversie en beheer.<br><br>U kunt ervoor kiezen een gratis proefversie, interactieve demo of uitprobeert. Ongeacht wat u kiest moet de gratis proefversie bieden de klant de minimale hoeveelheid tijd om de app voor zonder extra kosten.<br><br>Om te beginnen met het maken van een test-station bereiken cloudmarketplace@microsoft.com. <br><br>Let op: Azure Marketplace SaaS proefversie optreedt, moet gebruikers zich aanmelden met hun werkreferenties Active Directory toestaan. [Meer informatie](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences). |   Proefversie      | 
 | **Eenvoudig kunnen worden geconfigureerd, klare oplossing**    |  Uw app moet eenvoudig en snel te configureren en instellen.       |  Proefversie       |
 |**Beschikbaarheid/bedrijfstijd**    |    Uw SaaS-app of platform moet een beschikbaarheid van minimaal 99,9% hebben.     |    Proefversie     |
 |**Azure Active Directory**    |    Uw aanbieding moet toestaan dat Azure Active Directory (Azure AD) voor federatieve eenmalige aanmelding (SSO) met toestemming ingeschakeld.      |  Proefversie|
@@ -264,7 +264,7 @@ Elke klant met een Enterprise Agreement kan Azure toevoegen aan de overeenkomst 
 |**Vereiste**  |**Details** |**Publicatieoptie**  |
 |---------|---------|---------|
 |**Facturerings- en softwarelicentiecontrole**    |  De virtuele machine moet ondersteunen Bring Your Own License of gebruik, maandelijks facturering.       |    Transactie    |
-|**Azure-compatibele virtuele harde schijf (VHD)**     |   Virtuele machines moet worden gebaseerd op [Windows](https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) of [Linux](https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation).    |   Transactie      |
+|**Azure-compatibele virtuele harde schijf (VHD)**     |   Virtuele machines moet worden gebaseerd op [Windows](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) of [Linux](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation).    |   Transactie      |
 
 ### <a name="prerequisites-specific-to-consulting-services-publishing"></a>Specifieke vereisten met ondersteuningsdiensten publiceren
 
@@ -277,7 +277,7 @@ Elke klant met een Enterprise Agreement kan Azure toevoegen aan de overeenkomst 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Met behulp van Azure Active Directory proefversies inschakelen
 Azure Active Directory is een cloud identity-service waarmee verificatie werkt met een Microsoft- of schoolaccount met behulp van industriestandaard-protocollen: OAuth en OpenID Connect. Meer informatie over Azure AD op de [product webpagina](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features). 
 
-Microsoft verifieert alle Marketplace-gebruikers met Azure AD. Als een geverifieerde gebruiker klikt op via de aanbieding in de Marketplace-proefversie wordt omgeleid naar uw proefabonnement omgeving, kunt u de gebruiker rechtstreeks in een proefversie inrichten zonder een aanvullende stap aanmelden. De [token dat uw app van Azure AD tijdens verificatie ontvangt](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens) waardevolle gebruikersgegevens die u gebruiken kunt voor het maken van een gebruikersaccount in uw app bevat. U kunt de ervaring voor de inrichting automatiseren en vergroot de kans van conversie. 
+Microsoft verifieert alle Marketplace-gebruikers met Azure AD. Als een geverifieerde gebruiker klikt op via de aanbieding in de Marketplace-proefversie wordt omgeleid naar uw proefabonnement omgeving, kunt u de gebruiker rechtstreeks in een proefversie inrichten zonder een aanvullende stap aanmelden. De [token dat uw app van Azure AD tijdens verificatie ontvangt](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens) waardevolle gebruikersgegevens die u gebruiken kunt voor het maken van een gebruikersaccount in uw app bevat. U kunt de ervaring voor de inrichting automatiseren en vergroot de kans van conversie. 
 
 Met behulp van Azure AD één muisklik verificatie aan uw app of de evaluatieversie in te schakelen:
 
@@ -292,20 +292,20 @@ Als u vandaag nog Azure AD ondersteunen:
 
 - Uw toepassing registreren in de Azure-portal.
 - De ondersteuning voor multitenancy inschakelen in Azure AD voor een proefabonnement ervaring met één klik.
-- [Meer informatie](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications).
+- [Meer informatie](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
 
 Als u niet bekend met Azure AD federatieve eenmalige aanmelding bent:
 
 - Uw toepassing registreren in de Azure-portal.
-- Eenmalige aanmelding met Azure AD ontwikkelen met behulp van [OpenID Connect](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code) of [OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code).
+- Eenmalige aanmelding met Azure AD ontwikkelen met behulp van [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) of [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
 - De ondersteuning voor multitenancy inschakelen in Azure AD voor een proefabonnement ervaring met één klik.
-- [Meer informatie](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified).
+- [Meer informatie](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified).
 
 ### <a name="certify-your-azure-ad-integration-for-the-marketplace-single-tenant-applications"></a>Uw Azure AD-integratie voor de Marketplace certificeren: single-tenant-toepassingen
 
 Er zijn meerdere opties voor één tenant toepassingen:
 
-- Gebruikers toevoegen aan uw directory als gastgebruikers met behulp van [Azure B2B](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- Gebruikers toevoegen aan uw directory als gastgebruikers met behulp van [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
 - Handmatig inrichten proefversies voor klanten via contact met mij
 - Ontwikkel een station van de test per klant.
 - Een voorbeeld van multitenant-demo-app met eenmalige aanmelding bouwen.
@@ -316,11 +316,11 @@ Voor apps AppSource die Office, Dynamics en Power BI uitbreiden, kunt u meer inf
 
 |Product |Publicatie-informatie  |
 |---------|---------|
-|Office 365     |    Controleer de [publiceren proces en de richtlijnen]( https://docs.microsoft.com/en-us/office/dev/store/submit-to-the-office-store).     |
-|Dynamics 365 voor Financiën en bewerkingen  |   Wanneer u voor Enterprise Edition maakt, bekijkt u de [publiceren proces en de richtlijnen](https://docs.microsoft.com/en-us/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source).      |
-|Dynamics 365 voor betrokkenheid van de klant |Controleer de [publiceren proces en de richtlijnen](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/publish-app-appsource). |
-|Power BI   |     Controleer de [publiceren proces en de richtlijnen]( https://docs.microsoft.com/en-us/power-bi/developer/office-store).    |
-|Cortana Intelligence     |    Meer informatie over [Cortana in AppSource](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide).     |
+|Office 365     |    Controleer de [publiceren proces en de richtlijnen]( https://docs.microsoft.com/office/dev/store/submit-to-the-office-store).     |
+|Dynamics 365 voor Financiën en bewerkingen  |   Wanneer u voor Enterprise Edition maakt, bekijkt u de [publiceren proces en de richtlijnen](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source).      |
+|Dynamics 365 voor betrokkenheid van de klant |Controleer de [publiceren proces en de richtlijnen](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource). |
+|Power BI   |     Controleer de [publiceren proces en de richtlijnen]( https://docs.microsoft.com/power-bi/developer/office-store).    |
+|Cortana Intelligence     |    Meer informatie over [Cortana in AppSource](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide).     |
 |AppSource advies aanbiedingen     |  Controleer de [richtlijnen en informatie over het verzenden van uw aanbieding](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf).    |
 
 
@@ -522,11 +522,11 @@ Als u een bedrijfsaccount, volgt u deze richtlijnen als meer dan één persoon n
 
 Uw ontwikkelaarsaccount moet worden benaderd voornamelijk van vertrouwde pc's. Dit is essentieel omdat er een limiet aan het aantal codes die worden gegenereerd per account per week. Met behulp van de vertrouwde pc's, kunt ook de meest naadloze aanmeldingservaring.
 
-Zie voor meer informatie over aanvullende developer-account richtlijnen en beveiliging [openen van een ontwikkelaarsaccount](https://docs.microsoft.com/en-us/windows/uwp/publish/opening-a-developer-account).
+Zie voor meer informatie over aanvullende developer-account richtlijnen en beveiliging [openen van een ontwikkelaarsaccount](https://docs.microsoft.com/windows/uwp/publish/opening-a-developer-account).
 
 ### <a name="guidance-for-microsoft-ids-in-an-azure-ad-federated-domain"></a>Richtlijnen voor het Microsoft IDs in een federatieve Azure AD-domein
 
-Uw bedrijfsaccount kan worden gefedereerd via [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/). Als u probeert te maken van een Microsoft-ID met een zakelijke e-mailadres, wordt er een fout geretourneerd. Als u een fout optreedt, eerst contact op met uw IT-team om te controleren of dat dit het geval is. Dit is een bekend probleem en we werken over het oplossen van deze. 
+Uw bedrijfsaccount kan worden gefedereerd via [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/). Als u probeert te maken van een Microsoft-ID met een zakelijke e-mailadres, wordt er een fout geretourneerd. Als u een fout optreedt, eerst contact op met uw IT-team om te controleren of dat dit het geval is. Dit is een bekend probleem en we werken over het oplossen van deze. 
 
 Als tijdelijke oplossing wordt aangeraden dat u maakt een nieuw e-mailadres in de @outlook.com domein en een regel maken. Volg deze stappen:
 
@@ -562,7 +562,7 @@ Nadat u de laatste stap hebt voltooid, wordt Outlook alle e-mailberichten/commun
 5. Voor **accounttype**, selecteer **bedrijf** en selecteer vervolgens de **volgende** knop.
 
    >[!IMPORTANT]
-   >Zie voor meer informatie over accounttypen en die geschikt voor u om te kiezen, [Account typen, locaties en kosten](https://docs.microsoft.com/en-us/windows/uwp/publish/account-types-locations-and-fees).
+   >Zie voor meer informatie over accounttypen en die geschikt voor u om te kiezen, [Account typen, locaties en kosten](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees).
 
 6. Voor **Publisher weergavenaam**, geef de weergavenaam (doorgaans de naam van uw bedrijf).
 

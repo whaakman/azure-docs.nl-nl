@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: jeedes
-ms.openlocfilehash: a7a71eb4de1723be1fd32a35bee848885738b029
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 027b7ae5b87cc8349670b2270124c18d68242a9f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nexonia"></a>Zelfstudie: Azure Active Directory-integratie met Nexonia
 
@@ -95,7 +95,7 @@ Om te configureren en testen van Azure AD eenmalige aanmelding met Nexonia, moet
 In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding in uw toepassing Nexonia configureren.
 
   > [!Note]
-   > Als u problemen bij de integratie hebt en Raadpleeg dit [koppeling](https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery) voor het oplossen. Als u nog steeds niet de oplossing hebt gevonden, kunt u de ondersteuningsaanvraag vanuit Azure-portal te verhogen.
+   > Als u problemen bij de integratie hebt en Raadpleeg dit [koppeling](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery) voor het oplossen. Als u nog steeds niet de oplossing hebt gevonden, kunt u de ondersteuningsaanvraag vanuit Azure-portal te verhogen.
 
 **Voor het configureren van Azure AD eenmalige aanmelding met Nexonia, moet u de volgende stappen uitvoeren:**
 
@@ -111,9 +111,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![URL's en Nexonia domein eenmalige aanmelding informatie](./media/active-directory-saas-nexonia-tutorial/tutorial_nexonia_url.png)
 
-    a. In de **id** textbox in een waarde:`Nexonia`
+    a. In de **id** textbox in een waarde: `Nexonia`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://system.nexonia.com/assistant/saml.do?orgCode=<organizationcode>`
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://system.nexonia.com/assistant/saml.do?orgCode=<organizationcode>`
 
     > [!NOTE] 
     > De antwoord-URL-waarde is geen echte. Werk de waarde met de werkelijke antwoord-URL. Neem contact op met [Nexonia ondersteuningsteam](https://nexonia.zendesk.com/hc/requests/new) de waarde op te halen.

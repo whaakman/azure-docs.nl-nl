@@ -2,29 +2,27 @@
 title: Configureren van instellingen voor Spark - Azure HDInsight | Microsoft Docs
 description: Klik hier voor meer informatie over het configureren van Spark voor een HDInsight-cluster.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: maxluk
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2018
 ms.author: maxluk
-ms.openlocfilehash: 1dd0ff26cdb39feacec697d7900ad7abaa5f1996
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2ee496eae0767de22d070a0c5689692f0200515b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="configure-spark-settings"></a>Spark-instellingen configureren
 
-Een HDInsight Spark-cluster bevat een installatie van de Apache Spark-bibliotheek.  Elke HDInsight-cluster bevat standaard configuratieparameters voor alle geïnstalleerde services, met inbegrip van Spark.  Een belangrijk aspect van het beheer van een HDInsight Hadoop-cluster wordt bewaakt door werkbelasting, met inbegrip van Spark taken, om ervoor te zorgen dat ze worden uitgevoerd op een voorspelbare wijze. Voor het beste Spark-taken uitvoeren, houd rekening met de fysieke clusterconfiguratie bij het bepalen van het optimaliseren van de logische configuratie van het cluster.
+Een HDInsight Spark-cluster bevat een installatie van de Apache Spark-bibliotheek.  Elke HDInsight-cluster bevat standaard configuratieparameters voor alle geïnstalleerde services, met inbegrip van Spark.  Een belangrijk aspect van het beheer van een HDInsight Hadoop-cluster wordt bewaakt door werkbelasting, met inbegrip van Spark taken, om ervoor te zorgen dat de taken worden uitgevoerd op een voorspelbare wijze. Voor het beste Spark-taken uitvoeren, houd rekening met de fysieke clusterconfiguratie bij het bepalen van het optimaliseren van de logische configuratie van het cluster.
 
 De standaard HDInsight Apache Spark-cluster bevat de volgende knooppunten: drie ZooKeeper-knooppunten, twee hoofdknooppunten en een of meer worker-knooppunten:
 
@@ -34,9 +32,13 @@ Het aantal virtuele machines en de VM-grootten voor de knooppunten in uw HDInsig
 
 ## <a name="spark-versions"></a>Spark-versies
 
-U moet ook rekening houden met de aanbevolen versie van Spark voor uw cluster.  Spark 2.x veel beter dan Spark 1.x kunt uitvoeren. Spark 2.x heeft een aantal prestatieoptimalisaties, zoals wolfraam en exemplaar queryoptimalisatie.  De HDInsight-service bevat meerdere versies van zowel Spark en HDInsight zelf.  Elke versie van Spark omvat een aantal standaardinstellingen van het cluster.  Wanneer u een nieuw cluster maakt, worden hier de huidige Spark-versies kunt kiezen uit:
+Gebruik de beste Spark-versie voor uw cluster.  De HDInsight-service bevat verschillende versies van Spark en HDInsight zelf.  Elke versie van Spark omvat een aantal standaardinstellingen van het cluster.  
+
+Wanneer u een nieuw cluster maakt, worden hier de huidige Spark-versies kunt kiezen uit:
 
 ![Spark-versies](./media/apache-spark-settings/spark-version.png)
+
+Spark 2.x veel beter dan Spark 1.x kunt uitvoeren. Spark 2.x heeft een aantal prestatieoptimalisaties, zoals wolfraam en exemplaar queryoptimalisatie.  
 
 > [!NOTE]
 > De standaardversie van Apache Spark in HDInsight-service kan zonder kennisgeving worden gewijzigd. Als u een afhankelijkheid versie hebt, wordt aangeraden dat u deze specifieke versie opgeeft bij het maken van clusters met .NET SDK/Azure PowerShell en Azure CLI.
@@ -47,7 +49,7 @@ Apache Spark heeft drie system configuratie locaties:
 * Omgevingsvariabelen kunnen worden gebruikt om per machine-instellingen, zoals het IP-adres, via de `conf/spark-env.sh` script op elk knooppunt.
 * Logboekregistratie kan worden geconfigureerd via `log4j.properties`.
 
-Wanneer u een bepaalde versie van Spark selecteert, bevat het cluster de standaardconfiguratie-instellingen.  U kunt de standaardwaarden van de Spark-configuratie wijzigen door op te geven van een aangepaste Spark-configuratiebestand.  Een voorbeeld worden hieronder weergegeven.
+Wanneer u een bepaalde versie van Spark selecteert, bevat het cluster de standaardconfiguratie-instellingen.  U kunt de standaardwaarden van de Spark-configuratie wijzigen met behulp van een aangepaste Spark-configuratiebestand.  Een voorbeeld worden hieronder weergegeven.
 
 ```
     spark.hadoop.io.compression.codecs org.apache.hadoop.io.compress.GzipCodec
@@ -57,7 +59,7 @@ Wanneer u een bepaalde versie van Spark selecteert, bevat het cluster de standaa
     spark.sql.files.openCostInBytes 1099511627776
 ```
 
-Het bovenstaande voorbeeld onderdrukt meerdere standaardwaarden voor vijf Spark-configuratieparameters.  Dit zijn de compressiecodec, Hadoop-mapreduce splitsen minimumgrootte en parketvloeren blokformaten en de partitie Spar SQL en open bestandsgrootten standaardwaarden.  Deze configuratiewijzigingen worden gekozen omdat de bijbehorende gegevens en taken (in dit voorbeeld Toepassingsgeoriënteerde gegevens) bijzondere kenmerken, voert beter gebruik van deze aangepaste configuratie-instellingen.
+Het bovenstaande voorbeeld onderdrukt meerdere standaardwaarden voor vijf Spark-configuratieparameters.  Dit zijn de compressiecodec, Hadoop MapReduce splitsen minimumgrootte en parketvloeren blokformaten en de partitie Spar SQL en open bestandsgrootten standaardwaarden.  Deze configuratiewijzigingen worden gekozen omdat de bijbehorende gegevens en taken (in dit voorbeeld Toepassingsgeoriënteerde gegevens) bepaalde kenmerken beter gebruik van deze aangepaste configuratie-instellingen wordt uitgevoerd.
 
 ---
 
@@ -86,7 +88,7 @@ Als u een set niet-standaard configuratiewaarden maakt, kunt u ook de geschieden
 
 ## <a name="configuring-spark-executors"></a>Spark Executor configureren
 
-Het volgende diagram toont de belangrijkste Spark objecten: het stuurprogramma-programma en de bijbehorende Context voor Spark en Clusterbeheer en de bijbehorende  *n*  worker-knooppunten.  Elk werkrolknooppunt bevat een Executor, een cache en  *n*  exemplaren van de taak.
+Het volgende diagram toont de belangrijkste Spark objecten: het stuurprogramma-programma en de bijbehorende Context voor Spark en Clusterbeheer en de bijbehorende *n* worker-knooppunten.  Elk werkrolknooppunt bevat een Executor, een cache en *n* exemplaren van de taak.
 
 ![Clusterobjecten](./media/apache-spark-settings/spark-arch.png)
 
@@ -105,9 +107,9 @@ U kunt ook kunt u de Ambari REST-API programmatisch HDInsight Spark-cluster conf
 
 Afhankelijk van uw werkbelasting Spark kan u bepalen dat een niet-standaard Spark-configuratie meer geoptimaliseerde Spark uitvoeringen van de taak biedt.  U moet de benchmark testen met voorbeeld werkbelastingen naar een niet-standaard clusterconfiguraties valideren uitvoeren.  Enkele van de algemene parameters die u aanpassen overwegen kunt zijn:
 
-* `--num-executors`Hiermee stelt u het aantal Executor.
-* `--executor-cores`Hiermee stelt het aantal kernen voor elke executor. Wordt u aangeraden middle-sized Executor als andere processen ook een gedeelte van het beschikbare geheugen gebruiken.
-* `--executor-memory`bepaalt de geheugengrootte (heapgrootte) van elke executor op YARN en u moet sommige geheugen voor uitvoering overhead laat.
+* `--num-executors` Hiermee stelt u het aantal Executor.
+* `--executor-cores` Hiermee stelt het aantal kernen voor elke executor. Wordt u aangeraden middle-sized Executor als andere processen ook een gedeelte van het beschikbare geheugen gebruiken.
+* `--executor-memory` bepaalt de geheugengrootte (heapgrootte) van elke executor op YARN en u moet sommige geheugen voor uitvoering overhead laat.
 
 Hier volgt een voorbeeld van twee worker-knooppunten met andere configuratiewaarden:
 
@@ -115,10 +117,10 @@ Hier volgt een voorbeeld van twee worker-knooppunten met andere configuratiewaar
 
 De volgende lijst bevat belangrijke Spark executor geheugen parameters.
 
-* `spark.executor.memory`Hiermee definieert u de totale hoeveelheid geheugen die beschikbaar is voor een executor.
-* `spark.storage.memoryFraction`(standaard ~ 60%) definieert u de hoeveelheid geheugen die beschikbaar is voor het opslaan van de persistente RDDs.
-* `spark.shuffle.memoryFraction`(standaard ~ 20%) definieert u de hoeveelheid geheugen gereserveerd voor willekeurige volgorde.
-* `spark.storage.unrollFraction`en `spark.storage.safetyFraction` (totaal ongeveer 30% van het totale geheugen) - deze waarden wordt intern gebruikt door Spark en mag niet worden gewijzigd.
+* `spark.executor.memory` Hiermee definieert u de totale hoeveelheid geheugen die beschikbaar is voor een executor.
+* `spark.storage.memoryFraction` (standaard ~ 60%) definieert u de hoeveelheid geheugen die beschikbaar is voor het opslaan van de persistente RDDs.
+* `spark.shuffle.memoryFraction` (standaard ~ 20%) definieert u de hoeveelheid geheugen gereserveerd voor willekeurige volgorde.
+* `spark.storage.unrollFraction` en `spark.storage.safetyFraction` (totaal ongeveer 30% van het totale geheugen) - deze waarden wordt intern gebruikt door Spark en mag niet worden gewijzigd.
 
 YARN bepaalt de maximale som van geheugen gebruikt door de containers op elk knooppunt Spark. Het volgende diagram toont de per knooppunt relaties tussen configuratie YARN en Spark-objecten.
 
@@ -126,7 +128,7 @@ YARN bepaalt de maximale som van geheugen gebruikt door de containers op elk kno
 
 ## <a name="change-parameters-for-an-application-running-in-jupyter-notebook"></a>Parameters voor een toepassing die wordt uitgevoerd in Jupyter-notebook wijzigen
 
-Spark-clusters in HDInsight bevatten een aantal onderdelen standaard. Elk van deze onderdelen bevat configuratie standaardwaarden die kunnen worden genegeerd, indien nodig.
+Spark-clusters in HDInsight bevatten een aantal onderdelen standaard. Elk van deze onderdelen bevat standaard configuratiewaarden die, indien nodig kunnen worden genegeerd.
 
 * Spark Core - Spark Core, Spark SQL, Spark streaming-API's, GraphX en MLlib
 * Anaconda - manager een python-pakket

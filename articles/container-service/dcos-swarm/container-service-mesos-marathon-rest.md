@@ -3,17 +3,17 @@ title: Azure DC/OS-cluster met Marathon REST API beheren
 description: Implementeer containers naar een Azure Container Service DC/OS-cluster met behulp van de Marathon REST API.
 services: container-service
 author: dlepow
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: c9322756c30011305ebe6f4f2fd38554f275a1b3
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: edd66be25bf2571a7315372898300476fec101ca
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="dcos-container-management-through-the-marathon-rest-api"></a>DC/OS-containerbeheer via de Marathon REST API
 
@@ -27,7 +27,7 @@ Voer het uitvoeren van deze voorbeelden hebt u een DC/OS-cluster nodig dat is ge
 * [Verbinding maken met een Azure Container Service-cluster](../container-service-connect.md)
 
 ## <a name="access-the-dcos-apis"></a>Toegang tot de DC/OS-API 's
-Nadat u met het Azure Container Service-cluster bent verbonden, hebt u via http://localhost:local-port toegang tot DC/OS en gerelateerde REST API's. In de voorbeelden in dit document wordt ervan uitgegaan dat u poort 80 gebruikt. Bijvoorbeeld, de Marathon-eindpunten op URI's kunnen worden bereikt vanaf `http://localhost/marathon/v2/`. 
+Nadat u met het Azure Container Service-cluster verbonden bent, u kunt toegang tot de DC/OS en gerelateerde REST-API's via http://localhost:local-port. In de voorbeelden in dit document wordt ervan uitgegaan dat u poort 80 gebruikt. Bijvoorbeeld, de Marathon-eindpunten op URI's kunnen worden bereikt vanaf `http://localhost/marathon/v2/`. 
 
 Zie voor meer informatie over de verschillende API's de Mesosphere-documentatie voor de [Marathon API](https://mesosphere.github.io/marathon/docs/rest-api.html) en de [Chronos API](https://mesos.github.io/chronos/docs/api.html), en de Apache-documentatie voor de [Mesos Scheduler API](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
@@ -120,7 +120,7 @@ U kunt de Marathon API uitbreiden of schalen in implementaties van toepassingen.
 Voer de volgende opdracht uit de toepassing te schalen van uw via een tunnel verbinding.
 
 > [!NOTE]
-> De URI is http://localhost/marathon/v2/apps/ gevolgd door de id van de toepassing die u wilt schalen. Als u het Nginx-voorbeeld gebruikt dat hier wordt besproken, zou de URI http://localhost/marathon/v2/apps/nginx zijn.
+> De URI is http://localhost/marathon/v2/apps/ gevolgd door de ID van de toepassing om te schalen. Als u het Nginx-voorbeeld dat hier de URI zou worden http://localhost/marathon/v2/apps/nginx.
 > 
 > 
 
@@ -179,7 +179,7 @@ U kunt ook de Marathon API gebruiken om in implementaties van toepassingen uit o
 Voer de volgende opdracht uit de toepassing te schalen:
 
 > [!NOTE]
-> De URI is http://localhost/marathon/v2/apps/ gevolgd door de id van de toepassing die u wilt schalen. Als u het Nginx-voorbeeld gebruikt dat hier wordt besproken, zou de URI http://localhost/marathon/v2/apps/nginx zijn.
+> De URI is http://localhost/marathon/v2/apps/ gevolgd door de ID van de toepassing om te schalen. Als u het Nginx-voorbeeld opgegeven hier gebruikt, de URI zou zijn http://localhost/marathon/v2/apps/nginx.
 > 
 > 
 

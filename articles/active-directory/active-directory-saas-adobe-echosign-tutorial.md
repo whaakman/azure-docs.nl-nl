@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/24/2017
+ms.date: 04/26/2018
 ms.author: jeedes
-ms.openlocfilehash: f68701cc345ee1bb04cde265ac4e2d6a402da557
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 71aa0af2b3b47c1d9960e72aa36c2d5aae80f140
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Zelfstudie: Azure Active Directory-integratie met Adobe teken
 
@@ -110,9 +110,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<companyname>.echosign.com/`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<companyname>.echosign.com/`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<companyname>.echosign.com`
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<companyname>.echosign.com`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [Adobe aanmelding Client ondersteuningsteam](https://helpx.adobe.com/in/contact/support.html) ophalen van deze waarden. 
@@ -129,40 +129,31 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_configure.png) 
 
-
 7. In een ander browservenster, meld u aan bij uw bedrijf Adobe aanmelding site als beheerder.
 
-8. Klik in het menu bovenaan op **Account**, en klik vervolgens in het navigatievenster aan de linkerkant op **SAML instellingen** onder **Accountinstellingen**.
+8. Klik in het menu SAML **Accountinstellingen**, en klik vervolgens op **SAML instellingen**.
    
-   ![Account](./media/active-directory-saas-adobe-echosign-tutorial/ic789520.png "Account")
+    ![Account](./media/active-directory-saas-adobe-echosign-tutorial/ic789520.png "Account")
 
-9. Voer de volgende stappen uit in de sectie SAML-instellingen:
+9. In de **SAML instellingen** sectie, voert u de volgende stappen uit:
+  
+    ![Instellingen voor SAML](./media/active-directory-saas-adobe-echosign-tutorial/ic789521.png "SAML-instellingen")
    
-   ![Instellingen voor SAML](./media/active-directory-saas-adobe-echosign-tutorial/ic789521.png "SAML-instellingen")
+    a. Als **SAML modus**, selecteer **SAML verplichte**.
    
-   a. Als **SAML modus**, selecteer **SAML verplichte**.
+    b. Selecteer **toestaan Adobe aanmelding accountbeheerders aan te melden met hun referenties van de aanmelding Adobe**.
    
-   b. Selecteer **EchoSign-accountbeheerders toestaan om aan te melden met hun referenties EchoSign**.
-   
-   c. Als **maken van een gebruikersaccount**, selecteer **automatisch toevoegen van gebruikers worden geverifieerd via SAML**.
+    c. Als **maken van een gebruikersaccount**, selecteer **automatisch toevoegen van gebruikers worden geverifieerd via SAML**.
 
-10. Verplaatsen op de volgende stappen uit te voeren:
-
-       ![Instellingen voor SAML](./media/active-directory-saas-adobe-echosign-tutorial/ic789522.png "SAML-instellingen")
-
-    a. Plakken **SAML entiteit-ID**, die u hebt gekopieerd vanuit Azure-portal in de **IdP entiteit-ID** textbox.
+    d. Plakken **SAML entiteit-ID**, die u hebt gekopieerd vanuit Azure-portal in de **URL van de entiteit-ID/verlener** textbox.
     
-    b. Plakken **SAML Single Sign-On Service-URL**, die u hebt gekopieerd vanuit Azure-portal in de **IdP aanmeldings-URL** textbox.
+    e. Plakken **SAML Single Sign-On Service-URL**, die u hebt gekopieerd vanuit Azure-portal in de **aanmelding URL/SSO eindpunt** textbox.
    
-    c. Plakken **Sign-Out URL**, die u hebt gekopieerd vanuit Azure-portal in de **IdP afmelding URL** textbox.
+    f. Plakken **Sign-Out URL**, die u hebt gekopieerd vanuit Azure-portal in de **afmelding URL/SLO eindpunt** textbox.
 
-    d. Open uw gedownloade **Certificate(Base64)** bestand in Kladblok, Kopieer de inhoud ervan naar het Klembord en plakt u deze naar de **IdP certificaat** tekstvak
+    g. Open uw gedownloade **Certificate(Base64)** bestand in Kladblok, Kopieer de inhoud ervan naar het Klembord en plakt u deze naar de **IdP certificaat** tekstvak
 
-    e. Klik op **wijzigingen opslaan**.
-
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    h. Klik op **wijzigingen opslaan**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
@@ -208,15 +199,15 @@ Om Azure AD-gebruikers zich aanmelden bij Adobe aanmelding, moeten ze worden ing
 
 2. Klik in het menu bovenaan op **Account**, en klik vervolgens in het navigatievenster aan de linkerkant op **gebruikers en groepen**, en klik vervolgens op **Maak een nieuwe gebruiker**.
    
-   ![Account](./media/active-directory-saas-adobe-echosign-tutorial/ic789524.png "Account")
+    ![Account](./media/active-directory-saas-adobe-echosign-tutorial/ic789524.png "Account")
    
 3. In de **nieuwe gebruiker maken** sectie, voert u de volgende stappen uit:
    
-   ![Gebruiker maken](./media/active-directory-saas-adobe-echosign-tutorial/ic789525.png "gebruiker maken")
+    ![Gebruiker maken](./media/active-directory-saas-adobe-echosign-tutorial/ic789525.png "gebruiker maken")
    
-   a. Typ de **e-mailadres**, **voornaam**, en **achternaam** van een geldige AAD-account dat u inrichten in de bijbehorende tekstvakken wilt.
+    a. Typ de **e-mailadres**, **voornaam**, en **achternaam** van een geldige AAD-account dat u inrichten in de bijbehorende tekstvakken wilt.
    
-   b. Klik op **gebruiker maken**.
+    b. Klik op **gebruiker maken**.
 
 >[!NOTE]
 >De houder van Azure Active Directory-account ontvangt een e-mailbericht een koppeling om te bevestigen van het account bevat voordat deze geactiveerd wordt. 
@@ -256,7 +247,7 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 Als u op de tegel Adobe teken in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Adobe aanmelding.
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md).
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

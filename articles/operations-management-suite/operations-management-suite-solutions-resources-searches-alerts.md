@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/16/2018
-ms.author: bwren
+ms.date: 04/16/2018
+ms.author: bwren, vinagara
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cb787de23022cd7a48ec476968e05dec6560b419
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: c43e262725bd7b4c4fe5680f514d80112766f991
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Log Analytics toe te voegen opgeslagen zoekopdrachten en waarschuwingen met beheersysteem (Preview)
 
@@ -38,7 +38,7 @@ In dit artikel wordt ervan uitgegaan dat u al bekend met het bent [maken van een
 ## <a name="log-analytics-workspace"></a>Log Analytics-werkruimte
 Alle resources in logboekanalyse zijn opgenomen in een [werkruimte](../log-analytics/log-analytics-manage-access.md).  Zoals beschreven in [werkruimte voor logboekanalyse en Automation-account](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account), de werkruimte niet is opgenomen in de oplossing voor beheer, maar moet bestaan voordat de oplossing is geïnstalleerd.  Als deze niet beschikbaar is, mislukt de installatie van de oplossing.
 
-De naam van de werkruimte wordt op de naam van elke resource logboekanalyse.  Dit doet u in de oplossing met de **werkruimte** parameter zoals in het volgende voorbeeld van een resource savedsearch.
+De naam van de werkruimte wordt op de naam van elke resource logboekanalyse.  Dit doet u in de oplossing met de **werkruimte** parameter zoals in het volgende voorbeeld van een resource SavedSearch.
 
     "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearchId'))]"
 
@@ -77,7 +77,7 @@ Omvatten [opgeslagen zoekopdrachten](../log-analytics/log-analytics-log-searches
 
 
 
-Elke eigenschap van een opgeslagen zoekopdracht in de volgende tabel worden beschreven. 
+Elke eigenschap van een opgeslagen zoekopdracht wordt in de volgende tabel beschreven. 
 
 | Eigenschap | Beschrijving |
 |:--- |:--- |
@@ -86,17 +86,22 @@ Elke eigenschap van een opgeslagen zoekopdracht in de volgende tabel worden besc
 | query | De query wilt uitvoeren. |
 
 > [!NOTE]
-> U moet wellicht escape-tekens gebruiken in de query bevat tekens die kunnen worden geïnterpreteerd als JSON.  Bijvoorbeeld, als de query is **Type: AzureActivity OperationName:"Microsoft.Compute/virtualMachines/write '**, deze worden geschreven in het oplossingsbestand als **Type: AzureActivity OperationName:\"Microsoft.Compute/virtualMachines/write\"**.
+> U moet wellicht escape-tekens gebruiken in de query bevat tekens die kunnen worden geïnterpreteerd als JSON.  Bijvoorbeeld, als de query is **Type: AzureActivity OperationName:"Microsoft.Compute/virtualMachines/write '**, deze worden geschreven in het oplossingsbestand als **Type: AzureActivity OperationName:\" Microsoft.Compute/virtualMachines/write\"**.
 
 ## <a name="alerts"></a>Waarschuwingen
 [Meld u Analytics waarschuwingen](../log-analytics/log-analytics-alerts.md) zijn gemaakt door regels voor waarschuwingen die een opgeslagen zoekopdracht op een vast interval uitvoert.  Als de resultaten van de query overeenkomen met criteria opgegeven, wordt een waarschuwing record gemaakt en een of meer acties worden uitgevoerd.  
+
+> [!NOTE]
+> Alle waarschuwingen in een werkruimte, dat is vanaf 14 mei 2018, wordt automatisch gestart om uit te breiden naar Azure. Een gebruiker kunt uitbreiden waarschuwingen naar Azure vrijwillig voordat 14 mei 2018 initiëren. Zie voor meer informatie [waarschuwingen uitbreiden naar Azure van OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Acties zijn voor gebruikers die waarschuwingen naar Azure uitbreiden, nu beheerd met Azure Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actie groep - Azure Resource Manager-sjabloon](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 Waarschuwingsregels in een beheersysteem bestaan uit de volgende drie verschillende bronnen.
 
 - **Opgeslagen zoekopdracht.**  Hiermee definieert u het logboek zoeken die wordt uitgevoerd.  Meerdere regels voor waarschuwingen kunnen een enkele opgeslagen zoekopdracht delen.
 - **Plannen.**  Hiermee definieert u hoe vaak de logboek-zoekopdracht wordt uitgevoerd.  Elke waarschuwingsregel heeft slechts één schema.
-- **Actie van de waarschuwing.**  Elke waarschuwingsregel heeft een actie-resource met een type **waarschuwing** die de details van de waarschuwing, zoals de criteria voor wanneer een record voor een waarschuwing wordt gemaakt en de ernst van de waarschuwing definieert.  De actie resource definieert eventueel een e-mail en runbook-antwoord.
-- **De actie van de Webhook is (optioneel).**  Als de waarschuwingsregel een webhook aanroepen, wordt er een actie van extra resource met een type vereist **Webhook**.    
+- **Actie van de waarschuwing.**  Elke waarschuwingsregel heeft een actie groepsbron of actie resource (verouderde) met een type van **waarschuwing** die de details van de waarschuwing, zoals de criteria voor wanneer een record voor een waarschuwing wordt gemaakt en de ernst van de waarschuwing definieert. [Actiegroep](../monitoring-and-diagnostics/monitoring-action-groups.md) bron kan ook een lijst met geconfigureerde acties die worden uitgevoerd wanneer de waarschuwing wordt geactiveerd - zoals telefoongesprek, SMS, e-mail, webhook, ITSM hulpprogramma, automation-runbook, logische app, enzovoort.
+ 
+De actie-resource (verouderde) definieert eventueel een e-mail en runbook-antwoord.
+- **Webhook actie (verouderd).**  Als de waarschuwingsregel een webhook aanroepen, wordt er een actie van extra resource met een type vereist **Webhook**.    
 
 Opgeslagen zoekopdracht resources hierboven zijn beschreven.  De andere resources worden hieronder beschreven.
 
@@ -133,20 +138,25 @@ De eigenschappen voor resources plannen worden in de volgende tabel beschreven.
 
 De schema-bron moet afhankelijk van de opgeslagen zoekopdracht zodat deze voordat u de planning gemaakt.
 
+> [!NOTE]
+> De schemanaam van het moet uniek zijn in een bepaalde werkruimte; twee planningen kunnen niet dezelfde ID hebben, zelfs als ze gekoppeld aan verschillende opgeslagen zoekopdrachten zijn. Naam voor alle opgeslagen zoekopdrachten, schema's en acties die zijn gemaakt met de Log Analytics-API moet ook in kleine letters.
+
 
 ### <a name="actions"></a>Acties
-Er zijn twee soorten actie resource die is opgegeven door de **Type** eigenschap.  Een planning vereist één **waarschuwing** actie waarin de details van de waarschuwingsregel en welke acties worden uitgevoerd wanneer een waarschuwing wordt gemaakt.  Het kan ook betekenen dat een **Webhook** actie als een webhook moet worden aangeroepen vanuit de waarschuwing.  
+Een planning kan meerdere acties hebben. Een actie kan definiëren een of meer processen uit te voeren zoals het verzenden van een e-mail of een runbook starten, of het kan een drempelwaarde die bepaalt wanneer de resultaten van een zoekopdracht voldoen aan bepaalde criteria definiëren.  Sommige acties definiëren beide zodat de processen worden uitgevoerd wanneer de drempelwaarde wordt voldaan.
 
-Actie resources zijn een type `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.  
+Acties kunnen worden gedefinieerd met behulp van de [actiegroep] of actie bron.
 
-#### <a name="alert-actions"></a>Waarschuwingsacties
+> [!NOTE]
+> Alle waarschuwingen in een werkruimte, dat is vanaf 14 mei 2018, wordt automatisch gestart om uit te breiden naar Azure. Een gebruiker kunt uitbreiden waarschuwingen naar Azure vrijwillig voordat 14 mei 2018 initiëren. Zie voor meer informatie [waarschuwingen uitbreiden naar Azure van OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Acties zijn voor gebruikers die waarschuwingen naar Azure uitbreiden, nu beheerd met Azure Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actie groep - Azure Resource Manager-sjabloon](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
-Elke planning heeft een **waarschuwing** in te grijpen.  Hiermee definieert u de details van de waarschuwing en eventueel acties melding en herstel.  Een melding verzendt een e-mailbericht naar een of meer adressen.  Een herstelbewerking wordt gestart van een runbook in Azure Automation om te proberen het gedetecteerde probleem oplossen.
+
+Er zijn twee soorten actie resource die is opgegeven door de **Type** eigenschap.  Een planning vereist één **waarschuwing** actie waarin de details van de waarschuwingsregel en welke acties worden uitgevoerd wanneer een waarschuwing wordt gemaakt. Actie resources zijn een type `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.  
 
 Waarschuwing acties hebben de volgende structuur.  Dit omvat de algemene variabelen en parameters zodat u kunt kopiëren en plak dit codefragment in uw oplossingsbestand en wijzig de namen van parameters. 
 
 
-
+```
     {
         "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name, '/', variables('Schedule').Name, '/', variables('Alert').Name)]",
         "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
@@ -167,20 +177,16 @@ Waarschuwing acties hebben de volgende structuur.  Dit omvat de algemene variabe
                     "triggerCondition": "[variables('Alert').Threshold.Trigger.Condition]",
                     "operator": "[variables('Alert').Trigger.Operator]",
                     "value": "[variables('Alert').Trigger.Value]"
-                },
-            },
-            "emailNotification": {
-                "recipients": [
-                    "[variables('Alert').Recipients]"
-                ],
-                "subject": "[variables('Alert').Subject]"
-            },
-            "remediation": {
-                "runbookName": "[variables('Alert').Remedition.RunbookName]",
-                "webhookUri": "[variables('Alert').Remedition.WebhookUri]"
-            }
+                  },
+              },
+      "AzNsNotification": {
+        "GroupIds": "[variables('MyAlert').AzNsNotification.GroupIds]",
+        "CustomEmailSubject": "[variables('MyAlert').AzNsNotification.CustomEmailSubject]",
+        "CustomWebhookPayload": "[variables('MyAlert').AzNsNotification.CustomWebhookPayload]"
+        }
         }
     }
+```
 
 De eigenschappen voor de actie waarschuwing resources worden in de volgende tabellen beschreven.
 
@@ -189,17 +195,16 @@ De eigenschappen voor de actie waarschuwing resources worden in de volgende tabe
 | Type | Ja | Type van de actie.  Dit is **waarschuwing** voor meldingen. |
 | Naam | Ja | Weergavenaam voor de waarschuwing.  Dit is de naam die wordt weergegeven in de console voor de waarschuwingsregel. |
 | Beschrijving | Nee | Optionele beschrijving van de waarschuwing. |
-| Ernst | Ja | Ernst van de waarschuwing record uit de volgende waarden:<br><br> **Kritieke**<br>**Waarschuwing**<br>**Informatief** |
+| Ernst | Ja | Ernst van de waarschuwing record uit de volgende waarden:<br><br> **Kritieke**<br>**Waarschuwing**<br>**Informatief**
 
 
-##### <a name="threshold"></a>Drempelwaarde
+#### <a name="threshold"></a>Drempelwaarde
 Deze sectie is vereist.  Hiermee definieert u de eigenschappen voor de drempelwaarde voor waarschuwingen.
 
 | Elementnaam | Vereist | Beschrijving |
 |:--|:--|:--|
 | Operator | Ja | De operator voor de vergelijking van de volgende waarden:<br><br>**gt = groter is dan<br>lt = kleiner dan** |
 | Waarde | Ja | De waarde om de resultaten te vergelijken. |
-
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 Deze sectie is optioneel.  Op te nemen voor een waarschuwing metrische meting.
@@ -213,12 +218,33 @@ Deze sectie is optioneel.  Op te nemen voor een waarschuwing metrische meting.
 | Operator | Ja | De operator voor de vergelijking van de volgende waarden:<br><br>**gt = groter is dan<br>lt = kleiner dan** |
 | Waarde | Ja | Nummer van de tijdstippen die de criteria voor het activeren van de waarschuwing moeten worden voldaan. |
 
-##### <a name="throttling"></a>Beperking
+
+#### <a name="throttling"></a>Beperking
 Deze sectie is optioneel.  Deze sectie bevatten als u onderdrukken van waarschuwingen van dezelfde regel voor een bepaalde hoeveelheid tijd wilt nadat een waarschuwing is gemaakt.
 
 | Elementnaam | Vereist | Beschrijving |
 |:--|:--|:--|
 | DurationInMinutes | Ja als u beperking van element opgenomen | Aantal minuten waarschuwingen onderdrukt nadat een van de dezelfde waarschuwingsregel is gemaakt. |
+
+
+#### <a name="azure-action-group"></a>Azure actiegroep
+Alle waarschuwingen in Azure, gebruik actie groep als het standaardmechanisme voor het verwerken van acties. U kunt uw acties één keer opgeven en vervolgens de actiegroep meerdere waarschuwingen - koppelen in Azure met actie-groep. Zonder de noodzaak om te declareren dezelfde acties herhaaldelijk steeds opnieuw. Actie beheergroepen ondersteunen meerdere acties - zoals e-mail, SMS, telefoongesprek, ITSM verbinding, Automation-Runbook, Webhook URI en meer. 
+
+Een planning hebt voor gebruikers die hun waarschuwingen hebt uitgebreid naar Azure - nu actie groepsgegevens doorgegeven samen met de drempelwaarde, te kunnen maken van een waarschuwing. E-details, Webhook-URL's, Runbook-automatisering details en andere acties moeten worden gedefinieerd aan de kant van een actie groep eerst maken voordat een waarschuwing; een kunt maken [groep acties van de Azure-Monitor](../monitoring-and-diagnostics/monitoring-action-groups.md) in de Portal of gebruik [actie groep - Resource sjabloon](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+
+| Elementnaam | Vereist | Beschrijving |
+|:--|:--|:--|
+| AzNsNotification | Ja | De resource-ID van de actiegroep Azure moet worden gekoppeld aan de waarschuwing voor de nodige maatregelen nemen wanneer waarschuwing criteria wordt voldaan. |
+| CustomEmailSubject | Nee | Aangepaste onderwerpregel van het e-mail verzonden naar alle adressen in de groep van de bijbehorende actie is opgegeven. |
+| CustomWebhookPayload | Nee | Aangepaste nettolading worden verzonden naar alle webhook eindpunten zijn gedefinieerd in de bijbehorende actiegroep. De indeling is afhankelijk van de webhook verwacht en moet een geldige geserialiseerde JSON. |
+
+
+#### <a name="actions-for-oms-legacy"></a>Acties voor OMS (verouderd)
+
+Elke planning heeft een **waarschuwing** in te grijpen.  Hiermee definieert u de details van de waarschuwing en eventueel acties melding en herstel.  Een melding verzendt een e-mailbericht naar een of meer adressen.  Een herstelbewerking wordt gestart van een runbook in Azure Automation om te proberen het gedetecteerde probleem oplossen.
+
+> [!NOTE]
+> Alle waarschuwingen in een werkruimte, dat is vanaf 14 mei 2018, wordt automatisch gestart om uit te breiden naar Azure. Een gebruiker kunt uitbreiden waarschuwingen naar Azure vrijwillig voordat 14 mei 2018 initiëren. Zie voor meer informatie [waarschuwingen uitbreiden naar Azure van OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Acties zijn voor gebruikers die waarschuwingen naar Azure uitbreiden, nu beheerd met Azure Actiegroepen. Wanneer een werkruimte en de waarschuwingen worden uitgebreid naar Azure, kunt u ophalen of acties toevoegen met behulp van de [actie groep - Azure Resource Manager-sjabloon](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 ##### <a name="emailnotification"></a>EmailNotification
  Deze sectie is optioneel als u de waarschuwing e-mail te verzenden naar een of meer geadresseerden wilt opnemen.
@@ -239,7 +265,7 @@ Deze sectie is optioneel als u een runbook te starten in reactie op de waarschuw
 | WebhookUri | Ja | De URI van de webhook voor het runbook. |
 | Vervaldatum | Nee | Datum en tijd waarop het herstel is verlopen. |
 
-#### <a name="webhook-actions"></a>Webhookacties
+##### <a name="webhook-actions"></a>Webhookacties
 
 Een proces starten webhookacties door het aanroepen van een URL en het eventueel geven een nettolading worden verzonden. Ze zijn vergelijkbaar met herstelacties maar ze zijn bedoeld voor webhooks die van processen dan Azure Automation-runbooks gebruikmaken mogelijk. Ze bieden ook de aanvullende mogelijkheid bieden een nettolading moet worden geleverd aan het externe proces.
 
@@ -268,9 +294,7 @@ De eigenschappen voor Webhook actie bronnen worden in de volgende tabellen besch
 | type | Ja | Type van de actie.  Dit is **Webhook** voor webhookacties. |
 | naam | Ja | Weergavenaam voor de actie.  Dit wordt niet weergegeven in de console. |
 | wehookUri | Ja | De URI voor de webhook. |
-| customPayload | Nee | Aangepaste nettolading worden verzonden naar de webhook. De indeling is afhankelijk van wat de webhook wordt verwacht. |
-
-
+| CustomPayload | Nee | Aangepaste nettolading worden verzonden naar de webhook. De indeling is afhankelijk van wat de webhook wordt verwacht. |
 
 
 ## <a name="sample"></a>Voorbeeld
@@ -279,11 +303,11 @@ Hier volgt een voorbeeld van een oplossing die met de volgende bronnen:
 
 - Opgeslagen zoekopdracht
 - Planning
-- Actie waarschuwing
-- Webhook-actie
+- Actiegroep
 
 In dit voorbeeld worden [standaardoplossing parameters](operations-management-suite-solutions-solution-file.md#parameters) variabelen die meestal in een oplossing in plaats van hardcoderen waarden in de resourcedefinities gebruikt wordt.
 
+```
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0",
@@ -294,34 +318,16 @@ In dit voorbeeld worden [standaardoplossing parameters](operations-management-su
               "Description": "Name of Log Analytics workspace"
             }
           },
-          "accountName": {
-            "type": "string",
-            "metadata": {
-              "Description": "Name of Automation account"
-            }
-          },
           "workspaceregionId": {
             "type": "string",
             "metadata": {
               "Description": "Region of Log Analytics workspace"
             }
           },
-          "regionId": {
+          "actiongroup": {
             "type": "string",
             "metadata": {
-              "Description": "Region of Automation account"
-            }
-          },
-          "pricingTier": {
-            "type": "string",
-            "metadata": {
-              "Description": "Pricing tier of both Log Analytics workspace and Azure Automation account"
-            }
-          },
-          "recipients": {
-            "type": "string",
-            "metadata": {
-              "Description": "List of recipients for the email alert separated by semicolon"
+              "Description": "List of action groups for alert actions separated by semicolon"
             }
           }
         },
@@ -331,7 +337,7 @@ In dit voorbeeld worden [standaardoplossing parameters](operations-management-su
           "SolutionPublisher": "Contoso",
           "ProductName": "SampleSolution",
     
-          "LogAnalyticsApiVersion": "2015-11-01-preview",
+          "LogAnalyticsApiVersion": "2015-03-20",
     
           "MySearch": {
             "displayName": "Error records by hour",
@@ -357,20 +363,11 @@ In dit voorbeeld worden [standaardoplossing parameters](operations-management-su
               "Value": 3
             },
             "ThrottleMinutes": 60,
-            "Notification": {
-              "Recipients": [
-                "[parameters('recipients')]"
+            "AzNsNotification": {
+              "GroupIds": [
+                "[parameters('actiongroup')]"
               ],
-              "Subject": "Sample alert"
-            },
-            "Remediation": {
-              "RunbookName": "MyRemediationRunbook",
-              "WebhookUri": "https://s1events.azure-automation.net/webhooks?token=TluBFH3GpX4IEAnFoImoAWLTULkjD%2bTS0yscyrr7ogw%3d"
-            },
-            "Webhook": {
-              "Name": "MyWebhook",
-              "Uri": "https://MyService.com/webhook",
-              "Payload": "{\"field1\":\"value1\",\"field2\":\"value2\"}"
+              "CustomEmailSubject": "Sample alert"
             }
           }
         },
@@ -394,8 +391,7 @@ In dit voorbeeld worden [standaardoplossing parameters](operations-management-su
               "containedResources": [
                 "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspacename'), variables('MySearch').Name)]",
                 "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name)]",
-                "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Name)]",
-                "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Webhook.Name)]"
+                "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Name)]"
               ]
             },
             "plan": {
@@ -458,39 +454,18 @@ In dit voorbeeld worden [standaardoplossing parameters](operations-management-su
               "Throttling": {
                 "DurationInMinutes": "[variables('MyAlert').ThrottleMinutes]"
               },
-              "EmailNotification": {
-                "Recipients": "[variables('MyAlert').Notification.Recipients]",
-                "Subject": "[variables('MyAlert').Notification.Subject]",
-                "Attachment": "None"
-              },
-              "Remediation": {
-                "RunbookName": "[variables('MyAlert').Remediation.RunbookName]",
-                "WebhookUri": "[variables('MyAlert').Remediation.WebhookUri]"
-              }
-            }
-          },
-          {
-            "name": "[concat(parameters('workspaceName'), '/', variables('MySearch').Name, '/', variables('MyAlert').Schedule.Name, '/', variables('MyAlert').Webhook.Name)]",
-            "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
-            "apiVersion": "[variables('LogAnalyticsApiVersion')]",
-            "dependsOn": [
-              "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('MySearch').Name, '/schedules/', variables('MyAlert').Schedule.Name)]",
-              "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('MySearch').Name, '/schedules/', variables('MyAlert').Schedule.Name, '/actions/',variables('MyAlert').Name)]"
-            ],
-            "properties": {
-              "etag": "*",
-              "Type": "Webhook",
-              "Name": "[variables('MyAlert').Webhook.Name]",
-              "WebhookUri": "[variables('MyAlert').Webhook.Uri]",
-              "CustomPayload": "[variables('MyAlert').Webhook.Payload]"
+            "AzNsNotification": {
+              "GroupIds": "[variables('MyAlert').AzNsNotification.GroupIds]",
+              "CustomEmailSubject": "[variables('MyAlert').AzNsNotification.CustomEmailSubject]"
+            }             
             }
           }
         ]
     }
-
+```
 
 De volgende parameter-bestand bevat voorbeelden van waarden voor deze oplossing.
-
+```
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
         "contentVersion": "1.0.0.0",
@@ -510,12 +485,12 @@ De volgende parameter-bestand bevat voorbeelden van waarden voor deze oplossing.
             "pricingTier": {
                 "value": "Free"
             },
-            "recipients": {
-                "value": "recipient1@contoso.com;recipient2@contoso.com"
+            "actiongroup": {
+                "value": "/subscriptions/3b540246-808d-4331-99aa-917b808a9166/resourcegroups/myTestGroup/providers/microsoft.insights/actiongroups/sample"
             }
         }
     }
-
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Weergaven toevoegen](operations-management-suite-solutions-resources-views.md) bij uw systeem.

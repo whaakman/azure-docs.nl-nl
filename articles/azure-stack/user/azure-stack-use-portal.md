@@ -2,48 +2,48 @@
 title: Met de Stack van Azure portal | Microsoft Docs
 description: Informatie over het openen en gebruiken van de gebruikersportal in Azure-Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 5aa00123-5b87-45e0-a671-4165e66bfbc6
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 04/18/2018
 ms.author: mabrigg
-ms.openlocfilehash: 7c34d7a225be63da95f664525b0366ff89b28838
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 279722cc53889cb0a261fcffde0c7e0f86be6dc5
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="using-the-azure-stack-portal"></a>Met behulp van de Stack van Azure-portal
 
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
-Als een gebruiker van de Stack van het Azure-services, kunt u de Stack van Azure-portal gebruiken om u te abonneren op openbare voorstellen en gebruikmaken van de services die via deze aanbiedingen beschikbaar worden gesteld. Als u de Azure-portal voordat hebt gebruikt, bent u al bekend bent met de gebruikersinterface.
+U kunt als consument van Stack Azure services de portal Azure Stack gebruiken om u te abonneren op de openbare aanbieding en gebruik van de services die deze aanbiedingen bieden. Als u de Azure-portal voordat hebt gebruikt, bent u al bekend bent met de gebruikersinterface.
 
 ## <a name="access-the-portal"></a>Toegang tot de portal
 
-Uw Azure-Stack-operator (een serviceprovider of een beheerder in uw organisatie), kunt u weet dat de juiste URL toegang tot de portal. 
+Uw Azure-Stack-operator (een serviceprovider of een beheerder in uw organisatie), kunt u weet dat de juiste URL toegang tot de portal.
 
-- De URL varieert op basis van de operator regio en externe domeinnaam en bevindt zich in de indeling https://portal voor een geïntegreerd systeem. &lt; *regio*&gt;.&lt; *FQDN*&gt;.
+- Voor een geïntegreerde, de URL varieert op basis van de operator regio en externe domeinnaam en bevindt zich in de indeling https://portal.&lt; *regio*&gt;.&lt; *FQDN*&gt;.
 - Als u de Azure-Stack Development Kit, het adres van de portal is https://portal.local.azurestack.external.
 
 ![Schermafbeelding van de gebruikersportal van Azure-Stack](media/azure-stack-use-portal/UserPortal.png)
 
 ## <a name="customize-the-dashboard"></a>Het dashboard aanpassen
 
-Het dashboard bevat een reeks standaardtegels. U kunt klikken op **bewerken dashboard** standaarddashboard wijzigen of klik op **nieuwe dashboard** toevoegen van aangepaste dashboards. U kunt eenvoudig tegels toevoegen aan het dashboard. U kunt bijvoorbeeld klikken op **nieuw**, met de rechtermuisknop op **Compute**, en klik vervolgens op **vastmaken aan dashboard**.
+Het dashboard bevat een aantal tegels. Klikt u op **bewerken dashboard** de standaarddashboard wijzigen of klik op **nieuw dashboard** voor het maken van een aangepast dashboard. U kunt een dashboard eenvoudig aanpassen door het toevoegen of verwijderen van tegels. Bijvoorbeeld een tegel Compute toevoegen, klikt u op **nieuw**. Met de rechtermuisknop op **berekenen**, en klik vervolgens op **Pin dashboard**.
 
 ## <a name="create-subscription-and-browse-available-resources"></a>Abonnement maken en beschikbare resources bladeren
  
-Als u nog een abonnement hebt, is het eerste wat dat u moet doen zich abonneert op een aanbieding. Daarna kunt u bladeren welke resources voor u beschikbaar zijn. Bladeren en resources maken, een van de volgende handelingen uit:
+Als u nog een abonnement hebt, is het eerste wat dat u moet doen zich abonneert op een aanbieding. Daarna kunt u de beschikbare middelen. Bladeren en resources maken, een van de volgende methoden gebruiken:
 
-- Klik op de **Marketplace** tegel op het dashboard. 
+- Klik op de **Marketplace** tegel op het dashboard.
 - Op de **alle resources** tegel, klikt u op **resources maken**.
 - Klik in het navigatiedeelvenster links op **nieuw**.
 
@@ -51,7 +51,7 @@ Als u nog een abonnement hebt, is het eerste wat dat u moet doen zich abonneert 
 
 Als u de richtlijnen voor het gebruik van de beschikbare services moet, mogelijk zijn er verschillende opties voor u beschikbaar.
 
-- Uw organisatie of serviceprovider kan bieden hun eigen documentatie. Dit geldt vooral als ze aangepaste services of toepassingen aanbieden.
+- Hun eigen documentatie, meestal het geval is als zij aangepaste services of toepassingen bieden kan bepalen door uw organisatie of serviceprovider.
 - Apps van derden hebben hun eigen documentatie.
 - Voor consistente Azure services, wordt aangeraden dat u eerst de documentatie van Azure-Stack doornemen. Klik op het pictogram Help voor toegang tot de Azure-Stack gebruikersdocumentatie, en klik vervolgens op **Help + ondersteuning**.
  
@@ -60,15 +60,15 @@ Als u de richtlijnen voor het gebruik van de beschikbare services moet, mogelijk
     We raden met name de volgende artikelen aan de slag te controleren:
 
     - [Belangrijke overwegingen: met behulp van services of het ontwikkelen van apps voor Azure-Stack](azure-stack-considerations.md)
-    - In de sectie "Services gebruiken" van de documentatie ziet u elke Azure-consistent service die wordt weergegeven. Er is een onderwerp 'overwegingen' voor elke service, die de delta's tussen de service die wordt aangeboden op Azure, en dezelfde service aangeboden in Azure-Stack beschrijft. Zie voor een voorbeeld [VM overwegingen](azure-stack-vm-considerations.md). Mogelijk zijn er andere informatie in de sectie "Services gebruiken", die uniek is voor Azure-Stack. 
+    - In de sectie "Gebruik services" van de documentatie is er een artikel in de 'overwegingen' voor elke service. De pagina 'overwegingen' beschrijving van de verschillen tussen de aangeboden in Azure service en dezelfde service aangeboden in Azure stapel. Zie voor een voorbeeld [VM overwegingen](azure-stack-vm-considerations.md). Mogelijk zijn er andere informatie in de sectie "Services gebruiken", die uniek is voor Azure-Stack.
      
       U kunt de documentatie van Azure gebruiken als algemene referentie voor een service, maar u moet rekening houden met deze verschillen. Begrijpen dat de documentatie van koppelingen op de **Quick Start-zelfstudies** tegel wijs Azure-documentatie.
 
 ## <a name="get-support"></a>Ondersteuning krijgen
 
-Als u aanvullende ondersteuning nodig hebt, neem voor assistentie contact op met uw organisatie of service provider. 
+Als u extra ondersteuning nodig hebt, neem dan contact op met uw organisatie of service provider voor hulp.
 
-Als u de Azure-Stack Development Kit de [Azure Stack-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) is de enige methode van ondersteuning.
+Als u de Azure Stack Development Kit, de [Stack Azure forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) is de enige bron van ondersteuning.
 
 ## <a name="next-steps"></a>Volgende stappen
 

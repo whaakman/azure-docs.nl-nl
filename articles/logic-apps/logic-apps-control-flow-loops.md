@@ -3,10 +3,10 @@ title: Lussen - proces matrices of herhaaldelijk acties - Azure Logic Apps | Mic
 description: Matrices met 'for each' verwerken lussen of herhaaldelijk acties totdat aan bepaalde voorwaarden wordt voldaan in logic apps
 services: logic-apps
 keywords: voor elke lus
-documentationcenter: 
+documentationcenter: ''
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
 ms.workload: logic-apps
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: f634b1004fef2eb65c6b8134088ceead47c91890
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 4029da2c7ad59b1e61dabe0af252834746a4c5c6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="loops-process-arrays-or-repeat-actions-until-a-condition-is-met"></a>Lussen: Matrices verwerken of acties herhalen totdat een voorwaarde wordt voldaan
 
@@ -153,9 +153,6 @@ Als u wilt herhalen acties totdat een voorwaarde wordt voldaan of sommige status
 
 * Een eindpunt niet aanroepen totdat u het antwoord dat u wilt ophalen.
 * Een record maken in een database, wachten tot een bepaald veld in deze record is goedgekeurd en gaan met de verwerking. 
-
-> [!NOTE]
-> 'Tot' lussen kunnen geen 'Foreach' lussen of andere lussen ' tot' bevatten.
 
 Bijvoorbeeld, om 8:00 uur per dag verhoogd deze logische app een variabele totdat de waarde gelijk is aan 10. De logische app verzendt vervolgens een e-mailbericht wordt bevestigd de huidige waarde dat. Hoewel dit voorbeeld Outlook van Office 365 wordt, kunt u een e-provider wordt ondersteund door logische Apps gebruiken ([controleren de connectors hier lijst](https://docs.microsoft.com/connectors/)). Als u een ander e-mailaccount gebruikt, zijn de algemene stappen hetzelfde, maar ziet de gebruikersinterface er misschien iets anders uit. 
 

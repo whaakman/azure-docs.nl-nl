@@ -12,24 +12,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 3/30/2018
+ms.date: 4/03/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: 807c703eccf336236846212b8a0cadc20ec2bc4a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3d6a47ba184b4bbbd290a61c581ae8b83b9361af
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>Log Analytics voor een cluster instellen
 
-U kunt instellen wanneer er een werkruimte voor logboekanalyse via Azure Resource Manager, PowerShell of Azure Marketplace. Als u een bijgewerkte sjabloon voor Resource Manager van uw implementatie voor toekomstig gebruik onderhoudt, moet u dezelfde sjabloon gebruiken voor het instellen van uw omgeving OMS. Implementatie via de Marketplace is eenvoudiger als u al een cluster dat is geïmplementeerd met diagnostische gegevens die zijn ingeschakeld. Als u geen abonnement toegang in het account waarmee u OMS implementeert, implementeert u met behulp van PowerShell of de Resource Manager-sjabloon.
+Log Analytics is onze aanbeveling niveau Clustergebeurtenissen bewaken. U kunt de werkruimte voor logboekanalyse via Azure Resource Manager, PowerShell of Azure Marketplace instellen. Als u een bijgewerkte sjabloon voor Resource Manager van uw implementatie voor toekomstig gebruik onderhoudt, gebruikt u dezelfde sjabloon voor het instellen van uw omgeving logboekanalyse. Implementatie via de Marketplace is eenvoudiger als u al een cluster dat is geïmplementeerd met diagnostische gegevens die zijn ingeschakeld. Als u geen abonnement toegang in het account waarnaar u implementeert, implementeert u met behulp van PowerShell of de Resource Manager-sjabloon.
 
 > [!NOTE]
-> Als u Log Analytics instelt voor het bewaken van uw cluster, moet u diagnostische gegevens die zijn ingeschakeld voor het niveau van het cluster of platform gebeurtenissen weergeven hebben.
+> Als u Log Analytics instelt voor het bewaken van uw cluster, moet u diagnostische gegevens die zijn ingeschakeld voor het niveau van het cluster of platform gebeurtenissen weergeven hebben. Raadpleeg [het instellen van diagnostische gegevens in de Windows-clusters](service-fabric-diagnostics-event-aggregation-wad.md) en [het instellen van diagnostische gegevens in de Linux-clusters](service-fabric-diagnostics-event-aggregation-lad.md) voor meer informatie
 
-## <a name="deploy-oms-by-using-azure-marketplace"></a>OMS implementeren met behulp van Azure Marketplace
+## <a name="deploy-a-log-analytics-workspace-by-using-azure-marketplace"></a>Een werkruimte voor logboekanalyse implementeren met behulp van Azure Marketplace
 
-Als u een OMS-werkruimte toevoegen wilt nadat u een cluster hebt geïmplementeerd, Ga naar Azure Marketplace in de portal en zoek naar **Service Fabric Analytics**:
+Als u een werkruimte voor logboekanalyse toevoegen wilt nadat u een cluster hebt geïmplementeerd, Ga naar Azure Marketplace in de portal en zoek naar **Service Fabric Analytics**. Dit is een aangepaste oplossing voor Service Fabric-implementaties met gegevens die specifiek zijn voor Service Fabric. In dit proces maakt u de oplossing (het dashboard om inzichten weer te geven) en de werkruimte (de samenvoeging van de onderliggende clustergegevens).
 
 1. Selecteer **nieuw** in het navigatiemenu links. 
 
@@ -39,7 +39,7 @@ Als u een OMS-werkruimte toevoegen wilt nadat u een cluster hebt geïmplementeer
 
     ![OMS SF analyses in de Marketplace](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
 
-4. Selecteer in het venster van het maken van Service Fabric Analytics **Selecteer een werkruimte** voor de **OMS-werkruimte** veld en vervolgens **Maak een nieuwe werkruimte**. Vul de vereiste vermeldingen. De enige vereiste hier is het abonnement voor de Service Fabric-cluster en de OMS-werkruimte is hetzelfde. Als uw vermeldingen zijn geverifieerd, wordt de OMS-werkruimte gestart om te implementeren. De implementatie duurt slechts enkele minuten.
+4. Selecteer in het venster van het maken van Service Fabric Analytics **Selecteer een werkruimte** voor de **OMS-werkruimte** veld en vervolgens **Maak een nieuwe werkruimte**. Vul de vereiste vermeldingen. De enige vereiste hier is het abonnement voor de Service Fabric-cluster en de werkruimte is hetzelfde. Als uw vermeldingen zijn geverifieerd, wordt uw werkruimte gestart om te implementeren. De implementatie duurt slechts enkele minuten.
 
 5. Wanneer u klaar bent, selecteert u **maken** opnieuw op de onderkant van het Service Fabric Analytics-venster maken. Zorg ervoor dat de nieuwe werkruimte wordt weergegeven onder **OMS-werkruimte**. Deze actie worden de oplossing toegevoegd aan de werkruimte die u hebt gemaakt.
 
@@ -48,9 +48,9 @@ Als u van Windows gebruikmaakt, gaat u verder met de volgende stappen uit om met
 >[!NOTE]
 >Inschakelen van deze ervaring voor Linux-clusters is nog niet beschikbaar. 
 
-### <a name="connect-the-oms-workspace-to-your-cluster"></a>Verbinding maken met de OMS-werkruimte van het cluster 
+### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Log Analytics-werkruimte verbinding te maken met uw cluster 
 
-1. De werkruimte moet worden verbonden met de diagnostics-gegevens die afkomstig zijn van uw cluster. Ga naar de resourcegroep waarin u de Service Fabric Analytics-oplossing hebt gemaakt. Selecteer **ServiceFabric\<nameOfOMSWorkspace\>**  en Ga naar de overzichtspagina. U kunt daar instellingen, werkruimte-instellingen wijzigen en toegang tot de OMS-portal.
+1. De werkruimte moet worden verbonden met de diagnostics-gegevens die afkomstig zijn van uw cluster. Ga naar de resourcegroep waarin u de Service Fabric Analytics-oplossing hebt gemaakt. Selecteer **ServiceFabric\<Naam_werkruimte\>**  en Ga naar de overzichtspagina. U kunt daar instellingen, werkruimte-instellingen wijzigen en toegang tot de OMS-portal.
 
 2. In het menu linkernavigatievenster onder **werkruimte gegevensbronnen**, selecteer **opslagaccounts logboeken**.
 
@@ -200,7 +200,7 @@ $WorkspaceName = "<OMS Log Analytics workspace name>"
 $solution = "ServiceFabric"
 
 # Log in to Azure and access the correct subscription
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionId $SubID 
 
 # Create the resource group if needed

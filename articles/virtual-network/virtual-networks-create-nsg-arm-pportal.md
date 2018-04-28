@@ -1,5 +1,5 @@
 ---
-title: Maak netwerk beveiligingsgroepen - Azure-portal | Microsoft Docs
+title: Maak een beveiligingsgroep voor netwerk - Azure-portal | Microsoft Docs
 description: Informatie over het maken en implementeren van netwerkbeveiligingsgroepen met de Azure portal.
 services: virtual-network
 documentationcenter: na
@@ -16,15 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dd05df542327f9d8dae924b7097d247980a0558b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d8a66de0b0239fef12168733eca7af85c8b08f82
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="create-network-security-groups-using-the-azure-portal"></a>Netwerk beveiligingsgroepen met de Azure portal maken
-
-[!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
+# <a name="create-a-network-security-group-using-the-azure-portal"></a>Een netwerkbeveiligingsgroep met de Azure portal maken
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
@@ -34,33 +32,32 @@ Dit artikel is van toepassing op het Resource Manager-implementatiemodel. U kunt
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-Het voorbeeld PowerShell onderstaande opdrachten een eenvoudige omgeving al gemaakt verwacht op basis van de bovenstaande scenario. Als u wilt de opdrachten uitvoeren zoals ze worden weergegeven in dit document, moet u eerst de testomgeving verder door de implementatie [deze sjabloon](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd), klikt u op **implementeren in Azure**, vervangt u de standaardwaarden voor parameters indien nodig en volg de instructies in de portal. De stappen hieronder gebruik **RG NSG** als de naam van de resourcegroep voor de sjabloon is geïmplementeerd.
 
 ## <a name="create-the-nsg-frontend-nsg"></a>Het NSG NSG-FrontEnd maken
-Maken van de **NSG-FrontEnd** NSG zoals weergegeven in het bovenstaande scenario Volg de onderstaande stappen.
+Maken van de **NSG-FrontEnd** NSG zoals weergegeven in het scenario, de volgende stappen uitvoeren:
 
-1. Navigeer in een browser naar http://portal.azure.com en meld u, indien nodig, aan met uw Azure-account.
-2. Klik op **Bladeren >** > **Netwerkbeveiligingsgroepen**.
+1. Navigeer in een browser naar https://portal.azure.com en meld u, indien nodig, aan met uw Azure-account.
+2. Selecteer **+ maken van een resource >** > **Netwerkbeveiligingsgroepen**.
    
     ![Azure portal - nsg 's](./media/virtual-networks-create-nsg-arm-pportal/figure11.png)
-3. In de **Netwerkbeveiligingsgroepen** blade, klikt u op **toevoegen**.
+3. Onder **Netwerkbeveiligingsgroepen**, selecteer **toevoegen**.
    
     ![Azure portal - nsg 's](./media/virtual-networks-create-nsg-arm-pportal/figure12.png)
-4. In de **netwerkbeveiligingsgroep maken** blade maken van een NSG met de naam *NSG-FrontEnd* in de *RG NSG* resourcegroep en klik vervolgens op **maken**.
+4. Onder **netwerkbeveiligingsgroep maken**, maakt u een NSG met de naam *NSG-FrontEnd* in de *RG NSG* resource groep en selecteert u vervolgens **maken** .
    
     ![Azure portal - nsg 's](./media/virtual-networks-create-nsg-arm-pportal/figure13.png)
 
 ## <a name="create-rules-in-an-existing-nsg"></a>Regels maken in een bestaande NSG
-Voor het maken van regels in een bestaande NSG vanuit de Azure-portal, de volgende stappen uit te voeren.
+Voor het maken van regels in een bestaande NSG vanuit de Azure-portal, moet u de volgende stappen uitvoeren:
 
-1. Klik op **Bladeren >** > **Netwerkbeveiligingsgroepen**.
-2. Klik in de lijst van nsg's op **NSG-FrontEnd** > **beveiligingsregels voor binnenkomende verbindingen**
+1. Selecteer **alle Services**, zoekt u naar **Netwerkbeveiligingsgroepen**. Wanneer **Netwerkbeveiligingsgroepen** worden weergegeven, selecteert u deze.
+2. Selecteer in de lijst met nsg's, **NSG-FrontEnd** > **beveiligingsregels voor binnenkomende verbindingen**
    
     ![Azure portal - NSG-FrontEnd](./media/virtual-networks-create-nsg-arm-pportal/figure2.png)
-3. In de lijst met **inkomende beveiligingsregels**, klikt u op **toevoegen**.
+3. In de lijst met **inkomende beveiligingsregels**, selecteer **toevoegen**.
    
     ![Azure-portal - regel toevoegen](./media/virtual-networks-create-nsg-arm-pportal/figure3.png)
-4. In de **de inkomende beveiligingsregel toevoegen** blade maken van een regel met naam *web regel* met de prioriteit van *200* toegang via *TCP* op poort *80* naar een virtuele machine uit een bron en klik vervolgens op **OK**. U ziet dat de meeste van deze instellingen standaardwaarden al.
+4. Onder **de inkomende beveiligingsregel toevoegen**, maakt u een regel met de naam *web regel* met de prioriteit van *200* toegang via *TCP* op poort *80* bron naar een virtuele machine uit en selecteer vervolgens **OK**. U ziet dat de meeste van deze instellingen standaardwaarden al.
    
     ![Azure portal - instellingen van de regel](./media/virtual-networks-create-nsg-arm-pportal/figure4.png)
 5. Na enkele seconden ziet u de nieuwe regel in de NSG.
@@ -69,29 +66,29 @@ Voor het maken van regels in een bestaande NSG vanuit de Azure-portal, de volgen
 6. Herhaal stap 6 voor het maken van een inkomende regel met de naam *rdp-regel* met een prioriteit van *250* toegang via *TCP* op poort *3389* naar een virtuele machine uit een andere bron.
 
 ## <a name="associate-the-nsg-to-the-frontend-subnet"></a>De NSG aan het FrontEnd-subnet koppelen
-1. Klik op **Bladeren >** > **resourcegroepen** > **RG NSG**.
-2. In de **RG NSG** blade, klikt u op **...**   >  **TestVNet**.
+
+1. Selecteer **alle services >**, voer **resourcegroepen**, selecteer **resourcegroepen** wanneer deze wordt weergegeven, schakelt u **RG NSG**.
+2. Onder **RG NSG**, selecteer **...**   >  **TestVNet**.
    
     ![Azure portal - TestVNet](./media/virtual-networks-create-nsg-arm-pportal/figure14.png)
-3. In de **instellingen** blade, klikt u op **subnetten** > **FrontEnd** > **netwerkbeveiligingsgroep** > **NSG-FrontEnd**.
+3. Onder **instellingen**, selecteer **subnetten** > **FrontEnd** > **netwerkbeveiligingsgroep**  >  **NSG-FrontEnd**.
    
     ![Azure portal - subnetinstellingen](./media/virtual-networks-create-nsg-arm-pportal/figure15.png)
-4. In de **FrontEnd** blade, klikt u op **opslaan**.
+4. In de **FrontEnd** blade Selecteer **opslaan**.
    
     ![Azure portal - subnetinstellingen](./media/virtual-networks-create-nsg-arm-pportal/figure16.png)
 
 ## <a name="create-the-nsg-backend-nsg"></a>Maken van de NSG NSG-back-end
-Maken van de **NSG-back-end** NSG en koppel deze aan de **back-end** subnet, volg de onderstaande stappen.
+Maken van de **NSG-back-end** NSG en koppel deze aan de **back-end** subnet, de volgende stappen uit:
 
-1. Herhaal de stappen in [maken het NSG NSG-FrontEnd](#Create-the-NSG-FrontEnd-NSG) voor het maken van een NSG met de naam *NSG-back-end*
-2. Herhaal de stappen in [regels maken in een bestaande NSG](#Create-rules-in-an-existing-NSG) maken de **inkomende** regels in de onderstaande tabel.
+1. Maken van een NSG met de naam *NSG-back-end*, Herhaal de stappen in [maken het NSG NSG-FrontEnd](#Create-the-NSG-FrontEnd-NSG).
+2. Maken van de **inkomende** regels in de tabel die volgt, Herhaal de stappen in [regels maken in een bestaande NSG](#Create-rules-in-an-existing-NSG).
    
    | Regel voor binnenkomende verbindingen | Uitgaande regel |
    | --- | --- |
    | ![Azure portal - regel voor binnenkomende verbindingen](./media/virtual-networks-create-nsg-arm-pportal/figure17.png) |![Azure portal - uitgaande regel](./media/virtual-networks-create-nsg-arm-pportal/figure18.png) |
-3. Herhaal de stappen in [het NSG aan het subnet FrontEnd koppelt](#Associate-the-NSG-to-the-FrontEnd-subnet) koppelen de **NSG-back-end** NSG aan de **back-end** subnet.
+3. Om te koppelen de **NSG-back-end** NSG aan de **back-end** subnet, Herhaal de stappen in [het NSG aan het subnet FrontEnd koppelt](#Associate-the-NSG-to-the-FrontEnd-subnet).
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over hoe [bestaande nsg's beheren](manage-network-security-group.md)
 * [Logboekregistratie inschakelen](virtual-network-nsg-manage-log.md) voor nsg's.
-

@@ -1,11 +1,11 @@
 ---
-title: Service Bus met .NET- en AMQP 1.0 | Microsoft Docs
+title: Azure Servicebus met .NET- en AMQP 1.0 | Microsoft Docs
 description: Met behulp van Azure Servicebus in .NET met AMQP
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 332bcb13-e287-4715-99ee-3d7d97396487
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 0eb68c97ca26a862a79de9ffb83b1fc630ba2af4
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 28b8d7a71f01d8633d020b99fbe6bc5c16f272b4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Servicebus in .NET gebruiken met AMQP 1.0
 
@@ -67,17 +67,17 @@ Gebruik alleen .NET-typen die kunnen worden geserialiseerd rechtstreeks in het A
 | USHORT |USHORT |AMQP-waarde |
 | uint |uint |AMQP-waarde |
 | ULONG |ULONG |AMQP-waarde |
-| SByte |byte |AMQP-waarde |
+| sbyte |byte |AMQP-waarde |
 | korte |korte |AMQP-waarde |
 | int |int |AMQP-waarde |
 | lang |lang |AMQP-waarde |
-| drijvend |drijvend |AMQP-waarde |
-| dubbel |dubbel |AMQP-waarde |
+| Float |Float |AMQP-waarde |
+| dubbele |dubbele |AMQP-waarde |
 | Decimale |decimal128 |AMQP-waarde |
 | CHAR |CHAR |AMQP-waarde |
-| Datum en tijd |tijdstempel |AMQP-waarde |
+| DateTime |tijdstempel |AMQP-waarde |
 | GUID |UUID |AMQP-waarde |
-| Byte] |Binaire |AMQP-waarde |
+| byte[] |Binaire |AMQP-waarde |
 | tekenreeks |tekenreeks |AMQP-waarde |
 | System.Collections.IList-implementatie |lijst |AMQP-waarde: de items in de verzameling kunnen alleen worden toepassingen die zijn gedefinieerd in deze tabel. |
 | System.Array |matrix |AMQP-waarde: de items in de verzameling kunnen alleen worden toepassingen die zijn gedefinieerd in deze tabel. |
@@ -94,17 +94,12 @@ Gebruik alleen .NET-typen die kunnen worden geserialiseerd rechtstreeks in het A
 | DateTimeOffset |`<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` |DateTimeOffset.UtcTicks |
 | TimeSpan |`<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> ` |TimeSpan.Ticks |
 
-## <a name="unsupported-features-restrictions-and-behavioral-differences"></a>Niet-ondersteunde functies en beperkingen gebruikersgedrag verschillen
+## <a name="behavioral-differences"></a>Gebruikersgedrag verschillen
 
-De volgende functies van de Service Bus .NET API worden momenteel niet ondersteund bij gebruik van AMQP:
-
-* Transacties
-* Verzenden via overdracht bestemming
-
-Er zijn ook een aantal kleine verschillen in het gedrag van de Service Bus .NET API wanneer u AMQP, vergeleken met het standaardprotocol:
+Er zijn een aantal kleine verschillen in het gedrag van de Service Bus .NET API bij gebruik van AMQP, vergeleken met het standaardprotocol:
 
 * De [OperationTimeout] [ OperationTimeout] eigenschap wordt genegeerd.
-* `MessageReceiver.Receive(TimeSpan.Zero)`wordt geïmplementeerd als `MessageReceiver.Receive(TimeSpan.FromSeconds(10))`.
+* `MessageReceiver.Receive(TimeSpan.Zero)` wordt geïmplementeerd als `MessageReceiver.Receive(TimeSpan.FromSeconds(10))`.
 * Berichten voltooien door vergrendeling tokens kan alleen worden uitgevoerd door de ontvangers die in eerste instantie de berichten te ontvangen van berichten.
 
 ## <a name="control-amqp-protocol-settings"></a>Beheerinstellingen van het AMQP-protocol

@@ -11,13 +11,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/25/2018
+ms.date: 04/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 2c201af6b1c14553e31ca71e28fc22d99ec900bd
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 328f052e1ccad3ac26cce62c858e050253192ae8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Gebruik Azure Storage handtekeningen voor gedeelde toegang om toegang te beperken tot gegevens in HDInsight
 
@@ -163,7 +163,7 @@ Een voorbeeld van het maken van een HDInsight-cluster dat gebruik maakt van de S
 1. Gebruik de volgende opdracht bij de verificatie voor uw Azure-abonnement achter de opdrachtprompt:
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
     Wanneer u wordt gevraagd, aanmelden met het account voor uw Azure-abonnement.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: ceace7331c7548c5b4e27f8529152fd69d5469cd
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 1bf2c10c5267157f6d74962c00d587a6956fc574
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-the-iot-extension-for-azure-cli-20-for-azure-iot-hub-device-management"></a>De IoT-uitbreiding voor Azure CLI 2.0 wordt gebruikt voor het beheer van Azure IoT Hub-apparaten
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 04/03/2018
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[De IoT-extensie voor Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) is een nieuwe open-source IoT-extensie die wordt toegevoegd aan de mogelijkheden van [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest). Azure CLI 2.0 bevat opdrachten voor interactie met Azure resource manager en beheer-eindpunten. U kunt bijvoorbeeld Azure CLI 2.0 gebruiken om een virtuele machine in Azure of een IoT-hub te maken. Extensie van de CLI kunt een Azure-service naar de Azure CLI zodat die u toegang tot extra servicespecifieke mogelijkheden verbeteren. De extensie IoT biedt IoT ontwikkelaars opdrachtregel toegang tot alle IoT Hub, IoT-rand en IoT Hub apparaat-inrichtingsservice mogelijkheden.
+[De IoT-extensie voor Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) is een nieuwe open-source IoT-extensie die wordt toegevoegd aan de mogelijkheden van [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). Azure CLI 2.0 bevat opdrachten voor interactie met Azure resource manager en beheer-eindpunten. U kunt bijvoorbeeld Azure CLI 2.0 gebruiken om een virtuele machine in Azure of een IoT-hub te maken. Extensie van de CLI kunt een Azure-service naar de Azure CLI zodat die u toegang tot extra servicespecifieke mogelijkheden verbeteren. De extensie IoT biedt IoT ontwikkelaars opdrachtregel toegang tot alle IoT Hub, IoT-rand en IoT Hub apparaat-inrichtingsservice mogelijkheden.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -62,7 +62,7 @@ Azure CLI 2.0 en de IoT-extensie voor Azure CLI 2.0 uitvoeren met verschillende 
 
 - [Python 2.7 x of Python 3.x](https://www.python.org/downloads/)
 
-- Installeer Azure CLI 2.0. Een eenvoudige manier om Azure CLI 2.0 te installeren in Windows is de [MSI](https://aka.ms/InstallAzureCliWindows) te downloaden en installeren. U kunt ook de installatie-instructies volgen op [Microsoft Docs](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) voor het instellen van Azure CLI 2.0 in uw omgeving. Uw versie van Azure CLI 2.0 moet minimaal versie 2.0.24 of hoger zijn. Gebruik `az –version` om de versie te valideren. 
+- Installeer Azure CLI 2.0. Een eenvoudige manier om Azure CLI 2.0 te installeren in Windows is de [MSI](https://aka.ms/InstallAzureCliWindows) te downloaden en installeren. U kunt ook de installatie-instructies volgen op [Microsoft Docs](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) voor het instellen van Azure CLI 2.0 in uw omgeving. Uw versie van Azure CLI 2.0 moet minimaal versie 2.0.24 of hoger zijn. Gebruik `az –version` om de versie te valideren. 
 
 - De IoT-uitbreiding te installeren. De eenvoudigste manier is `az extension add --name azure-cli-iot-ext` uit te voeren. [In het Leesmij-bestand bij de IoT-extensie](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) worden verschillende manieren voor het installeren van de extensie beschreven.
 

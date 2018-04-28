@@ -1,5 +1,5 @@
 ---
-title: Privileged Identity Management voor Azure-Resources - beveiligingswaarschuwingen | Microsoft Docs
+title: Beveiligingswaarschuwingen voor Azure-resources beheren met behulp van Privileged Identity Management | Microsoft Docs
 description: Beschrijft de PIM-beveiligingswaarschuwingen.
 services: active-directory
 documentationcenter: ''
@@ -13,20 +13,21 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 86c9a0f12b2598ffbd02810a11622b13b0363a1f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c6c057541b3e3067de6331bab6ca9cccfa092710
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="privileged-identity-management---resource-roles---alerts"></a>Privileged Identity Management - resourcerollen - waarschuwingen
-PIM voor Azure-Resources genereert waarschuwingen wanneer er verdachte of unsafe activiteiten in uw omgeving. Wanneer een waarschuwing wordt geactiveerd, wordt deze weergegeven op de pagina waarschuwingen. 
+# <a name="manage-security-alerts-for-azure-resources-by-using-privileged-identity-management"></a>Beveiligingswaarschuwingen voor Azure-resources beheren met behulp van Privileged Identity Management
+Privileged Identity Management (PIM) voor Azure-Resources genereert waarschuwingen wanneer er verdachte of unsafe activiteiten in uw omgeving. Wanneer een waarschuwing wordt geactiveerd, wordt deze weergegeven op de pagina waarschuwingen. 
 
-![](media/azure-pim-resource-rbac/RBAC-alerts-home.png)
+![pagina waarschuwingen](media/azure-pim-resource-rbac/RBAC-alerts-home.png)
 
 ## <a name="review-alerts"></a>Waarschuwingen weergeven
-Selecteer een waarschuwing voor een overzicht van een rapport met de gebruikers of rollen die de waarschuwing heeft geactiveerd en advies voor herstel.
-![](media/azure-pim-resource-rbac/rbac-alert-info.png)
+Selecteer een waarschuwing voor een overzicht van een rapport met de gebruikers of rollen die de waarschuwing, samen met advies voor herstel is geactiveerd.
+
+![Waarschuwingsrapport](media/azure-pim-resource-rbac/rbac-alert-info.png)
 
 ## <a name="alerts"></a>Waarschuwingen
 | Waarschuwing | Ernst | Trigger | Aanbeveling |
@@ -39,11 +40,11 @@ Selecteer een waarschuwing voor een overzicht van een rapport met de gebruikers 
 ### <a name="severity"></a>Ernst
 * **Hoge**: directe actie is vereist vanwege een schending van het beleid. 
 * **Gemiddeld**: geen directe actie is vereist, maar geeft u een potentiële beleidsovertreding.
-* **Lage**: geen directe actie is vereist, maar stelt voor een beter dan beleidswijziging.
+* **Lage**: geen directe actie is vereist, maar stelt u een beleidswijziging van het gewenste.
 
 ## <a name="configure-security-alert-settings"></a>Waarschuwing beveiligingsinstellingen configureren
-Ga naar instellingen op de pagina waarschuwingen.
-![](media/azure-pim-resource-rbac/rbac-navigate-settings.png)
+Ga op de pagina waarschuwingen naar **instellingen**.
+![Instellingen](media/azure-pim-resource-rbac/rbac-navigate-settings.png)
 
 Instellingen op de andere waarschuwingen werken met uw omgeving en beveiligingsdoelen aanpassen.
-![](media/azure-pim-resource-rbac/rbac-alert-settings.png)
+![Instellingen aanpassen](media/azure-pim-resource-rbac/rbac-alert-settings.png)

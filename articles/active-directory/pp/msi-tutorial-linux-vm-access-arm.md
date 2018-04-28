@@ -2,7 +2,7 @@
 title: Gebruik van een MSI Linux VM gebruiker toegewezen voor toegang tot Azure Resource Manager
 description: Een zelfstudie die u bij het proces helpt van het gebruik van een User-Assigned beheerde Service identiteit (MSI) op een Linux-VM voor toegang tot Azure Resource Manager.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -15,10 +15,10 @@ ms.date: 12/22/2017
 ms.author: arluca
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: c2b6d70e441dc3d300f49adff1c02d7cc65788d2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/25/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-resource-manager"></a>Een gebruiker toegewezen beheerde Service identiteit (MSI) op een Linux-VM te gebruiken voor toegang tot Azure Resource Manager
 
@@ -28,7 +28,7 @@ Deze zelfstudie wordt uitgelegd hoe u een gebruiker toegewezen beheerde Service 
 
 Beheerde Service-identiteiten worden automatisch beheerd door Azure. Hiermee kunt verificatie voor services die ondersteuning bieden voor Azure AD-verificatie, zonder referenties insluiten in uw code.
 
-Procedures voor:
+In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
 > * Maken van een MSI gebruiker toegewezen
@@ -49,7 +49,7 @@ Als u wilt uitvoeren in de CLI scriptvoorbeelden in deze zelfstudie, hebt u twee
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Aanmelden bij de Azure portal op [ https://portal.azure.com ](https://portal.azure.com).
+Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Een virtuele Linux-Machine in een nieuwe resourcegroep maken
 

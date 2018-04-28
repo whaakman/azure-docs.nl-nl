@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 194b8237ce1bff6ac18878bc7eca6e0d3891aa33
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: de3fcc4abcc8558066d9e524011047d6a117f4e5
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup-fout oplossen: problemen met de agent of de extensie
 
@@ -63,7 +63,8 @@ Nadat u registreren en plannen van een virtuele machine voor de Azure Backup-ser
 
 ## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>Back-up is mislukt omdat de VM-agent reageert niet
 
-Foutbericht weergegeven: 'Kan niet aan de bewerking niet uitvoeren omdat de VM-Agent niet reageert'
+Foutbericht weergegeven: 'Kan niet aan de bewerking niet uitvoeren omdat de VM-Agent niet reageert' <br>
+Foutcode: 'GuestAgentSnapshotTaskStatusError'
 
 Nadat u registreren en plannen van een virtuele machine voor de Azure Backup-service, initieert back-up van de taak door de communicatie met de Backup-extensie van de VM om een punt in tijd momentopname. Een van de volgende voorwaarden kan voorkomen dat de momentopname wordt geactiveerd. Als de momentopname is niet geactiveerd, optreden een back-upfouten. De volgende stappen voor probleemoplossing in de volgorde en probeer de bewerking vervolgens opnieuw:  
 **1 oorzaak: [de agent is geïnstalleerd in de virtuele machine, maar het niet-reagerende (voor Windows-VM's)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
@@ -72,7 +73,8 @@ Nadat u registreren en plannen van een virtuele machine voor de Azure Backup-ser
 
 ## <a name="backup-fails-with-an-internal-error"></a>Back-up is mislukt met een interne fout
 
-Foutbericht weergegeven: 'back-up is mislukt met een interne fout: probeer de bewerking over enkele minuten opnieuw'
+Foutbericht weergegeven: 'back-up is mislukt met een interne fout: probeer de bewerking over enkele minuten opnieuw' <br>
+Foutcode: 'BackUpOperationFailed' / 'BackUpOperationFailedV2'
 
 Nadat u registreren en plannen van een virtuele machine voor de Azure Backup-service, initieert back-up van de taak door de communicatie met de Backup-extensie van de VM om een punt in tijd momentopname. Een van de volgende voorwaarden kan voorkomen dat de momentopname wordt geactiveerd. Als de momentopname is niet geactiveerd, optreden een back-upfouten. De volgende stappen voor probleemoplossing in de volgorde en probeer de bewerking vervolgens opnieuw:  
 **1 oorzaak: [de virtuele machine heeft geen toegang tot internet](#the-vm-has-no-internet-access)**  
@@ -97,6 +99,8 @@ U lost het probleem probeert u een van de volgende methoden:
 U kunt [service labels](../virtual-network/security-overview.md#service-tags) verbindingen naar de opslag van de specifieke regio wilt toestaan. Zorg ervoor dat de regel die toegang tot het opslagaccount verleent hogere prioriteit dan de regel die blokken internettoegang heeft. 
 
 ![Netwerkbeveiligingsgroep met labels van de opslag voor een regio](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+Om te begrijpen van de stapsgewijze procedure voor het configureren van de service-tags, Bekijk [in deze video](https://youtu.be/1EjLQtbKm1M).
 
 > [!WARNING]
 > Storage-service-tags zijn Preview-versie. Ze zijn alleen beschikbaar in specifieke gebieden. Zie voor een lijst met regio's, [Service-tags voor opslag](../virtual-network/security-overview.md#service-tags).

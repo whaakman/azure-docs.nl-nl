@@ -9,11 +9,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: e8decbe2c8ed4bed6cfb71308510d031fc242faa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-ms.translationtype: MT
+ms.openlocfilehash: 1f5f4a4ece116503c8ddb5eaa4998b5b1a407bb1
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Configureren en beheren van Azure Active Directory-verificatie met SQL-Database, exemplaar beheerd of SQL Data Warehouse
 
@@ -78,7 +78,7 @@ Uw beheerde exemplaar moet leesmachtigingen voor Azure AD om met succes taken zo
 
    De pagina Active Directory-beheerder ziet u alle leden en groepen van Active Directory. Gebruikers of groepen die grijs worden weergegeven, kunnen niet worden geselecteerd omdat ze worden niet ondersteund als Azure AD-beheerders. Zie de lijst met ondersteunde beheerders in [Azure AD-functies en beperkingen](sql-database-aad-authentication.md#azure-ad-features-and-limitations). Op rollen gebaseerde toegangsbeheer (RBAC) geldt alleen voor de Azure-portal en niet wordt doorgegeven naar SQL Server.
 
-    ![add-admin](./media/sql-database-aad-authentication/add-admin.png)
+    ![-beheerder](./media/sql-database-aad-authentication/add-admin.png)
 
 8. Klik boven aan de pagina Active Directory-beheerder op **opslaan**.
 
@@ -100,7 +100,7 @@ Uw beheerde exemplaar moet leesmachtigingen voor Azure AD om met succes taken zo
 De volgende twee procedures laten zien hoe een Azure Active Directory-beheerder voor uw Azure SQL-server in de Azure-portal en met behulp van PowerShell inrichten.
 
 ### <a name="azure-portal"></a>Azure Portal
-1. In de [Azure-portal](https://portal.azure.com/), klik op de verbinding met een vervolgkeuzelijst met mogelijke Active Directory's in de rechterbovenhoek. Kies de juiste Active Directory als de standaard Azure AD. Deze stap koppelt u de koppeling van het abonnement met Active Directory met Azure SQL-server om ervoor te zorgen dat hetzelfde abonnement wordt gebruikt voor zowel Azure AD en SQL Server. (De Azure SQL-server kan worden gehost, Azure SQL Database of Azure SQL Data Warehouse.)   
+1. In de [Azure-portal](https://portal.azure.com/), klik op de verbinding met een vervolgkeuzelijst met mogelijke Active Directory's in de rechterbovenhoek. Kies de juiste Active Directory als de standaard Azure AD. Deze stap koppelt u Active Directory-abonnement is gekoppeld met Azure SQL-server om ervoor te zorgen dat hetzelfde abonnement wordt gebruikt voor zowel Azure AD en SQL Server. (De Azure SQL-server kan worden gehost, Azure SQL Database of Azure SQL Data Warehouse.)   
     ![choose-ad][8]   
     
 2. Selecteer in het linkerdeelvenster banner **SQL-servers**, selecteer uw **SQL server**, en klik vervolgens in de **SQL Server** pagina, klikt u op **Active Directory-beheerder**.   
@@ -127,7 +127,7 @@ Voor het uitvoeren van PowerShell-cmdlets, moet u Azure PowerShell is geïnstall
 
 Voer de volgende Azure PowerShell-opdrachten voor het inrichten van een Azure AD-beheerder:
 
-* Add-AzureRmAccount
+* Verbinding maken met AzureRmAccount
 * Select-AzureRmSubscription
 
 Cmdlets gebruikt voor het inrichten en beheren van Azure AD-beheerder:
@@ -208,7 +208,7 @@ U kunt voldoen aan deze voorwaarden voldoet:
 Azure Active Directory-verificatie vereist databasegebruikers moet worden gemaakt als ingesloten databasegebruikers. Een ingesloten database-gebruiker op basis van een Azure AD-identiteit is een databasegebruiker die geen een aanmelding in de database master en die wordt toegewezen aan een identiteit in de Azure AD-directory die is gekoppeld aan de database. De identiteit van de Azure AD kan worden een afzonderlijk gebruikersaccount of een groep. Zie voor meer informatie over ingesloten databasegebruikers [opgenomen databasegebruikers maken uw Database draagbare](https://msdn.microsoft.com/library/ff929188.aspx).
 
 > [!NOTE]
-> Database-gebruikers (met uitzondering van beheerders) kunnen niet worden gemaakt met behulp van de portal. RBAC-rollen worden niet doorgegeven aan SQL Server, SQL Database of SQL Data Warehouse. Azure RBAC-rollen worden gebruikt voor het beheren van Azure-Resources en niet van toepassing op de databasemachtigingen. Bijvoorbeeld, de **SQL Server Inzender** rol verleent geen toegang tot het verbinding maken met de SQL-Database of SQL Data Warehouse. De toegangsmachtiging moet rechtstreeks in de database met behulp van Transact-SQL-instructies worden toegekend.
+> Database-gebruikers (met uitzondering van beheerders) kunnen niet worden gemaakt met de Azure portal. RBAC-rollen worden niet doorgegeven aan SQL Server, SQL Database of SQL Data Warehouse. Azure RBAC-rollen worden gebruikt voor het beheren van Azure-Resources en niet van toepassing op de databasemachtigingen. Bijvoorbeeld, de **SQL Server Inzender** rol verleent geen toegang tot het verbinding maken met de SQL-Database of SQL Data Warehouse. De toegangsmachtiging moet rechtstreeks in de database met behulp van Transact-SQL-instructies worden toegekend.
 >
 
 Voor het maken van een Azure AD-gebruiker op basis van die database (met uitzondering van de beheerder van de server die eigenaar is van de database), verbinding maken met de database met de identiteit van een Azure AD, als een gebruiker met ten minste de **elke gebruiker ALTER** machtiging. Gebruik vervolgens de volgende Transact-SQL-syntaxis:
@@ -279,12 +279,13 @@ Gebruik deze methode als u bent aangemeld bij Windows met uw Azure Active Direct
 
 ## <a name="active-directory-password-authentication"></a>Wachtwoordverificatie voor Active Directory
 
-Gebruik deze methode als het domein te koppelen aan een Azure AD principal-naam met behulp van de Azure AD worden beheerd. U kunt deze ook gebruiken voor federatieve account zonder toegang tot het domein, bijvoorbeeld bij het op afstand werkt.
+Gebruik deze methode als het domein te koppelen aan een Azure AD principal-naam met behulp van de Azure AD worden beheerd. U kunt deze ook gebruiken voor federatieve accounts zonder toegang tot het domein, bijvoorbeeld bij het op afstand werkt.
 
-Gebruik deze methode als u bent aangemeld bij Windows met referenties van een domein dat niet is gefedereerd met Azure of met behulp van Azure AD-verificatie met behulp van Azure AD op basis van de eerste of het domein van de client.
+Gebruik deze methode om te verifiëren naar SQL DB/DW met Azure AD voor systeemeigen van federatieve gebruikers van Azure AD.
+Een systeemeigen gebruiker is een expliciet gemaakt in Azure AD en wordt geverifieerd met gebruikersnaam en wachtwoord, terwijl een federatieve gebruiker een Windows-gebruiker met het domein is gefedereerd met Azure AD. De laatste methode (met behulp van de gebruiker en wachtwoord) kan worden gebruikt wanneer een gebruiker wil gebruiken zijn windows-referentie, maar zijn lokale computer niet is verbonden met het domein (dat wil zeggen met een externe toegang). In dit geval een Windows-gebruiker kan aangeven zijn domeinaccount en het wachtwoord en aan SQL DB/DW met federatieve referenties kan worden geverifieerd.
 
 1. Start Management Studio of Data Tools en in de **verbinding maken met Server** (of **verbinding maken met Database-Engine**) het dialoogvenster de **verificatie** de optie  **Active Directory - wachtwoord**.
-2. In de **gebruikersnaam** typt u de naam van uw Azure Active Directory-gebruiker in de notatie  **username@domain.com** . Dit moet een account van de Azure Active Directory of gefedereerd als u een account van een domein met de Azure Active Directory.
+2. In de **gebruikersnaam** typt u de naam van uw Azure Active Directory-gebruiker in de notatie **username@domain.com**. Dit moet een account van de Azure Active Directory of gefedereerd als u een account van een domein met de Azure Active Directory.
 3. In de **wachtwoord** vak, typ het wachtwoord van de gebruiker voor de Azure Active Directory-account of federatieve domeinaccount.
 
     ![Selecteer verificatie van AD-wachtwoord][12]

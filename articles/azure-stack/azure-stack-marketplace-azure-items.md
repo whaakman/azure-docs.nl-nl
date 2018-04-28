@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 413485fc764000dadca1a2cccf9ee0de7e9046aa
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1081fe9f8aceb6b849d595177b7c7cac2a26cbfc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-items beschikbaar voor Azure-Stack
 
@@ -32,10 +32,10 @@ Wanneer er updates beschikbaar voor virtuele machine (VM)-uitbreidingen die u ge
 |  | De itemnaam van het | Beschrijving | Uitgever | Het type besturingssysteem |
 | --- | --- | --- | --- | --- |
 |![SQL IaaS-uitbreiding](media/azure-stack-marketplace-azure-items/cse.png) | [ SQL IaaS-uitbreiding ](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>Download deze uitbreiding voor het implementeren van een SQL-Server op Windows Marketplace-item - deze uitbreiding is vereist.</b> | Microsoft | Windows |
-|![Aangepaste scriptextensie](media/azure-stack-marketplace-azure-items/cse.png) | [ Extensie voor aangepaste scripts ](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>Deze update downloaden naar de versie in het vak van het aangepaste Script uitbreiding voor Windows.</b> | Microsoft | Windows |
+|![Aangepaste scriptextensie](media/azure-stack-marketplace-azure-items/cse.png) | [ Extensie voor aangepaste scripts ](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| <b>Deze update downloaden naar de versie in het vak van het aangepaste Script uitbreiding voor Windows.</b> | Microsoft | Windows |
 |![PowerShell DSC-uitbreiding](media/azure-stack-marketplace-azure-items/dsc.png) | [ PowerShell DSC-uitbreiding ](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| <b>Deze update downloaden naar de in-box-versie van de PowerShell DSC-uitbreiding. Bijgewerkt met ondersteuning van TLS 1.2.</b> | Microsoft | Windows |
-| ![Microsoft Antimalware-uitbreiding](media/azure-stack-marketplace-azure-items/cse.png) | [ Microsoft Antimalware-uitbreiding ](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)| Microsoft Antimalware voor Azure is een single-agent-oplossing voor toepassingen en tenant-omgevingen, die is ontworpen om uit te voeren op de achtergrond, zonder menselijke tussenkomst. | Microsoft | Windows |
-|![Aangepaste scriptextensie](media/azure-stack-marketplace-azure-items/cse.png) | [ Extensie voor aangepaste scripts ](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>Deze update downloaden op de in-box-versie van de aangepaste Scriptextensie voor Linux. Er zijn meerdere versies van deze extensie en moet u zowel 1.5.2.1 2.0.x downloaden. </b> | Microsoft | Linux |
+| ![Microsoft Antimalware-uitbreiding](media/azure-stack-marketplace-azure-items/cse.png) | [ Microsoft Antimalware-uitbreiding ](https://docs.microsoft.com/azure/security/azure-security-antimalware)| Microsoft Antimalware voor Azure is een single-agent-oplossing voor toepassingen en tenant-omgevingen, die is ontworpen om uit te voeren op de achtergrond, zonder menselijke tussenkomst. | Microsoft | Windows |
+|![Aangepaste scriptextensie](media/azure-stack-marketplace-azure-items/cse.png) | [ Extensie voor aangepaste scripts ](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| <b>Deze update downloaden op de in-box-versie van de aangepaste Scriptextensie voor Linux. Er zijn meerdere versies van deze extensie en moet u zowel 1.5.2.1 2.0.x downloaden. </b> | Microsoft | Linux |
 | ![Docker-uitbreiding](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.docker-arm) | Docker-extensie voor virtuele Linux-Machines. | Microsoft | Linux |
 | ![Toegang voor Linux VM](media/azure-stack-marketplace-azure-items/cse.png) | [ Toegang voor Linux VM ](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>Deze update downloaden op de in-box-versie van de VMAccess voor Linux-extensie. Deze update is van belang als u wilt gebruiken, Debian virtuele Linux-machines.</b> | Microsoft | Linux |
 | ![Acronis Backup-extensie voor Linux](media/azure-stack-marketplace-azure-items/acronis.png) | [ Acronis Backup-extensie voor Linux ](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | De extensie van de back-up Acronis voor Microsoft Azure is onderdeel van de back-up Acronis-familie van data protection producten. | Internationale GmbH Acronis. | Linux |

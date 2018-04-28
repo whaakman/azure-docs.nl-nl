@@ -12,46 +12,51 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 04/24/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 5446f00b698fbe1fe1bae9c52bf3e73fe0d1c506
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 86597defad7c76d41065270030a4c77ee901b014
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-a-linux-virtual-machine-by-using-powershell-in-azure-stack"></a>Een virtuele Linux-machine maken met behulp van PowerShell in Azure-Stack 
+# <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Snelstartgids: een virtuele Linux-server-machine maken met behulp van PowerShell in Azure-Stack
 
-*Van toepassing op: Azure Stack geïntegreerd systemen*
+*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
-Azure PowerShell wordt gebruikt voor het maken en beheren van resources in Azure-Stack vanaf een opdrachtregel of in scripts.  Deze handleiding details van de PowerShell gebruiken voor het maken van een virtuele machine met Ubuntu server in Azure-Stack.
+U kunt een Ubuntu Server 16.04 TNS virtuele machine maken met behulp van PowerShell voor Azure-Stack. Volg de stappen in dit artikel maken en gebruiken van een virtuele machine.  In dit artikel hebt u ook de stappen voor het:
 
-## <a name="prerequisites"></a>Vereisten 
+* Verbinding maken met de virtuele machine met een externe client.
+* Niet-gebruikte resources opschonen.
 
-* Zorg ervoor dat uw Azure-Stack-operator de installatiekopie van het 'Ubuntu Server 16.04 LTS' is toegevoegd aan de Stack van Azure marketplace.  
+## <a name="prerequisites"></a>Vereisten
 
-* Azure-Stack is vereist voor een specifieke versie van Azure PowerShell maken en beheren van de resources. Als er geen PowerShell voor Azure-Stack is geconfigureerd, aanmelden bij de [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), of een Windows-externe client als u [verbonden via VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) en volg de stappen voor het [ Installeer](azure-stack-powershell-install.md) en [configureren](azure-stack-powershell-configure-user.md) PowerShell.    
+* **Een Linux-installatiekopie in de Stack van Azure marketplace**
 
-* Een openbare SSH-sleutel met de naam id_rsa.pub moet worden gemaakt in de SSH-map van uw Windows-gebruikersprofiel. Zie voor gedetailleerde informatie over het maken van SSH-sleutels [maken van SSH-sleutels op Windows](../../virtual-machines/linux/ssh-from-windows.md).  
+   De Stack van Azure marketplace bevat geen standaard een Linux-installatiekopie. Ophalen van de Azure-Stack-operator om te bieden de **Ubuntu Server 16.04 LTS** u moet de installatiekopie. De operator kunt de stappen in de [downloaden marketplace-items van Azure naar Azure Stack](../azure-stack-download-azure-marketplace-item.md) artikel.
+
+* Azure-Stack is vereist voor een specifieke versie van Azure PowerShell maken en beheren van resources. Als er geen PowerShell voor Azure-Stack is geconfigureerd, aanmelden bij de [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), of een Windows-externe client als u [verbonden via VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) en volg de stappen voor het [ Installeer](azure-stack-powershell-install.md) en [configureren](azure-stack-powershell-configure-user.md) PowerShell.
+
+* Een openbare SSH-sleutel met de naam id_rsa.pub opgeslagen in de SSH-map van uw Windows-gebruikersprofiel. Zie voor gedetailleerde informatie over het maken van SSH-sleutels [maken van SSH-sleutels op Windows](../../virtual-machines/linux/ssh-from-windows.md).
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep is een logische container in welke Azure-Stack resources worden geïmplementeerd en beheerd. Uitvoeren vanuit uw development kit of het systeem Azure Stack geïntegreerd, het volgende codeblok voor het maken van een resourcegroep. We waarden voor alle variabelen in dit document hebt toegewezen, kunt u deze als is of een andere waarde toe te wijzen.
+Een resourcegroep is een logische container waarin u kunt implementeren en beheren van resources voor Azure-Stack. Uitvoeren vanuit uw development kit of het systeem Azure Stack geïntegreerd, het volgende codeblok voor het maken van een resourcegroep. Waarden voor de variabelen in dit document zijn toegewezen, kunt u deze waarden gebruiken of nieuwe waarden toewijzen.
 
 ```powershell
 # Create variables to store the location and resource group names.
 $location = "local"
-$ResourceGroupName = "myResourceGroup" 
+$ResourceGroupName = "myResourceGroup"
 
 New-AzureRmResourceGroup `
   -Name $ResourceGroupName `
-  -Location $location 
+  -Location $location
 ```
 
 ## <a name="create-storage-resources"></a>Storage-resources maken
 
-Maak een opslagaccount en een opslagcontainer voor het opslaan van de installatiekopie van het Ubuntu Server 16.04 LTS.
+Een opslagaccount maken en maak vervolgens een opslagcontainer voor de installatiekopie Ubuntu Server 16.04 LTS.
 
 ```powershell
 # Create variables to store the storage account name and the storage account SKU information
@@ -73,7 +78,7 @@ Set-AzureRmCurrentStorageAccount `
 $containerName = 'osdisks'
 $container = New-AzureStorageContainer `
   -Name $containerName `
-  -Permission Blob 
+  -Permission Blob
 ```
 
 ## <a name="create-networking-resources"></a>Netwerkresources maken
@@ -106,7 +111,7 @@ $pip = New-AzureRmPublicIpAddress `
 
 ### <a name="create-a-network-security-group-and-a-network-security-group-rule"></a>Een netwerkbeveiligingsgroep en een regel voor de netwerkbeveiligingsgroep maken
 
-De netwerkbeveiligingsgroep beveiligt de virtuele machine met behulp van regels voor binnenkomend en uitgaand. We gaan een inkomende regel voor poort 3389 voor het toestaan van binnenkomende verbindingen van extern bureaublad en een inkomende regel voor poort 80 om toe te staan inkomend webverkeer maken.
+De netwerkbeveiligingsgroep beveiligt de virtuele machine met behulp van regels voor binnenkomend en uitgaand. Een inkomende regel voor poort 3389 voor het toestaan van binnenkomende verbindingen van extern bureaublad en een inkomende regel voor poort 80 om toe te staan inkomend webverkeer maken.
 
 ```powershell
 # Create an inbound network security group rule for port 22
@@ -125,6 +130,7 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Locat
 ```
 
 ### <a name="create-a-network-card-for-the-virtual-machine"></a>Een netwerkkaart voor de virtuele machine maken
+
 De netwerkkaart verbindt de virtuele machine met een subnet, netwerkbeveiligingsgroep en openbaar IP-adres.
 
 ```powershell
@@ -135,11 +141,12 @@ $nic = New-AzureRmNetworkInterface `
   -Location $location `
   -SubnetId $vnet.Subnets[0].Id `
   -PublicIpAddressId $pip.Id `
-  -NetworkSecurityGroupId $nsg.Id 
+  -NetworkSecurityGroupId $nsg.Id
 ```
 
 ## <a name="create-a-virtual-machine"></a>Een virtuele machine maken
-Maak een virtuele-machineconfiguratie. Deze configuratie bevat de instellingen die worden gebruikt bij het implementeren van de virtuele machine, zoals een installatiekopie van de virtuele machine, de grootte en de verificatieconfiguratie.
+
+Maak een virtuele-machineconfiguratie. Deze configuratie bevat de instellingen die zijn gebruikt bij het implementeren van de virtuele machine. Bijvoorbeeld: de referenties van gebruiker, de grootte en de installatiekopie van de virtuele machine.
 
 ```powershell
 # Define a credential object.
@@ -152,13 +159,13 @@ $VmName = "VirtualMachinelatest"
 $VmSize = "Standard_D1"
 $VirtualMachine = New-AzureRmVMConfig `
   -VMName $VmName `
-  -VMSize $VmSize 
+  -VMSize $VmSize
 
 $VirtualMachine = Set-AzureRmVMOperatingSystem `
   -VM $VirtualMachine `
   -Linux `
   -ComputerName "MainComputer" `
-  -Credential $cred 
+  -Credential $cred
 
 $VirtualMachine = Set-AzureRmVMSourceImage `
   -VM $VirtualMachine `
@@ -173,13 +180,13 @@ $osDiskUri = '{0}vhds/{1}-{2}.vhd' -f `
   $vmName.ToLower(), `
   $osDiskName
 
-# Sets the operating system disk properties on a virtual machine. 
+# Sets the operating system disk properties on a virtual machine.
 $VirtualMachine = Set-AzureRmVMOSDisk `
   -VM $VirtualMachine `
   -Name $osDiskName `
   -VhdUri $OsDiskUri `
   -CreateOption FromImage | `
-  Add-AzureRmVMNetworkInterface -Id $nic.Id 
+  Add-AzureRmVMNetworkInterface -Id $nic.Id
 
 # Configure SSH Keys
 $sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
@@ -193,27 +200,28 @@ Add-AzureRmVMSshPublicKey -VM $VirtualMachine `
 New-AzureRmVM `
   -ResourceGroupName $ResourceGroupName `
  -Location $location `
-  -VM $VirtualMachine 
+  -VM $VirtualMachine
 ```
 
 ## <a name="connect-to-the-virtual-machine"></a>Verbinding maken met de virtuele machine
 
-Wanneer de implementatie is voltooid, maakt u een SSH-verbinding met de virtuele machine. Gebruik de opdracht [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress?view=azurermps-4.3.1) om het openbare IP-adres van de virtuele machine te retourneren.
+Nadat de virtuele machine is geïmplementeerd, configureert u een SSH-verbinding voor de virtuele machine. Gebruik de opdracht [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress?view=azurermps-4.3.1) om het openbare IP-adres van de virtuele machine te retourneren.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-Gebruik de volgende opdracht verbinding maken met de virtuele machine van een systeem met SSH geïnstalleerd. Als u in Windows werkt, kunt u [Putty](http://www.putty.org/) om de verbinding te maken.
+Gebruik de volgende opdracht verbinding maken met de virtuele machine van een clientsysteem met SSH geïnstalleerd. Als u in Windows werkt, kunt u [Putty](http://www.putty.org/) om de verbinding te maken.
 
 ```
 ssh <Public IP Address>
 ```
 
-Wanneer u wordt gevraagd, is de aanmeldingsnaam in azureuser. Als er een wachtwoordzin is opgegeven bij het maken van SSH-sleutels, moet u deze ook invoeren.
+Wanneer u wordt gevraagd, typt u azureuser als de aanmeldingsgebruiker. Als u een wachtwoordzin gebruikt bij het maken van de SSH-sleutels, hebt u de wachtwoordzin opgeven.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Wanneer deze niet langer nodig is, kunt u de [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup?view=azurermps-4.3.1) opdracht voor het verwijderen van de resourcegroep, VM, en alle bijbehorende resources:
+
+Opschonen van de resources die u niet langer nodig. U kunt de [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup?view=azurermps-4.3.1) opdracht om te verwijderen van deze resources. Voer de volgende opdracht voor het verwijderen van de resourcegroep en alle bijbehorende resources:
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -221,4 +229,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt een eenvoudige virtuele Linux-machine hebt geïmplementeerd in deze snelstartgids. Voor meer informatie over virtuele machines van Azure-Stack blijven [overwegingen voor virtuele Machines in Azure Stack](azure-stack-vm-considerations.md).
+In deze snelstartgids kunt u een eenvoudige virtuele machine van een Linux-server geïmplementeerd. Voor meer informatie over Azure-Stack virtuele machines, gaat u naar [overwegingen voor virtuele Machines in Azure Stack](azure-stack-vm-considerations.md).

@@ -10,11 +10,11 @@ ms.custom: develop apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: dc78a43fb99428eac921dd0cfffe5547f523a133
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 37f143ce9dabdc2d0eaf6c60dd551c682a141c17
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="sql-database-application-development-overview"></a>SQL-Database ontwikkelen-overzicht
 In dit artikel leest u meer over de algemene zaken waar ontwikkelaars van op de hoogte moeten zijn voor het schrijven van code om verbinding te maken met Azure SQL Database.
@@ -29,12 +29,12 @@ Er zijn codevoorbeelden beschikbaar voor verschillende programmeertalen en platf
 * Meer informatie: [verbindingsbibliotheken voor SQL-Database en SQL Server](sql-database-libraries.md).
 
 ## <a name="tools"></a>Hulpprogramma's 
-U kunt gebruikmaken van open-source-hulpprogramma's zoals [cheetah](https://github.com/wunderlist/cheetah), [sql cli](https://www.npmjs.com/package/sql-cli) of [VS Code](https://code.visualstudio.com/). Daarnaast werkt Azure SQL Database met Microsoft-hulpprogramma's zoals [Visual Studio](https://www.visualstudio.com/downloads/) en [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).  U kunt ook de Azure-beheerportal, PowerShell en REST-API's gebruiken als u nog productiever wilt zijn.
+U kunt gebruikmaken van open-source hulpprogramma's zoals [Tijger](https://github.com/wunderlist/cheetah), [sql cli](https://www.npmjs.com/package/sql-cli), [tegenover Code](https://code.visualstudio.com/). Daarnaast werkt Azure SQL Database met Microsoft-hulpprogramma's zoals [Visual Studio](https://www.visualstudio.com/downloads/) en [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).  U kunt ook de Azure-beheerportal, PowerShell en REST-API's gebruiken als u nog productiever wilt zijn.
 
 ## <a name="resource-limitations"></a>Resourcebeperkingen
 Azure SQL Database beheert de resources die voor een database beschikbaar zijn door twee verschillende mechanismen te gebruiken: Resources Governance en Enforcement of Limits.
 
-* Meer informatie: [limieten voor Azure SQL Database](sql-database-service-tiers.md).
+* Meer informatie: [limieten voor model op basis van een Azure SQL Database DTU](sql-database-dtu-resource-limits.md) en [Azure SQL Database op basis van vCore model limieten (preview)](sql-database-vcore-resource-limits.md).
 
 ## <a name="security"></a>Beveiliging
 Azure SQL Database biedt resources voor het beperken van toegang, het beveiligen van gegevens en het bewaken van activiteiten in een SQL Database.

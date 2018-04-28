@@ -1,11 +1,10 @@
 ---
-title: Java-toepassingsserver uitgevoerd op een klassieke Azure-virtuele machine | Microsoft Docs
+title: Java-toepassingsserver uitgevoerd op een klassieke Azure-virtuele machine
 description: Deze zelfstudie maakt gebruik van resources die zijn gemaakt met het klassieke implementatiemodel en laat zien hoe een virtuele Windows-machine maken en configureren voor het uitvoeren van de Apache Tomcat-toepassingsserver.
 services: virtual-machines-windows
 documentationcenter: java
 author: rmcmurray
-manager: erikre
-editor: 
+manager: mbaldwin
 tags: azure-service-management
 ms.assetid: d627aa09-f7d6-4239-8110-f8fc5111b939
 ms.service: virtual-machines-windows
@@ -13,13 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: vm-windows
 ms.devlang: Java
 ms.topic: article
-ms.date: 03/16/2017
+ms.date: 04/11/2018
 ms.author: robmcm
-ms.openlocfilehash: b166d2af56051b7d90eba0d50e1ea41f96c1109e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e13228a707e7dae4a4c2505154d01215c40b4716
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>Een Java-toepassingsserver uitvoeren op een virtuele machine die is gemaakt volgens het klassieke implementatiemodel
 > [!IMPORTANT]
@@ -84,7 +83,7 @@ Deze zelfstudie wordt Tomcat als de Java-toepassingsserver installeren.
 
 U kunt Tomcat handmatig starten door te openen vanaf de opdrachtprompt op de virtuele machine en de opdracht uit te voeren **net&nbsp;start&nbsp;Tomcat8**.
 
-Wanneer Tomcat wordt uitgevoerd, kunt u Tomcat openen door te voeren van de URL <http://localhost: 8080> in de browser van de virtuele machine.
+Wanneer Tomcat wordt uitgevoerd, kunt u Tomcat openen door te voeren van de URL <http://localhost:8080> in de browser van de virtuele machine.
 
 Om te zien Tomcat vanaf externe computers wordt uitgevoerd, moet u een eindpunt worden gemaakt en een poort openen.
 
@@ -113,7 +112,7 @@ Om te zien Tomcat vanaf externe computers wordt uitgevoerd, moet u een eindpunt 
 6. Voor de **regeltype**, selecteer **poort**, en klik vervolgens op **volgende**.  
    ![Nieuwe regel voor binnenkomende verbindingen poort][NewRulePort]
 7. Op de **protocollen en poorten** Schakel in het scherm **TCP**, geef **8080** als de **specifieke lokale poort**, en klik vervolgens op  **Volgende**.  
-  ![Nieuwe regel binnenkomende verbindingen][NewRuleProtocol]
+  ![Nieuwe regel binnenkomende verbindingen ][NewRuleProtocol]
 8. Op de **actie** Schakel in het scherm **de verbinding toestaan**, en klik vervolgens op **volgende**.
    ![Nieuwe regel voor binnenkomende verbindingen actie][NewRuleAction]
 9. Op de **profiel** scherm **domein**, **persoonlijke**, en **openbare** zijn geselecteerd en klik vervolgens op **volgende**.

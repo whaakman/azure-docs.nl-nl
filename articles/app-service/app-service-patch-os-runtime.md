@@ -2,10 +2,10 @@
 title: OS- en runtime patchen in Azure App Service | Microsoft Docs
 description: Hierin wordt beschreven hoe het besturingssysteem van de Azure App Service-updates en runtimes en hoe u toegang krijgen aankondigingen bijwerken.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: cephalin
-ms.openlocfilehash: 869bd0e3f684ff4a2291e189cf247daedfb74922
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 92b6945ad13842e926d53be6dcc0d21554485ff3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>OS- en runtime patchen in Azure App Service
 
@@ -93,7 +93,7 @@ De volgende tabel toont hoe u de versies van Windows en van de taal die uw toepa
 | Python-versie | Op `https://<appname>.scm.azurewebsites.net/DebugConsole`, voer de volgende opdracht in de opdrachtprompt: <br> `python --version` |
 
 > [!NOTE]
-> Toegang tot registerlocatie `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, waarbij informatie over ['KB' patches]((https://technet.microsoft.com/security/bulletins.aspx)) zijn opgeslagen, is vergrendeld.
+> Toegang tot registerlocatie `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, waarbij informatie over ['KB' patches]((https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins)) zijn opgeslagen, is vergrendeld.
 >
 >
 

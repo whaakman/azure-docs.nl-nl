@@ -1,25 +1,20 @@
 ---
 title: Een Azure Cosmos DB-gegevensbron indexeren voor Azure Search | Microsoft Docs
 description: In dit artikel leest u hoe een Azure Search-indexeerfunctie maken met een Azure Cosmos DB-gegevensbron.
-services: search
-documentationcenter: ''
 author: chaosrealm
-manager: pablocas
-editor: ''
-ms.assetid: ''
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: search
-ms.date: 03/23/2018
+ms.topic: conceptual
+ms.date: 04/20/2018
 ms.author: eugenesh
 robot: noindex
-ms.openlocfilehash: 165402f5147224cd355f0ae14642069a3de58f19
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: fcc77104103cea91f5eecb972e1d6e872c933015
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Cosmos DB verbinding te maken met Azure Search met behulp van indexeerfuncties
 
@@ -78,7 +73,7 @@ In dit artikel laat zien hoe de REST API gebruiken. Als u ervoor voor de portal 
 ## <a name="step-1-create-a-data-source"></a>Stap 1: een gegevensbron maken
 U kunt een POST een gegevensbron maken:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -151,7 +146,7 @@ Een doel-Azure Search-index maken als u nog niet hebt. Kunt u een index met behu
 
 Het volgende voorbeeld maakt een index met een veld-id en -beschrijving:
 
-    POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -197,7 +192,7 @@ Zorg ervoor dat het schema van de doelindex compatibel met het schema van de JSO
 
 Als de index en gegevensbron hebt gemaakt, bent u klaar voor het maken van de indexeerfunctie:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -216,7 +211,7 @@ Bekijk voor meer informatie over de indexeerfunctie maken API [indexeerfunctie m
 ### <a name="running-indexer-on-demand"></a>Indexeerfunctie op aanvraag uitvoeren
 Naast het periodiek wordt uitgevoerd op een planning, kan ook een indexeerfunctie worden aangeroepen op aanvraag:
 
-    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2017-11-11
     api-key: [Search service admin key]
 
 > [!NOTE]
@@ -228,7 +223,7 @@ U kunt de status van de indexeerfunctie in de portal of met de ophalen indexeerf
 ### <a name="getting-indexer-status"></a>Ophalen van de status van de indexeerfunctie
 U kunt de geschiedenis van de status en de uitvoering van een indexeerfunctie ophalen:
 
-    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2016-09-01
+    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2017-11-11
     api-key: [Search service admin key]
 
 Het antwoord bevat de algemene status van de indexeerfunctie, de aanroep van indexeerfunctie laatste (of wordt uitgevoerd) en de geschiedenis van recente indexeerfunctie aanroepen.
@@ -302,7 +297,7 @@ Als u een aangepaste query gebruikt, controleert u of de eigenschap waarnaar wor
 
 Het volgende voorbeeld maakt een gegevensbron met een beleid voor voorlopig verwijderen:
 
-    POST https://[Search service name].search.windows.net/datasources?api-version=2016-09-01
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [Search service admin key]
 

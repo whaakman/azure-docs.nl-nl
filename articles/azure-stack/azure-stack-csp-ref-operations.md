@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/22/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: fbdf4023bc70f1ad05dd52ac1eabe95b12be9be2
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: ef7ca59647a1f8c15d85c809609060a5945bedde
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Registratie in Azure-Stack tenant beheren
 
@@ -47,7 +47,7 @@ Houd er rekening mee dat slechts één Azure-abonnement gekoppeld aan een tenant
 
 ### <a name="powershell"></a>PowerShell
 
-Gebruik de cmdlet New-AzureRmResource bijwerken van de bron van de registratie. Aanmelden bij Azure (`Connect-AzureRmAccount`) met het account dat u voor de initiële registratie gebruikt. Hier volgt een voorbeeld van het toevoegen van een tenant:
+Gebruik de cmdlet New-AzureRmResource bijwerken van de bron van de registratie. Aanmelden bij Azure (`Add-AzureRmAccount`) met het account dat u voor de initiële registratie gebruikt. Hier volgt een voorbeeld van het toevoegen van een tenant:
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -78,7 +78,7 @@ Een lijst van alle tenants die zijn toegevoegd aan een registratie ophalen.
 
 ### <a name="powershell"></a>PowerShell
 
-Gebruik de cmdlet Get-AzureRmResovurce voor een lijst met alle geregistreerde tenants. Aanmelden bij Azure (`Connect-AzureRmAccount`) met het account dat u voor de initiële registratie gebruikt. Hier volgt een voorbeeld van het toevoegen van een tenant:
+Gebruik de cmdlet Get-AzureRmResovurce voor een lijst met alle geregistreerde tenants. Aanmelden bij Azure (`Add-AzureRmAccount`) met het account dat u voor de initiële registratie gebruikt. Hier volgt een voorbeeld van het toevoegen van een tenant:
 
 ```powershell
   Get-AzureRmResovurce -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01

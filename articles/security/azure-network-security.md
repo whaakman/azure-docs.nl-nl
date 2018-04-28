@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 9b86eda1f4ddff9b61ff5b0f9c465e5ef6c2088b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: cc64ef8d820db6a072b708323eb110d62ed0a83c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-network-security"></a>Azure-netwerkbeveiliging
 
@@ -112,7 +112,7 @@ Zoals u zien kunt, biedt een virtueel netwerk van Azure virtuele machines verbin
 
 -   On-premises connectiviteit
 
--   Filteren van verkeer
+-   Verkeer filteren
 
 -   Routering
 
@@ -124,7 +124,7 @@ Azure biedt interne naamomzetting voor VM's en [Cloudservices](https://azure.mic
 
 U kunt meerdere VNets binnen elke Azure implementeren [abonnement](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology?toc=%2fazure%2fvirtual-network%2ftoc.json) en Azure [regio](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology?toc=%2fazure%2fvirtual-network%2ftoc.json). Elke VNet is geïsoleerd van andere vnet's. U kunt voor elk VNet:
 
--   Geef een aangepaste persoonlijke IP-adresruimte met behulp van openbare en persoonlijke (RFC 1918)-adressen. Azure wordt toegewezen resources verbonden met het VNet een particulier IP-adres van de adresruimte, u toewijzen.
+-   Een aangepaste persoonlijke IP-adresruimte opgeven met behulp van openbare en persoonlijke adressen (RFC 1918). Azure wordt toegewezen resources verbonden met het VNet een particulier IP-adres van de adresruimte, u toewijzen.
 
 -   Het VNet segmenteren in een of meer subnetten en een deel van de VNet-adresruimte voor elk subnet toegewezen.
 
@@ -160,17 +160,17 @@ Vnet's kunnen worden verbonden met [lokale](https://docs.microsoft.com/azure/vir
 
 U kunt uw on-premises netwerk verbinden met een VNet met elke combinatie van de volgende opties:
 
-- **Punt-naar-site virtueel particulier netwerk (VPN):** tot stand gebracht tussen één PC verbonden met uw netwerk en het VNet. Dit verbindingstype is handig als u alleen aan de slag met Azure of voor ontwikkelaars, omdat hiervoor weinig of geen wijzigingen in uw bestaande netwerk. De verbinding wordt de SSTP-protocol gebruikt voor gecodeerde communicatie via Internet tussen de PC en het VNet. De latentie voor een punt-naar-site VPN-verbinding is onvoorspelbare omdat het verkeer over het Internet wordt verzonden.
+- **Punt-naar-site virtueel particulier netwerk (VPN):** tot stand gebracht tussen één PC verbonden met uw netwerk en het VNet. Dit verbindingstype is handig als u net aan de slag gaat met Azure of voor ontwikkelaars, omdat hiervoor weinig of geen wijzigingen in uw bestaande netwerk nodig zijn. De verbinding wordt de SSTP-protocol gebruikt voor gecodeerde communicatie via Internet tussen de PC en het VNet. De latentie voor een punt-naar-site VPN-verbinding is onvoorspelbare omdat het verkeer over het Internet wordt verzonden.
 
 - **Site-naar-site-VPN:** tot stand gebracht tussen uw VPN-apparaat en een Azure VPN-Gateway. Dit verbindingstype kunt een on-premises-resource die geeft u toestemming voor toegang tot een VNet. De verbinding is een VPN IPsec/IKE waarmee gecodeerde communicatie via Internet tussen uw on-premises-apparaat en de Azure VPN-gateway. De latentie voor een site-naar-site-verbinding is onvoorspelbare omdat het verkeer over het Internet wordt verzonden.
 
-- **Azure ExpressRoute:** tot stand gebracht tussen uw netwerk en Azure, via een ExpressRoute-partner. Deze verbinding is een privéverbinding. Verkeer niet via Internet verloopt. De latentie voor een ExpressRoute-verbinding is voorspelbaar omdat verkeer niet via Internet verloopt. Lees voor meer informatie over de vorige verbindingsopties, de [gatewayverbindingsdiagrammen topologie](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- **Azure ExpressRoute:** wordt tot stand gebracht tussen uw netwerk en Azure, via een ExpressRoute-partner. Deze verbinding is een privéverbinding. Verkeer niet via Internet verloopt. De latentie voor een ExpressRoute-verbinding is voorspelbaar omdat verkeer niet via Internet verloopt. Lees voor meer informatie over de vorige verbindingsopties, de [gatewayverbindingsdiagrammen topologie](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 **Verkeer filteren**
 
 Virtuele machine en Cloud Services-rolexemplaren [netwerkverkeer](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) kunnen binnenkomende en uitgaande worden gefilterd op de bron-IP-adres en poort, doel-IP-adres en poort en protocol.
 
-U kunt filteren netwerkverkeer tussen subnetten op met behulp van een of beide van de volgende opties:
+U kunt netwerkverkeer filteren tussen subnetten met behulp van een of beide van de volgende opties:
 
 - **Netwerkbeveiligingsgroepen (NSG):** elke NSG kan meerdere binnenkomende en uitgaande beveiligingsregels voor verbindingen waarmee u verkeer filteren door de bron en doel-IP-adres, poort en protocol bevatten. U kunt een NSG toepassen op elke NIC op een virtuele machine. U kunt ook een NSG toepassen op het subnet een NIC of andere Azure-resource is verbonden met. Lees voor meer informatie over Nsg de [Netwerkbeveiligingsgroepen](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 
@@ -180,7 +180,7 @@ U kunt filteren netwerkverkeer tussen subnetten op met behulp van een of beide v
 
 U kunt eventueel Azure standaard routering met BGP-routes via een netwerkgateway of configureren van uw eigen routes overschrijven.
 
-Azure maakt routetabellen waarmee bronnen die zijn verbonden met een enkel subnet in een VNet om te communiceren met elkaar, standaard. U kunt een of beide van de volgende opties voor het onderdrukken van de Azure maakt standaardroutes implementeren:
+Azure maakt routetabellen waarmee bronnen die zijn verbonden met een enkel subnet in een VNet om te communiceren met elkaar, standaard. U kunt een of beide van de volgende opties implementeren om de standaardroutes die Azure maakt te onderdrukken:
 
 - **Gebruiker gedefinieerde routes:** kunt u aangepaste routetabellen met routes die bepalen waar verkeer wordt doorgestuurd naar voor elk subnet. Lees voor meer informatie over de gebruiker gedefinieerde routes, de [gebruiker gedefinieerde routes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
 
@@ -193,7 +193,7 @@ U kunt uw on-premises netwerk verbinden met een VNet met elke combinatie van de 
 
 -   Punt-naar-site VPN (P2S VPN)
 
--   Site-to-Site VPN (S2S VPN)
+-   Site-naar-Site VPN (S2S VPN)
 
 -   ExpressRoute
 

@@ -2,10 +2,10 @@
 title: Het gebruik van een Windows VM beheerde Service identiteit (MSI) voor toegang tot Azure Data Lake Store
 description: Een zelfstudie waarin wordt getoond hoe u een Windows VM beheerde Service identiteit (MSI) wordt gebruikt voor toegang tot Azure Data Lake Store.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,17 +14,17 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 742b76e17b7ad00a70b0d18895c0b59ebe044d47
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: daef85164793dd6183c41604f200864aabadf8d8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Een Windows VM beheerde Service identiteit (MSI) gebruiken voor toegang tot Azure Data Lake Store
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-Deze zelfstudie laat zien hoe u op een beheerde Service identiteit (MSI) voor een Windows virtuele machine (VM) voor toegang tot een Azure Data Lake Store. Beheerde Service-identiteiten worden automatisch beheerd door Azure en u te verifiëren bij services die ondersteuning bieden voor Azure AD-verificatie, zonder referenties invoegen in uw code. Procedures voor:
+Deze zelfstudie laat zien hoe u op een beheerde Service identiteit (MSI) voor een Windows virtuele machine (VM) voor toegang tot een Azure Data Lake Store. Beheerde Service-identiteiten worden automatisch beheerd door Azure en u te verifiëren bij services die ondersteuning bieden voor Azure AD-verificatie, zonder referenties invoegen in uw code. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
 > * Inschakelen van MSI op een Windows VM 
@@ -39,7 +39,7 @@ Deze zelfstudie laat zien hoe u op een beheerde Service identiteit (MSI) voor ee
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Aanmelden bij de Azure portal op [ https://portal.azure.com ](https://portal.azure.com).
+Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Een virtuele Windows-machine in een nieuwe resourcegroep maken
 
@@ -211,7 +211,7 @@ Gefeliciteerd!  U hebt geverifieerd voor het Data Lake Store-bestandssysteem met
 ## <a name="related-content"></a>Gerelateerde inhoud
 
 - Zie voor een overzicht van MSI [overzicht van de Service-identiteit beheerd](msi-overview.md).
-- Bewerkingen Data Lake Store maakt gebruik van Azure Resource Manager voor beheer.  Lees voor meer informatie over het gebruik van een VM MSI om te verifiëren naar Resource Manager [een Linux VM beheerde Service identiteit (MSI) gebruiken voor toegang tot de Resource Manager](msi-tutorial-linux-vm-access-arm.md).
+- Bewerkingen Data Lake Store maakt gebruik van Azure Resource Manager voor beheer.  Lees voor meer informatie over het gebruik van een VM MSI om te verifiëren naar Resource Manager [een Linux VM beheerde Service identiteit (MSI) gebruiken voor toegang tot de Resource Manager](../managed-service-identity/msi-tutorial-linux-vm-access-arm.md).
 - Meer informatie over [verificatie met Data Lake Store met Azure Active Directory](~/articles/data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md).
 - Meer informatie over [Bestandssysteembewerkingen op Azure Data Lake Store met REST-API](~/articles/data-lake-store/data-lake-store-data-operations-rest-api.md) of de [WebHDFS FileSystem APIs](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis).
 - Meer informatie over [toegangsbeheer in Data Lake Store](~/articles/data-lake-store/data-lake-store-access-control.md).

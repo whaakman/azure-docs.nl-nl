@@ -1,6 +1,6 @@
 ---
-title: Privileged Identity Management voor Azure-Resources - toewijzingen van in aanmerking komende en zichtbaarheid | Microsoft Docs
-description: Beschrijft hoe leden naar in aanmerking komende aan resourcerollen toewijzen.
+title: In aanmerking komende toewijzingen en de zichtbaarheid van de resource voor Azure in Privileged Identity Management | Microsoft Docs
+description: Beschrijft hoe leden naar in aanmerking komen voor de resourcerollen toewijzen wanneer u PIM.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 04/02/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 273b06c91d68a764fe814374c0eca6ed1698cc2e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 4804d930a98192d64245784058920eeba7d30212
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="eligible-assignments-and-resource-visibility"></a>In aanmerking komende toewijzingen en de zichtbaarheid van de resource
+# <a name="eligible-assignments-and-resource-visibility-with-privileged-identity-management"></a>In aanmerking komende toewijzingen en de zichtbaarheid van de resource met Privileged Identity Management
 
-PIM voor Azure-resource functies biedt betere beveiliging voor organisaties met essentiële Azure resoruces. PIM biedt resource beheerders de mogelijkheid leden als in aanmerking komende toewijzen aan resourcerollen. Lees meer over de toewijzing van verschillende typen en statussen voor Azure-resourcerollen hieronder. 
+Privileged Identity Management (PIM) voor Azure-resource functies biedt betere beveiliging voor organisaties met essentiële Azure-resources. Resource-beheerders kunnen PIM gebruiken voor het toewijzen van leden als in aanmerking komen voor de resourcerollen. Meer informatie over de toewijzing van verschillende typen en toewijzing van statussen voor Azure-resource-functies in de volgende secties. 
 
 ## <a name="assignment-types"></a>Toewijzing van typen
 
@@ -31,40 +31,41 @@ PIM voor Azure-resources biedt twee afzonderlijke toewijzing typen:
 - In aanmerking komend
 - Actief
 
-In aanmerking komende toewijzingen vereisen het lid van de rol van een actie voor het gebruik van de rol uit te voeren. Deze acties bevatten een controle van de multi-factor Authentication slaagt, bieden een reden en vragen goedkeuring van aangewezen fiatteurs.
+In aanmerking komende toewijzingen vereisen het lid van de rol van een actie voor het gebruik van de rol uit te voeren. Acties mogelijk zijn een controle meerledige verificatie slaagt, kan een zakelijke rechtvaardiging bieden of aanvragen van goedkeuring van aangewezen fiatteurs.
 
-Actieve toewijzingen vereisen niet het lid een actie voor het gebruik van de rol uit te voeren. Leden als actief hebben de bevoegdheden die zijn opgegeven door de rol te allen tijde.
+Actieve toewijzingen vereisen niet het lid een actie voor het gebruik van de rol uit te voeren. Leden toegewezen als actief hebben de bevoegdheden die zijn toegewezen aan de rol te allen tijde.
 
 ## <a name="assignment-duration"></a>Duur van de toewijzing
 
-Resource-beheerders kunnen een van twee opties voor elk Type toewijzing kiezen bij het configureren van de PIM-instellingen voor een rol. De maximale standaardduur wanneer een lid aan de PIM-rol wordt toegewezen, worden deze opties.
+Resource-beheerders kunnen kiezen uit twee opties voor elk toewijzingstype wanneer ze PIM-instellingen voor een functie configureert. De maximale standaardduur wanneer een lid aan de PIM-rol wordt toegewezen, worden deze opties. 
+
+Een beheerder kunt kiezen uit een van deze typen toewijzing:
 
 - Permanente in aanmerking komende toewijzing toestaan
 - Permanente actieve toewijzing toestaan
 
-of
+Of een beheerder kan een van deze typen toewijzing kiezen:
 
 - Verlopen van in aanmerking komende toewijzingen na
 - Actieve toewijzingen na het verlopen
 
-Als de resourcebeheerder van een kiest voor 'Toestaan permanente in aanmerking komende toewijzing' en/of 'Toestaan permanente actieve toewijzing', alle beheerders die leden aan de resource toewijzen hebt de mogelijkheid om toe te wijzen permanente lidmaatschappen.
+Als een resourcebeheerder ervoor kiest **toestaan permanente toewijzing van in aanmerking komende** of **permanente actieve toewijzing toestaan**, alle beheerders die leden aan de bron toewijzen permanent kunnen toewijzen te beheren.
 
-Kiezen 'Verloopt in aanmerking komende toewijzingen na' en/of 'Active toewijzingen voor verloopt na' controle over de levenscyclus van de toewijzing kunt door te vereisen alle toewijzingen van een opgegeven begin- en datum.
+Als een resourcebeheerder ervoor kiest **verlopen in aanmerking komende toewijzingen na** of **verlopen active toewijzingen na**, de resourcebeheerder bepaalt de levenscyclus van de toewijzing door te vereisen dat alle toewijzingen hebben een opgegeven begin- en datum.
 
->[!NOTE] 
->Alle toewijzingen met een opgegeven einddatum kunnen worden vernieuwd door resource beheerders en leden Self-service aanvragen om te kunnen initiëren [verlengen of vernieuwen toewijzingen](pim-resource-roles-renew-extend.md).
+> [!NOTE] 
+> Alle toewijzingen waarvoor een opgegeven einddatum kunnen worden vernieuwd door beheerders van de resource. Bovendien leden Self-service aanvragen om te kunnen initiëren [verlengen of vernieuwen toewijzingen](pim-resource-roles-renew-extend.md).
 
 
 ## <a name="assignment-states"></a>Toewijzing van statussen
 
-PIM voor Azure-resources heeft twee verschillende toewijzing statussen die worden weergegeven op het tabblad 'Active rollen' in mijn rollen, functies en leden weergaven van PIM. Deze statussen zijn:
+PIM voor Azure-resources heeft twee verschillende toewijzing statussen die worden weergegeven op de **Active rollen** tabblad de **mijn rollen**, **rollen**, en **leden**weergaven van PIM. Deze statussen zijn:
 
 - Toegewezen
 - Geactiveerd
 
-Wanneer een lidmaatschap weer te geven die worden vermeld in 'Active rollen' wordt de kolom 'Status' kunt u onderscheid maken tussen de gebruikers die 'Toegewezen' als actief ten opzichte van de gebruikers die een in aanmerking komende toewijzing 'geactiveerd zijn' en zijn nu actief.
+Wanneer u een lidmaatschap dat wordt vermeld in bekijkt **Active rollen**, kunt u de waarde in de **status** kolom onderscheid maken tussen gebruikers die zijn **toegewezen** als actief en gebruikers die **geactiveerd** een in aanmerking komende toewijzing en er wordt nu actief.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Toewijzen van rollen in PIM](pim-resource-roles-assign-roles.md)
-
+[Toewijzen van rollen in Privileged Identity Manager](pim-resource-roles-assign-roles.md)

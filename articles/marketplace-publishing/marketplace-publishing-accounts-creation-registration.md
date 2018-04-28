@@ -2,10 +2,10 @@
 title: Maken en registreren van het account van de uitgever | Microsoft Docs
 description: Instructies voor het maken van een Microsoft Developer-account zodat na goedkeuring, u verschillende verkopen kunt typen op Azure Marketplace bieden.
 services: Azure Marketplace
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 5a2fe68d-2967-463f-8af6-42bed07e3eaa
 ms.service: marketplace
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: mbaldwin
-ms.openlocfilehash: da805bead3f6af4ebd0b4b94b30a51ff2abc62dd
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 69da37cbf5691fe94b9550200e259711e9e201d4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-a-microsoft-developer-account"></a>Een Microsoft Developer-account maken
 Dit artikel begeleidt u bij het maken van de benodigde rekening en het registratieproces om te worden van een goedgekeurde Microsoft Developer voor Azure Marketplace.
@@ -37,7 +37,7 @@ Het adres dat vormt van de gebruikersnaam moet in uw domein en beheerd door uw I
 Bij het maken van een bedrijfsaccount, volgt u deze richtlijnen als meer dan één persoon nodig hebt voor toegang tot het account door aangemeld met het Microsoft-account dat het account wordt geopend.
 
 > [!Important]
-> Belangrijk om te kunnen meerdere gebruikers toegang tot uw account Dev Center, wordt u aangeraden Azure Active Directory voor het toewijzen van rollen voor afzonderlijke gebruikers die toegang hebben tot het account door aanmelden met zijn eigen Azure AD-referenties. Zie voor meer informatie [accountgebruikers beheren](https://msdn.microsoft.com/en-us/windows/uwp/publish/manage-account-users).
+> Belangrijk om te kunnen meerdere gebruikers toegang tot uw account Dev Center, wordt u aangeraden Azure Active Directory voor het toewijzen van rollen voor afzonderlijke gebruikers die toegang hebben tot het account door aanmelden met zijn eigen Azure AD-referenties. Zie voor meer informatie [accountgebruikers beheren](https://msdn.microsoft.com/windows/uwp/publish/manage-account-users).
 
 * Uw Microsoft-account maken met een e-mailadres behoort aan het domein van uw bedrijf, maar niet aan een enkele persoon — bijvoorbeeld windowsapps@fabrikam.com.
 * Toegang tot dit Microsoft-account aan het kleinste aantal ontwikkelaars beperken.
@@ -49,7 +49,7 @@ Bij het maken van een bedrijfsaccount, volgt u deze richtlijnen als meer dan é�
 
 Uw ontwikkelaarsaccount moet worden benaderd voornamelijk van vertrouwde pc's. Dit is essentieel omdat er een limiet aan het aantal codes die worden gegenereerd per account per week. Ook kunt de meest naadloze aanmeldingservaring.
 
-Klik voor meer informatie over aanvullende developer-account richtlijnen en beveiliging [hier](https://msdn.microsoft.com/en-us/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
+Klik voor meer informatie over aanvullende developer-account richtlijnen en beveiliging [hier](https://msdn.microsoft.com/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
 
 ### <a name="instructions"></a>Instructies
 1. Open een nieuwe Chrome Incognito of Internet Explorer InPrivate-browsing sessie om ervoor te zorgen dat u bent niet aangemeld bij een bestaand account.

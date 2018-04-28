@@ -2,10 +2,10 @@
 title: De installatiekopie van de virtuele machine van Azure voor gebruik met cloud-init voorbereiden | Microsoft Docs
 description: Een installatiekopie van een bestaande virtuele machine van Azure voorbereiden voor implementatie met cloud-init
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 2eb7510d4e76e4996e83f351a62c0b025b487df2
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: dda444e77f588cd1ba5989b393e9a3987241ef9a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Een installatiekopie van een bestaande virtuele machine van Azure Linux voor gebruik met cloud-init voorbereiden
 In dit artikel leest u hoe moet worden overgenomen van een bestaande virtuele machine van Azure en deze worden opnieuw gedistribueerde en klaar voor gebruik van cloud-init voorbereiden. De afbeelding kan worden gebruikt om een nieuwe virtuele machine of virtuele-machineschaalsets - waaruit kan vervolgens verder worden aangepast door cloud init tijdens de implementatie te implementeren.  Deze cloud init-scripts worden uitgevoerd op de eerste keer wordt opgestart nadat de resources zijn ingericht met Azure. Zie voor meer informatie over hoe cloud init systeemeigen in Azure en de ondersteunde Linux-distributies werkt [cloud init-overzicht](using-cloud-init.md)
@@ -43,22 +43,20 @@ Update de `cloud_init_modules` in sectie `/etc/cloud/cloud.cfg` om op te nemen v
 
 Hier volgt een voorbeeld van wat een algemeen `cloud_init_modules` sectie eruit ziet.
 ```bash
- cloud_config_modules:
- - mounts
- - locale
- - set-passwords
- - rh_subscription
- - yum-add-repo
- - package-update-upgrade-install
- - timezone
- - puppet
- - chef
- - salt-minion
- - mcollective
- - disable-ec2-metadata
- - runcmd
+cloud_init_modules:
+ - migrator
+ - bootcmd
+ - write-files
+ - growpart
+ - resizefs
  - disk_setup
  - mounts
+ - set_hostname
+ - update_hostname
+ - update_etc_hosts
+ - rsyslog
+ - users-groups
+ - ssh
 ```
 Een aantal taken met betrekking tot inrichting en afhandeling van tijdelijke schijven moet worden bijgewerkt `/etc/waagent.conf`. Voer de volgende opdrachten om bij te werken van de toepasselijke instellingen. 
 ```bash
@@ -72,6 +70,28 @@ Alleen Azure als een gegevensbron voor de Azure Linux Agent toestaan door het ma
 ```bash
 # This configuration file is provided by the WALinuxAgent package.
 datasource_list: [ Azure ]
+```
+
+Toevoegen van een configuratie om een openstaande hostnaam registratie bug op te lossen.
+```bash
+cat > /etc/cloud/hostnamectl-wrapper.sh <<\EOF
+#!/bin/bash -e
+if [[ -n $1 ]]; then
+  hostnamectl set-hostname $1
+else
+  hostname
+fi
+EOF
+
+chmod 0755 /etc/cloud/hostnamectl-wrapper.sh
+
+cat > /etc/cloud/cloud.cfg.d/90-hostnamectl-workaround-azure.cfg <<EOF
+# local fix to ensure hostname is registered
+datasource:
+  Azure:
+    hostname_bounce:
+      hostname_command: /etc/cloud/hostnamectl-wrapper.sh
+EOF
 ```
 
 Als uw bestaande Azure-installatiekopie een wisselbestand geconfigureerd heeft en u wilt wijzigen van de configuratie van de wisseling bestand voor installatiekopieën van het nieuwe met behulp van cloud-init, moet u het bestaande wisselbestand verwijderen.

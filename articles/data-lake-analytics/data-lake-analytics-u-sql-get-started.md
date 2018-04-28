@@ -2,7 +2,7 @@
 title: Aan de slag met U-SQL-taal | Microsoft Docs
 description: Leer de basisbeginselen van de U-SQL-taal.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: saveenr
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/23/2017
 ms.author: saveenr
-ms.openlocfilehash: 38c4e1b9bd24ef0b8a81f6154620f3f98d3b5ac1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e7efdac8b032055b5344f34f5f9ad2679bddb107
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-u-sql"></a>Aan de slag met U-SQL
 U-SQL is een taal die combineert declaratieve SQL met imperatieve C# om u te laten verwerken van gegevens op elke schaal. Via de functie schaalbare, gedistribueerde query van U-SQL, kunt u gegevens efficiënt te analyseren in relationele winkels zoals Azure SQL Database. U kunt met de U-SQL, ongestructureerde gegevens verwerken met schema toepassen op lezen en het invoegen van aangepaste regels en UDF's. Daarnaast bevat U-SQL uitbreidbaarheid waarmee u fijnmazig controle over het uitvoeren van op grote schaal. 
@@ -60,8 +60,8 @@ Let op het vraagteken naast de gegevens typt in het `Duration` veld. Betekent di
 
 ### <a name="key-concepts"></a>Belangrijkste concepten
 * **Variabelen voor de rijenset**: elke query-expressie die een rijenset produceert kan worden toegewezen aan een variabele. U-SQL volgt de TSQL-variabele naamgevingspatroon (`@searchlog`, bijvoorbeeld) in het script.
-* De **EXTRAHEREN** sleutelwoord leest de gegevens uit een bestand en definieert u het schema bij lezen. `Extractors.Tsv`is een ingebouwde U-SQL zelfstandig uitpakken voor bestanden tabblad's gescheiden waarden. U kunt aangepaste extractie ontwikkelen.
-* De **uitvoer** schrijft gegevens uit een rijenset naar een bestand. `Outputters.Csv()`is een ingebouwde outputter U-SQL te maken van een bestand met door komma's gescheiden waarden. U kunt aangepaste outputters ontwikkelen.
+* De **EXTRAHEREN** sleutelwoord leest de gegevens uit een bestand en definieert u het schema bij lezen. `Extractors.Tsv` is een ingebouwde U-SQL zelfstandig uitpakken voor bestanden tabblad's gescheiden waarden. U kunt aangepaste extractie ontwikkelen.
+* De **uitvoer** schrijft gegevens uit een rijenset naar een bestand. `Outputters.Csv()` is een ingebouwde outputter U-SQL te maken van een bestand met door komma's gescheiden waarden. U kunt aangepaste outputters ontwikkelen.
 
 ### <a name="file-paths"></a>Bestandspaden
 
@@ -226,7 +226,7 @@ De component U-SQL die kan worden gebruikt te beperken tot de uitvoer van de gro
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
 
-Voor geavanceerde aggregatie-scenario's, Zie de documentatie van de verwijzing naar de U-SQL voor [statistische analyse- en verwijzingstypen van functies](https://msdn.microsoft.com/en-us/library/azure/mt621335.aspx)
+Voor geavanceerde aggregatie-scenario's, Zie de documentatie van de verwijzing naar de U-SQL voor [statistische analyse- en verwijzingstypen van functies](https://msdn.microsoft.com/library/azure/mt621335.aspx)
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Overzicht van Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)

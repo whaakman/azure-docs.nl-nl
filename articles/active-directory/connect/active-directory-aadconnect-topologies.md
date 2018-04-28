@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect: Ondersteunde topologieën | Microsoft Docs"
-description: "In dit onderwerp beschrijft de ondersteunde en niet-ondersteunde topologieën voor Azure AD Connect"
+title: 'Azure AD Connect: Ondersteunde topologieën | Microsoft Docs'
+description: In dit onderwerp beschrijft de ondersteunde en niet-ondersteunde topologieën voor Azure AD Connect
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: billmath
-ms.openlocfilehash: 8003951fb0c80bda56de4718cbe94526dc118b61
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 2f72f2dd3dbaaf17494d09a36159afc464cc64d4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologieën voor Azure AD Connect
 In dit artikel beschrijft de verschillende on-premises en Azure Active Directory (Azure AD)-topologieën die Azure AD Connect-synchronisatie als de sleutel integratieoplossing gebruiken. Dit artikel bevat de ondersteunde en niet-ondersteunde configuraties.
@@ -36,10 +36,15 @@ Hier volgt de legenda voor afbeeldingen in het artikel:
 | Azure AD |![Azure Active Directory](./media/active-directory-aadconnect-topologies/LegendAAD.png) |
 | Niet-ondersteund scenario |![Niet-ondersteund scenario](./media/active-directory-aadconnect-topologies/LegendUnsupported.png) |
 
+
+> [!IMPORTANT]
+> Microsoft biedt geen ondersteuning te wijzigen of het besturingssysteem van Azure AD Connect-synchronisatie buiten de configuraties of acties die formeel zijn gedocumenteerd. Een van deze configuraties of acties kan leiden tot een inconsistente of niet-ondersteunde status van Azure AD Connect-synchronisatie. Daarom biedt Microsoft geen technische ondersteuning voor dergelijke implementaties.
+
+
 ## <a name="single-forest-single-azure-ad-tenant"></a>Eén forest, één Azure AD-tenant
 ![Topologie voor één forest en een enkele tenant](./media/active-directory-aadconnect-topologies/SingleForestSingleDirectory.png)
 
-De meest voorkomende topologie is één lokale forest, met een of meerdere domeinen en een enkele Azure AD-tenant. Wachtwoordsynchronisatie is voor Azure AD-verificatie gebruikt. De snelle installatie van Azure AD Connect ondersteunt alleen deze topologie.
+De meest voorkomende topologie is één lokale forest, met een of meerdere domeinen en een enkele Azure AD-tenant. Synchronisatie van wachtwoordhash is voor Azure AD-verificatie gebruikt. De snelle installatie van Azure AD Connect ondersteunt alleen deze topologie.
 
 ### <a name="single-forest-multiple-sync-servers-to-one-azure-ad-tenant"></a>Eén forest, meerdere synchronisatieservers in een Azure AD-tenant
 ![Niet-ondersteunde, gefilterde topologie voor één forest](./media/active-directory-aadconnect-topologies/SingleForestFilteredUnsupported.png)
@@ -59,7 +64,7 @@ Algemene topologieën worden beschreven in de secties over [scheiden topologieë
 
 De standaardconfiguratie in Azure AD Connect-synchronisatie wordt ervan uitgegaan dat:
 
-* Elke gebruiker heeft slechts één ingeschakeld-account en het forest waar dit account zich bevindt, wordt gebruikt voor verificatie van de gebruiker. Deze aanname is voor zowel Wachtwoordsynchronisatie en Federatie. UserPrincipalName en sourceAnchor/onveranderbare id genoemd, is afkomstig van dit forest.
+* Elke gebruiker heeft slechts één ingeschakeld-account en het forest waar dit account zich bevindt, wordt gebruikt voor verificatie van de gebruiker. Deze aanname is voor Wachtwoordsynchronisatie hash, Pass through-verificatie en Federatie. UserPrincipalName en sourceAnchor/onveranderbare id genoemd, is afkomstig van dit forest.
 * Elke gebruiker heeft slechts één postvak.
 * Het forest dat als host fungeert voor het postvak voor een gebruiker heeft de beste kwaliteit van de gegevens voor kenmerken zichtbaar in de Exchange globale adreslijst (GAL). Als er geen postvak voor de gebruiker, kan elk forest worden gebruikt om bij te dragen deze kenmerkwaarden.
 * Als u een gekoppeld postvak hebt, is er ook een account in een ander forest dat is gebruikt voor aanmelden.
@@ -152,7 +157,7 @@ Deze topologie heeft de volgende beperkingen op andere wijze ondersteund scenari
 
 * Slechts één van de Azure AD-tenants, kunt een hybride Exchange met de lokale Active Directory-exemplaar inschakelen.
 * Windows 10-apparaten kunnen worden gekoppeld aan slechts één Azure AD-tenant.
-* De eenmalige aanmelding (SSO) optie voor wachtwoord synchronisatie en Pass through-verificatie kan worden gebruikt met slechts één Azure AD-tenant.
+* De eenmalige aanmelding (SSO) optie voor wachtwoord-hash-synchronisatie en pass-through-verificatie kan worden gebruikt met slechts één Azure AD-tenant.
 
 De vereiste voor een sluiten elkaar wederzijds uit set van objecten geldt ook voor write-back van. Sommige Write-back-functies worden niet ondersteund met deze topologie omdat ze wordt ervan uitgegaan een configuratie met één on-premises dat. Deze functies:
 

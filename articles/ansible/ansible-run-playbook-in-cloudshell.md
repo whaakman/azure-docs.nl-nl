@@ -8,11 +8,11 @@ manager: routlaw
 ms.author: tarcher
 ms.date: 02/01/2018
 ms.topic: article
-ms.openlocfilehash: 92ca2950199d638c5f76c0c7aadbae4fda7e9d1e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9fe65f4cf10119002bcb7a3855d112d850e20f1a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="run-ansible-with-bash-in-azure-cloud-shell"></a>Voer Ansible met Bash in de Azure-Cloud-Shell
 
@@ -24,7 +24,7 @@ In deze zelfstudie leert u hoe u verschillende Ansible taken uitvoeren via Bash 
 
 - **Azure-referenties** - [maken Azure-referenties en Ansible configureren](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
 
-- **Configureren van Azure Cloud Shell** : als u niet bekend met Azure Cloud-Shell, het artikel bent [Quick Start voor Bash in de Azure-Cloud-Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) ziet u hoe u starten en configureren van Cloud-Shell. Een speciale website voor Cloud-Shell Hier starten:
+- **Configureren van Azure Cloud Shell** : als u niet bekend met Azure Cloud-Shell, het artikel bent [Quick Start voor Bash in de Azure-Cloud-Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart) ziet u hoe u starten en configureren van Cloud-Shell. Een speciale website voor Cloud-Shell Hier starten:
 
 [![Cloud-Shell starten](https://shell.azure.com/images/launchcloudshell.png "Cloud Shell starten")](https://shell.azure.com)
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 50a86a01c22450ae2d92e6743fb6de7e652d4017
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9db01b4ea9a4f0d307db8bb9f8b6d6437a06815d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signalfx"></a>Zelfstudie: Azure Active Directory-integratie met SignalFx
 
@@ -121,9 +121,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     
     | Naam kenmerk | Waarde kenmerk |
     | ------------------- | -------------------- |    
-    | User.FirstName          | user.givenname |
+    | User.FirstName          | User.givenName |
     | User.email          | User.mail |
-    | PersonImmutableID       | user.userprincipalname    |
+    | PersonImmutableID       | User.userPrincipalName    |
     | User.LastName       | User.surname    |
 
     a. Klik op **toevoegen kenmerk** openen de **kenmerk toevoegen** dialoogvenster.
@@ -140,49 +140,33 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     
     e. Klik op **OK**.
  
-6. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **certificaat (Base64)** en sla het certificaatbestand op uw computer.
+6. Op de **certificaat voor ondertekening van SAML** sectie, voert u de volgende stappen uit: 
 
-    ![De downloadkoppeling certificaat](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_certificate.png) 
+    ![De downloadkoppeling certificaat](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_certificate.png)
+
+    a. Klik op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en plak deze in Kladblok.
+
+    b. Klik op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
 
 7. Klik op **opslaan** knop.
 
     ![Knop Single Sign-On opslaan configureren](./media/active-directory-saas-signalfx-tutorial/tutorial_general_400.png)
 
-8. Voor het genereren van de **metagegevens-url**, voer de volgende stappen uit:
-
-    a. Klik op **App registraties**.
-    
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_appregistrations.png)
-   
-    b. Klik op **eindpunten** openen **eindpunten** in het dialoogvenster.  
-    
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_endpointicon.png)
-
-    c. Klik op de knop kopiëren om te kopiëren **DOCUMENT met federatieve metagegevens** url en plak deze in Kladblok.
-    
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_endpoint.png)
-     
-    d. Nu gaat u naar de eigenschappenpagina van **SignalFx** en kopieer de **toepassings-Id** met **kopie** knop en plak deze in Kladblok.
- 
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_appid.png)
-
-    e. Genereren van de **metagegevens-URL** met het volgende patroon volgen: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-9. Op de **SignalFx configuratie** sectie, klikt u op **configureren SignalFx** openen **eenmalige aanmelding configureren** venster. Kopieer de **SAML entiteit-ID** van de **Naslaggids punt.**
+8. Op de **SignalFx configuratie** sectie, klikt u op **configureren SignalFx** openen **eenmalige aanmelding configureren** venster. Kopieer de **SAML entiteit-ID** van de **Naslaggids punt.**
 
     ![SignalFx configuratie](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_configure.png) 
 
-10. Aanmelding bij uw bedrijf SignalFx site als administrator.
+9. Aanmelding bij uw bedrijf SignalFx site als administrator.
 
-11. In SignalFx op bovenaan op **integraties** om de pagina integraties te openen.
+10. In SignalFx op bovenaan op **integraties** om de pagina integraties te openen.
 
-    ![SignalFx Integration](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_intg.png)
+    ![SignalFx-integratie](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_intg.png)
 
-12. Klik op **Azure Active Directory** tegel onder **aanmeldingsfuncties** sectie.
+11. Klik op **Azure Active Directory** tegel onder **aanmeldingsfuncties** sectie.
  
     ![SignalFx saml](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_saml.png)
 
-13. Klik op **nieuwe integratie** en klikt u onder de **installeren** tabblad de volgende stappen uitvoeren:
+12. Klik op **nieuwe integratie** en klikt u onder de **installeren** tabblad de volgende stappen uitvoeren:
  
     ![SignalFx samlintgpage](./media/active-directory-saas-signalfx-tutorial/tutorial_signalfx_azure.png)
 
@@ -194,12 +178,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     d. In de **URL-verlener** textbox, plak de waarde van **SAML entiteit-ID**, die u hebt gekopieerd uit de Azure portal.
 
-    e. In de **metagegevens-URL** textbox, plak de **metagegevens-url** patroon die u hebt gegenereerd vanuit de Azure-portal.
+    e. In de **metagegevens-URL** textbox, plak de **App-Url voor federatieve metagegevens** die u hebt gekopieerd uit de Azure portal.
 
     f. Klik op **Opslaan**.
-
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 

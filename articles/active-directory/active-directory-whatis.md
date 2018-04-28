@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.custom: it-pro
-ms.openlocfilehash: 003ce2edda3e2069eb7e05f58ecc2e208c818946
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 01183a2c85b748d593146f6b52a7d4dbd34524cb
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="what-is-azure-active-directory"></a>What is Azure Active Directory? (Engelstalig)
 Azure Active Directory (Azure AD) is de map voor multitenant en cloudservices van Microsoft en de identity management-service die core directoryservices, beheer van de toepassing toegang en identiteitsbeveiliging in één oplossing combineert. Azure AD biedt ook een rijke, op standaarden gebaseerd platform waarmee ontwikkelaars toegangsbeheer leveren aan hun toepassingen, op basis van regels en gecentraliseerde beleid.
@@ -55,7 +55,7 @@ Voor het verbeteren van uw Azure Active Directory, kunt u betaald mogelijkheden 
 > Een aantal Azure Active Directory-mogelijkheden zijn beschikbaar via de edities 'omslagstelsel':
 >
 > * Active Directory B2C is de oplossing voor identiteits- en toegangsbeheer voor uw consumententoepassingen. Zie voor meer informatie [Azure Active Directory B2C](https://azure.microsoft.com/documentation/services/active-directory-b2c/)
-> * Azure multi-factor Authentication kan worden gebruikt via per gebruiker of per verificatieproviders. Zie voor meer informatie [wat is Azure multi-factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
+> * Azure multi-factor Authentication kan worden gebruikt via per gebruiker of per verificatieproviders. Zie voor meer informatie [wat is Azure multi-factor Authentication?](authentication/multi-factor-authentication.md)
 >
 
 ## <a name="how-can-i-get-started"></a>Hoe kan ik aan de slag?

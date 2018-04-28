@@ -1,24 +1,24 @@
 ---
 title: Beveiligingsfilters voor Azure Search-resultaten gebruik van Active Directory-identiteiten bijsnijden | Microsoft Docs
 description: Toegangsbeheer voor Azure Search-inhoud met behulp van de beveiligingsfilters en Active Directory-identiteiten.
-services: search
 author: revitalbarletz
 manager: jlembicz
+services: search
 ms.service: search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: 2113b59d6fec15067acbef8b4d4c1fc34c141e62
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 7c1723e01c78132169d8975473a0e9f5466a066c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Beveiligingsfilters voor het gebruik van Active Directory-identiteiten Azure Search-resultaten bijsnijden
 
 In dit artikel laat zien hoe Azure Active Directory (AAD) beveiligingsidentiteiten samen met filters gebruikt in Azure Search zoekresultaten op basis van lidmaatschap van gebruikersgroepen knippen.
 
-In dit artikel bevat informatie over de volgende taken:
+Dit artikel behandelt de volgende taken:
 > [!div class="checklist"]
 - AAD-groepen en gebruikers maken
 - De gebruiker koppelen aan de groep die u hebt gemaakt
@@ -97,7 +97,7 @@ await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
 ```
 
 ### <a name="step-4-cache-the-groups-identifiers"></a>Stap 4: De groepen id's in de Cache
-Eventueel om te beperken netwerklatentie, kunt u cache de gebruikersgroep koppelingen zodat wanneer een zoekaanvraag is uitgegeven, groepen worden geretourneerd uit de cache opslaan van een retour in AAD. U kunt gebruiken (AAD Batch-API) [https://developer.microsoft.com/graph/docs/concepts/json_batching] voor het verzenden van één HTTP-aanvraag met meerdere gebruikers en het bouwen van de cache.
+Eventueel om te beperken netwerklatentie, kunt u cache de gebruikersgroep koppelingen zodat wanneer een zoekaanvraag is uitgegeven, groepen worden geretourneerd uit de cache opslaan van een retour in AAD. U kunt gebruiken (AAD Batch-API) [https://developer.microsoft.com/graph/docs/concepts/json_batching] één HTTP-aanvraag met meerdere gebruikers te verzenden en bouwen van de cache.
 
 Microsoft Graph is ontworpen voor het verwerken van een groot aantal aanvragen. Als een groot aantal aanvragen optreedt, wordt door Microsoft Graph de aanvraag met HTTP-statuscode 429 mislukt. Zie voor meer informatie [Microsoft Graph beperking](https://developer.microsoft.com/graph/docs/concepts/throttling).
 

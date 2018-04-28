@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: d893b55e2e771035bbd1097da678830fafb24e7a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bc5b41da83f183aaf62723212f7197fb50dc536d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Zelfstudie: Azure Active Directory-integratie met ServiceNow
 
@@ -119,37 +119,21 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     > [!NOTE] 
     > Deze waarden zijn niet echt. U moet deze waarden uit de werkelijke aanmeldings-URL en de id die verderop in de zelfstudie wordt uitgelegd bijwerken.
 
-4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
+4. Op de **certificaat voor ondertekening van SAML** sectie, voert u de volgende stappen uit: 
 
-    ![De downloadkoppeling certificaat](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_certificate.png) 
+    ![De downloadkoppeling certificaat](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_certificate.png)
+
+    a. Klik op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en plak deze in Kladblok, als deze App-Url voor federatieve metagegevens wordt verderop in de zelfstudie worden gebruikt.
+
+    b. Klik op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
 
 5. Klik op **opslaan** knop.
 
     ![Knop Single Sign-On opslaan configureren](./media/active-directory-saas-servicenow-tutorial/tutorial_general_400.png)
 
-6. Voor het genereren van de **metagegevens** -url, de volgende stappen uitvoeren:
+6. Meld u bij uw ServiceNow-toepassing als een beheerder.
 
-    a. Klik op **App registraties**.
-    
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/appregistrations.png)
-
-    b. Klik op **eindpunten** openen **eindpunten** in het dialoogvenster.
-    
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/endpointicon.png)
-    
-    c. Klik op de knop kopiëren om te kopiëren **DOCUMENT met federatieve metagegevens** url en plak deze in Kladblok.
-
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/endpoint.png)
-
-    d. Nu gaat u naar **ServiceNow** eigenschappen en kopieer de **toepassings-ID** met **kopie** knop en plak deze in Kladblok.
-
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/appid.png)
-
-    e. Genereren van de **metagegevens-URL** met het volgende patroon volgen: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`.  Kopieer de gegenereerde waarde in Kladblok als deze metagegevens die URL verderop in de zelfstudie wordt gebruikt.
-
-7. Meld u bij uw ServiceNow-toepassing als een beheerder.
-
-8. Activeer de **integratie - meerdere Provider Single Sign-On-installatieprogramma** invoegtoepassing door de volgende stappen te volgen:
+7. Activeer de **integratie - meerdere Provider Single Sign-On-installatieprogramma** invoegtoepassing door de volgende stappen te volgen:
 
     a. Zoek in het navigatievenster aan de linkerkant **System Definition** sectie zoekbalk en klik vervolgens op **Plugins**.
 
@@ -163,9 +147,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     d. Klik op de **activeren** knop.
 
-9. Er zijn twee manieren waarop **ServiceNow** geconfigureerde automatische en handmatige kan zijn.
+8. Er zijn twee manieren waarop **ServiceNow** geconfigureerde automatische en handmatige kan zijn.
 
-10. Voor het configureren van **ServiceNow** automatisch Volg de onderstaande stappen te volgen
+9. Voor het configureren van **ServiceNow** automatisch Volg de onderstaande stappen te volgen
 
     a. Ga terug naar de **ServiceNow** Signle-aanmelding op de pagina in de Azure portal.
 
@@ -201,15 +185,15 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     * Klik op **activeren** in de rechterbovenhoek van de pagina.
 
-11. Voor het configureren van **ServiceNow** handmatig Volg de onderstaande stappen te volgen
+10. Voor het configureren van **ServiceNow** handmatig Volg de onderstaande stappen te volgen
 
-12. Meld u bij uw ServiceNow-toepassing als een beheerder.
+11. Meld u bij uw ServiceNow-toepassing als een beheerder.
 
-13. Zoek in het navigatievenster aan de linkerkant **meerdere Provider SSO** sectie zoekbalk en klik vervolgens op **eigenschappen**.
+12. Zoek in het navigatievenster aan de linkerkant **meerdere Provider SSO** sectie zoekbalk en klik vervolgens op **eigenschappen**.
 
     ![App-URL configureren](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_06.png "app-URL configureren")
 
-14. Op de **meerdere eigenschappen van de Provider SSO** dialoogvenster de volgende stappen uitvoeren:
+13. Op de **meerdere eigenschappen van de Provider SSO** dialoogvenster de volgende stappen uitvoeren:
 
     ![App-URL configureren](./media/active-directory-saas-servicenow-tutorial/ic7694981.png "app-URL configureren")
 
@@ -265,7 +249,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     a. Selecteer **URL** optie in **metagegevens importeren Identity-Provider** dialoogvenster.
 
-    b. Voer de **metagegevens-URL** gegenereerd op basis van de Azure-portal.
+    b. Voer de **App-Url voor federatieve metagegevens** die u hebt gekopieerd vanuit Azure-portal.
 
     c. Klik op **Import**.
 
@@ -358,7 +342,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
 
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_certificate.png)
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_certificates.png)
 
 5. Klik op **opslaan** knop.
 
@@ -459,11 +443,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     > U kunt Azure AD voor het verzenden van de Azure AD-gebruikers-ID (UPN) of het e-mailadres als de unieke id in het SAML-token door te gaan naar de **ServiceNow > kenmerken > eenmalige aanmelding** sectie van de Azure-portal toewijzing van het gewenste veld en de **nameidentifier** kenmerk. De waarde voor het geselecteerde kenmerk opgeslagen in Azure AD (bijvoorbeeld naam user principal name) moet overeenkomen met de waarde die is opgeslagen in ServiceNow voor het opgegeven veld (bijvoorbeeld gebruikersnaam)
 
     f. Klik op **Opslaan**.
-
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt! Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
+ 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
 Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.

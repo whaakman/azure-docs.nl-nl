@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
 ms.author: billmath
-ms.openlocfilehash: ae8e9f46923928853c0c63e8c50f4e95b915e277
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 5a0574af04c118d466544d533561eb01639edfc6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: De Accounts en machtigingen
 De Azure AD Connect-installatiewizard biedt twee verschillende paden:
@@ -58,7 +58,7 @@ De [account](#active-directory-account) gemaakt voor de volgende machtigingen wa
 
 | Machtiging | Gebruikt voor |
 | --- | --- |
-| <li>Directorywijzigingen repliceren</li><li>Alle repliceren Directory gewijzigd |Wachtwoordsynchronisatie |
+| <li>Directorywijzigingen repliceren</li><li>Alle repliceren Directory gewijzigd |Wachtwoordhashsynchronisatie |
 | Lezen/schrijven alle eigenschappen van gebruiker |Importeren en Exchange hybrid |
 | Lezen/schrijven alle eigenschappen iNetOrgPerson |Importeren en Exchange hybrid |
 | Lezen/schrijven-groep voor alle eigenschappen |Importeren en Exchange hybrid |
@@ -87,10 +87,10 @@ Machtigingen die u nodig hebt, is afhankelijk van de optionele functies inschake
 | Functie | Machtigingen |
 | --- | --- |
 | de functie msDS-ConsistencyGuid |Schrijfmachtigingen voor het kenmerk msDS-ConsistencyGuid is beschreven in [ontwerpconcepten - msDS-ConsistencyGuid met als sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). | 
-| Wachtwoordsynchronisatie |<li>Directorywijzigingen repliceren</li>  <li>Alle repliceren Directory gewijzigd |
+| Wachtwoordhashsynchronisatie |<li>Directorywijzigingen repliceren</li>  <li>Alle repliceren Directory gewijzigd |
 | Hybride implementatie voor Exchange |Schrijfmachtigingen heeft voor de kenmerken die zijn beschreven in [Exchange hybride terugschrijven](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) voor gebruikers, groepen en contactpersonen. |
 | Exchange Mail openbare map |Leesmachtigingen voor de kenmerken die zijn beschreven in [Exchange Mail openbare map](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder) voor openbare mappen. | 
-| Wachtwoord terugschrijven |Schrijfmachtigingen heeft voor de kenmerken die zijn beschreven in [aan de slag met wachtwoordbeheer](../active-directory-passwords-writeback.md) voor gebruikers. |
+| Wachtwoord terugschrijven |Schrijfmachtigingen heeft voor de kenmerken die zijn beschreven in [aan de slag met wachtwoordbeheer](../authentication/howto-sspr-writeback.md) voor gebruikers. |
 | Apparaat terugschrijven |Machtigingen verleend met een PowerShell-script, zoals beschreven in [apparaat terugschrijven](active-directory-aadconnect-feature-device-writeback.md). |
 | Groep terugschrijven |Lezen, maken, bijwerken en verwijderen van groep objecten voor gesynchroniseerd **Office 365-groepen**.  Zie voor meer informatie [Write-back van groep](active-directory-aadconnect-feature-preview.md#group-writeback).|
 
@@ -146,7 +146,7 @@ Legenda:
 | | LocalDB</br>Express | LocalDB/LocalSQL</br>Aangepast telefoonnummer | Externe SQL</br>Aangepast telefoonnummer |
 | --- | --- | --- | --- |
 | **zelfstandige/werkgroep-machine** | Niet ondersteund | **VSA**</br>Lokale account (2008)</br>Lokaal account |  Niet ondersteund |
-| **domein-machine** | **VSA**</br>Lokale account (2008) | **VSA**</br>Lokale account (2008)</br>Lokaal account</br>Domeinaccount</br>sMSA,gMSA | **gMSA**</br>Domeinaccount |
+| **domein-machine** | **VSA**</br>Lokale account (2008) | **VSA**</br>Lokale account (2008)</br>Lokaal account</br>Domeinaccount</br>sMSA, gMSA | **gMSA**</br>Domeinaccount |
 | **Domeincontroller** | **Domeinaccount** | *gMSA*</br>**Domeinaccount**</br>sMSA| *gMSA*</br>**Domeinaccount**|
 
 #### <a name="virtual-service-account"></a>Virtuele-serviceaccount

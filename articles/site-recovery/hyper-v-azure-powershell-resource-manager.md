@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: bsiva
-ms.openlocfilehash: 4304cad9dc6aab7eb95885815a3ceb636ca6ff52
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 18ed9566cd265ef851f914a59e10f6973bdc0d86
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Herstel na noodgevallen naar Azure instellen voor Hyper-V-machines met behulp van PowerShell en Azure Resource Manager
 
@@ -45,9 +45,9 @@ Het specifieke voorbeeld dat wordt beschreven in dit artikel heeft bovendien de 
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>Stap 1: Meld u aan bij uw Azure-account
 
-1. Open een PowerShell-console en voer deze opdracht aan te melden bij uw Azure-account. De cmdlet wordt een webpagina wordt u gevraagd uw accountreferenties: **Login-AzureRmAccount**.
-    - Ook kunt u uw accountreferenties opnemen als een parameter in de **Login-AzureRmAccount** cmdlet, met behulp van de **-referentie** parameter.
-    - Als u CSP partner werken namens een tenant de klant opgeven als een tenant met behulp van de naam van de primaire domeincontroller tenantID of tenant. Bijvoorbeeld: **Login-AzureRmAccount-Tenant 'fabrikam.com'**
+1. Open een PowerShell-console en voer deze opdracht aan te melden bij uw Azure-account. De cmdlet wordt een webpagina wordt u gevraagd uw accountreferenties: **Connect-AzureRmAccount**.
+    - Ook kunt u uw accountreferenties opnemen als een parameter in de **Connect-AzureRmAccount** cmdlet, met behulp van de **-referentie** parameter.
+    - Als u CSP partner werken namens een tenant de klant opgeven als een tenant met behulp van de naam van de primaire domeincontroller tenantID of tenant. Bijvoorbeeld: **Connect-AzureRmAccount-Tenant 'fabrikam.com'**
 2. Het abonnement dat u gebruiken met de acount wilt omdat een account kan meerdere abonnementen hebben koppelen:
 
     `Select-AzureRmSubscription -SubscriptionName $SubscriptionName`
@@ -132,7 +132,7 @@ Voordat u begint, houd er rekening mee dat het opgegeven opslagaccount moet zich
         $protectionContainer = Get-AzureRmSiteRecoveryProtectionContainer
 3. De beveiligingscontainer als volgt aan het replicatiebeleid koppelen:
 
-     $Policy = Get-AzureRmSiteRecoveryPolicy -FriendlyName $PolicyName   $associationJob  = Start-AzureRmSiteRecoveryPolicyAssociationJob -Policy $Policy -PrimaryProtectionContainer $protectionContainer
+     $Policy = get-AzureRmSiteRecoveryPolicy - FriendlyName $PolicyName $associationJob = Start AzureRmSiteRecoveryPolicyAssociationJob-beleid $Policy - PrimaryProtectionContainer $protectionContainer
 
 4. Wachten op de koppeling taak te voltooien.
 

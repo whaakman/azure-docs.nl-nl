@@ -1,113 +1,117 @@
 ---
-title: Storage Explorer verbinding met een Azure-Stack-abonnement
-description: Informatie over het aansluiten van Verkenner opslag met een Azure-Stack-abonnement
+title: Storage Explorer verbinding met een Azure-Stack-abonnement of een opslagaccount | Microsoft Docs
+description: Leer hoe Opslagverkenner verbindt met een Azure-Stack-abonnement
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-ms.assetid: 
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/28/2018
-ms.author: xiaofmao
-ms.openlocfilehash: bad4b6b0d829fb68dc25e84406a453071a36476a
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 04/20/2018
+ms.author: mattbriggs
+ms.reviewer: xiaofmao
+ms.openlocfilehash: 8b670ec7040aab7eca26d411c9e31a934052be19
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="connect-storage-explorer-to-an-azure-stack-subscription"></a>Storage Explorer verbinding met een Azure-Stack-abonnement
+# <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Storage Explorer verbinding met een Azure-Stack-abonnement of een opslagaccount
 
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
-Azure Opslagverkenner (Preview) is een zelfstandige app waardoor u eenvoudig werken met Azure Stack Storage-gegevens op Windows-, Mac OS- en Linux. Er zijn verschillende hulpprogramma's voor beschikbare gegevens te verplaatsen naar en van Azure-Storage-Stack. Zie voor meer informatie [gegevensoverdracht hulpprogramma's voor de opslag van Azure-Stack](azure-stack-storage-transfer.md).
+Azure Storage Explorer is een zelfstandige app waardoor u eenvoudig werken met Azure Stack Storage-gegevens op Windows-, Mac OS- en Linux. Er zijn verschillende hulpprogramma's beschikbaar om gegevens te verplaatsen naar en van Azure-Storage-Stack. Zie voor meer informatie [gegevensoverdracht hulpprogramma's voor de opslag van Azure-Stack](azure-stack-storage-transfer.md).
 
-In dit artikel leert u hoe u verbinding maken met uw Azure-Stack-opslagaccounts met Opslagverkenner. 
+In dit artikel leert u hoe u verbinding maken met uw Azure-Stack-abonnementen en opslagaccounts met Opslagverkenner. 
 
-Als u Opslagverkenner nog niet hebt geïnstalleerd [downloaden](http://www.storageexplorer.com/) en en te installeren.
+Als u Opslagverkenner nog niet hebt geïnstalleerd [downloaden](http://www.storageexplorer.com/) en te installeren.
 
-Nadat u verbinding met uw Azure-Stack-abonnement, kunt u de [Azure Opslagverkenner artikelen](../../vs-azure-tools-storage-manage-with-storage-explorer.md) werken met de gegevens van uw Azure-Stack. 
+Nadat u verbinding met een Azure-Stack-abonnement of een opslagaccount maakt, kunt u de [Azure Opslagverkenner artikelen](../../vs-azure-tools-storage-manage-with-storage-explorer.md) werken met de gegevens van uw Azure-Stack. 
 
-## <a name="prepare-an-azure-stack-subscription"></a>Voorbereiden van een Azure-Stack-abonnement
+## <a name="prepare-for-connecting-to-azure-stack"></a>Voorbereiden voor het verbinden met Azure-Stack
 
-U moet toegang tot de Azure-Stack-hostmachine bureaublad of een VPN-verbinding voor Opslagverkenner voor toegang tot de Stack van Azure-abonnement. Raadpleeg [Verbinding maken met Azure Stack met VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) voor meer informatie over het instellen van een VPN-verbinding naar Azure Stack.
+Moet u directe toegang tot de Azure-Stack of een VPN-verbinding voor Opslagverkenner voor toegang tot de Stack van Azure-abonnement. Raadpleeg [Verbinding maken met Azure Stack met VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) voor meer informatie over het instellen van een VPN-verbinding naar Azure Stack.
 
 Voor de Azure-Stack Development Kit moet u exporteren van het basiscertificaat van de Azure-Stack-instantie.
 
-### <a name="to-export-and-then-import-the-azure-stack-certificate"></a>Om te exporteren en vervolgens de Azure-Stack-certificaten importeren
+### <a name="export-and-then-import-the-azure-stack-certificate"></a>Exporteren en vervolgens de Azure-Stack-certificaten importeren
 
 1. Open `mmc.exe` op de computer van een Azure-Stack host of op een lokale computer met een VPN-verbinding met Azure-Stack. 
 
 2. In **bestand**, selecteer **module toevoegen/verwijderen**, en voeg vervolgens **certificaten** voor het beheren van **Mijn gebruikersaccount**.
 
-
-
 3. Onder **Console Root\Certificated (lokale Computer) \Trusted Root Certification Authorities\Certificates** vinden **AzureStackSelfSignedRootCert**.
 
-    ![Laad het Azure Stack-basiscertificaat via mmc.exe][25]
+    ![Laad het Azure Stack-basiscertificaat via mmc.exe](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
 
 4. Met de rechtermuisknop op het certificaat, selecteert u **alle taken** > **exporteren**, en volg de instructies voor het exporteren van het certificaat met **Base-64 gecodeerde X.509 (. CER)**.  
 
     Het geëxporteerde certificaat zal worden gebruikt in de volgende stap.
-5. Open Opslagverkenner (Preview), en als u ziet de **verbinding maken met Azure Storage** dialoogvenster vak, te annuleren.
 
-6. Op de **bewerken** in het menu **SSL-certificaten**, en klik vervolgens op **certificaten importeren**. Gebruik het dialoogvenster Bestand kiezen om het certificaat dat u in de vorige stap hebt gezocht te zoeken en te openen.
+5. Open Opslagverkenner, en als u ziet de **verbinding maken met Azure Storage** dialoogvenster vak, te annuleren.
+
+6. Op de **bewerken** in het menu **SSL-certificaten**, en selecteer vervolgens **certificaten importeren**. Gebruik het dialoogvenster Bestand kiezen om het certificaat dat u in de vorige stap hebt gezocht te zoeken en te openen.
 
     Na het importeren wordt u gevraagd om Opslagverkenner opnieuw te starten.
 
-    ![Importeer het certificaat in Opslagverkenner (Preview)][27]
+    ![Importeer het certificaat in Opslagverkenner](./media/azure-stack-storage-connect-se/import-azure-stack-cert-storage-explorer.png)
+
+7. Nadat u Opslagverkenner opnieuw is opgestart, selecteert u de **bewerken** menu en zorg ervoor dat **doel Azure Stack** is geselecteerd. Als dat niet het geval is, selecteert u deze en start u Opslagverkenner opnieuw om de wijziging door te voeren. Deze configuratie is vereist om compatibiliteit met uw Azure Stack-omgeving te garanderen.
+
+    ![Zorg dat de optie Azure Stack als doel is geselecteerd](./media/azure-stack-storage-connect-se/target-azure-stack.png)
+
+## <a name="connect-to-an-azure-stack-subscription"></a>Verbinding maken met een Azure Stack-abonnement
 
 U bent nu klaar Storage Explorer verbinding met een Azure-Stack-abonnement.
 
-### <a name="to-connect-an-azure-stack-subscription"></a>Verbinding maken van een Azure-Stack-abonnement
+1. Selecteer in het linkerdeelvenster van Opslagverkenner **Accounts beheren**.  
+    Alle Microsoft-abonnement dat u aangemeld worden weergegeven.
 
+2. Selecteer voor verbinding met het Azure-Stack-abonnement, **account toevoegen**.
 
-1. Nadat Opslagverkenner (Preview) opnieuw is gestart, selecteert u het menu **Bewerken** en controleert u of de optie **Azure Stack als doel** is geselecteerd. Als dat niet het geval is, selecteert u deze en start u Opslagverkenner opnieuw om de wijziging door te voeren. Deze configuratie is vereist om compatibiliteit met uw Azure Stack-omgeving te garanderen.
+    ![Een Azure Stack-account toevoegen](./media/azure-stack-storage-connect-se/add-azure-stack-account.png)
 
-    ![Zorg dat de optie Azure Stack als doel is geselecteerd][28]
+3. In het verbinding maken met Azure Storage dialoogvenster onder **Azure-omgeving**, selecteer **Azure** of **Azure China**, die afhankelijk van het Azure-Stack-account dat wordt gebruikt, en Selecteer vervolgens **aanmelden**. Aanmelden met de Azure-Stack-account dat is gekoppeld aan ten minste één actief Azure-Stack-abonnement.
 
-7. Selecteer **Accounts beheren** in het linkerdeelvenster.  
-    Alle Microsoft-accounts waarbij u bent aangemeld worden weergegeven.
+    ![Verbinding maken met Azure-opslag](./media/azure-stack-storage-connect-se/azure-stack-connect-to-storage.png)
 
-8. Om verbinding te maken met een Azure Stack-account, selecteert u **Een account toevoegen**.
+4. Nadat u bent aangemeld met een Azure Stack-account, worden in het linkerdeelvenster de Azure Stack-abonnementen weergegeven die aan dat account zijn gekoppeld. Selecteer de Stack van Azure-abonnementen die u werken wilt met en selecteer vervolgens toepassen. (Of uit te schakelen de alle abonnementen selectievakje Schakelknoppen alle of geen van de vermelde Azure Stack-abonnementen te selecteren.)
 
-    ![Een Azure Stack-account toevoegen][29]
+    ![De Azure Stack-abonnementen selecteren na het invullen van het dialoogvenster Aangepaste cloudomgeving](./media/azure-stack-storage-connect-se/select-accounts-azure-stack.png)  
 
-9. In de **verbinding maken met Azure Storage** dialoogvenster onder **Azure-omgeving**, selecteer **gebruik Azure Stack-omgeving**, en klik vervolgens op **volgende**.
-
-10. Als u wilt aanmelden met de Azure-Stack-account dat is gekoppeld aan ten minste één actief Azure-Stack-abonnement, vult u de **aanmelden bij Azure Stack-omgeving** in het dialoogvenster.  
-
-    De details voor elk veld zijn als volgt:
-
-    * **De naam van de omgeving**: dit veld kan worden aangepast door de gebruiker.
-    * **ARM-resource-eindpunt**: de voorbeelden van een Azure Resource Manager-resource-eindpunt:
-
-        * Voor cloud-operator:<br> https://adminmanagement.local.azurestack.external   
-        * Voor de tenant:<br> https://management.local.azurestack.external
- 
-    * **Tenant-Id**: optioneel. Deze waarde wordt alleen ingevuld wanneer de map moet worden opgegeven.
-
-12. Nadat u bent aangemeld met een Azure Stack-account, worden in het linkerdeelvenster de Azure Stack-abonnementen weergegeven die aan dat account zijn gekoppeld. Selecteer de Azure Stack-abonnementen waarmee u wilt werken en selecteer vervolgens **Toepassen**. (Door het selectievakje **Alle abonnementen** in of uit te schakelen, selecteert u of alle of geen van de vermelde Azure Stack-abonnementen.)
-
-    ![De Azure Stack-abonnementen selecteren na het invullen van het dialoogvenster Aangepaste cloudomgeving][30]  
     In het linkerdeelvenster worden de opslagaccounts weergegeven die aan de geselecteerde Azure Stack-abonnementen zijn gekoppeld.
 
-    ![Lijst met opslagaccounts, waaronder Azure Stack-abonnementsaccounts][31]
+    ![Lijst met opslagaccounts, waaronder Azure Stack-abonnementsaccounts](./media/azure-stack-storage-connect-se/azure-stack-storage-account-list.png)
+
+## <a name="connect-to-an-azure-stack-storage-account"></a>Verbinding maken met een Stack van Azure storage-account
+
+U kunt ook verbinding maken met een Stack van Azure storage-account met behulp van de opslagaccountnaam en sleutelpaar.
+
+1.  Selecteer in het linkerdeelvenster van Opslagverkenner Accounts beheren. Alle Microsoft-accounts die u aangemeld worden weergegeven.
+
+    ![Een account toevoegen](./media/azure-stack-storage-connect-se/azure-stack-sub-add-an-account.png)
+
+2.  Selecteer voor verbinding met het Azure-Stack-abonnement, **account toevoegen**.
+ 
+    ![Een account toevoegen](./media/azure-stack-storage-connect-se/azure-stack-use-a-storage-and-key.png)
+
+3.  Selecteer in het verbinding maken met het dialoogvenster Azure Storage, **gebruik van een naam van het opslagaccount en de sleutel**.
+
+4. Voer de accountnaam van uw in de **accountnaam**, plak accountsleutel in de **accountsleutel** in het tekstvak, selecteer **andere (hieronder opgeven)** in **opslag eindpunten domein** en voer het Azure-Stack-eindpunt.  
+
+    Een Azure-Stack-eindpunt bestaat uit twee onderdelen: de naam van een regio en het domein van Azure-Stack. In de Azure-Stack Development Kit het standaardeindpunt is **local.azurestack.external**. Neem contact op met de cloudbeheerder als u niet zeker weet over uw eindpunt.
+
+    ![Naam en sleutel koppelen](./media/azure-stack-storage-connect-se/azure-stack-attach-name-and-key.png)
+
+5.  Selecteer **Verbinden**.
+6.  Nadat het opslagaccount is toegevoegd, wordt het opslagaccount weergegeven met (**externe, andere**) toegevoegd aan de naam ervan.
+
+    ![VMWINDISK](./media/azure-stack-storage-connect-se/azure-stack-vmwindisk.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Aan de slag met Opslagverkenner (Preview)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+* [Aan de slag met Opslagverkenner](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Azure Storage Stack: verschillen en overwegingen](azure-stack-acs-differences.md)
-
-
 * Zie voor meer informatie over Azure Storage, [Inleiding tot Microsoft Azure Storage](../../storage/common/storage-introduction.md)
-
-[25]: ./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png
-[26]: ./media/azure-stack-storage-connect-se/export-root-cert-azure-stack.png
-[27]: ./media/azure-stack-storage-connect-se/import-azure-stack-cert-storage-explorer.png
-[28]: ./media/azure-stack-storage-connect-se/select-target-azure-stack.png
-[29]: ./media/azure-stack-storage-connect-se/add-azure-stack-account.png
-[30]: ./media/azure-stack-storage-connect-se/select-accounts-azure-stack.png
-[31]: ./media/azure-stack-storage-connect-se/azure-stack-storage-account-list.png

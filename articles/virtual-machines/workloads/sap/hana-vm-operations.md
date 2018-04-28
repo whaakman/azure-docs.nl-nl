@@ -1,26 +1,26 @@
 ---
 title: SAP HANA-bewerkingen op Azure | Microsoft Docs
-description: "Bedieningshandleiding voor SAP HANA-systemen die zijn geïmplementeerd op virtuele machines in Azure."
+description: Bedieningshandleiding voor SAP HANA-systemen die zijn geïmplementeerd op virtuele machines in Azure.
 services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: juergent
 manager: patfilot
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/13/2017
+ms.date: 04/24/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0cb715960a516c6b2ca16376c12cb6f796e0b395
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 959a483d293caa45180c946e92ac824fc56db084
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="sap-hana-on-azure-operations-guide"></a>SAP HANA op Azure-bedieningshandleiding
 Dit document biedt richtlijnen voor SAP HANA besturingssystemen die worden geïmplementeerd op Azure systeemeigen virtuele machines (VM's). Dit document is niet bedoeld voor het vervangen van de standaard SAP-documentatie, waaronder de volgende inhoud:
@@ -69,8 +69,8 @@ U kunt een volledige SAP HANA-platform is geïnstalleerd op de virtuele machine 
 ### <a name="choose-azure-storage-type"></a>Azure Storage type kiezen
 Azure biedt twee typen opslag die geschikt zijn voor Azure VM's waarop SAP HANA:
 
-- [Azure Standard Storage](https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage)
-- [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)
+- [Azure Standard-opslag](https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage)
+- [Azure Premium-opslag](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)
 
 Azure biedt twee methoden voor het implementeren voor virtuele harde schijven op Azure Standard en Premium-opslag. Als het algemene scenario toestaat, profiteren van [Azure beheerd schijf](https://azure.microsoft.com/services/managed-disks/) implementaties.
 
@@ -106,7 +106,7 @@ De volgende tabel toont een configuratie van VM-typen die klanten wordt meestal 
 
 
 
-| VM-SKU | RAM | Met maximaal VM I/O<br /> Doorvoer | hana/gegevens en hana/logboekbestanden<br /> striped met LVM of MDADM | / hana/gedeeld | / Root-volume | / usr/sap | Hana/back-up |
+| VM-SKU | RAM | Met maximaal VM-I/O<br /> Doorvoer | hana/gegevens en hana/logboekbestanden<br /> striped met LVM of MDADM | / hana/gedeeld | / Root-volume | / usr/sap | Hana/back-up |
 | --- | --- | --- | --- | --- | --- | --- | -- |
 | DS14v2 | 128 GiB | 768 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S15 |
 | E16v3 | 128 GiB | 384 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S15 |
@@ -132,7 +132,7 @@ Als u profiteren wilt van [virtuele machine van Azure VM SLA eenmalige](https://
 > [!NOTE]
 > Controleer of een bepaald type van de virtuele machine wordt ondersteund voor SAP HANA door SAP in voor productiescenario's de [SAP-documentatie voor IAAS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html).
 
-| VM-SKU | RAM | Met maximaal VM I/O<br /> Doorvoer | hana/gegevens en hana/logboekbestanden<br /> striped met LVM of MDADM | / hana/gedeeld | / Root-volume | / usr/sap | Hana/back-up |
+| VM-SKU | RAM | Met maximaal VM-I/O<br /> Doorvoer | hana/gegevens en hana/logboekbestanden<br /> striped met LVM of MDADM | / hana/gedeeld | / Root-volume | / usr/sap | Hana/back-up |
 | --- | --- | --- | --- | --- | --- | --- | -- |
 | DS14v2 | 128 GiB | 768 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P15 |
 | E16v3 | 128 GiB | 384 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P15 |
@@ -161,7 +161,7 @@ Azure schrijven Accelerator is een functionaliteit die is opgehaald uitgerold vo
 
 De aanbevolen configuraties eruitzien als:
 
-| VM-SKU | RAM | Met maximaal VM I/O<br /> Doorvoer | /hana/data | hana/logboek | / hana/gedeeld | / Root-volume | / usr/sap | Hana/back-up |
+| VM-SKU | RAM | Met maximaal VM-I/O<br /> Doorvoer | hana/gegevens | hana/logboek | / hana/gedeeld | / Root-volume | / usr/sap | Hana/back-up |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
 | M64s | 1000 GiB | 1000 MB/s | 4 x P20 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 |2 x P30 |
 | M64ms | 1750 GiB | 1000 MB/s | 3 x P30 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 | 3 x P30 |
@@ -177,7 +177,7 @@ Er zijn limieten van Azure Premium Storage VHD's per virtuele machine die kan wo
 - 16 VHD's voor een M128xx VM
 - 8 VHD's voor een M64xx VM
 
-Meer gedetailleerde instructies over het inschakelen van Azure schrijven Accelerator vindt u in het artikel [Azure schrijven Accelerator voor SAP-implementaties](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator).
+Meer gedetailleerde instructies over het inschakelen van Azure schrijven Accelerator vindt u in het artikel [schrijven Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
 
 Meer informatie en -beperkingen voor Azure schrijven Accelerator vindt in de documentatie van dezelfde.
 

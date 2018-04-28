@@ -2,12 +2,12 @@
 title: Virtuele Machine van Azure-Schaalsets schijven versleutelen | Microsoft Docs
 description: Informatie over het versleutelen van de gekoppelde schijven in virtuele-machineschaalsets.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 3263ed4d6325207f38656d741fa4a1f091d4fdea
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 570764ad5d657a8b1efa2425423a89ddc518451c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set"></a>OS- en bijgesloten gegevensschijven in een virtuele-machineschaalset coderen
 Azure [virtuele-machineschaalsets](/azure/virtual-machine-scale-sets/) ondersteuning voor Azure disk encryption (ADE).  Azure-schijfversleuteling kan worden ingeschakeld voor Windows en Linux-virtuele-machineschaalsets beveiligen en bescherming van de schaal stelt gegevens in rust met toonaangevende standaard versleuteling technologie. Lees voor meer informatie Azure Disk Encryption for Windows- en Linux virtuele machines.
@@ -42,7 +42,7 @@ Installeer de nieuwste versies van [Azure Powershell](https://github.com/Azure/a
 De Azure disk encryption voor virtuele machine scale sets preview moet u uw abonnement met de volgende PowerShell-opdrachten zichzelf registreren: 
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 

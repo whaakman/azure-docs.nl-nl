@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: trinadhk, sogup
-ms.openlocfilehash: 7c340f60bc648909d073821f1987036da9633458
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ffc5f11a324b5ac65c872ca2c033f039c129c5f8
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>Back-upkluis bijgewerkt naar een Recovery Services-kluis
 In dit artikel biedt een overzicht van welke Recovery Services-kluis biedt, veelgestelde vragen over het upgraden van bestaande back-up vault Recovery Services-kluis en stappen na de upgrade. Een Recovery Services-kluis is de Azure Resource Manager-equivalent van een back-upkluis met uw back-upgegevens. De gegevens zijn of doorgaans kopieën van gegevens of configuratie-informatie voor virtuele machines (VM's), werkbelastingen, servers of werkstations, lokaal of in Azure.
@@ -60,7 +60,7 @@ Het tweede scherm ziet u de Help-informatie beschikbaar om u te helpen koppeling
 Recovery Services-kluis ondersteunt geven informatie over de tijdzone in de back-upbeleid. Nadat de kluis upgrade is voltooid, gaat u naar de back-upbeleid in kluis-instellingen en bijwerken van de tijdzone-informatie voor elk van de beleidsregels die zijn geconfigureerd in de kluis. Dit scherm bevat al de back-upschema tijd opgegeven als per lokale tijdzone die wordt gebruikt wanneer u beleid hebt gemaakt. 
 
 ## <a name="enhanced-security"></a>Verbeterde beveiliging
-Wanneer een back-upkluis is bijgewerkt naar een Recovery Services-kluis, worden de beveiligingsinstellingen voor de kluis die automatisch ingeschakeld. Wanneer de beveiligingsinstellingen op bepaalde bewerkingen zoals het verwijderen van de back-ups, of het wijzigen van een wachtwoordzin vereist een [Azure multi-factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) PINCODE. Zie het artikel voor meer informatie over de verbeterde beveiliging [beveiligingsfuncties die beschermen hybride back-ups](backup-azure-security-feature.md). Als de verbeterde beveiliging is ingeschakeld, wordt gegevens behouden gedurende 14 dagen na de punt herstelgegevens is verwijderd uit de kluis. Klanten wordt gefactureerd voor opslag van deze beveiligingsgegevens. Beveiliging Gegevensretentie geldt voor de herstelpunten die voor de Azure backup-agent, de Azure Backup-Server en de System Center Data Protection Manager worden uitgevoerd. 
+Wanneer een back-upkluis is bijgewerkt naar een Recovery Services-kluis, worden de beveiligingsinstellingen voor de kluis die automatisch ingeschakeld. Wanneer de beveiligingsinstellingen op bepaalde bewerkingen zoals het verwijderen van de back-ups, of het wijzigen van een wachtwoordzin vereist een [Azure multi-factor Authentication](../active-directory/authentication/multi-factor-authentication.md) PINCODE. Zie het artikel voor meer informatie over de verbeterde beveiliging [beveiligingsfuncties die beschermen hybride back-ups](backup-azure-security-feature.md). Als de verbeterde beveiliging is ingeschakeld, wordt gegevens behouden gedurende 14 dagen na de punt herstelgegevens is verwijderd uit de kluis. Klanten wordt gefactureerd voor opslag van deze beveiligingsgegevens. Beveiliging Gegevensretentie geldt voor de herstelpunten die voor de Azure backup-agent, de Azure Backup-Server en de System Center Data Protection Manager worden uitgevoerd. 
 
 ## <a name="gather-data-on-your-vault"></a>Gegevens verzamelen over uw kluis
 Eenmaal u upgraden naar een Recovery Services-kluis, rapporten configureren voor Azure Backup (voor IaaS VM's en Microsoft Azure Recovery Services agent) en Power BI gebruiken voor toegang tot de rapporten. Zie het artikel voor meer informatie over het verzamelen van gegevens [Azure Backup configureren rapporten](backup-azure-configure-reports.md).

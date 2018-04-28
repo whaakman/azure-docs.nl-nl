@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
 ms.author: mcoskun
-ms.openlocfilehash: 3452473f5b2f86d29e46339c997193bc6403736a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f9d431d94a6df9636a48e1b2aaa59aaa576e2dc3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Transacties en -modi in Azure Service Fabric betrouwbare verzamelingen
 
 ## <a name="transaction"></a>Transactie
 Een transactie is een reeks bewerkingen die worden uitgevoerd als één logische eenheid van het werk.
-Een transactie mag de volgende ACID-eigenschappen vertonen. (Zie: https://technet.microsoft.com/en-us/library/ms190612)
+Een transactie mag de volgende ACID-eigenschappen vertonen. (Zie: https://technet.microsoft.com/library/ms190612)
 * **Atomisch**: een transactie moet een atomic-eenheid van het werk. Met andere woorden, de gegevenswijzigingen worden uitgevoerd of geen van beide wordt uitgevoerd.
 * **Consistentie**: wanneer voltooid, een transactie moet laten staan alle gegevens in een consistente status. Alle interne gegevensstructuren moet juist aan het einde van de transactie.
 * **Isolatie**: wijzigingen aangebracht door gelijktijdige transacties worden geïsoleerd van de wijzigingen die zijn aangebracht door andere gelijktijdige transacties. Het isolatieniveau gebruikt voor een bewerking binnen een ITransaction wordt bepaald door de IReliableState de bewerking wordt uitgevoerd.
@@ -34,13 +34,13 @@ Een transactie mag de volgende ACID-eigenschappen vertonen. (Zie: https://techne
 Het isolatieniveau bepaalt de mate waarnaar de transactie geïsoleerd van wijzigingen aangebracht door andere transacties worden moet.
 Er zijn twee isolatieniveaus die worden ondersteund in betrouwbare verzamelingen:
 
-* **Herhaalbare leesbewerking**: Hiermee geeft u de instructies kunnen gegevens die zijn gewijzigd, maar nog niet zijn doorgevoerd door andere transacties worden gelezen en dat er geen andere transacties gegevens die door de huidige transactie is gelezen totdat de huidige transactie is voltooid kunnen wijzigen. Zie voor meer informatie [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
+* **Herhaalbare leesbewerking**: Hiermee geeft u de instructies kunnen gegevens die zijn gewijzigd, maar nog niet zijn doorgevoerd door andere transacties worden gelezen en dat er geen andere transacties gegevens die door de huidige transactie totdat de huidige transactie is gelezen kunnen wijzigen is voltooid. Zie voor meer informatie [ https://msdn.microsoft.com/library/ms173763.aspx ](https://msdn.microsoft.com/library/ms173763.aspx).
 * **Momentopname**: geeft aan dat gegevens gelezen door een instructie in een transactie transactioneel consistent versie van de gegevens die beschikbaar aan het begin van de transactie waren is.
   De transactie kan alleen gegevenswijzigingen zijn doorgevoerd vóór het begin van de transactie kan herkennen.
   Gegevenswijzigingen die zijn aangebracht door andere transacties na het begin van de huidige transactie zijn niet zichtbaar voor de instructies in de huidige transactie wordt uitgevoerd.
   Het effect is alsof de instructies in een transactie ophalen van een momentopname van de vastgelegde gegevens zoals deze bestond aan het begin van de transactie.
   Momentopnamen zijn consistent in betrouwbare verzamelingen.
-  Zie voor meer informatie [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
+  Zie voor meer informatie [ https://msdn.microsoft.com/library/ms173763.aspx ](https://msdn.microsoft.com/library/ms173763.aspx).
 
 Betrouwbare verzamelingen kiezen automatisch het isolatieniveau moet worden gebruikt voor een bepaalde leesbewerking afhankelijk van de bewerking en de rol van de replica op het moment van de transactie wordt gemaakt.
 Hier volgt de tabel die standaardwaarden op siteniveau isolatie voor betrouwbare woordenlijst en wachtrij-bewerkingen beschrijft.

@@ -1,12 +1,12 @@
 ---
 title: Overzicht van vooraf geconfigureerde Azure IoT Suite-oplossingen | Microsoft Docs
 description: Een beschrijving van de vooraf geconfigureerde Azure IoT Suite-oplossingen en hun architectuur, met links naar aanvullende resources.
-services: 
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 59009f37-9ba0-4e17-a189-7ea354a858a2
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 17/01/2018
 ms.author: dobett
-ms.openlocfilehash: b29c5fe9543c5fe6da9ff52da6549fdcacff868f
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: b7b9f61a8fb46d5d591b317049cfd60b723a7e77
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-azure-iot-suite"></a>Wat is Azure IoT Suite?
 
@@ -97,7 +97,7 @@ Wanneer u een vooraf geconfigureerde oplossing implementeert, wordt in het inric
 * [Azure Time Series Insights](../time-series-insights/index.yml). De vooraf geconfigureerde oplossingen gebruiken deze service om de telemetriegegevens van uw apparaten te analyseren en weer te geven.
 * [Azure Container Service](../container-service/index.yml). Deze service host en beheert de microservices in de vooraf geconfigureerde oplossingen.
 * [Azure Cosmos DB](../cosmos-db/index.yml) en [Azure Storage](../storage/index.yml) voor gegevensopslag.
-* [Azure Stream Analytics](../stream-analytics/index.md). De vooraf geconfigureerde oplossing voor predictief onderhoud gebruikt deze service om binnenkomende telemetriegegevens te verwerken, aggregatiebewerkingen uit te voeren en gebeurtenissen te detecteren. Deze vooraf geconfigureerde oplossing maakt ook gebruik van Stream Analytics voor het verwerken van informatieve berichten met gegevens, zoals metagegevens of reacties van apparaten op opdrachten.
+* [Azure Stream Analytics](../stream-analytics/index.yml). De vooraf geconfigureerde oplossing voor predictief onderhoud gebruikt deze service om binnenkomende telemetriegegevens te verwerken, aggregatiebewerkingen uit te voeren en gebeurtenissen te detecteren. Deze vooraf geconfigureerde oplossing maakt ook gebruik van Stream Analytics voor het verwerken van informatieve berichten met gegevens, zoals metagegevens of reacties van apparaten op opdrachten.
 * [Azure Web Apps](../app-service/index.yml) voor het hosten van aangepaste toepassingscode in de vooraf geconfigureerde oplossingen.
 
 Zie [Microsoft Azure en het Internet of Things (IoT)](iot-suite-what-is-azure-iot.md) voor een overzicht van de architectuur van een typische IoT-oplossing.

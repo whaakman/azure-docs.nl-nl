@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: d59f34a276332fddcbdd093747a7d42a7ba21c13
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 66994dfcd84db1de0ba072e9e3a45e7ec11fcec0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="using-the-deep-learning-virtual-machine"></a>Met behulp van de virtuele Machine Learning diep
 
@@ -35,9 +35,12 @@ Naast de voorbeelden op basis van het framework is een set van uitgebreide scena
 
 - [Een handleiding met instructies voor het bouwen van een end-to-end-oplossing om te detecteren producten binnen installatiekopieën](https://github.com/Azure/cortana-intelligence-product-detection-from-images): detectie van de installatiekopie is een techniek die kan vinden en classificeren van objecten binnen de installatiekopieën. Deze technologie loopt het risico op te zetten grote voordelen in veel praktijk zakelijke domeinen. Detailhandel kunnen bijvoorbeeld deze techniek gebruiken om te bepalen welke product een klant is opgehaald uit het plat. Deze informatie helpt op zijn beurt winkels productinventaris beheren. 
 
+- [Met de naam entiteit extractie van PubMed samenvattingen](https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition) deze zelfstudie laat zien hoe benoemde entiteiten, zoals medicijn namen of namen van ziekte extraheren uit niet-gestructureerde tekst. Deze traint u een aangepaste woord insluiten op een corpus tekst van 18 miljoen PubMed samenvattingen model gebruikt voor het maken van een model lang korte geheugen (LSTM) terugkerende neurale netwerk voor extractie entiteit en ziet u dat de domeinspecifieke word insluiten van het model kunt beter een algemene word insluiten voor het ophalen van de entiteit.
+
+- [Deep learning voor audio](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/) deze zelfstudie laat zien hoe een grondige learning-model voor detectie audio gebeurtenis trainen op de [stedelijk geluiden gegevensset](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html) en biedt een overzicht van het werken met audiogegevens.
+
 - [Classificatie van documenten](https://github.com/anargyri/lstm_han): in dit scenario laat zien hoe te trainen van twee verschillende neural netwerkarchitectuur: hiërarchische aandacht netwerk- en lang korte termijn geheugen (LSTM) netwerk. Deze neural netwerken voor het gebruik van de API Keras voor grondige informatiebronnen voor het classificeren van documenten. Keras is een front-end tot drie van de meest populaire deep learning frameworks: Microsoft cognitieve Toolkit TensorFlow en Theano.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 De [pagina voorbeelden](dsvm-samples-and-walkthroughs.md) bevat verwijzingen naar de codevoorbeelden vooraf geladen op de virtuele machine voor elk van de frameworks kunt u snel aan de slag. 
-

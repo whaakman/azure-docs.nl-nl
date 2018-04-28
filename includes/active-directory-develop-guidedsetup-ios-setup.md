@@ -2,7 +2,7 @@
 
 Deze sectie bevat stapsgewijze instructies voor het maken van een nieuw project te laten zien hoe een toepassing voor iOS (Swift) worden geïntegreerd met *aanmelden met Microsoft* zodat Web-API's waarvoor een token op te vragen.
 
-> Voorkeur voor het downloaden van dit voorbeeld XCode-project in plaats daarvan? [Downloaden van een project](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip) en doorgaan met de [configuratiestap](#create-an-application-express) voor het configureren van het codevoorbeeld voordat wordt uitgevoerd.
+> Voorkeur voor het downloaden van dit voorbeeld XCode-project in plaats daarvan? [Downloaden van een project](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip) en doorgaan met de [configuratiestap](#register-your-application) voor het configureren van het codevoorbeeld voordat wordt uitgevoerd.
 
 
 ## <a name="install-carthage-to-download-and-build-msal"></a>Carthage te downloaden en te bouwen MSAL installeren

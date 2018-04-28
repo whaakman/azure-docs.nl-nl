@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 40e6df0db7651488642e774512f55fbd6805809a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2796f280b2f95504be5f9691098bff07fdd93393
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Zelfstudie: Azure Active Directory-integratie met LearnUpon
 
@@ -110,14 +110,14 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_url.png)
 
-    In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<companyname>.learnupon.com/saml/consumer`
+    In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<companyname>.learnupon.com/saml/consumer`
 
     > [!NOTE] 
     > Houd er rekening mee dat dit geen de feitelijke waarde is. u moet deze waarde bijwerken met de werkelijke antwoord-URL. Deze waarde Contact op te halen [LearnUpon ondersteuningsteam](https://www.learnupon.com/features/support/).
 
 
 
-4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **certificaat (Raw)** en sla het certificaatbestand op uw computer.
+4. Op de **SAML-certificaat voor ondertekening van** sectie, zoek de **vingerafdruk** -wordt dit toegevoegd aan uw LearnUpon SAML-instellingen.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_certificate.png) 
 
@@ -165,7 +165,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
  
     a. In de **voornaam id indeling** textbox type de waarde die kan worden weergegeven wanneer u in uw SAML-verklaring de voornaam van de gebruikers zich - voorbeeld bevindt: **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
   
-    b. In de **laatste naamnotatie id** textbox type de waarde die kan worden weergegeven wanneer u in uw SAML-verklaring de achternaam van de gebruikers zich - voorbeeld bevindt: **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname** .
+    b. In de **laatste naamnotatie id** textbox type de waarde die kan worden weergegeven wanneer u in uw SAML-verklaring de achternaam van de gebruikers zich - voorbeeld bevindt: **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -248,7 +248,7 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 Als u op de tegel LearnUpon in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing LearnUpon.
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md).
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

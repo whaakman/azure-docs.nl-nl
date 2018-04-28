@@ -2,21 +2,17 @@
 title: Analyzers in Azure Search | Microsoft Docs
 description: Analyzers toewijzen aan velden van doorzoekbare tekst in een index te vervangen standaard standaard Lucene met aangepaste, vooraf gedefinieerde of taalspecifieke alternatieven.
 services: search
-manager: jhubbard
-author: HeidiSteen
-documentationcenter: 
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: heidist
-ms.openlocfilehash: 1b9dea2978c11955da3ea4df8b90dc10a866d3f1
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+manager: cgronlun
+author: HeidiSteen
+ms.openlocfilehash: e858966fb5a15b84af1952399a5eff3ca50d0d59
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="analyzers-in-azure-search"></a>Analyse in Azure Search
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 1efb8d89b0a78dcf88c60c2e8cd3b968a725e8b9
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 019785ae0bde58b33cc4b09e2e2746f3fd474b70
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory bewijs van concept playbook: bouwstenen
 
@@ -241,7 +241,7 @@ Geschatte tijd om te voltooien: 20 minuten
 
 | Vereiste | Resources |
 | --- | --- |
-| Een Microsoft Azure AD basic of premium-abonnement en een Azure AD-directory waarvoor u een globale beheerder bent | [Azure Active Directory editions](active-directory-editions.md) |
+| Een Microsoft Azure AD basic of premium-abonnement en een Azure AD-directory waarvoor u een globale beheerder bent | [Azure Active Directory-edities](active-directory-editions.md) |
 | Een webtoepassing gehost on-premises die u wilt configureren voor externe toegang |  |
 | Een server met Windows Server 2012 R2 of Windows 8.1 of hoger, waarop u de Connector voor toepassingsproxy kunt installeren | [Azure AD-toepassingsproxy connectors begrijpen](application-proxy-understand-connectors.md) |
 | Als er een firewall in het pad, zorg ervoor dat deze geopend is zodat de Connector HTTPS (TCP) aanvragen naar de toepassingsproxy kunt maken | [Toepassingsproxy inschakelen in de Azure-portal: vereisten voor toepassingsproxy](active-directory-application-proxy-enable.md#application-proxy-prerequisites) |
@@ -380,8 +380,8 @@ Geschatte tijd om te voltooien: 15 minuten
 | Vereiste | Resources |
 | --- | --- |
 | Schakel het beheer van de selfservice voor wachtwoordherstel in uw tenant. | [Azure Active Directory-wachtwoord opnieuw instellen voor IT-beheerders](active-directory-passwords-update-your-own-password.md) |
-| Schakel wachtwoord terugschrijven van wachtwoorden van on-premises beheren. Opmerking hiervoor specifieke Azure AD Connect-versies | [Vereisten voor het terugschrijven van wachtwoorden](active-directory-passwords-writeback.md) |
-| Identificeer de PoC-gebruikers die deze functionaliteit gebruiken en zorg ervoor dat ze lid zijn van een beveiligingsgroep. De gebruikers moeten niet-beheerders de mogelijkheid volledig presenteren | [Aanpassen: Azure AD-wachtwoordbeheer: toegang beperken tot wachtwoord opnieuw instellen](active-directory-passwords-writeback.md) |
+| Schakel wachtwoord terugschrijven van wachtwoorden van on-premises beheren. Opmerking hiervoor specifieke Azure AD Connect-versies | [Vereisten voor het terugschrijven van wachtwoorden](authentication/howto-sspr-writeback.md) |
+| Identificeer de PoC-gebruikers die deze functionaliteit gebruiken en zorg ervoor dat ze lid zijn van een beveiligingsgroep. De gebruikers moeten niet-beheerders de mogelijkheid volledig presenteren | [Aanpassen: Azure AD-wachtwoordbeheer: toegang beperken tot wachtwoord opnieuw instellen](authentication/howto-sspr-writeback.md) |
 
 
 ### <a name="steps"></a>Stappen
@@ -412,7 +412,7 @@ Geschatte tijd om te voltooien: 10 minuten
 | Vereiste | Resources |
 | --- | --- |
 | Identificeer gebruikers Implementatiemodel met MFA  |  |
-| Telefoon met goede ontvangst voor MFA uitdaging  | [Wat is Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md) |
+| Telefoon met goede ontvangst voor MFA uitdaging  | [Wat is Azure Multi-Factor Authentication?](authentication/multi-factor-authentication.md) |
 
 ### <a name="steps"></a>Stappen
 
@@ -421,7 +421,7 @@ Geschatte tijd om te voltooien: 10 minuten
 | Ga naar 'Gebruikers en groepen' blade in Azure AD-beheerportal | [Azure AD-beheerportal: Gebruikers en groepen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/Overview/menuId/) |
 | 'Alle gebruikers' blade kiezen |  |
 | In de bovenste balk de knop 'Multi-Factor Authentication' kiezen | Directe URL voor Azure MFA-portal: https://aka.ms/mfaportal |
-| In de instellingen voor 'Gebruiker' Selecteer de PoC-gebruikers en ze voor MFA inschakelen | [Statuswaarden voor gebruikers in Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) |
+| In de instellingen voor 'Gebruiker' Selecteer de PoC-gebruikers en ze voor MFA inschakelen | [Statuswaarden voor gebruikers in Azure Multi-Factor Authentication](authentication/howto-mfa-userstates.md) |
 | Meld u aan als de gebruiker van de POC-fase en doorloop het proces bewijs-up  |  |
 
 ### <a name="considerations"></a>Overwegingen
@@ -457,7 +457,7 @@ Geschatte tijd om te voltooien: 10 minuten
 
 ### <a name="considerations"></a>Overwegingen
 
-Als u federation gebruikt, kunt u de lokale id-Provider (IdP) gebruiken om te communiceren, de status binnen/buiten-bedrijfsnetwerk met claims. U kunt deze techniek gebruiken zonder het beheren van de lijst met IP-adressen die mogelijk complex om te beoordelen en beheren in grote organisaties. In dat de installatie, moet u rekening voor het scenario 'netwerk roaming' (een gebruiker de logboekregistratie van het interne netwerk en tijdens het aangemelde switches locaties bijvoorbeeld een restaurant) en zorg ervoor dat u de implicaties begrijpt. Meer informatie: [cloudresources beveiligen met Azure multi-factor Authentication en AD FS: goedgekeurde IP-adressen voor federatieve gebruikers](../multi-factor-authentication/multi-factor-authentication-get-started-adfs-cloud.md#trusted-ips-for-federated-users)
+Als u federation gebruikt, kunt u de lokale id-Provider (IdP) gebruiken om te communiceren, de status binnen/buiten-bedrijfsnetwerk met claims. U kunt deze techniek gebruiken zonder het beheren van de lijst met IP-adressen die mogelijk complex om te beoordelen en beheren in grote organisaties. In dat de installatie, moet u rekening voor het scenario 'netwerk roaming' (een gebruiker de logboekregistratie van het interne netwerk en tijdens het aangemelde switches locaties bijvoorbeeld een restaurant) en zorg ervoor dat u de implicaties begrijpt. Meer informatie: [cloudresources beveiligen met Azure multi-factor Authentication en AD FS: goedgekeurde IP-adressen voor federatieve gebruikers](authentication/howto-mfa-adfs.md#trusted-ips-for-federated-users)
 
 ## <a name="privileged-identity-management-pim"></a>Beschermde identiteitsbeheer (PIM)
 

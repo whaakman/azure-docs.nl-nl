@@ -1,24 +1,26 @@
 ---
 title: Upgrade naar de nieuwste van Azure SQL Data Warehouse | Microsoft Docs
-description: Stappen om Azure SQL Data Warehouse een upgrade uitvoert naar de nieuwste generatie van Azure hardware- en storage-architectuur.
+description: Azure SQL Data Warehouse upgraden naar de nieuwste generatie van Azure hardware- en storage-architectuur.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg-msft
-ms.services: sql-data-warehouse
+ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/02/2018
+ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 724f027f3f43cd0ad846210b511c8fc1af27153f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 673386ad236f596aa4c64fe2e8c885fb86afe170
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Prestaties optimaliseren door bijwerken van SQL Data Warehouse
+Azure SQL Data Warehouse upgraden naar de nieuwste generatie van Azure hardware- en storage-architectuur.
 
-U kunt nu probleemloos upgraden naar de optimaliseren voor de prestatielaag Compute in de Azure portal. Als u een geoptimaliseerd voor elasticiteit datawarehouse hebt, kunt dat u een upgrade uitvoeren voor de nieuwste Azure hardware en een verbeterde storage-architectuur. U kunt zich profiteren van betere prestaties, hogere schaalbaarheid en onbeperkte kolommen opslag. 
+## <a name="why-upgrade"></a>Waarom upgraden?
+U kunt nu probleemloos upgraden naar de optimaliseren voor de prestatielaag Compute in de Azure portal. Als u een geoptimaliseerd voor elasticiteit datawarehouse hebt, wordt upgraden aanbevolen. Door een upgrade uitvoert, kunt u gebruiken de nieuwste Azure hardware en verbeterde opslagarchitectuur. U kunt profiteren van betere prestaties, hogere schaalbaarheid en onbeperkte kolommen opslag. 
 
 ## <a name="applies-to"></a>Van toepassing op
 Deze upgrade geldt voor datawarehouses in de optimaliseren voor de prestatielaag elasticiteit.
@@ -28,12 +30,6 @@ Deze upgrade geldt voor datawarehouses in de optimaliseren voor de prestatielaag
 Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 ## <a name="before-you-begin"></a>Voordat u begint
-
-> [!NOTE]
-> Vanaf 3/30, hebt u [server controle](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing#subheading-8) uitgeschakeld voordat u de upgrade start.
-> 
->
-
 > [!NOTE]
 > Als uw bestaande geoptimaliseerd voor elasticiteit datawarehouse niet is in een regio waar geoptimaliseerd voor Compute beschikbaar is, kunt u [geo-herstel te optimaliseren voor Compute](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) via PowerShell naar een ondersteunde regio.
 > 

@@ -2,7 +2,7 @@
 title: Ontwikkelen van U-SQL-gebruiker gedefinieerde operators (UDO's) | Microsoft Docs
 description: 'Informatie over het ontwikkelen van de gebruiker gedefinieerde operators moeten worden gebruikt en hergebruikt in Data Lake Analytics-taken. '
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: kfile
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.openlocfilehash: 7c0b9c193f8f1c3a3043824186e337f942ebfd56
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c0164d9f1e40778d3ce0dc7e947f6d2807234468
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>Ontwikkelen van U-SQL-gebruiker gedefinieerde operators (UDO's)
 Informatie over het ontwikkelen van de gebruiker gedefinieerde operators voor het verwerken van gegevens in een U-SQL-taak.
@@ -130,5 +130,5 @@ Zie voor instructies over het ontwikkelen van algemene assembly's voor de U-SQL 
 2. Vouw voorbeelden uit, vouw uitvoer en dubbelklikt u vervolgens op **Stuurprogramma's.csv**.
 
 ## <a name="see-also"></a>Zie ook
-* [U-SQL-expressies met gebruikerscode uitbreiden](https://msdn.microsoft.com/en-us/library/azure/mt621316.aspx)
+* [U-SQL-expressies met gebruikerscode uitbreiden](https://msdn.microsoft.com/library/azure/mt621316.aspx)
 * [Data Lake Tools voor Visual Studio gebruiken voor het ontwikkelen van U-SQL-toepassingen](data-lake-analytics-data-lake-tools-get-started.md)

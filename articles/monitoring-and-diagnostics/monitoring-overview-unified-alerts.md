@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/23/2018
 ms.author: mamit
 ms.custom: ''
-ms.openlocfilehash: 16e0fc493a257504e2708336e05c30b36d4bea15
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c3622b4699ef532f204231c76aa3436be3676763
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="the-new-alerts-experience-in-azure-monitor"></a>De nieuwe waarschuwingen optreden in de Azure-Monitor
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 04/03/2018
 
 Waarschuwingen heeft nieuwe ervaring. De oudere waarschuwingen ervaring nu op het tabblad waarschuwingen (klassiek is). De nieuwe ervaring van waarschuwingen heeft de volgende voordelen via de ervaring voor de waarschuwingen (klassiek):
 
--   **Voor een betere notification system**: alle nieuwere waarschuwingen gebruiken [actiegroepen]( https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups), die groepen meldingen en acties die opnieuw kunnen worden gebruikt in meerdere waarschuwingen worden genoemd.  Gebruik geen actiegroepen klassieke metrische waarschuwingen en oudere Log Analytics-waarschuwingen. 
+-   **Voor een betere notification system**: alle nieuwere waarschuwingen gebruiken [actiegroepen]( https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups), die groepen meldingen en acties die opnieuw kunnen worden gebruikt in meerdere waarschuwingen worden genoemd.  Gebruik geen actiegroepen klassieke metrische waarschuwingen en oudere Log Analytics-waarschuwingen. 
 - **Een uniforme ontwerpmogelijkheden** - alle waarschuwingen maken voor de metrische gegevens, logboeken en de activiteit zich aanmelden via Azure Monitor, Log Analytics en Application Insights is op één plek. 
 - **Weergave gestart logboekanalyse waarschuwingen in Azure portal** -kunt u nu ook Zie logboekanalyse waarschuwingen in uw abonnement gestart. Eerder waren deze in een afzonderlijke portal. 
 - **Scheiding van Fired waarschuwingen en waarschuwing regels** - waarschuwing regels (de definitie van de voorwaarde die een waarschuwing activeert) en waarschuwingen deze gebeurtenis wordt gestart (een exemplaar van de waarschuwingsregel starten) van elkaar worden onderscheiden, zodat de operationele en configuratie-weergaven worden gescheiden.
@@ -104,7 +104,7 @@ Waarschuwingen zijn beschikbaar in verschillende Azure-services controleren. Voo
 | **Signaaltype** | **Bron van de monitor** | **Beschrijving** | 
 |-------------|----------------|-------------|
 | Gegevens | Monitor voor Azure | Ook wel [near-realtime metrische waarschuwingen](monitoring-near-real-time-metric-alerts.md), ze ondersteunen metrische voorwaarden zo vaak als 1 minuut evalueren en toestaan voor meerdere metrische en multidimensionale metrische regels. Er is een lijst met ondersteunde resourcetypen beschikbaar [hier](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported). |
-| Gegevens | Monitor voor Azure | [Oudere klassieke metrische waarschuwingen](monitoring-overview-alerts.md) worden niet ondersteund in de nieuwe ervaring voor waarschuwingen. U vindt deze onder waarschuwingen (klassiek) in de Azure portal. De klassieke waarschuwingen ondersteuning voor bepaalde typen metrische gegevens die nog niet is verplaatst naar de nieuwe waarschuwingen. Zie voor een volledige lijst [ondersteund metrische gegevens](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics)
+| Gegevens | Monitor voor Azure | [Oudere klassieke metrische waarschuwingen](monitoring-overview-alerts.md) worden niet ondersteund in de nieuwe ervaring voor waarschuwingen. U vindt deze onder waarschuwingen (klassiek) in de Azure portal. De klassieke waarschuwingen ondersteuning voor bepaalde typen metrische gegevens die nog niet is verplaatst naar de nieuwe waarschuwingen. Zie voor een volledige lijst [ondersteund metrische gegevens](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-supported-metrics)
 | Logboeken  | Log Analytics | Meldingen ontvangen of geautomatiseerde acties uitgevoerd wanneer een zoekquery logboek over metrische gegevens en/of gebeurtenis gegevens aan bepaalde criteria voldoet. Oudere Log Analytics-waarschuwingen zijn nog steeds beschikbaar, maar zijn [wordt gekopieerd naar de nieuwe ervaring](monitoring-alerts-extend.md). Bovendien een [voorbeeld bekijken van *logboekanalyse Logboeken als metrische gegevens* ](monitoring-alerts-extend-tool.md) is beschikbaar. De preview kunt u bepaalde typen logboeken nemen en deze converteren naar metrische gegevens, waar u kunt vervolgens een melding op deze met de nieuwe ervaring voor waarschuwingen. Het voorbeeld is handig als u niet-Azure-logboeken die u wilt ophalen naast systeemeigen Azure Monitor metrische gegevens hebt. |
 | Activiteitenlogboek | Activiteitenlogboeken (Algemeen) | Bevat de records van alle maken, bijwerken en verwijderen acties uitgevoerd via het geselecteerde doel (resource/resourcegroep groep /-abonnement). |
 | Activiteitenlogboek  | Service Health | Niet ondersteund in de nieuwe ervaring voor waarschuwingen. Zie [activiteit logboek waarschuwingen maken op servicemeldingen](monitoring-activity-log-alerts-on-service-notifications.md).  |

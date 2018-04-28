@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 055d8b1c9884c9525ba15ea9508ab00a5f48a048
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 59d6b960a40910b8b2fe72f6c3b149608ee8b8ad
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Met een Linux gegevens wetenschappelijke virtuele Machine in Azure voor gegevenswetenschap
 In dit scenario laat zien hoe u verschillende algemene gegevens wetenschappelijke taken met de virtuele Linux-gegevens van wetenschappelijke machine uitvoeren. Linux gegevens wetenschappelijke virtuele Machine (DSVM) is beschikbaar in Azure die vooraf worden geïnstalleerd met een verzameling hulpprogramma's die doorgaans gebruikt voor gegevensanalyse en machine learning op de installatiekopie van een virtuele machine. De belangrijke softwareonderdelen worden gespecificeerd in de [Linux gegevens wetenschap-Machine inrichten](linux-dsvm-intro.md) onderwerp. De VM-installatiekopie kunt eenvoudig aan de slag gegevenswetenschap in minuten, zonder te installeren en configureren van elk van de hulpprogramma's afzonderlijk doen. U kunt eenvoudig opschalen van de virtuele machine, indien nodig en stop de toepassing als deze niet in gebruik. Deze resource wordt dus elastische en betaalbare.
@@ -264,7 +264,7 @@ XGBoost kunnen ook aanroepen vanuit python of een opdrachtregel.
 Voor de ontwikkeling met behulp van Python, zijn de distributies Anaconda Python 2.7 en 3.5 geïnstalleerd in de DSVM.
 
 > [!NOTE]
-> Bevat de distributie Anaconda [Condas](http://conda.pydata.org/docs/index.html), die kan worden gebruikt voor het maken van aangepaste omgevingen voor Python die verschillende versies en/of geïnstalleerd in deze pakketten.
+> Bevat de distributie Anaconda [Conda](http://conda.pydata.org/docs/index.html), die kan worden gebruikt voor het maken van aangepaste omgevingen voor Python die verschillende versies en/of geïnstalleerd in deze pakketten.
 >
 >
 
@@ -316,6 +316,24 @@ Het model om naar te publiceren voor met AzureML:
 
 ## <a name="jupyterhub"></a>Jupyterhub
 De Anaconda-distributie in de DSVM wordt geleverd met een Jupyter-notebook een omgeving met meerdere platforms voor het delen van Python, R of Julia code en -analyse. De Jupyter-notebook toegankelijk is via JupyterHub. U zich aanmelden met uw lokale Linux-gebruikersnaam en wachtwoord op ***https://\<VM DNS-naam of IP-adres\>: 8000 /***. Alle configuratiebestanden voor JupyterHub zijn gevonden in map **/etc/jupyterhub**.
+
+> [!NOTE]
+> Gebruik de Python Package Manager (via de `pip` opdracht) van een Jupyter-notebook in de huidige kernel de volgende opdracht kan worden gebruikt in codecel, bijvoorbeeld:
+```python
+   import sys
+   ! {sys.executable} -m pip install numpy -y
+```
+>
+>
+
+> [!NOTE]
+> Met het installatieprogramma Conda (via de `conda` opdracht) van een Jupyter-notebook in de huidige kernel de volgende opdracht kan worden gebruikt in codecel, bijvoorbeeld:
+```python
+   import sys
+   ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
+```
+>
+>
 
 Verschillende voorbeeldquery notitieblokken zijn al geïnstalleerd op de virtuele machine:
 

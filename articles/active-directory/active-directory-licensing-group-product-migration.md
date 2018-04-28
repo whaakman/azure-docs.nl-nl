@@ -3,11 +3,11 @@ title: Hoe veilig om gebruikers te migreren tussen productlicenties door gebruik
 description: Beschrijft de aanbevolen procedure voor het migreren van gebruikers tussen verschillende productlicenties (Office 365 Enterprise E1 en E3) met behulp van Groepsbeleid-licentieverlening
 services: active-directory
 keywords: Azure AD-licentieverlening
-documentationcenter: 
+documentationcenter: ''
 author: piotrci
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/07/2018
 ms.author: piotrci
-ms.openlocfilehash: bb27b3fb739bbcea56026733b41e6cadf21b8953
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 068457044af7af7a55bdbcc4043da3028a68b2d0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-safely-migrate-users-between-product-licenses-by-using-group-based-licensing"></a>Hoe veilig om gebruikers te migreren tussen productlicenties door gebruik te maken op basis van een groep-licentieverlening
 
@@ -27,7 +27,7 @@ In dit artikel beschrijft de aanbevolen methode om gebruikers te verplaatsen tus
 
 -   Eenvoudige migratie tussen productlicenties die conflicterende service-abonnementen, zoals het migreren tussen Office 365 Enterprise E3 en Office 365 Enterprise E5 niet bevatten.
 
--   Complexere migratie tussen producten die bepaalde conflicterende service-abonnementen, zoals het migreren tussen Office 365 Enterprise E1 en Office 365 Enterprise E3 bevatten. Zie voor meer informatie over conflicten [serviceplannen conflicterende](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans) en [Service-plannen die kunnen niet worden toegewezen op hetzelfde moment](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-product-and-service-plan-reference#service-plans-that-cannot-be-assigned-at-the-same-time).
+-   Complexere migratie tussen producten die bepaalde conflicterende service-abonnementen, zoals het migreren tussen Office 365 Enterprise E1 en Office 365 Enterprise E3 bevatten. Zie voor meer informatie over conflicten [serviceplannen conflicterende](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans) en [Service-plannen die kunnen niet worden toegewezen op hetzelfde moment](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-product-and-service-plan-reference#service-plans-that-cannot-be-assigned-at-the-same-time).
 
 Dit artikel bevat voorbeeldcode PowerShell waarmee u de stappen voor migratie- en verificatiestappen uit te voeren. De code is vooral geschikt voor grootschalige bewerkingen waarbij is het niet mogelijk de stappen handmatig uitvoeren.
 
@@ -37,7 +37,7 @@ Voordat u de migratie begint, is het belangrijk om te controleren op dat bepaald
 -   Gebruikers hebben de *bron licentie* die toegewezen met behulp van Groepsbeleid-licentieverlening. De licenties voor het product te verlaten worden overgenomen van een groep één bron en zijn niet rechtstreeks worden toegewezen.
 
     >[!NOTE]
-    >Als u licenties zijn ook direct toegewezen, voorkomen zij dat de toepassing van de *doel licentie*. Meer informatie over [directe en groepeer de licentietoewijzing](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-advanced#direct-licenses-coexist-with-group-licenses). U wilt gebruiken een [PowerShell-script](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-ps-examples#check-if-user-license-is-assigned-directly-or-inherited-from-a-group) om te controleren of gebruikers directe licenties hebt.
+    >Als u licenties zijn ook direct toegewezen, voorkomen zij dat de toepassing van de *doel licentie*. Meer informatie over [directe en groepeer de licentietoewijzing](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-advanced#direct-licenses-coexist-with-group-licenses). U wilt gebruiken een [PowerShell-script](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-ps-examples#check-if-user-license-is-assigned-directly-or-inherited-from-a-group) om te controleren of gebruikers directe licenties hebt.
 
 -   U hebt onvoldoende beschikbare licenties voor het doelproduct. Als u niet voldoende licenties hebt, sommige gebruikers niet kunnen ophalen van de *doel licentie*. U kunt [Controleer het aantal beschikbare licenties](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products).
 
@@ -54,7 +54,7 @@ De migratie-doel is te gebruiken op basis van een groep licenties wijzigen gebru
 
 3.  Een batch gebruikers toevoegen aan de doelgroep. Op basis van een groep licentieverlening de wijziging wordt opgehaald en wijst de *doel licentie*. Een uitgebreide hoeveelheid tijd, afhankelijk van de grootte van de batch en andere activiteiten in de tenant in beslag kan nemen.
 
-4.  Controleer of dat de batch gebruikers volledig wordt verwerkt door de groep gebaseerde licentieverlening. Controleer of elke gebruiker heeft de *doel licentie* toegewezen. Controleer of de gebruikers niet in een foutstatus zoals veroorzaakt een conflict met andere producten of gebrek aan voldoende licenties terechtkomen. Zie voor meer informatie over fouten [Active Directory licentieverlening groep probleemoplossing](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal).
+4.  Controleer of dat de batch gebruikers volledig wordt verwerkt door de groep gebaseerde licentieverlening. Controleer of elke gebruiker heeft de *doel licentie* toegewezen. Controleer of de gebruikers niet in een foutstatus zoals veroorzaakt een conflict met andere producten of gebrek aan voldoende licenties terechtkomen. Zie voor meer informatie over fouten [Active Directory licentieverlening groep probleemoplossing](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal).
 
 5.  Gebruikers hebben beide op dit moment de *bron licentie* en *doel licentie* toegewezen.
 
@@ -175,7 +175,7 @@ Check passed for all users. Exiting check loop.
 ```
 
 ## <a name="migrate-users-between-products-that-have-conflicting-service-plans"></a>Gebruikers tussen producten waarvoor conflicterende serviceplannen migreren
-De migratie-doel is te gebruiken op basis van een groep licenties wijzigen gebruikerslicenties van een *bron licentie* (in dit voorbeeld: Office 365 Enterprise E1) naar een *doel licentie* (in dit voorbeeld: Office 365 Enterprise E3). De twee producten in dit scenario bevatten conflicterende serviceplannen, zodat u het conflict moet voor het migreren van de gebruikers naadloos omzeilen. Zie voor meer informatie over deze conflicten [Active Directory groep probleemoplossing licentieverlening: conflicterende serviceplannen](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans). Op geen enkel tijdens de migratie moeten gebruikers toegang tot services of gegevens verliezen. De migratie wordt uitgevoerd in kleine 'batches." U kunt de uitkomst voor elke batch valideren en beperken van het bereik van problemen die zich tijdens het proces voordoen mogelijk. Over het algemeen is het proces als volgt:
+De migratie-doel is te gebruiken op basis van een groep licenties wijzigen gebruikerslicenties van een *bron licentie* (in dit voorbeeld: Office 365 Enterprise E1) naar een *doel licentie* (in dit voorbeeld: Office 365 Enterprise E3). De twee producten in dit scenario bevatten conflicterende serviceplannen, zodat u het conflict moet voor het migreren van de gebruikers naadloos omzeilen. Zie voor meer informatie over deze conflicten [Active Directory groep probleemoplossing licentieverlening: conflicterende serviceplannen](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans). Op geen enkel tijdens de migratie moeten gebruikers toegang tot services of gegevens verliezen. De migratie wordt uitgevoerd in kleine 'batches." U kunt de uitkomst voor elke batch valideren en beperken van het bereik van problemen die zich tijdens het proces voordoen mogelijk. Over het algemeen is het proces als volgt:
 
 1.  Gebruikers lid zijn van een bronnengroep en nemen ze de *bron licentie* uit die groep.
 
@@ -183,7 +183,7 @@ De migratie-doel is te gebruiken op basis van een groep licenties wijzigen gebru
 
 3.  Een batch gebruikers toevoegen aan de doelgroep. Op basis van een groep licentieverlening de wijziging wordt opgehaald en wordt geprobeerd te geven de *doel licentie*. De toewijzing is mislukt als gevolg van conflicten tussen services in de twee producten. Op basis van een groep licentieverlening de fout wordt vastgelegd als een fout op elke gebruiker. Een uitgebreide hoeveelheid tijd, afhankelijk van de grootte van de batch en andere activiteiten in de tenant in beslag kan nemen.
 
-4.  Controleer of dat de batch gebruikers volledig wordt verwerkt door de groep gebaseerde licentieverlening. Controleer of elke gebruiker het conflict fout die is opgenomen. Controleer of sommige gebruikers niet met een onverwachte foutstatus eindigen. Zie voor meer informatie over fouten [Active Directory licentieverlening groep probleemoplossing](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal).
+4.  Controleer of dat de batch gebruikers volledig wordt verwerkt door de groep gebaseerde licentieverlening. Controleer of elke gebruiker het conflict fout die is opgenomen. Controleer of sommige gebruikers niet met een onverwachte foutstatus eindigen. Zie voor meer informatie over fouten [Active Directory licentieverlening groep probleemoplossing](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal).
 
 5.  Op dit moment gebruikers nog steeds de *bron licentie* en een conflict fout die bij de *doel licentie*. De gebruikers hoeven geen nog de *doel licentie* toegewezen.
 
@@ -317,7 +317,7 @@ Deze sectie bevat de PowerShell-code die is vereist voor het uitvoeren van scrip
 >[!WARNING]
 >Deze code is bedoeld als voorbeeld voor demonstratiedoeleinden. Als u van plan bent om deze te gebruiken in uw omgeving, kunt u de code eerst testen op kleine schaal of in een afzonderlijke testtenant. Mogelijk moet de code om te voldoen aan de specifieke behoeften van uw omgeving aanpassen.
 
-Volg de instructies in voor het uitvoeren van de code de [Azure AD PowerShell v1.0 bibliotheken](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0). Voordat u het script uitvoert, voert u de `connect-msolservice` cmdlet aan te melden bij de tenant.
+Volg de instructies in voor het uitvoeren van de code de [Azure AD PowerShell v1.0 bibliotheken](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0). Voordat u het script uitvoert, voert u de `connect-msolservice` cmdlet aan te melden bij de tenant.
 
 ```
 # BEGIN: Helper functions that are used in the scripts.

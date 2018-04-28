@@ -2,25 +2,25 @@
 title: Voorbeelden van beleid-sjabloon | Microsoft Docs
 description: JSON-voorbeelden voor Azure-beleid
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: azure-policy
 ms.devlang: na
 ms.topic: samples
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 01/17/2018
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 19641f3b1f2781cf23955743bf65172ff84fb544
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 0956f42812307f88e37ef12078a86eb85f407ce6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="templates-for-azure-policy"></a>Sjablonen voor Azure-beleid
 
@@ -37,7 +37,7 @@ De volgende tabel bevat koppelingen naar json-sjablonen voor Azure-beleid. Deze 
 | [VM-extensies toegestaan niet](scripts/not-allowed-vm-ext.md) | Het gebruik van de opgegeven extensies verbiedt. U opgeven een matrix met de extensietypen niet-toegestane. |
 | [Alleen een bepaalde VM platforminstallatiekopie toestaan](scripts/allow-certain-vm-image.md) | Moeten virtuele machines met een specifieke versie van UbuntuServer. |
 | [Virtuele machine maken met beheerde-schijf](scripts/use-managed-disk-vm.md) | Vereist dat virtuele machines gebruikmaken van beheerde schijven.|
-|**Monitoring**||
+|**Bewaking**||
 | [De diagnostische instelling audit](scripts/audit-diag-setting.md) | Audits als diagnostische instellingen niet ingeschakeld voor brontypen die is opgegeven. U een matrix van resourcetypen om te controleren of de diagnostische instellingen zijn ingeschakeld. |
 |**Naam en de tekst conventies**||
 | [Meerdere bestandsnaampatronen toestaan](scripts/allow-multiple-name-patterns.md) | Toestaan dat een groot aantal bestandsnaampatronen moet worden gebruikt voor resources. |
@@ -59,7 +59,7 @@ De volgende tabel bevat koppelingen naar json-sjablonen voor Azure-beleid. Deze 
 | [Gebruik goedgekeurde subnet voor VM-netwerkinterfaces](scripts/use-approved-subnet-vm-nics.md) | Moet netwerkinterfaces gebruiken een goedgekeurde subnet. U opgeven de ID van de goedgekeurde subnet. |
 | [Goedgekeurde vNet gebruiken voor VM-netwerkinterfaces](scripts/use-approved-vnet-vm-nics.md) | Vereist dat netwerkinterfaces een goedgekeurde virtueel netwerk gebruiken. U opgeven de ID van de goedgekeurde virtueel netwerk. |
 |**Tags**||
-| [Facturering labels beleid initiatief](scripts/billing-tags-policy-init.md) | Opgegeven labelwaarden vereist voor de naam van de center en het product van de kosten. Maakt gebruik van ingebouwde beleid wilt toepassen en afdwingen van de vereiste labels. Geeft u de vereiste waarden voor de labels.  |
+| [Facturering labels beleid initiatief](scripts/billing-tags-policy-init.md) | Opgegeven labelwaarden vereist voor de naam van de center en het product van de kosten. Er wordt gebruikgemaakt van ingebouwde beleidsregels om vereiste tags toe te passen en af te dwingen. U geeft de vereiste waarden voor de tags op.  |
 | [Afdwingen van code en de waarde ervan over resourcegroepen](scripts/enforce-tag-rg.md) | Vereist een label en de waarde van een resourcegroep. U opgeven de naam van het vereiste label en waarde.  |
 |**SQL**||
 | [Controle van SQL DB niveau instelling controleren](scripts/audit-sql-db-audit-setting.md) | Hiermee kunt u controle-instellingen voor SQL-database als deze instellingen komen niet overeen met een opgegeven waarde. U een waarde die aangeeft of controle-instellingen moeten worden ingeschakeld of uitgeschakeld.  |

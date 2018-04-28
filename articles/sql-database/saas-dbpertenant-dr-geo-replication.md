@@ -10,15 +10,15 @@ ms.custom: saas apps
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: ayolubek
-ms.openlocfilehash: c6f3da52643caa9aa1172db5b884c5336c409715
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3b2b1b767b26d844046d545e3d587621c5d14995
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Herstel na noodgevallen voor een multitenant SaaS-toepassing met behulp van de database geo-replicatie
 
-In deze zelfstudie maakt kennis u met een volledige noodherstelscenario voor een multitenant SaaS-toepassing geïmplementeerd met behulp van het model van de database per tenant. U gebruikt om te voorkomen dat de app een storing, [ _geo-replicatie_ ](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-geo-replication-overview) voor het maken van replica's voor de catalogus en tenant-databases in een regio alternatieve herstel. Als er een storing optreedt, failover u snel voor deze replica's normale zakelijke activiteiten te hervatten. Failover worden de databases in de oorspronkelijke regio secundaire replica's van de databases in de regio van het herstel. Wanneer deze replica's terug online achterstand ze automatisch in de status van de databases in de regio van het herstel. Nadat de onderbreking opgelost is, schakelt u terug naar de databases in de oorspronkelijke productieregio.
+In deze zelfstudie maakt kennis u met een volledige noodherstelscenario voor een multitenant SaaS-toepassing geïmplementeerd met behulp van het model van de database per tenant. U gebruikt om te voorkomen dat de app een storing, [ _geo-replicatie_ ](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) voor het maken van replica's voor de catalogus en tenant-databases in een regio alternatieve herstel. Als er een storing optreedt, failover u snel voor deze replica's normale zakelijke activiteiten te hervatten. Failover worden de databases in de oorspronkelijke regio secundaire replica's van de databases in de regio van het herstel. Wanneer deze replica's terug online achterstand ze automatisch in de status van de databases in de regio van het herstel. Nadat de onderbreking opgelost is, schakelt u terug naar de databases in de oorspronkelijke productieregio.
 
 Deze zelfstudie behandelt de failover en failback workflows. U leert hoe:
 > [!div classs="checklist"]
@@ -82,7 +82,7 @@ In deze zelfstudie maakt u eerst gebruiken geo-replicatie voor het maken van rep
 Later in een stap afzonderlijke repatriëring failover u van de catalogus en tenant-databases in de regio herstel naar de oorspronkelijke regio. De toepassing en de databases blijven beschikbaar in de hele repatriëring. Als u klaar is, is de toepassing is volledig functioneel in de oorspronkelijke regio.
 
 > [!Note]
-> De toepassing kunnen worden hersteld in de _gekoppelde regio_ van de regio waarin de toepassing wordt geïmplementeerd. Zie voor meer informatie [Azure regio's gekoppeld](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions).
+> De toepassing kunnen worden hersteld in de _gekoppelde regio_ van de regio waarin de toepassing wordt geïmplementeerd. Zie voor meer informatie [Azure regio's gekoppeld](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 ## <a name="review-the-healthy-state-of-the-application"></a>Controleer de status van de toepassing in orde
 
@@ -103,7 +103,7 @@ Voordat u het herstelproces start, controleert u de normale status in orde van d
 In deze taak start u een proces dat wordt gesynchroniseerd van de configuratie van de servers, elastische pools en databases die in de tenant-catalogus. Het proces houdt deze informatie bijgewerkt in de catalogus.  Het proces werkt met de actieve catalogus in de oorspronkelijke regio of in de regio van het herstel. De configuratie-informatie wordt gebruikt als onderdeel van het herstelproces om te controleren of de Herstelomgeving consistent met de originele omgeving is en vervolgens later tijdens repatriëring om te controleren of de oorspronkelijke regio consistent is gemaakt met eventuele wijzigingen de Herstelomgeving. De catalogus wordt ook gebruikt voor het bijhouden van de herstelstatus van tenantbronnen
 
 > [!IMPORTANT]
-> Ter vereenvoudiging zijn van het synchronisatieproces en andere langdurige herstel en repatriëring processen geïmplementeerd in deze zelfstudies als lokale Powershell-taken of sessies die worden uitgevoerd onder uw client-gebruikersaanmelding. De verificatietokens uitgegeven als u aanmelding na enkele uren verloopt en vervolgens de taken mislukken. In een productiescenario moeten langlopende processen worden geïmplementeerd als betrouwbare Azure-services type, uitgevoerd onder een service-principal. Zie [gebruik Azure PowerShell een service-principal maken met een certificaat](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal).
+> Ter vereenvoudiging zijn van het synchronisatieproces en andere langdurige herstel en repatriëring processen geïmplementeerd in deze zelfstudies als lokale Powershell-taken of sessies die worden uitgevoerd onder uw client-gebruikersaanmelding. De verificatietokens uitgegeven als u aanmelding na enkele uren verloopt en vervolgens de taken mislukken. In een productiescenario moeten langlopende processen worden geïmplementeerd als betrouwbare Azure-services type, uitgevoerd onder een service-principal. Zie [gebruik Azure PowerShell een service-principal maken met een certificaat](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
 
 1. In de _PowerShell ISE_, opent u het ...\Learning Modules\UserConfig.psm1-bestand. Vervang `<resourcegroup>` en `<user>` op regels 10 en 11 met de waarde die wordt gebruikt wanneer u de app hebt geïmplementeerd.  Sla het bestand!
 
@@ -181,7 +181,7 @@ Nu voorstellen dat er een storing in het gebied waarin de toepassing is geïmple
 
 2. Druk op **F5** om het script uit te voeren.  
     * Het script in een nieuw PowerShell-venster wordt geopend en start vervolgens een reeks PowerShell-taken die parallel worden uitgevoerd. Deze taken Failover-overschakeling tenant databases voor de regio van het herstel.
-    * De regio van het herstel is de _gekoppelde regio_ die zijn gekoppeld aan de Azure-regio waarin u de toepassing is geïmplementeerd. Zie voor meer informatie [Azure regio's gekoppeld](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions). 
+    * De regio van het herstel is de _gekoppelde regio_ die zijn gekoppeld aan de Azure-regio waarin u de toepassing is geïmplementeerd. Zie voor meer informatie [Azure regio's gekoppeld](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
 
 3. De status van het herstelproces in de PowerShell-venster bewaken.
     ![Failover-proces](media/saas-dbpertenant-dr-geo-replication/failover-process.png)
@@ -310,4 +310,4 @@ U kunt meer informatie over de technologieën Azure SQL database biedt om in te 
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Aanvullende zelfstudies waarin voort op de Wingtip SaaS-toepassing bouwen](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials)
+* [Aanvullende zelfstudies waarin voort op de Wingtip SaaS-toepassing bouwen](https://docs.microsoft.com/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials)

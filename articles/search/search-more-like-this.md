@@ -1,27 +1,23 @@
 ---
 title: moreLikeThis in Azure Search (preview) | Microsoft Docs
 description: Voorlopige documentatie voor de functie moreLikeThis (preview), worden weergegeven in de Azure Search REST-API.
-services: search
-documentationCenter: na
 authors: mhko
 manager: jlembicz
-editor: na
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 10/27/2016
 ms.author: nateko
-ms.openlocfilehash: 20f6a1166d47799f15275cb5b6a9ea4934ae57e2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 29d9a478ca2e91e658d7d0f52e7a193ba694bc16
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="morelikethis-in-azure-search-preview"></a>moreLikeThis in Azure Search (preview)
 
-`moreLikeThis=[key]`is een queryparameter in de [Search API](https://docs.microsoft.com/rest/api/searchservice/search-documents). Door op te geven de `moreLikeThis` parameter in een zoekopdracht kunt u documenten die vergelijkbaar met het document dat is opgegeven door de documentsleutel zijn zoeken. Wanneer een search-aanvraag wordt gedaan met `moreLikeThis`, een query is gegenereerd met opgehaald uit het opgegeven document zoektermen die dat document beste beschrijven. De gegenereerde query wordt vervolgens gebruikt voor het maken van de zoekopdracht. Standaard wordt de inhoud van alle `searchable` velden worden beschouwd als tenzij de `searchFields` parameter wordt gebruikt voor het beperken van de velden. De `moreLikeThis` parameter kan niet worden gebruikt met de zoekparameter `search=[string]`.
+`moreLikeThis=[key]` is een queryparameter in de [Search API](https://docs.microsoft.com/rest/api/searchservice/search-documents). Door op te geven de `moreLikeThis` parameter in een zoekopdracht kunt u documenten die vergelijkbaar met het document dat is opgegeven door de documentsleutel zijn zoeken. Wanneer een search-aanvraag wordt gedaan met `moreLikeThis`, een query is gegenereerd met opgehaald uit het opgegeven document zoektermen die dat document beste beschrijven. De gegenereerde query wordt vervolgens gebruikt voor het maken van de zoekopdracht. Standaard wordt de inhoud van alle `searchable` velden worden beschouwd als tenzij de `searchFields` parameter wordt gebruikt voor het beperken van de velden. De `moreLikeThis` parameter kan niet worden gebruikt met de zoekparameter `search=[string]`.
 
 ## <a name="examples"></a>Voorbeelden 
 

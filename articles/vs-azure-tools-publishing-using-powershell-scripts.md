@@ -2,23 +2,20 @@
 title: Windows PowerShell-Scripts gebruiken om te publiceren naar de ontwikkeling en testomgevingen | Microsoft Docs
 description: Informatie over het Windows PowerShell-scripts vanuit Visual Studio gebruiken om te publiceren naar de ontwikkeling en testen van omgevingen.
 services: visual-studio-online
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
-ms.assetid: 5fff1301-5469-4d97-be88-c85c30f837c1
-ms.service: multiple
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
+assetId: 5fff1301-5469-4d97-be88-c85c30f837c1
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 11/11/2016
 ms.author: ghogen
-ms.openlocfilehash: 58d1c8398e626544a7b02198ec0431203aedcc81
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 866575a483e705e1c972a0b56d98f26e9cf0c631
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="using-windows-powershell-scripts-to-publish-to-dev-and-test-environments"></a>Windows PowerShell-scripts gebruiken om ontwikkel- en testomgevingen te publiceren
 
@@ -321,22 +318,22 @@ Voor informatie over functies die u bij de opdrachtprompt van Windows PowerShell
 | Add-AzureWebsite |Hiermee maakt een website met de opgegeven naam en locatie. Deze functie roept de **nieuw AzureWebsite** functie in de Azure-module. Als het abonnement niet al een website met de opgegeven naam bevat, wordt deze functie wordt gemaakt van de website en een website-object geretourneerd. Anders is het resultaat `$null`. |
 | Back-up-abonnement |Hiermee slaat u het huidige Azure-abonnement in de `$Script:originalSubscription` variabele in script-bereik. Deze functie slaat de huidige Azure-abonnement (verkregen met `Get-AzureSubscription -Current`) en de storage-account en het abonnement dat door dit script wordt gewijzigd (opgeslagen in de variabele `$UserSpecifiedSubscription`) en de opslagaccount in script-bereik. Als u de waarden opslaat, kunt u een functie, zoals `Restore-Subscription`, om te herstellen van de oorspronkelijke huidige abonnement en storage-account naar de huidige status als de huidige status is gewijzigd. |
 | Find-AzureVM |Hiermee haalt u de opgegeven virtuele machine van Azure. |
-| Format-DevTestMessageWithTime |Voegt toe de datum en tijd aan een bericht. Deze functie is ontworpen voor berichten die naar de fout en uitgebreid stromen worden geschreven. |
+| Indeling DevTestMessageWithTime |Voegt toe de datum en tijd aan een bericht. Deze functie is ontworpen voor berichten die naar de fout en uitgebreid stromen worden geschreven. |
 | Get-AzureSQLDatabaseConnectionString |Ophaalprotocol een verbindingsreeks verbinding maken met een Azure SQL database. |
-| Get-AzureVMStorage |Retourneert de naam van het eerste storage-account met het naampatroon ' devtest*' (hoofdlettergevoelig) in de opgegeven locatie of affiniteitsgroep. Als de "devtest*' storage-account komt niet overeen met de locatie of affiniteitsgroep, de functie negeert deze. Geef een locatie of een affiniteitsgroep. |
+| Get-AzureVMStorage |Retourneert de naam van het eerste storage-account met het naampatroon ' devtest *' (hoofdlettergevoelig) in de opgegeven locatie of affiniteitsgroep. Als de "devtest*' storage-account komt niet overeen met de locatie of affiniteitsgroep, de functie negeert deze. Geef een locatie of een affiniteitsgroep. |
 | Get-MSDeployCmd |Retourneert een opdracht voor het hulpprogramma MsDeploy.exe uitvoeren. |
 | New-AzureVMEnvironment |Zoeken naar of maakt een virtuele machine in het abonnement dat overeenkomt met de waarden in het JSON-configuratiebestand. |
-| Publish-WebPackage |Maakt gebruik van MsDeploy.exe en een web-pakket niet publiceren. ZIP-bestand voor het implementeren van resources met een website. Deze functie biedt geen uitvoer gegenereerd. Als de aanroep van MSDeploy.exe mislukt, wordt de functie genereert een uitzondering. Als u meer gedetailleerde uitvoer, gebruikt de **-uitgebreide** optie. |
+| Publiceren WebPackage |Maakt gebruik van MsDeploy.exe en een web-pakket niet publiceren. ZIP-bestand voor het implementeren van resources met een website. Deze functie biedt geen uitvoer gegenereerd. Als de aanroep van MSDeploy.exe mislukt, wordt de functie genereert een uitzondering. Als u meer gedetailleerde uitvoer, gebruikt de **-uitgebreide** optie. |
 | Publish-WebPackageToVM |Controleert of de parameterwaarden en roept vervolgens de **publiceren WebPackage** functie. |
-| Read-ConfigFile |Valideert het JSON-configuratiebestand en retourneert een hashtabel met geselecteerde waarden. |
+| Lees ConfigFile |Valideert het JSON-configuratiebestand en retourneert een hashtabel met geselecteerde waarden. |
 | Restore-abonnement |Hiermee stelt het huidige abonnement op het oorspronkelijke abonnement. |
 | Test-AzureModule |Retourneert `$true` als de versie van de geïnstalleerde Azure module 0.7.4 of hoger. Retourneert `$false` als de module is niet geïnstalleerd of een eerdere versie. Deze functie heeft geen parameters. |
 | Test-AzureModuleVersion |Retourneert `$true` als de versie van de Azure-module 0.7.4 is of hoger. Retourneert `$false` als de module is niet geïnstalleerd of een eerdere versie. Deze functie heeft geen parameters. |
 | Test-HttpsUrl |De invoer-URL wordt omgezet in een System.Uri-object. Retourneert `$True` als de URL absoluut is en het bijbehorende schema https is. Retourneert `$false` als de URL relatief is, het schema is niet HTTPS of de ingevoerde tekenreeks kan niet worden geconverteerd naar een URL. |
-| Test-Member |Retourneert `$true` als een eigenschap of methode lid is van het object. Anders retourneert `$false`. |
-| Write-ErrorWithTime |Schrijft een foutbericht dat wordt voorafgegaan door de huidige tijd. Deze functie roept de **indeling DevTestMessageWithTime** functie toevoegen van de tijd voordat het bericht schrijven naar de stroom van de fout aan. |
+| Test-lid |Retourneert `$true` als een eigenschap of methode lid is van het object. Anders retourneert `$false`. |
+| Schrijven ErrorWithTime |Schrijft een foutbericht dat wordt voorafgegaan door de huidige tijd. Deze functie roept de **indeling DevTestMessageWithTime** functie toevoegen van de tijd voordat het bericht schrijven naar de stroom van de fout aan. |
 | Write-HostWithTime |Schrijft u een bericht naar het hostprogramma (**Write-Host**) voorafgegaan door de huidige tijd. Het effect van het schrijven naar het hostprogramma varieert. De meeste programma's die als host fungeren voor Windows PowerShell deze berichten schrijven naar de standaarduitvoer. |
-| Write-VerboseWithTime |Schrijft een uitgebreid bericht voorafgegaan door de huidige tijd. Omdat deze wordt aangeroepen **Write-Verbose**, het bericht geeft alleen wanneer het script wordt uitgevoerd met de **uitgebreid** parameter of wanneer de **VerbosePreference** voorkeur is ingesteld op  **Doorgaan**. |
+| Schrijven VerboseWithTime |Schrijft een uitgebreid bericht voorafgegaan door de huidige tijd. Omdat deze wordt aangeroepen **Write-Verbose**, het bericht geeft alleen wanneer het script wordt uitgevoerd met de **uitgebreid** parameter of wanneer de **VerbosePreference** voorkeur is ingesteld op  **Doorgaan**. |
 
 **Publish-WebApplication**
 
@@ -345,7 +342,7 @@ Voor informatie over functies die u bij de opdrachtprompt van Windows PowerShell
 | New-AzureWebApplicationEnvironment |Azure-resources, zoals een website of virtuele machine maakt. |
 | New-WebDeployPackage |Deze functie is niet geïmplementeerd. In deze functie om uw project te bouwen, kunt u opdrachten toevoegen. |
 | Publish-AzureWebApplication |Een webtoepassing naar Azure publiceert. |
-| Publish-WebApplication |Maakt en Web-Apps, virtuele machines, SQL-databases en storage-accounts voor een Visual Studio-webproject implementeert. |
+| Publiceren WebApplication |Maakt en Web-Apps, virtuele machines, SQL-databases en storage-accounts voor een Visual Studio-webproject implementeert. |
 | Test-WebApplication |Deze functie is niet geïmplementeerd. U kunt de opdrachten in deze functie voor het testen van uw toepassing toevoegen. |
 
 ## <a name="next-steps"></a>Volgende stappen

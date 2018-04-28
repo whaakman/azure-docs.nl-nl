@@ -1,4 +1,26 @@
-
+---
+title: bestand opnemen
+description: bestand opnemen
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: d407b015699925a6a3ce6ef9108ace1e9900303f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 04/28/2018
+---
 ## <a name="set-up-your-project"></a>Instellen van uw project
 
 In deze sectie u een nieuwe project maken om te laten zien hoe u een Windows Desktop .NET-toepassing (XAML) worden geïntegreerd met *aanmelden met Microsoft* zodat de toepassing kan Web-API's die een token vereisen een query.
@@ -6,7 +28,7 @@ In deze sectie u een nieuwe project maken om te laten zien hoe u een Windows Des
 De toepassing die u met deze handleiding maakt wordt weergegeven een knop die wordt gebruikt voor het aanroepen van een grafiek, een gebied om de resultaten op het scherm weer te geven en een knop Afmelden.
 
 > [!NOTE]
-> Voorkeur voor het downloaden van dit voorbeeld Visual Studio-project in plaats daarvan? [Downloaden van een project](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip), en ga verder met de [configuratiestap](#create-an-application-express) het codevoorbeeld configureren voordat u deze uitvoert.
+> Voorkeur voor het downloaden van dit voorbeeld Visual Studio-project in plaats daarvan? [Downloaden van een project](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip), en ga verder met de [configuratiestap](#register-your-application) het codevoorbeeld configureren voordat u deze uitvoert.
 >
 
 Voor het maken van uw toepassing, het volgende doen:
@@ -51,6 +73,7 @@ In deze stap maakt u een klasse voor het afhandelen van interactie met MSAL, zoa
     ```
 
 ## <a name="create-the-application-ui"></a>De UI-toepassing maken
+
 Deze sectie wordt beschreven hoe een toepassing een beveiligde back-endserver zoals Microsoft Graph kan een query. 
 
 Een *MainWindow.xaml* bestand automatisch moet worden gemaakt als onderdeel van uw project-sjabloon. Dit bestand openen en vervangt u uw toepassing  *\<raster >* knooppunt met de volgende code:

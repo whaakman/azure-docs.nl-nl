@@ -2,7 +2,7 @@
 title: Toepassingen van jokertekens in de Azure Active Directory-toepassingsproxy | Microsoft Docs
 description: Informatie over het gebruik van jokertekens toepassingen in de Azure Active Directory-toepassingsproxy.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: d5450da1-9e06-4d08-8146-011c84922ab5
@@ -15,11 +15,11 @@ ms.date: 02/06/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: f97b2541bb755a9b7ab8e3602dfad90f50ada740
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ebea5662017672ccbe911d4b9e7471aa081dd1bb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Toepassingen van jokertekens in de Azure Active Directory-toepassingsproxy 
 
@@ -70,7 +70,7 @@ Wanneer u aangepaste domeinen, moet u een DNS-vermelding maken met een CNAME-rec
 
 > `<yourAADTenantId>.tenant.runtime.msappproxy.net`
 
-Om te bevestigen dat u uw CNAME juist hebt geconfigureerd, kunt u [nslookup](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup) op een van de doeleindpunten, bijvoorbeeld `expenses.adventure-works.com`.  Uw antwoord bevatten de al genoemde alias (`<yourAADTenantId>.tenant.runtime.msappproxy.net`).
+Om te bevestigen dat u uw CNAME juist hebt geconfigureerd, kunt u [nslookup](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup) op een van de doeleindpunten, bijvoorbeeld `expenses.adventure-works.com`.  Uw antwoord bevatten de al genoemde alias (`<yourAADTenantId>.tenant.runtime.msappproxy.net`).
 
 
 ## <a name="considerations"></a>Overwegingen

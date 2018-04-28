@@ -2,12 +2,12 @@
 title: Azure Active Directory B2B-samenwerking Veelgestelde vragen | Microsoft Docs
 description: Vind antwoorden op veelgestelde vragen over Azure Active Directory B2B-samenwerking.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: twooley
 manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
@@ -16,18 +16,18 @@ ms.workload: identity
 ms.date: 03/06/2018
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 409bb14635afbfc6d31efd853837677c74851b41
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 2f039361bce9615e8b8b9aa62dc152db504a6dc1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B-samenwerking Veelgestelde vragen
 
 Deze Veelgestelde vragen over Azure Active Directory (Azure AD) business-to-business (B2B) samenwerking worden regelmatig bijgewerkt met nieuwe onderwerpen.
 
 ### <a name="can-we-customize-our-sign-in-page-so-it-is-more-intuitive-for-our-b2b-collaboration-guest-users"></a>Kunnen we onze aanmeldingspagina aanpassen zodat u meer intuïtieve van onze gastgebruikers B2B-samenwerking?
-Absolutely! Zie onze [blogbericht over deze functie](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Zie voor meer informatie over het aanpassen van de aanmeldingspagina van uw organisatie [huisstijl om aan te melden en de Toegangsvensterpagina's toevoegen](customize-branding.md).
+Absoluut! Zie onze [blogbericht over deze functie](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Zie voor meer informatie over het aanpassen van de aanmeldingspagina van uw organisatie [huisstijl om aan te melden en de Toegangsvensterpagina's toevoegen](customize-branding.md).
 
 ### <a name="can-b2b-collaboration-users-access-sharepoint-online-and-onedrive"></a>B2B-samenwerking gebruikers toegang tot SharePoint Online en OneDrive?
 Ja. De mogelijkheid om te zoeken naar bestaande gastgebruikers in SharePoint Online met behulp van de personen selecteren is echter **uit** standaard. U schakelt de optie om te zoeken naar bestaande gastgebruikers stellen **ShowPeoplePickerSuggestionsForGuestUsers** naar **op**. U kunt deze instelling inschakelen op het niveau van de tenant of op het niveau van de site. U kunt deze instelling wijzigen met behulp van de Set SPOTenant en Set-SPOSite-cmdlets. Met deze cmdlets kunnen leden alle bestaande gastgebruikers zoeken in de map. Wijzigingen in het tenantbereik is niet van invloed op SharePoint Online-sites die al zijn ingericht.
@@ -85,7 +85,7 @@ Ja. Hier volgen de belangrijke informatie voor selfservice voor wachtwoordherste
 Ja. Een wachtwoord opnieuw instellen van e-mailbericht kan die kunnen gebruikers hun wachtwoord opnieuw instellen in de JIT-tenancymodus worden verzonden.
 
 ### <a name="does-microsoft-dynamics-365-provide-online-support-for-azure-ad-b2b-collaboration"></a>Biedt Microsoft Dynamics 365 online ondersteuning voor Azure AD B2B-samenwerking?
-Ja, biedt Dynamics 365 (online) ondersteuning voor Azure AD B2B-samenwerking. Zie voor meer informatie het artikel Dynamics 365 [gebruikers met Azure AD B2B-samenwerking uitnodigen](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
+Ja, biedt Dynamics 365 (online) ondersteuning voor Azure AD B2B-samenwerking. Zie voor meer informatie het artikel Dynamics 365 [gebruikers met Azure AD B2B-samenwerking uitnodigen](https://docs.microsoft.com/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
 
 ### <a name="what-is-the-lifetime-of-an-initial-password-for-a-newly-created-b2b-collaboration-user"></a>Wat is de levensduur van een eerste wachtwoord voor een nieuwe gebruiker voor B2B-samenwerking?
 Azure AD heeft een vaste set van teken, Wachtwoordsterkte en account lockout vereisten die gelden voor zowel alle Azure AD cloud gebruikersaccounts. Cloud-gebruikersaccounts zijn accounts die zijn niet federatief met een andere id-provider, zoals 

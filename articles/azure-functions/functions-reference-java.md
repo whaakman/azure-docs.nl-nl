@@ -13,15 +13,13 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw
-ms.openlocfilehash: 71576e65d20d7e8cb7f5ff1c5f19c82439bb6807
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3f63cb5a16b74458f9b53fddaea13a61ec1196a5
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java-handleiding voor ontwikkelaars
-> [!div class="op_single_selector"]
-[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
 
 ## <a name="programming-model"></a>Programmeermodel 
 
@@ -39,7 +37,7 @@ CosmosDB | N/A
 HTTP | <ul><li>`HttpTrigger`</li><li>`HttpOutput`</li></ul>
 Mobile Apps | N/A
 Notification Hubs | N/A
-Storage Blob | <ul><li>`BlobTrigger`</li><li>`BlobInput`</li><li>`BlobOutput`</li></ul>
+Storage-Blob | <ul><li>`BlobTrigger`</li><li>`BlobInput`</li><li>`BlobOutput`</li></ul>
 Opslagwachtrij | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li></ul>
 Table Storage | <ul><li>`TableInput`</li><li>`TableOutput`</li></ul>
 Timer | <ul><li>`TimerTrigger`</li></ul>
@@ -272,7 +270,7 @@ Soms moet u een functie controle over in- en uitgangen hebt gedetailleerde. Spec
 
 | Speciaal Type      |       Doel        | Typische gebruiksscenario                  |
 | --------------------- | :-----------------: | ------------------------------ |
-| `HttpRequestMessage<T>`  |    HTTP Trigger     | Methode, kopteksten of query's ophalen |
+| `HttpRequestMessage<T>`  |    HTTP-Trigger     | Methode, kopteksten of query's ophalen |
 | `HttpResponseMessage<T>` | HTTP-uitvoer Binding | Geretourneerde status dan 200   |
 
 > [!NOTE] 

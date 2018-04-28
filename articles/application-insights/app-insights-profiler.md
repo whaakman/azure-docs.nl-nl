@@ -2,7 +2,7 @@
 title: Live web-apps in Azure met Application Insights Profiler profiel | Microsoft Docs
 description: Identificeer de hot pad in uw web server-code met een lage footprint profiler.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: c65ef9141898369b8fcadd4c52972b767aca7cfe
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: a4b1e30f1350a5e5886899069b05b8b87bb7000d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Profiel live Azure-web-apps met Application Insights
 
@@ -63,7 +63,7 @@ Zie voor meer informatie, de [preview-versie van de Profiler voor Azure-rekenres
 
 ## <a name="view-profiler-data"></a>Gegevens van de profiler weergeven
 
-Zorg ervoor dat uw toepassing verkeer ontvangt. Als u een experiment doet, kunt u aanvragen genereren naar uw app met [Application Insights-prestatietests](https://docs.microsoft.com/en-us/vsts/load-test/app-service-web-app-performance-test). Als u hebt zojuist Profiler ingeschakeld, kunt u een korte belastingstest ongeveer 15 minuten, die moeten worden gegenereerd profiler traceringen uitvoeren. Als u al ingeschakeld voor een tijdje Profiler had, is Houd er rekening mee dat de Profiler wordt uitgevoerd willekeurig twee keer om het uur en gedurende een periode van twee minuten elke keer dat deze wordt uitgevoerd. Het is raadzaam om de eerste uitvoering van de load-test voor één uur om ervoor te zorgen dat u voorbeeld profiler traceringen.
+Zorg ervoor dat uw toepassing verkeer ontvangt. Als u een experiment doet, kunt u aanvragen genereren naar uw app met [Application Insights-prestatietests](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Als u hebt zojuist Profiler ingeschakeld, kunt u een korte belastingstest ongeveer 15 minuten, die moeten worden gegenereerd profiler traceringen uitvoeren. Als u al ingeschakeld voor een tijdje Profiler had, is Houd er rekening mee dat de Profiler wordt uitgevoerd willekeurig twee keer om het uur en gedurende een periode van twee minuten elke keer dat deze wordt uitgevoerd. Het is raadzaam om de eerste uitvoering van de load-test voor één uur om ervoor te zorgen dat u voorbeeld profiler traceringen.
 
 Nadat u uw toepassing verkeer ontvangt, gaat u naar de **prestaties** deelvenster **acties ondernemen** profiler traceringen weergeven en selecteer vervolgens de **Profiler traceringen** knop.
 
@@ -187,7 +187,7 @@ Als u parallelle threads in uw traceringen zien, kunt u bepalen welke threads wa
 Hier volgen enkele dingen die u kunt controleren:
 
 * Als de gegevens die u probeert weer te geven ouder dan een paar weken is, kunt u uw tijdfilter beperken en probeer het opnieuw.
-* Zorg ervoor dat proxy of firewall niet hebben toegang tot https://gateway.azureserviceprofiler.net is geblokkeerd.
+* Zorg ervoor dat proxy of firewall niet hebben toegang tot geblokkeerd https://gateway.azureserviceprofiler.net.
 * Zorg ervoor dat de Application Insights-instrumentatiesleutel die u in uw app werkt hetzelfde als de Application Insights-resource die u voor ingeschakelde profilering gebruikt. De sleutel bevindt zich doorgaans in het bestand ApplicationInsights.config is, maar mogelijk ook in het bestand web.config of app.config.
 
 ### <a name="error-report-in-the-profiling-viewer"></a>Foutrapport in de viewer voor profielservices gegeven
@@ -311,7 +311,7 @@ Hoewel deze methode is betrekkelijk eenvoudig, overweeg dan het volgende:
 
 * De functie webtaken van Web-Apps is uniek. Wanneer deze de web-taak wordt uitgevoerd, zorgt u ervoor dat uw proces heeft de dezelfde omgevingsvariabelen en appinstellingen die uw website. Dit betekent dat u niet wilt de instrumentatiesleutel via de opdrachtregel doorgegeven aan Profiler. Profiler moet de instrumentatiesleutel uit de omgeving kunnen worden opgepikt. Als u wilt de Profiler uitgevoerd op de box dev of op een computer buiten de Web-Apps, moet u een instrumentatiesleutel opgeeft. U kunt dit doen door een argument wordt doorgegeven `--ikey <instrumentation-key>`. Deze waarde moet overeenkomen met de instrumentatiesleutel die uw toepassing wordt gebruikt. De uitvoer van de logboekbestanden van de Profiler leest u welke ikey Profiler met gestart en of er activiteit uit die instrumentatiesleutel gedetecteerd tijdens het we zijn profilering.
 
-* Handmatig triggered webtaken kunnen worden geactiveerd via Web haakje. U kunt deze URL door met de rechtermuisknop op de web-taak op het dashboard en de eigenschappen weer te geven. Of u kunt selecteren in de werkbalk **eigenschappen** nadat u de web-taak hebt geselecteerd in de tabel. Deze aanpak oneindig veel mogelijkheden, zoals de Profiler activatie van uw pijplijn CI/CD (zoals VSTS) of iets zoals Microsoft Flow (https://flow.microsoft.com/en-us/) wordt geopend. Uiteindelijk uw keuze is afhankelijk van hoe complexe dat u wilt maken uw *run.cmd* bestand (dit kan ook worden veroorzaakt een *run.ps1* bestand), maar is er de flexibiliteit.
+* Handmatig triggered webtaken kunnen worden geactiveerd via Web haakje. U kunt deze URL door met de rechtermuisknop op de web-taak op het dashboard en de eigenschappen weer te geven. Of u kunt selecteren in de werkbalk **eigenschappen** nadat u de web-taak hebt geselecteerd in de tabel. Deze aanpak wordt geopend oneindig veel mogelijkheden, zoals de Profiler activatie van uw pijplijn CI/CD (zoals VSTS) of iets zoals Microsoft Flow (https://flow.microsoft.com/en-us/). Uiteindelijk uw keuze is afhankelijk van hoe complexe dat u wilt maken uw *run.cmd* bestand (dit kan ook worden veroorzaakt een *run.ps1* bestand), maar is er de flexibiliteit.
 
 ## <a name="next-steps"></a>Volgende stappen
 

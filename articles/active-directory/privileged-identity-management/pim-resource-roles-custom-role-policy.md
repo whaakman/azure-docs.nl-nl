@@ -1,6 +1,6 @@
 ---
-title: Privileged Identity Management voor Resources in Azure - gebruik van aangepaste rollen naar doel PIM-instellingen | Microsoft Docs
-description: Beschrijft hoe u aangepaste rollen in PIM voor Azure-resources.
+title: Aangepaste rollen voor Privileged Identity Management-doelinstellingen gebruiken voor Azure-resources | Microsoft Docs
+description: Beschrijft hoe u aangepaste rollen voor Azure-resources met PIM.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -12,37 +12,39 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/30/2018
 ms.author: billmath
-ms.openlocfilehash: 6336d99df1bbdd71c66a9757af1d9fb356a91bf6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e3df34e761f17aa3c1949af390e57360d84a304f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="use-custom-roles-to-target-pim-settings"></a>Gebruik aangepaste rollen naar doel PIM-instellingen
+# <a name="use-custom-roles-to-target-privileged-identity-management-settings"></a>Aangepaste rollen voor Privileged Identity Management-doelinstellingen gebruiken
 
-Mogelijk strenge PIM-instellingen toepassen op een aantal leden van een rol, terwijl er meer autonomie voor anderen. Neem bijvoorbeeld een scenario waarbij uw organisatie huurt sevral contract gekoppeld om te helpen bij het ontwikkelen van een toepassing die wordt uitgevoerd in een Azure-abonnement. 
+Mogelijk moet u strikte Privileged Identity Management (PIM)-instellingen toepassen op een aantal leden van een rol, terwijl er meer autonomie voor anderen. Neem bijvoorbeeld een scenario waarin huurt van uw organisatie verschillende contract gekoppeld om te helpen bij het ontwikkelen van een toepassing die wordt uitgevoerd in een Azure-abonnement.
 
-Als de resourcebeheerder van een, u wilt dat werknemers van uw organisatie in aanmerking komende toegang zonder goedkeuring nodig hebben, maar alle contract gekoppeld goedkeuring vragen bij het aanvragen van activering. Volg de stappen hieronder overzicht het proces voor het beoogde PIM-instellingen voor Azure-resource-functies inschakelen.
+Als de resourcebeheerder van een wilt u werknemers in aanmerking komen voor toegang zonder goedkeuring. Alle contract gekoppeld moeten echter worden goedgekeurd bij het aanvragen van toegang tot bronnen van de organisatie.
+
+Volg de stappen die worden beschreven in de volgende sectie voor het instellen van gerichte PIM-instellingen voor Azure-resourcerollen.
 
 ## <a name="create-the-custom-role"></a>De aangepaste rol maken
 
-[Gebruik deze handleiding voor het maken van een aangepaste rol voor een resource](../../role-based-access-control/custom-roles.md).
+Volg de stappen in voor het maken van een aangepaste rol voor een resource [aangepaste rollen maken voor op rollen gebaseerd toegangsbeheer](../role-based-access-control-custom-roles.md).
 
-Een beschrijvende naam bevatten zodat u gemakkelijk te onthouden welke ingebouwde rol die u wilde dupliceren.
+Wanneer u aangepaste rol maakt, bevatten een beschrijvende naam zodat u gemakkelijk te onthouden welke ingebouwde rol die u wilde dupliceren.
 
->[!NOTE]
->Zorg ervoor dat de aangepaste rol is een duplicaat van de rol die u hebt aangebracht, en het bereik komt overeen met de ingebouwde rol.
+> [!NOTE]
+> Zorg ervoor dat de aangepaste rol is een duplicaat van de ingebouwde rol die u wilt dupliceren en de ingebouwde functie komt overeen met het bereik.
 
 ## <a name="apply-pim-settings"></a>PIM-instellingen toepassen
 
-Zodra de rol in uw tenant is gemaakt, gaat u naar PIM en selecteert u de resource die de rol is afgestemd op.
+Nadat u de rol is gemaakt in uw tenant, in de Azure portal, gaat u naar de **Privileged Identity Management - Azure-resources** deelvenster. Selecteer de resource die de rol van toepassing op.
 
-![](media/azure-pim-resource-rbac/aadpim_manage_azure_resource_some_there.png)
+![De 'Privileged Identity Management - Azure-resources' deelvenster](media/azure-pim-resource-rbac/aadpim_manage_azure_resource_some_there.png)
 
-[PIM-rollen configureren](pim-resource-roles-configure-role-settings.md) die worden toegepast op deze leden
+[PIM-rollen configureren](pim-resource-roles-configure-role-settings.md) die worden toegepast op leden van de rol.
 
-Ten slotte [rollen toewijzen](pim-resource-roles-assign-roles.md) aan de afzonderlijke groep van leden met deze instellingen wilt richten.
+Ten slotte [rollen toewijzen](pim-resource-roles-assign-roles.md) tot de afzonderlijke groep leden die u met deze instellingen wilt richten.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Bekijk de eigenaars van abonnement](pim-resource-roles-perform-access-review.md)
+[Bekijk abonnementseigenaren en -toegang](pim-resource-roles-perform-access-review.md)

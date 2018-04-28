@@ -1,25 +1,18 @@
 ---
 title: Video's, voorbeelden en zelfstudies in Azure Search | Microsoft Docs
-description: Centrale lijst met alle video's, voorbeelden, demo's en zelfstudies voor Azure Search, een gehoste cloud-service op MIcrosoft Azure is gemaakt.
-services: search
-documentationcenter: 
+description: Centrale lijst met alle video's, voorbeelden, demo's en zelfstudies voor Azure Search, een gehoste cloud-service op Microsoft Azure is gemaakt.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-tags: azure-portal
-ms.assetid: 4ffa17a3-9e2b-4172-ad77-30c6a1354b24
+manager: cgronlun
+services: search
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 06/06/2017
 ms.author: heidist
-ms.openlocfilehash: bb4cb64260f489e1b316140e4214933cf2b334cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e71a8abcebb95f2d34dee2f26dc2c7f341465a55
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-search-code-samples-demos-videos-and-tutorials"></a>Azure Search: codevoorbeelden, demo's, video's en zelfstudies
 Lees sneller met de volgende video's, demo's, zelfstudies en voorbeeld-apps.
@@ -31,7 +24,7 @@ Start hier als u niet bekend met Azure Search bent. U kunt al deze resources wee
 | Titel | Beschrijving | Date |
 |-------|-------------|------|
 | [Bekijk deze video-Inleiding](https://channel9.msdn.com/Events/Connect/2016/138) | 9m38s Inleiding tot functies, services te maken en query's. | November 2016 |
-| [Een service maken](search-get-started-portal.md) | Stappen voor het instellen van Azure Search in de portal. | Februari 2017 |
+| [ Een service maken](search-get-started-portal.md) | Stappen voor het instellen van Azure Search in de portal. | Februari 2017 |
 | [Query uitvoeren in een index](search-get-started-portal.md) | Maken en query uitvoeren in een index met ingebouwde voorbeeldgegevens. Hulpprogramma's in de portal zijn een snelle manier om te leren kennen querytypen en zoeken van parameters. | Februari 2017 |
 | [Volgende stap:<br/> Code in .NET](search-howto-dotnet-sdk.md) | C# walkthrough laat zien hoe u verbinding maakt, index en query uitvoert met behulp van de Azure Search .NET-bibliotheek. | November 2016 |
 | [Volgende stap:<br/> Code in de REST](search-create-index-rest-api.md) | Bekijk de REST-aanroepen en JSON-nettoladingen voor het maken van een Azure Search-index op elk platform en programmeertaal. | December 2016 |

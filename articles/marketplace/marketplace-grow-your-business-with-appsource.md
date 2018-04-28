@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: ellacroi
-ms.openlocfilehash: de7716a540737d4f2cc6f0f495180533ef6aa90a
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: f0d9739dda608b7c49ff9a8fbd93d08b301c0b9c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="grow-your-business-with-appsource"></a>Uw bedrijf met AppSource uitbreiden
 Zowel Azure Marketplace en AppSource zijn de startende punten voor gezamenlijke Ga op de markt activiteiten met Microsoft en een vliegwiel voor zakelijke groei. Launch-promotie, genereren van de vraag en gemeenschappelijke verkoop en marketing gebruikt, mag uw marketplace-aanbieding de spil van uw cloud-business-engine. Er zijn geen kosten voor deelname. Microsoft-klanten Bezoek onze marktplaatsen cloud elke dag om te zoeken naar de juiste apps en services te verbeteren van hun bedrijf. Ons doel is om te verbinden van organisaties met de oplossingen en services van Microsoft en onze ecosysteem voor partners. 
@@ -117,7 +117,7 @@ Deze parameters toevoegen aan uw AppSource-URL, kunt u de effectiviteit van uw c
 
 #### <a name="marketplace-gtm-benefits"></a>Marketplace GTM voordelen 
 
-Er zijn nieuwe vermeldingen in AppSource in aanmerking voor gratis marketplace GTM voordelen. Zodra vermeld, wordt ons team van marketing specialisten u bereiken en werken met uw marketing contact op met aan het begin van deze activiteiten. De activiteiten die wij verschillen, afhankelijk van de oplossingsstatus van uw in onze marketplace. Voordelen voor aanbiedingen die worden geleverd met een evaluatieversie vergroten. Microsoft Gold partners hebben toegang tot extra voordelen. Optimaliseer de impact van deze activiteiten, raden we u aan uw plan starten kan worden uitgevoerd hebben. U wilt gebruikmaken van de startpagina voor veel van deze tactieken. Houd er rekening mee dat een commerciële Partner (OCP) Catalog een voordeel van de leden in het Microsoft Partner Network is. Zie voor instructies over het bouwen van de startpagina van een geweldige [bouwen van een uitstekende aanvoer pagina](https://docs.microsoft.com/en-us/azure/marketplace/grow-your-business-azure-marketplace#build-a-great-landing-page). Voor extra sjablonen, webinhoud, training en hulpprogramma's voor uw bedrijf promoten inclusief Ga op de markt ondersteuning gaat u naar [ https://www.MicrosoftGoToMarket.com ](https://www.MicrosoftGoToMarket.com). 
+Er zijn nieuwe vermeldingen in AppSource in aanmerking voor gratis marketplace GTM voordelen. Zodra vermeld, wordt ons team van marketing specialisten u bereiken en werken met uw marketing contact op met aan het begin van deze activiteiten. De activiteiten die wij verschillen, afhankelijk van de oplossingsstatus van uw in onze marketplace. Voordelen voor aanbiedingen die worden geleverd met een evaluatieversie vergroten. Microsoft Gold partners hebben toegang tot extra voordelen. Optimaliseer de impact van deze activiteiten, raden we u aan uw plan starten kan worden uitgevoerd hebben. U wilt gebruikmaken van de startpagina voor veel van deze tactieken. Houd er rekening mee dat een commerciële Partner (OCP) Catalog een voordeel van de leden in het Microsoft Partner Network is. Zie voor instructies over het bouwen van de startpagina van een geweldige [bouwen van een uitstekende aanvoer pagina](https://docs.microsoft.com/azure/marketplace/grow-your-business-azure-marketplace#build-a-great-landing-page). Voor extra sjablonen, webinhoud, training en hulpprogramma's voor uw bedrijf promoten inclusief Ga op de markt ondersteuning gaat u naar [ https://www.MicrosoftGoToMarket.com ](https://www.MicrosoftGoToMarket.com). 
 
 #### <a name="enable-lead-sharing"></a>Schakel het delen van lead 
 Zorg ervoor dat de lead management is ingeschakeld in uw Marketplace-aanbieding zodat u de contactgegevens van zakelijke gebruikers die uw apps probeer of geïnteresseerd bent in de services ontvangt. Deze leads vormen de basis voor externe voor nurture campagnes, verkoop bewegingen door uw veld verkopers en informatie over hoe uw aanbieding wordt uitgevoerd. Aanbevolen procedures voor het gebruik van deze leads zijn onder andere:

@@ -5,21 +5,19 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 84475302-EFC2-4C35-B4CF-60C857A96345
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/02/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 09a774e5dda71d87c3862a6152ff5d2c9468c40c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5b881c17b6ad1c9a7e46492f8549f563cfd6d796
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>API-versie profielen met gaat u in Azure-Stack gebruiken
 
@@ -82,7 +80,7 @@ Een voorbeeld van code gaat uitvoeren op Azure-Stack:
   ```
 
   3. Als niet beschikbaar is, een abonnement maken en opslaan van de abonnements-ID moet later worden gebruikt. Zie voor meer informatie over het maken van een abonnement [abonnementen op aanbiedingen maken in Azure-Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm). 
-  4. Een service-principal maken met ' abonnementsbereik ' en **eigenaar** rol. De service-principal-ID en geheim opslaan. Zie voor meer informatie over het maken van een service-principal voor Azure-Stack [service-principal maken](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-azure-ad). Uw Azure-Stack-omgeving is ingesteld.
+  4. Een service-principal maken met ' abonnementsbereik ' en **eigenaar** rol. De service-principals Sla-ID en geheim. Zie voor meer informatie over het maken van een service-principal voor Azure-Stack [service-principal maken](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-azure-ad). Uw Azure-Stack-omgeving is ingesteld.
   5. Een servicemodule importeren uit profiel SDK gaat u in uw code. De huidige versie van Azure-Stack-profiel is **2017-03-09**. Bijvoorbeeld, netwerk-module van importeren **2017-03-09** profieltype: 
 
   ````go
@@ -129,7 +127,7 @@ De Authorizer moet worden ingesteld als de authorizer voor de resource-client. E
 
 Deze sectie geeft een veelgebruikte manier voor het verkrijgen van authorizer tokens op Azure-Stack door middel van de clientreferenties:
 
-  1. Als een service-principal met de rol van eigenaar voor het abonnement beschikbaar is, moet u deze stap overslaan. Anders maakt u een service-principal [instructies]( https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals) en wijs deze schijf een 'eigenaar'-rol binnen het bereik van uw abonnement [instructies]( https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal). Sla het service-principal toepassings-ID en het geheim. 
+  1. Als een service-principal met de rol van eigenaar voor het abonnement beschikbaar is, moet u deze stap overslaan. Anders maakt u een service-principal [instructies]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals) en wijs deze schijf een 'eigenaar'-rol binnen het bereik van uw abonnement [instructies]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal). Sla het service-principal toepassings-ID en het geheim. 
 
   2. Importeren **adal** pakket van Ga AutoRest in uw code. 
   

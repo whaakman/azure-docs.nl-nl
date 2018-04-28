@@ -1,22 +1,22 @@
 ---
 title: Documentatie voor Azure Advisor - zelfstudies | Microsoft Docs
-description: 
+description: ''
 services: advisor
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: advisor
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 29aa1bfcc0060e456c1e4b4b13ff7857fcff8373
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: b7bf7931bcf25e03430218c973ba8e283738d64c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-advisor-documentation"></a>Documentatie voor Azure Advisor
 
@@ -42,7 +42,7 @@ Azure Advisor is een persoonlijke cloudconsultant die u helpt aanbevolen procedu
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/resources/videos/index/?services=advisor">
+        <a href="https://azure.microsoft.com/resources/videos/index/?services=advisor">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -88,7 +88,7 @@ Azure Advisor is een persoonlijke cloudconsultant die u helpt aanbevolen procedu
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>REST API</h3>
+                        <h3>REST-API</h3>
                         <p><a href="/rest/api/advisor">Naslaginformatie over REST-API</a></p>
                         <h3>CLI</h3>
                         <p><a href="/cli/azure/advisor">Naslaginformatie over de CLI</a></p>

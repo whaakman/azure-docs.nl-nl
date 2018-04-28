@@ -28,7 +28,7 @@
 # Naslaginformatie
 ## API's
 ### [REST API's voor Azure Resource Management](https://docs.microsoft.com/rest/api/power-bi-embedded/)
-### [REST-API's voor Power BI](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
+### [REST-API's voor Power BI](https://msdn.microsoft.com/library/mt147898.aspx)
 
 # Resources
 ## [Power BI-community](http://community.powerbi.com/t5/Developer/bd-p/Developer)

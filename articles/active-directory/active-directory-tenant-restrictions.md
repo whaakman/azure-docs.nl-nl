@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2018
 ms.author: kgremban
-ms.openlocfilehash: a6b498b38e76dfa2553bf3a916b723cd774d950d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: dae4599db5127ac8fd266d5e0f299e1284fc9b9c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Gebruik Tenant beperkingen voor het beheren van toegang tot SaaS cloudtoepassingen
 
@@ -28,7 +28,7 @@ Azure Active Directory-oplossing voor dit probleem is een functie beperkingen va
 
 Beperkingen van de tenant biedt organisaties de mogelijkheid om op te geven van de lijst met tenants die de gebruikers zijn gemachtigd voor toegang tot. Azure AD vervolgens verleent alleen toegang tot deze tenants toegestaan.
 
-In dit artikel is gericht op de Tenant beperkingen voor Office 365, maar de functie moet samenwerken met elke SaaS-cloud-app die gebruikmaakt van moderne verificatieprotocollen met Azure AD voor eenmalige aanmelding. Als u de SaaS-apps met een andere Azure AD-van de tenant die wordt gebruikt door Office 365 tenant gebruikt, zorg ervoor dat alle vereiste tenants zijn toegestaan. Zie voor meer informatie over SaaS-cloud-apps, de [Active Directory Marketplace](https://azure.microsoft.com/en-us/marketplace/active-directory/).
+In dit artikel is gericht op de Tenant beperkingen voor Office 365, maar de functie moet samenwerken met elke SaaS-cloud-app die gebruikmaakt van moderne verificatieprotocollen met Azure AD voor eenmalige aanmelding. Als u de SaaS-apps met een andere Azure AD-van de tenant die wordt gebruikt door Office 365 tenant gebruikt, zorg ervoor dat alle vereiste tenants zijn toegestaan. Zie voor meer informatie over SaaS-cloud-apps, de [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/).
 
 ## <a name="how-it-works"></a>Hoe werkt het?
 

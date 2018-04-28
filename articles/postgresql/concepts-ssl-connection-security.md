@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.custom: ''
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 0a4a7041a905470f895921cfedf2bd94e8466966
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: f3efb99ddb47f167a0d9cbef064890e817a18841
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>SSL-verbindingen in de Azure-Database configureren voor PostgreSQL
 Azure-Database voor PostgreSQL verkiest verbinding maken met uw clienttoepassingen naar de PostgreSQL-service met Secure Sockets Layer (SSL). Het afdwingen van SSL-verbindingen tussen uw databaseserver en clienttoepassingen zorgt dat u bent beschermt tegen 'man in the middle'-aanvallen omdat de gegevensstroom tussen de server en uw toepassing wordt versleuteld.
@@ -98,7 +98,7 @@ OpenSSL 1.1.0e 7 Apr 2014
 
 #### <a name="for-windows"></a>Voor Windows
 OpenSSL installeren op een Windows-PC kan worden uitgevoerd in de volgende manieren:
-1. **(Aanbevolen)**  Met behulp van de ingebouwde Bash voor Windows-functionaliteit in Windows 10 en hoger, OpenSSL wordt standaard geïnstalleerd. Vindt u instructies voor het inschakelen van Bash voor Windows-functionaliteit in Windows 10- [hier](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide).
+1. **(Aanbevolen)**  Met behulp van de ingebouwde Bash voor Windows-functionaliteit in Windows 10 en hoger, OpenSSL wordt standaard geïnstalleerd. Vindt u instructies voor het inschakelen van Bash voor Windows-functionaliteit in Windows 10- [hier](https://msdn.microsoft.com/commandline/wsl/install_guide).
 2. Via het downloaden van een toepassing Win32/64 is geleverd door de community. Terwijl de OpenSSL Software Foundation biedt geen of een specifieke Windows-installatieprogramma's tekent, bieden ze een lijst met beschikbare installatieprogramma's [hier](https://wiki.openssl.org/index.php/Binaries).
 
 ### <a name="decode-your-certificate-file"></a>Uw certificaatbestand decoderen

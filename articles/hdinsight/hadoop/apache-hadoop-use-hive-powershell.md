@@ -12,13 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/26/2018
+ms.date: 04/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 044c901799ff7acae1e27602b84802f6b5f70f05
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d72d5223373043648aeb3d783477781dbce35f6d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="run-hive-queries-using-powershell"></a>Uitvoeren van Hive-query's met behulp van PowerShell
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -45,7 +45,7 @@ Azure PowerShell biedt *cmdlets* waarmee u kunt op afstand Hive-query's uitvoere
 
 De volgende cmdlets worden gebruikt bij het uitvoeren van Hive-query's in een externe HDInsight-cluster:
 
-* `Add-AzureRmAccount`: Verifieert Azure PowerShell naar uw Azure-abonnement.
+* `Connect-AzureRmAccount`: Verifieert Azure PowerShell naar uw Azure-abonnement.
 * `New-AzureRmHDInsightHiveJobDefinition`: Hiermee maakt u een *taak definitie* met behulp van de opgegeven HiveQL-instructies.
 * `Start-AzureRmHDInsightJob`: De taakdefinitie verzendt naar HDInsight en start de taak. Een *taak* object wordt geretourneerd.
 * `Wait-AzureRmHDInsightJob`: Het taakobject gebruikt om de status van de taak te controleren. Wacht totdat de taak is voltooid of de wachttijd is overschreden.

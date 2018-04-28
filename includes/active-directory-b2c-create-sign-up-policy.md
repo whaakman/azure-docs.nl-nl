@@ -1,4 +1,4 @@
-U moet een registratiebeleid maken om registreren in te schakelen op uw toepassing. In dit beleid wordt de ervaring van consumenten bij het registreren beschreven en de inhoud van tokens die de toepassing ontvangt nadat registraties zijn voltooid.
+Als u wilt alleen in te schakelen aanmelden op uw toepassing, gebruikt u een **aanmelding** beleid. Dit beleid beschrijft de ervaringen die klanten door tijdens de registratie en de inhoud van de tokens die de toepassing op geslaagde aanmelding-ups ontvangt.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 

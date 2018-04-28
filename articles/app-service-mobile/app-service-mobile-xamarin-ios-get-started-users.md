@@ -1,11 +1,11 @@
 ---
 title: Aan de slag met verificatie voor mobiele Apps in Xamarin voor iOS
-description: "Informatie over het verifiëren van gebruikers van uw Xamarin iOS-app via een groot aantal identiteitsproviders, waaronder AAD, Google, Facebook, Twitter en Microsoft met Mobile Apps."
+description: Informatie over het verifiëren van gebruikers van uw Xamarin iOS-app via een groot aantal identiteitsproviders, waaronder AAD, Google, Facebook, Twitter en Microsoft met Mobile Apps.
 services: app-service\mobile
 documentationcenter: xamarin
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 180cc61b-19c5-48bf-a16c-7181aef3eacc
 ms.service: app-service-mobile
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: crdun
-ms.openlocfilehash: 1649d2bf4f3429f2f5f56bdabdfe9a015a115893
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: c2b77d7c9caab1c7ac13af5ccd50e992bcce1caf
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="add-authentication-to-your-xamarinios-app"></a>Authenticatie toevoegen aan uw Xamarin.iOS-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -116,7 +116,7 @@ In deze sectie wijzigt u de app voor een aanmeldingsscherm weergegeven voordat g
             return ResumeWithURL != null && ResumeWithURL(url);
         }
 6. Open **Info.plist** bestand, gaat u naar **URL typen** in de **Geavanceerd** sectie. Nu configureren de **id** en de **URL-schema's** van uw URL-Type en klik op **URL-Type toevoegen**. **URL-schema's** moet hetzelfde zijn als uw {url_scheme_of_your_app}.
-7. In Visual Studio of Xamarin Studio verbonden met uw Host Xamarin bouwen op uw Mac het clientproject die gericht is op een apparaat of emulator uitgevoerd. Controleer of dat de app geen gegevens weergegeven.
+7. In Visual Studio, aangesloten op uw Mac of Visual Studio voor Mac, de client-project dat is gericht op een apparaat of een emulator worden uitgevoerd. Controleer of dat de app geen gegevens weergegeven.
    
     Een gebaar van de vernieuwing uitvoeren met het binnenhalen van de lijst met items, waardoor het aanmeldingsscherm wordt weergegeven. Nadat u geldige referenties hebt, de app wordt weergegeven de lijst met todo-items en kunt u updates aanbrengen in de gegevens.
 

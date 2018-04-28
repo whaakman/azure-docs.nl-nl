@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/22/2017
-ms.openlocfilehash: 949806379891dbf5a7c145a14cae532104f51497
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.date: 04/27/2018
+ms.openlocfilehash: fd373093264122fda45697acc81929d3c723c957
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Gebruik de query garandeert in Azure Stream Analytics
 In dit artikel leest u hoe om te profiteren van garandeert in Azure Stream Analytics. U leert hoe Stream Analytics-taken schalen door invoer partities configureren en de definitie van de analytics query afstemmen.
@@ -29,21 +29,13 @@ Schalen van een Stream Analytics-taak maakt gebruik van partities in de invoer o
 
 ### <a name="inputs"></a>Invoer
 Alle Azure Stream Analytics-invoer kan profiteren van het partitioneren van:
--   EventHub (u moet de partitiesleutel expliciet instellen)
--   IoT Hub (u moet de partitiesleutel expliciet instellen)
+-   EventHub (u moet de partitiesleutel expliciet met PARTITION BY trefwoord instellen)
+-   IoT Hub (u moet de partitiesleutel expliciet met PARTITION BY trefwoord instellen)
 -   Blob Storage
 
 ### <a name="outputs"></a>Uitvoer
 
-Wanneer u met Stream Analytics werkt, kunt u profiteren van het partitioneren van in de uitvoer:
--   Azure Data Lake Storage
--   Azure Functions
--   Azure Table
--   Blob Storage
--   CosmosDB (u moet de partitiesleutel expliciet instellen)
--   EventHub (u moet de partitiesleutel expliciet instellen)
--   IoT Hub (u moet de partitiesleutel expliciet instellen)
--   Service Bus
+Wanneer u met Stream Analytics werkt, kunt u profiteren van het partitioneren van voor de meeste uitvoer Put. Meer informatie over het partitioneren van uitvoer is beschikbaar op de [sectie van de pagina uitvoer partitioneren](stream-analytics-define-outputs.md#partitioning).
 
 Power BI, SQL en SQL-datawarehouse uitvoer ondersteuning geen voor partitioneren. Maar u kunt nog steeds partitioneren de invoer zoals beschreven in [in deze sectie](#multi-step-query-with-different-partition-by-values) 
 
@@ -56,7 +48,7 @@ Zie voor meer informatie over de partities, de volgende artikelen:
 ## <a name="embarrassingly-parallel-jobs"></a>Perfect parallelle taken
 Een *perfect parallelle* taak is het meest schaalbare scenario dat we in Azure Stream Analytics hebben. Een partitie van de invoer van één exemplaar van de query verbindt met een partitie van de uitvoer. Deze parallelle uitvoering heeft de volgende vereisten:
 
-1. Als uw query logica is afhankelijk van dezelfde sleutel door hetzelfde exemplaar van de query wordt verwerkt, moet u ervoor zorgen dat de gebeurtenissen gaat u naar dezelfde partitie van uw invoer. Voor event hubs, dit betekent dat gegevens van de gebeurtenis moet de **PartitionKey** waarde ingesteld. U kunt ook de gepartitioneerde afzenders gebruiken. Dit betekent dat de gebeurtenissen worden verzonden naar de map met dezelfde partitie voor blob storage. Als uw query logica dezelfde sleutel moet worden verwerkt door de dezelfde query-instantie niet vereist, kunt u deze vereiste negeren. Een voorbeeld van deze logica is een eenvoudige select-project-filter-query.  
+1. Als uw query logica is afhankelijk van dezelfde sleutel door hetzelfde exemplaar van de query wordt verwerkt, moet u ervoor zorgen dat de gebeurtenissen gaat u naar dezelfde partitie van uw invoer. Voor Event Hubs of IoT Hub, dit betekent dat gegevens van de gebeurtenis moet de **PartitionKey** waarde ingesteld. U kunt ook de gepartitioneerde afzenders gebruiken. Dit betekent dat de gebeurtenissen worden verzonden naar de map met dezelfde partitie voor blob storage. Als uw query logica dezelfde sleutel moet worden verwerkt door de dezelfde query-instantie niet vereist, kunt u deze vereiste negeren. Een voorbeeld van deze logica is een eenvoudige select-project-filter-query.  
 
 2. Nadat de gegevens worden verspreid de invoer-zijde, moet u ervoor zorgen dat uw query is gepartitioneerd. Hiervoor moet u gebruikmaken van **PARTITION BY** in alle stappen. Meerdere stappen zijn toegestaan, maar ze alle moeten worden gepartitioneerd met dezelfde sleutel. Op dit moment wordt de te nemen partitionerende sleutel moet worden ingesteld op **PartitionId** in volgorde van de taak moet worden volledig parallelle.  
 
@@ -66,6 +58,7 @@ Een *perfect parallelle* taak is het meest schaalbare scenario dat we in Azure S
 
    * 8 event hub invoer partities en 8 event hub uitvoer partities
    * 8 event hub invoer partities en uitvoer van blob-opslag  
+   * 8 Iot hub invoer partities en 8 uitvoer partities van de event hub
    * 8 blob storage invoer partities en uitvoer van blob-opslag  
    * 8 blob-opslag invoer partities en 8 uitvoer partities van de event hub  
 

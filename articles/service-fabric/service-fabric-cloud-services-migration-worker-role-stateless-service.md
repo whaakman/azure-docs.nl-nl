@@ -5,7 +5,7 @@ services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5880ebb3-8b54-4be8-af4b-95a1bc082603
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: fd24881444846d3905f8db61356656960698b7eb
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: bb8f2f8a6f0905716c34796a5b16c38f406ae64c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Hulp bij het converteren van Web- en werkrollen naar Service Fabric stateless services
 Dit artikel wordt beschreven hoe u uw Cloud Services-Web- en werkrollen migreren naar Service Fabric stateless services. Dit is het eenvoudigste migratiepad van Cloud-Services naar Service Fabric voor toepassingen waarvan de algehele architectuur gaat ongeveer hetzelfde blijft.
@@ -40,7 +40,7 @@ Net als bij de Werkrol, een Webrol ook vertegenwoordigt een staatloze werkbelast
 
 | **Toepassing** | **Ondersteund** | **Migratiepad** |
 | --- | --- | --- |
-| ASP.NET Web Forms |Nee |Converteren naar ASP.NET Core 1 MVC |
+| ASP.NET-webformulieren |Nee |Converteren naar ASP.NET Core 1 MVC |
 | ASP.NET MVC |Met migratie |Upgrade naar ASP.NET Core 1 MVC |
 | ASP.NET Web API |Met migratie |Automatische gehoste-server of ASP.NET Core 1 gebruiken |
 | ASP.NET Core 1 |Ja |N/A |
@@ -53,7 +53,7 @@ Werkrol en Service Fabric-service-API's bieden vergelijkbare toegangspunten:
 | Verwerken |`Run()` |`RunAsync()` |
 | VM starten |`OnStart()` |N/A |
 | VM stoppen |`OnStop()` |N/A |
-| Open listener voor aanvragen van clients |N/A |<ul><li> `CreateServiceInstanceListener()`voor stateless</li><li>`CreateServiceReplicaListener()`voor stateful</li></ul> |
+| Open listener voor aanvragen van clients |N/A |<ul><li> `CreateServiceInstanceListener()` voor stateless</li><li>`CreateServiceReplicaListener()` voor stateful</li></ul> |
 
 ### <a name="worker-role"></a>Werkrol
 ```csharp
@@ -121,7 +121,7 @@ De Cloud Services-omgeving API bevat informatie en functionaliteit voor de huidi
 | --- | --- | --- |
 | Configuratie-instellingen en Wijzigingsmelding |`RoleEnvironment` |`CodePackageActivationContext` |
 | Lokale opslag |`RoleEnvironment` |`CodePackageActivationContext` |
-| Informatie over endpoint |`RoleInstance` <ul><li>Huidige instantie:`RoleEnvironment.CurrentRoleInstance`</li><li>Andere functies en -exemplaar:`RoleEnvironment.Roles`</li> |<ul><li>`NodeContext`voor het huidige knooppuntadres</li><li>`FabricClient`en `ServicePartitionResolver` voor detectie van de service-eindpunt</li> |
+| Informatie over endpoint |`RoleInstance` <ul><li>Huidige instantie: `RoleEnvironment.CurrentRoleInstance`</li><li>Andere functies en -exemplaar: `RoleEnvironment.Roles`</li> |<ul><li>`NodeContext` voor het huidige knooppuntadres</li><li>`FabricClient` en `ServicePartitionResolver` voor detectie van de service-eindpunt</li> |
 | Omgeving emulatie |`RoleEnvironment.IsEmulated` |N/A |
 | Gelijktijdige wijzigingsgebeurtenis |`RoleEnvironment` |N/A |
 
@@ -207,7 +207,7 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 ## <a name="startup-tasks"></a>Starten van de taken
 Starten van de taken zijn acties die worden uitgevoerd voordat een toepassing wordt gestart. Een taak starten wordt meestal gebruikt voor setup scripts uitvoeren met verhoogde bevoegdheden. Ondersteuning voor opstarten taken zowel Cloudservices als Service Fabric. Het belangrijkste verschil is dat in de Cloud-Services, een taak starten is gekoppeld aan een virtuele machine omdat deze deel uitmaakt van een rolexemplaar dat in Service Fabric een starten van de taak is gekoppeld aan een service, is niet gekoppeld aan een bepaalde virtuele machine.
 
-| Cloud Services | Service Fabric |
+| Service Fabric | Cloud Services |
 | --- | --- | --- |
 | Locatie van de configuratie |ServiceDefinition.csdef |
 | Bevoegdheden |'beperkt' of 'verhoogde' |

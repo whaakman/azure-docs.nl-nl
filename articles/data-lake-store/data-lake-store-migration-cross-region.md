@@ -2,7 +2,7 @@
 title: Azure Data Lake Store regio-overschrijdende migratie | Microsoft Docs
 description: Meer informatie over de migratie van de regio-overschrijdende voor Azure Data Lake Store.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: swums
 manager: amitkul
 editor: swums
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/27/2017
 ms.author: stewu
-ms.openlocfilehash: b04cca6e551a15a31bbebc4932ea05dd39e8e916
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 488a9954cef210b727518375e218fe084129a6f7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="migrate-data-lake-store-across-regions"></a>Data Lake Store migreren tussen regio 's
 
@@ -45,7 +45,7 @@ Andere belangrijke informatie om u te overwegen bij het plannen van de migratie 
 
 * **Hulpprogramma's voor**. Het is raadzaam dat u de [Azure Data Factory-Kopieeractiviteit](../data-factory/connector-azure-data-lake-store.md) Data Lake Store-bestanden te kopiëren. Data Factory ondersteunt de verplaatsing van gegevens met hoge prestaties en betrouwbaarheid. Houd er rekening mee dat de Data Factory alleen de mappenhiërarchie en de inhoud van de bestanden kopieert. U moet eventuele toegangsbeheerlijsten (ACL's) die u in de oude account naar de nieuwe account handmatig toepassen. Zie voor meer informatie, prestatiedoelen voor best mogelijke scenario's, waaronder de [Kopieeractiviteit prestaties en prestatieafstemming handleiding](../data-factory/copy-activity-performance.md). Als u gegevens kopiëren sneller wilt, moet u mogelijk aanvullende Cloud Data Movement-eenheden gebruiken. Sommige andere hulpmiddelen, zoals AdlCopy, bieden geen ondersteuning voor kopiëren van gegevens tussen regio's.  
 
-* **Kosten van bandbreedte**. [Kosten van bandbreedte](https://azure.microsoft.com/en-us/pricing/details/bandwidth/) toepassen omdat de gegevens worden overgebracht buiten een Azure-regio.
+* **Kosten van bandbreedte**. [Kosten van bandbreedte](https://azure.microsoft.com/pricing/details/bandwidth/) toepassen omdat de gegevens worden overgebracht buiten een Azure-regio.
 
 * **ACL's voor uw gegevens**. Beveilig uw gegevens in het nieuwe door de ACL's toepassen op bestanden en mappen. Zie voor meer informatie [beveiligen van gegevens die zijn opgeslagen in Azure Data Lake Store](data-lake-store-secure-data.md). Het is raadzaam dat u de migratie gebruiken om te werken en uw ACL's aanpassen. Het is raadzaam om instellingen die vergelijkbaar is met uw huidige instellingen te gebruiken. U kunt de ACL's die worden toegepast op een bestand met behulp van de Azure-portal bekijken [PowerShell-cmdlets](/powershell/module/azurerm.datalakestore/get-azurermdatalakestoreitempermission), of de SDK's.  
 

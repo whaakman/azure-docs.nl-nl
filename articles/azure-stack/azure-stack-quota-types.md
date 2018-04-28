@@ -2,24 +2,24 @@
 title: Quotatypen in Azure-Stack | Microsoft Docs
 description: Bekijk de voor verschillende quotatypen beschikbaar voor services en bronnen in Azure-Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 8/23/2017
+ms.date: 04/20/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: da4105fa88848b14e5d5d0289859cfd0f85c8fee
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: xiaofmao
+ms.openlocfilehash: b68a963dae4b3621bfd9ecdcbc20146d7b20c457
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="quota-types-in-azure-stack"></a>Quotatypen in Azure-Stack
 
@@ -35,19 +35,21 @@ ms.lasthandoff: 02/21/2018
 | Hiermee stelt u het maximumaantal beschikbaarheid | 10 | Het maximum aantal beschikbaarheidssets die kunnen worden gemaakt op deze locatie. |
 | Hiermee stelt u het maximumaantal virtuele-machineschaalset | 20 | Het maximum aantal virtuele-machineschaalsets die kunnen worden gemaakt op deze locatie. |
 
-> [!NOTE]
-> COMPUTE quota's worden niet afgedwongen in deze technical preview.
-> 
-> 
+
 
 ## <a name="storage-quota-types"></a>Opslagtypen quotum
-| **Item** | **Standaardwaarde** | **Beschrijving** |
+| **item** | **Standaardwaarde** | **Beschrijving** |
 | --- | --- | --- |
 | Maximale capaciteit (GB) |500 |Totale capaciteit die kan worden gebruikt door een abonnement op deze locatie. |
 | Totaal aantal storage-accounts |20 |Het maximum aantal opslagaccounts die een abonnement op deze locatie kan maken. |
 
+> [!NOTE]  
+> Het kan maximaal twee uur duren voordat een nieuwe opslaglimiet wordt afgedwongen. 
+> 
+> 
+
 ## <a name="network-quota-types"></a>Quotum netwerktypen
-| **Item** | **Standaardwaarde** | **Beschrijving** |
+| **item** | **Standaardwaarde** | **Beschrijving** |
 | --- | --- | --- |
 | Maximum aantal openbare IP-adressen |50 |Het maximum aantal openbare IP-adressen die een abonnement op deze locatie maken kunt. |
 | Maximum aantal virtuele netwerken |50 |Het maximum aantal virtuele netwerken die een abonnement op deze locatie kan maken. |

@@ -2,7 +2,7 @@
 title: Azure Data Lake Store-prestaties afstemmen richtlijnen | Microsoft Docs
 description: Azure Data Lake Store-prestaties afstemmen richtlijnen
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: stewu
 manager: amitkul
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: 15832f94b73057a8bfce7be27e3fd57c7771940d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: aa803e823eb3096ea785f1f912293cae82c24b8d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tuning-azure-data-lake-store-for-performance"></a>Azure Data Lake Store voor prestaties afstemmen
 
@@ -42,7 +42,7 @@ Of u van lokale machines of virtuele machines in Azure gebruikmaakt, moet u zorg
 
 ### <a name="network-connectivity-to-azure-data-lake-store"></a>Netwerkverbindingen met Azure Data Lake Store
 
-Het knelpunt kan soms worden door de netwerkverbinding tussen de brongegevens en Azure Data Lake store. Wanneer de brongegevens On-Premises is, overweeg het gebruik van een specifieke verbinding met [Azure ExpressRoute](https://azure.microsoft.com/en-us/services/expressroute/) . Als de brongegevens in Azure, de prestaties worden aanbevolen als de gegevens zich in dezelfde Azure-regio als de Data Lake Store.
+Het knelpunt kan soms worden door de netwerkverbinding tussen de brongegevens en Azure Data Lake store. Wanneer de brongegevens On-Premises is, overweeg het gebruik van een specifieke verbinding met [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) . Als de brongegevens in Azure, de prestaties worden aanbevolen als de gegevens zich in dezelfde Azure-regio als de Data Lake Store.
 
 ### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>Gegevensopname hulpprogramma's voor maximale garandeert configureren
 
@@ -50,11 +50,11 @@ Nadat u de bron-hardware hebt opgelost en network connectivity knelpunten hierbo
 
 | Hulpprogramma               | Instellingen     | Meer informatie                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
-| PowerShell       | PerFileThreadCount, ConcurrentFileCount |  [Koppeling](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-powershell#performance-guidance-while-using-powershell) |
-| AdlCopy    | Azure Data Lake Analytics-eenheden  |   [Koppeling](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
-| DistCp            | -m (toewijzen)   | [Koppeling](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
-| Azure Data Factory| parallelCopies    | [Koppeling](../data-factory/copy-activity-performance.md)                          |
-| Sqoop           | FS.Azure.Block.Size, -m (toewijzen)    |   [Koppeling](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
+| PowerShell       | PerFileThreadCount, ConcurrentFileCount |  [Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-powershell#performance-guidance-while-using-powershell) |
+| AdlCopy    | Azure Data Lake Analytics-eenheden  |   [Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
+| DistCp            | -m (toewijzen)   | [Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
+| Azure Data Factory| parallelCopies    | [Link](../data-factory/copy-activity-performance.md)                          |
+| Sqoop           | FS.Azure.Block.Size, -m (toewijzen)    |   [Link](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
 
 ## <a name="structure-your-data-set"></a>Structuur van uw gegevensset
 

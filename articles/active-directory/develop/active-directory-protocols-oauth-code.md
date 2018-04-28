@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 04/17/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 2ad995c4b48c2c298edd7c6b4da92ea8f3c4a060
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: d2a160d75f89768a3884beff9ea10cbc168d3dda
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>Toegang verlenen aan webtoepassingen die gebruikmaken van OAuth 2.0 en Azure Active Directory
-Azure Active Directory (Azure AD) maakt gebruik van OAuth 2.0 waarmee u toegang verlenen aan webtoepassingen en web-API's in uw Azure AD-tenant. Deze handleiding is taalonafhankelijk en wordt beschreven hoe u berichten verzenden en ontvangen HTTP zonder gebruik van een van onze open source-bibliotheken.
+# <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Toegang verlenen aan Azure Active Directory-webtoepassingen met behulp van de stroom van OAuth 2.0 code verlenen
+Azure Active Directory (Azure AD) maakt gebruik van OAuth 2.0 waarmee u toegang verlenen aan webtoepassingen en web-API's in uw Azure AD-tenant. Deze handleiding is taalonafhankelijk en wordt beschreven hoe u berichten verzenden en ontvangen HTTP zonder gebruik van een van onze [open source-bibliotheken](active-directory-authentication-libraries.md).
 
 De OAuth 2.0-autorisatiecodestroom wordt beschreven in [sectie 4.1 van de OAuth 2.0-specificatie](https://tools.ietf.org/html/rfc6749#section-4.1). Het wordt gebruikt voor verificatie en autorisatie in de meeste toepassingstypen, met inbegrip van web-apps en systeemeigen apps hebben geïnstalleerd.
 
@@ -33,7 +33,7 @@ Op een hoog niveau ziet de volledige autorisatie-stroom voor een toepassing er n
 ![OAuth autorisatiecode stroom](media/active-directory-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
 
 ## <a name="request-an-authorization-code"></a>Aanvraag een autorisatiecode
-De autorisatiecodestroom begint met de client voor het routeren van de gebruiker de `/authorize` eindpunt. De client wijst de machtigingen die te verkrijgen van de gebruiker moet op deze aanvraag. U kunt het OAuth 2.0-eindpunt voor uw tenant ophalen door het selecteren van **App registraties > eindpunten** in de Azure Portal.
+De autorisatiecodestroom begint met de client voor het routeren van de gebruiker de `/authorize` eindpunt. De client wijst de machtigingen die te verkrijgen van de gebruiker moet op deze aanvraag. U kunt het OAuth 2.0-autorisatie-eindpunt voor uw tenant ophalen door het selecteren van **App registraties > eindpunten** in de Azure portal.
 
 ```
 // Line breaks for legibility only
@@ -41,7 +41,7 @@ De autorisatiecodestroom begint met de client voor het routeren van de gebruiker
 https://login.microsoftonline.com/{tenant}/oauth2/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=code
-&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
+&redirect_uri=http%3A%2F%2Flocalhost%3A%12345
 &response_mode=query
 &resource=https%3A%2F%2Fservice.contoso.com%2F
 &state=12345
@@ -50,31 +50,32 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter |  | Beschrijving |
 | --- | --- | --- |
 | tenant |Vereist |De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie bij de toepassing aanmelden kunt.  De toegestane waarden zijn tenant-id's, bijvoorbeeld `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` of `contoso.onmicrosoft.com` of `common` voor tenant-onafhankelijke tokens |
-| client_id |Vereist |De toepassings-ID toegewezen aan uw app bij de registratie met Azure AD. U kunt dit vinden in de Azure Portal. Klik op **Active Directory**, klikt u op de directory, kies de toepassing en klik op **configureren** |
+| client_id |Vereist |De toepassings-ID toegewezen aan uw app bij de registratie met Azure AD. U kunt dit vinden in de Azure Portal. Klik op **Azure Active Directory** Klik in de zijbalk services **App registraties**, en kies de toepassing. |
 | response_type |Vereist |Moet bevatten `code` voor de autorisatiecodestroom. |
 | redirect_uri |Aanbevolen |De redirect_uri van uw app, waarbij verificatie reacties kunnen worden verzonden en ontvangen door uw app.  Er moet een van de redirect_uris die u in de portal hebt geregistreerd, behalve het url-codering moet exact overeenkomen.  Voor mobiele en systeemeigen apps, moet u de standaardwaarde van `urn:ietf:wg:oauth:2.0:oob`. |
-| response_mode |Aanbevolen |Hiermee geeft u de methode die moet worden gebruikt voor het verzenden van het resulterende token terug naar uw app.  Deze waarde kan `query` of `form_post` zijn. |
+| response_mode |Aanbevolen |Hiermee geeft u de methode die moet worden gebruikt voor het verzenden van het resulterende token terug naar uw app.  Deze waarde kan `query` of `form_post` zijn. `query` vindt u de code als een queryreeksparameter op uw omleidings-URI, terwijl `form_post` wordt een bericht met de code op uw omleidings-URI wordt uitgevoerd. |
 | state |Aanbevolen |Een waarde die is opgenomen in de aanvraag die ook in het token antwoord wordt geretourneerd. Een willekeurig gegenereerde unieke waarde wordt doorgaans gebruikt voor [voorkomen van aanvraagvervalsing op meerdere sites aanvallen](http://tools.ietf.org/html/rfc6749#section-10.12).  De status wordt ook gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat het verificatieverzoek opgetreden, zoals de pagina of de weergave op. |
-| Bron |optioneel |De App ID URI van de web-API (beveiligde resource). Klik op de URI van de App-ID van de web-API, informatie in de Azure Portal **Active Directory**, klikt u op de map, klik op de toepassing en klik vervolgens op **configureren**. |
+| Bron | Aanbevolen |De App ID URI van de doel-web-API (beveiligde resource). Voor de App ID URI, in de Azure Portal, klikt u **Azure Active Directory**, klikt u op **toepassing registraties**, opent u de toepassing **instellingen** pagina, en klik vervolgens op  **Eigenschappen**. Mogelijk ook een externe bron, zoals `https://graph.microsoft.com`.  Dit is vereist in een van de autorisatie of de aanvragen voor beveiligingstokens.  Om ervoor te zorgen minder verificatie plaats wordt u gevraagd deze in de autorisatieaanvraag om ervoor te zorgen toestemming van de gebruiker wordt ontvangen. |
+| scope | **genegeerd** | Voor de Azure AD-apps v1 scopes statisch moeten worden geconfigureerd in de Azure-Portal onder de toepassingen **instellingen**, **Required Permissions**. |
 | prompt |optioneel |Geef het type van de interactie van de gebruiker die is vereist.<p> Geldige waarden zijn: <p> *aanmelding*: de gebruiker moet worden gevraagd om te verifiëren. <p> *toestemming*: gebruiker toestemming heeft gekregen, maar moet worden bijgewerkt. De gebruiker moet worden gevraagd om toestemming. <p> *admin_consent*: een beheerder moet worden gevraagd om toestemming namens alle gebruikers in hun organisatie |
 | login_hint |optioneel |Kan worden gebruikt voor het veld gebruikersnaam, e-mailadres van de aanmeldingspagina voor de gebruiker vooraf worden ingevuld als u hun gebruikersnaam tevoren weten.  Vaak apps Gebruik deze parameter tijdens verificatie wordt uitgevoerd, de gebruikersnaam die al worden opgehaald uit een eerdere aanmelden met de `preferred_username` claim. |
 | domain_hint |optioneel |Biedt een aanwijzing over de tenant of het domein dat de gebruiker gebruiken moet om aan te melden. De waarde van de domain_hint is een geregistreerd domein voor de tenant. Als de tenant aan een lokale directory is gefedereerd, is AAD wordt omgeleid naar de opgegeven tenant federation-server. |
 | code_challenge_method | optioneel    | De methode die wordt gebruikt voor het coderen van de `code_verifier` voor de `code_challenge` parameter. Een van `plain` of `S256`.  Als uitgesloten, `code_challenge` wordt ervan uitgegaan dat als leesbare tekst als `code_challenge` is opgenomen.  Azure AAD v1.0 ondersteunt zowel `plain` en `S256`. Zie voor meer informatie de [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
-| code_challenge        | optioneel    | Gebruikt voor het beveiligen van autorisatie code verleent via bewijs sleutel voor Code Exchange (PKCE) van een native client. Vereist als `code_challenge_method` is opgenomen.  Zie voor meer informatie de [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| code_challenge        | optioneel    | Gebruikt voor het beveiligen van autorisatie code verleent via bewijs sleutel voor Code Exchange (PKCE) van een systeemeigen of openbare-client. Vereist als `code_challenge_method` is opgenomen.  Zie voor meer informatie de [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 > [!NOTE]
 > Als de gebruiker deel van een organisatie uitmaakt, kan een beheerder van de organisatie toestemming geven of weigeren namens de gebruiker of toestaan van de gebruiker om toestemming. De gebruiker krijgt de mogelijkheid om toestemming alleen wanneer de beheerder toestaat.
 >
 >
 
-Op dit punt wordt de gebruiker wordt gevraagd om hun referenties invoeren en instemming met de machtigingen die zijn aangegeven in de `scope` queryparameter. Als de gebruiker wordt geverifieerd en toestemming verleent, Azure AD stuurt een antwoord naar uw app op de `redirect_uri` adres in uw aanvraag.
+Op dit punt wordt wordt de gebruiker gevraagd om hun referenties invoeren en instemming met de machtigingen die zijn aangevraagd door de app in de Azure Portal. Als de gebruiker wordt geverifieerd en toestemming verleent, Azure AD stuurt een antwoord naar uw app op de `redirect_uri` adres in de aanvraag door de code.
 
 ### <a name="successful-response"></a>Geslaagde reactie
 Een geslaagde reactie kan er als volgt uitzien:
 
 ```
 GET  HTTP/1.1 302 Found
-Location: http://localhost/myapp/?code= AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrqqf_ZT_p5uEAEJJ_nZ3UmphWygRNy2C3jJ239gV_DBnZ2syeg95Ki-374WHUP-i3yIhv5i-7KU2CEoPXwURQp6IVYMw-DjAOzn7C3JCu5wpngXmbZKtJdWmiBzHpcO2aICJPu1KvJrDLDP20chJBXzVYJtkfjviLNNW7l7Y3ydcHDsBRKZc3GuMQanmcghXPyoDg41g8XbwPudVh7uCmUponBQpIhbuffFP_tbV8SNzsPoFz9CLpBCZagJVXeqWoYMPe2dSsPiLO9Alf_YIe5zpi-zY4C3aLw5g9at35eZTfNd0gBRpR5ojkMIcZZ6IgAA&session_state=7B29111D-C220-4263-99AB-6F6E135D75EF&state=D79E5777-702E-4260-9A62-37F75FF22CCE
+Location: http://localhost:12345/?code= AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrqqf_ZT_p5uEAEJJ_nZ3UmphWygRNy2C3jJ239gV_DBnZ2syeg95Ki-374WHUP-i3yIhv5i-7KU2CEoPXwURQp6IVYMw-DjAOzn7C3JCu5wpngXmbZKtJdWmiBzHpcO2aICJPu1KvJrDLDP20chJBXzVYJtkfjviLNNW7l7Y3ydcHDsBRKZc3GuMQanmcghXPyoDg41g8XbwPudVh7uCmUponBQpIhbuffFP_tbV8SNzsPoFz9CLpBCZagJVXeqWoYMPe2dSsPiLO9Alf_YIe5zpi-zY4C3aLw5g9at35eZTfNd0gBRpR5ojkMIcZZ6IgAA&session_state=7B29111D-C220-4263-99AB-6F6E135D75EF&state=D79E5777-702E-4260-9A62-37F75FF22CCE
 ```
 
 | Parameter | Beschrijving |
@@ -124,7 +125,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=authorization_code
 &client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 &code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrqqf_ZT_p5uEAEJJ_nZ3UmphWygRNy2C3jJ239gV_DBnZ2syeg95Ki-374WHUP-i3yIhv5i-7KU2CEoPXwURQp6IVYMw-DjAOzn7C3JCu5wpngXmbZKtJdWmiBzHpcO2aICJPu1KvJrDLDP20chJBXzVYJtkfjviLNNW7l7Y3ydcHDsBRKZc3GuMQanmcghXPyoDg41g8XbwPudVh7uCmUponBQpIhbuffFP_tbV8SNzsPoFz9CLpBCZagJVXeqWoYMPe2dSsPiLO9Alf_YIe5zpi-zY4C3aLw5g9at35eZTfNd0gBRpR5ojkMIcZZ6IgAA
-&redirect_uri=https%3A%2F%2Flocalhost%2Fmyapp%2F
+&redirect_uri=https%3A%2F%2Flocalhost%3A12345
 &resource=https%3A%2F%2Fservice.contoso.com%2F
 &client_secret=p@ssw0rd
 
@@ -138,11 +139,11 @@ grant_type=authorization_code
 | grant_type |Vereist |Moet `authorization_code` voor de autorisatiecodestroom. |
 | code |Vereist |De `authorization_code` die u in de vorige sectie hebt verkregen |
 | redirect_uri |Vereist |Dezelfde `redirect_uri` waarde die is gebruikt voor het verkrijgen van de `authorization_code`. |
-| client_secret |vereist voor de web-apps, niet toegestaan voor openbare-clients |De toepassingsgeheim die u in de portal van de registratie van de app voor uw app hebt gemaakt.  Deze kan niet worden gebruikt in een systeemeigen app (openbare client), omdat client_secrets betrouwbaar kunnen niet worden opgeslagen op apparaten.  Het is vereist voor de web-apps en web-API's (alle vertrouwelijke clients) die u de mogelijkheid hebt voor het opslaan van de `client_secret` veilig op de server. |
-| Bron |vereist als het opgegeven in de autorisatieaanvraag, anders optioneel |De App ID URI van de web-API (beveiligde resource). |
-| code_verifier | optioneel              | De dezelfde code_verifier dat is gebruikt voor het verkrijgen van de authorization_code.  Vereist als PKCE is gebruikt in de autorisatie-aanvraag voor het verlenen van code.  Zie voor meer informatie de [PKCE RFC](https://tools.ietf.org/html/rfc7636)   |
+| client_secret |vereist voor de web-apps, niet toegestaan voor openbare-clients |De toepassingsgeheim dat u hebt gemaakt in de Azure-Portal voor uw app onder **sleutels**.  Deze kan niet worden gebruikt in een systeemeigen app (openbare client), omdat client_secrets betrouwbaar kunnen niet worden opgeslagen op apparaten.  Het is vereist voor de web-apps en web-API's (alle vertrouwelijke clients) die u de mogelijkheid hebt voor het opslaan van de `client_secret` veilig op de server. |
+| Bron | Aanbevolen |De App ID URI van de doel-web-API (beveiligde resource). Voor de App ID URI, in de Azure Portal, klikt u **Azure Active Directory**, klikt u op **toepassing registraties**, opent u de toepassing **instellingen** pagina, en klik vervolgens op  **Eigenschappen**. Mogelijk ook een externe bron, zoals `https://graph.microsoft.com`.  Dit is vereist in een van de autorisatie of de aanvragen voor beveiligingstokens.  Om ervoor te zorgen minder verificatie plaats wordt u gevraagd deze in de autorisatieaanvraag om ervoor te zorgen toestemming van de gebruiker wordt ontvangen.  Als in de autorisatieaanvraag en de tokenaanvraag, de resource' parameters moeten overeenkomen. | 
+| code_verifier | optioneel | De dezelfde code_verifier dat is gebruikt voor het verkrijgen van de authorization_code.  Vereist als PKCE is gebruikt in de autorisatie-aanvraag voor het verlenen van code.  Zie voor meer informatie de [PKCE RFC](https://tools.ietf.org/html/rfc7636)   |
 
-Klik op de App ID URI, informatie in de Azure-beheerportal **Active Directory**, klikt u op de map, klik op de toepassing en klik vervolgens op **configureren**.
+Voor de App ID URI, in de Azure Portal, klikt u **Azure Active Directory**, klikt u op **toepassing registraties**, opent u de toepassing **instellingen** pagina, en klik vervolgens op  **Eigenschappen**.
 
 ### <a name="successful-response"></a>Geslaagde reactie
 Azure AD retourneert een toegangstoken na een geslaagde reactie. Om te beperken netwerk aanroepen vanuit de clienttoepassing en hun bijbehorende latentie, moet de clienttoepassing voor de levensduur van het token dat is opgegeven in het antwoord OAuth 2.0-toegangstokens cache. Om te bepalen van de levensduur van tokens, gebruiken de `expires_in` of `expires_on` parameterwaarden.
@@ -172,7 +173,7 @@ Een geslaagde reactie kan er als volgt uitzien:
 | expires_in |Hoe lang het toegangstoken is ongeldig (in seconden). |
 | expires_on |De tijd wanneer het toegangstoken is verlopen. De datum die wordt weergegeven als het aantal seconden van 1970-01-01T0:0:0Z UTC totdat de verlooptijd. Deze waarde wordt gebruikt om te bepalen van de levensduur van tokens in de cache. |
 | Bron |De App ID URI van de web-API (beveiligde resource). |
-| Bereik |Imitatie gemachtigd om de clienttoepassing. Standaard de machtiging is `user_impersonation`. De eigenaar van de beveiligde bron kunt u aanvullende waarden registreren in Azure AD. |
+| scope |Imitatie gemachtigd om de clienttoepassing. Standaard de machtiging is `user_impersonation`. De eigenaar van de beveiligde bron kunt u aanvullende waarden registreren in Azure AD. |
 | refresh_token |Een OAuth 2.0-vernieuwingstoken. De app kunt dit token gebruiken voor aanvullende toegangstokens verkrijgen nadat het huidige toegangstoken is verlopen.  Vernieuwen van tokens worden lange levensduur hebben en kunnen worden gebruikt voor toegang tot bronnen voor langere tijd te behouden. |
 | id_token |Een niet-ondertekende JSON Web Token (JWT). De app kan base64Url decoderen de segmenten van dit token informatie opvragen over de gebruiker die zich aangemeld. De app kan de waarden in de cache en deze weer te geven, maar deze niet verstandig deze beveiligingsgrenzen of autorisatie. |
 
@@ -215,7 +216,7 @@ De `id_token` parameter bevat de volgende claimtypen:
 | ISS |Identificeert de uitgever van het beveiligingstoken |
 | nbf |Niet voor de tijd. De tijd waarop het token van kracht. Voor het token geldig, moet de huidige datum en tijd groter dan of gelijk aan de Nbf-waarde. De tijd wordt weergegeven als het aantal seconden vanaf 1 januari 1970 (1970-01-01T0:0:0Z) UTC totdat de tijd die het token is uitgegeven. |
 | OID |Object-id (ID) van het gebruikersobject in Azure AD. |
-| sub |Token onderwerp-id. Dit is een permanente en onveranderbare id voor de gebruiker die het token wordt beschreven. Gebruik deze waarde in de cache logica. |
+| Sub |Token onderwerp-id. Dit is een permanente en onveranderbare id voor de gebruiker die het token wordt beschreven. Gebruik deze waarde in de cache logica. |
 | TID |Tenant-id (ID) van de Azure AD-tenant die het token heeft uitgegeven. |
 | unique_name |Een unieke id voor die kan worden weergegeven voor de gebruiker. Dit is meestal een UPN (user Principal name). |
 | UPN |De UPN van de gebruiker. |
@@ -350,7 +351,7 @@ Een geslaagde reactie token, ziet er als:
 | expires_in |De resterende levensduur van het token in seconden. Een typische waarde is 3600 (één uur). |
 | expires_on |De datum en tijd waarop het token verloopt. De datum die wordt weergegeven als het aantal seconden van 1970-01-01T0:0:0Z UTC totdat de verlooptijd. |
 | Bron |Geeft de beveiligde bron die het toegangstoken kan worden gebruikt voor toegang. |
-| Bereik |Imitatie gemachtigd om de native client-toepassing. Standaard de machtiging is **user_impersonation**. De eigenaar van de doelbron kunt alternatieve waarden registreren in Azure AD. |
+| scope |Imitatie gemachtigd om de native client-toepassing. Standaard de machtiging is **user_impersonation**. De eigenaar van de doelbron kunt alternatieve waarden registreren in Azure AD. |
 | access_token |Het nieuwe toegangstoken die is aangevraagd. |
 | refresh_token |Een nieuwe OAuth 2.0-refresh_token die kunnen worden gebruikt om aan te vragen van nieuwe toegangstokens wanneer de structuur in voor deze reactie is verlopen. |
 

@@ -2,10 +2,10 @@
 title: Azure Active Directory v2.0-eindpunt en beperkingen | Microsoft Docs
 description: Een lijst met voorwaarden en beperkingen voor het Azure AD v2.0-eindpunt.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a99289c0-e6ce-410c-94f6-c279387b4f66
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: a81f505c189da31edb91d1b522d9f3140f821cb4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a36f55c57a75f671b3e5eeae3d91ff60483afd37
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Moet ik het v2.0-eindpunt gebruiken?
 Wanneer u toepassingen die zijn geïntegreerd met Azure Active Directory maakt, moet u bepalen of het v2.0-eindpunt en verificatieprotocollen aan uw behoeften voldoet. Oorspronkelijke Azure Active Directory-eindpunt wordt nog steeds volledig ondersteund en is in sommige opzichten meer uitgebreide functionaliteit dan versie 2.0. Echter, het v2.0-eindpunt [introduceert aanzienlijke voordelen](active-directory-v2-compare.md) voor ontwikkelaars.
@@ -84,15 +84,6 @@ U kunt de laatste twee toevoegen, omdat ze subdomeinen van de eerste omleidings-
 Vergeet, kunt u maximaal 20 antwoord-URL's voor een bepaalde toepassing hebben.
 
 Zie voor informatie over het registreren van een app in de Portal van de registratie van de toepassing, [het registreren van een app met het v2.0-eindpunt](active-directory-v2-app-registration.md).
-
-## <a name="restrictions-on-services-and-apis"></a>Beperkingen voor de API's en services
-Op dit moment is het v2.0-eindpunt ondersteunt aanmelden voor een app die is geregistreerd in de Portal van de registratie van de toepassing en die vallen in de lijst met [verificatie stroomt ondersteund](active-directory-v2-flows.md). Deze apps kunnen echter OAuth 2.0-toegangstokens voor een zeer beperkt aantal resources aanschaffen. Tokens alleen voor toegang tot de problemen met de v2.0-eindpunt:
-
-* De app die het token aangevraagd. Een app kunt verkrijgen een toegangstoken voor zichzelf, als de logische app uit diverse verschillende onderdelen of lagen bestaat. Overzicht van dit scenario werkt, Bekijk onze [aan de slag](active-directory-appmodel-v2-overview.md#getting-started) zelfstudies.
-* De Outlook-e-Mail, agenda en contactpersonen REST-API's, die allemaal zich op https://outlook.office.com bevinden. Zie voor informatie over het schrijven van een app die toegang heeft tot deze API's, de [Office aan de slag](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) zelfstudies.
-* Microsoft Graph API's. U kunt meer lezen over [Microsoft Graph](https://graph.microsoft.io) en de gegevens die voor u beschikbaar is.
-
-Er zijn geen andere services worden ondersteund op dit moment. Meer Microsoft Online Services worden in de toekomst toegevoegd naast ondersteuning voor uw eigen op maat gemaakte Web-API's en services.
 
 ## <a name="restrictions-on-libraries-and-sdks"></a>Beperkingen voor bibliotheken en SDK 's
 Ondersteuning voor het v2.0-eindpunt is momenteel beperkt. Als u het v2.0-eindpunt in een productietoepassing gebruiken wilt, hebt u deze opties:

@@ -9,11 +9,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: sujayt
-ms.openlocfilehash: 7292948c40b184a58eb3e27aecac28e2227a29f8
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: ad0281df19ac1696ebb7cc913045d49c652be84a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Oplossen van problemen met de replicatie van de virtuele machine van Azure naar Azure
 
@@ -199,6 +199,17 @@ Schakel replicatie op de virtuele machine door de Inrichtingsstatus moet **gesla
 
 - Als **provisioningState** is **mislukt**, contact op met de ondersteuning met details om op te lossen.
 - Als **provisioningState** is **Updating**, kan ophalen van een andere extensie geïmplementeerd. Controleer of er zijn geen actieve bewerkingen op de virtuele machine, wachten totdat ze zijn voltooid en probeer opnieuw het herstel van de mislukte Site **replicatie inschakelen** taak.
+
+
+## <a name="comvolume-shadow-copy-service-error-error-code-151025"></a>COM +/ fout (foutcode 151025) van de Volume Shadow Copy-service
+**Foutcode** | **Mogelijke oorzaken** | **Aanbevelingen**
+--- | --- | ---
+151025<br></br>**Bericht**: Site recovery-extensie kan niet installeren | -'Systeemtoepassing COM +'-service is uitgeschakeld.</br></br>-'Volume Shadow Copy-service is uitgeschakeld.| 'Systeemtoepassing COM +' en 'Volume Shadow Copy' services ingesteld op de modus automatisch of handmatig starten.
+
+### <a name="fix-the-problem"></a>Los het probleem
+
+U kunt openen 'Services'-console en zorg ervoor dat de 'COM + systeemtoepassing' en 'Volume Shadow Copy' zijn niet ingesteld op "Uitgeschakeld" voor 'Opstarttype'.
+  ![COM-fout](./media/azure-to-azure-troubleshoot-errors/com-error.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 [Virtuele Azure-machines repliceren](site-recovery-replicate-azure-to-azure.md)

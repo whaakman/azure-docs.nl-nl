@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 1cd7bd7e32c96398d72c7cd3b51e2b456d60f01d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 951e845e23a1ed0cbdc83fc24a97a545f00c52ad
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Traffic Manager beheren met behulp van PowerShell
 
@@ -59,7 +59,7 @@ De volgende tabel beschrijft de parameters:
 | Parameter | Beschrijving |
 | --- | --- |
 | Naam |De resourcenaam voor de resource Traffic Manager-profiel. Profielen in dezelfde resourcegroep moeten unieke namen hebben. Deze naam is gescheiden van de DNS-naam gebruikt voor DNS-query's. |
-| resourceGroupName |De naam van de resourcegroep met de bron van het profiel. |
+| ResourceGroupName |De naam van de resourcegroep met de bron van het profiel. |
 | TrafficRoutingMethod |Hiermee geeft u de verkeersroutering methode die wordt gebruikt om te bepalen welk eindpunt wordt geretourneerd als antwoord een DNS-query. Mogelijke waarden zijn 'Prestaties', 'Gewogen' of 'Prioriteit'. |
 | RelativeDnsName |Hiermee geeft u het gedeelte hostname van de DNS-naam op die door dit Traffic Manager-profiel. Deze waarde wordt gecombineerd met de DNS-domeinnaam die door Azure Traffic Manager gebruikt voor het maken van de volledig gekwalificeerde domeinnaam (FQDN) van het profiel. De waarde van 'contoso' wordt bijvoorbeeld 'contoso.trafficmanager.net'. |
 | TTL |Hiermee geeft u de DNS-Time-to-Live (TTL), in seconden. Deze TTL informeert de lokale DNS-resolvers en DNS-clients hoe lang cache DNS-antwoorden voor dit Traffic Manager-profiel. |
@@ -122,7 +122,7 @@ In elk geval:
 * Geven de 'gewicht', is optioneel. Gewicht worden alleen gebruikt als het profiel is geconfigureerd voor gebruik van de methode 'Gewogen' verkeer routering. Anders worden genegeerd. Indien opgegeven, is de waarde moet een getal tussen 1 en 1000. De standaardwaarde is '1'.
 * Geven de 'prioriteit' is optioneel. Prioriteiten worden alleen gebruikt als het profiel is geconfigureerd voor gebruik van de methode 'Prioriteit' verkeer routering. Anders worden genegeerd. Geldige waarden liggen tussen 1 en 1000 met lagere waarden die wijzen op een hogere prioriteit. Als voor één eindpunt opgegeven, moeten ze worden opgegeven voor alle eindpunten. Als u niets opgeeft, worden in de volgorde waarin de eindpunten zijn weergegeven standaardwaarden '1' vanaf toegepast.
 
-### <a name="example-1-adding-web-app-endpoints-using-add-azurermtrafficmanagerendpointconfig"></a>Voorbeeld 1: Toe te voegen met behulp van Web-App-eindpunten`Add-AzureRmTrafficManagerEndpointConfig`
+### <a name="example-1-adding-web-app-endpoints-using-add-azurermtrafficmanagerendpointconfig"></a>Voorbeeld 1: Toe te voegen met behulp van Web-App-eindpunten `Add-AzureRmTrafficManagerEndpointConfig`
 
 In dit voorbeeld wordt een Traffic Manager-profiel maken en toevoegen van eindpunten van Web-App, met behulp van de `Add-AzureRmTrafficManagerEndpointConfig` cmdlet.
 
@@ -134,7 +134,7 @@ $webapp2 = Get-AzureRMWebApp -Name webapp2
 Add-AzureRmTrafficManagerEndpointConfig -EndpointName webapp2ep -TrafficManagerProfile $profile -Type AzureEndpoints -TargetResourceId $webapp2.Id -EndpointStatus Enabled
 Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
 ```
-### <a name="example-2-adding-a-publicipaddress-endpoint-using-new-azurermtrafficmanagerendpoint"></a>Voorbeeld 2: Toevoegen van een publicIpAddress-eindpunt met`New-AzureRmTrafficManagerEndpoint`
+### <a name="example-2-adding-a-publicipaddress-endpoint-using-new-azurermtrafficmanagerendpoint"></a>Voorbeeld 2: Toevoegen van een publicIpAddress-eindpunt met `New-AzureRmTrafficManagerEndpoint`
 
 In dit voorbeeld wordt de bron van een openbare IP-adres toegevoegd aan het Traffic Manager-profiel. Het openbare IP-adres moet een DNS-naam is geconfigureerd, en kan worden gebonden aan de NIC van een virtuele machine of aan een load balancer.
 
@@ -153,7 +153,7 @@ Wanneer u externe eindpunten opgeeft:
 * Als de methode 'Prestaties' verkeer routering wordt gebruikt, wordt de 'EndpointLocation' is vereist. Anders is optioneel. De waarde moet een [geldig Azure-regionaam](https://azure.microsoft.com/regions/).
 * Het 'Gewicht' en 'Prioriteit' zijn optioneel.
 
-### <a name="example-1-adding-external-endpoints-using-add-azurermtrafficmanagerendpointconfig-and-set-azurermtrafficmanagerprofile"></a>Voorbeeld 1: Externe eindpunten met toevoegen `Add-AzureRmTrafficManagerEndpointConfig` en`Set-AzureRmTrafficManagerProfile`
+### <a name="example-1-adding-external-endpoints-using-add-azurermtrafficmanagerendpointconfig-and-set-azurermtrafficmanagerprofile"></a>Voorbeeld 1: Externe eindpunten met toevoegen `Add-AzureRmTrafficManagerEndpointConfig` en `Set-AzureRmTrafficManagerProfile`
 
 In dit voorbeeld wordt een Traffic Manager-profiel maken, twee externe eindpunten toevoegen en de wijzigingen worden doorgevoerd.
 
@@ -164,7 +164,7 @@ Add-AzureRmTrafficManagerEndpointConfig -EndpointName us-endpoint -TrafficManage
 Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
 ```
 
-### <a name="example-2-adding-external-endpoints-using-new-azurermtrafficmanagerendpoint"></a>Voorbeeld 2: Externe eindpunten met toevoegen`New-AzureRmTrafficManagerEndpoint`
+### <a name="example-2-adding-external-endpoints-using-new-azurermtrafficmanagerendpoint"></a>Voorbeeld 2: Externe eindpunten met toevoegen `New-AzureRmTrafficManagerEndpoint`
 
 In dit voorbeeld wordt een extern eindpunt toevoegen aan een bestaand profiel. Het profiel is opgegeven met behulp van de groepnamen van profielen en resource.
 
@@ -183,7 +183,7 @@ Geneste eindpunten zijn geconfigureerd op het bovenliggende-profiel met een spec
 * De 'Gewicht' en 'Prioriteit' zijn optioneel, als voor de Azure-eindpunten.
 * De parameter 'MinChildEndpoints' is optioneel. De standaardwaarde is '1'. Als het aantal beschikbare eindpunten kleiner is dan deze drempelwaarde, wordt het profiel van de bovenliggende beschouwt het onderliggende profiel 'Gedegradeerd' en verkeer naar de andere eindpunten in het profiel van de bovenliggende zorgt.
 
-### <a name="example-1-adding-nested-endpoints-using-add-azurermtrafficmanagerendpointconfig-and-set-azurermtrafficmanagerprofile"></a>Voorbeeld 1: Toe te voegen geneste eindpunten met `Add-AzureRmTrafficManagerEndpointConfig` en`Set-AzureRmTrafficManagerProfile`
+### <a name="example-1-adding-nested-endpoints-using-add-azurermtrafficmanagerendpointconfig-and-set-azurermtrafficmanagerprofile"></a>Voorbeeld 1: Toe te voegen geneste eindpunten met `Add-AzureRmTrafficManagerEndpointConfig` en `Set-AzureRmTrafficManagerProfile`
 
 In dit voorbeeld we nieuwe Traffic Manager onderliggende en bovenliggende profielen maken, het onderliggende toevoegen als een geneste eindpunt voor de bovenliggende en de wijzigingen worden doorgevoerd.
 
@@ -196,13 +196,25 @@ Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
 
 Voor beknopt alternatief bevat in dit voorbeeld heeft we geen andere eindpunten niet toevoegen aan de onderliggende of bovenliggende profielen.
 
-### <a name="example-2-adding-nested-endpoints-using-new-azurermtrafficmanagerendpoint"></a>Voorbeeld 2: Geneste eindpunten toevoegen`New-AzureRmTrafficManagerEndpoint`
+### <a name="example-2-adding-nested-endpoints-using-new-azurermtrafficmanagerendpoint"></a>Voorbeeld 2: Geneste eindpunten toevoegen `New-AzureRmTrafficManagerEndpoint`
 
 In dit voorbeeld toevoegen we een bestaand profiel van de onderliggende als een geneste eindpunt aan een bestaand profiel van de bovenliggende. Het profiel is opgegeven met behulp van de groepnamen van profielen en resource.
 
 ```powershell
 $child = Get-AzureRmTrafficManagerEndpoint -Name child -ResourceGroupName MyRG
 New-AzureRmTrafficManagerEndpoint -Name child-endpoint -ProfileName parent -ResourceGroupName MyRG -Type NestedEndpoints -TargetResourceId $child.Id -EndpointStatus Enabled -EndpointLocation "North Europe" -MinChildEndpoints 2
+```
+
+## <a name="adding-endpoints-from-another-subscription"></a>Het toevoegen van eindpunten van een ander abonnement
+
+Traffic Manager kunt werken met de eindpunten van verschillende abonnementen behoren. U moet overschakelen naar het abonnement met het eindpunt dat u toevoegen wilt voor het ophalen van de benodigde invoer aan Traffic Manager. U moet overschakelen naar de abonnementen, met Traffic Manager-profiel en de encpoint aan toe te voegen. Het onderstaande voorbeeld ziet u hoe u kunt dit doen met een openbaar IP-adres.
+
+```powershell
+Set-AzureRmContext -SubscriptionId $EndpointSubscription
+$ip = Get-AzureRmPublicIpAddress -Name $IpAddresName -ResourceGroupName $EndpointRG
+
+Set-AzureRmContext -SubscriptionId $trafficmanagerSubscription
+New-AzureRmTrafficManagerEndpoint -Name $EndpointName -ProfileName $ProfileName -ResourceGroupName $TrafficManagerRG -Type AzureEndpoints -TargetResourceId $ip.Id -EndpointStatus Enabled
 ```
 
 ## <a name="update-a-traffic-manager-endpoint"></a>Bijwerken van een Traffic Manager-eindpunt
@@ -212,7 +224,7 @@ Er zijn twee manieren om bij te werken van een bestaand Traffic Manager-eindpunt
 1. Ophalen van het Traffic Manager via `Get-AzureRmTrafficManagerProfile`, de eigenschappen van de endpoint binnen het profiel bijwerken en de wijzigingen met behulp van `Set-AzureRmTrafficManagerProfile`. Deze methode heeft het voordeel van meer dan één eindpunt in één bewerking worden bijgewerkt.
 2. Ophalen van het Traffic Manager-eindpunt met behulp `Get-AzureRmTrafficManagerEndpoint`, de eindpunt-eigenschappen niet bijwerken, en de wijzigingen met behulp van `Set-AzureRmTrafficManagerEndpoint`. Deze methode is eenvoudiger, aangezien hoeven niet te indexeren bij de matrix eindpunten in het profiel.
 
-### <a name="example-1-updating-endpoints-using-get-azurermtrafficmanagerprofile-and-set-azurermtrafficmanagerprofile"></a>Voorbeeld 1: Bijwerken met behulp van eindpunten `Get-AzureRmTrafficManagerProfile` en`Set-AzureRmTrafficManagerProfile`
+### <a name="example-1-updating-endpoints-using-get-azurermtrafficmanagerprofile-and-set-azurermtrafficmanagerprofile"></a>Voorbeeld 1: Bijwerken met behulp van eindpunten `Get-AzureRmTrafficManagerProfile` en `Set-AzureRmTrafficManagerProfile`
 
 In dit voorbeeld wijzigt u de prioriteit op twee eindpunten in een bestaand profiel.
 
@@ -223,7 +235,7 @@ $profile.Endpoints[1].Priority = 1
 Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
 ```
 
-### <a name="example-2-updating-an-endpoint-using-get-azurermtrafficmanagerendpoint-and-set-azurermtrafficmanagerendpoint"></a>Voorbeeld 2: Bijwerken van een eindpunt met `Get-AzureRmTrafficManagerEndpoint` en`Set-AzureRmTrafficManagerEndpoint`
+### <a name="example-2-updating-an-endpoint-using-get-azurermtrafficmanagerendpoint-and-set-azurermtrafficmanagerendpoint"></a>Voorbeeld 2: Bijwerken van een eindpunt met `Get-AzureRmTrafficManagerEndpoint` en `Set-AzureRmTrafficManagerEndpoint`
 
 In dit voorbeeld wijzigen we het gewicht van één eindpunt in een bestaand profiel.
 

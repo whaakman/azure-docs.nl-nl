@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 04/10/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 0fe0b5d3120833b8472fcdaee366a5d1f2818600
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b36099c6fd2deb6b627c8ccd7cc9e13c328f54e3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database beheerd exemplaar T-SQL-verschillen met SQL Server 
 
@@ -393,7 +393,7 @@ De volgende variabelen, taken en weergaven retourneren andere resultaten:
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Meer dan opslagruimte met kleine databasebestanden
 
-Elk exemplaar beheerd heeft naar 35 TB opslagruimte is gereserveerd voor de schijfruimte van Azure Premium en elk databasebestand op een afzonderlijke fysieke schijf is geplaatst. Schijfgrootte kunnen 128 GB, 256 GB, 512 GB, 1 TB of 4 TB zijn. Ongebruikte ruimte op schijf niet in rekening gebracht, maar de totale som van Azure Premium-schijfgrootte niet langer zijn dan 35 TB. In sommige gevallen kunt u een beheerd Instnace die niet nodig heeft 8 TB in totaal de 35 TB Azure de limiet voor de grootte van de opslagruimte, vanwege de fragmentatie van de interne overschrijden. 
+Elk exemplaar beheerd heeft naar 35 TB opslagruimte is gereserveerd voor de schijfruimte van Azure Premium en elk databasebestand op een afzonderlijke fysieke schijf is geplaatst. Schijfgrootte kunnen 128 GB, 256 GB, 512 GB, 1 TB of 4 TB zijn. Ongebruikte ruimte op schijf niet in rekening gebracht, maar de totale som van Azure Premium-schijfgrootte niet langer zijn dan 35 TB. In sommige gevallen kunt u een beheerde-exemplaar dat niet 8 TB in totaal hoeft de 35 TB Azure de limiet voor de grootte van de opslagruimte, vanwege de fragmentatie van de interne overschrijden. 
 
 Een exemplaar beheerd kan bijvoorbeeld een bestand met 1,2 TB grootte die gebruikmaakt van een schijf 4 TB en 248 bestanden met 1 GB elk die worden geplaatst op 248 schijven met een grootte van 128 GB. In dit voorbeeld is de totale schijfgrootte opslag 1 x 4 TB + 248 x 128 GB = 35 TB. Totaal aantal gereserveerde exemplaargrootte voor databases is echter 1 x 1.2 TB + 248 x 1 GB = 1,4 TB. Dit ziet u dat onder bepaalde omstandigheden, als gevolg van een specifieke distributie van bestanden, een exemplaar beheerd Azure Premium-schijf opslaglimiet waar u niet verwacht het dat mogelijk mogelijk bereikt. 
 

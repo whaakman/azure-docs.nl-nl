@@ -5,7 +5,7 @@ services: service-fabric
 documentationcenter: .net
 author: msfussell
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fae2be85-0ab4-4cd3-9d1f-e0d95fe1959b
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
-ms.openlocfilehash: f69f594d058ba061cec116f87435c96280e19f93
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: d56b78a0274842c012e57f80f0c2fe5619a62962
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>Waarom een microservices benadering voor het ontwikkelen van toepassingen?
 Software-ontwikkelaars zijn er geen nieuwe functies in onze verwachting over waarbij een toepassing in onderdelen. Het is het centrale paradigma stand object software abstracties en componentization. Vandaag de dag doorgaans dit factoriseren de vorm van klassen en interfaces tussen gedeelde bibliotheken en lagen van de technologie. Normaal gesproken wordt een gelaagde benadering gemaakt met een back-end-winkel, bedrijfslogica middelste laag en een front-gebruikersinterface (UI). Wat *heeft* gewijzigd in de afgelopen jaren is dat we, ontwikkelaars, bouwt gedistribueerde toepassingen die voor de cloud en aangedreven door het bedrijf.
@@ -181,7 +181,7 @@ Het doel van Service Fabric is het verminderen van de complexiteit van het bouwe
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Overzicht van service Fabric-terminologie](service-fabric-technical-overview.md)
-* [Microservices: Een toepassing revolution aangedreven door de cloud](https://azure.microsoft.com/en-us/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+* [Microservices: Een toepassing revolution aangedreven door de cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png

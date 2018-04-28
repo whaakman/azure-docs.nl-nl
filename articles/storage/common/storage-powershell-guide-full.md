@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: rogarana
-ms.openlocfilehash: ae1c6628492de208f7c11e0b4e9d3133774ae184
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 33ca8af49ed9c3a8e7133eedfd284a1b71a9a9f9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Azure PowerShell gebruiken met Azure Storage
 
 Azure PowerShell wordt gebruikt voor het maken en beheren van Azure-resources van de PowerShell-opdrachtregel of in scripts. Voor Azure Storage, worden deze cmdlets onderverdeeld in twee categorieën--het vlak van het besturingselement en het vlak van gegevens. Het besturingselement vlak-cmdlets worden gebruikt voor het beheren van het opslagaccount--voor het storage-accounts maken, eigenschappen instellen, storage-accounts te verwijderen, de sneltoetsen draaien, enzovoort. De gegevens vlak-cmdlets worden gebruikt voor het beheren van de opgeslagen gegevens *in* het storage-account. Bijvoorbeeld BLOB's uploaden, maken van bestandsshares en berichten toe te voegen aan een wachtrij.
 
-Dit artikel bevat informatie over algemene bewerkingen met behulp van de vlak-cmdlets voor het beheren van storage-accounts. Procedures voor: 
+Dit artikel bevat informatie over algemene bewerkingen met behulp van de vlak-cmdlets voor het beheren van storage-accounts. In deze zelfstudie leert u procedures om het volgende te doen: 
 
 > [!div class="checklist"]
 > * Lijst met storage-accounts
 > * Een verwijzing naar een bestaand opslagaccount ophalen
-> * Een opslagaccount maken 
+> * Create a storage account 
 > * Eigenschappen van het opslagaccount instellen
 > * Ophalen en de toegangssleutels opnieuw genereren
 > * Toegang tot uw storage-account beveiligen 
@@ -46,10 +46,10 @@ Zie voor meer informatie over opslagaccounts [Inleiding tot Storage](storage-int
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-Meld u aan bij uw Azure-abonnement met de opdracht `Login-AzureRmAccount` en volg de instructies op het scherm.
+Meld u aan bij uw Azure-abonnement met de opdracht `Connect-AzureRmAccount` en volg de instructies op het scherm.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## <a name="list-the-storage-accounts-in-the-subscription"></a>Lijst van de storage-accounts in het abonnement
@@ -78,7 +78,7 @@ $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
 
 U hebt nu $storageAccount die naar een bestaand opslagaccount wijst.
 
-### <a name="create-a-storage-account"></a>Een opslagaccount maken 
+### <a name="create-a-storage-account"></a>Create a storage account 
 
 Het volgende script toont het maken van een opslagaccounts voor algemeen gebruik voor het met [nieuw AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). Nadat u het account maakt, halen de context die kan worden gebruikt in de volgende opdrachten in plaats van geven de verificatie met elke aanroep.
 
@@ -245,7 +245,7 @@ Dit artikel bevat informatie over algemene bewerkingen met behulp van de vlak-cm
 > [!div class="checklist"]
 > * Lijst met storage-accounts
 > * Een verwijzing naar een bestaand opslagaccount ophalen
-> * Een opslagaccount maken 
+> * Create a storage account 
 > * Eigenschappen van het opslagaccount instellen
 > * Ophalen en de toegangssleutels opnieuw genereren
 > * Toegang tot uw storage-account beveiligen 

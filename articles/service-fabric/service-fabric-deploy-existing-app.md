@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: mfussell;mikhegn
-ms.openlocfilehash: f0c6c54b0f168f87ff122dee70a091fdcb96014e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9d1e2f801db2ed7edf262f8a5f221057ef791106
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Het pakket en implementeren van een bestaand uitvoerbaar bestand voor Service Fabric
 Wanneer het verpakken van een bestaand uitvoerbaar bestand als een [Gast uitvoerbaar bestand](service-fabric-guest-executables-introduction.md), kunt u ofwel een Visual Studio-projectsjabloon gebruiken of [handmatig maken van het toepassingspakket](#manually). Met Visual Studio, worden de toepassing pakketstructuur en manifest-bestanden door het nieuwe projectsjabloon voor u gemaakt.
@@ -43,7 +43,7 @@ Visual Studio biedt een Service Fabric-servicesjabloon om te helpen bij het impl
 4. Geef de service een naam en klik op **OK**.
 5. Als uw service een eindpunt voor communicatie moet, kunt u nu de protocol, de poort en het type toevoegen aan het bestand ServiceManifest.xml. Bijvoorbeeld: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
 6. U kunt nu gebruik van het pakket en publiceren van actie tegen uw lokale cluster door de oplossing in Visual Studio-foutopsporing. Wanneer u klaar bent, kunt u de toepassing publiceren in een cluster met externe of Controleer in de oplossing met resourcebeheer.
-7. Lees [Controleer de actieve toepassing](#check-your-running-application) informatie over het weergeven van de Gast uitvoerbare service wordt uitgevoerd op de Service Fabric Explorer.
+7. Lees [Controleer de actieve toepassing](#check-your-running-application) om te zien hoe uw gast uitvoerbare service wordt uitgevoerd op de Service Fabric Explorer weergeven.
 
 Zie voor een overzicht voorbeeld [uw eerste Gast uitvoerbare toepassing met Visual Studio maken](quickstart-guest-app.md).
 

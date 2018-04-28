@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: ef86af61284bb208cc8c469e3fe75bd4f4bdc5bf
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 37d1397b0601e09b12c0c05ff0adc6a916d66d70
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referentie - IoT-Hub quota's en beperking
 
@@ -39,16 +39,16 @@ De volgende tabel toont de afgedwongen vertragingen. Waarden verwijzen naar een 
 | Vertragen | Gratis B1 en S1 | B2 en S2 | B3 en S3 | 
 | -------- | ------- | ------- | ------- |
 | Identiteit registerbewerkingen (maken, ophalen, weergeven, bijwerken en verwijderen) | 1.67/sec/Unit (min-100/unit) | 1.67/sec/Unit (min-100/unit) | 83.33/sec/Unit (min-5000/unit) |
-| Apparaatverbindingen | Hogere van 100 per seconde of sec-12-eenheid <br/> Twee S1 eenheden zijn bijvoorbeeld 2\*12 = 24/sec, maar u hebt ten minste 100 per seconde voor uw units. Met negen S1 eenheden, hebt u 108 per seconde (9\*12) voor uw units. | sec-120-eenheid | 6000/sec/unit |
-| Apparaat-naar-cloud verzendt | Hogere van 100 per seconde of sec-12-eenheid <br/> Twee S1 eenheden zijn bijvoorbeeld 2\*12 = 24/sec, maar u hebt ten minste 100 per seconde voor uw units. Met negen S1 eenheden, hebt u 108 per seconde (9\*12) voor uw units. | sec-120-eenheid | 6000/sec/unit |
+| Apparaatverbindingen | Hogere van 100 per seconde of sec-12-eenheid <br/> Twee S1 eenheden zijn bijvoorbeeld 2\*12 = 24/sec, maar u hebt ten minste 100 per seconde voor uw units. Met negen S1 eenheden, hebt u 108 per seconde (9\*12) voor uw units. | sec-120-eenheid | sec-6000-eenheid |
+| Apparaat-naar-cloud verzendt | Hogere van 100 per seconde of sec-12-eenheid <br/> Twee S1 eenheden zijn bijvoorbeeld 2\*12 = 24/sec, maar u hebt ten minste 100 per seconde voor uw units. Met negen S1 eenheden, hebt u 108 per seconde (9\*12) voor uw units. | sec-120-eenheid | sec-6000-eenheid |
 | Cloud-naar-apparaat verzendt<sup>1</sup> | 1.67/sec/Unit (min-100/unit) | 1.67/sec/Unit (min-100/unit) | 83.33/sec/Unit (min-5000/unit) |
 | Cloud-naar-apparaat ontvangt<sup>1</sup> <br/> (alleen als apparaat maakt gebruik van HTTPS)| 16.67/sec/Unit (min-1000/unit) | 16.67/sec/Unit (min-1000/unit) | 833.33/sec/Unit (min-50000/unit) |
 | Bestand uploaden | 1.67 bestand uploaden meldingen/sec/eenheid (min-100/unit) | 1.67 bestand uploaden meldingen/sec/eenheid (min-100/unit) | 83.33 bestand uploaden meldingen/sec/eenheid (min-5000/unit) |
 | Directe methoden<sup>1</sup> | 160KB/sec/unit<sup>2</sup> | 480KB/sec/unit<sup>2</sup> | 24MB/sec/unit<sup>2</sup> | 
-| Apparaat-twin leest<sup>1</sup> | 10/sec | Hogere van 10 per seconde of sec-1-eenheid | 50/sec/unit |
-| Twin apparaatupdates<sup>1</sup> | 10/sec | Hogere van 10 per seconde of sec-1-eenheid | 50/sec/unit |
+| (Apparaat en module) leest Twin<sup>1</sup> | 10 per seconde | Hogere van 10 per seconde of sec-1-eenheid | sec-50-eenheid |
+| Updates (apparaat en module) Twin<sup>1</sup> | 10 per seconde | Hogere van 10 per seconde of sec-1-eenheid | sec-50-eenheid |
 | Taken operations<sup>1</sup> <br/> (maken, bijwerken, weergeven, verwijderen) | 1.67/sec/Unit (min-100/unit) | 1.67/sec/Unit (min-100/unit) | 83.33/sec/Unit (min-5000/unit) |
-| Taken per apparaat bewerking doorvoer<sup>1</sup> | 10/sec | Hogere van 10 per seconde of sec-1-eenheid | 50/sec/unit |
+| Taken per apparaat bewerking doorvoer<sup>1</sup> | 10 per seconde | Hogere van 10 per seconde of sec-1-eenheid | sec-50-eenheid |
 
 <sup>1</sup>deze functie is niet beschikbaar in de basisstaffel van IoT Hub. Zie voor meer informatie [het kiezen van de juiste IoT-Hub](iot-hub-scaling.md). <br/><sup>2</sup>beperking van de grootte van de meter is 8 KB.
 

@@ -2,7 +2,7 @@
 title: Wat is het toegangsvenster in Azure Active Directory? | Microsoft Docs
 description: Informatie over het gebruik van variaties van het toegangsvenster (webbrowser, Android-app, iPhone en iPad app) voor toegang tot SaaS-apps.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: c0252d01-7e6e-4f79-a70e-600479577dfd
@@ -15,11 +15,11 @@ ms.date: 03/06/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c9b647e8f731995537a8797ab28248a1c42b6460
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 3c8ea85a0906071d6b30f176de7509e5f346b513
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-the-access-panel"></a>Wat is het toegangsvenster?
 
@@ -50,9 +50,7 @@ U toegang hebt tot het toegangsvenster door te gaan naar `http://myapps.microsof
 
 Als u aangepaste huisstijl is geconfigureerd voor de aanmeldingspagina hebt, kunt u de huisstijl door het domein van uw organisatie toegevoegd aan de URL te laden (bijvoorbeeld `http://myapps.microsoft.com/<your domain>.com`).
 
-U kunt een actieve of een geverifieerde domeinnaam die is geconfigureerd in uw Azure-portal kunt gebruiken, zoals hier wordt weergegeven:
-
-![Wingtip Toys domeinnaam][2]  
+U kunt een actieve of geverifieerde domeinnaam die is geconfigureerd in uw Azure-portal, zoals hier wordt weergegeven: ![Wingtip Toys domeinnaam][2]  
 
 De URL voor alle gebruikers die zich aanmelden bij toepassingen die zijn geïntegreerd met Azure AD distribueren.
 
@@ -75,7 +73,7 @@ De extensie van het Configuratiescherm toegang is momenteel beschikbaar voor:
 - **Rand**: verjaardagseditie van Windows 10 of hoger. 
 - **Chrome**: Windows 7 of hoger, en op Mac OS X of hoger.
 - **Firefox 26,0 of hoger**: Windows XP SP2 of hoger, en op Mac OS X 10.6 of hoger.
-- **Internet Explorer 8, 9, 10, 11**: op Windows 7 of hoger (beperkte ondersteuning).
+- **Internet Explorer 11**: op Windows 7 of hoger (beperkte ondersteuning).
 
 ## <a name="my-apps-secure-sign-in-extension"></a>Extensie Veilige aanmelding bij mijn apps
 Als u wilt aanmelden bij op basis van wachtwoorden eenmalige aanmelding, moet u de extensie. Nadat de uitbreiding is geïnstalleerd, kunt u aanmelden voor deze aanvullende functies inschakelen door het selecteren van **melden aan de slag**. 

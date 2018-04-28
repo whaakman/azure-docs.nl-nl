@@ -9,11 +9,11 @@ ms.custom: business continuity
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 09672c9f8ba725e46f2cdbb1a13de101137cb718
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 89839d18e90a75f81e78edcb7f54e77a31ea4886
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Actieve geo-replicatie configureren voor Azure SQL Database in de Azure-portal en de initiëren failover
 
@@ -33,7 +33,7 @@ De volgende stappen wordt een nieuwe secundaire database maken in een associatie
 
 Als u wilt toevoegen van een secundaire database, moet u de eigenaar van abonnement of mede-eigenaar.
 
-De secundaire database heeft dezelfde naam als de primaire database en is standaard hetzelfde. De secundaire database is een individuele database of een database in een elastische pool. Zie voor meer informatie [Servicelagen](sql-database-service-tiers.md).
+De secundaire database heeft dezelfde naam als de primaire database en is standaard hetzelfde. De secundaire database is een individuele database of een database in een elastische pool. Zie voor meer informatie [aankoopmodel DTU gebaseerde](sql-database-service-tiers-dtu.md) en [vCore gebaseerde aankoopmodel (preview)](sql-database-service-tiers-vcore.md).
 Nadat de secundaire is gemaakt en wordt gemaakt, begint de gegevens van de primaire database te repliceren naar de nieuwe secundaire database.
 
 > [!NOTE]

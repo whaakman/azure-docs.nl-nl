@@ -5,7 +5,7 @@ author: Juliako
 manager: cfow
 editor: johndeu
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: f243ed1c-ac9c-4300-a5f7-f092cf9853b9
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/01/2017
 ms.author: juliako
-ms.openlocfilehash: 5753b1dffe5a1a4ee069b83f58e9c2dac433b89d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c518771d95dcb571da294f8a752e7b5740ef19f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="sample-presets-for-media-encoder-standard-mes"></a>Voorbeeld standaardinstellingen voor Media Encoder Standard (MES)
 
@@ -85,4 +85,4 @@ Als u werkt met Media Encoder Standard, wordt video te draaien is standaard inge
   
  [Geselecteerde instelling H264 Single Bitrate lage kwaliteit SD voor Android](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md) produceert één MP4-bestand met een bitrate van 56 kbps en aansluiting AAC audio.  
   
- Zie voor meer informatie over Media Services coderingsprogramma's, [codering op aanvraag met Azure Media Services](https://azure.microsoft.com/en-us/documentation/articles/media-services-encode-asset/).
+ Zie voor meer informatie over Media Services coderingsprogramma's, [codering op aanvraag met Azure Media Services](https://azure.microsoft.com/documentation/articles/media-services-encode-asset/).

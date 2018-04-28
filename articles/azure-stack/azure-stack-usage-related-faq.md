@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/09/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 3d6f2bf569ecfebe3bf4f535a7a8ab3bf22849f1
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: f0df9b02e7672faec3a1d94997c9b27ffca275e5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Veelgestelde vragen in Azure Stack gebruiks-API
 Dit artikel worden enkele veelgestelde vragen over de Azure-API voor het gebruik van Stack.
@@ -27,7 +27,7 @@ Dit artikel worden enkele veelgestelde vragen over de Azure-API voor het gebruik
 ## <a name="what-meter-ids-can-i-see"></a>Welke meter id's kan ik zien?
 Gebruik wordt voor de volgende resourceproviders gerapporteerd:
 
-| **Resourceprovider** | **ID van de meter** | **De naam van de meter** | **Unit** | **Aanvullende informatie** |
+| **Resourceprovider** | **ID van de meter** | **De naam van de meter** | **eenheid** | **Aanvullende informatie** |
 | --- | --- | --- | --- | --- |
 | **Netwerk** |F271A8A388C44D93956A063E1D2FA80B |Gebruik van statische IP-adres |IP-adressen| Telling van IP-adressen die worden gebruikt. Als u het gebruik van API met dagelijkse samenvattingen aanroept, retourneert de meter IP-adres vermenigvuldigd met het aantal uren. |
 | |9E2739BA86744796B465F64674B822BA |Gebruik van dynamische IP-adres |IP-adressen| Telling van IP-adressen die worden gebruikt. Als u het gebruik van API met dagelijkse samenvattingen aanroept, retourneert de meter IP-adres vermenigvuldigd met het aantal uren. |
@@ -68,7 +68,7 @@ Gebruik wordt voor de volgende resourceproviders gerapporteerd:
 ## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsmsdnmicrosoftcomlibraryazure1ea5b323-54bb-423d-916f-190de96c6a3c-currently-in-public-preview"></a>Hoe kan het Azure-Stack gebruik API's met vergelijken de [Azure gebruiks-API](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) (momenteel in de openbare preview)?
 * De Tenant-API voor informatie over het gebruik is consistent met de Azure-API, met één uitzondering: de *showDetails* vlag momenteel niet ondersteund in Azure-Stack.
 * De Provider gebruik API geldt alleen voor Azure-Stack.
-* Op dit moment wordt de [RateCard API](https://msdn.microsoft.com/en-us/library/azure/mt219004.aspx) is beschikbaar in Azure is niet beschikbaar in Azure-Stack.
+* Op dit moment wordt de [RateCard API](https://msdn.microsoft.com/library/azure/mt219004.aspx) is beschikbaar in Azure is niet beschikbaar in Azure-Stack.
 
 ## <a name="what-is-the-difference-between-usage-time-and-reported-time"></a>Wat is het verschil tussen de gebruikstijd van de informatie over het en gerapporteerde tijd?
 Rapporten over gebruik van gegevens hebben twee belangrijkste tijdwaarden:

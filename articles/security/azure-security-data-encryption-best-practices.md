@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 159bdf681761b9fc46f77cbcf25a210db11d1d9b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 169234195fa75924a65680ce2f3fa6ee9633daae
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Best Practices voor beveiliging van gegevens van Azure en versleuteling
 Een van de sleutels voor bescherming van gegevens in de cloud is accounting voor de mogelijke statussen in die uw gegevens zich kunnen voordoen, en welke besturingselementen beschikbaar zijn voor die status. Omwille van de Azure data zijn versleuteling best practices voor beveiliging en de aanbevelingen om de statussen van de volgende gegevens:
@@ -50,15 +50,15 @@ Azure data beveiligings- en aanbevolen procedures in dit artikel wordt beschreve
 * Bestand niveau gegevensversleuteling afdwingen
 
 ## <a name="enforce-multi-factor-authentication"></a>Multi-factor Authentication afdwingen
-De eerste stap bij de toegang tot gegevens en beheer in Microsoft Azure is de gebruiker te verifiëren. [Azure multi-factor Authentication (MFA)](../multi-factor-authentication/multi-factor-authentication.md) is een methode voor het verifiëren van de identiteit van gebruiker met een andere methode dan alleen een gebruikersnaam en wachtwoord. Deze verificatie methode helpt beveiliging toegang tot gegevens en toepassingen en te voldoen aan de behoeften van de gebruiker voor een eenvoudig proces aanmelden.
+De eerste stap bij de toegang tot gegevens en beheer in Microsoft Azure is de gebruiker te verifiëren. [Azure multi-factor Authentication (MFA)](../active-directory/authentication/multi-factor-authentication.md) is een methode voor het verifiëren van de identiteit van gebruiker met een andere methode dan alleen een gebruikersnaam en wachtwoord. Deze verificatie methode helpt beveiliging toegang tot gegevens en toepassingen en te voldoen aan de behoeften van de gebruiker voor een eenvoudig proces aanmelden.
 
 Door Azure MFA inschakelen voor uw gebruikers, kunt u een tweede beveiligingslaag wilt toevoegen aan de gebruikersaanmeldingen en transacties. In dit geval een transactie kan toegang krijgen tot een document dat zich in een bestandsserver of op uw SharePoint Online. Azure MFA ook helpt IT verminderen de kans dat een verdachte referenties toegang tot gegevens van de organisatie hebben.
 
 Bijvoorbeeld: als u Azure MFA voor uw gebruikers afdwingen en configureren voor het gebruik van een telefoongesprek of SMS-bericht als verificatie als referentie voor de gebruiker is geknoeid, toegang tot alle bronnen omdat hij geen toegang tot het telefoonnummer van de gebruiker de aanvaller niet mogelijk. Organisaties die deze extra beschermingslaag identiteit niet toevoegt zijn vatbaarder zijn voor de aanval diefstal van referenties, wat tot inbreuk op gegevens leiden kan.
 
-Een alternatief voor organisaties die u behouden van de verificatie besturingselement wilt on-premises is [Azure multi-factor Authentication-Server](../multi-factor-authentication/multi-factor-authentication-get-started-server.md), ook wel MFA lokale. Met deze methode zich u nog steeds multi-factor authentication, terwijl de MFA-server on-premises afdwingen.
+Een alternatief voor organisaties die u behouden van de verificatie besturingselement wilt on-premises is [Azure multi-factor Authentication-Server](../active-directory/authentication/howto-mfaserver-deploy.md), ook wel MFA lokale. Met deze methode zich u nog steeds multi-factor authentication, terwijl de MFA-server on-premises afdwingen.
 
-Lees het artikel voor meer informatie over Azure MFA [aan de slag met Azure multi-factor Authentication in de cloud](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
+Lees het artikel voor meer informatie over Azure MFA [aan de slag met Azure multi-factor Authentication in de cloud](../active-directory/authentication/howto-mfa-getstarted.md).
 
 ## <a name="use-role-based-access-control-rbac"></a>Gebruik rollen gebaseerd toegangsbeheer (RBAC)
 Toegang beperken op basis de [moet weten](https://en.wikipedia.org/wiki/Need_to_know) en [minimale bevoegdheden](https://en.wikipedia.org/wiki/Principle_of_least_privilege) beveiligingsprincipes. Dit is noodzakelijk voor organisaties die willen beveiligingsbeleid instellen voor toegang tot gegevens. Azure op rollen gebaseerde toegangsbeheer (RBAC) kan worden gebruikt om machtigingen te wijzen aan gebruikers, groepen en toepassingen op een bepaalde scope. Het bereik van een roltoewijzing kan dit een abonnement, resourcegroep of één resource.

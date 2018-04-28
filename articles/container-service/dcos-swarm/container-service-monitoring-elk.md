@@ -3,17 +3,17 @@ title: Een Azure-DC/OS-cluster - stack van ELK bewaken
 description: Bewaken van een DC/OS-cluster in Azure Container Service-cluster met ELK (Elasticsearch, Logstash en Kibana).
 services: container-service
 author: sauryadas
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/27/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: b378fc38233534df74582388e6e832d40f431d11
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: dc863894d8846e066c90bdf7b309f141d32a1186
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-elk"></a>Een Azure Container Service-cluster met ELK bewaken
 
@@ -27,7 +27,7 @@ In dit artikel ziet u hoe de stack ELK (Elasticsearch, Logstash, Kibana) op een 
 ELK stack is een combinatie van Elasticsearch, Logstash en Kibana waarmee een end-to-end-stack die kan worden gebruikt om te controleren en analyseren van Logboeken in uw cluster.
 
 ## <a name="configure-the-elk-stack-on-a-dcos-cluster"></a>De stack ELK op een DC/OS-cluster configureren
-Toegang tot uw DC/OS-Webgebruikersinterface via [http://localhost:80 /](http://localhost:80/) eenmaal in de DC/OS-gebruikersinterface Navigeer naar **Universe**. Zoek en installeer Elasticsearch Logstash en Kibana uit de DC/OS-Universe en in die specifieke volgorde. Voor meer informatie over de configuratie van wanneer u naar de **installatie in de geavanceerde** koppeling.
+Toegang tot uw DC/OS-Webgebruikersinterface via [ http://localhost:80/ ](http://localhost:80/) eenmaal in de DC/OS-gebruikersinterface Navigeer naar **Universe**. Zoek en installeer Elasticsearch Logstash en Kibana uit de DC/OS-Universe en in die specifieke volgorde. Voor meer informatie over de configuratie van wanneer u naar de **installatie in de geavanceerde** koppeling.
 
 ![ELK1](./media/container-service-monitoring-elk/elk1.PNG) ![ELK2](./media/container-service-monitoring-elk/elk2.PNG) ![ELK3](./media/container-service-monitoring-elk/elk3.PNG) 
 

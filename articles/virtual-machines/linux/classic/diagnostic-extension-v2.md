@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
-ms.openlocfilehash: cd22188042c60da7c761e1fa00a12921146caf25
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f1415e2cfbe48b287db5851bb8ebef1ff9251280
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-the-linux-diagnostic-extension-to-monitor-the-performance-and-diagnostic-data-of-a-linux-vm"></a>De diagnostische Linux-extensie gebruiken voor het controleren van de prestaties en diagnostische gegevens van een Linux VM
 
@@ -53,7 +53,7 @@ De meest recente versie van de uitbreiding is **2.3**, en **eventuele oude versi
 
 U kunt deze uitbreiding inschakelen met behulp van de [Azure-portal](https://portal.azure.com/#), Azure PowerShell of Azure CLI-scripts.
 
-Als u wilt weergeven en configureren van de systeem- en gegevens rechtstreeks vanuit de Azure portal, volg [deze stappen uit op de Azure-blog](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/).
+Als u wilt weergeven en configureren van de systeem- en gegevens rechtstreeks vanuit de Azure portal, volg [deze stappen uit op de Azure-blog](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/).
 
 Dit artikel is gericht op het inschakelen en configureren van de uitbreiding met behulp van Azure CLI-opdrachten. Hiermee kunt u om te lezen en de gegevens rechtstreeks vanuit de tabel voor opslag weergeven.
 
@@ -88,7 +88,7 @@ Step 1. Maak een bestand met de naam PrivateConfig.json met de volgende inhoud:
         "storageAccountKey" : "the key of the account"
     }
 
-Stap 2. Voer **azure vm-extensie vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2 ingesteld.* --private-config-path PrivateConfig.json**.
+Stap 2. Voer **azure vm-extensie vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2 ingesteld.* --PrivateConfig.json** persoonlijke configuratiepad.
 
 ### <a name="scenario-2-customize-the-performance-monitor-metrics"></a>Scenario 2. Aanpassen van de monitor maatstaven voor prestaties
 

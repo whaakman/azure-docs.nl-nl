@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: d60c5766b22e31c33d0dd4a743fa297470109ac6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7fe1cd003bd7e6b681989324a42a076f4fd2f7df
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Gebruik Azure IoT Hub apparaat-inrichtingsservice automatische inrichting voor het registreren van de IoT MXChip DevKit met IoT Hub
 
@@ -54,7 +54,7 @@ Sluit de DevKit op het apparaat het inrichten van de service-exemplaar dat u heb
 4. Open Visual Studio Code, de DevKit aansluiten op uw computer en open vervolgens de map waarin de code die u gekloond.
 
 5. Open **DevKitDPS.ino**. Zoeken en vervangen `[Global Device Endpoint]` en `[ID Scope]` met de waarden die u zojuist hebt genoteerd omlaag.
-  ![Eindpunt van de DP's](./media/how-to-connect-mxchip-iot-devkit/endpoint.png) kunt u de **registrationId** leeg. De toepassing genereert voor u op basis van de MAC-adres en firmware-versie. Als u aanpassen van de registratie-ID wilt, moet u gebruik alleen alfanumerieke of kleine letters en het koppelteken combinaties met een maximum van 128 tekens. Zie voor meer informatie [apparaatinschrijvingen met Azure portal beheren](https://docs.microsoft.com/en-us/azure/iot-dps/how-to-manage-enrollments).
+  ![Eindpunt van de DP's](./media/how-to-connect-mxchip-iot-devkit/endpoint.png) kunt u de **registrationId** leeg. De toepassing genereert voor u op basis van de MAC-adres en firmware-versie. Als u aanpassen van de registratie-ID wilt, moet u gebruik alleen alfanumerieke of kleine letters en het koppelteken combinaties met een maximum van 128 tekens. Zie voor meer informatie [apparaatinschrijvingen met Azure portal beheren](https://docs.microsoft.com/azure/iot-dps/how-to-manage-enrollments).
 
 6. Gebruik snelle openen in VS-Code (Windows: `Ctrl+P`, Mac OS: `Cmd+P`) en type *uploaden van het apparaat van de taak* bouwen en de code uploaden naar de DevKit.
 

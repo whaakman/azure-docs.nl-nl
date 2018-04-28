@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: ac869cc45d352bdeed16bb3ca926ec7a921d1f75
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3d63e33adb9cbbe96ad2851870592cc07c9cc3da
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Azure DB Cosmos-bindingen voor Azure Functions
 
@@ -38,7 +38,7 @@ De database van de Cosmos-bindingen voor functies versie 1.x vindt u in de [Micr
 
 ## <a name="trigger"></a>Trigger
 
-De Azure Cosmos DB Trigger gebruikt de [Azure Cosmos DB wijzigen Feed](../cosmos-db/change-feed.md) om te luisteren naar wijzigingen meerdere partities. De feed wijziging publiceert inserts en updates, niet verwijderen. 
+De Azure Cosmos DB Trigger gebruikt de [Azure Cosmos DB wijzigen Feed](../cosmos-db/change-feed.md) om te luisteren naar wijzigingen meerdere partities. De feed wijziging publiceert inserts en updates, niet verwijderen. De trigger is aangeroepen voor elke invoegen of bijwerken die zijn aangebracht in de verzameling wordt bewaakt. 
 
 ## <a name="trigger---example"></a>Trigger - voorbeeld
 
@@ -164,17 +164,23 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |**Naam** || De naam van de variabele gebruikt in functiecode die de lijst van documenten met wijzigingen vertegenwoordigt. | 
 |**connectionStringSetting**|**ConnectionStringSetting** | De naam van een app-instelling met de verbindingsreeks waarmee verbinding met de Azure DB die Cosmos-account wordt bewaakt. |
 |**databaseName**|**DatabaseName**  | De naam van de Azure DB die Cosmos-database met de verzameling wordt bewaakt. |
-|**collectionName** |**CollectionName** | De naam van de verzameling wordt bewaakt. |
+|**CollectionName** |**CollectionName** | De naam van de verzameling wordt bewaakt. |
 |**leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (Optioneel) De naam van een app-instelling met de verbindingsreeks aan de service die de lease-verzameling bevat. Wanneer niet is ingesteld, de `connectionStringSetting` waarde wordt gebruikt. Deze parameter wordt automatisch ingesteld wanneer de binding in de portal is gemaakt. De verbindingsreeks voor de verzameling leases moet schrijfmachtigingen hebben.|
 |**leaseDatabaseName** |**LeaseDatabaseName** | (Optioneel) De naam van de database waarin de verzameling gebruikt voor het opslaan van leases. Wanneer niet is ingesteld, de waarde van de `databaseName` instelling wordt gebruikt. Deze parameter wordt automatisch ingesteld wanneer de binding in de portal is gemaakt. |
 |**leaseCollectionName** | **LeaseCollectionName** | (Optioneel) De naam van de verzameling gebruikt voor het opslaan van leases. Wanneer niet is ingesteld, de waarde `leases` wordt gebruikt. |
 |**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (Optioneel) Als de waarde `true`, de verzameling leases wordt automatisch gemaakt wanneer deze niet al bestaat. De standaardwaarde is `false`. |
 |**LeasesCollectionThroughput**| **LeasesCollectionThroughput**| (Optioneel) Hiermee definieert u de hoeveelheid Aanvraageenheden toewijzen bij het maken van de verzameling van leases. Deze instelling wordt alleen gebruikt bij `createLeaseCollectionIfNotExists` is ingesteld op `true`. Deze parameter wordt automatisch ingesteld als de binding is gemaakt met behulp van de portal.
-| |**LeaseOptions** | Configureer opties voor lease met het instellen van eigenschappen in een exemplaar van de [ChangeFeedHostOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.changefeedprocessor.changefeedhostoptions) klasse.
+|**leaseCollectionPrefix**| **LeaseCollectionPrefix**| (Optioneel) Als de waarde, wordt toegevoegd een voorvoegsel voor de leases gemaakt in de verzameling Lease voor deze functie, effectief zodat twee afzonderlijke Azure Functions dezelfde Lease verzameling delen met andere voorvoegsels.
+|**FeedPollDelay**| **FeedPollDelay**| (Optioneel) Wanneer is ingesteld, wordt gedefinieerd, in milliseconden, de vertraging tussen een partitie voor de nieuwe wijzigingen op de feed polling worden nadat alle huidige wijzigingen geleegd. De standaardwaarde is 5000 (5 seconden).
+|**LeaseAcquireInterval**| **LeaseAcquireInterval**| (Optioneel) Als de waarde, wordt gedefinieerd, in milliseconden, het interval voor ere van een taak worden berekend als partities gelijkmatig zijn verdeeld over bekende host exemplaren. De standaardwaarde is 13000 (13 seconden).
+|**LeaseExpirationInterval**| **LeaseExpirationInterval**| (Optioneel) Als de waarde, wordt gedefinieerd, in milliseconden, het interval waarvoor de lease op een lease voor een partitie wordt gehouden. Als de lease is niet binnen dit interval vernieuwd, wordt deze verlopen en eigendom van de partitie wordt verplaatst naar een ander exemplaar. De standaardwaarde is 60.000 (60 seconden).
+|**LeaseRenewInterval**| **LeaseRenewInterval**| (Optioneel) Als de waarde, wordt gedefinieerd, in milliseconden die het vernieuwingsinterval voor alle leases voor partities die momenteel worden vastgehouden door een exemplaar. De standaardwaarde is 17000 (17 seconden).
+|**CheckpointFrequency**| **CheckpointFrequency**| (Optioneel) Als de waarde, wordt gedefinieerd, in milliseconden, het interval tussen lease controlepunten. Standaard wordt altijd na een geslaagde functieaanroep.
+|**maxItemsPerInvocation**| **MaxItemsPerInvocation**| (Optioneel) Als de waarde, wordt de maximale hoeveelheid items ontvangen per aanroep van de functie wordt aangepast.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="trigger---usage"></a>Trigger - usage
+## <a name="trigger---usage"></a>Trigger - gebruik
 
 De trigger vereist een tweede collectie dat wordt gebruikt voor het opslaan van _leases_ via de partities. Zowel de verzameling wordt bewaakt als de verzameling met de leases moet beschikbaar zijn voor de trigger werkt.
 
@@ -478,7 +484,7 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |**direction**     || moet worden ingesteld op `in`.         |
 |**Naam**     || Naam van de binding-parameter die het document in de functie vertegenwoordigt.  |
 |**databaseName** |**DatabaseName** |De database met het document.        |
-|**collectionName** |**CollectionName** | De naam van de verzameling waarin het document. |
+|**CollectionName** |**CollectionName** | De naam van de verzameling waarin het document. |
 |**id**    | **Id** | De ID van het document om op te halen. Deze eigenschap ondersteunt [bindingsexpressies](functions-triggers-bindings.md#binding-expressions-and-patterns). Stelt beide niet de **id** en **sqlQuery** eigenschappen. Als u een niet instelt, wordt de volledige verzameling worden opgehaald. |
 |**sqlQuery**  |**SqlQuery**  | Een Azure Cosmos DB SQL-query die wordt gebruikt voor het ophalen van meerdere documenten. De eigenschap biedt ondersteuning voor bindingen van de runtime, zoals in dit voorbeeld: `SELECT * FROM c where c.departmentId = {departmentId}`. Stelt beide niet de **id** en **sqlQuery** eigenschappen. Als u een niet instelt, wordt de volledige verzameling worden opgehaald.|
 |**Verbinding**     |**ConnectionStringSetting**|De naam van de app-instelling met de verbindingsreeks voor Azure Cosmos DB.        |
@@ -750,7 +756,7 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |**direction**     || moet worden ingesteld op `out`.         |
 |**Naam**     || Naam van de binding-parameter die het document in de functie vertegenwoordigt.  |
 |**databaseName** | **DatabaseName**|De database met de verzameling waarin het document is gemaakt.     |
-|**collectionName** |**CollectionName**  | De naam van de verzameling waarin het document is gemaakt. |
+|**CollectionName** |**CollectionName**  | De naam van de verzameling waarin het document is gemaakt. |
 |**createIfNotExists**  |**CreateIfNotExists**    | Een Booleaanse waarde die aangeeft of de verzameling is gemaakt als deze nog niet bestaat. De standaardwaarde is *false* omdat nieuwe verzamelingen worden gemaakt met gereserveerde doorvoer, wat gevolgen heeft kosten. Zie de pagina [prijzen](https://azure.microsoft.com/pricing/details/documentdb/) voor meer informatie.  |
 |**PartitionKey**|**PartitionKey** |Wanneer `CreateIfNotExists` is ingesteld op true, wordt het pad van de partitie voor de gemaakte verzameling gedefinieerd.|
 |**CollectionThroughput**|**CollectionThroughput**| Wanneer `CreateIfNotExists` is ingesteld op true, definieert de [doorvoer](../cosmos-db/set-throughput.md) van de verzameling gemaakt.|
@@ -769,7 +775,7 @@ Standaard, wanneer u naar de output-parameter in de functie schrijft is een docu
 
 | Binding | Referentie |
 |---|---|
-| CosmosDB | [Foutcodes CosmosDB](https://docs.microsoft.com/en-us/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
+| CosmosDB | [Foutcodes CosmosDB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -5,21 +5,21 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/05/2018
+ms.date: 04/23/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 2c54435d893753306e903c0851e319fc3d1621b1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c4b05044b0894e565ec4136f368314cb22041a7b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Updatebeheer in Azure
 
-De oplossing updatebeheer in Azure automation kunt u beveiligingsupdates besturingssysteem voor uw Windows- en Linux-computers geïmplementeerd in Azure, on-premises omgevingen of andere cloudproviders beheren. U kunt snel de status van de beschikbare updates op alle agentcomputers beoordelen en de procedure voor het installeren van vereiste updates voor servers beheren.
+De oplossing updatebeheer in Azure automation kunt u voor het beheren van updates voor uw Windows- en Linux-computers geïmplementeerd in Azure, on-premises omgevingen of andere cloudproviders besturingssysteem. U kunt snel de status van de beschikbare updates op alle agentcomputers beoordelen en de procedure voor het installeren van vereiste updates voor servers beheren.
 
 U kunt Updatebeheer voor virtuele machines rechtstreeks vanaf uw [Azure Automation](automation-offering-get-started.md)-account inschakelen.
-Zie [Updates voor meerdere virtuele machines in Azure beheren](manage-update-multi.md) voor informatie over het inschakelen van Updatebeheer voor virtuele machines vanaf uw Automation-account.
+Zie [Updates voor meerdere virtuele machines in Azure beheren](manage-update-multi.md) voor informatie over het inschakelen van Updatebeheer voor virtuele machines vanaf uw Automation-account. U kunt ook updatebeheer inschakelen voor een enkele virtuele machine via de pagina van de virtuele machine in de Azure-portal. Dit scenario is beschikbaar voor zowel [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) en [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) virtuele machines.
 
 ## <a name="solution-overview"></a>Oplossingenoverzicht
 
@@ -46,16 +46,16 @@ Op de doelcomputers wordt gelijktijdig ook de implementatie uitgevoerd op de dat
 
 ### <a name="supported-client-types"></a>Ondersteunde client-typen
 
-De volgende tabel ziet u een lijst met ondersteunde besturingssystemen: 
+De volgende tabel ziet u een lijst met ondersteunde besturingssystemen:
 
 |Besturingssysteem  |Opmerkingen  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Ondersteunt alleen bijwerken beoordelingen         |
-|Windows Server 2008 R2 SP1 en hoger     |Windows PowerShell 4.0 of hoger is vereist ([WMF 4.0 downloaden](https://www.microsoft.com/download/details.aspx?id=40855)).<br> Windows PowerShell 5.1 ([downloaden WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) wordt aanbevolen voor een hogere mate van betrouwbaarheid.         |
+|Windows Server 2008 R2 SP1 en hoger     |Windows PowerShell 4.0 of hoger is vereist ([WMF 4.0 downloaden](https://www.microsoft.com/download/details.aspx?id=40855)).</br> Windows PowerShell 5.1 ([downloaden WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) wordt aanbevolen voor een hogere mate van betrouwbaarheid.         |
 |CentOS 6 (x86/x64) en 7 (x64)      | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |
 |Red Hat Enterprise 6 (x86/x64) en 7 (x64)     | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) en 12 (x64)     | Linux-agents moeten toegang hebben tot een opslagplaats voor updates.        |
-|Ubuntu 12.04 LTS en nieuwer x86/x64       |Linux-agents moeten toegang hebben tot een opslagplaats voor updates.         |
+|Ubuntu 12.04 TNS, 14.04 TNS, 16.04 LTS (x86/x64)      |Linux-agents moeten toegang hebben tot een opslagplaats voor updates.         |
 
 ### <a name="unsupported-client-types"></a>Niet-ondersteunde client-typen
 
@@ -122,7 +122,7 @@ Heartbeat
 
 Op een Windows-computer, kunt u het volgende om te controleren of de verbinding van de agent met logboekanalyse bekijken:
 
-1. Open Microsoft Monitoring Agent in het Configuratiescherm en op de **Azure Log Analytics** tabblad, de agent geeft een bericht weergegeven: **de Microsoft Monitoring Agent is verbonden met logboekanalyse** .   
+1. Open Microsoft Monitoring Agent in het Configuratiescherm en op de **Azure Log Analytics** tabblad, de agent geeft een bericht weergegeven: **de Microsoft Monitoring Agent is verbonden met logboekanalyse** .
 2. Open het Windows-gebeurtenislogboek, ga naar **Toepassings- en servicelogboeken\Operations Manager**, en zoek naar gebeurtenis-id 3000 en 5002 van de bronserviceconnector. Deze gebeurtenissen geven aan de computer met de werkruimte voor logboekanalyse is geregistreerd en configuratie ontvangt.
 
 Als de agent kan niet communiceren met logboekanalyse en deze is geconfigureerd om te communiceren met internet via een firewall of proxyserver, controleert u de firewall of proxy-server correct is geconfigureerd aan de hand van [netwerkconfiguratie voor Windows-agent](../log-analytics/log-analytics-agent-windows.md) of [netwerkconfiguratie voor Linux-agent](../log-analytics/log-analytics-agent-linux.md).
@@ -145,7 +145,7 @@ De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door de
 | --- | --- | --- |
 | Windows-agents |Ja |De oplossing verzamelt informatie over systeemupdates van Windows-agents en start de installatie van de vereiste updates. |
 | Linux-agents |Ja |De oplossing verzamelt informatie over systeemupdates van Linux-agents en start de installatie van de vereiste updates op ondersteunde besturingssysteemversies. |
-| Beheergroep Operations Manager |Ja |De oplossing verzamelt informatie over systeemupdates van agents in een verboden beheergroep.<br>Er is geen directe verbinding van de Operations Manager-agent naar Log Analytics vereist. Gegevens uit de beheergroep doorgestuurd naar de werkruimte voor logboekanalyse. |
+| Beheergroep Operations Manager |Ja |De oplossing verzamelt informatie over systeemupdates van agents in een verboden beheergroep.</br>Er is geen directe verbinding van de Operations Manager-agent naar Log Analytics vereist. Gegevens uit de beheergroep doorgestuurd naar de werkruimte voor logboekanalyse. |
 
 ### <a name="collection-frequency"></a>Verzamelingsfrequentie
 
@@ -196,6 +196,30 @@ Maak een nieuwe Update-implementatie door te klikken op de **schema-update-imple
 |Schema-instellingen|Selecteer de tijd om te starten en selecteer hetzij eenmaal of terugkerende voor het terugkeerpatroon|
 | Onderhoudsvenster |Aantal minuten instellen voor updates. De waarde kan niet worden worden minder dan 30 minuten en niet meer dan 6 uur |
 
+## <a name="update-classifications"></a>Updateclassificaties
+
+De volgende tabellen bevatten een overzicht van de updateclassificaties in updatebeheer samen met een definitie voor elke classificatie.
+
+### <a name="windows"></a>Windows
+
+|Classificatie  |Beschrijving  |
+|---------|---------|
+|Essentiële updates     | Een update voor een specifiek probleem die zijn gericht op een kritieke fout niet gerelateerd.        |
+|Beveiligingsupdates     | Een update voor een productspecifiek en beveiligingsgerelateerd probleem.        |
+|Updatepakketten     | Een volledige reeks van hotfixes die samen zijn verpakt voor een gemakkelijke implementatie.        |
+|Functiepakketten     | Nieuwe productfuncties die zijn gedistribueerd buiten een productrelease.        |
+|Servicepacks     | Een volledige reeks van hotfixes die op een toepassing worden toegepast.        |
+|Definitie-updates     | Een update voor antivirus- of andere definitiebestanden.        |
+|Hulpprogramma's     | Een hulpprogramma of onderdeel dat u een of meer taken kunt voltooien.        |
+|Updates     | Een update voor een toepassing of bestand dat momenteel is geïnstalleerd.        |
+
+### <a name="linux"></a>Linux
+
+|Classificatie  |Beschrijving  |
+|---------|---------|
+|Essentiële en beveiligingsupdates     | Updates voor een specifiek probleem of een productspecifiek en beveiligingsgerelateerd probleem.         |
+|Andere Updates     | Alle andere updates die niet essentieel in aard of beveiligingsupdates.        |
+
 ## <a name="search-logs"></a>Zoeken in Logboeken
 
 Naast de informatie die beschikbaar zijn in de portal kunnen zoekopdrachten worden gedaan op basis van de logboeken. Met de **bijhouden** pagina openen, klikt u op **logboekanalyse**, Hiermee opent u de **logboek zoeken** pagina
@@ -206,13 +230,13 @@ De volgende tabel bevat een voorbeeld-logboek zoekt bijwerkrecords die door deze
 
 | Query’s uitvoeren | Beschrijving |
 | --- | --- |
-|Update<br>&#124;waar UpdateState == 'Vereist' en een optionele == false<br>&#124;Computer, titel, KBID, classificatie, PublishedDate project |Alle computers met ontbrekende updates<br>Voeg een van de volgende opties om te beperken van het besturingssysteem:<br>Besturingssysteemtype = 'Windows'<br>Besturingssysteemtype == 'Linux' |
-| Update<br>&#124;waar UpdateState == 'Vereist' en een optionele == false<br>&#124;waar Computer == "ContosoVM1.contoso.com"<br>&#124;Computer, titel, KBID, Product, PublishedDate project |Ontbrekende updates voor een specifieke computer (vervang de waarde door de naam van uw eigen computer)|
-| Gebeurtenis<br>&#124;waar EventLevelName == "error" en elke Computer in ((Update &#124; waar (classificatie == 'Beveiligingsupdates' of classificatie == 'Essentiële Updates')<br>&#124;waar UpdateState == 'Vereist' en een optionele == false <br>&#124;afzonderlijke Computer)) |Foutgebeurtenissen voor machines met ontbrekende essentiële of beveiligingsupdates |
-| Update<br>&#124;waar UpdateState == 'Vereist' en een optionele == false<br>&#124;afzonderlijke titel |Afzonderlijke ontbrekende updates op alle computers |
-| UpdateRunProgress<br>&#124;waar InstallationStatus == "is mislukt" <br>&#124;overzicht van AggregatedValue count() door de Computer, de titel, UpdateRunName = |Computers met updates die niet in een update-uitvoering<br>Voeg een van de volgende opties om te beperken van het besturingssysteem:<br>Besturingssysteemtype = 'Windows'<br>Besturingssysteemtype == 'Linux' |
-| Update<br>&#124;waar besturingssysteemtype == 'Linux'<br>&#124;waar UpdateState! = 'Niet nodig' en (classificatie == 'Essentiële Updates' of de indeling 'Beveiligingsupdates' ==)<br>&#124;overzicht van AggregatedValue = count() door Computer |Lijst met alle Linux machines, die een pakketupdate beschikbaar hebben, welke essentiële of beveiligingsupdates beveiligingslek adressen | 
-| UpdateRunProgress<br>&#124;waar UpdateRunName == "DeploymentName"<br>&#124;overzicht van AggregatedValue = count() door Computer|Computers die zijn bijgewerkt tijdens het uitvoeren van updates (vervang de waarde met de naam van uw update-implementatie) | 
+|Update</br>&#124;waar UpdateState == 'Vereist' en een optionele == false</br>&#124;Computer, titel, KBID, classificatie, PublishedDate project |Alle computers met ontbrekende updates</br>Voeg een van de volgende opties om te beperken van het besturingssysteem:</br>Besturingssysteemtype = 'Windows'</br>Besturingssysteemtype == 'Linux' |
+| Update</br>&#124;waar UpdateState == 'Vereist' en een optionele == false</br>&#124;waar Computer == "ContosoVM1.contoso.com"</br>&#124;Computer, titel, KBID, Product, PublishedDate project |Ontbrekende updates voor een specifieke computer (vervang de waarde door de naam van uw eigen computer)|
+| Gebeurtenis</br>&#124;waar EventLevelName == "error" en elke Computer in ((Update &#124; waar (classificatie == 'Beveiligingsupdates' of classificatie == 'Essentiële Updates')</br>&#124;waar UpdateState == 'Vereist' en een optionele == false </br>&#124;afzonderlijke Computer)) |Foutgebeurtenissen voor machines met ontbrekende essentiële of beveiligingsupdates |
+| Update</br>&#124;waar UpdateState == 'Vereist' en een optionele == false</br>&#124;afzonderlijke titel |Afzonderlijke ontbrekende updates op alle computers |
+| UpdateRunProgress</br>&#124;waar InstallationStatus == "is mislukt" </br>&#124;overzicht van AggregatedValue count() door de Computer, de titel, UpdateRunName = |Computers met updates die niet in een update-uitvoering</br>Voeg een van de volgende opties om te beperken van het besturingssysteem:</br>Besturingssysteemtype = 'Windows'</br>Besturingssysteemtype == 'Linux' |
+| Update</br>&#124;waar besturingssysteemtype == 'Linux'</br>&#124;waar UpdateState! = 'Niet nodig' en (classificatie == 'Essentiële Updates' of de indeling 'Beveiligingsupdates' ==)</br>&#124;overzicht van AggregatedValue = count() door Computer |Lijst met alle Linux machines, die een pakketupdate beschikbaar hebben, welke essentiële of beveiligingsupdates beveiligingslek adressen |
+| UpdateRunProgress</br>&#124;waar UpdateRunName == "DeploymentName"</br>&#124;overzicht van AggregatedValue = count() door Computer|Computers die zijn bijgewerkt tijdens het uitvoeren van updates (vervang de waarde met de naam van uw update-implementatie) |
 
 ## <a name="integrate-with-system-center-configuration-manager"></a>Integreren met System Center Configuration Manager
 
@@ -248,18 +272,18 @@ Als u problemen ondervindt tijdens de onboarding van de oplossing of een virtuel
 
 | Bericht | Reden | Oplossing |
 |----------|----------|----------|
-| Kan de machine niet registreren voor patchbeheer,<br>Registratie is mislukt met uitzondering<br>System.InvalidOperationException: {"Message":"Machine is al<br>geregistreerd bij een ander account. "} | Machine is al vrijgegeven aan een andere werkruimte voor updatebeheer | Voer het opruimen van oude artefacten uit door [de hybride runbookgroep te verwijderen](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|
-| Kan de machine niet registreren voor patchbeheer,<br>Registratie is mislukt met uitzondering<br>System.Net.Http.HttpRequestException: Er is een fout opgetreden tijdens het verzenden van de aanvraag. ---><br>System.Net.WebException: De onderliggende verbinding<br>is gesloten: Er is een onverwachte fout<br>opgetreden tijdens het ontvangen. ---> System.ComponentModel.Win32Exception:<br>De client en server kunnen niet communiceren,<br>omdat ze geen gemeenschappelijk algoritme hebben | Communicatie wordt geblokkeerd door proxy/gateway/firewall | [Netwerkvereisten bekijken](automation-offering-get-started.md#network-planning)|
-| Kan de machine niet registreren voor patchbeheer,<br>Registratie is mislukt met uitzondering<br>Newtonsoft.Json.JsonReaderException: Fout tijdens het parseren van oneindig positieve waarde. | Communicatie wordt geblokkeerd door proxy/gateway/firewall | [Netwerkvereisten bekijken](automation-offering-get-started.md#network-planning)|
-| Het certificaat dat is doorgegeven door de service <wsid>.oms.opinsights.azure.com<br>is niet uitgegeven door een certificeringsinstantie<br>die wordt gebruikt voor Microsoft-services. Contact<br>de netwerkbeheerder om na te gaan of er een proxy wordt uitgevoerd waarmee<br>TLS/SSL-communicatie wordt onderschept. |Communicatie wordt geblokkeerd door proxy/gateway/firewall | [Netwerkvereisten bekijken](automation-offering-get-started.md#network-planning)|
-| Kan de machine niet registreren voor patchbeheer,<br>Registratie is mislukt met uitzondering<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>Maken van een zelfondertekend certificaat is mislukt. ---><br>System.UnauthorizedAccessException: Toegang is geweigerd. | Genereren van zelfondertekend certificaat is mislukt | Controleer of het systeemaccount<br>leestoegang heeft tot de map:<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|
+| Kan de machine niet registreren voor patchbeheer,</br>Registratie is mislukt met uitzondering</br>System.InvalidOperationException: {"Message":"Machine is al</br>geregistreerd bij een ander account. "} | Machine is al vrijgegeven aan een andere werkruimte voor updatebeheer | Voer het opruimen van oude artefacten uit door [de hybride runbookgroep te verwijderen](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|
+| Kan geen Machine te registreren voor patchbeheer, de registratie is mislukt met uitzondering</br>System.Net.Http.HttpRequestException: Er is een fout opgetreden tijdens het verzenden van de aanvraag. ---></br>System.Net.WebException: De onderliggende verbinding</br>is gesloten: Er is een onverwachte fout</br>opgetreden tijdens het ontvangen. ---> System.ComponentModel.Win32Exception:</br>De client en server kunnen niet communiceren,</br>omdat ze geen gemeenschappelijk algoritme hebben | Communicatie wordt geblokkeerd door proxy/gateway/firewall | [Netwerkvereisten bekijken](automation-offering-get-started.md#network-planning)|
+| Kan de machine niet registreren voor patchbeheer,</br>Registratie is mislukt met uitzondering</br>Newtonsoft.Json.JsonReaderException: Fout tijdens het parseren van oneindig positieve waarde. | Communicatie wordt geblokkeerd door proxy/gateway/firewall | [Netwerkvereisten bekijken](automation-offering-get-started.md#network-planning)|
+| Het certificaat dat is doorgegeven door de service \<wsid\>. oms.opinsights.azure.com</br>is niet uitgegeven door een certificeringsinstantie</br>die wordt gebruikt voor Microsoft-services. Contact</br>de netwerkbeheerder om na te gaan of er een proxy wordt uitgevoerd waarmee</br>TLS/SSL-communicatie wordt onderschept. |Communicatie wordt geblokkeerd door proxy/gateway/firewall | [Netwerkvereisten bekijken](automation-offering-get-started.md#network-planning)|
+| Kan de machine niet registreren voor patchbeheer,</br>Registratie is mislukt met uitzondering</br>AgentService.HybridRegistration.</br>PowerShell.Certificates.CertificateCreationException:</br>Maken van een zelfondertekend certificaat is mislukt. ---></br>System.UnauthorizedAccessException: Toegang is geweigerd. | Genereren van zelfondertekend certificaat is mislukt | Controleer of het systeemaccount</br>leestoegang heeft tot de map:</br>**C:\ProgramData\Microsoft\**</br>** Crypto\RSA**|
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Blijven de zelfstudie voor informatie over het beheren van updates voor Windows-VM's.
 
 > [!div class="nextstepaction"]
-> [Updates en patches voor uw Windows Azure-VM's beheren](automation-tutorial-troubleshoot-changes.md)
+> [Updates en patches voor uw Windows Azure-VM's beheren](automation-tutorial-update-management.md)
 
 * Gebruik Logboekzoekopdrachten in [Log Analytics](../log-analytics/log-analytics-log-searches.md) om gedetailleerde updategegevens weer te geven.
 * [Maak waarschuwingen](../log-analytics/log-analytics-alerts.md) wanneer wordt vastgesteld dat er essentiële updates ontbreken op de computers of als automatische updates is uitgeschakeld voor een computer.

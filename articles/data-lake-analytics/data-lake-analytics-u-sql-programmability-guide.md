@@ -2,7 +2,7 @@
 title: U-SQL programmeerbaarheid handleiding voor Azure Data Lake | Microsoft Docs
 description: Meer informatie over de set van services in Azure Data Lake waarmee u een platform voor big data cloud-gebaseerde maken.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: saveenr
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: saveenr
-ms.openlocfilehash: a241199ff8441d76d48d297b69af05a604d2a423
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 400057b5ce79cdcf6c7651462e9f497bf647e930
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="u-sql-programmability-guide"></a>Handleiding voor het programmeren van U-SQL
 
@@ -37,7 +37,7 @@ Bekijk het volgende U-SQL-script:
     (VALUES
        ("Contoso",   1500.0, "2017-03-39"),
        ("Woodgrove", 2700.0, "2017-04-10")
-    ) AS D( customer, amount );
+    ) AS D( customer, amount, date );
 
 @results =
   SELECT
@@ -88,7 +88,7 @@ OUTPUT @rs1
 
 ### <a name="use-c-expressions-for-todays-date"></a>C#-expressies gebruiken voor de datum van vandaag
 
-De datum van vandaag ophalen, kunnen we de volgende C#-expressie gebruiken:`DateTime.Now.ToString("M/d/yyyy")`
+De datum van vandaag ophalen, kunnen we de volgende C#-expressie gebruiken: `DateTime.Now.ToString("M/d/yyyy")`
 
 Hier volgt een voorbeeld van het gebruik van deze expressie in een script:
 
@@ -536,9 +536,9 @@ De `IFormatter` interface serialiseert en ongedaan serialiseert een objectgrafie
 
 * **Serialiseren**: serialiseert een object of de grafiek van objecten met de opgegeven hoofdmap naar de opgegeven stroom.
 
-`MyType`exemplaar: exemplaar van het type.  
-`IColumnWriter`schrijver / `IColumnReader` lezer: de onderliggende stroom van de kolom.  
-`ISerializationContext`context: Enum die definieert een aantal vlaggen waarmee de context van de bron of bestemming voor de stroom tijdens serialisatie.
+`MyType` exemplaar: exemplaar van het type.  
+`IColumnWriter` schrijver / `IColumnReader` lezer: de onderliggende stroom van de kolom.  
+`ISerializationContext` context: Enum die definieert een aantal vlaggen waarmee de context van de bron of bestemming voor de stroom tijdens serialisatie.
 
 * **Tussenliggende**: Hiermee geeft u de bron- of doelserver context is niet een persistente archief.
 
@@ -1060,7 +1060,7 @@ UDO wordt normaal gesproken expliciet aangeroepen in de U-SQL-script als onderde
 
 * EXTRACT
 * UITVOER
-* PROCESS
+* PROCES
 * COMBINEREN
 * VERMINDEREN
 
@@ -1270,9 +1270,9 @@ public class MyOutputter : IOutputter
 }
 ```
 
-* `Output`voor elke rij invoer wordt genoemd. Deze retourneert de `IUnstructuredWriter output` rijenset.
+* `Output` voor elke rij invoer wordt genoemd. Deze retourneert de `IUnstructuredWriter output` rijenset.
 * De Constructor-klasse wordt gebruikt voor parameters doorgeven aan de gebruiker gedefinieerde outputter.
-* `Close`wordt gebruikt om eventueel negeren als u wilt vrijgeven dure status of bepalen wanneer de laatste rij is geschreven.
+* `Close` wordt gebruikt om eventueel negeren als u wilt vrijgeven dure status of bepalen wanneer de laatste rij is geschreven.
 
 **SqlUserDefinedOutputter** kenmerk geeft aan dat het type moet worden geregistreerd als een gebruiker gedefinieerde outputter. Deze klasse kan niet worden overgenomen.
 

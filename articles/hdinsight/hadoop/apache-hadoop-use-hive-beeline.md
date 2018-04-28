@@ -13,13 +13,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 04/20/2018
 ms.author: larryfr
-ms.openlocfilehash: b96f457bc13ae3e412580096a1f9be865e64cb74
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 970ccf19b5668bd57118fcabc5018c60352ebde7
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>De client Beeline gebruiken met Apache Hive
 
@@ -252,10 +252,17 @@ Gebruik de informatie in de volledig gekwalificeerde domeinnaam van een headnode
 
 Spark biedt een eigen implementatie van HiveServer2, die wordt soms aangeduid als de Spark Thrift-server. Deze service wordt Spark SQL gebruikt voor query's in plaats van Hive omzetten en kan zorgen voor betere prestaties, afhankelijk van uw query.
 
-Poort gebruiken voor verbinding met de Spark Thrift-server van een Spark in HDInsight-cluster, `10002` in plaats van `10001`. Bijvoorbeeld `beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'`.
+De __verbindingsreeks__ gebruikt wanneer verbinding maken via internet enigszins anders wordt. In plaats van dat bevat `httpPath=/hive2` is `httpPath/sparkhive2`. Hier volgt een voorbeeld van een verbinding te maken via internet:
 
-> [!IMPORTANT]
-> De Spark Thrift-server is niet rechtstreeks toegankelijk via het internet. U kunt alleen verbinding met deze van een SSH-sessie of in het hetzelfde virtuele Azure-netwerk als het HDInsight-cluster.
+```bash 
+beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p password
+```
+
+Wanneer u verbinding maakt rechtstreeks vanuit het hoofdknooppunt van het cluster of vanuit een bron in het hetzelfde virtuele Azure-netwerk als het HDInsight-cluster, poort `10002` moet worden gebruikt voor Spark Thrift-server in plaats van `10001`. Hier volgt een voorbeeld van verbinding maken met rechtstreeks met het hoofdknooppunt:
+
+```bash
+beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
+```
 
 ## <a id="summary"></a><a id="nextsteps"></a>De volgende stappen
 

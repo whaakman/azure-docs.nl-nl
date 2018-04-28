@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 4c09fa5c454cee6ca9a0ed0d3fd4582b222c0c1a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 22d34ac4128da1d1a9f20619aec2aaccc2425a21
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C: Aangepast beleid
 
@@ -27,7 +27,7 @@ Aangepaste beleidsregels zijn configuratiebestanden die het gedrag van uw Azure 
 
 ## <a name="comparing-built-in-policies-and-custom-policies"></a>Beleidsregels voor ingebouwde en aangepaste vergelijken
 
-| | Ingebouwde beleid | Aangepaste beleidsregels |
+| | Ingebouwd beleid | Aangepast beleid |
 |-|-------------------|-----------------|
 |Doelgebruikers | Alle app-ontwikkelaars met of zonder identiteit expertise | Identity-professionals: systeemintegrators, adviseurs en interne identiteit teams. Ze vertrouwd bent met OpenIDConnect stromen en id-providers en verificatie op basis van claims begrijpen |
 |Configuratiemethode | Azure-portal met een gebruiksvriendelijke gebruikersinterface | XML-bestanden rechtstreeks te bewerken en vervolgens uploaden naar de Azure-portal |
@@ -64,14 +64,14 @@ Azure AD B2C communiceert met identiteitsproviders, gebruikers, andere systemen,
 
 ### <a name="identity-experience-framework"></a>Identity-ervaringsframework
 
-Een volledig worden geconfigureerd, beleid gebaseerde, cloud-gebaseerde Azure-platform die vertrouwensrelatie tussen entiteiten (grotendeels claimproviders) ingedeeld in standaardprotocol indelingen zoals OpenIDConnect OAuth, SAML, WSFed en enkele niet-standaard waarden (bijvoorbeeld REST API-based--systeem kunnen worden uitgewisseld claims). De I2E maakt gebruiksvriendelijke, whitelabelled optreedt die ondersteuning voor HTML, CSS en javascript.  Vandaag de dag is het Framework van de gebruikerservaring identiteit alleen beschikbaar in de context van de Azure AD B2C-service en de prioriteit voor taken met betrekking tot CIAM.
+Een volledig worden geconfigureerd, beleid gebaseerde, cloud-gebaseerde Azure-platform die vertrouwensrelatie tussen entiteiten (grotendeels claimproviders) ingedeeld in standaardprotocol indelingen zoals OpenIDConnect OAuth, SAML, WSFed en enkele niet-standaard waarden (bijvoorbeeld REST API-based--systeem kunnen worden uitgewisseld claims). De I2E maakt gebruiksvriendelijke, wit gelabeld ervaringen die ondersteuning bieden voor HTML, CSS en javascript.  Vandaag de dag is het Framework van de gebruikerservaring identiteit alleen beschikbaar in de context van de Azure AD B2C-service en de prioriteit voor taken met betrekking tot CIAM.
 
-### <a name="built-in-policies"></a>Ingebouwde beleid
+### <a name="built-in-policies"></a>Ingebouwd beleid
 
 Vooraf gedefinieerde configuratiebestanden die het gedrag van Azure AD B2C om uit te voeren van de meest vaak gebruikte id taken (dat wil zeggen gebruikersregistratie, aanmelding in wachtwoordherstel) en communiceren met vertrouwde partijen waarvan relatie ook vooraf is gedefinieerd in Azure AD B2C (voor directe voorbeeld Facebook id-provider, LinkedIn, Microsoft-Account, Google-accounts).  In de toekomst daarenboven ingebouwde beleidsregels voor aanpassing van de id-providers die meestal in de enterprise-realm zoals Azure Active Directory Premium, Active Directory AD FS, Salesforce-ID-Provider, enzovoort.
 
 
-### <a name="custom-policies"></a>Aangepaste beleidsregels
+### <a name="custom-policies"></a>Aangepast beleid
 
 De configuratiebestanden die het gedrag van identiteit ervaring Framework in uw Azure AD B2C-tenant definiëren. Er is een aangepast beleid toegankelijk als een of meer XML-bestanden (Zie beleidsbestanden definities) die worden uitgevoerd door de identiteit ervaring Framework wordt aangeroepen door een relying party (bijvoorbeeld een toepassing). Aangepast beleid kunnen rechtstreeks worden bewerkt door een ontwikkelaar identiteit een onbeperkt aantal taken in bijna voltooid. Ontwikkelaars aangepaste beleidsregels configureren, moeten de vertrouwde relaties definiëren in zorgvuldige samenvattingsniveau metagegevens-eindpunten, exacte claims exchange-definities en geheimen, sleutels en certificaten die door elke id-provider configureren.
 

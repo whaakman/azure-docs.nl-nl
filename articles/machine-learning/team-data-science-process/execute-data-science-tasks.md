@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: bradsev
-ms.openlocfilehash: da09ab7daba115e570bb8b97549cc5f01e7496b6
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f0e0c04e48a551db6d7d7cd221a35e267dc0a63f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Gegevens wetenschappelijke taken uitvoeren: exploratie modelleren en implementatie
 
 Typische gegevens wetenschappelijke taken omvatten gegevensverkenning, modellering en implementatie. Dit artikel laat zien hoe u de **interactieve Gegevensverkenning, analyse en rapportage (IDEAR)** en **geautomatiseerde modelleren en rapportage (AMAR)** hulpprogramma's voor verschillende algemene gegevens wetenschappelijke taken voltooien zoals interactieve gegevensverkenning, data-analyse, rapportage en maken van het model. Dit wordt ook uitgelegd welke opties voor het implementeren van een model in een productieomgeving verschillende platformen, toolkits en gegevens, zoals het volgende:
 
-- [Azure Machine Learning](../preview/index.yml)
+- [Azure Machine Learning](../service/index.yml)
 - [SQL-Server met ML-services](https://docs.microsoft.com/sql/advanced-analytics/r/r-services#in-database-analytics-with-sql-server)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
 
@@ -32,7 +32,7 @@ Typische gegevens wetenschappelijke taken omvatten gegevensverkenning, modelleri
 
 Een wetenschappelijk gegevens verkennen en rapportage in tal van manieren uitvoeren: met behulp van bibliotheken en pakketten beschikbaar voor Python (matplotlib bijvoorbeeld) of met R (ggplot of andere bijvoorbeeld). Gegevenswetenschappers kunnen deze code aanpassen aan de behoeften van gegevensverkenning voor specifieke scenario's aanpassen. De behoeften voor het omgaan met gestructureerde gegevens zijn verschillend voor ongestructureerde gegevens, zoals tekst of afbeeldingen. 
 
-Producten zoals Azure Machine Learning Workbench bieden ook [gegevens voorbereiden geavanceerde](../preview/tutorial-bikeshare-dataprep.md) voor gegevens worsteling en verkennen, met inbegrip van het maken van de functie. De gebruiker, beslissen over de hulpprogramma's, bibliotheken en pakketten die het meest suite hun behoeften. 
+Producten zoals Azure Machine Learning Workbench bieden ook [gegevens voorbereiden geavanceerde](../desktop-workbench/tutorial-bikeshare-dataprep.md) voor gegevens worsteling en verkennen, met inbegrip van het maken van de functie. De gebruiker, beslissen over de hulpprogramma's, bibliotheken en pakketten die het meest suite hun behoeften. 
 
 Het product aan het einde van deze fase wordt een rapport van gegevens te verkennen. Het rapport leveren een redelijk uitgebreid overzicht van de gegevens moet worden gebruikt voor het modelleren en een beoordeling van of de gegevens zijn geschikt om door te gaan met de stap modellering. Het Team gegevens wetenschap proces (TDSP) hulpprogramma's beschreven in de volgende secties voor semi geautomatiseerde exploratie modelleren en rapportage bieden ook gestandaardiseerde gegevensverkenning en rapporten te modelleren. 
 
@@ -75,7 +75,7 @@ Zie voor meer informatie [geautomatiseerde modelleren hulpprogramma's en rapport
 ### <a name="model-management"></a>Modelbeheer
 Nadat u meerdere modellen zijn gebouwd, moet u meestal een systeem voor het registreren en beheren van de modellen. Normaal gesproken moet u een combinatie van scripts of API's en een back-end-database of versiebeheer-systeem. Er zijn een aantal opties die u voor deze beheertaken overwegen kunt:
 
-1. [Azure Machine Learning - model-management-service](../preview/index.yml)
+1. [Azure Machine Learning - model-management-service](../service/index.yml)
 2. [ModelDB van MIT](https://mitdbg.github.io/modeldb/) 
 3. [SQL-seerver als een model-management-systeem](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
 4. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
@@ -88,7 +88,7 @@ Productie-implementatie kunt een model voor een actieve rol spelen in een ondern
 Er zijn verschillende benaderingen en platforms modellen in productie te plaatsen. Hier volgen een aantal opties:
 
 
-- [Implementatie van het model in Azure Machine Learning](../preview/model-management-overview.md)
+- [Implementatie van het model in Azure Machine Learning](../desktop-workbench/model-management-overview.md)
 - [Implementatie van een model in SQL-server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 

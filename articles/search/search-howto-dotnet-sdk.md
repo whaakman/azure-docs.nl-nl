@@ -1,51 +1,54 @@
 ---
 title: Het gebruik van Azure Search vanuit een .NET-toepassing | Microsoft Docs
 description: Het gebruik van Azure Search vanuit een .NET-toepassing
-services: search
-documentationcenter: 
 author: brjohnstmsft
 manager: jlembicz
-editor: 
-ms.assetid: 93653341-c05f-4cfd-be45-bb877f964fcb
+services: search
 ms.service: search
 ms.devlang: dotnet
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.date: 05/22/2017
+ms.topic: conceptual
+ms.date: 04/20/2018
 ms.author: brjohnst
-ms.openlocfilehash: 7273ae6a698f2af52e78ea2aae9ca5cd80f6a2b1
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e8a492a0786281bdc1d7c2123a7188c32a124e13
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Het gebruik van Azure Search vanuit een .NET-toepassing
 In dit artikel is een overzicht krijgen van u actief en werkend met de [Azure Search .NET SDK](https://aka.ms/search-sdk). U kunt de .NET SDK gebruiken voor het implementeren van een uitgebreide zoekervaring in uw toepassing met behulp van Azure Search.
 
 ## <a name="whats-in-the-azure-search-sdk"></a>Wat is er in de Azure SDK zoeken
-De SDK bestaat uit een clientbibliotheek `Microsoft.Azure.Search`. Hiermee kunt u voor het beheren van uw indexen, gegevensbronnen en indexeerfuncties, evenals uploaden en documenten beheren en uitvoeren van query's zonder te hoeven te bekommeren om de details van HTTP- en JSON.
+De SDK bestaat uit een paar clientbibliotheken waarmee u voor het beheren van uw indexen, gegevensbronnen, Indexeerfuncties en synoniem toewijzingen, evenals het uploaden van documenten beheren en uitvoeren van query's zonder te hoeven te bekommeren om de details van HTTP- en JSON. Deze clientbibliotheken worden gedistribueerd als NuGet-pakketten.
 
-De clientbibliotheek definieert klassen als `Index`, `Field`, en `Document`, evenals bewerkingen, zoals `Indexes.Create` en `Documents.Search` op de `SearchServiceClient` en `SearchIndexClient` klassen. Deze klassen zijn ingedeeld in de volgende naamruimten:
+Het belangrijkste NuGet-pakket is `Microsoft.Azure.Search`, namelijk een meta-pakket met de andere pakketten als afhankelijkheden. Dit pakket gebruiken als u alleen aan de slag of als u weet dat uw toepassing moet alle functies van Azure Search.
+
+De andere NuGet-pakketten in de SDK zijn:
+ 
+  - `Microsoft.Azure.Search.Data`: Dit pakket gebruiken als u een Azure Search met .NET-toepassing ontwikkelt en u alleen hoeft een query of bijwerken van documenten in uw indexen. Als u ook moet maken of bijwerken van indexen, synoniem maps of andere bronnen serviceniveau gebruiken de `Microsoft.Azure.Search` in plaats daarvan het pakket.
+  - `Microsoft.Azure.Search.Service`: Dit pakket gebruiken als u automatiseren met behulp van .NET ontwikkelt voor het beheren van Azure Search-index, synoniem maps, indexeerfuncties, gegevensbronnen of andere bronnen serviceniveau. Als u alleen query of update-documenten in uw indexen moet, gebruikt u de `Microsoft.Azure.Search.Data` in plaats daarvan het pakket. Als u alle functionaliteit van Azure Search moet, gebruikt de `Microsoft.Azure.Search` in plaats daarvan het pakket.
+  - `Microsoft.Azure.Search.Common`: Algemene typen die nodig is voor de Azure Search .NET-bibliotheken. U hoeft geen gebruik van dit pakket rechtstreeks in uw toepassing. Dit is alleen bedoeld als een afhankelijkheid moet worden gebruikt.
+
+De clientbibliotheken van verschillende klassen als definiëren `Index`, `Field`, en `Document`, evenals bewerkingen, zoals `Indexes.Create` en `Documents.Search` op de `SearchServiceClient` en `SearchIndexClient` klassen. Deze klassen zijn ingedeeld in de volgende naamruimten:
 
 * [Microsoft.Azure.Search](https://docs.microsoft.com/dotnet/api/microsoft.azure.search)
 * [Microsoft.Azure.Search.Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models)
 
 De huidige versie van de Azure Search .NET SDK is nu algemeen beschikbaar. Als u uw feedback voor ons wilt opnemen in de volgende versie, een bezoek onze [feedbackpagina](https://feedback.azure.com/forums/263029-azure-search/).
 
-De .NET SDK versie ondersteunt `2016-09-01` van de [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/). Deze versie biedt nu ondersteuning voor aangepaste analyzers en ondersteuning van Azure-Blob en Azure Table-indexeerfunctie. Preview-functies die zijn *niet* deel uitmaken van deze versie, zoals ondersteuning voor het indexeren van JSON en CSV-bestanden bevinden zich in [preview](search-api-2016-09-01-preview.md) en beschikbaar via [4.0.1-preview versie van de .NET SDK](https://aka.ms/search-sdk-preview).
+De .NET SDK versie ondersteunt `2017-11-11` van de [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/). Deze versie biedt nu ondersteuning voor synoniemen, evenals incrementele verbeteringen in indexeerfuncties. Preview-functies die zijn *niet* deel uitmaken van deze versie, zoals ondersteuning voor het indexeren van JSON-matrices en CSV-bestanden bevinden zich in [preview](search-api-2016-09-01-preview.md) en beschikbaar via [4.0-preview-versie van de .NET SDK](https://aka.ms/search-sdk-preview).
 
 Deze SDK biedt geen ondersteuning voor [beheerbewerkingen](https://docs.microsoft.com/rest/api/searchmanagement/) zoals maken en schalen van de Search-services en API-sleutels beheren. Als u zoeken in resources beheren vanuit een .NET-toepassing wilt, kunt u de [Azure Search .NET Management SDK](https://aka.ms/search-mgmt-sdk).
 
 ## <a name="upgrading-to-the-latest-version-of-the-sdk"></a>Upgraden naar de meest recente versie van de SDK
-Als u al een oudere versie van de Azure Search .NET SDK en u wilt bijwerken naar de nieuwe versie van de algemeen beschikbaar [in dit artikel](search-dotnet-sdk-migration.md) wordt uitgelegd hoe.
+Als u al een oudere versie van de Azure Search .NET SDK en u wilt bijwerken naar de nieuwe versie van de algemeen beschikbaar [in dit artikel](search-dotnet-sdk-migration-version-5.md) wordt uitgelegd hoe.
 
 ## <a name="requirements-for-the-sdk"></a>Vereisten voor de SDK
 1. Visual Studio 2017.
 2. Uw eigen Azure Search-service. Als u wilt gebruiken in de SDK, moet u de naam van uw service en een of meer API-sleutels. [Maken van een service in de portal](search-create-service-portal.md) helpt u bij deze stappen.
-3. Download de Azure Search .NET SDK [NuGet-pakket](http://www.nuget.org/packages/Microsoft.Azure.Search) met behulp van 'NuGet-pakketten beheren' in Visual Studio. Naam van het pakket zoeken `Microsoft.Azure.Search` op NuGet.org.
+3. Download de Azure Search .NET SDK [NuGet-pakket](http://www.nuget.org/packages/Microsoft.Azure.Search) met behulp van 'NuGet-pakketten beheren' in Visual Studio. Naam van het pakket zoeken `Microsoft.Azure.Search` op NuGet.org (of een van de bovenstaande namen als u alleen een subset van de functionaliteit hoeft van het pakket).
 
-De Azure Search .NET SDK biedt ondersteuning voor toepassingen die gericht is op de .NET Framework 4.6 en .NET Core.
+De Azure Search .NET SDK biedt ondersteuning voor toepassingen die gericht is op .NET Framework 4.5.2 of hoger, evenals .NET Core.
 
 ## <a name="core-scenarios"></a>Belangrijkste scenario 's
 Er zijn verschillende dingen die u moet in uw zoektoepassing. In deze zelfstudie aan bod deze belangrijkste scenario's:

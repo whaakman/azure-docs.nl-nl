@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 3/7/2018
-ms.openlocfilehash: 0a24adb94930024f6eaaa5ac270ae7fc35520132
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 61f51063ea7542e11ec8488c1f526c0fff1e5e38
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-install-and-get-started-with-azure-machine-learning-services"></a>Snelstart: Azure Machine Learning-services installeren en starten
 Azure Machine Learning-services (preview) zijn een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse. Het helpt professionele gegevenswetenschappers gegevens voor te bereiden, experimenten te ontwikkelen en modellen te implementeren op cloudschaal.
@@ -64,7 +64,7 @@ Gebruik Azure Portal om uw accounts voor Azure Machine Learning in te richten:
    Resourcegroep | _Uw resourcegroep_ | Gebruik een bestaande resourcegroep in uw abonnement of voer een naam in om een nieuwe resourcegroep te maken voor dit Experimenten-account. 
    Locatie | _De regio het dichtst bij uw gebruikers_ | Kies de locatie die zich het dichtst bij uw gebruikers en de gegevensresources bevindt.
    Aantal seats | 2 | Voer het aantal seats in. Meer informatie over [de invloed van seats op prijzen](https://azure.microsoft.com/pricing/details/machine-learning/).<br/><br/>Voor deze snelstart hebt u maar twee seats nodig. Seats kunnen naar behoefte worden toegevoegd of verwijderd in Azure Portal.
-   Storage-account | _Unieke naam_ | Selecteer **Nieuwe maken** en geef een naam op om een [Azure-opslagaccount](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=portal) te maken. De naam mag alleen 3 tot 24 alfanumerieke tekens en bevatten. U kunt ook **Bestaande gebruiken** selecteren en een bestaand opslagaccount in de vervolgkeuzelijst kiezen. Het opslagaccount is vereist en wordt gebruikt voor het bewaren van projectartefacten en uitvoeringsgeschiedenisgegevens. 
+   Storage-account | _Unieke naam_ | Selecteer **Nieuwe maken** en geef een naam op om een [Azure-opslagaccount](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=portal) te maken. De naam mag alleen 3 tot 24 alfanumerieke tekens en bevatten. U kunt ook **Bestaande gebruiken** selecteren en een bestaand opslagaccount in de vervolgkeuzelijst kiezen. Het opslagaccount is vereist en wordt gebruikt voor het bewaren van projectartefacten en uitvoeringsgeschiedenisgegevens. 
    Werkruimte voor Experimenten-account | IrisGarden<br/>(naam gebruikt in zelfstudies) | Geef een naam op voor een werkruimte voor dit account. De naam moet minimaal 2 en maximaal 32 tekens lang zijn. De naam mag alleen alfanumerieke tekens en streepjes (-) bevatten. Deze werkruimte bevat de hulpprogramma's die u nodig hebt om experimenten te maken, beheren en publiceren.
    Eigenaar van de werkruimte toewijzen | _Uw account_ | Selecteer uw eigen account als de eigenaar van de werkruimte.
    Modelbeheer-account maken | **controleren** |Maak nu een Modelbeheer-account, zodat deze resource beschikbaar is wanneer u uw modellen als realtime webservices gaat implementeren en beheren. <br/><br/>Hoewel dit optioneel is, raden we aan het Modelbeheer-account tegelijk met het Experimenten-account te maken.

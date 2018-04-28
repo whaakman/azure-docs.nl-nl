@@ -2,7 +2,7 @@
 title: Continue export van telemetrie in Application Insights | Microsoft Docs
 description: Diagnostische gegevens en gebruiksgegevens exporteren naar opslag in Microsoft Azure en download deze vanaf daar.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 5b859200-b484-4c98-9d9f-929713f1030c
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: mbullwin
-ms.openlocfilehash: 7d1f648bc2c2a42cfbd668f180bce8f56ebd065b
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 05d271eb7d046819bb8fc2be20623cba0000d8f4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exporteren van telemetrie in Application Insights
 Wilt u uw telemetrie langer dan de standaard bewaarperiode houden? Of op een speciale wijze worden verwerkt? Continue Export is ideaal voor dit. De gebeurtenissen die u in de Application Insights-portal ziet kunnen worden geëxporteerd naar JSON-indeling in Microsoft Azure-opslag. Daar kunt u downloaden van uw gegevens en wat u code schrijven moet verwerken.  
@@ -31,10 +31,11 @@ Voordat u de continue export instelt, zijn er enkele alternatieven die kunt u ov
 * [Analytics](app-insights-analytics.md) biedt een krachtige querytaal voor telemetrie. Het kan ook resultaten exporteren.
 * Als u op zoek bent naar [Verken uw gegevens in Power BI](app-insights-export-power-bi.md), kunt u dat doen zonder gebruik van continue Export.
 * De [REST-API toegang tot de gegevens](https://dev.applicationinsights.io/) kunt u programmatisch toegang krijgen tot uw telemetrie.
+* U kunt setup ook openen [continue export via Powershell](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0).
 
 Nadat de continue Export uw gegevens worden gekopieerd naar opslag (waar het kunt blijven voor als u wilt), is het nog steeds beschikbaar in Application Insights voor de gebruikelijke [bewaarperiode](app-insights-data-retention-privacy.md).
 
-## <a name="setup"></a>Maken van een continue Export
+## <a name="setup"></a> Maken van een continue Export
 1. Open continue Export in de Application Insights-resource voor uw app en kies **toevoegen**:
 
     ![Schuif naar beneden en klik op de continue Export](./media/app-insights-export-telemetry/01-export.png)
@@ -71,7 +72,7 @@ Als u wilt de export permanent stoppen, moet u deze verwijderen. In dat geval ve
 ### <a name="cant-add-or-change-an-export"></a>Kan niet toevoegen of wijzigen van een exporteren?
 * Als u wilt toevoegen of wijzigen van de uitvoer, moet u de eigenaar, bijdrager of Application Insights Inzender toegangsrechten. [Meer informatie over functies][roles].
 
-## <a name="analyze"></a>Welke gebeurtenissen krijgt u?
+## <a name="analyze"></a> Welke gebeurtenissen krijgt u?
 De geëxporteerde gegevens is de onbewerkte telemetrie die we van uw toepassing ontvangen, behalve dat we locatiegegevens op die we berekenen van de client-IP-adres toevoegen.
 
 Gegevens die zijn genegeerd door [steekproeven](app-insights-sampling.md) is niet opgenomen in de geëxporteerde gegevens.
@@ -85,7 +86,7 @@ De gegevens omvatten ook de resultaten van een [webtests voor beschikbaarheid](a
 >
 >
 
-## <a name="get"></a>De gegevens controleren
+## <a name="get"></a> De gegevens controleren
 U kunt de opslag rechtstreeks in de portal inspecteren. Klik op **Bladeren**, selecteer uw storage-account en open vervolgens **Containers**.
 
 Om te controleren op Azure-opslag in Visual Studio, open **weergave**, **Cloud Explorer**. (Als u deze menuopdracht niet hebt, moet u de Azure SDK installeren: Open de **nieuw Project** dialoogvenster Vouw Visual C# / Cloud en kies **ophalen van Microsoft Azure SDK voor .NET**.)
@@ -100,19 +101,19 @@ Hier volgt de vorm van het pad:
 
     $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
 
-waar
+Waar
 
-* `blobCreationTimeUtc`tijdstip waarop de blob is gemaakt in het interne is staging-opslag
-* `blobDeliveryTimeUtc`is de tijd wanneer de blob wordt gekopieerd naar het doelopslagaccount exporteren
+* `blobCreationTimeUtc` tijdstip waarop de blob is gemaakt in het interne is staging-opslag
+* `blobDeliveryTimeUtc` is de tijd wanneer de blob wordt gekopieerd naar het doelopslagaccount exporteren
 
-## <a name="format"></a>Indeling van gegevens
+## <a name="format"></a> Indeling van gegevens
 * Elke blob is een tekstbestand dat meerdere bevat ' \n'-separated rijen. Het bevat de telemetrie die gedurende een periode van ongeveer een halve minuut is verwerkt.
 * Elke rij vertegenwoordigt een gegevenspunt telemetrie zoals een aanvraag of een pagina weergave.
 * Elke rij is een niet-opgemaakte JSON-document. Als u wilt plaatsen en staart op het, opent u het in Visual Studio en kiest u bewerken en Geavanceerd indelingsbestand:
 
 ![De telemetrie met een geschikt hulpprogramma weergeven](./media/app-insights-export-telemetry/06-json.png)
 
-Tijdsduren zijn in ticks, waarbij 10 000 bedraagt ticks = 1ms. Deze waarden wordt bijvoorbeeld een tijd van 1ms een aanvraag te verzenden vanuit de browser, 3 MS te ontvangen en 1.8s voor het verwerken van de pagina in de browser weergeven:
+Tijdsduren zijn in ticks, waarbij 10 000 bedraagt ticks = 1 ms. Bijvoorbeeld: deze waarden weergeven voor een periode van 1 ms een aanvraag te verzenden vanuit de browser, 3 ms en 1.8 ontvangen s voor het verwerken van de pagina in de browser:
 
     "sendRequest": {"value": 10000.0},
     "receiveRequest": {"value": 30000.0},

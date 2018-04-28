@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 15cdee0fb3994874c88b16bebec35f5eae9f8de2
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 1229a66ec84b4272337a5dd1e17942e46b25e9a0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>DSVM en HDI Spark-cluster zijn compute doelen maken
 
@@ -27,7 +27,7 @@ U kunt eenvoudig omhoog schalen of uw machine learning-experiment uitbreiden doo
 
 U kunt een DSVM maken vanuit Azure-portal. 
 
-1. Meld u aan bij Azure-portal van https://portal.azure.com
+1. Meld u bij de Azure-portal https://portal.azure.com
 2. Klik op de **+ nieuw** koppeling en zoek naar 'data wetenschappelijke virtuele machine voor Linux'.
     ![Ubuntu](media/how-to-create-dsvm-hdi/ubuntu_dsvm.png)
 4. Kies **gegevens wetenschappelijke virtuele Machine voor Linux (Ubuntu)** in de lijst en volg de aanwijzingen op het scherm instructies voor het maken van de DSVM.
@@ -148,13 +148,13 @@ $ az vm start -g <resource group name> -n <vm name>
 ```
 
 ## <a name="expand-the-dsvm-os-disk"></a>Breid de DSVM OS-schijf
-Linux-VM in Azure is doorgaans wordt geleverd met een besturingssysteemschijf van 30 GB. Wanneer gebruikt als doel berekenen voor Azure ML, kunt het geschikt is om snel door Docker-engine binnenhalen van Docker-installatiekopieën en het bouwen van conda lagen boven op het. Er is een goed idee om uit te breiden schijf met het besturingssysteem in een groter formaat (zoals 200 GB) om te voorkomen dat de fout 'volledige-schijf' wanneer u zich in het midden van de uitvoering. Verwijzing [het uitbreiden van de virtuele harde schijven op een Linux-VM met de Azure CLI](../../virtual-machines/linux/expand-disks.md) voor meer informatie over hoe u dit eenvoudig doen vanuit de azure cli. 
+De DSVM Ubuntu wordt geleverd met een besturingssysteemschijf 50GB en de schijf van 100GB gegevens. Docker slaat de installatiekopieën op de gegevensschijf als u meer ruimte er beschikbaar is. Wanneer gebruikt als doel berekenen voor Azure ML, kan deze schijf worden gebruikt door Docker-engine binnenhalen van Docker-installatiekopieën en het bouwen van conda lagen toe. Mogelijk moet u de schijf uitbreiden naar een groter formaat (zoals 200 GB) om te voorkomen dat de fout 'volledige-schijf' wanneer u zich in het midden van de uitvoering. Verwijzing [het uitbreiden van de virtuele harde schijven op een Linux-VM met de Azure CLI](../../virtual-machines/linux/expand-disks.md) voor meer informatie over hoe u dit eenvoudig doen vanuit de azure cli. 
 
 ## <a name="create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal"></a>Maken van een Apache Spark voor Azure HDInsight-cluster in Azure portal
 
 Voor het scale-out Spark taken uitvoeren, moet u een Apache Spark voor Azure HDInsight-cluster maken in Azure portal.
 
-1. Meld u aan bij Azure-portal van https://portal.azure.com
+1. Meld u bij de Azure-portal https://portal.azure.com
 2. Klik op de **+ nieuw** koppeling en zoek naar 'HDInsight'.
 
     ![hdi vinden](media/how-to-create-dsvm-hdi/hdi.png)

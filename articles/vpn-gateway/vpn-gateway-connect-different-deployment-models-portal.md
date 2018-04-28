@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: 65cfbafbd5fbdd576f01b5cba638c1b5869f377b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5e51027455da1f8be34d99c79bc79bc37df57d14
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Verbinding maken met virtuele netwerken vanuit verschillende implementatiemodellen via de portal
 
@@ -54,7 +54,7 @@ Subnet-adresbereik 10.0.0.0/27 = <br>
 Abonnement = het abonnement dat u wilt gebruiken <br>
 Resourcegroep ClassicRG = <br>
 Locatie VS-West = <br>
-GatewaySubnet = 10.0.0.32/28 <br>
+GatewaySubnet 10.0.0.32/28 = <br>
 Lokale site RMVNetLocal = <br>
 
 **Resource Manager VNet**
@@ -65,11 +65,11 @@ Resourcegroep RG1 = <br>
 Locatie VS-Oost = <br>
 Subnetnaam Subnet-1 = <br>
 -Adresbereik = 192.168.1.0/24 <br>
-GatewaySubnet = 192.168.0.0/26 <br>
+GatewaySubnet 192.168.0.0/26 = <br>
 Naam van virtuele-netwerkgateway RMGateway = <br>
 Gatewaytype = VPN <br>
 VPN-type = op Route gebaseerd <br>
-SKU = VpnGw1 <br>
+SKU VpnGw1 = <br>
 Locatie VS-Oost = <br>
 Virtueel netwerk RMVNet = <br> (de VPN-gateway in dit VNet koppelen) Eerste IP-configuratie rmgwpip = <br> (gateway openbaar IP-adres) Lokale netwerkgateway ClassicVNetLocal = <br>
 Verbindingsnaam RMtoClassic =
@@ -168,7 +168,7 @@ Voordat u een virtuele netwerkgateway maakt, moet u eerst het gatewaysubnet make
 * Naam van virtuele-netwerkgateway RMGateway = <br>
 * Gatewaytype = VPN <br>
 * VPN-type = op Route gebaseerd <br>
-* SKU = VpnGw1 <br>
+* SKU VpnGw1 = <br>
 * Locatie VS-Oost = <br>
 * Virtueel netwerk RMVNet = <br>
 * Eerste IP-configuratie rmgwpip = <br>
@@ -196,7 +196,7 @@ In deze sectie vervangt u de tijdelijke aanduiding voor IP-adres dat u hebt gebr
 2. Klik op de pagina voor het virtuele netwerk op **overzicht**.
 3. In de **VPN-verbindingen** sectie, klikt u op de naam van uw lokale site in de afbeelding.
 
-  ![VPN-connections](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "VPN Connections")
+  ![VPN-verbindingen](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "VPN-verbindingen")
 4. Op de **Site-naar-site VPN-verbindingen** pagina, klikt u op de naam van de site.
 
   ![Site-name](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "lokale sitenaam")
@@ -232,7 +232,7 @@ In deze stap configureert u de verbinding van het klassieke VNet naar het Resour
 Open de PowerShell-console met verhoogde rechten en aanmelden bij uw Azure-account. Na het aanmelden, worden de instellingen van uw account worden gedownload zodat ze beschikbaar voor Azure PowerShell zijn. De volgende cmdlet wordt u gevraagd de aanmeldingsreferenties voor uw Azure-Account voor het implementatiemodel van Resource Manager:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Haal een lijst met uw Azure-abonnementen op.

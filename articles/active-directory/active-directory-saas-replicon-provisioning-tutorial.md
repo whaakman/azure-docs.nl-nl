@@ -2,7 +2,7 @@
 title: 'Zelfstudie: Replicon configureren voor het automatisch gebruikers inrichten met Azure Active Directory | Microsoft Docs'
 description: Informatie over het configureren van Azure Active Directory voor het automatisch inrichten en gebruikersaccounts aan Replicon ongedaan in te richten.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: zhchia
 writer: zhchia
 manager: beatrizd-msft
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: v-ant
-ms.openlocfilehash: 8d612012505ea43a3635650c6a38fe993b8e57f6
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: c7ec58b0da3a918729733809d326e6f2e5916c9d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-configure-replicon-for-automatic-user-provisioning"></a>Zelfstudie: Replicon configureren voor het automatisch gebruikers inrichten
 
@@ -105,17 +105,17 @@ Deze sectie helpt u bij de stappen voor het configureren van de Azure AD-service
 
 5. Onder de **beheerdersreferenties** sectie, voer de **Admin Username**, **beheerderswachtwoord**, **CompanyId**, en **domein**  van uw Replicon-account. Voorbeelden van deze waarden zijn:
 
-    *   In de **Admin Username** veld, de gebruikersnaam van het beheerdersaccount op uw Tenant Replicon vullen. Voorbeeld: contosoadmin.
+    *   In de **Admin Username** veld, de gebruikersnaam van het beheerdersaccount op uw tenant Replicon vullen. Voorbeeld: contosoadmin.
 
     *   In de **beheerderswachtwoord** veld, vult u het wachtwoord dat overeenkomt met de gebruikersnaam van de beheerder.
 
-    *   In de **CompanyId** veld, de CompanyId van uw tenant Replicon vullen. Voorbeeld: De CompanyID op basis van de onderstaande aanmelden, wordt u Contoso.
+    *   In de **CompanyId** veld, de CompanyId van uw tenant Replicon vullen. Bijvoorbeeld: De CompanyID op basis van het logboek in onderstaande is Contoso.
 
     ![Replicon aanmelding](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconLogin.png)
 
     *   In de **domein** veld, vullen van het domein, zoals beschreven in stap 6.
     
-6. Verkrijgen **serviceEndpointRootURL** voor uw Replicon tenant-account op basis van de stappen die worden vermeld, [Replicon Service Help](https://www.replicon.com/help/determining-the-url-for-your-service-calls). Bij het verkrijgen van de URL, de **domein** het subdomein van **serviceEndpointRootURL** als gemarkeerde. 
+6. Verkrijgen **serviceEndpointRootURL** voor uw Replicon tenant-account op basis van de stappen die worden vermeld in [Replicon Service Help](https://www.replicon.com/help/determining-the-url-for-your-service-calls). Bij het verkrijgen van de URL, de **domein** het subdomein van **serviceEndpointRootURL** als gemarkeerde. 
 
     ![Replicon inrichten](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconEndpoint.png)
 

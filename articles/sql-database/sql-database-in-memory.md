@@ -9,11 +9,11 @@ ms.custom: develop databases
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: jodebrui
-ms.openlocfilehash: 36a6b32851c4778db3405b6b9b35d9551181abf4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b4f8388fdf104253aad07de77e89c30df4e4b128
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Prestaties optimaliseren door technologieën voor In-Memory in SQL-Database
 
@@ -22,7 +22,7 @@ In-Memory technologieën in Azure SQL Database gebruikt, kunt u met verschillend
 Hier vindt u twee voorbeelden van hoe In het geheugen OLTP geholpen prestaties aanzienlijk verbeteren:
 
 - Met behulp van de In-geheugen OLTP [Quorum bedrijfsoplossingen kon worden dubbele van hun werkbelasting en verbetert de dtu's met 70%](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
-    - DTU betekent *database transaction unit*, en bevat een mesurement van resourceverbruik.
+    - DTU betekent *database transaction unit*, en bevat een meting van resourceverbruik.
 - De volgende video toont aanzienlijke verbetering in het verbruik van met een werklast voorbeeld: [In het geheugen OLTP in Azure SQL Database Video](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB).
     - Zie voor meer informatie het blogbericht: [In het geheugen OLTP in Azure SQL Database-blogberichten](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
@@ -43,7 +43,7 @@ Azure SQL-Database heeft de volgende In het geheugen-technologieën:
 
 Columnstore-indexen zowel In-geheugen OLTP hebben sinds onderdeel van het product van de SQL Server 2012 en 2014, respectievelijk. Azure SQL Database en SQL Server delen de dezelfde implementatie van de technologieën In het geheugen. Voortaan kunt zijn nieuwe mogelijkheden voor deze technologieën uitgebracht in Azure SQL Database eerst voordat ze worden vrijgegeven in SQL Server.
 
-Dit onderwerp wordt beschreven aspecten van de In-geheugen OLTP en columnstore-indexen die specifiek voor Azure SQL Database zijn en tevens voorbeelden:
+In dit artikel wordt beschreven aspecten van de In-geheugen OLTP en columnstore-indexen die specifiek voor Azure SQL Database zijn en tevens voorbeelden:
 - Op de opslag- en maximale grootte ervan ziet u de impact van dergelijke technologieën.
 - Hier ziet u hoe het verkeer van de databases die gebruikmaken van deze technologieën tussen de verschillende Prijscategorieën beheren.
 - Hier ziet u twee voorbeelden die het gebruik van de In-geheugen OLTP, evenals de columnstore-indexen in Azure SQL Database aangeven.
@@ -92,7 +92,7 @@ De In-Memory OLTP-opslag wordt gedeeld met elastische pools voor alle databases 
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>De gegevensgrootte van en opslag voor de columnstore-indexen
 
-Columnstore-indexen zijn niet vereist voor het geheugen. De enige initiaal van de grootte van de indexen is daarom maximale totale grootte van de database die wordt beschreven in de [SQL Database Servicelagen](sql-database-service-tiers.md) artikel.
+Columnstore-indexen zijn niet vereist voor het geheugen. De enige initiaal van de grootte van de indexen is daarom maximale totale grootte van de database die wordt beschreven in de [aankoopmodel DTU gebaseerde](sql-database-service-tiers-dtu.md) en [vCore gebaseerde aankoopmodel (preview)](sql-database-service-tiers-vcore.md) artikelen.
 
 Wanneer u een geclusterde columnstore-indexen gebruikt, worden kolommen compressie wordt gebruikt voor de opslag van de basistabel. Deze compressie kan de voetafdruk van de opslag van uw gebruikersgegevens, wat betekent dat u meer gegevens in de database past aanzienlijk verminderen. En de compressie kan worden verhoogd met [kolommen archivering compressie](https://msdn.microsoft.com/library/cc280449.aspx#Using Columnstore and Columnstore Archive Compression). De hoeveelheid compressie die u kunt bereiken, is afhankelijk van de aard van de gegevens, maar 10 keer de compressie is niet ongewoon.
 
@@ -223,8 +223,8 @@ SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
 
 Het enige verschil tussen de volgende twee *opgeslagen procedures* is dat de eerste procedure maakt gebruik van versies van de tabellen geoptimaliseerd voor geheugen, terwijl de tweede procedure gebruikt u de gewone tabellen voor op schijf:
 
-- SalesLT**.**usp_InsertSalesOrder**_inmem**
-- SalesLT**.** usp_InsertSalesOrder**_ondisk**
+- SalesLT **.** usp_InsertSalesOrder **_inmem**
+- SalesLT **.** usp_InsertSalesOrder **_ondisk**
 
 
 In deze sectie ziet u het gebruik van de handige **ostress.exe** hulpprogramma voor het uitvoeren van de twee opgeslagen procedures op stress niveaus. U kunt vergelijken hoe lang het duurt voordat de twee stress wordt uitgevoerd om te voltooien.

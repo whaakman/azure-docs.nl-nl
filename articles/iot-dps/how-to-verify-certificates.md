@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: dd54ca5a172bdb65b7781f2fb764b00f50e5df28
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: eb37ce7e61796494be0a9282afdc620b0ca5886a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Hoe u bewijs van bezit voor x.509-CA-certificaten met uw Service voor het inrichten van apparaat
 
@@ -58,7 +58,7 @@ Microsoft biedt hulpprogramma's en voorbeelden kunt u een ondertekende verificat
 
 - De **C-SDK van Azure IoT Hub** biedt PowerShell (Windows) en (Linux) Bash-scripts voor het maken van de CA en leaf certificaten voor ontwikkeling en voor het uitvoeren van bewijs van bezit met een verificatiecode. U kunt downloaden via de [bestanden](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) relevant zijn voor uw systeem naar een werkmap en volg de instructies in de [beheren CA certificaten Leesmij](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) bewijs van bezit uitvoeren op een CA-certificaat. 
 - De **Azure IoT Hub C# SDK** bevat de [groep certificaat verificatie voorbeeld](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples/GroupCertificateVerificationSample), waarin u kunt doen bewijs van bezit.
-- U kunt de stappen in de [PowerShell-scripts voor het beheren van CA ondertekend X.509-certificaten](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-create-certificates) artikel in de documentatie van de IoT Hub, specifiek het script vermeld in het gedeelte [bewijs van eigendom van uw X.509-CA-certificaat](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-create-certificates#signverificationcode).
+- U kunt de stappen in de [PowerShell-scripts voor het beheren van CA ondertekend X.509-certificaten](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-create-certificates) artikel in de documentatie van de IoT Hub, specifiek het script vermeld in het gedeelte [bewijs van eigendom van uw X.509-CA-certificaat](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-create-certificates#signverificationcode).
  
 > [!IMPORTANT]
 > Naast bewijs van bezit uitvoert, kunnen de eerder genoemde ook PowerShell en Bash-scripts u basiscertificaten, tussenliggende certificaten en leaf-certificaten die kunnen worden gebruikt om te verifiëren en apparaten inrichten maken. Deze certificaten moeten worden gebruikt voor alleen-ontwikkeling. Ze moeten nooit worden gebruikt in een productieomgeving. 

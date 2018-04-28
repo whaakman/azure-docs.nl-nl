@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2018
 ms.author: jdial
-ms.openlocfilehash: b0eb10d373f47191933eb1c3c22b779e9e8d6685
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 242da9a3ce52d9c7d801215cde7b72b7f8fe9a91
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-network-connections-with-azure-network-watcher-using-the-azure-portal"></a>Netwerkverbindingen met de netwerk-Watcher van Azure met Azure portal controleren
 
@@ -42,7 +42,7 @@ De volgende stappen schakelt verbinding naar een bestemming VM poorten 80 en 143
 1. Selecteer aan de linkerkant van de portal **alle services**.
 2. Typ *netwerk-watcher* in de **Filter** vak. Wanneer **netwerk-Watcher** wordt weergegeven in de zoekresultaten, selecteer deze.
 3. Onder **bewaking**, selecteer **verbinding monitor**.
-4. Selecteer **+ toevoegen**.
+4. Selecteer **+ Toevoegen**.
 5. Typ of Selecteer de gegevens voor de verbinding die u wilt bewaken, en selecteer vervolgens **toevoegen**. In het voorbeeld weergegeven in de volgende afbeelding wordt de verbinding bewaakt is afkomstig uit de *MultiTierApp0* VM naar de *Database0* VM via poort 80:
 
     ![Beeldscherm verbinding toevoegen](./media/connection-monitor/add-connection-monitor.png)
@@ -69,4 +69,4 @@ De volgende stappen schakelt verbinding naar een bestemming VM poorten 80 en 143
 ## <a name="next-steps"></a>Volgende stappen
 
 - Meer informatie over het automatiseren van pakket opnamen met VM-waarschuwingen per [maken van een waarschuwing gegeven pakketopname](network-watcher-alert-triggered-packet-capture.md).
-- Bepalen of bepaalde verkeer is toegestaan in of buiten uw virtuele machine met behulp van [IP-stroom controleren](network-watcher-check-ip-flow-verify-portal.md).
+- Bepalen of bepaalde verkeer is toegestaan in of buiten uw virtuele machine met behulp van [IP-stroom controleren](diagnose-vm-network-traffic-filtering-problem.md).

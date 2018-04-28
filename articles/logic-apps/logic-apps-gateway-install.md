@@ -3,23 +3,23 @@ title: Installeren van de lokale data gateway - Azure Logic Apps | Microsoft Doc
 description: Voordat u toegang gegevensbronnen on-premises tot, installeert u de lokale data gateway voor snelle gegevensoverdracht en -versleuteling tussen on-premises gegevensbronnen en logic apps
 keywords: toegang tot gegevens, op de lokale, gegevensoverdracht, versleuteling en gegevensbronnen
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 47e3024e-88a0-4017-8484-8f392faec89d
 ms.service: logic-apps
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: e061f24f3160de82548c4debf6da5821318ad2fb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6c1c954209c08c4ce1262bdc1620755e4a3a6d7e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>De lokale data gateway voor Azure Logic Apps installeren
 
@@ -56,7 +56,7 @@ Zie voor informatie over het gebruik van de gateway met andere services, deze ar
 
 **Minimum**
 
-* .NET 4.5 Framework
+* .NET 4.5 framework
 * 64-bits versie van Windows 7 of Windows Server 2008 R2 (of hoger)
 
 **Aanbevolen**
@@ -242,6 +242,11 @@ Wanneer de gebruiker in de cloud werkt met een element dat verbonden met uw on-p
 6. De resultaten worden uit de gegevensbron verzonden terug naar de gateway en vervolgens naar het gateway-cloudservice. De gateway-cloudservice gebruikt vervolgens de resultaten.
 
 <a name="faq"></a>
+
+## <a name="tenant-level-administration"></a>Tenant niveau beheer 
+
+Er is momenteel geen enkele locatie beheren tenantbeheerders alle gateways die andere gebruikers hebben geïnstalleerd en geconfigureerd.  Als u een tenantbeheerder bent, wordt u aangeraden de gebruikers te vragen in uw organisatie u toevoegen als beheerder aan elke gateway die te installeren. Hiermee kunt u voor het beheren van de gateways in uw organisatie via de pagina instellingen van de Gateway of via [PowerShell-opdrachten](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters#powershell-support-for-gateway-clusters). 
+
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 

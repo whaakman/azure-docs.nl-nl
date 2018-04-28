@@ -2,11 +2,11 @@
 title: Uw account configureren voor het offline streaming van Widevine beveiligde inhoud - Azure
 description: Dit onderwerp leest het configureren van uw Azure Media Services-account voor offline streaming van Widevine beveiligde inhoud.
 services: media-services
-keywords: DASH, DRM, Widevine Offline Mode, ExoPlayer, Android
-documentationcenter: 
+keywords: STREEPJE, DRM Widevine offlinemodus ExoPlayer, Android
+documentationcenter: ''
 author: willzhan
 manager: steveng
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: b27ffcbf5749d612e63ba08df0adad72f357a83a
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: 158b58c13aee4d6241900db4a5e2b3fe8a45cc3c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Offline Widevine streaming voor Android
 
@@ -105,7 +105,7 @@ ExoPlayer versie 2.6 en hoger bevat veel klassen die ondersteuning bieden voor o
 
 De volgende lijst met klassen vergemakkelijken offlinemodus in de ExoPlayer SDK voor Android:
 
-- library/core/src/main/java/com/google/android/exoplayer2/drm/OfflineLicenseHelper.java  
+- Library/Core/src/Main/Java/com/Google/android/exoplayer2/DRM/OfflineLicenseHelper.Java  
 - library/core/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSession.java
 - library/core/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSessionManager.java
 - library/core/src/main/java/com/google/android/exoplayer2/drm/DrmSession.java
@@ -114,7 +114,7 @@ De volgende lijst met klassen vergemakkelijken offlinemodus in de ExoPlayer SDK 
 - library/core/src/main/java/com/google/android/exoplayer2/offline/SegmentDownloader.java
 - library/core/src/main/java/com/google/android/exoplayer2/offline/DownloaderConstructorHelper.java 
 - library/core/src/main/java/com/google/android/exoplayer2/offline/Downloader.java
-- library/dash/src/main/java/com/google/android/exoplayer2/source/dash/offline/DashDownloader.java 
+- Library/Dash/src/Main/Java/com/Google/android/exoplayer2/Source/Dash/offline/DashDownloader.Java 
 
 Ontwikkelaars moeten verwijzen naar de [ExoPlayer Developer Guide](https://google.github.io/ExoPlayer/guide.html) en de bijbehorende [Blog Developer](https://medium.com/google-exoplayer) tijdens de ontwikkeling van een toepassing. Een volledig gedocumenteerde verwijzing implementatie of voorbeeld code voor de ExoPlayer app offline Widevine op dit moment ondersteunen, zodat de informatie beperkt tot de handleiding voor ontwikkelaars en blog van is vrijgegeven Google niet. 
 
@@ -148,7 +148,7 @@ Als u een upgrade uitvoert van uw mobiele Chrome-browser v62 (of hoger) op een A
 
 De bovenstaande open source PWA app is in Node.js gemaakt. Als u wilt voor het hosten van uw eigen versie op een virtuele Ubuntu-server, houd de volgende algemene problemen aangetroffen waardoor afspelen:
 
-1. CORS probleem: de steekproef video in de voorbeeld-app in https://storage.googleapis.com/biograf-video-files/videos/ wordt gehost. Google heeft CORS ingesteld voor alle hun proefmonsters gehost in bucket Google Cloud-opslag. Ze worden behandeld met CORS-headers, expliciet opgeven van de vermelding CORS: https://biograf-155113.appspot.com (het domein in welke google als host fungeert voor de steekproef) verhinderen van toegang door andere sites. Als u probeert, ziet u de volgende HTTP-fout: https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd laden is mislukt: Er is geen header 'Access Control-toestaan-oorsprong' is aanwezig op de aangevraagde bron. Toegang is daarom niet toegestaan door oorsprong 'https://13.85.80.81:8080'. Als een ondoorzichtige antwoord aan uw behoeften voldoen, van de aanvraag modus ingesteld op 'Nee-cors' voor het ophalen van de resource met CORS uitgeschakeld.
+1. CORS probleem: het voorbeeld in de voorbeeld-app video wordt gehost in https://storage.googleapis.com/biograf-video-files/videos/. Google heeft CORS ingesteld voor alle hun proefmonsters gehost in bucket Google Cloud-opslag. Ze worden behandeld met CORS-headers, expliciet opgeven van de vermelding CORS: https://biograf-155113.appspot.com (het domein in welke google als host fungeert voor de steekproef) verhinderen van toegang door andere sites. Als u probeert, ziet u de volgende HTTP-fout: kan niet worden geladen https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: geen koptekst 'Access Control-toestaan-oorsprong' is aanwezig op de aangevraagde bron. Oorsprong 'https://13.85.80.81:8080' is daarom geen toegang hebben. Als een ondoorzichtige antwoord aan uw behoeften voldoen, van de aanvraag modus ingesteld op 'Nee-cors' voor het ophalen van de resource met CORS uitgeschakeld.
 2. Probleem van het certificaat: vanaf Chrome v 58, EME voor Widevine HTTPS vereist. Daarom moet u voor het hosten van de voorbeeld-app via HTTPS met een X509 certificaat. Een gebruikelijke testcertificaat werkt niet vanwege de volgende vereisten: U moet een certificaat voldoen aan de volgende minimumvereisten verkrijgen:
     - Chrome en Firefox vereisen alternatieve naam voor SAN-onderwerp instelling bestaan in het certificaat
     - Het certificaat moet een vertrouwde Certificeringsinstantie en een zelf-ondertekend ontwikkelingscertificaat werkt niet
@@ -172,7 +172,7 @@ Dit betekent dat de Secure Token Service (STS) moet de gegevens van de zakelijke
 
 ### <a name="question"></a>Vraag
 
-Voor de beveiligingsniveaus Widevine in Google [Widevine DRM architectuuroverzicht doc](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) documentatie, definieert drie verschillende beveiligingsniveaus. Echter, in [Azure Media Services-documentatie op de sjabloon voor Widevine-licentie](https://docs.microsoft.com/en-us/azure/media-services/media-services-widevine-license-template-overview), worden beschreven met vijf verschillende beveiligingsniveaus. Wat is de relatie of de toewijzing tussen de twee verschillende sets beveiligingsniveaus?
+Voor de beveiligingsniveaus Widevine in Google [Widevine DRM architectuuroverzicht doc](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) documentatie, definieert drie verschillende beveiligingsniveaus. Echter, in [Azure Media Services-documentatie op de sjabloon voor Widevine-licentie](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview), worden beschreven met vijf verschillende beveiligingsniveaus. Wat is de relatie of de toewijzing tussen de twee verschillende sets beveiligingsniveaus?
 
 ### <a name="answer"></a>Antwoord
 
@@ -182,7 +182,7 @@ In Google [Widevine DRM architectuuroverzicht](https://storage.googleapis.com/wv
 2.  Beveiligingsniveau 2: Cryptography (maar niet video processing) wordt uitgevoerd binnen de t: ontsleutelde buffers worden geretourneerd aan het toepassingsdomein en verwerkt via afzonderlijke video hardware of software. Op niveau 2 kan echter is cryptografische informatie nog steeds verwerkt alleen in de t.
 3.  Beveiligingsniveau 3 heeft geen een t op het apparaat. Ter bescherming van de cryptografische informatie en ontsleutelde inhoud op het hostbesturingssysteem mogelijk passende maatregelen worden getroffen. Een niveau 3-implementatie kan ook een cryptografische engine hardware bevatten, maar die alleen verbetert de prestaties, niet voor beveiliging.
 
-Terzelfdertijd, in [Azure Media Services-documentatie op de sjabloon voor Widevine-licentie](https://docs.microsoft.com/en-us/azure/media-services/media-services-widevine-license-template-overview), de eigenschap security_level van content_key_specs kan de volgende vijf verschillende waarden (robuustheid clientvereisten voor afspelen) hebben:
+Terzelfdertijd, in [Azure Media Services-documentatie op de sjabloon voor Widevine-licentie](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview), de eigenschap security_level van content_key_specs kan de volgende vijf verschillende waarden (robuustheid clientvereisten voor afspelen) hebben:
 
 1.  Crypto whitebox op basis van software is vereist.
 2.  Crypto-software en een verborgen decoder is vereist.

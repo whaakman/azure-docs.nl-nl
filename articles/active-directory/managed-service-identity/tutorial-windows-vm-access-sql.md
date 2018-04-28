@@ -2,7 +2,7 @@
 title: Gebruik van een Windows-VM-MSI voor toegang tot Azure SQL
 description: Een zelfstudie die u bij het proces helpt van het gebruik van een Windows VM beheerde Service identiteit (MSI) voor toegang tot Azure SQL.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: bryanla
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: 863054ea8c69206d4068a35f09ec946aec67ea1f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5459739e9d3469adc7dbf65c8dcc0de918ea0c73
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Een Windows VM beheerde Service identiteit (MSI) gebruiken voor toegang tot Azure SQL
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Deze zelfstudie laat zien hoe u een beheerde Service identiteit (MSI) voor een Windows virtuele machine (VM) gebruiken voor toegang tot een Azure SQL-server. Beheerde Service-identiteiten worden automatisch beheerd door Azure en u te verifiëren bij services die ondersteuning bieden voor Azure AD-verificatie, zonder referenties invoegen in uw code. Procedures voor:
+Deze zelfstudie laat zien hoe u een beheerde Service identiteit (MSI) voor een Windows virtuele machine (VM) gebruiken voor toegang tot een Azure SQL-server. Beheerde Service-identiteiten worden automatisch beheerd door Azure en u te verifiëren bij services die ondersteuning bieden voor Azure AD-verificatie, zonder referenties invoegen in uw code. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
 > * Inschakelen van MSI op een Windows VM 
@@ -38,7 +38,7 @@ Deze zelfstudie laat zien hoe u een beheerde Service identiteit (MSI) voor een W
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Meld u aan bij Azure Portal op [https://portal.azure.com](https://portal.azure.com).
+Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Een virtuele Windows-machine in een nieuwe resourcegroep maken
 
@@ -55,17 +55,13 @@ Voor deze zelfstudie maken we een nieuwe Windows VM.  U kunt ook MSI op een best
 
 ## <a name="enable-msi-on-your-vm"></a>MSI op de virtuele machine inschakelen 
 
-Een VM MSI kunt u toegangstokens ophalen uit Azure AD zonder dat u referenties in uw code te plaatsen. Inschakelen van MSI vertelt Azure maken van een beheerde identiteit voor uw virtuele machine. Achter de MSI inschakelen biedt twee dingen: het installeren van de MSI-VM-extensie op uw virtuele machine en zorgt ervoor dat MSI in Azure Resource Manager.
+Een VM MSI kunt u toegangstokens ophalen uit Azure AD zonder dat u referenties in uw code te plaatsen. Inschakelen van MSI vertelt Azure maken van een beheerde identiteit voor uw virtuele machine. Achter de MSI inschakelen biedt twee dingen: registreert uw virtuele machine met Azure Active Directory voor het maken van de beheerde identiteit en configureert u de identiteit op de virtuele machine.
 
 1.  Selecteer de **virtuele Machine** dat u inschakelen van MSI wilt op.  
 2.  Klik op de linkernavigatiebalk **configuratie**. 
 3.  U ziet **beheerde Service-identiteit**. Als u wilt registreren en inschakelen van het MSI-bestand, selecteer **Ja**, als u wilt uitschakelen, kiest u Nee. 
 4.  Zorg ervoor dat u klikt op **opslaan** aan de configuratie op te slaan.  
     ![De installatiekopie van de alternatieve tekst](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. Als u wilt controleren en nagaan welke uitbreidingen zijn op deze virtuele machine, klikt u op **extensies**. Als MSI is ingeschakeld, klikt u vervolgens **ManagedIdentityExtensionforWindows** wordt weergegeven in de lijst.
-
-    ![De installatiekopie van de alternatieve tekst](../media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>Uw VM toegang verlenen tot een database in een Azure SQL-server
 
@@ -100,7 +96,7 @@ ObjectId                             DisplayName          Description
 6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 VM MSI access to SQL
 ```
 
-Voeg vervolgens de MSI van de VM aan de groep.  U moet het MSI **ObjectId**, die u kunt ophalen met behulp van Azure PowerShell.  Eerst downloaden [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Meld u aan met `Login-AzureRmAccount`, en voer de volgende opdrachten:
+Voeg vervolgens de MSI van de VM aan de groep.  U moet het MSI **ObjectId**, die u kunt ophalen met behulp van Azure PowerShell.  Eerst downloaden [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Meld u aan met `Connect-AzureRmAccount`, en voer de volgende opdrachten:
 - Zorg ervoor dat de sessiecontext van uw is ingesteld op het gewenste Azure-abonnement, als er meerdere waarden.
 - Lijst van de beschikbare bronnen in uw Azure-abonnement, controleert u in de juiste resourcegroep en VM-namen.
 - Ophalen van de MSI VM-eigenschappen met behulp van de juiste waarden voor `<RESOURCE-GROUP>` en `<VM-NAME>`.
@@ -182,7 +178,7 @@ Code die wordt uitgevoerd in de virtuele machine kunt nu een token ophalen uit M
 
 Azure SQL systeemeigen ondersteunt Azure AD-verificatie, zodat deze kan rechtstreeks toegangstokens accepteren verkregen met behulp van MSI.  U gebruikt de **toegangstoken** methode voor het maken van een verbinding met SQL.  Dit maakt deel uit van de Azure SQL-integratie met Azure AD en verschilt van het verstrekken van referenties voor de verbindingsreeks.
 
-Hier volgt een voorbeeld van een .net-code van het openen van een verbinding met SQL met behulp van een toegangstoken.  Deze code moet uitvoeren op de virtuele machine worden toegang kunnen krijgen tot het eindpunt VM MSI.  **.NET framework 4.6** of hoger is vereist om de toegang tot token methode te gebruiken.  Vervang de waarden van AZURE-SQL-servernaam en DATABASE dienovereenkomstig.  Opmerking: de resource-ID voor Azure SQL-is 'https://database.windows.net/'.
+Hier volgt een voorbeeld van een .net-code van het openen van een verbinding met SQL met behulp van een toegangstoken.  Deze code moet uitvoeren op de virtuele machine worden toegang kunnen krijgen tot het eindpunt VM MSI.  **.NET framework 4.6** of hoger is vereist om de toegang tot token methode te gebruiken.  Vervang de waarden van AZURE-SQL-servernaam en DATABASE dienovereenkomstig.  Let op de resource-ID voor Azure SQL-is 'https://database.windows.net/'.
 
 ```csharp
 using System.Net;
@@ -193,7 +189,7 @@ using System.Web.Script.Serialization;
 //
 // Get an access token for SQL.
 //
-HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:50342/oauth2/token?resource=https://database.windows.net/");
+HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://database.windows.net/");
 request.Headers["Metadata"] = "true";
 request.Method = "GET";
 string accessToken = null;
@@ -234,7 +230,7 @@ U kunt ook een snelle manier om de end-to-end-installatie testen zonder om te sc
 4.  Met behulp van PowerShell `Invoke-WebRequest`, maak een aanvraag naar het lokale eindpunt MSI een access-token ophalen voor Azure SQL.
 
     ```powershell
-       $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://database.windows.net/"} -Headers @{Metadata="true"}
+       $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatabase.windows.net%2F' -Method GET -Headers @{Metadata="true"}
     ```
     
     Het antwoord van een JSON-object converteren naar een PowerShell-object. 

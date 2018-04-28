@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
 ms.author: alok
-ms.openlocfilehash: e3f6f0de16fcb84872fe7b420eb0d54e86682f23
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7633d2bd15e5bc4620a4980623f3883c162f4331
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning eigen Afwijkingsdetectie API
 ## <a name="overview"></a>Overzicht
@@ -47,7 +47,7 @@ De aanbieding Afwijkingsdetectie wordt geleverd met nuttige hulpprogramma's om u
 Om de API gebruiken, moet u deze implementeren op uw Azure-abonnement waar deze wordt gehost als Azure Machine Learning-webservice.  U kunt dit doen vanuit de [AI-galerie van Azure](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Dit implementeert twee AzureML-webservices (en hun verwante resources) naar uw Azure-abonnement - één voor afwijkingsdetectie seizoensgebonden opsporen en één zonder seizoensgebonden detectie.  Zodra de implementatie is voltooid, is het mogelijk voor het beheren van uw API's van de [AzureML-webservices](https://services.azureml.net/webservices/) pagina.  Op deze pagina kunt u zich kunt vinden van uw eindpuntlocaties, API-sleutels, evenals voorbeeldcode voor de API aanroept.  Meer gedetailleerde instructies vindt u [hier](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
 
 ## <a name="scaling-the-api"></a>De API schalen
-Uw implementatie hebben standaard een gratis Dev/Test-abonnement waaronder 1000 transacties/en 2 compute uren/maand.  U kunt upgraden naar een ander plan volgens uw behoeften.  Informatie over de prijzen van verschillende abonnementen beschikbaar zijn [hier](https://azure.microsoft.com/en-us/pricing/details/machine-learning/) onder 'Productie-Web-API prijzen'.
+Uw implementatie hebben standaard een gratis Dev/Test-abonnement waaronder 1000 transacties/en 2 compute uren/maand.  U kunt upgraden naar een ander plan volgens uw behoeften.  Informatie over de prijzen van verschillende abonnementen beschikbaar zijn [hier](https://azure.microsoft.com/pricing/details/machine-learning/) onder 'Productie-Web-API prijzen'.
 
 ## <a name="managing-aml-plans"></a>Het beheren van AML plannen 
 U kunt uw abonnement beheren [hier](https://services.azureml.net/plans/).  Naam van het abonnement wordt gebaseerd op de Resourcegroepnaam die u hebt gekozen bij het implementeren van de API, plus een tekenreeks die uniek is voor uw abonnement.  Instructies voor het upgraden van uw abonnement zijn beschikbaar [hier](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice) onder de sectie 'Facturering abonnementen beheren'.
@@ -105,12 +105,12 @@ Merk op dat, om te zien de `ColumnNames` veld, moet u opnemen `details=true` als
 De Score-API wordt gebruikt voor het uitvoeren van de afwijkingsdetectie op niet-seizoensgebonden reeksgegevens. De API wordt een aantal afwijkingsdetectie detectoren uitgevoerd op de gegevens en hun scores afwijkingsdetectie retourneert. De afbeelding hieronder toont een voorbeeld van afwijkingen die kunnen worden gedetecteerd door de Score-API. Deze tijdreeks heeft 2 distinct verandert en 3 pieken. De rode puntjes tonen de tijd waarop de wijzigingen in het wordt gedetecteerd, terwijl de zwarte punten de gedetecteerde pieken weergeven.
 ![Score-API][1]
 
-### <a name="detectors"></a>Detectors
+### <a name="detectors"></a>Detectoren
 De afwijkingsdetectie API ondersteunt detectoren in 3 hoofdcategorieën. In de volgende tabel vindt meer informatie over specifieke invoerparameters en outputs voor elke detectie.
 
-| Detectie-categorie | Detector | Beschrijving | Invoerparameters | Uitvoer |
+| Detectie-categorie | Detectie | Beschrijving | Invoerparameters | Uitvoer |
 | --- | --- | --- | --- | --- |
-| De detectoren piek |TSpike Detector |Pieken en dips op basis van veel van de waarden afkomstig zijn van de eerste en derde kwartielen detecteren |*tspikedetector.Sensitivity:* duurt geheel getal in het bereik 1-10-standaard: 3; Hogere waarden wordt onderschept meer extreme waarden, waardoor er minder gevoelig |TSpike: binaire waarden: '1' als een piek/dip wordt gedetecteerd, '0' anders |
+| De detectoren piek |TSpike detectie |Pieken en dips op basis van veel van de waarden afkomstig zijn van de eerste en derde kwartielen detecteren |*tspikedetector.Sensitivity:* duurt geheel getal in het bereik 1-10-standaard: 3; Hogere waarden wordt onderschept meer extreme waarden, waardoor er minder gevoelig |TSpike: binaire waarden: '1' als een piek/dip wordt gedetecteerd, '0' anders |
 | De detectoren piek | ZSpike Detector |Pieken en dips op basis van hoe ver de datapoints van hun gemiddelde zijn detecteren |*zspikedetector.Sensitivity:* nemen geheel getal in het bereik 1-10-standaard: 3; Hogere waarden wordt onderschept meer extreme waarden, zodat u minder gevoelig |ZSpike: binaire waarden: '1' als een piek/dip wordt gedetecteerd, '0' anders | |
 | Detectie van trage Trend |Detectie van trage Trend |Detecteren van trage positieve trend aan de hand van de set gevoeligheid |*trenddetector.Sensitivity:* drempelwaarde bij detectie score (standaard: 3,25, 3,25 – 5 is een redelijke bereik te selecteren dat dit van; Hoe hoger minder gevoelig) |tscore: getal met drijvende voor afwijkingsdetectie score op trend |
 | De detectoren niveau wijzigen | Detectie van bidirectionele niveau wijzigen |Omhoog en omlaag de wijzigingen aan de hand van de set gevoeligheid detecteren |*bileveldetector.Sensitivity:* drempelwaarde bij detectie score (standaard: 3,25, 3,25 – 5 is een redelijke bereik te selecteren dat dit van; Hoe hoger minder gevoelig) |rpscore: getal met drijvende voor afwijkingsdetectie score op omhoog en omlaag niveau wijzigen | |
@@ -122,8 +122,8 @@ Meer gedetailleerde informatie over deze invoerparameters wordt in de onderstaan
 | --- | --- | --- | --- | --- | --- |
 | detectors.historyWindow |Geschiedenis (in het aantal gegevenspunten) gebruikt voor afwijkingsdetectie score berekeningen |500 |geheel getal |10-2000 |Afhankelijk van de tijdreeks |
 | detectors.spikesdips | Of moet worden gedetecteerd alleen bereikt, alleen dips of beide |Beide |opgesomd |Beide, Bronblokkades, Dips |Beide |
-| bileveldetector.sensitivity |Gevoeligheid voor bidirectionele niveau wijzigen detectie. |3.25 |dubbele |Geen |3,25-5 (minder waarden betekenen gevoeliger) |
-| trenddetector.sensitivity |Gevoeligheid voor positieve trend detectie. |3.25 |dubbele |Geen |3,25-5 (minder waarden betekenen gevoeliger) |
+| bileveldetector.Sensitivity |Gevoeligheid voor bidirectionele niveau wijzigen detectie. |3.25 |dubbele |Geen |3,25-5 (minder waarden betekenen gevoeliger) |
+| trenddetector.Sensitivity |Gevoeligheid voor positieve trend detectie. |3.25 |dubbele |Geen |3,25-5 (minder waarden betekenen gevoeliger) |
 | tspikedetector.sensitivity |Gevoeligheid voor TSpike detectie |3 |geheel getal |1-10 |3-5 (minder waarden betekenen gevoeliger) |
 | zspikedetector.sensitivity |Gevoeligheid voor ZSpike detectie |3 |geheel getal |1-10 |3-5 (minder waarden betekenen gevoeliger) |
 | postprocess.tailRows |Nummer van de meest recente gegevenspunten worden bewaard in de uitvoer-resultaten |0 |geheel getal |0 (Houd alle gegevenspunten), of geef het aantal punten in resultaten |N/A |
@@ -147,7 +147,7 @@ De API ScoreWithSeasonality wordt gebruikt voor het uitvoeren van de afwijkingsd
 De volgende afbeelding toont een voorbeeld van afwijkingen gedetecteerd in een seizoen tijdreeks. De tijdreeks heeft een piek (1e zwarte stip), twee dips (de 2e zwarte punt en een aan het einde) en één niveau wijzigen (rode stip). Houd er rekening mee dat zowel het dip in het midden van de tijdreeks en de wijzigingen in het alleen discernable nadat seizoensgebonden onderdelen zijn verwijderd uit de reeks.
 ![Seizoensgebonden API][2]
 
-### <a name="detectors"></a>Detectors
+### <a name="detectors"></a>Detectoren
 De detectoren in de seizoensgebonden eindpunt zijn vergelijkbaar met die in het eindpunt niet seizoensgebonden, maar met verschillende parameternamen (Zie hieronder).
 
 ### <a name="parameters"></a>Parameters
@@ -161,9 +161,9 @@ Meer gedetailleerde informatie over deze invoerparameters wordt in de onderstaan
 | preprocess.replaceMissing |Waarden voor de ontbrekende gegevens rekenen |lkv (laatst bekende waarde) |opgesomd |nul, lkv, gemiddelde |N/A |
 | detectors.historyWindow |Geschiedenis (in het aantal gegevenspunten) gebruikt voor afwijkingsdetectie score berekeningen |500 |geheel getal |10-2000 |Afhankelijk van de tijdreeks |
 | detectors.spikesdips | Of moet worden gedetecteerd alleen bereikt, alleen dips of beide |Beide |opgesomd |Beide, Bronblokkades, Dips |Beide |
-| bileveldetector.sensitivity |Gevoeligheid voor bidirectionele niveau wijzigen detectie. |3.25 |dubbele |Geen |3,25-5 (minder waarden betekenen gevoeliger) |
-| postrenddetector.sensitivity |Gevoeligheid voor positieve trend detectie. |3.25 |dubbele |Geen |3,25-5 (minder waarden betekenen gevoeliger) |
-| negtrenddetector.sensitivity |Gevoeligheid voor negatieve trend detectie. |3.25 |dubbele |Geen |3,25-5 (minder waarden betekenen gevoeliger) |
+| bileveldetector.Sensitivity |Gevoeligheid voor bidirectionele niveau wijzigen detectie. |3.25 |dubbele |Geen |3,25-5 (minder waarden betekenen gevoeliger) |
+| postrenddetector.Sensitivity |Gevoeligheid voor positieve trend detectie. |3.25 |dubbele |Geen |3,25-5 (minder waarden betekenen gevoeliger) |
+| negtrenddetector.Sensitivity |Gevoeligheid voor negatieve trend detectie. |3.25 |dubbele |Geen |3,25-5 (minder waarden betekenen gevoeliger) |
 | tspikedetector.sensitivity |Gevoeligheid voor TSpike detectie |3 |geheel getal |1-10 |3-5 (minder waarden betekenen gevoeliger) |
 | zspikedetector.sensitivity |Gevoeligheid voor ZSpike detectie |3 |geheel getal |1-10 |3-5 (minder waarden betekenen gevoeliger) |
 | seasonality.Enable |Hiermee wordt aangegeven of seizoensgebonden analyse wordt uitgevoerd |true |booleaans |True, false |Afhankelijk van de tijdreeks |

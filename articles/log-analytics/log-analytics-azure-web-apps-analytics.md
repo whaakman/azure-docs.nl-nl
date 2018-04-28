@@ -14,15 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: magoedte
-ms.openlocfilehash: b70b626ca618fbfb7cbe25a4fcbc9aae797ce157
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 66c07b757a034501eb66a4b23fc4c75bb94f8b10
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Analytische gegevens weergeven voor de metrische gegevens over alle resources in uw Azure-Web-App
 
 ![Symbool van Web-Apps](./media/log-analytics-azure-web-apps-analytics/azure-web-apps-analytics-symbol.png)  
+
+> [!NOTE]
+> De Azure Web Apps Analytics-oplossing is afgeschaft.  Klanten die de oplossing al hebt geïnstalleerd kunnen blijven gebruiken, maar Azure Web Apps Analytics kan niet worden toegevoegd aan een nieuwe werkruimten.
+
 De oplossing Azure Web Apps Analytics (Preview) biedt inzicht in uw [Azure Web Apps](../app-service/app-service-web-overview.md) door het verzamelen van verschillende metrische gegevens over alle resources in uw Azure-Web-App. U kunt met de oplossing voor analyseren en zoeken naar metrische gegevens van web-app resource.
 
 Met de oplossing, kunt u weergeven de:

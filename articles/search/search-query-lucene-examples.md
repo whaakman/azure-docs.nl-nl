@@ -1,25 +1,19 @@
 ---
 title: Voorbeelden van Lucene-query voor Azure Search | Microsoft Docs
 description: Lucene-querysyntaxis voor fuzzy zoeken, zoeken bij benadering, term versterking, zoeken op reguliere expressies en zoeken met jokertekens.
-services: search
-documentationcenter: 
 author: LiamCa
-manager: pablocas
-editor: 
+manager: jlembicz
 tags: Lucene query analyzer syntax
-ms.assetid: 147f360d-a5ce-4d7b-a909-c8b65bfb748c
+services: search
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: liamca
-ms.openlocfilehash: 1faed621039ecd04064cb074e6b9011418e6ec47
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: c83b3b0d9c0cc99ba8a76dc4a6b2f83ed6de49dc
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Lucene query syntaxisvoorbeelden voor het bouwen van query's in Azure Search
 Bij het maken van query's voor Azure Search, kunt u ofwel de standaard [vereenvoudigde querysyntaxis](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) of de alternatieve [Lucene Queryparser in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). De Queryparser Lucene ondersteunt een complexere query-constructs, zoals veldgerelateerde query's, fuzzy zoeken, zoeken bij benadering, term versterking en zoeken op reguliere expressies.
@@ -117,7 +111,7 @@ Een zoekopdracht reguliere expressie gevonden op basis van de inhoud tussen voor
 
 * `&queryType=full&$select=business_title&search=business_title:/(Sen|Jun)ior/`
 
-De URL voor dit voorbeeld wordt niet correct weergegeven op de pagina. Kopieer de onderstaande URL en plak deze in de browser-URL-adres als tijdelijke oplossing:`http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26queryType=full%26$select=business_title%26search=business_title:/(Sen|Jun)ior/)`
+De URL voor dit voorbeeld wordt niet correct weergegeven op de pagina. Kopieer de onderstaande URL en plak deze in de browser-URL-adres als tijdelijke oplossing: `http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26queryType=full%26$select=business_title%26search=business_title:/(Sen|Jun)ior/)`
 
 ## <a name="wildcard-search-example"></a>Voorbeeld van jokertekens zoeken
 U kunt een algemeen erkende syntaxis gebruiken voor meerdere (\*) of van afzonderlijke zoekopdrachten met jokertekens teken (?). Noteer dat de queryparser Lucene ondersteunt het gebruik van deze symbolen met één begrip en niet een wachtwoordzin.

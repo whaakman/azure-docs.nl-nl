@@ -2,10 +2,10 @@
 title: Azure Active Directory-ontwikkelaar verklarende woordenlijst | Microsoft Docs
 description: Een lijst met voorwaarden voor vaak gebruikte concepten voor ontwikkelaars van Azure Active Directory en functies.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: bryanla
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba
 ms.service: active-directory
 ms.devlang: na
@@ -15,16 +15,16 @@ ms.workload: identity
 ms.date: 11/16/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 81e0778a0ae168170436213d8aa48c8d60575da2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d32858c89c59ef8240eddca42824374132255fe7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory-ontwikkelaar verklarende woordenlijst
 In dit artikel bevat definities voor enkele van de belangrijkste Azure Active Directory (AD) concepten voor ontwikkelaars, dit handig is bij leren over het ontwikkelen van toepassingen voor Azure AD.
 
-## <a name="access-token"></a>Toegangstoken
+## <a name="access-token"></a>toegangstoken
 Een soort [beveiligingstoken](#security-token) uitgegeven door een [autorisatie server](#authorization-server), en gebruikt door een [clienttoepassing](#client-application) om toegang te krijgen een [beveiligde resource server](#resource-server). Doorgaans in de vorm van een [JSON Web Token (JWT)][JWT], het token bevat de autorisatie te krijgen tot de client door de [resource-eigenaar](#resource-owner), voor een opgegeven niveau van toegang. Het token bevat alle toepasselijke [claims](#claim) het onderwerp over het inschakelen van de clienttoepassing moet worden gebruikt als referentie bij het openen van een bepaalde bron. Hierdoor wordt ook nodig voor de resource-eigenaar zichtbaar maken van referenties naar de client.
 
 Toegangstokens worden soms aangeduid als 'Gebruiker + App' of 'App alleen-lezen', afhankelijk van de referenties die wordt weergegeven. Wanneer een client-toepassing gebruikt bijvoorbeeld de:
@@ -79,7 +79,7 @@ Zoals gedefinieerd door de [OAuth2 autorisatie Framework][OAuth2-Role-Def], de s
 
 In het geval van de integratie van Azure AD-toepassingen, Azure AD worden geïmplementeerd de autorisatie-serverrol voor Azure AD-toepassingen en Microsoft-service-API's, bijvoorbeeld [Microsoft Graph-API's][Microsoft-Graph].
 
-## <a name="claim"></a>Claim
+## <a name="claim"></a>claim
 Een [beveiligingstoken](#security-token) bevat claims, die asserties over één entiteit opgeven (zoals een [clienttoepassing](#client-application) of [resource-eigenaar](#resource-owner)) aan een andere entiteit (zoals de [bronserver](#resource-server)). Claims zijn naam/waarde-paren die informatie over het token onderwerp relay (bijvoorbeeld de beveiligings-principal die is geverifieerd door de [autorisatie server](#authorization-server)). De claims aanwezig zijn in een bepaalde token zijn afhankelijk van verschillende variabelen, waaronder het type token, het type van de referentie gebruikt voor het verifiëren van het onderwerp, de configuratie van toepassing, enzovoort.
 
 Zie [Azure AD-tokenverwijzing] [ AAD-Tokens-Claims] voor meer informatie.
@@ -105,7 +105,7 @@ Zie [aanmelden met een Azure AD-gebruiker met behulp van het patroon toepassing 
 ## <a name="native-client"></a>native client
 Een soort [clienttoepassing](#client-application) die standaard is geïnstalleerd op een apparaat. Aangezien alle code wordt uitgevoerd op een apparaat, wordt een 'openbare' client vanwege het feit dat voor het opslaan van referenties privé/vertrouwelijk worden beschouwd. Zie [OAuth2-client van het type en -profielen] [ OAuth2-Client-Types] voor meer informatie.
 
-## <a name="permissions"></a>Machtigingen
+## <a name="permissions"></a>machtigingen
 Een [clienttoepassing](#client-application) toegang krijgt tot een [bronserver](#resource-server) machtigingsaanvragen declareert. Er zijn twee typen beschikbaar:
 
 * 'Gemachtigd', waarbij [op basis van een scope](#scopes) openen met behulp van gedelegeerde toestemming van de aangemeld [resource-eigenaar](#resource-owner), worden weergegeven op de resource tijdens runtime als ['scp' claims](#claim) in van de client [toegangstoken](#access-token).
@@ -147,7 +147,7 @@ Wanneer u registreren of bij te werken een toepassing in de [Azure-portal][AZURE
 
 Zie [toepassing en Service-Principal objecten] [ AAD-App-SP-Objects] voor meer informatie.
 
-## <a name="sign-in"></a>Aanmelden
+## <a name="sign-in"></a>aanmelding
 Het proces van een [clienttoepassing](#client-application) eindgebruiker verificatie gestart en vastleggen van gerelateerde status met het doel een [beveiligingstoken](#security-token) en bereik van de toepassingssessie op de bijbehorende status. State-artefacten, zoals gebruikersprofielgegevens kunnen bevatten en informatie die is afgeleid van token claims.
 
 De functie aanmelden van een toepassing wordt doorgaans gebruikt voor het implementeren van eenmalige aanmelding (SSO). Het kan ook worden voorafgegaan door een functie "registratie", als het toegangspunt voor een eindgebruiker toegang te krijgen tot een toepassing (bij de eerste aanmelden). De aanmelding functie wordt gebruikt om te verzamelen en persistent maken van aanvullende status die specifiek zijn voor de gebruiker en mogelijk [toestemming van de gebruiker](#consent).
@@ -155,7 +155,7 @@ De functie aanmelden van een toepassing wordt doorgaans gebruikt voor het implem
 ## <a name="sign-out"></a>afmelden
 Het proces van het niet verifiërende een eindgebruiker loskoppelen van de status van de gebruiker die is gekoppeld aan de [clienttoepassing](#client-application) sessie tijdens [aanmelden](#sign-in)
 
-## <a name="tenant"></a>Tenant
+## <a name="tenant"></a>tenant
 Een exemplaar van Azure AD-adreslijst wordt aangeduid als een Azure AD-tenant. Bevat verschillende functies, waaronder:
 
 * een registerservice voor geïntegreerde toepassingen
@@ -203,7 +203,7 @@ Gebruik de volgende sectie met opmerkingen uw feedback en help ons verfijnen en 
 [Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [Microsoft-Graph]: https://graph.microsoft.io
-[O365-Perm-Ref]: https://msdn.microsoft.com/en-us/office/office365/howto/application-manifest
+[O365-Perm-Ref]: https://msdn.microsoft.com/office/office365/howto/application-manifest
 [OAuth2-Access-Token-Scopes]: https://tools.ietf.org/html/rfc6749#section-3.3
 [OAuth2-AuthZ-Endpoint]: https://tools.ietf.org/html/rfc6749#section-3.1
 [OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3

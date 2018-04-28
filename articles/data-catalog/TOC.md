@@ -26,7 +26,7 @@
 ## [Gerelateerde gegevensassets weergeven](data-catalog-how-to-view-related-data-assets.md) 
 
 # Naslaginformatie
-## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=data-catalog)
+## [Codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=data-catalog)
 ## [REST](/rest/api/datacatalog/)
 ## [Naslaginformatie over zoeksyntaxis](/rest/api/datacatalog/data-catalog-search-syntax-reference)
 ## [Concepten van ontwikkelaars](data-catalog-developer-concepts.md)

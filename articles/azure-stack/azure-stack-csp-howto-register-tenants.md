@@ -2,10 +2,10 @@
 title: Toevoegen van tenants voor het gebruik van en naar Azure Stack facturering | Microsoft Docs
 description: Een eindgebruiker toevoegen de vereiste stappen aan Azure-Stack beheerd door een Cloud Service Provider.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: 67e5a67d7cd5caf6bd4d2625969b139411d62696
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
-ms.translationtype: MT
+ms.openlocfilehash: fd5a8afe82bab5ca4e735a2483d90b84e234b8dc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Toevoegen van de tenant voor informatie over het gebruik en facturering naar Azure-Stack
 
@@ -58,7 +58,7 @@ Uw registratie bijwerken met de nieuwe klant-abonnement. Azure rapporten van de 
 > Als u wilt deze stap uitvoert, moet u hebben [geregistreerd Azure Stack](azure-stack-register.md).
 
 1. Open Windows PowerShell met een opdrachtprompt en voer:  
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 2. Typ uw Azure-referenties.
 3. In de PowerShell-sessie uitvoeren:
 

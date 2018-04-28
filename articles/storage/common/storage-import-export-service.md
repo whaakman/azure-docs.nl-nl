@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: muralikk
-ms.openlocfilehash: 1e94466d9d41bbc6a2100256d96e19d0d13600cb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4d6177fe0a50c531ba6c4b3e87eaa08299af2ddd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>De Microsoft Azure Import/Export-service gebruiken om gegevens overdragen naar Azure Storage
 In dit artikel bieden we Stapsgewijze instructies over het gebruik van Azure Import/Export-service veilig grote hoeveelheden gegevens overdragen naar Azure Blob storage en Azure-bestanden door de back-upfunctie schijven naar een Azure-Datacenter. Deze service kan ook worden gebruikt gegevens overdragen naar Azure storage naar harde schijven en verzenden naar uw on-premises-sites. Gegevens uit een enkele interne SATA harde schijf kunnen worden geïmporteerd naar Azure Blob storage of Azure-bestanden. 
@@ -29,7 +29,7 @@ Volg de onderstaande stappen te volgen als de gegevens op de schijf moet worden 
 2.  Afhankelijk van de totale grootte van de gegevens, schaft u het vereiste aantal 2,5 inch SSD of 2,5-inch of 3.5" SATA II of III harde schijven.
 3.  Koppelen van de harde schijven die rechtstreeks met SATA of met externe USB-adapters aan een windows-machine.
 1.  Maak één NTFS-volume op elke harde schijf en een stationsletter toewijzen aan het volume. Er is geen quorumbron:.
-2.  Schakel bits BitLocker-versleuteling op het NTFS-volume voor het inschakelen van versleuteling op de windows-machine. Volg de instructies op https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
+2.  Schakel bits BitLocker-versleuteling op het NTFS-volume voor het inschakelen van versleuteling op de windows-machine. Volg de instructies op https://technet.microsoft.com/library/cc731549(v=ws.10).aspx.
 3.  Volledig gegevens kopiëren naar de versleutelde één NTFS-volumes op schijven met kopiëren & plakken of slepen en neerzetten of Robocopy of een dergelijk hulpmiddel.
 7.  WAImportExport V1 uit downloaden https://www.microsoft.com/en-us/download/details.aspx?id=42659
 8.  Uitpakken naar de map standaard waimportexportv1. Bijvoorbeeld: C:\WaImportExportV1  

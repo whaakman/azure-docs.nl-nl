@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 3acfa51351ac49456f5f9fcac8aa4f4f339b9ea3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: d869a21230661e473ffff6bbdb1ea29b1ea336d5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configuring-role-claim-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Rol claim uitgegeven in het SAML-token voor bedrijfstoepassingen in Azure Active Directory configureren
 
@@ -54,7 +54,7 @@ Als uw toepassing aangepaste rollen in SAML-reactie die moet worden doorgegeven 
 
 5. Wanneer de toepassing is toegevoegd, gaat u naar **eigenschappen** pagina en kopieer de **Object-ID**.
 
-    ![Eigenschappenpagina](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
+    ![Eigenschappenpagina](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.PNG)
 
 6. Open [Explorer van Azure AD Graph](https://developer.microsoft.com/graph/graph-explorer) in een ander venster.
 
@@ -253,7 +253,7 @@ Een bestaande als rol wilt verwijderen, voert u de volgende stappen:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Raadpleeg [documentatie App ](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-tutorial-list) voor extra stappen uitvoeren.
+Raadpleeg [documentatie App ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) voor extra stappen uitvoeren.
 
 <!--Image references-->
 <!--Image references-->

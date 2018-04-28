@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 9153efb73e84d7b84a732217b92a9c66617e90ae
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 602cd6c3b2be8881bebbcebe30ec2520358b731f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Azure Stack gebruiksgegevens rapporteren naar Azure 
 
@@ -27,7 +27,7 @@ Gegevens over het gebruik, ook wel verbruiksgegevens, vertegenwoordigt de hoevee
 Azure Stack met meerdere knooppunten systemen die gebruikmaken van facturering model op basis van verbruik moeten gebruiksgegevens rapporteren aan Azure voor facturering doel.  Azure Stack-operators moeten hun Azure Stack instantie geconfigureerd met gebruiksgegevens rapport naar Azure.
 
 > [!NOTE]
-> Gegevens gebruiksrapportage is vereist voor de Azure-Stack met meerdere knooppunten-gebruikers die een licentie onder het Pay-as-u-use-model. Dit is optioneel voor klanten die een licentie onder het model capaciteit (Zie de [aanschaffen pagina](https://azure.microsoft.com/en-us/overview/azure-stack/how-to-buy/). Voor gebruikers van Azure Stack Development Kit Azure Stack operators gebruiksgegevens rapporteren en testen van de functie. Echter gebruikers wordt niet in rekening gebracht voor enig gebruik die ze rekening worden gebracht. 
+> Gegevens gebruiksrapportage is vereist voor de Azure-Stack met meerdere knooppunten-gebruikers die een licentie onder het Pay-as-u-use-model. Dit is optioneel voor klanten die een licentie onder het model capaciteit (Zie de [aanschaffen pagina](https://azure.microsoft.com/overview/azure-stack/how-to-buy/). Voor gebruikers van Azure Stack Development Kit Azure Stack operators gebruiksgegevens rapporteren en testen van de functie. Echter gebruikers wordt niet in rekening gebracht voor enig gebruik die ze rekening worden gebracht. 
 
 
 ![Facturering stroom](media/azure-stack-usage-reporting/billing-flow.png)

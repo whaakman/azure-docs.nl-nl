@@ -2,10 +2,10 @@
 title: Service-identiteit beheerd voor een Linux-VM te gebruiken voor toegang tot Azure Data Lake Store
 description: Een zelfstudie waarin u het gebruik van beheerde Service identiteit (MSI) voor een Linux-VM voor toegang tot Azure Data Lake Store.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: bef549a0cb8a876bbf8fbf281a6c2d1d489736af
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 8b7e6cbd4bc7cfef349e9cebd9e4db537701a877
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-managed-service-identity-for-a-linux-vm-to-access-azure-data-lake-store"></a>Service-identiteit beheerd voor een Linux-VM te gebruiken voor toegang tot Azure Data Lake Store
 
@@ -58,16 +58,13 @@ Voor deze zelfstudie maken we een nieuwe Linux VM. U kunt ook MSI op een bestaan
 
 ## <a name="enable-msi-on-your-vm"></a>MSI op de virtuele machine inschakelen
 
-MSI voor een virtuele machine kunt u toegangstokens ophalen uit Azure AD zonder referenties te plaatsen in uw code. De MSI-VM-extensie inschakelen MSI worden geïnstalleerd op de virtuele machine en maakt MSI in Azure Resource Manager.  
+Een VM MSI kunt u toegangstokens ophalen uit Azure AD zonder dat u referenties in uw code te plaatsen. Inschakelen van de Service-identiteit beheerd op een virtuele machine, biedt twee dingen: registreert uw virtuele machine met Azure Active Directory voor het maken van de beheerde identiteit en configureert u de identiteit op de virtuele machine.
 
 1. Voor **virtuele Machine**, selecteer de virtuele machine die u inschakelen van MSI wilt op.
 2. Selecteer in het linkerdeelvenster **configuratie**.
 3. U ziet **beheerde service-identiteit**. Als u wilt registreren en MSI inschakelt, selecteer **Ja**. Als u uitschakelen wilt, selecteert u **Nee**.
    !['Registreren bij Azure Active Directory' selectie](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 4. Selecteer **Opslaan**.
-5. Als u wilt controleren welke uitbreidingen zijn op deze Linux VM, selecteer **extensies**. Als MSI is ingeschakeld, **ManagedIdentityExtensionforLinux** wordt weergegeven in de lijst.
-
-   ![Lijst met extensies](../media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Uw VM-toegang verlenen tot Azure Data Lake Store
 
@@ -102,10 +99,10 @@ Deze stappen uit te voeren, moet u een SSH-client. Als u van Windows gebruikmaak
 
 1. Blader in de portal voor uw Linux-VM. In **overzicht**, selecteer **Connect**.  
 2. Verbinding maken met de virtuele machine met behulp van de SSH-client van uw keuze. 
-3. Het terminalvenster via cURL, zorg er in een aanvraag naar het lokale eindpunt MSI ophalen van een toegangstoken voor de Data Lake Store-bestandssysteem. De resource-id van Data Lake Store is 'https://datalake.azure.net/'.  Het is belangrijk dat u de afsluitende slash bevatten in de resource-id.
+3. Het terminalvenster via cURL, zorg er in een aanvraag naar het lokale eindpunt MSI ophalen van een toegangstoken voor de Data Lake Store-bestandssysteem. De resource-id voor de Data Lake Store is 'https://datalake.azure.net/'.  Het is belangrijk dat u de afsluitende slash bevatten in de resource-id.
     
    ```bash
-   curl http://localhost:50342/oauth2/token --data "resource=https://datalake.azure.net/" -H Metadata:true   
+   curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -H Metadata:true   
    ```
     
    Een geslaagde reactie retourneert het toegangstoken die u gebruikt om te verifiëren naar Data Lake Store:

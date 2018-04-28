@@ -1,24 +1,19 @@
 ---
 title: Azure Blob Storage met Azure Search indexeren
 description: Informatie over het indexeren van Azure Blob Storage en haal de tekst uit documenten met Azure Search
-services: search
-documentationcenter: ''
 author: chaosrealm
-manager: pablocas
-editor: ''
-ms.assetid: 2a5968f4-6768-4e16-84d0-8b995592f36a
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.date: 03/22/2018
+ms.topic: conceptual
+ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: 67f6775fb68f4cd13c52ebe66727f2b4df23c692
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 976b1c6b65036faeff3c4cc21e91ccf798eb0df3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Documenten in Azure Blob Storage met Azure Search indexeren
 Dit artikel laat zien hoe u met Azure Search index documenten (zoals PDF-bestanden, Microsoft Office-documenten en enkele andere algemene indelingen) opgeslagen in Azure Blob storage. Eerst wordt de basisprincipes van instellen en configureren van een blob-indexeerfunctie uitgelegd. Vervolgens biedt een meer gedetailleerde uitleg van problemen en scenario's bent u waarschijnlijk tegenkomen.
@@ -54,7 +49,7 @@ De gegevensbron moet de volgende vereiste eigenschappen zijn voor blob-indexerin
 
 Een gegevensbron maken:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -86,7 +81,7 @@ De index geeft de velden in een document, kenmerken, en andere constructies die 
 
 Hier volgt een index maken met een doorzoekbare `content` veld voor het opslaan van de tekst opgehaald uit de BLOB's:   
 
-    POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -105,7 +100,7 @@ Een indexeerfunctie een gegevensbron is verbonden met een doel search-index en v
 
 Als de index en gegevensbron hebt gemaakt, bent u klaar voor het maken van de indexeerfunctie:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -176,7 +171,7 @@ In dit voorbeeld we kiezen de `metadata_storage_name` veld als de documentsleute
 
 Om dit allemaal samen, hier wordt het veldtoewijzingen toevoegen en base 64-codering met sleutels voor een bestaande indexeerfunctie inschakelen:
 
-    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -202,7 +197,7 @@ U kunt bepalen welke blobs worden geïndexeerd en die zijn overgeslagen.
 ### <a name="index-only-the-blobs-with-specific-file-extensions"></a>Alleen de blobs met specifieke extensies indexeren
 U kunt alleen de blobs met de bestandsnaamextensies die u via opgeeft de index de `indexedFileNameExtensions` configuratieparameter indexeerfunctie. De waarde is een tekenreeks met een door komma's gescheiden lijst met bestandsextensies (met een voorafgaande punt). Bijvoorbeeld, naar de index alleen de. PDF en. DOCX blobs, doen dit:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -214,7 +209,7 @@ U kunt alleen de blobs met de bestandsnaamextensies die u via opgeeft de index d
 ### <a name="exclude-blobs-with-specific-file-extensions"></a>BLOB's met bepaalde bestandsextensies uitsluiten
 U kunt BLOB's met specifieke bestandsnaamextensies uitsluiten van het indexeren met behulp van de `excludedFileNameExtensions` configuratieparameter. De waarde is een tekenreeks met een door komma's gescheiden lijst met bestandsextensies (met een voorafgaande punt). Bijvoorbeeld naar index alle blobs, behalve de pakketten met de. PNG en. JPEG-extensies doen dit:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -236,7 +231,7 @@ U kunt bepalen welke onderdelen van de blobs zijn geïndexeerd met behulp van de
 
 Bijvoorbeeld alleen de metagegevens van de opslag indexeert, gebruiken:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -259,7 +254,7 @@ De hierboven beschreven configuratieparameters van toepassing op alle blobs. Som
 
 Standaard de blob-indexeerfunctie stopt zodra er een blob met een niet-ondersteunde inhoudstype (bijvoorbeeld een afbeelding) aangetroffen. U kunt uiteraard de `excludedFileNameExtensions` -parameter voor het overslaan van bepaalde typen inhoud. Echter mogelijk moet u index blobs zonder alle mogelijke inhoudstypen van tevoren weten. Om door te gaan wanneer een niet-ondersteund type inhoud is opgetreden indexeren ingesteld de `failOnUnsupportedContentType` configuratieparameter naar `false`:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -297,7 +292,7 @@ Gebruik een benadering 'soft delete' ter ondersteuning van documenten verwijdere
 
 Bijvoorbeeld, het volgende beleid overweegt een blob worden verwijderd als er een eigenschap metadata `IsDeleted` met de waarde `true`:
 
-    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -344,7 +339,7 @@ Dit werkt, moeten alle Indexeerfuncties en andere onderdelen te stemmen op de do
 
 Als alle BLOB's tekst zonder opmaak in dezelfde codering bevatten, kunt u indexering prestaties aanzienlijk verbeteren met behulp van **modus voor het parseren van tekst**. Met de modus voor het parseren van tekst, stelt de `parsingMode` configuratie-eigenschap voor `text`:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 

@@ -1,24 +1,18 @@
 ---
 title: Zoek Azure Search Traffic Analytics | Microsoft Docs
 description: Schakel Search traffic analytics voor Azure Search, een zoekservice in de cloud gehoste in Microsoft Azure voor het ontgrendelen van inzicht in uw gebruikers en uw gegevens.
+author: HeidiSteen
+manager: cgronlun
 services: search
-documentationcenter: 
-author: bernitorres
-manager: jlembicz
-editor: 
-ms.assetid: b31d79cf-5924-4522-9276-a1bb5d527b13
 ms.service: search
-ms.devlang: multiple
-ms.workload: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 04/05/2017
-ms.author: betorres
-ms.openlocfilehash: 303ca5c820f573dc0b58f1910f258403c3baad2a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: heidist
+ms.openlocfilehash: ca0a00d078cd63aa8736ba9f9822fd812823304f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="what-is-search-traffic-analytics"></a>Wat is search traffic analytics
 Search traffic analytics is een patroon voor het implementeren van een Feedbacklus voor uw zoekservice. Dit patroon beschrijft de benodigde gegevens en om te verzamelen met behulp van Application Insights, een industrie-opvulteken voor het bewaken van services op meerdere platforms.
@@ -102,7 +96,7 @@ Zie voor andere talen en platforms de volledige [lijst](https://docs.microsoft.c
 
 Elke keer dat een zoekaanvraag is uitgegeven door een gebruiker, u moet zich aanmelden die als een gebeurtenis zoeken met het volgende schema van een aangepaste Application Insights-gebeurtenis:
 
-**ServiceName**: (tekenreeks) service zoeknaam **SearchId**: de unieke id (guid) van de zoekopdracht (komt in het antwoord zoeken) **NaamCommunity**: (tekenreeks)-zoekindex service moeten worden opgevraagd **QueryTerms**: zoektermen (tekenreeks) die zijn ingevoerd door de gebruiker **ResultCount**: (int) aantal documenten die zijn geretourneerd (komt in het antwoord zoeken) **ScoringProfile**: (tekenreeks) naam van het scoreprofiel gebruikt, indien van toepassing
+**ServiceName**: (tekenreeks) service zoeknaam **SearchId**: de unieke id (guid) van de zoekopdracht (komt in het antwoord zoeken) **NaamCommunity**: (tekenreeks)-zoekindex service worden opgevraagd **QueryTerms**: zoektermen (tekenreeks) die zijn ingevoerd door de gebruiker **ResultCount**: het aantal documenten die zijn geretourneerd (int) (wordt geleverd in het antwoord zoeken)  **ScoringProfile**: naam van het scoreprofiel gebruikt, indien van toepassing (tekenreeks)
 
 > [!NOTE]
 > Aantal aanvragen op de gebruiker gegenereerde query's door toe te voegen $count = True in uw query. Zie voor meer informatie [hier](https://docs.microsoft.com/rest/api/searchservice/search-documents#request)

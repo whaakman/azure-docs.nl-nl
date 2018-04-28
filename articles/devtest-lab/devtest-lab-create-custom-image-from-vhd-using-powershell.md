@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: v-craic
-ms.openlocfilehash: 2c542f9d47eb8011a13bf7156430324c53d238ce
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6bfb34c05a03ed02694210a5901f4f367e8a2fd3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-custom-image-from-a-vhd-file-using-powershell"></a>Een aangepaste installatiekopie maken van een VHD-bestand met behulp van PowerShell
 
@@ -32,10 +32,10 @@ ms.lasthandoff: 03/23/2018
 
 De volgende stappen maakt u een aangepaste installatiekopie van een VHD-bestand met behulp van PowerShell maken:
 
-1. Bij een PowerShell-prompt, meld u aan bij uw Azure-account met de volgende aanroep naar de **Login-AzureRmAccount** cmdlet.  
+1. Bij een PowerShell-prompt, meld u aan bij uw Azure-account met de volgende aanroep naar de **Connect-AzureRmAccount** cmdlet.  
     
     ```PowerShell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
 1.  Selecteer de gewenste Azure-abonnement door het aanroepen van de **Select-AzureRmSubscription** cmdlet. Vervang de volgende tijdelijke aanduiding voor de **$subscriptionId** variabele met een geldige Azure-abonnement-ID. 
@@ -83,7 +83,7 @@ De volgende PowerShell-script kan worden gebruikt voor het maken van een aangepa
 
 ```PowerShell
 # Log in to your Azure account.  
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 # Select the desired Azure subscription. 
 $subscriptionId = '<Specify your subscription ID here>'

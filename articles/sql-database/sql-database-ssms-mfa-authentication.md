@@ -10,11 +10,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: mireks
-ms.openlocfilehash: 2ea8c3119366d86c3aabf1faa0d71f1ba3610f41
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 8c6472dcde55a7b642ced7bbf0d93893df9208e0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="universal-authentication-with-sql-database-and-sql-data-warehouse-ssms-support-for-mfa"></a>Universele verificatie met SQL-Database en SQL Data Warehouse (SSMS ondersteuning voor MFA)
 Azure SQL Database en Azure SQL Data Warehouse ondersteunen verbindingen van het gebruik van SQL Server Management Studio (SSMS) *Universal verificatie van Active Directory*. 
@@ -25,7 +25,7 @@ Azure SQL Database en Azure SQL Data Warehouse ondersteunen verbindingen van het
 
 - `Active Directory - Universal with MFA` verificatie is een interactieve methode die ook ondersteunt *Azure multi-factor Authentication* (MFA). Azure MFA helpt bij het bewaken van de toegang tot uw gegevens en toepassingen en komt tegemoet aan de wensen van gebruikers die een eenvoudige aanmeldprocedure willen. Levert sterke verificatie met een bereik van eenvoudige verificatie-opties (telefoongesprek, tekstbericht, smartcards en pincode of mobiele-appmelding), zodat gebruikers kunnen kiezen hoe ze de voorkeur geven. Interactieve MFA met Azure AD kan resulteren in een pop-dialoogvenster voor validatie.
 
-Zie voor een beschrijving van multi-factor Authentication [multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md).
+Zie voor een beschrijving van multi-factor Authentication [multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md).
 Zie voor configuratiestappen [Azure SQL-Database configureren multi-factor authentication voor SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).
 
 ### <a name="azure-ad-domain-name-or-tenant-id-parameter"></a>Azure AD domain parameter name of tenant-ID   

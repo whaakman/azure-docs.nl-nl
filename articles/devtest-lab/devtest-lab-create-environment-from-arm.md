@@ -5,8 +5,8 @@ services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
 author: craigcaseyMSFT
 manager: douge
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: devtest-lab
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: v-craic
-ms.openlocfilehash: b4582dd03ceb1c2104f6e93c55a65e5a2b968c0a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 38e048e9ec4985d16632f8891e42c2b6394c83d6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Meerdere VM-omgevingen en PaaS-resources met Azure Resource Manager-sjablonen maken
 
@@ -102,17 +102,17 @@ Als een opslagplaats Azure Resource Manager-sjabloon is geconfigureerd in de tes
 
     ![Kies een base](./media/devtest-lab-create-environment-from-arm/choose-a-base.png)
   
-1. Op de **toevoegen** deelvenster, voer de **omgevingsnaam** waarde. Naam van de omgeving is wat aan uw gebruikers in de testomgeving wordt weergegeven. De resterende invoervelden zijn gedefinieerd in de Azure Resource Manager-sjabloon. Als de standaardwaarden zijn gedefinieerd in de sjabloon of het `azuredeploy.parameter.json` bestand aanwezig is, de standaardwaarden worden weergegeven in de invoervelden. Voor de parameters van het type *tekenreeks secure*, kunt u de geheimen die zijn opgeslagen in de testomgeving [persoonlijke archief van de geheime](https://azure.microsoft.com/en-us/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store).
+1. Op de **toevoegen** deelvenster, voer de **omgevingsnaam** waarde. Naam van de omgeving is wat aan uw gebruikers in de testomgeving wordt weergegeven. De resterende invoervelden zijn gedefinieerd in de Azure Resource Manager-sjabloon. Als de standaardwaarden zijn gedefinieerd in de sjabloon of het `azuredeploy.parameter.json` bestand aanwezig is, de standaardwaarden worden weergegeven in de invoervelden. Voor de parameters van het type *tekenreeks secure*, kunt u de geheimen die zijn opgeslagen in de testomgeving [persoonlijke archief van de geheime](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store).
 
     ![Deelvenster toevoegen](./media/devtest-lab-create-environment-from-arm/add.png)
 
     > [!NOTE]
     > Er zijn verschillende parameterwaarden die - zelfs als opgegeven - als lege waarden worden weergegeven. Daarom als deze waarden gebruikers aan parameters in een Azure Resource Manager-sjabloon toewijzen, DevTest Labs heeft niet de waarden weergeven. In plaats daarvan leeg invoervelden weergegeven waar lab gebruikers een waarde moeten opgeven bij het maken van de omgeving.
     > 
-    > - GEN-UNIQUE
+    > - GEN UNIEKE
     > - GEN-UNIQUE-[N]
     > - GEN-SSH-PUB-KEY
-    > - GEN-PASSWORD 
+    > - GEN-WACHTWOORD 
  
 1. Selecteer **toevoegen** voor het maken van de omgeving. De omgeving wordt gestart onmiddellijk inrichting met het weergeven van de status in de **mijn virtuele machines** lijst. Een nieuwe resourcegroep wordt automatisch gemaakt door de testomgeving voor het inrichten van de resources die zijn gedefinieerd in de Azure Resource Manager-sjabloon.
 1. Zodra de omgeving is gemaakt, selecteer de omgeving in de **mijn virtuele machines** lijst opent u het deelvenster van de groep resource en bladert u alle resources in de omgeving is ingericht.

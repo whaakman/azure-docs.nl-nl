@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: e6b2b7f4c01a5280c2fb3a5c17158b8dcc2797d4
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3d50f96f3dea3646bb32a3a42d0248957dabf9f0
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Gegevensgestuurde foutopsporing met behulp van de taak-diagram
 
@@ -76,11 +76,11 @@ Als de vorige stap van de query een invoer-processor is, gebruiken de invoer met
  
 ### <a name="are-we-falling-behind-in-reading-data"></a>We dalen achter bij het lezen van gegevens?
 
-*   **InputEventsSourcesBackloggedTotal** vertelt u hoeveel meer berichten moeten worden gelezen voor Event Hubs en Azure IoT Hub-invoer.
+*   **Invoer (totaal) van achterstallige gebeurtenissen** vertelt u hoeveel meer berichten moeten worden gelezen voor Event Hubs en Azure IoT Hub-invoer. Wanneer dit aantal groter dan 0 is, betekent dit dat uw taak snel het afkomstig is de gegevens niet verwerken. U moet in dit geval Verhoog het aantal Streaming-eenheden en/of zorg ervoor dat de taak kunt geparallelliseerde. U kunt meer informatie over dit zien op de [query garandeert pagina](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization). 
 
 
 ## <a name="get-help"></a>Help opvragen
-Voor meer informatie en ondersteuning kunt u proberen onze [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Voor meer informatie en ondersteuning kunt u proberen onze [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics). 
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Inleiding tot Stream Analytics](stream-analytics-introduction.md)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 6e81f2cdd0cd3f62d93c85c1a073e0b9df542ec7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 1d12df7c37c4c96198865479326851040b46986a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Prestatiemeter-oplossing in Azure-netwerk
 
@@ -158,7 +158,7 @@ Configureer de gewenste mogelijkheden:
 
 - [Prestatiemeter](log-analytics-network-performance-monitor-performance-monitor.md#configuration)
 - [Monitor voor service-eindpunt](log-analytics-network-performance-monitor-performance-monitor.md#configuration)
-- [ExpressRoute Monitor](log-analytics-network-performance-monitor-expressroute.md#configuration)
+- [ExpressRoute-Monitor](log-analytics-network-performance-monitor-expressroute.md#configuration)
 
  
 
@@ -249,6 +249,24 @@ De topologie die wordt weergegeven in de kaart is laag 3-topologie en bevat geen
 ## <a name="log-analytics-search"></a>Log Analytics zoeken 
 
 Alle gegevens die pagina's grafisch weergegeven via het netwerk-Prestatiemeter-dashboard en inzoomen is ook beschikbaar in ingebouwd [logboekanalyse zoeken](log-analytics-log-search-new.md). U kunt interactieve analyses van gegevens in de opslagplaats en correleren van gegevens uit verschillende bronnen. U kunt ook aangepaste waarschuwingen en weergaven maken en de gegevens exporteren naar Excel, Power BI of een deelbaar koppeling. De **algemene query's** gebied in het dashboard heeft enkele nuttig query's die u als startpunt gebruiken kunt voor het maken van uw eigen query's en rapporten. 
+
+## <a name="alerts"></a>Waarschuwingen
+
+Prestatiemeter netwerk gebruikt de waarschuwingen van [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts).
+
+Dit betekent dat alle waarschuwingen wordt beheerd met behulp van [actiegroepen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
+
+Als u een NPM-gebruiker maken van een waarschuwing via OMS: 
+1. Hier ziet u een koppeling die wordt u omgeleid naar de Azure Portal. Klik op toegang tot de portal.
+2. Klik op de tegel netwerk Prestatiemeter-oplossing. 
+3. Navigeer om te configureren.  
+4. Selecteer de test die u wilt maken van een waarschuwing op en voer de hieronder vermelde stappen.
+
+Als u een NPM-gebruiker maken van een waarschuwing via Azure Portal:  
+1. U kunt uw e-mailadres direct op te geven of u kunt waarschuwingen via Actiegroepen maken.
+2. Als u wilt uw e-mailadres rechtstreeks invoeren, een actie met de naam van de groep **NPM e ActionGroup** wordt gemaakt en de e-mail-id wordt toegevoegd aan die groep in te grijpen.
+3. Als u actiegroepen gebruiken kiest, moet u een eerder gemaakte actiegroep selecteren. U kunt informatie over het maken van een actiegroep [hier.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
+4. Als de waarschuwing is gemaakt, kunt u waarschuwingen beheren koppeling om uw waarschuwingen te beheren. 
 
 ##<a name="pricing"></a>Prijzen
 

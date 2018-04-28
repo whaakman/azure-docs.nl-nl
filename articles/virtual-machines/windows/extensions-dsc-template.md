@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 03/22/2018
 ms.author: migreene
-ms.openlocfilehash: 095b0cba8f7d22920203e5e3c4bcd83666188023
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 0a39cabeb35450e98cc7d7d64645642959aacde0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Desired State Configuration-extensie met Azure Resource Manager-sjablonen
 
@@ -33,7 +33,7 @@ In dit artikel beschrijft de Azure Resource Manager-sjabloon voor de [Desired St
 
 Het volgende fragment gaat de **Resource** gedeelte van de sjabloon.
 De DSC-extensie neemt standaard extensie eigenschappen.
-Zie voor meer informatie [VirtualMachineExtension klasse](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.).
+Zie voor meer informatie [VirtualMachineExtension klasse](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.).
 
 ```json
 {
@@ -83,7 +83,7 @@ Een virtuele machine scale set knooppunt heeft een **eigenschappen** sectie met 
 Onder **extensies**, de details voor DSC-extensie toevoegen.
 
 De DSC-extensie neemt standaard extensie eigenschappen.
-Zie voor meer informatie [VirtualMachineScaleSetExtension klasse](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
+Zie voor meer informatie [VirtualMachineScaleSetExtension klasse](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
 
 ```json
 "extensionProfile": {
@@ -197,7 +197,7 @@ Zie voor een lijst van de argumenten die beschikbaar voor een script voor de con
 
 ## <a name="default-configuration-script"></a>Standaard-configuratiescript
 
-Zie voor meer informatie over de volgende waarden [Local Configuration Manager-basisinstellingen](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#basic-settings).
+Zie voor meer informatie over de volgende waarden [Local Configuration Manager-basisinstellingen](https://docs.microsoft.com/powershell/dsc/metaconfig#basic-settings).
 U kunt het DSC-uitbreiding Standaardscript configuratie gebruiken voor het configureren van de LCM-eigenschappen die worden vermeld in de volgende tabel.
 
 | De naam van eigenschap | Type | Beschrijving |
@@ -206,8 +206,8 @@ U kunt het DSC-uitbreiding Standaardscript configuratie gebruiken voor het confi
 | settings.configurationArguments.RegistrationUrl |tekenreeks |Vereiste eigenschap. Hiermee geeft u de URL van het Automation-eindpunt waarbij het knooppunt probeert te registreren. Deze waarde automatisch worden gedetecteerd met behulp van de **verwijzing** methode op basis van het Automation-account. |
 | settings.configurationArguments.NodeConfigurationName |tekenreeks |Vereiste eigenschap. Hiermee geeft u de configuratie van de knooppunten in het Automation-account toewijzen aan het knooppunt. |
 | settings.configurationArguments.ConfigurationMode |tekenreeks |Hiermee wordt de modus voor LCM. Geldige opties zijn **ApplyOnly**, **ApplyandMonitor**, en **ApplyandAutoCorrect**.  De standaardwaarde is **ApplyandMonitor**. |
-| settings.configurationArguments.RefreshFrequencyMins | uint32 | Hiermee geeft u op hoe vaak LCM probeert om te controleren met het Automation-account voor updates.  Standaardwaarde is **30**.  Minimumwaarde is **15**. |
-| settings.configurationArguments.ConfigurationModeFrequencyMins | uint32 | Hiermee geeft u op hoe vaak LCM valideert de huidige configuratie. Standaardwaarde is **15**. Minimumwaarde is **15**. |
+| settings.configurationArguments.RefreshFrequencyMins | UInt32 | Hiermee geeft u op hoe vaak LCM probeert om te controleren met het Automation-account voor updates.  Standaardwaarde is **30**.  Minimumwaarde is **15**. |
+| settings.configurationArguments.ConfigurationModeFrequencyMins | UInt32 | Hiermee geeft u op hoe vaak LCM valideert de huidige configuratie. Standaardwaarde is **15**. Minimumwaarde is **15**. |
 | settings.configurationArguments.RebootNodeIfNeeded | booleaans | Hiermee geeft u op of een knooppunt kan worden automatisch opnieuw opgestart als een DSC-bewerking wordt gevraagd. Standaardwaarde is **false**. |
 | settings.configurationArguments.ActionAfterReboot | tekenreeks | Hiermee geeft u op wat er gebeurt na opnieuw opstarten als een configuratie toepassen. Geldige opties zijn **ContinueConfiguration** en **StopConfiguration**. Standaardwaarde is **ContinueConfiguration**. |
 | settings.configurationArguments.AllowModuleOverwrite | booleaans | Hiermee geeft u op of LCM bestaande modules op het knooppunt overschrijft. Standaardwaarde is **false**. |
@@ -320,13 +320,13 @@ Hier ziet u hoe de vorige indeling wordt aangepast aan de huidige indeling:
 
 | De naam van eigenschap | Vorige schema equivalent |
 | --- | --- |
-| settings.wmfVersion |settings.WMFVersion |
+| settings.wmfVersion |Instellingen. WMFVersion |
 | settings.configuration.url |settings.ModulesUrl |
 | settings.configuration.script |Eerste deel van de instellingen. ConfigurationFunction (voordat \\ \\) |
 | settings.configuration.function |Tweede deel van de instellingen. ConfigurationFunction (nadat \\ \\) |
-| settings.configurationArguments |settings.Properties |
+| settings.configurationArguments |Instellingen. Eigenschappen |
 | settings.configurationData.url |protectedSettings.DataBlobUri (zonder SAS-token) |
-| settings.privacy.dataEnabled |settings.Privacy.DataEnabled |
+| settings.privacy.dataEnabled |Instellingen. Privacy.DataEnabled |
 | settings.advancedOptions.downloadMappings |settings.AdvancedOptions.DownloadMappings |
 | protectedSettings.configurationArguments |protectedSettings.Properties |
 | protectedSettings.configurationUrlSasToken |settings.SasToken |
@@ -340,9 +340,9 @@ Hier volgen enkele van de fouten die u kunt tegenkomen en hoe u deze kunt oploss
 
 ### <a name="invalid-values"></a>Ongeldige waarden
 
-'Privacy.dataCollection is {0}.
+' Privacy.dataCollection is '{0}'.
 De enige mogelijke waarden zijn ', 'Enable' en 'Disable' '.
-'WmfVersion is {0}.
+' WmfVersion is '{0}'.
 Alleen de mogelijke waarden zijn... en de 'nieuwste' '.
 
 **Probleem**: een opgegeven waarde is niet toegestaan.
@@ -352,7 +352,7 @@ Voor meer informatie, Zie de tabel in [Details](#details).
 
 ### <a name="invalid-url"></a>De URL is ongeldig
 
-'ConfigurationData.url is {0}. Dit is geen geldige URL' 'DataBlobUri is {0}. Dit is geen geldige URL' 'Configuration.url is {0}. Dit is geen geldige URL'
+' ConfigurationData.url is '{0}'. Dit is geen geldige URL' ' DataBlobUri is '{0}'. Dit is geen geldige URL' ' Configuration.url is '{0}'. Dit is geen geldige URL'
 
 **Probleem**: een opgegeven URL is niet geldig.
 
@@ -361,7 +361,7 @@ Zorg ervoor dat alle URL's naar geldige locaties omzetten dat de uitbreiding op 
 
 ### <a name="invalid-configurationargument-type"></a>Ongeldig type voor ConfigurationArgument
 
-'Ongeldige configurationArguments type {0}'
+' Ongeldige configurationArguments type {0}'
 
 **Probleem**: de *ConfigurationArguments* eigenschap kan niet worden omgezet naar een **hashtabel** object.
 
@@ -370,7 +370,7 @@ Volg de indeling die is opgegeven in het voorgaande voorbeeld. Bekijk voor aanha
 
 ### <a name="duplicate-configurationarguments"></a>Dubbele ConfigurationArguments
 
-'Dubbele argumenten {0} gevonden in de openbare en beveiligde configurationArguments'
+' Dubbele argumenten gevonden{0}' in de openbare en beveiligde configurationArguments '
 
 **Probleem**: de *ConfigurationArguments* in instellingen voor openbare en de *ConfigurationArguments* in de instellingen van beveiligde eigenschappen met dezelfde naam hebben.
 

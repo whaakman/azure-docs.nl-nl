@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: cb0304cae1b92578eb3c9230ae9faeecdf13d750
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 7304ade9c47034b6cb76eb87126f09fb5af65c8b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="api-management-policies"></a>API Management-beleidsregels
 Deze sectie bevat een verwijzing voor de volgende API Management-beleidsregels. Zie voor meer informatie over het toevoegen en configureren van beleid [-beleid in API Management](api-management-howto-policies.md).  
@@ -47,7 +47,7 @@ Deze sectie bevat een verwijzing voor de volgende API Management-beleidsregels. 
     -   [Variabele instellen](api-management-advanced-policies.md#set-variable) -persistent maken van een waarde in een variabele met de naam context voor later toegang.  
     -   [Stel aanvraagmethode](api-management-advanced-policies.md#SetRequestMethod) -kunt u de HTTP-methode voor een aanvraag wijzigen.  
     -   [Statuscode ingesteld](api-management-advanced-policies.md#SetStatus) -wijzigingen van de HTTP-statuscode in de opgegeven waarde.  
-    -   [Tracering](api-management-advanced-policies.md#Trace) -voegt een tekenreeks in de [API Inspector](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/) uitvoer.  
+    -   [Tracering](api-management-advanced-policies.md#Trace) -voegt een tekenreeks in de [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) uitvoer.  
     -   [Wacht](api-management-advanced-policies.md#Wait) -wacht voor ingesloten [Verzendaanvraag](api-management-advanced-policies.md#SendRequest), [waarde niet ophalen uit de cache](api-management-caching-policies.md#GetFromCacheByKey), of [transportbesturing](api-management-advanced-policies.md#choose) beleid om te voltooien voordat u doorgaat.  
 -   [Verificatiebeleid](api-management-authentication-policies.md#AuthenticationPolicies)  
     -   [Verificatie met Basic](api-management-authentication-policies.md#Basic) -verificatie met een back-endservice basisverificatie wordt gebruikt.  

@@ -3,7 +3,7 @@ title: Weergeven en wijzigen van hostnamen | Microsoft Docs
 description: Het weergeven en wijzigen van de hostnamen voor Azure virtual machines, web- en werkrollen voor naamomzetting
 services: virtual-network
 documentationcenter: na
-author: genli
+author: genlin
 manager: cshepard
 editor: tysonn
 ms.assetid: c668cd8e-4e43-4d05-acc3-db64fa78d828
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2016
 ms.author: genli
-ms.openlocfilehash: 6fe3522c1b3e2f5a07de3d12875ae47a830873d3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9bf57eac2176444ed408d90723009118bd411480
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Weergeven en wijzigen van hostnamen
 Als u uw rolinstanties naar worden verwezen met de hostnaam, moet u de waarde voor de hostnaam instellen in het configuratiebestand van de service voor elke rol. U doet dit door het toevoegen van de gewenste hostnaam voor de **vmName** kenmerk van de **rol** element. De waarde van de **vmName** kenmerk wordt gebruikt als basis voor de hostnaam van elk rolexemplaar. Bijvoorbeeld, als **vmName** is *webrole* en er zijn drie exemplaren van deze rol, de hostnamen van de exemplaren *webrole0*, *webrole1*, en *webrole2*. U hoeft niet te geven van een hostnaam voor de virtuele machines in het configuratiebestand omdat de host-naam voor een virtuele machine is ingevuld op basis van de naam van de virtuele machine. Zie voor meer informatie over het configureren van een Microsoft Azure-service [configuratieschema voor Azure-Service (.cscfg-bestand)](https://msdn.microsoft.com/library/azure/ee758710.aspx)

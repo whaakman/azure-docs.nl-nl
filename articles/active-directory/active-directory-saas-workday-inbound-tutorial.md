@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 5c2c39db7ab89b06915c014778977915cca15190
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b632622868480638174b616780441e13c16a52c0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Zelfstudie: Workday voor automatisch gebruikers inrichten configureren
 
@@ -468,7 +468,7 @@ Als uw Azure Active Directory-tenant bevindt zich in een van de EU-datacenters, 
 
 **Het oplossen van agent**
 
-De [Windows-gebeurtenislogboek](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx) op de Windows Server-computer die als host fungeert voor de agent bevat gebeurtenissen die zijn voor alle bewerkingen die door de agent wordt uitgevoerd. Deze gebeurtenissen weergeven:
+De [Windows-gebeurtenislogboek](https://technet.microsoft.com/library/cc722404(v=ws.11).aspx) op de Windows Server-computer die als host fungeert voor de agent bevat gebeurtenissen die zijn voor alle bewerkingen die door de agent wordt uitgevoerd. Deze gebeurtenissen weergeven:
     
 1. Open **Eventvwr.msc**.
 2. Selecteer **Windows-Logboeken > toepassing**.
@@ -491,7 +491,7 @@ Wanneer onderdelen 1-3 hebt voltooid, kunt u de inrichting service starten in de
 
 4. Controleer op elk gewenst moment de **controlelogboeken** tabblad in de Azure portal om te zien welke acties de inrichting-service heeft uitgevoerd. De controlelogboeken geeft een lijst van alle afzonderlijke sync gebeurtenissen die worden uitgevoerd door de inrichting service, zoals welke gebruikers worden gelezen uit Workday en klik vervolgens toegevoegd of bijgewerkt naar Active Directory. **[Raadpleeg de inrichting reporting guide voor gedetailleerde instructies voor het lezen van de controlelogboeken](active-directory-saas-provisioning-reporting.md)**
 
-5.  Controleer de [Windows-gebeurtenislogboek](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx) op de Windows Server die als host fungeert voor de agent voor nieuwe fouten of waarschuwingen. Deze gebeurtenissen kunnen worden bekeken door starten **Eventvwr.msc** op de server en het selecteren van **Windows-Logboeken > toepassing**. Alle berichten met betrekking tot inrichting worden geregistreerd onder de bron **AADSyncAgent**. 
+5.  Controleer de [Windows-gebeurtenislogboek](https://technet.microsoft.com/library/cc722404(v=ws.11).aspx) op de Windows Server die als host fungeert voor de agent voor nieuwe fouten of waarschuwingen. Deze gebeurtenissen kunnen worden bekeken door starten **Eventvwr.msc** op de server en het selecteren van **Windows-Logboeken > toepassing**. Alle berichten met betrekking tot inrichting worden geregistreerd onder de bron **AADSyncAgent**. 
     
 
 6. Een voltooid, wordt er een overzichtsrapport van de audit schrijven in de **inrichten** tabblad, zoals hieronder wordt weergegeven.
@@ -819,7 +819,7 @@ Er zijn twee manieren om te blijven voldoen aan het beleid GDPR:
 1. Gegevens ophalen voor een persoon en verwijderen van gegevens van die persoon uit de Windows-gebeurtenislogboeken op verzoek. 
 2. Houd bewaren van Windows-gebeurtenislogboeken die afkomstig is van het proces AADSyncAgent onder 48 uur
 
-Zie voor meer informatie over het bewaren van gegevens van de Windows-gebeurtenislogboeken configureren de [instellingen voor gebeurtenislogboeken](https://technet.microsoft.com/en-us/library/cc952132.aspx). Raadpleeg voor algemene informatie op het Windows-gebeurtenislogboek [in dit artikel](https://msdn.microsoft.com/en-us/library/windows/desktop/aa385772.aspx).
+Zie voor meer informatie over het bewaren van gegevens van de Windows-gebeurtenislogboeken configureren de [instellingen voor gebeurtenislogboeken](https://technet.microsoft.com/library/cc952132.aspx). Raadpleeg voor algemene informatie op het Windows-gebeurtenislogboek [in dit artikel](https://msdn.microsoft.com/library/windows/desktop/aa385772.aspx).
 
 
 ## <a name="next-steps"></a>Volgende stappen

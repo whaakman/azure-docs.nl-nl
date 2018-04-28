@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: f9a3eeff7a44c98228f89a7519117b043217eefd
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 17043ef3450554dd4ea272a4b7732367bae8e369
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Gegevenssets en gekoppelde services in Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -94,7 +94,7 @@ De volgende gekoppelde service is een gekoppelde Azure Storage-service. U ziet d
 }
 ```
 
-## <a name="dataset-json"></a>Dataset JSON
+## <a name="dataset-json"></a>JSON van de gegevensset
 Een gegevensset in Gegevensfactory is gedefinieerd in JSON-indeling als volgt:
 
 ```json
@@ -193,7 +193,7 @@ Eigenschap | Beschrijving | Vereist
 naam | De naam van de kolom. | Ja
 type | Het gegevenstype van de kolom. Data Factory ondersteunt de volgende tussentijdse gegevenstypen als toegestane waarden: **Int16, Int32, Int64, Single, Double, Decimal, Byte [], Booleaanse waarde, String, Guid, Datetime, Datetimeoffset en Timespan** | Nee
 Cultuur | . NET-gebaseerde cultuur moet worden gebruikt wanneer het type een .NET-type is: `Datetime` of `Datetimeoffset`. De standaardwaarde is `en-us`. | Nee
-Indeling | Indeling van tekenreeks moet worden gebruikt wanneer het type een .NET-type is: `Datetime` of `Datetimeoffset`. Raadpleeg [aangepaste datum en tijd-indeling tekenreeksen](https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings) op datum/tijd opmaken. | Nee
+Indeling | Indeling van tekenreeks moet worden gebruikt wanneer het type een .NET-type is: `Datetime` of `Datetimeoffset`. Raadpleeg [aangepaste datum en tijd-indeling tekenreeksen](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) op datum/tijd opmaken. | Nee
 
 ### <a name="example"></a>Voorbeeld
 Stel dat de bron-Blob-gegevens in CSV-indeling en bevat drie kolommen in het volgende voorbeeld: gebruikers-id, naam en lastlogindate. Ze zijn van het type Int64, String en Datetime-waarde met een aangepaste datum / tijdindeling met behulp van Franse afkortingen voor dag van de week.

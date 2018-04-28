@@ -1,23 +1,28 @@
 ---
-title: SQL Server-database migreren naar Azure SQL Database | Microsoft Docs
-description: Informatie over het migreren van de SQL Server-database naar Azure SQL Database.
+title: SQL Server-database migreren naar Azure SQL Database met behulp van DMS | Microsoft Docs
+description: Meer informatie over hoe u een SQL Server-database kunt migreren naar Azure SQL Database met behulp van DMS.
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: mvc,migrate
 ms.topic: tutorial
-ms.date: 04/04/2018
+ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: c4b4354cb1090b9abc388da9d1d1b135f135144d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 14e9949fe0c292a366fa55e3f16d14d885606f6b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>Uw SQL Server-database migreren naar Azure SQL Database
+# <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dms"></a>Een SQL Server-database migreren naar Azure SQL Database met behulp van DMS
 
-Het verplaatsen van uw SQL Server-database naar Azure SQL Database erg eenvoudig. U maakt een lege SQL-database in Azure en met behulp van [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) importeert u de database in Azure. In deze zelfstudie leert u het volgende:
+Het verplaatsen van een SQL Server-database naar een enkele Azure SQL-database is erg eenvoudig. U maakt een lege SQL-database in Azure en importeert deze database vervolgens in Azure met behulp van [DMA](https://www.microsoft.com/download/details.aspx?id=53595) (Data Migration Assistant). Zie [Migrate your database to Azure SQL Database](sql-database-cloud-migrate.md) (Uw database migreren naar Azure SQL Database) voor aanvullende migratieopties.
+
+> [!IMPORTANT]
+> Zie [Migrate from SQL Server to a Managed Instance](sql-database-managed-instance-migrate.md) (Van SQL Server migreren naar een beheerd exemplaar) voor informatie over het migreren naar een beheerd exemplaar van Azure SQL Database
+
+In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Een lege Azure SQL-database maken in Azure Portal (met behulp van een nieuwe of bestaande Azure SQL Database-server)

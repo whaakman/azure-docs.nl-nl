@@ -1,29 +1,91 @@
 ---
-title: Domein-HDInsight-clusters - Azure beheren | Microsoft Docs
+title: Domein-HDInsight-clusters - Azure beheren
 description: Informatie over het beheren van domein HDInsight-clusters
 services: hdinsight
-documentationcenter: ''
-author: bprakash
+author: omidm1
 manager: jhubbard
 editor: cgronlun
-tags: ''
 ms.assetid: 6ebc4d2f-2f6a-4e1e-ab6d-af4db6b4c87c
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/11/2018
-ms.author: bhanupr
-ms.openlocfilehash: 44202541557a7513e0068f52289a637f6e48f43f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.topic: conceptual
+ms.date: 04/17/2018
+ms.author: omidm
+ms.openlocfilehash: 9875d9884f04d26ebfbd44e858beb272c2306958
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-domain-joined-hdinsight-clusters"></a>Domein-HDInsight-clusters beheren
 Informatie over de gebruikers en de rollen in HDInsight domein en het domein van de HDInsight-clusters beheren.
+
+## <a name="use-vscode-to-link-to-domain-joined-cluster"></a>Gebruik VSCode om een koppeling te maken met een cluster dat aan een domein is toegevoegd
+
+U kunt koppelen van een normale cluster door Ambari beheerd gebruikersnaam, een beveiliging hadoop-cluster ook een koppeling maken met domeingebruikersnaam (bijvoorbeeld: user1@contoso.com).
+1. Het palet opdracht openen door te selecteren **CTRL + SHIFT + P**, en voer vervolgens **HDInsight: een cluster koppelen**.
+
+   ![de opdracht cluster koppeling](./media/apache-domain-joined-manage/link-cluster-command.png)
+
+2. Voer HDInsight cluster-URL-invoer Username -> > invoer wachtwoord -> Selecteer clustertype -> deze toont geslaagd info als verificatie doorgegeven.
+   
+   ![koppeling cluster dialoogvenster](./media/apache-domain-joined-manage/link-cluster-process.png)
+
+   > [!NOTE]
+   > De gekoppelde gebruikersnaam en wachtwoord worden gebruikt als het cluster zowel geregistreerd in Azure-abonnement en een cluster gekoppeld. 
+   
+3. U ziet een gekoppelde cluster met behulp van de opdracht **lijst cluster**. U kunt nu een script voor deze gekoppelde cluster verzenden.
+
+   ![gekoppelde cluster](./media/apache-domain-joined-manage/linked-cluster.png)
+
+4. U kunt een cluster ook ontkoppelen door invoeren **HDInsight: ontkoppelen van een cluster** in opdracht palet.
+
+## <a name="use-intellij-to-link-to-domain-joined-cluster"></a>Gebruik IntelliJ om een koppeling te maken met een cluster dat aan een domein is toegevoegd
+
+U kunt koppelen van een normale cluster door Ambari beheerd gebruikersnaam, een beveiliging hadoop-cluster ook een koppeling maken met domeingebruikersnaam (bijvoorbeeld: user1@contoso.com). 
+1. Klik op **koppelen van een cluster** van **Azure Explorer**.
+
+   ![koppeling cluster contextmenu](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
+
+2. Voer **clusternaam**, **gebruikersnaam** en **wachtwoord**. U moet controleren van de gebruikersnaam en het wachtwoord als de verificatie is mislukt. Optioneel Opslagaccount, opslagsleutel toevoegen en selecteer vervolgens een container van Storage-Container. Storage-gegevens is bedoeld voor Opslagverkenner in het linkerdeelvenster
+   
+   ![koppeling cluster dialoogvenster](./media/apache-domain-joined-manage/link-a-cluster-dialog.png)
+
+   > [!NOTE]
+   > We gebruiken de gekoppelde opslagsleutel, de gebruikersnaam en het wachtwoord als het cluster zowel geregistreerd in Azure-abonnement en een cluster gekoppeld.
+   > ![Opslagverkenner in IntelliJ](./media/apache-domain-joined-manage/storage-explorer-in-IntelliJ.png)
+
+   
+3. U ziet een gekoppelde cluster in **HDInsight** knooppunt als de ingevoerde gegevens correct zijn. U kunt nu een toepassing met deze gekoppelde cluster verzenden.
+
+   ![gekoppelde cluster](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
+
+4. U kunt een cluster met ook ontkoppelen **Azure Explorer**.
+   
+   ![niet-gekoppelde cluster](./media/apache-domain-joined-manage/unlink.png)
+
+## <a name="use-eclipse-to-link-to-domain-joined-cluster"></a>Gebruik Eclipse om een koppeling te maken met een cluster dat aan een domein is toegevoegd
+
+U kunt koppelen van een normale cluster door Ambari beheerd gebruikersnaam, een beveiliging hadoop-cluster ook een koppeling maken met domeingebruikersnaam (bijvoorbeeld: user1@contoso.com).
+1. Klik op **koppelen van een cluster** van **Azure Explorer**.
+
+   ![koppeling cluster contextmenu](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
+
+2. Voer **clusternaam**, **gebruikersnaam** en **wachtwoord**, klik vervolgens op OK om te koppelen van de cluster. Storage-Account, opslagsleutel desgewenst invoeren en selecteer vervolgens Storage-Container voor Opslagverkenner werkt in de structuurweergave links
+   
+   ![koppeling cluster dialoogvenster](./media/apache-domain-joined-manage/link-cluster-dialog.png)
+   
+   > [!NOTE]
+   > We gebruiken de gekoppelde opslagsleutel, de gebruikersnaam en het wachtwoord als het cluster zowel geregistreerd in Azure-abonnement en een cluster gekoppeld.
+   > ![Opslagverkenner in Eclipse](./media/apache-domain-joined-manage/storage-explorer-in-Eclipse.png)
+
+3. U ziet een gekoppelde cluster in **HDInsight** knooppunt na het klikken op de knop OK, als de ingevoerde gegevens correct zijn. U kunt nu een toepassing met deze gekoppelde cluster verzenden.
+
+   ![gekoppelde cluster](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
+
+4. U kunt een cluster met ook ontkoppelen **Azure Explorer**.
+   
+   ![niet-gekoppelde cluster](./media/apache-domain-joined-manage/unlink.png)
 
 ## <a name="access-the-clusters-with-enterprise-security-package"></a>Toegang tot de clusters met Enterprise-beveiligingspakket.
 

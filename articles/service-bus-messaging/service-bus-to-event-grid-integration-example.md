@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: fd30a8eb5149647a24ff04e099bf5c3e187459ef
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5d0ab8cf9e87fc13b78b00dbe77ec6f9fb38c4b9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-service-bus-to-azure-event-grid-integration-examples"></a>Voorbeelden van de integratie van Azure Service Bus met Event Grid
 
@@ -62,7 +62,7 @@ U kunt een willekeurige methode gebruiken om een bericht naar uw Service Bus-ond
 
 Voordat u het hele scenario doorwerkt, dient u in elk geval een kleine testfunctie in te stellen. Deze kunt u gebruiken om te zien welke gebeurtenissen er worden gestroomd en om de fouten erin op te sporen.
 
-1. Maak in de Azure Portal een nieuwe Azure Functions-toepassing. Zie [Documentatie van Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/) voor de basisbeginselen van Azure Functions.
+1. Maak in de Azure Portal een nieuwe Azure Functions-toepassing. Zie [Documentatie van Azure Functions](https://docs.microsoft.com/azure/azure-functions/) voor de basisbeginselen van Azure Functions.
 
 2. Selecteer in de functie die u net hebt gemaakt het plusteken (+) om een HTTP-triggerfunctie toe te voegen:
 

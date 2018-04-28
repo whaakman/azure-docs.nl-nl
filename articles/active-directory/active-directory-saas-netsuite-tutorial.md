@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 04/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 23e39f20f5b3faa4f6cfba57508d1649e2bbdaa3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ecbadd45f964e4d4d36dcf67cf85cd878f012150
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>Zelfstudie: Azure Active Directory-integratie met Netsuite
 
@@ -110,7 +110,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_url.png)
 
-    In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<tenant-name>.netsuite.com/saml2/acs` `https://<tenant-name>.na1.netsuite.com/saml2/acs` `https://<tenant-name>.na2.netsuite.com/saml2/acs` `https://<tenant-name>.sandbox.netsuite.com/saml2/acs` `https://<tenant-name>.na1.sandbox.netsuite.com/saml2/acs``https://<tenant-name>.na2.sandbox.netsuite.com/saml2/acs`
+    In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:   `https://<tenant-name>.netsuite.com/saml2/acs` `https://<tenant-name>.na1.netsuite.com/saml2/acs` `https://<tenant-name>.na2.netsuite.com/saml2/acs` `https://<tenant-name>.sandbox.netsuite.com/saml2/acs` `https://<tenant-name>.na1.sandbox.netsuite.com/saml2/acs` `https://<tenant-name>.na2.sandbox.netsuite.com/saml2/acs`
 
     > [!NOTE] 
     > Deze zijn niet echte waarden. Deze waarden bijwerken met de werkelijke antwoord-URL. Neem contact op met [Netsuite ondersteuningsteam](http://www.netsuite.com/portal/services/support.shtml) ophalen van deze waarden.
@@ -183,7 +183,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     c. Klik op **nieuwe rol**.
 
-    d. Typ in een **naam** voor uw nieuwe rol en selecteer de **eenmalige aanmelding alleen** selectievakje.
+    d. Typ in een **naam** voor uw nieuwe rol.
       
       ![Eenmalige aanmelding configureren](./media/active-directory-saas-Netsuite-tutorial/ns-new-role.png)
 
@@ -193,11 +193,11 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
       
        ![Eenmalige aanmelding configureren](./media/active-directory-saas-Netsuite-tutorial/ns-sso.png)
 
-    g. Selecteer **ingesteld Up SAM Single Sign-on**, en klik vervolgens op **toevoegen**.
+    g. Selecteer **ingesteld van SAML Single Sign-on**, en klik vervolgens op **toevoegen**.
 
     h. Klik op **Opslaan**.
 
-    ik. Klik op de bovenste navigatiebalk menu **Setup**, klikt u vervolgens op **Installatiebeheer**.
+    i. Klik op de bovenste navigatiebalk menu **Setup**, klikt u vervolgens op **Installatiebeheer**.
       
        ![Eenmalige aanmelding configureren](./media/active-directory-saas-Netsuite-tutorial/ns-setup.png)
 
@@ -215,10 +215,6 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     m. Klik op **Opslaan**.
     
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
 ### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
 
@@ -290,9 +286,9 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
-Als u wilt testen van uw instellingen voor eenmalige aanmelding, opent u het toegangsvenster op [https://myapps.microsoft.com](https://myapps.microsoft.com/), meld u aan bij de testaccount en klikt u op **Netsuite**.
+Als u wilt testen van uw instellingen voor eenmalige aanmelding, opent u het toegangsvenster op [ https://myapps.microsoft.com ](https://myapps.microsoft.com/), meld u aan bij de testaccount en klikt u op **Netsuite**.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

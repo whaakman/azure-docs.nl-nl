@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/20/2018
 ms.author: jingwang
-ms.openlocfilehash: ea69fdab9ec510f6060b280db3afffb7533a4bda
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2f56443eb41e2a7f723e95f86f39c5cc47e82f6f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Dynamics 365 (algemene gegevensservice) of Dynamics CRM met behulp van Azure Data Factory
 
@@ -63,7 +63,7 @@ De volgende eigenschappen worden ondersteund voor de Dynamics gekoppelde service
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op **Dynamics**. | Ja |
 | deploymentType | Het implementatietype van de Dynamics-exemplaar. Dit moet **'Online'** voor Dynamics online. | Ja |
-| Organisatienaam | De naam van de organisatie van de Dynamics-exemplaar. | Nee, moet opgeven wanneer er meer dan één Dynamics-exemplaren die zijn gekoppeld aan de gebruiker |
+| serviceUri | De service-URL van uw Dynamics exemplaar, bijvoorbeeld `https://adfdynamics.crm.dynamics.com`. | Ja |
 | authenticationType | Het verificatietype dat verbinding maken met een Dynamics-server. Geef **'Office365'** voor Dynamics online. | Ja |
 | gebruikersnaam | Geef de naam van de gebruiker verbinding maken met Dynamics. | Ja |
 | wachtwoord | Geef het wachtwoord voor het gebruikersaccount dat u hebt opgegeven voor de gebruikersnaam. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
@@ -71,6 +71,9 @@ De volgende eigenschappen worden ondersteund voor de Dynamics gekoppelde service
 
 >[!IMPORTANT]
 >Wanneer u gegevens naar Dynamics kopiëren, kan niet de standaard Azure integratie Runtime worden gebruikt om uit te voeren kopiëren. Met andere woorden, als de bron gekoppeld service beschikt niet over een runtime opgegeven integratie expliciet [maken van een Azure-integratie Runtime](create-azure-integration-runtime.md#create-azure-ir) met een locatie in de buurt van uw Dynamics-exemplaar. Koppelen in de gekoppelde service Dynamics zoals in het volgende voorbeeld.
+
+>[!NOTE]
+>De Dynamics-connector gebruikt optionele 'organisatienaam' als eigenschap wilt gebruiken om uw Dynamics CRM/365 Online-instantie te identificeren. Terwijl deze werken blijft, is het worden voorgesteld naar de nieuwe 'serviceUri'-eigenschap in plaats daarvan opgeven voor het verkrijgen van betere prestaties voor instantie detectie.
 
 **Voorbeeld: Office365 verificatie met behulp van Dynamics online**
 
@@ -82,7 +85,7 @@ De volgende eigenschappen worden ondersteund voor de Dynamics gekoppelde service
         "description": "Dynamics online linked service using Office365 authentication",
         "typeProperties": {
             "deploymentType": "Online",
-            "organizationName": "orga02d9c75",
+            "serviceUri": "https://adfdynamics.crm.dynamics.com",
             "authenticationType": "Office365",
             "username": "test@contoso.onmicrosoft.com",
             "password": {
@@ -207,7 +210,7 @@ Om gegevens te kopiëren van Dynamics, stelt u het brontype in de kopieerbewerki
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op **DynamicsSource**. | Ja |
-| query | FetchXML is een eigen querytaal die wordt gebruikt in Dynamics (online en on-premises). Zie het volgende voorbeeld Zie voor meer informatie, [opbouwen van query's met FeachXML](https://msdn.microsoft.com/en-us/library/gg328332.aspx). | Nee (als het 'entityName in de gegevensset is opgegeven) |
+| query | FetchXML is een eigen querytaal die wordt gebruikt in Dynamics (online en on-premises). Zie het volgende voorbeeld Zie voor meer informatie, [opbouwen van query's met FeachXML](https://msdn.microsoft.com/library/gg328332.aspx). | Nee (als het 'entityName in de gegevensset is opgegeven) |
 
 **Voorbeeld:**
 
@@ -268,7 +271,7 @@ Om gegevens te kopiëren naar Dynamics, stelt u het sink-type in de kopieerbewer
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de activiteit kopiëren sink moet worden ingesteld op **DynamicsSink**. | Ja |
-| writeBehavior | Het gedrag van het schrijven van de bewerking.<br/>De waarde is toegestaan **"Upsert"**. | Ja |
+| WriteBehavior | Het gedrag van het schrijven van de bewerking.<br/>De waarde is toegestaan **"Upsert"**. | Ja |
 | writeBatchSize | Het aantal rijen van de gegevens die naar Dynamics zijn geschreven in elke batch. | Nee (de standaardwaarde is 10) |
 | ignoreNullValues | Hiermee wordt aangegeven of null-waarden van invoergegevens (met uitzondering van sleutelvelden) tijdens een schrijfactie negeren.<br/>Toegestane waarden zijn **true** en **false**.<br>- **De waarde True**: laat de gegevens in het doelobject ongewijzigd wanneer u een bewerking upsert of bij te werken. Plaats een gedefinieerde standaardwaarde als u een insert-bewerking doet.<br/>- **ONWAAR**: de gegevens in het doelobject op NULL bijwerken wanneer u een bewerking upsert of bij te werken. Plaats een NULL-waarde als u een insert-bewerking doet. | Nee (de standaardwaarde is ONWAAR) |
 

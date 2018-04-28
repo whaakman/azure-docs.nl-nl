@@ -1,25 +1,20 @@
 ---
-pageTitle: Synonyms in Azure Search (preview) | Microsoft Docs
-description: Voorlopige documentatie voor de functie synoniemen (preview), worden weergegeven in de Azure Search REST-API.
-services: search
-documentationCenter: 
+pageTitle: Synonyms in Azure Search | Microsoft Docs
+description: Synoniemen uit te breiden bereik van een zoekquery gebruiken
 authors: mhko
-manager: pablocas
-editor: 
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.date: 07/07/2016
+ms.topic: conceptual
+ms.date: 04/20/2018
+manager: jlembicz
 ms.author: nateko
-ms.openlocfilehash: 447abc48cca3dee398e641f8458e52a5b2cb8e42
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 03e45aae37a0c0474dbd9cc5dd5e3fddd347bd62
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="synonyms-in-azure-search-preview"></a>Synoniemen in Azure Search (preview)
+# <a name="synonyms-in-azure-search"></a>Synoniemen in Azure Search
 
 Synoniemen in zoekmachines koppelen vergelijkbare termen die impliciet uitbreiden van het bereik van een query, zonder dat de gebruiker naar de term daadwerkelijk te bieden. Bijvoorbeeld, vallen gezien de term 'aquaduct' en synoniem koppelingen van 'canine' en 'puppy' alle documenten met 'aquaduct', 'hondachtige' of 'puppy' binnen het bereik van de query.
 
@@ -27,7 +22,7 @@ In Azure Search wordt synoniem uitbreiding uitgevoerd op moment dat de query. U 
 
 ## <a name="feature-availability"></a>Beschikbaarheid van functies
 
-De functie synoniemen is momenteel in preview en alleen ondersteund in de meest recente preview-api-versie (api-version = 2016-09-01-Preview). Azure Portal biedt er momenteel geen ondersteuning voor. Omdat de API-versie van de aanvraag is opgegeven, is het mogelijk om te worden gecombineerd (GA) is algemeen beschikbaar en preview-API's in dezelfde app. Preview-API's niet onder de SERVICEOVEREENKOMST en de functies zijn kan echter wel wijzigen, zodat u kunt beter niet met deze in productietoepassingen.
+De functie synoniemen wordt ondersteund in de nieuwste api-versie (api-version = 2017-11-11). Azure Portal biedt er momenteel geen ondersteuning voor.
 
 ## <a name="how-to-use-synonyms-in-azure-search"></a>Het gebruik van synoniemen in Azure search
 
@@ -47,11 +42,11 @@ Synoniemen opnemen in uw toepassing search is een proces in twee stappen:
 
 Synoniem maps worden geüpload naar de service via POST of PUT. Elke regel moet worden gescheiden door het nieuwe regelteken (\n). U kunt maximaal 5000 regels per synoniem kaart in een gratis service en 10.000 regels in andere SKU's definiëren. Elke regel kan maximaal 20 uitbreidingen hebben.
 
-In dit voorbeeld, moeten synoniem maps zich in de indeling van Apache Solr die hieronder wordt beschreven. Als u een bestaande synoniem woordenlijst in een andere indeling hebt en wilt rechtstreeks gebruiken, laat ons weten op [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+Synoniem maps moeten zich in de indeling van Apache Solr die hieronder wordt beschreven. Als u een bestaande synoniem woordenlijst in een andere indeling hebt en wilt rechtstreeks gebruiken, laat ons weten op [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 U kunt een nieuwe synoniem-toewijzing met behulp van HTTP POST, zoals in het volgende voorbeeld maken:
 
-    POST https://[servicename].search.windows.net/synonymmaps?api-version=2016-09-01-Preview
+    POST https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
     api-key: [admin key]
 
     {  
@@ -64,7 +59,7 @@ U kunt een nieuwe synoniem-toewijzing met behulp van HTTP POST, zoals in het vol
 
 U kunt ook gebruik van opslag en geef de naam van de kaart synoniem op de URI. Als de kaart synoniem niet bestaat, wordt deze gemaakt.
 
-    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
+    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
     api-key: [admin key]
 
     {  
@@ -90,24 +85,24 @@ Washington, Wash., WA => WA
 
 #### <a name="list-synonym-maps-under-your-service"></a>Lijst synoniem maps onder uw service.
 
-    GET https://[servicename].search.windows.net/synonymmaps?api-version=2016-09-01-Preview
+    GET https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
     api-key: [admin key]
 
 #### <a name="get-a-synonym-map-under-your-service"></a>Een kaart synoniem onder uw service ophalen.
 
-    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
+    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
     api-key: [admin key]
 
 #### <a name="delete-a-synonyms-map-under-your-service"></a>Verwijderen van een kaart synoniemen onder uw service.
 
-    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2016-09-01-Preview
+    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
     api-key: [admin key]
 
 ### <a name="configure-a-searchable-field-to-use-the-synonym-map-in-the-index-definition"></a>Configureer een doorzoekbaar veld voor het gebruik van de kaart synoniem in de definitie van de index.
 
 De eigenschap van een nieuw veld **synonymMaps** kan worden gebruikt om op te geven van een synoniem kaart moet worden gebruikt voor een doorzoekbaar veld. Synoniem maps service level bronnen en kunnen worden verwezen vanuit elk veld van een index van de service.
 
-    POST https://[servicename].search.windows.net/indexes?api-version=2016-09-01-Preview
+    POST https://[servicename].search.windows.net/indexes?api-version=2017-11-11
     api-key: [admin key]
 
     {
@@ -142,7 +137,7 @@ De eigenschap van een nieuw veld **synonymMaps** kan worden gebruikt om op te ge
 **synonymMaps** kan worden opgegeven voor de doorzoekbare velden van het type 'Edm.String' of 'Verzameling (EDM.String)'.
 
 > [!NOTE]
-> In dit voorbeeld, kunt u slechts één synoniem toewijzen per veld hebben. Als u gebruiken van meerdere synoniem maps wilt, laat ons weten op [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+> U kunt slechts één synoniem toewijzen per veld hebben. Als u gebruiken van meerdere synoniem maps wilt, laat ons weten op [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 ## <a name="impact-of-synonyms-on-other-search-features"></a>Gevolgen van synoniemen voor andere zoekfuncties
 

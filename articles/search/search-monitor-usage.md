@@ -1,25 +1,20 @@
 ---
 title: Gebruik en de statistieken in een Azure Search-service controleren | Microsoft Docs
 description: Bijhouden resourcegrootte verbruik en de index voor Azure Search, een gehoste cloud search-service op Microsoft Azure.
-services: search
-documentationcenter: 
 author: HeidiSteen
-manager: jhubbard
-editor: 
+manager: cgronlun
 tags: azure-portal
-ms.assetid: 
+services: search
 ms.service: search
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: required
+ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: fe852afedfc1cce99d81b8ab53c6c80df34ac6d6
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 286569eef8e17909ecab017b67b0ffc044a4bfe4
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="monitoring-an-azure-search-service"></a>Een Azure Search-service controleren
 
@@ -89,7 +84,7 @@ Wanneer de gegevens worden gekopieerd naar een opslagaccount, worden de gegevens
 
 Er is een blob, per uur, per container.
 
-Voorbeeldpad:`resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2015/m=12/d=25/h=01/m=00/name=PT1H.json`
+Voorbeeldpad: `resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2015/m=12/d=25/h=01/m=00/name=PT1H.json`
 
 #### <a name="log-schema"></a>Logboek schema
 De logboeken blobs bevatten uw verkeerslogboeken search-service.
@@ -98,12 +93,12 @@ Elke blob heeft records van de bewerking die plaatsgevonden tijdens hetzelfde uu
 
 | Naam | Type | Voorbeeld | Opmerkingen |
 | --- | --- | --- | --- |
-| tijd |Datum/tijd |' 2015-12-07T00:00:43.6872559Z ' |Tijdstempel van de bewerking |
-| resourceId |Tekenreeks |"/ SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111 /<br/>STANDAARD-RESOURCEGROUPS-PROVIDERS /<br/> MICROSOFT CORPORATION. SEARCHSERVICES-ZOEKOPDRACHT/SEARCHSERVICE' |Uw ResourceId |
-| operationName |Tekenreeks |'Query.Search' |De naam van de bewerking |
-| operationVersion |Tekenreeks |"2015-02-28" |De api-versie die wordt gebruikt |
-| category |Tekenreeks |'OperationLogs' |constante |
-| resultType |Tekenreeks |'Geslaagd' |Mogelijke waarden: geslaagd of mislukt |
+| tijd |datum/tijd |' 2015-12-07T00:00:43.6872559Z ' |Tijdstempel van de bewerking |
+| resourceId |tekenreeks |"/ SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111 /<br/>STANDAARD-RESOURCEGROUPS-PROVIDERS /<br/> MICROSOFT CORPORATION. SEARCHSERVICES-ZOEKOPDRACHT/SEARCHSERVICE' |Uw ResourceId |
+| operationName |tekenreeks |'Query.Search' |De naam van de bewerking |
+| operationVersion |tekenreeks |"2015-02-28" |De api-versie die wordt gebruikt |
+| category |tekenreeks |'OperationLogs' |constante |
+| resultType |tekenreeks |'Geslaagd' |Mogelijke waarden: geslaagd of mislukt |
 | resultSignature |int |200 |HTTP-resultaatcode |
 | durationMS |int |50 |Duur van de bewerking in milliseconden |
 | properties |object |Zie de volgende tabel |Object met de bewerking-specifieke gegevens |
@@ -111,23 +106,23 @@ Elke blob heeft records van de bewerking die plaatsgevonden tijdens hetzelfde uu
 **Eigenschappen schema**
 | Naam | Type | Voorbeeld | Opmerkingen |
 | --- | --- | --- | --- |
-| Beschrijving |Tekenreeks |'/Indexes('content')/docs ophalen' |De bewerking eindpunt |
-| Query’s uitvoeren |Tekenreeks |'? zoeken = AzureSearch & in $count = true & api-version = 2015-02-28 ' |De queryparameters |
+| Beschrijving |tekenreeks |'/Indexes('content')/docs ophalen' |De bewerking eindpunt |
+| Query’s uitvoeren |tekenreeks |'? zoeken = AzureSearch & in $count = true & api-version = 2015-02-28 ' |De queryparameters |
 | Documenten |int |42 |Aantal verwerkte documenten |
-| NaamCommunity |Tekenreeks |'testindex' |Naam van de index die is gekoppeld aan de bewerking |
+| NaamCommunity |tekenreeks |'testindex' |Naam van de index die is gekoppeld aan de bewerking |
 
 #### <a name="metrics-schema"></a>Schema van de metrische gegevens
 | Naam | Type | Voorbeeld | Opmerkingen |
 | --- | --- | --- | --- |
-| resourceId |Tekenreeks |"/ SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111 /<br/>STANDAARD-RESOURCEGROUPS-PROVIDERS /<br/>MICROSOFT CORPORATION. SEARCHSERVICES-ZOEKOPDRACHT/SEARCHSERVICE' |de resource-id |
-| metricName |Tekenreeks |'Latentie' |de naam van de metrische gegevens |
-| tijd |Datum/tijd |' 2015-12-07T00:00:43.6872559Z ' |de tijdstempel van de bewerking |
-| Gemiddelde |int |64 |De gemiddelde waarde van de onbewerkte voorbeelden in het metrisch tijdsinterval |
-| minimale |int |37 |De minimumwaarde van de onbewerkte voorbeelden in het metrisch tijdsinterval |
-| Maximum |int |78 |De maximale waarde van de onbewerkte voorbeelden in het metrisch tijdsinterval |
-| Totaal |int |258 |De totale waarde van de onbewerkte voorbeelden in het metrisch tijdsinterval |
-| Aantal |int |4 |Het aantal onbewerkte voorbeelden die worden gebruikt voor het genereren van de metrische gegevens |
-| timegrain |Tekenreeks |'PT1M' |De tijdseenheid van de metrische gegevens in de ISO 8601 |
+| resourceId |tekenreeks |"/ SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111 /<br/>STANDAARD-RESOURCEGROUPS-PROVIDERS /<br/>MICROSOFT CORPORATION. SEARCHSERVICES-ZOEKOPDRACHT/SEARCHSERVICE' |de resource-id |
+| metricName |tekenreeks |'Latentie' |de naam van de metrische gegevens |
+| tijd |datum/tijd |' 2015-12-07T00:00:43.6872559Z ' |de tijdstempel van de bewerking |
+| gemiddelde |int |64 |De gemiddelde waarde van de onbewerkte voorbeelden in het metrisch tijdsinterval |
+| minimum |int |37 |De minimumwaarde van de onbewerkte voorbeelden in het metrisch tijdsinterval |
+| maximum |int |78 |De maximale waarde van de onbewerkte voorbeelden in het metrisch tijdsinterval |
+| totaal |int |258 |De totale waarde van de onbewerkte voorbeelden in het metrisch tijdsinterval |
+| aantal |int |4 |Het aantal onbewerkte voorbeelden die worden gebruikt voor het genereren van de metrische gegevens |
+| timegrain |tekenreeks |'PT1M' |De tijdseenheid van de metrische gegevens in de ISO 8601 |
 
 Alle metrische gegevens worden gerapporteerd in intervallen van één minuut. Elke metriek wordt de minimum, maximum en gemiddelde waarden per minuut.
 

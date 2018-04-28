@@ -9,11 +9,11 @@ ms.author: gwallace
 ms.date: 04/13/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 6893d3c79a5f827f214b12ce1dc5f5af7bbc2891
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: fe383d172def4916338db86c5fba641d75813e9b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="my-first-graphical-runbook"></a>Mijn eerste grafische runbook
 
@@ -117,6 +117,10 @@ Nu u een variabele hebt die onze abonnements-id kan bevatten, kunt u uw runbook 
 1. U hoeft niet de **Schrijf Hallo wereld naar uitvoer** voordoet, dus klik op de weglatingstekens (...) en selecteer **verwijderen**.
 1. Vouw in het besturingselement Bibliotheek **Assets**, **Verbindingen** uit en voeg **AzureRunAsConnection** toe aan het papier door **Toevoegen aan papier** te selecteren.
 1. Typ in het besturingselement bibliotheek **Connect-AzureRmAccount** in het Zoektekstvak.
+
+   > [!IMPORTANT]
+   > **Add-AzureRmAccount** is nu een alias voor **Connect-AzureRMAccount**. Wanneer de tapewisselaar te zoeken items, als er geen **Connect-AzureRMAccount**, kunt u **Add-AzureRmAccount**, of u kunt uw modules op uw Automation-Account bijwerken.
+
 1. Voeg **Connect-AzureRmAccount** toe aan het papier.
 1. Beweeg de muisaanwijzer over **Uitvoeren als-verbinding ophalen** totdat een cirkel wordt weergegeven aan de onderkant van de vorm. Klik op de cirkel en sleep de pijl naar **Connect-AzureRmAccount**. De pijl die u hebt gemaakt, is een *koppeling*. Het runbook begint met **uitvoeren als-verbinding ophalen** en voer vervolgens **Connect-AzureRmAccount**.<br> ![Koppeling tussen activiteiten maken](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
 1. Selecteer op het canvas **Connect-AzureRmAccount** en in het type configuratie besturingselement deelvenster **aanmelden bij Azure** in de **Label** textbox.
@@ -135,9 +139,6 @@ Nu u een variabele hebt die onze abonnements-id kan bevatten, kunt u uw runbook 
 1. Als u de parameterset hebt geselecteerd, worden de parameters weergegeven op de pagina Parameterconfiguratie van activiteit. Klik op **SubscriptionID**.
 1. Selecteer op de pagina parameterwaarde **Variabelenactivum** voor de **gegevensbron** en selecteer **AzureSubscriptionId** uit de lijst en klik vervolgens op **OK** twee keer.
 1. Beweeg de muisaanwijzer over **Aanmelden bij Azure** totdat een cirkel wordt weergegeven aan de onderkant van de vorm. Klik op de cirkel en sleep de pijl naar **Abonnements-id opgeven**.
-
-> [!IMPORTANT]
-> **Connect-AzureRmAccount** is nu een alias voor **Connect-AzureRMAccount**. Wanneer de tapewisselaar te zoeken items, als er geen **Connect-AzureRMAccount**, kunt u **Connect-AzureRmAccount**, of u kunt uw modules op uw Automation-Account bijwerken.
 
 Uw runbook zou er op dit punt als volgt moeten uitzien: <br>![Configuratie runbookverificatie](media/automation-first-runbook-graphical/runbook-auth-config.png)
 

@@ -2,11 +2,11 @@
 title: 'App-Service op Azure Stack: Fault-domein Update | Microsoft Docs'
 description: Het distribueren van Azure App Service op Azure-Stack in domeinen met fouten
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: 851747263879aa89fabe8b168876238a004ea8b2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 42adef66fb1b1141ab44aab3a1ccdaae022202b5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-redistribute-azure-app-service-on-azure-stack-across-fault-domains"></a>Het distribueren van Azure App Service op Azure-Stack in domeinen met fouten
 
@@ -55,7 +55,7 @@ Om de schaalsets geïmplementeerd voor de App Service-resourceprovider distribue
 2. Volgende scale-out elke set.  Bijvoorbeeld, hebt u drie bestaande exemplaren in de schaalset u moet worden uitgebreid tot en met 6 zodat de drie nieuwe exemplaren worden ingericht in domeinen met fouten.
     a. [Instellen van de beheerder van Azure-Stack-omgeving in PowerShell](azure-stack-powershell-configure-admin.md) b. In dit voorbeeld moet worden uitgebreid in de schaalset gebruiken:
         ```powershell
-                Login-AzureRMAccount -EnvironmentName AzureStackAdmin 
+                Add-AzureRmAccount -EnvironmentName AzureStackAdmin 
 
                 # Get current scale set
                 $vmss = Get-AzureRmVmss -ResourceGroupName "AppService.local" -VMScaleSetName "SmallWorkerTierScaleSet"

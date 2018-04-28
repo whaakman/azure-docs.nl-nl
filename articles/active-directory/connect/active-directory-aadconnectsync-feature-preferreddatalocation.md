@@ -2,31 +2,26 @@
 title: 'Azure Active Directory Connect-synchronisatie: locatie van de gewenste gegevens voor Multi-Geo-mogelijkheden configureren in Office 365 | Microsoft Docs'
 description: Beschrijft hoe u uw Office 365-Gebruikersbronnen dicht bij de gebruiker met Azure Active Directory Connect-synchronisatie te plaatsen.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 04/16/2018
 ms.author: billmath
-ms.openlocfilehash: a5ebd61539af7116b8f92cdf9404cd2b5cdea193
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 0020ed42baaa32fbc5ae2d62b37558e491842d67
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect-synchronisatie: locatie van de gewenste gegevens voor Office 365-bronnen configureren
 Het doel van dit onderwerp wordt u stapsgewijs door het configureren van het kenmerk voor de gegevenslocatie van de gewenste in Azure Active Directory (Azure AD) Connect-synchronisatie. Wanneer iemand Multi-Geo-mogelijkheden in Office 365 gebruikt, kunt u dit kenmerk gebruiken om aan te wijzen de geografische locatie van de Office 365-gegevens van de gebruiker. (De voorwaarden *regio* en *geo* door elkaar worden gebruikt.)
-
-> [!IMPORTANT]
-> Multi-geografisch is momenteel in preview. Als u deelnemen aan het programma preview wilt, neem dan contact op met uw Microsoft-vertegenwoordiger.
->
->
 
 ## <a name="enable-synchronization-of-preferred-data-location"></a>Synchronisatie van de locatie van de gewenste inschakelen
 Standaard bevinden Office 365-resources voor uw gebruikers zich in de dezelfde geo als uw Azure AD-tenant. Bijvoorbeeld, als uw tenant bevindt zich in Noord-Amerika, zich vervolgens Exchange-postvakken van de gebruikers bevinden eveneens in Noord-Amerika. Voor een meertalige organisatie, kan dit niet optimaal zijn.
@@ -34,7 +29,7 @@ Standaard bevinden Office 365-resources voor uw gebruikers zich in de dezelfde g
 Door het kenmerk **preferredDataLocation**, kunt u een gebruiker geo definiëren. U kunt de gebruiker Office 365 bronnen, zoals het postvak en OneDrive, in de dezelfde geo als de gebruiker en nog steeds een tenant voor uw hele organisatie.
 
 > [!IMPORTANT]
-> Als u in aanmerking komen voor meerdere Geo, moet u ten minste 5000 plaatsen in uw Office 365-abonnement hebben.
+> Multi-geografisch is momenteel beschikbaar voor klanten met een minimum van 5000 abonnementen voor Office 365-Services. Neem contact op met uw Microsoft-vertegenwoordiger voor meer informatie.
 >
 >
 
@@ -46,16 +41,16 @@ De geografische gebieden in Office 365 voor meerdere Geo beschikbaar zijn:
 | --- | --- |
 | Azië en Stille Oceaan | APC |
 | Australië | AUS |
-| Canada | CAN |
+| Canada | KAN |
 | Europese Unie | EUR |
 | India | IND |
 | Japan | JPN |
-| Zuid-Korea | KOR |
+| Korea | KOR |
 | Verenigd Koninkrijk | GBR |
 | Verenigde Staten | NAAM |
 
 * Als een geografisch niet wordt vermeld in deze tabel (bijvoorbeeld, Zuid-Amerika), kan niet vervolgens deze worden gebruikt voor meerdere Geo.
-* India en Zuid-Korea geografische gebieden zijn alleen beschikbaar voor klanten met facturering adressen en gekochte licenties in deze geografische gebieden.
+* De geo India is alleen beschikbaar voor klanten met facturering adres en gekochte licenties in deze geo.
 * Niet alle Office 365-werkbelastingen ondersteunen het gebruik van een gebruiker geo in te stellen.
 
 ### <a name="azure-ad-connect-support-for-synchronization"></a>Azure AD Connect-ondersteuning voor synchronisatie
@@ -130,8 +125,8 @@ De synchronisatieregel voor binnenkomende kan de waarde van het kenmerk van het 
     | Naam | *Geef een naam* | Bijvoorbeeld ' In uit Active Directory-gebruiker preferredDataLocation ' |
     | Beschrijving | *Geef een aangepaste beschrijving* |  |
     | Verbonden systeem | *Kies de on-premises Active Directory-Connector* |  |
-    | Verbonden systeem objecttype | **User** |  |
-    | Metaverse-objecttype | **Person** |  |
+    | Verbonden systeem objecttype | **Gebruiker** |  |
+    | Metaverse-objecttype | **Persoon** |  |
     | Koppelingstype | **Koppelen** |  |
     | Prioriteit | *Kies een getal tussen 1-99* | 1-99 is gereserveerd voor aangepaste synchronisatie regels. Een waarde die wordt gebruikt door andere synchronisatieregels niet opgenomen. |
 
@@ -159,8 +154,8 @@ De uitgaande synchronisatieregel wordt toegestaan de waarde van het kenmerk vanu
     | Naam | *Geef een naam* | Bijvoorbeeld, 'Out naar Azure AD-gebruiker preferredDataLocation' |
     | Beschrijving | *Geef een beschrijving* ||
     | Verbonden systeem | *Selecteer de Azure AD-Connector* ||
-    | Verbonden systeem objecttype | **User** ||
-    | Metaverse-objecttype | **Person** ||
+    | Verbonden systeem objecttype | **Gebruiker** ||
+    | Metaverse-objecttype | **Persoon** ||
     | Koppelingstype | **Koppelen** ||
     | Prioriteit | *Kies een getal tussen 1-99* | 1-99 is gereserveerd voor aangepaste synchronisatie regels. Een waarde die wordt gebruikt door andere synchronisatieregels niet opgenomen. |
 
@@ -168,7 +163,7 @@ De uitgaande synchronisatieregel wordt toegestaan de waarde van het kenmerk vanu
 
     | Kenmerk | Operator | Waarde |
     | --- | --- | --- |
-    | sourceObjectType | GELIJK ZIJN AAN | Gebruiker |
+    | Bronobjecttype | GELIJK ZIJN AAN | Gebruiker |
     | cloudMastered | NOTEQUAL | True |
 
     Bereik filter bepaalt welke deze uitgaande synchronisatieregel wordt toegepast op Azure AD-objecten. In dit voorbeeld gebruiken we het filter voor hetzelfde bereik uit 'Out naar AD-gebruikers-id' synchronisatieregel OOB (out of box). Deze voorkomt dat de synchronisatieregel wordt toegepast op **gebruiker** objecten die niet zijn gesynchroniseerd vanaf de lokale Active Directory. Mogelijk moet u het bereik filter op basis van uw Azure AD Connect-implementatie aanpassen.
@@ -253,8 +248,8 @@ Ervan uitgaande dat uw tenant is gemarkeerd als u deze functie wilt gebruiken, w
 Meer informatie over Multi-geografisch in Office 365:
 
 * [Multi-Geo-sessies op Ignite](https://aka.ms/MultiGeoIgnite)
-* [Multi-Geo in OneDrive](https://aka.ms/OneDriveMultiGeo)
-* [Multi-Geo in SharePoint Online](https://aka.ms/SharePointMultiGeo)
+* [Multi-geografisch in OneDrive](https://aka.ms/OneDriveMultiGeo)
+* [Multi-geografisch in SharePoint Online](https://aka.ms/SharePointMultiGeo)
 
 Meer informatie over de configuratiemodel in de synchronisatie-engine:
 

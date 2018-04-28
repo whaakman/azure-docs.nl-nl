@@ -2,10 +2,10 @@
 title: Azure service-logboeken en metrische gegevens verzamelen voor Log Analytics | Microsoft Docs
 description: Diagnostische gegevens configureren op Azure-resources voor het schrijven van Logboeken en metrische gegevens met logboekanalyse.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 84105740-3697-4109-bc59-2452c1131bfe
 ms.service: log-analytics
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7a3785e39f0d1cf849dbbf0d83d89eaed58c5b0b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a748cb0e2a08ed5e8ada5db171d5ef12b2fe121e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Verzamelen van Logboeken van de Azure-service en metrische gegevens voor gebruik in Log Analytics
 
@@ -34,17 +34,17 @@ Er zijn vier verschillende manieren van het verzamelen van Logboeken en metrisch
 | Service                 | Resourcetype                           | Logboeken        | Metrische gegevens     | Oplossing |
 | --- | --- | --- | --- | --- |
 | Toepassingsgateways    | Microsoft.Network/applicationGateways   | Diagnostiek | Diagnostiek | [Azure Application Gateway Analytics](log-analytics-azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-log-analytics) |
-| Application insights    |                                         | Connector   | Connector   | [Application Insights-Connector](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (Preview) |
+| Application Insights    |                                         | Connector   | Connector   | [Application Insights-Connector](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (Preview) |
 | Automation-accounts     | Microsoft.Automation/AutomationAccounts | Diagnostiek |             | [Meer informatie](../automation/automation-manage-send-joblogs-log-analytics.md)|
 | Batch-accounts          | Microsoft.Batch/batchAccounts           | Diagnostiek | Diagnostiek | |
 | Klassieke cloudservices  |                                         | Storage     |             | [Meer informatie](log-analytics-azure-storage-iis-table.md) |
-| Cognitive Services      | Microsoft.CognitiveServices/accounts    |             | Diagnostiek | |
+| Cognitieve services      | Microsoft.CognitiveServices/accounts    |             | Diagnostiek | |
 | Data Lake analytics     | Microsoft.DataLakeAnalytics/accounts    | Diagnostiek |             | |
 | Data Lake store         | Microsoft.DataLakeStore/accounts        | Diagnostiek |             | |
 | Event Hub-naamruimte     | Microsoft.EventHub/namespaces           | Diagnostiek | Diagnostiek | |
-| IoT-Hubs                | Microsoft.Devices/IotHubs               |             | Diagnostiek | |
+| IoT Hubs                | Microsoft.Devices/IotHubs               |             | Diagnostiek | |
 | Key Vault               | Microsoft.KeyVault/vaults               | Diagnostiek |             | [KeyVault Analytics](log-analytics-azure-key-vault.md) |
-| Taakverdelers          | Microsoft.Network/loadBalancers         | Diagnostiek |             |  |
+| Load Balancers          | Microsoft.Network/loadBalancers         | Diagnostiek |             |  |
 | Logic Apps              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | Diagnostiek | Diagnostiek | |
 | Netwerkbeveiligingsgroepen | Microsoft.Network/networksecuritygroups | Diagnostiek |             | [Netwerkbeveiligingsgroep Azure Analytics](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |
 | Recovery kluizen         | Microsoft.RecoveryServices/vaults       |             |             | [Azure Recovery Services-Analytics (Preview)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
@@ -68,6 +68,13 @@ Er zijn vier verschillende manieren van het verzamelen van Logboeken en metrisch
 Veel Azure-resources kunnen schrijven logboeken met diagnostische gegevens en metrische gegevens rechtstreeks naar het Log Analytics en dit is de beste manier om de gegevens voor analyse te verzamelen. Bij gebruik van Azure diagnostics gegevens onmiddellijk worden geschreven met logboekanalyse en hoeft niet de gegevens eerst naar opslag schrijven.
 
 Azure-resources die ondersteuning bieden voor [Azure monitor](../monitoring-and-diagnostics/monitoring-overview.md) hun logboeken en metrische gegevens rechtstreeks naar het Log Analytics kunt verzenden.
+
+> [!NOTE]
+> Log Analytics multidimensionale metrische gegevens verzenden via de diagnostische instellingen is momenteel niet ondersteund. Metrische gegevens met dimensies worden geëxporteerd als platte eendimensionale metrische gegevens, als totaal van alle dimensiewaarden.
+>
+> *Een voorbeeld*: de metriek 'Binnenkomende berichten' voor een Event Hub kan worden verkend en uitgezet op wachtrijniveau. Echter, wanneer geëxporteerd via diagnostische instellingen voor die de metriek wordt weergegeven als alle binnenkomende berichten in alle wachtrijen in de Event Hub.
+>
+>
 
 * Raadpleeg voor de details van de beschikbare metrische gegevens, [ondersteund met een Azure-Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 * Raadpleeg voor de details van de beschikbare logboeken [ondersteund services en het schema voor diagnostische logboeken](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
@@ -145,7 +152,7 @@ Meer informatie over de [Application Insights-connector](https://blogs.technet.m
 
 Voor Azure-services die geen bieden een directe manier logboeken en metrische gegevens verzenden naar Log Analytics kunt u een Azure Automation-script gebruiken voor het verzamelen van het logboek en metrische gegevens. Het script vervolgens de gegevens kunt verzenden naar het Log Analytics met behulp van de [gegevensverzamelaar API](log-analytics-data-collector-api.md)
 
-De galerie van Azure-sjabloon is [voorbeelden van het gebruik van Azure Automation](https://azure.microsoft.com/en-us/resources/templates/?term=OMS) gegevens te verzamelen van services en te verzenden naar logboekanalyse.
+De galerie van Azure-sjabloon is [voorbeelden van het gebruik van Azure Automation](https://azure.microsoft.com/resources/templates/?term=OMS) gegevens te verzamelen van services en te verzenden naar logboekanalyse.
 
 ## <a name="next-steps"></a>Volgende stappen
 

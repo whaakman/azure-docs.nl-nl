@@ -16,15 +16,15 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: a02844c678c08d8aefbceb16d3908faeffd755fb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 396452faf36bc43a185fd6492f952b7bfd9511cc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-azure-data-lake-store-resources-by-using-storage-explorer"></a>Azure Data Lake Store-resources beheren met behulp van Storage Explorer
 
-[Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview) is een service voor het opslaan van grote hoeveelheden ongestructureerde gegevens, zoals tekstgegevens of binaire gegevens. U kunt overal toegang tot de gegevens krijgen via HTTP of HTTPS. Met Data Lake Store in Azure Storage Explorer kunt u gegevens en resources in Data Lake Store openen en beheren, evenals andere Azure-entiteiten, zoals blobs en wachtrijen. U kunt nu hetzelfde hulpprogramma gebruiken om uw verschillende Azure entiteiten op één plek te beheren.
+[Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview) is een service voor het opslaan van grote hoeveelheden ongestructureerde gegevens, zoals tekstgegevens of binaire gegevens. U kunt overal toegang tot de gegevens krijgen via HTTP of HTTPS. Met Data Lake Store in Azure Storage Explorer kunt u gegevens en resources in Data Lake Store openen en beheren, evenals andere Azure-entiteiten, zoals blobs en wachtrijen. U kunt nu hetzelfde hulpprogramma gebruiken om uw verschillende Azure entiteiten op één plek te beheren.
 
 Een ander voordeel is dat u geen abonnementsmachtiging nodig hebt voor het beheren van gegevens in Data Lake Store. In Storage Explorer kunt u het Data Lake Store-pad bijvoegen bij het **lokale en bijgevoegde** knooppunt als iemand toestemming verleent.
 
@@ -32,7 +32,7 @@ Een ander voordeel is dat u geen abonnementsmachtiging nodig hebt voor het beher
 U moet de volgende vereiste zaken hebben om de stappen in dit artikel uit te voeren:
 
 *   Een Azure-abonnement. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial).
-*   Een Azure Data Lake Store-account. Zie [Aan de slag met Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal) voor instructies over hoe u zo’n account maakt.
+*   Een Azure Data Lake Store-account. Zie [Aan de slag met Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal) voor instructies over hoe u zo’n account maakt.
 
 ## <a name="install-storage-explorer"></a>Storage Explorer installeren
 
@@ -197,7 +197,7 @@ Als u een URL hebt, kunt u de URL invoeren in het adrespad in Verkenner of in de
 
 ## <a name="next-steps"></a>Volgende stappen
 * De [meest recente releaseopmerkingen en video's van Storage Explorer](http://www.storageexplorer.com) bekijken.
-* Informatie over [het beheer van Azure Cosmos DB in Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/cosmos-db/storage-explorer).
-* [Aan de slag met Storage Explorer](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).
-* [Aan de slag met Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview).
+* Informatie over [het beheer van Azure Cosmos DB in Azure Storage Explorer](https://docs.microsoft.com/azure/cosmos-db/storage-explorer).
+* [Aan de slag met Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+* [Aan de slag met Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
 * Bekijk een (Engelstalige) [YouTube-video over het gebruik van Azure Cosmos DB in Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).

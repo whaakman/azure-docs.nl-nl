@@ -5,7 +5,7 @@ services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 3333e830-8a60-42f5-9f44-8e02e9868d7b
 ms.service: virtual-machines-sql
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/23/2018
 ms.author: jroth
-ms.openlocfilehash: 05f5ec690fbf1ea2f4f6a6d927685d7a34ac9273
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3bca1c6c357527a32de499ac9207b1bb734dad7b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>Automatische back-up voor SQL Server op Azure Virtual Machines (klassiek)
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ Houd rekening met de volgende vereisten voor het gebruik van automatische back-u
 * SQL Server 2014 Enterprise
 
 > [!NOTE]
-> Automatische back-up voor SQL Server 2016 wordt ondersteund met Resource Manager virtuele machines. Zie voor meer informatie [automatische back-up v2 voor SQL Server 2016 Azure Virtual Machines (Resource Manager)](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup-v2).
+> Automatische back-up voor SQL Server 2016 wordt ondersteund met Resource Manager virtuele machines. Zie voor meer informatie [automatische back-up v2 voor SQL Server 2016 Azure Virtual Machines (Resource Manager)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup-v2).
 
 **Databaseconfiguratie**:
 
@@ -69,7 +69,7 @@ De volgende tabel beschrijft de opties die kunnen worden geconfigureerd voor aut
 | --- | --- | --- |
 | **Automatische back-up** |In-of uitschakelen (uitgeschakeld) |Hiermee schakelt automatische back-up voor een virtuele machine in Azure met SQL Server 2014 Standard of Enterprise of. |
 | **Bewaarperiode** |1 tot 30 dagen (30 dagen) |Het aantal dagen wilt bewaren van een back-up. |
-| **Storage-Account** |Azure storage-account (de storage-account voor de opgegeven virtuele machine gemaakt) |Een Azure storage-account moet worden gebruikt voor het opslaan van automatische back-up-bestanden in blob-opslag. Een container is gemaakt op deze locatie voor het opslaan van alle back-upbestanden. De naamconventie voor back-upbestand bevat de datum, tijd en de machinenaam van de. |
+| **Opslagaccount** |Azure storage-account (de storage-account voor de opgegeven virtuele machine gemaakt) |Een Azure storage-account moet worden gebruikt voor het opslaan van automatische back-up-bestanden in blob-opslag. Een container is gemaakt op deze locatie voor het opslaan van alle back-upbestanden. De naamconventie voor back-upbestand bevat de datum, tijd en de machinenaam van de. |
 | **Versleuteling** |In-of uitschakelen (uitgeschakeld) |Hiermee schakelt versleuteling of. Bij versleuteling is ingeschakeld, worden de certificaten voor de back-up herstellen in het opgegeven opslagaccount in dezelfde automaticbackup container met de dezelfde naamgevingsregel gevonden. Als het wachtwoord wordt gewijzigd, wordt een nieuw certificaat wordt gegenereerd met dit wachtwoord, maar het oude certificaat blijft voor het herstellen van eerdere back-ups. |
 | **Wachtwoord** |Wachtwoord tekst (geen) |Een wachtwoord voor versleutelingssleutels. Dit is alleen vereist als versleuteling is ingeschakeld. Om een versleutelde back-up herstellen, moet u het juiste wachtwoord en het bijbehorende certificaat dat is gebruikt op het moment dat de back-up is gehaald hebben. | **Back-upsysteem databases** | In-of uitschakelen (uitgeschakeld) | Volledige back-ups van Master, Model en MSDB duren |
 | **Back-upschema configureren** | Handmatige/geautomatiseerde (geautomatiseerde) | Selecteer **automatisch** automatisch volledige en logboekback-ups op basis van het logboek groei. Selecteer **handmatige** om op te geven van de planning voor volledige en logboekback-ups. |

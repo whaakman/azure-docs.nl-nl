@@ -1,11 +1,11 @@
 ---
 title: Ontwerp van hybride identiteit - strategie voor ingebruikname Azure | Microsoft Docs
-description: "Met voorwaardelijk toegangsbeheer controleert de Azure Active Directory de specifieke voorwaarden die u kiest bij het verifiëren van de gebruiker en alvorens deze toegang tot de toepassing. Als deze voorwaarden is voldaan, wordt de gebruiker geverifieerd en toegang te krijgen tot de toepassing."
-documentationcenter: 
+description: Met voorwaardelijk toegangsbeheer controleert de Azure Active Directory de specifieke voorwaarden die u kiest bij het verifiëren van de gebruiker en alvorens deze toegang tot de toepassing. Als deze voorwaarden is voldaan, wordt de gebruiker geverifieerd en toegang te krijgen tot de toepassing.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: b92fa5a9-c04c-4692-b495-ff64d023792c
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: e6c9cbc4f158e62092c7a9e401e618880e5ea3b6
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 290c41e62080edcd9a2fad1b5045bac4328cc4cd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Een strategie voor hybride identiteit acceptatie definiëren
 In deze taak definieert u de hybride identiteit acceptatie strategie voor uw oplossing voor hybride identiteit om te voldoen aan de bedrijfsvereisten die zijn beschreven in:
@@ -65,7 +65,7 @@ Meld u in de gebruikerservaring worden bepaald door de strategie die u gebruikt.
 | Webbrowsers |Verificatie op basis van formulieren |eenmalige aanmelding, soms moeten organisatie-ID opgeven |
 | Outlook |Prompt voor referenties |Prompt voor referenties |
 | Skype voor bedrijven (Lync) |Prompt voor referenties |eenmalige aanmelding voor Lync, wordt gevraagd referenties voor Exchange |
-| Skydrive Pro |Prompt voor referenties |Eenmalige aanmelding |
+| SkyDrive Pro |Prompt voor referenties |Eenmalige aanmelding |
 | Office Professional Plus abonnement |Prompt voor referenties |Eenmalige aanmelding |
 
 **Externe of niet-vertrouwde bronnen**:
@@ -90,7 +90,7 @@ Ook moet u rekening houden met welke mogelijkheden zijn niet meer beschikbaar:
 * Overgang van Office naar passieve verificatie kan ze pure SAML 2.0 IdPs ondersteunen is, maar ondersteuning nog steeds op basis van de client door de client
 
 > [!NOTE]
-> Lees het artikel https://aka.ms/ssoproviders voor de meest recente lijst.
+> Voor de meest recente lijst Lees het artikel https://aka.ms/ssoproviders.
 > 
 > 
 
@@ -196,7 +196,7 @@ Hoewel u mogelijk hebt gekozen voor een oplossing voor uw strategie, moet u nog 
 | On-premises AD |Multi-Factor Authentication-server |
 
 > [!NOTE]
-> U moet er ook voor zorgen dat de optie voor het ontwerp van multi-factor authentication-server die u hebt geselecteerd de functies die vereist voor uw ontwerp zijn ondersteunt.  Lees voor meer informatie [de multi-factor-beveiligingsoplossing kiezen voor u](../multi-factor-authentication/multi-factor-authentication-get-started.md#what-am-i-trying-to-secure).
+> U moet er ook voor zorgen dat de optie voor het ontwerp van multi-factor authentication-server die u hebt geselecteerd de functies die vereist voor uw ontwerp zijn ondersteunt.  Lees voor meer informatie [de multi-factor-beveiligingsoplossing kiezen voor u](authentication/concept-mfa-whichversion.md#what-am-i-trying-to-secure).
 > 
 > 
 

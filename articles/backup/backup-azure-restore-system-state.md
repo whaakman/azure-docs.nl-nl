@@ -2,11 +2,11 @@
 title: 'Azure Backup: Systeemstatus terugzetten naar een WindowsServer | Microsoft Docs'
 description: Stap door stap uitleg voor Windows Server-systeemstatus terugzetten vanaf een back-up in Azure.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/18/2017
 ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 57277b36c0a77247b7c91d7a0035f7b4ec60c7e0
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: c673cca6a35cfdc0edaecdc69a797f48772d847c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="restore-system-state-to-windows-server"></a>Systeemstatus terugzetten naar WindowsServer
 
@@ -34,7 +34,7 @@ In dit artikel wordt uitgelegd hoe Windows Server System State back-ups herstell
 ## <a name="recover-system-state-files-to-the-same-server"></a>Bestanden van de systeemstatus herstellen naar dezelfde server
 De volgende stappen wordt uitgelegd hoe uw Windows Server-configuratie terugdraaien naar een eerdere status. Configuratie van uw server terugdraaien naar een bekende, stabiele status, kan zeer waardevol zijn. De systeemstatus van de server terugzetten de volgende stappen vanaf een Recovery Services-kluis. 
 
-1. Open de **Microsoft Azure Backup** -module. Als u niet waar dat de module is geïnstalleerd weet, zoekt u de computer of server voor **Microsoft Azure Backup**.
+1. Open de **Microsoft Azure Backup**-module. Als u niet waar dat de module is geïnstalleerd weet, zoekt u de computer of server voor **Microsoft Azure Backup**.
 
     De bureaublad-app moet worden weergegeven in de zoekresultaten.
 
@@ -171,7 +171,7 @@ Eenmaal u systeemstatus als bestanden met behulp van de Azure Recovery Services 
 Systeemstatusback-up bevat Active Directory-gegevens. Gebruik de volgende stappen uit om terug te zetten van Active Directory Domain Services (AD DS) van de huidige status naar een eerdere status.
 
 1. Start de domeincontroller opnieuw in de Directory Services Restore Mode (DSRM).
-2. Volg de stappen [hier](https://technet.microsoft.com/en-us/library/cc794755(v=ws.10).aspx) Windows Server Backup-cmdlets gebruiken om te herstellen van AD DS.
+2. Volg de stappen [hier](https://technet.microsoft.com/library/cc794755(v=ws.10).aspx) Windows Server Backup-cmdlets gebruiken om te herstellen van AD DS.
 
 
 ## <a name="troubleshoot-failed-system-state-restore"></a>Problemen met mislukte systeemstatus herstellen

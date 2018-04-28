@@ -9,19 +9,19 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 08/29/2016
 ms.author: heidist
-ms.openlocfilehash: 3ef946c6c0ab9c111932b3145fd46ae6ef2684cd
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 516760031918c667b39cc8b3dd94d91c42623efc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-page-search-results-in-azure-search"></a>Pagina's met zoekresultaten maken in Azure Search
 In dit artikel biedt richtlijnen voor het gebruik van de Azure Search Service REST API voor het implementeren van standaardelementen van een pagina met zoekresultaten, zoals het totale aantal, document ophalen, sorteervolgorde en navigatie.
 
-In elk geval hieronder vermelde opties voor pagina's gerelateerde bijdragen of gegevens naar de pagina met zoekresultaten worden opgegeven via de [zoekdocument](http://msdn.microsoft.com/library/azure/dn798927.aspx) aanvragen die naar uw Azure Search-Service verzonden. Aanvragen bevatten een GET-opdracht, pad, en queryparameters die informeren over de service wat wordt aangevraagd en hoe u het antwoord formuleren.
+In elk geval hieronder vermelde opties voor pagina's gerelateerde bijdragen of gegevens naar de pagina met zoekresultaten worden opgegeven via de [zoekdocument](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) aanvragen die naar uw Azure Search-Service verzonden. Aanvragen bevatten een GET-opdracht, pad, en queryparameters die informeren over de service wat wordt aangevraagd en hoe u het antwoord formuleren.
 
 > [!NOTE]
-> Een geldige aanvraag bevat een aantal elementen, zoals een service-URL en het pad, HTTP-term `api-version`, enzovoort. Als beknopt alternatief bevat, wordt de voorbeelden om uit te lichten alleen de syntaxis die relevant is voor paginering bijgesneden. Zie de [Azure Search Service REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx) documentatie voor meer informatie over de syntaxis van de aanvraag.
+> Een geldige aanvraag bevat een aantal elementen, zoals een service-URL en het pad, HTTP-term `api-version`, enzovoort. Als beknopt alternatief bevat, wordt de voorbeelden om uit te lichten alleen de syntaxis die relevant is voor paginering bijgesneden. Zie de [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice) documentatie voor meer informatie over de syntaxis van de aanvraag.
 > 
 > 
 
@@ -59,7 +59,7 @@ Een subset van velden voor een naast elkaar indeling geretourneerd:
 
 Installatiekopieën en media-bestanden zijn niet rechtstreeks kan worden doorzocht en moeten worden opgeslagen in een ander platform van de opslag, zoals Azure Blob-opslag om kosten te verlagen. Definieer een veld waarin de URL-adres van de externe inhoud opgeslagen in de index en documenten. Vervolgens kunt u het veld als een verwijzing naar afbeelding. De URL van de afbeelding moet in het document.
 
-Voor het ophalen van een product beschrijvingspagina voor een **onClick** gebeurtenis, gebruik [Lookup Document](http://msdn.microsoft.com/library/azure/dn798929.aspx) om door te geven in de sleutel van het document om op te halen. Het gegevenstype van de sleutel is `Edm.String`. In dit voorbeeld is het *246810*. 
+Voor het ophalen van een product beschrijvingspagina voor een **onClick** gebeurtenis, gebruik [Lookup Document](https://docs.microsoft.com/rest/api/searchservice/Lookup-Document) om door te geven in de sleutel van het document om op te halen. Het gegevenstype van de sleutel is `Edm.String`. In dit voorbeeld is het *246810*. 
 
         GET /indexes/onlineCatalog/docs/246810
 
@@ -81,7 +81,7 @@ Maakt u een methode die de geselecteerde sorteeroptie als invoer accepteert en r
  ![][5]
 
 > [!NOTE]
-> De standaard score berekenen is voldoende voor veel scenario's, wordt u aangeraden relevantie in plaats daarvan op een aangepaste scoreprofiel baseert. Een aangepaste scoreprofiel biedt u een manier versterking items meer nuttig zijn voor uw bedrijf. Zie [een scoreprofiel toevoegen](http://msdn.microsoft.com/library/azure/dn798928.aspx) voor meer informatie. 
+> De standaard score berekenen is voldoende voor veel scenario's, wordt u aangeraden relevantie in plaats daarvan op een aangepaste scoreprofiel baseert. Een aangepaste scoreprofiel biedt u een manier versterking items meer nuttig zijn voor uw bedrijf. Zie [een scoreprofiel toevoegen](https://docs.microsoft.com/rest/api/searchservice/Add-scoring-profiles-to-a-search-index) voor meer informatie. 
 > 
 > 
 
@@ -95,12 +95,12 @@ U kunt een filter met of zonder een zoekexpressie verzenden. De volgende aanvraa
 
         GET /indexes/onlineCatalog/docs?$filter=brandname eq ‘Microsoft’ and category eq ‘Games’
 
-Zie [documenten zoeken (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798927.aspx) voor meer informatie over `$filter` expressies.
+Zie [documenten zoeken (Azure Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) voor meer informatie over `$filter` expressies.
 
 ## <a name="see-also"></a>Zie ook
-* [Azure Search Service REST-API](http://msdn.microsoft.com/library/azure/dn798935.aspx)
-* [Indexbewerkingen](http://msdn.microsoft.com/library/azure/dn798918.aspx)
-* [Document bewerkingen](http://msdn.microsoft.com/library/azure/dn800962.aspx)
+* [Azure Search Service REST-API](https://docs.microsoft.com/rest/api/searchservice)
+* [Indexbewerkingen](https://docs.microsoft.com/rest/api/searchservice/Index-operations)
+* [Document bewerkingen](https://docs.microsoft.com/rest/api/searchservice/Document-operations)
 * [Video's en zelfstudies over het Azure Search](search-video-demo-tutorial-list.md)
 * [Meervoudige navigatie in Azure Search](search-faceted-navigation.md)
 

@@ -1,24 +1,18 @@
 ---
 title: Filters in Azure Search | Microsoft Docs
 description: Filteren op beveiligings-id van gebruiker, taal, geografische locatie of numerieke waarden te verminderen zoekresultaten op query's in Azure Search, een gehoste cloud search-service op Microsoft Azure.
-services: search
-documentationcenter: 
 author: HeidiSteen
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: cgronlun
+services: search
 ms.service: search
-ms.devlang: 
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.date: 10/19/2017
+ms.topic: conceptual
+ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: 2e8721684b1d4ed0e7392d85ea1df0f595860a05
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 9f891dbe3f051f2fb5bfd242830f3c30abede487
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="filters-in-azure-search"></a>Filters in Azure Search 
 
@@ -52,9 +46,9 @@ Voorbeeldscenario's omvatten het volgende:
 
 Als u een beperkende invloed in de zoekresultaten wilt, wordt filters zijn niet alleen. Deze alternatieven mogelijk beter geschikt zijn, afhankelijk van uw doelstelling:
 
- + `searchFields`queryparameter wasknijpers zoeken naar specifieke velden. Bijvoorbeeld, als uw index afzonderlijke velden voor de Engelse en Spaanse beschrijvingen bevat, kunt u searchFields toe te passen welke velden moeten worden gebruikt voor zoekopdrachten in volledige tekst. 
+ + `searchFields` queryparameter wasknijpers zoeken naar specifieke velden. Bijvoorbeeld, als uw index afzonderlijke velden voor de Engelse en Spaanse beschrijvingen bevat, kunt u searchFields toe te passen welke velden moeten worden gebruikt voor zoekopdrachten in volledige tekst. 
 
-+ `$select`parameter wordt gebruikt om op te geven welke velden u wilt opnemen in een resultaat ingesteld, het antwoord effectief bijsnijden voordat deze naar de aanroepende toepassing verzonden. Deze parameter niet de query te verfijnen of beperken van de documentenverzameling, maar als een gedetailleerde antwoord het doel is, deze parameter is een optie om te overwegen. 
++ `$select` parameter wordt gebruikt om op te geven welke velden u wilt opnemen in een resultaat ingesteld, het antwoord effectief bijsnijden voordat deze naar de aanroepende toepassing verzonden. Deze parameter niet de query te verfijnen of beperken van de documentenverzameling, maar als een gedetailleerde antwoord het doel is, deze parameter is een optie om te overwegen. 
 
 Zie voor meer informatie over de parameter [documenten zoeken > aanvragen > queryparameters](https://docs.microsoft.com/rest/api/searchservice/search-documents#request).
 
@@ -77,10 +71,10 @@ De volgende voorbeelden vertegenwoordigen prototypische filterdefinities in vers
 
 ```http
 # Option 1:  Use $filter for GET
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2016-09-01
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2017-11-11
 
 # Option 2: Use filter for POST and pass it in the header
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2017-11-11
 {
     "search": "*",
     "filter": "baseRate lt 150",
@@ -161,7 +155,7 @@ Tekenreeksen zijn hoofdlettergevoelig. Er is geen kleine-hoofdlettergebruik van 
 
 | Benadering | Beschrijving | 
 |----------|-------------|
-| [Search.in()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Een functie die door komma's gescheiden lijst met tekenreeksen voor een bepaald veld. De tekenreeksen omvatten de filtercriteria op die worden toegepast op elk veld in het bereik voor de query. <br/><br/>`search.in(f, ‘a, b, c’)`semantisch gelijk is aan `f eq ‘a’ or f eq ‘b’ or f eq ‘c’`, behalve dat deze wordt veel sneller uitgevoerd wanneer de lijst met waarden groot is.<br/><br/>Het is raadzaam de **search.in** werken voor [beveiligingsfilters](search-security-trimming-for-azure-search.md) en voor de filters bestaat uit onbewerkte tekst die moet worden geplaatst op de waarden in een bepaald veld. Deze aanpak is ontworpen voor snelheid. U kunt verwachten subsecond reactietijd voor 500 en 5000 liggen van waarden. Er is geen expliciete limiet voor het aantal items die u aan de functie doorgeven kunt, verhoogt de latentie in verhouding tot het aantal tekenreeksen die u opgeeft. | 
+| [Search.in()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Een functie die door komma's gescheiden lijst met tekenreeksen voor een bepaald veld. De tekenreeksen omvatten de filtercriteria op die worden toegepast op elk veld in het bereik voor de query. <br/><br/>`search.in(f, ‘a, b, c’)` semantisch gelijk is aan `f eq ‘a’ or f eq ‘b’ or f eq ‘c’`, behalve dat deze wordt veel sneller uitgevoerd wanneer de lijst met waarden groot is.<br/><br/>Het is raadzaam de **search.in** werken voor [beveiligingsfilters](search-security-trimming-for-azure-search.md) en voor de filters bestaat uit onbewerkte tekst die moet worden geplaatst op de waarden in een bepaald veld. Deze aanpak is ontworpen voor snelheid. U kunt verwachten subsecond reactietijd voor 500 en 5000 liggen van waarden. Er is geen expliciete limiet voor het aantal items die u aan de functie doorgeven kunt, verhoogt de latentie in verhouding tot het aantal tekenreeksen die u opgeeft. | 
 | [Search.ismatch()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Een functie waarmee u meng zoekopdracht in volledige tekst bewerkingen met bewerkingen in de filterexpressie dezelfde strikt Boolean-filter. Hiermee kunt meerdere combinaties van query-filter in een aanvraag. U kunt ook gebruiken voor een *bevat* om te filteren op een gedeeltelijke tekenreeks binnen een grotere tekenreeks. |  
 | [$filter = veld operatortekenreeks](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | De expressie voor een gebruiker gedefinieerde bestaan uit velden, operators en waarden. | 
 

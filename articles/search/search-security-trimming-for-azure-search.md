@@ -1,21 +1,18 @@
 ---
 title: Beveiligingsfilters voor bijsnijden resulteert in Azure Search | Microsoft Docs
 description: Toegangsbeheer voor Azure Search-inhoud met behulp van beveiligingsfilters en gebruikers-id's.
-ms.custom: 
-ms.date: 08/07/2017
 ms.service: search
-ms.reviewer: 
-ms.suite: 
-ms.tgt_pltfrm: 
-caps.latest.revision: "26"
+ms.topic: conceptual
+services: search
+ms.date: 08/07/2017
 author: revitalbarletz
 ms.author: revitalb
 manager: jlembicz
-ms.openlocfilehash: c829399f9c21846d8ee5b43945e2565565279820
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: dd26676b74431566b3631b8a79cd06bcf3022518
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-filters-for-trimming-results-in-azure-search"></a>Beveiligingsfilters voor bijsnijden resulteert in Azure Search
 
@@ -29,7 +26,7 @@ In dit artikel wordt beschreven hoe u Beveiligingsfiltering met de volgende stap
 > [!div class="checklist"]
 > * Maken van een veld waarin de principal-id 's 
 > * Push of bestaande documenten bijwerken met de relevante principal-id 's
-> * Een aanvraag zoeken met `search.in``filter`
+> * Een aanvraag zoeken met `search.in` `filter`
 
 >[!NOTE]
 > Het proces van het ophalen van de principal-id wordt niet in dit document besproken. U krijgt rechtstreeks via uw serviceprovider voor identiteit.

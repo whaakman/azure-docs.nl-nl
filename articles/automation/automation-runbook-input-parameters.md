@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: a2ce87c300d3e9092794e6e437dc9919c7eb0f3c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 19b0e17807adc0e7a4522fd13cd85779cdbcafd6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="runbook-input-parameters"></a>Invoerparameters voor runbook
 
@@ -37,16 +37,16 @@ Windows PowerShell ondersteunt meer kenmerken van invoerparameters dan die hier 
 
 De parameterdefinitie van een in PowerShell Workflow-runbooks heeft de volgende algemene vorm waarin meerdere parameters zijn gescheiden door komma's.
 
-   ```powershell
-     Param
-     (
-         [Parameter (Mandatory= $true/$false)]
-         [Type] Name1 = <Default value>,
+```powershell
+Param
+(
+  [Parameter (Mandatory= $true/$false)]
+  [Type] $Name1 = <Default value>,
 
-         [Parameter (Mandatory= $true/$false)]
-         [Type] Name2 = <Default value>
-     )
-   ```
+  [Parameter (Mandatory= $true/$false)]
+  [Type] $Name2 = <Default value>
+)
+```
 
 > [!NOTE]
 > Wanneer u parameters, als u geen opgeeft definieert het **verplichte** kenmerk, wordt standaard de parameter wordt beschouwd als optioneel. Ook als u een standaardwaarde voor een parameter in PowerShell Workflow-runbooks instelt, wordt deze behandeld door PowerShell als een optionele parameter, ongeacht de **verplichte** kenmerkwaarde.
@@ -61,13 +61,16 @@ In de parameterdefinitie van deze, de parameters **$VMName** en **$resourceGroup
 
 Als uw runbook een invoerparameter objecttype heeft, gebruikt u een PowerShell-hashtable met (naam, waarde) paren om door te geven in een waarde. Bijvoorbeeld, als u de volgende parameter in een runbook hebt:
 
-     [Parameter (Mandatory = $true)]
-     [object] $FullName
+```powershell
+[Parameter (Mandatory = $true)]
+[object] $FullName
+```
 
 U kunt vervolgens de volgende waarde doorgeven aan de parameter:
 
-    @{"FirstName"="Joe";"MiddleName"="Bob";"LastName"="Smith"}
-
+```powershell
+@{"FirstName"="Joe";"MiddleName"="Bob";"LastName"="Smith"}
+```
 
 ## <a name="configure-input-parameters-in-graphical-runbooks"></a>De invoerparameters in grafische runbooks configureren
 
@@ -98,7 +101,7 @@ U kunt de [ **Write-Output** ](https://technet.microsoft.com/library/hh849921.as
    
    * **Parameter1:**
      
-     * Name - VMName
+     * Naam - VMName
      * Type - tekenreeks
      * Verplicht - Nee
    * **Parameter2:**
@@ -146,7 +149,7 @@ In het label onder het invoervak ziet u de kenmerken die zijn ingesteld voor de 
   
   **Voorbeeld:**
   
-  ```
+  ```powershell
   $params = @{“VMName”=”WSVMClassic”;”resourceGroupeName”=”WSVMClassicSG”}
   
   Start-AzureRmAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” –ResourceGroupName $resourceGroupName -Parameters $params
@@ -155,7 +158,7 @@ In het label onder het invoervak ziet u de kenmerken die zijn ingesteld voor de 
   
   **Voorbeeld:**
   
-  ```
+  ```powershell
   $params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
   
   Start-AzureAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” -Parameters $params
@@ -170,7 +173,7 @@ In het label onder het invoervak ziet u de kenmerken die zijn ingesteld voor de 
 
 * **Azure Resource Manager-methode:** kunt u een runbook start met behulp van de SDK van een programmeertaal. Hieronder ziet u een C#-codefragment voor het starten van een runbook in uw Automation-account. U vindt de code aan onze [GitHub-opslagplaats](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
   
-  ```
+  ```csharp
    public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
       {
         var response = AutomationClient.Jobs.Create(resourceGroupName, automationAccount, new JobCreateParameters
@@ -189,7 +192,7 @@ In het label onder het invoervak ziet u de kenmerken die zijn ingesteld voor de 
   ```
 * **Azure classic deployment model methode:** kunt u een runbook start met behulp van de SDK van een programmeertaal. Hieronder ziet u een C#-codefragment voor het starten van een runbook in uw Automation-account. U vindt de code aan onze [GitHub-opslagplaats](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).
   
-  ```      
+  ```csharp
   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
     {
       var response = AutomationClient.Jobs.Create(automationAccount, new JobCreateParameters
@@ -209,7 +212,7 @@ In het label onder het invoervak ziet u de kenmerken die zijn ingesteld voor de 
   
   Deze methode starten, een woordenlijst voor het opslaan van de runbookparameters, maakt **VMName** en **resourceGroupName**, en de bijbehorende waarden. Start het runbook. Hieronder vindt u de C#-codefragment voor het aanroepen van de methode die hierboven gedefinieerd.
   
-  ```
+  ```csharp
   IDictionary<string, string> RunbookParameters = new Dictionary<string, string>();
   
   // Add parameters to the dictionary.
@@ -239,7 +242,7 @@ Gebruiken om de parameters doorgeven aan de runbooktaak, de aanvraagtekst. Het d
 
 Als u wilt beginnen de **Get-AzureVMTextual** runbook dat eerder is gemaakt met **VMName** en **resourceGroupName** als parameters, gebruikt u de volgende JSON-indeling voor de aanvraagtekst.
 
-   ```
+   ```json
     {
       "properties":{
         "runbook":{
@@ -268,7 +271,7 @@ Kunt u een [webhook](automation-webhooks.md) voor uw runbook en invoerparameters
 
 ![Webhook maken en toewijzen van parameters](media/automation-runbook-input-parameters/automation-08-createwebhookandassignparameters.png)
 
-Bij het uitvoeren van een runbook met behulp van een webhook, de vooraf gedefinieerde invoerparameter  **[Webhookdata](automation-webhooks.md#details-of-a-webhook)**  wordt verzonden, samen met de invoerparameters die u hebt gedefinieerd. U kunt klikken op om uit te breiden de **WebhookData** parameter voor meer informatie.
+Bij het uitvoeren van een runbook met behulp van een webhook, de vooraf gedefinieerde invoerparameter **[Webhookdata](automation-webhooks.md#details-of-a-webhook)** wordt verzonden, samen met de invoerparameters die u hebt gedefinieerd. U kunt klikken op om uit te breiden de **WebhookData** parameter voor meer informatie.
 
 ![WebhookData-parameter](media/automation-runbook-input-parameters/automation-09-webhook-data-parameters.png)
 

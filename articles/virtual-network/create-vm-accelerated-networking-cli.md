@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 718990b69cc75709af819ad7df9a77ad0f8f33ce
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a5e657d3c171b63734ad4bf6c0097a3142993360
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Een virtuele Linux-machine maken met het versnelde netwerken
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 04/16/2018
 >   2. De virtuele machine opnieuw maken met de versnelde netwerken ingeschakeld.
 >
 
-In deze zelfstudie leert u het maken van virtuele Linux-machine (VM) met versnelde netwerken. Versnelde netwerken kan één i/o-virtualisatie hoofdmap (SR-IOV) voor een virtuele machine, aanzienlijk verbeteren de prestaties van netwerken. Dit pad hoge prestaties wordt de host van het gegevenspad, waardoor latentie en jitter CPU-gebruik, voor gebruik met de zwaarste netwerkbelasting op ondersteunde VM typen overgeslagen. De volgende afbeelding ziet communicatie tussen twee virtuele machines met en zonder versnelde netwerken:
+In deze zelfstudie leert u het maken van virtuele Linux-machine (VM) met versnelde netwerken. Zie voor informatie over het maken van een virtuele machine van Windows met versnelde toegang [maken van een virtuele machine van Windows met versnelde netwerken](create-vm-accelerated-networking-powershell.md). Versnelde netwerken kan één i/o-virtualisatie hoofdmap (SR-IOV) voor een virtuele machine, aanzienlijk verbeteren de prestaties van netwerken. Dit pad hoge prestaties wordt de host van het gegevenspad, waardoor latentie en jitter CPU-gebruik, voor gebruik met de zwaarste netwerkbelasting op ondersteunde VM typen overgeslagen. De volgende afbeelding ziet communicatie tussen twee virtuele machines met en zonder versnelde netwerken:
 
 ![Vergelijking](./media/create-vm-accelerated-networking/accelerated-networking.png)
 
@@ -78,7 +78,7 @@ Maak een resourcegroep maken met [az group create](/cli/azure/group#az_group_cre
 az group create --name myResourceGroup --location centralus
 ```
 
-Moet u een ondersteunde Linux-regio die worden vermeld in [Linux versnelde netwerken](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
+Selecteer een ondersteunde Linux-regio die worden vermeld in [Linux versnelde netwerken](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
 
 Maak een virtueel netwerk met [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). Het volgende voorbeeld wordt een virtueel netwerk met de naam *myVnet* met één subnet:
 
@@ -141,7 +141,7 @@ az network nic create \
 ```
 
 ## <a name="create-a-vm-and-attach-the-nic"></a>Een virtuele machine maken en koppelen van de NIC
-Wanneer u de virtuele machine, maakt de NIC Geef u hebt gemaakt met `--nics`. Moet u een grootte en distributiepunten die worden vermeld in [Linux versnelde netwerken](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
+Wanneer u de virtuele machine, maakt de NIC Geef u hebt gemaakt met `--nics`. Selecteer een grootte en de distributiepunten die worden vermeld in [Linux versnelde netwerken](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
 
 Maak een VM met [az vm create](/cli/azure/vm#az_vm_create). Het volgende voorbeeld wordt een virtuele machine met de naam *myVM* met de installatiekopie van het UbuntuLTS en een grootte die ondersteuning biedt voor versnelde Networking (*Standard_DS4_v2*):
 
@@ -158,7 +158,7 @@ az vm create \
 
 Zie voor een lijst van alle VM-grootten en kenmerken [Linux VM-grootten](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Zodra de virtuele machine is gemaakt, wordt de uitvoer ziet er als de volgende voorbeelduitvoer geretourneerd. Noteer de **publicIpAddress**. Dit adres wordt gebruikt voor toegang tot de virtuele machine in de volgende stappen.
+Zodra de virtuele machine is gemaakt, wordt de uitvoer ziet er als de volgende voorbeelduitvoer geretourneerd. Let op het **openbare IP-adres**. Dit adres wordt gebruikt voor toegang tot de virtuele machine in de volgende stappen.
 
 ```azurecli
 {

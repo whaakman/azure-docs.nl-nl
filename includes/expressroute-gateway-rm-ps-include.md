@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/22/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d9eaab359d76afce61cfcc72e3fa125b08856e32
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7e33d4ed7100287ef6b22aa4c90fd52671363902
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 De stappen voor deze taak wordt een VNet op basis van de waarden in de volgende configuratielijst gebruikt. Extra instellingen en namen worden ook beschreven in deze lijst. We niet deze lijst gebruiken in een van de stappen, hoewel er variabelen op basis van de waarden in deze lijst toevoegen. U kunt de lijst om te worden gebruikt als referentie, waarbij de waarden vervangt door uw eigen kopiëren.
 
@@ -36,7 +36,7 @@ De stappen voor deze taak wordt een VNet op basis van de waarden in de volgende 
 1. Verbinding maken met uw Azure-abonnement.
 
   ```powershell 
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   Get-AzureRmSubscription 
   Select-AzureRmSubscription -SubscriptionName "Name of subscription"
   ```

@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.openlocfilehash: 7465486109af773403c61f6b4505d932949009df
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0c4f6ef9d934a414ef805ddba6d2602b03bcbf16
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Standaard-gebruikersmachtigingen in Azure Active Directory
 
-In Azure Active Directory (Azure AD), worden alle gebruikers een reeks standaardmachtigingen verleend. Een gebruiker toegang bestaat uit het type van de gebruiker, hun [rollidmaatschappen](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-users-assign-role-azure-portal), en het eigendom van afzonderlijke objecten. Dit artikel beschrijft de standaardmachtigingen en bevat een vergelijking van de standaardinstellingen van de gebruiker lid is en de Gast.
+In Azure Active Directory (Azure AD), worden alle gebruikers een reeks standaardmachtigingen verleend. Een gebruiker toegang bestaat uit het type van de gebruiker, hun [rollidmaatschappen](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal), en het eigendom van afzonderlijke objecten. Dit artikel beschrijft de standaardmachtigingen en bevat een vergelijking van de standaardinstellingen van de gebruiker lid is en de Gast.
 
 ## <a name="member-and-guest-users"></a>Lid en het Gast-gebruikers
 De reeks standaardmachtigingen ontvangen afhankelijk als de gebruiker een systeemeigen lid is van de tenant (lid gebruiker) of als de gebruiker een B2B-samenwerking gast (gastgebruiker). Zie voor meer informatie over B2B-samenwerking [wat is Azure AD B2B-samenwerking?](active-directory-b2b-what-is-azure-ad-b2b.md) voor meer informatie over gastgebruikers). 

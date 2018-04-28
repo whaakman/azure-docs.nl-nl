@@ -11,11 +11,11 @@ ms.workload: Active
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: ab1793621950fd57d3f0be545772d85b32f5d7b8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 37bbbf8ea5a5d8439b300d0740e4f1a048e98e91
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Meer informatie over automatische back-ups van SQL-Database
 
@@ -44,13 +44,16 @@ Volledige databaseback-ups gebeuren wekelijks, differentiële back-ups in het al
 De back-upopslag geo-replicatie vindt plaats op basis van de planning van Azure Storage-replicatie.
 
 ## <a name="how-long-do-you-keep-my-backups"></a>Hoe lang houdt u de back-ups?
-De back-up van elke SQL-Database heeft een bewaarperiode die is gebaseerd op de [servicelaag](sql-database-service-tiers.md) van de database. De bewaarperiode voor een database in de:
+De back-up van elke SQL-Database heeft een bewaarperiode die is gebaseerd op de servicelaag van de database en verschilt voor de [aankoopmodel DTU gebaseerde](sql-database-service-tiers-dtu.md) en de [vCore gebaseerde aankoopmodel (preview)](sql-database-service-tiers-vcore.md). 
 
+
+### <a name="database-retention-for-dtu-based-purchasing-model"></a>Database bewaren voor op basis van DTU aankoopmodel
+De bewaarperiode voor een database in de DTU-aankoopmodel is afhankelijk van de servicetier. De bewaarperiode voor een database voor de:
 
 * Basic-servicelaag is 7 dagen.
 * Standaard-servicelaag is 35 dagen.
 * Premium servicecategorie is 35 dagen.
-* Algemeen laag kan worden geconfigureerd met een maximum van 35 dagen (7 dagen standaard) *
+* Voor algemene doeleinden laag kan worden geconfigureerd met een maximum van 35 dagen (7 dagen standaard) *
 * Kritieke bedrijfslaag (preview) kan worden geconfigureerd met een maximum van 35 dagen (7 dagen standaard) *
 
 \* Tijdens de preview, worden de back-ups bewaarperiode kan niet worden geconfigureerd en vast is ingesteld op 7 dagen.
@@ -63,7 +66,13 @@ Als u een database verwijdert, blijven SQL-Database de back-ups op dezelfde mani
 
 > [!IMPORTANT]
 > Als u de Azure SQL-server die als host fungeert voor SQL-Databases verwijdert, worden alle databases die deel uitmaken van de server worden ook verwijderd en kunnen niet worden hersteld. U kunt een verwijderde server niet herstellen.
-> 
+
+### <a name="database-retention-for-the-vcore-based-purchasing-model-preview"></a>Bewaartijd voor de vCore gebaseerde aankoopmodel (preview)
+
+Opslag voor databaseback-ups is toegewezen voor ondersteuning van het punt in tijd herstellen (PITR) en lange termijn bewaren (LTR) mogelijkheden van SQL-Database. Deze opslag is toegewezen afzonderlijk voor elke database en als twee aparte database kosten in rekening gebracht. 
+
+- **PITR**: worden automatisch één database back-ups naar RA-GRS opslag worden gekopieerd. Maximale grootte van het duurt dynamisch omdat de nieuwe back-ups worden gemaakt.  De opslag wordt gebruikt voor wekelijkse volledige back-ups, dagelijkse differentiële back-ups en back-ups van transactielogboeken die om de vijf minuten worden gekopieerd. Het opslagverbruik is afhankelijk van de snelheid van de wijziging van de database en de bewaarperiode. U kunt een afzonderlijke bewaarperiode voor elke database tussen 7 en 35 dagen configureren. Een minimale opslaghoeveelheid gelijk zijn aan 1 x van gegevensgrootte wordt geleverd zonder extra kosten. Dit bedrag is voor de meeste databases voldoende is voor het opslaan van 7 dagen van back-ups. Zie voor meer informatie [punt in tijd terugzetten](sql-database-recovery-using-backups.md#point-in-time-restore)
+- **LTR**: SQL-Database biedt de mogelijkheid om lange bewaartermijn van volledige back-ups configureren voor maximaal tien jaar. Als LTR beleid is ingeschakeld, wordt bij deze back-ups worden opgeslagen in de opslag van de RA-GRS automatisch, maar u kunt bepalen hoe vaak de back-ups worden gekopieerd. Om te voldoen aan verschillende nalevingsvereiste, kunt u verschillende bewaartermijnen voor wekelijkse, maandelijkse en/of jaarlijkse back-ups. Deze configuratie definieert hoeveel opslagruimte wordt gebruikt voor de back-ups van links naar rechts. De prijscategorie Rekenmachine LTR kunt u schat de kosten voor opslag van links naar rechts. Zie [Langetermijnretentie](sql-database-long-term-retention.md) voor meer informatie.
 
 ## <a name="how-to-extend-the-backup-retention-period"></a>Het uitbreiden van de back-up bewaarperiode?
 
@@ -76,7 +85,7 @@ Als u het beleid LTR aan een database met behulp van Azure portal of API toevoeg
 Als TDE is ingeschakeld voor een Azure SQL database, worden back-ups eveneens versleuteld. Alle nieuwe Azure SQL-databases zijn geconfigureerd met TDE standaard ingeschakeld. Zie voor meer informatie over TDE [Transparent Data Encryption met Azure SQL Database](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
 ## <a name="are-the-automatic-backups-compliant-with-gdpr"></a>De automatische back-ups compatibel zijn met GDPR?
-Als de back-up bevat persoonlijke gegevens, die is onderworpen aan algemene gegevens beveiliging regelgeving (GDPR), moet u Verbeterde beveiligingsmaatregelen de om gegevens te beveiligen tegen onbevoegde toegang toe te passen. Om te voldoen aan de GDPR, moet u een manier voor het beheren van de gegevensaanvragen eigenaars van gegevens zonder toegang tot de back-ups.  Voor de korte termijn back-ups, een oplossing kan zijn om te verkorten van de back-up venster onder 30 dagen, is de tijd mag de data access-aanvragen te voltooien.  Als langere termijn back-ups vereist zijn, wordt het aanbevolen alleen 'pseudonymized' gegevens in de back-ups opslaan. Bijvoorbeeld als gegevens over een persoon moet worden verwijderd of bijgewerkt, worden niet moet verwijderen of bijwerken van de bestaande back-ups. U vindt meer informatie over de aanbevolen procedures GDPR in [Data Governance voor naleving van GDPR](https://info.microsoft.com/DataGovernanceforGDPRCompliancePrinciplesProcessesandPractices-Registration.html).
+Als de back-up bevat persoonlijke gegevens, die is onderworpen aan algemene gegevens beveiliging regelgeving (GDPR), moet u Verbeterde beveiligingsmaatregelen de om gegevens te beveiligen tegen onbevoegde toegang toe te passen. Om te voldoen aan de GDPR, moet u een manier voor het beheren van de gegevensaanvragen eigenaars van gegevens zonder toegang tot de back-ups.  Voor back-ups op korte termijn, een oplossing kan zijn om te verkorten van de back-up venster onder 30 dagen, is de tijd mag de data access-aanvragen te voltooien.  Als langere termijn back-ups vereist zijn, wordt het aanbevolen alleen 'pseudonymized' gegevens in de back-ups opslaan. Bijvoorbeeld als gegevens over een persoon moet worden verwijderd of bijgewerkt, worden niet moet verwijderen of bijwerken van de bestaande back-ups. U vindt meer informatie over de aanbevolen procedures GDPR in [Data Governance voor naleving van GDPR](https://info.microsoft.com/DataGovernanceforGDPRCompliancePrinciplesProcessesandPractices-Registration.html).
 
 ## <a name="next-steps"></a>Volgende stappen
 

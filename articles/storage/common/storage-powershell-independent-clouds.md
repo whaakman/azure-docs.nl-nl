@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: rogarana
-ms.openlocfilehash: 31b36e6fb6a1ebf09c559b2777ffa5f554c3cfa0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3eecf8918e6628071e44cc588b1826df68a00f10
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Opslag in de Azure-onafhankelijke clouds met behulp van PowerShell beheren
 
@@ -48,7 +48,7 @@ Get-AzureRmEnvironment
 Aanmelden bij uw account dat toegang heeft tot de cloud die u wilt verbinden en de omgeving. Dit voorbeeld toont hoe u zich aanmeldt bij een account dat de Azure Government Cloud gebruikt.   
 
 ```powershell
-Login-AzureRmAccount –Environment AzureUSGovernment
+Connect-AzureRmAccount –Environment AzureUSGovernment
 ```
 
 Voor toegang tot de Cloud China, gebruikt u de omgeving **AzureChinaCloud**. Gebruiken voor toegang tot de Cloud Duits, **AzureGermanCloud**.
@@ -85,11 +85,10 @@ Deze opdracht retourneert de volgende resultaten.
 
 | Naam| StorageEndpointSuffix|
 |----|----|
-|AzureChinaCloud | core.chinacloudapi.cn|
+| AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | core.windows.net |
 | AzureGermanCloud | core.cloudapi.de|
-| AzureUSGovernment | core.usgov.cloudapi.net |
-
+| AzureUSGovernment | Core.usgovcloudapi.NET |
 
 Aanroepen voor het ophalen van alle eigenschappen voor het opgegeven milieu **Get-AzureRmEnvironment** en geef de cloudnaam van de. Dit codefragment retourneert een lijst met eigenschappen. Zoek naar **StorageEndpointSuffix** in de lijst. Het volgende voorbeeld is voor de Cloud Duits.
 

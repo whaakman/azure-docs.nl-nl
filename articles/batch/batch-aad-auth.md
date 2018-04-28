@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 09/28/2017
+ms.date: 04/18/2018
 ms.author: danlep
-ms.openlocfilehash: e67ae32902c989f74cee0c1d223dacc770c0d387
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c28af5a9773cc362663831346b58f599aed6ea9a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Verificatie van oplossingen voor Batch-service met Active Directory
 
@@ -65,7 +65,7 @@ Gebruik de **endpoint van Azure Batch-resource** te verkrijgen van een token voo
 
 De eerste stap bij het gebruik van Azure AD om te verifiëren, is uw toepassing registreren in een Azure AD-tenant. Registreren van uw toepassing, kunt u de Azure aanroepen [Active Directory Authentication Library] [ aad_adal] (ADAL) vanuit uw code. De ADAL biedt een API voor de verificatie met Azure AD van uw toepassing. Registreren van uw toepassing is vereist of u van plan bent om geïntegreerde verificatie of een service-principal te gebruiken.
 
-Wanneer u uw toepassing registreert, kunt u informatie opgeven over uw toepassing naar Azure AD. Vervolgens Azure AD levert een toepassings-ID waarmee u uw toepassing koppelen aan Azure AD tijdens runtime. Zie voor meer informatie over de toepassings-ID, [toepassing en service-principal objecten in Azure Active Directory](../active-directory/develop/active-directory-application-objects.md).
+Wanneer u uw toepassing registreert, kunt u informatie opgeven over uw toepassing naar Azure AD. Vervolgens Azure AD levert een toepassings-ID (ook wel een *client-ID*) waarmee u kunt uw toepassing koppelen aan Azure AD tijdens runtime. Zie voor meer informatie over de toepassings-ID, [toepassing en service-principal objecten in Azure Active Directory](../active-directory/develop/active-directory-application-objects.md).
 
 Voor het registreren van uw Batch-toepassing, volg de stappen in de [een toepassing toe te voegen](../active-directory/develop/active-directory-integrating-applications.md#adding-an-application) in sectie [toepassingen integreren met Azure Active Directory][aad_integrate]. Als u uw toepassing als een systeemeigen toepassing registreren, kunt u een geldige URI voor de **omleidings-URI**. Dit hoeft niet te worden van een echte-eindpunt.
 
@@ -81,7 +81,7 @@ De tenant-ID identificeert de Azure AD-tenant waarmee verificatieservices voor u
 
 1. Selecteer uw Active Directory in de Azure-portal.
 2. Klik op **Eigenschappen**.
-3. Kopieer de GUID-waarde opgegeven voor de map-ID. Deze waarde wordt ook aangeroepen voor de tenant-ID.
+3. Kopieer de GUID-waarde opgegeven voor de **map-ID**. Deze waarde wordt ook aangeroepen voor de tenant-ID.
 
 ![Kopieer de map-ID](./media/batch-aad-auth/aad-directory-id.png)
 
@@ -97,17 +97,17 @@ Zodra u hebt [geregistreerd van uw toepassing](#register-your-application-with-a
 
     ![Zoeken naar de toepassingsnaam van uw](./media/batch-aad-auth/search-app-registration.png)
 
-3. Open de **instellingen** blade voor uw toepassing. In de **API-toegang** sectie **vereist machtigingen**.
+3. Klik op de toepassing en op **instellingen**. In de **API-toegang** sectie **vereist machtigingen**.
 4. In de **vereist machtigingen** blade, klikt u op de **toevoegen** knop.
-5. In stap 1, zoekt u de Batch-API. Zoek deze tekenreeksen totdat u de API hebt gevonden:
+5. In **selecteert u een API**, zoekt u de Batch-API. Zoek deze tekenreeksen totdat u de API hebt gevonden:
     1. **MicrosoftAzureBatch**.
     2. **Microsoft Azure Batch**. Nieuwere Azure AD-tenants kunnen deze naam gebruiken.
     3. **ddbf3205-c6bd-46ae-8127-60eb93363864** is de id voor de Batch-API. 
-6. Als u de Batch-API hebt gevonden, selecteert u deze en klikt u op de **Selecteer** knop.
-6. In stap 2, schakel het selectievakje in naast **Access Azure Batch-Service** en klik op de **Selecteer** knop.
-7. Klik op de **gedaan** knop.
+6. Als u de Batch-API hebt gevonden, te selecteren en op **Selecteer**.
+7. In **machtigingen selecteren**, schakel het selectievakje in naast **Access Azure Batch-Service** en klik op **Selecteer**.
+8. Klik op **Gereed**.
 
-De **Required Permissions** blade nu service bevat die uw Azure AD-toepassing toegang tot zowel ADAL als de Batch heeft-API. Machtigingen worden verleend aan ADAL automatisch wanneer u uw app eerst bij Azure AD registreren.
+De **Required Permissions** windows nu service bevat die uw Azure AD-toepassing toegang tot zowel ADAL als de Batch heeft-API. Machtigingen worden verleend aan ADAL automatisch wanneer u uw app eerst bij Azure AD registreren.
 
 ![Machtigingen verlenen API](./media/batch-aad-auth/required-permissions-data-plane.png)
 
@@ -126,7 +126,7 @@ Volg deze stappen in de Azure portal:
 
 1. Kies in het navigatiedeelvenster links van de Azure portal, **alle services**. Klik op **App registraties**.
 2. Zoek de naam van uw toepassing in de lijst van app-registraties.
-3. Weergave de **instellingen** blade. In de **API-toegang** sectie **sleutels**.
+3. Klik op de toepassing en op **instellingen**. In de **API-toegang** sectie **sleutels**.
 4. Voer een beschrijving voor de sleutel voor het maken van een sleutel. Selecteer vervolgens een duur voor de sleutel van één of twee jaar. 
 5. Klik op de **opslaan** knop maken en weergeven van de sleutel. De sleutelwaarde kopiëren naar een veilige plaats als het niet mogelijk toegang tot het opnieuw nadat u de blade laat. 
 
@@ -152,14 +152,14 @@ De tenant-ID identificeert de Azure AD-tenant waarmee verificatieservices voor u
 
 1. Selecteer uw Active Directory in de Azure-portal.
 2. Klik op **Eigenschappen**.
-3. Kopieer de GUID-waarde opgegeven voor de map-ID. Deze waarde wordt ook aangeroepen voor de tenant-ID.
+3. Kopieer de GUID-waarde opgegeven voor de **map-ID**. Deze waarde wordt ook aangeroepen voor de tenant-ID.
 
 ![Kopieer de map-ID](./media/batch-aad-auth/aad-directory-id.png)
 
 
 ## <a name="code-examples"></a>Codevoorbeelden
 
-De codevoorbeelden in deze sectie laten zien hoe om te verifiëren met Azure AD dat gebruikmaakt van geïntegreerde verificatie en met een service-principal. Deze codevoorbeelden .NET gebruiken, maar de concepten zijn vergelijkbaar voor andere talen.
+De codevoorbeelden in deze sectie laten zien hoe om te verifiëren met Azure AD dat gebruikmaakt van geïntegreerde verificatie en met een service-principal. De meeste van deze codevoorbeelden .NET gebruiken, maar de concepten zijn vergelijkbaar voor andere talen.
 
 > [!NOTE]
 > Een Azure AD authentication-token verloopt na één uur. Wanneer u een lange levensduur **BatchClient** object, het is raadzaam dat u een token van ADAL bij elke aanvraag om te controleren of er altijd een geldig token ophalen. 
@@ -205,7 +205,7 @@ Geef de toepassings-ID (client-ID) voor uw toepassing. De toepassings-ID is besc
 private const string ClientId = "<application-id>";
 ```
 
-De omleidings-URI die u hebt opgegeven tijdens het registratieproces ook kopiëren. Omleidings-URI in uw code opgegeven de moet overeenkomen met de omleidings-URI die u hebt opgegeven bij de registratie van de toepassing:
+Kopieer de omleidings-URI die u hebt opgegeven, ook als u uw toepassing als een systeemeigen toepassing geregistreerd. Omleidings-URI in uw code opgegeven de moet overeenkomen met de omleidings-URI die u hebt opgegeven bij de registratie van de toepassing:
 
 ```csharp
 private const string RedirectUri = "http://mybatchdatasample";
@@ -296,7 +296,7 @@ public static async Task<string> GetAuthenticationTokenAsync()
 }
 ```
 
-Samen een **BatchTokenCredentials** object waarmee de gemachtigde als parameter. Deze referenties gebruiken om te openen een **BatchClient** object. Vervolgens kunt u die **BatchClient** object voor verdere bewerkingen op basis van de Batch-service:
+Samen een **BatchTokenCredentials** object waarmee de gemachtigde als parameter. Deze referenties gebruiken om te openen een **BatchClient** object. Gebruikt u dat **BatchClient** object voor verdere bewerkingen op basis van de Batch-service:
 
 ```csharp
 public static async Task PerformBatchOperations()
@@ -308,6 +308,65 @@ public static async Task PerformBatchOperations()
         await client.JobOperations.ListJobs().ToListAsync();
     }
 }
+```
+### <a name="code-example-using-an-azure-ad-service-principal-with-batch-python"></a>Voorbeeld: met behulp van een Azure AD-service-principal met behulp van Batch Python
+
+Om te verifiëren met een service-principal van Batch Python, installeren en verwijzen naar de [azure batch](https://pypi.org/project/azure-batch/) en [azure gemeenschappelijke](https://pypi.org/project/azure-common/) modules.
+
+
+```python
+from azure.batch import BatchServiceClient
+from azure.common.credentials import ServicePrincipalCredentials
+```
+
+Wanneer u een service-principal, moet u de tenant-id opgeven Volg de stappen in voor het ophalen van de tenant-ID, [de tenant-ID niet ophalen voor uw Azure Active Directory](#get-the-tenant-id-for-your-active-directory):
+
+```python
+TENANT_ID = "<tenant-id>";
+```
+
+Verwijzen naar het eindpunt van Batch-service resource:  
+
+```python
+RESOURCE = "https://batch.core.windows.net/";
+```
+
+Verwijzen naar uw Batch-account:
+
+```python
+BATCH_ACCOUNT_URL = "https://myaccount.mylocation.batch.azure.com";
+```
+
+Geef de toepassings-ID (client-ID) voor uw toepassing. De toepassings-ID is beschikbaar via de registratie van uw app in de Azure-portal:
+
+```python
+CLIENT_ID = "<application-id>";
+```
+
+Geef de geheime sleutel die u hebt gekopieerd uit de Azure-portal:
+
+```python
+SECRET = "<secret-key>";
+```
+
+Maak een **ServicePrincipalCredentials** object:
+
+```python
+credentials = ServicePrincipalCredentials(
+    client_id=CLIENT_ID,
+    secret=SECRET,
+    tenant=TENANT_ID,
+    resource=RESOURCE
+)
+```
+
+De referenties voor de service-principal gebruiken om te openen een **BatchServiceClient** object. Gebruikt u dat **BatchServiceClient** object voor verdere bewerkingen op basis van de Batch-service.
+
+```python
+    batch_client = BatchServiceClient(
+    credentials,
+    base_url=BATCH_ACCOUNT_URL
+)
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

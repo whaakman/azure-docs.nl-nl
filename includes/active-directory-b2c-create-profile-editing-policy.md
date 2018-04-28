@@ -1,4 +1,4 @@
-U moet een beleid voor profielbewerking maken om het bewerken van profielen in te schakelen. In dit beleid wordt de ervaring van consumenten bij het bewerken van profielen beschreven en de inhoud van tokens die de toepassing ontvangt nadat bewerkingen zijn voltooid.
+Als u inschakelen op uw toepassing profiel te bewerken wilt, u een **profiel bewerken** beleid. Dit beleid beschrijft de ervaringen die klanten doorlopen tijdens profiel bewerken en de inhoud van de tokens die de toepassing is gelukt ontvangt.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 

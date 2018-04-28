@@ -2,10 +2,10 @@
 title: 'Azure Backup: Virtuele machines herstellen met behulp van de Azure portal | Microsoft Docs'
 description: Azure een virtuele machine vanaf een herstelpunt herstellen met behulp van de Azure-portal
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
+editor: ''
 keywords: terugzetten van back-up. het herstellen van; herstelpunt;
 ms.assetid: 372b87c6-3544-4dc5-bbc9-c742ca502159
 ms.service: backup
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 84fb2cc08e97541d2d9d327ca2b6865ff9a6fe20
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d3e088841bcf291363ec7c042b0fa160fc7d25ca
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>De Azure portal gebruiken voor virtuele machines herstellen
 Uw gegevens beschermen door het maken van momentopnamen van uw gegevens op de gedefinieerde intervallen. Deze momentopnamen worden aangeduid als herstelpunten en ze zijn opgeslagen in de Recovery Services-kluizen. Als het nodig zijn om te herstellen of opnieuw opbouwen van een virtuele machine (VM), kunt u de virtuele machine herstellen uit een van de opgeslagen herstelpunten. Wanneer u een herstelpunt herstelt, kunt u het volgende doen:
@@ -109,7 +109,7 @@ De portal biedt een **snelle invoer** optie voor een herstelde virtuele machine.
 ## <a name="create-a-new-vm-from-a-restore-point"></a>Een nieuwe virtuele machine van een herstelpunt maken
 1. Als u niet al daar [Selecteer een herstelpunt](#restore-a vm-with-special-network-configurations) voordat u begint met een nieuwe virtuele machine van een herstelpunt maken. Nadat u een herstelpunt selecteert op de **configuratie terugzetten** blade invoeren of selecteren van waarden voor elk van de volgende velden:
 
-    a. **Type herstellen**. Maak een virtuele machine.
+    a. **Type herstellen**. Hiermee maakt u een virtuele machine.
 
     b. **Naam van virtuele machine**. Geef een naam voor de virtuele machine. De naam moet uniek zijn voor de resourcegroep (voor een Azure Resource Manager geïmplementeerde VM) of de cloudservice (voor een klassieke VM). U kunt de virtuele machine niet vervangen als deze al in het abonnement bestaat.
 
@@ -211,7 +211,7 @@ Azure Backup kunt back-up virtuele machines herstellen naar het datacenter gekop
 ## <a name="restore-domain-controller-vms"></a>Domeincontroller virtuele machines herstellen
 Back-up van de domeincontroller (DC) is een ondersteunde scenario met back-up van virtuele machines. Echter, moet u zorgvuldig tijdens het herstelproces. Het juiste herstelproces is afhankelijk van de structuur van het domein. In het meest eenvoudige geval hebt u een enkele DC in één domein. Meer vaak voor productie is geladen hebben u één domein met meerdere DC's, bijvoorbeeld met een aantal DC's on-premises. Ten slotte kunt u een forest met meerdere domeinen hebben. 
 
-Vanuit het perspectief van een Active Directory, wordt de Azure VM is net als elke andere virtuele machine op een moderne ondersteunde hypervisor. Het belangrijkste verschil met lokale hypervisors is dat er geen VM-console beschikbaar zijn in Azure. Een console is vereist voor bepaalde scenario's, zoals het herstellen met behulp van een bare metal recovery (BMR)-back-up. VM-herstel van de back-upkluis is echter een volledige vervanging voor BMR. Directory Services Restore Mode (DSRM) is ook beschikbaar is, zodat alle Active Directory herstelscenario's mogelijk of gewenst zijn is. Zie voor meer informatie [overwegingen voor back-up en herstel voor gevirtualiseerde domeincontrollers](https://technet.microsoft.com/en-us/library/virtual_active_directory_domain_controller_virtualization_hyperv(v=ws.10).aspx#backup_and_restore_considerations_for_virtualized_domain_controllers) en [plannen voor herstel van Active Directory-forest](https://technet.microsoft.com/en-us/library/planning-active-directory-forest-recovery(v=ws.10).aspx).
+Vanuit het perspectief van een Active Directory, wordt de Azure VM is net als elke andere virtuele machine op een moderne ondersteunde hypervisor. Het belangrijkste verschil met lokale hypervisors is dat er geen VM-console beschikbaar zijn in Azure. Een console is vereist voor bepaalde scenario's, zoals het herstellen met behulp van een bare metal recovery (BMR)-back-up. VM-herstel van de back-upkluis is echter een volledige vervanging voor BMR. Directory Services Restore Mode (DSRM) is ook beschikbaar is, zodat alle Active Directory herstelscenario's mogelijk of gewenst zijn is. Zie voor meer informatie [overwegingen voor back-up en herstel voor gevirtualiseerde domeincontrollers](https://technet.microsoft.com/library/virtual_active_directory_domain_controller_virtualization_hyperv(v=ws.10).aspx#backup_and_restore_considerations_for_virtualized_domain_controllers) en [plannen voor herstel van Active Directory-forest](https://technet.microsoft.com/library/planning-active-directory-forest-recovery(v=ws.10).aspx).
 
 ### <a name="single-dc-in-a-single-domain"></a>Enkele DC in één domein
 De virtuele machine kan worden hersteld (zoals VM) van de Azure-portal of met behulp van PowerShell.
@@ -242,7 +242,7 @@ Om volledig opnieuw te maken de VM's na het herstellen naar de schijf, de volgen
 
    a. Een virtuele machine maken in de cloudservice met een [interne load balancer](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/).
 
-   b. Maken van een virtuele machine verbinding maken met een [internet gerichte load balancer](https://azure.microsoft.com/en-us/documentation/articles/load-balancer-internet-getstarted/).
+   b. Maken van een virtuele machine verbinding maken met een [internet gerichte load balancer](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/).
 
    c. Maak een VM met [meerdere NIC's](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/).
 

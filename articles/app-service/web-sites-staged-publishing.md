@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: c02b7a74eea6973d6ccfbc1cc59d15bfd5cb5b77
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ec2399c955f718186bbedc0e4bad61ccc61fd972
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Faseringsomgevingen in Azure App Service instellen
 <a name="Overview"></a>
@@ -30,7 +30,7 @@ Wanneer u uw web-app, web-app op Linux-, mobiele back-end- en API-app implemente
 * Zorgt ervoor dat alle exemplaren van de sleuf zijn opgewarmd voordat gewisseld naar de productie implementeert eerst een app in een sleuf en deze in productie te wisselen. Hierdoor is er uitvaltijd wanneer u uw app implementeert. Het verkeer omleiden naadloze is en er zijn geen aanvragen worden verwijderd als gevolg van de wisseling bewerkingen. Deze volledige werkstroom kan worden geautomatiseerd door configureren [automatisch wisselen](#Auto-Swap) wanneer vooraf swap-validatie is niet nodig.
 * Als een wisseling heeft de sleuf met eerder voorbereide app de vorige productie-app. Als de gewisseld naar de productiesite wijzigingen zijn niet zoals u verwacht, kunt u de dezelfde swap onmiddellijk om uw "laatst bekende goede site" uitvoeren terug.
 
-Elke laag van App Service plan ondersteunt een verschillend aantal implementatiesites. Sleuven om erachter te komen het nummer van uw app-laag ondersteunt, Zie [App Servicelimieten](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#app-service-limits).
+Elke laag van App Service plan ondersteunt een verschillend aantal implementatiesites. Sleuven om erachter te komen het nummer van uw app-laag ondersteunt, Zie [App Servicelimieten](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits).
 
 * Wanneer uw app meerdere sleuven heeft, kunt u de laag niet wijzigen.
 * Schalen is niet beschikbaar voor niet-productieve sleuven.
@@ -54,7 +54,7 @@ De app moet worden uitgevoerd in de **standaard** of **Premium** laag zodat u me
    
     ![Configuratiebron][ConfigurationSource1]
    
-    De eerste keer dat u een site toevoegt, hebt u slechts twee mogelijkheden: configuratie van de kloon van de standaard-sleuf in productie of helemaal niet.
+    De eerste keer dat u een site toevoegt, alleen hebt u twee mogelijkheden: configuratie van de kloon van de standaard-sleuf in productie of helemaal niet.
     Wanneer u meerdere sleuven hebt gemaakt, kunt u zich kunt kloon configuratie uit een sleuf dan die in productie:
    
     ![Configuratie van bronnen][MultipleConfigurationSources]
@@ -67,8 +67,8 @@ Er is geen inhoud nadat de implementatiesleuf is gemaakt. U kunt implementeren o
 
 <a name="AboutConfiguration"></a>
 
-## <a name="configuration-for-deployment-slots"></a>Configuratie voor implementatiesites
-Als u een configuratie uit een andere implementatiesleuf kloon, kan de configuratie van de gekloonde worden bewerkt. Bepaalde configuratie-elementen wordt bovendien de inhoud via een wisseling (kan niet in sleuf worden specifieke) gevolgd terwijl andere configuratie-elementen staan in dezelfde sleuf zijn na een wisseling (sleuf specifieke blijft). De volgende lijsten ziet de configuratie die wordt gewijzigd wanneer u sleuven wisselen.
+## <a name="which-settings-are-swapped"></a>Welke instellingen worden omgewisseld?
+Als u een configuratie uit een andere implementatiesleuf kloon, kan de configuratie van de gekloonde worden bewerkt. Bepaalde configuratie-elementen wordt bovendien de inhoud via een wisseling (kan niet in sleuf worden specifieke) gevolgd terwijl andere configuratie-elementen staan in dezelfde sleuf zijn na een wisseling (sleuf specifieke blijft). De volgende lijsten ziet de instellingen die wijzigen wanneer u sleuven wisselen.
 
 **Instellingen die worden omgewisseld**:
 
@@ -87,7 +87,7 @@ Als u een configuratie uit een andere implementatiesleuf kloon, kan de configura
 * Schaalinstellingen
 * WebJobs planners
 
-Voor het configureren van een app-instelling of verbindingstekenreeks aan een site (niet verwisseld) toegang krijgen tot de **toepassingsinstellingen** blade voor een specifieke site, selecteer vervolgens de **sleuf instelling** in voor de configuratie elementen die de sleuf moeten houden. Houd er rekening mee dat als is gemarkeerd, een configuratie-element sleuf specifieke heeft het effect van het tot stand brengen van dat element als niet verwisselbare over alle implementatiesites die zijn gekoppeld aan de app.
+Voor het configureren van een app-instelling of verbindingstekenreeks aan een site (niet verwisseld) toegang krijgen tot de **toepassingsinstellingen** blade voor een specifieke site, selecteer vervolgens de **sleuf instelling** in voor de configuratie elementen die de sleuf moeten houden. Een configuratie-element markeren als sleuf specifieke heeft het effect van het tot stand brengen van dat element als niet verwisselbare over alle implementatiesites die zijn gekoppeld aan de app.
 
 ![Sleufinstellingen][SlotSettings]
 
@@ -123,13 +123,13 @@ Bedrijfskritieke werkbelastingen, u wilt valideren dat de app werkt zoals verwac
 
 Wanneer u gebruikt de **wisselen met voorbeeld** optie (Zie [implementatiesites wisselen](#Swap)), App Service doet het volgende:
 
-- Houdt de doelsleuf ongewijzigd zodat bestaande werkbelasting op die sleuf (bijvoorbeeld productie) wordt niet negatief beïnvloed.
+- Houdt de doelsleuf ongewijzigd zodat bestaande werkbelasting op die site (zoals productie) wordt niet negatief beïnvloed.
 - Geldt de configuratie-elementen van de doelsleuf naar de bronsite, met inbegrip van de site-specifieke verbindingsreeksen en app-instellingen.
 - De werkprocessen op de bronsite met behulp van deze elementen van de hiervoor genoemde configuratie opnieuw is opgestart.
 - Wanneer u de wisseling voltooien: de bron van de pre-warmed-up sleuf is verplaatst naar de doelsleuf. De doelsleuf wordt verplaatst naar de bronsite in een handmatige wisseling.
 - Wanneer u de swap annuleert: past u de configuratie-elementen van de bronsite naar de bronsite.
 
-U kunt een voorbeeld precies hoe de app wordt uitgevoerd met de configuratie van de doelsleuf. Nadat de validatie is voltooid, kunt u de wisselruimte in een aparte stap voltooien. Deze stap is de toegevoegde voordeel dat de bron-sleuf al met de gewenste configuratie opgewarmd en clients wordt niet ondervinden geen downtime.  
+U kunt een voorbeeld precies hoe de app wordt uitgevoerd met de configuratie van de doelsleuf. Nadat de validatie is voltooid, kunt u de wisselruimte in een aparte stap voltooien. Deze stap is de toegevoegde voordeel dat de bron-sleuf al met de gewenste configuratie opgewarmd en clients niet ondervinden geen downtime.  
 
 Voorbeelden voor de Azure PowerShell-cmdlets beschikbaar voor meerdere stap wisseling zijn opgenomen in de Azure PowerShell-cmdlets voor implementatie sleuven sectie.
 
@@ -146,7 +146,7 @@ Automatisch wisselen stroomlijnt DevOps-scenario's waar u uw app met nul koude s
 > [!NOTE]
 > Automatisch wisselen wordt niet ondersteund in web-apps op Linux.
 
-Automatisch wisselen configureren voor een sleuf is eenvoudig. Volg de onderstaande stappen:
+Automatisch wisselen configureren voor een sleuf is eenvoudig. Volg deze stappen:
 
 1. In **Implementatiesites**, selecteert u een niet-productiesite en kiest u **toepassingsinstellingen** in die sleuf resource-blade.  
    
@@ -161,11 +161,11 @@ Automatisch wisselen configureren voor een sleuf is eenvoudig. Volg de onderstaa
    > Als u wilt testen automatisch wisselen voor uw app, kunt u eerst een niet-productieve doel sleuf in selecteren **automatisch wisselen sleuf** om vertrouwd te raken met de functie.  
    > 
    > 
-3. Een code te pushen naar de uitrolfase die worden uitgevoerd. Automatisch wisselen gebeurt na een korte periode en de update, worden weergegeven op de doel-sleuf URL.
+3. Een code te pushen naar de uitrolfase die worden uitgevoerd. Automatisch wisselen gebeurt er na een korte periode en de update wordt weergegeven op de doel-sleuf URL.
 
 <a name="Rollback"></a>
 
-## <a name="to-rollback-a-production-app-after-swap"></a>Terug te draaien, een productie-app na wisselen
+## <a name="roll-back-a-production-app-after-swap"></a>Terugdraaien van een productie-app nadat wisselen
 Als er fouten worden geïdentificeerd in het nadat een wisseling sleuf, terugdraaien de sleuven naar de staat van vóór wisselen door de dezelfde twee sleuven onmiddellijk wisselen.
 
 <a name="Warm-up"></a>
@@ -178,9 +178,19 @@ Sommige apps mogelijk aangepaste opgewarmd acties. De `applicationInitialization
         <add initializationPage="/Home/About" hostname="[app hostname]" />
     </applicationInitialization>
 
+## <a name="monitor-swap-progress"></a>Voortgang van de wisseling bewaken
+
+Soms duurt wisselen van de enige tijd hebt voltooid, zoals wanneer de app die zijn uitgewisseld een tijd lang opgewarmd heeft. U kunt meer informatie krijgen over swap-bewerkingen in de [activiteitenlogboek](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) in de [Azure-portal](https://portal.azure.com).
+
+Selecteer in de app-pagina van de portal in de linkernavigatiebalk **activiteitenlogboek**.
+
+Een wisselbewerking wordt weergegeven in de query logboek als `Slotsswap`. U kunt deze uitvouwen en selecteer een van de suboperations of fouten om de details te bekijken.
+
+![Activiteitenlogboek voor sleuf wisselen](media/web-sites-staged-publishing/activity-log.png)
+
 <a name="Delete"></a>
 
-## <a name="to-delete-a-deployment-slot"></a>Een implementatiesleuf verwijderen
+## <a name="delete-a-deployment-slot"></a>Een implementatiesleuf verwijderen
 In de blade voor een implementatiesleuf de implementatiesleuf blade geopend, klikt u op **overzicht** (de standaardpagina), en klik op **verwijderen** in de opdrachtbalk.  
 
 ![Een Implementatiesleuf verwijderen][DeleteStagingSiteButton]
@@ -189,41 +199,47 @@ In de blade voor een implementatiesleuf de implementatiesleuf blade geopend, kli
 
 <a name="PowerShell"></a>
 
-## <a name="azure-powershell-cmdlets-for-deployment-slots"></a>Azure PowerShell-cmdlets voor implementatiesites
+## <a name="automate-with-azure-powershell"></a>Automatiseren met Azure PowerShell
+
 Azure PowerShell is een module die cmdlets voor het beheren van Azure via Windows PowerShell, inclusief ondersteuning voor het beheren van implementatiesites in Azure App Service biedt.
 
 * Zie voor informatie over het installeren en configureren van Azure PowerShell, en Azure PowerShell verifiëren met uw Azure-abonnement, [installeren en configureren van Microsoft Azure PowerShell](/powershell/azure/overview).  
 
 - - -
 ### <a name="create-a-web-app"></a>Een webtoepassing maken
-```
+```PowerShell
 New-AzureRmWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
 ```
 
 - - -
 ### <a name="create-a-deployment-slot"></a>Een implementatiesleuf te maken
-```
+```PowerShell
 New-AzureRmWebAppSlot -ResourceGroupName [resource group name] -Name [app name] -Slot [deployment slot name] -AppServicePlan [app service plan name]
 ```
 
 - - -
 ### <a name="initiate-a-swap-with-preview-multi-phase-swap-and-apply-destination-slot-configuration-to-source-slot"></a>Start een wisseling met voorbeeld (meerdere fase swap) en doel-siteconfiguratie van toepassing op de bronsite
-```
+```PowerShell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 
 - - -
 ### <a name="cancel-a-pending-swap-swap-with-review-and-restore-source-slot-configuration"></a>Annuleren van een wisseling in behandeling (swap met revisie) en bron siteconfiguratie herstellen
-```
+```PowerShell
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01
 ```
 
 - - -
 ### <a name="swap-deployment-slots"></a>Wisselen implementatiesites
-```
+```PowerShell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
+```
+
+### <a name="monitor-swap-events-in-the-activity-log"></a>Monitor voor wisselen gebeurtenissen in het activiteitenlogboek
+```PowerShell
+Get-AzureRmLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller SlotSwapJobProcessor  
 ```
 
 - - -
@@ -237,53 +253,14 @@ Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Mi
 
 <a name="CLI"></a>
 
-## <a name="azure-command-line-interface-azure-cli-commands-for-deployment-slots"></a>Azure Command-Line Interface (Azure CLI)-opdrachten voor Implementatiesites
-De Azure CLI biedt platformoverschrijdende-opdrachten voor het werken met Azure, met inbegrip van ondersteuning voor het beheren van App Service-implementatiesites.
+## <a name="automate-with-azure-cli"></a>Automatiseren met Azure CLI
 
-* Zie voor instructies over het installeren en configureren van de Azure CLI, waaronder informatie over verbinding maken tussen Azure CLI en uw Azure-abonnement [installeren en configureren van de Azure CLI](../cli-install-nodejs.md).
-* Als u de opdrachten die beschikbaar zijn voor Azure App Service in de Azure CLI, roepen `azure site -h`.
-
-> [!NOTE] 
-> Voor [Azure CLI 2.0](https://github.com/Azure/azure-cli) -opdrachten voor implementatiesites, Zie [az webapp implementatiesleuf](/cli/azure/webapp/deployment/slot).
-
-- - -
-### <a name="azure-site-list"></a>sitelijst voor Azure
-Bel voor informatie over de apps in het huidige abonnement **azure sitelijst**, zoals in het volgende voorbeeld.
-
-`azure site list webappslotstest`
-
-- - -
-### <a name="azure-site-create"></a>Azure site maken
-Aanroepen voor het maken van een implementatiesleuf **azure site maken** en geef de naam van een bestaande app en de naam van de site te maken, zoals in het volgende voorbeeld.
-
-`azure site create webappslotstest --slot staging`
-
-Om in te schakelen broncodebeheer voor de nieuwe site, gebruiken de **--git** optie, zoals in het volgende voorbeeld.
-
-`azure site create --git webappslotstest --slot staging`
-
-- - -
-### <a name="azure-site-swap"></a>Azure site wisselen
-Als u de bijgewerkte implementatie sleuf de productie-app, gebruikt u de **azure site wisselen** opdracht voor het uitvoeren van een wisselbewerking wordt uitgevoerd, zoals in het volgende voorbeeld. De productie-app wordt niet uitvaltijd ondervinden, noch wordt een koude start ondergaan.
-
-`azure site swap webappslotstest`
-
-- - -
-### <a name="azure-site-delete"></a>Azure site verwijderen
-Als u wilt verwijderen een implementatiesleuf die niet langer nodig is, gebruikt u de **azure site verwijderen** opdracht, zoals in het volgende voorbeeld.
-
-`azure site delete webappslotstest --slot staging`
-
-- - -
-> [!NOTE]
-> Bekijk een web-app in werking. [App Service uitproberen](https://azure.microsoft.com/try/app-service/) onmiddellijk en maak een tijdelijke app: geen creditcard nodig en zonder verdere verplichtingen.
-> 
-> 
+Voor [Azure CLI](https://github.com/Azure/azure-cli) -opdrachten voor implementatiesites, Zie [az webapp implementatiesleuf](/cli/azure/webapp/deployment/slot).
 
 ## <a name="next-steps"></a>Volgende stappen
-[Azure App Service-Web App – blok webtoegang tot niet-productieve implementatiesites](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
-[Inleiding tot App-Service op Linux](../app-service/containers/app-service-linux-intro.md)
-[gratis proefversie van Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/)
+[Azure App Service-Web App – blok webtoegang tot niet-productieve implementatiesites](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)  
+[Inleiding tot op Linux-App Service](../app-service/containers/app-service-linux-intro.md)  
+[Gratis proefversie van Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/)
 
 <!-- IMAGES -->
 [QGAddNewDeploymentSlot]:  ./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png

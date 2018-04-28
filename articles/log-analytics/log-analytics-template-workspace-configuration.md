@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 04/25/2018
 ms.author: richrund
-ms.openlocfilehash: e51dab1543c9c5c1c762134b3e73d608bcd523ba
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 297f15430c64e5de3c10e6f38855664a50d11a8d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Log Analytics beheren met Azure Resource Manager-sjablonen
 U kunt [Azure Resource Manager-sjablonen](../azure-resource-manager/resource-group-authoring-templates.md) maken en configureren van Log Analytics-werkruimten. Voorbeelden van de taken die u met behulp van sjablonen uitvoeren kunt zijn:
@@ -124,7 +124,7 @@ De volgende parameters instellen een standaardwaarde:
 
 De implementatie kan enkele minuten duren. Wanneer deze is voltooid, ziet u een bericht dat lijkt op de volgende die het resultaat bevat:<br><br> ![Voorbeeld van resultaat wanneer de implementatie is voltooid](./media/log-analytics-template-workspace-configuration/template-output-01.png)
 
-## <a name="create-and-configure-a-log-analytics-workspace"></a>Maken en configureren van een werkruimte voor logboekanalyse
+## <a name="configure-a-log-analytics-workspace"></a>Configureren van een werkruimte voor logboekanalyse
 De volgende sjabloon voorbeeld ziet u hoe:
 
 1. Oplossingen toevoegen aan de werkruimte
@@ -230,7 +230,7 @@ De volgende sjabloon voorbeeld ziet u hoe:
             "Category": "VMSS",
             "ETag": "*",
             "DisplayName": "VMSS Instance Count",
-            "Query": "Event | where Source == "ServiceFabricNodeBootstrapAgent" | summarize AggregatedValue = count() by Computer",
+            "Query": "Event | where Source == \"ServiceFabricNodeBootstrapAgent\" | summarize AggregatedValue = count() by Computer",
             "Version": 1
           }
         },
@@ -506,10 +506,9 @@ De Azure quickstart-sjablonengalerie bevat verschillende sjablonen voor logboeka
 * [Een virtuele machine waarop Linux wordt uitgevoerd met de extensie Log Analytics VM implementeren](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
 * [Azure Site Recovery met behulp van een bestaande werkruimte voor logboekanalyse bewaken](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
 * [Bewaak Web-Apps van Azure met behulp van een bestaande werkruimte voor logboekanalyse](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
-* [Controleprogramma SQL Azure met behulp van een bestaande werkruimte voor logboekanalyse](https://azure.microsoft.com/documentation/templates/101-sqlazure-oms-monitoring/)
-* [Een Service Fabric-cluster implementeren en controleren van het aan een bestaande werkruimte voor logboekanalyse](https://azure.microsoft.com/documentation/templates/service-fabric-oms/)
-* [Een Service Fabric-cluster implementeren en het maken van een werkruimte voor logboekanalyse voor het bewaken van deze](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
+* [Een bestaand opslagaccount toevoegen aan OMS](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Agents te implementeren in Azure VM's met behulp van Resource Manager-sjablonen](log-analytics-azure-vm-extension.md)
+* [Windows-agent implementeren op Azure VM's met behulp van Resource Manager-sjabloon](../virtual-machines/windows/extensions-oms.md).
+* [Linux-agent implementeren op Azure VM's met behulp van Resource Manager-sjabloon](../virtual-machines/linux/extensions-oms.md).
 

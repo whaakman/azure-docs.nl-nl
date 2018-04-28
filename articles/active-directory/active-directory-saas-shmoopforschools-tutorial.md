@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 48db70834f96adbb7097457caca8489ea1a57da5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e824fe7a74c4adc619f7fa324aa6fa28dacecf24
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Zelfstudie: Azure Active Directory-integratie met Shmoop voor scholen
 
@@ -37,7 +37,7 @@ Zie voor meer informatie over de integratie met Azure AD SaaS [wat is er toegang
 Voor het configureren van Azure AD-integratie met Shmoop voor scholen, moet u de volgende items:
 
 - Een Azure AD-abonnement
-- Een Shmoop voor scholen eenmalige aanmelding op ingeschakeld-abonnement
+- Een Shmoop voor scholen eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
 > Gebruik een productie-omgeving voor het testen van de stappen in deze zelfstudie aanbevolen niet.
@@ -80,8 +80,6 @@ In deze sectie kunt u configureren en testen eenmalige aanmelding Azure AD met S
 
 Voor eenmalige aanmelding werkt, moet Azure AD te weten wie de gebruiker equivalent in Shmoop voor scholen is een gebruiker in Azure AD. Met andere woorden, moet u een koppeling tussen een Azure AD-gebruiker en de betreffende gebruiker in Shmoop voor scholen tot stand brengen.
 
-In Shmoop voor scholen, geven de **gebruikersnaam** waarde dezelfde waarde voor de **gebruikersnaam** in Azure AD. U hebt nu de relatie koppeling ingesteld.
-
 Als u wilt configureren en testen Azure AD eenmalige aanmelding met Shmoop voor scholen, voert u de volgende elementen:
 
 1. [Eenmalige aanmelding Azure AD configureren](#configure-azure-ad-single-sign-on) zodat uw gebruikers om deze functie te gebruiken.
@@ -108,9 +106,9 @@ In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure por
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_url.png)
 
-    a. In de **aanmeldings-URL** vak een URL met het volgende patroon volgen:`https://schools.shmoop.com/public-api/saml2/start/<uniqueid>`
+    a. In de **aanmeldings-URL** vak een URL met het volgende patroon volgen: `https://schools.shmoop.com/public-api/saml2/start/<uniqueid>`
 
-    b. In de **id** vak een URL met het volgende patroon volgen:`https://schools.shmoop.com/<uniqueid>`
+    b. In de **id** vak een URL met het volgende patroon volgen: `https://schools.shmoop.com/<uniqueid>`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke aanmeldings-URL en de id. Neem contact op met de [Shmoop voor scholen Client ondersteuningsteam](mailto:support@shmoop.com) ophalen van deze waarden. 
@@ -146,31 +144,11 @@ In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure por
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_general_400.png)
 
-7. Voor het genereren van de **metagegevens** -URL, de volgende stappen uit:
+7. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en plak deze in Kladblok.
 
-    a. Selecteer **App registraties**.
-    
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_appregistrations.png)
-   
-    b. Openen van de **eindpunten** dialoogvenster, **eindpunten**.  
-    
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_endpointicon.png)
+    ![De downloadkoppeling certificaat](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_certificate.png)
 
-    c. Selecteer de knop kopiëren om te kopiëren de **DOCUMENT met federatieve metagegevens** URL en plak deze in Kladblok.
-    
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_endpoint.png)
-     
-    d. Ga naar de eigenschappenpagina van **Shmoop voor scholen**. Kopieer de **toepassings-ID** met behulp van de **kopie** knop. Plak deze in Kladblok.
- 
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_appid.png)
-
-    e. Genereren van de **metagegevens-URL** met behulp van het volgende patroon volgen: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`.   
-
-8. Eenmalige aanmelding configureren op de **Shmoop voor scholen** kant die u wilt verzenden de **metagegevens-URL** naar de [Shmoop voor scholen ondersteuningsteam](mailto:support@shmoop.com).
-
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com) tijdens het instellen van de app. Na het toevoegen van deze app uit de **Active Directory** > **bedrijfstoepassingen** sectie, selecteer de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de functie embedded-documentatie op [documentatie van Azure AD ingesloten]( https://go.microsoft.com/fwlink/?linkid=845985).
-> 
+8. Eenmalige aanmelding configureren op de **Shmoop voor scholen** kant die u wilt verzenden de **App-Url voor federatieve metagegevens** naar de [Shmoop voor scholen ondersteuningsteam](mailto:support@shmoop.com).
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
@@ -249,7 +227,7 @@ Wanneer u selecteert de **Shmoop voor scholen** tegel in het deelvenster toegang
 
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies voor het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

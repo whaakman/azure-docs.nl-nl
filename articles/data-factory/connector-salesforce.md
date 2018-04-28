@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: e6440bfd3297ee68cd4ff79c8654b5f97cba077e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f4de97ef2df5351ac7e8574717ee1439b54a90e8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Salesforce met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -236,7 +236,7 @@ Om gegevens te kopiëren naar Salesforce, stelt u het sink-type in de kopieerbew
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de activiteit kopiëren sink moet worden ingesteld op **SalesforceSink**. | Ja |
-| writeBehavior | Het gedrag schrijven voor de bewerking.<br/>Toegestane waarden zijn **invoegen** en **Upsert**. | Nee (de standaardwaarde is invoegen) |
+| WriteBehavior | Het gedrag schrijven voor de bewerking.<br/>Toegestane waarden zijn **invoegen** en **Upsert**. | Nee (de standaardwaarde is invoegen) |
 | externalIdFieldName | De naam van het externe ID-veld voor de bewerking upsert. Het opgegeven veld moet worden gedefinieerd als 'Externe Id Field' in het Salesforce-object. Er kan geen NULL-waarden in de bijbehorende invoergegevens. | Ja voor "Upsert" |
 | writeBatchSize | Het aantal rijen van de gegevens die naar Salesforce zijn geschreven in elke batch. | Nee (de standaardwaarde is 5.000) |
 | ignoreNullValues | Hiermee wordt aangegeven of NULL-waarden van invoergegevens tijdens een schrijfactie genegeerd.<br/>Toegestane waarden zijn **true** en **false**.<br>- **De waarde True**: laat de gegevens in het doelobject ongewijzigd wanneer u een upsert of update-bewerking uitvoeren. Plaats een gedefinieerde standaardwaarde als u een insert-bewerking doet.<br/>- **ONWAAR**: de gegevens in het doelobject op NULL bijwerken wanneer u een upsert of update-bewerking uitvoeren. Plaats een NULL-waarde als u een insert-bewerking doet. | Nee (de standaardwaarde is ONWAAR) |
@@ -294,7 +294,7 @@ Om te vragen de voorlopig verwijderde records uit de Salesforce-Prullenbak, kunt
 Wanneer u de SOQL of SQL-query opgeeft, moet u aandacht schenken aan het verschil van datum/tijd-indeling. Bijvoorbeeld:
 
 * **Voorbeeld van SOQL**: `SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
-* **SQL-voorbeeld**: `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}"`
+* **SQL-voorbeeld**: `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
 
 ## <a name="data-type-mapping-for-salesforce"></a>Toewijzing voor de Salesforce-gegevenstype
 
@@ -307,7 +307,7 @@ Als u gegevens van Salesforce kopieert, worden de volgende toewijzingen van Sale
 | Valuta |Double |
 | Date |DateTime |
 | Datum/tijd |DateTime |
-| E-mail |Tekenreeks |
+| Email |Tekenreeks |
 | Id |Tekenreeks |
 | Opzoekrelatie |Tekenreeks |
 | Meervoudige selectie selectielijst |Tekenreeks |

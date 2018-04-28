@@ -3,7 +3,7 @@ title: Verificatie in twee stappen oplossen | Microsoft Docs
 description: Dit document bevatten gebruikers informatie over wat te doen als ze worden uitgevoerd in een probleem met de Azure multi-factor Authentication.
 services: multi-factor-authentication
 keywords: multifactor-verificatie-client, verificatieprobleem, correlatie-ID
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
@@ -16,13 +16,13 @@ ms.date: 07/06/2017
 ms.author: barlan
 ms.reviewer: richagi
 ms.custom: end-user
-ms.openlocfilehash: 20a90aa36b727b18fb37aaf658da884b5997cd44
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 736a1f03ef87850fdaaee7ce636d8dd0f3ae1a84
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="get-help-with-two-step-verification"></a>Hulp bij de verificatie in twee stappen
+# <a name="get-help-with-two-step-verification"></a>Help-informatie weergeven bij verificatie in twee stappen
 Dit artikel worden de meest voorkomende vragen over verificatie in twee stappen. 
 
 ## <a name="why-do-i-have-to-perform-two-step-verification-can-i-turn-it-off"></a>Waarom heb ik verificatie in twee stappen uitvoeren? Kan ik uitschakelen?
@@ -86,7 +86,7 @@ Als u een andere methode geconfigureerd hebt, contact op met de ondersteuning va
 Als u vaak vertragingen vanwege ongeldige cel signaal hebt, raden wij aan u de [Microsoft Authenticator-app](microsoft-authenticator-app-how-to.md) op je smartphone. De app kan genereren willekeurige beveiligingscodes die u aan te melden en deze codes geen elke cel signaal of via internet verbinding vereist.
 
 ## <a name="app-passwords-are-not-working"></a>App-wachtwoorden werken niet
-Controleer eerst of u het app-wachtwoord correct hebt ingevoerd. Het gegenereerde app-wachtwoord wordt vervangen door uw normale wachtwoord, maar alleen voor oudere desktoptoepassingen die verificatie in twee stappen niet ondersteunen. Als deze nog steeds niet werkt, probeer aanmelden en [een nieuw appwachtwoord maken](multi-factor-authentication-end-user-app-passwords.md).  Als deze nog steeds niet werkt, neem contact op met de ondersteuning van uw bedrijf en hebben ze [verwijderen van uw bestaande app-wachtwoorden](../multi-factor-authentication-manage-users-and-devices.md) en vervolgens maakt u een nieuwe.
+Controleer eerst of u het app-wachtwoord correct hebt ingevoerd. Het gegenereerde app-wachtwoord wordt vervangen door uw normale wachtwoord, maar alleen voor oudere desktoptoepassingen die verificatie in twee stappen niet ondersteunen. Als deze nog steeds niet werkt, probeer aanmelden en [een nieuw appwachtwoord maken](multi-factor-authentication-end-user-app-passwords.md).  Als deze nog steeds niet werkt, neem contact op met de ondersteuning van uw bedrijf en hebben ze [verwijderen van uw bestaande app-wachtwoorden](../../active-directory/authentication/howto-mfa-userdevicesettings.md) en vervolgens maakt u een nieuwe.
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>Ik vinden een antwoord op mijn probleem niet.
 Als u deze stappen hebt geprobeerd, maar wordt nog steeds uitgevoerd op problemen, neem dan contact op met de ondersteuning van uw bedrijf. Ze moeten mogelijk om u te helpen.

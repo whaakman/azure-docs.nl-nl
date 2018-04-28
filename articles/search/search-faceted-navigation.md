@@ -1,24 +1,18 @@
 ---
 title: Meervoudige navigatie implementeren in Azure Search | Microsoft Docs
-description: "Meervoudige navigatie toevoegen aan toepassingen die zijn geïntegreerd met Azure Search, een zoekservice in de cloud gehoste op Microsoft Azure."
-services: search
-documentationcenter: 
+description: Meervoudige navigatie toevoegen aan toepassingen die zijn geïntegreerd met Azure Search, een zoekservice in de cloud gehoste op Microsoft Azure.
 author: HeidiSteen
-manager: mblythe
-editor: 
-ms.assetid: cdf98fd4-63fd-4b50-b0b0-835cb08ad4d3
+manager: cgronlun
+services: search
 ms.service: search
-ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 3/10/2017
 ms.author: heidist
-ms.openlocfilehash: 413f498eeb0bbc9a971c7a65200ed2fd8caa9aaf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 1bd814250a243d03f1eedc4d0ecb2719975b9c6f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Facetnavigatie implementeren in Azure Search
 Meervoudige navigatie is een filtermechanisme waarmee zelf gerichte analyse navigatie in toepassingen. De term 'facetnavigatie' niet bekend zijn, maar u hebt waarschijnlijk het eerder gebruikt. Zoals in het volgende voorbeeld toont, wordt er meervoudige navigatie is niets meer dan de categorieën die wordt gebruikt voor het filteren van resultaten.
@@ -54,7 +48,7 @@ Het beginpunt is een toepassingspagina waarmee facetnavigatie doorgaans op de om
 1. Een query verzonden naar Azure Search Hiermee geeft u de structuur facetnavigatie via een of meer facet queryparameters. Bijvoorbeeld: de query kan onder andere `facet=Rating`, mogelijk met een `:values` of `:sort` optie om de presentatie verder te verfijnen.
 2. De laag voor presentatie geeft een zoekpagina waarmee facetnavigatie met de facetten die zijn opgegeven voor de aanvraag.
 3. Uitgaande van een meervoudige navigatie-structuur met de classificatie, u klikt op '4' om aan te geven dat alleen producten met een classificatie van 4 of hoger moeten worden weergegeven. 
-4. Als antwoord verzendt de toepassing een query met`$filter=Rating ge 4` 
+4. Als antwoord verzendt de toepassing een query met `$filter=Rating ge 4` 
 5. De laag voor presentatie updates de pagina, met een verminderde resultatenset met alleen de items die voldoen aan de nieuwe criteria (in dit geval producten beoordeeld 4 en hoger).
 
 Een facet is een queryparameter, maar niet verwarren met invoer voor de query. Dit wordt nooit gebruikt als selectiecriteria in een query. In plaats daarvan zien facet queryparameters als invoer voor de navigatiestructuur die weer in het antwoord. Voor elke facet queryparameter die u opgeeft, evalueert Azure Search hoeveel documenten zijn in de gedeeltelijke resultaten voor elke facetwaarde.
@@ -301,7 +295,7 @@ In het algemeen als u vindt dat facet resultaten consistent is te groot, raden w
 
 Er is een standaardlimiet van 10 waarden voor elk meervoudige veld in de navigatiestructuur. Deze standaardinstelling zinvolle voor navigatiestructuur omdat het zorgt ervoor dat de waardelijst beheerbare grootte. U kunt deze standaardinstelling negeren door het toewijzen van een waarde op te tellen.
 
-* `&facet=city,count:5`Hiermee geeft u op dat alleen de eerste vijf steden gevonden in de rechterbovenhoek gerangschikt resultaten worden geretourneerd als gevolg hiervan facet. U kunt een voorbeeldquery met een zoekterm van 'luchthaven' en 32 overeenkomsten. Als de query geeft `&facet=city,count:5`, alleen de eerste vijf unieke steden met de meeste documenten in de zoekresultaten zijn opgenomen in de resultaten facet.
+* `&facet=city,count:5` Hiermee geeft u op dat alleen de eerste vijf steden gevonden in de rechterbovenhoek gerangschikt resultaten worden geretourneerd als gevolg hiervan facet. U kunt een voorbeeldquery met een zoekterm van 'luchthaven' en 32 overeenkomsten. Als de query geeft `&facet=city,count:5`, alleen de eerste vijf unieke steden met de meeste documenten in de zoekresultaten zijn opgenomen in de resultaten facet.
 
 U ziet het onderscheid tussen facet resultaten en zoekresultaten. Zoekresultaten zijn alle documenten die overeenkomen met de query. Facet resultaten worden de overeenkomsten voor elke facetwaarde. In het voorbeeld bevatten de zoekresultaten stad namen die zich niet in de lijst met facet classificatie (5 in ons voorbeeld). De resultaten worden gefilterd via facetnavigatie zichtbaar wanneer u facetten wissen, of kies andere facetten naast plaats. 
 
@@ -340,7 +334,7 @@ Facetten via bereiken met waarden is een algemene zoekopdracht toepassing vereis
 Azure Search vereenvoudigt bereik constructie dankzij de twee methoden voor het berekenen van een bereik. Voor beide benaderingen maakt Azure Search de juiste bereiken gegeven van de invoerwaarden die u hebt opgegeven. Bijvoorbeeld, als u de waarden van 10 opgeeft | 20 | 30, wordt kan bereiken van 0-10, 10-20, 20-30 automatisch gemaakt. Uw toepassing kunt desgewenst verwijderen voor de tijdstippen die leeg zijn. 
 
 **Methode 1: Gebruik de parameter interval**  
-Prijs facetten in $10 stappen stelt opgeven:`&facet=price,interval:10`
+Prijs facetten in $10 stappen stelt opgeven: `&facet=price,interval:10`
 
 **Methode 2: Een lijst met waarden gebruiken**  
 U kunt een lijst met waarden gebruiken voor numerieke gegevens.  Houd rekening met het facet bereik voor een `listPrice` veld als volgt weergegeven:

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 9391072159f26ae8c7d3eba9f023a8e7d62a4e26
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: fedf511e06243d5c0652e422b397bb00da3b42c6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>App-Service op Azure-Stack update 1 release-opmerkingen
 
@@ -124,7 +124,7 @@ Site sleuf wisselen is onderverdeeld in deze release. Om functionaliteit te hers
 1. Wijzigen van de Netwerkbeveiligingsgroep voor ControllersNSG naar **toestaan** extern bureaublad-verbindingen naar de App Service-controller-exemplaren. AppService.local vervangen door de naam van de resourcegroep die u hebt geïmplementeerd in-App Service.
 
     ```powershell
-      Connect-AzureRmAccount -EnvironmentName AzureStackAdmin
+      Add-AzureRmAccount -EnvironmentName AzureStackAdmin
 
       $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
 
@@ -175,7 +175,7 @@ Site sleuf wisselen is onderverdeeld in deze release. Om functionaliteit te hers
 
     ```powershell
 
-        Connect-AzureRmAccount -EnvironmentName AzureStackAdmin
+        Add-AzureRmAccount -EnvironmentName AzureStackAdmin
 
         $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: voellm
-ms.openlocfilehash: c32c85c560e9dfe587e79e77aa4b1262e347bed4
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 831fa2b6b9afb39bff715ef54cc41e11ee903e50
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Versleuteling van Azure DB Cosmos-database in rust
 
@@ -65,4 +65,4 @@ A: de emulator is een zelfstandig hulpprogramma dat ontwikkelen en testen en de 
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie voor een overzicht van de Cosmos-DB beveiligings- en de laatste verbeteringen [Azure Cosmos DB databasebeveiliging](database-security.md).
-Zie voor meer informatie over Microsoft certificeringen de [Azure Vertrouwenscentrum](https://azure.microsoft.com/en-us/support/trust-center/).
+Zie voor meer informatie over Microsoft certificeringen de [Azure Vertrouwenscentrum](https://azure.microsoft.com/support/trust-center/).

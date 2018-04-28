@@ -1,30 +1,26 @@
 ---
-title: Inleiding in de tabel-ontwerp - Azure SQL Data Warehouse | Microsoft Docs
+title: Het ontwerpen van tabellen - Azure SQL Data Warehouse | Microsoft-documenten
 description: Inleiding tot het ontwerpen van tabellen in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: 
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 01/18/2018
-ms.author: barbkess
-ms.openlocfilehash: 5c163880a7508d69bce0019cc5379bca8c704d59
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: d299ff0d8e719040d503852af6056d9d87738b7d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="introduction-to-designing-tables-in-azure-sql-data-warehouse"></a>Inleiding tot het ontwerpen van tabellen in Azure SQL Data Warehouse
+# <a name="designing-tables-in-azure-sql-data-warehouse"></a>Tabellen in Azure SQL Data Warehouse ontwerpen
 
 Meer informatie over belangrijke concepten voor het ontwerpen van tabellen in Azure SQL Data Warehouse. 
 
-## <a name="determining-table-category"></a>Tabelcategorie bepalen 
+## <a name="determine-table-category"></a>Tabelcategorie bepalen 
 
 Een [sterschema](https://en.wikipedia.org/wiki/Star_schema) gegevens zijn gerangschikt in feiten- en dimensietabellen tabellen. Sommige tabellen worden gebruikt voor integratie of staging-gegevens voordat deze wordt verplaatst naar een tabel met het feit of de dimensie. Bij het ontwerpen van een tabel, moet u bepalen of gegevens in de tabel in een feitelijke dimensie of een integratie tabel hoort. Deze beslissing informeert het juiste tabelstructuur en distribueren. 
 
@@ -46,9 +42,9 @@ CREATE SCHEMA wwi;
 Als de organisatie van de tabellen in SQL Data Warehouse weergeven, kunt u feitelijke dimensie en int gebruiken als voorvoegsels zodat de tabelnamen. De volgende tabel bevat enkele van de schema- en tabelnamen voor WideWorldImportersDW. De namen in SQL Server met de namen in SQL Data Warehouse worden vergeleken. 
 
 | WideWorldImportersDW tabel  | Tabeltype | SQL Server | SQL Data Warehouse |
-|:-----|:-----|:------|
+|:-----|:-----|:------|:-----|
 | Plaats | Dimensie | Dimension.City | wwi.DimCity |
-| Volgorde | Fact | Fact.Order | wwi.FactOrder |
+| Volgorde | Feit | Fact.Order | wwi.FactOrder |
 
 
 ## <a name="table-persistence"></a>Persistentie van de tabel 
@@ -70,7 +66,7 @@ Een tijdelijke tabel is alleen beschikbaar voor de duur van de sessie. U kunt ee
 Een externe tabel verwijst naar gegevens die zich bevinden in Azure Storage-blob of Azure Data Lake Store. Wanneer gebruikt in combinatie met de instructie CREATE TABLE AS SELECT, importeert selecteren in een externe tabel gegevens in SQL Data Warehouse. Externe tabellen zijn daarom nuttig voor het laden van gegevens. Zie voor een zelfstudie laden [gebruik PolyBase om gegevens te laden uit Azure blob storage](load-data-from-azure-blob-storage-using-polybase.md).
 
 ## <a name="data-types"></a>Gegevenstypen
-SQL Data Warehouse ondersteunt gebruikte de meest gegevenstypen. Zie voor een lijst van de ondersteunde gegevenstypen [gegevenstypen in CREATE TABLE verwijzing](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) in de instructie CREATE TABLE. Voor het minimaliseren van de grootte van gegevenstypen kunt u queryprestaties verbeteren. Zie voor instructies over het gebruik van gegevenstypen [gegevenstypen](sql-data-warehouse-tables-data-types.md).
+SQL Data Warehouse ondersteunt gebruikte de meest gegevenstypen. Zie voor een lijst van de ondersteunde gegevenstypen [gegevenstypen in CREATE TABLE verwijzing](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) in de instructie CREATE TABLE. Voor het minimaliseren van de grootte van gegevenstypen kunt u queryprestaties verbeteren. Zie voor instructies over het gebruik van gegevenstypen [gegevenstypen](sql-data-warehouse-tables-data-types.md).
 
 ## <a name="distributed-tables"></a>Gedistribueerde tabellen
 Een fundamenteel onderdeel van SQL Data Warehouse is de manier kunnen worden opgeslagen en tabellen niet bewerken via 60 [distributies](massively-parallel-processing-mpp-architecture.md#distributions).  De tabellen worden gedistribueerd met behulp van een methode round robin, hash of replicatie.
@@ -96,7 +92,7 @@ De tabelcategorie wordt vaak bepaalt welke optie te kiezen voor het distribueren
 
 | Tabelcategorie | Optie aanbevolen distributie |
 |:---------------|:--------------------|
-| Fact           | Hash-distributiepunt gebruiken met geclusterde columnstore-index. Prestaties verbeteren door twee hashtabellen zijn gekoppeld op dezelfde kolom van het distributiepunt. |
+| Feit           | Hash-distributiepunt gebruiken met geclusterde columnstore-index. Prestaties verbeteren door twee hashtabellen zijn gekoppeld op dezelfde kolom van het distributiepunt. |
 | Dimensie      | Gebruik voor kleinere tabellen zijn gerepliceerd. Als tabellen te groot om op te slaan op elk rekenknooppunt zijn, gebruikt u de hash is gedistribueerd. |
 | Faseren        | Round robin gebruiken voor de faseringstabel. De werklast met CTAS is snel. Nadat de gegevens in de faseringstabel is, gebruikt u INSERT... Selecteer de gegevens worden verplaatst naar een productie-tabellen. |
 
@@ -106,7 +102,7 @@ Een gepartitioneerde tabel slaat en bewerkingen worden uitgevoerd op de tabelrij
 ## <a name="columnstore-indexes"></a>Columnstore-indexen
 Standaard wordt een tabel in SQL Data Warehouse opgeslagen als een geclusterde columnstore-index. Deze vorm van gegevensopslag realiseert hoge gegevenscompressie en prestaties van query's op grote tabellen.  De geclusterde columnstore-index is meestal de beste keuze, maar in sommige gevallen een geclusterde index of een heap is de juiste opslagstructuur.
 
-Zie voor een lijst met functies columnstore [wat is er nieuw voor columnstore-indexen](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). Columnstore-index om prestaties te verbeteren, Zie [rijgroep kwaliteit voor columnstore-indexen optimaliseren](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+Zie voor een lijst met functies columnstore [wat is er nieuw voor columnstore-indexen](/sql/relational-databases/indexes/columnstore-indexes-whats-new). Columnstore-index om prestaties te verbeteren, Zie [rijgroep kwaliteit voor columnstore-indexen optimaliseren](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 ## <a name="statistics"></a>statistieken
 De queryoptimizer maakt gebruik van statistieken op kolomniveau bij het maken van het plan voor een query uit te voeren. Ter verbetering van de prestaties van query's, is het belangrijk dat u statistieken maakt voor afzonderlijke kolommen, met name de kolommen in de query wordt gebruikt. Maken en bijwerken van statistieken gebeurt niet automatisch. [Maken van statistieken](/sql/t-sql/statements/create-statistics-transact-sql) na het maken van een tabel. Statistieken bijwerken nadat u een groot aantal rijen zijn toegevoegd of gewijzigd. Bijvoorbeeld: statistieken bijwerken na een belasting. Zie voor meer informatie [statistieken richtlijnen](sql-data-warehouse-tables-statistics.md).
@@ -137,13 +133,13 @@ SQL Data Warehouse biedt ondersteuning voor veel, maar niet alle tabelfuncties d
 - [Reeks](/sql/t-sql/statements/create-sequence-transact-sql)
 - [Sparse kolommen](/sql/relational-databases/tables/use-sparse-columns)
 - [Vervangend sleutels](). Implementeren met [identiteit](sql-data-warehouse-tables-identity.md).
-- [Synonyms](/sql/t-sql/statements/create-synonym-transact-sql)
+- [Synoniemen](/sql/t-sql/statements/create-synonym-transact-sql)
 - [Triggers](/sql/t-sql/statements/create-trigger-transact-sql)
 - [Unieke indexen](/sql/t-sql/statements/create-index-transact-sql)
 - [Gebruiker gedefinieerde typen](/sql/relational-databases/native-client/features/using-user-defined-types)
 
 ## <a name="table-size-queries"></a>Tabel grootte query 's
-Er is een eenvoudige manier om ruimte en de rijen die worden gebruikt door een tabel in elk van de 60 distributies te identificeren met DBCC PDW_SHOWSPACEUSED [DBCC PDW_SHOWSPACEUSED].
+Een eenvoudige manier om ruimte en de rijen die worden gebruikt door een tabel in elk van de 60 distributies te identificeren, is met [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql).
 
 ```sql
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
@@ -342,4 +338,4 @@ ORDER BY    distribution_id
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Na het maken van de tabellen voor het datawarehouse van is de volgende stap om gegevens te laden in de tabel.  Zie voor een zelfstudie laden [laden van gegevens uit Azure blob storage met PolyBase](load-data-from-azure-blob-storage-using-polybase.md).
+Na het maken van de tabellen voor het datawarehouse van is de volgende stap om gegevens te laden in de tabel.  Zie voor een zelfstudie laden [laden van gegevens naar SQL Data Warehouse](load-data-wideworldimportersdw.md).

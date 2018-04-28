@@ -10,23 +10,23 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: carlrab
-ms.openlocfilehash: 38b7749ae83f1c4b037ec1996c84a9ffca1de50e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: c42bdaf932c29d9e4505266099960dafb48be937
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Kies een SQL Server-cloudoptie: Azure SQL (PaaS) Database of SQL Server op Azure Virtual Machines (IaaS)
 Azure heeft twee opties om SQL Server-workloads te hosten in Microsoft Azure:
 
 * [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): een systeemeigen SQL Database in de cloud, ook wel bekend als een platform als een servicedatabase (PaaS) of als een database als een service (DBaaS) die is geoptimaliseerd voor ontwikkeling van apps voor software als een service (SaaS). Biedt compatibiliteit met de meeste functies van SQL Server. Zie [Wat is PaaS](https://azure.microsoft.com/overview/what-is-paas/) voor meer informatie over PaaS.
 * [SQL Server op Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/): SQL Server die is geïnstalleerd en wordt gehost in de cloud op Windows Server Virtual Machines (VM's) die worden uitgevoerd op Azure, ook wel bekend als een infrastructuur als een service (IaaS).
-  SQL Server op Azure Virtual Machines is geoptimaliseerd om bestaande SQL Server-toepassingen te migreren. Alle versies en edities van SQL Server zijn beschikbaar. Biedt 100% compatibiliteit met SQL Server. Hierdoor kunt u zoveel databases als nodig hosten en meerdere databasetransacties uitvoeren. Biedt volledig beheer voor SQL Server en Windows.
+  SQL Server op virtuele machines in Azure is de SQL Server-software die u wilt installeren op uw server On-premises - het enige verschil is dat deze server nu een virtuele machine die wordt gehost in Azure is. SQL Server op Azure is geoptimaliseerd voor het migreren van bestaande SQL Server-toepassingen en alle versies en edities van SQL Server beschikbaar zijn. Dit kunt u veel databases, indien nodig, ondersteunt uitvoerende transacties met meerdere databases hosten en volledig beheer van uw SQL Server-exemplaar en het Windows-besturingssysteem biedt.
 
 Ontdek hoe elke optie in het Microsoft-gegevensplatform past en krijg hulp bij het vinden van de juiste optie voor uw zakelijke vereisten. Of u nu kostenbesparingen of minimaal beheer het belangrijkst vindt, met dit artikel kunt u beslissen welke benadering de bedrijfsvereisten levert die u het belangrijkst vindt.
 
 ## <a name="microsofts-data-platform"></a>Gegevensplatform van Microsoft
-Een van de eerste belangrijke punten in een discussie over Azure ten opzichte van on-premises SQL Server-databases is dat u alles kunt gebruiken. Het gegevensplatform van Microsoft maakt gebruik van SQL Server-technologie en maakt deze beschikbaar op fysieke on-premises machines, privécloudomgevingen, externe gehoste privécloudomgevingen en openbare cloud. Met SQL Server op virtuele Azure-machines kunt u voldoen aan de unieke en diverse bedrijfsbehoeften met een combinatie van on-premises en in de cloud gehoste implementaties terwijl dezelfde set serverproducten, ontwikkelingsprogramma's en kennis wordt gebruikt in deze omgevingen.
+Een van de eerste belangrijke punten in een discussie over Azure ten opzichte van on-premises SQL Server-databases is dat u alles kunt gebruiken. Gegevensplatform van Microsoft maakt gebruik van SQL Server-technologie en maakt deze beschikbaar op fysieke on-premises machines, privécloudomgevingen, van derden gehoste privécloudomgevingen en openbare cloud van Microsoft. Met SQL Server op virtuele Azure-machines kunt u voldoen aan de unieke en diverse bedrijfsbehoeften met een combinatie van on-premises en in de cloud gehoste implementaties terwijl dezelfde set serverproducten, ontwikkelingsprogramma's en kennis wordt gebruikt in deze omgevingen.
 
    ![Opties SQL Server cloud: SQL server op IaaS of SaaS-SQL Database in de cloud.](./media/sql-database-paas-vs-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png)
 
@@ -56,7 +56,7 @@ De volgende tabel geeft een overzicht van de belangrijkste kenmerken van de SQL 
 | **Ideaal voor:** | **Azure SQL Database** | **SQL Server op een virtuele Azure-machine** |
 | --- | --- | --- |
 |  |Nieuwe in de cloud ontworpen toepassingen met tijdsbeperkingen op het gebied van ontwikkeling en marketing. |Bestaande toepassingen waar snelle migratie naar de cloud met minimale wijzigingen voor nodig is. Snelle ontwikkelings- en testscenario's als u geen on-premises SQL Server-hardware wilt kopen die niet bestemd is voor productie. |
-|  | Teams die ingebouwde hoge beschikbaarheid, herstel na noodgevallen en upgrademogelijkheden van de database nodig hebben. |Teams die hoge beschikbaarheid, herstel na noodgevallen en patchen van SQL Server kunnen configureren en beheren. Sommige geleverde geautomatiseerde functies vereenvoudigen dit aanzienlijk. | |
+|  | Teams die u wilt dat Microsoft voor het beheren van hun database upgrades, hoge beschikbaarheid en herstel na noodgevallen. |Teams die hoge beschikbaarheid, herstel na noodgevallen en patchen van SQL Server kunnen configureren en beheren. Sommige geleverde geautomatiseerde functies vereenvoudigen dit aanzienlijk. | |
 |  | Teams die het onderliggende besturingssysteem en configuratie-instellingen niet willen beheren. |U moet een aangepaste omgeving met volledige beheerdersrechten. | |
 |  | Databases van maximaal 4 TB of meer databases die kunnen worden [horizontaal of verticaal gepartitioneerd](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) met behulp van een scale-out-patroon. |SQL Server-exemplaren met maximaal 64 TB aan opslag. Het exemplaar kan zoveel databases ondersteunen als nodig is. | |
 |  | | |
@@ -81,7 +81,7 @@ Op dit moment is **SQL Database** beschikbaar in verschillende servicelagen, die
 
 Met **SQL Database** wordt de databasesoftware automatisch geconfigureerd, hersteld en bijgewerkt door Microsoft, waardoor uw beheerkosten worden verlaagd. Bovendien kunt u met de [ingebouwde back-up](sql-database-automated-backups.md)mogelijkheden aanzienlijk op kosten besparen, vooral wanneer u een groot aantal databases hebt.
 
-Met **SQL Server op Azure Virtual Machines** kunt u alle door het platform geleverde SQL Server-installatiekopieën (met een licentie) gebruiken of uw SQL Server-licentie meenemen. Alle ondersteunde SQL Server-versies (2008R2, 2012, 2014, 2016) en edities (Developer, Express, Web, Standard, Enterprise) zijn beschikbaar. Bovendien zijn er Bring Your Own License-versies (BYOL) van de installatiekopieën beschikbaar. Wanneer u de door Azure geleverde installatiekopieën gebruikt, zijn de operationele kosten afhankelijk van de VM-grootte en de versie van SQL Server die u kiest. U betaalt licentiekosten van SQL Server en Windows Server per minuut, samen met de kosten van Azure Storage voor de VM-schijven, ongeacht de VM-grootte of versie van SQL Server. Met de optie factureren per minuut kunt u SQL Server blijven gebruiken zonder aanvullende SQL Server-licenties te kopen. Als u uw eigen SQL Server-licentie meeneemt naar Azure, worden alleen Windows Server en de kosten voor opslag in rekening gebracht. Zie voor meer informatie over meenemen van uw eigen licentie [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/).
+Met **SQL Server op Azure Virtual Machines** kunt u alle door het platform geleverde SQL Server-installatiekopieën (met een licentie) gebruiken of uw SQL Server-licentie meenemen. Alle ondersteunde versies van SQL Server (2008 R2, 2012, 2014, 2016, 2017) en editions (Developer, snelle, Web, Standard, Enterprise) beschikbaar zijn. Bovendien zijn er Bring Your Own License-versies (BYOL) van de installatiekopieën beschikbaar. Wanneer u de door Azure geleverde installatiekopieën gebruikt, zijn de operationele kosten afhankelijk van de VM-grootte en de versie van SQL Server die u kiest. U betaalt licentiekosten van SQL Server en Windows Server per minuut, samen met de kosten van Azure Storage voor de VM-schijven, ongeacht de VM-grootte of versie van SQL Server. Met de optie factureren per minuut kunt u SQL Server blijven gebruiken zonder aanvullende SQL Server-licenties te kopen. Als u uw eigen SQL Server-licentie meeneemt naar Azure, worden alleen Windows Server en de kosten voor opslag in rekening gebracht. Zie voor meer informatie over meenemen van uw eigen licentie [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/).
 
 #### <a name="calculating-the-total-application-cost"></a>De totale kosten voor de toepassing berekenen
 Als u een cloudplatform gaat gebruiken, bestaan de kosten van het uitvoeren van uw toepassing uit de ontwikkelings- en beheerkosten en de servicekosten voor het openbare cloudplatform.

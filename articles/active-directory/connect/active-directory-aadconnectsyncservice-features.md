@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 534e4e6d8b6ea2bfc059383e3e55c0352678ee04
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: eb2a670735db8a72163967d89d0359b4b89a3e2f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect sync-service-functies
 De synchronisatiefunctie van Azure AD Connect bestaat uit twee onderdelen:
@@ -56,7 +56,7 @@ De volgende instellingen zijn geconfigureerd voor Azure AD Connect en kan niet w
 | DeviceWriteback |[Azure AD Connect: Apparaat terugschrijven inschakelen](active-directory-aadconnect-feature-device-writeback.md) |
 | DirectoryExtensions |[Azure AD Connect-synchronisatie: Directory-uitbreidingen](active-directory-aadconnectsync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Hiermee kunt een kenmerk in quarantaine geplaatst wanneer dit is een duplicaat van een ander object in plaats van het gehele object mislukt tijdens het exporteren. |
-| PasswordSync |[Wachtwoordsynchronisatie met Azure AD Connect-synchronisatie implementeren](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
+| PasswordSync |[Implementatie van synchronisatie van wachtwoordhash met Azure AD Connect-synchronisatie](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
 | UnifiedGroupWriteback |[Voorbeeld: Groep terugschrijven](active-directory-aadconnect-feature-preview.md#group-writeback) |
 | UserWriteback |Momenteel niet ondersteund. |
 
@@ -88,7 +88,7 @@ In het verleden hebben updates voor het kenmerk UserPrincipalName met behulp van
 
 Zie voor meer informatie [gebruikersnamen in Office 365, Azure of Intune komen niet overeen met de lokale UPN of de alternatieve aanmeldings-ID](https://support.microsoft.com/kb/2523192).
 
-Deze functie inschakelt, kunt de synchronisatie-engine de userPrincipalName bijwerken wanneer het gewijzigde lokale is en u Wachtwoordsynchronisatie gebruiken. Als u federation gebruikt, wordt deze functie wordt niet ondersteund.
+Deze functie inschakelt, kunt de synchronisatie-engine de userPrincipalName bijwerken wanneer het gewijzigde lokale is en u wachtwoordhashsynchronisatie gebruiken. Als u federation gebruikt, wordt deze functie wordt niet ondersteund.
 
 Deze functie op standaard voor nieuw is Azure AD-mappen. U kunt zien of deze functie is ingeschakeld voor u door te voeren:  
 

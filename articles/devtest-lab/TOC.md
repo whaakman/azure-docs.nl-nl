@@ -86,5 +86,5 @@
 
 
 # Resources
-## [Azure-roadmap](https://azure.microsoft.com/en-us/roadmap/?category=developer-tools)
+## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=developer-tools)
 ## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)

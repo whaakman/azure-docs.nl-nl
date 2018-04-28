@@ -2,7 +2,7 @@
 title: De Azure-opslagemulator gebruiken voor ontwikkeling en testen | Microsoft Docs
 description: De Azure-opslagemulator biedt een gratis lokale ontwikkelingsomgeving voor het ontwikkelen en testen van uw Azure Storage-toepassingen. Informatie over hoe aanvragen worden geverifieerd, verbinding maken met de emulator van uw toepassing en het gebruik van het opdrachtregelprogramma.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: tamram
-ms.openlocfilehash: 13aee7bbbe58c0a4183eddc0881aaed8cbebd956
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f98b8c3a8217b60fd0ba3754ac4ba72e09039f24
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>De Azure-opslagemulator gebruiken voor ontwikkeling en testen
 
@@ -27,7 +27,7 @@ De Microsoft Azure-opslagemulator biedt een lokale omgeving waarin de services v
 ## <a name="get-the-storage-emulator"></a>De opslagemulator ophalen
 De opslagemulator is beschikbaar als onderdeel van de [Microsoft Azure SDK](https://azure.microsoft.com/downloads/). U kunt ook de opslagemulator installeren met behulp van de [zelfstandig installatieprogramma](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409) (directe download). U moet beheerdersbevoegdheden hebben op uw computer voor het installeren van de opslagemulator.
 
-De opslagemulator momenteel wordt alleen uitgevoerd op Windows. Die u overweegt een opslagemulator voor Linux, is een optie om de community onderhouden, open-source opslagemulator [Azurite](https://github.com/arafato/azurite).
+De opslagemulator momenteel wordt alleen uitgevoerd op Windows. Die u overweegt een opslagemulator voor Linux, is een optie om de community onderhouden, open-source opslagemulator [Azurite](https://github.com/azure/azurite).
 
 > [!NOTE]
 > Gegevens die zijn gemaakt in een versie van de opslagemulator kan niet worden gegarandeerd toegankelijk zijn voor het gebruik van een andere versie. Als u nodig hebt om uw gegevens voor de lange termijn, raden wij u die gegevens opslaat in Azure storage-account, in plaats van de opslagemulator.
@@ -179,7 +179,7 @@ Als u wilt weergeven in de lijst met opties, typt u `/help` bij de opdrachtpromp
 | Optie | Beschrijving | Opdracht | Argumenten |
 | --- | --- | --- | --- |
 | **Beginnen** |De opslagemulator wordt opgestart. |`AzureStorageEmulator.exe start [-inprocess]` |*-inprocess*: Start de emulator in het huidige proces in plaats van een nieuw proces maken. |
-| **Stop** |Hiermee stopt de opslagemulator. |`AzureStorageEmulator.exe stop` | |
+| **stoppen** |Hiermee stopt de opslagemulator. |`AzureStorageEmulator.exe stop` | |
 | **Status** |De status van de opslagemulator afgedrukt. |`AzureStorageEmulator.exe status` | |
 | **Wissen** |Hiermee wist u de gegevens in alle services die op de opdrachtregel opgegeven. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]                                                    ` |*BLOB*: wist blob-gegevens. <br/>*wachtrij*: wist wachtrijgegevens. <br/>*tabel*: tabelgegevens worden gewist. <br/>*alle*: alle gegevens in alle services worden gewist. |
 | **Init** |Voert eenmalig initialisatie voor het instellen van de emulator. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server Servernaam\exemplaarnaam*: Hiermee geeft u op de server die als host fungeert voor de SQL-exemplaar. <br/>*-sqlinstance instanceName*: Hiermee geeft u de naam van het SQL-exemplaar moet worden gebruikt in het standaardexemplaar van de server. <br/>*-forcecreate*: forceert de creatie van de SQL-database, zelfs als deze al bestaat. <br/>*-skipcreate*: maken van de SQL-database wordt overgeslagen. Dit heeft voorrang boven - forcecreate.<br/>*-reserveports*: probeert te reserveren van de HTTP-poorten die zijn gekoppeld aan de services.<br/>*-unreserveports*: pogingen om te verwijderen van de reserveringen voor de HTTP-poorten die zijn gekoppeld aan de services. Dit heeft voorrang boven - reserveports.<br/>*-inprocess*: initialisatie in het huidige proces in plaats van een nieuwe aanmaakproces uitvoert. Het huidige proces moet worden gestart met verhoogde machtigingen als poort reserveringen wilt wijzigen. |

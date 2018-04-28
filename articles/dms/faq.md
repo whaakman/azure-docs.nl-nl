@@ -4,18 +4,18 @@ description: Meer informatie over veelgestelde vragen over het gebruik van de mi
 services: database-migration
 author: HJToland3
 ms.author: jtoland
-manager: 
-ms.reviewer: 
+manager: ''
+ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/25/2018
-ms.openlocfilehash: 3c1c259cc58eb1adab39d9c0ca376726b798186e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 85052e1363ebbfe21cd7d6d5b3720f79cec7c417
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>Veelgestelde vragen over het gebruik van de Service Azure Database migreren
 Dit artikel worden enkele veelgestelde vragen over het gebruik van de Service Azure Database migratie samen met verwante antwoorden.
@@ -48,11 +48,11 @@ Tijdens een migratie typische, eenvoudige database u:
 ### <a name="q-what-are-the-prerequisites-for-using-the-azure-database-migration-service"></a>Q. Wat zijn de vereisten voor het gebruik van de Service Azure Database migreren?
 Er zijn verschillende vereisten die zijn vereist om ervoor te zorgen dat de Service Azure Database migratie probleemloos bij het uitvoeren van de database-migraties. Sommige van de vereisten van toepassing in alle scenario's (bron-doel paren) die door de service, worden ondersteund, terwijl andere vereisten uniek voor een specifiek scenario zijn.
 Vereisten voor Azure migratie databaseservice die voor alle ondersteunde migratiescenario's gelden zijn onder andere het:
-- Een VNET maken voor de Azure-Service voor het migreren van Database met behulp van het Azure Resource Manager-implementatiemodel, waardoor site-naar-site-verbinding met uw on-premises bronservers met behulp van [ExpressRoute](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction) of [VPN](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- Zorg ervoor dat uw Azure Virtual Network (VNET) Netwerkbeveiligingsgroep regels komen de volgende communicatie niet blokkeren 443, 53, 9354 poort, 445, 12000. Zie het artikel voor meer informatie over het Azure VNET NSG wordt verkeer gefilterd [filteren van netwerkverkeer met netwerkbeveiligingsgroepen](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg).
+- Een VNET maken voor de Azure-Service voor het migreren van Database met behulp van het Azure Resource Manager-implementatiemodel, waardoor site-naar-site-verbinding met uw on-premises bronservers met behulp van [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) of [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+- Zorg ervoor dat uw Azure Virtual Network (VNET) Netwerkbeveiligingsgroep regels komen de volgende communicatie niet blokkeren 443, 53, 9354 poort, 445, 12000. Zie het artikel voor meer informatie over het Azure VNET NSG wordt verkeer gefilterd [filteren van netwerkverkeer met netwerkbeveiligingsgroepen](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Wanneer u een firewallapparaat voor uw databases bron, moet u wellicht toevoegen van firewallregels zodat de Service Azure Database migratie voor toegang tot de bron-databases voor migratie.
  
-Zie voor een lijst van alle vereisten die zijn vereist voor het specifieke migratiescenario's met behulp van de migratie van Azure databaseservice concurreren, de verwante zelfstudies in de Azure-Service voor het migreren van Database [documentatie](https://docs.microsoft.com/en-us/azure/dms/dms-overview) op Docs.Microsoft.com.
+Zie voor een lijst van alle vereisten die zijn vereist voor het specifieke migratiescenario's met behulp van de migratie van Azure databaseservice concurreren, de verwante zelfstudies in de Azure-Service voor het migreren van Database [documentatie](https://docs.microsoft.com/azure/dms/dms-overview) op Docs.Microsoft.com.
 
 ### <a name="q-how-do-i-find-the-ip-address-for-the-azure-database-migration-service-so-that-i-can-create-an-allow-list-for-the-firewall-rules-used-to-access-my-source-database-for-migration"></a>Q. Hoe vind ik het IP-adres voor de Azure-Service voor het migreren van Database zodat ik kan een lijst voor de firewall-regels gebruikt voor toegang tot mijn brondatabase voor migratie maken?
 U moet wellicht toevoegen van firewallregels zodat de Service Azure Database migratie tot toegang tot de brondatabase voor migratie. Het IP-adres voor de service dynamisch is, maar als u Express Route gebruikt, wordt dit adres privé toegewezen door uw bedrijfsnetwerk. De eenvoudigste manier om het juiste IP-adres zoeken in dezelfde resourcegroep als uw ingerichte Azure-databaseservice migratie resource te vinden van de netwerkinterface gekoppelde identificeren. De naam van de bron van de netwerkinterface wordt meestal begint met het voorvoegsel NIC en gevolgd door een unieke teken en het volgnummer, voorbeeld NIC jj6tnztnmarpsskr82rbndyp. Als u deze interface netwerkbron selecteert, ziet u het IP-adres dat moet worden opgenomen in de lijst op de resource-overzicht Azure portal-pagina.
@@ -80,7 +80,7 @@ U kunt enkele doen om de databasemigratie van uw met de service te versnellen:
 - Tijdelijk opschaling van de doelinstantie van uw Azure SQL Database aan de laag Premium SKU tijdens de bewerking van de migratie gegevens minimaliseren Azure SQL Database beperking die mogelijk van invloed zijn activiteiten van bestandsoverdracht gegevens bij gebruik van lager niveau SKU's.
 
 ### <a name="q-how-do-i-set-up-an-azure-virtual-network"></a>Q. Hoe stel ik een Azure Virtual Network
-Bij meerdere Microsoft-zelfstudies die u u bij het proces helpt kunnen voor het instellen van een Azure-VNET, de officiële documentatie wordt weergegeven in het artikel [Azure Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview).
+Bij meerdere Microsoft-zelfstudies die u u bij het proces helpt kunnen voor het instellen van een Azure-VNET, de officiële documentatie wordt weergegeven in het artikel [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
 
 ### <a name="q-why-is-my-azure-database-migration-service-unavailable-or-stopped"></a>Q. Waarom wordt mijn Azure Database migratie-Service niet beschikbaar of is gestopt?
 Als de gebruiker expliciet stopt met het Azure Database migratie Service (DMS) of als de service niet actief gedurende een periode van 24 uur is, wordt de service zich in een gestopt of onderbroken status automatisch. In elk geval kan zijn de service niet beschikbaar en in een gestopte status.  Als u wilt hervatten active migraties, start u de service opnieuw.

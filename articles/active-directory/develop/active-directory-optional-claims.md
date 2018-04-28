@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/15/2018
+ms.date: 04/24/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: f9cc4f900428e1337fc9b9d428879d6527c60017
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f87487c4ee56ae90eb5825b0e77610fac73bd3fa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Optionele claims in Azure AD (preview)
 
@@ -65,7 +65,9 @@ De set optioneel claims die standaard beschikbaar zijn voor toepassingen om te g
 | `fwd`                      | IP-adres.  Voegt de oorspronkelijke IPv4-adres van de aanvragende client (binnen een VNET)                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
 | `ctry`                     | Land van gebruiker                                                                                                                                                                                  | JWT        |           |                                                                                                                                                                                                                                                                                         |
 | `tenant_ctry`              | Resource-tenant land                                                                                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
+| `acct`    | De accountstatus gebruikers in uw tenant.  Als de gebruiker lid van de tenant is, is de waarde `0`.  Als ze een gast zijn, is de waarde `1`.  | JWT, SAML | | |
 | `upn`                      | UserPrincipalName claim.  Hoewel deze claim automatisch geïnstalleerd wordt, kunt u dit opgeven als een optionele claim extra eigenschappen voor het wijzigen van het gedrag in het geval van de gebruiker gastbesturingssysteem koppelen. | JWT, SAML  |           | Aanvullende eigenschappen: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash`                                                                                                                                                                 |
+
 ### <a name="v20-optional-claims"></a>Optionele claims v2.0
 Deze claims worden altijd opgenomen in v1.0 tokens, maar worden verwijderd uit het v2.0-tokens tenzij aangevraagd.  Deze claims zijn alleen van toepassing op JWTs (ID-tokens en toegangstokens).  
 
@@ -78,8 +80,8 @@ Deze claims worden altijd opgenomen in v1.0 tokens, maar worden verwijderd uit h
 | `pwd_exp`     | Wachtwoordverlooptijd        | De datum/tijd waarop het wachtwoord vervalt.                                                                                    |       |
 | `pwd_url`     | URL van wijzigen wachtwoord             | Een URL die de gebruiker bezoeken kan om hun wachtwoord te wijzigen.                                                                        |       |
 | `in_corp`     | Binnen bedrijfsnetwerk        | Geeft aan of de client is logboekregistratie in van het bedrijfsnetwerk. Als dat niet het geval is, wordt de claim niet meegeleverd                     |       |
-| `nickname`    | Nickname                        | Een extra naam voor de gebruiker, het scheiden van voornaam of achternaam.                                                             |       |                                                                                                                |       |
-| `family_name` | Achternaam                       | Biedt de laatste naam, achternaam of familienaam van de gebruiker, zoals gedefinieerd in de Azure AD-gebruiker-object. <br>"family_name":"Miller" |       |
+| `nickname`    | Bijnaam                        | Een extra naam voor de gebruiker, het scheiden van voornaam of achternaam.                                                             |       |                                                                                                                |       |
+| `family_name` | Achternaam                       | Biedt de laatste naam, achternaam of familienaam van de gebruiker, zoals gedefinieerd in de Azure AD-gebruiker-object. <br>"family_name": "Kleefstra" |       |
 | `given_name`  | Voornaam                      | De eerste biedt of als u ' ' naam van de gebruiker, zoals ingesteld op het gebruikersobject Azure AD.<br>"given_name": "Jaap"                   |       |
 
 ### <a name="additional-properties-of-optional-claims"></a>Aanvullende eigenschappen van optionele claims

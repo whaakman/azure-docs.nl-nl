@@ -2,24 +2,19 @@
 title: SQL Data Warehouse Business Intelligence partners | Microsoft Docs
 description: Lijsten van derden business intelligence partners met oplossingen die ondersteuning bieden voor SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: kevinvngo
-manager: jhubbard
-editor: 
-ms.assetid: 1d9cdbd0-76c0-4b87-8a80-e792b73ffe10
+author: jrowlandjones
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: partners
-ms.date: 10/31/2016
-ms.author: kevin;barbkess
-ms.openlocfilehash: 7c88e55b420d45f6d0cd4486377e3f2b1347bd9b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.topic: conceptual
+ms.component: consume
+ms.date: 04/17/2018
+ms.author: jrj
+ms.reviewer: igorstan
+ms.openlocfilehash: 22f05607d85a1425c54b890e233b161e72c10848
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>SQL Data Warehouse business intelligence-partners
 Kiezen uit een groot aantal toonaangevende hulpprogramma's voor het maken van uw datawarehouse-oplossing voor end-to-end-gegevens.  In dit artikel worden Microsoft partnerbedrijven gemarkeerd met business intelligence (BI) oplossingen voor ondersteuning van Azure SQL Data Warehouse.
@@ -36,7 +31,7 @@ Kiezen uit een groot aantal toonaangevende hulpprogramma's voor het maken van uw
 | ![Looker][7] |**Looker BI**<br>Looker biedt iedereen in uw bedrijf de mogelijkheid om te verkennen en de gegevens die de stations van uw bedrijf begrijpen. Looker biedt ook de analist gegevens een flexibele en herbruikbare modellering laag voor het beheren en curate die gegevens.  Bedrijven hebben hun cultuur Looker gebruiken als het exemplaar fundamenteel omgezet. |[Marketplace][looker_marketplace]<br>[Website][looker_website]<br>[Gegevensblad][looker_datasheet]<br>[Twitter][looker_twitter]<br>[YouTube][looker_youtube] |[![looker video](./media/sql-data-warehouse-partner-business-intelligence/looker_video.jpg)](https://www.youtube.com/watch?v=WwO4ADK8ZfA) |
 | ![Qlik][8] |**Qlik zin Enterprise**<br>Station inzicht detectie met de app voor het visualisatie van gegevens die door iedereen kan gebruiken. Met Qlik zin kan iedereen in uw organisatie eenvoudig flexibele en interactieve visualisaties maken en zinvolle beslissingen te nemen. |[Website][qlik_website]<br>[Twitter][qlik_twitter]<br>[YouTube][qlik_youtube] |[![qlikview video](./media/sql-data-warehouse-partner-business-intelligence/qlik_video2.jpg)](https://www.youtube.com/watch?v=VJEDFE-07Hg) |
 | ![SiSense][9] |**SiSense**<br>SiSense is een volledige-stack Business Intelligence-software die wordt geleverd met hulpprogramma's die een zakelijke behoeften te analyseren en gegevens visualiseren: een krachtige analytische database, de mogelijkheid om meerdere bronnen, eenvoudige extractie (ETL) en gegevens op basis van een web te koppelen visualisatie. Begin met het analyseren en grote gegevenssets met BI SiSense en analyses vandaag visualiseren. |[Marketplace][sisense_marketplace]<br>[Website][sisense_website]<br>[Gegevensblad][sisense_datasheet]<br>[Twitter][sisense_twitter]<br>[YouTube][sisense_youtube] |[![sisense video](./media/sql-data-warehouse-partner-business-intelligence/sisense_video.jpg)](https://www.youtube.com/watch?v=6N3mkTWI5R4) |
-| ![Tableau][10] |**Tableau**<br>Analyses met zelfservice van tableau helpen iedereen zien en hun gegevens over allerlei gegevens uit platte bestanden naar databases te begrijpen. Tableau heeft een eigen, geoptimaliseerde connector voor Microsoft Azure SQL Data Warehouse die ondersteuning biedt voor dynamische gegevens zowel in het geheugen analytics. |[Marketplace][tableau_marketplace]<br>[Website][tableau_website]<br>[Gegevensblad][tableau_datasheet]<br>[Twitter][tableau_twitter]<br>[YouTube][tableau_youtube] |[![tableau video](./media/sql-data-warehouse-partner-business-intelligence/tableau_video.jpg)](https://www.youtube.com/watch?v=TwbkI3ZzCHE) |
+| ![Tableau][10] |**tableau**<br>Analyses met zelfservice van tableau helpen iedereen zien en hun gegevens over allerlei gegevens uit platte bestanden naar databases te begrijpen. Tableau heeft een eigen, geoptimaliseerde connector voor Microsoft Azure SQL Data Warehouse die ondersteuning biedt voor dynamische gegevens zowel in het geheugen analytics. |[Marketplace][tableau_marketplace]<br>[Website][tableau_website]<br>[Gegevensblad][tableau_datasheet]<br>[Twitter][tableau_twitter]<br>[YouTube][tableau_youtube] |[![tableau video](./media/sql-data-warehouse-partner-business-intelligence/tableau_video.jpg)](https://www.youtube.com/watch?v=TwbkI3ZzCHE) |
 | ![Targit][11] |**Targit**<br>Targit besluit Suite biedt BI en Analytics platform dat realtime-dashboards, analyses met zelfservice gebruiksvriendelijke reporting, geweldige mobiele mogelijkheden en detectie van eenvoudige data technologie in één enkele, samenhangender oplossing biedt. Targit biedt bedrijven de courage om te fungeren. |[Marketplace][targit_marketplace]<br>[Website][targit_website]<br>[Twitter][targit_twitter]<br>[YouTube][targit_youtube] |[![targit video](./media/sql-data-warehouse-partner-business-intelligence/targit_video.jpg)](https://www.youtube.com/watch?v=A0vET80Ker4) |
 | ![Geelvintonijn][12] |**Geelvintonijn**<br>Geelvintonijn is een component top Cloud BI leverancier voor ad-hoc-rapporten en Dashboards beoordeeld door BARC; De enquête BI. Verbinding maken met Azure SQL Data Warehouse en vervolgens maken en mooi vormgegeven rapporten en dashboards delen met bekroonde samenwerking BI en locatie intelligence-functies. |[Marketplace][yellowfin_marketplace]<br>[Website][yellowfin_website]<br>[Gegevensblad][yellowfin_datasheet]<br>[Twitter][yellowfin_twitter]<br>[YouTube][yellowfin_youtube] |[![geelvintonijn video](./media/sql-data-warehouse-partner-business-intelligence/yellowfin_video.jpg)](https://www.youtube.com/watch?v=i1q33AftI0A) |
 

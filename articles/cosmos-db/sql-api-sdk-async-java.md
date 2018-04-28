@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: a8e4ac763b9a16210d62fc080aaf8917c1eefc33
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b80ad9837939af5406989d08e18f6f3d9fe3064f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK voor SQL-API: releaseopmerkingen en resources
 > [!div class="op_single_selector"]
@@ -55,6 +55,16 @@ De SQL-API asynchrone Java SDK verschilt van de SQL-API Java SDK dankzij de asyn
 
 ## <a name="release-notes"></a>Releaseopmerkingen
 
+### <a name="a-name101101"></a><a name="1.0.1"/>1.0.1
+* Toegevoegde ondersteuning voor back-druk in de query.
+* Ondersteuning toegevoegd voor de partitie-id sleutel bereik in de query.
+* Oplossing voor het toestaan van grotere vervolgtoken in de aanvraagheader (bugfix github #24).
+* netty afhankelijkheid bijgewerkt naar 4.1.22.Final om ervoor te zorgen JVM afgesloten nadat de hoofdthread is voltooid.
+* Los om te voorkomen dat sessietoken doorgeven bij het lezen van de master-resources.
+* Meer voorbeelden toegevoegd.
+* Meer benchmarking scenario's toegevoegd.
+* Header-bestanden van de vaste Java voor het genereren van de juiste javadoc.
+
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * GA-SDK met end-to-end-ondersteuning voor niet-blokkerende i/o-gebruik de [Netty bibliotheek](http://netty.io/) in de modus van de gateway. 
 
@@ -69,6 +79,7 @@ Elk verzoek aan de Cosmos-database met behulp van een buiten gebruik gestelde SD
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
+| [1.0.1](#1.0.1) |20 april 2018|--- |
 | [1.0.0](#1.0.0) |27 februari, 2018|--- |
 
 ## <a name="faq"></a>Veelgestelde vragen

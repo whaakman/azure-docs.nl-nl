@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 04/19/2018
 ms.author: jingwang
-ms.openlocfilehash: ee4fe897bc8b0b1c969ea2fbfc1289d6a5bba7c2
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ba2317e588b570acc1a4f24c89e892729f29b54b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Gegevens kopiëren van HBase met behulp van Azure Data Factory 
 
@@ -45,8 +45,8 @@ De volgende eigenschappen worden ondersteund voor HBase gekoppelde service:
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **HBase** | Ja |
-| host | Het IP-adres of de hostnaam naam van de HBase-server. (i.e. 192.168.222.160, [clustername].azurehdinsight.net)  | Ja |
-| poort | De TCP-poort die de HBase-exemplaar gebruikt om te luisteren naar verbindingen van clients. De standaardwaarde is 9090.  | Nee |
+| host | Het IP-adres of de hostnaam naam van de HBase-server. (dat wil zeggen 192.168.222.160, [clustername] azurehdinsight.NET .net)  | Ja |
+| poort | De TCP-poort die de HBase-exemplaar gebruikt om te luisteren naar verbindingen van clients. De standaardwaarde is 9090. Als u verbinding met Azure HDInsights maken, moet u poort opgeven als 443. | Nee |
 | httpPath | De gedeeltelijke URL overeenkomt met de HBase-server. (dat wil zeggen /gateway/sandbox/hbase/version)  | Nee |
 | authenticationType | Het verificatiemechanisme gebruiken om te verbinden met de HBase-server. <br/>Toegestane waarden zijn: **anoniem**, **Basic** | Ja |
 | gebruikersnaam | De gebruikersnaam die wordt gebruikt voor verbinding met het HBase-exemplaar.  | Nee |

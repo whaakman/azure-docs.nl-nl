@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: a3d0770d3b9c8702dbe4dac86f86030bea4090c0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3035d0e8642310698274e4351a95013e204e2f14
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-applications-for-multiple-environments"></a>Toepassingen voor meerdere omgevingen beheren
 
@@ -48,8 +48,8 @@ De configuratie die u opgeeft, kan worden onderverdeeld in twee categorieën wor
 
 Bij het maken van een benoemde toepassingsexemplaren in Service Fabric, hebt u de mogelijkheid om op te geven als parameters. De manier waarop u dit doen, is afhankelijk van hoe u een exemplaar van de toepassing maken.
 
-  - In PowerShell de [ `New-ServiceFabricApplication` ](https://docs.microsoft.com/en-us/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet bevat de toepassingsparameters als een hashtabel.
-  - Met behulp van sfctl, de [ `sfctl application create` ](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) opdracht parameters zijn vereist als een JSON-tekenreeks. Het script install.sh sfctl gebruikt.
+  - In PowerShell de [ `New-ServiceFabricApplication` ](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet bevat de toepassingsparameters als een hashtabel.
+  - Met behulp van sfctl, de [ `sfctl application create` ](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) opdracht parameters zijn vereist als een JSON-tekenreeks. Het script install.sh sfctl gebruikt.
   - Visual Studio biedt een aantal parameterbestanden in de map Parameters in het toepassingsproject. Deze parameterbestanden worden gebruikt bij het publiceren vanuit Visual Studio, met behulp van Visual Studio Team Service of Team Foundation Server. De parameterbestanden worden naar het script implementeren FabricApplication.ps1 wordt doorgegeven in Visual Studio.
 
 ## <a name="next-steps"></a>Volgende stappen

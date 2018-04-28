@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 04/26/2017
 ms.author: jingwang
-ms.openlocfilehash: c3711e90bbb8622d6e112ee2865073cb50258f23
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e0d801dbb8060cf2fa175086fc5324f444870412
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-beta"></a>Gegevens kopiëren van de functie met behulp van Azure Data Factory (bèta)
 
@@ -48,8 +48,8 @@ De volgende eigenschappen worden ondersteund voor Presto gekoppelde service:
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **Presto** | Ja |
-| host | Het IP-adres of de hostnaam naam van de Presto-server. (i.e. 192.168.222.160)  | Ja |
-| serverVersion | De versie van de Presto-server. (i.e. 0.148-t)  | Ja |
+| host | Het IP-adres of de hostnaam naam van de Presto-server. (dat wil zeggen 192.168.222.160)  | Ja |
+| serverVersion | De versie van de Presto-server. (dat wil zeggen 0.148-t)  | Ja |
 | catalogus | De cataloguscontext van de voor alle aanvragen op de server.  | Ja |
 | poort | De TCP-poort die de Presto server gebruikt om te luisteren naar verbindingen van clients. De standaardwaarde is 8080.  | Nee |
 | authenticationType | Het verificatiemechanisme waarmee verbinding met de Presto-server. <br/>Toegestane waarden zijn: **anoniem**, **LDAP** | Ja |
@@ -74,7 +74,7 @@ De volgende eigenschappen worden ondersteund voor Presto gekoppelde service:
             "serverVersion" : "0.148-t",
             "catalog" : "<catalog>",
             "port" : "<port>",
-            "authenticationType" : "Anonymous",
+            "authenticationType" : "LDAP",
             "username" : "<username>",
             "password": {
                  "type": "SecureString",

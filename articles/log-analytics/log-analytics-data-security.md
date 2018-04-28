@@ -2,23 +2,23 @@
 title: Meld u Analytics gegevensbeveiliging | Microsoft Docs
 description: Meer informatie over hoe logboekanalyse beschermt u uw privacy en uw gegevens beveiligt.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: a33bb05d-b310-4f2c-8f76-f627e600c8e7
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 04/16/2018
 ms.author: magoedte
-ms.openlocfilehash: bfd9b3302c73e50408cdd68b25317630aa087d7f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f14b96b88a96f4bef24602bb9338a77352fbf375
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="log-analytics-data-security"></a>Meld u Analytics-gegevensbeveiliging
 Dit document is bedoeld om specifieke informatie van de Azure-logboekanalyse als aanvulling op de informatie op te geven [Azure Vertrouwenscentrum](../security/security-microsoft-trust-center.md).  
@@ -46,7 +46,7 @@ Als onderdeel van uw [abonnementsovereenkomst](https://azure.microsoft.com/suppo
 
 De volgende tabel vindt u enkele van de beschikbare oplossingen en vindt u voorbeelden van het type van de gegevens die zij verzamelen.
 
-| Oplossing | **Gegevenstypen** |
+| **Oplossing** | **Gegevenstypen** |
 | --- | --- |
 | Capaciteit en prestaties |Prestatiegegevens en metagegevens |
 | Malware-evaluatie |Configuratiegegevens en metagegevens |
@@ -57,13 +57,13 @@ De volgende tabel vindt u enkele van de beschikbare oplossingen en vindt u voorb
 
 De volgende tabel ziet u voorbeelden van gegevenstypen:
 
-| Gegevenstype | **Fields** |
+| **Gegevenstype** | **Velden** |
 | --- | --- |
 | Waarschuwing |Waarschuwing naam, beschrijving van de waarschuwing, BaseManagedEntityId, probleem-ID, IsMonitorAlert, RuleId, oplossingsstatus, prioriteit, ernst, categorie, eigenaar, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedExceptRepeatCount, TimeResolved, TimeResolutionStateLastModified, TimeResolutionStateLastModifiedInDB, RepeatCount |
-| Configuratie |CustomerID, AgentID, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
-| Gebeurtenis |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**Opmerking:** wanneer u gebeurtenissen met aangepaste velden in het Windows-gebeurtenislogboek schrijft, OMS ze verzamelt. |
-| Metagegevens |BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Address, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime |
-| Prestaties |ObjectName, CounterName, PerfmonInstanceName, PerformanceDataId, PerformanceSourceInternalID, SampleValue, TimeSampled, TimeAdded |
+| Configuratie |CustomerID, AgentID, id van de entiteit, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
+| Gebeurtenis |Gebeurtenis-id, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, getal, categorie, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**Opmerking:** wanneer u gebeurtenissen met aangepaste velden in het Windows-gebeurtenislogboek schrijft, OMS ze verzamelt. |
+| Metagegevens |BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IP-adres, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP-adres, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, primaire naam, OffsetInMinuteFromGreenwichTime |
+| Prestaties |Objectnaam, CounterName, PerfmonInstanceName, PerformanceDataId, PerformanceSourceInternalID, SampleValue, TimeSampled, TimeAdded |
 | Status |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
 ## <a name="physical-security"></a>Fysieke beveiliging
@@ -131,7 +131,7 @@ Het volgende diagram toont een cloud-beveiligingsarchitectuur als de stroom van 
 Voor uw organisatie gegevens verzenden naar Log Analytics, moet u een Windows- of Linux-agent uitgevoerd op virtuele machines in Azure of op virtuele of fysieke computers in uw omgeving of andere cloudprovider configureren.  Als u Operations Manager gebruikt, uit de beheergroep u Operations Manager-agent. Gebruikers (dit is mogelijk u afzonderlijke gebruikers of een groep personen) een of meer Log Analytics-werkruimten maken en registreren van agents met een van de volgende accounts:
 
 * [Organisatie-ID](../active-directory/sign-up-organization.md)
-* [Microsoft Account - Outlook, Office Live, MSN](http://www.microsoft.com/account/default.aspx)
+* [Microsoft-Account - Outlook, Office Live, MSN](http://www.microsoft.com/account/default.aspx)
 
 Een werkruimte voor logboekanalyse is de gegevens wordt verzameld, samengevoegd, geanalyseerd en gepresenteerd. Een werkruimte wordt voornamelijk gebruikt om partitiegegevens te en elke werkruimte uniek is. U wilt bijvoorbeeld uw productiegegevens die worden beheerd door een werkruimte en uw testgegevens die worden beheerd door een andere werkruimte. Een beheerder gebruikerstoegang helpen werkruimten ook bij de gegevens. Elke werkruimte kan meerdere gebruikersaccounts die zijn gekoppeld, en elke gebruikersaccount hebben toegang tot meerdere Log Analytics-werkruimten. U maakt op basis van regio datacenter werkruimten. Elke werkruimte wordt gerepliceerd naar andere datacentra in de regio, hoofdzakelijk voor beschikbaarheid van Log Analytics-service.
 
@@ -155,9 +155,9 @@ De Windows- of management server-agent in de cache opgeslagen gegevens wordt bev
 Zoals hierboven wordt beschreven, wordt gegevens uit de beheerserver of rechtstreeks aangesloten agents via SSL naar Microsoft Azure-datacenters verzonden. Desgewenst kunt u ExpressRoute voor aanvullende beveiliging voor de gegevens. ExpressRoute is een manier om rechtstreeks verbinding maken met Azure vanaf uw eigen WAN-netwerk, zoals een multiprotocol label switching (MPLS) VPN, geleverd door een netwerkserviceprovider. Zie voor meer informatie [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
 ## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3. De Log Analytics-service ontvangt en verwerkt gegevens
-De Log Analytics-service zorgt ervoor dat binnenkomende gegevens van een vertrouwde bron door het valideren van certificaten en de integriteit van gegevens met Azure-verificatie. De niet-verwerkte onbewerkte gegevens wordt vervolgens opgeslagen in een Azure Event Hub in de regio die de gegevens in rust uiteindelijk worden opgeslagen. Het type gegevens dat is opgeslagen, is afhankelijk van de typen van oplossingen die zijn geïmporteerd en gebruikt om gegevens te verzamelen. Vervolgens wordt de logboekanalyse service processen de onbewerkte gegevens en het opgenomen in de database.
+De service logboekanalyse zorgt ervoor dat binnenkomende gegevens van een vertrouwde bron door het valideren van certificaten en de integriteit van gegevens met Azure-verificatie. De niet-verwerkte onbewerkte gegevens wordt vervolgens opgeslagen in een Azure Event Hub in de regio die de gegevens in rust uiteindelijk worden opgeslagen. Het type gegevens dat is opgeslagen, is afhankelijk van de typen van oplossingen die zijn geïmporteerd en gebruikt om gegevens te verzamelen. Vervolgens wordt de logboekanalyse service processen de onbewerkte gegevens en het opgenomen in de database.
 
-De bewaarperiode van verzamelde gegevens die zijn opgeslagen in de database, is afhankelijk van het plan dat is geselecteerd bij de werkruimte is gemaakt.  Voor de betaalde laag verzamelde gegevens gedurende 31 dagen standaard beschikbaar is, maar kan worden uitgebreid naar 365 dagen.  Deze gegevens nog niet is versleuteld in rust en voor mid 2018 zijn gepland. 
+De bewaarperiode van verzamelde gegevens die zijn opgeslagen in de database, is afhankelijk van de geselecteerde prijsstelling. Voor de *vrije* laag, verzamelde gegevens zijn beschikbaar voor 7 dagen. Voor de *betaalde* laag, verzamelde gegevens is beschikbaar voor 31 dagen standaard, maar kan worden uitgebreid naar 720 dagen. Gegevens worden versleuteld in rust in de Azure-opslag, om te controleren of de vertrouwelijkheid van gegevens opgeslagen. De afgelopen twee weken van gegevens worden ook opgeslagen in cache op basis van SSD en deze cache is momenteel niet versleuteld.  We zullen deze codering in de hoger helft van 2018 ondersteunen.  
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Log Analytics gebruiken voor toegang tot de gegevens
 Voor toegang tot uw werkruimte voor logboekanalyse moet je je aanmelden bij de Azure-portal met behulp van de organisatie-account of de Microsoft-account dat u eerder hebt ingesteld. Al het verkeer tussen de portal en Log Analytics-service is verzonden via een beveiligd kanaal voor HTTPS. Wanneer u de portal gebruikt, een sessie-ID is gegenereerd op de client gebruiker (webbrowser) en gegevens worden opgeslagen in een lokale cache totdat de sessie wordt beëindigd. Wanneer is beëindigd, wordt de cache verwijderd. Client-side cookies, die geen persoonsgegevens bevatten, worden niet automatisch verwijderd. Sessiecookies HTTPOnly zijn gemarkeerd en zijn beveiligd. Na een vooraf bepaalde niet-actieve periode, is de Azure portal sessie beëindigd.

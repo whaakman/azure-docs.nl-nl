@@ -2,24 +2,24 @@
 title: Stack plan, aanbieding, quota en abonnement overzicht van Azure | Microsoft Docs
 description: Als een cloud-operator wil ik Azure Stack plannen, aanbiedingen, quota's en -abonnementen te begrijpen.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 3dc92e5c-c004-49db-9a94-783f1f798b98
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 8/22/2017
+ms.date: 04/20/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: 7c395dfcdfcd509d8b32028badd1c1310ea67657
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: ''
+ms.openlocfilehash: fcf19f486ebdc739f3d5c7b25215ba8726462a56
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Overzicht van plannen, aanbiedingen, quota en abonnementen
 
@@ -32,10 +32,10 @@ De aanbiedingen die een of meer abonnementen bevatten en elk plan bevat een of m
 - het bedrag van de resources die gebruikers kunnen gebruiken
 - welke regio's hebben toegang tot de bronnen
 
-Wanneer u een service leveren, moet u deze stappen op hoog niveau volgen:
+Wanneer u een service leveren, volg deze stappen op hoog niveau:
 
 1. Een service die u wilt ervoor zorgen dat uw gebruikers toevoegen.
-2. Maak een plan dat een of meer services bevat. Wanneer u een plan maakt, wordt u selecteren of maken van quota die de limieten van elke service in het plan definiëren.
+2. Maak een plan dat een of meer services bevat. Bij het maken van een abonnement selecteren of maken van quota die de limieten van elke service in het plan definiëren.
 3. Maak een aanbieding met een of meer plannen (inclusief base plannen en optionele invoegtoepassing plannen).
 
 Nadat u de aanbieding hebt gemaakt, kunnen uw gebruikers zich abonneren op deze toegang krijgt tot de services en bronnen biedt. Gebruikers kunnen zich abonneren op zoveel voorstellen als ze willen. Het volgende diagram toont een eenvoudig voorbeeld van een gebruiker die is geabonneerd op twee aanbiedingen. Elke aanbieding heeft een plan of twee en elk plan hen toegang geeft tot services.
@@ -52,13 +52,15 @@ Om u te helpen bij het beheren van de cloudcapaciteit van de, selecteer of maak 
 
 Quota's kunnen worden geconfigureerd per regio. Een plan met compute services van een regio kan bijvoorbeeld een quotum van twee virtuele machines, 4 GB RAM-geheugen en 10 CPU-kernen hebben. In de Azure-Stack Development Kit, slechts één regio (met de naam *lokale*) is beschikbaar.
 
+Meer informatie over [quotatypen in Azure-Stack](azure-stack-quota-types.md). 
+
 ### <a name="base-plan"></a>Basisplan
 
 Wanneer u een aanbieding maakt, kan de service-beheerder een basisplan bevatten. Deze base plannen zijn standaard opgenomen als een gebruiker zich op deze aanbieding abonneert. Wanneer een gebruiker zich abonneert, hebben ze toegang tot alle resourceproviders die zijn opgegeven in deze base plannen (met de bijbehorende quota's).
 
 ### <a name="add-on-plans"></a>Aanvullende plannen
 
-U kunt ook optionele invoegtoepassing plannen in een aanbieding opnemen. Plannen van de invoegtoepassing zijn niet standaard opgenomen in het abonnement. Plannen van de invoegtoepassing zijn aanvullende schema's (met quota's) beschikbaar in een aanbieding met een abonnee aan hun abonnementen toevoegen kunt. U kunt bijvoorbeeld een basisplan met beperkte bronnen voor een proefversie, en een invoegtoepassing plannen met meer resources aanbieden aan klanten die u kiest voor de service.
+Plannen van de invoegtoepassing zijn optionele plannen die u aan een aanbieding toevoegt. Plannen van de invoegtoepassing zijn niet standaard opgenomen in het abonnement. Plannen van de invoegtoepassing zijn aanvullende schema's (met quota's) beschikbaar in een aanbieding met een abonnee aan hun abonnementen toevoegen kunt. U kunt bijvoorbeeld een basisplan met beperkte bronnen voor een proefversie, en een invoegtoepassing plannen met meer resources aanbieden aan klanten die u kiest voor de service.
 
 ## <a name="offers"></a>Aanbiedingen
 

@@ -10,11 +10,11 @@ ms.devlang: bash
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: seguler
-ms.openlocfilehash: 299b96c783fb3606347bb448d00d44f0071da429
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 44b0c36ad366d50480212adff9cdb8b10a17db05
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse-preview"></a>Het koppelen van Blob-opslag als een bestandssysteem met blobfuse (Preview)
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 01/23/2018
 Deze handleiding wordt beschreven hoe u blobfuse gebruiken en het koppelen van een Blob storage-container op Linux-en toegangsgegevens. Lees voor meer informatie over blobfuse, de details in [de opslagplaats blobfuse](https://github.com/Azure/azure-storage-fuse).
 
 > [!WARNING]
-> Blobfuse garandeert geen 100% POSIX-compatibiliteit, zoals aanvragen in gewoon vertaalt [Blob REST-API's](https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api). Wijzig de naam van bewerkingen zijn bijvoorbeeld atomaire POSIX, maar niet in blobfuse.
+> Blobfuse garandeert geen 100% POSIX-compatibiliteit, zoals aanvragen in gewoon vertaalt [Blob REST-API's](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api). Wijzig de naam van bewerkingen zijn bijvoorbeeld atomaire POSIX, maar niet in blobfuse.
 > Voor een volledige lijst met verschillen tussen een systeemeigen bestandssysteem en blobfuse, gaat u naar [de opslagplaats blobfuse source code](https://github.com/azure/azure-storage-fuse).
 > 
 

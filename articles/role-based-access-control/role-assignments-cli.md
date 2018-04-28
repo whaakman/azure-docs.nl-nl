@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 04/03/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
-ms.openlocfilehash: 9a4489c575de9f63740c68bda8cbf921592402ec
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f783b08b25b7dd00351537f4dd404d9c8d02044d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Toegangsbeheer op basis van rollen met de Azure-opdrachtregelinterface beheren
 
@@ -38,7 +38,7 @@ Als u de Azure CLI wilt roltoewijzingen beheren, hebt u de volgende vereisten:
 
 ## <a name="list-role-definitions"></a>Roldefinities lijst
 
-U kunt alle beschikbare roldefinities gebruiken [az rol definitielijst](/cli/azure/role/definition#az_role_definition_list):
+U kunt alle beschikbare roldefinities gebruiken [az rol definitielijst](/cli/azure/role/definition#az-role-definition-list):
 
 ```azurecli
 az role definition list
@@ -95,7 +95,7 @@ az role definition list --custom-role-only false --output json | jq '.[] | {"rol
 
 ### <a name="list-actions-of-a-role-definition"></a>Van Lijstacties van een roldefinitie
 
-U kunt de acties van een roldefinitie gebruiken [az rol definitielijst](/cli/azure/role/definition#az_role_definition_list):
+U kunt de acties van een roldefinitie gebruiken [az rol definitielijst](/cli/azure/role/definition#az-role-definition-list):
 
 ```azurecli
 az role definition list --name <role_name>
@@ -185,7 +185,7 @@ az role definition list --name "Virtual Machine Contributor" --output json | jq 
 
 ### <a name="list-role-assignments-for-a-user"></a>Lijst roltoewijzingen voor een gebruiker
 
-U kunt de roltoewijzingen voor een specifieke gebruiker gebruiken [az rol toewijzingslijst](/cli/azure/role/assignment#az_role_assignment_list):
+U kunt de roltoewijzingen voor een specifieke gebruiker gebruiken [az rol toewijzingslijst](/cli/azure/role/assignment#az-role-assignment-list):
 
 ```azurecli
 az role assignment list --assignee <assignee>
@@ -214,7 +214,7 @@ az role assignment list --all --assignee patlong@contoso.com --output json | jq 
 
 ### <a name="list-role-assignments-for-a-resource-group"></a>Lijst roltoewijzingen voor een resourcegroep
 
-U kunt de roltoewijzingen die beschikbaar zijn voor een resourcegroep gebruiken [az rol toewijzingslijst](/cli/azure/role/assignment#az_role_assignment_list):
+U kunt de roltoewijzingen die beschikbaar zijn voor een resourcegroep gebruiken [az rol toewijzingslijst](/cli/azure/role/assignment#az-role-assignment-list):
 
 ```azurecli
 az role assignment list --resource-group <resource_group>
@@ -243,7 +243,7 @@ az role assignment list --resource-group pharma-sales-projectforecast --output j
 
 ### <a name="create-a-role-assignment-for-a-user"></a>Een roltoewijzing voor een gebruiker maken
 
-Gebruik voor het maken van een roltoewijzing voor een gebruiker op het groepsbereik resource [az roltoewijzing maken](/cli/azure/role/assignment#az_role_assignment_create):
+Gebruik voor het maken van een roltoewijzing voor een gebruiker op het groepsbereik resource [az roltoewijzing maken](/cli/azure/role/assignment#az-role-assignment-create):
 
 ```azurecli
 az role assignment create --role <role> --assignee <assignee> --resource-group <resource_group>
@@ -257,13 +257,13 @@ az role assignment create --role "Virtual Machine Contributor" --assignee patlon
 
 ### <a name="create-a-role-assignment-for-a-group"></a>Een roltoewijzing voor een groep maken
 
-Gebruik voor het maken van een roltoewijzing voor een groep [az roltoewijzing maken](/cli/azure/role/assignment#az_role_assignment_create):
+Gebruik voor het maken van een roltoewijzing voor een groep [az roltoewijzing maken](/cli/azure/role/assignment#az-role-assignment-create):
 
 ```azurecli
 az role assignment create --role <role> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
 ```
 
-Het volgende voorbeeld wordt de *lezer* rol de *Anne Mack Team* groep met ID 22222222-2222-2222-2222-222222222222 bij het abonnementsbereik. Als u de ID van de groep, kunt u [az ad groepslijst](/cli/azure/ad/group#az_ad_group_list) of [az ad-groep weergeven](/cli/azure/ad/group#az_ad_group_show).
+Het volgende voorbeeld wordt de *lezer* rol de *Anne Mack Team* groep met ID 22222222-2222-2222-2222-222222222222 bij het abonnementsbereik. Als u de ID van de groep, kunt u [az ad groepslijst](/cli/azure/ad/group#az-ad-group-list) of [az ad-groep weergeven](/cli/azure/ad/group#az-ad-group-show).
 
 ```azurecli
 az role assignment create --role Reader --assignee-object-id 22222222-2222-2222-2222-222222222222 --scope /subscriptions/11111111-1111-1111-1111-111111111111
@@ -277,13 +277,13 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 
 ### <a name="create-a-role-assignment-for-an-application"></a>Een roltoewijzing voor een toepassing maken
 
-Gebruik voor het maken van een rol voor een toepassing [az roltoewijzing maken](/cli/azure/role/assignment#az_role_assignment_create):
+Gebruik voor het maken van een rol voor een toepassing [az roltoewijzing maken](/cli/azure/role/assignment#az-role-assignment-create):
 
 ```azurecli
 az role assignment create --role <role> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
 ```
 
-Het volgende voorbeeld wordt de *Virtual Machine Contributor* role in een toepassing met object-ID 44444444-4444-4444-4444-444444444444 op de *pharma-verkoop-projectforecast* resourcegroep de scope. Als u de object-ID van de toepassing, kunt u [az ad applijst](/cli/azure/ad/app#az_ad_app_list) of [az ad app weergeven](/cli/azure/ad/app#az_ad_app_show).
+Het volgende voorbeeld wordt de *Virtual Machine Contributor* role in een toepassing met object-ID 44444444-4444-4444-4444-444444444444 op de *pharma-verkoop-projectforecast* resourcegroep de scope. Als u de object-ID van de toepassing, kunt u [az ad applijst](/cli/azure/ad/app#az-ad-app-list) of [az ad app weergeven](/cli/azure/ad/app#az-ad-app-show).
 
 ```azurecli
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 44444444-4444-4444-4444-444444444444 --resource-group pharma-sales-projectforecast
@@ -291,7 +291,7 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 
 ## <a name="remove-a-role-assignment"></a>Een roltoewijzing verwijderen
 
-U kunt een roltoewijzing verwijderen [az roltoewijzing verwijderen](/cli/azure/role/assignment#az_role_assignment_delete):
+U kunt een roltoewijzing verwijderen [az roltoewijzing verwijderen](/cli/azure/role/assignment#az-role-assignment-delete):
 
 ```azurecli
 az role assignment delete --assignee <assignee> --role <role> --resource-group <resource_group>
@@ -303,7 +303,7 @@ Het volgende voorbeeld verwijdert u de *Virtual Machine Contributor* functietoew
 az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine Contributor" --resource-group pharma-sales-projectforecast
 ```
 
-Het volgende voorbeeld verwijdert u de *lezer* functie uit de *Anne Mack Team* groep met ID 22222222-2222-2222-2222-222222222222 bij het abonnementsbereik. Als u de ID van de groep, kunt u [az ad groepslijst](/cli/azure/ad/group#az_ad_group_list) of [az ad-groep weergeven](/cli/azure/ad/group#az_ad_group_show).
+Het volgende voorbeeld verwijdert u de *lezer* functie uit de *Anne Mack Team* groep met ID 22222222-2222-2222-2222-222222222222 bij het abonnementsbereik. Als u de ID van de groep, kunt u [az ad groepslijst](/cli/azure/ad/group#az-ad-group-list) of [az ad-groep weergeven](/cli/azure/ad/group#az-ad-group-show).
 
 ```azurecli
 az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role "Reader" --scope /subscriptions/11111111-1111-1111-1111-111111111111
@@ -313,7 +313,7 @@ az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role
 
 ### <a name="list-custom-roles"></a>Lijst met aangepaste rollen
 
-U kunt de functies die beschikbaar voor toewijzing op een scope zijn gebruiken [az rol definitielijst](/cli/azure/role/definition#az_role_definition_list).
+U kunt de functies die beschikbaar voor toewijzing op een scope zijn gebruiken [az rol definitielijst](/cli/azure/role/definition#az-role-definition-list).
 
 Beide van de volgende voorbeelden tonen de aangepaste rollen in het huidige abonnement:
 
@@ -344,7 +344,7 @@ az role definition list --output json | jq '.[] | if .roleType == "CustomRole" t
 
 ### <a name="create-a-custom-role"></a>Een aangepaste beveiligingsrol maken
 
-Gebruik voor het maken van een aangepaste beveiligingsrol [az roldefinitie maken](/cli/azure/role/definition#az_role_definition_create). De roldefinitie mag een JSON-beschrijving of een pad naar een bestand met een JSON-beschrijving.
+Gebruik voor het maken van een aangepaste beveiligingsrol [az roldefinitie maken](/cli/azure/role/definition#az-role-definition-create). De roldefinitie mag een JSON-beschrijving of een pad naar een bestand met een JSON-beschrijving.
 
 ```azurecli
 az role definition create --role-definition <role_definition>
@@ -386,7 +386,7 @@ az role definition create --role-definition ~/roles/vmoperator.json
 
 ### <a name="update-a-custom-role"></a>Bijwerken van een aangepaste rol
 
-Voor het bijwerken van een aangepaste rol voor het eerst gebruiken [az rol definitielijst](/cli/azure/role/definition#az_role_definition_list) voor het ophalen van de functiedefinitie. Controleer vervolgens de gewenste wijzigingen aan de functiedefinitie. Gebruik tot slot [az rol definitie-update](/cli/azure/role/definition#az_role_definition_update) om op te slaan van de bijgewerkte roldefinitie.
+Voor het bijwerken van een aangepaste rol voor het eerst gebruiken [az rol definitielijst](/cli/azure/role/definition#az-role-definition-list) voor het ophalen van de functiedefinitie. Controleer vervolgens de gewenste wijzigingen aan de functiedefinitie. Gebruik tot slot [az rol definitie-update](/cli/azure/role/definition#az-role-definition-update) om op te slaan van de bijgewerkte roldefinitie.
 
 ```azurecli
 az role definition update --role-definition <role_definition>
@@ -429,7 +429,7 @@ az role definition update --role-definition ~/roles/vmoperator.json
 
 ### <a name="delete-a-custom-role"></a>Een aangepaste rol verwijderen
 
-Gebruik voor het verwijderen van een aangepaste beveiligingsrol [az roldefinitie verwijderen](/cli/azure/role/definition#az_role_definition_delete). Om op te geven van de rol wilt verwijderen, gebruikt u de rolnaam van de of de rol-ID. Gebruiken om te bepalen van de rol-ID, [az rol definitielijst](/cli/azure/role/definition#az_role_definition_list).
+Gebruik voor het verwijderen van een aangepaste beveiligingsrol [az roldefinitie verwijderen](/cli/azure/role/definition#az-role-definition-delete). Om op te geven van de rol wilt verwijderen, gebruikt u de rolnaam van de of de rol-ID. Gebruiken om te bepalen van de rol-ID, [az rol definitielijst](/cli/azure/role/definition#az-role-definition-list).
 
 ```azurecli
 az role definition delete --name <role_name or role_id>

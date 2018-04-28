@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: brenduns
-ms.openlocfilehash: 9c821f20ce5826666a05121e1a39882fae0930d3
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 10b2bf863540330a57b5aecac438f2b9e4bc8a74
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Over VPN-gateway voor Azure-Stack
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
@@ -26,11 +26,11 @@ ms.lasthandoff: 04/23/2018
 
 Voordat u netwerkverkeer tussen uw virtuele Azure-netwerk en uw on-premises site verzenden kunt, moet u een virtuele netwerkgateway maken voor het virtuele netwerk.
 
-Een VPN-gateway is een soort gateway voor virtuele netwerken die versleuteld verkeer verzendt via een openbare verbinding. U kunt VPN-gateways gebruiken om verkeer veilig tussen een virtueel netwerk in Azure-Stack en een virtueel netwerk in Azure of tussen een virtueel netwerk en een ander netwerk dat is verbonden met een VPN-apparaat te verzenden.
+Een VPN-gateway is een soort gateway voor virtuele netwerken die versleuteld verkeer verzendt via een openbare verbinding. U kunt VPN-gateways gebruiken om verkeer te verzenden veilig tussen een virtueel netwerk in Azure-Stack en een virtueel netwerk in Azure. Ook kunt u verkeer veilig tussen een virtueel netwerk en een ander netwerk dat is verbonden met een VPN-apparaat verzenden.
 
 Wanneer u een virtuele netwerkgateway maakt, geeft u het gatewaytype aan dat u wilt maken. Azure Stack ondersteunt één type van de virtuele netwerkgateway: het type 'VPN-'.
 
-Elk virtueel netwerk kan twee virtuele netwerkgateways hebben, maar slechts één van elk type. Afhankelijk van de instellingen die u kiest, kunt u meerdere verbindingen maken voor één VPN-gateway. Een voorbeeld hiervan is een configuratie met meerdere siteverbindingen.
+Elk virtueel netwerk kan twee virtuele netwerkgateways hebben, maar slechts één van elk type. Afhankelijk van de instellingen die u kiest, kunt u meerdere verbindingen maken voor één VPN-gateway. Een voorbeeld is een configuratie met meerdere Site-verbinding.
 
 > [!NOTE]
 > In Azure, moet de doorvoer bandbreedte voor VPN-Gateway-SKU gewenst worden verdeeld over alle verbindingen die zijn verbonden.  De waarde voor de bandbreedte voor de VPN-Gateway-SKU wordt in Azure-Stack toegepast op elke verbindingsbron die is verbonden met het.     
@@ -46,10 +46,10 @@ Een VPN-gatewayverbinding is afhankelijk van meerdere resources die zijn geconfi
 De instellingen die u voor elke resource hebt gekozen, zijn essentieel om een geslaagde verbinding te maken. Zie voor meer informatie over afzonderlijke bronnen en instellingen voor VPN-Gateway [over VPN-gateway-instellingen voor Azure-Stack](azure-stack-vpn-gateway-settings.md). Hier vindt u informatie om te begrijpen gatewaytypen, VPN-typen, verbindingstypen, gateway-subnetten, lokale netwerkgateways en diverse andere resource-instellingen kunt u overwegen.
 
 ### <a name="deployment-tools"></a>Implementatiehulpmiddelen
-U kunt beginnen met het maken en configureren van resources met een configuratiehulpprogramma, zoals Azure Portal. U kunt later alsnog besluiten over te schakelen naar een ander hulpprogramma, zoals PowerShell, om aanvullende resources te configureren, of om desgewenst bestaande bronnen te wijzigen. Op dit moment is het niet mogelijk om elke resource en resource-instelling in Azure Portal te configureren. De instructies in de artikelen voor elke verbindingstopologie geven aan of een specifiek confihuratiehulpprogramma nodig is.
+U kunt maken en configureren van resources met behulp van een configuratiehulpprogramma, zoals de Azure-portal. U kunt later overschakelen naar een ander hulpprogramma zoals PowerShell aanvullende bronnen configureren of te wijzigen van bestaande bronnen, indien van toepassing. Op dit moment is het niet mogelijk om elke resource en resource-instelling in Azure Portal te configureren. De instructies in de artikelen voor elke verbindingstopologie geven aan of een specifiek confihuratiehulpprogramma nodig is.
 
 ## <a name="connection-topology-diagrams"></a>Topologie gatewayverbindingsdiagrammen
-Het is belangrijk te weten dat er verschillende configuraties beschikbaar zijn voor VPN-gatewayverbindingen. U moet bepalen welke configuratie het beste aansluit bij uw behoeften. In de gedeelten hieronder kunt u informatie en topologiediagrammen over de volgende VPN-gatewayverbindingen bekijken. In de tabellen worden de volgende zaken weergegeven:
+Het is belangrijk te weten dat er verschillende configuraties beschikbaar zijn voor VPN-gatewayverbindingen. Bepalen welke configuratie komt het beste past bij uw behoeften. In de gedeelten hieronder kunt u informatie en topologiediagrammen over de volgende VPN-gatewayverbindingen bekijken. In de tabellen worden de volgende zaken weergegeven:
 
 - Beschikbaar implementatiemodel
 - Beschikbare configuratiehulpprogramma's
@@ -78,8 +78,8 @@ Wanneer u een hogere SKU, zoals Standard via Basic of HighPerformance-gateway vi
 
 Azure-Stack biedt geen ondersteuning voor de gateway UltraPerformance SKU kan uitsluitend met Express Route gebruikt.
 
-Houd rekening met het volgende als u een SKU selecteert:
-- Azure-Stack biedt geen ondersteuning voor gateways op basis van beleid.
+Overweeg het volgende wanneer u SKU selecteert:
+- Azure-Stack biedt geen ondersteuning voor op beleid gebaseerde gateways.
 - Border Gateway Protocol (BGP) wordt niet ondersteund op de basis-SKU.
 - ExpressRoute-VPN-Gateway worden gecombineerd configuraties worden niet ondersteund in Azure-Stack
 - Actief-actief S2S VPN-gatewayverbindingen kunnen alleen worden geconfigureerd op de HighPerformance SKU.
@@ -93,8 +93,8 @@ In de volgende tabel ziet u de gatewaytypen en de geschatte geaggregeerde doorvo
 |**Standaard SKU**       | 100 Mbps  | 10    |
 |**Hoge prestaties SKU** | 200 Mbps    | 5 |
 ***(1)***  De VPN-doorvoer is niet een gegarandeerde doorvoer voor cross-premises verbindingen via Internet. Het is een meting van de maximaal mogelijke doorvoer.  
-***(2)***  Max tunnels aantal is het totale aantal per Azure-Stack-implementatie voor alle abonnementen.
-***(3)***  BGP wordt niet ondersteund voor de basis-SKU.
+***(2)***  Max tunnels aantal is het totale aantal per Azure-Stack-implementatie voor alle abonnementen.  
+***(3)***  BGP wordt niet ondersteund voor de basis-SKU.  
 
 ## <a name="next-steps"></a>Volgende stappen
 Meer informatie over [instellingen voor VPN-gateways](azure-stack-vpn-gateway-settings.md) voor Azure-Stack.

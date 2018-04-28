@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 04/09/2018
-ms.openlocfilehash: c29b90e703a66cbbc25227f9a4307c74d82b03b5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b418d1114cf6b906dcdee46bbf7e094cbc4a0521
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Gebeurtenissen verzenden naar een Time Series Insights-omgeving met Event Hub
 Dit artikel wordt uitgelegd hoe u maken en configureren van de event hub en uitvoeren van een voorbeeldtoepassing push-gebeurtenissen. Als u een bestaande event hub met gebeurtenissen in JSON-indeling hebt, deze zelfstudie overslaan en weergeven van uw omgeving in [Time Series Insights](https://insights.timeseries.azure.com).
@@ -59,7 +59,7 @@ Zorg ervoor dat u referentiegegevens aanwezig wanneer u de historische uploadgeg
 
 Voor het beheren van referentiegegevens zich de webgebaseerde gebruikersinterface in de Verkenner TSI en er is een programmatische C#-API. TSI Explorer een visual gebruikerservaring heeft voor het van uploadbestanden of plakken in bestaande verwijzing gegevenssets als JSON- of CSV-indeling. Met de API kunt u een aangepaste app wanneer deze nodig is.
 
-Zie voor meer informatie over het beheren van referentiegegevens in tijd reeks inzichten de [verwijzingsartikel gegevens](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set).
+Zie voor meer informatie over het beheren van referentiegegevens in tijd reeks inzichten de [verwijzingsartikel gegevens](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
 ## <a name="create-time-series-insights-event-source"></a>Een Time Series Insights-gebeurtenisbron maken
 1. Als u nog geen gebeurtenisbron hebt gemaakt, volgt u [deze instructies](time-series-insights-how-to-add-an-event-source-eventhub.md) om een gebeurtenisbron te maken.
@@ -312,7 +312,7 @@ Als u deze matrix van gebeurtenissen als een nettolading TSI pushen, wordt deze 
 
 chId meting eenheid 24 Engine olie druk PSI 25 CALC pomp snelheid bKoppelingen/min
 
-Zie voor meer informatie over het beheren van referentiegegevens in tijd reeks inzichten de [verwijzingsartikel gegevens](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set).
+Zie voor meer informatie over het beheren van referentiegegevens in tijd reeks inzichten de [verwijzingsartikel gegevens](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
 Een ander probleem met de nettolading van de eerste is dat het tijdstempel is in milliseconden. TSI accepteert alleen ISO-notatie voor tijdstempels. Eén oplossing is te laat het standaardgedrag voor het tijdstempel in TSI, die moet worden gebruikt in de wachtrij tijdstempel is.
 

@@ -3,7 +3,7 @@ title: Prestaties van Azure Service Fabric Monitoring | Microsoft Docs
 description: Meer informatie over prestatiemeteritems voor controle en diagnostische gegevens van Azure Service Fabric-clusters.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/15/2017
-ms.author: dekapur
-ms.openlocfilehash: 3784cb6f713c5ce476ab980122ee6ec9fa3ebc59
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 04/16/2018
+ms.author: dekapur; srrengar
+ms.openlocfilehash: 54837b2a43f93f43d089a2fdf35d8b74ecacfc3e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="performance-metrics"></a>Metrische gegevens voor prestaties
 
@@ -75,7 +75,7 @@ Service Fabric genereert een aanzienlijke hoeveelheid aangepaste prestatiemeteri
 
 In de toepassingen die u implementeert met uw cluster, als u gebruikmaakt van Reliable Actors, het toevoegen van countes van `Service Fabric Actor` en `Service Fabric Actor Method` categorieën (Zie [Service Fabric betrouwbare actoren Diagnostics](service-fabric-reliable-actors-diagnostics.md)).
 
-Als u de Service voor externe toegang gebruikt, hebben we op dezelfde manier `Service Fabric Service` en `Service Fabric Service Method` categorieën voor prestatiemeteritems die u moet verzamelen van prestatiemeteritems. 
+Als u Reliable Services gebruikt, hebben we op dezelfde manier `Service Fabric Service` en `Service Fabric Service Method` categorieën voor prestatiemeteritems die u moet verzamelen van prestatiemeteritems. 
 
 Als u betrouwbare verzamelingen gebruikt, raden wij aan toe te voegen de `Avg. Transaction ms/Commit` van de `Service Fabric Transactional Replicator` voor het verzamelen van de gemiddelde doorvoervertraging per transactie metriek.
 
@@ -83,4 +83,4 @@ Als u betrouwbare verzamelingen gebruikt, raden wij aan toe te voegen de `Avg. T
 ## <a name="next-steps"></a>Volgende stappen
 
 * Meer informatie over [genereren van gebeurtenissen op het niveau van het platform](service-fabric-diagnostics-event-generation-infra.md) in Service Fabric
-* Verzamelen van prestatiegegevens via [Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md)
+* Verzamelen van prestatiegegevens via [OMS-Agent](service-fabric-diagnostics-oms-agent.md)

@@ -1,9 +1,9 @@
 ---
-title: Waarschuwing voor een metriek maken met Resource Manager-sjabloon | Microsoft Docs
-description: Informatie over het gebruik van Resource Manager-sjabloon een metrische waarschuwing voor het ontvangen van meldingen per e-mail of webhook wilt maken.
+title: Een klassieke metrische waarschuwing in Azure maken met Resource Manager-sjabloon | Microsoft Docs
+description: Informatie over het gebruik van een Resource Manager-sjabloon een klassieke metrische waarschuwing voor het ontvangen van meldingen per e-mail of webhook wilt maken.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 41d62044-6bc5-4674-b277-45b919f58efe
@@ -12,16 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/21/2017
+ms.date: 4/27/2018
 ms.author: johnkem
-ms.openlocfilehash: ac12605636d21fd0b5c89512c454ef2d899ef6dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c83eeaf6c26aca3acdd43a767aa11357fa502544
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Een waarschuwing voor metrische gegevens maken met een Resource Manager-sjabloon
+# <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Een klassieke waarschuwing voor metrische gegevens maken met een Resource Manager-sjabloon
 Dit artikel laat zien hoe u kunt een [Azure Resource Manager-sjabloon](../azure-resource-manager/resource-group-authoring-templates.md) Azure metrische waarschuwingen configureren. Hiermee kunt u waarschuwingen op uw resources automatisch ingesteld als ze zijn gemaakt om ervoor te zorgen dat alle bronnen correct worden bewaakt.
+
+> [!NOTE]
+> 
+> Dit artikel wordt beschreven maken **klassieke metrische waarschuwingen** met Resource Manager-sjablonen. Als u op zoek bent voor het maken van [nieuwere metrische waarschuwingen](monitoring-near-real-time-metric-alerts.md) met behulp van sjablonen [in dit artikel](monitoring-create-metric-alerts-with-templates.md) bevat de details.
+>
+
 
 De eenvoudige stappen zijn als volgt:
 
@@ -30,7 +36,7 @@ De eenvoudige stappen zijn als volgt:
 
 Hieronder wordt beschreven hoe u maakt een Resource Manager-sjabloon eerst voor een waarschuwing alleen vervolgens voor een waarschuwing tijdens het maken van een andere resource.
 
-## <a name="resource-manager-template-for-a-metric-alert"></a>Resource Manager-sjabloon voor een metrische waarschuwing
+## <a name="resource-manager-template-for-a-classic-metric-alert"></a>Resource Manager-sjabloon voor een klassieke metrische waarschuwing
 Voor het maken van een waarschuwing met een Resource Manager-sjabloon die u maakt een resource van het type `Microsoft.Insights/alertRules` en in alle gerelateerde eigenschappen te vullen. Hieronder vindt u een sjabloon die een waarschuwingsregel maakt.
 
 ```json
@@ -180,7 +186,7 @@ Voor het maken van een waarschuwing met een Resource Manager-sjabloon die u maak
 
 Beschrijvingen van het schema en de eigenschappen voor een waarschuwingsregel [is hier beschikbaar](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
-## <a name="resource-manager-template-for-a-resource-with-an-alert"></a>Resource Manager-sjabloon voor een resource met een waarschuwing
+## <a name="resource-manager-template-for-a-resource-with-a-classic-metric-alert"></a>Resource Manager-sjabloon voor een resource met een klassieke metrische waarschuwing
 Een waarschuwing op Resource Manager-sjabloon is vaak nuttig bij het maken van een waarschuwing tijdens het maken van een resource. U wilt bijvoorbeeld ervoor te zorgen dat een ' CPU % > 80 ' regel wordt ingesteld telkens wanneer u een virtuele Machine implementeert. U doet dit door u waarschuwingsregel toevoegen als een resource in de matrix resource voor VM-sjabloon en toevoegen van een afhankelijkheid met de `dependsOn` eigenschap in op de VM-resource-ID. Hier volgt een voorbeeld van een volledige die wordt gemaakt van een virtuele machine van Windows en wordt een waarschuwing die abonnementsbeheerders wordt gewaarschuwd wanneer het CPU-gebruik hoger dan 80 is %.
 
 ```json

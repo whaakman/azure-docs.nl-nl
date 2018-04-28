@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2017
+ms.date: 04/13/2018
 ms.author: terrylan
-ms.openlocfilehash: 197b1a844291f2bef2dd35001d1e6b8807ac9805
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6a88fbadd8fbf05a4942e42b535770f6f068af28
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="security-center-platform-migration-faq"></a>Security Center-platform migratie Veelgestelde vragen
 In eerdere juni 2017 begonnen Azure Security Center met behulp van Microsoft Monitoring Agent voor het verzamelen en opslaan van gegevens. Zie voor meer informatie, [Azure Security Center-Platform migratie](security-center-platform-migration.md). Deze Veelgestelde vragen over de antwoorden op vragen over de migratie van het platform.
@@ -122,8 +122,6 @@ Selecteer een bestaande werkruimte voor logboekanalyse:
    >
 
    - Selecteer **annuleren** om de bewerking te annuleren.
-
-      ![Bewaakte VM's configureren][6]
 
 ### <a name="what-if-the-microsoft-monitoring-agent-was-already-installed-as-an-extension-on-the-vm"></a>Wat gebeurt er als dat Microsoft Monitoring Agent al is geïnstalleerd als een uitbreiding op de virtuele machine?
 Security Center wordt de bestaande verbindingen met werkruimten van de gebruiker niet overschreven. Security Center slaat beveiligingsgegevens van de virtuele machine in de werkruimte al verbonden. Security Center werkt de uitbreidingsversie voor de Azure-resource-id van de virtuele machine voor de ondersteuning van Security Center-gebruik.
@@ -248,4 +246,3 @@ Zie voor meer informatie over de migratie Security Center-platform.
 [3]: ./media/security-center-platform-migration-faq/remove-the-agent.png
 [4]: ./media/security-center-platform-migration-faq/solutions.png
 [5]: ./media/security-center-platform-migration-faq/use-another-workspace.png
-[6]: ./media/security-center-platform-migration-faq/reconfigure-monitored-vm.png

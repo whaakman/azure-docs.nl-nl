@@ -7,13 +7,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 04/10/2017
+ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: 6a065454e274abc9c032b0ac69f42dd72f059443
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: a171bdd11cd2de030937927eef34d5ad9e0507af
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Azure Table storage met Azure Search-index
 Dit artikel laat zien hoe u met Azure Search indexgegevens die zijn opgeslagen in Azure Table storage.
@@ -47,7 +47,7 @@ Voor tabel indexeren, moet de gegevensbron op de volgende eigenschappen hebben:
 
 Een gegevensbron maken:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -79,7 +79,7 @@ De index geeft de velden in een document, de kenmerken en andere constructies di
 
 Een index te maken:
 
-    POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -98,7 +98,7 @@ Een indexeerfunctie een gegevensbron is verbonden met een doel search-index en v
 
 Nadat de index en gegevensbron zijn gemaakt, bent u klaar voor het maken van de indexeerfunctie:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -131,7 +131,7 @@ Bij het instellen van een tabel indexeerfunctie worden uitgevoerd op een plannin
 
 Om aan te geven dat bepaalde documenten van de index moeten worden verwijderd, kunt u een strategie voor voorlopig verwijderen gebruiken. In plaats van een rij verwijdert, moet u een eigenschap om aan te geven dat het is verwijderd en van een voorlopig detectie van het verwijderingsbeleid voor de datasource instellen toevoegen. Bijvoorbeeld, het volgende beleid van oordeel is dat een rij is verwijderd als de rij een eigenschap heeft `IsDeleted` met de waarde `"true"`:
 
-    PUT https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 

@@ -2,17 +2,18 @@
 title: Een virtuele Azure-machine beheren met inventarisverzameling | Microsoft Docs
 description: Een virtuele machine beheren met inventarisverzameling
 services: automation
+ms.service: automation
 keywords: inventaris, automation, wijziging, bijhouden
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 03/30/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 6eb1a77613c6f7784e251bb99a03e6ca7e1f7017
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0b744911d37e2d54f88ebeac3ec64a309bab22b9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Een virtuele Azure-machine met inventarisverzameling beheren
 
@@ -55,7 +56,7 @@ Standaard worden software-, Windows Services- en Linux-daemons geconfigureerd vo
 
 De volgende tabellen bevatten informatie over elke eigenschap die kan worden geconfigureerd voor de verschillende categorieën.
 
-### <a name="windows-registry"></a>Windows Registry
+### <a name="windows-registry"></a>Windows-register
 
 |Eigenschap  |Beschrijving  |
 |---------|---------|

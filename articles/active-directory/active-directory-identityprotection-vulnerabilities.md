@@ -3,7 +3,7 @@ title: 'Beveiligingsproblemen die worden gedetecteerd door Azure Active Director
 description: 'Overzicht van de beveiligingsproblemen die worden gedetecteerd door Azure Active Directory: Identity Protection.'
 services: active-directory
 keywords: beveiliging in Azure active directory-identiteit, cloud app discovery, het beheren van toepassingen, beveiliging, risico, risiconiveau, beveiligingsprobleem, beveiligingsbeleid
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 92233a5b-cb34-4d28-88cc-d5d29c0f3256
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 65b1ae76794c812f9fcf2955d09e023195ef6342
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 90fb659abfcff09eb715fcc29bbfb7e4facd3a6b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Beveiligingsproblemen die worden gedetecteerd door Azure Active Directory: Identity Protection
 Zwakke plekken zijn zwakke punten in uw omgeving die door een aanvaller kan worden misbruikt. U wordt aangeraden dat u deze beveiligingslekken ter verbetering van de beveiligingsstatus van uw organisatie, en voorkomen dat aanvallers deze nu aanvalt.
@@ -38,7 +38,7 @@ Azure multi-factor authentication-Server biedt een tweede beveiligingslaag voor 
 
 Het is raadzaam dat u Azure multi-factor Authentication voor gebruikersaanmelding nodig hebt. Multi-factorauthenticatie speelt een belangrijke rol in de beleidsregels voor voorwaardelijke toegang op basis van risico's beschikbaar via Identity Protection.
 
-Zie voor meer informatie [wat is Azure multi-factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
+Zie voor meer informatie [wat is Azure multi-factor Authentication?](authentication/multi-factor-authentication.md)
 
 ## <a name="unmanaged-cloud-apps"></a>Onbeheerde cloud-apps
 Deze kwetsbaarheid helpt u identificeren onbeheerde cloud-apps in uw organisatie.

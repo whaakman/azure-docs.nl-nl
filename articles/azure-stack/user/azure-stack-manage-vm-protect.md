@@ -3,7 +3,7 @@ title: Beveiligen van virtuele machines die worden geïmplementeerd op Azure-Sta
 description: Richtlijnen voor het beveiligen van virtuele machines die worden geïmplementeerd op Azure-Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: 4e5833cf-4790-4146-82d6-737975fb06ba
@@ -11,20 +11,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: 02get-started-article
-ms.date: 02/27/2018
-ms.author: mabrigg
+ms.topic: get-started-article
+ms.date: 04/25/2018
+ms.author: jeffgilb
 ms.reviewer: hector.linares
-ms.openlocfilehash: 0e74c6af36130d206456634548f452a1f1a2d4af
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b49a8650611472b5e35c4bdf8373a1d7e3a45589
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Beveiligen van virtuele machines die worden geïmplementeerd op Azure-Stack
-
-*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
-
 In dit artikel bevat informatie over richtlijnen voor het beveiligen van virtuele machines op Azure-Stack is geïmplementeerd voor gebruikers.
 
 Om te beschermen tegen gegevensverlies en niet-geplande uitvaltijd, moet u een plan voor herstel van back-up of herstel na noodgevallen voor uw toepassingen en gegevens te implementeren. Dit plan is uniek voor elke toepassing, maar een framework dat is ingesteld door uw organisatie uitgebreide zakelijke continuïteit en noodherstelplan (BC/DR) volgt. Voor algemene patronen en procedures voor de toepassing beschikbaarheid en robuustheid van verwijzen naar [ontwerpen robuuste toepassingen voor Azure](https://docs.microsoft.com/azure/architecture/resiliency) in Azure architectuur Center.
@@ -60,11 +57,11 @@ RPO is de maximale duur van het verlies van gegevens die tijdens een noodgeval a
  
 RTO en RPO zijn bedrijfsvereisten. Uitvoeren van een risicoanalyse uit te voeren om de RTO en de RPO van de toepassing te definiëren. Een andere algemene meetwaarde is **Mean Time herstellen** (MTTR) Dit is de gemiddelde tijd die nodig is voor het herstellen van de toepassing na een storing. De MTTR is een empirisch gegeven van een systeem. Als de MTTR langer is dan de RTO dan treedt na een storing in het systeem een onacceptabele bedrijfsonderbreking op omdat het niet mogelijk is het systeem binnen de gedefinieerde RTO te herstellen.
 
-### <a name="backup-restore"></a>Backup-restore
+### <a name="backup-restore"></a>Back-up terugzetten
 
 De meest voorkomende schema beveiliging voor VM-toepassingen is het gebruik van back-upsoftware. Doorgaans back-ups van een virtuele machine bevat het besturingssysteem, besturingssysteemconfiguratie, binaire bestanden van toepassingen en toepassingsgegevens. De back-ups worden gemaakt door het maken van een momentopname van de volumes, schijven of de hele virtuele machine. Met Azure-Stack u beschikt over de flexibiliteit van een back-up uit in de context van het gastbesturingssysteem of de Stack van Azure-opslag en berekeningen van API's. Azure-Stack biedt geen ondersteuning voor back-ups van nemen op het niveau van de hypervisor. 
  
-![Backup-restor](media\azure-stack-manage-vm-backup\vm_backupdataflow_03.png)
+![Back-up restor](media\azure-stack-manage-vm-backup\vm_backupdataflow_03.png)
  
 Herstellen van de toepassing vereist een of meer virtuele machines herstellen naar de cloud met dezelfde of naar een nieuwe cloud. U kunt een cloud richten in uw datacenter of de openbare cloud. Welke cloud-gericht is volledig binnen het besturingselement en is gebaseerd op de privacy- en onafhankelijkheid vereisten van uw gegevens. 
  
@@ -147,7 +144,8 @@ Belangrijke aandachtspunten voor de implementatie van uw Azure-Stack:
 ## <a name="next-steps"></a>Volgende stappen 
 
 In dit artikel wordt beschreven we de richtlijnen over het beveiligen van virtuele machines op Azure-Stack is geïmplementeerd voor gebruikers. Raadpleeg voor meer informatie over het beveiligen van uw virtuele machines met behulp van Azure-services:
- - [Ondersteuning van Azure Backup-Server voor Azure-Stack](https://docs.microsoft.com/en-us/azure/backup/ ) 
- - [Azure Site Recovery-ondersteuning voor Azure-Stack](https://docs.microsoft.com/en-us/azure/site-recovery/)  
+ - [Gebruik Azure back-up naar back-up van bestanden en toepassingen op Azure-Stack](https://docs.microsoft.com/azure/backup/backup-mabs-files-applications-azure-stack)
+ - [Ondersteuning van Azure Backup-Server voor Azure-Stack](https://docs.microsoft.com/azure/backup/ ) 
+ - [Azure Site Recovery-ondersteuning voor Azure-Stack](https://docs.microsoft.com/azure/site-recovery/)  
  
 Raadpleeg voor meer informatie over de partner-producten die bescherming van de VM op Azure-Stack bieden '[bescherming van toepassingen en gegevens op Azure Stack](https://azure.microsoft.com/blog/protecting-applications-and-data-on-azure-stack/). "

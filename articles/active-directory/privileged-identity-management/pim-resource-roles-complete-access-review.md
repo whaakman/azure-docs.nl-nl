@@ -1,6 +1,6 @@
 ---
-title: Privileged Identity Management voor Azure-Resources - volledige toegang revisie voor Azure-Resources | Microsoft Docs
-description: Beschrijft hoe een beoordeling toegang voltooien voor Azure-Resources.
+title: Voltooi een revisie toegang voor Azure-resources met behulp van Privileged Identity Management | Microsoft Docs
+description: Beschrijft hoe een revisie toegang voor Azure-resources te voltooien.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -13,45 +13,50 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 5ce02c2d27ec3de87fe44e9c904f19409600e5c5
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: ae64d9ebbca80f6c21b8c7f352022a0878518e65
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="privileged-identity-management---resource-role---finish-access-review"></a>Privileged Identity Management - Resource role - voltooien toegang controleren
-Bevoorrechte rol beheerders kunnen bekijken voor bevoorrechte toegang eenmaal een [beveiligingsbeoordeling is gestart](pim-resource-roles-start-access-review.md). Privileged Identity Management (PIM) voor Azure-Resources worden automatisch een e-mailbericht aan gebruikers om te controleren van de toegang gevraagd verzonden. Als een gebruiker niet een e-mailbericht ontvangt is, kunt u ze de instructies in verzenden [het uitvoeren van een beveiligingsbeoordeling](pim-resource-roles-perform-access-review.md).
+# <a name="complete-an-access-review-for-azure-resources-by-using-privileged-identity-management"></a>Voltooi een revisie toegang voor Azure-resources met behulp van Privileged Identity Management
+Bevoorrechte rol beheerders kunnen bekijken voor bevoorrechte toegang na een [beveiligingsbeoordeling is gestart](pim-resource-roles-start-access-review.md). Privileged Identity Management (PIM) voor Azure-resources verzendt automatisch een e-mailbericht dat gebruikers om te controleren van de toegang wordt gevraagd. Als een gebruiker een e-mailbericht ontvangen heeft, kunt u ze verzenden de instructies voor [het uitvoeren van een beveiligingsbeoordeling](pim-resource-roles-perform-access-review.md).
 
-Nadat de periode van beveiliging controleren of alle gebruikers klaar bent met hun eigen bekijken, de stappen in dit artikel voor het beheren van de controle en de resultaten te zien.
+Nadat de controleperiode beveiliging is voltooid, of als alle gebruikers hun eigen controleren hebt voltooid, de stappen in dit artikel voor het beheren van de controle en de resultaten te zien.
 
 ## <a name="manage-security-reviews"></a>Beoordelingen van beveiliging beheren
-1. Ga naar de [Azure-portal](https://portal.azure.com/) en selecteer de **Azure-resources** toepassing op uw dashboard.
+1. Ga naar de [Azure Portal](https://portal.azure.com/). Op het dashboard, selecteer de **Azure-resources** toepassing.
+
 2. Selecteer de bron.
+
 3. Selecteer de **toegang tot beoordelingen** sectie van het dashboard.
-![](media/azure-pim-resource-rbac/rbac-access-review-home-list.png)
+![Beoordelingen voor toegang](media/azure-pim-resource-rbac/rbac-access-review-home-list.png)
+
 4. Selecteer de controle van toegang dat u wilt beheren.
 
-Op de toegang-revisie detail blade zijn er een aantal opties voor het beheren van deze evaluatie.
-![](media/azure-pim-resource-rbac/rbac-access-review-menu.png)
+Op de blade details van de controle van toegang en zijn er een aantal opties voor het beheren van deze evaluatie. De opties zijn als volgt:
+
+![Opties voor het beheren van een beoordeling](media/azure-pim-resource-rbac/rbac-access-review-menu.png)
 
 ### <a name="stop"></a>Stoppen
-Alle beoordelingen van toegang tot een einddatum hebben, maar u kunt de **stoppen** knop vroeg voltooid. Als gebruikers zich nog niet op dit tijdstip zijn gecontroleerd, ze niet mogelijk om te na het stoppen van de controle. U kunt een beoordeling niet opnieuw starten nadat deze gestopt.
+Alle beoordelingen van toegang tot een einddatum hebben, maar u kunt de **stoppen** knop vroeg voltooid. Alle gebruikers die nog niet klaar met hun controleren op dit tijdstip niet mogelijk na het stoppen van de controle wilt voltooien. U kunt een beoordeling niet opnieuw starten nadat deze gestopt.
 
 ### <a name="reset"></a>Opnieuw instellen
-U kunt een onderzoek toegang als u wilt verwijderen van alle beslissingen over het opnieuw instellen. Zodra u een onderzoek toegang opnieuw instelt hebt, alle gebruikers zijn gemarkeerd als niet opnieuw verwerkt. 
+U kunt een onderzoek toegang als u wilt verwijderen van alle beslissingen die zijn gemaakt herstellen. Nadat u een onderzoek toegang opnieuw instelt hebt, alle gebruikers zijn gemarkeerd als niet opnieuw verwerkt. 
 
 ### <a name="apply"></a>Toepassen
-Nadat een revisie access is voltooid, omdat u de einddatum is bereikt of handmatig gestopt omdat de **toepassen** knop implementeert de uitkomst van de evaluatie. Als een gebruiker toegang is geweigerd in de evaluatie, is dit de stap die hun roltoewijzing wordt verwijderd.  
+Nadat een revisie access voltooid is, gebruikt u de **toepassen** knop voor het implementeren van de uitkomst van de evaluatie. Als een gebruiker toegang is geweigerd in de evaluatie, verwijdert deze stap hun roltoewijzing.  
 
 ### <a name="delete"></a>Verwijderen
-Als u niet geïnteresseerd in de revisie verdere bent, verwijderen. De **verwijderen** knop verwijdert u de controle van de PIM-toepassing.
+Als u worden niet meer geïnteresseerd in de evaluatie, verwijderen. De **verwijderen** knop verwijdert u de controle van de PIM-toepassing.
 
 ## <a name="results"></a>Resultaten
-Weergeven en downloaden van een lijst van de resultaten bekijken op het tabblad resultaten. ![](media/azure-pim-resource-rbac/rbac-access-review-results.png)
+Op de **resultaten** tabblad, weergeven en downloaden van een lijst van de resultaten bekijken. 
+![Tabblad resultaten](media/azure-pim-resource-rbac/rbac-access-review-results.png)
 
 ## <a name="reviewers"></a>Revisors
 Weergeven en revisoren toevoegen aan uw bestaande toegang revisie. Herinneren revisoren hun beoordelingen voltooid.
-![](media/azure-pim-resource-rbac/rbac-access-review-reviewers.png)
+![Revisoren toevoegen](media/azure-pim-resource-rbac/rbac-access-review-reviewers.png)
 
 
 

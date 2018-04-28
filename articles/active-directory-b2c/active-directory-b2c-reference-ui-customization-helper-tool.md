@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: davidmu
-ms.openlocfilehash: f898c626d52b1a4e7df72284190749f4481999ad
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: de3d430ad984c9b173f77138417532badc3a7497
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>Azure Active Directory B2C: Een helper hulpprogramma dat wordt gebruikt voor het demonstreren van de pagina gebruiker gebruikersinterface (UI)-functie met aanpassen
 Dit artikel is een aanvulling op de [belangrijkste UI aanpassing artikel](active-directory-b2c-reference-ui-customization.md) in Azure Active Directory (Azure AD) B2C. De volgende stappen wordt beschreven hoe de functie UI aanpassing oefenen met behulp van HTML en CSS voorbeeldinhoud die we hebt opgegeven.
@@ -29,7 +29,7 @@ De voorbeeldinhoud bevat, kan worden gebruikt voor customze twee pagina's in een
 ## <a name="register-an-application"></a>Een toepassing registreren
 U moet [een toepassing registreren](active-directory-b2c-app-registration.md) in uw B2C-tenant die kan worden gebruikt voor het uitvoeren van uw beleid. U hebt een aantal opties die u kunt het registratiebeleid daadwerkelijk worden uitgevoerd na de registratie van uw toepassing:
 
-* Een van de Azure AD B2C snel starten-toepassingen die worden vermeld in de sectie 'Aan de slag' van bouwen [aanmelden en aanmelden van gebruikers in uw toepassingen](active-directory-b2c-overview.md#get-started).
+* Een van de Azure AD B2C snel starten-toepassingen die worden vermeld in de sectie 'Aan de slag' van bouwen [aanmelden en aanmelden van gebruikers in uw toepassingen](active-directory-b2c-overview.md).
 * Gebruik de vooraf gemaakte [Azure AD B2C Playground](https://aadb2cplayground.azurewebsites.net) toepassing. Als u de playground gebruiken wilt, moet u een toepassing registreren in uw B2C-tenant met behulp van de **omleidings-URI** `https://aadb2cplayground.azurewebsites.net/`.
 * Gebruik de **nu uitvoeren** knop op uw beleid in de [Azure-portal](https://portal.azure.com/).
 
@@ -39,7 +39,7 @@ Voor het aanpassen van het uiterlijk van uw beleid, moet u eerst maken HTML en C
 Voor de doeleinden van deze zelfstudie hebt we al enkele voorbeeldinhoud gemaakt en wordt gehost op Azure Blob Storage. De voorbeeldinhoud is een zeer eenvoudige aanpassing van het thema van onze fictieve bedrijf, 'Wingtip Toys'. Als u wilt uitproberen in uw eigen beleid, de volgende stappen uit:
 
 1. Aanmelden bij uw tenant op de [Azure-portal](https://portal.azure.com/) en navigeer naar de blade B2C-functies.
-2. Klik op **registreren of aanmelden beleid** en klik vervolgens op het beleid (bijvoorbeeld ' b2c\_1\_aanmelding\_up\_aanmelding\_in ').
+2. Klik op **registreren of aanmelden beleid**, klik op het beleid en klik op bewerken (bijvoorbeeld ' b2c\_1\_aanmelding\_up\_aanmelding\_in ').
 3. Klik op **Page UI-aanpassing** en vervolgens **Unified registreren of aanmelden pagina**.
 4. Schakelen tussen de **gebruik aangepaste pagina** overschakelen naar **Ja**. In de **aangepaste pagina URI** veld `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/unified.html`. Klik op **OK**.
 5. Klik op **aanmeldpagina voor lokaal account**. Schakelen tussen de **aangepaste sjabloon gebruiken** overschakelen naar **Ja**. In de **aangepaste pagina URI** veld `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/selfasserted.html`.
@@ -52,7 +52,7 @@ U kunt nu uw aangepaste beleid uitproberen. U kunt uw eigen toepassing of de Azu
 ## <a name="upload-the-sample-content-to-azure-blob-storage"></a>De voorbeeldinhoud uploaden naar Azure Blob Storage
 Als u gebruiken van Azure Blob Storage wilt voor het hosten van uw pagina-inhoud, kunt u uw eigen opslagaccount maken en onze B2C helper-hulpprogramma gebruiken om uw bestanden te uploaden.
 
-### <a name="create-a-storage-account"></a>Een opslagaccount maken
+### <a name="create-a-storage-account"></a>Create a storage account
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Klik op **+ nieuw** > **gegevens en opslag** > **opslagaccount**. U moet een Azure-abonnement om een Azure Blob Storage-account te maken. U kunt aanmelden met een gratis proefversie op de [Azure-website](https://azure.microsoft.com/pricing/free-trial/).
 3. Geef een **naam** voor de opslag account (bijvoorbeeld 'contoso') en kies de gewenste selecties voor **prijscategorie**, **resourcegroep** en  **Abonnement**. Zorg ervoor dat u hebt de **vastmaken aan Startboard** optie ingeschakeld. Klik op **Create**.

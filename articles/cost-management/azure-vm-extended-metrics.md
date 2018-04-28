@@ -2,19 +2,19 @@
 title: Uitgebreide metrische gegevens voor Azure virtual machines toevoegen | Microsoft Docs
 description: In dit artikel helpt u bij het inschakelen en configureren van uitgebreide diagnostische gegevens metrische gegevens voor uw Azure VM's.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
-ms.topic: article
+ms.date: 04/26/2018
+ms.topic: conceptual
 ms.service: cost-management
-manager: carmonm
-ms.custom: 
-ms.openlocfilehash: 91797aaab1dca96e78643f57776eb16d336e894b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+manager: dougeby
+ms.custom: ''
+ms.openlocfilehash: 4b00baba44a4724ce8f6a45a80692f7f566a35ed
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Uitgebreide metrische gegevens voor Azure virtual machines toevoegen
 
@@ -31,7 +31,7 @@ U wilt bewaken van de CPU-percentage en geheugen-% van uw Azure VM's. De virtuel
 
 ## <a name="verify-that-metrics-are-enabled-on-vms"></a>Controleer of metrische gegevens zijn ingeschakeld op virtuele machines
 
-1. Meld u via http://portal.azure.com aan bij Azure Portal.
+1. Meld u aan bij Azure Portal op http://portal.azure.com.
 2. Onder **virtuele machines**, selecteert u een virtuele machine en klik vervolgens onder **bewaking**, selecteer **metrische gegevens**. Een lijst met beschikbare metrische gegevens weergegeven.
 3. Selecteer enkele metrische gegevens en een grafiek voor deze gegevens worden weergegeven.  
     ![Voorbeeld metriek – host percentage CPU](./media/azure-vm-extended-metrics/metric01.png)

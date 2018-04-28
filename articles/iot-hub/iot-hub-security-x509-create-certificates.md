@@ -2,10 +2,10 @@
 title: Het gebruik van PowerShell X.509-certificaten maken | Microsoft Docs
 description: Het gebruik van PowerShell lokaal X.509-certificaten maken en inschakelen van de X.509 gebaseerde beveiligingsgroepen in uw Azure-IoT-hub in een gesimuleerde omgeving.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dsk-2015
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/10/2017
 ms.author: dkshir
-ms.openlocfilehash: b2f78e8debd367f86ee9bb06bf7de50590c61ad7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2e58096d4bde9c947f199b4696c0b5c28291956d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="powershell-scripts-to-manage-ca-signed-x509-certificates"></a>PowerShell-scripts voor het beheren van CA ondertekend X.509-certificaten
 
@@ -33,7 +33,9 @@ Deze zelfstudie wordt ervan uitgegaan dat u de binaire bestanden van de OpenSSL 
 ## <a name="create-x509-certificates"></a>X.509-certificaten maken
 De volgende stappen ziet een voorbeeld van het maken van de X.509-basiscertificaten lokaal. 
 
-1. Open een PowerShell-venster als een *beheerder*. 
+1. Open een PowerShell-venster als een *beheerder*.  
+   **Opmerking:** moet u dit in openen PowerShell zelf, niet PowerShell ISE, Visual Studio Code of andere hulpprogramma's die het verpakken van de onderliggende PowerShell-console.  Gebruik van een niet-console op basis van PowerShell leidt ertoe dat `openssl` onderstaande verkeerd-om opdrachten uit.
+
 2. Navigeer naar uw werkmap. Voer het volgende script voor het instellen van de globale variabelen. 
     ```PowerShell
     $openSSLBinSource = "<full_path_to_the_binaries>\OpenSSL\bin"

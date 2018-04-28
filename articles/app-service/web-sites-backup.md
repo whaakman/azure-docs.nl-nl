@@ -2,7 +2,7 @@
 title: Back-up maken van uw app in Azure
 description: Informatie over het maken van back-ups van uw apps in Azure App Service.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: jimbe
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 435370a8758d439a5fcce2e04efd11b4aaaf0357
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 66423fecce92cd933cc8680810aa2abe5e25a90d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="back-up-your-app-in-azure"></a>Back-up maken van uw app in Azure
 De functie back-up en herstel in [Azure App Service](app-service-web-overview.md) kunt u eenvoudig back-ups van app handmatig of volgens een planning aan te maken. U kunt de app naar een momentopname van een eerdere status herstellen door het overschrijven van de bestaande app of het herstellen naar een andere app. 
@@ -35,9 +35,9 @@ App Service kunt back-up van de volgende informatie naar een Azure-opslagaccount
 * Database verbonden met uw app
 
 De volgende databaseoplossingen worden met de functie back-ups ondersteund: 
-   - [SQL Database](https://azure.microsoft.com/en-us/services/sql-database/)
-   - [Azure-Database voor MySQL (Preview)](https://azure.microsoft.com/en-us/services/mysql)
-   - [Azure-Database voor PostgreSQL (Preview)](https://azure.microsoft.com/en-us/services/postgres)
+   - [SQL Database](https://azure.microsoft.com/services/sql-database/)
+   - [Azure-Database voor MySQL (Preview)](https://azure.microsoft.com/services/mysql)
+   - [Azure-Database voor PostgreSQL (Preview)](https://azure.microsoft.com/services/postgres)
    - [MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
  
 
@@ -154,7 +154,7 @@ De databaseback-up voor de app wordt opgeslagen in de hoofdmap van het ZIP-besta
 > 
 > 
 
-## <a name="automate-with-scripts"></a>Automatiseren met behulp van scripts
+## <a name="automate-with-scripts"></a>Automatiseren met scripts
 
 U kunt back-beheer met behulp van scripts, automatiseren met behulp van de [Azure CLI](/cli/azure/install-azure-cli) of [Azure PowerShell](/powershell/azure/overview).
 

@@ -1,23 +1,23 @@
 ---
-title: Wat zijn Data Warehouse Units (dwu's, cDWUs) in Azure SQL Data Warehouse? | Microsoft Docs
-description: Prestaties scale-out mogelijkheden in Azure SQL Data Warehouse. Uitbreiden door het aantal dwu's, cDWUs, aanpassen of onderbreken en hervatten van rekenresources kosten besparen.
+title: Data Warehouse Units (dwu's, cDWUs) in Azure SQL Data Warehouse | Microsoft Docs
+description: Aanbevelingen over het kiezen van het aantal ideaal datawarehouse Units (dwu's, cDWUs) om te optimaliseren prijs en de prestaties en het wijzigen van het aantal eenheden.
 services: sql-data-warehouse
-author: sqlmojo
+author: ronortloff
 manager: craigg-msft
+ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
-ms.date: 04/09/2018
-ms.author: joeyong
-ms.reviewer: jrj
-ms.openlocfilehash: 56d59be2074a3047ce19fde3e808354266040864
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: a83a9f9332d81e02a83efc019ad56027316301ab
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
----
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Data Warehouse Units (dwu's) en rekencapaciteit Data Warehouse Units (cDWUs)
-Verklaart Data Warehouse Units (dwu's) en Data Warehouse Units (cDWUS) berekenen voor Azure SQL Data Warehouse. Aanbevelingen voor het kiezen van het aantal ideaal datawarehouse units en het wijzigen van het aantal bevatten. 
+Aanbevelingen over het kiezen van het aantal ideaal datawarehouse Units (dwu's, cDWUs) om te optimaliseren prijs en de prestaties en het wijzigen van het aantal eenheden. 
 
 ## <a name="what-are-data-warehouse-units"></a>Wat zijn Data Warehouse Units?
 Met SQL Data Warehouse CPU, geheugen en I/O zijn gebundeld in eenheden van de compute-schaal Data Warehouse Units (dwu's) genoemd. Een DWU vertegenwoordigt een abstract, genormaliseerde meting van rekenresources en prestaties. U wijzigt het aantal dwu's die zijn toegewezen aan het systeem, dat op zijn beurt Hiermee past u de prestaties en de kosten van uw systeem door het wijzigen van uw serviceniveau. 
@@ -28,7 +28,7 @@ Prestaties voor datawarehouse units is gebaseerd op deze datawarehouse-workload 
 
 - Hoe snel kunt een query op een standaard magazijnbeheer scannen een groot aantal rijen en vervolgens een complexe aggregatie uitvoeren? Deze bewerking is een i/o en CPU-intensief.
 - Hoe snel kan het datawarehouse gegevens uit Azure Storage-Blobs of Azure Data Lake opnemen? Deze bewerking is het netwerk en CPU-intensief. 
-- Hoe snel kunt de [CREATE TABLE AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL-opdracht kopiëren van een tabel? Deze bewerking omvat het lezen van gegevens uit de opslag, verdelen over de knooppunten van het toestel en schrijven naar opslag opnieuw. Deze bewerking is CPU, IO en het netwerk intensief.
+- Hoe snel kunt de [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL-opdracht kopiëren van een tabel? Deze bewerking omvat het lezen van gegevens uit de opslag, verdelen over de knooppunten van het toestel en schrijven naar opslag opnieuw. Deze bewerking is CPU, IO en het netwerk intensief.
 
 Dwu's verhogen:
 - Prestaties van het systeem voor scans, aggregaties en CTAS instructies lineair wordt gewijzigd
@@ -85,11 +85,11 @@ SQL Data Warehouse is een scale-out-systeem dat de enorme hoeveelheden berekenin
 
 > [!NOTE]
 >
-> Prestaties van query's worden alleen met meer garandeert verhoogd als het werk kan worden gesplitst tussen rekenknooppunten. Als u merkt dat schalen niet van de prestaties van uw wijzigen is, moet u wellicht uw tabelontwerp en/of uw query's optimaliseren. Voor query afstemmen richtlijnen, raadpleegt u de volgende [prestaties](sql-data-warehouse-overview-manage-user-queries.md) artikelen. 
+> Prestaties van query's worden alleen met meer garandeert verhoogd als het werk kan worden gesplitst tussen rekenknooppunten. Als u merkt dat schalen niet van de prestaties van uw wijzigen is, moet u wellicht uw tabelontwerp en/of uw query's optimaliseren. Zie voor query afstemmen richtlijnen, [gebruiker query's beheren](sql-data-warehouse-overview-manage-user-queries.md). 
 
 ## <a name="permissions"></a>Machtigingen
 
-Als u de datawarehouse eenheden vereist de machtigingen beschreven in [ALTER DATABASE][ALTER DATABASE]. 
+Als u de datawarehouse eenheden vereist de machtigingen beschreven in [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql). 
 
 ## <a name="view-current-dwu-settings"></a>De huidige DWU-instellingen weergeven
 
@@ -120,11 +120,13 @@ Dwu's of cDWUs wijzigen:
 3. Klik op **Opslaan**. Er verschijnt een bevestigingsbericht. Klik op **Ja** om te bevestigen of **geen** om te annuleren.
 
 ### <a name="powershell"></a>PowerShell
-Het aantal dwu's of cDWUs wilt wijzigen, gebruikt u de [Set-AzureRmSqlDatabase] [Set-AzureRmSqlDatabase] PowerShell-cmdlet. Het volgende voorbeeld wordt de serviceniveaudoelstelling op DW1000 voor de database MySQLDW die wordt gehost op de server MijnServer.
+Het aantal dwu's of cDWUs wilt wijzigen, gebruikt u de [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) PowerShell-cmdlet. Het volgende voorbeeld wordt de serviceniveaudoelstelling op DW1000 voor de database MySQLDW die wordt gehost op de server MijnServer.
 
 ```Powershell
 Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
 ```
+
+Zie voor meer informatie [PowerShell-cmdlets voor SQL Data Warehouse](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 ### <a name="t-sql"></a>T-SQL
 Met T-SQL kunt u de huidige DWU of cDWU instellingen weergeven, de instellingen wijzigen en de voortgang controleren. 
@@ -132,7 +134,7 @@ Met T-SQL kunt u de huidige DWU of cDWU instellingen weergeven, de instellingen 
 Het aantal dwu's of cDWUs wijzigen:
 
 1. Verbinding maken met de database master die zijn gekoppeld aan de logische SQL Database-server.
-2. Gebruik de [ALTER DATABASE] [ ALTER DATABASE] TSQL-instructie. Het volgende voorbeeld wordt de serviceniveaudoelstelling ingesteld op DW1000 voor de database MySQLDW. 
+2. Gebruik de [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql) TSQL-instructie. Het volgende voorbeeld wordt de serviceniveaudoelstelling ingesteld op DW1000 voor de database MySQLDW. 
 
 ```Sql
 ALTER DATABASE MySQLDW
@@ -142,7 +144,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 
 ### <a name="rest-apis"></a>REST-API’s
 
-Het aantal dwu's met kunt u wijzigen [maken of bijwerken Database] [maken of bijwerken Database] REST-API. Het volgende voorbeeld wordt de serviceniveaudoelstelling op DW1000 voor de database MySQLDW die wordt gehost op de server MijnServer. De server zich in een Azure-resourcegroep met de naam ResourceGroup1.
+U kunt het aantal dwu's wijzigen met de [maken of de Database bijwerken](/rest/api/sql/databases/createorupdate) REST-API. Het volgende voorbeeld wordt de serviceniveaudoelstelling op DW1000 voor de database MySQLDW die wordt gehost op de server MijnServer. De server zich in een Azure-resourcegroep met de naam ResourceGroup1.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1
@@ -155,6 +157,7 @@ Content-Type: application/json; charset=UTF-8
 }
 ```
 
+Zie voor meer voorbeelden van de REST-API, [REST-API's voor SQL Data Warehouse](sql-data-warehouse-manage-compute-rest-api.md).
 
 ## <a name="check-status-of-dwu-changes"></a>Controleer de status van DWU wijzigingen
 
@@ -196,40 +199,7 @@ Wanneer u een schaalaanpassing initieert, wordt in het systeem eerst is funest a
 - Voor een bewerking omlaag schalen de overbodige voor knooppunten uit de opslag en weer koppelt aan de resterende knooppunten.
 
 ## <a name="next-steps"></a>Volgende stappen
-Raadpleeg de volgende artikelen om te begrijpen enkele concepten die aanvullende prestatie:
-
-* [Werkbelasting en gelijktijdigheid management][Workload and concurrency management]
-* [Overzicht van de tabel-ontwerp][Table design overview]
-* [tabeldistributie][Table distribution]
-* [Tabel indexeren][Table indexing]
-* [Partitioneren van tabel][Table partitioning]
-* [Tabelstatistieken][Table statistics]
-* [Aanbevolen procedures][Best practices]
-
-<!--Image reference-->
-
-<!--Article references-->
-
-[capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
+Zie voor meer informatie over het beheren van prestaties, [Resource klassen voor het beheer van de werkbelasting](resource-classes-for-workload-management.md) en [geheugen en gelijktijdigheid limieten](memory-and-concurrency-limits.md).
 
 
-[Check database state with T-SQL]: ./sql-data-warehouse-manage-compute-tsql.md#check-database-state-and-operation-progress
-[Check database state with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#check-database-state
-[Check database state with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#check-database-state
 
-[Workload and concurrency management]: ./resource-classes-for-workload-management.md
-[Table design overview]: ./sql-data-warehouse-tables-overview.md
-[Table distribution]: ./sql-data-warehouse-tables-distribute.md
-[Table indexing]: ./sql-data-warehouse-tables-index.md
-[Table partitioning]: ./sql-data-warehouse-tables-partition.md
-[Table statistics]: ./sql-data-warehouse-tables-statistics.md
-[Best practices]: ./sql-data-warehouse-best-practices.md
-[development overview]: ./sql-data-warehouse-overview-develop.md
-
-[SQL DB Contributor]:../role-based-access-control/built-in-roles.md#sql-db-contributor
-
-<!--MSDN references-->
-[ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
-
-<!--Other Web references-->
-[Azure portal]: http://portal.azure.com/

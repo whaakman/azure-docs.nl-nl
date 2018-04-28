@@ -2,23 +2,23 @@
 title: Veelgestelde vragen en bekende problemen met beheerde Service identiteit (MSI) voor Azure Active Directory
 description: Bekende problemen met de Service-identiteit beheerd voor Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 84390f73fdac6554699dd43a0a36d16eace9a2bb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-ms.translationtype: MT
+ms.openlocfilehash: a50854b2e12db9a202d769f9e5feebee8e5f9395
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Veelgestelde vragen en bekende problemen met beheerde Service identiteit (MSI) voor Azure Active Directory
 
@@ -26,9 +26,9 @@ ms.lasthandoff: 03/16/2018
 
 ## <a name="frequently-asked-questions-faqs"></a>Veelgestelde vragen
 
-### <a name="is-there-a-private-preview-available-for-additional-features"></a>Is er een persoonlijke preview beschikbaar voor aanvullende functies?
+### <a name="is-there-a-private-preview-program-available-for-upcoming-msi-features-and-integrations"></a>Is er een programma private preview beschikbaar voor toekomstige MSI-functies en integraties?
 
-Ja. Als u in aanmerking voor registratie in de private preview [gaat u naar onze aanmeldingspagina](https://aka.ms/azuremsiprivatepreview).
+Ja. Als u in aanmerking voor registratie in het programma private preview [gaat u naar onze aanmeldingspagina](https://aka.ms/azuremsiprivatepreview).
 
 ### <a name="does-msi-work-with-azure-cloud-services"></a>Werkt MSI met Azure Cloud Services?
 
@@ -42,13 +42,27 @@ Nee, MSI niet nog geïntegreerd met ADAL of MSAL. Zie voor meer informatie over 
 
 De beveiligingsgrens van de identiteit is de bron waarnaar deze is gekoppeld. De beveiligingsgrens voor een MSI virtuele Machine is bijvoorbeeld de virtuele Machine. Een code die wordt uitgevoerd op deze virtuele machine, kan het MSI-eindpunt bellen en vragen van tokens. Het is de vergelijkbare ervaring met andere bronnen die ondersteuning bieden voor MSI.
 
+### <a name="should-i-use-the-msi-vm-imds-endpoint-or-the-msi-vm-extension-endpoint"></a>Moet ik het eindpunt MSI VM IMDS of het eindpunt MSI VM-extensie gebruiken?
+
+Als u MSI met virtuele machines, raden we met behulp van het eindpunt MSI IMDS. De Azure-Service-exemplaar metagegevens is een REST-eindpunt toegankelijk voor alle IaaS VM's die worden gemaakt via de Azure Resource Manager. Enkele van de voordelen van het gebruik van MSI via IMDS zijn:
+
+1. Alle besturingssystemen van Azure IaaS ondersteund kunt MSI via IMDS gebruiken. 
+2. Niet langer nodig voor het installeren van een uitbreiding op de virtuele machine om in te schakelen van MSI. 
+3. De certificaten die door MSI zijn niet meer aanwezig zijn in de virtuele machine. 
+4. Het eindpunt IMDS is een bekende niet-routeerbare IP-adres alleen beschikbaar vanuit de virtuele machine. 
+
+De MSI-VM-extensie is nog steeds beschikbaar zijn voor vandaag; echter, u verder gaat er standaard voor het gebruik van het eindpunt IMDS. De MSI-VM-extensie wordt binnenkort gestart op een plan afschaffing. 
+
+Zie voor meer informatie over Azure exemplaar Metada Service [IMDS documentatie](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service)
+
 ### <a name="what-are-the-supported-linux-distributions"></a>Wat zijn de ondersteunde Linux-distributies?
 
-De volgende Linux-distributies ondersteunen MSI: 
+Alle Linux-distributies die wordt ondersteund door Azure IaaS kunnen worden gebruikt met MSI via het IMDS-eindpunt. 
 
+Opmerking: De MSI-VM-extensie biedt alleen ondersteuning voor de volgende Linux-distributies:
 - Virtuele CoreOS stabiel
 - CentOS 7.1
-- RedHat 7.2
+- 7.2 RedHat
 - Ubuntu 15.04
 - Ubuntu 16.04
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 7e520429e5f5e219e05a77eb4ca18d0d6b6b3977
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9cb7a076ea922b9868bd439d160aec96f044e3b6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Monitor-scenario in duurzame functies - weer watcher-voorbeeld
 
@@ -38,7 +38,7 @@ Dit voorbeeld controleert een locatie huidige weer voorwaarden en een gebruiker 
 * Monitors kunnen worden beëindigd wanneer een bepaalde voorwaarde wordt voldaan, of worden afgesloten met een ander proces.
 * Monitors kunnen duren voordat de parameters. Het voorbeeld toont hoe hetzelfde proces weer bewaking aan een opgegeven locatie en telefoonnummer kan worden toegepast.
 * Monitors zijn schaalbaar. Omdat elke monitor een exemplaar van de orchestration is, kunnen meerdere beeldschermen worden gemaakt zonder te hoeven maken van nieuwe functies of meer code definiëren.
-* Monitors integreren in grotere werkstromen gemakkelijk. Een monitor kan bestaan uit één deel van een complexere orchestration-functie of een [onderliggende orchestration](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-sub-orchestrations).
+* Monitors integreren in grotere werkstromen gemakkelijk. Een monitor kan bestaan uit één deel van een complexere orchestration-functie of een [onderliggende orchestration](https://docs.microsoft.com/azure/azure-functions/durable-functions-sub-orchestrations).
 
 ## <a name="configuring-twilio-integration"></a>Twilio-integratie configureren
 

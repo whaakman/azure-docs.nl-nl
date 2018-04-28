@@ -2,28 +2,28 @@
 title: Azure Marketplace SaaS Applications Technical Guide publiceren
 description: Stapsgewijze handleiding en publishing controlelijsten voor het publiceren van SaaS-toepassingen in Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
-documentationcenter: 
+documentationcenter: ''
 author: BrentL-Collabera
-manager: 
+manager: ''
 editor: BrentL-Collabera
-ms.assetid: 
+ms.assetid: ''
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: pabutler
-ms.openlocfilehash: 64becc80192e69bd332d6657637c845acf93748b
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: eb6db45ca0fcb6879aeaeaaf70715691cac438b0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="saas-applications-technical-publishing-guide"></a>Technische publishing handleiding van SaaS-toepassingen
 
 Welkom bij de Azure Marketplace SaaS-toepassingen technische handleiding publiceren. Deze handleiding is ontworpen om u te helpen candidate en bestaande uitgevers in de lijst van hun toepassingen en services in Azure Marketplace met de SaaS-toepassingen aanbieden.  
-U wilt gebruiken van SaaS-toepassingen aanbieding wanneer uw oplossing worden geïmplementeerd in uw eigen Azure-abonnement en klanten moeten kunnen aanmelden via een interface die u ontwerpen en beheren van de toepassing te testen. Dit wordt uitgevoerd met behulp van [Azure Active Directory (Azure AD)](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis) gebruikmaken van uw bestaande omgeving proefversie. Met andere woorden, is het een gratis proefversie klant geleid, partner gehost. Het is essentieel om uw oplossing op een manier die cloud kopers de mogelijkheid biedt om uw oplossing onafhankelijk voor geen kosten of kosten weer te geven en zodat dit aanbiedingtype een evaluatieversie biedt die overeenkomt met hoe klanten zoeken naar cloudoplossingen.  
+U wilt gebruiken van SaaS-toepassingen aanbieding wanneer uw oplossing worden geïmplementeerd in uw eigen Azure-abonnement en klanten moeten kunnen aanmelden via een interface die u ontwerpen en beheren van de toepassing te testen. Dit wordt uitgevoerd met behulp van [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) gebruikmaken van uw bestaande omgeving proefversie. Met andere woorden, is het een gratis proefversie klant geleid, partner gehost. Het is essentieel om uw oplossing op een manier die cloud kopers de mogelijkheid biedt om uw oplossing onafhankelijk voor geen kosten of kosten weer te geven en zodat dit aanbiedingtype een evaluatieversie biedt die overeenkomt met hoe klanten zoeken naar cloudoplossingen.  
 
 Voor een overzicht van alle andere Marketplace-aanbiedingen, raadpleegt u de [Marketplace Publisher handleiding](https://aka.ms/sellerguide).
 
@@ -31,8 +31,8 @@ Voor een overzicht van alle andere Marketplace-aanbiedingen, raadpleegt u de [Ma
 De technische vereisten voor SaaS-toepassingen zijn eenvoudige. Uitgevers hoeven alleen te worden geïntegreerd met Azure AD worden gepubliceerd.  Azure AD-integratie met toepassingen goed wordt gedocumenteerd en Microsoft biedt meerdere SDK's en bronnen om dit te realiseren.  
 
 Als u wilt starten, is het raadzaam dat u een abonnement specifiek voor uw Azure Marketplace publiceren hebt, zodat u kunt het isoleren van de andere initiatieven te werken. Bovendien, als dat niet al is geïnstalleerd, wordt aangeraden dat u de volgende hulpprogramma's als onderdeel van uw ontwikkelingsomgeving hebt: 
-- [Azure-CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)  
-- [Azure powerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-5.0.0)  
+- [Azure-CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)  
+- [Azure powerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0)  
 - [Azure ontwikkelhulpprogramma's (controleren wat er beschikbaar is)](https://azure.microsoft.com/tools/)  
 - [Visual Studio Code](https://code.visualstudio.com/)  
 
@@ -41,11 +41,11 @@ De volgende lijsten bevatten koppelingen naar de beste Azure AD-resources voor u
 
 **Documentatie**
 
-- [Ontwikkelaarshandleiding Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
+- [Ontwikkelaarshandleiding Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
 
-- [Integreren met Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-how-to-integrate)
+- [Integreren met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
 
-- [Toepassingen integreren met Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
+- [Toepassingen integreren met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 
 - [Overzicht van Azure - beveiliging en identiteit](https://azure.microsoft.com/roadmap/?category=security-identity)
 

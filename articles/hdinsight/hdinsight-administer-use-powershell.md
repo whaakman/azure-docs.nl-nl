@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: jgao
-ms.openlocfilehash: 8163c2a0443e5e92be6e54e04f529db307bc965a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7d2f68773c78eed001f14ca86a46fb9e18563d77
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Hadoop-clusters in HDInsight met behulp van Azure PowerShell beheren
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -176,7 +176,7 @@ Dit is dezelfde procedure als [Grant/revoke HTTP toegang](#grant/revoke-access).
 De volgende PowerShell-script laat zien hoe u de naam van het standaardopslagaccount en de verwante informatie ophalen:
 
 ```powershell
-#Login-AzureRmAccount
+#Connect-AzureRmAccount
 $clusterName = "<HDInsight Cluster Name>"
 
 $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName

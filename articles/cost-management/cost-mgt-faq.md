@@ -2,19 +2,19 @@
 title: Veelgestelde vragen over Azure kosten Management | Microsoft Docs
 description: Hier vindt u antwoorden op enkele van de veelgestelde vragen over Azure kosten Management.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/14/2018
-ms.topic: article
+ms.date: 04/26/2018
+ms.topic: troubleshooting
 ms.service: cost-management
-manager: carmonm
-ms.custom: 
-ms.openlocfilehash: 8920ff082fa1b442aa147068080085c40760e290
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+manager: dougeby
+ms.custom: ''
+ms.openlocfilehash: af6e15a86107aeb74a20c3e78a8f91f07d6d377a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Veelgestelde vragen over Azure kosten Management
 
@@ -89,9 +89,9 @@ Als u uw e-mailadres in Cloudyn van het standaard-adres in Azure wijzigt, kan uw
 
 U wordt aangeraden dat u ten minste twee Cloudyn administrator-accounts maken als een van de accounts is vergrendeld.
 
-Als u niet kunt bij de portal Cloudyn aanmelden, zorg ervoor dat u de juiste URL van Azure kosten Management aan te melden bij Cloudyn. Gebruik [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
+Als u niet kunt bij de portal Cloudyn aanmelden, zorg ervoor dat u de juiste URL van Azure kosten Management aan te melden bij Cloudyn. Gebruik [ https://azure.cloudyn.com ](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
 
-Vermijd het gebruik van de Cloudyn directe URL https://app.cloudyn.com.
+Vermijd het gebruik van de directe URL Cloudyn https://app.cloudyn.com.
 
 ## <a name="how-do-i-activate-unactivated-accounts-with-azure-credentials"></a>Hoe kan ik de niet-geactiveerde accounts met Azure-referenties activeren?
 
@@ -116,9 +116,9 @@ Selecteer om extra CSP-accounts toe aan een entiteit **MSP toegang** in plaats v
 
 U mogelijk meerdere Azure-accounts met behulp van verschillende valuta's. Kostenrapporten in Cloudyn worden echter niet meer dan één Valutatype per rapport weergegeven.
 
-Als u meerdere abonnementen met verschillende valuta's hebt, een bovenliggende entiteit en de onderliggende entiteit valuta's worden weergegeven in USD  **$** . Onze voorgestelde aanbevolen procedure is om te voorkomen dat met behulp van verschillende valuta's in de entiteitshiërarchie met dezelfde. Met andere woorden, moeten uw abonnementen die zijn ingedeeld in de structuur van een entiteit dezelfde valuta gebruiken.
+Als u meerdere abonnementen met verschillende valuta's hebt, een bovenliggende entiteit en de onderliggende entiteit valuta's worden weergegeven in USD **$**. Onze voorgestelde aanbevolen procedure is om te voorkomen dat met behulp van verschillende valuta's in de entiteitshiërarchie met dezelfde. Met andere woorden, moeten uw abonnementen die zijn ingedeeld in de structuur van een entiteit dezelfde valuta gebruiken.
 
-Cloudyn automatisch detecteert de Enterprise Agreement abonnementsvaluta en goed geeft in rapporten.  Cloudyn geeft echter alleen USD  **$**  voor de CSP en web-directe Azure-accounts.
+Cloudyn automatisch detecteert de Enterprise Agreement abonnementsvaluta en goed geeft in rapporten.  Cloudyn geeft echter alleen USD **$** voor de CSP en web-directe Azure-accounts.
 
 ## <a name="what-are-cloudyn-data-refresh-timelines"></a>Wat zijn de gegevens Cloudyn tijdlijnen vernieuwen?
 

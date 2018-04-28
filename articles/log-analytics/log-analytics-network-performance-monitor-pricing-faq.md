@@ -15,74 +15,70 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: ajaycode
-ms.openlocfilehash: 5b2335ee2584af07ed23ce87be92a869f3a07ba1
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 1e7e43dc2e7ed386f8f77fd1ab186d2ff34af405
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="pricing-changes-for-azure-network-performance-monitor"></a>Wijzigingen in de prijzen voor Azure-netwerk Prestatiemeter
+# <a name="pricing-changes-for-azure-network-performance-monitor"></a>Prijzen van wijzigingen voor de Prestatiemeter voor Azure-netwerk
 
-We hebben is luisteren naar uw feedback en onlangs hebt toegevoegd een [prijzen van nieuwe ervaring](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/), bewaking voor verschillende services in Azure.
-
-Dit document worden de prijscategorie wijzigingen die betrekking hebben op Azure vastgelegd [netwerk Prestatiemeter](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM), in een gemakkelijk te lezen van de vraag en antwoord-indeling.
+We hebben geluisterd naar uw feedback en onlangs geïntroduceerd een [prijzen van nieuwe ervaring](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) bewaking voor verschillende services in Azure. In dit artikel worden de prijscategorie wijzigingen die betrekking hebben op Azure vastgelegd [netwerk Prestatiemeter](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM) in een gemakkelijk leesbare vraag en antwoord-indeling.
 
 Prestatiemeter netwerk bestaat uit drie onderdelen:
 * [Prestatiemeter](https://docs.microsoft.com/azure/networking/network-monitoring-overview#performance-monitor)
-* [Monitor voor eindpunt](https://docs.microsoft.com/azure/networking/network-monitoring-overview#service-endpoint-monitor) en
-* [ExpressRoute Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview#expressroute-monitor)
+* [Monitor voor service-eindpunt](https://docs.microsoft.com/azure/networking/network-monitoring-overview#service-endpoint-monitor)
+* [ExpressRoute-Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview#expressroute-monitor)
 
-De onderstaande sectie wordt uitgelegd dat de prijscategorie wijzigingen voor de bovenstaande onderdelen.
+De volgende secties worden de prijscategorie wijzigingen voor de NPM-onderdelen.
 
-## <a name="performance-monitor-pm"></a>Prestatiemeter (PM)
+## <a name="performance-monitor"></a>Prestatiemeter
 
 **Hoe was gebruik van de Prestatiemeter in rekening gebracht in het oude model?**
 
-De facturering voor NPM is gebaseerd op het gebruik/verbruik uit twee onderdelen:
-* Knooppunten: Alle synthetische transacties zijn afkomstig en eindigen op de knooppunten. Knooppunten zijn ook agents of MMA (Microsoft Management Agents) genoemd.
-* Gegevens: De resultaten van de verschillende netwerktests in Log Analytics-bibliotheek worden opgeslagen.
+De facturering voor NPM is gebaseerd op het gebruik en het verbruik van twee onderdelen:
+* **Knooppunten**: alle synthetische transacties afkomstig zijn en eindigen op de knooppunten. Knooppunten worden ook aangeduid als agents of Microsoft Beheeragents.
+* **Gegevens**: de resultaten van de verschillende netwerktests worden opgeslagen in de Azure-logboekanalyse-opslagplaats.
 
 Onder het oude model, is de factuur berekend op basis van het aantal knooppunten en de hoeveelheid gegevens die zijn gegenereerd. 
 
-**Wat is het gebruik van de Prestatiemeter in rekening gebracht onder het nieuwe model?**
+**Hoe wordt informatie over het gebruik van de Prestatiemeter in rekening gebracht onder het nieuwe model?**
 
-De functie van de Prestatiemeter in NPM wordt nu in rekening gebracht op een combinatie van: 
+De functie van de Prestatiemeter in NPM wordt nu in rekening gebracht op basis van een combinatie van: 
 
-* subnet koppelingen bewaakt en
+* Subnet koppelingen bewaakt
 * Gegevensvolume
 
 **Wat is er een koppeling subnet?**
 
-Prestatiemeter bewaakt connectiviteit tussen twee of meer locaties op het netwerk.  De verbinding tussen een groep van knooppunten/agents op één subnet en een groep van knooppunten op een ander subnet is een subnet-koppeling genoemd.
+Prestatiemeter bewaakt connectiviteit tussen twee of meer locaties op het netwerk. De verbinding tussen een groep knooppunten of agents op één subnet en een groep van knooppunten op een ander subnet wordt een subnet-koppeling genoemd.
 
-**Ik heb twee subnetten (subnet A en B) en verschillende agents hebben in elk subnet.  Prestatiemeter bewaakt de verbinding tussen alle agents op subnet A en alle agents op subnet B.  Ik gefactureerd op basis van het aantal verbindingen tussen subnet?**
+**Ik heb twee subnetten (A en B) en er verschillende agents in elk subnet. Prestatiemeter bewaakt de verbinding tussen alle agents op subnet A en alle agents op subnet B. Ik gefactureerd op basis van het aantal verbindingen tussen subnet?**
 
-Nee. Alle verbindingen van een subnet naar subnet B zijn gegroepeerd in één subnet koppeling voor facturatie, en u wordt gefactureerd voor een enkele verbinding.  Prestatiemeter blijven bewaken connectiviteit tussen verschillende agents op elk subnet.
+Nee. Voor facturatie, worden alle verbindingen van subnet A naar B subnet gegroepeerd in één subnet-koppeling. U wordt gefactureerd voor een enkele verbinding. Prestatiemeter blijft connectiviteit tussen verschillende agents op elk subnet bewaken.
 
 **Wat zijn de kosten voor het bewaken van een subnet koppeling?**
 
-Raadpleeg het gedeelte [Ping Mesh](https://azure.microsoft.com/pricing/details/network-watcher/) voor de kosten van de bewaking van een koppeling met één subnet voor de hele maand.
+Zie voor de kosten van de bewaking van een koppeling met één subnet voor de hele maand, de [Ping Mesh](https://azure.microsoft.com/pricing/details/network-watcher/) sectie.
 
-**Wat zijn de kosten voor de gegevens die worden gegenereerd door Prestatiemeter?**
+**Wat zijn de kosten voor gegevens die in Prestatiemeter gegenereerd?**
 
-De kosten voor opname (gegevens uploaden met Log Analytics, verwerken en indexeren) is beschikbaar op de [pagina met prijzen](https://azure.microsoft.com/pricing/details/log-analytics/) voor logboekanalyse.  (Sectie: gegevensopname).
-
-De kosten voor het bewaren van gegevens (dat wil zeggen, gegevens bewaard op de optie van de klant, na de eerste maand) is ook beschikbaar op de [pagina met prijzen](https://azure.microsoft.com/pricing/details/log-analytics/).  (Sectie: bewaren van gegevens).
+De kosten voor opname (gegevens uploaden met Log Analytics, verwerken en indexeren) beschikbaar is op de [pagina met prijzen](https://azure.microsoft.com/pricing/details/log-analytics/) voor logboekanalyse in de sectie gegevensopname. De kosten voor het bewaren van gegevens (dat wil zeggen, gegevens bewaard op de optie van de klant, na de eerste maand) is ook beschikbaar op de [pagina met prijzen](https://azure.microsoft.com/pricing/details/log-analytics/), in de sectie bewaren van gegevens.
 
 
-## <a name="expressroute-monitor-erm"></a>ExpressRoute-Monitor (ERM)
+## <a name="expressroute-monitor"></a>ExpressRoute-Monitor
 
 **Wat zijn de kosten voor informatie over het gebruik van ExpressRoute-Monitor?**
 
-Kosten voor ExpressRoute-Monitor wordt gefactureerd op basis van de hoeveelheid gegevens die zijn gegenereerd tijdens de bewaking.   Raadpleeg de vraag 'Wat zijn de kosten voor gegevens die zijn gegenereerd door Prestatiemeter?' voor meer informatie.
+Kosten voor ExpressRoute-Monitor wordt gefactureerd op basis van de hoeveelheid gegevens die zijn gegenereerd tijdens de bewaking. Zie voor meer informatie 'Wat zijn de kosten voor gegevens die in Prestatiemeter gegenereerd?'
 
-**Ik ERM gebruiken voor het bewaken van meerdere ExpressRoute-circuits. Ben ik in rekening gebracht op basis van het aantal circuits worden bewaakt?**
+**Ik gebruik ExpressRoute-Monitor voor het bewaken van meerdere ExpressRoute-circuits. Ben ik in rekening gebracht op basis van het aantal circuits worden bewaakt?**
 
-Er zijn niet in rekening gebracht op basis van beide het aantal circuits of het type van de peering (bijvoorbeeld persoonlijke peering, Microsoft-peering).  Er worden in rekening gebracht op het volume aan gegevens, zoals hierboven is uitgelegd.
+Er zijn niet in rekening gebracht op basis van beide het aantal circuits of het type van de peering (bijvoorbeeld persoonlijke peering, Microsoft-peering). Er worden in rekening gebracht op basis van het volume aan gegevens, zoals eerder beschreven.
 
-**Wat is de hoeveelheid gegevens die zijn gegenereerd, bij de bewaking van één circuit?**
+**Wat is de hoeveelheid gegevens die worden gegenereerd wanneer ExpressRoute één circuit bewaakt?**
 
-De hoeveelheid gegevens die worden gegenereerd per maand, wanneer een persoonlijke peering verbinding bewaking als volgt is:
+De hoeveelheid gegevens die worden gegenereerd per maand, ExpressRoute wanneer een persoonlijke peering verbinding bewaakt, is als volgt:
 
 |Percentiel      |Gegevens per maand (MB)|
 | :---:          |           ---:|
@@ -94,18 +90,18 @@ De hoeveelheid gegevens die worden gegenereerd per maand, wanneer een persoonlij
 |95<sup>th</sup> |           1560|
 
 
-Klanten op het 50e percentiel betalen per de bovenstaande tabel 192 MB aan gegevens. USD $2.30/GB voor de eerste maand, de kosten voor het bewaken van een circuit is USD 0,43 (= 192 * 2.30 / 1024) voor de eerste maand.
+Volgens deze tabel Klanten op het 50e percentiel betaalt voor 192 MB aan gegevens. USD $2.30/GB voor de eerste maand, de kosten voor het bewaken van een circuit is USD $0,43 (= 192 * 2.30 / 1024).
 
-**Wat zijn enkele van de redenen voor de verschillen in de hoeveelheid gegevens?**
+**Wat zijn enkele redenen voor variaties in de hoeveelheid gegevens?**
 
 Het volume van gegenereerde gegevens bewaking is afhankelijk van verschillende factoren, zoals de:
-* aantal agents - de nauwkeurigheid van de fout isolatie toeneemt met een toename van het aantal agents
-* aantal hops op het netwerk
-* aantal paden tussen de bron en bestemming
+* Aantal agents. De nauwkeurigheid van de fout isolatie verhoogt met een toename van het aantal agents.
+* Het aantal hops op het netwerk.
+* Het aantal paden tussen de bron en bestemming.
 
-Klanten op de hogere percentielen (in de bovenstaande tabel), bewaken meestal hun circuits vanuit verschillende vantage die op hun on-premises netwerk.  Meerdere agents worden ook geplaatst dieper in het netwerk, verder af van de serviceprovider edge-router. De agents worden vaak op verschillende sites van de gebruiker, filialen en rekken in datacenters geplaatst.
+Klanten op de hogere percentielen (in de voorgaande tabel) meestal hun circuits vanuit verschillende vantage die op hun on-premises netwerk te bewaken. Meerdere agents worden ook geplaatst dieper in het netwerk, verder af van de serviceprovider edge-router. De agents worden vaak op verschillende sites van de gebruiker, filialen en rekken in datacenters geplaatst.
 
-## <a name="service-endpoint-monitor-sepm"></a>Monitor voor service-eindpunt (SEPM)
+## <a name="service-endpoint-monitor"></a>Monitor voor service-eindpunt
 
 **Wat zijn de kosten voor het gebruik van de Monitor voor Service-eindpunt?**
 
@@ -119,10 +115,9 @@ Een verbinding is een test van bereikbaarheid naar één eindpunt (service-URL o
 
 **Wat zijn de kosten voor Service-eindpunt Monitor?**
 
-- Raadpleeg de [verbinding bewaking](https://azure.microsoft.com/pricing/details/network-watcher/) sectie voor de kosten van de bewaking van een eindpunt voor de hele maand.
-- De kosten voor gegevens is beschikbaar op de [pagina met prijzen](https://azure.microsoft.com/pricing/details/log-analytics/) voor logboekanalyse.  (Sectie: gegevensopname).
+Raadpleeg de [verbinding bewaking](https://azure.microsoft.com/pricing/details/network-watcher/) sectie voor de kosten van de bewaking van een eindpunt voor de hele maand. De kosten voor gegevens is beschikbaar op de [pagina met prijzen](https://azure.microsoft.com/pricing/details/log-analytics/) voor logboekanalyse in de sectie gegevensopname.
 
 ## <a name="references"></a>Verwijzingen
 
-- [Meld u Analytics prijzen Veelgestelde vragen over](https://azure.microsoft.com/pricing/details/log-analytics/) -Veelgestelde vragen over de de sectie bevat informatie over de gratis laag, per knooppunt prijscategorie, enzovoort.
+[Meld u Analytics prijzen Veelgestelde vragen over](https://azure.microsoft.com/pricing/details/log-analytics/): veelgestelde vragen over de de sectie bevat informatie over de gratis laag, per knooppunt prijzen en andere prijsinformatie.
 
