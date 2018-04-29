@@ -10,11 +10,11 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 535c16da137b114704aa9a2e97576ced5e9eba44
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: a4f24aad95f13315eaeac790c9006ca00f61af69
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Back-up en herstel in Azure SQL Data Warehouse
 Meer informatie over hoe back-up en herstel werkt in Azure SQL Data Warehouse. Gebruik datawarehouse back-ups naar uw datawarehouse herstellen naar een herstelpunt in de primaire regio. Geografisch redundante back-ups gebruiken om te zetten naar een ander geografische regio. 
@@ -55,9 +55,9 @@ Wanneer u een datawarehouse verwijderen, wordt in SQL Data Warehouse maakt een m
 > 
 
 ## <a name="geo-backups"></a>Geo-back-ups
-SQL Data Warehouse voert een geo-back-up eenmaal per dag een [gekoppeld Datacenter](../best-practices-availability-paired-regions.md). De RPO voor een geo-restore is 24 uur. U kunt de geo-back-up terugzetten naar de server in de regio geo gekoppeld. Een geo-back-up zorgt ervoor dat u kunt datawarehouse herstellen als u geen toegang de momentopnamen die in uw primaire regio tot.
+SQL Data Warehouse voert een geo-back-up eenmaal per dag een [gekoppeld Datacenter](../best-practices-availability-paired-regions.md). De RPO voor een geo-restore is 24 uur. U kunt de geo-back-up terugzetten naar een server in een andere regio waar SQL Data Warehouse wordt ondersteund. Een geo-back-up zorgt ervoor dat u kunt datawarehouse herstellen als u geen toegang de momentopnamen die in uw primaire regio tot.
 
-Geo-back-ups zijn standaard ingeschakeld. Als uw datawarehouse is geoptimaliseerd voor elasticiteit, kunt u [opt-out](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) als u wenst. U geo-back-ups met de geoptimaliseerde kunnen zich niet afmelden voor compute prestatielaag.
+Geo-back-ups zijn standaard ingeschakeld. Als uw datawarehouse Gen1 is, kunt u [opt-out](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) als u wenst. U kan geen geo-back-ups voor Gen2 afmelden als gegevensbeveiliging een ingebouwde verlengen is.
 
 ## <a name="backup-costs"></a>Back-kosten
 U ziet dat de Azure-factuur heeft een regelitem voor Azure Premium-opslag- en een regelitem voor geografisch redundante opslag. De kosten van de Premium-opslag is de totale kosten voor het opslaan van gegevens in de primaire regio, waaronder momentopnamen.  De geografisch redundante kosten bevat informatie over de kosten voor het opslaan van de geo-back-ups.  

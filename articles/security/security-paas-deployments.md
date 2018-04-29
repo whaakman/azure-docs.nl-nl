@@ -6,7 +6,7 @@ documentationcenter: na
 author: techlake
 manager: MBaldwin
 editor: techlake
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 4629e0ab6bbc9554128a923e92b269df79446b18
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: f19c52629a997687692eef9bce2e13b2b7894052
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="securing-paas-deployments"></a>PaaS-implementaties beveiligen
 
@@ -87,12 +87,12 @@ De volgende ziet u een algemene best practices benadering voor het beheren van h
 
 - **Uw sleutels of referenties niet verliezen** sleutels en referenties beveiligen is essentieel voor het beveiligen van PaaS-implementaties. Sleutels en referenties verliezen is een veelvoorkomend probleem. Een goede oplossing is het gebruik van gecentraliseerd waarin sleutels en geheimen in hardware security modules (HSM) kunnen worden opgeslagen. Azure biedt u een HSM in de cloud met [Azure Key Vault](../key-vault/key-vault-whatis.md).
 - **Plaats geen referenties en andere geheime informatie in de broncode of GitHub** alleen slechter dan onbevoegden verliezen uw sleutels en referenties heeft er toegang toe hebben. Aanvallers kunnen profiteren van bot technologieën voor het vinden van sleutels en geheimen die zijn opgeslagen in de code-opslagplaatsen zoals GitHub. Plaats niet sleutel en geheimen in deze openbare broncodeopslagplaatsen.
-- **Beveiligen van uw VM-beheerinterfaces van hybride PaaS- en IaaS** IaaS en PaaS-services worden uitgevoerd op virtuele machines (VM's). Afhankelijk van het type van service verschillende beheerinterfaces beschikbaar zijn die u extern beheren van deze virtuele machines rechtstreeks inschakelen. Extern beheer protocollen zoals [Secure Shell Protocol (SSH)](https://en.wikipedia.org/wiki/Secure_Shell), [Remote Desktop Protocol (RDP)](https://support.microsoft.com/kb/186607), en [externe PowerShell](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enable-psremoting) kan worden gebruikt. In het algemeen is het raadzaam dat u niet de mogelijkheid direct externe toegang naar virtuele machines van het Internet. Indien beschikbaar, moet u alternatieve methoden zoals het gebruik van virtueel particulier netwerk in een Azure-netwerk. Als alternatieve methoden zijn niet beschikbaar, zorg ervoor dat u complexe wachtwoordzinnen en indien beschikbaar, tweeledige verificatie (zoals [Azure multi-factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)).
+- **Beveiligen van uw VM-beheerinterfaces van hybride PaaS- en IaaS** IaaS en PaaS-services worden uitgevoerd op virtuele machines (VM's). Afhankelijk van het type van service verschillende beheerinterfaces beschikbaar zijn die u extern beheren van deze virtuele machines rechtstreeks inschakelen. Extern beheer protocollen zoals [Secure Shell Protocol (SSH)](https://en.wikipedia.org/wiki/Secure_Shell), [Remote Desktop Protocol (RDP)](https://support.microsoft.com/kb/186607), en [externe PowerShell](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enable-psremoting) kan worden gebruikt. In het algemeen is het raadzaam dat u niet de mogelijkheid direct externe toegang naar virtuele machines van het Internet. Indien beschikbaar, moet u alternatieve methoden zoals het gebruik van virtueel particulier netwerk in een Azure-netwerk. Als alternatieve methoden zijn niet beschikbaar, zorg ervoor dat u complexe wachtwoordzinnen en indien beschikbaar, tweeledige verificatie (zoals [Azure multi-factor Authentication](../active-directory/authentication/multi-factor-authentication.md)).
 - **Sterke verificatie en autorisatie platforms gebruiken**
 
   - Federatieve identiteiten in Azure AD in plaats van een aangepaste gebruiker winkels gebruiken. Wanneer u een federatieve identiteiten gebruikt, u profiteren van een benadering op basis van het platform en u het beheer van bevoegde identiteiten delegeren aan uw partners. Een benadering van federatieve identiteiten is vooral belangrijk in scenario's wanneer werknemers worden beëindigd en die informatie moet worden weergegeven met meerdere systemen voor identiteits- en autorisatie.
   - Gebruik platform opgegeven mechanismen voor verificatie en autorisatie in plaats van aangepaste code. De reden is dat het ontwikkelen van aangepaste verificatiecode foutgevoelig kan worden. De meeste van uw ontwikkelaars zijn niet beveiliging deskundigen en waarschijnlijk niet op de hoogte van de eigenaardigheden en de meest recente ontwikkelingen in de verificatie en autorisatie. Commerciële code (bijvoorbeeld van Microsoft) is vaak grote schaal beveiliging gecontroleerd.
-  - Meervoudige verificatie gebruiken. Multi-factor authentication-server is de huidige standaard voor verificatie en autorisatie, omdat de zwakke punten beveiliging inherent aan de gebruikersnaam en wachtwoord typen verificatie wordt voorkomen. Toegang tot zowel de Azure management (portal/externe PowerShell)-interfaces en klantgerichte services moet worden ontworpen en geconfigureerd voor gebruik [Azure multi-factor Authentication (MFA)](../multi-factor-authentication/multi-factor-authentication.md).
+  - Meervoudige verificatie gebruiken. Multi-factor authentication-server is de huidige standaard voor verificatie en autorisatie, omdat de zwakke punten beveiliging inherent aan de gebruikersnaam en wachtwoord typen verificatie wordt voorkomen. Toegang tot zowel de Azure management (portal/externe PowerShell)-interfaces en klantgerichte services moet worden ontworpen en geconfigureerd voor gebruik [Azure multi-factor Authentication (MFA)](../active-directory/authentication/multi-factor-authentication.md).
   - Gebruik standaard verificatieprotocollen, zoals OAuth2- en Kerberos. Deze protocollen zijn uitgebreid onderzocht en waarschijnlijk worden geïmplementeerd als onderdeel van uw platformbibliotheken voor verificatie en autorisatie.
 
 ## <a name="next-steps"></a>Volgende stappen

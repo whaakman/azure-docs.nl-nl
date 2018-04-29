@@ -15,11 +15,11 @@ ms.date: 03/06/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 3b689c6028470021734ad78dd88748f4079c383f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4e413d921390cfb87c27c530c6870945c28c0df8
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Ingebouwde functies voor op rollen gebaseerd toegangsbeheer van Azure
 Azure op rollen gebaseerde toegangsbeheer (RBAC) beschikt over de volgende ingebouwde rollen die kunnen worden toegewezen aan gebruikers, groepen en services. U kunt de definities van de ingebouwde rollen niet wijzigen. U kunt echter maken [aangepaste rollen in Azure RBAC](custom-roles.md) aanpassen aan de specifieke behoeften van uw organisatie.
@@ -579,6 +579,7 @@ Data factory's en de onderliggende resources hierin maken en beheren.
 | **Acties** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read | Lezen van rollen en functie toewijzingen |
+| Microsoft.DataFactory/factory/* | Maken en beheren van de gegevensfactory en de onderliggende resources binnen deze. |
 | Microsoft.DataFactory/dataFactories/* | Maken en beheren van de gegevensfactory en de onderliggende resources binnen deze. |
 | Microsoft.Insights/alertRules/* | Maken en beheren van regels voor waarschuwingen |
 | Microsoft.ResourceHealth/availabilityStatuses/read | De beschikbaarheidsstatus ophalen voor alle resources binnen het opgegeven bereik |

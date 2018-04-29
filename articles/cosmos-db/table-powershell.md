@@ -6,7 +6,7 @@ documentationcenter: storage
 author: robinsh
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/15/2017
 ms.author: robinsh
-ms.openlocfilehash: d0f835db8a9fbe3833a9c7931ad1d8b4a778f016
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: d40a56ca3c07bfadcf6e24d407b059a39522ca2b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="perform-azure-cosmos-db-table-api-operations-with-azure-powershell"></a>Tabel-API van Azure Cosmos DB bewerkingen uitvoeren met Azure PowerShell 
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/15/2017
 
 Azure Cosmos DB tabel API kunt u op te slaan en grote sets gestructureerde, niet-relationele gegevens opvragen. De belangrijkste onderdelen van de service zijn tabellen, entiteiten en eigenschappen. Een tabel is een verzameling entiteiten. Een entiteit is een set eigenschappen. Elke entiteit kan maximaal 252 eigenschappen die alle naam / waarde-paren hebben. In dit artikel wordt ervan uitgegaan dat u al bekend met de concepten Azure Cosmos DB tabel-API bent. Zie voor gedetailleerde informatie [Inleiding tot Azure Cosmos DB tabel API](table-introduction.md) en [bouwen van een .NET-toepassing met behulp van de API van de tabel](create-table-dotnet.md).
 
-Dit artikel bevat informatie over algemene tabel API-bewerkingen. Procedures voor: 
+Dit artikel bevat informatie over algemene tabel API-bewerkingen. In deze zelfstudie leert u procedures om het volgende te doen: 
 
 > [!div class="checklist"]
 > * Een tabel maken
@@ -55,10 +55,10 @@ De database en de bron-accountgroep niet ophalen uit de portal; u moet deze waar
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Meld u aan bij uw Azure-abonnement met de opdracht `Login-AzureRmAccount` en volg de instructies op het scherm.
+Meld u aan bij uw Azure-abonnement met de opdracht `Connect-AzureRmAccount` en volg de instructies op het scherm.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## <a name="create-a-table-or-reference-a-table"></a>Een tabel maken of te verwijzen naar een tabel

@@ -1,27 +1,25 @@
 ---
 title: Taken voor prestaties - Azure HDInsight Spark optimaliseren | Microsoft Docs
-description: "Bevat algemene strategieën voor de beste prestaties van Spark-clusters."
+description: Bevat algemene strategieën voor de beste prestaties van Spark-clusters.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: maxluk
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: maxluk
-ms.openlocfilehash: 64ddb70f071a9fadc6fef64dcd3506c6d6255481
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 381f9ef2dac2c1dfdada32a917626b17c5969a98
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="optimize-spark-jobs"></a>Spark taken optimaliseren
+# <a name="optimize-spark-jobs"></a>Spark-taken optimaliseren
 
 Informatie over het optimaliseren van de configuratie van het Spark-cluster voor uw specifieke werkbelasting.  De meest voorkomende uitdaging is geheugendruk vanwege onjuiste configuraties (met name verkeerde formaat executor), langlopende bewerkingen en taken die in Cartesisch bewerkingen resulteren. U kunt taken met de juiste opslaan in cache en doordat voor versnellen [gegevens tijdverschil](#optimize-joins-and-shuffles). Voor de beste prestaties bewaken en controleren van langlopende en gebruiken van resource Spark taak uitvoeringen.
 
@@ -38,7 +36,7 @@ Spark 1.x gebruikt RDDs abstracte gegevens en Spark 2.x geïntroduceerd DataFram
     * Directe geheugentoegang
     * Lage overheadkosten garbagecollection (GC)
     * Niet als developer-vriendelijk als gegevenssets, als er geen controles compilatie of domein object programmering zijn
-* **DataSets**
+* **Gegevenssets**
     * Goede in complexe ETL pijplijnen waar de prestatie-invloed geaccepteerd wordt
     * Geen geschikte in aggregaties waar de prestatie-invloed aanzienlijk zijn kan
     * Biedt queryoptimalisatie via exemplaar
@@ -82,7 +80,7 @@ Spark biedt een eigen systeemeigen cachebewerkingen mechanismen die kunnen worde
     * In het geheugen en SSD-caching gebruikt.
 
 * Lokale HDFS (aanbevolen)
-    * `hdfs://mycluster`het pad.
+    * `hdfs://mycluster` het pad.
     * Maakt gebruik van SSD opslaan in cache.
     * In de cache opgeslagen gegevens niet verloren wanneer u het cluster verwijdert vereisen cache opnieuw opbouwen.
 
@@ -164,9 +162,9 @@ Afhankelijk van de werkbelasting van uw Spark-cluster, u kan bepalen dat een nie
 
 Hier volgen enkele algemene parameters die kunt u aanpassen:
 
-* `--num-executors`Hiermee stelt u het juiste aantal Executor.
-* `--executor-cores`Hiermee stelt het aantal kernen voor elke executor. U moet hebben doorgaans middle-sized Executor als andere processen verbruiken een deel van het beschikbare geheugen.
-* `--executor-memory`Hiermee stelt de grootte van het geheugen voor elke executor die de heapgrootte van de op YARN bepaalt. Laat u sommige geheugen voor uitvoering overhead.
+* `--num-executors` Hiermee stelt u het juiste aantal Executor.
+* `--executor-cores` Hiermee stelt het aantal kernen voor elke executor. U moet hebben doorgaans middle-sized Executor als andere processen verbruiken een deel van het beschikbare geheugen.
+* `--executor-memory` Hiermee stelt de grootte van het geheugen voor elke executor die de heapgrootte van de op YARN bepaalt. Laat u sommige geheugen voor uitvoering overhead.
 
 ### <a name="select-the-correct-executor-size"></a>Selecteer de juiste executor-grootte
 

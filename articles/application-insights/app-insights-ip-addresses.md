@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: mbullwin
-ms.openlocfilehash: 9b48b17b214f6ff22c7c68421ba8c89104c8b4b1
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f56810d6520edd19ce757a91712698714902e668
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>IP-adressen die worden gebruikt door de Application Insights en Log Analytics
 De [Azure Application Insights](app-insights-overview.md) service gebruikt een aantal IP-adressen. Mogelijk moet u weten van deze adressen als de app die u bewaakt achter een firewall wordt gehost.
@@ -32,9 +32,9 @@ U moet een aantal uitgaande poorten openen in de firewall van uw server om toe t
 
 | Doel | URL | IP | Poorten |
 | --- | --- | --- | --- |
-| Telemetrie |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244 |443 |
-| Metrische gegevens livestream |rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |23.96.28.38<br/>13.92.40.198 |443 |
-| Interne telemetrie |breeze.aimon.applicationinsights.io |52.161.11.71 |443 |
+| Telemetrie |dc.services.visualstudio.com<br/>DC.applicationinsights.Microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244 |443 |
+| Metrische gegevens livestream |rt.services.visualstudio.com<br/>RT.applicationinsights.Microsoft.com |23.96.28.38<br/>13.92.40.198 |443 |
+| Interne telemetrie |breeze.aimon.applicationinsights.IO |52.161.11.71 |443 |
 
 ## <a name="status-monitor"></a>Statuscontrole
 Status monitorconfiguratie: alleen nodig wanneer u wijzigingen aanbrengt.
@@ -48,7 +48,7 @@ Status monitorconfiguratie: alleen nodig wanneer u wijzigingen aanbrengt.
 | Configuratie |`secure.aadcdn.microsoftonline-p.com` | |`443` |
 | Configuratie |`auth.gfx.ms` | |`443` |
 | Configuratie |`login.live.com` | |`443` |
-| Installatie |`packages.nuget.org` , `nuget.org`, `api.nuget.org` | |`443` |
+| Installatie |`packages.nuget.org` , `nuget.org`, `api.nuget.org`, `az320820.vo.msecnd.net` (NuGet-Downloads) | |`443` |
 
 ## <a name="hockeyapp"></a>HockeyApp
 | Doel | URL | IP | Poorten |
@@ -189,8 +189,8 @@ East US
 ## <a name="application-insights-api"></a>Application Insights-API
 | Doel | URI | IP | Poorten |
 | --- | --- | --- | --- |
-| API |api.applicationinsights.io<br/>api1.applicationinsights.io<br/>api2.applicationinsights.io<br/>api3.applicationinsights.io<br/>api4.applicationinsights.io<br/>api5.applicationinsights.io |13.82.26.252<br/>40.76.213.73 |80,443 |
-| API-docs |dev.applicationinsights.io<br/>dev.applicationinsights.microsoft.com<br/>dev.aisvc.visualstudio.com<br/>www.applicationinsights.io<br/>www.applicationinsights.microsoft.com<br/>www.aisvc.visualstudio.com |13.82.24.149<br/>40.114.82.10 |80,443 |
+| API |API.applicationinsights.IO<br/>api1.applicationinsights.IO<br/>api2.applicationinsights.io<br/>api3.applicationinsights.io<br/>api4.applicationinsights.IO<br/>api5.applicationinsights.IO |13.82.26.252<br/>40.76.213.73 |80,443 |
+| API-docs |dev.applicationinsights.io<br/>dev.applicationinsights.Microsoft.com<br/>dev.aisvc.visualstudio.com<br/>www.applicationinsights.io<br/>www.applicationinsights.Microsoft.com<br/>www.aisvc.visualstudio.com |13.82.24.149<br/>40.114.82.10 |80,443 |
 | Interne API |aigs.aisvc.visualstudio.com<br/>aigs1.aisvc.visualstudio.com<br/>aigs2.aisvc.visualstudio.com<br/>aigs3.aisvc.visualstudio.com<br/>aigs4.aisvc.visualstudio.com<br/>aigs5.aisvc.visualstudio.com<br/>aigs6.aisvc.visualstudio.com |dynamische|443 |
 
 ## <a name="log-analytics-api"></a>Log Analytics-API
@@ -203,9 +203,9 @@ East US
 
 | Doel | URI | IP | Poorten |
 | --- | --- | --- | --- |
-| Analytics-Portal | analytics.applicationinsights.io | dynamische | 80,443 |
+| Analytics-Portal | Analytics.applicationinsights.IO | dynamische | 80,443 |
 | CDN | applicationanalytics.azureedge.net | dynamische | 80,443 |
-| Media CDN | applicationanalyticsmedia.azureedge.net | dynamische | 80,443 |
+| Media CDN | applicationanalyticsmedia.azureedge.NET | dynamische | 80,443 |
 
 Opmerking: *. applicationinsights.io domein is eigendom van Application Insights-team.
 

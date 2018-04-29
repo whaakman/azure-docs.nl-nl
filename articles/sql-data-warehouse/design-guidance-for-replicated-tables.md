@@ -7,21 +7,17 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 04/17/2018
+ms.date: 04/23/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: b1d60cc0a83c95c5e33fbaae6083572af3e183ad
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: 1cc796061056ff017e3d778ebb2e50e13d55a4c1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Richtlijnen voor het gebruik van gerepliceerde tabellen in Azure SQL Data Warehouse ontwerpen
 Dit artikel bevat aanbevelingen voor het ontwerpen van gerepliceerde tabellen in uw SQL Data Warehouse-schema. Gebruik deze aanbevelingen voor het verbeteren van prestaties van query's door gegevens verplaatsing en query complexiteit te verminderen.
-
-> [!NOTE]
-> De gerepliceerde tabel-functie is momenteel in de openbare preview. Sommige gedragingen nog worden gewijzigd.
-> 
 
 ## <a name="prerequisites"></a>Vereisten
 In dit artikel wordt ervan uitgegaan dat u bekend bent met gegevensdistributie en data movement concepten in SQL Data Warehouse.  Zie voor meer informatie de [architectuur](massively-parallel-processing-mpp-architecture.md) artikel. 
@@ -44,20 +40,13 @@ Gerepliceerde tabellen werk geschikt voor kleine dimensietabellen in een stersch
 Overweeg het gebruik van een gerepliceerde tabel wanneer:
 
 - De grootte van de tabel op schijf is minder dan 2 GB vereist, ongeacht het aantal rijen. Als u wilt de grootte van een tabel vinden, kunt u de [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql) opdracht: `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`. 
-- De tabel wordt gebruikt in samenvoegingen die anders worden verplaatsing van gegevens moeten. Bijvoorbeeld vereist een join op tabellen hash gedistribueerd gegevensverplaatsing wanneer de kolommen die niet gelijk zijn aan dezelfde kolom van het distributiepunt. Als een van de tabellen hash gedistribueerd klein is, kunt u een gerepliceerde tabel. Een join op een round robin-tabel vereist de verplaatsing van gegevens. U kunt het beste gerepliceerde tabellen in plaats van round robin-tabellen in de meeste gevallen gebruikt. 
-
-
-Houd rekening met het converteren van een bestaande gedistribueerde tabel naar een gerepliceerde tabel wanneer:
-
-- Query-gebruik data movement-bewerkingen die de gegevens in de rekenknooppunten uitgezonden plannen. De BroadcastMoveOperation kostbaar en vertraagt queryprestaties. Als u wilt gegevens movement-bewerkingen in queryplannen bekijkt, gebruik [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql).
+- De tabel wordt gebruikt in samenvoegingen die anders worden verplaatsing van gegevens moeten. Bij het samenvoegen van tabellen die niet worden gedistribueerd voor dezelfde kolom, zoals een tabel met hash gedistribueerd naar een tabel round robin worden verplaatsing van gegevens is vereist voor het voltooien van de query.  Als een van de tabellen klein is, kunt u een gerepliceerde tabel. U kunt het beste gerepliceerde tabellen in plaats van round robin-tabellen in de meeste gevallen gebruikt. Als u wilt gegevens movement-bewerkingen in queryplannen bekijkt, gebruik [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql).  De BroadcastMoveOperation is de verplaatsing van typische gegevens die kan worden opgeheven met behulp van een gerepliceerde tabel.  
  
 Gerepliceerde tabellen kunnen niet resulteert in de beste queryprestaties wanneer:
 
 - De tabel heeft frequente invoegen, bijwerken en verwijderen van bewerkingen. Taal (DML) bestandsbewerkingen van deze gegevens vereist opnieuw opbouwen van de gerepliceerde tabel. Opnieuw opbouwen vaak kan leiden tot lagere prestaties.
 - Het datawarehouse wordt vaak geschaald. Het aantal rekenknooppunten, leidt ertoe dat opnieuw opbouwen schalen van een datawarehouse worden gewijzigd.
-- De tabel heeft een groot aantal kolommen, maar gegevensbewerkingen gewoonlijk toegang tot een klein aantal kolommen. In dit scenario wordt in plaats van de gehele tabel repliceren mogelijk effectiever op hash distribueren van de tabel en maak vervolgens een index in de veelgebruikte kolommen. Als u een query moet de verplaatsing van gegevens, verplaatst SQL Data Warehouse alleen gegevens in de gevraagde kolommen. 
-
-
+- De tabel heeft een groot aantal kolommen, maar gegevensbewerkingen gewoonlijk toegang tot een klein aantal kolommen. In dit scenario wordt in plaats van de gehele tabel repliceren mogelijk effectiever voor de distributie van de tabel en maak vervolgens een index op de veelgebruikte kolommen. Als u een query moet de verplaatsing van gegevens, wordt in SQL Data Warehouse alleen gegevens voor de gevraagde kolommen verplaatst. 
 
 ## <a name="use-replicated-tables-with-simple-query-predicates"></a>Gerepliceerde tabellen gebruiken met eenvoudige query predicaten
 Voordat u wilt distribueren of een tabel niet repliceren, moet u over de typen query's die u van plan bent om uit te voeren op de tabel. Indien mogelijk
@@ -67,7 +56,7 @@ Voordat u wilt distribueren of een tabel niet repliceren, moet u over de typen q
 
 CPU-intensief query's werken het beste als het werk verdeeld over alle van de rekenknooppunten. Bijvoorbeeld, sneller query's die berekeningen uitgevoerd op elke rij van een tabel op gedistribueerde tabellen dan gerepliceerde tabellen. Omdat een gerepliceerde tabel volledig op elk rekenknooppunt is opgeslagen, wordt een CPU-intensief query op een gerepliceerde tabel uitgevoerd op de gehele tabel op elk rekenknooppunt. De extra berekening kan queryprestaties kan afnemen.
 
-Deze query heeft bijvoorbeeld een complexe predikaat.  Sneller wanneer leverancier een gedistribueerde tabel in plaats van een gerepliceerde tabel. In dit voorbeeld kan leverancier hash gedistribueerd of round robin gedistribueerd.
+Deze query heeft bijvoorbeeld een complexe predikaat.  Sneller wanneer leverancier een gedistribueerde tabel in plaats van een gerepliceerde tabel. In dit voorbeeld kan leverancier round robin gedistribueerd zijn.
 
 ```sql
 
@@ -132,7 +121,7 @@ We opnieuw gemaakt `DimDate` en `DimSalesTerritory` als in de gerepliceerde tabe
 
 
 ## <a name="performance-considerations-for-modifying-replicated-tables"></a>Prestatie-overwegingen voor het wijzigen van gerepliceerde tabellen
-SQL Data Warehouse implementeert een gerepliceerde tabel door het onderhouden van een hoofdversie van de tabel. De hoofdversie gekopieerd naar een distributiedatabase op elk rekenknooppunt. Wanneer er een wijziging is, wordt in SQL Data Warehouse eerst de hoofdtabel bijgewerkt. Klik hiervoor opnieuw opbouwen van de tabellen op elk rekenknooppunt. Opnieuw opbouwen van een gerepliceerde tabel bevat de tabel kopiëren naar elk rekenknooppunt en de indexen opnieuw samenstellen.
+SQL Data Warehouse implementeert een gerepliceerde tabel door het onderhouden van een hoofdversie van de tabel. De hoofdversie gekopieerd naar een distributiedatabase op elk rekenknooppunt. Wanneer er een wijziging is, wordt in SQL Data Warehouse eerst de hoofdtabel bijgewerkt. Vervolgens wordt de tabellen op elk rekenknooppunt. Opnieuw opbouwen van een gerepliceerde tabel bevat de tabel kopiëren naar elk rekenknooppunt en vervolgens de indexen bouwen.  Een gerepliceerde tabel op een DW400 heeft bijvoorbeeld 5 kopieën van de gegevens.  Een origineel exemplaar en een volledige kopie op elk rekenknooppunt.  Alle gegevens worden opgeslagen in distributiedatabases. SQL Data Warehouse maakt gebruik van dit model voor de ondersteuning van de instructies van de wijziging sneller data en flexibel schalen bewerkingen. 
 
 Opnieuw worden opgebouwd zijn vereist is nadat:
 - Gegevens worden geladen of is gewijzigd
@@ -143,7 +132,7 @@ Opnieuw worden opgebouwd zijn niet vereist is nadat:
 - Onderbreken is
 - Bewerking hervatten
 
-Het opnieuw bouwen gebeurt niet onmiddellijk nadat de gegevens worden gewijzigd. Het opnieuw bouwen wordt in plaats daarvan de eerste keer dat een query wordt geselecteerd in de tabel geactiveerd.  Zijn de stappen voor het bouwen van de gerepliceerde tabel binnen de eerste select-instructie uit de tabel.  Omdat het opnieuw bouwen binnen de query wordt uitgevoerd, kan impact op de eerste instructie select verwaarloosbaar zijn afhankelijk van de grootte van de tabel zijn.  Als er meerdere gerepliceerde tabellen zijn betrokken die opnieuw opbouwen moeten, wordt elke kopie als de stappen in de instructie opnieuw opeenvolgend opgebouwd.  Als u wilt behouden van gegevens consistentie tijdens het opnieuw opbouwen van de gerepliceerde tabel een exclusieve vergrendeling meegenomen bij de tabel.  De vergrendeling voorkomt alle toegang tot de tabel voor de duur van het opnieuw bouwen. 
+Het opnieuw bouwen gebeurt niet onmiddellijk nadat de gegevens worden gewijzigd. Het opnieuw bouwen wordt in plaats daarvan de eerste keer dat een query wordt geselecteerd in de tabel geactiveerd.  De query die de rebuild geactiveerd leest direct van de hoofdversie van de tabel terwijl de gegevens asynchroon wordt gekopieerd naar elk rekenknooppunt. Totdat het kopiëren van gegevens is voltooid, blijft volgende query's gebruikmaken van de hoofdversie van de tabel.  Als een activiteit op basis van de gerepliceerde tabel dat ervoor zorgt een andere opnieuw opbouwen gebeurt dat, kopiëren van gegevens is ongeldig gemaakt en de select-instructie van de volgende gegevens moeten worden opnieuw gekopieerd wordt geactiveerd. 
 
 ### <a name="use-indexes-conservatively"></a>Indexen conservatieve gebruiken
 Standaardprocedures indexering van toepassing op gerepliceerde tabellen. SQL Data Warehouse wordt elke gerepliceerde tabelindex als onderdeel van het opnieuw bouwen. Gebruik alleen indexen wanneer de prestatieverbetering belangrijker is dan de kosten van de indexen opnieuw opbouwen.  
@@ -172,7 +161,7 @@ Bijvoorbeeld, dit patroon load gegevens worden geladen uit vier bronnen, maar ro
 
 
 ### <a name="rebuild-a-replicated-table-after-a-batch-load"></a>Opnieuw samenstellen van een gerepliceerde tabel na een batch-belasting
-Om ervoor te zorgen uitvoeringstijden consistente query, wordt u aangeraden forceren van een vernieuwing van de gerepliceerde tabellen na een batch-belasting. Anders wordt moet de eerste query wachten tot de tabellen wilt vernieuwen, waaronder de indexen opnieuw opbouwen. Afhankelijk van de grootte en een aantal gerepliceerde tabellen die van invloed op zijn de prestatie-invloed verwaarloosbaar.  
+Om ervoor te zorgen consistente query uitvoeringstijden, overweeg dwingen de build van de gerepliceerde tabellen na een batch-belasting. De eerste query wordt nog steeds gebruik anders verplaatsing van gegevens voor het voltooien van de query. 
 
 Deze query gebruikt de [sys.pdw_replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql) DMV voor een lijst met de gerepliceerde tabellen die zijn gewijzigd, maar niet opnieuw opgebouwd.
 
@@ -187,7 +176,7 @@ SELECT [ReplicatedTable] = t.[name]
     AND p.[distribution_policy_desc] = 'REPLICATE'
 ```
  
-Als u wilt afdwingen opnieuw opbouwen, voer de volgende instructie voor elke tabel in de bovenstaande uitvoer. 
+Voer de volgende instructie voor elke tabel in de voorgaande uitvoer zodat opnieuw opbouwen. 
 
 ```sql
 SELECT TOP 1 * FROM [ReplicatedTable]

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 1/4/2018
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: 8396a7276fde10eb95a22ed07fa61625acfdd77f
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 25ad2f6309531678ec98012f540556af581649b2
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Een back-upkluis upgraden naar een Recovery Services-kluis
 
@@ -57,7 +57,7 @@ U kunt de PowerShell-scripts gebruiken voor een upgrade van de Backup-kluizen na
 
 Het volgende script gebruiken om bij te werken uw kluizen. Het volgende voorbeeldscript heeft uitleg van de parameters.
 
-RecoveryServicesVaultUpgrade 1.0.2.ps1 **- SubscriptionID** `<subscriptionID>` **- VaultName** `<vaultname>` **-locatie** `<location>` **- ResourceType** `BackupVault` **- TargetResourceGroupName**`<rgname>`
+RecoveryServicesVaultUpgrade 1.0.2.ps1 **- SubscriptionID** `<subscriptionID>` **- VaultName** `<vaultname>` **-locatie** `<location>` **- ResourceType** `BackupVault` **- TargetResourceGroupName** `<rgname>`
 
 **SubscriptionID** -de abonnement-id van de kluis die wordt bijgewerkt.<br/>
 **VaultName** -de naam van de Backup-kluis dat wordt bijgewerkt.<br/>
@@ -84,7 +84,7 @@ Het PowerShell-script vraagt u uw referenties in te voeren. Voer uw referenties 
 ### <a name="pre-requisites-checking"></a>Vereisten controleren
 Nadat u uw Azure-referenties hebt ingevoerd, Azure wordt gecontroleerd of uw omgeving voldoet aan de volgende vereisten:
 
-- **Minimale agentversie** -Backup-kluizen upgraden naar Recovery Services-kluizen moet de MARS-agent ten minste versie 2.0.9083.0. Als u items naar een Backup-kluis geregistreerd met een agent ouder is dan 2.0.9083.0 hebt, wordt de controle van vereisten mislukt. Als de controle op vereisten is mislukt, werk de agent en probeer het opnieuw bijwerken van de kluis. U kunt de nieuwste versie van de agent uit downloaden [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
+- **Minimale agentversie** -Backup-kluizen upgraden naar Recovery Services-kluizen moet de MARS-agent ten minste versie 2.0.9083.0. Als u items naar een Backup-kluis geregistreerd met een agent ouder is dan 2.0.9083.0 hebt, wordt de controle van vereisten mislukt. Als de controle op vereisten is mislukt, werk de agent en probeer het opnieuw bijwerken van de kluis. U kunt de nieuwste versie van de agent uit downloaden [ http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe ](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
 - **Continu configuratie taken**: als iemand anders is het configureren van taak voor een back-upkluis ingesteld moet worden bijgewerkt of u registreert een item, de controle op vereisten is mislukt. Voltooi de configuratie of klaar bent met het registreren van het item en start het upgradeproces van de kluis.
 - **Opslag op basis van een factureringsmodel**: Recovery Services-kluizen ondersteunen het facturering model op basis van het exemplaar. Als u de upgrade van de kluis op een back-upkluis die gebruikmaakt van de opslag op basis van een factureringsmodel uitvoert, wordt u gevraagd om bij te werken uw factureringsmodel samen met de kluis. Anders kunt u het factureringsmodel eerst bijwerken en voer vervolgens de upgrade van de kluis.
 - Identificeer een resourcegroep voor de Recovery Services-kluis. Als u wilt profiteren van de implementatiefuncties van Resource Manager, moet u een Recovery Services-kluis in een resourcegroep te plaatsen. Als u niet welke resourcegroep weet wilt gebruiken, Geef een naam en het upgradeproces de resourcegroep voor u gemaakt. Het upgradeproces wordt ook de kluis koppelt aan de nieuwe resourcegroep.
@@ -106,7 +106,7 @@ Recovery Services-kluis ondersteunt geven informatie over de tijdzone in de back
 
 ## <a name="enhanced-security"></a>Verbeterde beveiliging
 
-Wanneer een back-upkluis is bijgewerkt naar een Recovery Services-kluis, worden de beveiligingsinstellingen voor de kluis die automatisch ingeschakeld. Wanneer de beveiligingsinstellingen op bepaalde bewerkingen zoals het verwijderen van de back-ups, of het wijzigen van een wachtwoordzin vereist een [Azure multi-factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) PINCODE. Zie het artikel voor meer informatie over de verbeterde beveiliging [beveiligingsfuncties die beschermen hybride back-ups](backup-azure-security-feature.md). 
+Wanneer een back-upkluis is bijgewerkt naar een Recovery Services-kluis, worden de beveiligingsinstellingen voor de kluis die automatisch ingeschakeld. Wanneer de beveiligingsinstellingen op bepaalde bewerkingen zoals het verwijderen van de back-ups, of het wijzigen van een wachtwoordzin vereist een [Azure multi-factor Authentication](../active-directory/authentication/multi-factor-authentication.md) PINCODE. Zie het artikel voor meer informatie over de verbeterde beveiliging [beveiligingsfuncties die beschermen hybride back-ups](backup-azure-security-feature.md). 
 
 Als de verbeterde beveiliging is ingeschakeld, wordt gegevens behouden gedurende 14 dagen na de punt herstelgegevens is verwijderd uit de kluis. Klanten wordt gefactureerd voor opslag van deze beveiligingsgegevens. Beveiliging Gegevensretentie geldt voor de herstelpunten die voor de Azure backup-agent, de Azure Backup-Server en de System Center Data Protection Manager worden uitgevoerd. 
 

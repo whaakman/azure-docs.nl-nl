@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 10e0e0df4bf71c7a21a3cc06b5b1c16930d54ec6
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 12d3d2d4b0c35dc7d21cb78465225e3c029ca33e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Computers voorbereiden voor beheer door Azure Automation DSC
 
@@ -31,7 +31,7 @@ Azure Automation DSC kunnen worden gebruikt voor het beheren van tal van machine
 Bovendien, als u niet klaar voor het beheren van machineconfiguratie vanuit de cloud, kan Azure Automation DSC ook worden gebruikt als een eindpunt in het rapport alleen-lezen. Hiermee kunt u de gewenste configuratie (push) via DSC on-premises instellen en uitgebreide rapportage details weergeven over de naleving van knooppunt met de gewenste status in Azure Automation.
 
 > [!NOTE]
-> Het beheren van Azure VM's met DSC is zonder extra kosten opgenomen als de virtuele machine DSC-uitbreiding geïnstalleerd groter dan 2,70 is. Raadpleeg de [ **Automation pagina met prijzen** ](https://azure.microsoft.com/en-us/pricing/details/automation/) voor meer informatie.
+> Het beheren van Azure VM's met DSC is zonder extra kosten opgenomen als de virtuele machine DSC-uitbreiding geïnstalleerd groter dan 2,70 is. Raadpleeg de [ **Automation pagina met prijzen** ](https://azure.microsoft.com/pricing/details/automation/) voor meer informatie.
 
 
 De volgende secties worden hoe kunt u vrijgeven elk type van de machine aan Azure Automation DSC.
@@ -195,7 +195,7 @@ De machine met deze opdracht wordt uitgevoerd vanaf moet hebben tot de nieuwste 
 
 ## <a name="generating-dsc-metaconfigurations"></a>DSC-metaconfigurations genereren
 
-Om vrij te algemeen geven een aan Azure Automation DSC machine een [DSC-metaconfiguratie toe](https://msdn.microsoft.com/en-us/powershell/dsc/metaconfig) kan worden gegenereerd dat, wanneer toegepast, wordt uitgelegd van de DSC-agent op de machine op te halen uit en/of rapporteren aan Azure Automation DSC. DSC-metaconfigurations voor Azure Automation DSC kan worden gegenereerd met behulp van een PowerShell DSC-configuratie of de Azure Automation PowerShell-cmdlets.
+Om vrij te algemeen geven een aan Azure Automation DSC machine een [DSC-metaconfiguratie toe](https://msdn.microsoft.com/powershell/dsc/metaconfig) kan worden gegenereerd dat, wanneer toegepast, wordt uitgelegd van de DSC-agent op de machine op te halen uit en/of rapporteren aan Azure Automation DSC. DSC-metaconfigurations voor Azure Automation DSC kan worden gegenereerd met behulp van een PowerShell DSC-configuratie of de Azure Automation PowerShell-cmdlets.
 
 > [!NOTE]
 > DSC-metaconfigurations bevatten de geheimen die nodig zijn om vrij te geven een machine naar een Automation-account voor beheer. Zorg ervoor dat u goed beveiligen eventuele DSC-metaconfigurations die u maakt of verwijder ze na gebruik.

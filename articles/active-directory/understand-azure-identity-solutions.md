@@ -13,11 +13,11 @@ ms.service: azure
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: e5f76bd5da8ff040ea184544b96eb245c42d4dc2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bd8e122324ab2d4c783fb6d4e09a9f4f197f91ca
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="understand-azure-identity-solutions"></a>Azure-identiteitsoplossingen begrijpen
 Microsoft Azure Active Directory (Azure AD) is een identiteits- en toegangsbeheer cloud beheeroplossing die directoryservices en identiteit governance Toepassingsbeheer toegang biedt. Azure AD snel [kunt van eenmalige aanmelding (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) naar 1. 000 de met vooraf geïntegreerde commerciële en aangepaste apps in de [Azure AD-toepassingsgalerie](https://azure.microsoft.com/marketplace/active-directory/all/). Veel van deze apps die u waarschijnlijk al, zoals Office 365, Salesforce.com vak, ServiceNow en Workday gebruikt.
@@ -107,7 +107,7 @@ Hier volgen enkele algemene identiteit en toegang scenario's met betrekking tot 
 We hebben een berg geweldige bronnen online voor meer informatie over Azure AD. Hier volgt een lijst met artikelen die u geweldige kunt u op weg:
 
 * [De map voor het beheer van hybride met Azure AD Connect inschakelen](active-directory-aadconnect.md)
-* [Extra beveiliging voor een ooit verbonden wereld](../multi-factor-authentication/multi-factor-authentication.md)
+* [Extra beveiliging voor een ooit verbonden wereld](authentication/multi-factor-authentication.md)
 * [Gebruiker inrichting en het opheffen van inrichting voor SaaS-toepassingen met Azure Active Directory automatiseren](active-directory-saas-app-provisioning.md)
 * [Aan de slag met Azure AD-rapportage](active-directory-reporting-getting-started.md)
 * [De wachtwoorden beheren vanaf elke locatie](active-directory-passwords-update-your-own-password.md)

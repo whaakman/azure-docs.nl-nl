@@ -16,19 +16,19 @@ ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 22086a0d9fc774b75e1b0873188b16fc548d0791
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e34bf6ec106976c1c3aab0f2b5c4ebf4b6ccc54b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Selfservice voor wachtwoordherstel implementeren
 
 De meeste klanten voeren de volgende stappen uit voor een goede implementatie van de functionaliteit van de selfservice voor wachtwoordherstel (SSPR) van Azure Active directory (Azure AD):
 
-1. [Schakel wachtwoordherstel in in uw directory](../active-directory-passwords-getting-started.md).
-2. [Configureer on-premises Active Directory-machtigingen voor write-back van wachtwoord](../active-directory-passwords-writeback.md#active-directory-permissions).
-3. [Configureer write-back van wachtwoord](../active-directory-passwords-writeback.md#configure-password-writeback) om wachtwoorden van Azure AD terug te schrijven naar uw on-premises directory.
+1. [Schakel wachtwoordherstel in in uw directory](quickstart-sspr.md).
+2. [Configureer on-premises Active Directory-machtigingen voor write-back van wachtwoord](howto-sspr-writeback.md#active-directory-permissions).
+3. [Configureer write-back van wachtwoord](howto-sspr-writeback.md#configure-password-writeback) om wachtwoorden van Azure AD terug te schrijven naar uw on-premises directory.
 4. [Wijs de vereiste licenties toe en verifieer ze](concept-sspr-licensing.md).
 5. Bepaal of u een geleidelijke implementatie wilt uitvoeren. Als u selfservice voor wachtwoordherstel geleidelijk wilt implementeren, kunt u de toegang beperken tot bepaalde gebruikers, zodat u het programma met een specifieke groep kunt testen. Voor implementatie in een specifieke groep stelt u de schakeloptie **Selfservice voor wachtwoordherstel is ingeschakeld** in op **Geselecteerd** en selecteert u de beveiligingsgroep waarvoor u wachtwoordherstel mogelijk wilt maken. 
 6. Vul de [verificatiegegevens](howto-sspr-authenticationdata.md) in die uw gebruikers nodig hebben om zich te kunnen registreren, zoals hun zakelijke telefoonnummer, mobiele telefoonnummer en een alternatief e-mailadres.
@@ -41,7 +41,7 @@ De meeste klanten voeren de volgende stappen uit voor een goede implementatie va
    > [!NOTE]
    > Als u deze optie wijzigt van een geselecteerde groep naar iedereen, worden bestaande authenticatiegegevens die een gebruiker als onderdeel van een testgroep heeft geregistreerd, niet ongeldig. Gebruikers die geconfigureerd zijn en geldige authenticatiegegevens geregistreerd hebben, blijven functioneren.
 
-12. [Bied Windows 10-gebruikers de mogelijkheid tot wachtwoordherstel op het aanmeldingsscherm](../active-directory-passwords-login.md).
+12. [Bied Windows 10-gebruikers de mogelijkheid tot wachtwoordherstel op het aanmeldingsscherm](tutorial-sspr-windows.md).
 
    > [!IMPORTANT]
    > Test de selfservice voor wachtwoordherstel als gebruiker en niet als beheerder, omdat Microsoft sterke verificatievereisten afdwingt voor Azure-accounts van beheerders. Zie ons [artikel over wachtwoordbeleid](concept-sspr-policy.md#administrator-password-policy-differences) voor meer informatie over het wachtwoordbeleid voor beheerders.
@@ -90,7 +90,7 @@ Selfservice voor wachtwoordherstel kan eenvoudig worden uitgeschakeld. Open uw A
 * [Hebt u een vraag over licenties?](concept-sspr-licensing.md)
 * [Welke gegevens worden gebruikt door selfservice voor wachtwoordherstel en welke gegevens moet u voor uw gebruikers invullen?](howto-sspr-authenticationdata.md)
 * [Wat zijn de beleidsopties bij selfservice voor wachtwoordherstel?](concept-sspr-policy.md)
-* [Wat is Wachtwoord terugschrijven en waarom is dit van belang?](../active-directory-passwords-writeback.md)
+* [Wat is Wachtwoord terugschrijven en waarom is dit van belang?](howto-sspr-writeback.md)
 * [Hoe maak ik rapporten van activiteit in selfservice voor wachtwoordherstel?](howto-sspr-reporting.md)
 * [Wat zijn alle opties in selfservice voor wachtwoordherstel en wat houden ze in?](concept-sspr-howitworks.md)
 * [Ik denk dat er iets misgaat. Hoe los ik problemen in selfservice voor wachtwoordherstel op?](active-directory-passwords-troubleshoot.md)

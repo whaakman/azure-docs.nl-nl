@@ -5,9 +5,9 @@ services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: 90c855e768f403098e535391afb55e3c78044b0a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: dc2dc660262cec892270f8d6e70691fdd169a5c4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Verbinding maken met Azure VPN-gateways u meerdere on-premises op beleid gebaseerde VPN-apparaten met behulp van PowerShell
 
@@ -45,7 +45,7 @@ Azure ondersteunt momenteel, beide modi van VPN-gateways: op route gebaseerde VP
 
 |                          | **PolicyBased VPN Gateway** | **Op route gebaseerd VPN-Gateway**               |
 | ---                      | ---                         | ---                                      |
-| **Azure Gateway SKU**    | Basic                       | Basic, Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3 |
+| **Azure-Gateway SKU**    | Basic                       | Basic, Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3 |
 | **IKE-versie**          | IKEv1                       | IKEv2                                    |
 | **Max. S2S-verbindingen** | **1**                       | Basic-/ Standard: 10<br> HighPerformance: 30 |
 |                          |                             |                                          |
@@ -113,7 +113,7 @@ Zorg ervoor dat u overschakelt naar de PowerShell-modus voor het gebruik van de 
 Open de PowerShell-console en maak verbinding met uw account. Gebruik het volgende voorbeeld als hulp bij het maken van de verbinding:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $Sub1
 New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 ```
@@ -147,7 +147,7 @@ New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location
 
 Het volgende voorbeeld wordt een IPsec/IKE-beleid met deze algoritmen en parameters:
 * IKEv2: AES256, SHA384 DHGroup24
-* IPsec: AES256, SHA256, PFS24, SA Lifetime 3600 seconds & 2048KB
+* IPsec: AES256, SHA256, PFS24, SA levensduur 3600 seconden & 2048KB
 
 ```powershell
 $ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup PFS24 -SALifeTimeSeconds 3600 -SADataSizeKilobytes 2048

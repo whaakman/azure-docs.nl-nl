@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 02/27/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: c7d28831edf028657b7dd2a6a404a692a4a3bcb0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: cdadf48aa23e3dd76d8a511794f00725f073611d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Marketplace-items van Azure naar Azure Stack downloaden
 
@@ -62,7 +62,7 @@ Gebruik de volgende stappen voor het downloaden van de vereiste marketplace-item
 
 1. Open een PowerShell-console als beheerder en [Azure Stack specifieke PowerShell-modules installeren](azure-stack-powershell-install.md). Zorg ervoor dat u installeert **PowerShell versie 1.2.11 of hoger**.  
 
-2. De Azure-account dat u hebt gebruikt voor het registreren van de Azure-Stack toevoegen. Uitvoeren als u wilt toevoegen op het account, de **Connect-AzureRmAccount** cmdlet zonder parameters. U wordt gevraagd de referenties van uw Azure-account in te voeren en wellicht 2-factor-verificatie op basis van de configuratie van uw account te gebruiken.  
+2. De Azure-account dat u hebt gebruikt voor het registreren van de Azure-Stack toevoegen. Uitvoeren als u wilt toevoegen op het account, de **Add-AzureRmAccount** cmdlet zonder parameters. U wordt gevraagd de referenties van uw Azure-account in te voeren en wellicht 2-factor-verificatie op basis van de configuratie van uw account te gebruiken.  
 
 3. Als u meerdere abonnementen hebt, voer de volgende opdracht om te selecteren die u hebt gebruikt voor registratie:  
 

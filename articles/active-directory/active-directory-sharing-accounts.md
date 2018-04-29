@@ -2,10 +2,10 @@
 title: Delen van accounts met behulp van Azure AD | Microsoft Docs
 description: Hierin wordt beschreven hoe Azure Active Directory kunnen organisaties veilig delen accounts voor consumer-cloudservices en lokale apps.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: e2d77104-d978-46a3-bfea-03ffdf3b61e6
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 11/13/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 3b6a83d91ec5d8466669655d6c3bd7ae7b42dd2f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e5c0687a2d0dd9bb42f566daf3835c1c3130054e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Accounts delen met Azure AD
 ## <a name="overview"></a>Overzicht
@@ -69,7 +69,7 @@ Als u Azure AD wilt delen van een account, moet u:
 * Gebruik [toewijzing op basis van een groep](active-directory-accessmanagement-group-saasapps.md) en selecteer de optie voor het invoeren van een gedeelde referentie
 * Optioneel: in sommige toepassingen, zoals Facebook, Twitter en LinkedIn, kunt u de optie inschakelen voor [Azure AD geautomatiseerde wachtwoord roll-over](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx)
 
-U kunt ook uw gedeelde account beter beveiligen met multi-factor Authentication (MFA) (meer informatie over [beveiliging van toepassingen met Azure AD](../multi-factor-authentication/multi-factor-authentication-get-started.md)) en kunt u de mogelijkheid om te beheren wie toegang heeft tot de toepassing die gebruikmaakt van delegeren[ Azure AD-Self-service](active-directory-accessmanagement-self-service-group-management.md) groepsbeheer.
+U kunt ook uw gedeelde account beter beveiligen met multi-factor Authentication (MFA) (meer informatie over [beveiliging van toepassingen met Azure AD](authentication/concept-mfa-whichversion.md)) en kunt u de mogelijkheid om te beheren wie toegang heeft tot de toepassing die gebruikmaakt van delegeren[ Azure AD-Self-service](active-directory-accessmanagement-self-service-group-management.md) groepsbeheer.
 
 ## <a name="related-articles"></a>Verwante artikelen:
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md) (Artikelindex voor toepassingsbeheer in Azure Active Directory)

@@ -7,11 +7,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: 84969ff04684003a04f99b4fbf7f03be4140a277
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 580d32a51f6b38916ddccd46784b80b1179c29c4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>De configuratieserver voor noodherstel van de fysieke server beheren
 
@@ -266,7 +266,7 @@ De server als volgt bijwerken:
 1. [Installeer](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell-module
 2. Aanmelden bij aan uw Azure-account met de opdracht
     
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 3. Selecteer het abonnement waaronder de kluis aanwezig is
 
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/17/2017
 ms.author: xiaoyzhu
-ms.openlocfilehash: bccd889ba8a063613f1f3f385b39e4bfe8afcc89
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: 27ce89f205efa6b8f2d29e034c6e5002065879fc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Gebruik Caffe op Azure HDInsight Spark voor gedistribueerde grondige learning
 
@@ -29,7 +29,7 @@ Grondige learning is van invloed op alle gegevens van de gezondheidszorg voor ve
 
 Er zijn [veel populaire frameworks](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software), waaronder [Microsoft cognitieve Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), MXNet, Theano, enzovoort. Caffe is een van de grootste beroemdheid frameworks voor neurale netwerk wordt niet symbolische (imperatieve) en veel worden gebruikt in veel gebieden, waaronder computer vision. Bovendien [CaffeOnSpark](http://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep) combineert Caffe met Apache Spark, in welk geval diep learning gemakkelijk kan worden gebruikt op een bestaand Hadoop-cluster. U kunt grondige learning samen met Spark ETL pijplijnen, verminderen system complexiteit en latentie voor learning volledige oplossing gebruiken.
 
-[HDInsight](https://azure.microsoft.com/en-us/services/hdinsight/) een cloud Hadoop biedt geoptimaliseerde analytische open source-clusters en biedt voor Spark, Hive, Hadoop, HBase, Storm, Kafka en R Server. HDInsight wordt ondersteund door een SLA met 99,9%. Elk van deze big data-technologieën en ISV-toepassingen is eenvoudig te implementeren als beheerde clusters met beveiligings- en bewaking voor ondernemingen.
+[HDInsight](https://azure.microsoft.com/services/hdinsight/) een cloud Hadoop biedt geoptimaliseerde analytische open source-clusters en biedt voor Spark, Hive, Hadoop, HBase, Storm, Kafka en R Server. HDInsight wordt ondersteund door een SLA met 99,9%. Elk van deze big data-technologieën en ISV-toepassingen is eenvoudig te implementeren als beheerde clusters met beveiligings- en bewaking voor ondernemingen.
 
 In dit artikel laat zien hoe u voor het installeren van [Caffe op Spark](https://github.com/yahoo/CaffeOnSpark) voor een HDInsight-cluster. In dit artikel gebruikt ook de ingebouwde MNIST demo om het gebruik van gedistribueerd grondige Learning met HDInsight Spark op CPU's weer te geven.
 

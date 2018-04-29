@@ -9,8 +9,8 @@
 1. De diagnostische instellingen voor een naam geven.
 1. Kies waar u de logboeken verzenden. U kunt een combinatie van de drie opties selecteren:
    * Archiveren naar een opslagaccount
-   * Stream naar een event hub
-   * Verzenden met Log Analytics
+   * Streamen naar een Event Hub
+   * Verzenden naar Log Analytics
 1. Kies welke bewerkingen u wilt bewaken en logboeken voor deze bewerkingen inschakelen. De bewerkingen die diagnostische instellingen kunnen rapporteren zijn:
    * Verbindingen
    * De apparaattelemetrie
@@ -28,7 +28,7 @@
 Als u inschakelen op de instellingen voor diagnostische gegevens met PowerShell wilt, gebruikt u de volgende code:
 
 ```
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName <subscription that includes your IoT Hub>
 Set-AzureRmDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true
 ```

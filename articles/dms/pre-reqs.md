@@ -10,12 +10,12 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 03/29/2018
-ms.openlocfilehash: b480ca189b3d63d92c48abf8d9c398c1c9b22241
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.date: 04/22/2018
+ms.openlocfilehash: b3fe97343d844eb5c030cf0aaa9da2a6f54a2472
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="overview-of-prerequisites-for-using-the-azure-database-migration-service"></a>Overzicht van vereisten voor het gebruik van de Service Azure Database migreren
 Er zijn verschillende vereisten die zijn vereist om ervoor te zorgen dat de Service Azure Database migratie probleemloos bij het uitvoeren van de database-migraties. Sommige van de vereisten van toepassing in alle scenario's (bron-doel paren) die door de service, worden ondersteund, terwijl andere vereisten uniek voor een specifiek scenario zijn.
@@ -54,8 +54,8 @@ Wanneer u de migratie van Azure databaseservice SQL Server uitvoert naar Azure S
 - Als u meerdere benoemde exemplaren van SQL Server met behulp van dynamische poorten worden uitgevoerd, kunt u desgewenst de SQL Browser-Service inschakelen en toegang tot de UDP-poort 1434 via uw firewalls toestaan, zodat de migratie van Azure databaseservice verbinding met een benoemd exemplaar op de bron maken kan -Server.
 - Zorg ervoor dat de aanmeldingen gebruikt voor het verbinding maken met de bron van SQL Server en de doelinstantie van beheerde leden van de serverrol sysadmin.
 - Maak een netwerkshare die de migratie van Azure databaseservice gebruiken kunt voor back-up van de brondatabase.
-- Zorg ervoor dat het serviceaccount met een SQL Server-exemplaar van bron schrijfrechten heeft op de netwerkshare die u hebt gemaakt.
-- Maak een notitie van een Windows-gebruiker (en wachtwoord) die de machtiging Volledig beheer op de netwerkshare die u heeft hierboven hebt gemaakt. De migratie van Azure databaseservice imiteert de gebruikersreferenties voor het uploaden van de back-upbestanden naar Azure storage-container voor restore-bewerking.
+- Zorg ervoor dat het serviceaccount dat de bron met SQL Server-exemplaar heeft schrijfrechten op de netwerkshare die u hebt gemaakt en dat het computeraccount voor de bronserver lees-/ schrijftoegang tot dezelfde share heeft.
+- Maak een notitie van een Windows-gebruiker (en wachtwoord) die de machtiging Volledig beheer heeft op de netwerkshare die u eerder hebt gemaakt. De migratie van Azure databaseservice imiteert de gebruikersreferenties voor het uploaden van de back-upbestanden naar Azure storage-container voor restore-bewerking.
 - Maken van een blob-container en de SAS URI ophalen met behulp van de stappen in het artikel [beheren Azure Blob Storage-resources met Opslagverkenner](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container). Zorg ervoor dat alle machtigingen (lezen, schrijven, verwijderen, lijst) in het venster beleid selecteren tijdens het maken van de SAS-URI.
 
    > [!NOTE]

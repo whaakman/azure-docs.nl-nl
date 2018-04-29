@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2018
+ms.date: 04/17/2018
 ms.author: douglasl
-ms.openlocfilehash: ed0f992985b49e4d84ca42a2e9d73121466a2c74
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8390284f969fe9375a70801724881db26806a1d8
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="custom-setup-for-the-azure-ssis-integration-runtime"></a>Aangepaste instellingen voor de integratie van Azure SSIS runtime
 
@@ -36,6 +36,8 @@ U kunt gratis of niet-gelicentieerde onderdelen en betaalde of gelicentieerde on
     ```
 
 -   Kan niet rechtstreeks worden aangeroepen `gacutil.exe` assembly's in de Global Assembly Cache (GAC) installeren op dit moment. Gebruik als tijdelijke oplossing `gacinstall.cmd` (die in de openbare Preview-container).
+
+-   Als u moet uw Azure-SSIS-IR met aangepaste installatie toevoegen aan een VNet, wordt alleen Azure Resource Manager VNet ondersteund. Klassieke VNet wordt niet ondersteund.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -62,7 +64,7 @@ Voor het aanpassen van uw Azure-SSIS-IR, moet u de volgende zaken:
 
 4.  Downloaden, installeren en starten [Azure Opslagverkenner](http://storageexplorer.com/).
 
-    1.  Onder **(lokaal en Attached)**rechts Selecteer **Opslagaccounts** en selecteer **verbinding maken met Azure storage**.
+    1.  Onder **(lokaal en Attached)** rechts Selecteer **Opslagaccounts** en selecteer **verbinding maken met Azure storage**.
 
        ![Verbinding maken met Azure Storage](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image1.png)
 

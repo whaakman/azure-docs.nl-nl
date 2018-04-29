@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: fd5a8afe82bab5ca4e735a2483d90b84e234b8dc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: e982fa2bec3cbc4845ecebb45db76f019e2178ff
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Toevoegen van de tenant voor informatie over het gebruik en facturering naar Azure-Stack
 
@@ -58,7 +58,7 @@ Uw registratie bijwerken met de nieuwe klant-abonnement. Azure rapporten van de 
 > Als u wilt deze stap uitvoert, moet u hebben [geregistreerd Azure Stack](azure-stack-register.md).
 
 1. Open Windows PowerShell met een opdrachtprompt en voer:  
-    `Connect-AzureRmAccount`
+    `Add-AzureRmAccount`
 2. Typ uw Azure-referenties.
 3. In de PowerShell-sessie uitvoeren:
 

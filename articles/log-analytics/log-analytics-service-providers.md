@@ -2,10 +2,10 @@
 title: Meld u Analytics-functies voor serviceproviders | Microsoft Docs
 description: Log Analytics kunt beheerd serviceproviders (MSPs) grote ondernemingen Independent Software Vendors (ISV's) en hosting serviceproviders beheren en bewaken van servers in een van de klant on-premises of cloudinfrastructuur.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: c07f0b9f-ec37-480d-91ec-d9bcf6786464
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2016
 ms.author: richrund
-ms.openlocfilehash: 3910038e788352df45ab00c0f697d9a5426b3498
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 6934e92df562099122eaede39fd26cf51cf1ee44
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="log-analytics-features-for-service-providers"></a>Log Analytics-functies voor serviceproviders
 Log Analytics kunt beheerde serviceproviders (MSPs), grote ondernemingen, onafhankelijke softwareleveranciers (ISV's) en hosting serviceproviders beheren en bewaken van servers in een van de klant on-premises of cloudinfrastructuur. 
@@ -40,7 +40,7 @@ Als een *Cloud Solution Provider* kunt u:
 Voor het aanmelden bij een tenant-abonnement, moet u de tenant-id opgeven. De tenant-id is vaak laatste deel van het e-mailadres gebruikt om aan te melden.
 
 * Voeg in de OMS-portal `?tenant=contoso.com` in de URL voor de portal. Bijvoorbeeld: `mms.microsoft.com/?tenant=contoso.com`
-* Gebruik in PowerShell de `-Tenant contoso.com` parameter wanneer u `Add-AzureRmAccount` cmdlet
+* Gebruik in PowerShell de `-Tenant contoso.com` parameter wanneer u `Connect-AzureRmAccount` cmdlet
 * De tenant-id wordt automatisch toegevoegd wanneer u de `OMS portal` koppeling van de Azure-portal te openen en aanmelden bij de OMS-portal voor de geselecteerde werkruimte
 
 Als een *klant* van een Cloud Solution Provider die u kunt:

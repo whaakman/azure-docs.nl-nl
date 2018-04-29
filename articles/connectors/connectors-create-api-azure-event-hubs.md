@@ -5,10 +5,10 @@ services: logic-apps
 keywords: gegevensstroom, controleprogramma voor gebeurtenissen van event hubs
 author: ecfan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 tags: connectors
-ms.assetid: 
+ms.assetid: ''
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/06/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: 076f7dd11ca8c153046727861ecb755e88f32b01
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8de56cd64f38791fb27d9bcce1e16641fb162c2f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="monitor-receive-and-send-events-with-the-event-hubs-connector"></a>Bewaken, ontvangen en verzenden van gebeurtenissen met de Event Hubs-connector
 
@@ -76,11 +76,28 @@ Een [ *trigger* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) is ee
 3. Selecteer de Event Hub om te controleren en het interval en frequentie voor het controleren van de Event Hub ingesteld.
 
     ![Geef een Event Hub of klantengroep](./media/connectors-create-api-azure-event-hubs/select-event-hub.png)
+    
+    > [!NOTE]
+    > De Event Hub-triggers *lange polling* triggers, wat betekent dat wanneer een trigger wordt gestart, de trigger worden alle gebeurtenissen verwerkt en wordt er gewacht totdat 30 seconden voor meer gebeurtenissen worden weergegeven in de Event Hub.
+    > Als er geen gebeurtenissen worden ontvangen in 30 seconden, wordt de trigger uitvoeren overgeslagen. Anders, blijft de trigger lezen van gebeurtenissen tot Event Hub leeg is.
+    > De volgende trigger poll is gebaseerd op het terugkeerpatroon die is opgegeven in de trigger-eigenschappen.
 
-    > [!TIP]
-    > Schakel eventueel een consumergroep voor het lezen van gebeurtenissen, kies **geavanceerde opties weergeven**.
 
-4. Sla uw logische app op. Kies **Opslaan** op de werkbalk van de ontwerper.
+4. U enkele van de geavanceerde activeringsopties eventueel selecteert **geavanceerde opties weergeven**.
+
+    ![Geavanceerde opties voor de trigger](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger-advanced.png)
+
+    | Eigenschap | Details |
+    | --- | --- |
+    | Inhoudstype  |Selecteer inhoudstype de gebeurtenissen in de vervolgkeuzelijst. Application/octet-stream is standaard geselecteerd. |
+    | Inhoudsschema |Geef het schema met content in JSON voor de gebeurtenissen die in de Event Hub worden gelezen. |
+    | De naam van de consumer |Voer de Event Hub [consumer groepsnaam](../event-hubs/event-hubs-features.md#consumer-groups) de gebeurtenissen moeten worden gelezen. Wanneer de groepsnaam van de consumer niet is opgegeven, wordt standaard consumergroep gebruikt. |
+    | Minimale partitiesleutel |Voer de minimale [partitie](../event-hubs/event-hubs-features.md#partitions) ID te lezen. Standaard zijn alle partities worden gelezen. |
+    | Maximale partitiesleutel |De maximale invoeren [partitie](../event-hubs/event-hubs-features.md#partitions) ID te lezen. Standaard zijn alle partities worden gelezen. |
+    | Maximum aantal gebeurtenissen tellen |Voer een waarde voor het maximum aantal gebeurtenissen. De trigger retourneert tussen één en het aantal gebeurtenissen dat is opgegeven door deze eigenschap. |
+    |||
+
+5. Sla uw logische app op. Kies **Opslaan** op de werkbalk van de ontwerper.
 
 Nu wanneer uw logische app gecontroleerd van de geselecteerde Event Hub, en een nieuwe gebeurtenis, kan de trigger de acties in uw logische app voor de gebeurtenis gevonden.
 

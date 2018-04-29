@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/14/2018
 ms.author: robb
-ms.openlocfilehash: 7b6da166ddd53162ca1177e925f00291ae78de2a
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: a67edd4372cff70a3948e85033e806749d585eb5
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure PowerShell Monitor snel starten-voorbeelden
 In dit artikel worden steekproef van PowerShell-opdrachten kunt u toegang tot Azure Monitor functies.
@@ -38,7 +38,7 @@ De voorbeelden in het artikel ziet hoe u Azure Monitor cmdlets kunt gebruiken. U
 Eerst aanmelden bij uw Azure-abonnement.
 
 ```PowerShell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Hier ziet u een teken in het scherm. Eenmaal u uw Account, TenantID, zich aanmelden en standaard abonnements-ID worden weergegeven. Alle Azure-cmdlets werkt in de context van uw standaardabonnement. U hebt toegang tot de volgende opdracht gebruiken om de lijst met abonnementen weer te geven:
@@ -150,9 +150,9 @@ De volgende tabel beschrijft de parameters en waarden die worden gebruikt voor h
 | Naam |simpletestdiskwrite |
 | Locatie van deze waarschuwingsregel |VS - oost |
 | ResourceGroup |montest |
-| TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
+| TargetResourceId |/Subscriptions/S1/resourceGroups/montest/providers/Microsoft.COMPUTE/virtualMachines/testconfig |
 | MetricName van de waarschuwing die wordt gemaakt |\Disk \PhysicalDisk (_Totaal) per seconde. Zie de `Get-MetricDefinitions` cmdlet over het ophalen van de exacte metrische namen |
-| operator |GreaterThan |
+| Operator |GreaterThan |
 | Drempelwaarde (aantal per seconde in voor deze metrische gegevens) |1 |
 | Venstergrootte (indeling: mm: SS) |00:05:00 |
 | aggregator (statistiek van de metrische gegevens die in dit geval gemiddeld aantal gebruikt) |Gemiddeld |

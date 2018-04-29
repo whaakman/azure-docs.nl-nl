@@ -1,6 +1,6 @@
 ---
-title: Azure Blob Storage-resources beheren met Opslagverkenner (Preview) | Microsoft Docs
-description: Azure Blob-Containers en Blobs met Opslagverkenner (Preview) beheren
+title: Azure Blob Storage-resources beheren met Opslagverkenner | Microsoft Docs
+description: Azure Blob-Containers en Blobs met Opslagverkenner beheren
 services: storage
 documentationcenter: na
 author: cawa
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: 98a1016f78587b4139041f140634b98fa47edfd1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 2207bac1ef7cb6393d7dc173f96ddda719bcdfdf
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="manage-azure-blob-storage-resources-with-storage-explorer-preview"></a>Azure Blob Storage-resources beheren met Opslagverkenner (Preview)
+# <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Azure Blob Storage-resources beheren met Opslagverkenner
 ## <a name="overview"></a>Overzicht
 [Azure Blob Storage](storage/blobs/storage-dotnet-how-to-use-blobs.md) is een service voor het opslaan van grote hoeveelheden ongestructureerde gegevens, zoals tekst of binaire gegevens, die toegankelijk zijn vanuit overal ter wereld via HTTP of HTTPS.
-U kunt Blob Storage gebruiken om gegevens openbaar te maken of om toepassingsgegevens privé op te slaan. In dit artikel leert u hoe u Opslagverkenner (Preview) werkt met blob-containers en blobs.
+U kunt Blob Storage gebruiken om gegevens openbaar te maken of om toepassingsgegevens privé op te slaan. In dit artikel leert u hoe Storage Explorer gebruiken om te werken met blob-containers en blobs.
 
 ## <a name="prerequisites"></a>Vereisten
 U moet het volgende doen om de stappen in dit artikel uit te voeren:
 
-* [Opslagverkenner (preview) downloaden en installeren](http://www.storageexplorer.com)
+* [Download en installeer Opslagverkenner](http://www.storageexplorer.com)
 * [Verbinding maken met een opslagaccount of -service van Azure Storage](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-blob-container"></a>Een blob-container maken
 Alle blobs moeten zich bevinden in een blob-container gewoon een logische groepering van blobs is. Een account kan een onbeperkt aantal containers bevatten en elke container kan een onbeperkt aantal blobs opslaan.
 
-De volgende stappen laten zien hoe u van een blobcontainer in Opslagverkenner (Preview).
+De volgende stappen laten zien hoe u van een blob-container binnen Opslagverkenner.
 
-1. Open Opslagverkenner (Preview).
+1. Open Storage Explorer.
 2. Vouw in het linkerdeelvenster het storage-account waarin u wilt maken van de blob-container.
 3. Met de rechtermuisknop op **Blob-Containers**, en selecteer in het contextmenu - **Blob-Container maken**.
 
@@ -51,9 +51,9 @@ De volgende stappen laten zien hoe u van een blobcontainer in Opslagverkenner (P
 ## <a name="view-a-blob-containers-contents"></a>Een blob-container inhoud weergeven
 BLOB-containers bevatten blobs en -mappen (die ook blobs kunnen bevatten).
 
-De volgende stappen laten zien hoe de inhoud van een blobcontainer in Opslagverkenner (Preview):
+De volgende stappen laten zien hoe de inhoud van een blob-container binnen Opslagverkenner weergeven:
 
-1. Open Opslagverkenner (Preview).
+1. Open Storage Explorer.
 2. Vouw in het linkerdeelvenster het storage-account de blob-container die u wilt weergeven.
 3. Vouw het opslagaccount **Blob-Containers**.
 4. Met de rechtermuisknop op de blob-container die u wilt weergeven, en selecteer in het contextmenu - **Open Editor voor Blob-Container**.
@@ -67,9 +67,9 @@ De volgende stappen laten zien hoe de inhoud van een blobcontainer in Opslagverk
 ## <a name="delete-a-blob-container"></a>Verwijderen van een blob-container
 BLOB-containers kunnen eenvoudig worden gemaakt en verwijderd indien nodig. (Voor informatie over het verwijderen van afzonderlijke blobs, Zie de sectie [beheren blobs in een blobcontainer](#managing-blobs-in-a-blob-container).)
 
-De volgende stappen uit te laten zien hoe u een blobcontainer in Opslagverkenner (Preview) verwijderen:
+De volgende stappen uit te laten zien hoe u een blob-container binnen Opslagverkenner verwijderen:
 
-1. Open Opslagverkenner (Preview).
+1. Open Storage Explorer.
 2. Vouw in het linkerdeelvenster het storage-account de blob-container die u wilt weergeven.
 3. Vouw het opslagaccount **Blob-Containers**.
 4. Met de rechtermuisknop op de blob-container die u wilt verwijderen, en selecteer in het contextmenu - **verwijderen**.
@@ -81,11 +81,11 @@ De volgende stappen uit te laten zien hoe u een blobcontainer in Opslagverkenner
    ![Verwijderen van blob-Container bevestigen][5]
 
 ## <a name="copy-a-blob-container"></a>Kopiëren van een blob-container
-Opslagverkenner (Preview) kunt u een blob-container kopiëren naar het Klembord en plak deze blob-container in een ander opslagaccount. (Voor informatie over het kopiëren van afzonderlijke blobs, Zie de sectie [beheren blobs in een blobcontainer](#managing-blobs-in-a-blob-container).)
+Opslagverkenner kunt u een blob-container kopiëren naar het Klembord en plak deze blob-container in een ander opslagaccount. (Voor informatie over het kopiëren van afzonderlijke blobs, Zie de sectie [beheren blobs in een blobcontainer](#managing-blobs-in-a-blob-container).)
 
 De volgende stappen laten zien hoe u een blob-container van één opslagaccount kopieert naar een andere.
 
-1. Open Opslagverkenner (Preview).
+1. Open Storage Explorer.
 2. Vouw in het linkerdeelvenster het storage-account de blob-container die u wilt kopiëren.
 3. Vouw het opslagaccount **Blob-Containers**.
 4. Met de rechtermuisknop op de blob-container die u wilt kopiëren, en selecteer in het contextmenu - **kopie Blob-Container**.
@@ -101,7 +101,7 @@ Dit betekent dat u een client gedurende de opgegeven periode een beperkte set ma
 
 De volgende stappen laten zien hoe u van een SAS voor een blob-container:
 
-1. Open Opslagverkenner (Preview).
+1. Open Storage Explorer.
 2. Vouw in het linkerdeelvenster het storage-account met de blob-container die u wilt een SAS ophalen.
 3. Vouw het opslagaccount **Blob-Containers**.
 4. Met de rechtermuisknop op de gewenste blob-container, en selecteer in het contextmenu - **Shared Access Signature ophalen**.
@@ -120,7 +120,7 @@ De volgende stappen laten zien hoe u van een SAS voor een blob-container:
 ## <a name="manage-access-policies-for-a-blob-container"></a>-Beleid beheren voor een blob-container
 De volgende stappen laten zien hoe beheren (toevoegen en verwijderen) toegangsbeleid voor een blob-container:
 
-1. Open Opslagverkenner (Preview).
+1. Open Storage Explorer.
 2. Vouw in het linkerdeelvenster het storage-account met de blob-container waarvan toegangsbeleid dat u wilt beheren.
 3. Vouw het opslagaccount **Blob-Containers**.
 4. Selecteer de gewenste blob-container, en selecteer in het contextmenu - **toegangsbeleid beheren**.
@@ -140,7 +140,7 @@ Elke blob-container is standaard ingesteld op 'Geen openbare toegang'.
 
 De volgende stappen laten zien hoe het niveau van een openbare toegang voor een blob-container opgeven.
 
-1. Open Opslagverkenner (Preview).
+1. Open Storage Explorer.
 2. Vouw in het linkerdeelvenster het storage-account met de blob-container waarvan toegangsbeleid dat u wilt beheren.
 3. Vouw het opslagaccount **Blob-Containers**.
 4. Selecteer de gewenste blob-container, en selecteer in het contextmenu - **ingesteld openbare toegangsniveau**.
@@ -156,7 +156,7 @@ Als u een blob-container hebt gemaakt, kunt u een blob uploadt naar deze blob-co
 
 De volgende stappen uit te laten zien hoe de BLOB's (en mappen) beheren binnen een blob-container.
 
-1. Open Opslagverkenner (Preview).
+1. Open Storage Explorer.
 2. Vouw in het linkerdeelvenster het storage-account de blob-container die u wilt beheren.
 3. Vouw het opslagaccount **Blob-Containers**.
 4. Dubbelklik op de blob-container die u wilt weergeven.
@@ -212,7 +212,7 @@ De volgende stappen uit te laten zien hoe de BLOB's (en mappen) beheren binnen e
      3. Selecteer **Ja** in het bevestigingsvenster.
 
 ## <a name="next-steps"></a>Volgende stappen
-* De [meest recente releaseopmerkingen en video's van Opslagverkenner (preview)](http://www.storageexplorer.com) bekijken.
+* De [meest recente releaseopmerkingen en video's van Storage Explorer](http://www.storageexplorer.com) bekijken.
 * Meer informatie lezen over [het maken van toepassingen met behulp van blobs, tabellen, wachtrijen en bestanden van Azure](https://azure.microsoft.com/documentation/services/storage/).
 
 [0]: ./media/vs-azure-tools-storage-explorer-blobs/blob-containers-create-context-menu.png

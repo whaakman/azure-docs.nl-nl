@@ -9,11 +9,11 @@ ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91a093a44106ad861449b6defb140532698fa668
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e4abf8ae491c9992dd3d21a0d657ba9cd214b740
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Het bijhouden van wijzigingen in uw omgeving met de oplossing voor wijzigingen bijhouden
 
@@ -23,18 +23,19 @@ Wijzigingen in de geïnstalleerde software, Windows-services, Windows-register e
 
 ## <a name="enable-change-tracking-and-inventory"></a>Wijzigingen bijhouden en Inventaris inschakelen
 
-
 Om te beginnen met het bijhouden van wijzigingen, moet u de oplossing voor wijzigingen bijhouden en inventarisatie inschakelen voor uw Automation-Account.
 
 1. Navigeer in de Azure-portal naar uw Automation-Account
 1. Selecteer **bijhouden** onder **configuratie**.
-2. Selecteer een bestaande Log analytics-werkruimte of **nieuwe werkruimte maken** en klik op **inschakelen**.
+1. Selecteer een bestaande Log analytics-werkruimte of **nieuwe werkruimte maken** en klik op **inschakelen**.
 
 Hierdoor kan de oplossing voor uw automation-account. De oplossing kunnen maximaal 15 minuten om in te schakelen. De blauwe banner waarschuwt u als de oplossing is ingeschakeld. Ga terug naar de **bijhouden** pagina voor het beheren van de oplossing.
 
 ## <a name="configuring-change-tracking-and-inventory"></a>Bijhouden van wijzigingen en inventarisatie configureren
 
-Voor meer informatie over hoe vrijgeven computers op de oplossing gaat u naar: [Onboarding Automation oplossingen](automation-onboard-solutions-from-automation-account.md). Wanneer u een nieuw bestand of registersleutel bijhouden inschakelt, wordt deze ingeschakeld voor Change Tracking en inventaris.
+Voor meer informatie over hoe vrijgeven computers op de oplossing gaat u naar: [Onboarding Automation oplossingen](automation-onboard-solutions-from-automation-account.md). Zodra u de voorbereiding van een machine met de oplossing voor wijzigingen bijhouden en inventaris hebt, kunt u de items bijhouden configureren. Wanneer u een nieuw bestand of registersleutel bijhouden inschakelt, wordt deze ingeschakeld voor Change Tracking en inventaris.
+
+Voor het bijhouden van wijzigingen in bestanden op Windows- en Linux, worden MD5-hashes van de bestanden die gebruikt. Bij deze hashes worden vervolgens gebruikt om te detecteren als er een wijziging is aangebracht sinds de laatste inventarisatie.
 
 ### <a name="configure-linux-files-to-track"></a>Linux-bestanden bijhouden configureren
 
@@ -109,6 +110,7 @@ Andere beperkingen:
 ## <a name="known-issues"></a>Bekende problemen
 
 De oplossing voor wijzigingen bijhouden is momenteel met de volgende problemen:
+
 * Hotfix-updates worden niet verzameld voor Windows 10 auteurs en Update voor Windows Server 2016 Core RS3 machines.
 
 ## <a name="change-tracking-data-collection-details"></a>Details van verzameling gegevens bijhouden wijzigen
@@ -117,13 +119,13 @@ De volgende tabel toont de frequentie van de verzameling gegevens voor de soorte
 
 | **Type wijzigen** | **Frequentie** |
 | --- | --- |
-| Windows-register | 50 minuten | 
-| Windows-bestand | 30 minuten | 
-| Linux-bestand | 15 minuten | 
-| Windows-services | 30 minuten | 
+| Windows-register | 50 minuten |
+| Windows-bestand | 30 minuten |
+| Linux-bestand | 15 minuten |
+| Windows-services | 30 minuten |
 | Daemons Linux | 5 minuten |
-| Windows-software | 30 minuten | 
-| Linux-software | 5 minuten | 
+| Windows-software | 30 minuten |
+| Linux-software | 5 minuten |
 
 ### <a name="registry-key-change-tracking"></a>Wijziging van de registersleutel bijhouden
 
@@ -134,7 +136,7 @@ Het doel van het controleren van wijzigingen registersleutels is op de speldenpu
 > |---------|
 > |**HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers**     |
 |&nbsp;&nbsp;&nbsp;&nbsp;Monitors algemene autostart vermeldingen die rechtstreeks in Windows Verkenner en meestal uitvoeren in-process met Explorer.exe koppelen.    |
-> |**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup**     |
+> |**HKEY\_lokale\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup**     |
 |&nbsp;&nbsp;&nbsp;&nbsp;Monitors scripts die worden uitgevoerd bij het opstarten.     |
 > |**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown**    |
 |&nbsp;&nbsp;&nbsp;&nbsp;Monitors scripts die worden uitgevoerd bij het afsluiten.     |
@@ -150,21 +152,21 @@ Het doel van het controleren van wijzigingen registersleutels is op de speldenpu
 |&nbsp;&nbsp;&nbsp;&nbsp;Monitors voor pictogram overlay handler registratie.|
 |**HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Monitors voor pictogram overlay handler-registratie voor 32-bits programma's uitgevoerd op 64-bits computers.|
-> |**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects**|
+> |**HKEY\_lokale\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper-objecten**|
 |&nbsp;&nbsp;&nbsp;&nbsp;De monitoren voor nieuwe browser helper object invoegtoepassingen voor Internet Explorer. Gebruikt voor toegang tot het Document Object Model (DOM) van de huidige pagina te bepalen en navigatie.|
-> |**HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects**|
+> |**HKEY\_lokale\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper-objecten**|
 |&nbsp;&nbsp;&nbsp;&nbsp;De monitoren voor nieuwe browser helper object invoegtoepassingen voor Internet Explorer. Gebruikt voor toegang tot het Document Object Model (DOM) van de huidige pagina te bepalen en navigatie voor 32-bits programma's uitgevoerd op 64-bits computers.|
-> |**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Internet Explorer\Extensions**|
+> |**HKEY\_lokale\_MACHINE\Software\Microsoft\Internet Explorer\Extensions**|
 |&nbsp;&nbsp;&nbsp;&nbsp;De monitoren voor nieuwe Internet Explorer-uitbreidingen, zoals aangepaste hulpprogramma's en aangepaste werkbalkknoppen.|
-> |**HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions**|
+> |**HKEY\_lokale\_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions**|
 |&nbsp;&nbsp;&nbsp;&nbsp;De monitoren voor nieuwe Internet Explorer-uitbreidingen, zoals aangepaste hulpprogramma's en aangepaste werkbalkknoppen voor 32-bits programma's uitgevoerd op 64-bits computers.|
-> |**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32**|
+> |**HKEY\_lokale\_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32**|
 |&nbsp;&nbsp;&nbsp;&nbsp;De 32-bits stuurprogramma's die zijn gekoppeld aan wavemapper, wave1 en wave2 msacm.imaadpcm, .msadpcm, .msgsm610 en vidc bewaakt. Vergelijkbaar met de sectie [drivers] in het systeem. INI-bestand.|
-> |**HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32**|
+> |**HKEY\_lokale\_MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Monitors de 32-bits stuurprogramma's die zijn gekoppeld aan wavemapper, wave1 en wave2 msacm.imaadpcm, .msadpcm, .msgsm610 en vidc voor 32-bits programma's uitgevoerd op 64-bits computers. Vergelijkbaar met de sectie [drivers] in het systeem. INI-bestand.|
 > |**HKEY\_LOCAL\_MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Bewaakt de lijst met bekende of veelgebruikte systeem-dll's; Dit systeem wordt voorkomen dat mensen misbruik van zwakke toepassing mapmachtigingen door slepen en neerzetten in Trojaanse paard versies van systeem-dll's.|
-> |**HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify**|
+> |**HKEY\_lokale\_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify**|
 |&nbsp;&nbsp;&nbsp;&nbsp;De lijst met pakketten kunnen ontvangen van meldingen van gebeurtenissen van Winlogon, het model van de interactieve aanmelding ondersteuning voor het besturingssysteem Windows controleert.|
 
 ## <a name="use-change-tracking"></a>Gebruik bijhouden

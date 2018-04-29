@@ -2,18 +2,18 @@
 title: Active Directory en DNS met Azure Site Recovery beveiligen | Microsoft Docs
 description: In dit artikel wordt beschreven hoe een noodherstel voor Active Directory implementeren met behulp van Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: manayar
-ms.openlocfilehash: df5f40a49aa7359c082b0feb9e047818a642a871
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ebddd3f68605df94bd06bef1fec785f740c3b023
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Azure Site Recovery gebruiken om te beveiligen van Active Directory en DNS
 
@@ -57,16 +57,16 @@ Voor de virtuele machine die als host fungeert voor de domeincontroller of de DN
 Maak een domeincontroller op de secundaire site. Wanneer u de server naar een domeincontroller promoveert, geef de naam van het domein dat wordt gebruikt op de primaire site. U kunt de **Active Directory: Sites en Services** -module voor het configureren van instellingen voor het siteobject koppeling waaraan de sites worden toegevoegd. U kunt bepalen wanneer er replicatie plaatsvindt tussen twee of meer sites en hoe vaak vindt plaats voor informatie over het configureren van instellingen op een site-koppeling. Zie voor meer informatie [replicatie tussen sites plannen](https://technet.microsoft.com/library/cc731862.aspx).
 
 ### <a name="site-to-azure-protection"></a>Beveiliging van de site naar Azure
-Eerst [maken van een domeincontroller in een Azure-netwerk](../active-directory/active-directory-install-replica-active-directory-domain-controller.md). Wanneer u de server naar een domeincontroller promoveert, moet u de dezelfde domeinnaam die wordt gebruikt op de primaire site opgeven.
+Maak eerst een domeincontroller in een Azure-netwerk. Wanneer u de server naar een domeincontroller promoveert, moet u de dezelfde domeinnaam die wordt gebruikt op de primaire site opgeven.
 
-Vervolgens [opnieuw configureren van de DNS-server voor het virtuele netwerk](../active-directory/active-directory-install-replica-active-directory-domain-controller.md#reconfigure-dns-server-for-the-virtual-network) gebruik van de DNS-server in Azure.
+Configureer vervolgens opnieuw de DNS-server voor het virtuele netwerk gebruik van de DNS-server in Azure.
 
 ![Azure-netwerk](./media/site-recovery-active-directory/azure-network.png)
 
 ### <a name="azure-to-azure-protection"></a>Beveiliging van Azure naar Azure
-Eerst [maken van een domeincontroller in een Azure-netwerk](../active-directory/active-directory-install-replica-active-directory-domain-controller.md). Wanneer u de server naar een domeincontroller promoveert, moet u de dezelfde domeinnaam die wordt gebruikt op de primaire site opgeven.
+Maak eerst een domeincontroller in een Azure-netwerk. Wanneer u de server naar een domeincontroller promoveert, moet u de dezelfde domeinnaam die wordt gebruikt op de primaire site opgeven.
 
-Vervolgens [opnieuw configureren van de DNS-server voor het virtuele netwerk](../active-directory/active-directory-install-replica-active-directory-domain-controller.md#reconfigure-dns-server-for-the-virtual-network) gebruik van de DNS-server in Azure.
+Configureer vervolgens opnieuw de DNS-server voor het virtuele netwerk gebruik van de DNS-server in Azure.
 
 ## <a name="test-failover-considerations"></a>Testfailover-overwegingen
 Om te voorkomen dat gevolgen voor de productie-workloads, doet testfailover zich in een netwerk dat is geïsoleerd van het productienetwerk.

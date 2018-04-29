@@ -2,10 +2,10 @@
 title: Een MSI-toegang toewijzen aan een Azure-resource met behulp van PowerShell
 description: Stapsgewijze toegang instructies voor het toewijzen van een MSI-bestand op een resource, tot een andere bron, met behulp van PowerShell.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: c9f146e829e463fbdaf1bcff8747ffc5dd055ecb
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: ac8cca1e80defca33a879db5d4c160362314931a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-powershell"></a>Een beheerde Service identiteit (MSI) toegang toewijzen aan een resource met behulp van PowerShell
 
@@ -36,10 +36,10 @@ Ook installeren [Azure PowerShell versie 4.3.1](https://www.powershellgallery.co
 
 Nadat u MSI hebt ingeschakeld op een Azure-resource [zoals een Azure VM](msi-qs-configure-powershell-windows-vm.md):
 
-1. Aanmelden bij Azure worden verkregen met de `Login-AzureRmAccount` cmdlet. Gebruik een account dat is gekoppeld aan het Azure-abonnement waaronder u het MSI-bestand hebt geconfigureerd:
+1. Aanmelden bij Azure worden verkregen met de `Connect-AzureRmAccount` cmdlet. Gebruik een account dat is gekoppeld aan het Azure-abonnement waaronder u het MSI-bestand hebt geconfigureerd:
 
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 2. In dit voorbeeld geeft wordt een virtuele machine van Azure toegang tot een opslagaccount. Eerst gebruiken we [Get-AzureRMVM](/powershell/module/azurerm.compute/get-azurermvm) ophalen van de service-principal voor de virtuele machine met de naam 'myVM', is gemaakt toen we MSI ingeschakeld. Vervolgens gebruiken we [New AzureRmRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment) geven van de virtuele machine 'Lezer' toegang tot een opslagaccount 'myStorageAcct' genoemd:
 

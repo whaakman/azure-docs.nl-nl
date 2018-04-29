@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: jdial
-ms.openlocfilehash: ffb13d1190535dacbe3a0781a1d3b425a970d26e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ba7589b0fcbb987ef4e7225ea5a4cceda9ad1179
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="traffic-analytics"></a>Verkeer analytics
+# <a name="traffic-analytics"></a>Verkeersanalyse
 
 Verkeer analytics is een cloud-gebaseerde oplossing die inzicht in gebruikers- en activiteit in de cloud-netwerken biedt. Verkeer analytics analyseert netwerk-Watcher netwerk groep (NSG) stroom beveiligingslogboeken om op te geven inzicht in het netwerkverkeer in uw Azure-cloud. Met traffic analytics, kunt u het volgende doen:
 
@@ -42,7 +42,7 @@ Virtuele netwerken van Azure hebben NSG stroom Logboeken, waarin u informatie ov
 - **Netwerk beveiligingslogboeken groep (NSG) stroom**: kunt u informatie bekijken over inkomende en uitgaande IP-verkeer via een netwerkbeveiligingsgroep. NSG-stroom logboeken zijn geschreven in json-indeling en weergeven uitgaande en inkomende stromen per regel op basis van een de NIC de stroom is van toepassing op 5-tuple informatie over de stroom (bron/het doel-IP-adres, bron/het doel-poort en protocol), en als het verkeer is toegestaan of geweigerd. Zie voor meer informatie over het NSG stroom logboeken [NSG stroom logboeken](network-watcher-nsg-flow-logging-overview.md).
 - **Meld u Analytics**: een Azure-service die u verzamelt bewakingsgegevens en slaat de gegevens in een centrale opslagplaats. Deze gegevens kunnen gebeurtenissen, prestatiegegevens of aangepaste worden geleverd via de Azure-API bevatten. Na verzameling zijn de gegevens beschikbaar voor waarschuwingen, analyse en export. Bewaking van toepassingen, zoals netwerk prestaties bewaken en traffic analytics zijn gebouwd met behulp van logboekanalyse als basis. Zie voor meer informatie [Meld analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Meld u werkruimte**: een exemplaar van logboekanalyse, waar de gegevens die betrekking hebben op een Azure-account is opgeslagen. Zie voor meer informatie over log analytics-werkruimten [maken van een werkruimte voor logboekanalyse](../log-analytics/log-analytics-quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Netwerk-Watcher**: een regionale service waarmee u kunt bewaken en onderzoeken van de voorwaarden op niveau van een scenario in Azure. U kunt NSG stroom Logboeken in- en uitschakelen met de netwerk-Watcher inschakelen. Zie voor meer informatie [netwerk-Watcher](network-watcher-monitoring-overview.md#network-watcher).
+- **Netwerk-Watcher**: een regionale service waarmee u kunt bewaken en onderzoeken van de voorwaarden op niveau van een scenario in Azure. U kunt NSG stroom Logboeken in- en uitschakelen met de netwerk-Watcher inschakelen. Zie voor meer informatie [netwerk-Watcher](network-watcher-monitoring-overview.md).
 
 ## <a name="how-traffic-analytics-works"></a>De werking van traffic analytics 
 

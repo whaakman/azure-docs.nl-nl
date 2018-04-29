@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 04/17/2018
 ms.author: douglasl
-ms.openlocfilehash: cc9ab244c784cab608a75092b542dea0a6f69f22
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3e69c147201ab7f3c5e2cf61e72bdb8073354e67
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Het starten en stoppen van de runtime van een Azure SSIS-integratie plannen 
 Met een Azure-SSIS (SQL Server Integration Services)-integratie-runtime heeft (IR) een kosten die gekoppeld. Daarom wilt u de IR alleen uitvoeren als u wilt SSIS-pakketten in Azure uitvoeren en stop de toepassing wanneer u deze niet nodig. U kunt de Data Factory-gebruikersinterface of Azure PowerShell om te gebruiken [handmatig starten of stoppen van een Azure SSIS-IR](manage-azure-ssis-integration-runtime.md)). Dit artikel wordt beschreven hoe u plant starten en stoppen van een Azure-SSIS-integratie runtime (IR) met behulp van Azure Automation en Azure Data Factory. Hier volgen de stappen op hoog niveau beschreven in dit artikel:
@@ -74,10 +74,10 @@ Als u een Azure Automation-account niet hebt, maakt u een door de instructies in
     ![Automation-startpagina](./media/how-to-schedule-azure-ssis-integration-runtime/automation-modules.png)
 2. In de **bladeren galerie** venster, type **AzureRM.Profile** in het zoekvenster en druk op **ENTER**. Selecteer **AzureRM.Profile** in de lijst. Klik vervolgens op **importeren** op de werkbalk. 
 
-    ![Select AzureRM.Profile](./media/how-to-schedule-azure-ssis-integration-runtime/select-azurerm-profile.png)
+    ![Selecteer AzureRM.Profile](./media/how-to-schedule-azure-ssis-integration-runtime/select-azurerm-profile.png)
 1. In de **importeren** Selecteer **ik ga akkoord met het bijwerken van alle modules in Azure** optie en klik op **OK**.  
 
-    ![Import AzureRM.Profile](./media/how-to-schedule-azure-ssis-integration-runtime/import-azurerm-profile.png)
+    ![AzureRM.Profile importeren](./media/how-to-schedule-azure-ssis-integration-runtime/import-azurerm-profile.png)
 4. Sluit windows terugkeren naar de **Modules** venster. U ziet de status van het importeren in de lijst. Selecteer **Vernieuwen** om de lijst te vernieuwen. Wacht tot u de **STATUS** als **beschikbaar**.
 
     ![Status importeren](./media/how-to-schedule-azure-ssis-integration-runtime/module-list-with-azurerm-profile.png)
@@ -123,7 +123,7 @@ De volgende procedure bevat stappen voor het maken van een PowerShell-runbook. H
         $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
     
         "Logging in to Azure..."
-        Add-AzureRmAccount `
+        Connect-AzureRmAccount `
             -ServicePrincipal `
             -TenantId $servicePrincipalConnection.TenantId `
             -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -226,7 +226,7 @@ Deze sectie wordt beschreven hoe u een webactiviteit gebruiken om aan te roepen 
 De pijplijn die u maakt, bestaat uit drie activiteiten. 
 
 1. De eerste **Web** activiteit roept de eerste webhook voor het starten van de Azure SSIS-IR 
-2. De **opgeslagen Procedure** activiteit wordt uitgevoerd voor een SQL-script dat wordt uitgevoerd het SSIS-pakket. De tweede **Web** activiteit stopt de SSIS-IR van Azure Zie voor meer informatie over het aanroepen van een SSIS-pakket van een Data Factory-pijplijn met behulp van de activiteit opgeslagen Procedure [aanroepen van een pakket SSIS](how-to-invoke-ssis-package-stored-procedure-activity.md). 
+2. De **SSIS-pakket uitvoeren** activiteit of de **opgeslagen Procedure** activiteit wordt uitgevoerd het SSIS-pakket.
 3. De tweede **Web** activiteit roept de webhook om te stoppen van de Azure SSIS-IR 
 
 Nadat u maken en testen van de pijplijn, kunt u de trigger van een planning maken en koppelen aan de pijplijn. De schema-trigger definieert een planning voor de pijplijn. Stel dat u een trigger die is gepland op 23: 00 uur per dag maken. De trigger wordt de pijplijn op 23 uur, dagelijks uitgevoerd. De pijplijn wordt gestart van de Azure SSIS-IR SSIS-pakket wordt uitgevoerd en stopt het Azure SSIS-IR 
@@ -278,69 +278,55 @@ Nadat u maken en testen van de pijplijn, kunt u de trigger van een planning make
     3. Voor **hoofdtekst**, voer `{"message":"hello world"}`. 
    
         ![Eerste Web-activiteit - tabblad instellingen](./media/how-to-schedule-azure-ssis-integration-runtime/first-web-activity-settnigs-tab.png)
-5. De activiteit opgeslagen Procedure van slepen en neerzetten de **algemene** sectie van de **activiteiten** werkset. De naam van de activiteit instellen **RunSSISPackage**. 
-6. Overschakelen naar de **-Account voor SQL** tabblad de **eigenschappen** venster. 
-7. Voor **gekoppelde service**, klikt u op **+ nieuw**.
-8. In de **nieuwe gekoppelde Service** venster de volgende acties uitvoeren: 
 
-    1. Selecteer **Azure SQL Database** voor **Type**.
-    2. Selecteer uw Azure SQL-server die als host fungeert voor de **SSISDB** database voor de **servernaam** veld. Het inrichtingsproces Azure SSIS IR maakt een catalogus SSIS (SSISDB-database) in de Azure SQL-server die u opgeeft.
-    3. Selecteer **SSISDB** voor **databasenaam**.
-    4. Voor **gebruikersnaam**, voer de naam van de gebruiker die toegang tot de database heeft.
-    5. Voor **wachtwoord**, voer het wachtwoord van de gebruiker. 
-    6. Test de verbinding met de database door te klikken op **verbinding testen** knop.
-    7. Opslaan van de gekoppelde service door te klikken op de **opslaan** knop.
-9. In de **eigenschappen** venster overschakelen naar de **opgeslagen Procedure** TAB-toets van de **-Account voor SQL** tabblad en voer de volgende stappen uit: 
+4. Slepen en neerzetten van de activiteit SSIS-pakket uitvoeren of de activiteit opgeslagen Procedure uit de **algemene** sectie van de **activiteiten** werkset. De naam van de activiteit instellen **RunSSISPackage**. 
 
-    1. Voor **opgeslagen procedurenaam**, selecteer **bewerken** optie en voer **sp_executesql**. 
-    2. Selecteer **+ nieuw** in de **opgeslagen procedureparameters** sectie. 
-    3. Voor **naam** invoeren van de parameter **instructie INSERT**. 
-    4. Voor **type** invoeren van de parameter **tekenreeks**. 
-    5. Voor **waarde** van de parameter, voert u de volgende SQL-query:
+5. Als u de activiteit SSIS-pakket uitvoeren selecteert, volg de instructies in [een SSIS-pakket met de SSIS-activiteit in Azure Data Factory uitgevoerd](how-to-invoke-ssis-package-ssis-activity.md) te maken van de activiteit te voltooien.  Zorg ervoor dat u opgeeft dat een voldoende aantal nieuwe pogingen die vaak moet worden gewacht op de beschikbaarheid van de Azure-SSIS-IR omdat die nodig is tot 30 minuten om te starten. 
 
-        Geef in de SQL-query de juiste waarden voor de **mapnaam**, **projectnaam**, en **naam_van_pakket** parameters. 
+    ![Instellingen voor opnieuw proberen](media/how-to-schedule-azure-ssis-integration-runtime/retry-settings.png)
 
-        ```sql
-        DECLARE       @return_value int, @exe_id bigint, @err_msg nvarchar(150)
+6. Als u de activiteit opgeslagen Procedure selecteert, volg de instructies in [aanroepen van een SSIS-pakket met de activiteit opgeslagen procedure in Azure Data Factory](how-to-invoke-ssis-package-stored-procedure-activity.md) te maken van de activiteit te voltooien. Zorg ervoor dat u een Transact-SQL-script dat wordt gewacht op de beschikbaarheid van de Azure-SSIS-IR, aangezien die nodig is tot 30 minuten om te starten.
+    ```sql
+    DECLARE @return_value int, @exe_id bigint, @err_msg nvarchar(150)
 
-        -- Wait until Azure-SSIS IR is started
-        WHILE NOT EXISTS (SELECT * FROM [SSISDB].[catalog].[worker_agents] WHERE IsEnabled = 1 AND LastOnlineTime > DATEADD(MINUTE, -10, SYSDATETIMEOFFSET()))
-        BEGIN
-            WAITFOR DELAY '00:00:01';
-        END
+    -- Wait until Azure-SSIS IR is started
+    WHILE NOT EXISTS (SELECT * FROM [SSISDB].[catalog].[worker_agents] WHERE IsEnabled = 1 AND LastOnlineTime > DATEADD(MINUTE, -10, SYSDATETIMEOFFSET()))
+    BEGIN
+        WAITFOR DELAY '00:00:01';
+    END
 
-        EXEC @return_value = [SSISDB].[catalog].[create_execution] @folder_name=N'YourFolder',
-            @project_name=N'YourProject', @package_name=N'YourPackage',
-            @use32bitruntime=0, @runincluster=1, @useanyworker=1,
-            @execution_id=@exe_id OUTPUT 
+    EXEC @return_value = [SSISDB].[catalog].[create_execution] @folder_name=N'YourFolder',
+        @project_name=N'YourProject', @package_name=N'YourPackage',
+        @use32bitruntime=0, @runincluster=1, @useanyworker=1,
+        @execution_id=@exe_id OUTPUT 
 
-        EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1
+    EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1
 
-        EXEC [SSISDB].[catalog].[start_execution] @execution_id = @exe_id, @retry_count = 0
+    EXEC [SSISDB].[catalog].[start_execution] @execution_id = @exe_id, @retry_count = 0
 
-        -- Raise an error for unsuccessful package execution, check package execution status = created (1)/running (2)/canceled (3)/failed (4)/
-        -- pending (5)/ended unexpectedly (6)/succeeded (7)/stopping (8)/completed (9) 
-        IF (SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id = @exe_id) <> 7 
-        BEGIN
-            SET @err_msg=N'Your package execution did not succeed for execution ID: '+ CAST(@execution_id as nvarchar(20))
-            RAISERROR(@err_msg, 15, 1)
-        END
+    -- Raise an error for unsuccessful package execution, check package execution status = created (1)/running (2)/canceled (3)/
+    -- failed (4)/pending (5)/ended unexpectedly (6)/succeeded (7)/stopping (8)/completed (9) 
+    IF (SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id = @exe_id) <> 7 
+    BEGIN
+        SET @err_msg=N'Your package execution did not succeed for execution ID: '+ CAST(@execution_id as nvarchar(20))
+        RAISERROR(@err_msg, 15, 1)
+    END
+    ```
 
-        ```
-10. Verbinding maken met de **Web** activiteit naar de **opgeslagen Procedure** activiteit. 
+7. Verbinding maken met de **Web** activiteit naar de **SSIS-pakket uitvoeren** of de **opgeslagen Procedure** activiteit. 
 
     ![Verbinding maken met de Web- en opgeslagen Procedure activiteiten](./media/how-to-schedule-azure-ssis-integration-runtime/connect-web-sproc.png)
 
-11. Slepen en neerzetten een andere **Web** activiteit aan de rechterkant van de **opgeslagen Procedure** activiteit. De naam van de activiteit instellen **StopIR**. 
-12. Overschakelen naar de **instellingen** tabblad de **eigenschappen** venster en voer de volgende acties: 
+8. Slepen en neerzetten een andere **Web** activiteit aan de rechterkant van de **SSIS-pakket uitvoeren** activiteit of de **opgeslagen Procedure** activiteit. De naam van de activiteit instellen **StopIR**. 
+9. Overschakelen naar de **instellingen** tabblad de **eigenschappen** venster en voer de volgende acties: 
 
     1. Voor **URL**, plak de URL voor de webhook waarin de Azure SSIS-IR wordt gestopt 
     2. Voor **methode**, selecteer **POST**. 
     3. Voor **hoofdtekst**, voer `{"message":"hello world"}`.  
-4. Verbinding maken met de **opgeslagen Procedure** activiteit naar de laatste **Web** activiteit.
+10. Verbinding maken met de **SSIS-pakket uitvoeren** activiteit of de **opgeslagen Procedure** activiteit naar de laatste **Web** activiteit.
 
     ![Volledige pijplijn](./media/how-to-schedule-azure-ssis-integration-runtime/full-pipeline.png)
-5. De pipeline-instellingen valideren door te klikken op **valideren** op de werkbalk. Sluit de **pijplijn validatierapport** door te klikken op **>>** knop. 
+11. De pipeline-instellingen valideren door te klikken op **valideren** op de werkbalk. Sluit de **pijplijn validatierapport** door te klikken op **>>** knop. 
 
     ![Pijplijn valideren](./media/how-to-schedule-azure-ssis-integration-runtime/validate-pipeline.png)
 
@@ -348,7 +334,7 @@ Nadat u maken en testen van de pijplijn, kunt u de trigger van een planning make
 
 1. Selecteer **testuitvoering** op de werkbalk van de pijplijn. U ziet de uitvoer in de **uitvoer** venster in het onderste deelvenster. 
 
-    ![Test Run](./media/how-to-schedule-azure-ssis-integration-runtime/test-run-output.png)
+    ![Test uitvoeren](./media/how-to-schedule-azure-ssis-integration-runtime/test-run-output.png)
 2. In de **Runbook** pagina van uw Azure Automation-account, kunt u controleren of de taken werden uitgevoerd om te starten en stoppen van de Azure SSIS-IR 
 
     ![Runbooktaken](./media/how-to-schedule-azure-ssis-integration-runtime/runbook-jobs.png)

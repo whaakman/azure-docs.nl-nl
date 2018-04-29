@@ -9,15 +9,20 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: b929eaf17255210a5c813e3e91478f9202941b64
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 417517cbbd187d32b84cc0a78f7b68a5fcf8eb23
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Voorbeelden van algemene gebruikspatronen van de Stream Analytics query
+
 ## <a name="introduction"></a>Inleiding
-Query's in Azure Stream Analytics worden uitgedrukt in een SQL-achtige querytaal. Deze query's worden beschreven in de [Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx) handleiding. In dit artikel bevat een overzicht van oplossingen voor enkele veelvoorkomende querypatronen, op basis van praktijkscenario's. Het is een onderhanden werk en met nieuwe patronen voortdurend wordt bijgewerkt.
+Query's in Azure Stream Analytics worden uitgedrukt in een SQL-achtige querytaal. De taalconstructs worden beschreven in de [Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx) handleiding. 
+
+Ontwerp van de query kunt snelle eenvoudige Pass Through-logica voor het verplaatsen van gegevens van gebeurtenissen van één invoerstroom in een ander gegevensarchief van de uitvoer. Of het uitgebreide patroon overeenkomende en tijdelijke analyse voor het berekenen van statistische functies via verschillende tijdvensters zoals in het voorbeeld TollApp kunt doen. U kunt deelnemen aan gegevens uit meerdere invoer om te combineren met het streaming-gebeurtenissen en zoekacties tegen statische referentiegegevens zodat de gebeurtenis-waarden aanvullen. U kunt ook gegevens naar meerdere uitgangen schrijven.
+
+In dit artikel bevat een overzicht van oplossingen voor enkele veelvoorkomende querypatronen, op basis van praktijkscenario's. Het is een onderhanden werk en met nieuwe patronen voortdurend wordt bijgewerkt.
 
 ## <a name="query-example-convert-data-types"></a>Query-voorbeeld: gegevenstypen converteren
 **Beschrijving**: het definiëren van de typen eigenschappen voor de invoerstroom.
@@ -474,7 +479,7 @@ Bijvoorbeeld, een gebeurtenis om de vijf seconden die het meest recent waargenom
 
 **Uitvoer (eerste 10 rijen)**:
 
-| windowend | lastevent.t | lastevent.value |
+| windowend | lastevent.t | lastevent.Value |
 | --- | --- | --- |
 | 2014-01-01T14:01:00.000Z |2014-01-01T14:01:00.000Z |1 |
 | 2014-01-01T14:01:05.000Z |2014-01-01T14:01:05.000Z |2 |
@@ -508,30 +513,30 @@ In de IoT-scenario voor thuis weerstaan willen we bijvoorbeeld een waarschuwing 
 
 | tijd | deviceId | sensorName | waarde |
 | --- | --- | --- | --- |
-| "2018-01-01T16:01:00" | "Oven1" | 'temp' |120 |
-| "2018-01-01T16:01:00" | "Oven1" | "power" |15 |
-| "2018-01-01T16:02:00" | "Oven1" | 'temp' |100 |
-| "2018-01-01T16:02:00" | "Oven1" | "power" |15 |
-| "2018-01-01T16:03:00" | "Oven1" | 'temp' |70 |
-| "2018-01-01T16:03:00" | "Oven1" | "power" |15 |
-| "2018-01-01T16:04:00" | "Oven1" | 'temp' |50 |
-| "2018-01-01T16:04:00" | "Oven1" | "power" |15 |
-| "2018-01-01T16:05:00" | "Oven1" | 'temp' |30 |
-| "2018-01-01T16:05:00" | "Oven1" | "power" |8 |
-| "2018-01-01T16:06:00" | "Oven1" | 'temp' |20 |
-| "2018-01-01T16:06:00" | "Oven1" | "power" |8 |
-| "2018-01-01T16:07:00" | "Oven1" | 'temp' |20 |
-| "2018-01-01T16:07:00" | "Oven1" | "power" |8 |
-| "2018-01-01T16:08:00" | "Oven1" | 'temp' |20 |
-| "2018-01-01T16:08:00" | "Oven1" | "power" |8 |
+| "2018-01-01T16:01:00" | 'Oven1' | 'temp' |120 |
+| "2018-01-01T16:01:00" | 'Oven1' | "power" |15 |
+| "2018-01-01T16:02:00" | 'Oven1' | 'temp' |100 |
+| "2018-01-01T16:02:00" | 'Oven1' | "power" |15 |
+| "2018-01-01T16:03:00" | 'Oven1' | 'temp' |70 |
+| "2018-01-01T16:03:00" | 'Oven1' | "power" |15 |
+| "2018-01-01T16:04:00" | 'Oven1' | 'temp' |50 |
+| "2018-01-01T16:04:00" | 'Oven1' | "power" |15 |
+| "2018-01-01T16:05:00" | 'Oven1' | 'temp' |30 |
+| "2018-01-01T16:05:00" | 'Oven1' | "power" |8 |
+| "2018-01-01T16:06:00" | 'Oven1' | 'temp' |20 |
+| "2018-01-01T16:06:00" | 'Oven1' | "power" |8 |
+| "2018-01-01T16:07:00" | 'Oven1' | 'temp' |20 |
+| "2018-01-01T16:07:00" | 'Oven1' | "power" |8 |
+| "2018-01-01T16:08:00" | 'Oven1' | 'temp' |20 |
+| "2018-01-01T16:08:00" | 'Oven1' | "power" |8 |
 
 **Uitvoer**:
 
 | eventTime | deviceId | TEMP | alertMessage | maxPowerDuringLast3mins |
 | --- | --- | --- | --- | --- | 
-| "2018-01-01T16:05:00" | "Oven1" |30 | 'Kortsluitingsoperator verwarming elementen' |15 |
-| "2018-01-01T16:06:00" | "Oven1" |20 | 'Kortsluitingsoperator verwarming elementen' |15 |
-| "2018-01-01T16:07:00" | "Oven1" |20 | 'Kortsluitingsoperator verwarming elementen' |15 |
+| "2018-01-01T16:05:00" | 'Oven1' |30 | 'Kortsluitingsoperator verwarming elementen' |15 |
+| "2018-01-01T16:06:00" | 'Oven1' |20 | 'Kortsluitingsoperator verwarming elementen' |15 |
+| "2018-01-01T16:07:00" | 'Oven1' |20 | 'Kortsluitingsoperator verwarming elementen' |15 |
 
 **Oplossing**:
 
@@ -571,7 +576,7 @@ WHERE
     AND t2.maxPower > 10
 ````
 
-**Uitleg**: de eerste query `max_power_during_last_3_mins`, gebruikt de [schuifregelaar venster](https://msdn.microsoft.com/en-us/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) naar de maximale waarde van de sensor power voor elk apparaat tijdens de afgelopen 3 minuten. De tweede query is gekoppeld aan de eerste query om de energie-waarde in het venster van de meest recente relevant vinden voor de huidige gebeurtenis. En vervolgens, mits de voorwaarden wordt voldaan, wordt een waarschuwing gegenereerd voor het apparaat.
+**Uitleg**: de eerste query `max_power_during_last_3_mins`, gebruikt de [schuifregelaar venster](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) naar de maximale waarde van de sensor power voor elk apparaat tijdens de afgelopen 3 minuten. De tweede query is gekoppeld aan de eerste query om de energie-waarde in het venster van de meest recente relevant vinden voor de huidige gebeurtenis. En vervolgens, mits de voorwaarden wordt voldaan, wordt een waarschuwing gegenereerd voor het apparaat.
 
 
 ## <a name="get-help"></a>Help opvragen

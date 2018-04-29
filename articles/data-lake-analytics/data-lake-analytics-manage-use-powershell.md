@@ -2,7 +2,7 @@
 title: Azure Data Lake Analytics met Azure PowerShell beheren | Microsoft Docs
 description: 'Informatie over het beheren van Data Lake Analytics-accounts, gegevensbronnen, taken en catalogusitems. '
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: matt1883
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/23/2017
 ms.author: mahi
-ms.openlocfilehash: dd81e9d6c91387b3873593b84e952ca4f2546c57
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 69530ab2ad795eaf611cb749d8c439ab07cafeac
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Azure Data Lake Analytics beheren met Azure PowerShell
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -50,16 +50,16 @@ $location = "<Location>"
 Meld u aan met een abonnements-id.
 
 ```powershell
-Login-AzureRmAccount -SubscriptionId $subId
+Connect-AzureRmAccount -SubscriptionId $subId
 ```
 
 Meld u aan met de naam van een abonnement.
 
 ```
-Login-AzureRmAccount -SubscriptionName $subname 
+Connect-AzureRmAccount -SubscriptionName $subname 
 ```
 
-De `Login-AzureRmAccount` cmdlet altijd om referenties gevraagd. U kunt voorkomen dat u wordt gevraagd door met de volgende cmdlets:
+De `Connect-AzureRmAccount` cmdlet altijd om referenties gevraagd. U kunt voorkomen dat u wordt gevraagd door met de volgende cmdlets:
 
 ```powershell
 # Save login session information
@@ -292,7 +292,7 @@ Gebruik de `-Result` parameter om te detecteren of beëindigd taken is voltooid.
 
 * Geannuleerd
 * Mislukt
-* None
+* Geen
 * Geslaagd
 
 ``` powershell
@@ -604,7 +604,7 @@ $deploymentName = "MyDataLakeAnalyticsDeployment"
 $armTemplateFile = "<LocalFolderPath>\azuredeploy.json"  # update the JSON template path 
 
 # Log in to Azure
-Login-AzureRmAccount -SubscriptionId $subId
+Connect-AzureRmAccount -SubscriptionId $subId
 
 # Create the resource group
 New-AzureRmResourceGroup -Name $rg -Location $location

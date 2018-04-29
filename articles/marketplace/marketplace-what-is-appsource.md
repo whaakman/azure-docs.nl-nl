@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: ellacroi
-ms.openlocfilehash: dbe859a2d069a20ba2e02d009dfb99b6126f8dea
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: 5f963e9ef6f0a19599f372b196dc75a327b92b5a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-appsource"></a>Wat is AppSource
 AppSource kunnen Microsoft-partners hun technologie en services kunnen worden gedetecteerd te maken voor klanten via een ondersteunde Microsoft online winkel. Als een publisher AppSource kunt u benaderen zakelijke gebruikers op AppSource om te zoeken, probeer en ophalen van de SaaS-line-of-business-toepassingen, evenals een van implementatieservices om te helpen station bedrijfsresultaten en tijdwaarde te verminderen: 
@@ -42,23 +42,23 @@ Via AppSource, kunt u een toepassing of advies aanbieding die helpt bij de behoe
 *   **Office 365**: de moderne werkplek in de cloud. Gratis samenwerken met Microsoft Word, PowerPoint, Excel en OneNote.
 
 ### <a name="office-365"></a>Office 365
-Toepassingen voor Office zijn nu beschikbaar in AppSource! Controleer de [publiceren proces en de richtlijnen]( https://docs.microsoft.com/en-us/office/dev/store/submit-to-the-office-store "Office 365 - AppSource").
+Toepassingen voor Office zijn nu beschikbaar in AppSource! Controleer de [publiceren proces en de richtlijnen]( https://docs.microsoft.com/office/dev/store/submit-to-the-office-store "Office 365 - AppSource").
 
 ### <a name="dynamics-365-for-finance-and-operations"></a>Dynamics 365 voor Financiën en bewerkingen
-Wanneer u voor Enterprise Edition, Controleer de [publiceren proces en de richtlijnen](https://docs.microsoft.com/en-us/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source "Dynamics 365 Enterprise Edition - AppSource").  
+Wanneer u voor Enterprise Edition, Controleer de [publiceren proces en de richtlijnen](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source "Dynamics 365 Enterprise Edition - AppSource").  
 
 ### <a name="dynamics-365-for-customer-engagement"></a>Dynamics 365 voor betrokkenheid van de klant
-Controleer de [publiceren proces en de richtlijnen](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/publish-app-appsource "Dynamics 365 - AppSource").
+Controleer de [publiceren proces en de richtlijnen](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource "Dynamics 365 - AppSource").
 
 ### <a name="power-bi"></a>Power BI
-Maken van aangepaste visuele elementen en zodat ze beschikbaar zijn via AppSource. Controleer de [publiceren proces en de richtlijnen](https://docs.microsoft.com/en-us/power-bi/developer/office-store "Power BI - AppSource").
+Maken van aangepaste visuele elementen en zodat ze beschikbaar zijn via AppSource. Controleer de [publiceren proces en de richtlijnen](https://docs.microsoft.com/power-bi/developer/office-store "Power BI - AppSource").
 
 ### <a name="consulting-offers"></a>Overleg aanbiedingen
 Als u services aanbiedt zodat klanten digitale transformatie te vergemakkelijken, of een oplossing of een toepassing implementeren, kunt u deze service als een advies aanbieding op AppSource aanbieden. 
 [Lees de richtlijnen en informatie over het verzenden van uw aanbieding](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf "AppSource - Partner aanbieding richtlijnen").
 
 ### <a name="cortana-intelligence"></a>Cortana Intelligence
-[Cortana Intelligence AppSource Publishing handleiding](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide "Cortana Intelligence AppSource - handleiding publiceren")
+[Cortana Intelligence AppSource Publishing handleiding](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide "Cortana Intelligence AppSource - handleiding publiceren")
 
 ## <a name="azure-active-directory-integration"></a>Integratie van Azure Active Directory
 Sommige AppSource via toepassingen zijn vereist voor het integreren met Azure Active Directory (Azure AD) worden gepubliceerd. Integratie van toepassingen met Azure AD goed wordt gedocumenteerd; Microsoft biedt verschillende SDK's en aanvullende bronnen om te voldoen aan uw vereisten. 
@@ -76,17 +76,17 @@ Sommige AppSource via toepassingen zijn vereist voor het integreren met Azure Ac
 ###### <a name="table-appsource-offerings-that-require-azure-active-directory-integration"></a>Tabel: AppSource aanbiedingen waarvoor Azure Active Directory-integratie
 
 In eerste instantie wordt aangeraden dat **u een speciale abonnement instellen voor de publicatie van uw Azure Marketplace*** zodat u uw werk van uw andere initiatieven isoleren. Bovendien, als u de volgende hulpprogramma's nog niet hebt geïnstalleerd, raden klikt u vervolgens we dat de volgende hulpprogramma's worden toegevoegd aan uw ontwikkelomgeving: 
-*   [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest "Azure - CLI")
-*   [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-5.0.0 "PowerShell - Azure")
+*   [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest "Azure - CLI")
+*   [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0 "PowerShell - Azure")
 *   Bekijk de beschikbare hulpprogramma's in de [Azure-hulpprogramma's voor ontwikkelaars](https://azure.microsoft.com/tools/ "Azure - hulpprogramma's voor ontwikkelaars") pagina
 *   [Visual Studio Code](https://code.visualstudio.com/ "Visual Studio Code - Main")
 
 Als u zijn aan de slag met Azure AD, zijn uw beste resources met de volgende koppelingen: 
 
 **Documentatie**
-*   [Azure Active Directory-handleiding voor ontwikkelaars](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide "Azure AD - handleiding voor ontwikkelaars")
-*   [Integreren met Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-how-to-integrate "integreren - Azure AD")
-*   [Toepassingen integreren met Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications "toepassingen - Azure AD integreren")
+*   [Azure Active Directory-handleiding voor ontwikkelaars](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide "Azure AD - handleiding voor ontwikkelaars")
+*   [Integreren met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate "integreren - Azure AD")
+*   [Toepassingen integreren met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications "toepassingen - Azure AD integreren")
 *   [Overzicht van Azure - beveiliging en identiteit](https://azure.microsoft.com/roadmap/?category=security-identity "Azure Roadmap - beveiliging en identiteit")
 
 **Video's**

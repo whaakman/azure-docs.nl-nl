@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 82e88b0b2b7f04f2849bf5c3a780df3c8f1c9849
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: a70962c63fdf9ab723ce437563a4670d536300aa
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>Zelfstudie: Azure Active Directory-integratie met Trisotech digitale Enterprise Server
 
@@ -111,31 +111,15 @@ In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure por
     b. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<companyname>.trisotech.com`
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [Trisotech digitale Enterprise Server Client ondersteuningsteam](mailto:support@trisotech.com) ophalen van deze waarden. 
+    > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [Trisotech digitale Enterprise Server Client ondersteuningsteam](mailto:support@trisotech.com) ophalen van deze waarden.
 
-4. Klik op **opslaan** knop.
+4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en plak deze in Kladblok. 
+
+    ![De downloadkoppeling certificaat](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_certificate.png)
+
+5. Klik op **opslaan** knop.
 
     ![Knop Single Sign-On opslaan configureren](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_general_400.png)
-
-5. Voor het genereren van de **metagegevens** -url, de volgende stappen uitvoeren:
-
-    a. Klik op **App registraties**.
-    
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_appregistrations.png)
-   
-    b. Klik op **eindpunten** openen **eindpunten** in het dialoogvenster.  
-    
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_endpointicon.png)
-
-    c. Klik op de knop kopiëren om te kopiëren **DOCUMENT met federatieve metagegevens** url en plak deze in Kladblok.
-    
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_endpoint.png)
-     
-    d. Nu gaat u naar de eigenschappenpagina van **Trisotech digitale Enterprise Server** en kopieer de **toepassings-Id** met **kopie** knop en plak deze in Kladblok.
- 
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_appid.png)
-
-    e. Genereren van de **metagegevens-URL** met het volgende patroon volgen: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
 
 6. In een ander browservenster, meld u aan bij uw bedrijf Trisotech digitale Enterprise-serverconfiguratie site als beheerder.
 
@@ -153,21 +137,17 @@ In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure por
 
     a. Selecteer **beveiligd Assertion Markup Language 2 (SAML 2)** uit de vervolgkeuzelijst in de **verificatiemethode**.
 
-    b. In de **metagegevens-URL** textbox, plak de **metagegevens-URL** waarde, die u hebt gekopieerd, vormen de Azure-portal.
+    b. In de **metagegevens-URL** textbox, plak de **App-Url voor federatieve metagegevens** waarde, die u hebt gekopieerd, vormen de Azure-portal.
 
     c. In de **toepassings-ID** textbox, voer de URL in met behulp van het volgende patroon volgen: `https://<companyname>.trisotech.com`.
 
-    d. Klik op **opslaan**
+    d. Klik op **Opslaan**.
 
     e. Geef de domeinnaam in de **toegestaan domeinen (leeg betekent iedereen)** tekstvak automatisch toewijzen licenties voor gebruikers die overeenkomen met de toegestane domeinen
 
-    f. Klik op **opslaan**
+    f. Klik op **Opslaan**.
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+ ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
 Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
 
