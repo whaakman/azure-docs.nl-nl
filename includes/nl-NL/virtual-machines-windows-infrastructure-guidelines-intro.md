@@ -1,0 +1,2 @@
+In dit artikel maakt deel uit van een bredere reeks om u te bieden met ontwerpoverwegingen en richtlijnen voor het opzetten van een infrastructuur van de toepassing in Azure. U kunt [de extra onderwerpen bekijken in de reeks](#next-steps). Hoewel u een omgeving ontwikkelen en testen in Azure snel bouwen kunt, zijn er aanvullende overwegingen bij het implementeren van een beveiligde omgeving en gereed is voor productie, maximaal beschikbare.
+
