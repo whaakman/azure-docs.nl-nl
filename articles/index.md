@@ -109,7 +109,7 @@ ms.lasthandoff: 05/01/2018
                                                     <li><a class="barLink" href="/azure/security-center/">Azure Security Center</a></li>
                                                     <li><a class="barLink" href="/azure/monitoring-and-diagnostics/">Azure Monitor</a></li>
                                                     <li><a class="barLink" href="/azure/application-insights/">Azure Application Insights</a></li>
-                                                    <li><a class="barLink" href="/azure/cost-management/">Kostenbeheer van Azure</a></li>
+                                                    <li><a class="barLink" href="/azure/cost-management/">Azure Cost Management</a></li>
                                                     <li><a class="barLink" href="/azure/backup/">Azure Backup</a></li>
                                                     <li><a class="barLink" href="/azure/site-recovery/">Azure Site Recovery</a></li>
                                                     <li><a class="barLink" href="/azure/migrate/">Azure Migrate</a></li>
@@ -173,7 +173,7 @@ Go</a>
                                                 </ul></td></tr></table>
                                                <h4>App-modellen</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
+                                                    <li><a class="barLink" href="/azure/app-service-web/">Web-apps</a></li>
                                                     <li><a class="barLink" href="/azure/azure-functions/">Serverloze functies</a></li>
                                                     <li><a class="barLink" href="/azure/containers/">Containers</a></li>
                                                     <li><a class="barLink" href="/azure/service-fabric/">Microservices met Service Fabric</a></li>
@@ -200,7 +200,7 @@ Go</a>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/cosmos-db/">Azure Cosmos DB</a></li>
                                                 </ul>
-                                                <h4>Storage</h4>
+                                                <h4>Opslag</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/storage/">Blob Storage</a></li>
                                                 </ul>
@@ -290,19 +290,19 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/virtual-machines/linux/">
                                                 <img src="media/index/VirtualMachine.svg" alt="" />
-                                                <p>Virtuele Linux-machines</p>
+                                                <p>Linux Virtual Machines</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/virtual-machines/windows/">
                                                 <img src="media/index/VirtualMachine.svg" alt="" />
-                                                <p>Virtuele Windows-machines</p>
+                                                <p>Windows Virtual Machines</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/virtual-machine-scale-sets/">
                                                 <img src="media/index/AvailabilitySetOld.svg" alt="" />
-                                                <p>Schaalsets voor virtuele machines</p>
+                                                <p>Virtual Machine Scale Sets</p>
                                             </a>
                                         </li>
                                         <li>
@@ -320,7 +320,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/azure-functions/">
                                                 <img src="media/index/AzureFunctions.svg" alt="" />
-                                                <p>Functies</p>
+                                                <p>Functions</p>
                                             </a>
                                         </li>
                                         <li>
@@ -434,7 +434,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/app-service/containers/">
                                                 <img src="media/index/AppService.svg" alt="" />
-                                                <p>Web Apps for Containers</p>
+                                                <p>Web App for Containers</p>
                                             </a>
                                         </li>
                                         <li>
@@ -506,13 +506,13 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/azure-stack/">
                                                 <img src="media/index/azure-stack.svg" alt="" />
-                                                <p>Azure Stack-operator</p>
+                                                <p>Azure Stack Operator</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/azure-stack/user">
                                                 <img src="media/index/azure-stack.svg" alt="" />
-                                                <p>Azure Stack-gebruiker</p>
+                                                <p>Azure Stack User</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -550,7 +550,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/virtual-network/">
                                                 <img src="media/index/VirtualNetwork.svg" alt="" />
-                                                <p>Virtueel netwerk</p>
+                                                <p>Virtual Network</p>
                                             </a>
                                         </li>
                                         <li>
@@ -661,7 +661,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/cognitive-services/bing-spell-check/">
                                                 <img src="media/index/API_Bing_Spell_Check.svg" alt="" />
-                                                <p>Bing-spellingcontrole</p>
+                                                <p>Bing Spellingcontrole</p>
                                             </a>
                                         </li>
                                         <li>
@@ -709,25 +709,25 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/cognitive-services/Bing-Video-Search/">
                                                 <img src="media/index/API_Bing_Video_Search.svg" alt="" />
-                                                <p>Zoeken in Bing Video</p>
+                                                <p>Bing Video's zoeken</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/bing-web-search/">
                                                 <img src="media/index/API_Bing_Web_Search.svg" alt="" />
-                                                <p>Zoeken op het web met Bing</p>
+                                                <p>Bing Webzoekopdrachten</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/Bing-Autosuggest/">
                                                 <img src="media/index/API_Bing_AutoSuggest.svg" alt="" />
-                                                <p>Automatische suggesties van Bing</p>
+                                                <p>Bing Automatische suggesties</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/bing-custom-search/">
                                                 <img src="media/index/API_Bing_Custom_Search.svg" alt="" />
-                                                <p>Aangepast zoeken met Bing</p>
+                                                <p>Bing Aangepaste zoekopdrachten</p>
                                             </a>
                                         </li>
                                         <li>
@@ -739,25 +739,25 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/cognitive-services/bing-image-search/">
                                                 <img src="media/index/API_Bing_Image_Search.svg" alt="" />
-                                                <p>Zoeken in Bing Image</p>
+                                                <p>Bing Afbeeldingen zoeken</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/speech/home">
                                                 <img src="media/index/API_Bing_Speech.svg" alt="" />
-                                                <p>Bing Speech-service</p>
+                                                <p>Bing Speech Service</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home">
                                                 <img src="media/index/API_Custom_Speech.svg" alt="" />
-                                                <p>Aangepaste spraakservice</p>
+                                                <p>Custom Speech Service</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/speaker-recognition/home">
                                                 <img src="media/index/API_Speaker_Recognition.svg" alt="" />
-                                                <p>Sprekerherkenning</p>
+                                                <p>Speaker Recognition</p>
                                             </a>
                                         </li>
                                         <li>
@@ -801,7 +801,7 @@ Terraform </a>
                             </li>
                             <li>
                                 <div class="group">
-                                    <h3>Storage</h3>
+                                    <h3>Opslag</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/storage/">
@@ -848,7 +848,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/backup/">
                                                 <img src="media/index/Backup.svg" alt="" />
-                                                <p>Back-up maken</p>
+                                                <p>Backup</p>
                                             </a>
                                         </li>
                                         <li>
@@ -858,7 +858,7 @@ Terraform </a>
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Analytische gegevens</h3>
+                                    <h3>Analyse</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/hdinsight/">
@@ -933,7 +933,7 @@ Terraform </a>
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Developer-hulpprogramma's</h3>
+                                    <h3>Ontwikkelhulpprogramma's</h3>
                                     <ul>
                                         <li>
                                             <a href="/vsts/">
@@ -1025,7 +1025,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/machine-learning/preview">
                                                 <img src="media/index/MachineLearning.svg" alt="" />
-                                                <p>Machine Learning-services</p>
+                                                <p>Machine Learning Services</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1061,7 +1061,7 @@ Terraform </a>
                                     </ul>
                                 </div>
                                 <div class="group">
-                                    <h3>Internet en mobiel</h3>
+                                    <h3>Web en mobiel</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/app-service-web/">
@@ -1072,7 +1072,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/app-service/containers/">
                                                 <img src="media/index/AppService.svg" alt="" />
-                                                <p>Web Apps for Containers</p>
+                                                <p>Web App for Containers</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1084,7 +1084,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/app-service-api/">
                                                 <img src="media/index/app-service-api.svg" alt="" />
-                                                <p>API-apps</p>
+                                                <p>API Apps</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1159,13 +1159,13 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/multi-factor-authentication/">
                                                 <img src="media/index/MultiFactorAuthentication.svg" alt="" />
-                                                <p>Meervoudige verificatie</p>
+                                                <p>Multi-Factor Authentication</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/security/">
                                                 <img src="media/index/SecurityCenter.svg" alt="" />
-                                                <p>Informatie over beveiliging</p>
+                                                <p>Security Information</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1174,13 +1174,13 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/azure-policy/">
                                                 <img src="media/index/governance.svg" alt="" />
-                                                <p>Beleid van Azure</p>
+                                                <p>Azure Policy</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cost-management/">
                                                 <img src="media/index/billing.svg" alt="" />
-                                                <p>Kostenbeheer van Azure</p>
+                                                <p>Azure Cost Management</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1204,7 +1204,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/backup/">
                                                 <img src="media/index/Backup.svg" alt="" />
-                                                <p>Back-up maken</p>
+                                                <p>Backup</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1216,7 +1216,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/automation/">
                                                 <img src="media/index/automation.svg" alt="" />
-                                                <p>Automatisering</p>
+                                                <p>Automation</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1228,7 +1228,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/billing/">
                                                 <img src="media/index/billing.svg" alt="" />
-                                                <p>Facturering</p>
+                                                <p>Billing</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1252,7 +1252,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/managed-applications">
                                                 <img src="media/index/i_managed-application.svg" alt="" />
-                                                <p>Beheerde toepassingen</p>
+                                                <p>Managed Applications</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1261,7 +1261,7 @@ Terraform </a>
                         </ul>
                     </li>
                     <li>
-                        <a data-default="true" href="#Compute">Compute</a>
+                        <a data-default="true" href="#Compute">Computing</a>
                         <ul id="Compute" class="cardsA">
                             <li>
                                 <a href="/azure/virtual-machines/linux/">
@@ -1274,7 +1274,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Virtuele Linux-machines</h3>
+                                                    <h3>Linux Virtual Machines</h3>
                                                     <p>Virtuele machines inrichten voor Ubuntu, Red Hat en meer</p>
                                                 </div>
                                             </div>
@@ -1293,8 +1293,8 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Virtuele Windows-machines</h3>
-                                                    <p>Richt virtuele machines in voor SQL Server, SharePoint en meer</p>
+                                                    <h3>Windows Virtual Machines</h3>
+                                                    <p>Virtuele machines inrichten voor SQL Server, SharePoint en meer</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1312,7 +1312,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Schaalsets voor virtuele machines</h3>
+                                                    <h3>Virtual Machine Scale Sets</h3>
                                                     <p>Omhoog schalen naar duizenden virtuele Linux- en Windows-machines en deze beheren</p>
                                                 </div>
                                             </div>
@@ -1369,7 +1369,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Functies</h3>
+                                                    <h3>Functions</h3>
                                                     <p>Gebeurtenissen verwerken met serverloze code</p>
                                                 </div>
                                             </div>
@@ -1446,7 +1446,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Service Fabric</h3>
-                                                    <p>Microservices ontwikkelen en containers indelen op Windows of Linux</p>
+                                                    <p>Microservices ontwikkelen en containers indelen in Windows of Linux</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1507,7 +1507,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Virtueel netwerk</h3>
+                                                    <h3>Virtual Network</h3>
                                                     <p>Privénetwerken inrichten, optioneel verbinding maken met on-premises datacenters</p>
                                                 </div>
                                             </div>
@@ -1659,7 +1659,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>DDOS-beveiliging</h3>
+                                                    <h3>DDoS Protection</h3>
                                                     <p>Toepassingen beveiligen tegen DDoS-aanvallen (gedistribueerde Denial-of-Service)</p>
                                                 </div>
                                             </div>
@@ -1689,7 +1689,7 @@ Terraform </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#storage">Storage</a>
+                        <a href="#storage">Opslag</a>
                         <ul id="storage" class="cardsA">
                             <li>
                                 <a href="/azure/storage/">
@@ -1835,7 +1835,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Back-up maken</h3>
+                                                    <h3>Backup</h3>
                                                     <p>Uw gegevens beschermen met cloudback-up als een service</p>
                                                 </div>
                                             </div>
@@ -1865,7 +1865,7 @@ Terraform </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#web">Internet en mobiel</a>
+                        <a href="#web">Web en mobiel</a>
                         <ul id="web" class="cardsA">
                             <li>
                                 <a href="/azure/app-service-web">
@@ -1897,7 +1897,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Web Apps for Containers</h3>
+                                                    <h3>Web App for Containers</h3>
                                                     <p>Eenvoudig web-apps met containers implementeren en uitvoeren die meegroeien met uw bedrijf</p>
                                                 </div>
                                             </div>
@@ -1935,7 +1935,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>API-apps</h3>
+                                                    <h3>API Apps</h3>
                                                     <p>Eenvoudig cloud-API's bouwen en gebruiken</p>
                                                 </div>
                                             </div>
@@ -2112,7 +2112,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Service Fabric</h3>
-                                                    <p>Microservices ontwikkelen en containers indelen op Windows of Linux</p>
+                                                    <p>Microservices ontwikkelen en containers indelen in Windows of Linux</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2130,7 +2130,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Web Apps for Containers</h3>
+                                                    <h3>Web App for Containers</h3>
                                                     <p>Eenvoudig web-apps met containers implementeren en uitvoeren die meegroeien met uw bedrijf</p>
                                                 </div>
                                             </div>
@@ -2317,7 +2317,7 @@ Terraform </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#analytics">Analytics</a>
+                        <a href="#analytics">Analyse</a>
                         <ul id="analytics" class="cardsA">
                             <li>
                                 <a href="/azure/hdinsight/">
@@ -2743,7 +2743,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>IoT Suite</h3>
-                                                    <p>Leg tot nu toe ongebruikte gegevens vast en analyseer deze om de bedrijfsresultaten te verbeteren</p>
+                                                    <p>Tot nu toe ongebruikte gegevens vastleggen en analyseer deze om de bedrijfsresultaten te verbeteren</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2818,7 +2818,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Machine Learning-services</h3>
+                                                    <h3>Machine Learning Services</h3>
                                                     <p>AI algemeen beschikbaar maken in de vorm van een end-to-end, schaalbaar en vertrouwd platform met experimenteermogelijkheden en modelbeheer</p>
                                                 </div>
                                             </div>
@@ -3227,7 +3227,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Meervoudige verificatie</h3>
+                                                    <h3>Multi-Factor Authentication</h3>
                                                     <p>Beveiliging toevoegen voor uw gegevens en apps, zonder extra rompslomp voor gebruikers</p>
                                                 </div>
                                             </div>
@@ -3246,7 +3246,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Informatie over beveiliging</h3>
+                                                    <h3>Security Information</h3>
                                                     <p>Informatie over de veilige infrastructuur van Azure waarop u uw cloudoplossingen kunt bouwen</p>
                                                 </div>
                                             </div>
@@ -3257,7 +3257,7 @@ Terraform </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#devtools">Developer-hulpprogramma's</a>
+                        <a href="#devtools">Ontwikkelhulpprogramma's</a>
                         <ul id="devtools" class="cardsA">
                             <li>
                                 <a href="/vsts/">
@@ -3389,7 +3389,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Beleid van Azure</h3>
+                                                    <h3>Azure Policy</h3>
                                                     <p>Op grote schaal corporate governance en standaarden implementeren voor Azure-resources</p>
                                                 </div>
                                             </div>
@@ -3408,7 +3408,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Kostenbeheer van Azure</h3>
+                                                    <h3>Azure Cost Management</h3>
                                                     <p>Uw uitgaven aan de cloud optimaliseren en daarbij het potentieel van de cloud maximaliseren</p>
                                                 </div>
                                             </div>
@@ -3484,7 +3484,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Back-up maken</h3>
+                                                    <h3>Backup</h3>
                                                     <p>Eenvoudige en betrouwbare serverback-up naar de cloud</p>
                                                 </div>
                                             </div>
@@ -3522,7 +3522,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Automatisering</h3>
+                                                    <h3>Automation</h3>
                                                     <p>Cloudbeheer vereenvoudigen met procesautomatisering</p>
                                                 </div>
                                             </div>
@@ -3560,7 +3560,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Facturering</h3>
+                                                    <h3>Billing</h3>
                                                     <p>Het gebruik van uw Azure-abonnement en de factuur voor dit abonnement begrijpen</p>
                                                 </div>
                                             </div>
@@ -3617,7 +3617,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Beheerde toepassingen</h3>
+                                                    <h3>Managed Applications</h3>
                                                     <p>Beheer van cloudproducten vereenvoudigen</p>
                                                 </div>
                                             </div>
@@ -3641,7 +3641,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Stack-operator</h3>
+                                                    <h3>Azure Stack Operator</h3>
                                                     <p>Azure-services leveren vanuit uw eigen datacenter met dit nieuwe hybride cloudplatform</p>
                                                 </div>
                                             </div>
@@ -3659,7 +3659,7 @@ Terraform </a>
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Azure Stack-gebruiker</h3>
+                                                <h3>Azure Stack User</h3>
                                                 <p>Services gebruiken en toepassingen bouwen voor Azure Stack</p>
                                             </div>
                                         </div>
@@ -3740,7 +3740,7 @@ Terraform </a>
                         <ul id="sdkstools-all" class="cardsF">
                             <li>
                                 <div class="container">
-                                    <h2>Talen &amp; Frameworks</h2>
+                                    <h2>Talen &amp; frameworks</h2>
                                 </div>
                             </li>
                             <li>
@@ -3869,7 +3869,7 @@ Azure voor Go-ontwikkelaars </h3>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-Azure REST-API's </h3>
+Azure REST API's </h3>
                                                 <p>
                                                     <a href="/rest/api">API-naslaginformatie</a>
                                                 </p>
@@ -3894,7 +3894,7 @@ Azure REST-API's </h3>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-Azure-CLI </h3>
+Azure CLI </h3>
                                                 <p>
                                                     <a href="/cli/azure">Aan de slag</a>
                                                 </p>
@@ -3930,7 +3930,7 @@ Azure-CLI </h3>
                             </li>
                             <li>
                                 <div class="container">
-                                    <h2>Hulpprogramma's &amp; Uitbreidingen</h2>
+                                    <h2>Hulpprogramma's &amp; extensies</h2>
                                 </div>
                             </li>
                             <li>
@@ -4081,7 +4081,7 @@ SQL-hulpprogramma's </h3>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="http://storageexplorer.com">Opslagverkenner</a>
+                                                    <a href="http://storageexplorer.com">Storage Explorer</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer">Aan de slag</a>

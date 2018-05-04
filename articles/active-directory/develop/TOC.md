@@ -36,6 +36,7 @@
 ## [Een toepassing registreren](active-directory-integrating-applications.md)
 ## [Apps met meerdere tenants](active-directory-devhowto-multi-tenant-overview.md)
 ## [Voorwaardelijke toegang](active-directory-conditional-access-developer.md)
+## [Machtigingen](active-directory-permissions.md)
 ## OAuth en OpenID Connect
 ### [OpenID Connect-protocol](active-directory-protocols-openid-connect-code.md)
 ### [OAuth 2.0-verificatiecode verlenen](active-directory-protocols-oauth-code.md)
