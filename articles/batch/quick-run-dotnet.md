@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 01/16/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: efa697482b5b27846f2be129998c100787466467
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b5431feec23e2e0681967a9fe0345edc1db567aa
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Snelstartgids: Uw eerste Azure Batch-taak uitvoeren met .NET API
 
@@ -28,11 +28,11 @@ In deze snelstartgids wordt een Azure Batch-taak uitgevoerd vanuit een C#-toepas
 
 * [Visual Studio IDE](https://www.visualstudio.com/vs) (Visual Studio 2015 of een nieuwere versie). 
 
-* Een Batch-account en een gekoppeld opslagaccount voor algemeen gebruik. Zie de Batch-quickstarts met behulp van [Azure Portal](quick-create-portal.md) of [Azure CLI](quick-create-cli.md) voor instructies over het maken van deze accounts. 
+* Een Batch-account en een gekoppeld Azure Storage-account. Raadpleeg de Batch-quickstarts met behulp van [Azure Portal](quick-create-portal.md) of [Azure CLI](quick-create-cli.md) voor instructies voor het maken van deze accounts. 
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Meld u aan bij Azure Portal op [https://portal.azure.com](https://portal.azure.com).
+Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
 
@@ -143,7 +143,7 @@ using (BatchClient batchClient = BatchClient.Open(cred))
 ...    
 ```
 
-### <a name="create-a-pool-of-compute-nodes"></a>Een pool met rekenknooppunten maken
+### <a name="create-a-pool-of-compute-nodes"></a>Een pool van rekenknooppunten maken
 
 Voor het maken van een Batch-pool gebruikt de app de [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool)-methode om het aantal knooppunten, de VM-grootte en de poolconfiguratie in te stellen. Hier geeft het [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration)-object een [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) naar een Windows Server-installatiekopie op die is gepubliceerd in Azure Marketplace. Batch ondersteunt diverse Linux- en Windows Server-installatiekopieën in Azure Marketplace, evenals aangepaste VM-installatiekopieën.
 

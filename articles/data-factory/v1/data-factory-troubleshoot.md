@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 4cf77a2267cd2a49a873c1a1c742dc4205cad29a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a9a4f7b19d6ef08562d17474e252ce72fd0977dc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Problemen met Data Factory oplossen
 > [!NOTE]
@@ -34,7 +34,7 @@ Als u dit foutbericht ontvangt, is de resourceprovider van Azure Data Factory ni
 2. Aanmelden bij uw Azure-account met de volgende opdracht.
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 3. Voer de volgende opdracht om de Azure Data Factory-provider geregistreerd.
 
@@ -45,7 +45,7 @@ Als u dit foutbericht ontvangt, is de resourceprovider van Azure Data Factory ni
 ### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Probleem: Niet-geautoriseerde fout bij het uitvoeren van een Data Factory-cmdlet
 Waarschijnlijk gebruikt u een verkeerd Azure-account of -abonnement met de Azure PowerShell. Gebruik de volgende cmdlets om het juiste Azure-account en -abonnement te selecteren voor gebruik met de Azure PowerShell.
 
-1. Login-AzureRmAccount - gebruik de juiste gebruikersnaam en wachtwoord
+1. Verbinding maken met-AzureRmAccount - gebruik de juiste gebruikersnaam en wachtwoord
 2. Get-AzureRmSubscription - weergeven van alle abonnementen voor het account.
 3. SELECT-AzureRmSubscription &lt;abonnementsnaam&gt; -Selecteer het juiste abonnement. Gebruik hetzelfde account dat u kunt een gegevensfactory maken in de Azure portal.
 

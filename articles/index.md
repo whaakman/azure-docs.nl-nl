@@ -6,11 +6,11 @@ description: Leer hoe u krachtige toepassingen maakt en beheert met Microsoft Az
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 8ce6872615c25da7c479d1ad9d1cdb0c48b53112
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: cd33973a4786b722ff4eafbf6be53ef9fb509f48
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -975,9 +975,9 @@ Terraform </a>
                                     <h3>Internet of Things</h3>
                                     <ul>
                                         <li>
-                                            <a href="https://azure.microsoft.com/develop/iot/">
+                                            <a href="/azure/iot-fundamentals">
                                                 <img src="media/index/IoTHub.svg" alt="" />
-                                                <p>IoT-ontwikkelaarscentrum</p>
+                                                <p>Basisprincipes van IoT</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2637,7 +2637,7 @@ Terraform </a>
                         <a href="#iot">Internet of Things</a>
                         <ul id="iot" class="cardsA">
                             <li>
-                                <a href="https://azure.microsoft.com/develop/iot/">
+                                <a href="/azure/iot-fundamentals">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2647,7 +2647,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>IoT-ontwikkelaarscentrum</h3>
+                                                    <h3>Basisprincipes van IoT</h3>
                                                     <p>Aan de slag met het verbinden van uw apparaten</p>
                                                 </div>
                                             </div>
@@ -3899,7 +3899,7 @@ Azure-CLI </h3>
                                                     <a href="/cli/azure">Aan de slag</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/cli/azurereference-index">Naslaginformatie</a>
+                                                    <a href="/cli/azure/reference-index">Naslaginformatie</a>
                                                 </p>
                                             </div>
                                         </div>

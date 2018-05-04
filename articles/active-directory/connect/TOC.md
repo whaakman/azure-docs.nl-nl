@@ -36,7 +36,7 @@
 ##### [Hoe werkt het?](active-directory-aadconnect-sso-how-it-works.md)
 ##### [Veelgestelde vragen](active-directory-aadconnect-sso-faq.md)
 ##### [Problemen oplossen](active-directory-aadconnect-troubleshoot-sso.md)
-##### [GDPR](active-directory-aadconnect-sso-gdpr.md)
+##### [Gebruikersprivacy en naadloze eenmalige aanmelding van Azure AD](active-directory-aadconnect-sso-gdpr.md)
 #### [Pass-through-verificatie](active-directory-aadconnect-pass-through-authentication.md)
 ##### [Snel starten](active-directory-aadconnect-pass-through-authentication-quick-start.md)
 ##### [Huidige beperkingen](active-directory-aadconnect-pass-through-authentication-current-limitations.md)
@@ -46,7 +46,7 @@
 ##### [Veelgestelde vragen](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [Problemen oplossen](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
 ##### [Grondig onderzoek van beveiliging](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md)
-##### [GDPR](active-directory-aadconnect-pass-through-authentication-gdpr.md)
+##### [Gebruikersprivacy en Pass-through-verificatie van Azure Active Directory](active-directory-aadconnect-pass-through-authentication-gdpr.md)
 ### [Ondersteuning van meerdere domeinen voor federeren](active-directory-aadconnect-multiple-domains.md)
 ### [Automatische upgrade](active-directory-aadconnect-feature-automatic-upgrade.md)
 ### [Een SAML 2.0-id-provider (IdP) gebruiken voor eenmalige aanmelding](active-directory-aadconnect-federation-saml-idp.md)
@@ -54,7 +54,8 @@
 
 
 ## Azure AD Connect Sync beheren
-### [GDPR-naleving en Azure AD Connect](active-directory-aadconnect-gdpr.md)
+### [Gebruikersprivacy en Azure AD Connect](active-directory-aadconnect-gdpr.md)
+### [Gewenste gegevenslocatie voor O365-resources](active-directory-aadconnectsync-feature-preferreddatalocation.md)
 ### [Onopzettelijke verwijderingen voorkomen](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Synchronisatie van wachtwoord-hashes](active-directory-aadconnectsync-implement-password-hash-synchronization.md)
 ### [Azure AD-serviceaccount](active-directory-aadconnectsync-howto-azureadaccount.md)
@@ -91,7 +92,7 @@
 ### [Probleem met LocalDB met limiet van 10 GB oplossen](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
 # Naslaginformatie
-## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [Codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Tolerantie voor synchronisatie- en duplicatiekenmerken identificeren](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [Voor hybride identiteit benodigde poorten en protocollen](active-directory-aadconnect-ports.md)
 ## [Functies in preview](active-directory-aadconnect-feature-preview.md)

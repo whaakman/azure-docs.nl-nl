@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9cd12808f7e3bbb8a4edfe0d8de1e5b0a007770a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c2c3443f014f6c42ba9e8b68b21c2b9d0fdb1549
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuele Machines, planning en implementatie voor SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -236,7 +236,7 @@ ms.lasthandoff: 04/05/2018
 [powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
-[resource-groups-networking]:../../../virtual-network/resource-groups-networking.md
+[resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
@@ -292,7 +292,7 @@ ms.lasthandoff: 04/05/2018
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
 [virtual-network-deploy-multinic-arm-cli]:../../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../../windows/multiple-nics.md
-[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
+[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
@@ -607,7 +607,7 @@ Azure Standard-opslag is het type opslag beschikbaar bij Azure IaaS werd uitgebr
 
 Schijven die zijn opgeslagen op Azure Storage-Accounts worden in rekening gebracht op basis van de werkelijke hoeveelheid gegevens die zijn opgeslagen, de hoeveelheid opslagtransacties en uitgaande gegevensoverdracht redundantie-optie gekozen. Veel schijven kunnen worden gemaakt op de maximaal 1TB groot, maar als deze leeg blijft er zijn geen kosten. Als u een VHD met 100GB vervolgens vult, u in rekening worden gebracht voor het opslaan van 100GB en niet voor de grootte van de nominaal met de VHD gemaakt.
 
-#### <a name="ff5ad0f9-f7f4-4022-9102-af07aef3bc92"></a>Azure Premium Storage
+#### <a name="ff5ad0f9-f7f4-4022-9102-af07aef3bc92"></a>Azure Premium-opslag
 In April 2015 geïntroduceerd Microsoft Azure Premium-opslag. Premium-opslag is geïntroduceerd met het doel om te bieden:
 
 * Betere i/o-latentie.
@@ -719,7 +719,7 @@ Meer informatie vindt u hier
 * [Een punt-naar-site-verbinding met een VNet configureren met Azure Portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal)
 * [Een punt-naar-site-verbinding met een VNet configureren met behulp van PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps)
 
-#### <a name="multi-site-vpn"></a>Multi-Site VPN
+#### <a name="multi-site-vpn"></a>Multi-site-VPN
 Azure biedt ook tegenwoordig de mogelijkheid voor het maken van meerdere Site-VPN-verbinding voor een Azure-abonnement. Een abonnement van één was eerder beperkt tot één site-naar-site VPN-verbinding. Deze beperking verdwenen met multi-site-VPN-verbindingen voor één abonnement. Hierdoor kunnen gebruikmaken van meer dan één Azure-regio voor een specifiek abonnement via cross-premises configuraties.
 
 Zie voor meer documentatie [in dit artikel][vpn-gateway-create-site-to-site-rm-powershell]
@@ -966,7 +966,7 @@ In dit geval willen we uploaden van een VHD, met of zonder een besturingssysteem
 
 **Powershell**
 
-* Aanmelden bij uw abonnement met *Login-AzureRmAccount*
+* Aanmelden bij uw abonnement met *Connect-AzureRmAccount*
 * Instellen van het abonnement van uw context met *Set-AzureRmContext* en parameter abonnements-id of SubscriptionName - Zie <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext>
 * Uploaden van de VHD met *toevoegen AzureRmVhd* naar een Azure Storage-Account - Zie <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd>
 * (Optioneel) Een schijf beheerd maken van de VHD met *nieuw AzureRmDisk* -Zie <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermdisk>
@@ -993,7 +993,7 @@ In dit geval willen we uploaden van een VHD, met of zonder een besturingssysteem
 Voor het uploaden van een bestaande virtuele machine of de VHD van de on-premises netwerk om het te gebruiken als een installatiekopie van een virtuele machine van Azure die een virtuele machine of VHD moet voldoen aan de vereisten die worden vermeld in hoofdstuk [voorbereiding voor het implementeren van een virtuele machine met een installatiekopie klantspecifieke voor SAP] [ planning-guide-5.2.2] van dit document.
 
 * Gebruik *sysprep* op Windows of *waagent-deprovision* op Linux generaliseren van uw VM - Zie [technische documentatie van Sysprep](https://technet.microsoft.com/library/cc766049.aspx) voor Windows of [het vastleggen van een Virtuele Linux-machine moet worden gebruikt als een Resource Manager-sjabloon] [ capture-image-linux-step-2-create-vm-image] voor Linux
-* Aanmelden bij uw abonnement met *Login-AzureRmAccount*
+* Aanmelden bij uw abonnement met *Connect-AzureRmAccount*
 * Instellen van het abonnement van uw context met *Set-AzureRmContext* en parameter abonnements-id of SubscriptionName - Zie <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext>
 * Uploaden van de VHD met *toevoegen AzureRmVhd* naar een Azure Storage-Account - Zie <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd>
 * (Optioneel) Maken van de installatiekopie van een beheerd schijf van de VHD met *nieuw AzureRmImage* -Zie <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermimage>

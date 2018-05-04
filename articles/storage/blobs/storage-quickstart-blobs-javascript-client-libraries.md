@@ -1,5 +1,5 @@
 ---
-title: Blobs met Azure Storage uploaden, vermelden en verwijderen met behulp van JavaScript en HTML in de browser
+title: 'Azure-snelstart: een blob maken in objectopslag met JavaScript en HTML in de browser'
 description: Leer hoe u een exemplaar van BlobService gebruikt voor het uploaden, vermelden en verwijderen van blobs met behulp van JavaScript op een HTML-pagina.
 services: storage
 keywords: opslag, javascript, html
@@ -10,23 +10,18 @@ ms.service: storage
 ms.author: cshoe
 ms.date: 04/06/2018
 ms.topic: quickstart
-ms.openlocfilehash: 83db6539e6ad8ec8e18d99bf7eedbc037d95509e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3d01788050779ea5d6e67b345f048775f8e98e9e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
-# <a name="quickstart-upload-list-and-delete-blobs-with-azure-storage-using-javascripthtml-in-the-browser"></a>Snelstart: Blobs met Azure Storage uploaden, vermelden en verwijderen met behulp van JavaScript/HTML in de browser
-In deze snelstart wordt gedemonstreerd hoe u blobs beheert met behulp van code die volledig in de browser wordt uitgevoerd in combinatie met de vereiste beveiligingsmaatregelen om beveiligde toegang tot uw blob-opslagaccount te garanderen. U hebt een [Azure-abonnement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) nodig om deze snelstart te voltooien.
+# <a name="quickstart-upload-list-and-delete-blobs-using-javascripthtml-in-the-browser"></a>Snelstart: Blobs uploaden, vermelden en verwijderen met behulp van JavaScript/HTML in de browser
+In deze snelstart wordt gedemonstreerd hoe u blobs kunt beheren door middel van code die volledig in de browser wordt uitgevoerd. De hier gebruikte aanpak toont hoe u de vereiste beveiligingsmaatregelen dient te gebruiken om verzekerd te zijn van beveiligde toegang tot uw blobopslagaccount. U hebt een [Azure-abonnement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) nodig om deze quickstart te voltooien.
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
-
-### <a name="copy-security-settings"></a>Beveiligingsinstellingen kopiëren
-Tijdens deze snelstart hebt u enkele beveiligingswaarden nodig om een beveiligingstoken te maken. In de portal kunt u de waarden in een teksteditor kopiëren voor later gebruik. 
-
-Selecteer het opslagaccount in de portal en zoek de sectie **Instellingen**. Selecteer onder Instellingen **Toegangssleutels** en plaats **Opslagaccountnaam** en de waarde **Sleutel** onder de kop **key1**. (Gebruik de knop Kopiëren rechts van het invoervak om de waarde naar het Klembord te kopiëren.)
 
 ## <a name="setting-up-storage-account-cors-rules"></a>CORS-regels voor het opslagaccount instellen 
 Voordat uw webtoepassing vanuit de client toegang kan krijgen tot een blob-opslag, moet het account worden geconfigureerd om [cross-origin-resource delen](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) in te schakelen. 
@@ -55,7 +50,7 @@ Vervolgens gebruikt u Azure Cloud Shell om een beveiligingstoken te maken.
 ## <a name="create-a-shared-access-signature"></a>Shared Access Signature maken
 Shared Access Signature (handtekening voor gedeelde toegang, SAS) wordt gebruikt door de code die wordt uitgevoerd in de browser om aanvragen bij de blob-opslag te verifiëren. Als u een SAS gebruikt, kan de client verificaties uitvoeren zonder toegangssleutel of verbindingsreeks van het account. Zie [Handtekeningen voor gedeelde toegang gebruiken](../common/storage-dotnet-shared-access-signature-part-1.md) voor meer informatie over SAS.
 
-Via Azure Cloud Shell kunt u een SAS maken met de Azure CLI. In de volgende tabel worden de parameters beschreven waar u waarden voor moet opgeven om een SAS te maken.
+U kunt een SAS maken met behulp van de CLI via de Azure-cloudshell of met Azure Storage Explorer. In de volgende tabel worden de parameters beschreven waar u waarden voor moet opgeven om een SAS te maken met de CLI.
 
 | Parameter      |Beschrijving  | Tijdelijke aanduiding |
 |----------------|-------------|-------------|
@@ -121,7 +116,7 @@ Voer ten slotte `npm start` in de opdrachtprompt in om de webserver te starten:
 npm start
 ```
 
-### <a name="get-the-blob-storage-client-scripts"></a>Clientscripts voor blob-opslag ophalen
+### <a name="get-the-blob-storage-client-library"></a>Clientbibliotheek voor blob-opslag ophalen
 [Download de JavaScript-clientbibliotheken](https://aka.ms/downloadazurestoragejs), extraheer de inhoud van het zip-bestand en plaats de scriptbestanden vanuit de map *bundle* in de map *scripts*.
 
 ### <a name="add-the-client-script-reference-to-the-page"></a>De verwijzing naar het clientscript aan de pagina toevoegen
@@ -153,7 +148,7 @@ Deze markeringen bevatten:
 - een element *INPUT* om bestanden te uploaden
 - een tijdelijke aanduiding voor opslagspecifieke code
 
-### <a name="create-a-blob-service"></a>Blob-service maken 
+### <a name="create-an-instance-of-blobservice"></a>Een exemplaar van BlobService maken 
 [BlobService](https://azure.github.io/azure-storage-node/BlobService.html) biedt een interface voor Azure Blob Storage. Als u een exemplaar van de service wilt maken, dient u de naam van het opslagaccount op te geven en tevens de SAS die in de vorige stap is gemaakt.
 
 ```javascript
@@ -184,7 +179,7 @@ document.getElementById('create-button').addEventListener('click', () => {
 ```
 
 ### <a name="upload-a-blob"></a>Een blob uploaden
-Als u een blob van een HTML-formulier wilt uploaden, krijgt u eerst een verwijzing naar het geselecteerde bestand via de `files`-matrix van een *INPUT*-element waarvan *type* is ingesteld op *File*.
+Als u een blob wilt uploaden vanuit een HTML-formulier, krijgt u een verwijzing naar het geselecteerde bestand vanaf een *INPUT*-element. Het geselecteerde bestand is beschikbaar via de `files`-matrix wanneer *type* van het element is ingesteld op *file*.
 
 Met het script kunt u verwijzen naar het HTML-element en het geselecteerde bestand doorgeven aan de blob-service.
 
@@ -227,6 +222,9 @@ document.getElementById('list-button').addEventListener('click', () => {
     
 });
 ```
+
+De methode *listBlobsSegmented* retourneert een verzameling blobs. Standaard bestaat de verzameling uit 5000 blobs, maar u kunt deze hoeveelheid naar behoefte aanpassen. Het [continueringsvoorbeeld](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/continuationsample.js#L132) toont hoe u dient om te gaan met een groot aantal blobs en hoe de clientbibliotheek paginering ondersteunt. 
+
 
 ### <a name="delete-blobs"></a>Blobs verwijderen
 U kunt de geüploade blob verwijderen door [deleteBlobIfExists](https://azure.github.io/azure-storage-node/BlobService.html#deleteBlobIfExists__anchor) aan te roepen.

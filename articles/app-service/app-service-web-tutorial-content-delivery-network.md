@@ -10,11 +10,11 @@ ms.service: app-service-web
 manager: erikre
 ms.workload: web
 ms.custom: mvc
-ms.openlocfilehash: 74344b72869ef6b27f9e7329c7a1777a40662b17
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 131424b4a09beeca7c2e318a04e454bea7dab6a7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-add-a-content-delivery-network-cdn-to-an-azure-app-service"></a>Zelfstudie: Een netwerk voor contentlevering toevoegen aan een Azure App Service
 
@@ -47,7 +47,7 @@ Volg de [snelstart voor statische HTML](app-service-web-get-started-html.md) om 
 
 ### <a name="have-a-custom-domain-ready"></a>Houd een aangepast domein bij de hand
 
-U hebt een aangepast domein en toegang tot het DNS-register voor uw domeinprovider (zoals GoDaddy) nodig om de stap voor het aangepaste domein van deze zelfstudie te voltooien. Als u bijvoorbeeld DNS-vermeldingen voor `contoso.com` en `www.contoso.com` wilt toevoegen, moet u de DNS-instellingen voor het hoofddomein van `contoso.com` kunnen configureren.
+U hebt een aangepast domein en toegang tot het DNS-register voor uw domeinprovider nodig om de stap voor het aangepaste domein van deze zelfstudie te voltooien. Als u bijvoorbeeld DNS-vermeldingen voor `contoso.com` en `www.contoso.com` wilt toevoegen, moet u de DNS-instellingen voor het hoofddomein van `contoso.com` kunnen configureren.
 
 Als u nog geen domeinnaam hebt, overweeg dan de [Zelfstudie over App Service-domeinen](custom-dns-web-site-buydomains-web-app.md) te volgen om een domein aan te schaffen met de Azure Portal. 
 

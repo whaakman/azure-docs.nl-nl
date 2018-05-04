@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: ef0d135a744cd37d888496073c7959ddc815ec91
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
-ms.translationtype: MT
+ms.openlocfilehash: f1c578b6ebb766f71d6e8b65b02724d91dde3126
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>IoT Hub-querytaal voor apparaat horende, taken en het routeren van berichten
 
@@ -29,9 +29,9 @@ IoT Hub biedt een krachtige SQL-achtige taal voor het ophalen van informatie met
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-## <a name="device-twin-queries"></a>Apparaat twin query 's
-[Apparaat horende] [ lnk-twins] kan willekeurige JSON-objecten bevatten als zowel labels en eigenschappen. IoT-Hub kunt u query apparaat horende als een enkele JSON-document met alle apparaten twin informatie.
-Stel bijvoorbeeld dat uw IoT hub apparaat horende de volgende structuur hebben:
+## <a name="device-and-module-twin-queries"></a>Apparaat- en module twin query 's
+[Apparaat horende] [ lnk-twins] en module horende willekeurige JSON-objecten kunnen bevatten als zowel labels en eigenschappen. IoT-Hub kunt u query apparaat horende en horende module als een enkele JSON-document met alle twin informatie.
+Stel bijvoorbeeld dat uw IoT hub apparaat horende de volgende structuur hebben (module twin zouden zijn vergelijkbaar met een extra moduleId NET):
 
 ```json
 {
@@ -82,6 +82,8 @@ Stel bijvoorbeeld dat uw IoT hub apparaat horende de volgende structuur hebben:
     }
 }
 ```
+
+### <a name="device-twin-queries"></a>Apparaat twin query 's
 
 IoT-Hub toont de horende apparaten als een documentverzameling aangeroepen **apparaten**.
 De volgende query haalt dus de hele set horende apparaten:
@@ -158,6 +160,26 @@ Projectie van query's kunnen ontwikkelaars om alleen de eigenschappen die ze int
 
 ```sql
 SELECT LastActivityTime FROM devices WHERE status = 'enabled'
+```
+
+### <a name="module-twin-queries"></a>Query's van module twin
+
+Een query uitvoert op module horende is vergelijkbaar met de query op het apparaat horende, maar met een andere verzameling/naamruimte, dat wil zeggen in plaats van 'van apparaten' u kunt een query
+
+```sql
+SELECT * FROM devices.modules
+```
+
+We kunnen geen koppeling tussen de apparaten en devices.modules verzamelingen. Als u query module horende op apparaten wilt, kan u dat doen op basis van labels. Deze query worden alle module horende op alle apparaten met de scannen status geretourneerd:
+
+```sql
+Select * from devices.modules where reported.properties.status = 'scanning'
+```
+
+Deze query retourneert alle module horende met de status scannen, maar alleen op het opgegeven aantal apparaten.
+
+```sql
+Select * from devices.modules where reported.properties.status = 'scanning' and deviceId IN ('device1', 'device2')  
 ```
 
 ### <a name="c-example"></a>C#-voorbeeld
@@ -521,7 +543,7 @@ Om te begrijpen wat elke symbool in de syntaxis van de expressies voor staat, ra
 
 | Symbool | Definitie |
 | --- | --- |
-| attribute_name | Een eigenschap van het JSON-document in de **FROM** verzameling. |
+| %{attribute_name/ | Een eigenschap van het JSON-document in de **FROM** verzameling. |
 | binary_operator | Een binaire operator die worden vermeld in de [Operators](#operators) sectie. |
 | functie_naam| Een functie die worden vermeld in de [functies](#functions) sectie. |
 | decimal_literal |Een float uitgedrukt in decimale notatie. |
@@ -551,11 +573,11 @@ In situaties routes, worden de volgende wiskundige functies ondersteund:
 | ABS(x) | Retourneert de absolute (positieve) waarde van de opgegeven numerieke expressie. |
 | EXP(x) | Berekent de exponentiële waarde van de opgegeven numerieke expressie (e ^ x). |
 | Power(x,y) | Retourneert de waarde van de opgegeven expressie voor de opgegeven macht (x ^ y).|
-| SQUARE(x) | Retourneert het kwadraat van de numerieke waarde die is opgegeven. |
+| Square(x) | Retourneert het kwadraat van de numerieke waarde die is opgegeven. |
 | CEILING(x) | Retourneert de kleinste waarde van geheel getal groter dan of gelijk zijn aan de opgegeven numerieke expressie. |
 | FLOOR(x) | Retourneert het grootste gehele getal kleiner dan of gelijk zijn aan de opgegeven numerieke expressie. |
 | Sign(x) | Retourneert de positief (+ 1), nul (0) of minteken (-1) van de opgegeven numerieke expressie.|
-| SQRT(x) | Retourneert de vierkantswortel van de numerieke waarde die is opgegeven. |
+| WORTEL(x) | Retourneert de vierkantswortel van de numerieke waarde die is opgegeven. |
 
 In situaties routes, worden het volgende type controleren en de casten functies ondersteund:
 

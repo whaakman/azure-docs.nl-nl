@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: bdb9bfaa85f526af0c5e42294a75664fa7137849
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 2b105cd05ace9be6ad24d092f2b12c7ad092188e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-storage-replication"></a>Azure Storage-replicatie
 
@@ -46,7 +46,7 @@ Zie [prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/sto
 > Premium-opslag ondersteunt alleen lokaal redundante opslag (LRS). Zie voor meer informatie over de Premium-opslag [Premium-opslag: krachtige opslag voor Azure Virtual Machine-werkbelasting](../../virtual-machines/windows/premium-storage.md).
 
 ## <a name="changing-replication-strategy"></a>Het wijzigen van de replicatiestrategie voor
-We kunt u uw opslagaccount replicatiestrategie wijzigen met behulp van de [Azure-portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest), of een van de vele [ Azure-clientbibliotheken](https://docs.microsoft.com/en-us/azure/index?view=azure-dotnet#pivot=sdkstools). Het wijzigen van het type van de replicatie van uw opslagaccount resulteert niet in uitvaltijd.
+We kunt u uw opslagaccount replicatiestrategie wijzigen met behulp van de [Azure-portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), of een van de vele [ Azure-clientbibliotheken](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). Het wijzigen van het type van de replicatie van uw opslagaccount resulteert niet in uitvaltijd.
 
    > [!NOTE]
    > Op dit moment kunt u niet de Portal of de API gebruiken uw account converteren naar ZRS. We zullen echter ondersteuning voor migratie naar ZRS van LRS, GRS en RA-GRS nadat ZRS algemeen beschikbaar is. Zie [Zone-redundante opslag (ZRS)](storage-redundancy-zrs.md) voor meer informatie.

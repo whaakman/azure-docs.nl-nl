@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 04/03/2018
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: 81357bce92bb8bd2f77f7aaabc8e3b1d49047a1b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: dac04ed9a43e19d022720979c8f83aa2b4132f78
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 **Laatste document update**: 3 April 3:00 PM PST.
 
@@ -23,7 +23,7 @@ Microsoft heeft oplossingen geïmplementeerd op onze cloudservices. De infrastru
 Bovendien Azure breidt het gebruik van [geheugen behouden onderhoud](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#memory-preserving-maintenance) indien mogelijk onderbreken van de virtuele machine voor maximaal 30 seconden, terwijl de host is bijgewerkt of de virtuele machine wordt verplaatst naar een host al bijgewerkt.  Geheugen behouden onderhoud verdere klant gevolgen minimaliseert en hoeft u opnieuw wordt opgestart.  Azure maakt gebruik van deze methoden wanneer het hele systeem updates indienen bij de host.
 
 > [!NOTE] 
-> In latere februari 2018, Intel Corporation gepubliceerd bijgewerkte [Microcode revisie richtlijnen](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf) op de status van hun microcode-versies die de stabiliteit te verbeteren en beperken dat recente beveiligingsproblemen vermeld door [Google Project nul](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html). De oplossingen die door Azure op [3 januari 2018](https://azure.microsoft.com/en-us/blog/securing-azure-customers-from-cpu-vulnerability/) worden niet beïnvloed door van Intel microcode update. Microsoft al ingevoerd sterk oplossingen Azure om klanten te beschermen van andere virtuele machines in Azure.  
+> In latere februari 2018, Intel Corporation gepubliceerd bijgewerkte [Microcode revisie richtlijnen](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf) op de status van hun microcode-versies die de stabiliteit te verbeteren en beperken dat recente beveiligingsproblemen vermeld door [Google Project nul](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html). De oplossingen die door Azure op [3 januari 2018](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/) worden niet beïnvloed door van Intel microcode update. Microsoft al ingevoerd sterk oplossingen Azure om klanten te beschermen van andere virtuele machines in Azure.  
 >
 > Van Intel microcode adressen variant 2 Spectre ([CVE-2017-5715](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5715) of vertakking doel injectie) te beschermen tegen aanvallen die alleen zijn van toepassing waarin u gedeelde of niet-vertrouwde werkbelasting uitvoeren binnen uw virtuele machines in Azure. Onze technici test de stabiliteit om te beperken van invloed op de prestaties van de microcode, voordat het beschikbaar maken op Azure-klanten.  Als klanten heel weinig niet-vertrouwde werkbelastingen binnen hun virtuele machines worden uitgevoerd, moet de meeste klanten niet inschakelen van deze mogelijkheid eenmaal uitgebracht. 
 >

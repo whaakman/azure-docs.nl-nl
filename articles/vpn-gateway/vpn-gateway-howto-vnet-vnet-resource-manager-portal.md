@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: a95fdf078baa35eb9ca8ade462223b204be77d8e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7e72e9ff9be0b092bc9425828bab46ffd60f0822
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal"></a>Een VPN-gatewayverbinding tussen VNets configureren met behulp van Azure Portal
 
@@ -127,7 +127,7 @@ Wanneer het VNet is gemaakt, kunt u er extra adresruimte en subnetten aan toevoe
 [!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
 ## <a name="gatewaysubnet"></a>3. Een gatewaysubnet maken
-Voordat u een virtuele netwerkgateway voor uw virtuele netwerk gaat maken, dient u eerst het gatewaysubnet te maken. Het gatewaysubnet bevat de IP-adressen die door de virtuele netwerkgateway worden gebruikt. Indien mogelijk is het beste een gatewaysubnet met een CIDR-blok van /28 of /27 te gebruiken zodat er voldoende IP-adressen zijn om aan toekomstige aanvullende configuratievereisten te voldoen.
+Voordat u een virtuele netwerkgateway voor uw virtuele netwerk gaat maken, moet u eerst het gatewaysubnet maken. Het gatewaysubnet bevat de IP-adressen die door de virtuele netwerkgateway worden gebruikt. Indien mogelijk is het beste een gatewaysubnet met een CIDR-blok van /28 of /27 te gebruiken zodat er voldoende IP-adressen zijn om aan toekomstige aanvullende configuratievereisten te voldoen.
 
 Als u deze configuratie bij wijze van oefening maakt, gebruikt u deze [voorbeeldinstellingen](#values) wanneer u het gatewaysubnet maakt.
 

@@ -5,21 +5,19 @@ keywords: Azure HDInsight, Spark, veelgestelde vragen, het oplossen van de handl
 services: Azure HDInsight
 documentationcenter: na
 author: arijitt
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 25D89586-DE5B-4268-B5D5-CC2CE12207ED
 ms.service: multiple
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/2/2017
 ms.author: arijitt
-ms.openlocfilehash: b75aca7d9f78cb425099cc33034b44a80d7b6b81
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: c097a346e64fa378f171e0a0fe03155551da98ed
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="troubleshoot-spark-by-using-azure-hdinsight"></a>Spark oplossen met behulp van Azure HDInsight
 
@@ -27,7 +25,7 @@ Meer informatie over de meest voorkomende problemen en hun oplossingen bij het w
 
 ## <a name="how-do-i-configure-a-spark-application-by-using-ambari-on-clusters"></a>Hoe kan ik een Spark-toepassing configureren met behulp van Ambari op clusters?
 
-### <a name="resolution-steps"></a>Stappen voor het oplossen
+### <a name="resolution-steps"></a>Oplossingen
 
 De configuratiewaarden voor deze procedure zijn eerder in HDInsight ingesteld. Om te bepalen welke Spark configuraties moeten worden ingesteld en op welke waarden Zie [wat een Spark-toepassing OutofMemoryError uitzondering veroorzaakt](#what-causes-a-spark-application-outofmemoryerror-exception). 
 
@@ -96,7 +94,7 @@ Deze wijzigingen zijn hele cluster, maar kunnen worden genegeerd wanneer u de ta
 
 ## <a name="how-do-i-configure-a-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>Hoe kan ik een Spark-toepassing configureren met behulp van een Jupyter-notebook in clusters?
 
-### <a name="resolution-steps"></a>Stappen voor het oplossen
+### <a name="resolution-steps"></a>Oplossingen
 
 1. Om te bepalen welke Spark configuraties moeten worden ingesteld en op welke waarden Zie [wat een Spark-toepassing OutofMemoryError uitzondering veroorzaakt](#what-causes-a-spark-application-outofmemoryerror-exception).
 
@@ -111,7 +109,7 @@ Deze wijzigingen zijn hele cluster, maar kunnen worden genegeerd wanneer u de ta
 
 ## <a name="how-do-i-configure-a-spark-application-by-using-livy-on-clusters"></a>Hoe kan ik een Spark-toepassing configureren met behulp van Livy op clusters?
 
-### <a name="resolution-steps"></a>Stappen voor het oplossen
+### <a name="resolution-steps"></a>Oplossingen
 
 1. Om te bepalen welke Spark configuraties moeten worden ingesteld en op welke waarden Zie [wat een Spark-toepassing OutofMemoryError uitzondering veroorzaakt](#what-causes-a-spark-application-outofmemoryerror-exception). 
 
@@ -128,7 +126,7 @@ Deze wijzigingen zijn hele cluster, maar kunnen worden genegeerd wanneer u de ta
 
 ## <a name="how-do-i-configure-a-spark-application-by-using-spark-submit-on-clusters"></a>Hoe configureer een toepassing met behulp van spark indienen Spark op clusters?
 
-### <a name="resolution-steps"></a>Stappen voor het oplossen
+### <a name="resolution-steps"></a>Oplossingen
 
 1. Om te bepalen welke Spark configuraties moeten worden ingesteld en op welke waarden Zie [wat een Spark-toepassing OutofMemoryError uitzondering veroorzaakt](#what-causes-a-spark-application-outofmemoryerror-exception).
 
@@ -193,7 +191,7 @@ java.lang.OutOfMemoryError
 
 De meest waarschijnlijke oorzaak van deze uitzondering is dat er niet voldoende geheugen wordt toegewezen aan de virtuele machines voor Java (JVMs). Deze JVMs worden gestart als Executor of stuurprogramma's als onderdeel van de Spark-toepassing. 
 
-### <a name="resolution-steps"></a>Stappen voor het oplossen
+### <a name="resolution-steps"></a>Oplossingen
 
 1. De maximale grootte van de gegevens de Spark bepalen toepassing verwerkt. U kunt een schatting op basis van de maximale grootte van de invoergegevens, de tussenliggende gegevens die wordt geproduceerd door de invoergegevens transformeren en de uitvoergegevens die wordt gemaakt wanneer de toepassing verder van de tussenliggende gegevens omzetten is maken. Dit proces is een iteratief als u een initiële formele schatting niet maken. 
 

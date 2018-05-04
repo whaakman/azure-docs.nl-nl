@@ -6,13 +6,13 @@ manager: jlembicz
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/23/2017
+ms.date: 04/20/2018
 ms.author: jlembicz
-ms.openlocfilehash: cb011ee54894f53cda81d9d116899dcaeb558b6d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 278539a2451eb15c7148b75497798e81f5370a57
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>Een index voor documenten in meerdere talen in Azure Search maken
 > [!div class="op_single_selector"]
@@ -62,7 +62,7 @@ Veel webtoepassingen en mobiele toepassingen fungeren gebruikers overal ter were
 
 Als de taal van de agent een query uitvoert bekend is, een zoekaanvraag kan worden gericht op een bepaald veld met de **searchFields** queryparameter. De volgende query worden uitgegeven alleen op basis van de beschrijving in pools:
 
-`https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=description_pl&api-version=2016-09-01`
+`https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=description_pl&api-version=2017-11-11`
 
 U kunt uw index van de portal een query met **Search explorer** te plakken in een query die lijkt op de hierboven weergegeven. Search explorer is beschikbaar in de opdrachtbalk in de blade van de service. Zie [query uitvoeren op uw Azure Search-index in de portal](search-explorer.md) voor meer informatie.
 
@@ -77,7 +77,7 @@ Soms de taal van de agent een query uitvoert niet bekend is, in welk geval de qu
       }
     ]
 
-`https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2016-09-01`
+`https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2017-11-11`
 
 Als u een .NET-ontwikkelaar bent, houd er rekening mee dat u kunt configureren dat taalanalyse met behulp van de [Azure Search .NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Search). De meest recente versie biedt ondersteuning voor de taalanalyse Microsoft.
 

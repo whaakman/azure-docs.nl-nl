@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/7/2018
-ms.openlocfilehash: 7532e252638832ab6257d2edc97c98a03eef6316
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 1e8ad7a85739f67bf8130011ba18243ad0b4b9d0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-1-classify-iris---preparing-the-data"></a>Zelfstudie: classificeren van Iris deel 1 - gegevens voorbereiden
 
@@ -60,7 +60,7 @@ Als u de stappen in het artikel [Quickstart: Install and start](../service/quick
    Projectnaam | myIris |Voer een unieke naam in die uw account aanduidt. U kunt uw eigen naam gebruiken, maar ook de naam van een afdeling of project waarmee het experiment is verbonden. De naam moet minimaal 2 en maximaal 32 tekens lang zijn. De naam mag alleen alfanumerieke tekens en streepjes (-) bevatten. 
    Projectmap | c:\Temp\ | Selecteer de map waarin het project moet worden gemaakt.
    Projectbeschrijving | _leeg laten_ | Optioneel veld, nuttig voor het beschrijven van de projecten.
-   URL van GIT-opslagplaats Visualstudio.com |_leeg laten_ | Optioneel veld. U kunt een project koppelen aan een Git-opslagplaats in Visual Studio Team Services voor broncodebeheer en samenwerking. [Informatie over het instellen daarvan](https://docs.microsoft.com/en-us/azure/machine-learning/desktop-workbench/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
+   URL van GIT-opslagplaats Visualstudio.com |_leeg laten_ | Optioneel veld. U kunt een project koppelen aan een Git-opslagplaats in Visual Studio Team Services voor broncodebeheer en samenwerking. [Informatie over het instellen daarvan](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
    Geselecteerde werkruimte | IrisGarden (indien aanwezig) | Kies een werkruimte die u hebt gemaakt voor uw Experimenten-account in Azure Portal. <br/>Als u de snelstart hebt gevolgd, hebt u een werkruimte met de naam IrisGarden. Selecteer anders de werkruimte die u hebt gemaakt bij het maken van uw Experimenten-account, of een andere werkruimte die u wilt gebruiken.
    Projectsjabloon | Iris classificeren | Sjablonen bevatten scripts en gegevens die u kunt gebruiken om het product te verkennen. Deze sjabloon bevat de scripts en gegevens die u nodig hebt voor deze snelstart en andere zelfstudies op deze documentatiesite. 
 
@@ -90,7 +90,7 @@ Dit pakket kan later worden overgedragen aan een runtime, zoals local-C#/CoreCLR
 
    ![Gegevensweergave in Azure Machine Learning Workbench](media/tutorial-classifying-iris/data_view.png)
 
-3. Selecteer **Tekstbestanden\* (*.csv, \*.json, \*.txt., ...)** en klik op **Volgende**.
+3. Selecteer **Tekstbestanden(\*.csv, \*.json, \*.txt., ...)** en klik op **Volgende**.
    ![Gegevensbron in Azure Machine Learning Workbench](media/tutorial-classifying-iris/data-source.png)
 
 4. Blader naar het bestand **iris.csv**, en klik op **Voltooien**. Hiermee worden standaardwaarden gebruikt voor parameters zoals het scheidingsteken en gegevenstypen.

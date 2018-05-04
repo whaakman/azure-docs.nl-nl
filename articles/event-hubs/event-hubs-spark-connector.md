@@ -12,18 +12,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2018
-ms.author: shvija;sethm;sagrewal
-ms.openlocfilehash: b430b731bdb38f6fe8af347e082fdfb1ef36a945
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: shvija
+ms.openlocfilehash: 09790852d28f2f68e854b37256ca1c8edba992e6
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="integrating-apache-spark-with-azure-event-hubs"></a>Apache Spark integreren met Azure Event Hubs
 
-Azure Event Hubs integreert naadloos met [Apache Spark](https://spark.apache.org/) gedistribueerd streamingtoepassingen eenvoudig om ervoor te bouwen. Deze integratie ondersteunt [Spark Core](http://spark.apache.org/docs/latest/rdd-programming-guide.html), [Spark-Streaming](http://spark.apache.org/docs/latest/streaming-programming-guide.html), [gestructureerde Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html). De Event Hubs-connector voor Apache Spark is beschikbaar op [GitHub](https://github.com/Azure/azure-event-hubs-spark). Deze bibliotheek is ook beschikbaar voor gebruik in Maven-projecten uit de [Maven centrale opslagplaats](http://search.maven.org/#artifactdetails%7Ccom.microsoft.azure%7Cazure-eventhubs-spark_2.11%7C2.1.6%7C).
+Azure Event Hubs integreert naadloos met [Apache Spark](https://spark.apache.org/) gedistribueerd streamingtoepassingen bouwen inschakelen. Deze integratie ondersteunt [Spark Core](http://spark.apache.org/docs/latest/rdd-programming-guide.html), [Spark-Streaming](http://spark.apache.org/docs/latest/streaming-programming-guide.html), [gestructureerde Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html). De Event Hubs-connector voor Apache Spark is beschikbaar op [GitHub](https://github.com/Azure/azure-event-hubs-spark). Deze bibliotheek is ook beschikbaar voor gebruik in Maven-projecten uit de [Maven centrale opslagplaats](http://search.maven.org/#artifactdetails%7Ccom.microsoft.azure%7Cazure-eventhubs-spark_2.11%7C2.1.6%7C).
 
-Dit artikel laat zien hoe u toepassingen in een continue [Azure Databricks](https://azure.microsoft.com/services/databricks/). Hoewel dit artikel wordt [Azure Databricks](https://azure.microsoft.com/services/databricks/), Spark-Clusters zijn ook leverbaar met [HDInsight](../hdinsight/spark/apache-spark-overview.md).
+Dit artikel ziet u het maken van toepassingen in een continue [Azure Databricks](https://azure.microsoft.com/services/databricks/). Hoewel dit artikel wordt [Azure Databricks](https://azure.microsoft.com/services/databricks/), Spark-clusters zijn ook leverbaar met [HDInsight](../hdinsight/spark/apache-spark-overview.md).
 
 Het volgende voorbeeld worden twee Scala notitieblokken: één voor het streaming-gebeurtenissen van een event hub en één voor het verzenden van gebeurtenissen naar het.
 

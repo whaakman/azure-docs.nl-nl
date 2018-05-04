@@ -3,8 +3,8 @@ title: Aanbevolen procedures voor beveiliging van gegevens en versleuteling | Mi
 description: In dit artikel biedt een set met aanbevolen procedures voor beveiliging van gegevens en ingebouwde mogelijkheden van Azure met behulp van versleuteling.
 services: security
 documentationcenter: na
-author: YuriDio
-manager: swadhwa
+author: barclayn
+manager: mbalwin
 editor: TomSh
 ms.assetid: 17ba67ad-e5cd-4a8f-b435-5218df753ca4
 ms.service: security
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: yurid
-ms.openlocfilehash: 169234195fa75924a65680ce2f3fa6ee9633daae
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.date: 04/26/2018
+ms.author: barclayn
+ms.openlocfilehash: 574ca8a68bf6e532331a4b6f1106e472c8ab0449
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Best Practices voor beveiliging van gegevens van Azure en versleuteling
+
 Een van de sleutels voor bescherming van gegevens in de cloud is accounting voor de mogelijke statussen in die uw gegevens zich kunnen voordoen, en welke besturingselementen beschikbaar zijn voor die status. Omwille van de Azure data zijn versleuteling best practices voor beveiliging en de aanbevelingen om de statussen van de volgende gegevens:
 
 * In rust: Dit omvat alle informatie opslagobjecten, containers en typen die statisch bestaan op de fysieke media, worden deze magnetische of optische schijf.
@@ -50,6 +51,7 @@ Azure data beveiligings- en aanbevolen procedures in dit artikel wordt beschreve
 * Bestand niveau gegevensversleuteling afdwingen
 
 ## <a name="enforce-multi-factor-authentication"></a>Multi-factor Authentication afdwingen
+
 De eerste stap bij de toegang tot gegevens en beheer in Microsoft Azure is de gebruiker te verifiëren. [Azure multi-factor Authentication (MFA)](../active-directory/authentication/multi-factor-authentication.md) is een methode voor het verifiëren van de identiteit van gebruiker met een andere methode dan alleen een gebruikersnaam en wachtwoord. Deze verificatie methode helpt beveiliging toegang tot gegevens en toepassingen en te voldoen aan de behoeften van de gebruiker voor een eenvoudig proces aanmelden.
 
 Door Azure MFA inschakelen voor uw gebruikers, kunt u een tweede beveiligingslaag wilt toevoegen aan de gebruikersaanmeldingen en transacties. In dit geval een transactie kan toegang krijgen tot een document dat zich in een bestandsserver of op uw SharePoint Online. Azure MFA ook helpt IT verminderen de kans dat een verdachte referenties toegang tot gegevens van de organisatie hebben.
@@ -61,6 +63,7 @@ Een alternatief voor organisaties die u behouden van de verificatie besturingsel
 Lees het artikel voor meer informatie over Azure MFA [aan de slag met Azure multi-factor Authentication in de cloud](../active-directory/authentication/howto-mfa-getstarted.md).
 
 ## <a name="use-role-based-access-control-rbac"></a>Gebruik rollen gebaseerd toegangsbeheer (RBAC)
+
 Toegang beperken op basis de [moet weten](https://en.wikipedia.org/wiki/Need_to_know) en [minimale bevoegdheden](https://en.wikipedia.org/wiki/Principle_of_least_privilege) beveiligingsprincipes. Dit is noodzakelijk voor organisaties die willen beveiligingsbeleid instellen voor toegang tot gegevens. Azure op rollen gebaseerde toegangsbeheer (RBAC) kan worden gebruikt om machtigingen te wijzen aan gebruikers, groepen en toepassingen op een bepaalde scope. Het bereik van een roltoewijzing kan dit een abonnement, resourcegroep of één resource.
 
 U kunt gebruikmaken van [ingebouwde RBAC-rollen](../role-based-access-control/built-in-roles.md) in Azure rechten toewijzen aan gebruikers. Overweeg het gebruik van *Storage Account Inzender* voor cloudoperators die nodig zijn voor het beheren van storage-accounts en *klassieke Storage Account Inzender* rol voor het beheren van klassieke opslagaccounts. Voor cloudoperators die nodig zijn voor het beheren van virtuele machines en storage-account, kunt toevoegen aan *Virtual Machine Contributor* rol.
@@ -70,6 +73,7 @@ Organisaties die niet afgedwongen door toegangsbeheer gegevens dankzij het gebru
 U kunt meer informatie over Azure RBAC lezen van het artikel [rollen gebaseerd toegangsbeheer](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="encrypt-azure-virtual-machines"></a>Virtuele Machines van Azure versleutelen
+
 Voor veel organisaties [gegevensversleuteling in rust](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) is een verplichte stap naar privacy, naleving en gegevens onafhankelijkheid van gegevens. Azure Disk Encryption kunnen IT-beheerders voor het versleutelen van de schijven voor Windows en Linux IaaS virtuele Machine (VM). Azure Disk Encryption maakt gebruik van de branche standaard BitLocker-functie van Windows en de functie DM-Crypt van Linux voor volumeversleuteling voor het besturingssysteem en de gegevensschijven.
 
 U kunt gebruikmaken van Azure Disk Encryption om te helpen beveiligen en bescherming van uw gegevens om te voldoen aan uw organisatie beveiligings- en nalevingsvereisten. Organisaties moeten ook rekening houden met behulp van versleuteling op risico's met betrekking tot niet-geautoriseerde gegevenstoegang verminderen. Het is ook raadzaam stations voordat gevoelige gegevens schrijven naar ze te versleutelen.
@@ -125,6 +129,7 @@ Organisaties die geen gebruik van niveau versleuteling van de database maakt mog
 U meer informatie over SQL TDE versleuteling door te lezen van het artikel [Transparent Data Encryption met Azure SQL Database](https://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx).
 
 ## <a name="protect-data-in-transit"></a>De gegevens onderweg te beschermen
+
 Beveiligen van gegevens die onderweg moet essentieel onderdeel van uw strategie voor gegevensbescherming. Omdat de gegevens wordt heen en weer worden verplaatst vanaf verschillende locaties, is de algemene aanbeveling dat u altijd SSL/TLS-protocollen gebruiken voor het uitwisselen van gegevens op verschillende locaties. In sommige gevallen wilt u mogelijk het hele communicatiekanaal tussen uw on-premises en cloud isoleren infrastructuur met behulp van een virtueel particulier netwerk (VPN).
 
 Gegevens verplaatsen tussen uw on-premises infrastructuur en Azure, moet u passende beveiligingsmaatregelen zoals HTTPS- of VPN.
@@ -142,6 +147,7 @@ Organisaties die niet voldoen aan het beveiligen van gegevens die onderweg zijn 
 U kunt meer informatie over Azure VPN-optie lezen van het artikel [Planning en ontwerp voor VPN-Gateway](../vpn-gateway/vpn-gateway-plan-design.md).
 
 ## <a name="enforce-file-level-data-encryption"></a>Bestand niveau gegevensversleuteling afdwingen
+
 Een andere beschermingslaag die het niveau van beveiliging voor uw gegevens kunt verhogen met het versleutelen van het bestand zelf, ongeacht de locatie van het bestand.
 
 [Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) maakt gebruik van beleidsregels voor versleuteling, identiteit en verificatie om te helpen uw bestanden en e-mail te beveiligen. Azure RMS werkt op meerdere apparaten, telefoons, tablets en pc's voor beveiliging binnen uw organisatie en buiten uw organisatie. Deze mogelijkheid is mogelijk omdat Azure RMS wordt toegevoegd een beveiligingsniveau dat aan de gegevens gekoppeld blijft, zelfs wanneer deze de fysieke grenzen van uw organisatie.

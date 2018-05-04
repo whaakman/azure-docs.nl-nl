@@ -5,9 +5,9 @@ services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: v-shiuma
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 6/22/2017
 ms.author: rclaus
-ms.openlocfilehash: c8f858bf249c4b56ad4fe60654ab489676eceb1f
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: b291066137df004625029aef12c3db4d5441a89c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Ontwerpen en implementeren van een Oracle-database in Azure
 
@@ -50,7 +50,7 @@ De volgende tabel bevat enkele van de verschillen tussen een lokale implementati
 > | **Herstelmogelijkheden** |MBTF (gemiddelde tijd tussen storingen) |MTTR (gemiddelde tijd Recovery)|
 > | **Gepland onderhoud** |Patchen of upgrades worden uitgevoerd|[Beschikbaarheidssets](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) (patchen/upgrades worden beheerd door Azure) |
 > | **Resource** |Toegewezen  |Gedeeld met andere clients|
-> | **Regio 's** |Datacenters |[Regio paren](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability)|
+> | **Regio's** |Datacenters |[Regio paren](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability)|
 > | **Storage** |SAN of fysieke schijven |[Beheerde Azure-opslag](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
 > | **Schalen** |Verticale schaal |Horizontaal schalen|
 
@@ -64,7 +64,7 @@ De volgende tabel bevat enkele van de verschillen tussen een lokale implementati
 
 Er zijn vier mogelijke gebieden die u afstemmen kunt om de prestaties verbeteren in een Azure-omgeving:
 
-- Grootte van virtuele machine
+- Grootte virtuele machine
 - Netwerkdoorvoer
 - Schijftypen en configuraties
 - Schijf-cache-instellingen
@@ -99,7 +99,7 @@ Hieronder volgen de metrische gegevens die u kunt het rapport AWR ophalen:
 - Databasegrootte in GB
 - Bytes ontvangen via SQL * Net van/naar client
 
-### <a name="virtual-machine-size"></a>Grootte van virtuele machine
+### <a name="virtual-machine-size"></a>Grootte virtuele machine
 
 #### <a name="1-estimate-vm-size-based-on-cpu-memory-and-io-usage-from-the-awr-report"></a>1. VM-grootte van een schatting op basis van CPU, geheugen en i/o-gebruik van het rapport AWR
 
@@ -136,7 +136,7 @@ De totale netwerkdoorvoer geschat op basis van de volgende informatie:
 
 ![Schermafbeelding van de SQL * Net doorvoer](./media/oracle-design/sqlnet_info.png)
 
-Op basis van de vereisten van uw netwerkbandbreedte, zijn er verschillende gatewaytypen waarmee u kunt kiezen uit. Het gaat hierbij om basic, VpnGw en Azure ExpressRoute. Zie voor meer informatie de [VPN-gateway pagina met prijzen](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/?v=17.23h).
+Op basis van de vereisten van uw netwerkbandbreedte, zijn er verschillende gatewaytypen waarmee u kunt kiezen uit. Het gaat hierbij om basic, VpnGw en Azure ExpressRoute. Zie voor meer informatie de [VPN-gateway pagina met prijzen](https://azure.microsoft.com/pricing/details/vpn-gateway/?v=17.23h).
 
 **Aanbevelingen**
 

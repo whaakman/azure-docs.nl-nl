@@ -5,15 +5,15 @@ services: azure-policy
 keywords: ''
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 04/18/2018
+ms.date: 04/30/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: ''
-ms.openlocfilehash: 8b89e1c8ccfcfd7b53ecdd9172590424d1c7ae4c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: 285ee153a86270fe65846dc6a22786e007a8a595
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Structuur van Azure-beleidsdefinities
 
@@ -70,7 +70,7 @@ De **modus** bepaalt welke resourcetypen wordt geëvalueerd voor een beleid. De 
 * `all`: resourcegroepen en alle brontypen evalueren
 * `indexed`: alleen evalueren brontypen die ondersteuning bieden voor labels en locatie
 
-We raden u aan **modus** naar `all` in de meeste gevallen. Alle beleidsdefinities gemaakt via de portal de `all` modus. Als u PowerShell of Azure CLI gebruiken, moet u opgeven de **modus** parameter handmatig. Als de beleidsdefinitie geen bevat een **modus** waarde wordt standaard ingesteld op `indexed` voor achterwaartse compatibiliteit.
+We raden u aan **modus** naar `all` in de meeste gevallen. Alle beleidsdefinities gemaakt via de portal de `all` modus. Als u PowerShell of Azure CLI gebruiken, kunt u de **modus** parameter handmatig. Als de beleidsdefinitie geen bevat een **modus** waarde wordt standaard ingesteld op `all` in Azure PowerShell en zo de `null` in Azure CLI die gelijk is aan `indexed`, voor achterwaartse compatibiliteit.
 
 `indexed` moet worden gebruikt wanneer u beleidsregels maken die wordt afgedwongen tags of locaties. Dit is niet vereist, maar kan resources die geen ondersteuning bieden voor tags en locaties niet worden weergegeven als niet-compatibel in de nalevingsresultaten van de. De enige uitzondering hierop vormt **resourcegroepen**. Beleidsregels die u probeert om af te dwingen locatie of labels van een resourcegroep moeten ingesteld **modus** naar `all` en specifiek doel van de `Microsoft.Resources/subscriptions/resourceGroup` type. Zie voor een voorbeeld [afdwingen resource group-tags](scripts/enforce-tag-rg.md).
 

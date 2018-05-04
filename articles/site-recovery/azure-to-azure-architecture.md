@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 111217e9335b16659c93da88731e0b7ce6d5fecd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ffa60e24b93caaaefcab70c99fa2c76065d97233
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Architectuur van de replicatie van Azure naar Azure
 
@@ -46,7 +46,7 @@ Wanneer u replicatie voor virtuele machine van Azure inschakelt, worden de volge
 
 **Resource** | **Details**
 --- | ---
-**Doelresourcegroep** | De resourcegroep waartoe gerepliceerde virtuele machines na een failover behoren.
+**Doelresourcegroep** | De resourcegroep waartoe gerepliceerde virtuele machines na een failover behoren. De locatie van deze resourcegroep kan zich in een Azure-regio met uitzondering van de Azure-regio waarin u de bron virtuele machines worden gehost.
 **Doel virtueel netwerk** | Het virtuele netwerk waarin gerepliceerde virtuele machines zich bevinden na een failover. Een netwerktoewijzing wordt gemaakt tussen bron- en virtuele netwerken, en vice versa.
 **Cache-opslagaccounts** | Voordat u wijzigingen in gegevensbron VM worden gerepliceerd naar een doelopslagaccount, zijn ze bijgehouden en verzonden naar de storage-account van de cache in de bronlocatie. Deze stap zorgt ervoor dat minimale gevolgen voor de productietoepassingen die worden uitgevoerd op de virtuele machine.
 **Storage-accounts als doel (als de bron-VM maakt geen gebruik van schijven die worden beheerd)**  | Storage-accounts in de doellocatie waarnaar de gegevens worden gerepliceerd.

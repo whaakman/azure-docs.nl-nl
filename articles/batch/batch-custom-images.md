@@ -1,18 +1,18 @@
 ---
-title: "Azure Batch-pools van aangepaste installatiekopieën inrichten | Microsoft Docs"
-description: "U kunt een Batch toepassingen van een aangepaste installatiekopie die u wilt inrichten rekenknooppunten die de software en gegevens die u nodig hebt voor uw toepassing bevatten. Aangepaste installatiekopieën zijn een efficiënte manier voor het configureren van rekenknooppunten om uit te voeren van uw Batch-workloads."
+title: Azure Batch-pools van aangepaste installatiekopieën inrichten | Microsoft Docs
+description: U kunt een Batch toepassingen van een aangepaste installatiekopie die u wilt inrichten rekenknooppunten die de software en gegevens die u nodig hebt voor uw toepassing bevatten. Aangepaste installatiekopieën zijn een efficiënte manier voor het configureren van rekenknooppunten om uit te voeren van uw Batch-workloads.
 services: batch
 author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 04/23/2018
 ms.author: danlep
-ms.openlocfilehash: 63a567e9fdfef8dfceb275953cc0ac606355ea30
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 78bc50a1189d8f42281f81643a5e907d94480082
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-a-managed-custom-image-to-create-a-pool-of-virtual-machines"></a>Een beheerde aangepaste installatiekopie gebruiken voor een pool van virtuele machines maken 
 
@@ -40,7 +40,7 @@ Met een aangepaste installatiekopie die is geconfigureerd voor uw scenario kan v
 
     
 ## <a name="prepare-a-custom-image"></a>Een aangepaste installatiekopie voorbereiden
-U kunt een begeleide afbeelding voorbereiden vanaf een VHD, een Azure-VM met beheerde schijven of een VM-momentopname. 
+U kunt een begeleide afbeelding voorbereiden vanaf een VHD, een Azure-VM met beheerde schijven of een VM-momentopname. Voor Batch, wordt u aangeraden een begeleide afbeelding van een virtuele machine met beheerde schijven of een VM-momentopname maken. De installatiekopie van het beheerde en de onderliggende resource moeten bestaan voor de groepen voor het omhoog schalen en kunnen worden verwijderd nadat de pool wordt verwijderd. 
 
 Bij het voorbereiden van uw installatiekopie, houd er rekening mee houden de volgende punten:
 

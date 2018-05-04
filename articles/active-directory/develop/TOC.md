@@ -69,9 +69,9 @@
 ## [ACS-migratie](active-directory-acs-migration.md)
 ## [Best practices voor foutafhandeling voor ADAL](active-directory-devhowto-adal-error-handling.md)
 # Naslaginformatie
-## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [Codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Auth-bibliotheken (ADAL)](active-directory-authentication-libraries.md)
-## [Codevoorbeelden artikel](active-directory-code-samples.md)
+## [Codevoorbeelden per scenario](active-directory-code-samples.md)
 ## [Woordenlijst](active-directory-dev-glossary.md)
 ## [Verificatieprotocollen](active-directory-authentication-protocols.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
@@ -97,7 +97,8 @@
 ### Mobiele en desktop-apps
 #### [iOS](guidedsetups/active-directory-ios.md)
 #### [Android](guidedsetups/active-directory-android.md)
-#### [.NET (Windows Desktop)](guidedsetups/active-directory-windesktop.md)
+#### [.NET voor Windows-bureaublad](guidedsetups/active-directory-windesktop.md)
+#### [Universeel Windows-platform](guidedsetups/active-directory-uwp-v2.md)
 ### Web-apps
 #### [ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
 #### [NodeJS](active-directory-v2-devquickstarts-node-web.md)
@@ -109,8 +110,10 @@
 #### [ASP.NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)
 ## Handleidingen
 ### [Een app registreren](active-directory-v2-app-registration.md)
+### [Naslaginformatie over app-registratie](active-directory-v2-registration-portal.md)
 ## Naslaginformatie
 ### [Verificatiebibliotheken](active-directory-v2-libraries.md)
+### [v2.0-codevoorbeelden per scenario](active-directory-v2-code-samples.md)
 ### [v2.0-verificatieprotocollen](active-directory-v2-protocols.md)
 #### [OpenID Connect](active-directory-v2-protocols-oidc.md)
 #### [OAuth 2.0-autorisatiecode verlenen](active-directory-v2-protocols-oauth-code.md)

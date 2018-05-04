@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.openlocfilehash: d092f5f6c59351530941d47565ee2c4905ddd2e7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 16d35a6b36f4dd85db430e05abdff898affbfd67
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Aan de slag met Azure Cloud Services en ASP.NET
 
@@ -767,7 +767,6 @@ Hier volgen enkele voorbeelden, in oplopende volgorde van complexiteit, van clou
 
 * [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). Qua concept soortgelijk aan Contoso Ads, maar met meer functies en meer code.
 * [Azure Cloud Service-toepassing met meerdere lagen die opslagtabellen, wachtrijen en blobs bevat](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Introduceert Azure Storage-tabellen, evenals blobs en wachtrijen. Deze toepassing is gebaseerd op een oudere versie van de Azure SDK voor .NET. Voor gebruik met de huidige versie is een aantal wijzigingen nodig.
-* [Cloud Service Fundamentals in Microsoft Azure](http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Een uitgebreid voorbeeld met een breed scala aan aanbevolen procedures, opgezet door de Microsoft Patterns and Practice-groep.
 
 Zie [Echte cloud-apps ontwikkelen met Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction) voor algemene informatie over ontwikkelen voor de cloud.
 
@@ -777,5 +776,5 @@ Zie de volgende bronnen voor meer informatie:
 
 * [Deel 1 Azure Cloud Services: Inleiding](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Cloud Services beheren](cloud-services-how-to-manage-portal.md)
-* [Azure Storage](/documentation/services/storage/)
+* [Azure Storage](https://docs.microsoft.com/azure/storage/)
 * [Een cloudserviceprovider kiezen](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

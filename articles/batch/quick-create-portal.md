@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a00c8ea07c31d2ab4ba2638f2a7e4adcf5ca4a10
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f6b2cc8f3e27b65f225014ec92a7e99851eac743
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Snelstartgids: Uw eerste Batch-taak uitvoeren in Azure Portal
 
@@ -37,7 +37,7 @@ Volg deze stappen om een Batch-voorbeeldaccount te maken voor testdoeleinden. U 
 
 2. Voer waarden in bij **Accountnaam** en **Resourcegroep**. De accountnaam moet uniek zijn voor de geselecteerde Azure-**locatie**. Gebruik alleen kleine letters of cijfers, en kies een naam van minimaal 3 en maximaal 24 tekens. 
 
-3. Selecteer bij **Opslagaccount** een bestaand opslagaccount voor algemeen gebruik of maak een nieuw opslagaccount.
+3. Selecteer in **Opslagaccount** een bestaand opslagaccount of maak een nieuw opslagaccount.
 
 4. Laat de overige instellingen op de standaardwaarden staan, en klik op **Maken** om het account te maken.
 
@@ -84,7 +84,7 @@ Na enkele minuten is de status van de pool **Onveranderlijk** en worden de knoop
 
 ## <a name="create-a-job"></a>Een taak maken
 
-Nu u beschikt over een pool, kunt u een taak maken om uit te voeren op deze pool. Een Batch-taak is een logische groep met een of meer taken. Een Batch-taak omvat instellingen die gemeenschappelijk zijn voor de taken, zoals prioriteit en de pool waarop taken moeten worden uitgevoerd. De Batch-taak heeft in eerste instantie geen taken. 
+Nu u beschikt over een pool, kunt u een Batch-taak maken om uit te voeren op deze pool. Een Batch-taak is een logische groep met een of meer taken. Een Batch-taak omvat instellingen die gemeenschappelijk zijn voor de taken, zoals prioriteit en de pool waarop taken moeten worden uitgevoerd. De Batch-taak heeft in eerste instantie geen taken. 
 
 1. Klik in de weergave Batch-account op **Taken** > **Toevoegen**. 
 

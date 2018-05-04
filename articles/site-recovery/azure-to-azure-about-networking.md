@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: sujayt
-ms.openlocfilehash: f318f98479caed8efb4a3705939cb9ac0dd5b237
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: e3acedf4135166f5239b95eb21eb5dfd66d6100f
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Over netwerken in Azure-Azure-replicatie
 
@@ -31,7 +31,7 @@ Het volgende diagram ziet u een typische Azure-omgeving, voor toepassingen die w
 
 ![klant-omgeving](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
 
-Als u Azure ExpressRoute of een VPN-verbinding vanuit uw on-premises netwerk naar Azure, wordt de omgeving ziet er als volgt:
+Als u Azure ExpressRoute of een VPN-verbinding vanuit uw on-premises netwerk naar Azure, lijkt de omgeving als volgt:
 
 ![klant-omgeving](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
 
@@ -58,11 +58,11 @@ login.microsoftonline.com | Vereist voor autorisatie en verificatie met de Site 
 Als u een op basis van IP-firewallproxy of NSG-regels gebruikt voor het beheren van uitgaande verbinding, moeten deze IP-adresbereiken worden toegestaan.
 
 - Alle IP-adresbereiken die met de storage-accounts in bron regio overeenkomen
-    - U moet maken een [opslag servicetag](../virtual-network/security-overview.md#service-tags) op basis van NSG-regel voor de bron-regio.
-    - U moet deze adressen toestaan, zodat gegevens kunnen worden geschreven naar de cache storage-account van de virtuele machine.
+    - Maak een [opslag servicetag](../virtual-network/security-overview.md#service-tags) op basis van NSG-regel voor de bron-regio.
+    - Toestaan dat deze adressen zodat gegevens kunnen worden geschreven naar de cache storage-account van de virtuele machine.
 - Alle IP-adresbereiken die met Office 365 overeenkomen [authenticatie en identiteit IP V4-eindpunten](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
-    - Als het nieuwe adres worden toegevoegd aan de Office 365-bereiken in de toekomst, moet u nieuwe NSG-regels te maken.
-- Site Recovery service-eindpunt IP-adressen. Dit zijn beschikbaar in een [XML-bestand](https://aka.ms/site-recovery-public-ips) en zijn afhankelijk van uw target-locatie.
+    - Als het nieuwe adressen worden toegevoegd aan de Office 365-bereiken in de toekomst, moet u nieuwe NSG-regels te maken.
+- Site Recovery-service-eindpunt IP-adressen - beschikbaar zijn in een [XML-bestand](https://aka.ms/site-recovery-public-ips) en zijn afhankelijk van uw target-locatie.
 -  U kunt [downloaden en gebruiken van dit script](https://aka.ms/nsg-rule-script), automatisch de vereiste regels maken op het NSG.
 - U wordt aangeraden de vereiste NSG-regels maken op een test NSG en controleert u of er geen problemen voordat u de regels voor een productie-NSG maken.
 
@@ -98,8 +98,8 @@ Site Recovery-IP-adresbereiken zijn als volgt:
    VK, noord | 51.142.209.167 | 13.87.102.68
    Korea - centraal | 52.231.28.253 | 52.231.32.85
    Korea - zuid | 52.231.298.185 | 52.231.200.144
-
-
+   Frankrijk - centraal | 52.143.138.106 | 52.143.136.55
+   Frankrijk - zuid | 52.136.139.227 |52.136.136.62
 
 
 ## <a name="example-nsg-configuration"></a>Voorbeeldconfiguratie voor NSG
@@ -138,7 +138,7 @@ Deze regels zijn vereist voor replicatie naar de bron regio na een failover van 
 
 ## <a name="network-virtual-appliance-configuration"></a>Netwerkconfiguratie van het virtuele apparaat
 
-Als u virtuele netwerkapparaten (NVAs) waarmee uitgaand verkeer van virtuele machines gebruikt, kan het toestel ophalen beperkt als het replicatieverkeer de NVA passeert. We raden u aan een service-eindpunt van het netwerk maken in het virtuele netwerk voor de opslag van' ', zodat het replicatieverkeer niet naar de NVA.
+Als u virtuele netwerkapparaten (NVAs) waarmee uitgaand verkeer van virtuele machines gebruikt, kan het toestel ophalen beperkt als het replicatieverkeer de NVA passeert. Het is raadzaam om een service-eindpunt van het netwerk maken in het virtuele netwerk voor 'Opslag', zodat het replicatieverkeer niet naar de NVA.
 
 ### <a name="create-network-service-endpoint-for-storage"></a>Network service-eindpunt voor opslag maken
 U kunt een service-eindpunt van het netwerk maken in uw virtuele netwerk voor 'Opslag' zodat het replicatieverkeer niet Azure grens laat.
@@ -153,42 +153,11 @@ U kunt een service-eindpunt van het netwerk maken in uw virtuele netwerk voor 'O
 >[!NOTE]
 >Toegang tot het virtuele netwerk niet beperken naar uw storage-accounts voor ASR gebruikt. U moet toegang toestaan via 'Alle netwerken'
 
-## <a name="expressroutevpn"></a>ExpressRoute/VPN
-
-Als u een ExpressRoute- of VPN-verbinding tussen on-premises en Azure-locatie hebt, volgt u de richtlijnen in deze sectie.
-
 ### <a name="forced-tunneling"></a>Geforceerde tunneling
 
-Normaal gesproken definieert u een standaardroute (0.0.0.0/0) dat ervoor zorgt uitgaand internetverkeer dat stromen via de on-premises locatie of. We raden niet dit. Het replicatieverkeer verlaat niet de Azure-grens.
-
-U kunt [maken van een service-eindpunt van het netwerk](#create-network-service-endpoint-for-storage) in uw virtuele netwerk voor 'Opslag' zodat het replicatieverkeer niet Azure grens laat.
-
-
-### <a name="connectivity"></a>Connectiviteit
-
-Volg deze richtlijnen voor verbindingen tussen de doellocatie en de on-premises-locatie:
-- Als uw toepassing moet verbinding maken met de lokale machines of als er clients die verbinding met de toepassing van on-premises via VPN en ExpressRoute maken, zorg ervoor dat er ten minste een [site-naar-site-verbinding](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) tussen het doel-Azure-regio en de on-premises datacentrum.
-
-- Als u verwacht veel verkeer tussen het doel-Azure-regio en de on-premises datacentrum dat, moet u een andere maken [ExpressRoute-verbinding](../expressroute/expressroute-introduction.md) tussen de doel-Azure-regio en de on-premises datacentrum.
-
-- Als u behouden die IP-adressen voor de virtuele machines wilt nadat ze een failover, houd de doelregio site-naar-site en ExpressRoute-verbinding verbroken. Dit is om te controleren of er is geen bereik-conflict tussen de bron-regio IP-adresbereiken en van de doelregio-IP-adresbereiken.
-
-### <a name="expressroute-configuration"></a>De configuratie van ExpressRoute
-Volg deze aanbevolen procedures voor de ExpressRoute-configuratie:
-
-- Maak een ExpressRoute-circuit in zowel de bron- en regio's. Vervolgens moet u een verbinding maken tussen:
-    - Het virtuele netwerk van de bron en de on-premises netwerk, via het ExpressRoute-circuit in het brongebied.
-    - Het virtuele netwerk en de on-premises netwerk, via het ExpressRoute-circuit in de doelregio.
-
-
-- U kunt als onderdeel van de standaard ExpressRoute circuits maken in dezelfde geopolitieke regio. Voor het maken van ExpressRoute-circuits in andere geopolitieke regio's, Azure ExpressRoute Premium is vereist, die betrekking heeft op een incrementele kosten. (Als u al van ExpressRoute Premium gebruikmaakt, er is geen extra kosten verbonden.) Zie voor meer informatie de [ExpressRoute-locaties document](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) en [ExpressRoute prijzen](https://azure.microsoft.com/pricing/details/expressroute/).
-
-- Het is raadzaam dat u verschillende IP-adresbereiken in bron en doel-regio's. Het ExpressRoute-circuit niet mogelijk om te verbinden met twee virtuele Azure-netwerken met de dezelfde IP-adresbereiken op hetzelfde moment.
-
-- U kunt virtuele netwerken maken met de dezelfde IP-adresbereiken in beide regio's en maak vervolgens ExpressRoute-circuits in beide regio's. Verbreek de verbinding tussen het circuit het virtuele netwerk van de bron in het geval van een failover en verbinding maken met het circuit in het virtuele netwerk.
-
- >[!IMPORTANT]
- > Als de primaire regio volledig niet actief is, kan de bewerking van de verbinding verbreken mislukken. Die wordt voorkomen dat het virtuele doelnetwerk ExpressRoute-verbinding ophalen.
+U kunt Azure standaardroute systeem voor het adresvoorvoegsel 0.0.0.0/0 met onderdrukken een [aangepaste route](../virtual-network/virtual-networks-udr-overview.md#custom-routes) en het omleiden van verkeer van de virtuele machine naar een virtueel apparaat voor lokale netwerk (NVA), maar deze configuratie wordt niet aanbevolen voor de Site Recovery replicatie. Als u aangepaste routes gebruikt, moet u [maken van een service-eindpunt van het virtuele netwerk](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) in uw virtuele netwerk voor 'Opslag' zodat het replicatieverkeer de grens van Azure niet laat.
 
 ## <a name="next-steps"></a>Volgende stappen
-Beginnen met het beveiligen van uw werkbelastingen door [virtuele Azure-machines repliceren](site-recovery-azure-to-azure.md).
+- Beginnen met het beveiligen van uw werkbelastingen door [virtuele Azure-machines repliceren](site-recovery-azure-to-azure.md).
+- Meer informatie over [IP-adres bewaren](site-recovery-retain-ip-azure-vm-failover.md) voor failover van de virtuele machine van Azure.
+- Meer informatie over herstel na noodgevallen van [Azure virtuele machines met ExpressRoute ](azure-vm-disaster-recovery-with-expressroute.md).

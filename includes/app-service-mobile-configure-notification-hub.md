@@ -8,4 +8,4 @@ Maakt gebruik van de functie Mobile Apps van Azure App Service [Azure Notificati
 U hebt nu een notification hub verbonden met uw mobiele Apps van back-end-project. Later kunt u deze notification hub om verbinding met een platform notification system (PNS) voor de push-apparaten te configureren.
 
 [Azure-portal]: https://portal.azure.com/
-[Azure Notification Hubs]: https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-push-notification-overview/
+[Azure Notification Hubs]: https://azure.microsoft.com/documentation/articles/notification-hubs-push-notification-overview/

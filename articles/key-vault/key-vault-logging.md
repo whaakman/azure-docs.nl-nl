@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/16/2017
 ms.author: barclayn
-ms.openlocfilehash: 3406d314fb4dba92830933c4e4d373fc8bebeba3
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e7dcb3778de31258f4aa3c946ffa214d87cb858a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-key-vault-logging"></a>Logboekregistratie van Azure Sleutelkluis
 Azure Sleutelkluis is beschikbaar in de meeste regio's. Zie de pagina [Prijzen van Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) voor meer informatie.
@@ -235,32 +235,32 @@ De volgende tabel bevat de operationName en de bijbehorende REST-API-opdracht.
 | operationName | REST-API-opdracht |
 | --- | --- |
 | Verificatie |Via het Azure Active Directory-eindpunt |
-| VaultGet |[Informatie over een sleutelkluis ophalen](https://msdn.microsoft.com/en-us/library/azure/mt620026.aspx) |
-| VaultPut |[Een sleutelkluis maken of bijwerken](https://msdn.microsoft.com/en-us/library/azure/mt620025.aspx) |
-| VaultDelete |[Een sleutelkluis verwijderen](https://msdn.microsoft.com/en-us/library/azure/mt620022.aspx) |
+| VaultGet |[Informatie over een sleutelkluis ophalen](https://msdn.microsoft.com/library/azure/mt620026.aspx) |
+| VaultPut |[Een sleutelkluis maken of bijwerken](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
+| VaultDelete |[Een sleutelkluis verwijderen](https://msdn.microsoft.com/library/azure/mt620022.aspx) |
 | VaultPatch |[Een sleutelkluis bijwerken](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
-| VaultList |[Alle sleutelkluizen in een resourcegroep weergeven](https://msdn.microsoft.com/en-us/library/azure/mt620027.aspx) |
-| KeyCreate |[Een sleutel maken](https://msdn.microsoft.com/en-us/library/azure/dn903634.aspx) |
-| KeyGet |[Informatie over een sleutel ophalen](https://msdn.microsoft.com/en-us/library/azure/dn878080.aspx) |
-| KeyImport |[Een sleutel in een kluis importeren](https://msdn.microsoft.com/en-us/library/azure/dn903626.aspx) |
-| KeyBackup |[Back-up maken van een sleutel](https://msdn.microsoft.com/en-us/library/azure/dn878058.aspx). |
-| KeyDelete |[Een sleutel verwijderen](https://msdn.microsoft.com/en-us/library/azure/dn903611.aspx) |
-| KeyRestore |[Een sleutel herstellen](https://msdn.microsoft.com/en-us/library/azure/dn878106.aspx) |
-| KeySign |[Aanmelden met een sleutel](https://msdn.microsoft.com/en-us/library/azure/dn878096.aspx) |
-| KeyVerify |[Verifiëren met een sleutel](https://msdn.microsoft.com/en-us/library/azure/dn878082.aspx) |
-| KeyWrap |[Een sleutel inpakken](https://msdn.microsoft.com/en-us/library/azure/dn878066.aspx) |
-| KeyUnwrap |[Een sleutel uitpakken](https://msdn.microsoft.com/en-us/library/azure/dn878079.aspx) |
-| KeyEncrypt |[Versleutelen met een sleutel](https://msdn.microsoft.com/en-us/library/azure/dn878060.aspx) |
-| KeyDecrypt |[Ontsleutelen met een sleutel](https://msdn.microsoft.com/en-us/library/azure/dn878097.aspx) |
-| KeyUpdate |[Een sleutel bijwerken](https://msdn.microsoft.com/en-us/library/azure/dn903616.aspx) |
-| KeyList |[De sleutels in een kluis weergeven](https://msdn.microsoft.com/en-us/library/azure/dn903629.aspx) |
-| KeyListVersions |[De versies van een sleutel weergeven](https://msdn.microsoft.com/en-us/library/azure/dn986822.aspx) |
-| SecretSet |[Een geheim maken](https://msdn.microsoft.com/en-us/library/azure/dn903618.aspx) |
-| SecretGet |[Een geheim ophalen](https://msdn.microsoft.com/en-us/library/azure/dn903633.aspx) |
-| SecretUpdate |[Een geheim bijwerken](https://msdn.microsoft.com/en-us/library/azure/dn986818.aspx) |
-| SecretDelete |[Een geheim verwijderen](https://msdn.microsoft.com/en-us/library/azure/dn903613.aspx) |
-| SecretList |[Geheimen in een kluis weergeven](https://msdn.microsoft.com/en-us/library/azure/dn903614.aspx) |
-| SecretListVersions |[Versies van een geheim weergeven](https://msdn.microsoft.com/en-us/library/azure/dn986824.aspx) |
+| VaultList |[Alle sleutelkluizen in een resourcegroep weergeven](https://msdn.microsoft.com/library/azure/mt620027.aspx) |
+| KeyCreate |[Een sleutel maken](https://msdn.microsoft.com/library/azure/dn903634.aspx) |
+| KeyGet |[Informatie over een sleutel ophalen](https://msdn.microsoft.com/library/azure/dn878080.aspx) |
+| KeyImport |[Een sleutel in een kluis importeren](https://msdn.microsoft.com/library/azure/dn903626.aspx) |
+| KeyBackup |[Back-up maken van een sleutel](https://msdn.microsoft.com/library/azure/dn878058.aspx). |
+| KeyDelete |[Een sleutel verwijderen](https://msdn.microsoft.com/library/azure/dn903611.aspx) |
+| KeyRestore |[Een sleutel herstellen](https://msdn.microsoft.com/library/azure/dn878106.aspx) |
+| KeySign |[Aanmelden met een sleutel](https://msdn.microsoft.com/library/azure/dn878096.aspx) |
+| KeyVerify |[Verifiëren met een sleutel](https://msdn.microsoft.com/library/azure/dn878082.aspx) |
+| KeyWrap |[Een sleutel inpakken](https://msdn.microsoft.com/library/azure/dn878066.aspx) |
+| KeyUnwrap |[Een sleutel uitpakken](https://msdn.microsoft.com/library/azure/dn878079.aspx) |
+| KeyEncrypt |[Versleutelen met een sleutel](https://msdn.microsoft.com/library/azure/dn878060.aspx) |
+| KeyDecrypt |[Ontsleutelen met een sleutel](https://msdn.microsoft.com/library/azure/dn878097.aspx) |
+| KeyUpdate |[Een sleutel bijwerken](https://msdn.microsoft.com/library/azure/dn903616.aspx) |
+| KeyList |[De sleutels in een kluis weergeven](https://msdn.microsoft.com/library/azure/dn903629.aspx) |
+| KeyListVersions |[De versies van een sleutel weergeven](https://msdn.microsoft.com/library/azure/dn986822.aspx) |
+| SecretSet |[Een geheim maken](https://msdn.microsoft.com/library/azure/dn903618.aspx) |
+| SecretGet |[Een geheim ophalen](https://msdn.microsoft.com/library/azure/dn903633.aspx) |
+| SecretUpdate |[Een geheim bijwerken](https://msdn.microsoft.com/library/azure/dn986818.aspx) |
+| SecretDelete |[Een geheim verwijderen](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
+| SecretList |[Geheimen in een kluis weergeven](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
+| SecretListVersions |[Versies van een geheim weergeven](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
 
 ## <a id="loganalytics"></a>Log Analytics gebruiken
 

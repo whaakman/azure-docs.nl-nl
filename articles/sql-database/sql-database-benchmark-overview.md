@@ -9,18 +9,18 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: janeng
-ms.openlocfilehash: 0dae04ab3de16e2ef51134ec6979c6c289a6da3f
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: dbe991ddaa4d85ee3d117dc3c0c246a642b53f2f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-sql-database-dtu-benchmark-overview"></a>Overzicht van Azure SQL Database DTU benchmark
 ## <a name="overview"></a>Overzicht
-In de DTU gebaseerde aankoopmodel, Microsoft Azure SQL Database biedt drie [Servicelagen](sql-database-service-tiers.md) met meerdere prestatieniveaus. Elke prestatieniveau biedt een toenemende verzameling resources of power, ontworpen voor steeds meer hogere doorvoer.
+In de DTU gebaseerde aankoopmodel, Microsoft Azure SQL Database biedt drie [Servicelagen](sql-database-service-tiers-dtu.md) met meerdere prestatieniveaus. Elke prestatieniveau biedt een toenemende verzameling resources of power, ontworpen voor steeds meer hogere doorvoer.
 
 > [!IMPORTANT]
-> Azure SQL Database ondersteunt nu ook een vCore gebaseerde aankoopmodel (preview). Zie voor informatie [vCore gebaseerde aankoopmodel (preview)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview).
+> Azure SQL Database ondersteunt nu ook een vCore gebaseerde aankoopmodel (preview). Zie voor informatie [aankoopmodel vCore gebaseerde](sql-database-service-tiers-vcore.md).
 
 Het is belangrijk om te bepalen hoe de toenemende macht van elke prestatieniveau zet in verbeterde databaseprestaties. U doet dit Microsoft heeft ontwikkeld Azure SQL Database Benchmark (ASDB). De benchmark oefent een combinatie van basisbewerkingen gevonden in alle OLTP-werkbelastingen. We meten van de doorvoer voor databases die worden uitgevoerd op elk prestatieniveau worden gerealiseerd.
 
@@ -126,6 +126,8 @@ De Azure SQL Database-Benchmark meet de relatieve prestaties van Azure SQL Datab
 ## <a name="resources"></a>Resources
 [Inleiding tot SQL Database](sql-database-technical-overview.md)
 
-[Servicelagen en prestatieniveaus](sql-database-service-tiers.md)
+[Op basis van DTU Servicelagen en prestatieniveaus](sql-database-service-tiers-dtu.md)
+
+[op basis van vCore Servicelagen en prestatieniveaus](sql-database-service-tiers-vcore.md)
 
 [Prestaties richtlijnen voor individuele databases](sql-database-performance-guidance.md)

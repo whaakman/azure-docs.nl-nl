@@ -5,8 +5,8 @@ services: advisor
 documentationcenter: NA
 author: KumudD
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: e32723cd3ef13829890a630f4bff308164e17674
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 00abb5aafc6f3aec2e2dd7326a307bee74d97cc1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="advisor-performance-recommendations"></a>Aanbevelingen van Advisor-prestaties
 
@@ -31,11 +31,11 @@ Advisor biedt een consistente, geconsolideerde weergave van aanbevelingen voor a
 > [!NOTE]
 > Als u de aanbevelingen, moet een database over een week van het gebruik van, en binnen een week moet er een consistente activiteit. SQL Database Advisor kunt eenvoudiger voor consistente querypatronen dan voor willekeurige lichtflitsen activiteit optimaliseren.
 
-Zie voor meer informatie over SQL Database Advisor [SQL Database Advisor](https://azure.microsoft.com/en-us/documentation/articles/sql-database-advisor/).
+Zie voor meer informatie over SQL Database Advisor [SQL Database Advisor](https://azure.microsoft.com/documentation/articles/sql-database-advisor/).
 
 ## <a name="improve-redis-cache-performance-and-reliability"></a>De Redis-Cache-prestaties en betrouwbaarheid verbeteren
 
-Advisor identificeert exemplaren van Redis-Cache waarbij prestaties mogelijk negatief beïnvloed door hoog geheugengebruik, serverbelasting, bandbreedte van het netwerk of een groot aantal clientverbindingen. Advisor biedt ook aanbevolen procedures aanbevelingen om te voorkomen, potentiële problemen. Zie voor meer informatie over Redis-Cache aanbevelingen [Redis-Cache Advisor](https://azure.microsoft.com/en-us/documentation/articles/cache-configure/#redis-cache-advisor).
+Advisor identificeert exemplaren van Redis-Cache waarbij prestaties mogelijk negatief beïnvloed door hoog geheugengebruik, serverbelasting, bandbreedte van het netwerk of een groot aantal clientverbindingen. Advisor biedt ook aanbevolen procedures aanbevelingen om te voorkomen, potentiële problemen. Zie voor meer informatie over Redis-Cache aanbevelingen [Redis-Cache Advisor](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor).
 
 
 ## <a name="improve-app-service-performance-and-reliability"></a>App Service-prestaties en betrouwbaarheid te verbeteren
@@ -44,7 +44,7 @@ Azure Advisor kan worden geïntegreerd met aanbevelingen voor uw App Services-er
 * Detectie van exemplaren waar het geheugen of CPU-bronnen zijn uitgeput door app runtimes met risicobeperking opties.
 * Detectie van exemplaren waar collocating resources, zoals web-apps en -databases kan de prestaties en lagere kosten verbeteren. 
 
-Zie voor meer informatie over App-Services aanbevelingen [aanbevolen procedures voor het Azure App Service](https://azure.microsoft.com/en-us/documentation/articles/app-service-best-practices/).
+Zie voor meer informatie over App-Services aanbevelingen [aanbevolen procedures voor het Azure App Service](https://azure.microsoft.com/documentation/articles/app-service-best-practices/).
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Toegang tot de aanbevelingen van de prestaties in Advisor
 

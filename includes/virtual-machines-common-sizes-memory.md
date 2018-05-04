@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 3652e26bb775ae6ac1897bea529e7ae69d77cdbd
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: ba73f386a19cc8bedb8879e6f7eea316154b7a57
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 Geoptimaliseerd voor geheugen aanbieding voor VM-grootten een hoge ratio van geheugen voor CPU die zijn ideaal voor relationele database-servers, middelgrote tot grote caches en in het geheugen analytics. In dit artikel bevat informatie over het aantal Vcpu, gegevensschijven en NIC's, evenals opslag doorvoer en bandbreedte voor elke grootte in deze groepering. 
 
@@ -22,8 +22,9 @@ Geoptimaliseerd voor geheugen aanbieding voor VM-grootten een hoge ratio van geh
 
 * Virtuele machines uit de D-serie zijn ontworpen voor het uitvoeren van toepassingen die meer rekenvermogen en tijdelijke schijfprestaties vereisen. Virtuele machines uit de D-serie hebben snellere processors, een hogere geheugen-naar-vCPU-snelheid en een SSD (solid-state drive) voor tijdelijke opslag. Voor meer informatie leest u de aankondiging in de Azure-blog [New D-Series Virtual Machine Sizes](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/) (Nieuwe grootten van virtuele machines uit de D-serie).
 
-* De Dv2-serie, de opvolger van de oorspronkelijke D-serie, heeft een krachtigere CPU. De CPU van de Dv2-serie is ongeveer 35% sneller dan de CPU van de D-serie. Deze is gebaseerd op de nieuwste generatie Intel Xeon® E5-2673 v3-processor van 2,4 GHz (Haswell). Met Intel Turbo Boost Technology 2.0 kunnen ze maar liefst 3,1 GHz bereiken. De Dv2-serie heeft dezelfde geheugen- en schijfconfiguraties als de D-serie.
+* De Dv2-serie, de opvolger van de oorspronkelijke D-serie, heeft een krachtigere CPU. De CPU van de Dv2-serie is ongeveer 35% sneller dan de CPU van de D-serie. Deze is gebaseerd op de nieuwste 2,4 GHz Intel Xeon® E5-2673 v3 2,4 GHz (Haswell) of E5 2673 v4 2.3 GHz (Broadwell) processors, en met de 2.0-technologie van Intel Turbo versterking tot 3.1 GHz kunt gaan. De Dv2-serie heeft dezelfde geheugen- en schijfconfiguraties als de D-serie.
 
+* De Ev3-serie functies de E5-2673 v4 2.3 GHz (Broadwell) processor in een hyper-threaded configuratie biedt een betere toegevoegde waarde voor de meest algemene doel werkbelastingen en de Ev3 uitgelijnd met de virtuele machines in het algemeen van de meeste andere clouds te brengen.  Geheugen is (van 7 GiB/vCPU naar 8 GiB/vCPU) uitgevouwen terwijl schijf en netwerk grenzen op basis van per core uitgelijnd met de overstap naar hyperthreading zijn aangepast.  De Ev3 is het volgen tot aan het hoge geheugen VM-grootten van de D/Dv2 families.
 
 ## <a name="esv3-series-sup1sup"></a>Esv3-serie <sup>1</sup>
 
@@ -94,7 +95,7 @@ ACU: 160-180
 <sup>4</sup> exemplaar is geïsoleerd, zodat de hardware die zijn toegewezen aan één klant.
 <br>
 
-## <a name="gs-series-sup1sup"></a>GS-series <sup>1</sup>
+## <a name="gs-series-sup1sup"></a>GS-serie <sup>1</sup>
 
 ACU: 180 - 240
 
@@ -130,7 +131,7 @@ ACU: 180 - 240
 <br>
 
 
-## <a name="dsv2-series-sup1sup"></a>DSv2-series <sup>1</sup>
+## <a name="dsv2-series-sup1sup"></a>DSv2-serie <sup>1</sup>
 
 ACU: 210 - 250
 
@@ -162,8 +163,8 @@ ACU: 210 - 250
 | Standard_D11_v2   | 2         | 14          | 100            | 6000 / 93 / 46                                           | 8 / 8 x 500                         | 2 / 1500                     |
 | Standard_D12_v2   | 4         | 28          | 200            | 12.000 / 187 / 93                                         | 16 / 16 x 500                         | 4 / 3000                     |
 | Standard_D13_v2   | 8         | 56          | 400            | 24.000 / 375 / 187                                        | 32 / 32 x 500                       | 8 / 6000                     |
-| Standard_D14_v2   | 16        | 112         | 800            | 48.000 / 750 / 375                                        | 64 / 64x500                       | 8 / 12000          |
-| Standard_D15_v2&nbsp;<sup>1</sup> | 20        | 140         | 1000          | 60.000 / 937 / 468                                        | 64 / 64x500                       | 8 / 25000&nbsp;<sup>2</sup> |
+| Standard_D14_v2   | 16        | 112         | 800            | 48.000 / 750 / 375                                        | 64 / 64 x 500                       | 8 / 12000          |
+| Standard_D15_v2&nbsp;<sup>1</sup> | 20        | 140         | 1000          | 60.000 / 937 / 468                                        | 64 / 64 x 500                       | 8 / 25000&nbsp;<sup>2</sup> |
 
 <sup>1</sup> exemplaar is geïsoleerd, zodat de hardware die zijn toegewezen aan één klant. 
 
@@ -173,7 +174,7 @@ ACU: 210 - 250
 
 <br>
 
-## <a name="ds-series-sup1sup"></a>DS-series <sup>1</sup>
+## <a name="ds-series-sup1sup"></a>DS-serie <sup>1</sup>
 
 ACU: 160
 
@@ -197,7 +198,7 @@ ACU: 160
 | Standard_D11 | 2         | 14          | 100            | 6000 / 93 / 46                                           | 8 / 8 x 500                         | 2 / 1000                     |
 | Standard_D12 | 4         | 28          | 200            | 12.000 / 187 / 93                                         | 16 / 16 x 500                         | 4 / 2000                     |
 | Standard_D13 | 8         | 56          | 400            | 24.000 / 375 / 187                                        | 32 / 32 x 500                       | 8 / 4000                     |
-| Standard_D14 | 16        | 112         | 800            | 48.000 / 750 / 375                                        | 64 / 64x500                       | 8 / 8000                |
+| Standard_D14 | 16        | 112         | 800            | 48.000 / 750 / 375                                        | 64 / 64 x 500                       | 8 / 8000                |
 
 <br>
 

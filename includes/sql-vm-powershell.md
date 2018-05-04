@@ -7,9 +7,9 @@ U moet eerst de meest recente hebben [Azure PowerShell](http://msdn.microsoft.co
 > 
 > 
 
-Voer de [ **Add-AzureRmAccount** ](http://msdn.microsoft.com/library/mt619267.aspx) cmdlet en u krijgt een teken in het scherm uw referenties in te voeren. Gebruik de referenties waarmee u zich aanmeldt bij Azure Portal.
+Voer de [ **Connect-AzureRmAccount** ](http://msdn.microsoft.com/library/mt619267.aspx) cmdlet en u krijgt een teken in het scherm uw referenties in te voeren. Gebruik de referenties waarmee u zich aanmeldt bij de Azure-portal.
 
-    Add-AzureRmAccount
+    Connect-AzureRmAccount
 
 Als u meerdere abonnementen gebruiken de [ **Set-AzureRmContext** ](http://msdn.microsoft.com/library/mt619263.aspx) cmdlet om te selecteren welke abonnement u uw PowerShell-sessie moet worden gebruikt. Voer [**Get-AzureRmContext**](http://msdn.microsoft.com/library/mt619265.aspx) uit als u wilt zien welke abonnement door de huidige PowerShell-sessie wordt gebruikt. Voer [**Get-AzureRmSubscription**](http://msdn.microsoft.com/library/mt619284.aspx) uit als u al uw abonnementen wilt weergeven.
 

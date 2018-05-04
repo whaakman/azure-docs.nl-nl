@@ -3,25 +3,25 @@ title: Een Azure container registry geo repliceren
 description: Maken en beheren van Azure container geogerepliceerde registers aan de slag.
 services: container-registry
 author: stevelas
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: overview-article
 ms.date: 10/24/2017
 ms.author: stevelas
-ms.openlocfilehash: 92df5a37d62dc9731842a4312339aa571072a487
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 6b82f49d2bf4ed321f5e847d11780535e01531f7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="geo-replication-in-azure-container-registry"></a>Geo-replicatie in Azure Container register
+# <a name="geo-replication-in-azure-container-registry"></a>Geo-replicatie in Azure Container Registry
 
 Bedrijven die de aanwezigheid van een lokale of een hot back-up wilt kiezen voor het uitvoeren van de services van meerdere Azure-regio's. Als een best practice kunt als u een register container in elke regio waarin afbeeldingen worden uitgevoerd netwerk sluiten bewerkingen, snelle, betrouwbare installatiekopie laag overdrachten inschakelen.
 
 Geo-replicatie kunt een Azure container registry functioneren als een enkele register meerdere regio's met meerdere masters registers fungeren.
 
 > [!IMPORTANT]
-> Het onderdeel geo-replicatie van Azure Container register is geopend in **preview**. Voorbeelden voor u beschikbaar zijn aangebracht op voorwaarde dat u akkoord met gaat de [aanvullende gebruiksvoorwaarden](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Sommige aspecten van deze functie kunnen worden gewijzigd vóór de algemene beschikbaarheid (GA).
+> De functie voor geo-replicatie van Azure Container Registry is momenteel beschikbaar als **preview-versie**. Previews worden voor u beschikbaar gesteld op voorwaarde dat u akkoord met gaat de [aanvullende gebruiksvoorwaarden](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Sommige aspecten van deze functionaliteit kunnen wijzigen voordat deze functionaliteit algemeen beschikbaar wordt.
 >
 
 Een register geo-replicatie biedt de volgende voordelen:
@@ -59,8 +59,8 @@ Typische uitdagingen van meerdere registers zijn onder andere:
 
 Met de functie geo-replicatie van Azure Container register, deze voordelen gerealiseerd:
 
-* Een enkele register in alle regio's beheren:`contoso.azurecr.io`
-* Beheren van implementaties van installatiekopieën van een configuratie voor één zoals alle regio's dezelfde afbeeldings-URL gebruikt:`contoso.azurecr.io/public/products/web:1.2`
+* Een enkele register in alle regio's beheren: `contoso.azurecr.io`
+* Beheren van implementaties van installatiekopieën van een configuratie voor één zoals alle regio's dezelfde afbeeldings-URL gebruikt: `contoso.azurecr.io/public/products/web:1.2`
 * Push naar een enkele register, terwijl ACR de geo-replicatie beheert, met inbegrip van regionale webhooks voor lokale meldingen
 
 ## <a name="configure-geo-replication"></a>Geo-replicatie configureren
@@ -70,15 +70,15 @@ Geo-replicatie is een functie van [Premium registers](container-registry-skus.md
 
 ![Overschakelen van SKU's in de Azure portal](media/container-registry-skus/update-registry-sku.png)
 
-Voor het configureren van geo-replicatie voor het Premium-register, moet u zich aanmelden bij de Azure portal op http://portal.azure.com.
+Voor het configureren van geo-replicatie voor het Premium-register, meld u aan bij de Azure portal op http://portal.azure.com.
 
 Navigeer naar uw Azure-Container-register en selecteer **replicaties**:
 
-![Replicaties in het register in Azure portal container gebruikersinterface](media/container-registry-geo-replication/registry-services.png)
+![Replicaties in de containerregister-UI van Azure Portal](media/container-registry-geo-replication/registry-services.png)
 
 Een kaart wordt weergegeven met alle huidige Azure-regio's:
 
- ![Kaart van regio in de Azure-portal](media/container-registry-geo-replication/registry-geo-map.png)
+ ![Kaart met regio's in Azure Portal](media/container-registry-geo-replication/registry-geo-map.png)
 
 * Blauw Zeshoeken vertegenwoordigen de huidige replica 's
 * Groen Zeshoeken vertegenwoordigen mogelijk replica regio 's
@@ -86,7 +86,7 @@ Een kaart wordt weergegeven met alle huidige Azure-regio's:
 
 Voor het configureren van een replica, selecteer een groene zeshoek en vervolgens **maken**:
 
- ![UI-replicatie maken in de Azure portal](media/container-registry-geo-replication/create-replication.png)
+ ![Gebruikersinterface voor het maken van een replicatie in Azure Portal](media/container-registry-geo-replication/create-replication.png)
 
 Als u wilt configureren als u meer replica's, selecteer de groene Zeshoeken voor andere regio's en klik op **maken**.
 

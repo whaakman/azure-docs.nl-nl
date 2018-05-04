@@ -10,11 +10,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: d68ae802e37b5d0b8421099894da43a0559f2fc2
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: f43e380d1af846a0c77d61b4e8827c8b45fb08a6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-sql-database-server-level-and-database-level-firewall-rules"></a>Azure SQL Database-server- en databaseniveau firewall-regels 
 
@@ -208,7 +208,7 @@ Houd rekening met de volgende punten als toegang tot de service Microsoft Azure 
 * **Lokale firewallconfiguratie:** voordat uw computer toegang krijgt tot Azure SQL Database moet u op uw computer misschien een firewalluitzondering maken voor TCP-poort 1433. Als u verbindingen maakt binnen de grenzen van de Azure-cloud, moet u mogelijk aanvullende poorten openen. Zie voor meer informatie de **SQL-Database: buiten tegenover binnen** sectie van [poorten buiten 1433 voor ADO.NET 4.5 en SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
 * **Network Address Translation (NAT):** vanwege NAT kan het zijn dat het IP-adres waarmee de computer verbinding maakt met Azure SQL Database verschilt van het IP-adres dat wordt weergegeven in de IP-configuratie-instellingen van uw computer. Als u het IP-adres wilt zien dat door uw computer wordt gebruikt om verbinding te maken met Azure, meldt u zich aan bij de portal en gaat u naar het tabblad **Configureren** op de server die als host fungeert voor uw database. In de sectie **Toegestane IP-adressen** wordt het **Huidige IP-adres van client** weergegeven. Klik op **Toevoegen** aan de **Toegestane IP-adressen** als u wilt toestaan dat deze computer toegang heeft tot de server.
 * **Wijzigingen in de acceptatielijst zijn nog niet doorgevoerd:** het kan vijf minuten duren voordat wijzigingen in de Azure SQL Database-firewallconfiguratie van kracht zijn.
-* **De aanmelding is niet gemachtigd of er is een onjuist wachtwoord gebruikt:** als een aanmelding niet is gemachtigd op de Azure SQL Database-server of als het wachtwoord onjuist is, wordt de verbinding met de Azure SQL Database-server geweigerd. Door een firewallinstellingen te maken, krijgen clients alleen de mogelijkheid om te proberen verbinding te maken met de server. Elke client moet alsnog de benodigde beveiligingsreferenties opgeven. Zie Databases, aanmeldingen en gebruikers beheren in Azure SQL Database, voor meer informatie over het voorbereiden van aanmeldingen.
+* **De aanmelding is niet gemachtigd of er is een onjuist wachtwoord gebruikt:** als een aanmelding niet is gemachtigd op de Azure SQL Database-server of als het wachtwoord onjuist is, wordt de verbinding met de Azure SQL Database-server geweigerd. Door een firewallinstellingen te maken, krijgen clients alleen de mogelijkheid om te proberen verbinding te maken met de server. Elke client moet alsnog de benodigde beveiligingsreferenties opgeven. Zie voor meer informatie over het voorbereiden van aanmeldingen [Databases beheren, aanmeldingen en gebruikers in Azure SQL Database](sql-database-manage-logins.md).
 * **Dynamisch IP-adres:** als u een internetverbinding hebt met dynamische IP-adressering en problemen ondervindt bij het passeren van de firewall, kunt u een van de volgende oplossingen proberen:
   
   * Vraag uw internetprovider (ISP) naar het IP-adresbereik dat is toegewezen aan uw clientcomputers die toegang hebben tot de Azure SQL Database-server en voeg dit IP-adresbereik toe als een firewallregel.

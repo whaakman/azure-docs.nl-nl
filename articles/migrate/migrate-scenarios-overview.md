@@ -4,15 +4,14 @@ description: Lees een whitepaper met een overzicht van de migratie van on-premis
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: tutorial
-ms.date: 04/08/2018
+ms.topic: conceptual
+ms.date: 04/21/2018
 ms.author: raynew
-ms.custom: MVC
-ms.openlocfilehash: be322596da0c3e5ba18aa64285c437cdb823fc4b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 8ba490998ea5f20efca591327716a6e39e9c1ba8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="migrating-your-on-premises-workloads-to-azure"></a>On-premises workloads migreren naar Azure
 
@@ -27,11 +26,11 @@ In deze reeks migratieartikelen leest u hoe u een migratiestrategie voor uw bedr
 
 **Scenario** | **Oplossing** | **Services** | **Artikel** 
 --- | --- | --- | ---
-[Scenario 1: Detectie en evaluatie](migrate-scenarios-assessment.md) | On-premises apps en gegevens voor migratie naar Azure detecteren en beoordelen | Data Migration Assistant, Azure Migrate-service  | Nu verkrijgbaar
-**Scenario 2: Lift-and-shift-migratie** | Interne apps in Azure opnieuw hosten. Apps na migratie optimaliseren in Azure. | Azure Site Recovery, Azure Database Migration Service, Beheerd exemplaar voor Azure SQL | Nu verkrijgbaar
-**Scenario 3: Herstructureren en migreren** | On-premises apps van de klant moderniseren en herstructureren tijdens de migratie naar Azure. | In planning | Gepland
-**Scenario 4: Opnieuw ontwerpen en migreren** | Transactionele websites van de klant opnieuw ontwerpen en migreren tijdens de migratie naar Azure. | In planning | Gepland
-**Scenario 5: Herbouwen** |Apps en gegevens van de klant herbouwen en migreren naar Azure | In planning | Gepland
+[Scenario 1: Detectie en evaluatie](migrate-scenarios-assessment.md) | Detecteren en beoordelen van lokale apps, gegevens en infrastructuur voor migratie naar Azure | Data Migration Assistant, Azure Migrate-service  | Nu verkrijgbaar
+**[Scenario 2: Rehost-app](migrate-scenarios-lift-and-shift.md)** | Lift en shift apps in Azure. | Azure Site Recovery, Azure Database Migration Service, Beheerd exemplaar voor Azure SQL | Nu verkrijgbaar
+**Scenario 3: Verander app** | Opsplitsen apps tijdens de migratie naar Azure. | In planning | Gepland
+**Scenario 4: Rearchitect app** | Rearchitect apps tijdens de migratie naar Azure. | In planning | Gepland
+**Scenario 5: Rebuild-app** |Apps bouwen tijdens de migratie naar Azure | In planning | Gepland
 
 
 

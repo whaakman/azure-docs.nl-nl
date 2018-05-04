@@ -3,16 +3,16 @@ title: Azure Container register webhook-schemaverwijzing
 description: Webhook aanvraag nettolading naslaginformatie voor JSON voor Azure Container register.
 services: container-registry
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
 ms.author: marsma
-ms.openlocfilehash: 84f0277a7b1a5bd7dfe2178f78f34140b1dd2642
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: f62477a4c68abf1617d9689047913fd820ee5461
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Naslaginformatie over Azure-Container register webhook
 
@@ -42,31 +42,31 @@ Webhook geactiveerd wanneer een installatiekopie van een container wordt doorges
 
 |Element|Type|Beschrijving|
 |-------------|----------|-----------|
-|`id`|Reeks|De ID van de webhook-gebeurtenis.|
-|`timestamp`|Datum en tijd|De tijd waarop de gebeurtenis webhook is geactiveerd.|
-|`action`|Reeks|De actie die de webhook-gebeurtenis geactiveerd.|
+|`id`|Tekenreeks|De ID van de webhook-gebeurtenis.|
+|`timestamp`|DateTime|De tijd waarop de gebeurtenis webhook is geactiveerd.|
+|`action`|Tekenreeks|De actie die de webhook-gebeurtenis geactiveerd.|
 |[doel](#target)|Complex Type|Het doel van de gebeurtenis waarvoor de webhook-gebeurtenis.|
-|[aanvraag](#request)|Complex Type|De aanvraag die de webhook-gebeurtenis heeft gegenereerd.|
+|[Aanvraag](#request)|Complex Type|De aanvraag die de webhook-gebeurtenis heeft gegenereerd.|
 
 ### <a name="target"></a>doel
 
 |Element|Type|Beschrijving|
 |------------------|----------|-----------|
-|`mediaType`|Reeks|Het MIME-type van het object waarnaar wordt verwezen.|
+|`mediaType`|Tekenreeks|Het MIME-type van het object waarnaar wordt verwezen.|
 |`size`|Int32|Het aantal bytes van de inhoud. Hetzelfde als het veld lengte.|
-|`digest`|Reeks|De samenvatting van de inhoud, zoals gedefinieerd door het register V2 HTTP-API-specificatie.|
+|`digest`|Tekenreeks|De samenvatting van de inhoud, zoals gedefinieerd door het register V2 HTTP-API-specificatie.|
 |`length`|Int32|Het aantal bytes van de inhoud. Hetzelfde als het veld grootte.|
-|`repository`|Reeks|De naam van de opslagplaats.|
-|`tag`|Reeks|De naam van de installatiekopie-tag.|
+|`repository`|Tekenreeks|De naam van de opslagplaats.|
+|`tag`|Tekenreeks|De naam van de installatiekopie-tag.|
 
 ### <a name="request"></a>Aanvraag
 
 |Element|Type|Beschrijving|
 |------------------|----------|-----------|
-|`id`|Reeks|De ID van de aanvraag die de gebeurtenis heeft gestart.|
-|`host`|Reeks|De hostnaam van de extern toegankelijke van het register-exemplaar, zoals opgegeven door de HTTP host-header op binnenkomende aanvragen.|
-|`method`|Reeks|De aanvraagmethode die de gebeurtenis heeft gegenereerd.|
-|`useragent`|Reeks|De kop van de agent gebruiker van de aanvraag.|
+|`id`|Tekenreeks|De ID van de aanvraag die de gebeurtenis heeft gestart.|
+|`host`|Tekenreeks|De hostnaam van de extern toegankelijke van het register-exemplaar, zoals opgegeven door de HTTP host-header op binnenkomende aanvragen.|
+|`method`|Tekenreeks|De aanvraagmethode die de gebeurtenis heeft gegenereerd.|
+|`useragent`|Tekenreeks|De kop van de agent gebruiker van de aanvraag.|
 
 ### <a name="payload-example-push-event"></a>Voorbeeld van de nettolading: push-gebeurtenis
 
@@ -98,7 +98,7 @@ Voorbeeld [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/
 docker push myregistry.azurecr.io/hello-world:v1
 ```
 
-## <a name="delete-event"></a>Gebeurtenis verwijderen
+## <a name="delete-event"></a>Verwijderen van gebeurtenis
 
 Webhook geactiveerd wanneer een opslagplaats of manifest wordt verwijderd. Niet geactiveerd wanneer een label wordt verwijderd.
 
@@ -106,28 +106,28 @@ Webhook geactiveerd wanneer een opslagplaats of manifest wordt verwijderd. Niet 
 
 |Element|Type|Beschrijving|
 |-------------|----------|-----------|
-|`id`|Reeks|De ID van de webhook-gebeurtenis.|
-|`timestamp`|Datum en tijd|De tijd waarop de gebeurtenis webhook is geactiveerd.|
-|`action`|Reeks|De actie die de webhook-gebeurtenis geactiveerd.|
+|`id`|Tekenreeks|De ID van de webhook-gebeurtenis.|
+|`timestamp`|DateTime|De tijd waarop de gebeurtenis webhook is geactiveerd.|
+|`action`|Tekenreeks|De actie die de webhook-gebeurtenis geactiveerd.|
 |[doel](#delete_target)|Complex Type|Het doel van de gebeurtenis waarvoor de webhook-gebeurtenis.|
-|[aanvraag](#delete_request)|Complex Type|De aanvraag die de webhook-gebeurtenis heeft gegenereerd.|
+|[Aanvraag](#delete_request)|Complex Type|De aanvraag die de webhook-gebeurtenis heeft gegenereerd.|
 
-### <a name="delete_target"></a>doel
-
-|Element|Type|Beschrijving|
-|------------------|----------|-----------|
-|`mediaType`|Reeks|Het MIME-type van het object waarnaar wordt verwezen.|
-|`digest`|Reeks|De samenvatting van de inhoud, zoals gedefinieerd door het register V2 HTTP-API-specificatie.|
-|`repository`|Reeks|De naam van de opslagplaats.|
-
-### <a name="delete_request"></a>aanvraag
+### <a name="delete_target"></a> doel
 
 |Element|Type|Beschrijving|
 |------------------|----------|-----------|
-|`id`|Reeks|De ID van de aanvraag die de gebeurtenis heeft gestart.|
-|`host`|Reeks|De hostnaam van de extern toegankelijke van het register-exemplaar, zoals opgegeven door de HTTP host-header op binnenkomende aanvragen.|
-|`method`|Reeks|De aanvraagmethode die de gebeurtenis heeft gegenereerd.|
-|`useragent`|Reeks|De kop van de agent gebruiker van de aanvraag.|
+|`mediaType`|Tekenreeks|Het MIME-type van het object waarnaar wordt verwezen.|
+|`digest`|Tekenreeks|De samenvatting van de inhoud, zoals gedefinieerd door het register V2 HTTP-API-specificatie.|
+|`repository`|Tekenreeks|De naam van de opslagplaats.|
+
+### <a name="delete_request"></a> Aanvraag
+
+|Element|Type|Beschrijving|
+|------------------|----------|-----------|
+|`id`|Tekenreeks|De ID van de aanvraag die de gebeurtenis heeft gestart.|
+|`host`|Tekenreeks|De hostnaam van de extern toegankelijke van het register-exemplaar, zoals opgegeven door de HTTP host-header op binnenkomende aanvragen.|
+|`method`|Tekenreeks|De aanvraagmethode die de gebeurtenis heeft gegenereerd.|
+|`useragent`|Tekenreeks|De kop van de agent gebruiker van de aanvraag.|
 
 ### <a name="payload-example-delete-event"></a>Voorbeeld van de nettolading: verwijderen van gebeurtenis
 

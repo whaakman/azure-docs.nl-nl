@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: sutalasi
-ms.openlocfilehash: 86a1d53570aeefd57c5133688e67064da6f5dc77
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 48a8f6d35c3ea1266880f05d12ebf4efd855df41
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Een toepassing met meerdere lagen SharePoint voor herstel na noodgevallen met Azure Site Recovery repliceren
 
@@ -53,7 +53,7 @@ Voordat u begint, zorg er dan voor dat u het volgende weten:
 
 ## <a name="sharepoint-architecture"></a>SharePoint-architectuur
 
-SharePoint kan worden geïmplementeerd op een of meer servers met gelaagde topologieën en serverfuncties voor het implementeren van een farm ontwerp dat voldoet aan specifieke doelen en doelstellingen. Een typische grote, hoogwaardige aanvraag SharePoint-serverfarm die ondersteuning biedt voor een groot aantal gelijktijdige gebruikers en een groot aantal inhoudsitems gebruik service groeperen als onderdeel van hun strategie schaalbaarheid. Deze methode omvat de services uitgevoerd op speciale servers, deze services te groeperen en vervolgens de servers uitbreiden als een groep. De volgende topologie ziet u de service en de server voor een drielaagse SharePoint-serverfarm groeperen. Raadpleeg de documentatie van SharePoint en product line architecturen voor gedetailleerde richtlijnen voor verschillende SharePoint-topologieën. U vindt meer informatie over de implementatie van SharePoint 2013 in [dit document](https://technet.microsoft.com/en-us/library/cc303422.aspx).
+SharePoint kan worden geïmplementeerd op een of meer servers met gelaagde topologieën en serverfuncties voor het implementeren van een farm ontwerp dat voldoet aan specifieke doelen en doelstellingen. Een typische grote, hoogwaardige aanvraag SharePoint-serverfarm die ondersteuning biedt voor een groot aantal gelijktijdige gebruikers en een groot aantal inhoudsitems gebruik service groeperen als onderdeel van hun strategie schaalbaarheid. Deze methode omvat de services uitgevoerd op speciale servers, deze services te groeperen en vervolgens de servers uitbreiden als een groep. De volgende topologie ziet u de service en de server voor een drielaagse SharePoint-serverfarm groeperen. Raadpleeg de documentatie van SharePoint en product line architecturen voor gedetailleerde richtlijnen voor verschillende SharePoint-topologieën. U vindt meer informatie over de implementatie van SharePoint 2013 in [dit document](https://technet.microsoft.com/library/cc303422.aspx).
 
 
 

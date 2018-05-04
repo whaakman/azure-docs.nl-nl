@@ -17,10 +17,10 @@ ms.date: 04/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 89a4216a3893892eedd6c216c7e0e5d51cf64749
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/24/2018
 ---
 # <a name="azure-write-accelerator-for-sap-deployments"></a>Azure schrijven Accelerator voor SAP-implementaties
 Azure schrijven Accelerator is een functionaliteit die is opgehaald uitgerold voor virtuele machines M-serie uitsluitend. De Accelerator voor het schrijven van Azure is niet beschikbaar bij alle andere VM-reeks in Azure, met uitzondering van de M-serie. Als de naam van de staat, is het doel van de functionaliteit voor het verbeteren van i/o-latentie van schrijfbewerkingen op basis van de Azure Premium-opslag. 

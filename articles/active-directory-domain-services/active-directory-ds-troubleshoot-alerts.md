@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: ergreenl
-ms.openlocfilehash: 5a9f1bfee1df41d25309e84fe9958ff19a368943
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 0c8fc2551f529fbff647d3400144fa2a9600bbd9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - waarschuwingen oplossen
 Dit artikel bevat richtlijnen voor probleemoplossing voor de waarschuwingen die op uw beheerde domein optreden kunnen.
@@ -33,7 +33,7 @@ Kies de stappen voor probleemoplossing die overeenkomen met de ID of het bericht
 | AADDS101 | *Azure AD Domain Services kan niet worden ingeschakeld in een Azure AD B2C-Directory.* | [Azure AD B2C wordt uitgevoerd in deze map](#aadds101-azure-ad-b2c-is-running-in-this-directory) |
 | AADDS102 | *Een Service-Principal die is vereist voor Azure AD Domain Services naar behoren is verwijderd van uw Azure AD-directory. Deze configuratie heeft impact op de mogelijkheid van Microsoft als u wilt bewaken, beheren, patch en synchroniseren van uw beheerde domein.* | [Service-Principal ontbreekt](active-directory-ds-troubleshoot-service-principals.md) |
 | AADDS103 | *Het IP-adresbereik voor het virtuele netwerk waarin u Azure AD Domain Services hebt ingeschakeld is in een openbare IP-adresbereik. Azure AD Domain Services moeten zijn ingeschakeld in een virtueel netwerk met een persoonlijke IP-adresbereik. Deze configuratie heeft impact op de mogelijkheid van Microsoft als u wilt bewaken, beheren, patch en synchroniseren van uw beheerde domein.* | [Adres bevindt zich in een openbare IP-adresbereik](#aadds103-address-is-in-a-public-ip-range) |
-| AADDS104 | *Microsoft kan niet tot de domeincontrollers voor dit beheerde domein. Dit kan gebeuren als een netwerkbeveiligingsgroep (NSG) geconfigureerd op uw virtuele netwerk blokkeert de toegang tot het beheerde domein. Een andere mogelijke oorzaak is als er een gebruiker gedefinieerde route blokken binnenkomend verkeer van het internet.* | [Network Error](active-directory-ds-troubleshoot-nsg.md) |
+| AADDS104 | *Microsoft kan niet tot de domeincontrollers voor dit beheerde domein. Dit kan gebeuren als een netwerkbeveiligingsgroep (NSG) geconfigureerd op uw virtuele netwerk blokkeert de toegang tot het beheerde domein. Een andere mogelijke oorzaak is als er een gebruiker gedefinieerde route blokken binnenkomend verkeer van het internet.* | [Netwerkfout](active-directory-ds-troubleshoot-nsg.md) |
 | AADDS105 | *De service-principal met de toepassings-ID 'd87dcbc6-a371-462e-88e3-28ad15ec4e64' is verwijderd en vervolgens opnieuw gemaakt. De opnieuw laat achter inconsistente machtigingen op Azure AD Domain Services-bronnen die nodig zijn voor het onderhouden van uw beheerde domein. Synchronisatie van wachtwoorden in uw beheerde domein kan worden beïnvloed.* | [De toepassing van de synchronisatie wachtwoord is verlopen](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
 | AADDS500 | *Het beheerde domein voor het laatst is gesynchroniseerd met Azure AD op [datum]. Gebruikers mogelijk niet aanmelden bij het beheerde domein of groepslidmaatschappen mogelijk niet gesynchroniseerd met Azure AD.* | [Synchronisatie nog niet is opgetreden in een tijdje](#aadds500-synchronization-has-not-completed-in-a-while) |
 | AADDS501 | *Het beheerde domein laatste back-up op [datum].* | [Een back-up nog niet is gemaakt in een tijdje](#aadds501-a-backup-has-not-been-taken-in-a-while) |
@@ -130,7 +130,7 @@ In het virtuele netwerk mag machines aanvragen maken voor Azure-resources die zi
 
 **Oplossing:**
 
-Om uw service te herstellen [vernieuwen van uw Azure-abonnement](https://docs.microsoft.com/en-us/azure/billing/billing-subscription-become-disable) die zijn gekoppeld aan uw beheerde domein.
+Om uw service te herstellen [vernieuwen van uw Azure-abonnement](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable) die zijn gekoppeld aan uw beheerde domein.
 
 ## <a name="aadds504-suspension-due-to-an-invalid-configuration"></a>AADDS504: Opschorten vanwege een ongeldige configuratie
 

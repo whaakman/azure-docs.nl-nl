@@ -1,25 +1,25 @@
 ---
 title: Aan de slag met Azure Active Directory | Microsoft Docs
 description: Ophalen van licenties, domeinnaam toevoegen, aangepaste aanmeldingspagina maken en selfservice wachtwoordherstel in Azure Active Directory toevoegen
-keywords: 
+keywords: ''
 author: curtand
 manager: mtillman
 ms.author: curtand
 ms.reviewer: jsnow
 ms.date: 11/14/2017
 ms.topic: article
-ms.prod: 
+ms.prod: ''
 ms.service: active-directory
 ms.workload: identity
-ms.technology: 
-ms.assetid: 
+ms.technology: ''
+ms.assetid: ''
 services: active-directory
 ms.custom: it-pro
-ms.openlocfilehash: 9e1a7337c2477455aa0b56f2147f46f3bf5293a8
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: eedcb80038179cf74666880816cb0b5416ac63fd
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="get-started-with-azure-ad"></a>Aan de slag met Azure AD
 Moderne identiteitsbeheer vereist een schaalbare, consistente reliablity om te controleren of de beschikbaarheid van toepassingen en services aan alleen geverifieerde gebruikers. Om voldoende ondersteunen de identity management-behoeften van gebruikers, IT-afdeling moet een manier om toegang te bieden tot erkende, openbare software als een service (SaaS)-apps, kunt u interne line-host of-business-apps, en zelfs manieren voor het verbeteren van on-premises ontwikkeling van Apps en het gebruik. Al deze vereisten voldoen verwijzen aan de behoeften van een oplossing voor identiteitsbeheer cloud-gebaseerde.      
@@ -81,7 +81,7 @@ U kunt de licentietoewijzing op basis van een groep gebruiken voor het instellen
 Controleer toegewezen en beschikbare licenties onder **Azure Active Directory** > **licenties** > **alle producten**.
 
 ## <a name="configure-self-service-password-reset"></a>De self-service voor wachtwoord opnieuw instellen configureren
-[Selfservice voor wachtwoordherstel (SSPR)](active-directory-passwords-getting-started.md) biedt een eenvoudige methode voor IT-beheerders kunnen gebruikers opnieuw instellen of hun wachtwoorden of accounts ontgrendelen. Het systeem biedt gedetailleerde rapporten zodat u kunt volgen wanneer gebruikers het systeem gebruiken. U ontvangt ook meldingen om u te waarschuwen over misbruik.
+[Selfservice voor wachtwoordherstel (SSPR)](authentication/quickstart-sspr.md) biedt een eenvoudige methode voor IT-beheerders kunnen gebruikers opnieuw instellen of hun wachtwoorden of accounts ontgrendelen. Het systeem biedt gedetailleerde rapporten zodat u kunt volgen wanneer gebruikers het systeem gebruiken. U ontvangt ook meldingen om u te waarschuwen over misbruik.
 
 ### <a name="verification-step"></a>Verificatiestap
 Controleren ingeschakeld SSPR eigenschappen onder **Azure Active Directory** > **wachtwoordherstel** om te controleren of de juiste gebruiker en groepstoewijzingen zijn aangebracht. 

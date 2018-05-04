@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 01a6fefc10dfd83997acc290dbd1c85ba86a4799
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: baea799dbab2625e64140a565064b3c41310b4ad
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>-Exemplaren in duurzame functies (Azure Functions) beheren
 
@@ -77,6 +77,7 @@ De [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/ap
 * **CreatedTime**: de tijd waarop de orchestrator-functie is gestart.
 * **LastUpdatedTime**: het tijdstip waarop de orchestration laatste controlepunt.
 * **Invoer**: de invoer van de functie als een JSON-waarde.
+* **CustomStatus**: status van de aangepaste orchestration in JSON-indeling. 
 * **Uitvoer**: de uitvoer van de functie als een JSON-waarde (als de functie is voltooid). Als de orchestrator-functie is mislukt, wordt deze eigenschap de foutgegevens bevatten. Als de orchestrator-functie is beëindigd, bevat deze eigenschap de opgegeven reden voor de beëindiging (indien aanwezig).
 * **RuntimeStatus**: een van de volgende waarden:
     * **Met**: het exemplaar eenmaal is gestart.

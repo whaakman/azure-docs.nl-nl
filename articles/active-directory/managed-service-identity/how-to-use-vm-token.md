@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 541055eeae5e2c0eaff2fb88d8e83fdc43ba08b0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 360e395743dcf4b4bae98a756f6483dd0d269775
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Het gebruik van een Azure VM beheerde Service identiteit (MSI) voor de aanschaf van token 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
-Dit artikel bevat verschillende voorbeelden van code en scripts voor het token verkrijgen, evenals richtlijnen over belangrijke onderwerpen, zoals het verwerken van verlopen van het token en HTTP-fouten. Het is raadzaam dat u Service-identiteit beheerd met het eindpunt IMDS als het VM-extensie-eindpunt wordt afgeschaft.
+
+Beheerde Service-identiteit biedt Azure-services met een automatisch beheerde identiteit in Azure Active Directory. U kunt deze identiteit gebruiken om alle services die Azure AD-verificatie ondersteunt, zonder referenties in uw code te verifiëren. 
+
+Dit artikel bevat verschillende voorbeelden van code en scripts voor het token verkrijgen, evenals richtlijnen over belangrijke onderwerpen, zoals het verwerken van verlopen van het token en HTTP-fouten. 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -32,14 +35,14 @@ Als u gebruiken in de Azure PowerShell-voorbeelden in dit artikel wilt, moet u I
 
 
 > [!IMPORTANT]
-> - Alle code/voorbeeldscript in dit artikel wordt ervan uitgegaan dat de client wordt uitgevoerd op een virtuele Machine van MSI-functionaliteit. Gebruik de virtuele machine 'Verbinding'-functie in de Azure portal op afstand verbinding maken met uw virtuele machine. Zie voor meer informatie over het inschakelen van MSI op een virtuele machine [configureren van een VM beheerde Service identiteit (MSI) met de Azure portal](qs-configure-portal-windows-vm.md), of een van de variant artikelen (met behulp van PowerShell, CLI, een sjabloon of een Azure-SDK). 
+> - Alle code/voorbeeldscript in dit artikel wordt ervan uitgegaan dat de client wordt uitgevoerd op een virtuele Machine met een beheerde Service-identiteit. Gebruik de virtuele machine 'Verbinding'-functie in de Azure portal op afstand verbinding maken met uw virtuele machine. Zie voor meer informatie over het inschakelen van MSI op een virtuele machine [configureren van een VM beheerde Service identiteit (MSI) met de Azure portal](qs-configure-portal-windows-vm.md), of een van de variant artikelen (met behulp van PowerShell, CLI, een sjabloon of een Azure-SDK). 
 
 > [!IMPORTANT]
-> - De beveiligingsgrens van een identiteit beheerd, is de bron. Alle code/scripts die worden uitgevoerd op een virtuele Machine met MSI-functionaliteit kunt aanvragen en ophalen van tokens. 
+> - De beveiligingsgrens van een beheerde Service-identiteit is de bron wordt gebruikt op. Alle code/scripts die worden uitgevoerd op een virtuele Machine kunt aanvragen en tokens ophalen voor een beheerde Service-identiteit erop. 
 
 ## <a name="overview"></a>Overzicht
 
-Een clienttoepassing een MSI-bestand kan aanvragen [app alleen-lezen toegangstoken](../develop/active-directory-dev-glossary.md#access-token) voor toegang tot een bepaalde resource. Het token is [op basis van de MSI-service-principal](overview.md#how-does-it-work). Hierdoor is het niet nodig voor de client zich registreert om op te halen van een toegangstoken onder een eigen service-principal. Het token is geschikt voor gebruik als een bearer-token in [service-naar-service roept vereisen clientreferenties](../develop/active-directory-protocols-oauth-service-to-service.md).
+Een clienttoepassing kan een beheerde Service-identiteit aanvragen [app alleen-lezen toegangstoken](../develop/active-directory-dev-glossary.md#access-token) voor toegang tot een bepaalde resource. Het token is [op basis van de MSI-service-principal](overview.md#how-does-it-work). Hierdoor is het niet nodig voor de client zich registreert om op te halen van een toegangstoken onder een eigen service-principal. Het token is geschikt voor gebruik als een bearer-token in [service-naar-service roept vereisen clientreferenties](../develop/active-directory-protocols-oauth-service-to-service.md).
 
 |  |  |
 | -------------- | -------------------- |
@@ -48,7 +51,7 @@ Een clienttoepassing een MSI-bestand kan aanvragen [app alleen-lezen toegangstok
 | [Een token met Ga ophalen](#get-a-token-using-go) | Voorbeeld van het gebruik van het eindpunt van de REST van de MSI van een client Ga |
 | [Een token met Azure PowerShell ophalen](#get-a-token-using-azure-powershell) | Voorbeeld van het gebruik van de REST van de MSI-eindpunt van een PowerShell-client |
 | [Een token met CURL ophalen](#get-a-token-using-curl) | Voorbeeld van het gebruik van de REST van de MSI-eindpunt van een client Bash/CURL |
-| [Verlopen van het token verwerken](#handling-token-expiration) | Richtlijnen voor het verwerken van de toegangstokens te verlopen |
+| [Afhandeling van token opslaan in cache](#handling-token-caching) | Richtlijnen voor het verwerken van de toegangstokens te verlopen |
 | [Foutafhandeling](#error-handling) | Richtlijnen voor het verwerken van HTTP-fouten geretourneerd door het eindpunt van het MSI-token |
 | [Resource-id voor Azure-services](#resource-ids-for-azure-services) | Waar u resource-id's voor ondersteunde Azure-services |
 
@@ -56,10 +59,10 @@ Een clienttoepassing een MSI-bestand kan aanvragen [app alleen-lezen toegangstok
 
 De fundamentele interface voor het ophalen van een toegangstoken is gebaseerd op REST, toegankelijk maken voor elke clienttoepassing uitgevoerd op de virtuele machine die u kunt u HTTP REST-aanroepen. Dit is vergelijkbaar met het Azure AD-programmeermodel, met uitzondering van de client gebruikt een eindpunt op de virtuele machine (tegenover een Azure AD-eindpunt).
 
-Voorbeeld van een aanvraag met behulp van het eindpunt MSI exemplaar metagegevens Service (IMDS) *(aanbevolen)*:
+Voorbeeld van een aanvraag met behulp van het eindpunt Azure exemplaar metagegevens Service (IMDS) *(aanbevolen)*:
 
 ```
-GET http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1 Metadata: true
+GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' HTTP/1.1 Metadata: true
 ```
 
 | Element | Beschrijving |
@@ -70,7 +73,7 @@ GET http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01
 | `resource` | Een queryreeksparameter opgeven, die aangeeft van de App ID URI van de doelbron. Dit wordt ook weergegeven de `aud` (doelgroep) claim van het gepubliceerde token. In dit voorbeeld vraagt een token voor toegang tot Azure Resource Manager, die een App ID URI van heeft https://management.azure.com/. |
 | `Metadata` | Een HTTP-aanvraagveld header wordt vereist door MSI als een risicobeperking tegen aanvallen van Server Side aanvraag kunnen worden vervalst (SSRF). Deze waarde moet worden ingesteld op 'true', in alle kleine letters.
 
-Voorbeeld van een aanvraag met behulp van het MSI-eindpunt voor VM-extensie *(om te worden afgeschaft)*:
+Voorbeeld van een aanvraag met behulp van het eindpunt beheerde Service identiteit (MSI) VM-extensie *(om te worden afgeschaft)*:
 
 ```
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
@@ -264,23 +267,25 @@ access_token=$(echo $response | python -c 'import sys, json; print (json.load(sy
 echo The MSI access token is $access_token
 ```
 
-## <a name="token-expiration"></a>Verlopen van het token 
+## <a name="token-caching"></a>Token opslaan in cache
 
-Als u het token zijn caching in uw code, moet u zijn voorbereid voor het afhandelen van scenario's waar de resource aangegeven dat het token is verlopen. 
+Terwijl het beheerde Service identiteit (MSI)-subsysteem wordt gebruikt (IMDS/MSI VM-extensie) tokens cache, wordt ook aangeraden voor het implementeren van token opslaan in cache in uw code. Als gevolg hiervan moet u voorbereiden voor scenario's waar de resource geeft aan dat het token is verlopen. 
 
-Opmerking: Omdat het subsysteem IMDS MSI tokens cache, de kabel aanroepen naar Azure AD-resultaten alleen wanneer:
-- een cache ontbreekt deze gebeurtenis treedt op omdat het geen token in de cache
-- het token is verlopen
+Resulteren alleen de kabel-oproepen naar Azure AD wanneer:
+- Cachemisser van deze gebeurtenis treedt op omdat het geen token in de cache van de MSI-subsysteem
+- in de cache-token is verlopen
 
 ## <a name="error-handling"></a>Foutafhandeling
 
-Het MSI-eindpunt signalen fouten via het statusveld van de berichtkop voor HTTP-antwoord als 4xx of 5xx-fouten:
+Het eindpunt van de Service-identiteit beheerd signalen fouten via het statusveld van de berichtkop voor HTTP-antwoord als 4xx of 5xx-fouten:
 
 | Statuscode | Foutreden | Hoe moet worden verwerkt |
 | ----------- | ------------ | ------------- |
 | 429 te veel aanvragen. |  IMDS beperken de limiet bereikt. | Opnieuw proberen met exponentieel uitstel. Zie de onderstaande richtlijnen. |
 | 4XX fout in de aanvraag. | Een of meer van de aanvraagparameters is onjuist. | Niet opnieuw.  Raadpleeg de foutdetails voor meer informatie.  4XX fouten zijn ontwerptijd fouten.|
 | 5XX tijdelijke fout van de service. | Onderliggende MSI-systeem of Azure Active Directory een tijdelijke fout geretourneerd. | Het is veilig om opnieuw te proberen na een wachttijd van ten minste 1 seconde.  Als u opnieuw te snel of te vaak, IMDS en/of Azure AD mogelijk geretourneerd met een frequentie limietfout (429).|
+| 404 niet gevonden. | IMDS eindpunt wordt bijgewerkt. | Probeer het opnieuw met Expontential Backoff. Zie de onderstaande richtlijnen. |
+| timeout | IMDS eindpunt wordt bijgewerkt. | Probeer het opnieuw met Expontential Backoff. Zie de onderstaande richtlijnen. |
 
 Als er een fout optreedt, bevat de bijbehorende HTTP-antwoordtekst JSON met de details van fout:
 
@@ -303,11 +308,11 @@ In dit gedeelte worden de mogelijke foutberichten. Een ' 200 OK ' status is een 
 |           | ACCESS_DENIED | De resource-eigenaar of autorisatie de aanvraag is geweigerd. |  |
 |           | unsupported_response_type | De autorisatie-server biedt geen ondersteuning voor het verkrijgen van een toegangstoken die met deze methode. |  |
 |           | invalid_scope | Het aangevraagde bereik is ongeldig, onbekend of onjuist gevormd. |  |
-| Interne serverfout 500 | onbekend | Kan geen token ophalen uit Active directory. Zie voor meer informatie Logboeken in  *\<bestandspad\>* | Controleer of MSI is ingeschakeld op de virtuele machine. Zie [configureren van een VM beheerde Service identiteit (MSI) met de Azure portal](qs-configure-portal-windows-vm.md) als u hulp bij het VM-configuratie nodig.<br><br>Controleer ook of uw HTTP GET-aanvraag URI correct is ingedeeld, met name de URI in de queryreeks opgegeven bron. Zie 'voorbeeldaanvraag' in de [voorgaande sectie REST](#rest) voor een voorbeeld of [Azure-services die ondersteuning voor Azure AD authentication](overview.md#azure-services-that-support-azure-ad-authentication) voor een lijst met services en hun respectieve resource-id.
+| Interne serverfout 500 | onbekend | Kan geen token ophalen uit Active directory. Zie voor meer informatie Logboeken in  *\<bestandspad\>* | Controleer of MSI is ingeschakeld op de virtuele machine. Zie [configureren van een VM beheerde Service identiteit (MSI) met de Azure portal](qs-configure-portal-windows-vm.md) als u hulp bij het VM-configuratie nodig.<br><br>Controleer ook of uw HTTP GET-aanvraag URI correct is ingedeeld, met name de URI in de queryreeks opgegeven bron. Zie 'voorbeeldaanvraag' in de [voorgaande sectie REST](#rest) voor een voorbeeld of [Azure-services die ondersteuning voor Azure AD authentication](services-support-msi.md) voor een lijst met services en hun respectieve resource-id.
 
-## <a name="throttling-guidance"></a>Beperking richtlijnen 
+## <a name="retry-guidance"></a>Probeer richtlijnen 
 
-Bandbreedtebeperking beperkingen gelden voor het aantal aanroepen naar het eindpunt MSI IMDS. Wanneer de bandbreedteregeling drempelwaarde wordt overschreden, beperkt het eindpunt MSI IMDS verzoeken van verdere terwijl de beperking van kracht is. Retourneert de HTTP-statuscode 429 tijdens deze periode, het eindpunt MSI IMDS (' te veel aanvragen '), en de aanvragen mislukken. 
+Bandbreedtebeperking beperkingen gelden voor het aantal aanroepen naar het eindpunt IMDS. Wanneer de bandbreedteregeling drempelwaarde wordt overschreden, beperkt IMDS eindpunt verzoeken van verdere terwijl de beperking van kracht is. Retourneert de HTTP-statuscode 429 tijdens deze periode, het eindpunt IMDS (' te veel aanvragen '), en de aanvragen mislukken. 
 
 Voor een nieuwe poging, wordt aangeraden de strategie voor het volgende: 
 
@@ -317,7 +322,7 @@ Voor een nieuwe poging, wordt aangeraden de strategie voor het volgende:
 
 ## <a name="resource-ids-for-azure-services"></a>Resource-id voor Azure-services
 
-Zie [Azure-services die ondersteuning voor Azure AD authentication](overview.md#azure-services-that-support-azure-ad-authentication) voor een lijst met bronnen die ondersteuning voor Azure AD en met MSI zijn getest en hun respectieve resource-id.
+Zie [Azure-services die ondersteuning voor Azure AD authentication](services-support-msi.md) voor een lijst met bronnen die ondersteuning voor Azure AD en met MSI zijn getest en hun respectieve resource-id.
 
 
 ## <a name="related-content"></a>Gerelateerde inhoud

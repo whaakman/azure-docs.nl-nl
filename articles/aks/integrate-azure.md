@@ -8,11 +8,11 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: b1b51b6c36143747a81d1c1fc035ee6d54d34076
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a29a3f27f7c9ab41724d400c9eb787e6888bedc4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Integreren met de door Azure beheerde services met behulp van Open Service Broker for Azure (OSBA)
 
@@ -21,9 +21,9 @@ Net als [Kubernetes Service Catalog][kubernetes-service-catalog] stelt Open Serv
 ## <a name="prerequisites"></a>Vereisten
 * Een Azure-abonnement
 
-* Azure CLI 2.0: u kunt deze toepassing [lokaal installeren][azure-cli-install] of die in [Azure Cloud Shell][azure-cloud-shell] gebruiken.
+* Azure CLI 2.0: [installeer deze lokaal ][azure-cli-install] of gebruik deze in [Azure Cloud Shell][azure-cloud-shell].
 
-* Helm CLI 2.7+: u kunt deze toepassing [lokaal installeren][helm-cli-install] of die in [Azure Cloud Shell][azure-cloud-shell] gebruiken.
+* Helm CLI 2.7+: [installeer deze lokaal ][helm-cli-install] of gebruik deze in [Azure Cloud Shell][azure-cloud-shell].
 
 * Machtigingen voor het maken van een service-principal met de rol Inzender in uw Azure-abonnement
 

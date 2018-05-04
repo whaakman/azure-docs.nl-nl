@@ -11,21 +11,21 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 04/30/2018
 ms.author: larryfr
-ms.openlocfilehash: 05e06d6ed8c2a3bec0d12f81aae6f7022a56b942
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 797538a6d023e1a4b95680057eb0f72489290f40
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>SSH-Tunneling gebruiken voor toegang tot de Ambari-webgebruikersinterface, JobHistory, NameNode, Oozie en andere web-UI
 
-Linux gebaseerde HDInsight-clusters bieden toegang tot de Ambari-webgebruikersinterface via Internet, maar sommige functies van de gebruikersinterface zijn niet. Bijvoorbeeld: de webgebruikersinterface voor andere services die via Ambari worden opgehaald. Voor volledige functionaliteit van de Ambari-webgebruikersinterface, moet u een SSH-tunnel naar de kop van het cluster.
+HDInsight-clusters bieden toegang tot de Ambari-webgebruikersinterface via Internet, maar sommige functies vereisen een SSH-tunnel. Bijvoorbeeld, de webgebruikersinterface voor de Oozie-service is niet toegankelijk via internet zonder een SSh-tunnel.
 
 ## <a name="why-use-an-ssh-tunnel"></a>Waarom gebruikt een SSH-tunnel
 
-Aantal van de menu's in Ambari werken alleen via een SSH-tunnel. Deze menu's zijn afhankelijk van websites en services worden uitgevoerd op andere knooppunttypen zoals worker-knooppunten. Deze websites zijn vaak niet beveiligd, zodat het is niet veilig om ze rechtstreeks op het internet weer te geven.
+Aantal van de menu's in Ambari werken alleen via een SSH-tunnel. Deze menu's zijn afhankelijk van websites en services worden uitgevoerd op andere knooppunttypen zoals worker-knooppunten.
 
 De volgende Web-UI vereisen een SSH-tunnel:
 
@@ -35,14 +35,14 @@ De volgende Web-UI vereisen een SSH-tunnel:
 * Oozie-webgebruikersinterface
 * HBase hoofd- en logboeken gebruikersinterface
 
-Als u scriptacties gebruikt voor het aanpassen van uw cluster, vereisen geen services of hulpprogramma's die u installeert die een web-UI zichtbaar een SSH-tunnel. Als u Hue met behulp van een scriptactie installeren, moet u een SSH-tunnel gebruiken voor toegang tot de Hue-webgebruikersinterface.
+Als u scriptacties gebruikt voor het aanpassen van uw cluster, vereisen geen services of hulpprogramma's die u installeert die een webservice blootstelt een SSH-tunnel. Als u Hue met behulp van een scriptactie installeren, moet u een SSH-tunnel gebruiken voor toegang tot de Hue-webgebruikersinterface.
 
 > [!IMPORTANT]
 > Als u directe toegang tot HDInsight via een virtueel netwerk hebt, hoeft u geen gebruik van SSH-tunnels. Zie voor een voorbeeld van rechtstreeks toegang hebben tot HDInsight via een virtueel netwerk, de [HDInsight verbinding maken met uw lokale netwerk](connect-on-premises-network.md) document.
 
 ## <a name="what-is-an-ssh-tunnel"></a>Wat is een SSH-tunnel
 
-[Secure Shell (SSH) tunneling](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling) verzonden naar een poort op uw lokale werkstation verkeer gerouteerd. Het verkeer wordt gerouteerd via een SSH-verbinding met het hoofdknooppunt van uw HDInsight-cluster. De aanvraag is opgelost, alsof deze afkomstig van het hoofdknooppunt is. Het antwoord wordt vervolgens doorgestuurd teruggestuurd via de tunnel naar uw werkstation.
+[Secure Shell (SSH) tunneling](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling) een poort op uw lokale machine verbindt met een hoofdknooppunt in HDInsight. Verzonden naar de lokale poort het verkeer wordt doorgestuurd via een SSH-verbinding met het hoofdknooppunt. De aanvraag is opgelost, alsof deze afkomstig van het hoofdknooppunt is. Het antwoord wordt vervolgens doorgestuurd teruggestuurd via de tunnel naar uw werkstation.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -51,7 +51,7 @@ Als u scriptacties gebruikt voor het aanpassen van uw cluster, vereisen geen ser
 * Een webbrowser die kan worden geconfigureerd om een proxy SOCKS5 te gebruiken.
 
     > [!WARNING]
-    > De ondersteuning voor SOCKS-proxy is ingebouwd in Windows biedt geen ondersteuning voor SOCKS5 en werkt niet met de stappen in dit document. De volgende browsers zijn afhankelijk van de proxy-instellingen voor Windows en op dit moment niet werken met de stappen in dit document:
+    > De ondersteuning voor SOCKS-proxy is ingebouwd in Windows Internet instellingen biedt geen ondersteuning voor SOCKS5 en werkt niet met de stappen in dit document. De volgende browsers zijn afhankelijk van de proxy-instellingen voor Windows en op dit moment niet werken met de stappen in dit document:
     >
     > * Microsoft Edge
     > * Microsoft Internet Explorer
@@ -60,10 +60,10 @@ Als u scriptacties gebruikt voor het aanpassen van uw cluster, vereisen geen ser
 
 ## <a name="usessh"></a>Maken van een tunnel met behulp van de SSH-opdracht
 
-Gebruik de volgende opdracht voor het maken van een SSH-tunnel met behulp van de `ssh` opdracht. Vervang **gebruikersnaam** met een SSH-gebruiker voor uw HDInsight-cluster en vervang **CLUSTERNAME** met de naam van uw HDInsight-cluster:
+Gebruik de volgende opdracht voor het maken van een SSH-tunnel met behulp van de `ssh` opdracht. Vervang **sshuser** met een SSH-gebruiker voor uw HDInsight-cluster en vervang **clustername** met de naam van uw HDInsight-cluster:
 
 ```bash
-ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 ```
 
 Deze opdracht maakt u een verbinding die verkeer gerouteerd naar lokale poort 9876 aan het cluster via SSH. De opties zijn:
@@ -119,10 +119,10 @@ Zodra de opdracht is voltooid, wordt verkeer dat wordt verzonden naar poort 9876
 
 Zodra het cluster is ingesteld, gebruikt u de volgende stappen uit om te controleren of u toegang web service UI van het Ambari Web tot:
 
-1. Ga in uw browser naar http://headnodehost:8080. De `headnodehost` adres tot het cluster en los naar de headnode die Ambari op wordt uitgevoerd via de tunnel wordt verzonden. Wanneer u wordt gevraagd, typt u de beheerdersgebruikersnaam (admin) en het wachtwoord voor uw cluster. U wordt mogelijk gevraagd een tweede maal door de Ambari-webgebruikersinterface. Als dit het geval is, voert u de gegevens opnieuw.
+1. Ga in uw browser naar http://headnodehost:8080. De `headnodehost` adres via de tunnel wordt verzonden naar het cluster en oplossen met het hoofdknooppunt dat Ambari op wordt uitgevoerd. Wanneer u wordt gevraagd, typt u de beheerdersgebruikersnaam (admin) en het wachtwoord voor uw cluster. U wordt mogelijk gevraagd een tweede maal door de Ambari-webgebruikersinterface. Als dit het geval is, voert u de gegevens opnieuw.
 
    > [!NOTE]
-   > Wanneer u de http://headnodehost:8080 houden om de verbinding met het cluster, u verbinding maakt via de tunnel. Communicatie wordt beveiligd met behulp van de SSH-tunnel in plaats van HTTPS. Als u wilt verbinden via internet met behulp van HTTPS, gebruiken https://CLUSTERNAME.azurehdinsight.net, waarbij **CLUSTERNAME** is de naam van het cluster.
+   > Wanneer u de http://headnodehost:8080 houden om de verbinding met het cluster, u verbinding maakt via de tunnel. Communicatie wordt beveiligd met behulp van de SSH-tunnel in plaats van HTTPS. Als u wilt verbinden via internet met behulp van HTTPS, gebruiken https://clustername.azurehdinsight.net, waarbij **clustername** is de naam van het cluster.
 
 2. Selecteer in de Ambari-Webgebruikersinterface HDFS uit de lijst aan de linkerkant van de pagina.
 

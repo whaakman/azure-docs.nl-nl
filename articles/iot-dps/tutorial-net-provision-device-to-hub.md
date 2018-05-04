@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: ec08d617b461240062190ec7fdb919f051675798
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c02835e8712c79ea540d7560da111f54abbeed23
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Het apparaat registreren bij een IoT-hub met behulp van IoT Hub Device Provisioning Service-client (.NET)
 
@@ -49,7 +49,7 @@ In deze stap worden de unieke beveiligingsartefacten van het apparaat toegevoegd
 
 - Voor X.509-apparaten:
     - Het [X.509-certificaat dat is verleend aan het apparaat](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx), in de vorm van een *PEM*- of *CER*-bestand. Voor een afzonderlijke inschrijving moet u het *leaf certificaat* voor het X.509-systeem gebruiken. Voor registratiegroepen moet u het *basiscertificaat* of een gelijkwaardig *certificaat van ondertekenaar* gebruiken.
-    - De *Registratie-id* die wordt gebruikt om een apparaat op unieke wijze te identificeren in de naamruimte of het bereik. Deze mag gelijk zijn aan de apparaat-id, maar dit hoeft niet. De id is verplicht voor elk apparaat. Voor X.509-apparaten is de registratie-id afgeleid van de algemene naam (CN) van het certificaat. Zie [Device concepts](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-device) (Apparaatconcepten) voor meer informatie over deze vereisten.
+    - De *Registratie-id* die wordt gebruikt om een apparaat op unieke wijze te identificeren in de naamruimte of het bereik. Deze mag gelijk zijn aan de apparaat-id, maar dit hoeft niet. De id is verplicht voor elk apparaat. Voor X.509-apparaten is de registratie-id afgeleid van de algemene naam (CN) van het certificaat. Zie [Device concepts](https://docs.microsoft.com/azure/iot-dps/concepts-device) (Apparaatconcepten) voor meer informatie over deze vereisten.
 
 Er zijn twee manieren om het apparaat te registreren bij Device Provisioning Service:
 

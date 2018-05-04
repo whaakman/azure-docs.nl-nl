@@ -12,20 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 04/11/2018
 ms.author: renash
-ms.openlocfilehash: 8905b708101e78691c14168edf7afd659afa92a4
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: e283619c7e634a1fbba5940e5c8545b0ee4de3d1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Een Azure-bestandsshare koppelen en de share openen in Windows
 [Azure Files ](storage-files-introduction.md) is het eenvoudig te gebruiken cloudbestandssysteem van Microsoft. Azure-bestandsshares kunnen worden gekoppeld in Windows en Windows Server. In dit artikel ziet u drie verschillende manieren om een Azure-bestandsshare in Windows te koppelen: met de File Explorer-gebruikersinterface, via PowerShell en via de opdrachtprompt. 
 
 Als u een Azure-bestandsshare wilt koppelen buiten de Azure-regio waarin deze wordt gehost, bijvoorbeeld on-premises of in een andere Azure-regio, moet het besturingssysteem ondersteuning bieden voor SMB 3.0. 
 
-U kunt Azure-bestandsshares koppelen aan een Windows-installatie die wordt uitgevoerd in een virtuele machine in Azure of on-premises. In de onderstaande tabel ziet u welke versies van het besturingssysteem het koppelen van bestandsshares ondersteunen en in welke omgeving:
+U kunt Azure-bestandsshares koppelen aan een Windows-installatie die wordt uitgevoerd in een virtuele machine in Azure of on-premises. In de volgende tabel ziet u welke versies van het besturingssysteem het koppelen van bestandsshares ondersteunen en in welke omgeving:
 
 | Windows-versie        | SMB-versie | Koppelbaar in Azure-VM | Koppelbaar on-premises |
 |------------------------|-------------|-----------------------|----------------------|
@@ -49,11 +49,20 @@ U kunt Azure-bestandsshares koppelen aan een Windows-installatie die wordt uitge
 
 * **Sleutel van het opslagaccount**: voor het koppelen van een Azure-bestandsshare hebt u de primaire (of secundaire) opslagsleutel nodig. SAS-sleutels worden momenteel niet ondersteund voor koppelen.
 
-* **Zorg ervoor dat poort 445 is geopend**: Azure Files maakt gebruik van het SMB-protocol. SMB communiceert via TCP-poort 445 - controleer of de TCP-poort 445 van de clientcomputer niet door uw firewall wordt geblokkeerd.
+* **Zorg ervoor dat poort 445 is geopend**: Azure Files maakt gebruik van het SMB-protocol. SMB communiceert via TCP-poort 445 - controleer of de TCP-poort 445 van de clientcomputer niet door uw firewall wordt geblokkeerd. U kunt Portqry gebruiken om te controleren of de TCP-poort 445 is geopend. Als de TCP-poort 445 wordt weergegeven als gefilterd, is de TCP-poort geblokkeerd. Hier volgt een voorbeeld van een query:
+
+    `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.windows.net -p TCP -e 445`
+
+    Als de TCP-poort 445 wordt geblokkeerd door een regel op het netwerkpad, ziet u de volgende uitvoer:
+
+    `TCP port 445 (Microsoft-ds service): FILTERED`
+
+    Zie [Description of the Portqry.exe command-line utility](https://support.microsoft.com/help/310099) (Beschrijving van het opdrachtregelhulpprogramma Portqry.exe) voor meer informatie over het gebruik van Portqry.
+
 
 ## <a name="persisting-connections-across-reboots"></a>Verbindingen behouden tijdens opnieuw opstarten
 ### <a name="cmdkey"></a>CmdKey
-De eenvoudigste manier om permanente verbindingen tot stand brengen, is uw opslagaccountreferenties op te slaan in Windows met behulp van het opdrachtregelprogramma 'CmdKey'. Hier volgt een voorbeeld van de opdrachtregel voor het opslaan van referenties van het opslagaccount op uw virtuele machine:
+De eenvoudigste manier om een permanente verbinding tot stand te brengen, is uw opslagaccountreferenties op te slaan in Windows met behulp van het opdrachtregelhulpprogramma CmdKey. Hier volgt een voorbeeld van de opdrachtregel voor het opslaan van referenties van het opslagaccount op uw virtuele machine:
 ```
 C:\>cmdkey /add:<yourstorageaccountname>.file.core.windows.net /user:<domainname>\<yourstorageaccountname> /pass:<YourStorageAccountKeyWhichEndsIn==>
 ```

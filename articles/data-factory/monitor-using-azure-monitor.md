@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: 1399455fb727c27e22da8c5525eec87e343d46cc
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 798af75625e0d2fed1220932c172683fe71f9aad
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>Monitor voor data Factory met Azure-Monitor  
 Cloud-toepassingen zijn complexe met veel bewegende onderdelen. Monitoring biedt gegevens om ervoor te zorgen dat uw toepassing up blijft en wordt uitgevoerd in een foutloze toestand bevindt. Ook kunt u potentiële problemen voorkomen of oplossen uit het verleden zijn. Bovendien kunt u bewakingsgegevens grondige om inzicht te krijgen over uw toepassing. Deze kennis kan u helpen bij het verbeteren van de prestaties van toepassingen of onderhoud of acties die anders worden handmatige interventie moeten automatiseren.
@@ -230,7 +230,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "identity": null
 }
 ```
-[Hier voor meer informatie](https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
+[Hier voor meer informatie](https://msdn.microsoft.com/library/azure/dn931932.aspx)
 
 ## <a name="schema-of-logs--events"></a>Schema van Logboeken en gebeurtenissen
 
@@ -387,7 +387,7 @@ Monitor voor Azure kunt u telemetrie om meer inzicht verkrijgen in de prestaties
 
 ADFV2 verzendt de volgende metrische gegevens
 
-| **Gegevens**           | **Metrische weergavenaam**         | **Unit** | **Samenvoegingstype** | **Beschrijving**                                       |
+| **Gegevens**           | **Metrische weergavenaam**         | **eenheid** | **Samenvoegingstype** | **Beschrijving**                                       |
 |----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
 | PipelineSucceededRun | Pijplijn wordt uitgevoerd metrische gegevens is voltooid | Count    | Totaal                | Totaal aantal pijplijnen geslaagd uitgevoerd binnen een minuut venster |
 | PipelineFailedRuns   | Pijplijn wordt uitgevoerd metrische gegevens is mislukt    | Count    | Totaal                | Totaal aantal pijplijnen mislukte uitgevoerd binnen een minuut    |

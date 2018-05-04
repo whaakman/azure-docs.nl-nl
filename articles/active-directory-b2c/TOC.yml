@@ -94,8 +94,6 @@
       items:
         - name: Id-providers configureren
           items:
-            - name: Aangepaste OpenID Connect
-              href: active-directory-b2c-setup-oidc-idp.md
             - name: Microsoft-account
               href: active-directory-b2c-setup-msa-app.md
             - name: Facebook
@@ -114,6 +112,10 @@
               href: active-directory-b2c-setup-qq-app.md
             - name: WeChat
               href: active-directory-b2c-setup-wechat-app.md
+            - name: Azure AD (enkele tenant)
+              href: active-directory-b2c-setup-oidc-azure-active-directory.md
+            - name: Aangepaste OpenID Connect
+              href: active-directory-b2c-setup-oidc-idp.md
         - name: Zelf een wachtwoord opnieuw instellen configureren
           href: active-directory-b2c-reference-sspr.md
         - name: De gebruikersinterface aanpassen

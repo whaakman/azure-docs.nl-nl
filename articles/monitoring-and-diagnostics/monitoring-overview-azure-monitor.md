@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/28/2018
 ms.author: robb
 ms.custom: mvc
-ms.openlocfilehash: 1ba2f2be8db424bddfccdf374704ec7be5691feb
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 9a9166e93d24f6402d849b1bee3bcf470685c814
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="overview-of-azure-monitor"></a>Overzicht van Azure Monitor
 Dit artikel bevat een overzicht van de Monitor van de Azure-service in Microsoft Azure. Monitor voor Azure biedt en bevat koppelingen naar aanvullende informatie over het gebruik van Azure-Monitor wordt besproken.  Als u liever een video-inleiding, Zie de volgende stappen koppelingen onder aan dit artikel. 
@@ -108,7 +108,7 @@ Voorbeelden zijn:
 
 ### <a name="store-and-archive"></a>Store en archiveren
 Sommige bewakingsgegevens is al opgeslagen en beschikbaar zijn in de Azure-Monitor voor een bepaalde tijdsduur. 
-- Metrische gegevens worden opgeslagen voor 30 dagen. 
+- Metrische gegevens worden 90 dagen bewaard. 
 - Logboekvermeldingen activiteit worden gedurende 90 dagen opgeslagen. 
 - Diagnostische logboeken worden niet op alle opgeslagen. 
 

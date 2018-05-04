@@ -1,19 +1,19 @@
 ---
-title: Azure-quickstart - Blobs uploaden, downloaden en vermelden in Azure Storage met behulp van Azure Storage Explorer | Microsoft Docs
-description: In deze quickstart maakt u een opslagaccount en een container met behulp van Azure Storage Explorer. Vervolgens gebruikt u Storage Explorer om een blob in Azure Storage te uploaden, een blob te downloaden en de blobs in een container te vermelden.
+title: 'Azure-snelstart: een blob maken in objectopslag met Microsoft Azure Storage Explorer | Microsoft Docs'
+description: In deze snelstart gebruikt u Microsoft Azure Storage Explorer in object(blob)-opslag. Vervolgens gebruikt u Storage Explorer om een blob in Azure Storage te uploaden, een blob te downloaden en de blobs in een container te vermelden.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 04/09/2018
 ms.author: tamram
-ms.openlocfilehash: f44d42b949eae0d017e3bba218234fd1e2ead78e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 176d2fffa9f9e3c43a4e5c922aed58cebdbe2b1d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>Quickstart: blobs uploaden, downloaden en vermelden met behulp van Azure Storage Explorer
 

@@ -78,6 +78,7 @@
 #### [Quota en beperkingen](iot-hub-devguide-quotas-throttling.md)
 #### [Prijsvoorbeelden](iot-hub-devguide-pricing.md)
 #### [Apparaat- en service-SDK's](iot-hub-devguide-sdks.md)
+#### [Ontwikkelen voor mobiele apparaten](iot-hub-how-to-develop-for-mobile-devices.md)
 #### [MQTT-ondersteuning](iot-hub-mqtt-support.md)
 #### [Woordenlijst](iot-hub-devguide-glossary.md)
 ### [De IoT-apparaat-SDK voor C gebruiken](iot-hub-device-sdk-c-intro.md)

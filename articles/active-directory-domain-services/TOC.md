@@ -16,7 +16,7 @@
 ## [Taak 2: De netwerkinstellingen configureren](active-directory-ds-getting-started-network.md)
 ## [Taak 3: De beheergroep configureren en Azure AD Domain Services inschakelen](active-directory-ds-getting-started-admingroup.md)
 ## [Taak 4: De DNS-instellingen voor het virtuele netwerk bijwerken](active-directory-ds-getting-started-dns.md)
-## [Taak 5: Wachtwoordsynchronisatie inschakelen](active-directory-ds-getting-started-password-sync.md)
+## [Taak 5: Wachtwoord-hashsynchronisatie inschakelen](active-directory-ds-getting-started-password-sync.md)
 
 # Procedures
 ## [De status van een beheerd domein controleren](active-directory-ds-check-health.md)
@@ -56,7 +56,7 @@
 
 
 # Naslaginformatie
-## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [Codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=active-directory)
 
 # Verwant
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)

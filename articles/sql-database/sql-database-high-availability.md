@@ -6,14 +6,14 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 04/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: e85db04206927eaf17cf52c11b536c75a47a088e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 839cadffc37a1c4a6ceae77fbe1e01020c28fe1d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hoge beschikbaarheid en Azure SQL-Database
 Microsoft heeft de belofte aangebracht in de klanten die hoge beschikbaarheid (HA) is ingebouwd in de service en de klanten hoeven niet te werken, speciale logica voor het toevoegen of beslissingen rond HA vanaf het begin van de Azure SQL Database PaaS-aanbieding. Microsoft onderhoudt volledige controle over de HA-systeemconfiguratie en bewerking, biedt klanten een SLA. De HA-SLA van toepassing op een SQL-database in een regio en biedt geen bescherming in geval van een mislukking van de totale regio die wordt veroorzaakt door factoren buiten het beheer van Microsoft redelijkerwijs (bijvoorbeeld een natuurramp, war, besluiten van terrorisme, riots, overheids-actie of een netwerk- of apparaatstoring buiten de datacenters van Microsoft, waaronder op klant sites of tussen sites van de klant en Datacenter van Microsoft).
@@ -87,9 +87,14 @@ De zone redundant versie van de architectuur van hoge beschikbaarheid wordt door
 ## <a name="read-scale-out"></a>Scale-out lezen
 Zoals wordt beschreven, service Premium en Business-kritische (preview) lagen hefboomwerking quorum-stelt en AlwaysON-technologie voor hoge beschikbaarheid in één zone en zone redundant configuraties. Een van de voordelen van AlwasyON is de replica's zijn altijd de transactioneel consistent is. Omdat de replica's hetzelfde prestatieniveau als het primaire hebben, de toepassing kan profiteren van deze extra capaciteit voor het onderhoud van de alleen-lezen werkbelastingen zonder extra kosten (lezen scale-out). Op deze manier de alleen-lezen-query's zijn geïsoleerd van de belangrijkste lezen-schrijven werkbelasting en niet van invloed op de prestaties. Lees de functie scale-out is bedoeld voor de toepassingen die logisch zijn alleen-lezen werkbelastingen zoals analytics gescheiden en daarom kan gebruikmaken van deze extra capaciteit zonder verbinding met de primaire. 
 
-Als u wilt de lezen Scale-Out-functie met een bepaalde database gebruiken, moet u expliciet deze inschakelen bij het maken van de database of later door het wijzigen van de configuratie met behulp van PowerShell door aan te roepen de [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) of de [ Nieuwe AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlets of via de REST-API van Azure Resource Manager met behulp van de [Databases - maken of bijwerken](/rest/api/sql/databases/createorupdate) methode.
+Als u wilt de lezen Scale-Out-functie met een bepaalde database gebruiken, moet u expliciet deze activeren bij het maken van de database of later door het wijzigen van de configuratie met behulp van PowerShell door aan te roepen de [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) of de [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlets of via de REST-API van Azure Resource Manager met behulp van de [Databases - maken of bijwerken](/rest/api/sql/databases/createorupdate) methode.
 
-Nadat lezen Scale-Out is ingeschakeld voor een database, verbinding maken met database toepassingen wordt omgeleid naar de alleen-lezen-replica of naar een alleen-lezen replica van die database volgens de `ApplicationIntent` eigenschap geconfigureerd in de toepassing verbindingstekenreeks. Voor informatie over de `ApplicationIntent` eigenschap, Zie [Toepassingsintentie opgeven](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent) 
+Nadat lezen Scale-Out is ingeschakeld voor een database, verbinding maken met database toepassingen wordt omgeleid naar de alleen-lezen-replica of naar een alleen-lezen replica van die database volgens de `ApplicationIntent` eigenschap geconfigureerd in de toepassing verbindingstekenreeks. Voor informatie over de `ApplicationIntent` eigenschap, Zie [Toepassingsintentie geven](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent). 
+
+Als lezen Scale-Out is uitgeschakeld of u de eigenschap ReadScale in een niet-ondersteunde servicelaag instellen, alle verbindingen worden omgeleid naar de alleen-lezen-replica, onafhankelijk van de `ApplicationIntent` eigenschap.  
+
+> [!NOTE]
+> Het is mogelijk te activeren lezen Scale-out op een standaard of een database voor algemene doeleinden, ondanks dat niet resulteert in de alleen-lezen routering sessie naar een afzonderlijke replica bedoeld. Dit wordt gedaan ter ondersteuning van bestaande toepassingen waarvoor omhoog en omlaag geschaald tussen de lagen Standard/algemeen doel- en Premium/Business-kritische.  
 
 De functie lezen Scale-Out ondersteunt sessie niveau consistentie. Als de alleen-lezen-sessie opnieuw verbinding maakt nadat een verbindingsfout veroorzaken bij replica niet beschikbaar zijn, kan deze worden omgeleid naar een andere replica. Terwijl onwaarschijnlijk, kan dit leiden tot het verwerken van de gegevensset die is verouderd. Op dezelfde manier als een toepassing schrijft gegevens via een alleen-lezen-sessie en leest onmiddellijk met behulp van de alleen-lezen-sessie, is het mogelijk dat de nieuwe gegevens niet direct zichtbaar is.
 

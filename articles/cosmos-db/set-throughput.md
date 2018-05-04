@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2018
 ms.author: sngun
-ms.openlocfilehash: 0e89b93764f51873d991524a5e226464c224b649
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 0a53bb0a23fae386abbe71de944b073cbb93d502
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="set-throughput-for-azure-cosmos-db-containers"></a>Doorvoer instellen voor Azure DB die Cosmos-containers
+# <a name="set-and-get-throughput-for-azure-cosmos-db-containers"></a>Instellen en ophalen van doorvoer voor Azure DB die Cosmos-containers
 
 U kunt de doorvoer instellen voor uw Azure DB die Cosmos-containers in de Azure-portal of met behulp van de client-SDK's. 
 
@@ -96,6 +96,43 @@ offer.getContent().put("offerThroughput", newThroughput);
 client.replaceOffer(offer);
 ```
 
+## <a id="GetLastRequestStatistics"></a>Doorvoer ophalen met behulp van de MongoDB-API GetLastRequestStatistics-opdracht
+
+De MongoDB-API biedt ondersteuning voor een aangepaste opdracht *getLastRequestStatistics*, voor het ophalen van de kosten van de aanvraag voor een bepaalde bewerking.
+
+Bijvoorbeeld, in de Mongo-Shell uitvoeren van de bewerking die u wilt controleren of de kosten van de aanvraag voor.
+```
+> db.sample.find()
+```
+
+Voer vervolgens de opdracht *getLastRequestStatistics*.
+```
+> db.runCommand({getLastRequestStatistics: 1})
+{
+    "_t": "GetRequestStatisticsResponse",
+    "ok": 1,
+    "CommandName": "OP_QUERY",
+    "RequestCharge": 2.48,
+    "RequestDurationInMilliSeconds" : 4.0048
+}
+```
+
+Met dat gegeven in gedachte, één methode voor het schatten van de hoeveelheid gereserveerde doorvoer vereist door uw toepassing is voor het vastleggen van de aanvraag eenheid kosten die zijn gekoppeld aan met het normale bewerkingen uitvoeren in een representatieve item gebruikt door de toepassing en vervolgens schatting maken van de aantal bewerkingen die om uit te voeren per seconde wordt verwacht.
+
+> [!NOTE]
+> Als er itemtypen die aanzienlijk in termen van de grootte en het aantal geïndexeerde eigenschappen verschillen wordt, en noteer vervolgens de betreffende bewerking aanvraag eenheid kosten die zijn gekoppeld aan elk *type* van typische item.
+> 
+> 
+
+## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>Doorvoer verkrijgen door middel van MongoDB API portal metrische gegevens
+
+De eenvoudigste manier om een goede indicatie van aanvraag ophalen eenheid kosten voor de MongoDB-API-database is het gebruik van de [Azure-portal](https://portal.azure.com) metrische gegevens. Met de *aantal aanvragen* en *aanvraag kosten* grafieken, kunt u een schatting van het aantal aanvraageenheden elke bewerking verbruikt en het aantal aanvraageenheden die ze gebruiken ten opzichte van elkaar ophalen.
+
+![MongoDB API portal metrische gegevens][1]
+
+### <a id="RequestRateTooLargeAPIforMongoDB"></a> Overschrijding van gereserveerde doorvoer grenzen in de MongoDB-API
+Toepassingen die groter is dan de ingerichte doorvoer voor een container zijn beperkt in de frequentie waarmee totdat het verbruiksniveau onder de snelheid van de ingerichte doorvoer zakt. Wanneer een snelheid-beperking optreedt, de back-end optie preventief beëindigd wanneer de aanvraag met een `16500` foutcode - `Too Many Requests`. Standaard de MongoDB-API wordt automatisch opnieuw geprobeerd maximaal 10 keer voordat er een `Too Many Requests` foutcode. Als er veel `Too Many Requests` foutcodes, kunt u overwegen een toe te voegen aan een Pogingslogica routines voor foutafhandeling van uw toepassing of [verhogen ingerichte doorvoer voor de container](set-throughput.md).
+
 ## <a name="throughput-faq"></a>Veelgestelde vragen over doorvoer
 
 **Kan ik mijn doorvoer ingesteld op minder dan 400 RU/s**
@@ -109,3 +146,5 @@ Er is geen extensie MongoDB-API om in te stellen doorvoer. De aanbeveling is het
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie voor meer informatie over het inrichten en gaat wereld-schaal met Cosmos DB, [partitionering en schalen met Cosmos DB](partition-data.md).
+
+[1]: ./media/set-throughput/api-for-mongodb-metrics.png

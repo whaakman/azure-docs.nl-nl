@@ -1,4 +1,4 @@
-# [Documentatie voor Key Vault](index.md)
+# [Documentatie voor Key Vault](index.yml)
 
 # Overzicht
 ## [Overzicht van Key Vault](key-vault-overview.md)
@@ -9,13 +9,13 @@
 ## [Een sleutelkluis maken - Portal](quick-create-portal.md)
 
 # Zelfstudies
-## [Een Azure-webtoepassing configureren zodat deze een geheim vanuit een sleutelkluis kan lezen](tutorial-web-application-keyvault.md)
-# Voorbeelden
-## [Codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=key-vault)
-# Concepten
+## [Een geheim lezen in Key Vault](tutorial-web-application-keyvault.md)
 ## [Aan de slag met Key Vault](key-vault-get-started.md)
 ## [Sleutelrotatie en -controle instellen](key-vault-key-rotation-log-monitoring.md)
 ## [Key Vault vanuit een web-app gebruiken](key-vault-use-from-web-application.md)
+# Voorbeelden
+## [Codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=key-vault)
+# Concepten
 ## [Beveiligingsgebieden](key-vault-ovw-security-worlds.md)
 ## [Voorlopig verwijderen](key-vault-ovw-soft-delete.md)
 ## [Opslagaccountsleutels](key-vault-ovw-storage-keys.md)

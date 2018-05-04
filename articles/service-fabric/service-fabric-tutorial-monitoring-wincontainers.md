@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: tutorial
@@ -15,21 +15,21 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: de77d10e4875173c7a067e945e473887d3cc7422
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 087dafe426b835d447c69a44f6842c41a48cec8c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="tutorial-monitor-windows-containers-on-service-fabric-using-oms"></a>Zelfstudie: Windows-containers in Service Fabric bewaken met behulp van OMS
+# <a name="tutorial-monitor-windows-containers-on-service-fabric-using-log-analytics"></a>Zelfstudie: Windows-containers in Service Fabric bewaken met behulp van Log Analytics
 
-Dit is deel drie van een zelfstudie. U wordt begeleidt bij het instellen van OMS voor het bewaken van uw Windows-containers die in Service Fabric worden georganiseerd.
+Dit is deel drie van een zelfstudie. U wordt begeleid bij het instellen van Log Analytics voor het bewaken van uw Windows-containers die in Service Fabric worden georganiseerd.
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * OMS configureren voor uw Service Fabric-cluster
-> * Een OMS-werkruimte gebruiken om logboeken te bekijken en te doorzoeken vanuit uw containers en knooppunten
+> * Log Analytics configureren voor uw Service Fabric-cluster
+> * Een Log Analytics-werkruimte gebruiken om logboeken te bekijken en te doorzoeken vanuit uw containers en knooppunten
 > * De OMS-agent configureren om metrische gegevens uit containers en knooppunten te halen
 
 ## <a name="prerequisites"></a>Vereisten
@@ -37,24 +37,24 @@ Voordat u aan deze zelfstudie begint, dient u eerst:
 - Een cluster op Azure te hebben of [er een maken met behulp van deze zelfstudie](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 - [Een containertoepassing erin te implementeren](service-fabric-host-app-in-a-container.md)
 
-## <a name="setting-up-oms-with-your-cluster-in-the-resource-manager-template"></a>OMS voor uw cluster instellen in de Resource Manager-sjabloon
+## <a name="setting-up-log-analytics-with-your-cluster-in-the-resource-manager-template"></a>Log Analytics voor uw cluster instellen in de Resource Manager-sjabloon
 
-Als u in het eerste deel van deze zelfstudie de [opgegeven sjabloon](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Tutorial) hebt gebruikt, dient deze de volgende aanvullingen voor een generieke Service Fabric Azure Resource Manager-sjabloon te bevatten. Als u over een eigen cluster beschikt die u voor het bewaken van containers met OMS wilt instellen, gaat u als volgt te werk:
+Als u in het eerste deel van deze zelfstudie de [opgegeven sjabloon](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Tutorial) hebt gebruikt, dient deze de volgende aanvullingen voor een generieke Service Fabric Azure Resource Manager-sjabloon te bevatten. Als u over een eigen cluster beschikt die u voor het bewaken van containers met Log Analytics wilt instellen, gaat u als volgt te werk:
 * Breng de volgende wijzigingen in de Resource Manager-sjabloon aan.
 * Implementeer de sjabloon met PowerShell om uw cluster bij te werken door [de sjabloon te implementeren](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm). Azure Resource Manager weet dat de resource bestaat, zodat de resource als een upgrade wordt uitgebracht.
 
-### <a name="adding-oms-to-your-cluster-template"></a>OMS aan de clustersjabloon toevoegen
+### <a name="adding-log-analytics-to-your-cluster-template"></a>Log Analytics aan de clustersjabloon toevoegen
 
 Breng de volgende wijzigingen in *template.json* aan:
 
-1. Voeg de locatie en de naam van de OMS-werkruimte toe aan de sectie *parameters*:
+1. Voeg de locatie en de naam van de Log Analytics-werkruimte toe aan de sectie *parameters*:
     
     ```json
     "omsWorkspacename": {
       "type": "string",
       "defaultValue": "[toLower(concat('sf',uniqueString(resourceGroup().id)))]",
       "metadata": {
-        "description": "Name of your OMS Log Analytics Workspace"
+        "description": "Name of your Log Analytics Workspace"
       }
     },
     "omsRegion": {
@@ -66,7 +66,7 @@ Breng de volgende wijzigingen in *template.json* aan:
         "Southeast Asia"
       ],
       "metadata": {
-        "description": "Specify the Azure Region for your OMS workspace"
+        "description": "Specify the Azure Region for your Log Analytics workspace"
       }
     }
     ```
@@ -100,7 +100,7 @@ Breng de volgende wijzigingen in *template.json* aan:
     },
     ```
 
-4. Voeg de OMS-werkruimte toe als een afzonderlijke resource. Voeg in *resources*, na de resource voor de virtuele-machineschaalsets, het volgende toe:
+4. Voeg de Log Analytics-werkruimte toe als afzonderlijke resource. Voeg in *resources*, na de resource voor de virtuele-machineschaalsets, het volgende toe:
     
     ```json
     {
@@ -180,17 +180,17 @@ Breng de volgende wijzigingen in *template.json* aan:
     },
     ```
 
-[Hier](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json) vindt u een voorbeeldsjabloon (gebruikt in deel één van deze zelfstudie) die al deze wijzigingen bevat en die u zo nodig kunt raadplegen. Dankzij deze wijzigingen wordt er een OMS Log Analytics-werkruimte aan de resourcegroep toegevoegd. De werkruimte wordt geconfigureerd zodat Service Fabric-platformgebeurtenissen kunnen worden opgehaald uit de opslagtabellen die met de [Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md)-agent zijn geconfigureerd. De OMS-agent (Microsoft Monitoring Agent) is ook aan elk knooppunt in het cluster toegevoegd als een extensie van de virtuele machine. Dit betekent dat als het cluster wordt geschaald, de agent automatisch op elke machine wordt geconfigureerd en aan dezelfde werkruimte gekoppeld.
+[Hier](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json) vindt u een voorbeeldsjabloon (gebruikt in deel één van deze zelfstudie) die al deze wijzigingen bevat en die u zo nodig kunt raadplegen. Dankzij deze wijzigingen wordt er een Log Analytics-werkruimte aan de resourcegroep toegevoegd. De werkruimte wordt geconfigureerd zodat Service Fabric-platformgebeurtenissen kunnen worden opgehaald uit de opslagtabellen die met de [Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md)-agent zijn geconfigureerd. De OMS-agent (Microsoft Monitoring Agent) is ook aan elk knooppunt in het cluster toegevoegd als een extensie van de virtuele machine. Dit betekent dat als het cluster wordt geschaald, de agent automatisch op elke machine wordt geconfigureerd en aan dezelfde werkruimte gekoppeld.
 
-Implementeer de sjabloon met de nieuwe wijzigingen om het huidige cluster bij te werken. U ziet de OMS-resources in uw resourcegroep wanneer deze is voltooid. Als het cluster klaar is, implementeert u er de containertoepassing in. In de volgende stap, wordt het bewaken van de containers ingesteld.
+Implementeer de sjabloon met de nieuwe wijzigingen om het huidige cluster bij te werken. U ziet de Log Analytics-resources in uw resourcegroep wanneer deze is voltooid. Als het cluster klaar is, implementeert u er de containertoepassing in. In de volgende stap, wordt het bewaken van de containers ingesteld.
 
-## <a name="add-the-container-monitoring-solution-to-your-oms-workspace"></a>Container Monitoring Solution toevoegen aan de OMS-werkruimte
+## <a name="add-the-container-monitoring-solution-to-your-log-analytics-workspace"></a>Container Monitoring Solution toevoegen aan de Log Analytics-werkruimte
 
 Als u de Container-oplossing in uw werkruimte wilt instellen, zoekt u naar *Container Monitoring Solution* en maakt u een Containers-resource (onder de categorie Bewaking + Management).
 
 ![Containers-oplossing toevoegen](./media/service-fabric-tutorial-monitoring-wincontainers/containers-solution.png)
 
-Als u hierom door de *OMS-werkruimte* wordt gevraagd, selecteert u de werkruimte die in uw resourcegroep is gemaakt en klikt u op **Maken**. Hierdoor wordt een *Container Monitoring Solution* aan de werkruimte toegevoegd en wordt automatisch het verzamelen van docker-logboeken en -statistieken gestart. 
+Als u er door de *Log Analytics-werkruimte* om wordt gevraagd, selecteert u de werkruimte die in uw resourcegroep is gemaakt en klikt u op **Maken**. Hierdoor wordt een *Container Monitoring Solution* aan de werkruimte toegevoegd en wordt automatisch het verzamelen van docker-logboeken en -statistieken gestart. 
 
 Ga terug naar uw *resourcegroep*, waar u nu de pas toegevoegde bewakingsoplossing moet kunnen zien. Als u erin klikt, moet op de startpagina het aantal containerinstallatiekopieën dat wordt uitgevoerd, worden weergegeven. 
 
@@ -219,7 +219,7 @@ Een ander voordeel van het gebruik van de OMS-agent is de mogelijkheid om de pre
 Hierna komt u terecht in de werkruimte in de OMS-portal, waar u uw oplossingen kunt zien, aangepaste dashboards kunt maken en de OMS-agent kunt configureren. 
 * Klik op het **tandwiel** in de rechterbovenhoek van het scherm om het menu *Instellingen* te openen.
 * Klik op **Verbonden bronnen** > **Windows Servers** om te controleren of er *5 Windows-computers verbonden* zijn.
-* Klik op **Gegevens** > **Windows-prestatiemeteritems** om nieuwe prestatiemeteritems te zoeken en toe te voegen. Hier ziet u een lijst met aanbevelingen van OMS voor prestatiemeteritems die u kunt verzamelen, evenals de optie om andere tellers te zoeken. Klik op **De geselecteerde prestatiemeteritems toevoegen** om de voorgestelde metrische gegevens te gaan zoeken.
+* Klik op **Gegevens** > **Windows-prestatiemeteritems** om nieuwe prestatiemeteritems te zoeken en toe te voegen. Hier ziet u een lijst met aanbevelingen van Log Analytics voor prestatiemeteritems die u kunt verzamelen, evenals de optie om andere tellers te zoeken. Klik op **De geselecteerde prestatiemeteritems toevoegen** om de voorgestelde metrische gegevens te gaan zoeken.
 
     ![Prestatiemeteritems](./media/service-fabric-tutorial-monitoring-wincontainers/perf-counters.png)
 
@@ -235,13 +235,13 @@ Terug in Azure Portal **vernieuwt** u binnen enkele minuten de Container Monitor
 In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
-> * OMS configureren voor uw Service Fabric-cluster
-> * Een OMS-werkruimte gebruiken om logboeken te bekijken en te doorzoeken vanuit uw containers en knooppunten
-> * De OMS-agent configureren om metrische gegevens uit containers en knooppunten te halen
+> * Log Analytics configureren voor uw Service Fabric-cluster
+> * Een Log Analytics-werkruimte gebruiken om logboeken te bekijken en te doorzoeken vanuit uw containers en knooppunten
+> * De Log Analytics-agent configureren om metrische gegevens uit containers en knooppunten te halen
 
 Nu u bewaking hebt ingesteld voor uw containertoepassing, kunt u het volgende doen:
 
-* De OMS instellen voor een Linux-cluster, volgens soortgelijke stappen als hierboven. Raadpleeg [Deze sjabloon](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux) om wijzigingen in de Resource Manager-sjabloon aan te brengen.
-* OMS configureren om [automatische waarschuwingen](../log-analytics/log-analytics-alerts.md) in te stellen voor detectie en diagnostiek.
+* De Log Analytics instellen voor een Linux-cluster, volgens soortgelijke stappen als hierboven. Raadpleeg [Deze sjabloon](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux) om wijzigingen in de Resource Manager-sjabloon aan te brengen.
+* Log Analytics configureren om [automatische waarschuwingen](../log-analytics/log-analytics-alerts.md) in te stellen voor detectie en diagnostiek.
 * De lijst met [aanbevolen prestatiemeteritems](service-fabric-diagnostics-event-generation-perf.md) van Service Fabric onderzoeken om deze voor uw clusters te configureren.
 * Vertrouwd raken met de functies [zoeken in logboeken en query's uitvoeren](../log-analytics/log-analytics-log-searches.md) die als onderdeel van Log Analytics worden aangeboden.

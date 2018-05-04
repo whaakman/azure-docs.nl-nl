@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/22/2018
 ms.author: davidste
-ms.openlocfilehash: 5b13338646abda7eefec44c42dc0159e9338adfa
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: MT
+ms.openlocfilehash: e46a816b9a0d66991b8f619135b657a0d51ba395
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connector-version-release-history"></a>Releasegeschiedenis van connectorversie
 De Connectors voor Forefront Identity Manager (FIM) en Microsoft Identity Manager (MIM) worden regelmatig bijgewerkt.
@@ -34,7 +34,7 @@ Verwante koppelingen:
 * [Download de meest recente Connectors](http://go.microsoft.com/fwlink/?LinkId=717495)
 * [Algemene LDAP-Connector](active-directory-aadconnectsync-connector-genericldap.md) documentatie verwijst naar
 * [Algemene SQL-Connector](active-directory-aadconnectsync-connector-genericsql.md) documentatie verwijst naar
-* [Web-Services-Connector](https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) documentatie verwijst naar
+* [Web-Services-Connector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) documentatie verwijst naar
 * [PowerShell Connector](active-directory-aadconnectsync-connector-powershell.md) documentatie verwijst naar
 * [Lotus Domino-Connector](active-directory-aadconnectsync-connector-domino.md) documentatie verwijst naar
 
@@ -104,7 +104,7 @@ Verwante koppelingen:
   * Wanneer de optie **aangepaste certifiers toestaan voor organisatie/organisatorische eenheden** is uitgeschakeld en vervolgens de connector is mislukt tijdens het exporteren (Update) na de export-stroom alle kenmerken worden geëxporteerd naar Domino maar op het moment van exporteren een KeyNotFoundException wordt geretourneerd om te synchroniseren. 
     * Dit gebeurt omdat de naamswijziging mislukt als er wordt geprobeerd DN-naam (kenmerk UserName) wijzigen door het wijzigen van een van de volgende kenmerken:  
       - LastName
-      - FirstName
+      - Voornaam
       - MiddleInitial
       - AltFullName
       - AltFullNameLanguage
@@ -171,7 +171,7 @@ Uitgebracht: 2017 maart
  * Wizard einden wanneer geen UPN-kenmerken worden gedetecteerd vanuit de LDAP-directory-schema
  * Delta-invoer is mislukt met detectie-fouten is niet aanwezig zijn tijdens de volledige import, als 'objectclass'-kenmerk niet is geselecteerd
  * Een pagina van de configuratie 'Partities en hiërarchieën configureren' wordt niet weergegeven van alle objecten welk type gelijk is aan de partitie voor de nieuwe servers in de algemene  
-LDAP MA. Ze hebt u geleerd alleen objecten van de RootDSE-partitie.
+MA LDAP. Ze hebt u geleerd alleen objecten van de RootDSE-partitie.
 
 
 * Algemene SQL:
@@ -200,7 +200,7 @@ Initiële release van de [algemene SQL-Connector](active-directory-aadconnectsyn
 
 * Algemene LDAP-Connector:
   * Ondersteuning toegevoegd voor de delta-import met Isode.
-* Web Services Connector:
+* Web Services-Connector:
   * Bijgewerkt in de csEntryChangeResult en setImportErrorCode activiteit om toe te staan fouten object terug naar de synchronisatie-engine wordt geretourneerd.
   * De SAP6 en SAP6User sjablonen voor het gebruik van de nieuwe functionaliteit van de object-fout op niveau wordt bijgewerkt.
 * Lotus Domino-Connector:
@@ -212,7 +212,7 @@ Initiële release van de [algemene SQL-Connector](active-directory-aadconnectsyn
   * Voor IBM Tivoli DS, sommige reference-kenmerken zijn niet correct is gedetecteerd.
   * Voor Open LDAP tijdens een delta-import zijn spaties aan het begin en einde van tekenreeksen afgekapt.
   * Voor Novell en NetIQ hernoemd exporteren van een die een object tussen de organisatie-eenheden/containers en tegelijkertijd verplaatst het object is mislukt.
-* Web Services Connector:
+* Web Services-Connector:
   * Als de web-service meerdere eindpunten voor dezelfde binding heeft, is klikt u vervolgens de Connector niet correct detecteren deze eindpunten.
 * Lotus Domino-Connector:
   * Exporteren van een van de volledige naam-kenmerk met een database mail in werkt niet.
@@ -222,29 +222,29 @@ Initiële release van de [algemene SQL-Connector](active-directory-aadconnectsyn
 ## <a name="older-releases"></a>Oudere versies
 De Connectors zijn vóór maart 2016 uitgebracht als ondersteuning onderwerpen.
 
-**Generic LDAP**
+**Algemene LDAP**
 
 * [KB3078617](https://support.microsoft.com/kb/3078617) -1.0.0597, September 2015
-* [KB3044896](https://support.microsoft.com/kb/3044896) - 1.0.0549, 2015 March
+* [KB3044896](https://support.microsoft.com/kb/3044896) -1.0.0549, van maart 2015
 * [KB3031009](https://support.microsoft.com/kb/3031009) -1.0.0534, januari 2015
-* [KB3008177](https://support.microsoft.com/kb/3008177) - 1.0.0419, 2014 September
-* [KB2936070](https://support.microsoft.com/kb/2936070) - 4.3.1082, 2014 March
+* [KB3008177](https://support.microsoft.com/kb/3008177) -1.0.0419, September 2014
+* [KB2936070](https://support.microsoft.com/kb/2936070) -4.3.1082, 2014 maart
 
 **WebServices**
 
-* [KB3008178](https://support.microsoft.com/kb/3008178) - 1.0.0419, 2014 September
+* [KB3008178](https://support.microsoft.com/kb/3008178) -1.0.0419, September 2014
 
 **PowerShell**
 
-* [KB3008179](https://support.microsoft.com/kb/3008179) - 1.0.0419, 2014 September
+* [KB3008179](https://support.microsoft.com/kb/3008179) -1.0.0419, September 2014
 
 **Lotus Domino**
 
 * [KB3096533](https://support.microsoft.com/kb/3096533) -1.0.0597, September 2015
-* [KB3044895](https://support.microsoft.com/kb/3044895) - 1.0.0549, 2015 March
+* [KB3044895](https://support.microsoft.com/kb/3044895) -1.0.0549, van maart 2015
 * [KB2977286](https://support.microsoft.com/kb/2977286) -5.3.0712, 2014-augustus
 * [KB2932635](https://support.microsoft.com/kb/2932635) -5.3.1003, februari 2014  
-* [KB2899874](https://support.microsoft.com/kb/2899874) - 5.3.0721, 2013 October
+* [KB2899874](https://support.microsoft.com/kb/2899874) -5.3.0721, oktober 2013
 * [KB2875551](https://support.microsoft.com/kb/2875551) -5.3.0534, 2013-augustus
 
 ## <a name="troubleshooting"></a>Problemen oplossen 

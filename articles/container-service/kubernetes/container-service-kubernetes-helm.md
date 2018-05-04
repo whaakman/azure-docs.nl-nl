@@ -3,17 +3,17 @@ title: Implementeer containers met Helm in Azure Kubernetes
 description: Het Helm verpakking-hulpprogramma gebruiken om de containers op een cluster Kubernetes in Azure Container Service implementeren
 services: container-service
 author: sauryadas
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: e9e214aeacde2f338d3e59507269d1eb4b689418
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 882e785968f94473e80c7a14e5a68498add37735
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>Helm gebruiken voor het implementeren van containers op een cluster Kubernetes
 

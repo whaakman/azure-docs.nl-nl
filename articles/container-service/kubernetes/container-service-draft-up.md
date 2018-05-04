@@ -3,17 +3,17 @@ title: Concept gebruiken met Azure Containerservice en Azure Container register
 description: Maak een ACS Kubernetes-cluster en een Azure Container Registry om uw eerste toepassing met Draft te maken in Azure.
 services: container-service
 author: squillace
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: de1e8ec1b712aeb5572c7972b22412f2ae90b7b9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 68ad44bae0856ff000f2847049a15a946d83c0a3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>Draft gebruiken met Azure Container Service en Azure Container Registry om een Kubernetes-toepassing te bouwen en implementeren
 
@@ -99,8 +99,8 @@ Wanneer u een cluster hebt, kunt u de referenties importeren met de opdracht [az
 ## <a name="install-and-configure-draft"></a>Draft installeren en configureren
 
 
-1. Concept voor uw omgeving op https://github.com/Azure/draft/releases downloaden en installeren in het pad, zodat de opdracht kan worden gebruikt.
-2. Helm voor uw omgeving op https://github.com/kubernetes/helm/releases downloaden en [installeren in het pad, zodat de opdracht kan worden gebruikt](https://github.com/kubernetes/helm/blob/master/docs/install.md#installing-the-helm-client).
+1. Ontwerp voor uw omgeving op downloaden https://github.com/Azure/draft/releases en installeer in het pad, zodat de opdracht kan worden gebruikt.
+2. Download helm voor uw omgeving op https://github.com/kubernetes/helm/releases en [installeren in het pad, zodat de opdracht kan worden gebruikt](https://github.com/kubernetes/helm/blob/master/docs/install.md#installing-the-helm-client).
 3. Configureer Draft om uw eigen register te gebruiken en om subdomeinen te maken voor elk Helm-diagram dat wordt gemaakt. U hebt het volgende nodig voor het configureren van Draft:
   - de naam van uw Azure Container Registry (in dit voorbeeld is dat `draftacsdemo`)
   - de registersleutel of het wachtwoord van `az acr credential show -n <registry name> --output tsv --query "passwords[0].value"`.

@@ -53,6 +53,8 @@
           href: how-to-vscode-debug-csharp-module.md
         - name: Fouten opsporen in Azure Functions
           href: how-to-vscode-debug-azure-function.md
+    - name: CI/CD in VSTS
+      href: how-to-ci-cd.md
     - name: Gegevens opslaan aan de rand
       href: sql-storage.md
     - name: Problemen oplossen

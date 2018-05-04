@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 8561d9ca2570975f4cd20a0606ce5b9cdee632b7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a6d6e0b7ea844f0a4d60ae7a157ac76dc8bdb8f8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Aanbevolen beveiligingsprocedures voor IaaS-workloads in Azure
 
@@ -52,7 +52,7 @@ In het verleden uw netwerkverbinding gebruikt om toegang tot zakelijke gegevens 
 
 Een van de meeste zin stappen die u ondernemen kunt om een account te beveiligen is tweeledige verificatie in te schakelen. Tweeledige verificatie is een manier te verifiëren met behulp van iets naast een wachtwoord. Het helpt het risico van toegang door iemand die u beheert om een wachtwoord van iemand anders te achterhalen.
 
-[Azure multi-factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) u toegang tot gegevens en toepassingen beveiligt en te voldoen aan de behoeften van de gebruiker voor een eenvoudig proces aanmelden. Sterke verificatie met een bereik van eenvoudige verificatie-opties--telefoongesprek, tekstbericht of mobiele-appmelding levert. Gebruikers de methode kiezen die ze de voorkeur geven.
+[Azure multi-factor Authentication](../active-directory/authentication/multi-factor-authentication.md) u toegang tot gegevens en toepassingen beveiligt en te voldoen aan de behoeften van de gebruiker voor een eenvoudig proces aanmelden. Sterke verificatie met een bereik van eenvoudige verificatie-opties--telefoongesprek, tekstbericht of mobiele-appmelding levert. Gebruikers de methode kiezen die ze de voorkeur geven.
 
 De eenvoudigste manier om meervoudige verificatie gebruiken is de mobiele app van Microsoft Authenticator die kan worden gebruikt op mobiele apparaten met Windows, iOS en Android. Met de meest recente versie van Windows 10 en de integratie van de lokale Active Directory met Azure Active Directory (Azure AD), [Windows Hello voor bedrijven](../active-directory/active-directory-azureadjoin-passport-deployment.md) kan worden gebruikt voor naadloze eenmalige aanmelding voor Azure-resources. In dit geval wordt wordt het apparaat met Windows 10 gebruikt als tweede factor voor verificatie.
 
@@ -118,7 +118,7 @@ U kunt ook de [punt-naar-site](../vpn-gateway/vpn-gateway-howto-point-to-site-rm
 >[!NOTE]
 >U kunt beide opties voor VPN-opnieuw configureren van de ACL's voor het nsg's op geen toegang tot eindpunten voor beheer van het Internet toestaat.
 
-Een andere optie waard is een [extern bureaublad-Gateway](../multi-factor-authentication/multi-factor-authentication-get-started-server-rdg.md) implementatie. U kunt deze implementatie veilig verbinding kunnen maken met extern bureaublad-servers via HTTPS, tijdens het toepassen van gedetailleerdere besturingselementen op deze verbindingen gebruiken.
+Een andere optie waard is een [extern bureaublad-Gateway](../active-directory/authentication/howto-mfaserver-nps-rdg.md) implementatie. U kunt deze implementatie veilig verbinding kunnen maken met extern bureaublad-servers via HTTPS, tijdens het toepassen van gedetailleerdere besturingselementen op deze verbindingen gebruiken.
 
 Functies die u toegang zou hebben om op te nemen:
 
@@ -166,7 +166,7 @@ Alle virtuele machines in Azure IaaS moet worden gehard zodat ze openbaren allee
 
 Security Compliance Manager is een gratis hulpprogramma. U kunt deze gebruiken om snel te configureren en beheren van uw bureaubladen, traditionele datacenter en private en openbare cloud met behulp van Groepsbeleid en System Center Configuration Manager.
 
-Security Compliance Manager biedt gereed te implementeren beleid en Desired Configuration Management-configuratiepakketten die zijn getest. Deze basislijnen zijn gebaseerd op [Microsoft-beveiligingsrichtlijnen](https://technet.microsoft.com/en-us/library/cc184906.aspx) aanbevelingen en andere aanbevolen procedures. Ze helpen u configuratie afwijking, adres nalevingsvereisten, beheren en beveiligingsrisico's verkleinen.
+Security Compliance Manager biedt gereed te implementeren beleid en Desired Configuration Management-configuratiepakketten die zijn getest. Deze basislijnen zijn gebaseerd op [Microsoft-beveiligingsrichtlijnen](https://technet.microsoft.com/library/cc184906.aspx) aanbevelingen en andere aanbevolen procedures. Ze helpen u configuratie afwijking, adres nalevingsvereisten, beheren en beveiligingsrisico's verkleinen.
 
 U kunt Security Compliance Manager de huidige configuratie van uw computers importeren met behulp van twee verschillende methoden gebruiken. Ten eerste kunt u Groepsbeleid op basis van Active Directory importeren. Ten tweede kunt u de configuratie van de 'gouden master' importeren referentiecomputer met behulp van de [LocalGPO hulpprogramma](https://blogs.technet.microsoft.com/secguide/2016/01/21/lgpo-exe-local-group-policy-object-utility-v1-0/) back-up van het lokale Groepsbeleid. U kunt het lokale Groepsbeleid vervolgens importeren in Security Compliance Manager.
 

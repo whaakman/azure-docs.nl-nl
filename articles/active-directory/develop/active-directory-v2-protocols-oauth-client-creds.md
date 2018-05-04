@@ -2,10 +2,10 @@
 title: Azure AD v2.0 gebruiken voor toegang tot beveiligde bronnen zonder gebruikersinteractie | Microsoft Docs
 description: Webtoepassingen bouwen met behulp van de Azure AD-implementatie van het protocol OAuth 2.0-verificatie.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 9b7cfbd7-f89f-4e33-aff2-414edd584b07
 ms.service: active-directory
 ms.workload: identity
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 28616657c5aae4f6ada1ec592a2a6287e8607b6a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ea681244edd81bcba1269886acc725175f779bfb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory-v2.0 en de clientreferentiestroom van OAuth 2.0
-U kunt de [OAuth 2.0-clientreferenties verlenen](http://tools.ietf.org/html/rfc6749#section-4.4), soms ook wel *tweearmige OAuth*, toegang krijgen tot bronnen web gehost met behulp van de identiteit van een toepassing. Dit type grant vaak wordt gebruikt voor de server naar server interacties dat moeten worden uitgevoerd op de achtergrond, zonder directe interactie met een gebruiker. Deze typen toepassingen vaak worden aangeduid als *daemons* of *-serviceaccounts*.
+U kunt de [OAuth 2.0-clientreferenties verlenen](http://tools.ietf.org/html/rfc6749#section-4.4) opgegeven in RFC 6749, wel *tweearmige OAuth*, toegang krijgen tot bronnen web gehost met behulp van de identiteit van een toepassing. Dit type grant vaak wordt gebruikt voor de server naar server interacties dat moeten worden uitgevoerd op de achtergrond, zonder directe interactie met een gebruiker. Deze typen toepassingen vaak worden aangeduid als *daemons* of *-serviceaccounts*.
 
 > [!NOTE]
 > Het v2.0-eindpunt biedt geen ondersteuning voor alle Azure Active Directory-scenario's en onderdelen. Meer informatie over om te bepalen of het v2.0-eindpunt moet worden gebruikt, [v2.0 beperkingen](active-directory-v2-limitations.md).
@@ -50,9 +50,9 @@ Dit type verificatie is gebruikelijk daemons en serviceaccounts voor groepen die
 U kunt in plaats van ACL's, API's gebruiken om een reeks Toepassingsmachtigingen weer te geven. Een toepassing toestemming te krijgen tot een toepassing door de beheerder van een organisatie en kan alleen worden gebruikt voor toegang tot gegevens die eigendom zijn van die organisatie en werknemers. Bijvoorbeeld: Microsoft Graph beschrijft de verschillende Toepassingsmachtigingen het volgende doen:
 
 * E-mail in alle postvakken lezen
-* E-mail in alle postvakken lezen en schrijven
+* Lezen en schrijven van e-mail in alle postvakken
 * E-mail met elke willekeurige gebruiker als afzender verzenden
-* Adreslijstgegevens lezen
+* Mapgegevens lezen
 
 Voor meer informatie over de machtigingen van een toepassing, gaat u naar [Microsoft Graph](https://graph.microsoft.io).
 
@@ -60,7 +60,7 @@ Voor het gebruik van machtigingen voor een toepassing in uw app, moet u in de vo
 
 #### <a name="request-the-permissions-in-the-app-registration-portal"></a>De machtigingen in de app-portal voor registratie van aanvragen
 1. Ga naar uw toepassing in de [toepassing Registratieportal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), of [maken van een app](active-directory-v2-app-registration.md), als u dat nog niet gedaan hebt. U moet ten minste één Toepassingsgeheim gebruiken bij het maken van uw app.
-2. Zoek de **Direct Toepassingsmachtigingen** sectie en voeg vervolgens de machtigingen die vereist dat uw app.
+2. Zoek de **Mcrosoft grafiek machtigingen** sectie en voeg vervolgens de **Toepassingsmachtigingen** die uw app vereist.
 3. **Sla** de registratie van de app.
 
 #### <a name="recommended-sign-the-user-in-to-your-app"></a>Aanbevolen: De gebruiker zich aanmeldt bij uw app
@@ -90,7 +90,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 | Parameter | Voorwaarde | Beschrijving |
 | --- | --- | --- |
-| Tenant |Vereist |De directory-tenant die u wilt machtiging van aanvragen. Dit kan zijn in de beschrijvende naam van de indeling of GUID. Als u niet welk tenant de gebruiker behoort en u laten aanmelden met een tenant weet wilt, gebruikt u `common`. |
+| tenant |Vereist |De directory-tenant die u wilt machtiging van aanvragen. Dit kan zijn in de beschrijvende naam van de indeling of GUID. Als u niet welk tenant de gebruiker behoort en u laten aanmelden met een tenant weet wilt, gebruikt u `common`. |
 | client_id |Vereist |De aanvraag-ID die de [Registratieportal toepassing](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) toegewezen aan uw app. |
 | redirect_uri |Vereist |De omleidings-URI waar u het antwoord moet worden verzonden voor uw app om af te handelen. Moet exact overeenkomen met een van de omleidings-URI's die u in de portal hebt geregistreerd, behalve dat het moet een URL zijn gecodeerd en kunnen extra padsegmenten hebben. |
 | state |Aanbevolen |Een waarde die is opgenomen in de aanvraag die ook in het token antwoord wordt geretourneerd. Een tekenreeks van inhoud die u wilt dat kan zijn. De status wordt gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat het verificatieverzoek opgetreden, zoals de pagina of de weergave op. |
@@ -106,7 +106,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 
 | Parameter | Beschrijving |
 | --- | --- | --- |
-| Tenant |De directory-tenant die uw toepassing, de machtigingen die zij gevraagd in GUID-indeling. |
+| tenant |De directory-tenant die uw toepassing, de machtigingen die zij gevraagd in GUID-indeling. |
 | state |Een waarde die is opgenomen in de aanvraag die ook in het token antwoord wordt geretourneerd. Een tekenreeks van inhoud die u wilt dat kan zijn. De status wordt gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat het verificatieverzoek opgetreden, zoals de pagina of de weergave op. |
 | admin_consent |Ingesteld op **true**. |
 
@@ -130,11 +130,14 @@ Nadat u de benodigde machtiging hebt voor uw toepassing hebt verkregen, doorgaan
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>Het eerste aanvraagnummer: aanvraag voor toegang tot token met een gedeeld geheim
 
 ```
-POST /common/oauth2/v2.0/token HTTP/1.1
+POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
-client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials
+client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
+&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
+&client_secret=qWgdYAmab0YSkuL1qKv5bPX
+&grant_type=client_credentials
 ```
 
 ```
@@ -143,26 +146,32 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 
 | Parameter | Voorwaarde | Beschrijving |
 | --- | --- | --- |
+| tenant |Vereist | De toepassing van de directory-tenant wil werken tegen, GUID of domeinnaam indeling. |
 | client_id |Vereist |De aanvraag-ID die de [Registratieportal toepassing](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) toegewezen aan uw app. |
-| Bereik |Vereist |De doorgegeven waarde voor de `scope` parameter in deze aanvraag moet de resource identifier (URI toepassing-ID) van de resource die u wilt gebruiken, aangebracht met de `.default` achtervoegsel. De waarde voor de voorbeeld Microsoft Graph heeft `https://graph.microsoft.com/.default`. Deze waarde informeert het v2.0-eindpunt dat alle rechtstreekse toepassing machtigingen die u voor uw app hebt geconfigureerd, deze moet uitgeven van een token voor de regels die zijn gekoppeld aan de resource die u wilt gebruiken. |
+| scope |Vereist |De doorgegeven waarde voor de `scope` parameter in deze aanvraag moet de resource identifier (URI toepassing-ID) van de resource die u wilt gebruiken, aangebracht met de `.default` achtervoegsel. De waarde voor de voorbeeld Microsoft Graph heeft `https://graph.microsoft.com/.default`. Deze waarde informeert het v2.0-eindpunt dat alle rechtstreekse toepassing machtigingen die u voor uw app hebt geconfigureerd, deze moet uitgeven van een token voor de regels die zijn gekoppeld aan de resource die u wilt gebruiken. |
 | client_secret |Vereist |De Toepassingsgeheim die u voor uw app in de portal van de registratie van de app hebt gegenereerd. |
 | grant_type |Vereist |Moet `client_credentials`. |
 
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Tweede geval: aanvraag voor toegang tot token met een certificaat
 
 ```
-POST /common/oauth2/v2.0/token HTTP/1.1
+POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
-scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_id=97e0a5b7-d745-40b6-94fe-5f77d35c6e05&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&client_assertion=eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJ{a lot of characters here}M8U3bSUKKJDEg&grant_type=client_credentials
+scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
+&client_id=97e0a5b7-d745-40b6-94fe-5f77d35c6e05
+&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer
+&client_assertion=eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJ{a lot of characters here}M8U3bSUKKJDEg
+&grant_type=client_credentials
 ```
 
 | Parameter | Voorwaarde | Beschrijving |
 | --- | --- | --- |
+| tenant |Vereist | De toepassing van de directory-tenant wil werken tegen, GUID of domeinnaam indeling. |
 | client_id |Vereist |De aanvraag-ID die de [Registratieportal toepassing](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) toegewezen aan uw app. |
-| Bereik |Vereist |De doorgegeven waarde voor de `scope` parameter in deze aanvraag moet de resource identifier (URI toepassing-ID) van de resource die u wilt gebruiken, aangebracht met de `.default` achtervoegsel. De waarde voor de voorbeeld Microsoft Graph heeft `https://graph.microsoft.com/.default`. Deze waarde informeert het v2.0-eindpunt dat alle rechtstreekse toepassing machtigingen die u voor uw app hebt geconfigureerd, deze moet uitgeven van een token voor de regels die zijn gekoppeld aan de resource die u wilt gebruiken. |
-| client_assertion_type |Vereist |De waarde moet liggen`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| scope |Vereist |De doorgegeven waarde voor de `scope` parameter in deze aanvraag moet de resource identifier (URI toepassing-ID) van de resource die u wilt gebruiken, aangebracht met de `.default` achtervoegsel. De waarde voor de voorbeeld Microsoft Graph heeft `https://graph.microsoft.com/.default`. Deze waarde informeert het v2.0-eindpunt dat alle rechtstreekse toepassing machtigingen die u voor uw app hebt geconfigureerd, deze moet uitgeven van een token voor de regels die zijn gekoppeld aan de resource die u wilt gebruiken. |
+| client_assertion_type |Vereist |De waarde moet liggen `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
 | client_assertion |Vereist | Een bewering (een JSON Web Token) die u nodig hebt voor het maken en te ondertekenen met het certificaat u geregistreerd als referenties voor uw toepassing. Meer informatie over [referenties van het certificaat](active-directory-certificate-credentials.md) voor informatie over het registreren van uw certificaat en de indeling van de bevestiging.|
 | grant_type |Vereist |Moet `client_credentials`. |
 

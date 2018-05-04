@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2017
+ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 1f697b95074e0fc9dbb3e8c7800e69f8ece9e0b3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b924ea1df926518ba1d86909f8e6a78deabd5468
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qprism"></a>Zelfstudie: Azure Active Directory-integratie met QPrism
 
@@ -103,41 +103,22 @@ In deze sectie kunt u Azure AD eenmalige aanmelding inschakelen in de Azure port
 
     ![URL's en QPrism domein eenmalige aanmelding informatie](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_url.png)
 
-    a. In de **aanmeldings-URL** tekstvak, typt u een URL die gebruikmaakt van het volgende patroon volgen:`https://<customer domain>.qmyzone.com/login`
+    a. In de **aanmeldings-URL** tekstvak, typt u een URL die gebruikmaakt van het volgende patroon volgen: `https://<customer domain>.qmyzone.com/login`
 
-    b. In de **id** tekstvak, typt u een URL die gebruikmaakt van het volgende patroon volgen:`https://<customer domain>.qmyzone.com/metadata.php`
+    b. In de **id** tekstvak, typt u een URL die gebruikmaakt van het volgende patroon volgen: `https://<customer domain>.qmyzone.com/metadata.php`
          
     > [!NOTE] 
     > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke identificatie en eenmalige aanmelding URL. Neem contact op met [QPrism Client ondersteuningsteam](mailto:qsupport-ce@quatrro.com) ophalen van deze waarden. 
 
-4. Voor het genereren van de **metagegevens** -URL, het volgende doen:
+4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en plak deze in Kladblok.
 
-    a. Selecteer **App registraties**.
-    
-    ![Eenmalige aanmelding app registraties configureren](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_appregistrations.png)
-   
-    b. Selecteer **eindpunten** openen **eindpunten** in het dialoogvenster.  
-    
-    ![Eindpunt voor eenmalige aanmelding configureren](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_endpointicon.png)
-
-    c. Selecteer de knop kopiëren om te kopiëren de **DOCUMENT met federatieve metagegevens** -URL, en plak deze in Kladblok.
-    
-    ![Eindpunt voor eenmalige aanmelding configureren](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_endpoint.png)
-     
-    d. Nu gaat u naar de eigenschappenpagina van **QPrism**, en kopieer de **toepassings-ID** met behulp van **kopie**. Plak deze in Kladblok.
- 
-    ![Eenmalige aanmelding toepassings-ID configureren](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_appid.png)
-
-    e. Genereren van de **metagegevens-URL** met behulp van het volgende patroon volgen:`<FEDERATION METADATA DOCUMENT url>?appid=<application id>` 
+     ![De downloadkoppeling certificaat](./media/active-directory-saas-qprism-tutorial/tutorial_qprism_certificate.png)
 
 5. Selecteer **Opslaan**.
 
     ![Configureren van eenmalige aanmelding knop Opslaan](./media/active-directory-saas-qprism-tutorial/tutorial_general_400.png)
     
-6. Eenmalige aanmelding configureren op de **QPrism** zijde, verzenden de **metagegevens-URL** naar de [QPrism ondersteuningsteam](mailto:qsupport-ce@quatrro.com). Ze ervoor te zorgen dat de SAML eenmalige aanmelding verbinding aan beide zijden juist is ingesteld.
-
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt. Na het toevoegen van deze app uit de **Active Directory** > **bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [documentatie van Azure AD ingesloten]( https://go.microsoft.com/fwlink/?linkid=845985).
+6. Eenmalige aanmelding configureren op **QPrism** kant die u wilt verzenden de **App-Url voor federatieve metagegevens** naar [QPrism ondersteuningsteam](mailto:qsupport-ce@quatrro.com). Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
@@ -212,7 +193,7 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie testen met b
 In het deelvenster toegang wanneer u de tegel QPrism selecteert moet u ophalen automatisch aangemeld voor uw toepassing QPrism.
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

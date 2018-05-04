@@ -1,5 +1,5 @@
 ---
-ms.assetid: 
+ms.assetid: ''
 title: De Opslagaccountsleutels voor Azure Sleutelkluis
 description: Een seemless integratie tussen Azure Key Vault en toegang tot de sleutel op basis bieden toegangscodes voor opslag voor Azure Storage-Account.
 ms.topic: article
@@ -9,11 +9,11 @@ author: lleonard-msft
 ms.author: alleonar
 manager: mbaldwin
 ms.date: 10/12/2017
-ms.openlocfilehash: a3f8d540c7e4c8a86b151540980724777fd150fd
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 4f42a47a6d934bf0538efccbcf7f057fd28e2c03
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>De Opslagaccountsleutels voor Azure Sleutelkluis
 
@@ -136,7 +136,7 @@ $storage = Get-AzureRmStorageAccount -ResourceGroupName "mystorageResourceGroup"
 $servicePrincipalId = $(Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093).Id
 ```
 
-Vervolgens stelt de machtigingen voor **uw account** om ervoor te zorgen dat u alle opslagmachtigingen van in de Sleutelkluis kunt beheren. In het onderstaande voorbeeld ons Azure-account is  _developer@contoso.com_ .
+Vervolgens stelt de machtigingen voor **uw account** om ervoor te zorgen dat u alle opslagmachtigingen van in de Sleutelkluis kunt beheren. In het onderstaande voorbeeld ons Azure-account is _developer@contoso.com_.
 
 ```powershell
 # Searching our Azure Active Directory for our account's ObjectId
@@ -189,7 +189,7 @@ Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Contain
 
 ### <a name="get-sas-tokens"></a>SAS-tokens verkrijgen
 
-De bijbehorende SAS-tokens verkrijgen en aanroepen naar de opslag. `-SecretName` is opgesteld met de invoer van de `AccountName` en `Name` parameters op wanneer u uitgevoerd [Set AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/en-us/powershell/module/AzureRM.KeyVault/Set-AzureKeyVaultManagedStorageSasDefinition).
+De bijbehorende SAS-tokens verkrijgen en aanroepen naar de opslag. `-SecretName` is opgesteld met de invoer van de `AccountName` en `Name` parameters op wanneer u uitgevoerd [Set AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Set-AzureKeyVaultManagedStorageSasDefinition).
 
 ```powershell
 $readSasToken = (Get-AzureKeyVaultSecret -VaultName $keyVaultName -SecretName "$accountName-$readSasName").SecretValueText

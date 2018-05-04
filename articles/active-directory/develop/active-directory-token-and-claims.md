@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/07/2017
+ms.date: 04/22/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3d8a4ddd98086252f36eeb7034248e909fec1ac0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 627b5bf39c066cd974b70f9db974fcf3fd73b251
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-token-reference"></a>Azure AD-tokenverwijzing
-Azure Active Directory (Azure AD) verzendt verschillende typen beveiligingstokens bij de verwerking van elke verificatiestroom. Dit document beschrijft de indeling, de beveiligingskenmerken en de inhoud van elk type token.
+Azure Active Directory (Azure AD) verzendt verschillende typen beveiligingstokens bij de verwerking van elke verificatiestroom. Dit document beschrijft de indeling, de beveiligingskenmerken en de inhoud van elk type token. 
 
 ## <a name="types-of-tokens"></a>Typen tokens
 Azure AD-ondersteunt de [OAuth 2.0-protocol voor autorisatie](active-directory-protocols-oauth-code.md), welke maakt gebruik van zowel access_tokens als refresh_tokens.  Het biedt ook ondersteuning voor verificatie en meld u via [OpenID Connect](active-directory-protocols-openid-connect-code.md), die een derde type token, de id_token introduceert.  Elk van deze tokens wordt weergegeven als 'bearer-token'.
@@ -52,7 +52,6 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 > [!div class="mx-codeBreakAll"]
 | JWT Claim | Naam | Beschrijving |
 | --- | --- | --- |
-| `appid` |Toepassings-id |De toepassing die het token wordt gebruikt voor toegang tot een bron te identificeren. De toepassing kan fungeren als zelf of namens een gebruiker. De toepassings-ID vertegenwoordigt doorgaans een application-object, maar het kan ook een service-principal-object vertegenwoordigen in Azure AD. <br><br> **Voorbeeldwaarde JWT**: <br> `"appid":"15CB020F-3984-482A-864D-1D92265E8268"` |
 | `aud` |Doelgroep |De beoogde ontvanger van het token. De toepassing die de token ontvangt moet verifiëren dat de waarde van de doelgroep juist is en tot tokens die zijn bedoeld voor een andere doelgroep negeren. <br><br> **Voorbeeldwaarde SAML**: <br> `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>` <br><br> **Voorbeeldwaarde JWT**: <br> `"aud":"https://contoso.com"` |
 | `appidacr` |Application Authentication Context Class Reference |Hiermee wordt aangegeven hoe de client is geverifieerd. Voor een openbare-client heeft de waarde 0 is. Als de client-ID en clientgeheim zijn gebruikt, is de waarde 1. <br><br> **Voorbeeldwaarde JWT**: <br> `"appidacr": "0"` |
 | `acr` |Authentication Context Class Reference |Hiermee wordt aangegeven hoe de certificaathouder is geverifieerd, in plaats van de client in de Application Authentication Context Class Reference claim. Een waarde van '0' geeft aan dat de verificatie van de eindgebruiker niet voldeed aan de vereisten van de ISO/IEC 29115. <br><br> **Voorbeeldwaarde JWT**: <br> `"acr": "0"` |
@@ -163,9 +162,8 @@ Vernieuwen van tokens kunnen worden ongeldig gemaakt of op elk gewenst moment om
   * Onopzettelijk wachtwoordwijziging: Als een beheerder zorgt ervoor dat een gebruiker hun wachtwoord wijzigen of opnieuw wordt ingesteld, klikt u vervolgens van de gebruiker tokens ongeldig worden gemaakt als ze zijn bereikt met behulp van hun wachtwoord.  Zie opmerkingen hieronder voor uitzonderingen. 
   * Inbreuk op de beveiliging: In het geval van een inbreuk op de beveiliging (bijvoorbeeld het lokale archief van wachtwoorden is geschonden) de beheerder kan intrekken alle het vernieuwen van tokens momenteel is uitgegeven.  Hierdoor moeten alle gebruikers opnieuw worden geverifieerd. 
 
-Opmerking: 
-
-Als een niet-password authenticatiemethode is gebruikt (Windows Hello, de verificator-app, biometrie zoals een vlak of vingerafdruk) voor het bereiken van het token, wachtwoord van de gebruiker te wijzigen forceert geen de gebruiker opnieuw worden geverifieerd (maar deze wordt gedwongen de verificator-app voor het opnieuw verifiëren).  Dit is omdat de gekozen verificatie invoer (een gezicht, bijvoorbeeld) is niet gewijzigd en kan daarom opnieuw worden gebruikt voor het opnieuw te verifiëren.
+> [!NOTE]
+>Als een niet-password authenticatiemethode is gebruikt (Windows Hello, de verificator-app, biometrie zoals een vlak of vingerafdruk) voor het bereiken van het token, wachtwoord van de gebruiker te wijzigen forceert geen de gebruiker opnieuw worden geverifieerd (maar deze wordt gedwongen de verificator-app voor het opnieuw verifiëren).  Dit is omdat de gekozen verificatie invoer (een gezicht, bijvoorbeeld) is niet gewijzigd en kan daarom opnieuw worden gebruikt voor het opnieuw te verifiëren.
 
 ## <a name="sample-tokens"></a>Voorbeeld-Tokens
 

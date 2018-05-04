@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: bwren
-ms.openlocfilehash: 5e01ea901f1ba07c0ee5a99720c00c5f03574365
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: cf1842c6abbbfd767184d8f480a5f3a5fd654ed0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Informatie over waarschuwingen in Log Analytics
 
@@ -67,7 +67,7 @@ Waarschuwingsregels worden gedefinieerd door de volgende details:
  
     - **ONWAAR waarschuwingen**. Soms Waarschuwingsquery zijn ontworpen om de afwezigheid van gebeurtenissen te identificeren. Een voorbeeld hiervan wordt gedetecteerd wanneer een virtuele machine door te zoeken naar gemiste heartbeats offline is. Als hierboven, als de heartbeat is niet beschikbaar voor zoeken in het venster tijdstip waarschuwing vervolgens een waarschuwing wordt gegenereerd omdat de heartbeat-gegevens nog niet was doorzoekbare en daarom ontbreekt. Dit is hetzelfde resultaat als de virtuele machine daadwerkelijk offline is en er geen heartbeat-gegevens die worden gegenereerd door het is. De query uit de volgende dag over de juiste tijdvenster ziet u dat er heartbeats zijn en waarschuwingen is mislukt. In feite was de heartbeats van de niet nog beschikbaar voor zoeken omdat de waarschuwing tijdvenster te klein is ingesteld.
 
-- **Frequentie**.  Hiermee geeft u op hoe vaak de query moet worden uitgevoerd en kan worden gebruikt om waarschuwingen te laten meer voor de normale aanvraag reageren. De waarde kan tussen vijf minuten en 24 uur en moet gelijk zijn aan of kleiner is dan de waarschuwing tijdvenster.  Als de waarde groter dan de periode is, risico u records wordt overgeslagen.<br>Als het doel is betrouwbaar zijn voor een vertraging tot 30 minuten en de normale vertraging is 10 minuten, het tijdvenster moet één uur en de frequentiewaarde moet 10 minuten. Dit zou een waarschuwing met gegevens met een vertraging van 10 minuten opname tussen 10 en 20 minuten van gegevens van de waarschuwing is gegenereerd.<br>Om te voorkomen dat meerdere waarschuwingen voor dezelfde gegevens maken omdat het tijdvenster te breed is de [waarschuwingen onderdrukt](log-analytics-tutorial-response.md#create-alerts) optie kan worden gebruikt voor het onderdrukken van waarschuwingen voor ten minste zolang het tijdvenster.
+- **Frequentie**.  Hiermee geeft u op hoe vaak de query moet worden uitgevoerd en kan worden gebruikt om waarschuwingen te laten meer voor de normale aanvraag reageren. De waarde kan tussen vijf minuten en 24 uur en moet gelijk zijn aan of kleiner is dan de waarschuwing tijdvenster.  Als de waarde groter dan de periode is, risico u records wordt overgeslagen.<br>Als het doel is betrouwbaar zijn voor een vertraging tot 30 minuten en de normale vertraging is 10 minuten, het tijdvenster moet één uur en de frequentiewaarde moet 10 minuten. Dit zou een waarschuwing met gegevens met een vertraging van 10 minuten opname tussen 10 en 20 minuten van gegevens van de waarschuwing is gegenereerd.<br>Om te voorkomen dat meerdere waarschuwingen voor dezelfde gegevens maken omdat het tijdvenster te breed is, kan de optie waarschuwingen onderdrukt onderdrukken waarschuwingen voor ten minste zolang het tijdvenster worden gebruikt.
   
 - **Drempelwaarde**. De resultaten van de zoekopdracht logboek worden geëvalueerd om te bepalen of een waarschuwing moet worden gemaakt. De drempelwaarde is verschillend voor de verschillende typen regels voor waarschuwingen.
 

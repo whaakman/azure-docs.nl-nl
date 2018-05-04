@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 1e85d5f48ce998ebaf4ccaa231bb75449e2bab16
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b0b8f56266f77724a60253991556b15a923e537f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory - voorbeelden
 > [!NOTE]
-> Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [PowerShell-voorbeelden in de Data Factory versie 2](../samples-powershell.md) en [codevoorbeelden in de galerie van Azure-codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=data-factory).
+> Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [PowerShell-voorbeelden in de Data Factory versie 2](../samples-powershell.md) en [codevoorbeelden in de galerie van Azure-codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=data-factory).
 
 
 ## <a name="samples-on-github"></a>Voorbeelden op GitHub
@@ -30,7 +30,7 @@ De [GitHub Azure-DataFactory opslagplaats](https://github.com/azure/azure-datafa
 
 | Voorbeeld | Beschrijving |
 |:--- |:--- |
-| [ADF Walkthrough](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFWalkthrough) |Dit voorbeeld biedt een end-to-end-overzicht voor het verwerken van logboekbestanden met Azure Data Factory om gegevens te sluiten van de logboekbestanden in te insights. <br/><br/>In dit scenario de Data Factory-pijplijn verzamelt voorbeeld Logboeken, processen en verrijkt de gegevens uit logboeken met referentiegegevens, en transformeert de gegevens voor het evalueren van de effectiviteit van een marketingcampagne dat onlangs is gestart. |
+| [Overzicht van de ADF](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFWalkthrough) |Dit voorbeeld biedt een end-to-end-overzicht voor het verwerken van logboekbestanden met Azure Data Factory om gegevens te sluiten van de logboekbestanden in te insights. <br/><br/>In dit scenario de Data Factory-pijplijn verzamelt voorbeeld Logboeken, processen en verrijkt de gegevens uit logboeken met referentiegegevens, en transformeert de gegevens voor het evalueren van de effectiviteit van een marketingcampagne dat onlangs is gestart. |
 | [JSON-voorbeelden](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON) |Dit voorbeeld ziet u voorbeelden van JSON voor veelvoorkomende scenario's. |
 | [Gegevens van de HTTP-Downloadprogramma voor het voorbeeld](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) |In dit voorbeeld showcases downloaden van gegevens van een HTTP-eindpunt naar Azure Blob Storage met behulp van aangepaste .NET-activiteit. |
 | [Cross-AppDomain punt Net activiteit voorbeeld](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) |Dit voorbeeld kunt u schrijft een aangepaste .NET-activiteit die is niet beperkt tot assembly-versies die worden gebruikt door het starten van de ADF (bijvoorbeeld WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x, enz.). |

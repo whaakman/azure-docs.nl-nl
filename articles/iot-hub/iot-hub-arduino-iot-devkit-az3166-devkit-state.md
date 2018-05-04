@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: liydu
-ms.openlocfilehash: 38a0c4f90b99686450b164637162c117b1fb6063
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 33d8a36cc88bd1c263f2c4a38a59e04e1253357c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
 
@@ -31,7 +31,7 @@ U kunt in dit voorbeeld gebruiken voor het bewaken van de MXChip IoT DevKit Wi-F
 
 ## <a name="what-you-need"></a>Wat u nodig hebt
 
-- Uw ontwikkelomgeving instellen door de [Getting Started Guide](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
+- Uw ontwikkelomgeving instellen door de [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
 - Typ de volgende opdrachten vanuit uw terminalvenster GitBash (of andere opdrachtregelinterface Git):
     - `git clone https://github.com/DevKitExamples/DevKitState.git`
     - `cd DevKitState`
@@ -96,4 +96,4 @@ U hebt geleerd hoe:
 Hier volgen de mogelijke volgende stappen:
 
 * [Overzicht van Azure IoT Suite](https://docs.microsoft.com/azure/iot-suite/)
-* [Sluit een apparaat MXChip IoT DevKit aan uw toepassing Microsoft IoT centrale](https://docs.microsoft.com/en-us/microsoft-iot-central/howto-connect-devkit)
+* [Sluit een apparaat MXChip IoT DevKit aan uw toepassing Microsoft IoT centrale](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

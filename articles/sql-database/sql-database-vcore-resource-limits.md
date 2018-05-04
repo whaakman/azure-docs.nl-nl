@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: carlrab
-ms.openlocfilehash: 23bab643a88fe27eb34750f970f962041f8c18f4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 204702eee1cf502ac873e0c1f5e3fd257ecce33c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-preview"></a>Azure SQL Database vCore gebaseerde aanschaffen van een model limieten (preview)
 
@@ -40,8 +40,7 @@ De volgende tabellen tonen voor individuele databases, de beschikbare resources 
 |Doel-IOPS|320|640|1280|2560|5120|
 |I/o-latentie (bij benadering)|5-7 ms (schrijven)
 |Maximum aantal gelijktijdige werknemers (aanvragen)|200|400|800|1600|3200|
-|Maximaal aantal gelijktijdige aanmeldingen|200|400|800|1600|3200|
-|Maximaal toegestane sessies|3000|3000|3000|3000|3000|
+|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|
 |Aantal replica 's|1|1|1|1|1|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|
 |Scale-out lezen|N/A|N/A|N/A|N/A|N/A|
@@ -63,8 +62,7 @@ De volgende tabellen tonen voor individuele databases, de beschikbare resources 
 |Doel-IOPS|5000|10.000|20000|40000|80000|
 |I/o-latentie (bij benadering)|1-2 ms (schrijven)<br>1-2-ms (gelezen)|1-2 ms (schrijven)<br>1-2-ms (gelezen)|1-2 ms (schrijven)<br>1-2-ms (gelezen)|1-2 ms (schrijven)<br>1-2-ms (gelezen)|1-2 ms (schrijven)<br>1-2-ms (gelezen)|
 |Maximum aantal gelijktijdige werknemers (aanvragen)|200|400|800|1600|3200|
-|Maximaal aantal gelijktijdige aanmeldingen|200|400|800|1600|3200|
-|Maximaal toegestane sessies|3000|3000|3000|3000|3000|
+|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|
 |Aantal replica 's|3|3|3|3|3|
 |Multi-AZ|Ja|Ja|Ja|Ja|Ja|
 |Scale-out lezen|Ja|Ja|Ja|Ja|Ja|
@@ -117,10 +115,9 @@ De volgende tabellen geven voor de elastische pools SQL-Database, de beschikbare
 |Doel-IOPS|320|640|1280|2560|5120|
 |I/o-latentie (bij benadering)|5-7 ms (schrijven)<br>5-10 ms (gelezen)|5-7 ms (schrijven)<br>5-10 ms (gelezen)|5-7 ms (schrijven)<br>5-10 ms (gelezen)|5-7 ms (schrijven)<br>5-10 ms (gelezen)|5-7 ms (schrijven)<br>5-10 ms (gelezen)|
 |Maximum aantal gelijktijdige werknemers (aanvragen)|210|420|840|1680|3360|
-|Maximaal aantal gelijktijdige aanmeldingen|210|420|840|1680|3360|
-|Maximaal toegestane sessies|3000|3000|3000|3000|3000|
+|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|
 |Maximum aantal toepassingen dichtheid|100|200|500|500|500|
-|Minimale/maximale elastische pool Klik-stopt|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|
+|Minimale/maximale elastische pool Klik-stopt|0, 0,25, 0,5, 1|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|
 |Aantal replica 's|1|1|1|1|1|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|
 |Scale-out lezen|N/A|N/A|N/A|N/A|N/A|
@@ -128,7 +125,7 @@ De volgende tabellen geven voor de elastische pools SQL-Database, de beschikbare
 |||
 
 ### <a name="business-critical-service-tier"></a>Kritieke service bedrijfslaag
-|Prestatieniveau|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|
+|Prestatieniveau|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|
 |:--- | --: |--: |--: |--: |--: |
 |Generatie H/W|4|4|4|4|4|
 |vCores|1|2|4|8|16|
@@ -142,10 +139,9 @@ De volgende tabellen geven voor de elastische pools SQL-Database, de beschikbare
 |Doel-IOPS|320|640|1280|2560|5120|
 |I/o-latentie (bij benadering)|1-2 ms (schrijven)<br>1-2-ms (gelezen)|1-2 ms (schrijven)<br>1-2-ms (gelezen)|1-2 ms (schrijven)<br>1-2-ms (gelezen)|1-2 ms (schrijven)<br>1-2-ms (gelezen)|1-2 ms (schrijven)<br>1-2-ms (gelezen)|
 |Maximum aantal gelijktijdige werknemers (aanvragen)|210|420|840|1680|3360|
-|Maximaal aantal gelijktijdige aanmeldingen|210|420|840|1680|3360|
-|Maximaal toegestane sessies|3000|3000|3000|3000|3000|
+|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|
 |Maximum aantal toepassingen dichtheid|N/A|50|100|100|100|
-|Minimale/maximale elastische pool Klik-stopt|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|
+|Minimale/maximale elastische pool Klik-stopt|0, 0,25, 0,5, 1|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|
 |Multi-AZ|Ja|Ja|Ja|Ja|Ja|
 |Scale-out lezen|Ja|Ja|Ja|Ja|Ja|
 |Back-upopslag opgenomen|De grootte van 1 X-DB|De grootte van 1 X-DB|De grootte van 1 X-DB|De grootte van 1 X-DB|De grootte van 1 X-DB|

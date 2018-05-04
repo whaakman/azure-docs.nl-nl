@@ -1,6 +1,6 @@
 #### <a name="to-create-a-new-service"></a>Een nieuwe service maken
 
-1.  Meld u met uw Microsoft-accountreferenties aan bij Azure Portal met deze URL: <https://portal.azure.com/>. Als het apparaat in de portal van de overheid implementeert, aanmelden op: <https://portal.azure.us/>
+1.  Met uw Microsoft-accountreferenties, meld u aan bij de Azure-portal op deze URL: <https://portal.azure.com/>. Als het apparaat in de portal van de overheid implementeert, moet u zich aanmelden op: <https://portal.azure.us/>
 
 2.  Klik in de Azure-portal op **+ maken van een resource** &gt; **opslag** &gt; **virtuele StorSimple-reeks**.
 
@@ -18,7 +18,7 @@
 
         -   Als u bestaande workloads in Azure die u ook wilt implementeren met uw StorSimple-apparaat hebt, raden wij u dat datacenter gebruiken.
 
-        -   Uw StorSimple-Apparaatbeheer en Azure-opslag kan bestaan uit twee verschillende locaties. In dat geval moet u de StorSimple--apparaatbeheerfunctie en het Azure Storage-account afzonderlijk maken. U maakt een Azure Storage-account door naar de Azure Storage-service in Azure Portal te gaan en de stappen in [Een Azure Storage-account maken](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account) uit te voeren. Nadat u dit account hebt gemaakt, voegt u het toe aan de StorSimple-apparaatbeheerfunctie met de stappen in [Een nieuw opslagaccount voor de service maken](https://azure.microsoft.com/en-us/documentation/articles/storsimple-deployment-walkthrough/#configure-a-new-storage-account-for-the-service).
+        -   Uw StorSimple-Apparaatbeheer en Azure-opslag kan bestaan uit twee verschillende locaties. In dat geval moet u de StorSimple--apparaatbeheerfunctie en het Azure Storage-account afzonderlijk maken. U maakt een Azure Storage-account door naar de Azure Storage-service in Azure Portal te gaan en de stappen in [Een Azure Storage-account maken](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account) uit te voeren. Nadat u dit account hebt gemaakt, voegt u het toe aan de StorSimple-apparaatbeheerfunctie met de stappen in [Een nieuw opslagaccount voor de service maken](https://azure.microsoft.com/documentation/articles/storsimple-deployment-walkthrough/#configure-a-new-storage-account-for-the-service).
 
         -   Als het virtuele apparaat in de Portal Government implementeert, is de service Manager voor StorSimple-apparaat beschikbaar op ons Iowa en ons Virginia locaties.
 

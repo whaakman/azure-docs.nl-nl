@@ -111,6 +111,8 @@
       href: site-recovery-role-based-linked-access-control.md
     - name: Over Azure Traffic Manager met Site Recovery
       href: concepts-traffic-manager-with-site-recovery.md
+    - name: Over ExpressRoute met Site Recovery
+      href: concepts-expressroute-with-site-recovery.md
     - name: Veelgestelde vragen
       href: site-recovery-faq.md
 - name: Handleidingen
@@ -119,12 +121,14 @@
       items:
         - name: Netwerken
           items:
-            - name: Netwerken beheren voor herstel na noodgevallen voor Azure-VM (preview)
+            - name: Netwerken beheren voor herstel na noodgevallen voor Azure-VM
               href: azure-to-azure-about-networking.md
             - name: Netwerktoewijzing voorbereiden voor herstel na noodgevallen voor Azure-VM
               href: azure-to-azure-network-mapping.md
             - name: IP-adressering voor failover instellen
               href: site-recovery-retain-ip-azure-vm-failover.md
+            - name: ExpressRoute met herstel na noodgevallen voor Azure VM's
+              href: azure-vm-disaster-recovery-with-expressroute.md
         - name: Herstel na noodgeval
           items:
             - name: Herstel na noodgeval voor virtuele Azure-machines na migratie naar Azure

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/04/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: 3a7c7663bc13b7169ec9d31aa21365219ec39059
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: fa04e7a3c0d6f19603befed026b316eba6e46eb7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Analyse van gebeurtenis en visualisatie met Application Insights
 
@@ -109,7 +109,7 @@ Zorg ervoor dat de vereiste wijzigingen aanbrengen in uw filters, evenals alle a
 
 Het verdient aanbeveling met EventFlow en af aggregatieoplossingen, omdat ze toestaan voor een meer modulaire benadering voor diagnostische gegevens en bewaking, dat wil zeggen als u wilt wijzigen van de uitvoer van EventFlow, geen wijziging in uw werkelijke instrumentation vereist alleen een eenvoudige wijziging aan het configuratiebestand. Als u echter besluit te investeren in het gebruik van Application Insights en waarschijnlijk niet wijzigen in een ander platform, moet u zoeken naar met behulp van AI nieuwe SDK voor het aggregeren van gebeurtenissen en ze worden verzonden naar AI. Dit betekent dat u niet langer EventFlow moet voor het verzenden van uw gegevens naar AI configureren, maar in plaats daarvan de ApplicationInsight Service Fabric-NuGet-pakket installeert. Meer informatie over het pakket vindt [hier](https://github.com/Microsoft/ApplicationInsights-ServiceFabric).
 
-[Application Insights-ondersteuning voor Microservices en Containers](https://azure.microsoft.com/en-us/blog/app-insights-microservices/) bevat enkele van de nieuwe functies die wordt gewerkt (momenteel nog steeds in beta), waarmee u uitgebreide controle out-of-the-box-opties met AI hebben. Deze omvatten het bijhouden van afhankelijkheid (gebruikt bij het bouwen van een AppMap van uw services en toepassingen in een cluster en de communicatie tussen deze twee) en betere correlatie van traceringen afkomstig zijn van uw services (helpt u bij het beter dicht een probleem in de werkstroom van een app of service).
+[Application Insights-ondersteuning voor Microservices en Containers](https://azure.microsoft.com/blog/app-insights-microservices/) bevat enkele van de nieuwe functies die wordt gewerkt (momenteel nog steeds in beta), waarmee u uitgebreide controle out-of-the-box-opties met AI hebben. Deze omvatten het bijhouden van afhankelijkheid (gebruikt bij het bouwen van een AppMap van uw services en toepassingen in een cluster en de communicatie tussen deze twee) en betere correlatie van traceringen afkomstig zijn van uw services (helpt u bij het beter dicht een probleem in de werkstroom van een app of service).
 
 Als u in .NET ontwikkelt en waarschijnlijk van Service Fabric programming modellen en wil AI gebruiken als uw platform gebruikmaken zullen voor het visualiseren en analyseren van gebeurtenissen en logboek gegevens zijn, klikt u vervolgens het is raadzaam dat u via de route AI SDK als vorm van controle en diagnos gaat workflow uitgevoerd. Lees [dit](../application-insights/app-insights-asp-net-more.md) en [dit](../application-insights/app-insights-asp-net-trace-logs.md) aan de slag met AI gebruiken om uw logboeken te verzamelen.
 

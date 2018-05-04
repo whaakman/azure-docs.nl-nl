@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: be4aa45c919f579355c6ac6c5682c1537e9cc0cb
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b2b690978c2d67dbf26b74ecd38a408cece91566
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Gebruik van Azure API Management-service met een intern virtueel netwerk
 Met virtuele netwerken van Azure beheren Azure API Management API's die niet toegankelijk op het internet. Een aantal VPN-technologieën zijn beschikbaar voor het maken van de verbinding. API Management kan worden geïmplementeerd in twee belangrijke modi binnen een virtueel netwerk:
@@ -87,11 +87,11 @@ Wanneer u een API Management-service, bijvoorbeeld de naam 'contoso' maakt worde
 
 Voor toegang tot deze API Management-service-eindpunten, kunt u een virtuele machine in een subnet is verbonden met het virtuele netwerk waarin API Management wordt geïmplementeerd. Ervan uitgaande dat de interne virtuele IP-adres voor uw service 10.0.0.5 is, kunt u toewijzen het hosts-bestand % SystemDrive%\drivers\etc\hosts, als volgt:
 
-   * 10.0.0.5     contoso.azure-api.net
+   * 10.0.0.5 contoso.azure-api.net
 
-   * 10.0.0.5     contoso.portal.azure-api.net
+   * 10.0.0.5 contoso.portal.azure-api.net
 
-   * 10.0.0.5     contoso.management.azure-api.net
+   * 10.0.0.5 contoso.management.azure-api.net
 
    * 10.0.0.5 contoso.scm.azure-api.net
 
@@ -115,7 +115,7 @@ U kunt vervolgens toegang tot alle service-eindpunten van de virtuele machine di
 Zie voor meer informatie de volgende artikelen:
 * [Algemene problemen met het netwerk configuratie tijdens het instellen van Azure API Management in een virtueel netwerk][Common network configuration problems]
 * [Virtueel netwerk Veelgestelde vragen](../virtual-network/virtual-networks-faq.md)
-* [Maken van een record in DNS](https://msdn.microsoft.com/en-us/library/bb727018.aspx)
+* [Maken van een record in DNS](https://msdn.microsoft.com/library/bb727018.aspx)
 
 [api-management-using-internal-vnet-menu]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-menu.png
 [api-management-internal-vnet-dashboard]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-dashboard.png

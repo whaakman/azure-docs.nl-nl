@@ -3,17 +3,17 @@ title: Azure Policy gebruiken om beleidsregels te maken en beheren voor het afdw
 description: Azure Policy gebruiken om standaarden af te dwingen, te voldoen aan wettelijke vereisten voor naleving en audits, kosten te beheren, consistente beveiliging en prestaties te houden en bedrijfsbrede ontwerpprincipes op te leggen.
 services: azure-policy
 keywords: ''
-author: bandersmsft
-ms.author: banders
+author: DCtheGeek
+ms.author: dacoulte
 ms.date: 04/19/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: e50c2330c03e5fc36e608b672fe8390a1f19e99b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 0b6e77d080ce4e4483709b9a5e47dca21c22e1d9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Beleidsregels voor het afdwingen van naleving maken en beheren
 
@@ -25,7 +25,7 @@ Als u aan uw bedrijfsnormen en serviceovereenkomsten wilt blijven voldoen, is he
 > * Problemen met een bron die niet voldoet of is geweigerd oplossen
 > * Een nieuw beleid binnen een organisatie implementeren
 
-Als u een beleid wilt toewijzen voor het identificeren van de huidige nalevingsstatus van uw bestaande bronnen, raadpleegt u de snelstart-artikelen over dit ontwerp. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+Als u een beleid wilt toewijzen voor het identificeren van de huidige nalevingsstatus van uw bestaande bronnen, raadpleegt u de quickstart-artikelen over dit ontwerp. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="assign-a-policy"></a>Een beleid toewijzen
 
@@ -341,7 +341,7 @@ Met een initiatiefdefinitie kunt u verschillende beleidsdefinities groeperen om 
 
    ![Initiatiefdefinitie](media/create-manage-policy/initiative-definition.png)
 
-4. Blader door de lijst met **beschikbare definities** en selecteer de beleidsdefinities die u aan dit initiatief wilt toevoegen. Voor ons initiatief **Beveiligen** voegt u de volgende ingebouwde beleidsdefinities toe:
+4. Blader door de lijst met **beschikbare definities** en selecteer de beleidsdefinities die u aan dit initiatief wilt toevoegen. Voor ons initiatief **Beveiligen**voegt **u** de volgende ingebouwde beleidsdefinities toe:
    - SQL Server-versie 12.0 vereisen
    - Niet-beveiligde webtoepassingen in Security Center bewaken.
    - Toestaan van machtigingen door netwerk in Security Center bewaken.

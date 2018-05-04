@@ -1,7 +1,29 @@
-
+---
+title: bestand opnemen
+description: bestand opnemen
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: 0ed42e4ace17db1e681152589cc46d82c26dddff
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 04/28/2018
+---
 ## <a name="set-up-your-project"></a>Instellen van uw project
 
-Wilt u dit voorbeeld Android Studio-project in plaats daarvan downloaden? [Downloaden van een project](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip), en ga verder met de [configuratiestap](#create-an-application-express) het codevoorbeeld configureren voordat u deze uitvoert.
+Wilt u dit voorbeeld Android Studio-project in plaats daarvan downloaden? [Downloaden van een project](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip), en ga verder met de [configuratiestap](#register-your-application) het codevoorbeeld configureren voordat u deze uitvoert.
 
 ### <a name="create-a-new-project"></a>Een nieuw project maken 
 1.  Open Android Studio en selecteer vervolgens **bestand** > **nieuw** > **nieuw Project**.

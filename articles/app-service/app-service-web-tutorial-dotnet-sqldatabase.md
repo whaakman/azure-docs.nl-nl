@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/09/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 72bc8e95e5b77baec29247f5593a522bbe663368
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 4fd1381594c77d8bba92027fee06c08376ee903b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Zelfstudie: Een ASP.NET-app bouwen in Azure met SQL Database
 
@@ -49,7 +49,7 @@ Vereisten voor het voltooien van deze zelfstudie:
 
   ![ASP.NET- en web-ontwikkeling en Azure-ontwikkeling (onder Web en cloud)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
 
-Als u Visual Studio al hebt geïnstalleerd, voegt u de workloads toe in Visual Studio door te klikken op **Extra** > **Hulpprogramma's en functies ophalen**.
+Als u Visual Studio al hebt geïnstalleerd, voegt u de workloads toe in Visual Studio door te klikken op **Hulpprogramma's** > **Hulpprogramma's en functies ophalen**.
 
 ## <a name="download-the-sample"></a>Het voorbeeld downloaden
 
@@ -145,6 +145,9 @@ Er wordt een unieke servernaam gegenereerd. Deze naam wordt gebruikt als onderde
 Voeg een administrator-gebruikersnaam en een wachtwoord toe. Zie [Wachtwoordbeleid](/sql/relational-databases/security/password-policy) voor de vereisten voor wachtwoordcomplexiteit.
 
 Onthoud deze gebruikersnaam en dit wachtwoord. U heeft ze later nodig voor het beheren van de logische serverinstantie.
+
+> [!IMPORTANT]
+> Hoewel u uw wachtwoord in de verbindingsreeksen wordt gemaskeerd (in Visual Studio en ook in App Service), vergroot het feit dat het ergens wordt bijgehouden de kwetsbaarheid van uw app voor aanvallen. App Service kan [beheerde service-identiteiten](app-service-managed-service-identity.md) gebruiken om dit risico te elimineren door het bijhouden van geheimen in uw code of app-configuratie geheel onnodig te maken. Zie voor meer informatie [Volgende stappen](#next-steps).
 
 ![Een SQL Server-instantie maken](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
@@ -413,8 +416,6 @@ In de portal wordt standaard de pagina **Overzicht** getoond. Deze pagina geeft 
 
 [!INCLUDE [Clean up section](../../includes/clean-up-section-portal-web-app.md)]
 
-<a name="next"></a>
-
 ## <a name="next-steps"></a>Volgende stappen
 
 In deze zelfstudie heeft u het volgende geleerd:
@@ -427,7 +428,7 @@ In deze zelfstudie heeft u het volgende geleerd:
 > * Logboeken vanaf Azure naar uw terminal streamen
 > * De app in Azure Portal beheren
 
-Ga door naar de volgende zelfstudie om te leren hoe u een aangepaste DNS-naam aan uw web-app kunt toewijzen.
+Ga naar de volgende zelfstudie om te ontdekken hoe u eenvoudig de beveiliging van uw verbinding met Azure SQL Database kunt verbeteren.
 
 > [!div class="nextstepaction"]
-> [Een bestaande aangepaste DNS-naam toewijzen aan Azure Web Apps](app-service-web-tutorial-custom-domain.md)
+> [Veilige toegang tot SQL Database met behulp van beheerde service-identiteit](app-service-web-tutorial-connect-msi.md)

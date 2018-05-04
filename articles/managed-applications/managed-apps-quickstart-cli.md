@@ -8,17 +8,17 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 12/15/2017
+ms.date: 04/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 35059603096279f7d58da1c1b40dd2ab3f1b5c38
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 46ea192220ced18b25d60030527d1f76fb37962a
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-and-deploy-an-azure-managed-application-with-azure-cli"></a>Een beheerde Azure-toepassing maken en implementeren met Azure CLI
 
-In dit artikel leest u over de basisbeginselen van het werken met beheerde toepassingen. U voegt de definitie van een beheerde toepassing toe aan een interne catalogus voor gebruikers in uw organisatie. Vervolgens implementeert u de beheerde toepassing in uw abonnement. Om de inleiding te vereenvoudigen, hebben we de bestanden voor uw beheerde toepassing al gemaakt. Een bestand definieert de infrastructuur voor uw oplossing. Een tweede bestand definieert de gebruikersinterface voor het implementeren van de beheerde toepassing via de portal. Deze bestanden zijn beschikbaar via GitHub. U krijgt informatie over het bouwen van die bestanden in de zelfstudie [Servicecatalogustoepassing maken](publish-service-catalog-app.md).
+In dit artikel leest u over de basisbeginselen om met beheerde toepassingen te werken. U voegt de definitie van een beheerde toepassing toe aan een interne catalogus voor gebruikers in uw organisatie. Vervolgens implementeert u de beheerde toepassing in uw abonnement. Om de inleiding te vereenvoudigen, hebben we de bestanden voor uw beheerde toepassing al gemaakt. Eén bestand bevat de infrastructuur voor uw oplossing. Een tweede bestand definieert de gebruikersinterface voor het implementeren van de beheerde toepassing via de portal. Deze bestanden zijn beschikbaar via GitHub. U krijgt informatie over het bouwen van die bestanden in de zelfstudie [Servicecatalogustoepassing maken](publish-service-catalog-app.md).
 
 Wanneer u klaar bent, hebt u drie resourcegroepen met verschillende onderdelen van de beheerde toepassing.
 
@@ -42,7 +42,7 @@ az group create --name appDefinitionGroup --location westcentralus
 
 ## <a name="create-the-managed-application-definition"></a>De definitie van de beheerde toepassing maken
 
-Bij het definiëren van de beheerde toepassing selecteert u een gebruiker, groep of toepassing die de resources namens de gebruiker beheert. Deze identiteit heeft machtigingen voor de beheerde resourcegroep in overeenstemming met de rol die is toegewezen. Meestal maakt u een Azure Active Directory-groep voor het beheren van de resources. In dit artikel gebruikt u echter uw eigen identiteit.
+Bij het definiëren van de beheerde toepassing selecteert u een gebruiker, groep of toepassing die de resources namens de gebruiker beheert. Deze identiteit heeft machtigingen voor de beheerde resourcegroep die overeenkomen met de toegewezen rol. Meestal maakt u een Azure Active Directory-groep om resources te beheren. In dit artikel gebruikt u echter uw eigen identiteit.
 
 Als u de object-id van uw identiteit wilt ophalen, geeft u uw user principal name op in de volgende opdracht:
 
@@ -75,7 +75,7 @@ Wanneer de opdracht is voltooid, hebt u de definitie van een beheerde toepassing
 Enkele parameters die in het voorgaande voorbeeld worden gebruikt, zijn:
 
 * **resource-group**: de naam van de resourcegroep waarin de definitie van de beheerde toepassing wordt gemaakt.
-* **lock-level**: het type vergrendeling dat is toegepast op de beheerde resourcegroep. Dit voorkomt dat de klant ongewenste bewerkingen uitvoert op deze resourcegroep. ReadOnly is momenteel het enige ondersteunde vergrendelingsniveau. Als ReadOnly is opgegeven, kan de klant alleen de resources die aanwezig zijn in de beheerde resourcegroep lezen.
+* **lock-level**: het type vergrendeling dat is toegepast op de beheerde resourcegroep. Hiermee voorkomt u dat de klant ongewenste bewerkingen uitvoert op deze resourcegroep. ReadOnly is momenteel het enige ondersteunde vergrendelingsniveau. Als ReadOnly is opgegeven, kan de klant alleen de resources die aanwezig zijn in de beheerde resourcegroep lezen. De uitgeversidentiteiten die toegang tot de beheerde resourcegroep krijgen, zijn uitgesloten van de vergrendeling.
 * **authorizations**: beschrijft de principal-id en de roldefinitie-id die worden gebruikt om machtiging te verlenen aan de beheerde resourcegroep. Wordt opgegeven in de `<principalId>:<roleDefinitionId>`-indeling. Er kunnen ook meerdere waarden worden opgegeven voor deze eigenschap. Als er meerdere waarden nodig zijn, moeten ze worden opgegeven in het formulier `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>`. Meerdere waarden worden gescheiden door een spatie.
 * **package-file-uri**: de locatie van een .zip-pakket dat de vereiste bestanden bevat. Het pakket moet ten minste de bestanden **mainTemplate.json** en **createUiDefinition.json** bevatten. **mainTemplate.json** definieert de Azure-resources die zijn ingericht als onderdeel van de beheerde toepassing. De sjabloon is niet anders dan een reguliere Resource Manager-sjabloon. **createUiDefinition.json** genereert de gebruikersinterface voor gebruikers die de beheerde toepassing via de portal maken.
 

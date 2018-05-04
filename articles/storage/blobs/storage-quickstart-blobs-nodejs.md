@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: cshoe
-ms.openlocfilehash: 30a64ec6fd4df63eba9c35f1774c81c35fa3506f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 07ac5195d9653affdbb0f305ac1697cecd379319
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>Snelstart: blobs downloaden, uploaden en vermelden met behulp van Node.js
 
@@ -143,7 +143,7 @@ const upload = () => {
 ```
 In de context van de voorbeeldtoepassing wordt het bestand met de naam *example.txt* geüpload naar een blob met de naam *example* binnen een container met de naam *test-container*. Andere methoden voor het uploaden van inhoud naar blobs zijn werken met [tekst](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText) en [streams](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromStream).
 
-Om te controleren of het bestand is geüpload naar de blob-opslag, kunt u met de [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) de gegevens in uw account bekijken.
+Om te controleren of het bestand is geüpload naar de blob-opslag, kunt u met de [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) de gegevens in uw account bekijken.
 
 ### <a name="list-the-blobs-in-a-container"></a>De blobs in een container in een lijst weergeven
 
@@ -284,7 +284,7 @@ Zie de volgende aanvullende bronnen voor Node.js-ontwikkeling met Blob-opslag:
 
 ### <a name="client-library-reference-and-samples"></a>Naslaginformatie en voorbeelden voor de .NET-clientbibliotheek
 
-- Zie het [Node.js API-referentiemateriaal](https://docs.microsoft.com/en-us/javascript/api/overview/azure/storage) voor meer informatie over de Node.js-clientbibliotheek.
+- Zie het [Node.js API-referentiemateriaal](https://docs.microsoft.com/javascript/api/overview/azure/storage) voor meer informatie over de Node.js-clientbibliotheek.
 - Verken [Blob-opslagvoorbeelden](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=nodejs&term=blob) die zijn geschreven met de Node.js-clientbibliotheek.
 
 ## <a name="next-steps"></a>Volgende stappen
