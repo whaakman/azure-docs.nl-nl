@@ -5,16 +5,16 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/27/2018
+ms.date: 04/26/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: mvc
-manager: carmonm
-ms.openlocfilehash: 6434eb9780eefdcd492273f11f8675668d8d6479
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.custom: ''
+manager: dougeby
+ms.openlocfilehash: c1be4d649bf4b69a9f749003b5c66142006b78e0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-assign-access-to-cost-management-data"></a>Zelfstudie: toegang tot gegevens van Cost Management beheren
 
@@ -22,7 +22,7 @@ De toegang tot gegevens van Cost Management wordt beheerd door middel van gebrui
 
 Entiteiten worden gebruikt om de hiërarchische structuur van de organisatie van uw bedrijf voor te stellen en vertegenwoordigen afdelingen, divisies en teams in uw organisatie in Cloudyn. De entiteitshiërarchie helpt u om nauwkeurig de uitgave bij te houden van de verschillende entiteiten.
 
-Op het moment dat u uw Azure overeenkomst of -account registreert, wordt er een account met beheerdersmachtigingen gemaakt in Cloudyn. Met behulp van dit account kunt u alle stappen in deze zelfstudie uitvoeren. In deze zelfstudie wordt aandacht besteed aan toegang tot gegevens van Cost Management en entiteitsbeheer. Procedures voor:
+Op het moment dat u uw Azure overeenkomst of -account registreert, wordt er een account met beheerdersmachtigingen gemaakt in Cloudyn. Met behulp van dit account kunt u alle stappen in deze zelfstudie uitvoeren. In deze zelfstudie wordt aandacht besteed aan toegang tot gegevens van Cost Management en entiteitsbeheer. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
 > * Een gebruiker met beheerderstoegang maken
@@ -40,7 +40,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 Hoewel u al beschikt over beheerderstoegang, hebben collega's in uw organisatie misschien ook beheerderstoegang nodig. Klik in de rechterbovenhoek van de portal van Cloudyn op het tandwielpictogram en selecteer **User Management**. Klik op **Add New User** om een nieuwe gebruiker toe te voegen.
 
-Voer de vereiste gegevens in voor de gebruiker. U kunt het wachtwoordveld leeg laten, zodat de gebruiker zelf een nieuw wachtwoord kan instellen bij de eerste aanmelding. Op het moment dat u **Notify user by email** selecteert, wordt er vanuit Cloudyn per e-mail een koppeling met aanmeldingsgegevens verzonden naar de gebruiker. Selecteer Allow User Management om het beheer van gebruikers toe te staan, zodat de gebruiker andere gebruikers kan maken en wijzigen. Selecteer Allow Recipient lists Management als de gebruiker lijsten met ontvangers mag bewerken.
+Voer de vereiste gegevens in voor de gebruiker. De aanmeldings-id moet een geldig e-mailadres zijn. Selecteer Allow User Management om het beheer van gebruikers toe te staan, zodat de gebruiker andere gebruikers kan maken en wijzigen. Met Adressenlijstbeheer kan de gebruiker adressenlijsten bewerken. Op het moment dat u **Notify user by email** selecteert, wordt er vanuit Cloudyn per e-mail een koppeling met aanmeldingsgegevens verzonden naar de gebruiker. Bij de eerste aanmelding stelt de gebruiker een wachtwoord in.
 
 Onder **User has admin access** is de hoofdentiteit van uw organisatie geselecteerd. Laat dit zo en sla vervolgens de gebruikersgegevens op. Als u de hoofdentiteit selecteert, heeft de gebruiker niet alleen beheerdersmachtigingen voor de hoofdentiteit in de structuur, maar ook voor alle onderliggende entiteiten.  
   ![Een nieuwe gebruiker met beheerderstoegang toevoegen](.\media\tutorial-user-access\new-admin-access.png)
@@ -64,7 +64,7 @@ Bepaal tijdens het samenstellen van de structuur hoe u de kosten van entiteiten 
 
 Op het moment dat u uw Azure overeenkomst of -account registreert bij Cloudyn, worden er allerlei gegevens naar uw Cloudyn-account gekopieerd. Denk hierbij aan gegevens van uw Azure-resources, zoals gegevens over het gebruik, de prestaties, facturering en tags uit uw abonnementen. De entiteitsstructuur moet u echter handmatig maken. Als u de registratie bij Azure Resource Manager hebt overgeslagen, zijn er alleen factureringsgegevens en enkele asset-rapporten beschikbaar in de portal van Cloudyn.
 
-Klik in de rechterbovenhoek van de portal van Cloudyn op **Settings** en selecteer **Cloud Accounts**. U begint met één entiteit (de hoofdentiteit of root) en gaat vervolgens de structuur van boven naar beneden uitwerken. Hier ziet u een voorbeeld van een entiteitshiërarchie die een goed beeld geeft van de opbouw van veel IT-organisaties als de structuur helemaal voltooid is:
+Klik in de Cloudyn-portal rechtsboven op het tandwielsymbool en selecteer **Cloud-accounts** . U begint met één entiteit (de hoofdentiteit of root) en gaat vervolgens de structuur van boven naar beneden uitwerken. Hier ziet u een voorbeeld van een entiteitshiërarchie die een goed beeld geeft van de opbouw van veel IT-organisaties als de structuur helemaal voltooid is:
 
 ![Entiteitsstructuur](.\media\tutorial-user-access\entity-tree.png)
 

@@ -12,10 +12,10 @@ ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
 ms.openlocfilehash: 469fefa48ea795a56b0e7525f99634c5149a780f
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="combine-columns-by-example-transformation"></a>Kolommen combineren door voorbeeld transformatie
 Deze transformatie kan de gebruiker een nieuwe kolom toevoegen door een combinatie van waarden uit meerdere kolommen. Gebruiker kan een waarde opgeven of vindt u voorbeelden van de combinatie van waarden voor het uitvoeren van deze transformatie. Wanneer de gebruiker ziet u voorbeelden van combinatie, de transformatie wordt verwerkt door dezelfde **door voorbeeld** engine die wordt gebruikt in de **kolom afgeleid door voorbeeld** transformeren.
@@ -50,7 +50,7 @@ Gebruikers kunnen bewerken in een bestaande **kolom combineren door voorbeeld** 
 
 Een komma gevolgd door een spatie als scheidingsteken in dit voorbeeld wordt gebruikt om te combineren de *straat*, *stad*, *status*, en *ZIP* kolommen.
 
-|Straat|Plaats|Status|ZIP|Kolom|
+|Straat|Plaats|Status|POSTCODE|Kolom|
 |:----|:----|:----|:----|:----|
 |16011 N.E. 36th manier|REDMOND|WA|98052|16011 N.E. 36th way, REDMOND, WA, 98052|
 |16021 N.E. 36th manier|REDMOND|WA|98052|16021 N.E. 36th way, REDMOND, WA, 98052|
@@ -71,9 +71,9 @@ De waarde in **vet** is opgegeven als voorbeeld.
 |13|okt|2016|15|01|23|**13-Oct-2016 15:01:23 PDT**|
 |16|okt|2016|16|22|33|16-Oct-2016 15:01:33 PDT|
 |17|okt|2016|12|43|12|17-Oct-2016 15:01:12 PDT|
-|12|nov|2016|14|22|44|12-Nov-2016 15:01:44 PDT|
-|23|nov|2016|01|52|45|23-Nov-2016 15:01:45 PDT|
+|12|nov|2016|14|22|44|November-12-2016 15:01:44 PDT|
+|23|nov|2016|01|52|45|23-november-2016 15:01:45 PDT|
 |16|jan|2017|22|34|56|16-Jan-2016 15:01:56 PDT|
-|23|mrt|2017|01|55|25|23-Mar-2016 15:01:25 PDT|
-|16|apr|2017|11|34|36|16-Apr-2016 15:01:36 PDT|
+|23|mrt|2017|01|55|25|23-mrt-2016 15:01:25 PDT|
+|16|apr|2017|11|34|36|16-april-2016 15:01:36 PDT|
 

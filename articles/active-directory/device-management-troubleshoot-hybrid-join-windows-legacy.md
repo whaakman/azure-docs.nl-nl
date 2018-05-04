@@ -11,18 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 0d21a8848222c4b09723e22d2d51ec43b2154553
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: MT
+ms.openlocfilehash: 43c1907bf3f9bb8eea92dc02889df24a5a0cc9e3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Het oplossen van hybride Azure Active Directory die lid zijn van downlevel-apparaten 
 
-In dit onderwerp is alleen van toepassing op de volgende apparaten: 
+Dit artikel is alleen van toepassing op de volgende apparaten: 
 
 - Windows 7 
 - Windows 8.1 
@@ -33,7 +33,7 @@ In dit onderwerp is alleen van toepassing op de volgende apparaten:
 
 Zie voor Windows 10 of Windows Server 2016 [probleemoplossing hybride Azure Active Directory die lid zijn van apparaten met Windows 10 en Windows Server 2016](device-management-troubleshoot-hybrid-join-windows-current.md).
 
-Dit onderwerp wordt ervan uitgegaan dat u hebt [geconfigureerde hybride Azure Active Directory die lid zijn van de apparaten](device-management-hybrid-azuread-joined-devices-setup.md) ter ondersteuning van de volgende scenario's:
+In dit artikel wordt ervan uitgegaan dat u hebt [geconfigureerde hybride Azure Active Directory die lid zijn van de apparaten](device-management-hybrid-azuread-joined-devices-setup.md) ter ondersteuning van de volgende scenario's:
 
 - Voorwaardelijke toegang op basis van apparaten
 
@@ -45,7 +45,7 @@ Dit onderwerp wordt ervan uitgegaan dat u hebt [geconfigureerde hybride Azure Ac
 
 
 
-Dit onderwerp vindt u richtlijnen over het oplossen van problemen op te lossen.  
+Dit artikel vindt u richtlijnen over het oplossen van problemen op te lossen.  
 
 **Wat u moet weten:** 
 
@@ -53,15 +53,17 @@ Dit onderwerp vindt u richtlijnen over het oplossen van problemen op te lossen.
 
 - De initiële registratie / join van apparaten is geconfigureerd voor het uitvoeren van een poging gedaan bij het aanmelden of vergrendelen / ontgrendelen. Er zijn 5 minuten vertraging geactiveerd door een scheduler-taak. 
 
-- Opnieuw installeren van het besturingssysteem of een handmatige unregister en opnieuw te registreren kunnen een nieuwe registratie maakt op Azure AD en resultaten in meerdere vermeldingen op het tabblad gebruikers gegevens in de Azure portal. 
+- Opnieuw installeren van het besturingssysteem of handmatige re-registraties, kan de registratie van een nieuwe op Azure AD, wat tot meerdere vermeldingen op het tabblad gebruikers gegevens in de Azure portal leidt maken. 
 
 ## <a name="step-1-retrieve-the-registration-status"></a>Stap 1: De registratiestatus ophalen 
 
 **De registratiestatus controleren:**  
 
-1. Open de opdrachtprompt als beheerder 
+1. Aanmelden met het gebruikersaccount dat een hybride Azure AD join is uitgevoerd.
 
-2. type `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /i"`
+2. Open de opdrachtprompt als beheerder 
+
+3. type `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe" /i`
 
 Met deze opdracht geeft een dialoogvenster waarmee u meer informatie over de status van de join.
 
@@ -84,16 +86,11 @@ Als de hybride Azure AD join niet geslaagd is, biedt in het dialoogvenster u inf
     
     Er zijn enkele verschillende redenen waarom deze fout kan optreden:
     
-    1. De gebruiker aangemeld is niet als een domeingebruiker (bijvoorbeeld een lokale gebruiker). Hybride Azure AD join op downlevel-apparaten wordt alleen ondersteund voor gebruikers van een domein.
+    - De aangemelde gebruiker is geen domeingebruiker (bijvoorbeeld een lokale gebruiker). Hybride Azure AD join op downlevel-apparaten wordt alleen ondersteund voor gebruikers van een domein.
     
-    2. Als Autoworkplace.exe om een of andere reden niet kan achtergrond verifiëren met Azure AD of AD FS. Een aantal mogelijke oorzaken kunt uitgaande gebonden problemen met de netwerkverbinding worden naar Azure AD-URL's (Raadpleeg de vereisten) of als MFA ingeschakeld/geconfigureerd voor de gebruiker is, maar WIAORMUTLIAUTHN niet is geconfigureerd op de federatieserver (configuratiestappen selectievakje). Een andere mogelijkheid is dat die thuis realm detectie (HRD) pagina wacht gebruikersinteractie zo wordt voorkomen dat Autoworkplace.exe achtergrond verkrijgen van een token.
+    - Autoworkplace.exe is niet achtergrond verifiëren met Azure AD of AD FS. Dit kan zijn vanwege een uitgaande gebonden problemen met de netwerkverbinding met de Azure AD-URL's (Raadpleeg de vereisten). Dit kan ook worden dat multi-factor authentication (MFA) ingeschakeld/geconfigureerd voor de gebruiker is en WIAORMUTLIAUTHN niet is geconfigureerd op de federatieserver (configuratiestappen selectievakje). Een andere mogelijkheid is die thuis realm detectie (HRD) pagina gebruikersinteractie, die voorkomt dat wacht **autoworkplace.exe** van achtergrond van het verkrijgen van een token.
     
-    3. Als de organisatie van Azure AD naadloze eenmalige aanmelding gebruikmaakt, is de volgende URL niet aanwezig op het apparaat intranet in Internet Explorer:
-    
-       - https://autologon.microsoftazuread-sso.com
-
-    
-       en de instelling 'Toestaan dat updates voor de statusbalk via scripts' moet zijn ingeschakeld voor de intranetzone.
+    - Uw organisatie gebruikmaakt van Azure AD naadloze eenmalige aanmelding, `https://autologon.microsoftazuread-sso.com` is niet aanwezig op het intranet in Internet Explorer van het apparaat, en **toestaan dat updates statusbalk via script** is niet ingeschakeld voor de intranetzone.
 
 - Een quotum is bereikt
 
@@ -103,11 +100,11 @@ Als de hybride Azure AD join niet geslaagd is, biedt in het dialoogvenster u inf
 
     ![Werkplekdeelname voor Windows](./media/active-directory-device-registration-troubleshoot-windows-legacy/05.png)
 
-U kunt ook de statusinformatie vinden in het gebeurtenislogboek onder **toepassingen en Services Log\Microsoft-Workplace Join**.
+U kunt ook de statusinformatie vinden in het gebeurtenislogboek onder: **toepassingen en Services Log\Microsoft-werkplek koppelen**
   
 **De meest voorkomende oorzaken van een mislukte hybride Azure AD join zijn:** 
 
-- Uw computer zich niet in het interne netwerk van de organisatie of een VPN zonder verbinding met een on-premises AD-domeincontroller.
+- Uw computer niet is verbonden met het interne netwerk van uw organisatie en niet met een VPN met een verbinding met uw on-premises AD-domeincontroller.
 
 - U bent aangemeld met een lokaal computeraccount op de computer. 
 
@@ -115,7 +112,7 @@ U kunt ook de statusinformatie vinden in het gebeurtenislogboek onder **toepassi
 
   - De federation-server is geconfigureerd voor ondersteuning van **WIAORMULTIAUTHN**. 
 
-  - Er is geen Service Connection Point-object dat verwijst naar de domeinnaam van uw geverifieerde in Azure AD in het AD-forest waar de computer deel uitmaakt.
+  - Uw computer forest heeft geen Service Connection Point-object dat naar de domeinnaam van uw geverifieerde in Azure AD verwijst 
 
   - Een gebruiker heeft de limiet van apparaten bereikt. 
 

@@ -7,13 +7,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: 02b4e8cb4963a5c12b528630e8e7906d6c5307fe
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: aa24c3197af28101b2f3a0acda6d0ae81b9e96d5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Verbinding maken met Azure SQL Database in Azure Search met indexeerfuncties
 
@@ -61,7 +61,7 @@ Afhankelijk van verschillende factoren, met betrekking tot uw gegevens, het gebr
 1. De gegevensbron maken:
 
    ```
-    POST https://myservice.search.windows.net/datasources?api-version=2016-09-01
+    POST https://myservice.search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: admin-key
 
@@ -80,7 +80,7 @@ Afhankelijk van verschillende factoren, met betrekking tot uw gegevens, het gebr
 3. De indexeerfunctie maken door een naam geven en verwijst naar de index van het bron- en doel:
 
     ```
-    POST https://myservice.search.windows.net/indexers?api-version=2016-09-01
+    POST https://myservice.search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: admin-key
 
@@ -93,7 +93,7 @@ Afhankelijk van verschillende factoren, met betrekking tot uw gegevens, het gebr
 
 Een indexeerfunctie gemaakt op deze manier beschikt niet over een planning. Deze wordt automatisch uitgevoerd zodra wanneer deze gemaakt. U kunt deze opnieuw uitvoeren op elke tijd die een **indexeerfunctie uitvoeren** aanvraag:
 
-    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2016-09-01
+    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2017-11-11
     api-key: admin-key
 
 U kunt verschillende aspecten van de indexeerfunctie gedrag, zoals batchgrootte en het aantal documenten worden overgeslagen voordat de uitvoering van een indexeerfunctie is mislukt. Zie voor meer informatie [indexeerfunctie-API maken](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
@@ -102,7 +102,7 @@ Mogelijk moet u verbinding maken met uw database Azure-services toestaan. Zie [v
 
 Gebruik voor het bewaken van de indexeerfunctie status en uitvoering geschiedenis (aantal items dat is geïndexeerd, fouten, enz.), een **indexeerfunctie status** aanvraag:
 
-    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2016-09-01
+    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2017-11-11
     api-key: admin-key
 
 Het antwoord moet er ongeveer als volgt uitzien:
@@ -144,7 +144,7 @@ Meer informatie over het antwoord vindt u in [indexeerfunctie Status ophalen](ht
 ## <a name="run-indexers-on-a-schedule"></a>Indexeerfuncties volgens een planning wordt uitgevoerd
 U kunt ook de indexeerfunctie periodiek wordt uitgevoerd volgens een schema rangschikken. Voeg hiervoor de **planning** eigenschap tijdens het maken of bijwerken van de indexeerfunctie. Het volgende voorbeeld ziet een PUT-aanvraag voor het bijwerken van de indexeerfunctie:
 
-    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2016-09-01
+    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2017-11-11
     Content-Type: application/json
     api-key: admin-key
 

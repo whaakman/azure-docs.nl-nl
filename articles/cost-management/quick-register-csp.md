@@ -5,20 +5,20 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 04/26/2018
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: ''
 ms.service: cost-management
-manager: carmonm
-ms.openlocfilehash: cf4fb7e82529388a030fd37da9469bf17c8dc343
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+manager: dougeby
+ms.openlocfilehash: 839f99153e0b7458d205c1afb61a05c75cbe0fb7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Registreren met het CSP-partnerprogramma en kostengegevens weergeven
 
-Als CSP-partner kunt u zich registreren bij Azure Cost Management. Uw registratie biedt toegang tot de Cloudyn-portal. In deze snelstart vindt u de details van de registratieprocedure voor het maken van een Cloudyn-proefabonnement en het aanmelden bij de Cloudyn-portal. U vindt er ook informatie over het weergeven van kostengegevens.
+Als CSP-partner kunt u zich registreren bij Azure Cost Management. Uw registratie biedt toegang tot de Cloudyn-portal. In deze quickstart vindt u de details van de registratieprocedure voor het maken van een Cloudyn-proefabonnement en het aanmelden bij de Cloudyn-portal. U vindt er ook informatie over het weergeven van kostengegevens.
 
 
 >[!NOTE]
@@ -32,16 +32,16 @@ Zie [Verbinding maken met de Partner Center API](https://msdn.microsoft.com/libr
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-- Meld u via http://portal.azure.com aan bij Azure Portal.
+- Meld u aan bij Azure Portal op http://portal.azure.com.
 
-## <a name="create-a-trial-registration"></a>Registreren voor een proefabonnement
+## <a name="register-with-azure-cost-management"></a>Registreren bij Azure Cost Management
 
 1. Klik in Azure Portal, in de lijst met services, op **Cost Management en facturering**.
 2. Klik onder **Overzicht** op **Cost Management**  
     ![Pagina Cost Management](./media/quick-register-csp/cost-mgt-billing-service.png)
 3. Klik op de pagina **Cost Management** op **Go to Cost Management** om de Cloudyn-registratiepagina in een nieuw venster te openen.
 4. Typ op de pagina voor de registratie van het proefabonnement in de Cloudyn-portal de naam van uw bedrijf en selecteer **Microsoft CSP Partner Program Administrator** en klik op **Volgende**.  
-5. Voer een **toepassings-id**, een **handels-id**, **geheime sleutel van de toepassing** in, en selecteer het **standaardprijsplan**. Als u de gegevens niet bij die hand hebt, meldt u zich aan bij de portal Partnercentrum [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com) met uw primair beheerdersaccount en voert u de volgende stappen uit:
+5. Voer een **toepassings-id**, een **handels-id**, **geheime sleutel van de toepassing** in, en selecteer het **standaardprijsplan**. Als u de gegevens niet bij die hand hebt, meldt u zich aan bij de portal Partnercentrum [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com) met uw primaire beheerdersaccount en voert u de volgende stappen uit:
   1. Ga naar **Dashboard** > **Accountinstellingen** > **App-beheer**.
   2. Als u eerder al een web-app hebt gemaakt, kunt u deze stap overslaan. Klik anders op **Nieuwe web-app toevoegen** in de sectie **Web-app**.
   3. Kopieer de **app-id**-GUID van uw webtoepassing.

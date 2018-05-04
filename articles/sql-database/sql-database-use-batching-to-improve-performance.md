@@ -9,11 +9,11 @@ ms.custom: develop apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 3367ecc48ee8da7aaf657b5278acb19df5a96e75
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: d534e138af7a22b32fbf64e2200016091beac62f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Het gebruik van batchverwerking voor het verbeteren van de toepassingsprestaties SQL-Database
 Batchverwerking van bewerkingen met Azure SQL Database aanzienlijk verbetert de prestaties en schaalbaarheid van uw toepassingen. Om te begrijpen wat de voordelen, het eerste deel van dit artikel bevat informatie over sommige voorbeeld testresultaten die sequentieel en batch aanvragen voor een SQL-Database te vergelijken. De rest van het artikel ziet u de technieken, scenario's en om te gebruiken met succes batchverwerking in uw Azure-toepassingen.
@@ -32,9 +32,9 @@ Een van de voordelen van het gebruik van SQL-Database is die u niet hebt voor he
 Het eerste deel van het papier onderzoekt verschillende batchen technieken voor .NET-toepassingen die gebruikmaken van SQL-Database. De laatste twee secties hebben betrekking op batchen scenario's en richtlijnen.
 
 ## <a name="batching-strategies"></a>Batchverwerking strategieën
-### <a name="note-about-timing-results-in-this-topic"></a>Houd er rekening mee over timing resultaten in dit onderwerp
+### <a name="note-about-timing-results-in-this-article"></a>Houd er rekening mee over timing resultaten in dit artikel
 > [!NOTE]
-> Resultaten niet benchmarks, maar zijn bedoeld om weer te geven **relatieve prestaties**. Tijdsinstellingen zijn gebaseerd op een gemiddelde van ten minste 10 test wordt uitgevoerd. Bewerkingen worden ingevoegd in een lege tabel. Deze tests zijn gemeten pre-V12 en ze niet per se overeenkomen met de doorvoer die mogelijk optreden in een V12-database met behulp van de nieuwe [Servicelagen](sql-database-service-tiers.md). Het relatieve voordeel van de batchen techniek moet vergelijkbaar zijn.
+> Resultaten niet benchmarks, maar zijn bedoeld om weer te geven **relatieve prestaties**. Tijdsinstellingen zijn gebaseerd op een gemiddelde van ten minste 10 test wordt uitgevoerd. Bewerkingen worden ingevoegd in een lege tabel. Deze tests zijn gemeten pre-V12 en ze niet per se overeenkomen met de doorvoer die mogelijk optreden in een V12-database met behulp van de nieuwe [DTU Servicelagen](sql-database-service-tiers-dtu.md) of [vCore Servicelagen](sql-database-service-tiers-vcore.md). Het relatieve voordeel van de batchen techniek moet vergelijkbaar zijn.
 > 
 > 
 
@@ -209,7 +209,7 @@ SQL bulksgewijs kopiëren is een andere manier om grote hoeveelheden gegevens in
         }
     }
 
-Er zijn enkele gevallen waarbij bulksgewijs kopiëren heeft de voorkeur boven table-valued parameters. Zie de vergelijkingstabel van Table-Valued parameters versus BULK INSERT-bewerkingen in het onderwerp [Table-Valued Parameters](https://msdn.microsoft.com/library/bb510489.aspx).
+Er zijn enkele gevallen waarbij bulksgewijs kopiëren heeft de voorkeur boven table-valued parameters. Zie de vergelijkingstabel van Table-Valued parameters versus BULK INSERT-bewerkingen in het artikel [Table-Valued Parameters](https://msdn.microsoft.com/library/bb510489.aspx).
 
 De volgende ad-hoc-testresultaten geven aan de prestaties van batchverwerking met **SqlBulkCopy** in milliseconden.
 
@@ -289,7 +289,7 @@ Daarom is het gebruik van XML voor batch-query's niet aanbevolen.
 ## <a name="batching-considerations"></a>Batchverwerking overwegingen
 De volgende secties bevatten meer richtlijnen voor het gebruik van batchverwerking in toepassingen met SQL-Database.
 
-### <a name="tradeoffs"></a>Tradeoffs
+### <a name="tradeoffs"></a>Voor-en nadelen
 Afhankelijk van uw architectuur batchverwerking kan betrekking hebben op een afweging tussen de prestaties en tolerantie. Neem bijvoorbeeld het scenario waar uw rol onverwacht uitvalt. Als u één rij met gegevens verliest, is de impact kleiner dan de gevolgen van het verlies van een grote batch van niet-verzonden rijen. Er is een groter risico wanneer u rijen worden gebufferd voordat ze worden verzonden naar de database in een opgegeven periode.
 
 Vanwege deze afweging evalueren het type van bewerkingen die u batch. Batch-agressiever (grotere batches en langer tijdvensters) met gegevens die minder kritiek is.
@@ -309,7 +309,7 @@ In onze tests is er meestal geen voordeel gebruik te grote batches in kleinere r
 > 
 > 
 
-U ziet dat de beste prestaties voor 1000 rijen ze allemaal tegelijk verzenden. In andere tests (hier niet weergegeven) is er een kleine prestatieverbetering te bereiken om een batch 10000 rij in twee batches van 5000. Maar het tabelschema voor deze tests is relatief eenvoudig, zodat u tests moet uitvoeren op uw specifieke gegevens en de batch-grootten om te controleren of deze bevindingen.
+U ziet dat de beste prestaties voor 1000 rijen ze allemaal tegelijk verzenden. In andere tests (hier niet weergegeven), is er een kleine prestatieverbetering te bereiken om een batch 10000 rij in twee batches van 5000. Maar het tabelschema voor deze tests is relatief eenvoudig, zodat u tests moet uitvoeren op uw specifieke gegevens en de batch-grootten om te controleren of deze bevindingen.
 
 Een andere factor in overweging moet nemen is dat als de totale batch te groot wordt, SQL Database mogelijk beperken en weigeren doorvoeren van de batch. Test uw specifieke scenario om te bepalen of er een ideaal batchgrootte voor de beste resultaten. De batchgrootte configureerbaar maken tijdens runtime snel aanpassingen op basis van prestaties of fouten inschakelen.
 
@@ -592,7 +592,7 @@ Vervolgens maakt u een opgeslagen procedure of code schrijven waarmee de instruc
 Zie voor meer informatie de documentatie en voorbeelden voor de instructie MERGE. Hoewel hetzelfde werk kan worden uitgevoerd in een opgeslagen meerdere stappen procedureaanroep met afzonderlijke INSERT en UPDATE-bewerkingen, de instructie MERGE is efficiënter. Databasecode kunt Transact-SQL-aanroepen die gebruikmaken van de instructie MERGE rechtstreeks zonder twee databaseaanroepen voor INSERT en UPDATE ook opstellen.
 
 ## <a name="recommendation-summary"></a>Aanbeveling samenvatting
-De volgende lijst bevat een samenvatting van de batchen aanbevelingen in dit onderwerp wordt beschreven:
+De volgende lijst bevat een samenvatting van de batchen aanbevelingen in dit artikel wordt beschreven:
 
 * Buffer en batches gebruiken om de prestaties en schaalbaarheid van SQL Database-toepassingen.
 * Inzicht in de wisselwerking tussen batchverwerking/buffer en tolerantie. Tijdens een mislukte functie kan het risico dat een niet-verwerkte batch van essentiële gegevens verloren gaan opwegen tegen de prestatievoordelen van batchverwerking.

@@ -2,11 +2,11 @@
 title: Gebeurtenissen verzenden naar Azure Event Hubs met C | Microsoft Docs
 description: Gebeurtenissen verzenden naar Azure Event Hubs met C
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: c
@@ -14,18 +14,18 @@ ms.devlang: csharp
 ms.topic: article
 ms.date: 12/4/2017
 ms.author: sethm
-ms.openlocfilehash: 2b714c5de96a8fb7ed66a30c62daaa38b84fdc5b
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 430135113f4b26db6690feb6bc6ddcc0700c6d11
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>Gebeurtenissen verzenden naar Azure Event Hubs met C
 
 ## <a name="introduction"></a>Inleiding
 Event Hubs is een zeer schaalbaar systeem die kan worden miljoenen gebeurtenissen per seconde opnemen voor het inschakelen van een toepassing te verwerken en analyseren van de enorme hoeveelheden gegevens die worden geproduceerd door verbonden apparaten en toepassingen. Zodra verzameld in een event hub, kunt u transformeren en opslaan van gegevens met behulp van een realtime analytics-provider of opslagcluster.
 
-Zie voor meer informatie [Event Hubs-overview] [Event Hubs-overview].
+Zie voor meer informatie de [overzicht van Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-overview).
 
 Deze zelfstudie wordt beschreven hoe u kunt gebeurtenissen verzenden naar een event hub met een consoletoepassing in C. Meer informatie over gebeurtenissen ontvangen, klikt u op de juiste ontvangende taal in de tabel links van inhoud.
 
@@ -33,7 +33,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 * Een C-ontwikkelomgeving. Deze zelfstudie wordt ervan uitgegaan dat de stack gcc op een Azure Linux-VM met Ubuntu 14.04.
 * [Microsoft Visual Studio](https://www.visualstudio.com/).
-* Een actief Azure-account. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
+* Een actief Azure-account. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
 
 ## <a name="send-messages-to-event-hubs"></a>Berichten verzenden naar Event Hubs
 In deze sectie wordt beschreven hoe een C-App voor het verzenden van gebeurtenissen naar uw event hub. De code maakt gebruik van de bibliotheek Proton AMQP van de [Apache Qpid project](http://qpid.apache.org/). Dit is vergelijkbaar met het gebruik van Service Bus-wachtrijen en onderwerpen met AMQP van C zoals [in dit voorbeeld](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Zie voor meer informatie de [Qpid Proton documentatie](http://qpid.apache.org/proton/index.html).

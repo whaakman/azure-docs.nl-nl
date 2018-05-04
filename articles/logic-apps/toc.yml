@@ -61,6 +61,8 @@
           href: logic-apps-content-type.md
         - name: Fouten en uitzonderingen verwerken
           href: logic-apps-exception-handling.md
+        - name: Grote berichten verwerken
+          href: logic-apps-handle-large-messages.md
         - name: Uw logische apps beveiligen
           href: logic-apps-securing-a-logic-app.md
         - name: Aangepaste connectors ontwikkelen
@@ -296,13 +298,15 @@
       href: /powershell/module/azurerm.logicapp
     - name: REST-API
       href: /rest/api/logic/
-    - name: Schemataal van werkstroomdefinitie
+    - name: Definitietaal van werkstroomschema
       href: logic-apps-workflow-definition-language.md
       items:
+        - name: Werkstroomacties en -triggers
+          href: logic-apps-workflow-actions-triggers.md
+        - name: Definitietaal van werkstroomfuncties
+          href: workflow-definition-language-functions-reference.md
         - name: 'GA: schemageschiedenis'
           href: logic-apps-schema-2016-04-01.md
-    - name: Werkstroomacties en -triggers
-      href: logic-apps-workflow-actions-triggers.md
     - name: Volgschema's
       items:
         - name: Volgschema voor AS2

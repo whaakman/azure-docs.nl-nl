@@ -102,6 +102,8 @@
           href: disk-scalability-targets.md
         - name: Back-up en herstel na noodgeval voor schijven
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+        - name: Informatie over hoe u Write Accelerator inschakelt
+          href: how-to-enable-write-accelerator.md
         - name: Problemen met gekoppelde VHD's oplossen
           href: troubleshoot-vhds.md
     - name: Netwerken
@@ -187,6 +189,8 @@
           href: move-vm.md
         - name: De grootte van een virtuele machine wijzigen
           href: resize-vm.md
+        - name: De schijf met het besturingssysteem wisselen
+          href: os-disk-swap.md
         - name: Een virtuele machine taggen
           href: tag.md
         - name: Scripts uitvoeren op een virtuele machine

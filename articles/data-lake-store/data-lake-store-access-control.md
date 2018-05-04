@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: a2e29fd6f2dbd4bd573b780a14bd09c0cd03395f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8fd8bd81191d2019d5fa41ce1b6a029f3587adfd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="access-control-in-azure-data-lake-store"></a>Toegangsbeheer in Azure Data Lake Store
 
@@ -150,7 +150,7 @@ In Azure heeft een Data Lake Store-account meerdere Azure-rollen, waaronder:
 * Inzenders
 * Lezers
 
-Iedereen met de rol **Eigenaar** voor een Data Lake Store-account wordt automatisch een supergebruiker voor dat account. Zie [Op rollen gebaseerd toegangsbeheer](../active-directory/role-based-access-control-configure.md) voor meer informatie.
+Iedereen met de rol **Eigenaar** voor een Data Lake Store-account wordt automatisch een supergebruiker voor dat account. Zie [Op rollen gebaseerd toegangsbeheer](../role-based-access-control/role-assignments-portal.md) voor meer informatie.
 Als u aangepast op rollen gebaseerd toegangsbeheer (RBAC) wilt maken met supergebruikersmachtigingen, moet dit de volgende machtigingen hebben:
 - Microsoft.DataLakeStore/accounts/Superuser/action
 - Microsoft.Authorization/roleAssignments/write
@@ -184,7 +184,7 @@ De groep die eigenaar is kan worden gewijzigd door:
 * De gebruiker die eigenaar is, als deze gebruiker ook lid is van de doelgroep.
 
 > [!NOTE]
-> De groep die eigenaar is, kan de ACL's van een bestand of map *niet* wijzigen.
+> De groep die eigenaar is, kan de ACL's van een bestand of map *niet* wijzigen.  Zolang als de groep die eigenaar is, is ingesteld op de gebruiker die het account heeft gemaakt in het geval van de hoofdmap, **Voorbeeld1** hierboven, is een account met één gebruiker, niet geldig voor het verstrekken van machtigingen via de groep die eigenaar is.  U kunt deze machtiging toewijzen aan een geldige gebruikersgroep, indien van toepassing.
 
 ## <a name="access-check-algorithm"></a>Algoritme voor toegangscontrole
 

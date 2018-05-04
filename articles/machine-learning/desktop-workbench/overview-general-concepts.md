@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
 ms.openlocfilehash: ea9da6f23fd08c09f9e805519487648480816f35
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-machine-learning---concepts"></a>Azure Machine Learning - concepten
 
@@ -34,7 +34,7 @@ Dit artikel worden gedefinieerd en beschrijft de concepten die u weten moet om h
 - **Werkruimte:** een werkruimte is de primaire component voor het delen en samenwerking in Azure ML. Projecten zijn gegroepeerd in een werkruimte. Een werkruimte kan vervolgens worden gedeeld met meerdere gebruikers die zijn toegevoegd aan het experimenteren-account.
 
 
-- **Project:** In Azure Machine Learning, een project is een logische container voor al het werk wordt gedaan om een probleem te verhelpen. Deze toegewezen aan een enkel bestand-map op uw lokale vaste schijf en kunt u bestanden of mappen die u wilt deze sub. Een project kan eventueel worden gekoppeld aan een Git-opslagplaats voor broncodebeheer en samenwerking.  
+- **Project:** In Azure Machine Learning, een project is een logische container voor al het werk wordt gedaan om een probleem te verhelpen. Het wordt toegewezen aan één map op uw lokale schijf, en u kunt er alle bestanden of submappen aan toevoegen die u wilt. Een project kan eventueel worden gekoppeld aan een Git-opslagplaats voor broncodebeheer en samenwerking.  
 
 - **Experiment:** In Azure ML een experiment een of meer code bronbestand(en) die kunnen worden uitgevoerd vanaf een enkele invoerpunt is. Taken zoals gegevensopname, functie-engineering, training model of model evaluatie kan bevatten. Op dit moment alleen PySpark-experimenten of Azure ML Python ondersteunt.
 

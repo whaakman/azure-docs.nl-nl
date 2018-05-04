@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 5a6fd54e4d20e55116bc0fa771e039e5ea2bb30b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: fd68658d2549e47f69005af4012c2c328e192631
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Zelfstudie: een bestaand aangepast SSL-certificaat met Azure Web Apps verbinden
 
@@ -232,9 +232,17 @@ Voor uw app is standaard [TLS](https://wikipedia.org/wiki/Transport_Layer_Securi
 
 Selecteer in het linkernavigatievenster van de web-app-pagina **SSL-instellingen**. Selecteer vervolgens bij **TLS-versie** de gewenste minimale TLS-versie.
 
-![HTTPS afdwingen](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
+![TLS 1.1 of 1.2 afdwingen](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
 
 Als de bewerking is voltooid, worden in de app alle verbindingen met lagere TLS-versies geweigerd.
+
+## <a name="renew-certificates"></a>Certificaten vernieuwen
+
+Uw inkomende IP-adres kan wijzigen wanneer u een binding verwijdert, zelfs als die binding IP-gebaseerd is. Dit is vooral belangrijk wanneer u een certificaat vernieuwt dat zich al in een IP-gebaseerde binding bevindt. Als u een wijziging in het IP-adres van uw app wilt voorkomen, volgt u in volgorde de volgende stappen:
+
+1. Upload het nieuwe certificaat.
+2. Verbind het nieuwe certificaat aan het aangepaste domein dat u wilt, zonder het oude certificaat te verwijderen. Met deze actie wordt de oude binding vervangen en niet verwijderd.
+3. Verwijder het oude certificaat. 
 
 ## <a name="automate-with-scripts"></a>Automatiseren met scripts
 
@@ -278,7 +286,7 @@ New-AzureRmWebAppSSLBinding `
     -SslState SniEnabled
 ```
 ## <a name="public-certificates-optional"></a>Openbare certificaten (optioneel)
-U kunt [openbare certificaten](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) uploaden naar uw web-app. U kunt openbare certificaten ook gebruiken voor apps in App Service-omgevingen. Als u het certificaat in het LocalMachine-certificaatarchief wilt opslaan, moet u een web-app in een App Service-omgeving gebruiken. Zie [How to configure public certificates to your Web App](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer) (Openbare certificaten naar uw web-app configureren) voor meer informatie.
+U kunt [openbare certificaten](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) uploaden naar uw web-apps, zodat de app toegang krijgt tot een externe dienst waarvoor verificatie via een certificaat nodig is.  Voor meer details over een openbaar certificaat in uw app laden en gebruiken, raadpleegt u [Use an SSL certificate in your application code in Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-ssl-cert-load) (Een SSL-certificaat in uw toepassingscode gebruiken in Azure App Service).  U kunt openbare certificaten ook gebruiken voor apps in App Service-omgevingen. Als u het certificaat in het LocalMachine-certificaatarchief wilt opslaan, moet u een web-app in een App Service-omgeving gebruiken. Zie [How to configure public certificates to your Web App](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer) (Openbare certificaten naar uw web-app configureren) voor meer informatie.
 
 ![Openbaar certificaat uploaden](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 

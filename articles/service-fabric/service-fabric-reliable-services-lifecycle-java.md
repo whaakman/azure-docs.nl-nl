@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: pakunapa;
-ms.openlocfilehash: 4270bf0b8002b5328241c6d31f399511fc38274e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9c2ce75b2bfb4b8ddab11ac94e5a8e50c2fad6ee
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="reliable-services-lifecycle"></a>Levenscyclus van Reliable Services
 > [!div class="op_single_selector"]
@@ -122,7 +122,7 @@ Services die door deze annulering niet correct verwerken kunnen enkele problemen
 
 Omdat de services stateful, is het ook waarschijnlijk dat de services gebruiken [betrouwbare verzamelingen](service-fabric-reliable-services-reliable-collections.md). In Service Fabric wanneer een primaire wordt gedegradeerd, is een van de eerste dingen die plaatsvindt of schrijftoegang tot de status van de onderliggende is ingetrokken. Dit leidt tot een tweede set van problemen die mogelijk van invloed zijn op de levenscyclus van de service. De verzamelingen return uitzonderingen op basis van de timing en of de replica wordt verplaatst of afsluiten. Het is belangrijk dat u deze uitzonderingen correct wordt afgehandeld. 
 
-Uitzonderingen in Service Fabric zijn permanente [(`FabricException`)](https://docs.microsoft.com/en-us/java/api/system.fabric.exception) of tijdelijke [(`FabricTransientException`)](https://docs.microsoft.com/en-us/java/api/system.fabric.exception._fabric_transient_exception). Permanente uitzonderingen moeten worden geregistreerd en worden gegenereerd. Tijdelijke uitzonderingen kunnen opnieuw worden geprobeerd op basis van Pogingslogica.
+Uitzonderingen in Service Fabric zijn permanente [(`FabricException`)](https://docs.microsoft.com/java/api/system.fabric.exception) of tijdelijke [(`FabricTransientException`)](https://docs.microsoft.com/java/api/system.fabric.exception._fabric_transient_exception). Permanente uitzonderingen moeten worden geregistreerd en worden gegenereerd. Tijdelijke uitzonderingen kunnen opnieuw worden geprobeerd op basis van Pogingslogica.
 
 Een belangrijk onderdeel van de testen en valideren van Reliable Services verwerkt de uitzonderingen die afkomstig van het gebruik van zijn de `ReliableCollections` in combinatie met gebeurtenissen van de levenscyclus van de service. Het is raadzaam dat u altijd uitvoeren van uw service wordt belast. U moet ook upgrades uitvoeren en [chaos testen](service-fabric-controlled-chaos.md) voordat u implementeert naar productie. Deze eenvoudige stappen kunt u ervoor te zorgen dat uw service correct is uitgevoerd en waarop de levenscyclus van gebeurtenissen correct.
 

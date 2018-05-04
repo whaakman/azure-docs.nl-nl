@@ -1,11 +1,11 @@
 ---
-title: Azure DB Cosmos algemene distributie-zelfstudie voor Graph API | Microsoft Docs
-description: Informatie over het instellen van Azure DB die Cosmos globale distributie op basis van de Graph API.
+title: Zelfstudie over globale distributie van Azure DB Cosmos voor de Graph-API | Microsoft Docs
+description: Informatie over het instellen van globale distributie van Azure Cosmos DB met behulp van de Graph-API.
 services: cosmos-db
-keywords: globale distributie, grafiek, gremlin
-documentationcenter: 
+keywords: globale distributie, graaf, gremlin
+documentationcenter: ''
 author: luisbosquez
-manager: jhubbard
+manager: kfile
 editor: cgronlun
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
 ms.service: cosmos-db
@@ -16,44 +16,44 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 1806bde383f04747f1f0fef46e5cf4d38de1e939
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.openlocfilehash: 273b5aeafbf67016259da787f4dfef078ec0a669
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-graph-api"></a>Het instellen van Azure DB die Cosmos globale distributie op basis van de Graph API
+# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-graph-api"></a>Instellen van globale distributie van Azure Cosmos DB met behulp van de Graph-API
 
-In dit artikel, laten we zien hoe de Azure portal gebruiken Azure Cosmos DB globale distributie instellen en vervolgens verbinding met de Graph API.
+In dit artikel laten we zien hoe Azure Portal kan worden gebruikt voor het instellen van globale distributie van Azure DB Cosmos en hoe u daarmee verbinding kunt maken met behulp van de Graph-API.
 
-In dit artikel bevat informatie over de volgende taken: 
+Dit artikel behandelt de volgende taken: 
 
 > [!div class="checklist"]
-> * Globale distributie op basis van de Azure-portal configureren
-> * Configureren globale distributie met behulp van de [Graph API's](graph-introduction.md)
+> * Wereldwijde distributie configureren met behulp van Azure Portal
+> * Globale distributie configureren met behulp van de [Graph-API's](graph-introduction.md)
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
-## <a name="connecting-to-a-preferred-region-using-the-graph-api-using-the-net-sdk"></a>Verbinding maken met een voorkeursregio met behulp van de API van de grafiek met de .NET SDK
+## <a name="connecting-to-a-preferred-region-using-the-graph-api-using-the-net-sdk"></a>Verbinding maken met een voorkeursregio met behulp van de Graph-API met behulp van de .NET-SDK
 
-De Graph API wordt weergegeven als een extensiebibliotheek boven op de SQL-API.
+De Graph-API wordt beschikbaar gemaakt als een extensiebibliotheek op de SQL-API.
 
-Om te profiteren van [globale distributie](distribute-data-globally.md), clienttoepassingen de voorkeur geordende lijst met regio's moeten worden gebruikt voor het document bewerkingen uitvoeren kunnen opgeven. Dit kan worden gedaan door het instellen van het verbindingsbeleid voor de. Op basis van de Azure DB die Cosmos-accountconfiguratie, huidige regionale beschikbaarheid en de voorkeur lijst is opgegeven, wordt het meest optimale eindpunt door de SDK schrijven uitvoeren en leesbewerkingen gekozen.
+Om te profiteren van [wereldwijde distributie](distribute-data-globally.md), kunnen clienttoepassingen de geordende voorkeurslijst met regio's opgeven die moet worden gebruikt voor het uitvoeren van documentbewerkingen. Dat kan worden gedaan door het verbindingsbeleid in te stellen. Op basis van de Azure Cosmos DB-accountconfiguratie, de huidige regionale beschikbaarheid en de opgegeven voorkeurslijst wordt het optimale eindpunt door de SDK gekozen voor het uitvoeren van schrijf- en leesbewerkingen.
 
-Deze lijst voorkeur is opgegeven bij het initialiseren van een verbinding met de SDK's. De SDK's accepteren een optionele parameter 'PreferredLocations' is een geordende lijst met Azure-regio's.
+Deze voorkeurslijst wordt opgegeven bij het initialiseren van een verbinding met de SDK's. De SDK's accepteren de optionele parameter 'PreferredLocations', die een geordende lijst met Azure-regio's bevat.
 
-* **Schrijft**: de SDK verzendt automatisch alle schrijfbewerkingen naar de huidige schrijven regio.
-* **Leest**: alle leesbewerkingen worden verzonden naar de eerste beschikbare regio in de lijst PreferredLocations. Als de aanvraag is mislukt, wordt de client mislukt omlaag in de lijst met de volgende regio, enzovoort. De SDK's zijn alleen van poging tot lezen van de gebieden die zijn opgegeven in PreferredLocations. Ja, bijvoorbeeld als de Cosmos-DB-account beschikbaar in drie gebieden is, maar de client alleen twee van geeft de niet-schrijven regio's voor PreferredLocations, wordt er geen leesbewerkingen worden behandeld buiten de regio schrijven, zelfs in het geval van failover.
+* **Schrijfbewerkingen**: de SDK verzendt alle schrijfbewerkingen automatisch naar de huidige schrijfregio.
+* **Leesbewerkingen**: alle leesbewerkingen worden verzonden naar de eerst beschikbare regio in de lijst PreferredLocations. Als de aanvraag mislukt, gaat de client naar de volgende regio in de lijst, enzovoort. De SDK's proberen alleen de regio's te lezen die zijn opgegeven in PreferredLocations. Dus als bijvoorbeeld het Cosmos DB-account in drie regio's beschikbaar is, maar de client alleen twee regio's waarnaar niet kan worden geschreven opgeeft als PreferredLocations, worden er geen leesbewerkingen verwerkt vanuit de schrijfregio, zelfs in geval van een failover.
 
-De toepassing kunt controleren of de huidige schrijven endpoint en lezen eindpunt gekozen door de SDK door het controleren van de twee eigenschappen, WriteEndpoint en ReadEndpoint beschikbaar in de SDK-versie 1.8 en hoger. Als de eigenschap PreferredLocations niet is ingesteld, worden alle verzoeken van de huidige schrijven regio afgehandeld.
+De toepassing kan het huidige, door de SDK gekozen eindpunt voor lezen en eindpunt voor schrijven verifiëren door het controleren van de twee eigenschappen, WriteEndpoint en ReadEndpoint, die beschikbaar zijn in SDK-versie 1.8 en hoger. Als de eigenschap PreferredLocations niet is ingesteld, worden alle aanvragen verwerkt vanuit de huidige schrijfregio.
 
-### <a name="using-the-sdk"></a>Met behulp van de SDK
+### <a name="using-the-sdk"></a>De SDK gebruiken
 
-In de .NET SDK, bijvoorbeeld de `ConnectionPolicy` parameter voor de `DocumentClient` constructor heeft een eigenschap genaamd `PreferredLocations`. Deze eigenschap kan worden ingesteld op een lijst met regionamen. De namen van de weergave voor [Azure-gebieden] [ regions] kan worden opgegeven als onderdeel van `PreferredLocations`.
+In de .NET-SDK heeft de parameter `ConnectionPolicy` voor de `DocumentClient`-constructor bijvoorbeeld een eigenschap met de naam `PreferredLocations`. Deze eigenschap kan worden ingesteld op een lijst met regionamen. De weergavenamen voor [Azure-regio’s][regions] kunnen worden opgegeven als onderdeel van `PreferredLocations`.
 
 > [!NOTE]
-> De URL's voor de eindpunten niet beschouwd als lange levensduur constanten. De service kan deze op elk gewenst moment bijwerken. De SDK verwerkt deze wijziging automatisch.
+> De URL's voor de eindpunten moeten niet worden beschouwd als constanten met een lange levensduur. De service kan deze op elk gewenst moment bijwerken. De SDK verwerkt deze wijziging automatisch.
 >
 >
 
@@ -79,17 +79,17 @@ DocumentClient docClient = new DocumentClient(
 await docClient.OpenAsync().ConfigureAwait(false);
 ```
 
-Dat is, die in deze zelfstudie is voltooid. U kunt informatie over het beheren van de consistentie van uw account globaal gerepliceerde door te lezen [consistentieniveaus in Azure Cosmos DB](consistency-levels.md). En Zie voor meer informatie over hoe globale databasereplicatie in Azure Cosmos DB werkt, [gegevens globaal met Azure Cosmos DB distribueren](distribute-data-globally.md).
+En daarmee is deze zelfstudie voltooid. Informatie over het beheren van de consistentie van uw wereldwijd gerepliceerde account kunt u vinden in [Consistentieniveaus in Azure Cosmos DB](consistency-levels.md). En voor meer informatie over hoe wereldwijde databasereplicatie werkt in Azure Cosmos DB, gaat u naar [Gegevens wereldwijd distribueren met Azure Cosmos DB](distribute-data-globally.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
 In deze zelfstudie hebt u het volgende gedaan:
 
 > [!div class="checklist"]
-> * Globale distributie op basis van de Azure-portal configureren
-> * Globale distributie op basis van de SQL-API's configureren
+> * Wereldwijde distributie configureren met behulp van Azure Portal
+> * Wereldwijde distributie configureren met behulp van de SQL-API's
 
-U kunt nu doorgaan met de volgende zelfstudie voor meer informatie over het ontwikkelen van lokaal via de lokale Azure DB die Cosmos-emulator.
+U kunt nu doorgaan met de volgende zelfstudie voor informatie over lokaal ontwikkelen met behulp van de lokale Azure Cosmos DB-emulator.
 
 > [!div class="nextstepaction"]
 > [Lokaal ontwikkelen met de emulator](local-emulator.md)

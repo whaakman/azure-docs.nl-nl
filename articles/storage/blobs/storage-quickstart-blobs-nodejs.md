@@ -1,19 +1,19 @@
 ---
-title: 'Azure-snelstart: blobs uploaden, downloaden en vermelden in Azure Storage met behulp van Node.js | Microsoft Docs'
-description: In deze snelstart maakt u een opslagaccount en een container. Vervolgens gebruikt u de opslagclientbibliotheek voor Node.js om een blob in Azure Storage te uploaden, een blob te downloaden en de blobs in een container te vermelden.
+title: 'Azure-snelstart: een blob maken in objectopslag met Node.js | Microsoft Docs'
+description: In deze snelstart maakt u een opslagaccount en een container in object(blob)-opslag. Vervolgens gebruikt u de opslagclientbibliotheek voor Node.js om een blob in Azure Storage te uploaden, een blob te downloaden en de blobs in een container te vermelden.
 services: storage
 author: craigshoemaker
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 03/15/2018
+ms.date: 04/09/2018
 ms.author: cshoe
-ms.openlocfilehash: 8783b83a1a94caf4a49f9da7a2dd30c9cb52df22
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 30a64ec6fd4df63eba9c35f1774c81c35fa3506f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>Snelstart: blobs downloaden, uploaden en vermelden met behulp van Node.js
 
@@ -82,7 +82,7 @@ Dit is het doel van de modules:
 - *dotenv* laadt omgevingsvariabelen die zijn gedefinieerd in een bestand met de naam *.env* in de huidige uitvoeringscontext
 - *path* is vereist om het absolute pad van het bestand te bepalen voor uploaden naar blob-opslag
 - *yargs* genereert een eenvoudige interface voor toegang tot opdrachtregelargumenten
-- *azure-storage* is de [Azure Storage SDK](/nodejs/api/azure-storage)-module voor Node.js
+- *azure-storage* is de [Azure Storage SDK](https://docs.microsoft.com/javascript/api/azure-storage)-module voor Node.js
 
 Vervolgens wordt een reeks variabelen geïnitialiseerd:
 
@@ -294,4 +294,4 @@ Deze quickstart laat zien hoe u een bestand uploadt tussen een lokale schijf en 
 > [!div class="nextstepaction"]
 > [Instructies voor bewerkingen in Blob-opslag](storage-nodejs-how-to-use-blob-storage.md)
 
-Bekijk [azure-storage package](https://docs.microsoft.com/javascript/api/azure-storage/?view=azure-node-latest) voor de Node.js-verwijzing voor Azure Storage.
+Bekijk [azure-storage package](https://docs.microsoft.com/javascript/api/azure-storage) voor de Node.js-verwijzing voor Azure Storage.

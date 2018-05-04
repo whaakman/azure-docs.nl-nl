@@ -1,4 +1,26 @@
-
+---
+title: bestand opnemen
+description: bestand opnemen
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: 794fd51c38f66b24193c7da7a145d58f7a225b30
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 04/28/2018
+---
 ## <a name="setting-up-your-web-server-or-project"></a>Instellen van uw webserver of -project
 
 > Voorkeur voor het downloaden van dit voorbeeld project in plaats daarvan? 
@@ -7,7 +29,7 @@
 > of
 > - [De project-bestanden downloaden](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/core.zip) voor een lokale webserver, zoals Python
 >
-> En ga vervolgens verder met de [configuratiestap](#create-an-application-express) voor het configureren van het codevoorbeeld voordat deze wordt uitgevoerd.
+> En ga vervolgens verder met de [configuratiestap](#register-your-application) voor het configureren van het codevoorbeeld voordat deze wordt uitgevoerd.
 
 ## <a name="prerequisites"></a>Vereisten
 Een lokale webserver zoals [Python http.server](https://www.python.org/downloads/), [HTTP-server](https://www.npmjs.com/package/http-server/), [.NET Core](https://www.microsoft.com/net/core), of IIS Express integratie met [Visual Studio 2017](https://www.visualstudio.com/downloads/) Deze begeleide setup uit te voeren is vereist. 
@@ -18,10 +40,10 @@ Instructies in deze handleiding zijn gebaseerd op zowel Python en Visual Studio 
 
 > ### <a name="option-1-visual-studio"></a>Optie 1: Visual Studio 
 > Als u met behulp van Visual Studio en een nieuw project maakt, volgt u onderstaande stappen voor het maken van een nieuwe Visual Studio-oplossing:
-> 1.    In Visual Studio:`File` > `New` > `Project`
-> 2.    Onder `Visual C#\Web`, selecteer`ASP.NET Web Application (.NET Framework)`
+> 1.    In Visual Studio:  `File` > `New` > `Project`
+> 2.    Onder `Visual C#\Web`, selecteer `ASP.NET Web Application (.NET Framework)`
 > 3.    Naam van uw toepassing en klik op *OK*
-> 4.    Onder `New ASP.NET Web Application`, selecteer`Empty`
+> 4.    Onder `New ASP.NET Web Application`, selecteer `Empty`
 
 <p/><!-- -->
 

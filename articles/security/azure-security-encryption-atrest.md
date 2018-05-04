@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: c0bc3c8774b68b49be95d5df86319a2e0463e6ae
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 54dc97c0d20f90d3b57b715fb21714a11e5a1525
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure Data Encryption in rust
 Er zijn meerdere hulpprogramma's in Microsoft Azure ter bescherming van gegevens op basis van de beveiliging en naleving behoeften van uw bedrijf. Dit artikel is gericht op:
@@ -236,10 +236,10 @@ De klant met behulp van Azure-infrastructuur als een Service (IaaS)-onderdelen v
 
 #### <a name="azure-storage"></a>Azure Storage
 
-Azure Blob- en -bestanden ondersteunt versleuteling in rust voor serverzijde versleutelde scenario's, evenals versleuteld klantgegevens (client-side '-versleuteling).
+Alle services van Azure Storage (Blob storage, Queue storage, Table storage en Azure-bestanden) ondersteuning voor serverzijde versleuteling in rust, met bepaalde services sleutels door de klant beheerd en clientzijde versleuteling ondersteunen.  
 
-- Serverzijde: klanten die gebruikmaken van Azure blob-opslag kunnen versleuteling in rust op elke Azure-opslagaccount resource inschakelen. Eenmaal ingeschakeld serverzijde versleuteling is transparant uitgevoerd tot de toepassing. Zie [Azure Storage Service: versleuteling van gegevens in rust](https://docs.microsoft.com/azure/storage/storage-service-encryption) voor meer informatie.
-- Client-side: versleuteling aan clientzijde van Azure Blobs wordt ondersteund. Wanneer met behulp van versleuteling aan clientzijde klanten coderen van de gegevens en de gegevens als een gecodeerde blob uploaden. Sleutelbeheer wordt gedaan door de klant. Zie [Client-Side-versleuteling en Azure Key Vault voor Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-client-side-encryption) voor meer informatie.
+- Serverzijde: Alle Azure-opslagservices serverzijde codering standaard ingeschakeld met sleutels service beheerd dit transparant voor de toepassing is. Zie voor meer informatie [Azure Storage Service: versleuteling van gegevens in rust](https://docs.microsoft.com/azure/storage/storage-service-encryption). Azure Blob storage en Azure Files bieden ook ondersteuning voor de klant beheerd sleutels in Azure Sleutelkluis. Zie voor meer informatie [Service versleuteling van opslag met behulp van de klant beheerd sleutels in Azure Key Vault](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption-customer-managed-keys).
+- Client-side: Azure Blobs, tabellen en wachtrijen clientzijde codering ondersteunen. Wanneer u de client-side '-versleuteling, kunnen klanten coderen van de gegevens en de gegevens als een gecodeerde blob uploaden. Sleutelbeheer wordt gedaan door de klant. Zie voor meer informatie [Client-Side-versleuteling en Azure Key Vault voor Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-client-side-encryption).
 
 
 #### <a name="sql-azure"></a>SQL Azure
@@ -259,8 +259,8 @@ Client-side '-versleuteling van gegevens van de SQL Azure wordt ondersteund door
 | SQL Server (IaaS)                |                | Ja                 | Ja                          | Ja                          | Ja    |
 | Azure SQL (PaaS)                 |                | Ja                 | Ja                          | -                            | Ja    |
 | Azure-opslag (blokkeren/pagina-BLOB's) |                | Ja                 | Ja                          | -                            | Ja    |
-| Azure-opslag (bestanden)            |                | Ja                 | -                            | -                            | -      |
-| Azure-opslag (tabellen, wachtrijen)   |                | -                   | -                            | -                            | Ja    |
+| Azure-opslag (bestanden)            |                | Ja                 | Ja                          | -                            | -      |
+| Azure-opslag (tabellen, wachtrijen)   |                | Ja                 | -                            | -                            | Ja    |
 | Cosmos-DB (Document DB)          |                | Ja                 | -                            | -                            | -      |
 | StorSimple                       |                | Ja                 | -                            | -                            | Ja    |
 | Back-up maken                           |                | -                   | -                            | -                            | Ja    |

@@ -3,8 +3,8 @@ title: Internet der dingen aanbevolen beveiligingsprocedures | Microsoft Docs
 description: Het artikel biedt een samengestelde lijst met Microsoft Internet van dingen Best Practices voor beveiliging en algemene aanbevelingen.
 services: security
 documentationcenter: na
-author: TomShinder
-manager: StevenPo
+author: barclayn
+manager: mbaldwin
 editor: TomSh
 ms.assetid: 2d5598c5-4c30-481d-b8f4-51ee024ea9a7
 ms.service: security
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: yurid
-ms.openlocfilehash: 8937437652a78e05b94574cb9fe5df7962edb1ad
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.date: 04/26/2018
+ms.author: barclayn
+ms.openlocfilehash: 804dd6828931ca2801360ab18be938c8bacf2bfa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="internet-of-things-security-best-practices"></a>Internet der dingen Best Practices voor beveiliging
+
 Beveiligen van de infrastructuur van het Internet der dingen (IoT) is een kritieke onderneming voor iedereen die betrokken zijn bij IoT-oplossingen. Vanwege het aantal apparaten bij betrokken zijn en de gedistribueerde aard van deze apparaten, het effect dat een beveiligingsgebeurtenis gerelateerde tot miljoenen IoT-apparaten is niet-triviale en wijdverbreid invloed kan hebben.
 
 IoT-beveiliging moet daarom een security-in-depth-benadering. Gegevens moeten worden beveiligd in de cloud en wordt particuliere en publieke netwerken. Methoden moeten aanwezig zijn voor het inrichten van de IoT-apparaten zelf veilig. Elke laag van apparaat, met netwerk naar de cloud back-end moet sterke beveiliging garantie.
@@ -35,6 +36,7 @@ Aanbevolen procedures van IoT kunnen worden ingedeeld in de volgende manier:
 In dit artikel bevat een overzicht van [Internet van dingen aanbevolen beveiligingsprocedures](../iot-suite/iot-security-best-practices.md). Raadpleeg dit artikel voor meer gedetailleerde informatie.
 
 ## <a name="iot-hardware-manufacturer-or-integrator"></a>IoT-hardwarefabrikant of integrator
+
 Volg de onderstaande procedures als u een hardwarefabrikant IoT of een integrator hardware:
 
 * **Bereik van hardware aan de minimumvereisten**: het hardwareontwerp van de minimale functies die vereist zijn voor de werking van de hardware, en niets meer moet bevatten. 
@@ -43,6 +45,7 @@ Volg de onderstaande procedures als u een hardwarefabrikant IoT of een integrato
 * **Beveiligen van upgrades**: firmware bijwerken tijdens de levensduur van het apparaat is onvermijdelijk.
 
 ## <a name="iot-solution-developer"></a>Ontwikkelaars van IoT-oplossing
+
 Volg de onderstaande procedures als u een ontwikkelaar IoT-oplossing:
 
 * **Ga als volgt beveiligde software development methodologie**: a t/m nadenken over de beveiliging van het begin van het project helemaal tot aan de implementatie, testen en implementatie ontwikkelen van beveiligde software vereist.
@@ -50,12 +53,14 @@ Volg de onderstaande procedures als u een ontwikkelaar IoT-oplossing:
 * **Integreren met zorg**: veel van de software-beveiligingsfouten bestaat op de grens van bibliotheken en -API. 
 
 ## <a name="iot-solution-deployer"></a>Implementatie van IoT-oplossing
+
 Volg de onderstaande procedures als u een deployer IoT-oplossing:
 
 * **Hardware veilig implementeren**: IoT-implementaties vereisen hardware in niet-beveiligde locaties, zoals in openbare ruimten of zonder supervisie landinstellingen worden geïmplementeerd.
 * **Verificatiesleutels veilig te houden**: tijdens de implementatie van elk apparaat vereist dat apparaat-id's en bijbehorende verificatiesleutels die worden gegenereerd door de cloudservice. Beveilig deze sleutels fysiek zelfs na de implementatie. Een willekeurige toets waarmee is geknoeid kan worden gebruikt door een kwaadwillende apparaat naar zich voordoen als een bestaand apparaat.
 
 ## <a name="iot-solution-operator"></a>IoT-oplossing operator
+
 Volg de onderstaande procedures als u een IoT-oplossing operator:
 
 * **Systemen up-to-date te houden**: Zorg ervoor dat de besturingssystemen van apparaten en alle apparaatstuurprogramma's worden bijgewerkt naar de meest recente versies. 

@@ -2,10 +2,10 @@
 title: Upgrade uitvoeren in Mobile Services in Azure App Service - Node.js
 description: Meer informatie over het eenvoudige upgrade van uw Mobile Services-toepassing in een App Service-mobiele App
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: conceptdev
 manager: yochayk
-editor: 
+editor: ''
 ms.assetid: c58f6df0-5aad-40a3-bddc-319c378218e3
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 9a641bc667d07d1b674d2864c1f29151d527f46a
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 07ebf23270addc63793278d4e0510c187289b82c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>Upgrade van uw bestaande Mobile Service van een Node.js-Azure App service
 App Service Mobile is een nieuwe manier om mobiele toepassingen bouwen met Microsoft Azure. Zie voor meer informatie, [wat zijn Mobile Apps?].
@@ -61,12 +61,12 @@ Het volledige overzicht voor het upgradeproces is als volgt:
 
 Verwijderen kan optreden wanneer verkeer niet wordt weergegeven op uw oorspronkelijke gemigreerde mobiele service.
 
-## <a name="install-npm-package"></a>Installeren van de vereisten
+## <a name="install-npm-package"></a> Installeren van de vereisten
 U moet [Node] installeren op uw lokale machine.  Ook moet u het pakket compatibiliteit installeren.  Nadat het knooppunt is geïnstalleerd, kunt u de volgende opdracht uitvoeren vanaf een nieuwe cmd of PowerShell-prompt:
 
 ```npm i -g azure-mobile-apps-compatibility```
 
-## <a name="obtain-ams-scripts"></a>Verkrijgen van uw Azure Mobile Services-Scripts
+## <a name="obtain-ams-scripts"></a> Verkrijgen van uw Azure Mobile Services-Scripts
 * Meld u aan bij de [Azure Portal].
 * Met behulp van **alle Resources** of **App Services**, zoeken naar uw Mobile Services-site.
 * Binnen de site, klikt u op **extra** -> **Kudu** -> **gaat** de Kudu-website te openen.
@@ -76,14 +76,14 @@ U moet [Node] installeren op uw lokale machine.  Ook moet u het pakket compatibi
 
 Dit wordt gedownload, de scripts in een ZIP-indeling.  Maak een nieuwe map op uw lokale machine en pak deze uit de `scripts.ZIP` bestand in de map.  Hiermee maakt u een `scripts` directory.
 
-## <a name="scaffold-app"></a>Ondersteuning van de nieuwe back-end voor Azure Mobile Apps
+## <a name="scaffold-app"></a> Ondersteuning van de nieuwe back-end voor Azure Mobile Apps
 Voer de volgende opdracht uit de map waarin de map scripts:
 
 ```scaffold-mobile-app scripts out```
 
 Hiermee maakt u een ondersteunde back-end Azure Mobile Apps in de `out` directory.  Hoewel niet vereist, is een goed idee om te controleren de `out` map in een bron code opslagplaats van uw keuze.
 
-## <a name="deploy-ama-app"></a>Uw back-end van Azure Mobile Apps implementeren
+## <a name="deploy-ama-app"></a> Uw back-end van Azure Mobile Apps implementeren
 Tijdens de implementatie moet u het volgende doen:
 
 1. Maak een nieuwe mobiele App in de [Azure Portal].
@@ -159,7 +159,7 @@ Wanneer u de nieuwe clientversie gereed hebt, try it out in op basis van uw proj
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[App Service-prijzen]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[App Service-prijzen]: https://azure.microsoft.com/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Authenticatieconcepten]: ../app-service/app-service-authentication-overview.md
 [verificatie Quick Start]: app-service-mobile-auth.md

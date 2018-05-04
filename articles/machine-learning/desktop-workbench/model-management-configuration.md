@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
 ms.openlocfilehash: 45ddd4dc6fb5559c020706e2784158b1319f9b52
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="model-management-setup"></a>Instellingen voor het beheer van model
 
@@ -38,7 +38,7 @@ U moet de CLIs installeren op andere systemen.
 
 ### <a name="installing-or-updating-on-windows"></a>Installeren (of bijwerken) in Windows
 
-Python van https://www.python.org/ installeren. Zorg ervoor dat u hebt geselecteerd voor het installeren van pip.
+Installeren van Python van https://www.python.org/. Zorg ervoor dat u hebt geselecteerd voor het installeren van pip.
 
 Open een opdrachtprompt met als Administrator uitvoeren en voer de volgende opdrachten:
 
@@ -83,7 +83,7 @@ Beginnen met een lokale implementatie, te valideren dat uw model en code werkt, 
 Als u wilt starten, moet u uw implementatieomgeving instellen. De instelling van de omgeving is een taak. Zodra de installatie voltooid is, kunt u de omgeving voor toekomstige implementaties opnieuw gebruiken. Zie de volgende sectie voor meer informatie.
 
 Wanneer de omgeving-installatie te voltooien:
-- U wordt gevraagd aan te melden bij Azure. Als u wilt aanmelden, moet u een webbrowser gebruiken op de pagina https://aka.ms/devicelogin opent en voert u de opgegeven code om te verifiëren.
+- U wordt gevraagd aan te melden bij Azure. Als u wilt aanmelden, kunt u een webbrowser gebruiken om de pagina te openen https://aka.ms/devicelogin en voer de opgegeven code om te verifiëren.
 - U wordt gevraagd tijdens het verificatieproces voor een account te verifiëren met. Belangrijk: Selecteer een account met een geldige Azure-abonnement en voldoende machtigingen voor het maken van resources in het account. - Als het aanmelden voltooid is, uw abonnementsgegevens wordt weergegeven en u wordt gevraagd of u doorgaan wilt met de geselecteerde account.
 
 ### <a name="environment-setup"></a>Instellen van de omgeving

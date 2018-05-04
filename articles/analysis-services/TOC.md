@@ -1,18 +1,22 @@
 # [Documentatie voor Analysis Services](index.md)
 
 # Overzicht
-## [Over Analysis Services](analysis-services-overview.md)
-## [Ondersteunde gegevensbronnen](analysis-services-datasource.md)
-## [Verificatie en gebruikersmachtigingen](analysis-services-manage-users.md)
-## [Verbinding maken met on-premises gegevensbronnen](analysis-services-gateway.md)
-## [Compatibiliteitsniveau](analysis-services-compat-level.md)
-## [Hoge beschikbaarheid](analysis-services-bcdr.md)
+## [Wat is Azure Analysis Services?](analysis-services-overview.md)
+
 
 # Aan de slag
 ## [Een server maken in Azure Portal](analysis-services-create-server.md)
 ## [Een server maken met Azure PowerShell](analysis-services-create-powershell.md)
 ## [Een model implementeren vanuit Visual Studio](analysis-services-deploy.md)
 ## [Een model maken in Azure Portal (preview)](analysis-services-create-model-portal.md)
+
+# Concepten
+## [Ondersteunde gegevensbronnen](analysis-services-datasource.md)
+## [Verbinding maken met on-premises gegevensbronnen](analysis-services-gateway.md)
+## [Verbinding maken met servers](analysis-services-connect.md)
+## [Verificatie en gebruikersmachtigingen](analysis-services-manage-users.md)
+## [Compatibiliteitsniveau](analysis-services-compat-level.md)
+## [Hoge beschikbaarheid](analysis-services-bcdr.md)
 
 # Uitleg 
 ## [Een on-premises gegevensgateway installeren en configureren](analysis-services-gateway-install.md)
@@ -31,7 +35,7 @@
 ### [Serverbeheerders beheren](analysis-services-server-admins.md)
 ### [Metrische servergegevens bewaken](analysis-services-monitor.md)
 ### [Registratie in diagnoselogboek instellen](analysis-services-logging.md)
-### [Gateway gebruiken voor gegevensbronnen op VNET](analysis-services-vnet-gateway.md)
+### [Gateway gebruiken voor gegevensbronnen op VNet](analysis-services-vnet-gateway.md)
 ## Verbinding maken
 ### [Clientbibliotheken ophalen](analysis-services-data-providers.md)
 ### [Verbinden met Excel](analysis-services-connect-excel.md)

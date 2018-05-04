@@ -8,11 +8,11 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 02/27/2018
 ms.author: marsma
-ms.openlocfilehash: 28177e17a15c5e3b92b9af52e05fa2f8e95db95f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 2ed067542942cd314d61def5154c3c83cad6cc1c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Beschikbaarheid in regio’s voor Azure Container Instances
 
@@ -28,9 +28,9 @@ Azure Container Instances is beschikbaar in de volgende regio's met de opgegeven
 
 | Locatie | OS | CPU | Geheugen (GB) |
 | -------- | -- | :---: | :-----------: |
-| West-Europa, VS West, VS Oost | Linux | 4 | 14 |
+| VS West, VS Oost, West-Europa, Noord-Europa | Linux | 4 | 14 |
 | VS-west 2, Zuidoost-Azië | Linux | 2 | 7 |
-| West-Europa, VS West, VS Oost | Windows | 4 | 14 |
+| VS West, VS Oost, West-Europa, Noord-Europa | Windows | 4 | 14 |
 | VS-west 2, Zuidoost-Azië | Windows | 2 | 3,5 |
 
 Containerinstanties die binnen deze resourcelimieten zijn gemaakt, zijn afhankelijk van de beschikbaarheid in de implementatieregio. Wanneer een regio zwaar wordt belast, kan er een fout optreden bij het implementeren van instanties. Als u dergelijke implementatiefouten wilt minimaliseren, implementeert u instanties met een lagere CPU en geheugeninstellingen, of voert u de implementatie op een later tijdstip uit.

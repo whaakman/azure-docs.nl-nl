@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/14/2018
-ms.author: sethm;clemensv
-ms.openlocfilehash: 21e9e0a20842e365e40b71ac96888e7cd2056e52
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: sethm
+ms.openlocfilehash: 420f4573fbe8b5139a4e1e5fa4dea3404c4e099d
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Service Bus-toegangsbeheer met handtekeningen voor gedeelde toegang
 
@@ -254,13 +254,13 @@ De volgende tabel toont de toegangsrechten nodig zijn voor verschillende bewerki
 
 | Bewerking | Claim vereist | Claim-bereik |
 | --- | --- | --- |
-| **Namespace** | | |
+| **naamruimte** | | |
 | Verificatieregel configureren op een naamruimte |Beheren |Een naamruimte-adres |
-| **Service Registry** | | |
+| **Service-register** | | |
 | Beleid voor persoonlijke opsommen |Beheren |Een naamruimte-adres |
 | Beginnen met luisteren op een naamruimte |Luisteren |Een naamruimte-adres |
 | Berichten verzenden naar een listener op een naamruimte |Verzenden |Een naamruimte-adres |
-| **Queue** | | |
+| **Wachtrij** | | |
 | Een wachtrij maken |Beheren |Een naamruimte-adres |
 | Een wachtrij verwijderen |Beheren |Geldige wachtrij-adres |
 | Wachtrijen opsommen |Beheren |Map resources/wachtrijen |
@@ -283,18 +283,18 @@ De volgende tabel toont de toegangsrechten nodig zijn voor verschillende bewerki
 | Verzenden naar het onderwerp |Verzenden |Elk adres ongeldig onderwerp |
 | **Abonnement** | | |
 | Een abonnement maken |Beheren |Een naamruimte-adres |
-| Abonnement verwijderen |Beheren |../myTopic/Subscriptions/mySubscription |
+| Abonnement verwijderen |Beheren |.. /myTopic/Subscriptions/mySubscription |
 | Abonnementen opsommen |Beheren |.. / myTopic/abonnementen |
-| Beschrijving van het abonnement ophalen |Beheren |../myTopic/Subscriptions/mySubscription |
-| Afbreken of volledige berichten na de ontvangst van het bericht in de modus peek vergrendelen |Luisteren |../myTopic/Subscriptions/mySubscription |
-| Een bericht voor later gebruik stellen |Luisteren |../myTopic/Subscriptions/mySubscription |
-| Wachtrij voor onbestelbare een bericht |Luisteren |../myTopic/Subscriptions/mySubscription |
-| De status is gekoppeld aan een sessie onderwerp ophalen |Luisteren |../myTopic/Subscriptions/mySubscription |
-| De status is gekoppeld aan een sessie voor onderwerp instellen |Luisteren |../myTopic/Subscriptions/mySubscription |
+| Beschrijving van het abonnement ophalen |Beheren |.. /myTopic/Subscriptions/mySubscription |
+| Afbreken of volledige berichten na de ontvangst van het bericht in de modus peek vergrendelen |Luisteren |.. /myTopic/Subscriptions/mySubscription |
+| Een bericht voor later gebruik stellen |Luisteren |.. /myTopic/Subscriptions/mySubscription |
+| Wachtrij voor onbestelbare een bericht |Luisteren |.. /myTopic/Subscriptions/mySubscription |
+| De status is gekoppeld aan een sessie onderwerp ophalen |Luisteren |.. /myTopic/Subscriptions/mySubscription |
+| De status is gekoppeld aan een sessie voor onderwerp instellen |Luisteren |.. /myTopic/Subscriptions/mySubscription |
 | **Regels** | | |
-| Een regel maken |Beheren |../myTopic/Subscriptions/mySubscription |
-| Een regel verwijderen |Beheren |../myTopic/Subscriptions/mySubscription |
-| Regels opsommen |Beheren of luisteren |../myTopic/Subscriptions/mySubscription/Rules 
+| Een regel maken |Beheren |.. /myTopic/Subscriptions/mySubscription |
+| Een regel verwijderen |Beheren |.. /myTopic/Subscriptions/mySubscription |
+| Regels opsommen |Beheren of luisteren |.. /myTopic/Subscriptions/mySubscription/Rules 
 
 ## <a name="next-steps"></a>Volgende stappen
 

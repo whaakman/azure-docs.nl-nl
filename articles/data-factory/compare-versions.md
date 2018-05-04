@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/24/2018
+ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: 9aed1e903b5af3e5bcf53987ba80c1dcdb06f202
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e78051c4eb0cd79d636a6af31db8ffb6cd7e6aef
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Versies 1 en 2 van Azure Data Factory vergelijken
 In dit artikel wordt versie 2 (V2) van Azure Data Factory vergeleken met versie 1 (V1). Zie voor meer informatie over V1 [Inleiding tot Azure Data Factory](v1/data-factory-introduction.md). Zie voor meer informatie over V2 [Inleiding tot Data Factory (V2 - preview)](introduction.md).
@@ -139,11 +139,7 @@ De SDK's die zijn bijgewerkt voor V2 zijn niet achterwaarts compatibel met V1-cl
 
 ## <a name="roles-and-permissions"></a>Rollen en machtigingen
 
-Maken en beheren van onderliggende resources voor een v2-gegevensfactory:
-
--   De rol Bijdrager van versie 1 Data Factory kan niet worden gebruikt om v2-resources te maken en te beheren.
--   De standaardrol Bijdrager in ARM, gemaakt in de Data Factory-resource, is voldoende om onderliggende resources te maken en te beheren voor een v2-gegevensfactory die is gemaakt met PowerShell of de SDK's. Deze rol is niet voldoende om onderliggende resources te maken en te beheren voor een v2-gegevensfactory die is geïmplementeerd in Azure Portal of met behulp van een ARM-sjabloonimplementatie.
--   Als u onderliggende resources wilt maken en beheren voor een v2-gegevensfactory die is geïmplementeerd in Azure Portal of met behulp van een ARM-sjabloonimplementatie, moet u lid zijn van de rol Operator voor Automation op het niveau van de resourcegroep of van het abonnement. Voor uw organisatie kan ook een aangepaste rol worden gemaakt met Microsoft.Resources/deployments/* in de lijst Acties, zoals wordt beschreven in [Create custom roles for Azure Role-Based Access Control](../active-directory/role-based-access-control-custom-roles.md) (Aangepaste rollen maken voor op rollen gebaseerd toegangsbeheer in Azure).
+De rol Bijdrager van Data Factory, versie 1, kan niet worden gebruikt voor het maken en beheren van resources van Data Factory, versie 2.
 
 ## <a name="monitoring-experience"></a>Bewaken
 In V2 kunt u ook data factory's bewaken met behulp van [Azure Monitor](monitor-using-azure-monitor.md). De nieuwe PowerShell-cmdlets bieden ondersteuning voor het bewaken van [integratie-runtimes](monitor-integration-runtime.md). Zowel V1 als V2 ondersteunen visueel bewaken via bewakingstoepassingen die vanuit Azure Portal kunnen worden gestart.

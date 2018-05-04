@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: f19d33c905d6153dffa1e7d5cdaea92ed1b94ff7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 7c36d2ead9ca9e1ebd08d3d5a9c4901e46d42c00
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?
 Eenmalige aanmelding betekent wordt toegang tot alle toepassingen en bronnen die u nodig hebt om zaken te doen, wanneer u zich aanmeldt slechts één keer met behulp van één gebruikersaccount. Wanneer u bent aangemeld, kunt u alle toepassingen zonder verificatie openen (bijvoorbeeld: Typ een wachtwoord) een tweede keer.
@@ -75,7 +75,7 @@ In beide gevallen moeten referenties worden opgeslagen in een versleutelde statu
 Eenmalige aanmelding op basis van wachtwoorden is afhankelijk van een Browseruitbreiding veilig ophalen van de toepassing en gebruikersspecifieke gegevens van Azure AD en toepassen op de service. Deze functie wordt ondersteund door de meeste van derden SaaS-toepassingen die worden ondersteund door Azure AD.
 
 Voor eenmalige aanmelding op basis van wachtwoorden kunnen van de eindgebruiker browsers zijn:
-* Internet Explorer 8, 9, 10, 11--op Windows 7 of hoger
+* Internet Explorer 11--Windows 7 of hoger
 * Rand verjaardagseditie van Windows 10 of hoger 
 * Chrome--Op Windows 7 of hoger, en op Mac OS X of hoger
 * Firefox 26,0 of later--op Windows XP SP2 of hoger, en op Mac OS X 10,6 of hoger

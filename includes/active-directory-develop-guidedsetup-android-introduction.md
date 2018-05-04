@@ -1,11 +1,33 @@
-
-# <a name="call-the-microsoft-graph-api-from-an-android-app"></a>Microsoft Graph API aanroepen vanuit een Android-app
+---
+title: bestand opnemen
+description: bestand opnemen
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: aa21168f1e19ccddc190379b30e1b612d96b56d5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 04/28/2018
+---
+# <a name="sign-in-users-and-all-the-microsoft-graph-api-from-an-android-app"></a>Gebruikers aanmelden en alle Microsoft Graph API van een Android-app
 
 Deze handleiding wordt uitgelegd hoe een systeemeigen Android-toepassing kunt ophalen van een toegangstoken en bel de Microsoft Graph API of andere API's waarvoor toegangstokens van het Azure Active Directory-v2-eindpunt.
 
 Wanneer u de handleiding hebt voltooid, is uw toepassing worden geaccepteerd aanmeldingen van persoonlijke (waaronder outlook.com, live.com en anderen) en werk- en schoolaccounts accounts van een bedrijf of organisatie die gebruikmaakt van Azure Active Directory. De toepassing wordt vervolgens aanroepen voor een API die wordt beveiligd door het Azure Active Directory-v2-eindpunt.  
 
-## <a name="how-this-sample-works"></a>De werking van dit voorbeeld
+## <a name="how-the-sample-app-generated-by-this-guide-works"></a>De werking van de voorbeeld-app die is gegenereerd door deze handleiding
 ![De werking van dit voorbeeld](media/active-directory-develop-guidedsetup-android-intro/android-intro.png)
 
 De voorbeeldtoepassing die u met deze handleiding maakt is gebaseerd op een scenario waarbij een Android-toepassing wordt gebruikt voor het zoeken van een Web-API die tokens van het Azure Active Directory-v2-eindpunt (Microsoft Graph API, in dit geval accepteert). Voor dit scenario wordt het token verkregen in uw toepassing toegevoegd op HTTP-aanvragen via de autorisatie-header. De Microsoft Authentication Library (MSAL) verwerkt de token verkrijgen en verlenging voor u.

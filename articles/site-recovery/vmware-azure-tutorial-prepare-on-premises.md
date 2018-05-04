@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/15/2018
+ms.date: 04/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6898f725d1d3cbf3f8d9d90faeafc13fbc8cb201
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f7722891af15111fd0151055c35bf24100ed79b1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>On-premises VMware-servers voorbereiden op herstel naar Azure na een noodgeval
 
@@ -25,9 +25,12 @@ Deze tutorial laat u zien hoe u uw on-premises VMware-infrastructuur kunt voorbe
 > * Overzicht van VMware-serververeisten
 > * Overzicht van VMware-VM-vereisten
 
-In deze zelfstudiereeks laten we zien hoe u een back-up kunt maken van één VM met behulp van Azure Site Recovery. Als u van plan bent meerdere VMware-VM's te beschermen, moet u het hulpprogramma [Deployment Planner](https://aka.ms/asr-deployment-planner) voor VMware-replicatie downloaden. Met dit hulpprogramma verzamelt u informatie over VM-compatibiliteit, schijven per VM en gegevensverloop per schijf. Het hulpprogramma behandelt ook de netwerkbandbreedtevereisten en de Azure-infrastructuur die nodig is voor een succesvolle replicatie en testfailover. [Meer informatie](site-recovery-deployment-planner.md) over het uitvoeren van het hulpprogramma.
+In deze zelfstudiereeks laten we zien hoe u één VM repliceert met behulp van Azure Site Recovery. 
 
 Dit is de tweede zelfstudie in de reeks. Zorg ervoor dat u [de Azure-onderdelen hebt ingesteld](tutorial-prepare-azure.md) zoals beschreven in de vorige zelfstudie.
+
+Als u meerdere VM's repliceert, download dan het hulpprogramma [Deployment Planner](https://aka.ms/asr-deployment-planner) voor VMware-replicatie. [Meer informatie](site-recovery-deployment-planner.md).
+
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>Een account voorbereiden voor automatische detectie
 

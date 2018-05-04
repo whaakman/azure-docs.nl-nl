@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 04/27/2018
 ms.author: snmuvva, vinagara
 ms.custom: ''
-ms.openlocfilehash: 6ccb095f3739a90bdab2408965a742f9cbc19359
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 6d440a49cb30210d3c0eed7d24e4811cc56925b9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="newer-metric-alerts-for-azure-services-in-the-azure-portal"></a>Nieuwere metrische waarschuwingen voor Azure-services in de Azure portal
 Monitor voor Azure ondersteunt nu een nieuwe metrische Waarschuwingstype. De nieuwere waarschuwingen verschillen van [klassieke metrische waarschuwingen](insights-alerts-portal.md) in een aantal manieren:
@@ -35,7 +35,7 @@ Zie voor informatie over het maken van een nieuwere metrische waarschuwing in Az
 
 
 ## <a name="portal-powershell-cli-rest-support"></a>Portal, PowerShell, CLI, REST-ondersteuning
-Op dit moment kunt u waarschuwingen voor nieuwere metrische alleen in de Azure portal of REST-API. Ondersteuning voor het configureren van de nieuwere waarschuwingen met behulp van PowerShell en de Azure-opdrachtregelinterface (Azure CLI 2.0) is binnenkort beschikbaar.
+Op dit moment kunt u waarschuwingen voor nieuwere metrische alleen in de Azure-portal [REST-API](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template) of [Resource Manager-sjablonen](monitoring-create-metric-alerts-with-templates.md). Ondersteuning voor het configureren van de nieuwere waarschuwingen met behulp van PowerShell en de Azure-opdrachtregelinterface (Azure CLI 2.0) is binnenkort beschikbaar.
 
 ## <a name="metrics-and-dimensions-supported"></a>Metrische gegevens en dimensies die worden ondersteund
 Ondersteuning voor nieuwere metrische waarschuwingen waarschuwingen voor de metrische gegevens die gebruikmaken van dimensies. U kunt dimensies gebruiken voor het filteren van uw metric naar het juiste niveau. Alle ondersteunde metrische gegevens samen met de toepasselijke dimensies kunnen worden verkend en gevisualiseerd van [Azure Monitor - Metrics Explorer (Preview)](monitoring-metric-charts.md).
@@ -50,13 +50,19 @@ Hier volgt een volledige lijst met Azure monitor metrische bronnen die worden on
 |Microsoft.Cache/Redis     |    N/A     |[Redis Cache](monitoring-supported-metrics.md#microsoftcacheredis)|
 |Microsoft.Compute/virtualMachines     |    N/A     | [Virtuele machines](monitoring-supported-metrics.md#microsoftcomputevirtualmachines)|
 |Microsoft.Compute/virtualMachineScaleSets     |   N/A      |[Virtuele-machineschaalsets](monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)|
+|Microsoft.ContainerInstance/containerGroups | Ja| [Containergroepen](monitoring-supported-metrics.md#microsoftcontainerinstancecontainergroups)|
+|Microsoft.DataFactory/datafactories| Ja| [Data Factory's V1](monitoring-supported-metrics.md#microsoftdatafactorydatafactories)|
 |Microsoft.DataFactory/factories     |   Ja     |[Data Factory's V2](monitoring-supported-metrics.md#microsoftdatafactoryfactories)|
 |Microsoft.DBforMySQL/servers     |   N/A      |[DB voor MySQL](monitoring-supported-metrics.md#microsoftdbformysqlservers)|
 |Microsoft.DBforPostgreSQL/servers     |    N/A     | [DB voor PostgreSQL](monitoring-supported-metrics.md#microsoftdbforpostgresqlservers)|
 |Microsoft.EventHub/namespaces     |  Ja      |[Event Hubs](monitoring-supported-metrics.md#microsofteventhubnamespaces)|
+|Microsoft.KeyVault/vaults| Nee | [Kluizen](monitoring-supported-metrics.md#microsoftkeyvaultvaults)|
 |Microsoft.Logic/workflows     |     N/A    |[Logic Apps](monitoring-supported-metrics.md#microsoftlogicworkflows) |
 |Microsoft.Network/applicationGateways     |    N/A     | [Toepassingsgateways](monitoring-supported-metrics.md#microsoftnetworkapplicationgateways) |
+|Microsoft.Network/dnsZones | N/A| [DNS-Zones](monitoring-supported-metrics.md#microsoftnetworkdnszones) |
+|Microsoft.Network/loadBalancers (alleen voor standaard SKU's)| Ja| [Taakverdelers](monitoring-supported-metrics.md#microsoftnetworkloadbalancers) |
 |Microsoft.Network/publicipaddresses     |  N/A       |[Openbare IP-adressen](monitoring-supported-metrics.md#microsoftnetworkpublicipaddresses)|
+|Microsoft.PowerBIDedicated/capacities | N/A | [Capaciteit](monitoring-supported-metrics.md#microsoftpowerbidedicatedcapacities)|
 |Microsoft.Search/searchServices     |   N/A      |[Search-services](monitoring-supported-metrics.md#microsoftsearchsearchservices)|
 |Microsoft.ServiceBus/namespaces     |  Ja       |[Service Bus](monitoring-supported-metrics.md#microsoftservicebusnamespaces)|
 |Microsoft.Storage/storageAccounts     |    Ja     | [Opslagaccounts](monitoring-supported-metrics.md#microsoftstoragestorageaccounts)|
@@ -86,10 +92,10 @@ Metrische naam meer informatie  |Dimensies ondersteund  | Type logboek  |
 | Average_Disk Reads/sec    |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Windows-prestatiemeteritem      |
 | Average_Disk Schijfoverdrachten per seconde    |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Windows-prestatiemeteritem      |
 |   Average_ % vrije ruimte    |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Windows-prestatiemeteritem      |
-| Average_Available MBytes     |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Windows-prestatiemeteritem      |
+| Average_Available megabytes (MB)     |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Windows-prestatiemeteritem      |
 | Average_ percentage toegewezen Bytes In gebruik    |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Windows-prestatiemeteritem      |
 | Average_Bytes ontvangen per seconde    |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Windows-prestatiemeteritem      |
-|  Average_Bytes Sent/sec    |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Windows-prestatiemeteritem      |
+|  Average_Bytes verzonden per seconde    |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Windows-prestatiemeteritem      |
 |  Totaal aantal Average_Bytes per seconde    |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Windows-prestatiemeteritem      |
 |  Average_ percentage processortijd    |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Windows-prestatiemeteritem      |
 |   Wachtrijlengte van Average_Processor    |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Windows-prestatiemeteritem      |
@@ -97,13 +103,13 @@ Metrische naam meer informatie  |Dimensies ondersteund  | Type logboek  |
 |    Average_ % vrije ruimte   |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Linux-prestatiemeteritem      |
 |    Average_ percentage gebruikte Inodes  |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Linux-prestatiemeteritem      |
 |    Average_ percentage gebruikte ruimte   |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Linux-prestatiemeteritem      |
-|    Average_Disk Read Bytes/sec    |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Linux-prestatiemeteritem      |
+|    Average_Disk gelezen Bytes per seconde    |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Linux-prestatiemeteritem      |
 |    Average_Disk Reads/sec |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Linux-prestatiemeteritem      |
 |    Average_Disk Schijfoverdrachten per seconde |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Linux-prestatiemeteritem      |
 |    Average_Disk geschreven Bytes per seconde   |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Linux-prestatiemeteritem      |
-|    Average_Disk Writes/sec    |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Linux-prestatiemeteritem      |
+|    Average_Disk schrijfbewerkingen per seconde    |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Linux-prestatiemeteritem      |
 |    Average_Free Megabytes |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Linux-prestatiemeteritem      |
-|    Average_Logical Disk Bytes/sec |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Linux-prestatiemeteritem      |
+|    Average_Logical gelezen Bytes per seconde |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Linux-prestatiemeteritem      |
 |    Average_ percentage beschikbaar geheugen |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Linux-prestatiemeteritem      |
 |    Percentage beschikbare wisselruimte Average_ |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Linux-prestatiemeteritem      |
 |    Average_ percentage gebruikt geheugen  |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Linux-prestatiemeteritem      |
@@ -112,7 +118,7 @@ Metrische naam meer informatie  |Dimensies ondersteund  | Type logboek  |
 |    Average_Available megabytes voor wisselen  |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Linux-prestatiemeteritem      |
 |    Average_Page leesbewerkingen per seconde |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Linux-prestatiemeteritem      |
 |    Average_Page schrijfbewerkingen per seconde    |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Linux-prestatiemeteritem      |
-|    Average_Pages/sec  |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Linux-prestatiemeteritem      |
+|    Average_Pages per seconde  |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Linux-prestatiemeteritem      |
 |    Average_Used megabytes voor wisselen ruimte |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Linux-prestatiemeteritem      |
 |    Average_Used geheugen in megabytes |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Linux-prestatiemeteritem      |
 |    Average_Total Bytes verzonden    |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Linux-prestatiemeteritem      |
@@ -134,7 +140,7 @@ Metrische naam meer informatie  |Dimensies ondersteund  | Type logboek  |
 |    Average_ percentage DPC-tijd |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Linux-prestatiemeteritem      |
 |    Average_ percentage niet-actieve tijd    |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Linux-prestatiemeteritem      |
 |    Average_ percentage Interrupt-tijd   |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Linux-prestatiemeteritem      |
-|    Average_% IO Wait Time |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Linux-prestatiemeteritem      |
+|    Average_ % i/o-wachttijd |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Linux-prestatiemeteritem      |
 |    Average_ percentage tijd in Nice    |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Linux-prestatiemeteritem      |
 |    Tijd in beschermde modus Average_ %  |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Linux-prestatiemeteritem      |
 |    Average_ percentage processortijd   |     Ja - Computer, ObjectName, InstanceName, itempad & SourceSystem    |   Linux-prestatiemeteritem      |

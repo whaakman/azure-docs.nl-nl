@@ -10,15 +10,15 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
-ms.openlocfilehash: ed2048755317649d160bcfd71519af715067b99b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1436ad54eb13052aa87ccfd5adc371c8d7d5a100
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Snelstartgids: een werkstroom uitvoeren via de service Microsoft Genomics
 
-Microsoft Genomics is een schaalbare, veilige service voor secundaire analyse waarbij genomen snel kunnen worden verwerkt, waarbij wordt begonnen met raw leesbewerkingen en uitgelijnde leesbewerkingen en variant-aanroepen worden geproduceerd. Ga in een paar stappen aan de slag: 
+Microsoft Genomics is een schaalbare, veilige service voor secundaire analyse waarbij genomen snel kunnen worden verwerkt. Hierbij wordt begonnen met onbewerkte leesbewerkingen en worden vervolgens uitgelijnde leesbewerkingen en variant-aanroepen geproduceerd. Ga in een paar stappen aan de slag: 
 1.  Instellen: maak een Genomics Microsoft-account via Azure Portal en installeer de Python-client voor Microsoft Genomics in uw lokale omgeving. 
 2.  Invoergegevens uploaden: maak een Microsoft Azure-opslagaccount via Azure Portal en upload vervolgens de invoerbestanden. De invoerbestanden moeten leesbewerkingen voor eindsequenties zijn (fastq- of bam-bestanden).
 3.  Uitvoeren: gebruik de opdrachtregelinterface van Microsoft Genomics voor het uitvoeren van werkstromen via de service Microsoft Genomics. 
@@ -39,7 +39,7 @@ Configureer uw Genomics-account met de volgende informatie, zoals weergegeven in
  |:-------------       |:-------------         |:----------            |
  |Accountnaam         | MyGenomicsAccount     |Kies een unieke account-id. Zie [Naamgevingsregels](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) voor geldige namen. |
  |Abonnement         | De naam van uw abonnement|Dit is de factureringseenheid voor uw Azure-services; zie [Abonnementen](https://account.azure.com/Subscriptions) voor meer informatie over uw abonnement. |      
- |Resourcegroep       | MyResourceGroup       |  Met resourcegroepen kunt u meerdere Azure-resources (opslagaccount, Genomics-account enzovoort) in één groep indelen voor eenvoudig beheer. Zie [Resourcegroepen] (https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) voor meer informatie. Zie [Naamgevingsregels](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) voor geldige resourcegroepnamen. |
+ |Resourcegroep       | MyResourceGroup       |  Met resourcegroepen kunt u meerdere Azure-resources (opslagaccount, Genomics-account enzovoort) in één groep indelen voor eenvoudig beheer. Zie R[esourcegroepen] (https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)) voor meer informatie. Zie [Naamgevingsregels](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) voor geldige resourcegroepnamen. |
  |Locatie                   | VS - west 2                    |    De service is beschikbaar in VS West 2, West-Europa en Zuidoost-Azië |
 
 
@@ -114,13 +114,13 @@ Configureer uw Storage-account met de volgende informatie, zoals weergegeven in 
 
  |**Instelling**          |  **Voorgestelde waarde**  | **Beschrijving van veld** |
  |:-------------------------       |:-------------         |:----------            |
- |Name         | MyStorageAccount     |Kies een unieke account-id. Zie [Naamgevingsregels](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) voor geldige namen. |
+ |Naam         | MyStorageAccount     |Kies een unieke account-id. Zie [Naamgevingsregels](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) voor geldige namen. |
  |Implementatiemodel         | Resource Manager| Resource Manager is het aanbevolen implementatiemodel. Zie [Understanding Resource Manager deployment](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) (Resource Manager-implementatie begrijpen) voor meer informatie. |      
  |Soort account       | Blob Storage       |  Blob-opslag kan twee tot vijf keer sneller zijn dan algemeen gebruik voor downloads en uploads. |
- |Prestaties                  | Standard                   | Standard is de standaardinstelling. Zie [Kennismaking met Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction) voor meer informatie over standaard en premium opslagaccounts.    |
+ |Prestaties                  | Standard                   | Standard is de standaardinstelling. Zie [Kennismaking met Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction) voor meer informatie over standaard- en premium-opslagaccounts.    |
  |Replicatie                  | Lokaal redundante opslag                  | Lokaal redundante opslag repliceert uw gegevens in het datacenter in de regio waarin u uw opslagaccount hebt gemaakt. Zie [Azure Storage-replicatie](https://docs.microsoft.com/azure/storage/common/storage-redundancy) voor meer informatie.    |
  |Veilige overdracht vereist                  | Uitgeschakeld                 | Uitgeschakeld is de standaardinstelling. Zie [Veilige overdracht vereisen](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) voor meer informatie over de beveiliging van gegevensoverdracht.    |
- |Toegangslaag                  | Warm                   | De toegangslaag Hot geeft aan dat de objecten in het opslagaccount vaker worden gebruikt.    |
+ |Toegangslaag                  | Warm                   | De toegangslaag Hot geeft aan dat de objecten in het opslagaccount regelmatig worden gebruikt.    |
  |Abonnement         | Uw Azure-abonnement |Zie [Abonnementen](https://account.azure.com/Subscriptions) voor meer informatie over uw abonnement. |      
  |Resourcegroep       | MyResourceGroup       |  U kunt dezelfde resourcegroep als voor uw Genomics-account gebruiken. Zie [Naamgevingsregels](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) voor geldige resourcegroepnamen. |
  |Locatie                  | VS - west 2                  | Gebruik dezelfde locatie als de locatie van uw Genomics-account om uitvoerkosten te verminderen en latentie te beperken. De Genomics-service is beschikbaar in VS West2, VS West 2, West-Europa en Zuidoost-Azië    |
@@ -174,4 +174,4 @@ Nadat de werkstroom is voltooid, kunt u de uitvoerbestanden weergeven in uw Azur
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel hebt u voorbeeldinvoergegevens geüpload naar Azure Storage, en een werkstroom verzonden naar de Microsoft Genomics-service via de Python-client voor `msgen`. Ga voor meer informatie over andere invoerbestandstypen die kunnen worden gebruikt met de Microsoft Genomics-service naar de volgende pagina's: [paired FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [Multiple FASTQ or BAM](quickstart-input-multiple.md) (gekoppelde FASTQ/BAM/Meerdere FASTQ of BAM). 
+In dit artikel hebt u voorbeeldinvoergegevens geüpload naar Azure Storage, en een werkstroom verzonden naar de Microsoft Genomics-service via de Python-client voor `msgen`. Ga voor meer informatie over andere invoerbestandstypen die kunnen worden gebruikt met de Microsoft Genomics-service naar de volgende pagina's: [paired FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [Multiple FASTQ or BAM](quickstart-input-multiple.md) (gekoppelde FASTQ/BAM/Meerdere FASTQ of BAM). U kunt ook deze zelfstudie lezen met behulp van de [Azure notebook tutorial](http://aka.ms/genomicsnotebook) (Zelfstudie in Azure-notitieblokken).

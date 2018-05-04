@@ -10,11 +10,11 @@ ms.custom: DBs & servers
 ms.date: 04/10/2018
 ms.author: ninarn
 ms.topic: article
-ms.openlocfilehash: 33f4430baacbe50f3d4c7da857ee4345d4f74928
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: ecf9450271e82132b0f31fd0c65ce95d95c2cb3d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Elastische pools helpen u te beheren en schalen van meerdere Azure SQL-databases
 
@@ -32,7 +32,7 @@ Elastische pools oplossen dit probleem door ervoor te zorgen dat databases ophal
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
 
-Elastische pools inschakelen kopen van resources voor een groep die wordt gedeeld door meerdere databases voor onvoorspelbare perioden van geheugengebruik door afzonderlijke databases van de ontwikkelaar. U kunt resources configureren voor de groep op op basis van de [DTU gebaseerde aankoopmodel (preview)](sql-database-service-tiers.md#dtu-based-purchasing-model) of de [vCore gebaseerde aankoopmodel (preview)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview). De Resourcevereiste voor een pool wordt bepaald door het totale gebruik van de databases. De hoeveelheid resources beschikbaar voor de pool wordt bepaald door de ontwikkelaar budget. De ontwikkelaar gewoon databases toegevoegd aan de groep, stelt u de minimale en maximale resources voor de databases (minimum en maximum aantal dtu's of minimum of maximum vCores, afhankelijk van uw keuze op voor het model resourcing), en stelt u de resources van de groep op basis van hun budget. Met groepen kan een ontwikkelaar services naadloos met een alsmaar groeiende schaal uitbreiden van een kleine startende ondernemer tot een volwassen bedrijf.
+Elastische pools inschakelen kopen van resources voor een groep die wordt gedeeld door meerdere databases voor onvoorspelbare perioden van geheugengebruik door afzonderlijke databases van de ontwikkelaar. U kunt resources configureren voor de groep op op basis van de [aankoopmodel op basis van het DTU](sql-database-service-tiers-dtu.md) of de [vCore gebaseerde aankoopmodel (preview)](sql-database-service-tiers-vcore.md). De Resourcevereiste voor een pool wordt bepaald door het totale gebruik van de databases. De hoeveelheid resources beschikbaar voor de pool wordt bepaald door de ontwikkelaar budget. De ontwikkelaar gewoon databases toegevoegd aan de groep, stelt u de minimale en maximale resources voor de databases (minimum en maximum aantal dtu's of minimum of maximum vCores, afhankelijk van uw keuze op voor het model resourcing), en stelt u de resources van de groep op basis van hun budget. Met groepen kan een ontwikkelaar services naadloos met een alsmaar groeiende schaal uitbreiden van een kleine startende ondernemer tot een volwassen bedrijf.
 
 Binnen de pool hebben afzonderlijke databases de flexibiliteit om de schaal automatisch aan te passen binnen ingestelde parameters. Een database kan meer bronnen om te voldoen aan de vraag gebruiken onder een zware belasting. Databases onder lichte lading verbruiken kleiner en databases onder geen load geen resources gebruiken. De inrichting van resources voor de hele pool in plaats van afzonderlijke databases vereenvoudigt uw beheertaken. Bovendien hebt u een voorspelbare budget voor de groep. Aanvullende resources kunnen worden toegevoegd aan een bestaande toepassingen zonder uitvaltijd database, behalve dat de databases moet mogelijk worden verplaatst naar de aanvullende rekenresources voor de nieuwe eDTU-reservering bieden. Op dezelfde manier als extra resources niet meer nodig zijn kunnen ze worden verwijderd uit een bestaande pool op elk gewenst moment in de tijd. Daarnaast kunt u databases aan de groep toevoegen of uit de groep verwijderen. Als een database naar verwachting minder resources nodig heeft, kunt u deze verwijderen.
 
@@ -101,7 +101,7 @@ De aanbevolen grootte voor een groep is afhankelijk van de totale benodigde reso
 * Maximum aantal bronnen worden gebruikt door alle databases in de groep (maximum aantal dtu's of maximale vCores, afhankelijk van uw keuze op voor het model resourcing).
 * De maximum opslag in bytes die door alle databases in de groep wordt gebruikt.
 
-Zie voor beschikbare Servicelagen voor elk resourcemodel, de [aankoopmodel op basis van het DTU](sql-database-service-tiers.md#dtu-based-purchasing-model) of de [vCore gebaseerde aankoopmodel (preview)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview).
+Zie voor beschikbare Servicelagen voor elk resourcemodel, de [aankoopmodel op basis van het DTU](sql-database-service-tiers-dtu.md) of de [vCore gebaseerde aankoopmodel (preview)](sql-database-service-tiers-vcore.md).
 
 SQL Database evalueert automatisch het historisch resourcegebruik van databases in een bestaande SQL Database-server en op basis daarvan wordt de juiste poolconfiguratie in de Azure-portal aanbevolen. Naast de aanbevelingen wordt met een geïntegreerde functie het eDTU-gebruik voor een aangepaste groep databases op de server geschat. Hiermee kunt u een 'wat als'-analyse uitvoeren door interactief databases aan de groep toe te voegen of uit de groep te verwijderen, om zo een analyse van het resourcegebruik en formaatadvies te krijgen voordat u uw wijzigingen doorvoert. Zie [Monitor, manage, and size an elastic pool](sql-database-elastic-pool-manage-portal.md) (Een elastische groep bewaken, beheren en van formaat wijzigen) voor instructies.
 
@@ -112,11 +112,11 @@ Als u het hulpprogramma niet kunt gebruiken, kunnen de volgende stappen u helpen
    Voor op basis van DTU aankoopmodel: MAX (<*totaal aantal databases* X *gemiddelde DTU-gebruik per DB*>,<br>
    <*aantal gelijktijdig piekende databases* X *piek-DTU-gebruik per DB*)
 
-   Voor op basis van vCore aankoopmodel: MAX (<*totaal aantal databases* X *vCore gebruik per DB gemiddelde*>,<br>
+   Voor op basis van vCore aankoopmodel (preview): MAX (<*totaal aantal databases* X *vCore gebruik per DB gemiddelde*>,<br>
    <*Aantal gelijktijdig piek databases* X *piek vCore gebruik per DB*)
 
 2. Schat hoeveel opslagruimte de groep nodig heeft door het aantal bytes op te tellen dat nodig is voor alle databases in de groep. Bepaal daarna hoe groot de eDTU-groep moet zijn om aan deze hoeveelheid opslag te voldoen.
-3. Voor de DTU gebaseerde aankoopmodel, worden de grootste van de geschatte eDTU uit stap 1 en stap 2. De vCore gebaseerde aankoopmodel, neemt de schatting van het vCore uit stap 1.
+3. Voor de DTU gebaseerde aankoopmodel, worden de grootste van de geschatte eDTU uit stap 1 en stap 2. Voor de vCore gebaseerde aankoopmodel (preview), nemen de schatting van het vCore uit stap 1.
 4. Zie de [pagina met prijzen SQL-Database](https://azure.microsoft.com/pricing/details/sql-database/) en zoeken naar de kleinste groep grootte die groter is dan de schatting van stap 3.
 5. Vergelijk de prijs van de groep uit stap 5 met de prijs voor het gebruik van de juiste prestatieniveaus voor individuele databases.
 

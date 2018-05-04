@@ -3,16 +3,17 @@ title: REST API's verkennen in Fiddler of Postman (Azure Search REST) | Microsof
 description: Fiddler of Postman gebruiken om HTTP-aanvragen en REST API-aanroepen naar Azure Search te doen.
 author: HeidiSteen
 manager: cgronlun
+services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 01/04/2018
 ms.author: heidist
-ms.openlocfilehash: 8a2e423d635c12f5d08395c03e4bc57ac71156ef
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 6108e0061c4a8de3000de7f7a07cca313803e80d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="explore-azure-search-rest-apis-using-fiddler-or-postman"></a>REST API's voor Azure Search verkennen met Fiddler of Postman
 
@@ -32,7 +33,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 De volgende hulpprogramma's worden veel gebruikt voor webontwikkeling, maar ook als u bekend bent met een ander programma, zouden de instructies in dit artikel nog steeds van toepassing moeten zijn.
 
-+ [Postman (Google Chrome-invoegtoepassing)](https://www.getpostman.com/)
++ [Postman bureaublad-app](https://www.getpostman.com/)
 + [Telerik Fiddler](http://www.telerik.com/fiddler)
 
 ## <a name="get-the-api-key-and-endpoint"></a>De API-sleutel en het eindpunt ophalen

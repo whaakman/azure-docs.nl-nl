@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 04/23/2018
 ms.author: sashan
-ms.openlocfilehash: 6e82b851f7dc7e2b8c7fe996bff843c8f10f2978
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: d2472867c71aedf35e537a29d3912b9e423de2e2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Gebruik alleen-lezen partities laden werklast alleen-lezen-query (preview)
 
@@ -21,18 +21,20 @@ ms.lasthandoff: 04/19/2018
 
 ## <a name="overview-of-read-scale-out"></a>Overzicht van uitbreidbare lezen
 
-Elke database in de laag Premium ([aankoopmodel DTU gebaseerde](sql-database-service-tiers.md#dtu-based-purchasing-model)) of in de essentiële zakelijke laag ([aankoopmodel vCore gebaseerde](sql-database-service-tiers.md#vcore-based-purchasing-model-preview)) automatisch wordt geleverd met verschillende Always ON replica's ondersteuning voor de beschikbaarheids-SLA. Deze replica's zijn voorzien van hetzelfde prestatieniveau als de replica van de lezen-schrijven die worden gebruikt door de normale databaseverbindingen. De **lezen Scale-Out** functie kunt u saldo SQL-Database alleen-lezen werkbelastingen met behulp van de capaciteit van de replica's alleen-lezen in plaats van delen van de replica lezen-schrijven worden geladen. Op deze manier de alleen-lezen werkbelasting geïsoleerd van de belangrijkste lezen-schrijven werkbelasting en niet van invloed op de prestaties. De functie is bedoeld voor de toepassingen die logisch zijn alleen-lezen werkbelastingen, zoals analytics, van elkaar gescheiden en daarom kunnen krijgen tot prestatievoordelen met behulp van deze extra capaciteit zonder extra kosten.
+Elke database in de laag Premium ([aankoopmodel DTU gebaseerde](sql-database-service-tiers-dtu.md)) of in de essentiële zakelijke laag ([vCore gebaseerde aankoopmodel (preview)](sql-database-service-tiers-vcore.md)) automatisch wordt geleverd met verschillende Always ON replica's ter ondersteuning van de beschikbaarheids-SLA. Deze replica's zijn voorzien van hetzelfde prestatieniveau als de replica van de lezen-schrijven die worden gebruikt door de normale databaseverbindingen. De **lezen Scale-Out** functie kunt u saldo SQL-Database alleen-lezen werkbelastingen met behulp van de capaciteit van de replica's alleen-lezen in plaats van delen van de replica lezen-schrijven worden geladen. Op deze manier de alleen-lezen werkbelasting geïsoleerd van de belangrijkste lezen-schrijven werkbelasting en niet van invloed op de prestaties. De functie is bedoeld voor de toepassingen die logisch zijn alleen-lezen werkbelastingen, zoals analytics, van elkaar gescheiden en daarom kunnen krijgen tot prestatievoordelen met behulp van deze extra capaciteit zonder extra kosten.
 
 Als u wilt de lezen Scale-Out-functie met een bepaalde database gebruiken, moet u expliciet deze inschakelen bij het maken van de database of later door het wijzigen van de configuratie met behulp van PowerShell door aan te roepen de [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) of de [ Nieuwe AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlets of via de REST-API van Azure Resource Manager met behulp van de [Databases - maken of bijwerken](/rest/api/sql/databases/createorupdate) methode. 
 
 Nadat lezen Scale-Out is ingeschakeld voor een database, verbinding maken met database toepassingen wordt omgeleid naar de alleen-lezen-replica of naar een alleen-lezen replica van die database volgens de `ApplicationIntent` eigenschap geconfigureerd in de toepassing verbindingstekenreeks. Voor informatie over de `ApplicationIntent` eigenschap, Zie [Toepassingsintentie geven](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
+
+Als lezen Scale-Out is uitgeschakeld of u de eigenschap ReadScale in een niet-ondersteunde servicelaag instellen, alle verbindingen worden omgeleid naar de alleen-lezen-replica, onafhankelijk van de `ApplicationIntent` eigenschap.
 
 > [!NOTE]
 > Tijdens de preview, worden Query Data Store en Extended Events niet ondersteund op de replica's alleen-lezen.
 
 ## <a name="data-consistency"></a>Gegevensconsistentie
 
-Een van de voordelen van Always ON is dat de replica's zich altijd in de transactioneel consistent wilt maken, maar op verschillende tijdstippen in de tijd kan er een aantal kleine latentie tussen verschillende replica's. Niveau van de sessie consistentie biedt ondersteuning voor lezen Scale-Out. Het betekent als de alleen-lezen-sessie opnieuw verbinding maakt nadat een de verbindingsfout is veroorzaakt door replica ontbreken, deze kan worden omgeleid naar een replica die geen 100% up-to-date met de replica alleen-lezen. Op dezelfde manier als een toepassing schrijft gegevens via een alleen-lezen-sessie en leest onmiddellijk met behulp van een alleen-lezen-sessie, is het mogelijk de nieuwste updates zijn niet onmiddellijk zichtbaar. Dit is omdat de transactie log opnieuw op de replica's asynchroon is.
+Een van de voordelen van Always ON is dat de replica's zich altijd in de transactioneel consistent wilt maken, maar op verschillende tijdstippen in de tijd kan er een aantal kleine latentie tussen verschillende replica's. Niveau van de sessie consistentie biedt ondersteuning voor lezen Scale-Out. Het betekent als de alleen-lezen-sessie opnieuw verbinding maakt nadat een de verbindingsfout is veroorzaakt door replica ontbreken, deze kan worden omgeleid naar een replica die geen 100% up-to-date blijven met de replica alleen-lezen. Op dezelfde manier als een toepassing schrijft gegevens via een alleen-lezen-sessie en leest onmiddellijk met behulp van een alleen-lezen-sessie, is het mogelijk de nieuwste updates zijn niet onmiddellijk zichtbaar. Dit is omdat de transactie log opnieuw op de replica's asynchroon is.
 
 > [!NOTE]
 > Replicatielatentie binnen de regio laag zijn en deze situatie zeldzame is.
@@ -54,6 +56,12 @@ Een van de volgende verbindingsreeksen de client is verbonden met een alleen-lez
 Server=tcp:<server>.database.windows.net;Database=<mydatabase>;ApplicationIntent=ReadWrite;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 
 Server=tcp:<server>.database.windows.net;Database=<mydatabase>;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
+```
+
+U kunt controleren of u met de replica van een alleen-lezen verbonden bent door de volgende query uit te voeren. Alleen-lezen wanneer verbonden met een alleen-lezen replica wordt geretourneerd.
+
+```SQL
+SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 ```
 
 ## <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>Inschakelen en uitschakelen lezen Scale-Out Azure PowerShell gebruiken
@@ -96,7 +104,7 @@ Body:
 } 
 ```
 
-Zie voor meer informatie, [Databases - maken of bijwerken](/rest/api/sql/databases/createorupdate).
+Zie voor meer informatie [Databases - maken of bijwerken](/rest/api/sql/databases/createorupdate).
 
 ## <a name="next-steps"></a>Volgende stappen
 

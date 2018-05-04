@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2018
 ms.author: devtiw
-ms.openlocfilehash: df13f23908aa787bfcc579340ed0aa6cb0d5ed29
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 813124ae7c0dd76a27dcbaea6f0d7aa19bc1e49c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Azure Disk Encryption for Windows and Linux IaaS VM 's
 Microsoft Azure is sterk doorgevoerd om ervoor te zorgen voor uw privacy van gegevens, onafhankelijkheid van gegevens en schakelt u de controle uw Azure gegevens via een bereik van gehoste technologieën geavanceerde voor het versleutelen, beheren en beheren van versleutelingssleutels besturingselement & audit toegang van gegevens. Dit biedt Azure-klanten de flexibiliteit om te kiezen welke oplossing het beste voldoet aan de behoeften van hun bedrijf. In dit artikel vindt we u een nieuwe technologieoplossing 'Azure Disk Encryption for Windows and Linux IaaS VM van' om te helpen beveiligen en bescherming van uw gegevens om te voldoen aan de beveiliging van de organisatie en de naleving verplichtingen. Het artikel biedt gedetailleerde richtlijnen over het gebruik van de Azure disk encryption functies met inbegrip van de ondersteunde scenario's en de gebruiker optreedt.
@@ -141,7 +141,7 @@ Voordat u Azure Disk Encryption op Azure IaaS VM's inschakelen voor de ondersteu
 > [!NOTE]
 > Voor Windows Server 2008 R2, moet u .NET Framework 4.5 is geïnstalleerd voordat u Azure-versleuteling inschakelen hebben. U kunt deze installeren via Windows Update door de optionele update Microsoft .NET Framework 4.5.2 voor Windows Server 2008 R2 x64 64-systemen te installeren ([KB2901983](https://support.microsoft.com/kb/2901983)).
 
-* Azure Disk Encryption wordt alleen ondersteund op specifieke Azure-galerie op basis van Linux-server distributies en versies.  Raadpleeg voor de lijst met ondersteunde versies en de [Veelgestelde vragen over Azure schijf versleuteling](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq).
+* Azure Disk Encryption wordt alleen ondersteund op specifieke Azure-galerie op basis van Linux-server distributies en versies.  Raadpleeg voor de lijst met ondersteunde versies en de [Veelgestelde vragen over Azure schijf versleuteling](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq).
 
 * Azure Disk Encryption is vereist dat uw sleutelkluis en de virtuele machines zich in de dezelfde Azure-regio en het abonnement bevinden.
 
@@ -783,7 +783,7 @@ Gebruik de [ `manage-bde` ](https://technet.microsoft.com/library/ff829849.aspx)
 
 ##### <a name="prerequisites-for-os-disk-encryption"></a>Vereisten voor de OS-schijfversleuteling
 
-* De virtuele machine moet gebruikmaken van een distributiepunt dat compatibel is met schijfversleuteling OS zoals vermeld in de [Veelgestelde vragen over Azure schijf versleuteling](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq#what-linux-distributions-does-azure-disk-encryption-support) 
+* De virtuele machine moet gebruikmaken van een distributiepunt dat compatibel is met schijfversleuteling OS zoals vermeld in de [Veelgestelde vragen over Azure schijf versleuteling](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq#what-linux-distributions-does-azure-disk-encryption-support) 
 * De virtuele machine moet worden gemaakt vanuit de Marketplace-installatiekopie in Azure Resource Manager.
 * Azure virtuele machine met ten minste 4 GB aan RAM-geheugen (aanbevolen grootte is 7 GB).
 * (Voor RHEL en CentOS) SELinux uitschakelen. Zie '4.4.2 SELinux uitschakelen. Uitschakelen van SELinux' in de [SELinux van de gebruiker en de Administrator's Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) op de virtuele machine.

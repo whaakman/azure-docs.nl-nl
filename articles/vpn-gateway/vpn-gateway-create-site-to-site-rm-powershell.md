@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: 6ee23beaa450129be7c173da9efc687cc3790a15
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ee4e200fa57a38249b0be2997de7e3268a9302cb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>Een VNet met een site-naar-site-VPN-verbinding maken met PowerShell
 
@@ -52,7 +52,7 @@ Controleer voordat u met de configuratie begint of u aan de volgende criteria he
 Als u ervoor kiest om PowerShell lokaal te installeren en te gebruiken, moet u de nieuwste versie van de Azure Resource Manager PowerShell-cmdlets installeren. PowerShell-cmdlets worden regelmatig bijgewerkt. Doorgaans moet u PowerShell-cmdlets bijwerken om de meest recente functionaliteit op te halen. Als u de PowerShell-cmdlets niet bijwerkt, kunnen de opgegeven waarden mislukken. 
 
 Als u wilt weten welke versie u gebruikt, voert u Get-Module -ListAvailable AzureRM uit. Zie [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps) als u een upgrade wilt uitvoeren. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) voor meer informatie.
-Als u PowerShell lokaal uitvoert, moet u ook Login-AzureRmAccount uitvoeren om verbinding te kunnen maken met Azure.
+Als u PowerShell lokaal uitvoert, moet u ook 'Connect-AzureRmAccount' uitvoeren om een verbinding met Azure te maken.
 
 
 ### <a name="example"></a>Voorbeeldwaarden

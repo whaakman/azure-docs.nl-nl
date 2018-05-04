@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 990abc5c4e546d72d093bcd9e8f37932e93cbeb4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c3d6ed2c011cc6be1098ae5e693ee6d904efaa3b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="outbound-connections-in-azure"></a>Uitgaande verbindingen in Azure
 
@@ -151,7 +151,7 @@ De volgende tabel toont de snat omzetten poort preallocations voor lagen van bac
 | 101-200 | 256 |
 | 201-400 | 128 |
 | 401-800 | 64 |
-| 801-1,000 | 32 |
+| 801-1000 | 32 |
 
 >[!NOTE]
 > Bij gebruik van standaard Load Balancer is met [meerdere frontends](load-balancer-multivip-overview.md), [elk frontend-IP-adres vermenigvuldigt u het aantal beschikbare poorten met snat omzetten](#multivipsnat) in de vorige tabel. Bijvoorbeeld, een back-endpool van 50 van de virtuele machine met 2 regels voor taakverdeling, elk met een afzonderlijke frontend-IP-adressen, 2048 (2 x 1024) snat omzetten poorten per IP-configuratie gebruikt. Zie details voor [meerdere frontends](#multife).
@@ -243,10 +243,11 @@ Als een NSG health test aanvragen van het label van de standaard AZURE_LOADBALAN
 
 ## <a name="limitations"></a>Beperkingen
 - DisableOutboundSnat is niet beschikbaar als een optie bij het configureren van een regel in de portal voor taakverdeling.  Gebruik in plaats daarvan REST, sjabloon of client hulpprogramma's.
+- Web-werkrollen buiten een VNet, kunnen worden geopend als alleen een als interne standaard Load Balancer wordt gebruikt als gevolg van een neveneffect van het pre-VNet-services-functie. U moet niet vertrouwen op deze als de desbetreffende service zelf of het onderliggende platform kan zonder kennisgeving worden gewijzigd. U moet altijd wordt ervan uitgegaan dat u moet expliciet uitgaande verbinding maken indien gewenst bij gebruik van een interne standaard Load Balancer alleen. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - Meer informatie over [Load Balancer](load-balancer-overview.md).
-- Meer informatie over [standaard Load Balancer](load-balancer-standard-overview.md).
+- Meer informatie over [Standard Load Balancer](load-balancer-standard-overview.md).
 - Meer informatie over [netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md).
 - Informatie over een aantal van de andere sleutel [netwerkmogelijkheden](../networking/networking-overview.md) in Azure.

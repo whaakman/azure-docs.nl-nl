@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 04/05/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5b11c3cdf3eb457ade111d0908a2dac867ac1278
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 6dc5ce87e1e7a8629e96426701d4ac691fa4c687
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-a-kubernetes-cluster-with-log-analytics"></a>Een Kubernetes-cluster bewaken met Log Analytics
 
@@ -27,8 +27,8 @@ In deze zelfstudie, deel zeven van zeven, komen de volgende taken aan bod:
 
 > [!div class="checklist"]
 > * Werkruimte-instellingen voor Log Analytics ophalen
-> * OMS-agenten instellen op de Kubernetes-knooppunten
-> * Toegang tot de bewakingsgegevens in de OMS-portal of in Azure Portal
+> * Log Analytics-agents instellen op de Kubernetes-knooppunten
+> * Toegang tot de bewakingsgegevens in de Log Analytics-portal of de Azure-portal
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -38,7 +38,7 @@ Als u deze stappen niet hebt uitgevoerd en deze zelfstudie wilt volgen, gaat u t
 
 ## <a name="get-workspace-settings"></a>Instellingen voor werkruimte ophalen
 
-Als u de [OMS-portal](https://mms.microsoft.com) opent, gaat u naar **Instellingen** > **Verbonden bronnen** > **Linux-servers**. Hier vindt u de *werkstroom-id* en een primaire of secundaire *werkruimtesleutel*. Noteer deze waarden. U hebt ze nodig om OMS-agenten voor het cluster in te stellen.
+Wanneer u toegang hebt tot de [Log Analytics-portal](https://mms.microsoft.com), gaat u naar **Instellingen** > **Verbonden bronnen** > **Linux-servers**. Hier vindt u de *werkstroom-id* en een primaire of secundaire *werkruimtesleutel*. Noteer deze waarden. U hebt ze nodig om Log Analytics-agents voor het cluster in te stellen.
 
 ## <a name="create-kubernetes-secret"></a>Kubernetes-geheim maken
 
@@ -48,7 +48,7 @@ Sla de instellingen van de Log Analytics-werkruimte op in een Kubernetes-geheim 
 kubectl create secret generic omsagent-secret --from-literal=WSID=WORKSPACE_ID --from-literal=KEY=WORKSPACE_KEY
 ```
 
-## <a name="set-up-oms-agents"></a>OMS-agenten instellen
+## <a name="set-up-log-analytics-agents"></a>Log Analytics agents instellen
 
 Het volgende Kubernetes-manifestbestand kan worden gebruikt om de containerbewakingsagents op een Kubernetes-cluster te configureren. Er wordt een Kubernetes-[DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) gemaakt, die één identieke pod op elk clusterknooppunt uitvoert.
 
@@ -142,11 +142,11 @@ Wanneer de agents worden uitgevoerd, duurt het een aantal minuten voordat de geg
 
 ## <a name="access-monitoring-data"></a>Toegang tot bewakingsgegevens
 
-Bekijk en analyseer met de [Container-oplossing](../../log-analytics/log-analytics-containers.md) de bewakingsgegevens van de container. U kunt dit doen in de OMS-portal of in Azure Portal.
+Bekijk en analyseer met de [Container-oplossing](../../log-analytics/log-analytics-containers.md) de bewakingsgegevens van de container. U kunt dit doen in de Log Analytics-portal of de Azure-portal.
 
-Als u de Container-oplossing wilt installeren via de [OMS-portal](https://mms.microsoft.com), gaat u naar **Oplossingengalerie**. Voeg vervolgens **Container-oplossing** toe. U kunt de Containers-oplossing ook toevoegen vanaf [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.containersoms?tab=Overview).
+Als u de Container-oplossing wilt installeren via de [Log Analytics-portal](https://mms.microsoft.com), gaat u naar **Oplossingengalerie**. Voeg vervolgens **Container-oplossing** toe. U kunt de Containers-oplossing ook toevoegen vanaf [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.containersoms?tab=Overview).
 
-Zoek in de OMS-portal naar de overzichtstegel **Containers** in het dashboard. Klik op de tegel voor details, waaronder: containergebeurtenissen, fouten, status, voorraad installatiekopieën en CPU- en geheugengebruik. Klik voor meer gedetailleerde informatie op een rij op een tegel of voer een [zoekopdracht in een logboek](../../log-analytics/log-analytics-log-searches.md) uit.
+Zoek in de Log Analytics-portal naar de overzichtstegel **Containers** in het dashboard. Klik op de tegel voor details, waaronder: containergebeurtenissen, fouten, status, voorraad installatiekopieën en CPU- en geheugengebruik. Klik voor meer gedetailleerde informatie op een rij op een tegel of voer een [zoekopdracht in een logboek](../../log-analytics/log-analytics-log-searches.md) uit.
 
 ![Dashboard Containers in OMS-portal](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
@@ -160,8 +160,8 @@ In deze zelfstudie hebt u uw Kubernetes-cluster gecontroleerd met Log Analytics.
 
 > [!div class="checklist"]
 > * Werkruimte-instellingen voor Log Analytics ophalen
-> * OMS-agenten instellen op de Kubernetes-knooppunten
-> * Toegang tot de bewakingsgegevens in de OMS-portal of in Azure Portal
+> * Log Analytics-agents instellen op de Kubernetes-knooppunten
+> * Toegang tot de bewakingsgegevens in de Log Analytics-portal of de Azure-portal
 
 
 Volg deze koppeling om voorbeeldscripts te zien voor Containerservice.

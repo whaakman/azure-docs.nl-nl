@@ -6,7 +6,7 @@ documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
-tags: azure-service-management
+tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 1f0166f44661483c1c8118ddf85263166a248118
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a3826db21d2e4ed447e1ef8d4016ff1dbbf75b1c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Virtuele Linux-machines maken en beheren met de Azure CLI
 
@@ -54,10 +54,15 @@ De resourcegroep wordt opgegeven tijdens het maken of wijzigen van een virtuele 
 
 Maak een virtuele machine met de opdracht [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create). 
 
-Wanneer u een virtuele machine maakt, zijn er diverse opties beschikbaar zoals besturingssysteeminstallatiekopie, schijfgrootte en beheerdersreferenties. In dit voorbeeld wordt een virtuele machine gemaakt met de naam *myVM* waarop Ubuntu-server wordt uitgevoerd. 
+Wanneer u een virtuele machine maakt, zijn er diverse opties beschikbaar zoals installatiekopie besturingssysteem, schijfgrootte en beheerdersreferenties. In het volgende voorbeeld wordt een VM met de naam *myVM* gemaakt waarop Ubuntu Server loopt. Een gebruikersaccount met de naam *azureuser* wordt gemaakt op de virtuele machine en SSH-sleutels worden gegenereerd als deze niet bestaan op de standaardlocatie van de sleutel (*~/.ssh*):
 
-```azurecli-interactive 
-az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys
+```azurecli-interactive
+az vm create \
+    --resource-group myResourceGroupVM \
+    --name myVM \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys
 ```
 
 Het maken van de virtuele machine kan een paar minuten duren. Wanneer de virtuele machine is gemaakt, biedt de Azure CLI informatie over de virtuele machine. Noteer het `publicIpAddress`; dit adres kan worden gebruikt voor toegang tot de virtuele machine... 

@@ -24,26 +24,30 @@
 ### [De quotalimieten aanpassen](data-lake-analytics-quota-limits.md)
 
 ## U-SQL-programma’s ontwikkelen
-### [Basisbeginselen van U-SQL](data-lake-analytics-u-sql-get-started.md)
-### [Naslaginformatie over de U-SQL-taal](https://msdn.microsoft.com/library/azure/mt591959)
-### [U-SQL-catalogus](data-lake-analytics-u-sql-catalog.md)
-### [Door de gebruiker gedefinieerde U-SQL-operators](data-lake-analytics-u-sql-develop-user-defined-operators.md)
-### [U-SQL-Python-extensies](data-lake-analytics-u-sql-python-extensions.md)
-### [U-SQL-R-extensies](data-lake-analytics-u-sql-r-extensions.md)
-### [U-SQL-cognitieve-extensies](data-lake-analytics-u-sql-cognitive.md)
-### [Websitelogboeken analyseren](data-lake-analytics-analyze-weblogs.md)
-### [Aangepaste U-SQL-code voor Visual Studio Code](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
-### [U-SQL voor Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
-### [U-SQL-database exporteren](data-lake-analytics-data-lake-tools-export-database.md)
 
-## Fouten in U-SQL-programma’s opsporen
-### [Taken controleren en problemen oplossen](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-### [Problemen met een abnormale terugkerende taak oplossen](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
-### [Problemen met C#-code opsporen in U-SQL](data-lake-analytics-debug-u-sql-jobs.md)
-### [Job Browser en Job View gebruiken](data-lake-analytics-data-lake-tools-view-jobs.md)
-### [Vertex Execution View gebruiken](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
-### [VSCode lokaal uitvoeren en lokaal fouten opsporen](data-lake-tools-for-vscode-local-run-and-debug.md)
-### [Handleiding voor programmeren met U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
+### U-SQL-taal
+#### [Basisbeginselen van U-SQL](data-lake-analytics-u-sql-get-started.md)
+#### [Naslaginformatie over de U-SQL-taal](https://msdn.microsoft.com/library/azure/mt591959)
+#### [U-SQL-catalogus](data-lake-analytics-u-sql-catalog.md)
+#### [Door de gebruiker gedefinieerde U-SQL-operators](data-lake-analytics-u-sql-develop-user-defined-operators.md)
+#### [U-SQL-Python-extensies](data-lake-analytics-u-sql-python-extensions.md)
+#### [U-SQL-R-extensies](data-lake-analytics-u-sql-r-extensions.md)
+#### [U-SQL-cognitieve-extensies](data-lake-analytics-u-sql-cognitive.md)
+#### [Handleiding voor programmeren met U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
+#### [Websitelogboeken analyseren](data-lake-analytics-analyze-weblogs.md)
+#### [Taken controleren en problemen oplossen](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+
+### Visual Studio
+#### [Job Browser en Job View gebruiken](data-lake-analytics-data-lake-tools-view-jobs.md)
+#### [Problemen met C#-code opsporen in U-SQL](data-lake-analytics-debug-u-sql-jobs.md)
+#### [Problemen met een abnormale terugkerende taak oplossen](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
+#### [Vertex Execution View gebruiken](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
+#### [U-SQL-database exporteren](data-lake-analytics-data-lake-tools-export-database.md)
+
+### Visual Studio Code
+#### [U-SQL voor Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
+#### [Aangepaste U-SQL-code voor Visual Studio Code](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
+#### [VSCode lokaal uitvoeren en lokaal fouten opsporen](data-lake-tools-for-vscode-local-run-and-debug.md)
 
 # Naslaginformatie
 ## [Codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=data-lake-analytics)

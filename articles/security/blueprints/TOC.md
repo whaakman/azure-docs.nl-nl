@@ -6,7 +6,7 @@
 ## [Operationele beveiliging inschakelen](../azure-operational-security.md)
 ## [Governance in Azure](../governance-in-azure.md)
 ## [Isolatie in de Azure-cloud](../azure-isolation.md)
-## [Veilige hybride netwerkarchitectuur](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2Fazure%2Fsecurity%2Ftoc.json)
+## [Veilige hybride netwerkarchitectuur](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2Fazure%2Fsecurity%2Ftoc.json)
 ## [Technische mogelijkheden voor beveiliging](../azure-security-technical-capabilities.md)
 
 # [Gegevensbeveiliging en -versleuteling](../security-azure-encryption-overview.md)

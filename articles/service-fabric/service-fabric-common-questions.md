@@ -14,17 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 38de0886de1d6068b2edad9aadc89d8048b48a55
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a112951409fc6177240b9eddc9fcd7f6c0c932cc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Veelgestelde vragen over Service Fabric
 
 Er zijn veel Veelgestelde vragen over wat Service Fabric kan doen en hoe moet worden gebruikt. Dit document bevat informatie over veel van deze Veelgestelde vragen en antwoorden.
 
 ## <a name="cluster-setup-and-management"></a>Installatie en beheer
+
+### <a name="how-do-i-rollback-my-service-fabric-cluster-certificate"></a>Hoe maak ik een rollback mijn certificaat Service Fabric-cluster?
+
+Terugdraaien van vereist een upgrade voor uw toepassing health foutdetectie voorafgaand aan uw Service Fabric-clusterquorum doorvoeren van de wijziging; doorgevoerde wijzigingen kunnen alleen worden doorgevoerd. Escalation engineer via Customer Support Services mogelijk vereist zijn voor het herstellen van uw cluster als een certificaat niet-bewaakte belangrijke wijziging is geïntroduceerd.  [Upgrade van de service-Fabric-toepassing](https://review.docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-upgrade?branch=master) geldt [parameters voor het bijwerken van toepassing](https://review.docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master), en levert nul upgrade belofte uitvaltijd.  Na de aanbevolen toepassing bewaakte upgrademodus, automatische voortgang in domeinen van de update is gebaseerd op statuscontroles doorgegeven, rolling back automatisch als een standaardservice bijwerken is mislukt.
+ 
+Als uw cluster is nog steeds gebruik van de klassieke certificaatvingerafdruk-eigenschap in het Resource Manager-sjabloon, het is raadzaam u [wijziging cluster van de vingerafdruk van certificaat de algemene naam](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn), gebruikmaken van moderne geheimen beheerfuncties.
 
 ### <a name="can-i-create-a-cluster-that-spans-multiple-azure-regions-or-my-own-datacenters"></a>Kan ik een cluster die meerdere Azure-regio's of mijn eigen datacenters omvat maken?
 
@@ -89,7 +95,7 @@ Terwijl we op een betere ervaring vandaag werkt, bent u verantwoordelijk voor de
 ### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>Kan ik coderen bijgesloten gegevensschijven in het type in een cluster-knooppunt (virtuele-machineschaalset)?
 Ja.  Zie voor meer informatie [maken van een cluster met gekoppelde gegevensschijven](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [versleutelen schijven (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md), en [versleutelen schijven (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md).
 
-### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster-"></a>Wat zijn de mappen en de processen die ik uitsluiten moet wanneer er een antivirusprogramma in mijn cluster wordt uitgevoerd?
+### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>Wat zijn de mappen en de processen die ik uitsluiten moet wanneer er een antivirusprogramma in mijn cluster wordt uitgevoerd?
 
 | **Antivirussoftware uitgesloten mappen** |
 | --- |

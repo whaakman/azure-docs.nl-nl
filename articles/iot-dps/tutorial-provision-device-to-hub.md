@@ -5,22 +5,22 @@ services: iot-dps
 keywords: ''
 author: dsk-2015
 ms.author: dkshir
-ms.date: 03/28/2018
+ms.date: 04/12/2018
 ms.topic: tutorial
 ms.service: iot-dps
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 4d98ce103bed7f9d14eb45422b70ceca1328afaa
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 9f151a8fbcdc20124467a1db290f6a05f574e4fe
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Het apparaat inrichten in een IoT-hub met behulp van IoT Hub Device Provisioning Service
 
-In de vorige zelfstudie hebt u geleerd hoe u een apparaat kunt instellen om verbinding te maken met Device Provisioning Service. In deze zelfstudie leert u hoe u deze service gebruikt om een apparaat in te richten in een enkele IoT-hub, met behulp van **_inschrijvingslijsten_**. In deze handleiding ontdekt u hoe u:
+In de vorige zelfstudie hebt u geleerd hoe u een apparaat kunt instellen om verbinding te maken met Device Provisioning Service. In deze zelfstudie leert u hoe u deze service gebruikt om uw apparaat in te richten voor één IoT-hub. U gebruikt daarvoor automatische inrichting **_inschrijvingslijsten_**. In deze handleiding ontdekt u hoe u:
 
 > [!div class="checklist"]
 > * Het apparaat inschrijven
@@ -42,18 +42,18 @@ In deze stap worden de unieke beveiligingsartefacten van het apparaat toegevoegd
     - De *Goedkeuringssleutel* die uniek is voor elke TPM-chip of -simulatie en kan worden verkregen bij de TPM-chipfabrikant.  Lees [TPM-goedkeuringssleutel begrijpen](https://technet.microsoft.com/library/cc770443.aspx) voor meer informatie.
     - De *Registratie-id* die wordt gebruikt om een apparaat op unieke wijze te identificeren in de naamruimte of het bereik. Deze id is al dan niet dezelfde id als van het apparaat. De id is verplicht voor elk apparaat. Voor TPM-apparaten kan de registratie-id worden afgeleid van de TPM zelf, bijvoorbeeld een SHA-256-hash van de TPM-goedkeuringssleutel.
 
-    ![Registratiegegevens voor TPM in de portal](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)
+    [![Inschrijvingsgegevens voor TPM in de portal](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png#lightbox)  
 
 - Voor X.509-apparaten hebt u het volgende nodig:
     - Het [certificaat dat is verleend aan de X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx)-chip of -simulatie, in de vorm van een *.pem*- of *.cer*-bestand. Voor een afzonderlijke inschrijving moet u het *ondertekenaarcertificaat* per apparaat voor het X.509-systeem gebruiken, maar voor het registreren van groepen, moet u het *hoofdcertificaat* gebruiken. 
 
-    ![Inschrijvingsgegevens voor X.509 in de portal](./media/tutorial-provision-device-to-hub/x509-device-enrollment.png)
+    [![Afzonderlijke inschrijving voor X.509-attestation toevoegen in de portal](./media/tutorial-provision-device-to-hub/individual-enrollment.png)](./media/tutorial-provision-device-to-hub/individual-enrollment.png#lightbox)
 
 Er zijn twee manieren om het apparaat te registreren bij Device Provisioning Service:
 
 - **Inschrijvingsgroepen**: dit is een groep apparaten die een specifiek attestation-mechanisme delen. We raden u aan om een inschrijvingsgroep te gebruiken bij een groot aantal apparaten die een gewenste initiële configuratie delen, of voor apparaten die allemaal zijn verbonden met dezelfde tenant.
 
-    ![Inschrijvingsgroepen voor X.509 in de portal](./media/tutorial-provision-device-to-hub/x509-enrollment-groups.png)
+    [![Groepsinschrijving voor attestation X.509 toevoegen in de portal](./media/tutorial-provision-device-to-hub/group-enrollment.png)](./media/tutorial-provision-device-to-hub/group-enrollment.png#lightbox)
 
 - **Afzonderlijke inschrijvingen**: dit is een vermelding voor een enkel apparaat dat kan worden geregistreerd met Device Provisioning Service. Afzonderlijke inschrijvingen kunnen X509-certificaten of SAS-tokens (in een echt of virtueel TPM) gebruiken als attestation-mechanismen. We raden u aan om afzonderlijke inschrijvingen te gebruiken bij apparaten die unieke initiële configuraties vereisen, en voor apparaten die alleen SAS-tokens via TPM of virtuele TPM kunnen gebruiken als het attestation-mechanisme. Afzonderlijke inschrijvingen hebben mogelijk de gewenste apparaat-id voor IoT Hub die is opgegeven.
 

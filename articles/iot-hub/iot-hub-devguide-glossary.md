@@ -5,7 +5,7 @@ services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 16ef29ea-a185-48c3-ba13-329325dc6716
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 7576077ede7c1c18bcba3853b3b4a2ee0b561968
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 828489510cea16ebba1944c0e6d1fc88f9375fc7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Verklarende woordenlijst van IoT-Hub
 In dit artikel vindt u enkele van de algemene termen die in de artikelen IoT Hub.
@@ -110,6 +110,9 @@ De [apparaat identiteiten REST-API](https://docs.microsoft.com/rest/api/iothub/i
 ## <a name="device-identity"></a>Apparaat-id
 De apparaat-id is de unieke id die is toegewezen aan elk apparaat dat is geregistreerd in de [identiteitsregister](#identity-registry).
 
+## <a name="module-identity"></a>Module-id
+De identiteit van de module is de unieke id die is toegewezen aan elke module die deel uitmaken van een apparaat. Identiteit van de module ook wordt geregistreerd in de [identiteitsregister](#identity-registry).
+
 ## <a name="device-management"></a>Apparaatbeheer
 Beheer van apparaten omvat de volledige levenscyclus die zijn gekoppeld aan het beheren van de apparaten in uw IoT-oplossing met inbegrip van de planning, inrichten, configureren, bewaken en buiten gebruik stellen.
 
@@ -125,14 +128,17 @@ Mobiele apparaten inrichten is het proces van het toevoegen van de eerste [appar
 ## <a name="device-twin"></a>Dubbel apparaat
 Een [apparaat twin](iot-hub-devguide-device-twins.md) JSON-document dat apparaat statusinformatie zoals metagegevens, configuraties en voorwaarden slaat is. [IoT Hub](#iot-hub) een apparaat twin voor elk apparaat dat u in uw IoT-hub inrichten zich blijft voordoen. Apparaat horende kunnen u synchroniseren [apparaat voorwaarden](#device-condition) en configuraties tussen het apparaat en de oplossing voor back-end. U kunt query horende apparaten naar specifieke apparaten en de status van langlopende bewerkingen niet opvragen.
 
-## <a name="device-twin-queries"></a>Apparaat twin query 's
-[Apparaat twin query's](iot-hub-devguide-query-language.md) de SQL-achtige IoT Hub-querytaal gegevens ophalen uit uw horende apparaten gebruiken. U kunt de dezelfde IoT Hub-querytaal informatie ophalen over [taken](#job) uitgevoerd in uw IoT-hub.
+## <a name="module-twin"></a>Module-twin
+Net als bij twin apparaat, is een module-twin JSON-document waarin gegevens van de module status zoals metagegevens, configuraties en voorwaarden worden opgeslagen. IoT Hub persistente een module-twin voor elke module-id die u in uw IoT-hub onder een apparaat-id inrichten. Module horende kunnen u voorwaarden van de module en configuraties tussen de module en de back-end oplossing te synchroniseren. U kunt query module horende naar specifieke modules en de status van langlopende bewerkingen niet opvragen.
+
+## <a name="twin-queries"></a>Dubbele query 's
+[Query's voor apparaat en de module twin](iot-hub-devguide-query-language.md) de SQL-achtige IoT Hub-querytaal gebruiken voor het ophalen van informatie van uw apparaat horende of module horende. U kunt de dezelfde IoT Hub-querytaal informatie ophalen over [taken](#job) uitgevoerd in uw IoT-hub.
 
 ## <a name="device-twin-rest-api"></a>Apparaat Twin REST-API
 U kunt de [apparaat Twin REST-API](https://docs.microsoft.com/rest/api/iothub/devicetwinapi) van de oplossing voor back-end voor het beheren van uw apparaat horende. De API kunt u ophalen en bijwerken van [apparaat twin](#device-twin) eigenschappen en oproepen [methoden directe](#direct-method). Normaal gesproken moet u een van de bovenliggende [service-SDK's](#azure-iot-service-sdks) zoals weergegeven in de zelfstudies IoT Hub.
 
-## <a name="device-twin-synchronization"></a>Synchronisatie van apparaten twin
-Synchronisatie van apparaten twin gebruikt de [gewenst eigenschappen](#desired-properties) in uw apparaat horende apparaten configureren en ophalen van [eigenschappen gerapporteerd](#reported-properties) van uw apparaten op te slaan in de apparaat-twin.
+## <a name="twin-synchronization"></a>Synchronisatie van Twin
+Twin synchronisatie gebruikt de [gewenst eigenschappen](#desired-properties) in uw apparaat horende of module horende configureren van uw apparaten of modules en ophalen van [eigenschappen gerapporteerd](#reported-properties) van deze op te slaan in de twin.
 
 ## <a name="direct-method"></a>Directe methode
 Een [directe methode](iot-hub-devguide-direct-methods.md) is een manier voor het activeren van een methode uit te voeren op een apparaat door het aanroepen van een API op uw IoT-hub.
@@ -140,7 +146,7 @@ Een [directe methode](iot-hub-devguide-direct-methods.md) is een manier voor het
 ## <a name="endpoint"></a>Eindpunt
 Een iothub toont meerdere [eindpunten](iot-hub-devguide-endpoints.md) die ervoor zorgen dat uw apps kunnen verbinding maken met de IoT-hub. Er zijn apparaat gerichte eindpunten waarmee apparaten uitvoeren van bewerkingen zoals het zenden van [apparaat-naar-cloud](#device-to-cloud) berichten en ontvangst [cloud-naar-apparaat](#cloud-to-device) berichten. Er zijn service gerichte management eindpunten waarmee [back-end apps](#back-end-app) bewerkingen uitvoeren zoals [apparaat-id](#device-identity) beheer- en Apparaatbeheer twin. Er zijn service gerichte [ingebouwde eindpunten](#built-in-endpoints) voor het lezen van apparaat-naar-cloud-berichten. U kunt maken [aangepaste eindpunten](#custom-endpoints) ontvangen van apparaat-naar-cloud-berichten die zijn verzonden door een [routeringsregel](#routing-rules).
 
-## <a name="event-hubs-service"></a>Event Hubs service
+## <a name="event-hubs-service"></a>Event Hubs-service
 [Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) is een uiterst schaalbare gegevens ingress-service die, miljoenen opnemen kan gebeurtenissen per seconde. De service kunt u om te verwerken en analyseren van de enorme hoeveelheden gegevens die worden geproduceerd door verbonden apparaten en toepassingen. Zie voor een vergelijking met de service IoT Hub [vergelijking van Azure IoT Hub en Azure Event Hubs](iot-hub-compare-event-hubs.md).
 
 ## <a name="event-hub-compatible-endpoint"></a>Event Hub-compatibel eindpunt
@@ -223,7 +229,7 @@ U configureert [routeringsregels](iot-hub-devguide-messages-read-custom.md) in u
 ## <a name="sasl-plain"></a>SASL ZONDER OPMAAK
 SASL zonder opmaak is een protocol dat de [AMQP](#advanced-message-queue-protocol) protocol gebruikt voor het overzetten van beveiligingstokens.
 
-## <a name="shared-access-signature"></a>Shared Access Signature
+## <a name="shared-access-signature"></a>Shared access signature voor
 Shared Access Signatures (SAS) zijn een verificatiemethode op basis van beveiligde SHA-256-hashes of URI's. SAS verificatie bestaat uit twee onderdelen: een _beleid voor gedeelde toegang_ en een _Shared Access Signature_ (vaak een token genoemd). SAS wordt gebruikt voor verificatie met een IoT-hub van een apparaat. [Back-end apps](#back-end-app) SAS ook gebruiken voor verificatie met de service gerichte-eindpunten op een IoT-hub. Normaal gesproken het opnemen van de SAS-token in de [verbindingsreeks](#connection-string) dat een app gebruikmaakt van een verbinding maken met een IoT-hub.
 
 ## <a name="shared-access-policy"></a>Beleid voor gedeelde toegang

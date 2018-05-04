@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/21/2016
+ms.date: 04/06/2018
 ms.author: rapatchi
-ms.openlocfilehash: d415c3eb540056dc7ad6f1ab14fc8250903d6744
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 905eb170d2458f92469034b1cbf38ccd017d8f58
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Service Fabric-invoegtoepassing voor de ontwikkeling van Eclipse Java-toepassingen
 Eclipse is een van de meest gebruikte Integrated Development Environments (IDE's) voor Java-ontwikkelaars. In dit artikel wordt beschreven hoe u een Eclipse-ontwikkelomgeving instelt voor gebruik met Azure Service Fabric. Ontdek hoe u de Service Fabric-invoegtoepassing installeert en een Service Fabric-toepassing implementeert in een lokaal of extern Service Fabric-cluster in Eclipse. 
@@ -34,20 +34,22 @@ U kunt een Service Fabric-invoegtoepassing in Eclipse installeren. De invoegtoep
 > 
 > Voor Ubuntu wordt u aangeraden de installatie rechtstreeks vanaf de site van Eclipse uit te voeren en niet door middel van een installatieprogramma voor pakketten (`apt` of `apt-get`). Daardoor weet u zeker dat u de meest recente versie van Eclipse hebt. 
 
-1.  Zorg ervoor dat u Eclipse Neon of nieuwer hebt en dat u de nieuwste versie van Buildship (1.0.17 of hoger) hebt geïnstalleerd:
-    -   U kunt de versies van geïnstalleerde onderdelen controleren door in Eclipse **Help** > **Installation Details** te kiezen.
-    -   Zie [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship: Eclipse-invoegtoepassingen voor Gradle) als u Buildship wilt bijwerken.
-    -   Als u updates voor Eclipse wilt zoeken en installeren, gaat u naar **Help** > **Check for Updates**.
+Installeer Eclipse Neon of hoger vanaf de [Eclipse-site](https://www.eclipse.org).  Installeer ook versie 2.2.1 of hoger van Buildship (de Service Fabric-invoegtoepassing is niet compatibel met oudere versies van Buildship):
+-   U kunt de versies van geïnstalleerde onderdelen controleren door in Eclipse **Help** > **About Eclipse** > **Installation Details** te kiezen.
+-   Zie [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship: Eclipse-invoegtoepassingen voor Gradle) als u Buildship wilt bijwerken.
+-   Als u updates voor Eclipse wilt zoeken en installeren, gaat u naar **Help** > **Check for Updates**.
 
-2.  Als u de Service Fabric-invoegtoepassing wilt installeren, gaat u in Eclipse naar **Help** > **Install New Software**.
-  1.    In het vak **Work with** voert u **http://dl.microsoft.com/eclipse** in.
-  2.    Klik op **Add**.
-
-         ![De Service Fabric-invoegtoepassing voor Eclipse][sf-eclipse-plugin-install]
-  3.    Selecteer de Fabric Service-invoegtoepassing en klik op **Next**.
-  4.    Voer de installatiestappen uit en accepteer de licentievoorwaarden voor Microsoft-software.
-
-Als u de Service Fabric-invoegtoepassing al hebt geïnstalleerd, controleert u of u de meest recente versie gebruikt. Ga naar **Help** > **Installation Details** om te controleren of er updates beschikbaar zijn. Selecteer Service Fabric in de lijst met geïnstalleerde invoegtoepassingen en klik op **Update**. Beschikbare updates worden geïnstalleerd.
+Als u de Service Fabric-invoegtoepassing wilt installeren, gaat u in Eclipse naar **Help** > **Install New Software**.
+1. In het vak **Work with** voert u **http://dl.microsoft.com/eclipse** in.
+2. Klik op **Add**.
+    ![De Service Fabric-invoegtoepassing voor Eclipse][sf-eclipse-plugin-install]
+3. Selecteer de Fabric Service-invoegtoepassing en klik op **Next**.
+4. Voer de installatiestappen uit en accepteer de licentievoorwaarden voor Microsoft-software.
+  
+Als u de Service Fabric-invoegtoepassing al hebt geïnstalleerd, zorgt u ervoor dat u de meest recente versie hebt geïnstalleerd. 
+1. Ga naar **Help** > **About Eclipse** > **Installation Details** om te controleren of er updates beschikbaar zijn. 
+2. Selecteer Service Fabric in de lijst met geïnstalleerde invoegtoepassingen en klik op **Update**. Beschikbare updates worden geïnstalleerd.
+3. Als u de Service Fabric-invoegtoepassing bijwerkt, moet u ook het Gradle-project vernieuwen.  Klik met de rechtermuisknop op **build.gradle** en selecteer vervolgens **Vernieuwen**.
 
 > [!NOTE]
 > Als de installatie of update van de Service Fabric-invoegtoepassing traag verloopt, kan dit het gevolg zijn van een instelling in Eclipse. Eclipse verzamelt metagegevens over alle wijzigingen in updatesites die zijn geregistreerd bij uw exemplaar van Eclipse. Als u het proces voor het controleren op en installeren van updates van Service Fabric-invoegtoepassingen wilt versnellen, gaat u naar **Available Software Sites**. Schakel de selectievakjes uit voor alle sites, behalve voor de site die verwijst naar de locatie van de Service Fabric-invoegtoepassing (http://dl.microsoft.com/eclipse/azure/servicefabric)).

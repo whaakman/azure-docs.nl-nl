@@ -3,7 +3,7 @@ title: Analyse van Java-web-apps met Azure Application Insights | Microsoft Docs
 description: 'Toepassingsprestaties bewaken met Application Insights voor Java-web-apps. '
 services: application-insights
 documentationcenter: java
-author: harelbr
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: f772485dd49a730e34ec856768fa91bc3fdd114b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 36c70ff4d6f09faa99db2fdd06c6e2b27816c143
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Aan de slag met Application Insights in een Java-webproject
 
@@ -30,7 +30,7 @@ Application Insights biedt ondersteuning voor Java-apps die in Linux, Unix of Wi
 
 U hebt de volgende zaken nodig:
 
-* Oracle of Zulu JRE versie 1.7 of 1.8
+* JRE-versie 1.7 of 1.8
 * Een abonnement op [Microsoft Azure](https://azure.microsoft.com/).
 
 *Als u een web-app hebt die al is gepubliceerd, kunt u de alternatieve procedure volgen om [de SDK tijdens runtime toe te voegen in de webserver](app-insights-java-live.md). Met deze alternatieve procedure hoeft u de code niet helemaal aan te passen, maar hebt u niet de optie om code te schrijven voor het bijhouden van gebruikersactiviteit.*

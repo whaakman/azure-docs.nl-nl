@@ -2,24 +2,24 @@
 title: Zelfstudie voor MongoDB, Angular en Node voor Azure - deel 3 | Microsoft Docs
 description: Deel 3 van de serie zelfstudies voor het maken van een MongoDB-app met Angular en Node op Azure Cosmos DB, waarbij gebruik wordt gemaakt van dezelfde API's als voor MongoDB.
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: ff75b4546a85c1c0bbf5c256977a3d33016c8c44
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: MT
+ms.openlocfilehash: de645f46a889ba05fc54b1c5d2b9da64393d348e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-3-build-the-ui-with-angular"></a>Een MongoDB-app maken met Angular en Azure Cosmos DB - deel 3: de gebruikersinterface maken met Angular
 
@@ -101,7 +101,7 @@ Voltooi de stappen in [deel 2](tutorial-develop-mongodb-nodejs-part2.md) van de 
     > 2. Typ *angular essentials* in het zoekvak.
     > 3. Klik op **Install**. 
     > 4. Klik op de knop **Reload** als u de nieuwe extensies wilt gebruiken.
-    > Of download ze op [http://jpapa.me/angularessentials](http://jpapa.me/angularessentials). 
+    > of downloaden van [http://jpapa.me/angularessentials](http://jpapa.me/angularessentials). 
     > ![Angular Essentials-extensie](./media/tutorial-develop-mongodb-nodejs-part3/angular-essentials-extension.png)
 
 7. Ga terug naar het bestand **heroes.component.html** en kopieer er de volgende code in. `<div>` is de container voor de hele pagina. In de container bevindt zich een lijst met hero's die we moeten maken, zodat als u op een ervan klikt, u deze kunt selecteren en in de gebruikersinterface bewerken of verwijderen. In de HTML staat de stijl, zodat u weet welke is geselecteerd. Er is ook een bewerkingsgebied, waar u een nieuwe hero kunt toevoegen of een bestaande hero kunt bewerken. 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: a2d8f66b0364535cbb7e8cadd8067dd8f7facb2c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 52654704662b736811f429a811e10669a752b75a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Gebeurtenis raster trigger voor Azure Functions
 
@@ -337,6 +337,9 @@ U kunt ook verzenden een HTTP PUT waarde van de sleutel zelf opgeven.
 
 ## <a name="local-testing-with-requestbin"></a>Lokale testen met RequestBin
 
+> [!NOTE]
+> De site RequestBin is momenteel niet beschikbaar, maar u kunt deze methode met https://hookbin.com in plaats daarvan. Als u die site niet actief is, kunt u [ngrok](#local-testing-with-ngrok).
+
 Als u wilt testen van een trigger gebeurtenis raster lokaal hebt om op te halen van de gebeurtenis raster HTTP-aanvragen van hun oorsprong in de cloud naar uw lokale computer verzonden. Een manier om u te doen is door het vastleggen van aanvragen voor online en handmatig opnieuw verzenden van deze op uw lokale machine:
 
 2. [Maak een eindpunt RequestBin](#create-a-RequestBin-endpoint).
@@ -348,7 +351,7 @@ Wanneer u klaar bent testen, kunt u hetzelfde abonnement voor productie door het
 
 ### <a name="create-a-requestbin-endpoint"></a>Een RequestBin-eindpunt maken
 
-RequestBin is een open source-hulpprogramma dat HTTP-aanvragen accepteert en een overzicht van de aanvraagtekst. De http://requestb.in URL speciale behandeling door Azure gebeurtenis raster opgehaald. Om te bevorderen testen, verzendt gebeurtenis raster gebeurtenissen naar de URL RequestBin zonder een juiste reactie op aanvragen voor abonnement-validatie. Twee andere testen van hulpprogramma's zijn opgegeven dezelfde behandeling: http://webhookinbox.com en http://hookbin.com.
+RequestBin is een open source-hulpprogramma dat HTTP-aanvragen accepteert en een overzicht van de aanvraagtekst. De http://requestb.in URL speciale behandeling door Azure gebeurtenis raster opgehaald. Om te bevorderen testen, verzendt gebeurtenis raster gebeurtenissen naar de URL RequestBin zonder een juiste reactie op aanvragen voor abonnement-validatie. Een test hulpprogramma krijgt dezelfde behandeling: http://hookbin.com.
 
 RequestBin is niet bedoeld voor gebruik met hoge doorvoer. Als u meer dan een gebeurtenis tegelijk pusht, ziet u mogelijk niet alle gebeurtenissen in het hulpprogramma.
 

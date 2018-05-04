@@ -5,16 +5,16 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/27/2018
+ms.date: 04/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 558dcd65051c0134a87205dcd8bbf432d7763fd2
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 820fea1aa2eb93fb383dca4def9ed607515c29b8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -37,11 +37,11 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 ## <a name="open-the-cloudyn-portal"></a>De Cloudyn-portal openen
 
-U bekijkt het gebruik en de kosten in de Cloudyn-portal. Open de Cloudyn-portal vanuit de Azure Portal of ga naar https://azure.cloudyn.com en meld u aan.
+U bekijkt het gebruik en de kosten in de Cloudyn-portal. Open het Cloudyn-portal vanuit Azure Portal of ga naar https://azure.cloudyn.com en meld u aan.
 
 ## <a name="track-usage-and-cost-trends"></a>Gebruiks- en kostentrends bijhouden
 
-U houdt de werkelijke uitgaven voor gebruik en kosten bij met rapporten om trends in de loop van de tijd te identificeren. Als u trends wilt bekijken, gebruikt u het rapport Actual Cost Over Time (Werkelijke kosten in de loop van de tijd). Klik op het rapportmenu bovenaan in de portal en klik op **Cost** > **Cost Analysis** > **Actual Cost Over Time**. Wanneer u het rapport voor het eerst opent, zijn er geen groepen of filters op toegepast.
+U houdt de werkelijke uitgaven voor gebruik en kosten bij met rapporten om trends in de loop van de tijd te identificeren. Als u trends wilt bekijken, gebruikt u het rapport Actual Cost Over Time (Werkelijke kosten in de loop van de tijd). Klik op het menu bovenaan in de portal en klik op **Costs** > **Cost Analysis** > **Actual Cost Over Time**. Wanneer u het rapport voor het eerst opent, zijn er geen groepen of filters op toegepast.
 
 Hier volgt een voorbeeldrapport:
 
@@ -69,7 +69,7 @@ Het probleem is dat al voor de bestaande infrastructuur is betaald. Als gebruike
 
 Het rapport Cost Effective Sizing Recommendations (Aanbevelingen voor kosteneffectieve aanpassingen van de afmetingen) identificeert jaarlijkse besparingen door de capaciteit van VM-exemplaren te vergelijken met historische gegevens over hun CPU- en geheugengebruik.  
 
-Klik op het rapportmenu bovenaan in de portal en klik op **Optimizer** > **Pricing Optimization** > **Cost Effective Sizing Recommendations**. Filter de provider op Azure om alleen Azure-VM's te bekijken. Hier ziet u een voorbeeldafbeelding.
+Klik op het menu bovenaan in de portal en klik op **Optimizer** > **Sizing Optimization** > **Cost Effective Sizing Recommendations**. Filter de provider op Azure om alleen Azure-VM's te bekijken. Hier ziet u een voorbeeldafbeelding.
 
 ![Azure-VM's](./media/tutorial-review-usage/sizing01.png)
 
@@ -87,9 +87,9 @@ Zie [Optimizing VM Size in Azure Cost Management](https://youtu.be/1xaZBNmV704) 
 
 U kunt belanghebbenden automatisch waarschuwen als er sprake is van afwijkende bestedingen of kans op budgetoverschrijding. U kunt snel en eenvoudig waarschuwingen maken met behulp van rapporten die waarschuwingen op basis van budget en kostendrempels ondersteunen.
 
-U maakt een waarschuwing voor elke uitgave met behulp van een kostenrapport. In dit voorbeeld gebruikt u het rapport Actual Cost Over Time (Werkelijke kosten in de loop van de tijd) om u te waarschuwen wanneer de uitgaven voor een Azure-VM het totale budget naderen. Klik op het rapportmenu bovenaan in de portal en klik op **Cost** > **Cost Analysis** > **Actual Cost Over Time**. Stel **Groups** in op **Service** en stel **Filter on the service** in op **Azure/VM**. Klik rechtsboven in het rapport op **Actions** en selecteer **Schedule report**.
+U maakt een waarschuwing voor elke uitgave met behulp van een kostenrapport. In dit voorbeeld gebruikt u het rapport Actual Cost Over Time (Werkelijke kosten in de loop van de tijd) om u te waarschuwen wanneer de uitgaven voor een Azure-VM het totale budget naderen. De volgende stappen zijn nodig voor het maken van de waarschuwing. Klik op het menu bovenaan in de portal en klik op **Costs** > **Cost Analysis** > **Actual Cost Over Time**. Stel **Groups** in op **Service** en stel **Filter on the service** in op **Azure/VM**. Klik rechtsboven in het rapport op **Actions** en selecteer **Schedule report**.
 
-Gebruik het tabblad **Scheduling** om uzelf een e-mail met het rapport te sturen met de gewenste frequentie. Eventuele labels, groepen en filters die u gebruikt, worden toegepast op het rapport dat u per e-mail wordt toegezonden. Klik op het tabblad **Theshold** en selecteer **Actual Cost vs. Threshold**. Als u had een totaal budget van $ 500.000 hebt en een melding wilt ontvangen wanneer de kosten in de buurt van de helft komen, maakt u een **rode waarschuwing** op $ 250.000 en een **gele waarschuwing** op $ 240.000. Kies vervolgens het aantal achtereenvolgende waarschuwingen. Wanneer u het totaal aantal waarschuwingen dat u hebt opgegeven, hebt ontvangen, worden er geen extra waarschuwingen meer verzonden. Sla het geplande rapport op.
+Gebruik het tabblad **Scheduling** om uzelf een e-mail met het rapport te sturen met de gewenste frequentie. Selecteer **Send via email**. Eventuele labels, groepen en filters die u gebruikt, worden toegepast op het rapport dat u per e-mail wordt toegezonden. Klik op het tabblad **Theshold** en selecteer **Actual Cost vs. Threshold**. Als u had een totaal budget van $ 500.000 hebt en een melding wilt ontvangen wanneer de kosten in de buurt van de helft komen, maakt u een **rode waarschuwing** op $ 250.000 en een **gele waarschuwing** op $ 240.000. Gebruik geen komma's in waarden die u invoert. Kies vervolgens het aantal achtereenvolgende waarschuwingen. Wanneer u het totaal aantal waarschuwingen hebt ontvangen dat u hebt opgegeven, worden er geen extra waarschuwingen meer verzonden. Sla het geplande rapport op.
 
 ![voorbeeldrapport](./media/tutorial-review-usage/schedule-alert01.png)
 

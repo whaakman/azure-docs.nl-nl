@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: jeedes
-ms.openlocfilehash: 2796280d4c8d5d2b11424cba866500aee38414ae
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5734d9ae2f5633fc7386b5cb0754769af9bf96bc
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/30/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-realtimeboard"></a>Zelfstudie: Azure Active Directory-integratie met RealtimeBoard
 
@@ -108,13 +108,13 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![URL's en RealtimeBoard domein eenmalige aanmelding informatie](./media/active-directory-saas-realtimeboard-tutorial/tutorial_realtimeboard_url.png)
 
-    In de **id** textbox, typ een URL als:`https://realtimeboard.com/`
+    In de **id** textbox, typ een URL als: `https://realtimeboard.com/`
 
 4. Controleer **weergeven geavanceerde instellingen voor URL**, als u wilt configureren van de toepassing in **SP** modus gestart:
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-realtimeboard-tutorial/tutorial_realtimeboard_url2.png)
 
-    In de **aanmeldings-URL** textbox, typ een URL als:`https://realtimeboard.com/sso/saml`
+    In de **aanmeldings-URL** textbox, typ een URL als: `https://realtimeboard.com/sso/saml`
 
 5. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
@@ -124,7 +124,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Knop Single Sign-On opslaan configureren](./media/active-directory-saas-realtimeboard-tutorial/tutorial_general_400.png)
 
-7. Eenmalige aanmelding configureren op **RealtimeBoard** zijde, moet u de gedownloade verzenden **Metadata XML** naar [RealtimeBoard ondersteuningsteam](mailto:support@realtimeboard.com). Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
+7. Eenmalige aanmelding configureren op de **RealtimeBoard** zijde, volgt u de [RealtimeBoard instructies](https://help.realtimeboard.com/support/solutions/articles/11000023465-saml-based-single-sign-on-), en gebruik van de gegevens van uw gedownloade **Metadata XML**.
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -205,7 +205,7 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 Als u op de tegel RealtimeBoard in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing RealtimeBoard.
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

@@ -9,11 +9,11 @@ ms.custom: mvc,business continuity
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 569eef6e1d930e505bc6dff9b692814438e5bd4d
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: fbd239c3c8c11b1907a6d28eb95d2c0ad26cfe61
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="implement-a-geo-distributed-database"></a>Een geografisch gedistribueerde database implementeren
 
@@ -380,4 +380,17 @@ Installeer [Maven](https://maven.apache.org/download.cgi) met behulp van het off
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie [Actieve geo-replicatie en failovergroepen](sql-database-geo-replication-overview.md) voor meer informatie.
+In deze zelfstudie hebt u geleerd hoe u een Azure SQL-database en -toepassing configureert voor failover naar een externe regio, en hoe u het failoverschema kunt testen.  U hebt geleerd hoe u: 
+
+> [!div class="checklist"]
+> * Databasegebruikers maken en ze machtigingen verlenen
+> * Firewallregel op databaseniveau instellen
+> * Een failover-groep met geo-replicatie maken
+> * Java-toepassing maken en compileren om een query uit te voeren van een Azure SL-database
+> * Noodherstelanalyse uitvoeren
+
+Ga door naar de volgende zelfstudie voor informatie over het maken van een beheerd exemplaar.
+
+> [!div class="nextstepaction"]
+>[Een beheerd exemplaar maken](sql-database-managed-instance-create-tutorial-portal.md)
+

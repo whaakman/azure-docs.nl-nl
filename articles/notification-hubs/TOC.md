@@ -62,7 +62,7 @@
 ### [Richtlijnen voor diagnose](notification-hubs-push-notification-fixer.md)
 
 # Naslaginformatie
-## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=notification-hubs)
+## [Codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=notification-hubs)
 ## [Azure PowerShell](/powershell/module/azurerm.notificationhubs)
 ## [.NET](/dotnet/api/microsoft.azure.notificationhubs)
 ## [REST](/rest/api/notificationhubs)

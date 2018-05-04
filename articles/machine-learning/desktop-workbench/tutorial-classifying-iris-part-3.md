@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/13/2018
-ms.openlocfilehash: 0b56b15af7c573304db9a1b6e6e9f37453a63458
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8eb6470afb44ba1b41e0077a890a36601db5387e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-3-classify-iris-deploy-a-model"></a>Zelfstudie 3: Iris classificeren - Een model implementeren
 Azure Machine Learning (preview) is een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse voor professionele gegevenswetenschappers. Gegevenswetenschappers kunnen de service gebruiken om gegevens voor te bereiden, experimenten te ontwikkelen en modellen te implementeren op cloudschaal.
@@ -120,7 +120,7 @@ Als u de webservice wilt implementeren samen met het modelbestand, hebt u ook ee
 
 U kunt de omgeving nu gaan voorbereiden voor het operationeel maken van het model.
 
-## <a name="prepare-to-operationalize-locally"></a>Voorbereiden op operationeel maken in lokale omgeving
+## <a name="prepare-to-operationalize-locally-for-development-and-testing-your-service"></a>Voorbereiden op operationeel maken in lokale omgeving [voor het ontwikkelen en testen van uw service]
 Gebruik de implementatie _lokale modus_ voor uitvoering in Docker-containers op uw lokale computer.
 
 U kunt de _lokale modus_ gebruiken voor ontwikkeling en testen. De Docker-engine moet lokaal worden uitgevoerd om de stappen te kunnen voltooien die nodig zijn om het model operationeel te maken. U kunt de `-h`-vlag aan het einde van elke opdracht gebruiken om het bijbehorende help-bericht weer te geven.
@@ -257,7 +257,7 @@ U kunt nu de realtime webservice maken.
    docker ps
    ```
 
-## <a name="create-a-real-time-web-service-by-using-separate-commands"></a>Een realtime webservice maken met behulp van afzonderlijke opdrachten
+## <a name="optional-alternative-create-a-real-time-web-service-by-using-separate-commands"></a>[Optioneel alternatief] Een realtime webservice maken met behulp van afzonderlijke opdrachten
 Als alternatief voor de eerder weergegeven opdracht **az ml service create realtime** kunt u de stappen ook afzonderlijk uitvoeren. 
 
 Registreer eerst het model. Genereer vervolgens het manifest, bouw de Docker-installatiekopie en maak de webservice. Deze stapsgewijze aanpak biedt meer flexibiliteit bij elke stap. Bovendien kunt u de entiteiten die in vorige stappen zijn gegenereerd opnieuw gebruiken en de entiteiten alleen opnieuw bouwen wanneer dat nodig is.

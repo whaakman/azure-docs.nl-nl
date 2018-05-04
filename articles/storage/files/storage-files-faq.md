@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: e203787bffa80b324508f7df8f8e7a8c62355695
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: ef8b5b30edaef61eca1be0cf80c5defd09c4dac2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Veelgestelde vragen over Azure-bestanden
 [Azure Files](storage-files-introduction.md) biedt volledig beheerd bestandsshares in de cloud die toegankelijk zijn via de industriestandaard [protocol Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (ook wel Common Internet File System of CIFS). U kunt Azure-bestandsshares gelijktijdig koppelen op de cloud of on-premises implementaties van Windows, Linux en Mac OS. U kunt Azure-bestandsshares op Windows Server-machines cache met behulp van Azure File-synchronisatie (preview) voor snelle toegang bijna waar de gegevens wordt gebruikt.
@@ -103,7 +103,7 @@ In dit artikel antwoorden op veelgestelde vragen over Azure-bestanden functies e
 * <a id="afs-conflict-resolution"></a>**Wat gebeurt er als hetzelfde bestand is gewijzigd op twee servers tegelijkertijd ongeveer?**  
     Een strategie voor een eenvoudige conflictoplossing maakt gebruik van Azure File-synchronisatie: we beide wijzigingen in bestanden die zijn gewijzigd op twee servers tegelijkertijd behouden. De meest recent geschreven wijziging blijft de oorspronkelijke bestandsnaam. Het oudere bestand heeft de machine 'bron' en het aantal conflicten is toegevoegd aan de naam. Deze taxonomie volgt: 
    
-    \<FileNameWithoutExtension\>-\<MachineName\>\[-#\].\<ext\>  
+    \<FileNameWithoutExtension\>-\<MachineName\>\[-#\].\< Ext\>  
 
     Het eerste conflict van CompanyReport.docx zou bijvoorbeeld CompanyReport CentralServer.docx worden als CentralServer waar het oudere schrijven zich heeft voorgedaan. De naam van het tweede conflict zou CompanyReport-CentralServer-1.docx.
 
@@ -176,7 +176,7 @@ In dit artikel antwoorden op veelgestelde vragen over Azure-bestanden functies e
     * ehthumbs.DB
     * ~$\*.\*
     * \*.laccdb
-    * \*.tmp
+    * \*tmp
     * 635D02A9D91C401B97884B82B3BCDAEA.\*
 
     De volgende mappen worden ook standaard uitgesloten:
@@ -257,7 +257,7 @@ In dit artikel antwoorden op veelgestelde vragen over Azure-bestanden functies e
     Ja. Azure Files kunnen maximaal 200 share momentopnamen behouden. Momentopnamen van de share meetellen niet voor het quotum voor de bestandsshare, zodat er geen limiet per-share op de totale ruimte die wordt gebruikt door alle momentopnamen van de share. Limieten voor opslagaccounts nog steeds toepassen. Na 200 share momentopnamen, moet u de oudere momentopnamen voor het maken van nieuwe momentopnamen die share verwijderen.
 * <a id="snapshot-cost"></a>
 **Hoeveel deelt momentopname kosten?**  
-    Standaard transactie en standaard opslagkosten geldt voor de momentopname. Momentopnamen zijn incrementele aard. De momentopname van het basistype is de share zelf. De volgende momentopnamen zijn incrementele en worden alleen de diff uit de vorige momentopname opgeslagen. Dit betekent dat de deltawijzigingen die zichtbaar in de factuur minimale als uw werkbelastingsverloop minimaal is. Zie [prijzen pagina](https://azure.microsoft.com/en-us/pricing/details/storage/files/) voor standaard Azure bestanden prijsinformatie. Vandaag de manier om te kijken naar grootte verbruikt door share momentopname is door het vergelijken van de gefactureerde capaciteit met gebruikt capaciteit. We werken aan tooling voor het verbeteren van de rapportage.
+    Standaard transactie en standaard opslagkosten geldt voor de momentopname. Momentopnamen zijn incrementele aard. De momentopname van het basistype is de share zelf. De volgende momentopnamen zijn incrementele en worden alleen de diff uit de vorige momentopname opgeslagen. Dit betekent dat de deltawijzigingen die zichtbaar in de factuur minimale als uw werkbelastingsverloop minimaal is. Zie [prijzen pagina](https://azure.microsoft.com/pricing/details/storage/files/) voor standaard Azure bestanden prijsinformatie. Vandaag de manier om te kijken naar grootte verbruikt door share momentopname is door het vergelijken van de gefactureerde capaciteit met gebruikt capaciteit. We werken aan tooling voor het verbeteren van de rapportage.
 
 
 ### <a name="create-share-snapshots"></a>Momentopnamen van de share maken

@@ -2,7 +2,7 @@
 title: Met behulp van U-SQL cognitieve mogelijkheden in Azure Data Lake Analytics | Microsoft Docs
 description: Informatie over het gebruik van de intelligence cognitieve mogelijkheden in U-SQL
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.openlocfilehash: ec48a07af0aba78f2e508bad232f34102f0c2073
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: cd06e1ae56efdfdcfcd4fec5b2c17ee843d9e9dd
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="tutorial-get-started-with-the-cognitive-capabilities-of-u-sql"></a>Zelfstudie: Aan de slag met de cognitieve mogelijkheden van U-SQL
 
@@ -37,8 +37,8 @@ De volgende cognitieve mogelijkheden zijn beschikbaar:
 
 Het algehele proces is eenvoudig:
 
-* De referentie-ASSEMBLY-instructie voor het inschakelen van de cognitieve functies voor de U-SQL-Script gebruiken
-* Gebruik van het proces op een Invoerrijenset uitvoer genereren met behulp van een cognitieve UDO rijenset
+* Gebruik de `REFERENCE ASSEMBLY` instructie voor het inschakelen van de cognitieve functies voor de U-SQL-Script
+* Gebruik de `PROCESS` op een Invoerrijenset uitvoer genereren met behulp van een cognitieve UDO rijenset
 
 ### <a name="detecting-objects-in-images"></a>Objecten in de afbeeldingen detecteren
 

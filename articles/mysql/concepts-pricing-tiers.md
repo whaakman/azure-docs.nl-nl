@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 24f352d8743ba8ef72e141498589e1c6c14ff85e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: 490b162bcab0656388ef0b211ea693809d446346
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Prijscategorieën MySQL-Database
 
@@ -44,7 +44,7 @@ COMPUTE resources worden geleverd als vCores die de logische CPU van de onderlig
 
 | **Azure-regio** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
-| VS - midden |  | X |
+| VS - midden | X |  |
 | VS - oost | X | X |
 | VS - oost 2 | X | X |
 | Noord-centraal VS | X |  |
@@ -55,14 +55,16 @@ COMPUTE resources worden geleverd als vCores die de logische CPU van de onderlig
 | Canada - oost | X | X |
 | Brazilië - zuid | X | X |
 | Noord-Europa | X | X |
-| West-Europa | X | X |
+| West-Europa |  | X |
 | Verenigd Koninkrijk West |  | X |
 | Verenigd Koninkrijk Zuid |  | X |
 | Oost-Azië | X |  |
 | Zuidoost-Azië | X | X |
 | Australië - oost |  | X |
+| Australië - zuidoost |  | X |
 | Centraal-India | X |  |
 | West-India | X |  |
+| Zuid-India |  | X |
 | Japan - oost | X | X |
 | Japan - west | X | X |
 | Korea - zuid |  | X |

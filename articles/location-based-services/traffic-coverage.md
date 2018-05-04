@@ -2,21 +2,21 @@
 title: Verkeer dekking in Azure-locatie op basis van Services | Microsoft Docs
 description: Meer informatie over verkeer dekking in Azure-locatie op basis van Services
 services: location-based-services
-keywords: 
+keywords: ''
 author: kgremban
 ms.author: kgremban
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: location-based-services
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 251c736e0f607ffeea144639f437900eb337b6ea
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 6d061d5b1100051a2a06e838dc16912119efb6c9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-location-based-services---traffic-coverage"></a>Azure-locatie op basis van Services - verkeer dekking
 
@@ -31,6 +31,7 @@ Azure locatie op basis van Services (LBS) bevat uitgebreide verkeersinformatie i
 |Bahrein     |         |✓         |
 |België     |✓         |✓         |
 |Brazilië     |✓         |✓         |
+|Bulgarije     |✓         |✓         |
 |Canada     |✓         |✓         |
 |Chili     |✓         |✓         |
 |Colombia      |         |✓         |
@@ -85,7 +86,7 @@ Azure locatie op basis van Services (LBS) bevat uitgebreide verkeersinformatie i
 |+ Gibraltar     |✓         |✓         |
 |Zweden     |✓         |✓         |
 |Zwitserland     |✓         |✓        |
-|+Liechtenstein      |✓         |✓         |
+|+ Liechtenstein      |✓         |✓         |
 |Taiwan     |✓         |✓        |
 |Thailand     |✓         |✓        |
 |Turkije     |✓         |✓         |
@@ -95,4 +96,4 @@ Azure locatie op basis van Services (LBS) bevat uitgebreide verkeersinformatie i
 |(Guernsey & Jersey)     |✓         |✓         |
 |Man     |✓         |✓         |
 |Verenigde Staten     |✓         |✓        |
-|+Puerto Rico     |✓         |✓         |
+|+ Portorico     |✓         |✓         |

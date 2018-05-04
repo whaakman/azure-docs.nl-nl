@@ -3,7 +3,7 @@
 | Batch-accounts per regio per abonnement | 1 - 3 |50 |
 | Speciale kernen per Batch-account | 10 - 100 | N.v.t.<sup>1</sup> |
 | Prioriteit Laag kernen per Batch-account | 10 - 100 | N.V.T.<sup>2</sup> |
-| Actieve taken en -taakplanningen<sup>3</sup> per Batch-account | 20 - 100 | 5000<sup>4</sup> |
+| Actieve taken en -taakplanningen<sup>3</sup> per Batch-account | 100 - 300 | 5000<sup>4</sup> |
 | Pools per Batch-account | 20 - 100 | 2500 |
 
 > [!NOTE]

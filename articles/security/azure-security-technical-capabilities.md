@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 489b2a66cadb77a338f9ae00443c072a4e19edfd
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b0cef0a261b0362fcb9776e63c10e96aedc408b9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-security-technical-capabilities"></a>Technische mogelijkheden van Azure-beveiliging
 
@@ -134,7 +134,7 @@ Wanneer u Azure Active Directory B2C gebruikt, uw consumenten zich registreren v
 
 #### <a name="device-registration"></a>Apparaatregistratie
 
-[Azure AD-apparaatregistratie](https://docs.microsoft.com/en-us/azure/active-directory/device-management-introduction) vormt de basis voor apparaatgebaseerde [voorwaardelijke toegang](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-device-registration-on-premises-setup) scenario's. Wanneer een apparaat is geregistreerd, biedt Azure AD-apparaatregistratie het apparaat met een identiteit die wordt gebruikt voor verificatie van het apparaat wanneer de gebruiker zich aanmeldt. Het geverifieerde apparaat en de kenmerken van het apparaat kunnen vervolgens worden gebruikt voor het afdwingen van voorwaardelijk toegangsbeleid voor toepassingen die in de cloud en on-premises worden gehost.
+[Azure AD-apparaatregistratie](https://docs.microsoft.com/azure/active-directory/device-management-introduction) vormt de basis voor apparaatgebaseerde [voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup) scenario's. Wanneer een apparaat is geregistreerd, biedt Azure AD-apparaatregistratie het apparaat met een identiteit die wordt gebruikt voor verificatie van het apparaat wanneer de gebruiker zich aanmeldt. Het geverifieerde apparaat en de kenmerken van het apparaat kunnen vervolgens worden gebruikt voor het afdwingen van voorwaardelijk toegangsbeleid voor toepassingen die in de cloud en on-premises worden gehost.
 
 In combinatie met een [beheer van mobiele apparaten (MDM)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) oplossing zoals Intune, de apparaatkenmerken in Azure Active Directory worden bijgewerkt met aanvullende informatie over het apparaat. Hiermee kunt u extra regels voor voorwaardelijke toegang maken die toegang afdwingen van apparaten, zodat ze voldoen aan uw standaarden voor beveiliging en compliance
 

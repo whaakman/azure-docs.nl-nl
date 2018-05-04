@@ -62,7 +62,7 @@ Meer informatie over cloud-init op Azure meer:
 
 
 ## <a name="powershell-dsc"></a>PowerShell DSC
-[PowerShell Desired State Configuration (DSC)](https://msdn.microsoft.com/en-us/powershell/dsc/overview) is een beheerplatform voor het definiëren van de configuratie van de doelcomputers. DSC kan ook worden gebruikt op Linux via de [Open Management Infrastructure (OMI) server](https://collaboration.opengroup.org/omi/).
+[PowerShell Desired State Configuration (DSC)](https://msdn.microsoft.com/powershell/dsc/overview) is een beheerplatform voor het definiëren van de configuratie van de doelcomputers. DSC kan ook worden gebruikt op Linux via de [Open Management Infrastructure (OMI) server](https://collaboration.opengroup.org/omi/).
 
 DSC-configuraties definiëren wat u wilt installeren op een computer en het configureren van de host. Een lokale Configuration Manager (LCM)-engine wordt uitgevoerd op elk doelknooppunt waarmee aangevraagde acties op basis van pushed configuraties worden verwerkt. Een pull-server is een webservice die wordt uitgevoerd op een centrale host voor het opslaan van de DSC-configuraties en de bijbehorende bronnen. De pull-server communiceert met de engine LCM op elke doelhost voor de vereiste configuraties bieden en rapporteren van naleving.
 

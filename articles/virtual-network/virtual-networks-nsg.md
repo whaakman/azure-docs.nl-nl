@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: 3a581111587d0fe3cba04cd05272b3154374ce52
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 87ca0a1cd9766d3ad76d0fe5dd29a34ec40ea276
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Netwerkverkeer filteren met netwerkbeveiligingsgroepen
 
@@ -50,8 +50,8 @@ NSG-regels bevatten de volgende eigenschappen:
 | **Protocol** |Protocol waarop de regel van toepassing is. |TCP, UDP of * |Als u * als protocol gebruikt, omvat dit zowel ICMP (alleen oost-west-verkeer), als UDP en TCP en hebt u wellicht minder regels nodig.<br/>Tegelijkertijd is het gebruik van * mogelijk niet specifiek genoeg, zodat het wordt aanbevolen * alleen te gebruiken als dit echt nodig is. |
 | **Bronpoortbereik** |Bronpoortbereik waarop de regel van toepassing is. |Eén poortnummer tussen 1 en 65535, een poortbereik (bijvoorbeeld 1-65535) of * (voor alle poorten). |Bronpoorten kunnen kortstondig zijn. Tenzij in uw clientprogramma een specifieke poort wordt gebruikt, gebruikt u in de meeste gevallen *.<br/>Gebruik zo veel mogelijk poortbereiken om te voorkomen dat u meerdere regels nodig hebt.<br/>Meerdere poorten of poortbereiken kunnen niet worden gegroepeerd met komma's. |
 | **Doelpoortbereik** |Doelpoortbereik waarop de regel van toepassing is. |Eén poortnummer tussen 1 en 65535, een poortbereik (bijvoorbeeld 1-65535) of \* (voor alle poorten). |Gebruik zo veel mogelijk poortbereiken om te voorkomen dat u meerdere regels nodig hebt.<br/>Meerdere poorten of poortbereiken kunnen niet worden gegroepeerd met komma's. |
-| **Bronadresvoorvoegsel** |Bronadresvoorvoegsel of tag waarop de regel van toepassing is. |Eén IP-adres (bijvoorbeeld 10.10.10.10), een IP-subnet (bijvoorbeeld 192.168.1.0/24), een [standaardtag](#default-tags) of * (voor alle adressen). |Overweeg het gebruik van bereiken, standaardtags en * om het aantal regels te verminderen. |
-| **Doeladresvoorvoegsel** |Doeladresvoorvoegsel of tag waarop de regel van toepassing is. | Eén IP-adres (bijvoorbeeld 10.10.10.10), een IP-subnet (bijvoorbeeld 192.168.1.0/24), een [standaardtag](#default-tags) of * (voor alle adressen). |Overweeg het gebruik van bereiken, standaardtags en * om het aantal regels te verminderen. |
+| **Bronadresvoorvoegsel** |Bronadresvoorvoegsel of tag waarop de regel van toepassing is. |Eén IP-adres (bijvoorbeeld 10.10.10.10), een IP-subnet (bijvoorbeeld 192.168.1.0/24), een [servicetag](#service-tags) of * (voor alle adressen). |Overweeg het gebruik van bereiken, standaardtags en * om het aantal regels te verminderen. |
+| **Doeladresvoorvoegsel** |Doeladresvoorvoegsel of tag waarop de regel van toepassing is. | Eén IP-adres (bijvoorbeeld 10.10.10.10), een IP-subnet (bijvoorbeeld 192.168.1.0/24), een [standaardtag](#service-tags) of * (voor alle adressen). |Overweeg het gebruik van bereiken, standaardtags en * om het aantal regels te verminderen. |
 | **Richting** |Richting van het verkeer waarop de regel van toepassing is. |Binnenkomend of uitgaand. |Regels voor binnenkomend en uitgaand verkeer worden afzonderlijk verwerkt op basis van de richting. |
 | **Prioriteit** |Regels worden in volgorde van prioriteit gecontroleerd. Zodra een regel van toepassing is, worden geen andere regels meer getest. | Getal tussen 100 en 4096. | Overweeg prioriteitsnummers voor regels te laten verspringen met 100 om ruimte over te laten voor nieuwe regels die u mogelijk in de toekomst wilt maken. |
 | **Toegang** |Type toegang dat moet worden toegepast als de regel overeenkomt. | Toestaan of weigeren. | Onthoud dat het pakket wordt verwijderd als er geen regel wordt gevonden die het pakket toestaat. |
@@ -62,36 +62,13 @@ NSG's bevatten twee sets met regels: een voor binnenkomend verkeer en een voor u
 
 In de vorige afbeelding ziet u hoe NSG-regels worden verwerkt.
 
-### <a name="default-tags"></a>Standaardtags
-Standaardtags zijn systeem-id's voor een bepaalde categorie IP-adressen. U kunt standaardtags gebruiken in de eigenschappen voor het **voorvoegsel voor het bronadres** en het **voorvoegsel voor het doeladres** van een regel. Er zijn drie standaardtags die u kunt gebruiken:
+### <a name="default-tags"></a>Systeemtags
 
-* **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** voor klassiek): deze tag omvat de adresruimte van het virtuele netwerk (CIDR-bereiken die in Azure zijn gedefinieerd) en alle verbonden on-premises adresruimten en verbonden Azure VNet's (lokale netwerken).
-* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** voor klassiek): met deze tag wordt de load balancer voor de infrastructuur van Azure aangeduid. De tag wordt omgezet in het IP-adres van een Azure-datacenter van waaruit statuscontroles van Azure Load Balancer worden uitgevoerd.
-* **Internet** (Resource Manager) (**INTERNET** voor klassiek): met deze tag wordt de IP-adresruimte aangeduid die zich buiten het virtuele netwerk bevindt en bereikbaar is via internet. Dit bereik omvat ook de [openbare IP-adresruimte van Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+Servicetags zijn door het systeem geleverde id's voor een bepaalde categorie IP-adressen. U kunt servicetags gebruiken in de eigenschappen voor het **voorvoegsel voor het bronadres** en het **voorvoegsel voor het doeladres** van een beveiligingsregel. Meer informatie over [servicetags](security-overview.md#service-tags).
 
-### <a name="default-rules"></a>Standaardregels
-Alle NSG's bevatten een set met standaardregels. De standaardregels kunnen niet worden verwijderd, maar omdat ze de laagste prioriteit hebben, kunnen ze worden overschreven door de regels die u maakt. 
+### <a name="default-rules"></a>Standaardregels voor beveiliging
 
-De standaardregels kunnen verkeer als volgt toestaan en weigeren:
-- **Virtueel netwerk:** Verkeer dat afkomstig is van en eindigt in een virtueel netwerk wordt toegestaan in zowel binnenkomende als uitgaande richting.
-- **Internet:** Uitgaand verkeer is toegestaan, maar binnenkomend verkeer wordt geblokkeerd.
-- **Load balancer:**: toestaan dat Azure Load Balancer de status van uw VM's en rolexemplaren controleert. Als u deze regel overschrijft, mislukken de statuscontroles van Azure Load Balancer, hetgeen een negatieve invloed heeft op uw service.
-
-**Standaardregels voor binnenkomend verkeer**
-
-| Naam | Prioriteit | Bron-IP | Bronpoort | Doel-IP | Doelpoort | Protocol | Access |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| AllowVNetInBound |65000 | VirtualNetwork | * | VirtualNetwork | * | * | Toestaan |
-| AllowAzureLoadBalancerInBound | 65001 | AzureLoadBalancer | * | * | * | * | Toestaan |
-| DenyAllInBound |65500 | * | * | * | * | * | Weigeren |
-
-**Standaardregels voor uitgaand verkeer**
-
-| Naam | Prioriteit | Bron-IP | Bronpoort | Doel-IP | Doelpoort | Protocol | Access |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| AllowVnetOutBound | 65000 | VirtualNetwork | * | VirtualNetwork | * | * | Toestaan |
-| AllowInternetOutBound | 65001 | * | * | Internet | * | * | Toestaan |
-| DenyAllOutBound | 65500 | * | * | * | * | * | Weigeren |
+Alle NSG's bevatten een set met standaard beveiligingsregels. De standaardregels kunnen niet worden verwijderd, maar omdat ze de laagste prioriteit hebben, kunnen ze worden overschreven door de regels die u maakt. Meer informatie over [standaard beveiligingsregels](security-overview.md#default-security-rules).
 
 ## <a name="associating-nsgs"></a>NSG's koppelen
 U kunt als volgt een NSG koppelen aan VM's, NIC's en subnetten, afhankelijk van het implementatiemodel dat u gebruikt:
@@ -127,7 +104,7 @@ U kunt NSG's implementeren in het klassieke implementatiemodel of het implementa
 | PowerShell     | [Ja](virtual-networks-create-nsg-classic-ps.md) | [Ja](tutorial-filter-network-traffic.md) |
 | Azure CLI **V1**   | [Ja](virtual-networks-create-nsg-classic-cli.md) | [Ja](tutorial-filter-network-traffic-cli.md) |
 | Azure CLI **V2**   | Nee | [Ja](tutorial-filter-network-traffic-cli.md) |
-| Azure Resource Manager-sjabloon   | Nee  | [Ja](virtual-networks-create-nsg-arm-template.md) |
+| Azure Resource Manager-sjabloon   | Nee  | [Ja](template-samples.md) |
 
 ## <a name="planning"></a>Planning
 Voordat u NSG's implementeert, moet u de volgende vragen beantwoorden:

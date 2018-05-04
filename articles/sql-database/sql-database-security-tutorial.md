@@ -9,15 +9,22 @@ ms.custom: mvc,security
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.author: daredis
-ms.openlocfilehash: 4d2f5ce387a1e9b36fd1625210f42525a272c270
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 68a2a61dd5821470d30e3735ea6a2df89360cbb2
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="secure-your-azure-sql-database"></a>Uw Azure SQL-database beveiligen
 
-Uw gegevens worden beveiligd met SQL Database door de toegang tot uw database te beperken met behulp van firewallregels, verificatiemechanismen die vereisen dat gebruikers hun identiteit bewijzen, en autorisatie voor gegevens via lidmaatschappen en machtigingen op basis van rollen. Ook wordt gebruikgemaakt van beveiliging op rijniveau en dynamische gegevensmaskering.
+SQL Database beveiligt uw gegevens door: 
+- De toegang tot uw database te beperken met behulp van firewallregels 
+- Verificatiemechanismen te gebruiken die hun identiteit vereisen
+- Autorisatie voor gegevens via op rollen gebaseerde lidmaatschappen en machtigingen, 
+- Beveiliging op rijniveau
+- Dynamische gegevensmaskering
+
+SQL Database heeft ook geavanceerde bewaking, controle en bedreigingsdetectie. 
 
 U hoeft slechts een paar eenvoudige stappen uit te voeren om de beveiliging van uw database tegen kwaadwillende gebruikers of onbevoegde toegang te verbeteren. In deze zelfstudie leert u het volgende: 
 
@@ -53,7 +60,7 @@ De veiligste configuratie is om 'Toegang tot Azure services toestaan' in te stel
 Volg deze stappen voor het maken van een [firewallregel op serverniveau voor uw SQL-database](sql-database-firewall-configure.md) voor uw server om verbindingen vanaf een specifiek IP-adres toe te staan. 
 
 > [!NOTE]
-> Als u in een van de eerdere zelfstudies of snelstartgidsen een voorbeelddatabase hebt gemaakt in Azure en u deze zelfstudie volgt op een computer met het IP-adres dat ook aan de computer was toegewezen op het moment van de eerdere zelfstudie, kunt u deze stap overslaan omdat u al een firewallregel op serverniveau hebt gemaakt.
+> Als u in een van de eerdere zelfstudies of snelstarts een voorbeelddatabase hebt gemaakt in Azure en u deze zelfstudie volgt op een computer met het IP-adres dat ook aan de computer was toegewezen op het moment van de eerdere zelfstudie, kunt u deze stap overslaan omdat u al een firewallregel op serverniveau hebt gemaakt.
 >
 
 1. Klik in het linkermenu op **SQL-databases** en klik vervolgens op de database waarvoor u een firewallregel op serverniveau wilt configureren op de pagina **SQL-databases**. De overzichtspagina voor de database wordt geopend, met de volledig gekwalificeerde servernaam (bijvoorbeeld **mynewserver-20170313.database.windows.net**) en opties voor verdere configuratie.
@@ -155,7 +162,7 @@ Met Transparent Data Encryption (TDE) van Azure SQL Database worden uw inactieve
 
 3. Zet **Gegevensversleuteling** indien nodig op AAN en klik op **Opslaan**.
 
-Het versleutelingsproces wordt op de achtergrond gestart. U kunt het proces volgen door via [SQL Server Management Studio](./sql-database-connect-query-ssms.md) verbinding te maken met SQL Database en de kolom encryption_state van de weergave `sys.dm_database_encryption_keys` op te vragen.
+Het versleutelingsproces wordt op de achtergrond gestart. U kunt de voortgang volgen door via [SQL Server Management Studio](./sql-database-connect-query-ssms.md) verbinding te maken met SQL Database en de kolom encryption_state van de weergave [sys.dm_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql?view=sql-server-2017) op te vragen. De status 3 geeft aan dat de database is versleuteld. 
 
 ## <a name="enable-sql-database-auditing-if-necessary"></a>Controle inschakelen voor SQL Database, indien nodig
 

@@ -3,19 +3,19 @@ title: Overzicht van Azure Policy | Microsoft Docs
 description: Azure Policy is een service in Azure die u gebruikt om beleidsdefinities in uw Azure-omgeving te maken, toe te wijzen en te beheren.
 services: azure-policy
 keywords: ''
-author: bandersmsft
-ms.author: banders
+author: DCtheGeek
+ms.author: dacoulte
 ms.reviewer: nini
-ms.date: 03/29/2018
+ms.date: 04/18/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: f9cd00aec025748170a6576fe3ee4dbf794edfdb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 886026f8548cf3d7416b5034995399368de8c419
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-azure-policy"></a>Wat is Azure Policy?
 
@@ -53,13 +53,17 @@ In Azure Policy wordt een aantal ingebouwde beleidsregels geboden die u standaar
 - **Label en bijbehorende waarde afdwingen**: op basis van dit beleid wordt een vereist label en de bijbehorende waarde afgedwongen voor een resource.
 - **Resourcetypen niet toegestaan**: op basis van dit beleid kunt u de resourcetypen opgeven die niet kunnen worden geïmplementeerd in uw organisatie.
 
-U kunt elk van deze typen beleid toewijzen via Azure Portal, PowerShell of Azure CLI.
+U kunt elk van deze typen beleid toewijzen via Azure Portal, PowerShell of Azure CLI. Nadat u wijzigingen in een beleidsdefinitie hebt aangebracht, wordt het beleid ongeveer eens per uur opnieuw geëvalueerd.
 
 Raadpleeg het artikel [Structuur van beleidsdefinities](policy-definition.md) voor meer informatie over de structuur van beleidsdefinities.
 
 ## <a name="policy-assignment"></a>Beleidstoewijzing
 
-Een beleidstoewijzing is een beleidsdefinitie die is toegewezen om te worden toegepast binnen een bepaald bereik. Dit bereik kan variëren van een beheergroep tot een resourcegroep. De term *bereik* verwijst naar alle resourcegroepen, abonnementen of beheergroepen waaraan de beleidsdefinitie is toegewezen. Beleidstoewijzingen worden overgenomen door alle onderliggende resources. Dus als beleid wordt toegepast op een resourcegroep, is dit beleid ook van toepassing op alle resources in deze resourcegroep. U kunt echter een subbereik uitsluiten van een beleidstoewijzing. U kunt op het abonnementsbereik bijvoorbeeld een beleid toepassen op basis waarvan het maken van netwerkresources wordt voorkomen. U sluit echter één resourcegroep binnen het abonnement uit die is bedoeld voor netwerkinfrastructuur. U verleent gebruikers aan wie u het maken van netwerkresources toevertrouwt, toegang tot deze netwerkresourcegroep.
+Een beleidstoewijzing is een beleidsdefinitie die is toegewezen om te worden toegepast binnen een bepaald bereik. Dit bereik kan variëren van een beheergroep tot een resourcegroep. De term *bereik* verwijst naar alle resourcegroepen, abonnementen of beheergroepen waaraan de beleidsdefinitie is toegewezen. Beleidstoewijzingen worden overgenomen door alle onderliggende resources. Dus als beleid wordt toegepast op een resourcegroep, is dit beleid ook van toepassing op alle resources in deze resourcegroep. U kunt echter een subbereik uitsluiten van een beleidstoewijzing.
+
+U kunt op het abonnementsbereik bijvoorbeeld een beleid toepassen op basis waarvan het maken van netwerkresources wordt voorkomen. U sluit echter één resourcegroep binnen het abonnement uit die is bedoeld voor netwerkinfrastructuur. U verleent gebruikers aan wie u het maken van netwerkresources toevertrouwt, toegang tot deze netwerkresourcegroep.
+
+In een ander voorbeeld wilt u mogelijk een whitelistbeleid voor resourcetypen toewijzen op het niveau van de beheergroep. En vervolgens wilt u een ruimer beleid (zodat meer resourcetypen zijn toegestaan) toewijzen via een onderliggende beheergroep of zelfs rechtstreeks in abonnementen. Dit voorbeeld zou echter niet goed werken, omdat beleid een expliciet weigersysteem is. In plaats daarvan moet u de onderliggende beheergroep of het abonnement uitsluiten van de beleidstoewijzing op beheergroepniveau. Vervolgens kunt u het ruimere beleid toewijzen aan het niveau van de onderliggende beheergroep of het abonnement. Samenvattend: als beleidsresultaten in een resource worden geweigerd, vormt het aanpassen van het weigeringsbeleid de enige manier om de resource toe te staan.
 
 Zie [Create a policy assignment to identify non-compliant resources in your Azure environment](assign-policy-definition.md) (Een beleidstoewijzing maken om niet-compatibele resources in uw Azure-abonnement te identificeren) voor meer informatie over het instellen van beleidsdefinities en -toewijzingen.
 

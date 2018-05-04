@@ -9,18 +9,18 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: 829cedea9752fe41ad24427339d3f13c2f3e371a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 3ffae541020a2672affab774ee6da2a8c707745f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Azure SQL Database-servers en databases maken en beheren
 
 SQL-Database biedt drie typen databases:
 
-- Een individuele database gemaakt binnen een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) met een gedefinieerde set [berekenings- en bronnen voor verschillende werkbelastingen](sql-database-service-tiers.md). Een Azure SQL database is gekoppeld aan een logische Azure SQL Database-server op, die wordt gemaakt binnen een specifieke Azure-regio.
-- Een database gemaakt als onderdeel van een [pool van databases](sql-database-elastic-pool.md) binnen een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) met een gedefinieerde set [berekenings- en bronnen voor verschillende werkbelastingen](sql-database-service-tiers.md) die zijn gedeeld door alle databases in de groep. Een Azure SQL database is gekoppeld aan een logische Azure SQL Database-server op, die wordt gemaakt binnen een specifieke Azure-regio.
+- Een individuele database gemaakt binnen een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) met een [gecombineerd berekenings-en opslagbronnen set](sql-database-service-tiers-dtu.md) of een [onafhankelijk van de schaal van de berekenings- en resources](sql-database-service-tiers-vcore.md). Een Azure SQL database is gekoppeld aan een logische Azure SQL Database-server op, die wordt gemaakt binnen een specifieke Azure-regio.
+- Een database gemaakt als onderdeel van een [pool van databases](sql-database-elastic-pool.md) binnen een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) met een [gecombineerd aantal resources voor berekeningen en opslag (DTU gebaseerd)](sql-database-service-tiers-dtu.md) of een [onafhankelijk van de schaal van de berekenings- en -resources (vCore gebaseerd)](sql-database-service-tiers-vcore.md) die worden gedeeld door alle databases in de groep. Een Azure SQL database is gekoppeld aan een logische Azure SQL Database-server op, die wordt gemaakt binnen een specifieke Azure-regio.
 - Een [exemplaar van een SQL-server](sql-database-managed-instance.md) (een beheerde exemplaar) gemaakt binnen een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) met een gedefinieerde set berekenings- en resources voor alle databases op die server-exemplaar. Een beheerde exemplaar bevat zowel systeem- en gebruikersdatabases. Beheerde exemplaar is ontworpen om in te schakelen database lift-en-verschuiving naar een volledig beheerde PaaS zonder de toepassing opnieuw. Beheerde exemplaar biedt hoge compatibiliteit met het lokale SQL Server-programmeermodel en ondersteunt de grote meerderheid van SQL Server-functies en bijbehorende hulpprogramma's en services.  
 
 Microsoft Azure SQL Database ondersteunt tabular data stream (TDS)-protocol clientversie 7.3 of hoger en alleen versleutelde TCP/IP-verbindingen.
@@ -52,7 +52,7 @@ Een logische server met Azure Database:
 - Biedt een verbindingseindpunt voor databasetoegang (<serverName>.database.windows.net)
 - Biedt toegang tot metagegevens van ingesloten resources via DMV's door verbinding te maken met een hoofddatabase 
 - Voorziet in het bereik voor management-beleidsregels die van toepassing op de databases - aanmeldingen, firewall-, controleren, dreiging detectie, enz. 
-- Wordt beperkt door een quotum binnen het bovenliggende abonnement (twintig servers per abonnement standaard - [Zie abonnement hier beperkt](../azure-subscription-service-limits.md))
+- Wordt beperkt door een quotum binnen het bovenliggende abonnement (zes servers per abonnement standaard - [Zie abonnement hier beperkt](../azure-subscription-service-limits.md))
 - Voorziet in het bereik voor de databasequotum en DTU of vCore quotum voor de resources die deze (zoals 45.000 DTU bevat)
 - Het bereik versiebeheer voor mogelijkheden ingeschakeld op ingesloten bronnen 
 - Hoofdaanmeldingen op serverniveau kunnen alle databases op een server beheren
@@ -65,11 +65,11 @@ Om uw gegevens te beveiligen een [SQL Database-firewall](sql-database-firewall-c
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-portal"></a>Azure SQL-servers, databases, en firewalls beheren met behulp van de Azure-portal
 
-U kunt de Azure SQL database resourcegroep tevoren of tijdens het maken van de server zelf maken. 
+U kunt de Azure SQL database resourcegroep tevoren of tijdens het maken van de server zelf maken. Er zijn meerdere methoden voor het ophalen van een formulier nieuwe SQL server door het maken van een nieuwe SQL-server of als onderdeel van het maken van een nieuwe database. 
 
 ### <a name="create-a-blank-sql-server-logical-server"></a>Maak een lege SQL-server (logische server)
 
-Maken van een Azure SQL Database-server (zonder een database) met de [Azure-portal](https://portal.azure.com), gaat u naar een leeg formulier voor SQL server (logische).  
+Maken van een Azure SQL Database-server (zonder een database) met de [Azure-portal](https://portal.azure.com), gaat u naar een leeg formulier voor SQL server (logische server).  
 
 ### <a name="create-a-blank-or-sample-sql-database"></a>Maak een lege of voorbeeld SQL-database
 
@@ -78,7 +78,7 @@ Maken van een Azure SQL database met de [Azure-portal](https://portal.azure.com)
   ![database-1 maken](./media/sql-database-get-started-portal/create-database-1.png)
 
 > [!IMPORTANT]
-> Zie voor meer informatie over het selecteren van de prijscategorie voor uw database [Servicelagen](sql-database-service-tiers.md).
+> Zie voor meer informatie over het selecteren van de prijscategorie voor uw database [aankoopmodel DTU gebaseerde](sql-database-service-tiers-dtu.md) en [vCore gebaseerde aankoopmodel (preview)](sql-database-service-tiers-vcore.md).
 
 Zie het maken van een exemplaar beheerd [-exemplaar van een beheerd maken](sql-database-managed-instance-create-tutorial-portal.md)
 
@@ -91,7 +91,7 @@ Voor het beheren van een bestaande database, gaat u naar de **SQL-databases** pa
    ![serverfirewallregel](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
 > [!IMPORTANT]
-> Zie voor het configureren van eigenschappen van de prestaties voor een database [Servicelagen](sql-database-service-tiers.md).
+> Zie voor het configureren van eigenschappen van de prestaties voor een database [aankoopmodel DTU gebaseerde](sql-database-service-tiers-dtu.md) en [vCore gebaseerde aankoopmodel (preview)](sql-database-service-tiers-vcore.md).
 >
 
 > [!TIP]
@@ -181,7 +181,7 @@ Gebruik de volgende T-SQL-opdrachten voor het maken en beheren van Azure SQL-ser
 
 
 > [!TIP]
-> Zie voor snel aan de slag met SQL Server Management Studio op Microsoft Windows, [Azure SQL Database: SQL Server Management Studio gebruiken om verbinding te en een query over gegevens](sql-database-connect-query-ssms.md). Zie voor een snel aan de slag met Visual Studio Code op de Mac OS-, Linux- of Windows, [Azure SQL Database: Gebruik Visual Studio Code verbinding maakt en gegevens opvragen](sql-database-connect-query-vscode.md).
+> Zie voor een snel aan de slag met SQL Server Management Studio op Microsoft Windows, [Azure SQL Database: SQL Server Management Studio gebruiken om verbinding te en een query over gegevens](sql-database-connect-query-ssms.md). Zie voor een snel aan de slag met Visual Studio Code op de Mac OS-, Linux- of Windows, [Azure SQL Database: Gebruik Visual Studio Code verbinding maakt en gegevens opvragen](sql-database-connect-query-vscode.md).
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-rest-api"></a>Azure SQL-servers, databases, en firewalls beheren met behulp van de REST-API
 

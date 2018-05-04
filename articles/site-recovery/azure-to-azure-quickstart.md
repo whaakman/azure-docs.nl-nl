@@ -6,21 +6,18 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 02/07/2018
+ms.date: 04/08/2018
 ms.author: raynew
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 213b218a50506ace2298aa3f77721db1b81e2efe
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a317d54b56f72373d99af35b806cb231c2ef962e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region-preview"></a>Een Azure-VM repliceren naar een andere Azure-regio (preview)
 
-De [Azure Site Recovery](site-recovery-overview.md) service draagt bij aan uw strategie voor zakelijke continuïteit en noodherstel (BCDR) door te zorgen dat uw zakelijke apps beschikbaar blijven tijdens geplande en ongeplande uitval. Site Recovery beheert en orkestreert noodherstel van on-premises machines en virtuele Azure-machines (VM's), met inbegrip van replicatie, failover en herstel.
+De service [Azure Site Recovery](site-recovery-overview.md) draagt bij aan uw strategie voor zakelijke continuïteit en noodherstel (BCDR) door te zorgen dat uw zakelijke apps actief blijven tijdens geplande en ongeplande uitval. Site Recovery beheert en orkestreert noodherstel van on-premises machines en virtuele Azure-machines (VM's), met inbegrip van replicatie, failover en herstel.
 
 In deze snelstartgids wordt het repliceren van een Azure-VM naar een andere Azure-regio beschreven.
 
@@ -28,7 +25,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-Meld u via http://portal.azure.com aan bij Azure Portal.
+Meld u aan bij Azure Portal op http://portal.azure.com.
 
 ## <a name="enable-replication-for-the-azure-vm"></a>Replicatie inschakelen voor de Azure-VM
 
@@ -62,7 +59,7 @@ De VM in de primaire regio stopt met repliceren wanneer u replicatie uitschakelt
 Stop de replicatie als volgt:
 
 1. Selecteer de VM.
-2. Klik in **Herstel na noodgeval (preview)**op **Meer**.
+2. Klik in **Herstel na noodgeval (preview)** op **Meer**.
 3. Klik op **Replicatie uitschakelen**.
 
    ![Replicatie uitschakelen](media/azure-to-azure-quickstart/disable2-replication.png)

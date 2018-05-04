@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: 819d8ce9793f785726f55a89d49d08d818401b33
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: ba402847d14f7de6c70b545b74d7ba8c1aaddcb0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory naadloze eenmalige aanmelding: veelgestelde vragen
 
@@ -42,7 +42,7 @@ Hieronder vindt u een niet-uitputtende lijst met toepassingen die deze parameter
 
 | De naam van de toepassing | URL van de toepassing moet worden gebruikt |
 | -- | -- |
-| Toegangsvenster | myapps.microsoft.com/contoso.com |
+| Toegangsvenster | myapps.Microsoft.com/contoso.com |
 | Outlook op Web | outlook.office365.com/contoso.com |
 
 Bovendien krijgen gebruikers een ervaring voor stille als een toepassing aanmelden aanvragen naar Azure AD-eindpunten verpachte - dat wil zeggen verzendt, https://login.microsoftonline.com/contoso.com/<..> of https://login.microsoftonline.com/<tenant_ID>/<..> - in plaats van Azure AD gemeenschappelijk eindpunt - dat wil zeggen, https://login.microsoftonline.com/common/<...>. Hieronder vindt u een niet-uitputtende lijst met toepassingen die deze typen aanmeldingsaanvragen.
@@ -82,7 +82,7 @@ Volg deze stappen op de lokale server waarop u Azure AD Connect uitvoert:
 ### <a name="step-1-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>Step 1. Lijst met AD-forests waarbij naadloze eenmalige aanmelding is ingeschakeld
 
 1. Eerst downloaden en installeren van de [Microsoft Online Services-aanmeldhulp](http://go.microsoft.com/fwlink/?LinkID=286152).
-2. Download en installeer vervolgens de [64-bits Azure Active Directory-module voor Windows PowerShell](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
+2. Download en installeer vervolgens de [64-bits Azure Active Directory-module voor Windows PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
 3. Navigeer naar de map `%programfiles%\Microsoft Azure Active Directory Connect`.
 4. Importeer de naadloze eenmalige aanmelding PowerShell-module met de volgende opdracht: `Import-Module .\AzureADSSO.psd1`.
 5. Voer de PowerShell als beheerder. In PowerShell, roept `New-AzureADSSOAuthenticationContext`. Met deze opdracht geeft u een pop-up van uw tenant hoofdbeheerder referenties invoeren.

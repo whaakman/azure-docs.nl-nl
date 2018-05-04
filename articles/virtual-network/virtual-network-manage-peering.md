@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: f200e4ae019d918bfe7e8dfc3200a4568a50dfdf
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 773bfd3c4106bead85542970b3d27fd5dad25049
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Maken, wijzigen of een virtueel netwerk-peering verwijderen
 
@@ -127,7 +127,7 @@ Als u wilt dat virtuele netwerken om te communiceren soms, maar niet altijd, in 
 - Een virtueel netwerk kan worden ingesteld als peer met een ander virtueel netwerk en ook worden verbonden met een ander virtueel netwerk met een virtueel netwerk van Azure-gateway. Wanneer u virtuele netwerken zijn verbonden via peering en een gateway, wordt verkeer tussen virtuele netwerken loopt via de peeringconfiguratie in plaats van de gateway.
 - Er wordt een nominaal bedrag in rekening gebracht voor inkomend en uitgaand verkeer dat gebruikmaakt van een virtueel netwerk-peering. Zie de pagina [prijzen](https://azure.microsoft.com/pricing/details/virtual-network) voor meer informatie.
 * <a name="cross-region"></a>U kunt virtuele netwerken in de dezelfde regio, of verschillende regio's op hetzelfde niveau. De volgende beperkingen zijn niet van toepassing wanneer beide virtuele netwerken zich in de *dezelfde* regio, maar zijn van toepassing wanneer de virtuele netwerken globaal brengen: 
-    - De virtuele netwerken kunnen alleen bestaan in de volgende gebieden: West-Centraal VS (Wyoming), VS-West (Washington), 2 (Iowa)-centraal VS, VS Oost 2 (Virginia), Canada Central (Toronto), Canada Oost (Quebec plaats), Zuidoost-Azië (Singapore) Korea Zuid (Buscan), Zuid India (Chennai), centraal, India (Pune), West, India (Mumbai), VK Zuid (Londen), VK West (Cardiff), West-Europa (Nederland)
+    - De virtuele netwerken kunnen bestaan in een openbare Azure-cloud-regio, maar niet in Azure nationale clouds.
     - Resources in een virtueel netwerk kunnen niet communiceren met het IP-adres van een Azure interne load balancer in peered virtuele netwerk. De load balancer en de resources die met het communiceren moeten zich in hetzelfde virtuele netwerk.
     - Externe gateways gebruiken of niet toestaan van gateway-doorvoer. Als u externe gateways gebruiken of gateway onderweg toestaan, moeten beide virtuele netwerken in de peering in dezelfde regio hebben. 
 

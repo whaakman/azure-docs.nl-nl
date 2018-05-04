@@ -129,6 +129,8 @@
           items:
             - name: Herstel na noodgeval voor virtuele Azure-machines na migratie naar Azure
               href: azure-to-azure-replicate-after-migration.md
+            - name: Herstel na noodgevallen van virtuele Azure-machines met behulp van PowerShell
+              href: azure-to-azure-powershell.md
         - name: 'Replicatie, failover en failback'
           items:
             - name: Azure naar Azure-replicatie inschakelen

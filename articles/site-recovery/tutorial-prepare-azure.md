@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/16/2018
+ms.date: 04/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 2f6ff1d30eef1fe34e55457d9bdd4295804ec16a
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 0aec94ce4d53e1d0f5ecfbc7c667f7d4ceea1d2d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Azure-resources voorbereiden voor replicatie van lokale machines
 
@@ -21,8 +21,9 @@ ms.lasthandoff: 02/23/2018
 Deze zelfstudie laat zien hoe u Azure-onderdelen voorbereidt wanneer u on-premises virtuele machines (Hyper-V of VMware) of fysieke Windows- of Linux-servers wilt repliceren naar Azure. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Controleren of uw account replicatiemachtigingen heeft.
-> * Een Azure-opslagaccount maken.
+> * Controleren of uw Azure-account replicatiemachtigingen heeft.
+> * Een Azure-opslagaccount maken. Gegevens repliceren die erin zijn opgeslagen.
+> * Maak een Recovery Services-kluis.
 > * Een Azure-netwerk instellen. Wanneer de Azure VM's zijn gemaakt na de failover, worden ze gekoppeld aan dit Azure-netwerk.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/pricing/free-trial/) aan voordat u begint.
@@ -39,9 +40,9 @@ Als u net pas uw gratis Azure-account hebt gemaakt, bent u de beheerder van uw a
 - Het maken van een VM in het geselecteerde virtuele netwerk.
 - Schrijven naar het geselecteerde opslagaccount.
 
-De ingebouwde rol Inzender voor virtuele machines beschikt over deze machtigingen. U moet ook zijn gemachtigd om Site Recovery-bewerkingen te kunnen beheren. De rol Site Recovery-inzender bevat alle machtigingen die nodig zijn om Site Recovery-bewerkingen in een Recovery Services-kluis te kunnen beheren.
+U kunt deze taken alleen uitvoeren als aan uw account de ingebouwde rol van Inzender voor virtuele machines is toegewezen. En als u Site Recovery-bewerkingen wilt beheren in een kluis, moet aan uw account ook de ingebouwde rol van Site Recovery-inzender zijn toegewezen.
 
-## <a name="create-a-storage-account"></a>Een opslagaccount maken
+## <a name="create-a-storage-account"></a>Create a storage account
 
 Installatiekopieën van gerepliceerde machines worden bewaard in Azure Storage. Azure VM's worden gemaakt vanuit de opslag wanneer u een failover van on-premises naar Azure uitvoert.
 
@@ -54,7 +55,7 @@ Installatiekopieën van gerepliceerde machines worden bewaard in Azure Storage. 
 7. Geef bij **Resourcegroep** een nieuwe resourcegroep op. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Gebruik voor deze zelfstudies de naam **ContosoRG**.
 8. Selecteer bij **Locatie** de geografische locatie voor het opslagaccount. Het opslagaccount moet zich in dezelfde regio bevinden als de Recovery Services-kluis. Gebruik voor deze zelfstudie de regio **West-Europa**.
 
-   ![Een opslagaccount maken](media/tutorial-prepare-azure/create-storageacct.png)
+   ![Create a storage account](media/tutorial-prepare-azure/create-storageacct.png)
 
 9. Selecteer **Maken** om het opslagaccount te maken.
 

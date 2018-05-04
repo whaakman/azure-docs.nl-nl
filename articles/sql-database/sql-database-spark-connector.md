@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: ''
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 04/23/2018
 ms.author: xiwu
-ms.openlocfilehash: 46849d551b6996caaf020caec1ab8104d5388c8f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 393af463c4145e1d865c14f2ace7d5123ab12cfa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Versnellen realtime big data-analyses met Spark-connector voor Azure SQL Database en SQL Server
 
@@ -38,6 +38,10 @@ De gegevensstroom is als volgt:
 1. Het hoofdknooppunt Spark maakt verbinding met SQL Server of Azure SQL Database en gegevens worden geladen uit een specifieke tabel of met behulp van een specifieke SQL-query
 2. Het hoofdknooppunt Spark verdeelt gegevens met de werkrolknooppunten voor transformatie. 
 3. Het werkrolknooppunt maakt verbinding met SQL Server of Azure SQL Database en schrijft gegevens naar de database. Gebruiker kan kiezen voor het gebruik van per rij invoegen of bulksgewijs invoegen.
+
+Het volgende diagram illustreert de gegevensstroom.
+
+   ![architectuur](./media/sql-database-spark-connector/architecture.png)
 
 ### <a name="build-the-spark-to-sql-db-connector"></a>De Spark naar SQL DB-connector maken
 Op dit moment wordt gebruikt in het project connector maven. De connector zonder de afhankelijkheden bouwen, kunt u het volgende uitvoeren:
@@ -153,7 +157,7 @@ collection.show()
 #### <a name="setup-requirement"></a>Vereiste installatie
 Als u de toegang op basis van tokens verificatiemodus gebruikt, moet u downloaden [azure Active Directory-bibliotheek-voor-java-](https://github.com/AzureAD/azure-activedirectory-library-for-java) en de bijbehorende afhankelijkheden en deze opnemen in het pad van de build Java.
 
-Zie [gebruik Azure Active Directory-verificatie voor verificatie met SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication) voor meer informatie over hoe ze toegang krijgen token aan uw Azure SQL database.
+Zie [gebruik Azure Active Directory-verificatie voor verificatie met SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) voor meer informatie over hoe ze toegang krijgen token aan uw Azure SQL database.
 
 ```scala
 import com.microsoft.azure.sqldb.spark.config.Config
@@ -211,5 +215,5 @@ Als u nog niet gedaan hebt, downloadt u de Spark-connector voor Azure SQL Databa
 -   [Voorbeeld Azure Databricks laptops](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/notebooks)
 - [Voorbeeldscripts (Scala)](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/scripts)
 
-U kunt ook om te controleren de [Apache Spark SQL, DataFrames en gegevenssets handleiding](http://spark.apache.org/docs/latest/sql-programming-guide.html) en de [Azure Databricks documentatie](https://docs.microsoft.com/en-us/azure/azure-databricks/).
+U kunt ook om te controleren de [Apache Spark SQL, DataFrames en gegevenssets handleiding](http://spark.apache.org/docs/latest/sql-programming-guide.html) en de [Azure Databricks documentatie](https://docs.microsoft.com/azure/azure-databricks/).
 

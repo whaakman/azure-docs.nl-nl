@@ -13,14 +13,14 @@ ms.workload: web
 ms.tgt_pltfrm: linux
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/30/2017
+ms.date: 04/11/2018
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 0f40d2d953f028f2014c88a22f9ad31fed705b76
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 89973581d7c6aa99ab671d5bd04f258898e9235e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Een .NET Core-web-app maken in App Service on Linux
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 03/16/2018
 > In dit artikel gaat u een app implementeren in App Service onder Linux. Zie [Een ASP.NET Core-web-app maken in Azure](../app-service-web-get-started-dotnet.md) om een app te implementeren in App Service onder _Windows_.
 >
 
-[App Service on Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie onder het Linux-besturingssysteem. Deze quickstart laat zien hoe u een [.NET Core](https://docs.microsoft.com/aspnet/core/)-app maakt in App Service on Linux. U maakt de web-app via de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) en gebruikt Git om de .NET Core-code in de web-app te implementeren.
+[App Service onder Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie onder het Linux-besturingssysteem. Deze quickstart laat zien hoe u een [.NET Core](https://docs.microsoft.com/aspnet/core/)-app maakt in App Service on Linux. U maakt de web-app via de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) en gebruikt Git om de .NET Core-code in de web-app te implementeren.
 
 ![Voorbeeld-app die wordt uitgevoerd in Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -41,7 +41,7 @@ U kunt de stappen in dit artikel volgen met behulp van een Mac-, Windows- of Lin
 Dit zijn de vereisten voor het voltooien van deze Quickstart:
 
 * <a href="https://git-scm.com/" target="_blank">Git installeren</a>
-* <a href="https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.6-sdk-download.md" target="_blank">.NET Core SDK 1.1 installeren</a>
+* <a href="https://www.microsoft.com/net/core/" target="_blank">.NET Core installeren</a>
 
 ## <a name="create-the-app-locally"></a>De app lokaal maken
 

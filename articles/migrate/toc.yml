@@ -24,6 +24,8 @@
           href: migrate-scenarios-overview.md
         - name: Scenario 1 - On-premises resources beoordelen voor een migratie naar Azure
           href: migrate-scenarios-assessment.md
+        - name: 'Scenario 2: Lift-and-shift-migratie naar Azure'
+          href: migrate-scenarios-lift-and-shift.md
     - name: Een grote omgeving verkennen en beoordelen
       href: how-to-scale-assessment.md
     - name: Machines groeperen

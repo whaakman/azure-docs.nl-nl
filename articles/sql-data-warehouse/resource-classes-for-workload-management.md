@@ -7,14 +7,14 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/17/2018
+ms.date: 04/26/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 9f9da67c885974be674f6e88aaacfe66bdc0d58a
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: 09fd39865a52767195ebf7dad13f24d883af476a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Beheer van de werkbelasting met resource klassen in Azure SQL Data Warehouse
 Richtlijnen voor het gebruik van resource-klassen voor het beheren van geheugen en een gelijktijdigheid van taken voor query's in uw Azure SQL Data Warehouse.  
@@ -22,29 +22,31 @@ Richtlijnen voor het gebruik van resource-klassen voor het beheren van geheugen 
 ## <a name="what-is-workload-management"></a>Wat is werkbelasting management?
 Beheer van de werkbelasting is de mogelijkheid om de algehele prestaties van alle query's optimaliseren. Een goed afgestemd werkbelasting voert query's en bewerkingen efficiënt ongeacht of ze rekenintensieve of i/o-intensieve zijn laden.  SQL Data Warehouse levert werkbelasting voor omgevingen met meerdere gebruikers. Een datawarehouse is niet bedoeld voor werkbelastingen van meerdere tenants.
 
-De capaciteit van de prestaties van een datawarehouse wordt bepaald door de [prestatielaag](memory-and-concurrency-limits.md#performance-tiers) en de [datawarehouse eenheden](what-is-a-data-warehouse-unit-dwu-cdwu.md). 
+De capaciteit van de prestaties van een datawarehouse wordt bepaald door de [datawarehouse eenheden](what-is-a-data-warehouse-unit-dwu-cdwu.md). 
 
 - De grenzen van het geheugen en een gelijktijdigheid van taken voor alle profielen van de prestaties Zie [geheugen en gelijktijdigheid limieten](memory-and-concurrency-limits.md).
 - Om aan te passen prestaties capaciteit, kunt u [omhoog of omlaag schalen](quickstart-scale-compute-portal.md).
 
-De capaciteit van de prestaties van een query wordt bepaald door de bronklasse van de query. Deze rest van dit artikel wordt uitgelegd wat resource klassen zijn en hoe u deze kunt wijzigen.
-
+De capaciteit van de prestaties van een query wordt bepaald door de query bronklasse. De rest van dit artikel wordt uitgelegd wat resource klassen zijn en hoe u deze kunt wijzigen.
 
 ## <a name="what-are-resource-classes"></a>Wat zijn de klassen resource?
-Resource-klassen worden vooraf bepaald limieten in Azure SQL Data Warehouse die bepalen rekenresources en gelijktijdigheid van taken voor uitvoering van de query. Resource klassen kunt u beperkingen instellen voor het aantal query's die gelijktijdig worden uitgevoerd en de rekenresources toegewezen aan elke query voor het beheren van uw workload. Er is een afweging tussen het geheugen en een gelijktijdigheid van taken.
+De capaciteit van de prestaties van een query wordt bepaald door de gebruiker bronklasse.  Resource-klassen worden vooraf bepaald limieten in Azure SQL Data Warehouse die bepalen rekenresources en gelijktijdigheid van taken voor uitvoering van de query. Resource klassen kunt u beperkingen instellen voor het aantal query's die gelijktijdig worden uitgevoerd en de rekenresources toegewezen aan elke query voor het beheren van uw workload. Er is een commerciële uitgeschakeld tussen het geheugen en een gelijktijdigheid van taken.
 
 - Kleinere resource klassen verminderen de maximale hoeveelheid geheugen per query, maar tegelijkertijd verwerken.
 - Grotere resource categorieën verhoogt de maximale hoeveelheid geheugen per query, maar beperkt. 
 
-De capaciteit van de prestaties van een query wordt bepaald door de gebruiker bronklasse.
+Er zijn twee soorten klassen resource:
 
-- Het Resourcegebruik voor de resource-klassen, Zie [geheugen en gelijktijdigheid limieten](memory-and-concurrency-limits.md#concurrency-maximums).
-- U kunt de query onder een andere gebruiker uitvoeren om aan te passen op de bronklasse, of [wijzigen van de huidige gebruiker bronklasse](#change-a-user-s-resource-class) lidmaatschap. 
+- Statische resources-klassen, die heel geschikt voor verbeterde gelijktijdigheid van de grootte van een gegevensset die is opgelost.
+- Dynamische bron-klassen, die geschikt zijn voor gegevenssets die worden groeiende in grootte en prestaties te verbeteren, zoals het serviceniveau wordt uitgebreid.   
 
 Gelijktijdigheid sleuven resource klassen gebruiken om te meten resourceverbruik.  [Gelijktijdigheid sleuven](#concurrency-slots) verderop in dit artikel worden beschreven. 
 
+- Het Resourcegebruik voor de resource-klassen, Zie [geheugen en gelijktijdigheid limieten](memory-and-concurrency-limits.md#concurrency-maximums).
+- U kunt de query onder een andere gebruiker uitvoeren om aan te passen op de bronklasse, of [wijzigen van de huidige gebruiker bronklasse](#change-a-users-resource-class) lidmaatschap. 
+
 ### <a name="static-resource-classes"></a>Statische resource klassen
-Statische resource klassen toewijzen dezelfde hoeveelheid geheugen, ongeacht het huidige prestatieniveau wordt gemeten in [datawarehouse eenheden](what-is-a-data-warehouse-unit-dwu-cdwu.md). Omdat de query's geven de dezelfde geheugentoewijzing ongeacht het prestatieniveau [geschaalde uitbreiding van het datawarehouse](quickstart-scale-compute-portal.md) kunt u meer query's uitvoeren in een resourceklasse.
+Statische resource klassen toewijzen dezelfde hoeveelheid geheugen, ongeacht het huidige prestatieniveau wordt gemeten in [datawarehouse eenheden](what-is-a-data-warehouse-unit-dwu-cdwu.md). Omdat de query's geven de dezelfde geheugentoewijzing ongeacht het prestatieniveau [geschaalde uitbreiding van het datawarehouse](quickstart-scale-compute-portal.md) kunt u meer query's uitvoeren in een resourceklasse.  Statische resource klassen zijn ideaal als gegevensvolume bekend en constante.
 
 De statische resource-klassen worden geïmplementeerd met deze vooraf gedefinieerde databaserollen:
 
@@ -57,19 +59,31 @@ De statische resource-klassen worden geïmplementeerd met deze vooraf gedefiniee
 - staticrc70
 - staticrc80
 
-Deze resource-klassen zijn meest geschikt is voor oplossingen die bronklasse om extra rekenresources te vergroten.
-
 ### <a name="dynamic-resource-classes"></a>Dynamische Bronklassen
-Dynamische Resource klassen toewijzen een variabele hoeveelheid geheugen, afhankelijk van het huidige serviceniveau. Als u naar een grotere service opschalen, wordt in uw query's automatisch meer geheugen krijgt. 
+Dynamische Resource klassen toewijzen een variabele hoeveelheid geheugen, afhankelijk van het huidige serviceniveau. Statische resource klassen zijn nuttig voor hogere gelijktijdigheid van taken en statische gegevensvolumes, zijn dynamische Bronklassen beter geschikt voor een groeiende of variabele hoeveelheid gegevens.  Als u naar een grotere service opschalen, wordt in uw query's automatisch meer geheugen krijgt.  
 
 De dynamische Bronklassen worden geïmplementeerd met deze vooraf gedefinieerde databaserollen:
 
 - smallrc
 - mediumrc
 - largerc
-- xlargerc. 
+- xlargerc 
 
-Deze resource-klassen zijn meest geschikt is voor oplossingen welke toename compute scale voor aanvullende bronnen. 
+### <a name="gen2-dynamic-resource-classes-are-truly-dynamic"></a>Gen2 dynamische Bronklassen zijn echt dynamisch
+Wanneer waarbij vaak in de details van klassen op Gen1 dynamische bron, zijn er enkele gegevens die extra complexiteit aan hun gedrag toevoegen:
+
+- De klasse van de resources smallrc werkt met een vaste geheugenmodel als een statische bronklasse.  Query's Smallrc doen meer geheugen, zoals het serviceniveau wordt verhoogd niet dynamisch ophalen.
+- Als serviceniveaus wijzigt, gaat de gelijktijdigheid van de beschikbare query omhoog of omlaag.
+- Serviceniveaus schalen biedt geen een wijziging die evenredig is het geheugen toegewezen aan de dezelfde resource-klassen.
+
+Op **Gen2 alleen**, dynamische Bronklassen echt dynamische adressering de bovengenoemde punten zijn.  De nieuwe regel 3-10-22-70 voor percentage geheugentoewijzingen voor klein-medium-grote-xlarge resource-klassen is **ongeacht serviceniveau**.  De onderstaande tabel bevat de geconsolideerde details van het geheugen toegewezen percentages en het minimum aantal gelijktijdige query's die worden uitgevoerd, ongeacht het serviceniveau.
+
+| Resourceklasse | Percentage geheugen | Min gelijktijdige query 's |
+|:--------------:|:-----------------:|:----------------------:|
+| smallrc        | % 3                | 32                     |
+| mediumrc       | 10%               | 10                     |
+| largerc        | 22%               | 4                      |
+| xlargerc       | 70%               | 1                      |
 
 
 ### <a name="default-resource-class"></a>Standaard-bronklasse
@@ -145,10 +159,11 @@ Alleen resource geregeld query verbruiken gelijktijdigheid sleuven. Verbruikt sl
 
 Resource-klassen worden geïmplementeerd als een vooraf gedefinieerde databaserollen. Er zijn twee soorten klassen resource: dynamische en statische. Een lijst van de resource-klassen wilt weergeven, gebruikt u de volgende query:
 
-    ```sql
-    SELECT name FROM sys.database_principals
-    WHERE name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
-    ```
+```sql
+SELECT name 
+FROM   sys.database_principals
+WHERE  name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
+```
 
 ## <a name="change-a-users-resource-class"></a>De bronklasse van een gebruiker wijzigen
 
@@ -198,7 +213,7 @@ Gebruik andere resource klassen voor het afstemmen van de prestaties. De volgend
 
 ## <a name="example-code-for-finding-the-best-resource-class"></a>Voorbeeld van code voor de beste bronklasse zoeken
  
-U kunt de volgende opgeslagen procedure gebruiken om te achterhalen gelijktijdigheid van taken en het geheugen verlenen per bronklasse op een gegeven SLO en de dichtstbijzijnde best bronklasse voor geheugen rekenintensieve CCI bewerkingen op niet-gepartitioneerde CCI tabel op een bepaalde bron-klasse:
+U kunt de volgende opgeslagen procedure op **Gen1 alleen** om te achterhalen gelijktijdigheid van taken en het geheugen verlenen per bronklasse op een gegeven SLO en de dichtstbijzijnde best bronklasse voor het geheugen van gegevensintensieve CCI bewerkingen op niet-gepartitioneerde CCI tabel op een bepaalde bron-klasse:
 
 Dit is het doel van deze opgeslagen procedure:  
 1. Voor een overzicht van de gelijktijdigheid van taken en het geheugen per bronklasse op een gegeven SLO verlenen. Gebruiker moet NULL opgeven voor schema- en tablename in dit voorbeeld wordt getoond.  
@@ -229,6 +244,10 @@ EXEC dbo.prc_workload_management_by_DWU NULL, 'dbo', 'Table1';
 EXEC dbo.prc_workload_management_by_DWU 'DW6000', NULL, NULL;  
 EXEC dbo.prc_workload_management_by_DWU NULL, NULL, NULL;  
 ```
+> [!NOTE]
+> De waarden die zijn gedefinieerd in deze versie van de opgeslagen procedure zijn alleen van toepassing op Gen1.
+>
+>
 
 De volgende instructie maakt Table1 die wordt gebruikt in de voorgaande voorbeelden.
 `CREATE TABLE Table1 (a int, b varchar(50), c decimal (18,10), d char(10), e varbinary(15), f float, g datetime, h date);`
@@ -295,7 +314,7 @@ AS
   UNION ALL
     SELECT 'DW400', 16, 16, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
   UNION ALL
-     SELECT 'DW500', 20, 20, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
+    SELECT 'DW500', 20, 20, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
   UNION ALL
     SELECT 'DW600', 24, 24, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
   UNION ALL
@@ -307,7 +326,7 @@ AS
   UNION ALL
     SELECT 'DW2000', 32, 80, 1, 16, 32, 64, 1, 2, 4, 8, 16, 32, 64, 64
   UNION ALL
-   SELECT 'DW3000', 32, 120, 1, 16, 32, 64, 1, 2, 4, 8, 16, 32, 64, 64
+    SELECT 'DW3000', 32, 120, 1, 16, 32, 64, 1, 2, 4, 8, 16, 32, 64, 64
   UNION ALL
     SELECT 'DW6000', 32, 240, 1, 32, 64, 128, 1, 2, 4, 8, 16, 32, 64, 128
 )

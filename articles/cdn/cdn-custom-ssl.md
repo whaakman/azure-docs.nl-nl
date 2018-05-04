@@ -1,6 +1,6 @@
 ---
-title: HTTPS configureren op een aangepaste Azure CDN-domein | Microsoft Docs
-description: Informatie over het in- of uitschakelen van HTTPS op uw aangepaste domein van Azure CDN-eindpunt.
+title: 'Zelfstudie: HTTPS configureren op een aangepast Azure CDN-domein | Microsoft Docs'
+description: In deze zelfstudie leert u hoe u HTTPS kunt inschakelen en uitschakelen op het Azure CDN-eindpunt van een aangepast domein.
 services: cdn
 documentationcenter: ''
 author: dksimpson
@@ -11,202 +11,227 @@ ms.service: cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/22/2018
-ms.author: rli; v-deasim
-ms.openlocfilehash: ca3dad18973197f63e69e6568b8ea5988b279e01
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.topic: tutorial
+ms.date: 04/12/2018
+ms.author: rli
+ms.custom: mvc
+ms.openlocfilehash: a8f2da5a68552c35a55a7bbb764afc7b36af6962
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="configure-https-on-an-azure-cdn-custom-domain"></a>HTTPS configureren op een aangepaste Azure CDN-domein
+# <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Zelfstudie: HTTPS op een aangepast Azure CDN-domein configureren
 
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-Azure Content Delivery Network (CDN) ondersteunt het HTTPS-protocol voor een aangepast domein op een CDN-eindpunt. Met het HTTPS-protocol op uw aangepaste domein, zorgt u ervoor dat uw vertrouwelijke gegevens wordt geleverd veilig via SSL-codering wanneer ze via internet worden verzonden. HTTPS biedt vertrouwt, verificatie, en uw webtoepassingen worden beschermd tegen aanvallen. Bovendien het leveren van de beveiligde inhoud met behulp van uw eigen domeinnaam (bijvoorbeeld https:\//www.contoso.com). De werkstroom inschakelen HTTPS wordt vereenvoudigd, via één klik inschakelen en volledige Certificaatbeheer, allemaal zonder extra kosten.
+In deze zelfstudie ziet u hoe u het HTTP-protocol kunt inschakelen voor een aangepast domein dat is gekoppeld aan een Azure CDN-eindpunt (Content Delivery Network). Door het HTTPS-protocol te gebruiken in uw aangepaste domein, (bijvoorbeeld https:\//www.contoso.com) zorgt u ervoor dat uw gevoelige gegevens veilig worden afgeleverd met SSL-versleuteling wanneer ze via internet worden verzonden. HTTPS biedt betrouwbaarheid en verificatie, en biedt uw webtoepassingen beveiliging tegen aanvallen. De werkstroom voor het inschakelen van HTTPS is vereenvoudigd tot activering via één klik en biedt volledig certificaatbeheer, allemaal zonder extra kosten.
 
-Azure CDN ondersteunt ook HTTPS op de hostnaam van een CDN-eindpunt standaard. Bijvoorbeeld, als u een CDN-eindpunt maken (zoals https:\//contoso.azureedge.net), HTTPS is automatisch ingeschakeld.  
+Azure CDN biedt standaard ondersteuning voor HTTPS voor een hostnaam van een CDN-eindpunt. Als u een CDN-eindpunt maakt (bijvoorbeeld https:\//contoso.azureedge.net), wordt HTTPS automatisch ingeschakeld.  
 
-Enkele van de belangrijkste kenmerken van de functie voor HTTPS zijn:
+Enkele belangrijke kenmerken van de HTTPS-functie zijn:
 
-- Kan zonder extra kosten: Er zijn geen kosten voor het verkrijgen van het certificaat of vernieuwen en zonder extra kosten voor HTTPS-verkeer. U betaalt alleen voor GB uitgaande vanaf de CDN.
+- Geen extra kosten: er worden geen kosten in rekening gebracht voor het verwerven of vernieuwen van certificaten, of voor HTTPS-verkeer. U betaalt alleen voor de uitgaande GB van het CDN.
 
-- Eenvoudige activering: één muisklik inrichting is beschikbaar via de [Azure-portal](https://portal.azure.com). U kunt ook REST-API of andere ontwikkelhulpprogramma's gebruiken de functie in te schakelen.
+- Eenvoudig inschakelen: inrichten met één klik is beschikbaar in [Azure Portal](https://portal.azure.com). U kunt ook REST API of andere hulpprogramma’s voor ontwikkelaars gebruiken om de functie in te schakelen.
 
-- Voltooien van Certificaatbeheer: alle aanschaf van het certificaat en u wordt beheerd. Certificaten worden automatisch worden ingericht en verlengd vóór de vervaldatum, waardoor de risico's van de service wordt onderbroken vanwege een certificaat verloopt.
+- Volledig certificaatbeheer: alle aanschaf en beheer van certificaten wordt voor u afgehandeld. Certificaten worden automatisch ingericht en vernieuwd vóór de verloopdatum. Hierdoor loopt u niet het risico dat de service wordt onderbroken omdat een certificaat is verlopen.
 
->[!NOTE] 
->Voordat het HTTPS-ondersteuning wordt ingeschakeld, u moet hebben al een [aangepaste Azure CDN-domein](./cdn-map-content-to-custom-domain.md).
+In deze zelfstudie leert u het volgende:
+> [!div class="checklist"]
+> - Het HTTPS-protocol inschakelen in uw aangepast domein
+> - Het domein valideren
+> - Het HTTPS-protocol uitschakelen in uw aangepast domein
 
-## <a name="enabling-https"></a>HTTPS inschakelen
+## <a name="prerequisites"></a>Vereisten
 
-Volg deze stappen zodat HTTPS op een aangepast domein:
+Voordat u de stappen in deze zelfstudie kunt voltooien, moet u eerst een CDN-profiel en ten minste één CDN-eindpunt maken. Zie voor meer informatie [Snelstart: Een Azure CDN-profiel en een eindpunt maken](cdn-create-new-endpoint.md).
 
-### <a name="step-1-enable-the-feature"></a>Stap 1: De functie inschakelen 
+Daarnaast moet u een aangepast Azure CDN-domein koppelen aan uw CDN-eindpunt. Zie [Zelfstudie: Een aangepast domein toevoegen aan uw Azure CDN-eindpunt](cdn-map-content-to-custom-domain.md) voor meer informatie
 
-1. In de [Azure-portal](https://portal.azure.com), blader naar uw **Azure CDN Standard van Verizon** of **Azure CDN Premium van Verizon** CDN-profiel.
+## <a name="enable-the-https-feature"></a>De HTTPS-functie inschakelen
 
-2. Klik op het eindpunt met uw aangepaste domein in de lijst met eindpunten.
+Volg deze stappen om HTTPS in te schakelen in een aangepast domein:
 
-3. Klik op het aangepaste domein waarvoor u wilt inschakelen van HTTPS.
+1. Ga in [Azure Portal](https://portal.azure.com) naar uw CDN-profiel in **Azure CDN Standard van Verizon** of **Azure CDN Premium van Verizon**.
+
+2. Selecteer in de lijst met CDN-eindpunten het eindpunt met het aangepaste domein.
+
+    ![Lijst met eindpunten](./media/cdn-custom-ssl/cdn-select-custom-domain-endpoint.png)
+
+    De pagina **Eindpunt** wordt weergegeven.
+
+3. Selecteer in de lijst met aangepaste domeinen het aangepaste domein waarvoor u HTTPS wilt inschakelen.
 
     ![Lijst met aangepaste domeinen](./media/cdn-custom-ssl/cdn-custom-domain.png)
 
-4. Klik op **op** om HTTPS, klikt u vervolgens op **toepassen**.
+    De pagina **Aangepast domein** wordt weergegeven.
 
-    ![Aangepast domein HTTPS-status](./media/cdn-custom-ssl/cdn-enable-custom-ssl.png)
+4. Selecteer **Aan** om HTTPS in te schakelen. Selecteer vervolgens **Toepassen**.
+
+    ![HTTP-status voor aangepast domein](./media/cdn-custom-ssl/cdn-enable-custom-ssl.png)
 
 
-### <a name="step-2-validate-domain"></a>Stap 2: Domein valideren
+## <a name="validate-the-domain"></a>Het domein valideren
 
->[!NOTE]
->Als u een certificaat autoriteit autorisatie (CAA)-record met uw DNS-provider hebt, moet het DigiCert bevatten als een geldige CA. Een record CAA kan eigenaren van een domein met hun DNS-providers die CA's zijn gemachtigd voor het verlenen van certificaten voor hun domein opgeven. Als een CA ontvangt een volgorde voor een certificaat voor een domein met een record CAA en die CA niet wordt vermeld als een gemachtigde uitgever, is het verboden van het certificaat heeft uitgegeven aan het domein of subdomein. Zie voor meer informatie over het beheren van CAA records [beheren CAA records](https://support.dnsimple.com/articles/manage-caa-record/). Zie voor een hulpprogramma van de record CAA [CAA Record Helper](https://sslmate.com/caa/).
+Als u al een aangepast domein gebruikt dat is toegewezen aan uw aangepaste eindpunt met een CNAME-record, gaat u verder met  
+[Er is een aangepast domein toegewezen aan uw CDN-eindpunt](#custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record). In andere gevallen, als de CNAME-record voor uw eindpunt niet meer bestaat of als de record het subdomein cdnverify bevat, gaat u verder met [Er is geen aangepast domein toegewezen aan uw CDN-eindpunt](#custom-domain-is-not-mapped-to-your-cdn-endpoint).
 
-#### <a name="custom-domain-is-mapped-to-cdn-endpoint"></a>Het aangepaste domein is toegewezen aan de CDN-eindpunt
+### <a name="custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record"></a>Er is een aangepast domein toegewezen aan uw CDN-eindpunt met een CNAME-record
 
-Wanneer u een aangepast domein toegevoegd aan uw eindpunt, moet u een CNAME-record in de DNS-tabel van uw domeinregistrar om toe te wijzen naar de hostnaam van uw CDN-eindpunt gemaakt. Als dat CNAME-record bestaat nog steeds en niet het subdomein cdnverify bevat, de DigiCert-certificeringsinstantie (CA) wordt gebruikt voor het valideren eigenaar van uw aangepaste domein. 
+Toen u een aangepast domein toevoegde aan uw eindpunt, hebt u een CNAME-record gemaakt in de DNS-tabel van de domeinregistrar om het domein toe te wijzen aan de hostnaam van het CDN-eindpunt. Als deze CNAME-records nog steeds bestaat en niet het subdomein cdnverify bevat, wordt het met de DigiCert-CA (certificeringsinstantie) gebruikt om het eigendom van uw aangepaste domein te valideren. 
 
-De CNAME-record moet in de volgende indeling hebben: waar *naam* is uw aangepaste domeinnaam en *waarde* is de hostnaam van uw CDN-eindpunt:
+Uw CNAME-record moet de volgende indeling hebben, waarbij *Naam* de naam van het aangepaste domein is, en *Waarde* de hostnaam van het CDN-eindpunt:
 
 | Naam            | Type  | Waarde                 |
 |-----------------|-------|-----------------------|
 | www.contoso.com | CNAME | contoso.azureedge.net |
 
-Zie voor meer informatie over de CNAME-records [maakt u de DNS CNAME-record](https://docs.microsoft.com/en-us/azure/cdn/cdn-map-content-to-custom-domain#step-2-create-the-cname-dns-records).
+Zie [Create the CNAME DNS record](https://docs.microsoft.com/en-us/azure/cdn/cdn-map-content-to-custom-domain#create-the-cname-dns-records) (De CNAME DNS-record maken) voor meer informatie over CNAME-records.
 
-Als uw CNAME-record in de juiste indeling is, wordt DigiCert automatisch gecontroleerd van uw aangepaste domeinnaam en voegt het toe aan het certificaat onderwerp alternatieve namen (SAN). DigitCert won't sturen je een bevestigingsmail en hoeft u uw aanvraag goedkeuren. Het certificaat is één jaar geldig en wordt automatische-vernieuwd voordat deze verloopt. Ga door naar [stap 3: wachten op doorgeven](#step-3-wait-for-propagation). 
+Als de CNAME-record de juiste indeling heeft, wordt de naam van het aangepaste domein automatisch geverifieerd met DigiCert en toegevoegd aan het SAN-certificaat (alternatieve namen voor onderwerpen). U ontvangt via DigiCert geen verificatie-e-mail en u hoeft uw aanvraag niet goed te keuren. Het certificaat is één jaar geldig en wordt, vóórdat het verloopt, automatisch vernieuwd. Ga verder met [Wachten op doorgifte](#wait-for-propagation). 
 
-De validatie van de automatische duurt normaal gesproken een paar minuten. Als u uw domein gevalideerd binnen een uur niet ziet, moet u een ondersteuningsticket opent.
+De automatische validatie duurt gewoonlijk enkele minuten. Als het domein na een uur nog niet is gevalideerd, opent u een ondersteuningsticket.
 
-#### <a name="cname-record-is-not-mapped-to-cdn-endpoint"></a>CNAME-record is niet toegewezen aan de CDN-eindpunt
+>[!NOTE]
+>Als u beschikt over een CAA-record (Certificate Authority Authorization) bij uw DNS-provider, moet deze DigiCert bevatten als een geldige CA. Met een CAA-record kunnen domeineigenaars bij hun DNS-provider opgeven welke CA’s zijn geautoriseerd om certificaten te verlenen voor hun domein. Als een CA een bestelling ontvangt voor een certificaat voor een domein met een CAA-record, en deze CA wordt niet vermeld als een geautoriseerde verlener, mag de CA het certificaat niet verlenen aan dit domein of subdomein. Zie [CAA-records beheren](https://support.dnsimple.com/articles/manage-caa-record/) voor meer informatie over het beheren van CAA-records. Zie [CAA-record Helper](https://sslmate.com/caa/) voor een hulpprogramma voor CAA-records.
 
-Als de vermelding CNAME-record voor uw eindpunt niet langer bestaat of het subdomein cdnverify bevat, voert u de rest van de instructies in deze stap.
+### <a name="custom-domain-is-not-mapped-to-your-cdn-endpoint"></a>Er is geen aangepast domein toegewezen aan uw CDN-eindpunt
 
-Nadat u HTTPS op uw aangepaste domein inschakelt, de DigiCert-certificeringsinstantie (CA) eigendom van uw domein contact opnemen met de bijbehorende registrant valideert volgens het domein [WHOIS](http://whois.domaintools.com/) registrant informatie. Neem contact op met worden uitgevoerd via het e-mailadres (standaard) of het telefoonnummer dat wordt vermeld in de WHOIS-registratie. U moet domeinvalidatie voltooien voordat HTTPS actief op uw aangepaste domein zijn. U hebt zes werkdagen goedkeuren van het domein. Aanvragen die niet binnen zes werkdagen zijn goedgekeurd, worden automatisch geannuleerd. 
+Als de CNAME-record voor uw eindpunt niet meer bestaat of als deze het subdomein cdnverify bevat, volgt u de rest van de instructies in deze stap.
 
-![WHOIS record](./media/cdn-custom-ssl/whois-record.png)
+Nadat u HTTPS hebt ingeschakeld voor uw aangepaste domein, wordt met de DigiCert-CA (certificeringsinstantie) het eigendom van het domein gevalideerd door contact op te nemen met de bijbehorende registrator, op basis van de [WHOIS](http://whois.domaintools.com/)-registratiegegevens van het domein. Contact verloopt via het e-mailadres (standaard) of het telefoonnummer dat staat vermeld in de WHOIS-registratie. U moet de domeinvalidatie voltooien voordat HTTPS actief is voor uw aangepaste domein. U hebt zes werkdagen de tijd om het domein goed te keuren. Aanvragen die niet binnen zes werkdagen zijn goedgekeurd, worden automatisch geannuleerd. 
 
-DigiCert wordt ook een bevestigingsmail verzonden naar extra e-mailadressen. Als de WHOIS registrant informatie particulier is, controleert u of kunt u rechtstreeks vanuit een van de volgende adressen goedkeuren:
+![WHOIS-record](./media/cdn-custom-ssl/whois-record.png)
 
-beheerder @&lt;your domain-name.com&gt;  
-beheerder @&lt;your domain-name.com&gt;  
-webbeheerder @&lt;your domain-name.com&gt;  
-hostmaster @&lt;your domain-name.com&gt;  
-postbeheerder @&lt;your domain-name.com&gt;  
+Via DigiCert wordt ook een verificatie-e-mail verzonden naar extra e-mailadressen. Als de WHOIS-registratiegegevens privé zijn, verifieert u dat u direct kunt goedkeuren vanaf een van de volgende adressen:
 
-U ontvangt een e-mailbericht over een paar minuten, vergelijkbaar met het volgende voorbeeld, waarin u de aanvraag goedkeuren. Als u een spamfilter gebruikt, voegt admin@digicert.com naar de goedgekeurde IP-adressen. Als u een e-mailbericht niet binnen 24 uur ontvangt, moet u contact op met Microsoft ondersteuning.
+admin@&lt;uw-domeinnaam.com&gt;  
+administrator@&lt;uw-domeinnaam.com&gt;  
+webmaster@&lt;uw-domeinnaam.com&gt;  
+hostmaster@&lt;uw-domeinnaam.com&gt;  
+postmaster@&lt;uw-domeinnaam.com&gt;  
+
+U ontvangt binnen enkele minuten een e-mailbericht, vergelijkbaar met het bericht in het volgende voorbeeld, waarin u wordt gevraagd om de aanvraag goed te keuren. Als u een spamfilter gebruikt, voegt u admin@digicert.com toe aan de lijst met toegestane e-mailadressen. Als u na 24 uur nog geen e-mailbericht hebt ontvangen, neemt u contact op met Microsoft Ondersteuning.
     
-![Domein validatie e](./media/cdn-custom-ssl/domain-validation-email.png)
+![E-mailbericht voor domeinvalidatie](./media/cdn-custom-ssl/domain-validation-email.png)
 
-Wanneer u op de goedkeuringskoppeling klikt, wordt u omgeleid naar de volgende notatie voor de on line goedkeuring: 
+Als u op de goedkeuringskoppeling klikt, wordt u naar het volgende onlinegoedkeuringsformulier geleid: 
     
-![Formulier voor domein-validatie](./media/cdn-custom-ssl/domain-validation-form.png)
+![Formulier voor domeinvalidatie](./media/cdn-custom-ssl/domain-validation-form.png)
 
-Volg de instructies op het formulier. hebt u twee opties voor verificatie:
+Volg de instructies op het formulier. U hebt twee verificatieopties:
 
-- U kunt alle toekomstige orders geplaatst via dezelfde account voor het hoofddomein van dezelfde; goedkeuren bijvoorbeeld contoso.com. Deze aanpak wordt aanbevolen als u van plan bent extra aangepaste domeinen voor het hoofddomein van dezelfde kunnen worden toegevoegd.
+- U kunt alle toekomstige bestellingen goedkeuren die met hetzelfde account zijn geplaatst voor hetzelfde hoofddomein, bijvoorbeeld contoso.com. Deze methode wordt aangeraden als u van plan bent om extra aangepaste domeinen toe te voegen voor hetzelfde hoofddomein.
 
-- U kunt alleen de specifieke host-naam gebruikt in deze aanvraag goedkeuren. Er is aanvullende goedkeuring vereist voor volgende aanvragen.
+- U kunt alleen de specifieke hostnaam goedkeuren die wordt gebruikt in deze aanvraag. Voor volgende aanvragen is extra goedkeuring is vereist.
 
-Na de goedkeuring, wordt uw aangepaste domeinnaam in DigiCert toegevoegd aan de SAN-certificaat. Het certificaat is één jaar geldig en wordt automatische-vernieuwd voordat deze is verlopen.
+Na de goedkeuring wordt het aangepaste domein via DigiCert toegevoegd aan het SAN-certificaat. Het certificaat is één jaar geldig en wordt, vóórdat het verloopt, automatisch vernieuwd.
 
-### <a name="step-3-wait-for-propagation"></a>Stap 3: Wachten op doorgeven
+## <a name="wait-for-propagation"></a>Wachten op doorgifte
 
-Nadat de domeinnaam is gevalideerd, kan deze duren 6-8 uur voor de functie aangepast domein HTTPS worden geactiveerd. Wanneer het proces voltooid is, de status van de aangepaste HTTPS in de Azure portal is ingesteld op **ingeschakeld** en de bewerking vier stappen in het dialoogvenster aangepaste domein zijn gemarkeerd als voltooid. Uw aangepaste domein is nu gereed voor gebruik van HTTPS.
+Nadat de domeinnaam is gevalideerd, duurt het maximaal 6 tot 8 uur voordat de HTTPS-functie van het aangepaste domein is geactiveerd. Wanneer het proces is voltooid, is de aangepaste HTTPS-status in Azure Portal ingesteld op **Ingeschakeld** en zijn de vier bewerkingsstappen in het dialoogvenster Aangepast domein gemarkeerd als Voltooid. Het aangepaste domein is nu klaar voor gebruik van HTTPS.
 
 ![Dialoogvenster HTTPS inschakelen](./media/cdn-custom-ssl/cdn-enable-custom-ssl-complete.png)
 
-### <a name="operation-progress"></a>Voortgang van bewerking
+### <a name="operation-progress"></a>Bewerkingsvoortgang
 
-De volgende tabel toont de voortgang van de bewerking die wordt uitgevoerd wanneer u HTTPS inschakelen. Nadat u HTTPS inschakelt, worden vier stappen van de bewerking weergegeven in het dialoogvenster aangepast domein. Omdat elke stap geactiveerd wordt, is extra Substap details worden weergegeven onder de stap als deze beweegt. Niet alle deze substappen wordt uitgevoerd. Nadat een stap heeft voltooid, verschijnt een groen vinkje ernaast. 
+In de volgende tabel wordt de bewerkingsvoortgang weergegeven die plaatsvindt nadat u HTTPS hebt ingeschakeld. Als u HTTPS hebt ingeschakeld, worden vier bewerkingsstappen weergegeven in het dialoogvenster Aangepast domein. Telkens als een van deze stappen actief wordt, verschijnen, tijdens de uitvoering, extra substappen onder de stap. Niet al deze substappen worden uitgevoerd. Nadat een stap is voltooid, wordt naast deze stap een groen vinkje weergegeven. 
 
-| Bewerkingsstap | Details van de bewerking Substap | 
+| Bewerkingsstap | Details van bewerkingssubstap | 
 | --- | --- |
-| 1 indienen aanvraag | Aanvraag verzenden |
-| | Uw HTTPS-aanvraag wordt verzonden. |
-| | Uw HHTPS-aanvraag is verzonden. |
-| 2 domeinvalidatie | Domein automatisch gevalideerd als het CNAME toegewezen aan het CDN-eindpunt. Anders wordt een verzoek voor identiteitverificatie verzonden naar de e-mail die worden vermeld in uw domein registratierecord (WHOIS registrant). Controleer of het domein zo snel mogelijk. |
+| 1 Aanvraag verzenden | Aanvraag verzenden |
+| | De HTTPS-aanvraag wordt verzonden. |
+| | De HTTPS-aanvraag is verzonden. |
+| 2 Domeinvalidatie | Het domein wordt automatisch gevalideerd als de CNAME is toegewezen aan het CDN-eindpunt. In andere gevallen wordt een verificatieaanvraag verzonden naar het e-mailadres dat wordt vermeld in de registratierecord (WHOIS-registrator) van uw domein. Verifieer het domein zo snel mogelijk. |
 | | Uw domeineigendom is gevalideerd. |
-| | Domein eigendom validatieaanvraag verlopen (de klant waarschijnlijk heeft niet gereageerd binnen 6 dagen). HTTPS wordt niet ingeschakeld op uw domein. * |
-| | Domein eigendom validatie-aanvraag is geweigerd door de klant. HTTPS wordt niet ingeschakeld op uw domein. * |
-| 3 inrichting van certificaten | De certificeringsinstantie verleent momenteel het certificaat dat nodig is om HTTPS in te schakelen in uw domein. |
-| | Het certificaat is uitgegeven en wordt momenteel geïmplementeerd met CDN-netwerk. Dit kan enige tijd duren 6 uur. |
+| | Validatieaanvraag voor eigendom van het domein is verlopen (de klant heeft waarschijnlijk niet binnen zes dagen gereageerd). HTTPS wordt niet ingeschakeld voor uw domein. * |
+| | Validatieaanvraag voor eigendom van het domein is geweigerd door de klant. HTTPS wordt niet ingeschakeld voor uw domein. * |
+| 3 Certificaat inrichten | De certificeringsinstantie verleent momenteel het certificaat dat nodig is om HTTPS in te schakelen in uw domein. |
+| | Het certificaat is verleend en wordt momenteel geïmplementeerd in het CDN-netwerk. Dit duurt maximaal 6 uur. |
 | | Het certificaat is geïmplementeerd in het CDN-netwerk. |
-| 4 voltooid | HTTPS is ingeschakeld in uw domein. |
+| 4 Voltooien | HTTPS is ingeschakeld in uw domein. |
 
-\* Dit bericht is alleen beschikbaar als een fout opgetreden. 
+\* Dit bericht wordt niet weergegeven tenzij er een fout is opgetreden. 
 
-
-Als een fout optreedt voordat de aanvraag is verzonden, wordt het volgende foutbericht weergegeven:
+Als er een fout optreedt voordat de aanvraag is verzonden, wordt het volgende foutbericht weergegeven:
 
 <code>
 We encountered an unexpected error while processing your HTTPS request. Please try again and contact support if the issue persists.
 </code>
 
-## <a name="disabling-https"></a>Disabling HTTPS
+## <a name="clean-up-resources---disable-https"></a>Resources opschonen - HTTPS uitschakelen
 
-Wanneer u HTTPS op een aangepast domein hebt ingeschakeld, kunt u deze later uitschakelen. Als u wilt uitschakelen HTTPS, de volgende stappen uit:
+In de voorgaande stappen hebt u het HTTPS-protocol in uw aangepaste domein ingeschakeld. Als u het aangepaste domein niet meer wilt gebruiken met HTTPS, kunt u HTTPS uitschakelen door de volgende stappen uit te voeren:
 
-### <a name="step-1-disable-the-feature"></a>Stap 1: De functie uitschakelen 
+### <a name="disable-the-https-feature"></a>De HTTPS-functie uitschakelen 
 
-1. In de [Azure-portal](https://portal.azure.com), blader naar uw **Azure CDN Standard van Verizon** of **Azure CDN Premium van Verizon** CDN-profiel.
+1. Ga in [Azure Portal](https://portal.azure.com) naar uw CDN-profiel in **Azure CDN Standard van Verizon** of **Azure CDN Premium van Verizon**.
 
-2. Klik op het eindpunt met uw aangepaste domein in de lijst met eindpunten.
+2. Klik in de lijst met eindpunten op het eindpunt met het aangepaste domein.
 
-3. Klik op het aangepaste domein waarvoor u wilt uitschakelen van HTTPS.
+3. Klik op het aangepaste domein waarvoor u HTTPS wilt uitschakelen.
 
     ![Lijst met aangepaste domeinen](./media/cdn-custom-ssl/cdn-custom-domain-HTTPS-enabled.png)
 
-4. Klik op **uit** als wilt uitschakelen HTTPS, klikt u vervolgens op **toepassen**.
+4. Klik op **Uit** om HTTPS uit te schakelen. Klik vervolgens op **Toepassen**.
 
-    ![Dialoogvenster voor aangepaste HTTPS](./media/cdn-custom-ssl/cdn-disable-custom-ssl.png)
+    ![Dialoogvenster Aangepaste HTTPS](./media/cdn-custom-ssl/cdn-disable-custom-ssl.png)
 
-### <a name="step-2-wait-for-propagation"></a>Stap 2: Wachten op doorgeven
+### <a name="wait-for-propagation"></a>Wachten op doorgifte
 
-Nadat u het aangepaste domein HTTPS-functie is uitgeschakeld, kan deze kracht te laten tot 6-8 uur duren. Wanneer het proces voltooid is, de status van de aangepaste HTTPS in de Azure portal is ingesteld op **uitgeschakelde** en de stappen drie bewerking in het dialoogvenster aangepaste domein zijn gemarkeerd als voltooid. Uw aangepaste domein niet meer HTTPS kan gebruiken.
+Nadat de HTTPS-functie voor aangepaste domeinen is uitgeschakeld, duurt het maximaal 6 tot 8 uur voordat dit is doorgevoerd. Wanneer het proces is voltooid, is de aangepaste HTTPS-status in Azure Portal ingesteld op **Uitgeschakeld** en zijn de drie bewerkingsstappen in het dialoogvenster Aangepast domein gemarkeerd als Voltooid. Het aangepaste domein kan niet meer gebruikmaken van HTTPS.
 
 ![Dialoogvenster HTTPS uitschakelen](./media/cdn-custom-ssl/cdn-disable-custom-ssl-complete.png)
 
-### <a name="operation-progress"></a>Voortgang van bewerking
+#### <a name="operation-progress"></a>Bewerkingsvoortgang
 
-De volgende tabel toont de voortgang van de bewerking die deze gebeurtenis treedt op wanneer u HTTPS uitschakelt. Nadat u HTTPS uitschakelt, worden drie stappen van de bewerking in het aangepaste domein dialoogvenster weergegeven. Omdat elke stap geactiveerd wordt, is extra details worden weergegeven onder de stap. Nadat een stap heeft voltooid, verschijnt een groen vinkje ernaast. 
+In de volgende tabel wordt de bewerkingsvoortgang weergegeven die plaatsvindt nadat u HTTPS hebt uitgeschakeld. Als u HTTPS hebt uitgeschakeld, worden drie bewerkingsstappen weergegeven in het dialoogvenster Aangepast domein. Telkens als een van deze stappen actief wordt, verschijnen extra gegevens onder de stap. Nadat een stap is voltooid, wordt naast deze stap een groen vinkje weergegeven. 
 
-| Voortgang van bewerking | Bewerkingsdetails | 
+| Bewerkingsvoortgang | Bewerkingsdetails | 
 | --- | --- |
-| 1 indienen aanvraag | Uw aanvraag verzenden |
-| 2 certificaat opheffen van inrichting | Het certificaat wordt verwijderd |
-| 3 voltooid | Het certificaat is verwijderd |
+| 1 Aanvraag verzenden | De aanvraag verzenden |
+| 2 Inrichting van het certificaat ongedaan maken | Certificaat verwijderen |
+| 3 Voltooien | Certificaat is verwijderd |
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
-1. *Wie is de certificaatprovider en type van het certificaat dat wordt gebruikt?*
+1. *Wie is de certificaatprovider en welk type certificaat is gebruikt?*
 
-    Microsoft gebruikt een namen met alternatieve onderwerp (SAN)-certificaat dat is opgegeven door DigiCert. Een SAN-certificaat kan meerdere FQDN-namen met één certificaat kunt beveiligen.
+    Microsoft gebruikt een SAN-certificaat (alternatieve naam voor onderwerp) dat is geleverd via DigiCert. Met een SAN-certificaat kunnen meerdere volledig gekwalificeerde domeinnamen worden beveiligd met één certificaat.
 
-2. *Kan ik mijn speciaal certificaatarchief gebruiken?*
+2. *Kan ik mijn toegewezen certificaat gebruiken?*
     
-    Momenteel niet, maar het is in het overzicht.
+    Nee, momenteel niet, maar dit staat op de roadmap.
 
-3. *Wat gebeurt er als ik ontvang geen bevestigingsmail van het domein van DigiCert?*
+3. *Wat moet ik doen als ik geen verificatie-e-mail voor het domein heb ontvangen van DigiCert?*
 
-    Als u een CNAME-item voor uw aangepaste domein die rechtstreeks naar de hostnaam van uw eindpunt verwijst hebt (en u de naam van het subdomein cdnverify niet gebruikt), ontvangt u geen een bevestigingsmail domein. Validatie wordt automatisch uitgevoerd. Anders, als u een CNAME-vermelding hebt en u een e-mailbericht niet binnen 24 uur ontvangen, contact op met Microsoft ondersteuning.
+    Als u beschikt over een CNAME-vermelding voor uw aangepaste domein die rechtstreeks verwijst naar de hostnaam van uw eindpunt (en u niet gebruikmaakt van de subdomeinnaam cdnverify), ontvangt u een dergelijke verificatie-e-mail niet. Validatie wordt dan automatisch uitgevoerd. In andere gevallen waarbij u geen CNAME-vermelding hebt en binnen 24 uur geen e-mail hebt ontvangen, neemt u contact op met Microsoft Ondersteuning.
 
-4. *Maakt gebruik van een SAN-certificaat minder veilig dan een speciaal certificaatarchief?*
+4. *Is het gebruik van een SAN-certificaat minder veilig dan wanneer ik een toegewezen certificaat gebruik?*
     
-    Een SAN-certificaat voldoet aan de dezelfde codering en beveiliging standaarden als een speciaal certificaatarchief. SHA-256 alle uitgegeven SSL-certificaten gebruiken voor uitgebreide beveiliging.
+    Voor een SAN-certificaat gelden dezelfde standaarden voor versleuteling en beveiliging als voor een toegewezen certificaat. Alle verleende SSL-certificaten maken gebruik van SHA-256 voor verbeterde serverbeveiliging.
 
-5. *Kan ik een aangepast domein HTTPS gebruiken met Azure CDN van Akamai?*
+5. *Kan ik een aangepaste domein-HTTPS gebruiken met Azure CDN van Akamai?*
 
-    Deze functie is momenteel alleen beschikbaar met Azure CDN van Verizon. Microsoft werkt deze functie met Azure CDN van Akamai in de komende maanden te ondersteunen.
+    Deze functie is momenteel alleen beschikbaar met Azure CDN van Verizon. Microsoft werkt eraan om ergens in de komende maanden ondersteuning te gaan bieden voor deze functie met Azure CDN van Akamai.
 
-6. *Moet ik een certificaat autoriteit autorisatie-record met mijn DNS-provider?*
+6. *Heb ik een CAA-record nodig bij mijn DNS-provider?*
 
-    Nee, een certificaat autoriteit autorisatie-record is niet op dit moment vereist. Als u een hebt, moet deze DigiCert bevatten als een geldige CA.
+    Nee, een CAA-record is momenteel niet vereist. Als u er echter wel een hebt, moet deze DigiCert bevatten als een geldige CA.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over het instellen van een [aangepast domein op uw Azure CDN-eindpunt](./cdn-map-content-to-custom-domain.md)
+Wat u hebt geleerd:
 
+> [!div class="checklist"]
+> - Het HTTPS-protocol is ingeschakeld in uw aangepast domein
+> - Het domein valideren
+> - Het HTTPS-protocol is uitgeschakeld in uw aangepast domein
+
+Ga naar de volgende zelfstudie voor meer informatie over het configureren van caching op het CDN-eindpunt.
+
+> [!div class="nextstepaction"]
+> [Cachinggedrag in Azure CDN beheren met cachingregels](cdn-caching-rules.md)
 

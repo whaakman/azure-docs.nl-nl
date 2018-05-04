@@ -1,28 +1,24 @@
 ---
-title: 'Snelstartgids: Compute in Azure SQL Data Warehouse - Azure-portal uitbreiden | Microsoft Docs'
-description: Azure portal taken voor het beheren van rekencapaciteit. Het aantal rekenresources door dwu's aan te passen. Of onderbreken en hervatten rekenresources kosten besparen.
+title: 'Snelstart: rekenkracht uitschalen in Azure SQL Data Warehouse - Azure Portal | Microsoft Docs'
+description: Rekenkracht uitschalen in Azure SQL Data Warehouse in Azure Portal. Schaal de rekenkracht uit voor betere prestaties of verklein de schaal om kosten te besparen.
 services: sql-data-warehouse
-documentationcenter: NA
-author: hirokib
-manager: jhubbard
-editor: 
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 01/31/2018
-ms.author: elbutter;barbkess
-ms.openlocfilehash: 6b86042ed6b95ba49fa2089ba36b1dbe9a61cc40
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: MT
+ms.topic: quickstart
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: d93ea939a938fa88615161d3d048ee1881dd319a
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>Snelstartgids: Scale compute in Azure SQL Data Warehouse in de Azure portal
+# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>Snelstart: rekenkracht uitschalen in Azure SQL Data Warehouse in Azure Portal
 
-Scale compute in Azure SQL Data Warehouse in de Azure portal. [Uitschalen compute](sql-data-warehouse-manage-compute-overview.md) voor betere prestaties of schaal back-berekeningen voor het opslaan van kosten. 
+Rekenkracht uitschalen in Azure SQL Data Warehouse in Azure Portal. [Schaal rekenkracht uit](sql-data-warehouse-manage-compute-overview.md) voor betere prestaties of verklein de schaal om kosten te besparen. 
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
@@ -32,32 +28,32 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-U kunt een datawarehouse die u al hebt of gebruik schalen [Quick Start: maken en koppelen - portal](create-data-warehouse-portal.md) voor het maken van een datawarehouse met de naam **mySampleDataWarehouse**.  Deze snelstartgids wordt geschaald **mySampleDataWarehouse**.
+U kunt een eigen datawarehouse schalen. U kunt ook [Snelstart: maken en verbinden - portal](create-data-warehouse-portal.md) gebruiken om een datawarehouse met de naam **mySampleDataWarehouse** te maken.  Met deze snelstart wordt **mySampleDataWarehouse** geschaald.
 
 ## <a name="scale-compute"></a>De schaal van Compute aanpassen
 
-In SQL Data Warehouse, kunt u vergroten of verkleinen van rekenresources door datawarehouse units aan te passen. De [maken en Connect - portal](create-data-warehouse-portal.md) gemaakt **mySampleDataWarehouse** en met 400 dwu's wordt geïnitialiseerd. De volgende stappen aanpassen de dwu's voor **mySampleDataWarehouse**.
+In SQL Data Warehouse kunt u het aantal rekenresources verhogen of verlagen door de DWU’s aan te passen. Met behulp van [Maken en verbinden - portal](create-data-warehouse-portal.md) is **mySampleDataWarehouse** gemaakt en vervolgens gestart met 400 DWU’s. In de volgende stappen wordt het aantal DWU’s voor **mySampleDataWarehouse** aangepast.
 
-Datawarehouse units wijzigen:
+DWU’s wijzigen:
 
-1. Klik op **SQL-databases** op de pagina naar links van de Azure portal.
-2. Selecteer **mySampleDataWarehouse** van de **SQL-databases** pagina. Hiermee opent u het datawarehouse.
-3. Klik op **Scale**.
+1. Klik op de linkerpagina in Azure Portal op **SQL-databases**.
+2. Selecteer **mySampleDataWarehouse** op de pagina **SQL-databases**. De datawarehouse wordt geopend.
+3. Klik op **Schalen**.
 
-    ![Klik op schaal](media/quickstart-scale-compute-portal/click-scale.png)
+    ![Op Schalen klikken](media/quickstart-scale-compute-portal/click-scale.png)
 
-2. In het deelvenster Scale Verplaats de schuifregelaar naar links of rechts om de DWU-instelling te wijzigen.
+2. Verplaats in het paneel Schalen de schuifregelaar naar links of rechts om de DWU-instelling te wijzigen.
 
-    ![Schuifregelaar](media/quickstart-scale-compute-portal/scale-dwu.png)
+    ![Schuifregelaar verplaatsen](media/quickstart-scale-compute-portal/scale-dwu.png)
 
-3. Klik op **Opslaan**. Er verschijnt een bevestigingsbericht. Klik op **Ja** om te bevestigen of **geen** om te annuleren.
+3. Klik op **Opslaan**. Er verschijnt een bevestigingsbericht. Klik op **Ja** om te bevestigen of **Nee** om te annuleren.
 
     ![Op Opslaan klikken](media/quickstart-scale-compute-portal/confirm-change.png)
 
 
 
 ## <a name="next-steps"></a>Volgende stappen
-U hebt nu geleerd hoe schalen compute voor uw datawarehouse. Voor meer informatie over Azure SQL Data Warehouse gaat u verder met de zelfstudie voor het laden van gegevens.
+U hebt nu geleerd hoe u de rekenkracht voor uw datawarehouse kunt schalen. Voor meer informatie over Azure SQL Data Warehouse gaat u verder met de zelfstudie voor het laden van gegevens.
 
 > [!div class="nextstepaction"]
 >[Gegevens laden in een SQL-datawarehouse](load-data-from-azure-blob-storage-using-polybase.md)

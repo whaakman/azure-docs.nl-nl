@@ -1,5 +1,5 @@
 ---
-title: "VM’s vanuit AWS migreren naar Azure met Site Recovery | Microsoft Docs"
+title: VM’s vanuit AWS migreren naar Azure met Site Recovery | Microsoft Docs
 description: In dit artikel wordt beschreven hoe u virtuele Windows-machines die worden uitgevoerd op Amazon Web Services (AWS) naar Azure migreert met behulp van Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
@@ -9,17 +9,18 @@ ms.topic: tutorial
 ms.date: 02/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 59a09b5d67391f2b48d338d721369f14ed6b4ede
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 3ad4f46585be9cf61e3ef8343b5cb05308c972d6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>AWS-VM’s (Amazon Web Services) migreren naar Azure
 
 In deze zelfstudie leert u hoe u virtuele AWS-machines (Amazon Web Services) naar Azure migreert met behulp van Site Recovery. Wanneer u EC2-instanties migreert naar Azure, worden de virtuele machines behandeld alsof het fysieke, on-premises computers zijn. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
+> * Vereisten verifiëren
 > * Azure-resources voorbereiden
 > * De AWS EC2-instanties voorbereiden voor migratie
 > * Een configuratieserver implementeren
@@ -29,12 +30,28 @@ In deze zelfstudie leert u hoe u virtuele AWS-machines (Amazon Web Services) naa
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/pricing/free-trial/) aan voordat u begint.
 
+## <a name="prerequisites"></a>Vereisten
+- Zorg ervoor dat de virtuele machines die u wilt migreren, worden uitgevoerd met een ondersteunde versie van het besturingssysteem, bijvoorbeeld 
+    - 64-bits versie van Windows Server 2008 R2 SP1 of hoger, 
+    - Windows Server 2012,
+    - Windows Server 2012 R2, 
+    - Windows Server 2016
+    - Red Hat Enterprise Linux 6.7 (alleen gevirtualiseerde HVM-instanties), met alleen Citrix HW- of AWS HW-stuurprogramma's. Instanties waarop een RedHat HW-stuurprogramma wordt uitgevoerd, worden **niet** ondersteund.
+
+- De Mobility-service moet worden geïnstalleerd op elke VM die u wilt repliceren. 
+
+> [!IMPORTANT]
+> Site Recovery installeert deze service automatisch wanneer u replicatie voor de VM inschakelt. Voor automatische installatie moet u op de EC2-instanties een account voorbereiden waarmee Site Recovery toegang kan krijgen tot de VM. U kunt een domein of lokale account gebruiken. 
+> - Voor Linux-VM’s moet het account een hoofdaccount zijn op de Linux-bronserver. 
+> - Als u geen domeinaccount voor Windows-VM's gebruikt, schakelt u de optie voor het externe gebruikersbeheer uit op de lokale machine. Voeg in het register onder **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** de DWORD-vermelding **LocalAccountTokenFilterPolicy** toe en stel de waarde in op 1.
+
+- U hebt een afzonderlijke EC2-instantie nodig die u als de Site Recovery-configuratieserver kunt gebruiken. Op deze instantie moet Windows Server 2012 R2 worden uitgevoerd.
 
 ## <a name="prepare-azure-resources"></a>Azure-resources voorbereiden
 
 U moet een aantal resources gereed hebben in Azure voor gebruik door de gemigreerde EC2-instanties. Het gaat hier om een opslagaccount, een kluis en een virtueel netwerk.
 
-### <a name="create-a-storage-account"></a>Een opslagaccount maken
+### <a name="create-a-storage-account"></a>Create a storage account
 
 Installatiekopieën van gerepliceerde machines worden bewaard in Azure Storage. Azure VM’s worden gemaakt vanuit de opslag wanneer u een failover van on-premises naar Azure uitvoert.
 
@@ -74,19 +91,6 @@ Wanneer de Azure VM's zijn gemaakt na de migratie (failover), worden ze gekoppel
 8. Laat de standaardwaarden voor **Subnet** ongewijzigd, zowel de **Naam** als het **IP-bereik**.
 9. Laat **Service-eindpunten** uitgeschakeld.
 10. Klik op **Maken** wanneer u klaar bent.
-
-
-## <a name="prepare-the-ec2-instances"></a>De EC2-instanties voorbereiden
-
-U moet een of meer te migreren virtuele machines hebben. Deze EC2-instantie moet worden uitgevoerd in de 64-bits versie van Windows Server 2008 R2 SP1 of hoger, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 of Red Hat Enterprise Linux 6.7 (alleen op HVM gebaseerde gevirtualiseerde instanties). De server mag maar één Citrix HW- of AWS HW-stuurprogramma hebben. Instanties waarop een RedHat HW-stuurprogramma wordt uitgevoerd, worden niet ondersteund.
-
-De Mobility-service moet worden geïnstalleerd op elke VM die u wilt repliceren. Site Recovery installeert deze service automatisch wanneer u replicatie voor de VM inschakelt. Voor automatische installatie moet u op de EC2-instanties een account voorbereiden waarmee Site Recovery toegang kan krijgen tot de VM.
-
-U kunt een domein of lokale account gebruiken. Voor Linux-VM’s moet het account een hoofdaccount zijn op de Linux-bronserver. Voor Windows-accounts schakelt u als u geen domeinaccount gebruikt toegangsbeheer voor externe gebruikers uit op de lokale computer:
-
-  - Voeg in het register onder **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** de DWORD-vermelding **LocalAccountTokenFilterPolicy** toe en stel de waarde in op 1.
-
-U hebt ook een afzonderlijke EC2-instantie nodig die u als de Site Recovery-server kunt gebruiken. Op deze instantie moet Windows Server 2012 R2 worden uitgevoerd.
 
 
 ## <a name="prepare-the-infrastructure"></a>De infrastructuur voorbereiden

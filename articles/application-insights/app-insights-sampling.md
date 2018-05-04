@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: d0614e2eae0f60068e69b7a4687fc62fbe082c64
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8f0c6e6567e82f885bb5cd0c6b6af797b393969c
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="sampling-in-application-insights"></a>Steekproeven in Application Insights
 
@@ -38,7 +38,8 @@ Steekproeven verlaagt de kosten van verkeer en gegevens en kunt u voorkomen bepe
 ## <a name="types-of-sampling"></a>Typen steekproeven
 Er zijn drie steekproeven van alternatieve methoden:
 
-* **Adaptieve steekproeven** automatisch het volume van telemetrie uit de SDK in uw ASP.NET-app verzonden. Beginnen met de SDK v 2.0.0-beta3 is dit de standaardmethode steekproeven. Adaptieve steekproeven is momenteel alleen beschikbaar voor ASP.NET-serverzijde telemetrie. 
+* **Adaptieve steekproeven** automatisch het volume van telemetrie uit de SDK in uw ASP.NET-app verzonden. Beginnen met de SDK v 2.0.0-beta3 is dit de standaardmethode steekproeven. Adaptieve steekproeven is momenteel alleen beschikbaar voor ASP.NET-serverzijde telemetrie. Voor Asp.NET Core toepassingen gericht op volledige Framework, adaptieve steekproeven is beschikbaar vanaf versie 1.0.0 van Microsoft.ApplicationInsights.AspNetCore SDK. Voor Asp.NET Core toepassingen gericht op NetCore is de adaptieve steekproeven van 2.2.0-beta1 van Microsoft.ApplicationInsights.AspNetCore SDK beschikbaar.
+
 * **Vast aantal steekproeven** vermindert het volume van de telemetrie van uw server ASP.NET of Java en van de browsers van uw gebruikers verzonden. Stelt u het tarief. De client en server synchroniseert de steekproeven zodat die, in zoekopdracht u tussen gerelateerde paginaweergaven en aanvragen navigeren kunt.
 * **Opname steekproeven** werkt in de Azure-portal. Het aantal de telemetrie van uw app, op een samplefrequentie die u instelt binnenkomt wordt verwijderd. Telemetrie verkeer dat wordt verzonden vanuit uw app niet verminderen, maar kunt u binnen uw maandelijkse quotum houden. Het belangrijkste voordeel van opname steekproeven is dat u de samplingfrequentie instellen kunt zonder dat uw app en het op uniforme wijze voor alle servers en clients werkt. 
 
@@ -335,7 +336,7 @@ Vast aantal steekproeven functie van de SDK in ASP.NET-versies van 2.0.0 en Java
 
 Het algoritme steekproeven besluit welke telemetrie-items verwijderen en welke u wilt behouden (ongeacht of deze in de SDK of in de Application Insights-service is). De beslissing steekproeven is gebaseerd op verschillende regels die richt u op alle verwante gegevenspunten intact onderhouden van een diagnostische ervaring in Application Insights die actie worden uitgevoerd en betrouwbare zelfs met een beperkte set gegevens behouden. Bijvoorbeeld, als voor een mislukte aanvraag verzendt uw app aanvullende telemetrie-items (zoals uitzondering en traceringen van deze aanvraag wordt vastgelegd), steekproeven niet gesplitst deze aanvraag en andere telemetrie. Het behouden of ze elkaar zakt. Wanneer u de aanvraagdetails van de in Application Insights bekijkt, kunt u als gevolg hiervan altijd de aanvraag samen met de bijbehorende telemetrie-items zien. 
 
-Voor toepassingen die definiëren 'gebruiker' (dat wil zeggen, meest voorkomende webtoepassingen), de beschikking steekproeven is gebaseerd op de hash van de gebruikers-id, wat betekent dat alle telemetrie voor een bepaalde gebruiker wordt behouden of verwijderd. De beslissing steekproeven is voor de typen toepassingen die geen gebruikers (zoals web-services) opgeven op basis van de bewerkings-id van de aanvraag. Ten slotte voor de telemetrie-items waarvoor geen gebruiker noch bewerking-id ingesteld (voor voorbeeld telemetrie-items is gerapporteerd door asynchrone threads met geen http-context) bevat steekproeven gewoon een percentage van de telemetrie-items van elk type. 
+De beslissing steekproeven is gebaseerd op de bewerkings-id van het verzoek, wat betekent dat alle telemetrie-items die horen bij een bepaalde bewerking wordt behouden of verwijderd. Voor de telemetrie-items die u geen bewerking hebt vastgelegd id ingesteld (voor voorbeeld telemetrie-items is gerapporteerd door asynchrone threads met geen http-context) steekproeven gewoon een percentage van de telemetrie-items van elk type. Voorafgaand aan 2.5.0-beta2 van .NET SDK en 2.2.0-beta3 van ASP.NET Core SDK, het besluit steekproeven is gebaseerd op de hash van de gebruikers-id voor toepassingen die definiëren 'gebruiker' (dat wil zeggen, meest voorkomende webtoepassingen). De beslissing steekproeven is voor de typen toepassingen die gebruikers (zoals web-services) hebt gedefinieerd op basis van de bewerkings-id van de aanvraag.
 
 Bij het weergeven van telemetrie naar u terug, past de Application Insights-service de metrische gegevens die door de dezelfde voorbeeldpercentage die is gebruikt op het moment van verzameling, om te compenseren voor de ontbrekende gegevenspunten. Daarom bij het onderzoeken van de telemetrie in Application Insights, zien de gebruikers statistisch correcte benaderingen die heel dicht bij de reële getallen zijn.
 

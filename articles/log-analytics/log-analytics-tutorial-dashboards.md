@@ -1,11 +1,11 @@
 ---
-title: Maken en delen van dashboards van gegevens van de Azure Log Analytics | Microsoft Docs
-description: Deze zelfstudie helpt u begrijpen hoe logboekanalyse dashboards Visualiseer al uw zoekopdrachten opgeslagen logboek zodat u een identiteitsonderdelen om weer te geven van uw omgeving.
+title: Dashboards van Azure Log Analytics-gegevens maken en delen | Microsoft Docs
+description: In deze zelfstudie leert u hoe u met Log Analytics-dashboards al uw opgeslagen logboekzoekopdrachten kunt visualiseren, zodat u door één lens naar uw omgeving kunt kijken.
 services: log-analytics
 documentationcenter: log-analytics
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
 ms.service: log-analytics
 ms.workload: na
@@ -15,63 +15,63 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 272945134b534a5ded794379ce5e96b0902a4227
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
-ms.translationtype: MT
+ms.openlocfilehash: f6a70f33b143a5b9354411af9717d2a21e24af0c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="create-and-share-dashboards-of-log-analytics-data"></a>Maken en dashboards van logboekanalyse gegevens delen
+# <a name="create-and-share-dashboards-of-log-analytics-data"></a>Dashboards van Log Analytics-gegevens maken en delen
 
-Log Analytics dashboards kunnen Visualiseer al uw zoekopdrachten opgeslagen logboek zodat u de mogelijkheid om te zoeken, correleren en delen van IT operationele gegevens in de organisatie.  Deze zelfstudie bevat informatie over het maken van een zoekopdracht logboek die wordt gebruikt ter ondersteuning van een gedeelde dashboard dat wordt geopend door uw IT-team bewerkingen ondersteuning.  Procedures voor:
+Met Log Analytics-dashboards kunt u al uw opgeslagen logboekzoekopdrachten visualiseren, zodat u operationele IT-gegevens in de organisatie kunt zoeken, met elkaar in verband kunt brengen en kunt delen.  Deze zelfstudie bevat informatie over het maken van een logboekzoekopdracht die wordt gebruikt ter ondersteuning van een gedeeld dashboard waartoe uw IT-team toegang heeft.  In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
-> * Een gedeelde dashboard maken in de Azure portal
-> * Een zoekopdracht op prestaties logboek visualiseren 
-> * Een zoekactie van het logboek toevoegen aan een gedeelde dashboard 
-> * Een tegel in een gedeelde dashboard aanpassen
+> * Een gedeeld dashboard maken in de Azure-portal
+> * Een zoekopdracht voor het prestatielogboek visualiseren 
+> * Een zoekactie toevoegen aan een gedeeld dashboard 
+> * Een tegel in een gedeeld dashboard aanpassen
 
-Als u het voorbeeld in deze zelfstudie, moet u een bestaande virtuele machine hebben [verbonden met de werkruimte voor logboekanalyse](log-analytics-quick-collect-azurevm.md).  
+Om het voorbeeld in deze zelfstudie uit te voeren, moet u een bestaande virtuele machine [hebben verbonden met de Log Analytics-werkruimte](log-analytics-quick-collect-azurevm.md).  
  
-## <a name="log-in-to-azure-portal"></a>Aanmelden bij Azure portal
-Aanmelden bij de Azure portal op [https://portal.azure.com](https://portal.azure.com). 
+## <a name="log-in-to-azure-portal"></a>Aanmelden bij Azure Portal
+Meld u aan bij de Azure-portal op [https://portal.azure.com](https://portal.azure.com). 
 
-## <a name="create-a-shared-dashboard"></a>Een gedeelde dashboard maken
+## <a name="create-a-shared-dashboard"></a>Een gedeeld dashboard maken
 
-Het eerste wat u ziet nadat u zich aanmeldt bij de Microsoft Azure portal is een [dashboard](../azure-portal/azure-portal-dashboards.md).<br> ![Azure-portaldashboard](media/log-analytics-tutorial-dashboards/log-analytics-portal-dashboard.png)
+Het eerste wat u ziet nadat u zich hebt aangemeld bij Microsoft Azure Portal is een [dashboard](../azure-portal/azure-portal-dashboards.md).<br> ![Azure Portal-dashboard](media/log-analytics-tutorial-dashboards/log-analytics-portal-dashboard.png)
 
-Hier kunt u overbrengen samen operationele gegevens die is zeer belangrijk voor IT over alle Azure-resources, met inbegrip van telemetrie van Azure-logboekanalyse.  Voordat we stap in een logboek zoekopdracht visualiseren, laten we eerst een dashboard maken en delen.  Deze manier kunnen wij de manier krijgen voordat we onze voorbeeld prestaties logboek zoeken, die worden weergegeven als een lijndiagram en toe te voegen aan het dashboard.  
+Hier verzamelt u de belangrijkste operationele IT-gegevens van al uw Azure-resources, waaronder telemetrie van Azure Log Analytics.  Voordat u een logboekzoekopdracht gaat visualiseren, gaat u een dashboard maken en delen.  Dan is dat vast gedaan voordat u met de voorbeeldzoekopdracht voor het prestatielogboek aan de slag gaat. U gaat de gegevens weergeven als een lijndiagram en toevoegen aan het dashboard.  
 
-Als u een dashboard, selecteert de **nieuwe dashboard** knop naast de naam van het dashboard.<br> ![Nieuw dashboard maken in Azure portal](media/log-analytics-tutorial-dashboards/log-analytics-create-dashboard-01.png)
+Om een dashboard te maken, selecteert u de knop **Nieuw dashboard** naast de naam van het huidige dashboard.<br> ![Nieuw dashboard maken in Azure Portal](media/log-analytics-tutorial-dashboards/log-analytics-create-dashboard-01.png)
 
-Deze actie wordt een nieuw, leeg, persoonlijke dashboard gemaakt en wordt u aanpassing modus kunt u uw dashboard name en toevoegen of tegels opnieuw rangschikken. De naam van het dashboard bewerken en geef *voorbeelddashboard* voor deze zelfstudie en selecteer vervolgens **gedaan aanpassen**.<br><br> ![Opslaan van aangepaste Azure-dashboard](media/log-analytics-tutorial-dashboards/log-analytics-create-dashboard-02.png)
+Met deze actie wordt een nieuw, leeg, persoonlijk dashboard gemaakt en in de aanpassingsmodus gezet. In deze modus kunt u het dashboard een naam geven en tegels toevoegen of opnieuw rangschikken. Bewerk de naam van het dashboard en geef *Voorbeelddashboard* op voor deze zelfstudie. selecteer vervolgens **Aanpassen voltooid**.<br><br> ![Aangepast Azure-dashboard opslaan](media/log-analytics-tutorial-dashboards/log-analytics-create-dashboard-02.png)
 
-Wanneer u een dashboard maakt, is het persoonlijke standaard, wat betekent dat u de enige bent die deze kunnen zien. Als u deze zichtbaar voor anderen, gebruikt u de **Share** knop die wordt weergegeven naast de andere opdrachten in het dashboard.<br> ![Delen van een nieuw dashboard in Azure-portal](media/log-analytics-tutorial-dashboards/log-analytics-share-dashboard.png) 
+Wanneer u een dashboard maakt, is het standaard persoonlijk. Dat betekent dat u de enige bent die het kan zien. Als u het zichtbaar wilt maken voor anderen, gebruik dan de knop **Delen** die naast de andere dashboardopdrachten wordt weergegeven.<br> ![Een nieuw dashboard in Azure Portal delen](media/log-analytics-tutorial-dashboards/log-analytics-share-dashboard.png) 
 
-U wordt gevraagd een abonnement en resourcegroep voor uw dashboard worden gepubliceerd om te kiezen. Voor het gemak ervaring handleidingen u naar een patroon waar u dashboards in een resourcegroep plaatsen opgeroepen het publiceren van de portal **dashboards**.  Controleer of het geselecteerde abonnement en klik vervolgens op **publiceren**.  Toegang tot de informatie die wordt weergegeven in het dashboard wordt gecontroleerd met [Azure Resource-gebaseerd toegangsbeheer](../active-directory/role-based-access-control-configure.md).   
+U wordt gevraagd een abonnement en resourcegroep te kiezen waarnaar uw dashboard zal worden gepubliceerd. Voor het gemak helpt de publicatie-ervaring van de portal u naar een patroon waar u dashboards kunt plaatsen in een resourcegroep die **dashboards** wordt genoemd.  Controleer het geselecteerde abonnement en klik op **Publiceren**.  Toegang tot de informatie die wordt weergegeven in het dashboard wordt geregeld met op [Azure-resources gebaseerd toegangsbeheer](../role-based-access-control/role-assignments-portal.md).   
 
-## <a name="visualize-a-log-search"></a>Een zoekopdracht logboek visualiseren
+## <a name="visualize-a-log-search"></a>Een logboekzoekopdracht visualiseren
 
-U kunt eenvoudige query's op één regel vanuit de portal logboek zoeken in de Azure portal maken. De portal logboek zoeken kan worden gebruikt zonder het starten van een externe portal en kunt u het uitvoeren van een breed scala aan functies met logboek zoekopdrachten inclusief maken van regels voor waarschuwingen, computergroepen maken en exporteren van de resultaten van de query. 
+Vanuit de portal Zoeken in logboeken van Azure Portal kunt u eenvoudige query's van één regel maken. U kunt de portal Zoeken in logboeken gebruiken zonder een externe portal te starten. Vanuit deze portal kunt u tal van functies met logboekzoekopdrachten uitvoeren. Zo kunt u waarschuwingsregels en computergroepen maken en de resultaten van de query exporteren. 
 
-De [geavanceerde analyses portal](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-the-Analytics-portal) is een speciale portal geavanceerde functionaliteit niet beschikbaar in de portal logboek zoeken. Het onderdeel biedt de mogelijkheid om te bewerken van een query op meerdere regels, voert u selectief code, afhankelijk van de context Intellisense en slimme Analytics. In de portal Advanced Analytics, wordt u een Prestatieweergave grafisch maken, opslaan voor toekomstige zoeken en vastmaken aan het gedeelde dashboard eerder hebt gemaakt.   
+De [portal Advanced Analytics](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-the-Analytics-portal) is een speciale portal die geavanceerde functionaliteit biedt die niet beschikbaar is in de portal Zoeken in logboeken. Voorbeelden van functies zijn de mogelijkheid om een query van meerdere regels te bewerken, code selectief uit te voeren, contextafhankelijke Intellisense en slimme analyse. In de portal Advanced Analytics maakt u een grafische prestatieweergave en slaat u deze op voor een toekomstige zoekopdracht. U maakt de weergave vast aan het gedeelde dashboard dat u eerder hebt gemaakt.   
 
-U start de Advanced Analytics-portal via een koppeling in de portal logboek zoeken.<br> ![Start de Advanced Analytics-portal](media/log-analytics-tutorial-dashboards/log-analytics-advancedportal-01.png)
+U start de portal Advanced Analytics via een koppeling in de portal Zoeken in logboeken.<br> ![De portal Advanced Analytics starten](media/log-analytics-tutorial-dashboards/log-analytics-advancedportal-01.png)
 
-Voer de volgende query om terug te keren alleen processor gebruik records voor Windows- en Linux-computers, gegroepeerd op de Computer en TimeGenerated en weergegeven in een visual grafiek in de portal Analytics:
+Voer in de portal Advanced Analytics de volgende query uit om alleen records over processorverbruik te retourneren voor zowel Windows- als Linux-computers, gegroepeerd op Computer en TimeGenerated, en weergegeven in een visuele grafiek:
 
 ```
 Perf | where CounterName == "% Processor Time" and ObjectName == "Processor" and InstanceName == "_Total" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1m), Computer | render timechart
 ```
 
-Opslaan van de query door de **opslaan query** knop van de rechterbovenhoek.<br> ![Query opslaan van Advanced Analytics-portal](media/log-analytics-tutorial-dashboards/log-analytics-advancedportal-02.png)<br><br> In de **Query opslaan** Configuratiescherm, Geef een naam, zoals *Azure Virtual machines - processorgebruik* en klik vervolgens op **opslaan**.  Op deze manier kunt u een bibliotheek met algemene query's te zoeken met en zonder te hoeven volledig opnieuw schrijven wijzigen.  Dit ten slotte vastmaken aan het gedeelde dashboard eerder hebt gemaakt door het selecteren van **pincode grafiek voor uw Azure-dashboard** knop van de middelste rechtsboven aan de pagina.  
+Sla de query op door in de rechterbovenhoek de knop **Query opslaan** te selecteren.<br> ![De query opslaan in de portal Advanced Analytics](media/log-analytics-tutorial-dashboards/log-analytics-advancedportal-02.png)<br><br> Geef in het dialoogvenster **Query opslaan** een naam op, bijvoorbeeld *Azure-VM's - processorgebruik* en klik op **Opslaan**.  Op die manier kunt u een bibliotheek met veelgebruikte query's maken waarmee u kunt zoeken of die u kunt aanpassen zodat u de query's niet telkens opnieuw hoeft te schrijven.  Tot slot maakt u deze vast aan het gedeelde dashboard dat u eerder hebt gemaakt. Daarvoor selecteert u de knop **Grafiek vastmaken aan Azure-dashboard** in de rechterbovenhoek van de pagina.  
 
-Nu dat we een query vastgemaakt aan het dashboard hebben, zult u er een algemene naam en een opmerking hieronder.<br> ![Voorbeeld van de Azure-dashboard](media/log-analytics-tutorial-dashboards/log-analytics-modify-dashboard-01.png)<br><br>  Er moet de naam van het herkenbare die gemakkelijk kan worden begrepen door weergeven.  Met de rechtermuisknop op de tegel en selecteer **bewerken tegel**.  Wanneer u klaar bent met de titel en de subtitel van de tegel aanpassen, klikt u op **Update**.  Een banner wordt weergegeven waarin u wijzigingen publiceren of negeren.  Klik op **wijzigingen publiceren** en sluit vervolgens de **tegel bewerken** besturingselementvenster.  
+Nu u een query hebt die is vastgemaakt aan het dashboard, ziet u dat deze een algemene naam heeft met een opmerking eronder.<br> ![Voorbeeld van Azure-dashboard](media/log-analytics-tutorial-dashboards/log-analytics-modify-dashboard-01.png)<br><br>  U gaat de naam wijzigen in iets met meer betekenis voor gebruikers die de grafiek willen bekijken.  Klik met de rechtermuisknop op de tegel en selecteer **Tegel bewerken**.  Wanneer u de titel en subtitel van de tegel hebt aangepast, klikt u op **Bijwerken**.  Er wordt een banner weergegeven waarin u wordt gevraagd of u de wijzigingen wilt publiceren of negeren.  Klik op **Wijzigingen publiceren** en sluit het dialoogvenster **Tegel bewerken**.  
 
 ![Voltooide configuratie van voorbeelddashboard](media/log-analytics-tutorial-dashboards/log-analytics-modify-dashboard-02.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie hebt u geleerd hoe u een dashboard in de Azure portal maken en toevoegen van een zoekopdracht logboek met.  Voorafgaande aan de volgende zelfstudie voor meer informatie over de verschillende antwoorden die u kunt implementeren, gebaseerd op logboek zoekresultaten.  
+In deze zelfstudie hebt u geleerd hoe u een dashboard maakt in Azure Portal en hoe u daar een logboekzoekopdracht aan toevoegt.  Ga verder met de volgende zelfstudie voor meer informatie over de verschillende reacties die u op basis van de resultaten van de logboekzoekopdracht kunt implementeren.  
 
 > [!div class="nextstepaction"]
-> [Reageer op gebeurtenissen met Log Analytics waarschuwingen](log-analytics-tutorial-response.md)
+> [Reageren op gebeurtenissen met Log Analytics-waarschuwingen](log-analytics-tutorial-response.md)

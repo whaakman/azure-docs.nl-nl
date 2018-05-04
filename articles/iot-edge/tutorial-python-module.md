@@ -9,11 +9,11 @@ ms.author: xshi
 ms.date: 03/18/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d5bad277e6a54b23f0e3ef7321e82d212ae885d3
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3c46df85f95377f5740526542ac1baf5a8fd77c0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device---preview"></a>Opstellen en implementeren van een IoT-rand Python-module voor uw gesimuleerde apparaat - voorbeeld
 
@@ -29,7 +29,7 @@ Rand van de IoT-modules kunt u code waarmee u uw bedrijfslogica rechtstreeks aan
 De rand van de IoT-module die u in deze zelfstudie maakt filtert de temperatuur gegevens die zijn gegenereerd door uw apparaat. Alleen wordt verzonden berichten stroomopwaarts als de temperatuur hoger dan een opgegeven drempelwaarde is. Dit type analyse aan de rand is nuttig voor het beperken van de hoeveelheid gegevens wordt gecommuniceerd aan en opgeslagen in de cloud. 
 
 > [!IMPORTANT]
-> De Python-module kan momenteel alleen worden uitgevoerd in amd64 Linux containers. Kan niet worden uitgevoerd in Windows containers of op basis van ARM containers. 
+> Op dit moment kan de Python-module alleen worden uitgevoerd in amd64 Linux containers; Deze kan niet worden uitgevoerd in Windows containers of op basis van ARM containers. 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -40,7 +40,7 @@ De rand van de IoT-module die u in deze zelfstudie maakt filtert de temperatuur 
 * [Python-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python). 
 * [Docker](https://docs.docker.com/engine/installation/) op dezelfde computer met Visual Studio Code. De Community Edition (CE) is voldoende voor deze zelfstudie. 
 * [Python](https://www.python.org/downloads/).
-* [PIP](https://pip.pypa.io/en/stable/installing/#installation) voor het installeren van Python-pakketten.
+* [PIP](https://pip.pypa.io/en/stable/installing/#installation) voor het installeren van Python-pakketten (gewoonlijk opgenomen met de installatie van Python).
 
 ## <a name="create-a-container-registry"></a>Een containerregister maken
 In deze zelfstudie gebruikt u de Azure IoT Edge-extensie voor VS Code om een module te bouwen en maakt u een **containerinstallatiekopie** van de bestanden. Vervolgens pusht u deze installatiekopie naar een **register** waarin uw installatiekopieën worden opgeslagen en beheerd. Tot slot implementeert u de installatiekopie uit het register voor uitvoering op uw IoT Edge-apparaat.  
@@ -57,10 +57,10 @@ Voor deze zelfstudie kunt u elk register gebruiken dat compatibel is met Docker.
 ## <a name="create-an-iot-edge-module-project"></a>Een IoT-rand module-project maken
 De volgende stappen ziet u het maken van een IoT rand Python-module met behulp van Visual Studio Code en de extensie Azure IoT rand.
 1. Selecteer in Visual Studio Code **weergave** > **geïntegreerde Terminal** openen van de VS Code geïntegreerde terminal.
-2. Voer de volgende opdracht om te installeren (of werk) in de geïntegreerde terminal de **cookiecutter**:
+2. Voer de volgende opdracht om te installeren (of werk) in de geïntegreerde terminal **cookiecutter** (we raden aan dit uit te voeren in een virtuele omgeving of als de installatie van een gebruiker zoals hieronder wordt weergegeven):
 
     ```cmd/sh
-    pip install -U cookiecutter
+    pip install --upgrade --user cookiecutter
     ```
 
 3. Maak een project voor de nieuwe module. De volgende opdracht maakt u de projectmap **FilterModule**, met de container-opslagplaats. De parameter van `image_repository` moet in de vorm van `<your container registry name>.azurecr.io/filtermodule` als u van Azure container register gebruikmaakt. Voer de volgende opdracht in de huidige werkmap in:
@@ -78,11 +78,11 @@ De volgende stappen ziet u het maken van een IoT rand Python-module met behulp v
     import json
     ```
 
-8. Voeg de `TEMPERATURE_THRESHOLD` en `TWIN_CALLBACKS` onder de algemene items. De drempelwaarde temperatuur stelt u de waarde die de gemeten temperatuur moet overschrijden om de gegevens worden verzonden naar IoT Hub.
+8. Voeg de `TEMPERATURE_THRESHOLD`, `RECEIVE_CALLBACKS`, en `TWIN_CALLBACKS` onder de algemene items. De drempelwaarde temperatuur stelt u de waarde die de gemeten temperatuur moet overschrijden om de gegevens worden verzonden naar IoT Hub.
 
     ```python
     TEMPERATURE_THRESHOLD = 25
-    TWIN_CALLBACKS = 0
+    TWIN_CALLBACKS = RECEIVE_CALLBACKS = 0
     ```
 
 9. Bijwerken van de functie `receive_message_callback` met onderstaande inhoud.
@@ -97,16 +97,16 @@ De volgende stappen ziet u het maken van een IoT rand Python-module met behulp v
         message_buffer = message.get_bytearray()
         size = len(message_buffer)
         message_text = message_buffer[:size].decode('utf-8')
-        print ( "    Data: <<<%s>>> & Size=%d" % (message_text, size) )
+        print("    Data: <<<{}>>> & Size={:d}".format(message_text, size))
         map_properties = message.properties()
         key_value_pair = map_properties.get_internals()
-        print ( "    Properties: %s" % key_value_pair )
+        print("    Properties: {}".format(key_value_pair))
         RECEIVE_CALLBACKS += 1
-        print ( "    Total calls received: %d" % RECEIVE_CALLBACKS )
+        print("    Total calls received: {:d}".format(RECEIVE_CALLBACKS))
         data = json.loads(message_text)
         if "machine" in data and "temperature" in data["machine"] and data["machine"]["temperature"] > TEMPERATURE_THRESHOLD:
             map_properties.add("MessageType", "Alert")
-            print("Machine temperature %s exceeds threshold %s" % (data["machine"]["temperature"], TEMPERATURE_THRESHOLD))
+            print("Machine temperature {} exceeds threshold {}".format(data["machine"]["temperature"], TEMPERATURE_THRESHOLD))
         hubManager.forward_event_to_output("output1", message, 0)
         return IoTHubMessageDispositionResult.ACCEPTED
     ```
@@ -118,14 +118,14 @@ De volgende stappen ziet u het maken van een IoT rand Python-module met behulp v
     def device_twin_callback(update_state, payload, user_context):
         global TWIN_CALLBACKS
         global TEMPERATURE_THRESHOLD
-        print ( "\nTwin callback called with:\nupdateStatus = %s\npayload = %s\ncontext = %s" % (update_state, payload, user_context) )
+        print("\nTwin callback called with:\nupdateStatus = {}\npayload = {}\ncontext = {}".format(update_state, payload, user_context))
         data = json.loads(payload)
         if "desired" in data and "TemperatureThreshold" in data["desired"]:
             TEMPERATURE_THRESHOLD = data["desired"]["TemperatureThreshold"]
         if "TemperatureThreshold" in data:
             TEMPERATURE_THRESHOLD = data["TemperatureThreshold"]
         TWIN_CALLBACKS += 1
-        print ( "Total calls confirmed: %d\n" % TWIN_CALLBACKS )
+        print("Total calls confirmed: {:d}\n".format(TWIN_CALLBACKS))
     ```
 
 11. In de klasse `HubManager`, een nieuwe regel toe te voegen de `__init__` methode voor het initialiseren van de `device_twin_callback` functie die u zojuist hebt toegevoegd.

@@ -1,3 +1,19 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: cosmos-db
+author: SnehaGunda
+ms.service: cosmos-db
+ms.topic: include
+ms.date: 04/13/2018
+ms.author: sngun
+ms.custom: include file
+ms.openlocfilehash: 37d7b1d44c2a4b2f3cd2fd3ac881b106d5056279
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 04/16/2018
+---
 U kunt nu het hulpprogramma Data Explorer in Azure Portal gebruiken om een database en een tabel te maken. 
 
 1. Klik op **Data Explorer** > **Nieuwe tabel**. 
@@ -11,7 +27,7 @@ U kunt nu het hulpprogramma Data Explorer in Azure Portal gebruiken om een datab
     Instelling|Voorgestelde waarde|Beschrijving
     ---|---|---
     Tabel-id|voorbeeldtabel|De id voor de nieuwe tabel. Voor tabelnamen gelden dezelfde tekenvereisten als voor database-id's. Databasenamen moeten tussen de 1 en 255 tekens zijn en mogen geen `/ \ # ?` bevatten of eindigen op een spatie.
-    Opslagcapaciteit| Vast (10 GB)|Wijzig de waarde in **Vast (10 GB)**. Deze waarde is de opslagcapaciteit van de database.
+    Opslagcapaciteit| Vast (10 GB)|Gebruik de standaardwaarde **Vast (10 GB)**. Deze waarde is de opslagcapaciteit van de database.
     Doorvoer|400 RU‘s|Wijzig de doorvoer in 400 aanvraageenheden per seconde (RU/s). U kunt de doorvoer later opschalen als u de latentie wilt beperken.
 
     Klik op **OK**.

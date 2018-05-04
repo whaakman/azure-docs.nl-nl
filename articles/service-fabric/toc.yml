@@ -246,11 +246,13 @@
       items:
         - name: Bewakingsoverzicht
           href: service-fabric-diagnostics-overview.md
-        - name: Clustergebeurtenissen
+        - name: Clusterbewaking
           href: service-fabric-diagnostics-event-generation-infra.md
           items:
-            - name: Operationele kanaal
-              href: service-fabric-diagnostics-event-generation-operational.md
+            - name: Service Fabric-gebeurtenissen
+              href: service-fabric-diagnostics-events.md
+            - name: Overzicht van EventStore
+              href: service-fabric-diagnostics-eventstore.md
             - name: Reliable Services-gebeurtenissen
               href: service-fabric-reliable-services-diagnostics.md
             - name: Reliable Actors-gebeurtenissen
@@ -507,6 +509,8 @@
                   href: service-fabric-cluster-creation-via-portal.md
                 - name: Azure Resource Manager
                   href: service-fabric-cluster-creation-via-arm.md
+                - name: Cluster met een algemene naam van een certificaat
+                  href: service-fabric-create-cluster-using-cert-cn.md
             - name: Schalen
               items:
                 - name: Handmatig
@@ -519,6 +523,10 @@
               href: service-fabric-cluster-security-roles.md
             - name: Een poort in de load balancer openen
               href: create-load-balancer-rule.md
+            - name: Wijzig het clustercertificaat in een algemene naam
+              href: service-fabric-cluster-change-cert-thumbprint-to-cn.md
+            - name: Handmatig clustercertificaten aanwijzen
+              href: service-fabric-cluster-rollover-cert-cn.md
             - name: Clustercertificaten beheren
               href: service-fabric-cluster-security-update-certs-azure.md
             - name: Verwijderen
@@ -567,6 +575,8 @@
               href: service-fabric-diagnostics-oms-containers.md
         - name: Clusters bewaken
           items:
+            - name: Query EventStore-API's
+              href: service-fabric-diagnostics-eventstore-query.md
             - name: Windows Azure Diagnostics
               href: service-fabric-diagnostics-event-aggregation-wad.md
             - name: Linux Azure Diagnostics
@@ -630,6 +640,8 @@
       href: /dotnet/api/overview/azure/service-fabric?view=azure-dotnet
     - name: REST
       href: /rest/api/servicefabric
+    - name: Service Fabric-gebeurtenissen
+      href: service-fabric-diagnostics-event-generation-operational.md
     - name: Clusterinstellingen en upgradebeleid voor infrastructuur configureren
       href: service-fabric-cluster-fabric-settings.md
     - name: XML-schema van servicemodel

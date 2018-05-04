@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018
-ms.openlocfilehash: e421797d85dd031b77788958db6b1df62a292a8a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: db910096f776f2f8710c0ac03f0378491018fc09
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning-Workbench - bekende problemen en oplossen 
 In dit artikel helpt u bij het zoeken en corrigeer de fouten of fouten dat is aangetroffen als onderdeel van het gebruik van de toepassing Azure Machine Learning-Workbench. 
@@ -137,7 +137,7 @@ U kunt ook de projecten en werkruimten van in de Workbench-app verwijderen.
 Als u Windows 10 vallen auteurs Update hebt en uw project is gemaakt in een lokale map die is toegewezen aan OneDrive, vindt u mogelijk dat u een bestand niet in de Workbench openen. Dit is vanwege een fout die door de vallen auteurs Update zorgt ervoor dat de node.js-code in een map OneDrive mislukken. De oplossingen snel worden opgelost door Windows update, maar tot die tijd, maak geen projecten in een map OneDrive.
 
 ## <a name="file-name-too-long-on-windows"></a>De bestandsnaam te lang in Windows
-Als u de Workbench van Windows gebruikt, is het mogelijk uitgevoerd in de standaard maximaal 260 tekens bestand naam lengtelimiet, die surface kan als een fout 'systeem kan het opgegeven pad niet vinden'. U kunt een registersleutelinstelling waarmee veel langer pad bestandsnaam wijzigen. Bekijk [in dit artikel](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) voor meer informatie over het instellen van de _MAX_PATH_ registersleutel.
+Als u de Workbench van Windows gebruikt, is het mogelijk uitgevoerd in de standaard maximaal 260 tekens bestand naam lengtelimiet, die surface kan als een fout 'systeem kan het opgegeven pad niet vinden'. U kunt een registersleutelinstelling waarmee veel langer pad bestandsnaam wijzigen. Bekijk [in dit artikel](https://msdn.microsoft.com/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) voor meer informatie over het instellen van de _MAX_PATH_ registersleutel.
 
 ## <a name="interrupt-cli-execution-output"></a>Onderbreken van de uitvoer van de CLI-uitvoering
 Als u een experimenteren uitgevoerd met behulp van starten `az ml experiment submit` of `az ml notebook start` en u wilt onderbreken van de uitvoer: 

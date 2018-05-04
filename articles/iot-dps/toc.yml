@@ -1,3 +1,5 @@
+- name: Basisprincipes van Azure IoT
+  href: ../iot-fundamentals/index.yml
 - name: Documentatie over de Azure IoT Hub Device Provisioning Service
   href: index.yml
 - name: Overzicht
@@ -87,6 +89,8 @@
       href: concepts-security.md
     - name: Service
       href: concepts-service.md
+    - name: TPM-attestation
+      href: concepts-tpm-attestation.md
 - name: Handleidingen
   items:
     - name: MXChip IoT DevKit verbinden met IoT Hub
@@ -117,6 +121,32 @@
   items:
     - name: REST
       href: /rest/api/iot-dps
+- name: Verwant
+  items:
+    - name: Oplossingen
+      items:
+        - name: Vooraf geconfigureerde oplossing van IoT Suite
+          href: /azure/iot-suite
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+    - name: Platformservices
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: IoT Hub Device Provisioning Service
+          href: /azure/iot-dps
+        - name: Location Based Services
+          href: /azure/location-based-services
+        - name: Service-SDK's
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: IoT Device-SDK's
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Resources
   items:
     - name: Azure IoT Hub

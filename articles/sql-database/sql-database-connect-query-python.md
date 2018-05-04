@@ -10,23 +10,23 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: carlrab
-ms.openlocfilehash: f22a6d38648cf60bac09a751697e1c1d63d1db4f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e8928a69436cfa0fc601c4a0c544433f3b87a90f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-python-to-query-an-azure-sql-database"></a>Python gebruiken om een query uit te voeren voor een Azure SQL-database
 
- In deze zelfstudie wordt gedemonstreerd hoe u [Python](https://python.org) gebruikt om verbinding te maken met een Azure SQL-database, en hoe u Transact-SQL-instructies gebruikt om een query uit te voeren op de gegevens. Voor meer informatie voor sdk, bekijk onze [verwijzings](https://docs.microsoft.com/python/api/overview/azure/sql)-documentatie, een pyodbc-[voorbeeld](https://github.com/mkleehammer/pyodbc/wiki/Getting-started), en de [pyodbc-](https://github.com/mkleehammer/pyodbc/wiki/) GitHub-opslagplaats.
+ In deze Quick Start wordt gedemonstreerd hoe u [Python](https://python.org) gebruikt om verbinding te maken met een Azure SQL-database, en hoe u Transact-SQL-instructies gebruikt om een query uit te voeren voor de gegevens. Voor meer informatie voor sdk, bekijk onze [verwijzings](https://docs.microsoft.com/python/api/overview/azure/sql)-documentatie, een pyodbc-[voorbeeld](https://github.com/mkleehammer/pyodbc/wiki/Getting-started), en de [pyodbc-](https://github.com/mkleehammer/pyodbc/wiki/) GitHub-opslagplaats.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Zorg ervoor dat u over het volgende beschikt om deze beknopte zelfstudie te voltooien:
+Zorg ervoor dat u over het volgende beschikt om deze snelstart te voltooien:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- Een [firewallregel op serverniveau](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) voor het openbare IP-adres van de computer die u gebruikt voor deze beknopte zelfstudie.
+- Een [firewallregel op serverniveau](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) voor het openbare IP-adres van de computer die u gebruikt voor deze snelstart.
 
 - U hebt Python en verwante software voor het besturingssysteem geïnstalleerd:
 

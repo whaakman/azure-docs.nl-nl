@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 8ec74f69d2de7b167fcc66d0e2499d052f0bf18e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 6274e4ebbc9f3c5b21c479b10e112459000fd28b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Opmerkingen bij de release van Microsoft Azure Storage Explorer
 
@@ -227,7 +227,7 @@ Dit artikel bevat de release-opmerkingen voor Azure Storage Explorer 0.9.6 (Prev
 * Als u probeert te openen of downloaden van een blob met een ongeldige naam van de Windows-bestand, mislukken de bewerking. Opslagverkenner wordt nu detecteren of een blob-naam ongeldig is en vraag of u wilt deze coderen noch overslaan van de blob. Opslagverkenner detecteert ook als een bestandsnaam worden gecodeerd en vraag u weergegeven als wilt voordat u uploadt worden ontsleuteld.
 * Tijdens het uploaden van blob de editor voor de doel-blob-container zou soms niet goed worden vernieuwd. Dit probleem is opgelost.
 * De ondersteuning voor verschillende soorten verbindingsreeksen en SAS-URI's opgelost. We alle bekende problemen hebt opgelost, maar Geef feedback verzenden als u meer problemen.
-* Het updatebericht dat is verbroken voor sommige gebruikers in 0.9.0. Dit probleem is opgelost en die van invloed op een door de fout, kunt u handmatig de nieuwste versie van Opslagverkenner downloaden [hier](https://azure.microsoft.com/en-us/features/storage-explorer/).
+* Het updatebericht dat is verbroken voor sommige gebruikers in 0.9.0. Dit probleem is opgelost en die van invloed op een door de fout, kunt u handmatig de nieuwste versie van Opslagverkenner downloaden [hier](https://azure.microsoft.com/features/storage-explorer/).
 
 ### <a name="known-issues"></a>Bekende problemen
 * Opslagverkenner biedt geen ondersteuning voor AD FS-accounts.
@@ -281,7 +281,7 @@ Dit artikel bevat de release-opmerkingen voor Azure Storage Explorer 0.9.6 (Prev
 * Als u probeert te openen of downloaden van een blob met een ongeldige naam van de Windows-bestand, mislukken de bewerking. Opslagverkenner wordt nu detecteren of een blob-naam ongeldig is en vraag of u wilt deze coderen noch overslaan van de blob. Opslagverkenner detecteert ook als een bestandsnaam worden gecodeerd en vraag u weergegeven als wilt voordat u uploadt worden ontsleuteld.
 * Tijdens het uploaden van blob de editor voor de doel-blob-container zou soms niet goed worden vernieuwd. Dit probleem is opgelost.
 * De ondersteuning voor verschillende soorten verbindingsreeksen en SAS-URI's opgelost. We alle bekende problemen hebt opgelost, maar Geef feedback verzenden als u meer problemen.
-* Het updatebericht dat is verbroken voor sommige gebruikers in 0.9.0. Dit probleem is opgelost en die van invloed op een door de fout, kunt u handmatig de nieuwste versie van Opslagverkenner downloaden [hier](https://azure.microsoft.com/en-us/features/storage-explorer/)
+* Het updatebericht dat is verbroken voor sommige gebruikers in 0.9.0. Dit probleem is opgelost en die van invloed op een door de fout, kunt u handmatig de nieuwste versie van Opslagverkenner downloaden [hier](https://azure.microsoft.com/features/storage-explorer/)
 
 ### <a name="known-issues"></a>Bekende problemen
 * Opslagverkenner biedt geen ondersteuning voor AD FS-accounts.

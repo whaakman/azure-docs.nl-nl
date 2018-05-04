@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 109a5b50688ca0b2c4edc63b6ba5c89bac74a6d3
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 9897a3578ad35376bea81b4821dbc2d84526a736
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Bevoegde toegang voor hybride en cloud-implementaties beveiligen in Azure AD
 
@@ -240,7 +240,7 @@ Vereisen C-suite leidinggevenden, op hoog niveau managers, kritieke IT en beveil
 
 #### <a name="use-dedicated-workstations-for-administration-for-azure-ad"></a>Speciale werkstations gebruikt voor beheer voor Azure AD
 
-Aanvallers kunnen proberen toe te passen bevoegde accounts toegang krijgen tot gegevens en systemen van een organisatie zodat ze de integriteit en de echtheid van gegevens via schadelijke code die de programmalogica wordt gewijzigd of admin invoeren van een referentie snoops kunnen verstoren. Privileged Access Workstations (poten) bieden een toegewijde besturingssysteem voor gevoelige taken die is beveiligd tegen aanvallen via Internet en bedreigingen met zich mee. Deze gevoelige taken en accounts scheiden van het dagelijks gebruik werkstations en apparaten zeer sterke bescherming bieden tegen phishingaanvallen, toepassing en OS beveiligingsproblemen, verschillende imitatie aanvallen en credential theft aanvallen, zoals toetsaanslag logboekregistratie, Pass-the-Hash en Pass-The-Ticket. Privileged access workstations implementeert, kunt u het risico dat beheerders op een bureaubladomgeving die heeft is gehard beheerdersreferenties behalve invoert reduceren. Zie voor meer informatie [Privileged Access Workstations](https://docs.microsoft.com/en-us/windows-server/identity/securing-privileged-access/privileged-access-workstations).
+Aanvallers kunnen proberen toe te passen bevoegde accounts toegang krijgen tot gegevens en systemen van een organisatie zodat ze de integriteit en de echtheid van gegevens via schadelijke code die de programmalogica wordt gewijzigd of admin invoeren van een referentie snoops kunnen verstoren. Privileged Access Workstations (poten) bieden een toegewijde besturingssysteem voor gevoelige taken die is beveiligd tegen aanvallen via Internet en bedreigingen met zich mee. Deze gevoelige taken en accounts scheiden van het dagelijks gebruik werkstations en apparaten zeer sterke bescherming bieden tegen phishingaanvallen, toepassing en OS beveiligingsproblemen, verschillende imitatie aanvallen en credential theft aanvallen, zoals toetsaanslag logboekregistratie, Pass-the-Hash en Pass-The-Ticket. Privileged access workstations implementeert, kunt u het risico dat beheerders op een bureaubladomgeving die heeft is gehard beheerdersreferenties behalve invoert reduceren. Zie voor meer informatie [Privileged Access Workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations).
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>Bekijk National Institute of Standards en technologie aanbevelingen voor het afhandelen van incidenten 
 

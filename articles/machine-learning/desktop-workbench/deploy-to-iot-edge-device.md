@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 2/1/2018
 ms.openlocfilehash: ceab96b1ef28527c8aa2692b83d3609f133f339c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="deploy-an-azure-machine-learning-model-to-an-azure-iot-edge-device"></a>Een Azure Machine Learning-model implementeren op een Azure-IoT-randapparaat
 
@@ -31,11 +31,11 @@ Hieronder vindt u aanvullende dingen om aan te geven.
 ### <a name="add-registry-credentials-to-the-edge-runtime-on-your-edge-device"></a>Voeg register referenties toe aan de rand runtime op uw apparaat van rand
 Toevoegen op de computer waarop u IoT-rand wordt uitgevoerd, de referenties van het register in, zodat de runtime toegang krijgen kan tot de container pull.
 
-Voor Windows, moet u de volgende opdracht uitvoeren:
+Voer voor Windows de volgende opdracht uit:
 ```cmd/sh
 iotedgectl login --address <docker-registry-address> --username <docker-username> --password <docker-password>
 ```
-Voer de volgende opdracht voor Linux:
+Voer voor Linux de volgende opdracht uit:
 ```cmd/sh
 sudo iotedgectl login --address <docker-registry-address> --username <docker-username> --password <docker-password>
 ```

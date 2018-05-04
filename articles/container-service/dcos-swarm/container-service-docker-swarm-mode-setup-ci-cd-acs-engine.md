@@ -3,17 +3,17 @@ title: CI/CD met Azure Container Service-Engine en Swarm-modus
 description: Azure Container Service-Engine met Docker Swarm-modus, een Azure Container register en Visual Studio Team Services gebruiken om te leveren continu een toepassing met meerdere .NET Core
 services: container-service
 author: diegomrtnzg
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
-ms.openlocfilehash: 6aa690ff7ec0689db78ff1225d36171adb30ee2c
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 01126f3eef988eb1787bafea92e7384aad1a703c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-visual-studio-team-services"></a>Volledige CI/CD-pijplijn voor het implementeren van een toepassing met meerdere container in Azure Container Service met de ACS-Engine en Docker Swarm-modus met behulp van Visual Studio Team Services
 
@@ -218,7 +218,7 @@ De werkstroom release bestaat uit twee taken die u toevoegt.
 
 1. Configureren van een taak voor het veilig de opstellen bestand kopiëren naar een *implementeren* map op het Docker Swarm hoofdknooppunt, met behulp van de SSH-verbinding die u eerder hebt geconfigureerd. Zie het volgende scherm voor meer informatie.
     
-    Bronmap:```$(System.DefaultWorkingDirectory)/MyShop-CI/drop```
+    Bronmap: ```$(System.DefaultWorkingDirectory)/MyShop-CI/drop```
 
     ![Visual Studio teamservices - Release SCP](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-scp.png)
 

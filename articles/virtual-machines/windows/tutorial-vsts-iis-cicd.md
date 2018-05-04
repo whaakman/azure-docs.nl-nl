@@ -1,6 +1,6 @@
 ---
-title: Een CI/CD-pijplijn maken in Azure met Team Services | Microsoft Docs
-description: Informatie over het maken van een pijplijn Visual Studio Team Services voor continue integratie en levering die een web-app in IIS op een virtuele machine van Windows implementeert
+title: Zelfstudie - in Azure met Team Services maakt een pijplijn CI/CD | Microsoft Docs
+description: In deze zelfstudie leert u hoe u een pijplijn Visual Studio Team Services voor continue integratie en levering die een web-app in IIS op een Windows-VM in Azure implementeert maakt.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 05/12/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: cf6e3013d4dfc7e18d96a717a76b591cde939139
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d017f2453bbd757c16e2df034f5879f24ffe42f7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>Een continue integratie-pijplijn maken met Visual Studio Team Services en IIS
-Voor het automatiseren van de build-, test- en implementatie fasen van de ontwikkeling van toepassingen, kunt u een continue integratie en implementatie (CI/CD) pijplijn. In deze zelfstudie maakt u een CI/CD-pijplijn met Visual Studio Team Services en virtuele Windows-machine (VM) in Azure waarop IIS wordt uitgevoerd. Procedures voor:
+# <a name="tutorial-create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>Zelfstudie: Een pijplijn continue integratie maken met Visual Studio Team Services en IIS
+Voor het automatiseren van de build-, test- en implementatie fasen van de ontwikkeling van toepassingen, kunt u een continue integratie en implementatie (CI/CD) pijplijn. In deze zelfstudie maakt u een CI/CD-pijplijn met Visual Studio Team Services en virtuele Windows-machine (VM) in Azure waarop IIS wordt uitgevoerd. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
 > * ASP.NET-webtoepassing op een project Team Services publiceren
@@ -33,7 +33,7 @@ Voor het automatiseren van de build-, test- en implementatie fasen van de ontwik
 > * Maken van een release definitie voor het publiceren van nieuwe web implementeren van pakketten naar IIS
 > * De pijplijn CI/CD testen
 
-Voor deze zelfstudie is moduleversie 3,6 of hoger van Azure PowerShell vereist. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
+Deze zelfstudie vereist de Azure PowerShell-moduleversie 5.7.0 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
 
 
 ## <a name="create-project-in-team-services"></a>Project maken in een Team Services
@@ -94,29 +94,30 @@ Bekijk begint als de build is gepland op een gehoste agent vervolgens om samen t
 ## <a name="create-virtual-machine"></a>Virtuele machine maken
 Als u een platform voor het uitvoeren van uw ASP.NET-web-app maken, moet u een virtuele Windows-machine waarop IIS wordt uitgevoerd. Teamservices maakt gebruik van een agent om te communiceren met het IIS-exemplaar als u code doorvoert en builds worden geactiveerd.
 
-Maak een VM van Windows Server 2016 met [dit voorbeeldscript](../scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json). Het duurt enkele minuten duren voordat het script uitvoeren en de virtuele machine maken. Zodra de virtuele machine is gemaakt, opent u poort 80 voor internetverkeer met [toevoegen AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.resources/new-azurermresourcegroup) als volgt:
+Maken van een Windows Server 2016-VM met [nieuwe-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Het volgende voorbeeld wordt een virtuele machine met de naam *myVM* in de *VS-Oost* locatie. De resourcegroep *myResourceGroupVSTS* en ondersteunende netwerkbronnen ook worden gemaakt. Om toe te staan internetverkeer, TCP-poort *80* naar de virtuele machine wordt geopend. Geef desgevraagd een gebruikersnaam en wachtwoord moet worden gebruikt als de aanmeldingsreferenties voor de virtuele machine:
 
 ```powershell
-Get-AzureRmNetworkSecurityGroup `
-  -ResourceGroupName $resourceGroup `
-  -Name "myNetworkSecurityGroup" | `
-Add-AzureRmNetworkSecurityRuleConfig `
-  -Name "myNetworkSecurityGroupRuleWeb" `
-  -Protocol "Tcp" `
-  -Direction "Inbound" `
-  -Priority "1001" `
-  -SourceAddressPrefix "*" `
-  -SourcePortRange "*" `
-  -DestinationAddressPrefix "*" `
-  -DestinationPortRange "80" `
-  -Access "Allow" | `
-Set-AzureRmNetworkSecurityGroup
+# Create user object
+$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
+
+# Create a virtual machine
+New-AzureRmVM `
+  -ResourceGroupName "myResourceGroupVSTS" `
+  -Name "myVM" `
+  -Location "East US" `
+  -ImageName "Win2016Datacenter" `
+  -VirtualNetworkName "myVnet" `
+  -SubnetName "mySubnet" `
+  -SecurityGroupName "myNetworkSecurityGroup" `
+  -PublicIpAddressName "myPublicIp" `
+  -Credential $cred `
+  -OpenPorts 80
 ```
 
 Verkrijgen voor verbinding met uw virtuele machine, het openbare IP-adres met [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) als volgt:
 
 ```powershell
-Get-AzureRmPublicIpAddress -ResourceGroupName $resourceGroup | Select IpAddress
+Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" | Select IpAddress
 ```
 
 Een extern-bureaubladsessie met uw virtuele machine maken:
@@ -233,4 +234,4 @@ In deze zelfstudie maakt u een ASP.NET-webtoepassing in een Team Services gemaak
 Voorafgaande aan de volgende zelfstudie voor informatie over het installeren van een SQL&#92;IIS&#92;.NET-stack op een combinatie van VM's van Windows.
 
 > [!div class="nextstepaction"]
-> [SQL&#92;IIS&#92;.NET stack](tutorial-iis-sql.md)
+> [SQL&#92;IIS&#92;.NET-stack](tutorial-iis-sql.md)

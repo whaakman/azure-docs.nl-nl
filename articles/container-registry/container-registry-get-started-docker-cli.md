@@ -3,17 +3,17 @@ title: Push-Docker-installatiekopie naar persoonlijke Azure-register
 description: Docker-installatiekopieën pushen naar en ophalen van een privécontainerregister in Azure met de Docker-CLI
 services: container-registry
 author: stevelas
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8fc04ec77a101e08bfde22df76e845b87f8c316e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 40f2d3bde5e92a035709b1a8e49b76d3da079680
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Uw eerste installatiekopie naar een Docker-containerregister pushen met de Docker-CLI
 
@@ -61,7 +61,7 @@ Uitvoeren van volgende [docker uitvoeren](https://docs.docker.com/engine/referen
 docker run -it --rm -p 8080:80 nginx
 ```
 
-Blader naar [http://localhost: 8080](http://localhost:8080) om de standaardwebpagina afgehandeld door Nginx in de actieve container weer te geven. Hier ziet u een pagina zoals in het volgende:
+Blader naar [ http://localhost:8080 ](http://localhost:8080) om de standaardwebpagina afgehandeld door Nginx in de actieve container weer te geven. Hier ziet u een pagina zoals in het volgende:
 
 ![Nginx op lokale computer](./media/container-registry-get-started-docker-cli/nginx.png)
 
@@ -103,7 +103,7 @@ Gebruik de [docker uitvoeren](https://docs.docker.com/engine/reference/run/) uit
 docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 ```
 
-Ga naar [http://localhost:8080](http://localhost:8080) om de container die wordt uitgevoerd, weer te geven.
+Blader naar [ http://localhost:8080 ](http://localhost:8080) om de actieve container weer te geven.
 
 Als u wilt stoppen en verwijderen van de container, drukt u op `Control` + `C`.
 

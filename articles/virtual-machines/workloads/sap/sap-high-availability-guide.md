@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d00db895ffcf9ba9a51e3df2dae5d33c0277dd6f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e65f38b6fb4f5434c840af1866ccf09671111f3e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure virtuele Machines hoge beschikbaarheid voor SAP NetWeaver
 
@@ -419,9 +419,9 @@ _**Afbeelding 11:** ingesteld SAP-parameters voor hoge beschikbaarheid Azure Res
     * DBMS-cluster: <*SAPSystemSID*> - db - <*getal*>
 
   * **Netwerkkaarten voor alle virtuele machines met bijbehorende IP-adressen**:
-    * <*SAPSystemSID*>-nic-di-<*Number*>
+    * <*SAPSystemSID*> - nic - di - <*getal*>
     * <*SAPSystemSID*>-nic-ascs-<*Number*>
-    * <*SAPSystemSID*>-nic-db-<*Number*>
+    * <*SAPSystemSID*> - nic - db - <*getal*>
 
   * **Azure storage-accounts (alleen niet-beheerde schijven)**
 
@@ -608,7 +608,7 @@ In ons voorbeeld is de DNS-service geïnstalleerd en geconfigureerd op deze virt
 
 | De rol virtuele machine | Hostnaam van de virtuele machine | Naam van de netwerk-kaart | Statisch IP-adres |
 | --- | --- | --- | --- |
-| Eerste DNS-server |domcontr-0 |pr1-nic-domcontr-0 |10.0.0.10 |
+| Eerste DNS-server |domcontr 0 |PR1-nic-domcontr-0 |10.0.0.10 |
 | Tweede DNS-server |domcontr-1 |pr1-nic-domcontr-1 |10.0.0.11 |
 
 ### <a name="9fbd43c0-5850-4965-9726-2a921d85d73f"></a> Hostnamen en statische IP-adressen voor de geclusterde instantie SAP ASC's / SCS en DBMS geclusterd exemplaar
@@ -617,8 +617,8 @@ Voor on-premises implementatie moet u deze gereserveerde hostnamen en IP-adresse
 
 | Virtuele host naam rol | De naam van de virtuele host | Virtuele vaste IP-adres |
 | --- | --- | --- |
-| SAP ASC's / SCS eerste virtuele host clusternaam (voor cluster) |pr1-ascs-vir |10.0.0.42 |
-| Naam van de virtuele host op het exemplaar van SAP ASC's / SCS |pr1-ascs-sap |10.0.0.43 |
+| SAP ASC's / SCS eerste virtuele host clusternaam (voor cluster) |PR1-ASC's-vir |10.0.0.42 |
+| Naam van de virtuele host op het exemplaar van SAP ASC's / SCS |PR1 ASC's sap |10.0.0.43 |
 | SAP DBMS tweede virtuele host clusternaam (cluster management) |pr1-dbms-vir |10.0.0.32 |
 
 Wanneer u het cluster maakt, maakt u de virtuele hostnamen **pr1-ASC's-vir** en **pr1-dbms-vir** en de bijbehorende IP-adressen die het cluster zelf beheren. Zie voor informatie over hoe u dit doet, [verzamelen clusterknooppunten in een clusterconfiguratie][sap-ha-guide-8.12.1].
@@ -646,14 +646,14 @@ In ons voorbeeld hebben we deze virtuele machines en statische IP-adressen:
 
 | De rol virtuele machine | Hostnaam van de virtuele machine | Naam van de netwerk-kaart | Statisch IP-adres |
 | --- | --- | --- | --- |
-| Eerste SAP Application Server-exemplaar |pr1-di-0 |pr1-nic-di-0 |10.0.0.50 |
-| Tweede SAP Application Server-exemplaar |pr1-di-1 |pr1-nic-di-1 |10.0.0.51 |
+| Eerste SAP Application Server-exemplaar |pr1-di-0 |PR1-nic-di-0 |10.0.0.50 |
+| Tweede SAP Application Server-exemplaar |pr1-di-1 |PR1-nic-di-1 |10.0.0.51 |
 | ... |... |... |... |
-| Laatste SAP Application Server-exemplaar |pr1-di-5 |pr1-nic-di-5 |10.0.0.55 |
+| Laatste SAP Application Server-exemplaar |PR1-di-5 |PR1-nic-di-5 |10.0.0.55 |
 | Eerste clusterknooppunt voor ASC's / SCS-exemplaar |pr1-ascs-0 |pr1-nic-ascs-0 |10.0.0.40 |
 | Tweede clusterknooppunt voor ASC's / SCS-exemplaar |pr1-ascs-1 |pr1-nic-ascs-1 |10.0.0.41 |
-| Eerste clusterknooppunt voor DBMS-exemplaar |pr1-db-0 |pr1-nic-db-0 |10.0.0.30 |
-| Tweede clusterknooppunt voor DBMS-exemplaar |pr1-db-1 |pr1-nic-db-1 |10.0.0.31 |
+| Eerste clusterknooppunt voor DBMS-exemplaar |pr1-db-0 |PR1-nic-db-0 |10.0.0.30 |
+| Tweede clusterknooppunt voor DBMS-exemplaar |pr1-db-1 |PR1-nic-db-1 |10.0.0.31 |
 
 ### <a name="7a8f3e9b-0624-4051-9e41-b73fff816a9e"></a> Instellen van een statisch IP-adres voor de Azure interne load balancer
 
@@ -697,12 +697,12 @@ Maak eerst deze eindpunten voor de poorten SAP NetWeaver ABAP ASC's voor taakver
 
 | Service/load balancing regelnaam | Standaardpoortnummers | Concrete poorten voor (ASC's exemplaar met exemplaarnummer 00) (uit met 10) |
 | --- | --- | --- |
-| Enqueue Server / *lbrule3200* |32 <*InstanceNumber*> |3200 |
-| ABAP Message Server / *lbrule3600* |36 <*InstanceNumber*> |3600 |
+| In de wachtrij plaatsen Server / *lbrule3200* |32 <*InstanceNumber*> |3200 |
+| ABAP berichtenserver / *lbrule3600* |36 <*InstanceNumber*> |3600 |
 | Interne ABAP bericht / *lbrule3900* |39 <*InstanceNumber*> |3900 |
 | Server-HTTP-bericht / *Lbrule8100* |81 <*InstanceNumber*> |8100 |
 | SAP Start Service ASC's HTTP / *Lbrule50013* |5 <*InstanceNumber*> 13 |50013 |
-| SAP Start Service ASCS HTTPS / *Lbrule50014* |5 <*InstanceNumber*> 14 |50014 |
+| SAP Start Service ASC's HTTPS / *Lbrule50014* |5 <*InstanceNumber*> 14 |50014 |
 | Replicatie van de wachtrij plaatsen / *Lbrule50016* |5 <*InstanceNumber*> 16 |50016 |
 | SAP Start Service Ebruikers HTTP *Lbrule51013* |5 <*InstanceNumber*> 13 |51013 |
 | SAP Start Service Ebruikers HTTP *Lbrule51014* |5 <*InstanceNumber*> 14 |51014 |
@@ -715,7 +715,7 @@ Vervolgens maakt u deze load balancing-eindpunten voor de SAP NetWeaver Java SCS
 
 | Service/load balancing regelnaam | Standaardpoortnummers | Concrete poorten voor (exemplaar met exemplaarnummer 01 SCS) (Ebruikers met 11) |
 | --- | --- | --- |
-| Enqueue Server / *lbrule3201* |32 <*InstanceNumber*> |3201 |
+| In de wachtrij plaatsen Server / *lbrule3201* |32 <*InstanceNumber*> |3201 |
 | Gateway-Server / *lbrule3301* |33 <*InstanceNumber*> |3301 |
 | Java berichtenserver / *lbrule3900* |39 <*InstanceNumber*> |3901 |
 | Server-HTTP-bericht / *Lbrule8101* |81 <*InstanceNumber*> |8101 |
@@ -773,7 +773,7 @@ Registervermeldingen toegevoegd op beide knooppunten van het SAP ASC's / SCS-exe
 | Naam variabele |`KeepAliveTime` |
 | Type variabele |REG_DWORD (decimaal) |
 | Waarde |120000 |
-| Koppelen aan documentatie |[https://technet.microsoft.com/en-us/library/cc957549.aspx](https://technet.microsoft.com/en-us/library/cc957549.aspx) |
+| Koppelen aan documentatie |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
 
 _**Tabel 3:** wijzigen van de eerste parameter van de TCP/IP_
 
@@ -784,7 +784,7 @@ Voegt u deze Windows-registervermeldingen op beide clusterknooppunten Windows vo
 | Naam variabele |`KeepAliveInterval` |
 | Type variabele |REG_DWORD (decimaal) |
 | Waarde |120000 |
-| Koppelen aan documentatie |[https://technet.microsoft.com/en-us/library/cc957548.aspx](https://technet.microsoft.com/en-us/library/cc957548.aspx) |
+| Koppelen aan documentatie |[https://technet.microsoft.com/library/cc957548.aspx](https://technet.microsoft.com/library/cc957548.aspx) |
 
 _**Tabel 4:** wijzigen van de tweede parameter van de TCP/IP_
 

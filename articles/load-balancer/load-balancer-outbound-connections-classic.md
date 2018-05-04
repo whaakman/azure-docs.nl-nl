@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: ec13109173f89b53e32f903febcec13c7f38c574
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7679fd253370d8ca9ca9ac57dc080806050f5c3c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="outbound-connections-classic"></a>Uitgaande verbindingen (klassiek)
 
@@ -50,7 +50,7 @@ Verschillende implementaties in de klassieke hebben verschillende functionalitei
 | Klassieke implementatie | De functie is beschikbaar | 
 | --- | --- |
 | Virtuele machine | scenario [1](#ilpip), [2](#publiclbendpoint), of [3](#defaultsnat) |
-| Web-Werkrol | only scenario [2](#publiclbendpoint), [3](#defaultsnat) | 
+| Web-Werkrol | alleen scenario [2](#publiclbendpoint), [3](#defaultsnat) | 
 
 [Risicobeperking strategieën](#snatexhaust) hebben de dezelfde verschillen.
 
@@ -114,8 +114,6 @@ De volgende tabel toont de snat omzetten poort preallocations voor lagen van bac
 | 51-100 | 512 |
 | 101-200 | 256 |
 | 201-400 | 128 |
-| 401-800 | 64 |
-| 801-1,000 | 32 |
 
 Houd er rekening mee dat het aantal beschikbare poorten voor snat omzetten niet rechtstreeks aan het aantal gegevensoverdrachten wordt omgezet. Een losse poort zijn snat omzetten kan opnieuw worden gebruikt voor meerdere unieke bestemmingen. Poorten die worden verbruikt alleen als het is nodig om stromen uniek te maken. Voor de ontwerp- en risicobeperking, Raadpleeg het gedeelte over [het beheren van deze resource onuitputtelijk](#snatexhaust) en de sectie waarin wordt beschreven [PAT](#pat).
 

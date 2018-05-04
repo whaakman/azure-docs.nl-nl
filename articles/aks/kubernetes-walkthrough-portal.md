@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4aad45559d167e6c046822200c9bbb98113d463b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5bb758637d7b23f206f78d1604f985c2985d4410
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-deploy-an-azure-container-service-aks-cluster"></a>Snelstart: een AKS-cluster (Azure Container Service) implementeren
 
@@ -83,6 +83,11 @@ Open Cloud Shell met behulp van de knop in de rechterbovenhoek van Azure Portal.
 
 ![Cloud Shell](media/container-service-walkthrough-portal/kubectl-cs.png)
 
+Abonnement opgeven (indien u dat nog niet hebt gedaan)
+```azurecli-interactive
+az account set -s SUBSCRIPTION_NAME
+```
+
 Gebruik de opdracht [az aks get-credentials][az-aks-get-credentials] om kubectl zo te configureren dat deze verbinding maakt met het Kubernetes-cluster.
 
 Kopieer en plak de volgende opdracht in Cloud Shell. Wijzig de naam van de resourcegroep en van het cluster, indien nodig.
@@ -110,7 +115,7 @@ aks-agentpool-14693408-2   Ready     agent     7m        v1.8.1
 
 In een Kubernetes-manifestbestand wordt een gewenste status voor het cluster gedefinieerd, inclusief zaken zoals welke containerinstallatiekopieën moeten worden uitgevoerd. In dit voorbeeld wordt een manifest gebruikt om alle objecten te maken die nodig zijn om de Azure Vote-toepassing uit te voeren.
 
-Maak een bestand met de naam `azure-vote.yaml` en kopieer hierin de volgende YAML-code. Als u werkt in Azure Cloud Shell, kunt u dit bestand maken met behulp van vi of Nano, zoals bij een virtueel of fysiek systeem.
+Maak een bestand met de naam `azure-vote.yaml` en kopieer de volgende YAML-code naar het bestand. Als u werkt in Azure Cloud Shell, maakt u het bestand met behulp van vi of Nano, zoals bij een virtueel of fysiek systeem.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -211,13 +216,13 @@ Zodra het *EXTERNE IP-adres* is gewijzigd van *in behandeling* in een *IP-adres*
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
-Nu kunt u naar het externe IP-adres browsen voor een overzicht van de Azure Vote-toepassing.
+Blader nu naar het externe IP-adres voor een overzicht van de Azure Vote-app.
 
 ![Afbeelding van browsen naar Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
 ## <a name="delete-cluster"></a>Cluster verwijderen
 
-Wanneer het cluster niet meer nodig is, kunt u de clusterresourcegroep verwijderen. Hierdoor worden ook alle bijbehorende resources verwijderd. Dit kan worden voltooid in Azure Portal door de resourcegroep te selecteren en op de knop Verwijderen te klikken. U kunt ook de opdracht [az group delete][az-group-delete] gebruiken in Cloud Shell.
+Wanneer het cluster niet meer nodig is, verwijdert u de clusterresourcegroep. Hierdoor worden ook alle bijbehorende resources verwijderd. Dit kan worden voltooid in Azure Portal door de resourcegroep te selecteren en op de knop Verwijderen te klikken. U kunt ook de opdracht [az group delete][az-group-delete] gebruiken in Cloud Shell.
 
 ```azurecli-interactive
 az group delete --name myAKSCluster --no-wait

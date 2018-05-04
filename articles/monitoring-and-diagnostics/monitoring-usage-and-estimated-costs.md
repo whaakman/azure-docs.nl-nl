@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: f25c39b602449be3ab9d1cd7e67d6fcfc78afb17
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 08991565d56ffbf7d798944f108a1b86e4463c58
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Bewaking en de geschatte kosten
 
@@ -39,12 +39,11 @@ Hier is een andere vergelijkbare gebruik en kosten samenvatting. Dit voorbeeld z
 
 ## <a name="new-pricing-model"></a>Nieuw prijsmodel
 
-In April 2018, is een nieuw bewaking prijsmodel uitgebracht. Biedt prijsstelling cloud-vriendelijk, op basis van verbruik. U betaalt alleen voor wat u, zonder verbintenissen op basis van een knooppunt gebruikt. Details van het nieuwe prijsmodel zijn beschikbaar voor [waarschuwingen, metrische gegevens, meldingen](https://azure.microsoft.com/pricing/details/monitor/), [logboekanalyse](https://azure.microsoft.com/pricing/details/log-analytics/), en [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/).
+In April 2018, een [nieuwe bewaking prijsmodel werd uitgebracht](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/).  Deze functies cloud-vriendelijk, op basis van verbruik prijzen. U betaalt alleen voor wat u, zonder verbintenissen op basis van een knooppunt gebruikt. Details van het nieuwe prijsmodel zijn beschikbaar voor [waarschuwingen, metrische gegevens, meldingen](https://azure.microsoft.com/pricing/details/monitor/), [logboekanalyse](https://azure.microsoft.com/pricing/details/log-analytics/) en [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). 
 
-Het nieuwe prijsmodel is voor klanten die begint met het gebruik van logboekanalyse of Application Insights na 2 April 2018, de enige optie. Voor klanten die al gebruikmaken van deze services, verplaatsen naar het nieuwe prijsmodel is optioneel.
+Voor de voorbereiding op klanten logboekanalyse of Application Insights na 2 April 2018, is het nieuwe prijsmodel de enige optie. Voor klanten die al gebruikmaken van deze services, verplaatsen naar het nieuwe prijsmodel is optioneel.
 
 ## <a name="assessing-the-impact-of-the-new-pricing-model"></a>De gevolgen van het nieuwe prijsmodel beoordelen
-
 Het nieuwe prijsmodel heeft verschillende effecten voor elke klant op basis van hun bewaking gebruikspatronen. Voor klanten die zijn met logboekanalyse of Application Insights voordat 2 April 2018, de **gebruik en de geschatte kosten** pagina in de Azure-Monitor maakt een schatting van eventuele wijzigingen in de kosten als ze naar het nieuwe prijsmodel. Het biedt de manier waarop een abonnement verplaatsen naar het nieuwe model. Voor de meeste klanten is het nieuwe prijsmodel voordeligste. Voor klanten met gebruikspatronen vooral hoog gegevens of in hogere kosten regio's, kan dit niet het geval zijn.
 
 Om te zien van een schatting maken van uw kosten voor de abonnementen die u hebt gekozen op de **gebruik en de geschatte kosten** pagina, selecteert u de blauwe banner boven aan de pagina. Het is raadzaam te doen dit een abonnement op een tijdstip, omdat dit het niveau waarop het nieuwe prijsmodel kan worden vastgesteld.
@@ -71,11 +70,30 @@ Er is een andere wijziging gegevens ingenomen in logboekanalyse of Application I
 
 ## <a name="new-pricing-model-and-operations-management-suite-subscription-entitlements"></a>Nieuwe prijzen model en rechten voor Operations Management Suite-abonnement
 
-Klanten die zijn gekocht van Microsoft Operations Management Suite E1 en E2 in aanmerking komen voor per knooppunt gegevens opname rechten voor [logboekanalyse](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite) en [Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-pricing#the-price-plans). Voor het ontvangen van deze rechten voor Log Analytics-werkruimten of Application Insights moeten in het pre-April 2018 prijsmodel resources in een bepaald abonnement, dat abonnement model de prijzen blijven. Dat is waar de logboekanalyse "Per knooppunt (OMS)' prijscategorie en de Application Insights 'Enterprise' prijsstelling beschikbaar zijn. Verplaatsen van dat sommige abonnementen op het nieuwe prijsmodel nog steeds mogelijk om afhankelijk van het aantal knooppunten van het pakket dat uw organisatie heeft aangeschaft. Maar dit moet zorgvuldig gebeuren.
+Klanten die zijn gekocht van Microsoft Operations Management Suite E1 en E2 komen in aanmerking voor de per knooppunt gegevens opname rechten voor [logboekanalyse](https://www.microsoft.com/cloud-platform/operations-management-suite) en [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing#the-price-plans). Deze rechten voor Log Analytics-werkruimten of Application Insights-resources in een bepaald abonnement ontvangen: 
+
+- Het abonnement prijsmodel moet blijven in het model van de pre-April 2018.
+- Log Analytics-werkruimten moeten de "Per knooppunt (OMS)' prijscategorie gebruiken.
+- Application Insights-resources moeten de prijzen plan 'onderneming' gebruiken.
+
+Afhankelijk van het aantal knooppunten van het pakket dat uw organisatie heeft aangeschaft, enkele verplaatsen abonnementen op het nieuwe prijsmodel kunnen nuttig zijn, maar dit moet zorgvuldig gebeuren. In het algemeen is het raadzaam gewoon blijven in de pre-April 2018 model zoals hierboven is beschreven.
+
+> [!WARNING]
+> Als uw organisatie heeft aangeschaft voor de Microsoft Operations Management Suite E1 en E2, is het beste aan uw abonnementen in de pre-April prijsmodel voor 2018 behouden. 
+>
 
 ## <a name="changes-when-youre-moving-to-the-new-pricing-model"></a>Verandert wanneer u naar het nieuwe prijsmodel verplaatsen wilt
 
-Een abonnement verplaatsen naar het nieuwe prijsmodel verandert de prijscategorie voor elke logboekanalyse in een nieuwe laag voor de Per GB en eventuele (aangeroepen 'pergb2018' in Azure Resource Manager) wordt het verplaatst. Verplaatsing, wijzigt u ook een Application Insights-resources in het plan Enterprise naar de Basic-abonnement. De schatting van de kosten worden de effecten van deze wijzigingen.
+Het nieuwe prijsmodel vereenvoudigt Log Analytics en Application Insights prijzen opties tot slechts één laag (of -abonnement). Het verplaatsen van een abonnement naar het nieuwe prijscategorie model wordt:
+
+- De prijscategorie voor elke logboekanalyse wijzigen in een nieuwe Per GB-laag (genaamd 'pergb2018' in Azure Resource Manager)
+- Een Application Insights-resources in het plan Enterprise wordt gewijzigd naar het basisniveau.
+
+De schatting van de kosten worden de effecten van deze wijzigingen.
+
+> [!WARNING]
+> Belangrijke opmerking als u Azure Resource Manager of PowerShell gebruiken voor het implementeren van hier [logboekanalyse](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration) of [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-powershell) prijzen in een abonnement dat u hebt verplaatst naar het nieuwe model. Als u een laag/prijsstelling dan de 'pergb2018' voor logboekanalyse of 'Basic' voor Application Insights opgeeft, plaats mislukt de implementatie vanwege een ongeldige prijzen laag/plan, geven deze slaagt **maar alleen het geldige wordt gebruikt laag/plan prijzen**. 
+>
 
 ## <a name="moving-to-the-new-pricing-model"></a>Verplaatsen naar het nieuwe prijsmodel
 

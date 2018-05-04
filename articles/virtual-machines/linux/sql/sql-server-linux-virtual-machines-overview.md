@@ -10,13 +10,13 @@ ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: get-started-article
 ms.workload: iaas-sql-server
-ms.date: 03/22/2018
+ms.date: 04/10/2018
 ms.author: jroth
-ms.openlocfilehash: e752ad844a6efe572564e7081ebac87193e9c2a7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9c24536d8d5647e4a2c19afa17c35050e1f11c20
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Overzicht van SQL Server op virtuele machines in Azure (Linux)
 
@@ -24,27 +24,16 @@ ms.lasthandoff: 03/23/2018
 > * [Windows](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
 > * [Linux](sql-server-linux-virtual-machines-overview.md)
 
-In dit onderwerp wordt beschreven hoe u SQL Server kunt uitvoeren op virtuele Linux-machines (VM's) in Azure. Ook vindt u hier [koppelingen naar portalinstallatiekopieën](#create).
+Met SQL Server op Azure Virtual Machines kunt u volledige versies van SQL Server in de cloud gebruiken zonder dat u on-premises hardware hoeft te beheren. SQL Server-VM's vereenvoudigen ook de licentiekosten als u betaalt naar gebruik.
 
-> [!NOTE]
-> Zie [Een virtuele Linux-machine met SQL Server inrichten in Azure Portal](provision-sql-server-linux-virtual-machine.md) als u al bekend bent met SQL Server en alleen wilt zien hoe u een virtuele Linux-machine met SQL Server implementeert. Of zie [Provision a Windows SQL Server VM in Azure](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md) (Een virtuele Windows SQL Server-machine in Azure inrichten) als u een virtuele Windows-machine met SQL Server wilt maken.
+Virtuele machines van Azure worden uitgevoerd in talloze verschillende [geografische regio's](https://azure.microsoft.com/regions/) ter wereld. Er zijn ook diverse [formaten](../sizes.md). In de galerie met installatiekopieën voor virtuele machines kunt u een SQL Server-VM met de juiste versie, de juiste editie en het juiste besturingssysteem maken. Daarom zijn virtuele machines een goede optie voor diverse verschillende SQL Server-werkbelastingen.
 
-Als u een databasebeheerder of een ontwikkelaar bent, kunt u met VM's in Azure de on-premises SQL Server-werkbelastingen en toepassingen naar de cloud verplaatsen.
+## <a id="create"></a>Aan de slag met VM's voor SQL
 
-## <a name="scenarios"></a>Scenario's
-
-U kunt er om vele redenen voor kiezen om uw gegevens in Azure te hosten. Als u uw toepassing ontwikkelt voor Azure of als u naar Azure migreert, kunnen ook back-endgegevens in Azure beter worden gevonden. U hebt automatisch toegang tot meerdere datacenters voor een wereldwijde aanwezigheid en herstel na een noodgeval. De gegevens zijn ook zeer goed beveiligd en duurzaam.
-
-SQL Server dat wordt uitgevoerd op virtuele machines in Azure is één mogelijkheid om relationele gegevens in Azure op te slaan. U hebt echter ook de mogelijkheid om de Azure SQL Database-service te gebruiken. Zie [Een SQL Server-cloudoptie kiezen: Azure SQL (PaaS) Database of SQL Server op Azure Virtual Machines (IaaS)](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md) voor meer informatie over een keuze voor SQL Server op virtuele machines of voor Azure SQL Database.
-
-## <a id="create"></a> Een nieuwe SQL-VM maken
-
-Stapsgewijze richtlijnen voor het maken van een nieuwe virtuele SQL-machine vindt u in de zelfstudie [Een virtuele SQL Server-machine inrichten in Azure](provision-sql-server-linux-virtual-machine.md).
-
-De volgende tabel bevat een matrix met de laatste SQL Server-installatiekopieën in de galerie met virtuele machines. Klik op een koppeling om te beginnen met het maken van een nieuwe virtuele SQL-machine met de versie, de editie en het besturingssysteem die u hebt opgegeven.
+Als u aan de slag wilt, kiest u een installatiekopie voor een virtuele machine voor SQL Server met de vereiste versie, de vereiste editie en het vereiste besturingssysteem. De volgende gedeelten bevatten directe koppelingen naar Azure Portal voor de galerie met installatiekopieën van virtuele SQL Server-machines.
 
 > [!TIP]
-> Zie de [pagina met prijzen voor virtuele SQL Server-machines voor Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) voor informatie over de VM- en SQL-prijzen voor deze installatiekopieën.
+> Zie [de prijzenpagina voor virtuele Linux-machines met SQL Server](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) voor informatie over de prijzen voor SQL-installatiekopieën.
 
 | Versie | Besturingssysteem | Editie |
 | --- | --- | --- |
@@ -65,6 +54,33 @@ Wanneer u SQL Server op Linux configureert, installeert u het database-engine-pa
 | SLES | ![ja](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![ja](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![ja](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![ja](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![nee](./media/sql-server-linux-virtual-machines-overview/no.png) | ![nee](./media/sql-server-linux-virtual-machines-overview/no.png) |
 | Ubuntu | ![ja](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![ja](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![ja](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![ja](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![ja](./media/sql-server-linux-virtual-machines-overview/yes.png) | ![ja](./media/sql-server-linux-virtual-machines-overview/yes.png) |
 
+## <a name="related-products-and-services"></a>Gerelateerde producten en services
+
+### <a name="linux-virtual-machines"></a>Virtuele Linux-machines
+
+* [Overzicht van Virtual Machines](../overview.md)
+
+### <a name="storage"></a>Storage
+
+* [Inleiding tot Microsoft Azure Storage](../../../storage/common/storage-introduction.md)
+
+### <a name="networking"></a>Netwerken
+
+* [Overzicht van Virtual Network](../../../virtual-network/virtual-networks-overview.md)
+* [IP-adressen in Azure](../../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
+* [Een Fully Qualified Domain Name maken in Azure Portal](../portal-create-fqdn.md)
+
+### <a name="sql"></a>SQL
+
+* [Documentatie voor SQL Server op Linux](https://docs.microsoft.com/sql/linux)
+* [Vergelijking met Azure SQL Database](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md)
+
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie [Overview of SQL Server on Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview) (Overzicht van SQL Server op Linux) voor meer informatie over het configureren en gebruiken van SQL Server op Linux.
+Aan de slag met SQL Server op virtuele Linux-machines van Azure:
+
+* [Create a SQL Server VM in the Azure portal](provision-sql-server-linux-virtual-machine.md) (Een SQL Server-VM maken in Azure Portal)
+
+Vind antwoorden op veelgestelde vragen over virtuele SQL-machines op Linux:
+
+* [Veelgestelde vragen over SQL Server op virtuele Linux-machines van Azure](sql-server-linux-faq.md)

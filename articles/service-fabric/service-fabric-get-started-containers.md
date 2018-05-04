@@ -1,37 +1,37 @@
 ---
 title: Een Azure Service Fabric-containertoepassing maken | Microsoft Docs
-description: Maak uw eerste Windows-containertoepassing in Azure Service Fabric.  Bouw een Docker-installatiekopie met een Python-toepassing, push de installatiekopie naar een containerregister, en bouw en implementeer een Service Fabric-containertoepassing.
+description: Maak uw eerste Windows-containertoepassing in Azure Service Fabric. Bouw een Docker-installatiekopie met een Python-toepassing, push de installatiekopie naar een containerregister, en bouw en implementeer een Service Fabric-containertoepassing.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
 editor: vturecek
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/19/2018
+ms.date: 4/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 20f9be1a0274b40a684fe12207cf9fe1f33969c8
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 679fb066441fd75d5e12f9374d012f50c6f65966
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Uw eerste Service Fabric-containertoepassing maken in Windows
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-Er zijn geen wijzigingen in uw toepassing vereist om een bestaande toepassing in een Windows-container uit te voeren in een Service Fabric-cluster. Dit artikel helpt u bij het maken van een Docker-installatiekopie met een Python [Flask](http://flask.pocoo.org/)-webtoepassing en het implementeren ervan in een Service Fabric-cluster.  U gaat uw containertoepassing ook delen via [Azure Container Registry](/azure/container-registry/).  In dit artikel wordt ervan uitgegaan dat u de basisbeginselen kent van Docker. Meer informatie over Docker kunt u lezen in het [Docker-overzicht](https://docs.docker.com/engine/understanding-docker/).
+Er zijn geen wijzigingen in uw toepassing vereist om een bestaande toepassing in een Windows-container uit te voeren in een Service Fabric-cluster. Dit artikel helpt u bij het maken van een Docker-installatiekopie met een Python [Flask](http://flask.pocoo.org/)-webtoepassing en het implementeren ervan in een Service Fabric-cluster. U gaat uw containertoepassing ook delen via [Azure Container Registry](/azure/container-registry/). In dit artikel wordt ervan uitgegaan dat u de basisbeginselen kent van Docker. Meer informatie over Docker kunt u lezen in het [Docker-overzicht](https://docs.docker.com/engine/understanding-docker/).
 
 ## <a name="prerequisites"></a>Vereisten
 Een ontwikkelcomputer waarop wordt uitgevoerd:
 * Visual Studio 2015 of Visual Studio 2017.
 * [Service Fabric SDK en hulpprogramma's](service-fabric-get-started.md).
-*  Docker voor Windows.  [Download Docker CE voor Windows (stabiel)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Nadat u Docker hebt geïnstalleerd en gestart, klikt u met de rechtermuisknop op het systeemvakpictogram en selecteert u **Overschakelen naar Windows-containers**. Dit is vereist voor het uitvoeren van Docker-installatiekopieën op basis van Windows.
+*  Docker voor Windows. [Download Docker CE voor Windows (stabiel)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Nadat u Docker hebt geïnstalleerd en gestart, klikt u met de rechtermuisknop op het systeemvakpictogram en selecteert u **Overschakelen naar Windows-containers**. Deze stap is vereist voor het uitvoeren van Docker-installatiekopieën onder Windows.
 
 Een Windows-cluster met drie of meer knooppunten die worden uitgevoerd op Windows Server 2016 met containers - [Een cluster maken](service-fabric-cluster-creation-via-portal.md) of [Service Fabric gratis uitproberen](https://aka.ms/tryservicefabric).
 
@@ -48,7 +48,7 @@ Een register in Azure Container Registry - [Een containerregister maken](../cont
 ## <a name="define-the-docker-container"></a>De Docker-container definiëren
 Bouw een installatiekopie op basis van de [Python-installatiekopie](https://hub.docker.com/_/python/) die zich in de Docker-hub bevindt.
 
-Definieer uw Docker-container in een Dockerfile. Het bestand Dockerfile bevat instructies voor het instellen van de omgeving in de container, het laden van de toepassing die u wilt uitvoeren en het toewijzen van poorten. Het Dockerfile is de invoer van de opdracht `docker build` waarmee de installatiekopie wordt gemaakt.
+Geef uw Docker-container in een Dockerfile op. Het bestand Dockerfile bestaat uit instructies voor het instellen van de omgeving in de container, het laden van de toepassing die u wilt uitvoeren en het toewijzen van poorten. Het Dockerfile is de invoer van de opdracht `docker build` waarmee de installatiekopie wordt gemaakt.
 
 Maak een lege map en maak het bestand *Dockerfile* (zonder extensie). Voeg het volgende toe aan het bestand *Dockerfile* en sla de wijzigingen op:
 
@@ -77,13 +77,13 @@ CMD ["python", "app.py"]
 
 Lees het [Dockerfile-referentiemateriaal](https://docs.docker.com/engine/reference/builder/) voor meer informatie.
 
-## <a name="create-a-simple-web-application"></a>Een eenvoudige webtoepassing maken
-Maak een Flask-toepassing die luistert op poort 80 en 'Hallo Wereld!' retourneert.  Maak in dezelfde map het bestand *requirements.txt*.  Voeg het volgende toe en sla de wijzigingen op:
+## <a name="create-a-basic-web-application"></a>Algemene webtoepassing maken
+Maak een Flask-webtoepassing die luistert op poort 80 en `Hello World!` retourneert. Maak in dezelfde map het bestand *requirements.txt*. Voeg het volgende toe en sla de wijzigingen op:
 ```
 Flask
 ```
 
-Maak ook het bestand *app.py* en voeg het volgende toe:
+Maak ook het bestand *app.py* en voeg het volgende codefragment toe:
 
 ```python
 from flask import Flask
@@ -107,7 +107,7 @@ Voer de opdracht `docker build` uit om de installatiekopie te maken waarmee de w
 docker build -t helloworldapp .
 ```
 
-Met deze opdracht wordt de nieuwe installatiekopie gebouwd met behulp van de instructies in het Dockerfile, en krijgt de installatiekopie de naam (-t tagging) `hallowereldapp´. Bij het bouwen van een installatiekopie wordt de basisinstallatiekopie uit de Docker-hub gehaald en wordt er een nieuwe installatiekopie gemaakt waarmee de toepassing wordt toegevoegd boven op de basisinstallatiekopie.  
+Met deze opdracht wordt de nieuwe installatiekopie gebouwd met behulp van de instructies in het Dockerfile, en krijgt de installatiekopie de naam (-t tagging) `helloworldapp`. Voor het bouwen van een containerinstallatiekopie, wordt eerst de basisinstallatiekopie gedownload vanaf Docker Hub, waaraan de toepassing wordt toegevoegd. 
 
 Nadat de buildopdracht is voltooid, voert u de opdracht `docker images` uit om de gegevens van de nieuwe installatiekopie te bekijken:
 
@@ -119,7 +119,7 @@ helloworldapp                 latest              8ce25f5d6a79        2 minutes 
 ```
 
 ## <a name="run-the-application-locally"></a>De toepassing lokaal uitvoeren
-Controleer de installatiekopie eerst lokaal voordat u deze naar het containerregister pusht.  
+Controleer de installatiekopie eerst lokaal voordat u deze naar het containerregister pusht. 
 
 Voer de toepassing uit:
 
@@ -134,7 +134,7 @@ Zodra de container is gestart, zoekt u het bijbehorende IP-adres zodat u vanuit 
 docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
 ```
 
-Maak verbinding met de actieve container.  Open een webbrowser en verwijs naar het IP-adres dat is geretourneerd, bijvoorbeeld http://172.31.194.61. Als het goed is, ziet u de koptekst Hallo wereld! weergegeven in de browser.
+Maak verbinding met de actieve container. Open een webbrowser en verwijs naar het IP-adres dat is geretourneerd, bijvoorbeeld http://172.31.194.61. Als het goed is, ziet u de koptekst Hallo wereld! weergegeven in de browser.
 
 Als u de container wilt stoppen, voert u dit uit:
 
@@ -175,14 +175,14 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 ## <a name="create-the-containerized-service-in-visual-studio"></a>De beperkte service maken in Visual Studio
 De Service Fabric SDK en hulpprogramma's bieden een servicesjabloon waarmee u een containertoepassing kunt maken.
 
-1. Start Visual Studio.  Selecteer **Bestand** > **Nieuw** > **Project**.
+1. Start Visual Studio. Selecteer **Bestand** > **Nieuw** > **Project**.
 2. Selecteer **Service Fabric-toepassing**, geef deze de naam MyFirstContainer en klik op **OK**.
 3. Selecteer **Container** in de lijst met **servicesjablonen**.
 4. Voer bij **Naam van installatiekopie** het volgende in: myregistry.azurecr.io/samples/helloworldapp. Dit is de installatiekopie die u naar uw containeropslagplaats hebt gepusht.
 5. Geef de service een naam en klik op **OK**.
 
 ## <a name="configure-communication"></a>Communicatie configureren
-De containerservice heeft een eindpunt voor communicatie nodig. Voeg een `Endpoint`-element met het protocol, de poort en het type toe aan het bestand ServiceManifest.xml. Voor deze snelstartgids luistert de containerservice naar poort 8081.  In dit voorbeeld wordt een ingestelde poort 8081 gebruikt.  Als er geen poort is opgegeven, wordt een willekeurige poort uit het poortbereik van de toepassing gekozen.  
+De containerservice heeft een eindpunt voor communicatie nodig. Voeg een `Endpoint`-element met het protocol, de poort en het type toe aan het bestand ServiceManifest.xml. In dit voorbeeld wordt een ingestelde poort 8081 gebruikt. Als er geen poort is opgegeven, wordt een willekeurige poort uit het poortbereik van de toepassing gekozen. 
 
 ```xml
 <Resources>
@@ -192,7 +192,7 @@ De containerservice heeft een eindpunt voor communicatie nodig. Voeg een `Endpoi
 </Resources>
 ```
 
-Als u een eindpunt opgeeft, publiceert Service Fabric het eindpunt naar de Naming-service.  Andere services die in dit cluster worden uitgevoerd, kunnen deze container dan omzetten.  U kunt ook communicatie van container naar container laten plaatsvinden met behulp van een [omgekeerde proxy](service-fabric-reverseproxy.md).  Communicatie wordt uitgevoerd door de omgekeerde proxy de HTTP-poort voor luisteren en de naam van de services waarmee u wilt communiceren door te geven als omgevingsvariabelen.
+Als u een eindpunt opgeeft, publiceert Service Fabric het eindpunt naar de Naming-service. Andere services die in dit cluster worden uitgevoerd, kunnen deze container dan omzetten. U kunt ook communicatie van container naar container laten plaatsvinden met behulp van een [omgekeerde proxy](service-fabric-reverseproxy.md). Communicatie wordt uitgevoerd door de omgekeerde proxy de HTTP-poort voor luisteren en de naam van de services waarmee u wilt communiceren door te geven als omgevingsvariabelen.
 
 ## <a name="configure-and-set-environment-variables"></a>Omgevingsvariabelen configureren en instellen
 Er kunnen omgevingsvariabelen worden opgegeven voor ieder codepakket in het servicemanifest. Deze functie is beschikbaar voor alle services, ongeacht of ze zijn geïmplementeerd als containers, processen of uitvoerbare gastbestanden. U kunt waarden van omgevingsvariabelen overschrijven in het toepassingsmanifest of ze opgeven als toepassingsparameters tijdens de implementatie.
@@ -219,7 +219,7 @@ Deze omgevingsvariabelen kunnen worden overschreven in het toepassingsmanifest:
 ```
 
 ## <a name="configure-container-port-to-host-port-mapping-and-container-to-container-discovery"></a>Poort-naar-host-toewijzing voor containers en container-naar-container-detectie configureren
-Configureer een hostpoort voor communicatie met de container. De poortbinding wijst de poort toe waarop de service binnen de container luistert naar een poort op de host. Voeg een element `PortBinding` toe aan het element `ContainerHostPolicies` van het bestand ApplicationManifest.xml.  Voor dit artikel geldt: `ContainerPort` is 80 (de container gebruikt poort 80, zoals opgegeven in het bestand Dockerfile) en `EndpointRef` is 'Guest1TypeEndpoint' (het eindpunt dat eerder is gedefinieerd in het servicemanifest).  Binnenkomende aanvragen naar de service op poort 8081 worden toegewezen aan poort 80 in de container.
+Configureer een hostpoort voor communicatie met de container. De poortbinding wijst de poort toe waarop de service binnen de container luistert naar een poort op de host. Voeg een element `PortBinding` toe aan het element `ContainerHostPolicies` van het bestand ApplicationManifest.xml. Voor dit artikel geldt: `ContainerPort` is 80 (de container gebruikt poort 80, zoals opgegeven in het bestand Dockerfile) en `EndpointRef` is 'Guest1TypeEndpoint' (het eindpunt dat eerder is gedefinieerd in het servicemanifest). Binnenkomende aanvragen naar de service op poort 8081 worden toegewezen aan poort 80 in de container.
 
 ```xml
 <ServiceManifestImport>
@@ -249,9 +249,9 @@ Configureer de verificatie van het containerregister `RepositoryCredentials` doo
 </ServiceManifestImport>
 ```
 
-We raden aan het wachtwoord van de opslagplaats te versleutelen door middel van een versleutelingscertificaat dat naar alle knooppunten van het cluster wordt geïmplementeerd. Wanneer Service Fabric het servicepakket naar het cluster implementeert, wordt het versleutelingscertificaat gebruikt om de versleutelde tekst te ontsleutelen.  De cmdlet Invoke-ServiceFabricEncryptText wordt gebruikt om de gecodeerde tekst voor het wachtwoord te maken, die wordt toegevoegd aan het bestand ApplicationManifest.xml.
+We raden aan het wachtwoord van de opslagplaats te versleutelen door middel van een versleutelingscertificaat dat naar alle knooppunten van het cluster wordt geïmplementeerd. Wanneer Service Fabric het servicepakket naar het cluster implementeert, wordt het versleutelingscertificaat gebruikt om de versleutelde tekst te ontsleutelen. De cmdlet Invoke-ServiceFabricEncryptText wordt gebruikt om de gecodeerde tekst voor het wachtwoord te maken, die wordt toegevoegd aan het bestand ApplicationManifest.xml.
 
-Het volgende script maakt een nieuw zelfondertekend certificaat en exporteert het naar een PFX-bestand.  Het certificaat wordt geïmporteerd in een bestaande sleutelkluis en geïmplementeerd naar het Service Fabric-cluster.
+Het volgende script maakt een nieuw zelfondertekend certificaat en exporteert het naar een PFX-bestand. Het certificaat wordt geïmporteerd in een bestaande sleutelkluis en geïmplementeerd naar het Service Fabric-cluster.
 
 ```powershell
 # Variables.
@@ -273,7 +273,7 @@ Select-AzureRmSubscription -SubscriptionId $subscriptionId
 New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEncipherment -Subject $subjectname -Provider 'Microsoft Enhanced Cryptographic Provider v1.0' `
 | Export-PfxCertificate -FilePath $filepath -Password $certpwd
 
-# Import the certificate to an existing key vault.  The key vault must be enabled for deployment.
+# Import the certificate to an existing key vault. The key vault must be enabled for deployment.
 $cer = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name $certificateName -FilePath $filepath -Password $certpwd
 
 Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $groupname -EnabledForDeployment
@@ -319,7 +319,7 @@ Windows ondersteunt twee isolatiemodi voor containers: proces en Hyper-V. Met de
    >
 
 ## <a name="configure-resource-governance"></a>Resourcebeheer configureren
-[Resourcebeheer](service-fabric-resource-governance.md) beperkt de resources die de container op de host kan gebruiken. Het element `ResourceGovernancePolicy`, dat is opgegeven in het toepassingsmanifest, wordt gebruikt om resourcebeperkingen te declareren voor een servicecodepakket. Er kunnen resourcebeperkingen worden ingesteld voor de volgende resources: geheugen, MemorySwap, CpuShares (relatief CPU-gewicht), MemoryReservationInMB, BlkioWeight (relatief BlockIO-gewicht).  In dit voorbeeld krijgt het servicepakket Guest1Pkg één kern op de clusterknooppunten waar het wordt geplaatst.  Geheugenlimieten zijn absoluut, dus het codepakket wordt beperkt tot 1024 MB aan geheugen (en een gegarandeerde flexibele reservering hierop). Codepakketten (containers of processen) kunnen niet meer geheugen toewijzen dan deze limiet. Een poging dit toch te doen, leidt tot een Onvoldoende geheugen-uitzondering. Voor een effectieve handhaving van resourcebeperkingen moeten voor alle pakketten binnen een servicepakket geheugenlimieten zijn opgegeven.
+[Resourcebeheer](service-fabric-resource-governance.md) beperkt de resources die de container op de host kan gebruiken. Het element `ResourceGovernancePolicy`, dat is opgegeven in het toepassingsmanifest, wordt gebruikt om resourcebeperkingen te declareren voor een servicecodepakket. Er kunnen resourcebeperkingen worden ingesteld voor de volgende resources: geheugen, MemorySwap, CpuShares (relatief CPU-gewicht), MemoryReservationInMB, BlkioWeight (relatief BlockIO-gewicht). In dit voorbeeld krijgt het servicepakket Guest1Pkg één kern op de clusterknooppunten waar het wordt geplaatst. Geheugenlimieten zijn absoluut, dus het codepakket wordt beperkt tot 1024 MB aan geheugen (en een gegarandeerde flexibele reservering hierop). Codepakketten (containers of processen) kunnen niet meer geheugen toewijzen dan deze limiet. Een poging dit toch te doen, leidt tot een Onvoldoende geheugen-uitzondering. Voor een effectieve handhaving van resourcebeperkingen moeten voor alle pakketten binnen een servicepakket geheugenlimieten zijn opgegeven.
 
 ```xml
 <ServiceManifestImport>
@@ -332,7 +332,7 @@ Windows ondersteunt twee isolatiemodi voor containers: proces en Hyper-V. Met de
 ```
 ## <a name="configure-docker-healthcheck"></a>Docker-STATUSCONTROLE configureren 
 
-Vanaf versie 6.1 integreert Service Fabric automatisch [Docker-STATUSCONTROLE](https://docs.docker.com/engine/reference/builder/#healthcheck)-gebeurtenissen in het systeemstatusrapport. Dit betekent dat als voor uw container **STATUSCONTROLE** is ingeschakeld, Service Fabric de status van de container rapporteert wanneer Docker aangeeft dat deze is gewijzigd. In [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) wordt de status **OK** weergegeven wanneer *health_status* *healthy* is en **WAARSCHUWING** wanneer *health_status* *unhealthy* is. De instructie **STATUSCONTROLE**, die verwijst naar de feitelijke controle die wordt uitgevoerd voor het bewaken van de containerstatus, moet aanwezig zijn in de **dockerfile** die wordt gebruikt tijdens het genereren van de containerinstallatiekopie. 
+Vanaf versie 6.1 integreert Service Fabric automatisch [Docker-STATUSCONTROLE](https://docs.docker.com/engine/reference/builder/#healthcheck)-gebeurtenissen in het systeemstatusrapport. Dit betekent dat als voor uw container **STATUSCONTROLE** is ingeschakeld, Service Fabric de status van de container rapporteert wanneer Docker aangeeft dat deze is gewijzigd. In [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) wordt de status **OK** weergegeven wanneer *health_status* *healthy* is en **WAARSCHUWING** wanneer *health_status* *unhealthy* is. De instructie **STATUSCONTROLE**, die verwijst naar de feitelijke controle die wordt uitgevoerd voor het bewaken van de containerstatus, moet aanwezig zijn in de Dockerfile die wordt gebruikt tijdens het genereren van de containerinstallatiekopie. 
 
 ![HealthCheckHealthy][3]
 
@@ -359,18 +359,18 @@ Als u de **STATUSCONTROLE**-integratie voor het hele Service Fabric-cluster wilt
 ## <a name="deploy-the-container-application"></a>De containertoepassing implementeren
 Sla al uw wijzigingen op en bouw de toepassing. Klik in Solution Explorer met de rechtermuisknop op **MyFirstContainer** en selecteer **Publish** om uw toepassing te publiceren.
 
-Voer bij **Verbindingseindpunt** het beheereindpunt voor het cluster in.  Bijvoorbeeld: 'containercluster.westus2.cloudapp.azure.com:19000'. U vindt het eindpunt voor de clientverbinding op de blade Overzicht voor het cluster in [Azure Portal](https://portal.azure.com).
+Voer bij **Verbindingseindpunt** het beheereindpunt voor het cluster in. Bijvoorbeeld: 'containercluster.westus2.cloudapp.azure.com:19000'. U vindt het eindpunt voor de clientverbinding op het tabblad Overzicht voor het cluster in [Azure Portal](https://portal.azure.com).
 
 Klik op **Publish**.
 
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) is een webhulpprogramma voor het inspecteren en beheren van toepassingen en knooppunten in een Service Fabric-cluster. Open een browser, ga naar http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ en volg de implementatie van de toepassing.  De toepassing wordt geïmplementeerd, maar heeft een foutstatus totdat de installatiekopie is gedownload op de clusterknooppunten (wat enige tijd kan duren, afhankelijk van de grootte van de installatiekopie): ![Fout][1]
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) is een webhulpprogramma voor het inspecteren en beheren van toepassingen en knooppunten in een Service Fabric-cluster. Open een browser, ga naar http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ en volg de implementatie van de toepassing. De toepassing wordt geïmplementeerd, maar heeft een foutstatus totdat de installatiekopie is gedownload op de clusterknooppunten (wat enige tijd kan duren, afhankelijk van de grootte van de installatiekopie): ![Fout][1]
 
 De toepassing is gereed bij een ```Ready```-status: ![Gereed][2]
 
 Open een browser en ga naar http://containercluster.westus2.cloudapp.azure.com:8081. Als het goed is, ziet u de koptekst Hallo wereld! weergegeven in de browser.
 
 ## <a name="clean-up"></a>Opruimen
-Zolang het cluster actief is, worden er kosten in rekening gebracht. Overweeg daarom [het cluster te verwijderen](service-fabric-cluster-delete.md).  [Party-clusters](https://try.servicefabric.azure.com/) worden na een paar uur automatisch verwijderd.
+Zolang het cluster actief is, worden er kosten in rekening gebracht. Overweeg daarom [het cluster te verwijderen](service-fabric-cluster-delete.md). [Party-clusters](https://try.servicefabric.azure.com/) worden na een paar uur automatisch verwijderd.
 
 Nadat u de installatiekopie naar het containerregister hebt gepusht, kunt u de lokale installatiekopie op de ontwikkelcomputer verwijderen:
 
@@ -379,9 +379,9 @@ docker rmi helloworldapp
 docker rmi myregistry.azurecr.io/samples/helloworldapp
 ```
 
-## <a name="specify-os-build-version-specific-container-images"></a>Containerinstallatiekopieën opgeven die specifiek zijn voor de build-versie van het besturingssysteem 
+## <a name="specify-os-build-specific-container-images"></a>Containerinstallatiekopieën opgeven die specifiek zijn voor de build van het besturingssysteem 
 
-Windows Server-containers (procesisolatiemodus) zijn mogelijk niet compatibel met nieuwere versies van het besturingssysteem. Windows Server-containers die zijn gebouwd met Windows Server 2016, zijn bijvoorbeeld niet geschikt voor Windows Server versie 1709. Als de clusterknooppunten worden bijgewerkt naar de nieuwste versie, werken containerservices die in eerdere versies van het besturingssysteem zijn gebouwd, daarom mogelijk niet meer correct. Om dit met versie 6.1 en later van de runtime te omzeilen, ondersteunt Service Fabric het opgeven van meerdere besturingssysteemkopieën per container en het taggen hiervan met de build-versie van het besturingssysteem (verkregen door `winver` uit te voeren in de Windows-opdrachtprompt).  Het is raadzaam om eerst per besturingssysteemversie de toepassingsmanifesten bij te werken en het gebruik van specifieke installatiekopieën op te geven, en pas daarna het besturingssysteem op de knooppunten bij te werken. Het volgende fragment toont hoe u meerdere containerinstallatiekopieën opgeeft in het toepassingsmanifest **ApplicationManifest.xml**:
+Windows Server-containers (procesisolatiemodus) zijn mogelijk niet compatibel met nieuwere versies van het besturingssysteem. Windows Server-containers die zijn gebouwd met Windows Server 2016, zijn bijvoorbeeld niet geschikt voor Windows Server versie 1709. Als de clusterknooppunten worden bijgewerkt naar de nieuwste versie, werken containerservices die in eerdere versies van het besturingssysteem zijn gebouwd, daarom mogelijk niet meer correct. Om dit met versie 6.1 en later van de runtime te omzeilen, ondersteunt Service Fabric het opgeven van meerdere besturingssysteemkopieën per container en het taggen hiervan met de build-versie van het besturingssysteem (verkregen door `winver` uit te voeren in de Windows-opdrachtprompt). Werk eerst per besturingssysteemversie de toepassingsmanifesten bij en geef het gebruik van specifieke installatiekopieën op, en werk daarna het besturingssysteem op de knooppunten bij. Het volgende fragment toont hoe u meerdere containerinstallatiekopieën opgeeft in het toepassingsmanifest **ApplicationManifest.xml**:
 
 
 ```xml
@@ -405,7 +405,7 @@ De build-versie voor Windows Server 2016 is 14393, voor Windows Server versie 17
    > De tagfunctionaliteit voor de build-versie van het besturingssysteem is alleen beschikbaar voor Service Fabric in Windows
    >
 
-Als het onderliggende besturingssysteem op de VM build 16299 (versie 1709) is, kiest Service Fabric de containerinstallatiekopie die overeenkomt met die versie van Windows Server.  Als in het toepassingsmanifest een containerinstallatiekopie zonder tag wordt opgegeven samen met een containerinstallatiekopie met tag, behandelt Service Fabric de installatiekopie zonder tag als installatiekopie die in meerdere versies werkt. Het is raadzaam om containerinstallatiekopieën expliciet te taggen.
+Als het onderliggende besturingssysteem op de VM build 16299 (versie 1709) is, kiest Service Fabric de containerinstallatiekopie die overeenkomt met die versie van Windows Server. Als in het toepassingsmanifest een containerinstallatiekopie zonder tag wordt opgegeven samen met een containerinstallatiekopie met tag, behandelt Service Fabric de installatiekopie zonder tag als installatiekopie die in meerdere versies werkt. Voorzie de containerinstallatiekopieën expliciet van tags om problemen tijdens de upgraden te voorkomen.
 
 De containerinstallatiekopie zonder tag werkt als overschrijving van de installatiekopie in het bestand ServiceManifest.xml. Met de installatiekopie "myregistry.azurecr.io/samples/helloworldappDefault" wordt dus ImageName "myregistry.azurecr.io/samples/helloworldapp" in het bestand ServiceManifest.xml overschreven.
 
@@ -509,7 +509,7 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 ## <a name="configure-time-interval-before-container-is-force-terminated"></a>Tijdsinterval configureren voor geforceerd beëindigen van container
 
-U kunt een tijdsinterval configureren, zodat de runtime die tijd wacht voordat de container wordt verwijderd nadat het verwijderen van een service (of het verplaatsen naar een ander knooppunt) is gestart. Als u een tijdsinterval configureert, wordt de `docker stop <time in seconds>` opdracht verzonden naar de container.   Zie [docker stop](https://docs.docker.com/engine/reference/commandline/stop/) voor meer informatie. Het tijdsinterval dat moet worden gewacht, kunt u opgeven in de sectie `Hosting`. Het volgende fragment van een clustermanifest laat zien hoe u het wachtinterval instelt:
+U kunt een tijdsinterval configureren, zodat de runtime die tijd wacht voordat de container wordt verwijderd nadat het verwijderen van een service (of het verplaatsen naar een ander knooppunt) is gestart. Als u een tijdsinterval configureert, wordt de `docker stop <time in seconds>` opdracht verzonden naar de container.  Zie [docker stop](https://docs.docker.com/engine/reference/commandline/stop/) voor meer informatie. Het tijdsinterval dat moet worden gewacht, kunt u opgeven in de sectie `Hosting`. Het volgende fragment van een clustermanifest laat zien hoe u het wachtinterval instelt:
 
 ```json
 {
@@ -528,7 +528,7 @@ Het standaardtijdsinterval is 10 seconden. Aangezien deze configuratie dynamisch
 
 ## <a name="configure-the-runtime-to-remove-unused-container-images"></a>De runtime configureren voor het verwijderen van ongebruikte containerinstallatiekopieën
 
-U kunt het Service Fabric-cluster configureren voor het verwijderen van ongebruikte containerinstallatiekopieën van het knooppunt. Met deze configuratie kunt u schijfruimte vrijmaken als er te veel containerinstallatiekopieën aanwezig zijn op het knooppunt.  Om deze functie in te schakelen, past u de sectie `Hosting` in het clustermanifest aan zoals wordt weergegeven in het volgende fragment: 
+U kunt het Service Fabric-cluster configureren voor het verwijderen van ongebruikte containerinstallatiekopieën van het knooppunt. Met deze configuratie kunt u schijfruimte vrijmaken als er te veel containerinstallatiekopieën aanwezig zijn op het knooppunt. Om deze functie in te schakelen, past u de sectie `Hosting` in het clustermanifest aan zoals wordt weergegeven in het volgende fragment: 
 
 
 ```json
@@ -554,7 +554,7 @@ De installatiekopieën die niet moeten worden verwijderd, kunt u opgeven met de 
 
 ## <a name="configure-container-image-download-time"></a>Downloadtijd van de containerinstallatiekopie configureren
 
-Standaard wijst de Service Fabric-runtime een periode van 20 minuten toe om containerinstallatiekopieën te downloaden en uit te pakken. Voor de meeste containerinstallatiekopieën is dat voldoende. Voor grote kopieën, of als de netwerkverbinding langzaam is, kan het echter nodig zijn om de toegewezen tijd te verlengen, zodat het downloaden en uitpakken van de installatiekopie niet voortijdig wordt afgebroken. U geeft dit op met het kenmerk **ContainerImageDownloadTimeout** in het gedeelte **Hosting** van het clustermanifest, zoals u in het volgende fragment ziet:
+De Service Fabric-runtime wijst 20 minuten toe om containerinstallatiekopieën te downloaden en uit te pakken. Voor de meeste containerinstallatiekopieën is dat voldoende. Voor grote kopieën, of als de netwerkverbinding langzaam is, kan het echter nodig zijn om de toegewezen tijd te verlengen, zodat het downloaden en uitpakken van de installatiekopie niet voortijdig wordt afgebroken. Deze time-out wordt ingesteld met het kenmerk **ContainerImageDownloadTimeout** in de sectie **Hosting** van het clustermanifest, zoals u in het volgende fragment ziet:
 
 ```json
 {
@@ -577,8 +577,25 @@ Om gemakkelijker opstartfouten bij containers te analyseren, ondersteunt Service
  <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
 ```
 
-De instelling **ContainersRetentionCount** geeft aan hoeveel containers er moeten worden bewaard wanneer ze fouten genereren. Als er een negatieve waarde wordt opgegeven, worden alle niet goed werkende containers bewaard. Wanneer er bij het kenmerk **ContainersRetentionCount** niets is opgegeven, worden er geen containers bewaard. Het kenmerk **ContainersRetentionCount** ondersteunt ook toepassingsparameters, zodat gebruikers verschillende waarden kunnen opgeven voor test- en productieclusters. Bij het gebruik van deze functies doet u er verstandig aan plaatsingsbeperkingen in te stellen om de containerservice op een bepaald knooppunt te richten. Zo voorkomt u dat de containerservice naar een ander knooppunt wordt verplaatst. Containers die met behulp van deze functie zijn bewaard, moeten handmatig worden verwijderd.
+De instelling **ContainersRetentionCount** geeft aan hoeveel containers er moeten worden bewaard wanneer ze fouten genereren. Als er een negatieve waarde wordt opgegeven, worden alle niet goed werkende containers bewaard. Wanneer er bij het kenmerk **ContainersRetentionCount** niets is opgegeven, worden er geen containers bewaard. Het kenmerk **ContainersRetentionCount** ondersteunt ook toepassingsparameters, zodat gebruikers verschillende waarden kunnen opgeven voor test- en productieclusters. Bij het gebruik van deze functies dient u plaatsingsbeperkingen in te stellen om de containerservice op een bepaald knooppunt te richten. Zo voorkomt u dat de containerservice naar een ander knooppunt wordt verplaatst. Containers die met behulp van deze functie zijn bewaard, moeten handmatig worden verwijderd.
 
+## <a name="start-the-docker-daemon-with-custom-arguments"></a>De Docker-daemon met aangepaste argumenten starten
+
+Met versie 6.2 of hoger van de Service Fabric-runtime kunt u de Docker-daemon met aangepaste argumenten starten. Wanneer er aangepaste argumenten zijn opgegeven, geeft Service Fabric geen andere argumenten aan de docker-engine door, behalve het argument `--pidfile`. Daarom moet `--pidfile` niet als een argument worden doorgegeven. Bovendien moet het argument de docker-daemon nog steeds laten luisteren op de standaard benoemde pipe voor Windows (of unix-domeinsocket voor Linux) zodat Service Fabric met de daemon kan communiceren. De aangepaste argumenten worden doorgegeven in het clustermanifest onder de sectie **Hosting** onder **ContainerServiceArguments**, zoals weergegeven in het volgende fragment: 
+ 
+
+```json
+{ 
+   "name": "Hosting", 
+        "parameters": [ 
+          { 
+            "name": "ContainerServiceArguments", 
+            "value": "-H localhost:1234 -H unix:///var/run/docker.sock" 
+          } 
+        ] 
+} 
+
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over het uitvoeren van [containers in Service Fabric](service-fabric-containers-overview.md).

@@ -9,11 +9,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/29/2018
 ms.author: victorh
-ms.openlocfilehash: 41d679d7660cbc35d6af8f9afc1a36e6e5c5c541
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 37d069b1be86d59d0b1f79c382dc494b067cb934
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Veelgestelde vragen voor Application Gateway
 
@@ -178,6 +178,11 @@ Nee, maar Application Gateway heeft een doorvoer metrische gegevens die kan word
 **Q. Ondersteunt handmatige schaal omhoog/omlaag oorzaak uitvaltijd?**
 
 Er is geen downtime, exemplaren zijn verdeeld over upgradedomeinen en domeinen met fouten.
+
+**Q. Ondersteunt Verwerkingsstop voor application gateway ondersteuning verbindingen?**
+
+Ja. U kunt verbinding leegmaken als u wilt wijzigen van de leden in een back-endpool zonder onderbreking configureren. Hierdoor wordt de bestaande verbindingen om door te gaan naar hun vorige bestemming worden verzonden, totdat deze verbinding is gesloten of een configureerbare time-out is verlopen. Houd er rekening mee dat verbinding verwerkingsstop alleen wacht op huidige onderweg verbindingen te voltooien. Application Gateway is niet op de hoogte van de sessiestatus toepassing.
+
 
 **Q. Kan ik exemplaargrootte wijzigen van gemiddeld tot grote zonder onderbreking?**
 

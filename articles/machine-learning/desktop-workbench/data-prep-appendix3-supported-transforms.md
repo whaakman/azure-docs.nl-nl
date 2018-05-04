@@ -8,15 +8,15 @@ manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: 
-ms.devlang: 
+ms.custom: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
 ms.openlocfilehash: 9cd6e6cdf8d8dc2b1872d6f7b76821122fd427fa
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-data-transforms-for-data-preparation-in-azure-machine-learning"></a>Gegevens transformaties gebruiken voor het voorbereiden van gegevens in Azure Machine Learning
 
@@ -34,7 +34,7 @@ Het snelmenu toont alleen geldige transformaties voor het gegevenstype dat is ge
 
 Een kleine subset van contextuele transformaties is beschikbaar met de rechtermuisknop op een cel. Deze transformaties worden gekopieerd, vervangen en filteren. Dit zijn gegevens type-bewust is, zodat de opties voor een numerieke kolom anders dan voor een kolom met tekenreeksen zijn.
 
-## <a name="derive-column-by-example"></a>Afgeleid kolom door voorbeeld
+## <a name="derive-column-by-example"></a>Kolom afleiden per voorbeeld
 Gebruik deze transformatie naar een nieuwe kolom maken als een afgeleide van een of meer bestaande kolommen. De transformatie wordt gekeken naar de invoerkolommen (geselecteerd) en het voorbeeld en vervolgens bepaalt de gewenste uitvoer in de nieuwe kolom. 
 
 Selecteer een of meer kolommen voor het gebruik van deze transformatie. Een nieuwe (lege) afgeleide kolom toevoegen door voorbeeld. Typ een voorbeeld van wat u zien in de afgeleide kolom wilt (ervan uitgaande dat deze afgeleid van andere kolommen) en de "voorbeeld" technologie probeert te vullen in de andere cellen in de kolom. 

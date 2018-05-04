@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/06/2018
 ms.author: vinagara
-ms.openlocfilehash: e5dc48aa5e3c614192ae140dc80b5d9845acc474
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 0de596f454a1e79b1f5540854897bd15f8de88c4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-extend-copy-alerts-from-oms-into-azure"></a>Het uitbreiden van waarschuwingen (kopiëren) van OMS in Azure
 Vanaf **14 mei 2018**, alle klanten die gebruikmaken van waarschuwingen die zijn geconfigureerd in [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), zal worden uitgebreid in Azure. Waarschuwingen die zijn uitgebreid naar Azure gedragen zich hetzelfde als in OMS. Mogelijkheden voor bewaking, blijven behouden. Waarschuwingen die zijn gemaakt in OMS naar Azure uitbreiden biedt veel voordelen. Zie voor meer informatie over de voordelen en het proces voor het verlengen van waarschuwingen van OMS naar Azure [waarschuwingen van OMS uitbreiden naar Azure](monitoring-alerts-extend.md).
@@ -221,7 +221,7 @@ En ten slotte, als de waarschuwingen in de werkruimte opgegeven zijn al gepland 
 ```
 
 ## <a name="troubleshooting"></a>Problemen oplossen 
-Tijdens het proces van waarschuwingen van OMS uit te breiden naar Azure, kunnen er incidentele problemen die voorkomt dat het systeem maken nodig [actiegroepen](monitoring-action-groups.md). In dergelijke gevallen wordt een foutbericht wordt weergegeven in OMS-portal via banner in waarschuwing sectie en GET-aanroep gedaan API.
+Tijdens het proces van waarschuwingen van OMS uit te breiden naar Azure, kunnen er incidentele probleem dat verhindert dat het systeem maken nodig [actiegroepen](monitoring-action-groups.md). In dergelijke gevallen wordt een foutbericht wordt weergegeven in OMS-portal via banner in waarschuwing sectie en GET-aanroep gedaan API.
 
 Hieronder vindt u de herstelstappen uit voor elke fout:
 1. **Fout: Het abonnement is niet geregistreerd voor het gebruik van de naamruimte 'microsoft.insights'**: ![OMS waarschuwingsinstellingen portalpagina met registratie van foutbericht](./media/monitor-alerts-extend/ErrorMissingRegistration.png)
@@ -236,6 +236,14 @@ Hieronder vindt u de herstelstappen uit voor elke fout:
     a. Wanneer bereik vergrendelen is ingeschakeld, beperken van de nieuwe wijzigingen van abonnement of resourcegroep met de werkruimte voor logboekanalyse (OMS); het systeem is niet waarschuwingen (kopiëren) in Azure uitbreiden en benodigde Actiegroepen maken.
     
     b. Om op te lossen, verwijdert u de *ReadOnly* vergrendeling op uw abonnement of de resource-groep die de werkruimte bevat; met Azure-portal, Powershell, Azure CLI of API. Bekijk voor meer informatie het artikel op [vergrendeling Resourcegebruik](../azure-resource-manager/resource-group-lock-resources.md). 
+    
+    c. Als opgelost volgens de stappen die worden weergegeven in het artikel, wordt OMS uw waarschuwingen in Azure uitbreiden in de volgende dag geplande run; zonder de noodzaak van een actie of een inleiding.
+
+3. **Fout: Beleid is aanwezig op het niveau van de abonnement/resourcegroep**: ![OMS waarschuwingsinstellingen portalpagina met beleid foutbericht](./media/monitor-alerts-extend/ErrorPolicy.png)
+
+    a. Wanneer [Azure beleid](../azure-policy/azure-policy-introduction.md) wordt toegepast, beperken van alle nieuwe bronnen in het abonnement of resourcegroep met de werkruimte voor logboekanalyse (OMS); wordt door het systeem geen waarschuwingen (kopiëren) in Azure uitbreiden en benodigde Actiegroepen maken.
+    
+    b. Bewerken om op te lossen, het beleid waardoor *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)* fout, die voorkomt het maken van nieuwe resources voor uw abonnement of de resource-groep met de werkruimte. Met behulp van Azure-portal, Powershell, Azure CLI of API; u kunt mislukte acties uit om te zoeken naar het juiste beleid ontstaan. Bekijk voor meer informatie het artikel op [activiteitenlogboeken om te controleren van acties weer te geven](../azure-resource-manager/resource-group-audit.md). 
     
     c. Als opgelost volgens de stappen die worden weergegeven in het artikel, wordt OMS uw waarschuwingen in Azure uitbreiden in de volgende dag geplande run; zonder de noodzaak van een actie of een inleiding.
 

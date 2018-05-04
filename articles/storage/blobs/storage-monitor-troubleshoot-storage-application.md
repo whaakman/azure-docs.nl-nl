@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: a1b3a1d4bb397e19f033b8f3bfe68ca6a63725c4
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: eb58104309802125a8424cbbf8a1bef3d1c5e79c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Een toepassing voor cloudopslag bewaken en problemen oplossen
 
@@ -41,11 +41,11 @@ Meld u aan bij [Azure Portal](https://portal.azure.com).
 
 Selecteer in het menu links **Resourcegroepen**, selecteer **myResourceGroup** en selecteer vervolgens uw opslagaccount in de lijst met resources.
 
-Stel onder **Diagnostische gegevens** de **status** in op **Aan**. Zorg ervoor dat **Cumulatieve metrische gegevens voor blob**, **Metrische gegevens voor blob per API** en **Blob-logboeken** zijn ingeschakeld.
+Stel onder **Diagnostische gegevens** de **status** in op **Aan**. Zorg ervoor dat alle opties onder **Blob-eigenschappen** zijn ingeschakeld.
 
 Na het voltooien klikt u op **Opslaan**.
 
-![Het deelvenster Diagnostische gegevens](media/storage-monitor-troubleshoot-storage-application/figure1.png)
+![Het deelvenster Diagnostische gegevens](media/storage-monitor-troubleshoot-storage-application/contoso.png)
 
 ## <a name="enable-alerts"></a>Waarschuwingen inschakelen
 

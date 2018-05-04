@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: d5d855cac9f09f92798d955dda3d66ab6b631091
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e891e9c9fd87f370f0c98639ff0c6fc5b8cc81af
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Seriële console van de virtuele machine (preview) 
 
@@ -109,7 +109,7 @@ Als u wilt inschakelen, Windows-opstartlaadprogramma wordt u gevraagd om weer te
 
 Deze sectie bevat een Voorbeeldopdrachten voor het uitvoeren van algemene taken in scenario's waarin u SAC moet mogelijk voor toegang tot de virtuele machine, zoals wanneer u problemen met RDP verbinding moet gebruiken.
 
-SAC sinds Windows Server 2003 is opgenomen in alle versies van Windows, maar is standaard uitgeschakeld. SAC is afhankelijk van de `sacdrv.sys` kernelstuurprogramma de `Special Administration Console Helper` service (`sacsvr`), en de `sacsess.exe` proces. Zie voor meer informatie [Emergency Management Services Tools and Settings](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10)).
+SAC sinds Windows Server 2003 is opgenomen in alle versies van Windows, maar is standaard uitgeschakeld. SAC is afhankelijk van de `sacdrv.sys` kernelstuurprogramma de `Special Administration Console Helper` service (`sacsvr`), en de `sacsess.exe` proces. Zie voor meer informatie [Emergency Management Services Tools and Settings](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10)).
 
 SAC kunt u verbinding maken met uw actieve besturingssysteem via de seriële poort. Wanneer u CMD van SAC, start `sacsess.exe` Start `cmd.exe` binnen uw actieve besturingssysteem. U kunt zien dat in de taak Manager als u RDP met uw virtuele machine op de tijd dat u verbonden bent met SAC via de seriële console-functie. De CMD u via SAC openen is hetzelfde `cmd.exe` u gebruiken wanneer verbonden via RDP. Dezelfde zijn opdrachten en hulpprogramma's beschikbaar, waaronder de mogelijkheid PowerShell uit die CMD-sessie starten. Is een belangrijk verschil tussen SAC en Windows Recovery Environment (WinRE) in die SAC is zodat u uw actieve besturingssysteem, waar WinRE wordt opgestart naar een andere, minimale besturingssysteem beheren. Terwijl Azure VM's bieden geen ondersteuning voor toegang tot WinRE, met de seriële console-functie kunnen virtuele Azure-machines worden beheerd via SAC.
 
@@ -266,11 +266,11 @@ In dit voorbeeld retourneert de versie van de virtuele NIC-stuurprogramma dat ne
 #### <a name="scan-for-system-file-corruption"></a>Op beschadiging van systeembestanden scannen
 `sfc /scannow`
 
-Zie ook [herstellen van een Windows-installatiekopie](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/repair-a-windows-image).
+Zie ook [herstellen van een Windows-installatiekopie](https://docs.microsoft.com/windows-hardware/manufacture/desktop/repair-a-windows-image).
 #### <a name="scan-for-system-file-corruption"></a>Op beschadiging van systeembestanden scannen
 `dism /online /cleanup-image /scanhealth`
 
-Zie ook [herstellen van een Windows-installatiekopie](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/repair-a-windows-image).
+Zie ook [herstellen van een Windows-installatiekopie](https://docs.microsoft.com/windows-hardware/manufacture/desktop/repair-a-windows-image).
 #### <a name="export-file-permissions-to-text-file"></a>Bestandsmachtigingen exporteren naar bestand
 `icacls %programdata%\Microsoft\Crypto\RSA\MachineKeys /t /c > %temp%\MachineKeys_permissions_before.txt`
 #### <a name="save-file-permissions-to-acl-file"></a>Machtigingen voor bestanden in de ACL-bestand opslaan
@@ -516,7 +516,7 @@ U kunt de metagegevens van de Azure-instantie van een query in uw Azure-machine 
 
 Opvragen van metagegevens van het exemplaar is vereist op de netwerkverbinding in orde Gast, omdat een REST-aanroep via de Azure-host met de service van de metagegevens exemplaar op deze manier. Dus als u de metagegevens van het exemplaar query kunnen uitvoeren, ziet die u de Gast kan communiceren via het netwerk met een Azure gehoste service.
 
-Zie voor meer informatie [metagegevens van het exemplaar Azure service](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service).
+Zie voor meer informatie [metagegevens van het exemplaar Azure service](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service).
 
 #### <a name="instance-metadata"></a>Metagegevens van het exemplaar
 `$im = invoke-restmethod -headers @{"metadata"="true"} -uri http://169.254.169.254/metadata/instance?api-version=2017-08-01 -method get`

@@ -10,11 +10,11 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 284cfd3562a951da928697c91aa8234719056fa4
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: e9501d023ad1e0bfdf692f31ec61ae59959c0f23
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Snelstartgids: Een Azure SQL-datawarehouse maken en hier een query voor uitvoeren in Azure Portal
 
@@ -72,15 +72,15 @@ Volg de stappen om een SQL-datawarehouse te maken die de voorbeelddatabase Adven
 
 5. Klik op **Selecteren**.
 
-6. Klik op **Prestatielaag** om de prestatieconfiguratie op te geven voor de datawarehouse.
+6. Klik op **prestatieniveau** om op te geven van de configuratie van de prestaties voor het datawarehouse.
 
-7. Voor deze zelfstudie selecteert u de prestatielaag **Geoptimaliseerd voor elasticiteit**. De schuifregelaar is standaard ingesteld op **DW400**.  Verplaats de regelaar omhoog en omlaag om te zien hoe dit werkt. 
+7. Selecteer voor deze zelfstudie **Gen2**. De schuifregelaar standaard is ingesteld op **DW1000c**.  Verplaats de regelaar omhoog en omlaag om te zien hoe dit werkt. 
 
     ![prestaties configureren](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
 8. Klik op **Toepassen**.
 
-9. Nu u het SQL Database-formulier hebt ingevuld, klikt u op **Maken** om de database in te richten. De inrichting duurt een paar minuten. 
+9. Nu dat u het formulier SQL Data Warehouse hebt voltooid, klikt u op **maken** voor het inrichten van de database. De inrichting duurt een paar minuten. 
 
     ![klik op Maken](media/load-data-from-azure-blob-storage-using-polybase/click-create.png)
 
@@ -96,7 +96,7 @@ Met de SQL Database Warehouse-service wordt een firewall op serverniveau gemaakt
 > SQL Database Warehouse communiceert via poort 1433. Als u verbinding wilt maken vanuit een bedrijfsnetwerk, is uitgaand verkeer via poort 1433 mogelijk niet toegestaan vanwege de firewall van het netwerk. In dat geval kunt u geen verbinding maken met uw Azure SQL Database-server, tenzij de IT-afdeling poort 1433 openstelt.
 >
 
-1. Wanneer de implementatie is voltooid, klikt u op **SQL Databases** in het menu aan de linkerkant. Klik vervolgens op de pagina **SQL Databases** op **mySampleDatabase**. De overzichtspagina voor de database wordt geopend, met de volledig gekwalificeerde servernaam (bijvoorbeeld **mynewserver-20171113.database.windows.net**) en opties voor verdere configuratie. 
+1. Nadat de implementatie is voltooid, klikt u op **SQL-datawarehouses** vanuit het menu links en klik op **mySampleDatabase** op de **SQL-datawarehouses** pagina. De overzichtspagina voor uw database wordt geopend, waarin u de volledig gekwalificeerde servernaam (zoals **mynewserver 20180430.database.windows.net**) en biedt opties voor verdere configuratie. 
 
 2. Kopieer deze volledig gekwalificeerde servernaam om in volgende Quick Starts verbinding te maken met de server en de bijbehorende databases. Klik op de servernaam om de serverinstellingen te openen.
 
@@ -127,8 +127,8 @@ U kunt nu via dit IP-adres verbinding maken met de SQL-server en de bijbehorende
 Haal de volledig gekwalificeerde servernaam van uw SQL-server op uit Azure Portal. Later gebruikt u de volledig gekwalificeerde servernaam bij het verbinding maken met de server.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Selecteer **SQL-databases** in het menu links en klik op uw database op de pagina **SQL-databases**. 
-3. In het deelvenster **Essentials** van de Azure Portal-pagina van uw database kopieert u de **servernaam**. In dit voorbeeld is de volledig gekwalificeerde servernaam mynewserver-20171113.database.windows.net. 
+2. Selecteer **SQL-datawarehouses** in het menu links en op uw-datawarehouse op de **SQL datawarehouses** pagina. 
+3. In het deelvenster **Essentials** van de Azure Portal-pagina van uw database kopieert u de **servernaam**. In dit voorbeeld is de volledig gekwalificeerde naam mynewserver 20180430.database.windows.net. 
 
     ![verbindingsgegevens](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)  
 
@@ -143,7 +143,7 @@ In deze sectie wordt gebruikgemaakt van [SSMS](/sql/ssms/download-sql-server-man
    | Instelling       | Voorgestelde waarde | Beschrijving | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Servertype | Database-engine | Deze waarde is verplicht |
-   | Servernaam | De volledig gekwalificeerde servernaam | Hier volgt een voorbeeld: **mynewserver-20171113.database.windows.net**. |
+   | Servernaam | De volledig gekwalificeerde servernaam | Hier volgt een voorbeeld: **mynewserver 20180430.database.windows.net**. |
    | Verificatie | SQL Server-verificatie | SQL-verificatie is het enige verificatietype dat in deze zelfstudie is geconfigureerd. |
    | Aanmelden | Het beheerdersaccount voor de server | Dit is het account dat u hebt opgegeven tijdens het maken van de server. |
    | Wachtwoord | Het wachtwoord voor het beheerdersaccount voor de server | Dit is het wachtwoord dat u hebt opgegeven tijdens het maken van de server. |
@@ -197,7 +197,7 @@ Volg deze stappen om de resources op te schonen zoals gewenst.
 
 2. Als u de datawarehouse wilt verwijderen zodat er geen kosten in rekening worden gebracht voor berekenen of opslaan, klikt u op **Verwijderen**.
 
-3. Als u de door u gemaakte SQL-server wilt verwijderen, klikt u op **mynewserver-20171113.database.windows.net** in de vorige afbeelding. Klik vervolgens op **Verwijderen**.  Wees voorzichtig met verwijderen. Als u de server verwijdert, worden ook alle databases verwijderd die zijn toegewezen aan de server.
+3. Als u wilt verwijderen van de SQL-server die u hebt gemaakt, klikt u op **mynewserver 20180430.database.windows.net** in de vorige afbeelding en klik vervolgens op **verwijderen**.  Wees voorzichtig met verwijderen. Als u de server verwijdert, worden ook alle databases verwijderd die zijn toegewezen aan de server.
 
 4. Als u de resourcegroep wilt verwijderen, klikt u op **myResourceGroup**. Klik vervolgens op **Resourcegroep verwijderen**.
 

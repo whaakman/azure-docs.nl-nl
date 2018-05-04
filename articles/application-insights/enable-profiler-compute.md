@@ -2,7 +2,7 @@
 title: Application Insights Profiler inschakelen voor toepassingen die worden gehost op Azure Cloud Services-bronnen | Microsoft Docs
 description: Informatie over het instellen van Application Insights Profiler op een toepassing die wordt uitgevoerd op Azure Cloud Services.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: ramach-msft
 manager: carmonm
 ms.service: application-insights
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: ramach
-ms.openlocfilehash: a24695f7bbb5fb0546e27c934319a60a3418b9e1
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ef6d8cb47971b1cf261edceb13485b940eff3d13
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-azure-cloud-services"></a>Application Insights Profiler inschakelen voor virtuele machines in Azure Service Fabric en Azure-Cloudservices
 
@@ -40,7 +40,7 @@ U kunt Profiler, moet u de configuratie op drie locaties:
 
 ## <a name="set-up-the-application-insights-instance"></a>De Application Insights-instantie instellen
 
-1. [Maak een nieuwe Application Insights-resource](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-create-new-resource), of een bestaande set selecteren. 
+1. [Maak een nieuwe Application Insights-resource](https://docs.microsoft.com/azure/application-insights/app-insights-create-new-resource), of een bestaande set selecteren. 
 
 2. Ga naar uw Application Insights-resource en vervolgens de instrumentatiesleutel kopiëren.
 

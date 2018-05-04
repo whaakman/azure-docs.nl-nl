@@ -1,7 +1,7 @@
 ---
 layout: LandingPage
-description: Meer informatie over het synchroniseren van adreslijsten en het inschakelen van eenmalige aanmelding. Documentatie laat zien hoe u een volledig pakket met mogelijkheden voor identiteitsbeheer kunt integreren.
 title: Documentatie voor Azure Active Directory - zelfstudies, API-verwijzing | Microsoft Docs
+description: Azure Active Directory (Azure AD) is de multi-tenant directory- en identiteitsbeheerservice van Microsoft in de cloud die belangrijke directory services, toegangsbeheer voor toepassingen en identiteitsbeveiliging in één oplossing combineert.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -10,122 +10,31 @@ ms.service: active-directory
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
+ms.date: 04/13/2018
 ms.author: carolz
-ms.openlocfilehash: 39226c7ada2bf3672cb62b6a0def4191bee342c0
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 30019a733bd4869d22c060d0793423b71b0df166
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-active-directory-documentation"></a>Documentatie voor Azure Active Directory
 
-Meer informatie over het synchroniseren van adreslijsten en het inschakelen van eenmalige aanmelding met Azure Active Directory (Azure AD). Zelfstudies, API-verwijzingen en andere documentatie laten zien hoe u mogelijkheden voor identiteitsbeheer integreert, waaronder Multi-Factor Authentication, apparatuurregistratie, op rollen gebaseerd toegangsbeheer en beveiligingsbewaking en -waarschuwingen.
+Azure Active Directory (Azure AD) is een multi-tenant directory- en identiteitsbeheerservice in de cloud.
 
-<ul class="panelContent cardsFTitle">
-    <li>
-        <a href="/azure/active-directory/active-directory-whatis">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/active-directory.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Meer informatie over Azure Active Directory</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=active-directory">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Videobibliotheek voor Azure Active Directory</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/active-directory/active-directory-howto-tenant">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Aan de slag met Azure Active Directory</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/active-directory/active-directory-get-started-premium">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Aan de slag met Azure Active Directory Premium</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-       <li>
-        <a href="/azure/active-directory/develop/active-directory-developers-guide">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Apps ontwikkelen met Azure Active Directory</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li> 
-</ul>
-
----
-
-<h2>Naslaginformatie</h2>
-<ul class="panelContent cardsW">
+<ul class="panelContent cardsF">
     <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Opdrachtregel</h3>
-                        <p><a href="/powershell/azure/overview?azureadps=2.0">PowerShell</a></p>
+                        <h3>Basisprincipes</h3>
+                        <p>
+                        <a href="/azure/active-directory/active-directory-whatis">Wat is Azure AD?</a><br/>
+                        <a href="/azure/active-directory/understand-azure-identity-solutions">Identiteitsoplossingen</a><br/>
+                        <a href="/azure/active-directory/get-started-azure-ad">Aan de slag</a><br/>
+                        <a href="/azure/active-directory/whats-new">Nieuwe functies</a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -136,10 +45,15 @@ Meer informatie over het synchroniseren van adreslijsten en het inschakelen van 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Talen</h3>
-                        <p><a href="/active-directory/adal/microsoft.identitymodel.clients.activedirectory">.NET</a></p>
-                        <p><a href="/java/api">Java</a></p>
-                   </div>
+                        <h3>Zakelijke gebruikers</h3>
+                        <p>
+                        <a href="/azure/active-directory/add-users-azure-active-directory">Gebruikers</a><br/>
+                        <a href="/azure/active-directory/active-directory-manage-groups">Groepen</a><br/>
+                        <a href="/azure/active-directory/license-users-groups">Licenties</a><br/>
+                        <a href="/azure/active-directory/active-directory-administer">Mapbeheer</a><br/>
+                        <a href="/azure/active-directory/active-directory-assign-admin-roles-azure-portal">Beheerdersrollen</a>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -149,8 +63,159 @@ Meer informatie over het synchroniseren van adreslijsten en het inschakelen van 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Overige</h3>
-                        <p><a href="/azure/active-directory/active-directory-service-limits-restrictions">Servicelimieten en -beperkingen</a></p>
+                        <h3>Externe gebruikers</h3>
+                        <p>
+                        <a href="/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b">Business-to-business (B2B)</a><br/>
+                        <a href="/azure/active-directory-b2c/">Business-to-customer (B2C)</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Verificatie</h3>
+                        <p>
+                        <a href="/azure/active-directory/active-directory-passwords-overview">Wachtwoorden</a><br/>
+                        <a href="/azure/active-directory/active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements">Multi-factor authentication</a><br/>
+                        <a href="/azure/active-directory/active-directory-azureadjoin-passport">Windows Hello</a><br/>
+                        <a href="/azure/active-directory/active-directory-certificate-based-authentication-get-started">Verificatie op basis van certificaat</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Beveiliging</h3>
+                        <p>
+                        <a href="/azure/active-directory/active-directory-identityprotection">Identiteitsbeveiliging</a><br/>
+                        <a href="/azure/active-directory/active-directory-conditional-access-azure-portal">Voorwaardelijke toegang</a><br/>
+                        <a href="/azure/active-directory/privileged-identity-management/active-directory-securing-privileged-access">Privileged Identity Management</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Apparaten</h3>
+                        <p>
+                        <a href="/azure/active-directory/device-management-introduction">Apparaatbeheer</a><br/>
+                        <a href="/azure/active-directory/device-management-azuread-registered-devices-windows10-setup">Windows 10-apparaten</a><br/>
+                        <a href="/azure/active-directory/device-management-azuread-joined-devices-setup">Gekoppelde apparaten</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Apps</h3>
+                        <p>
+                        <a href="/azure/active-directory/active-directory-enable-sso-scenario">App-beheer</a><br/>
+                        <a href="/azure/active-directory/cloudappdiscovery-get-started">App-detectie</a><br/>
+                        <a href="/azure/active-directory/active-directory-coreapps-assign-user-azure-portal">Enterprise-apps</a><br/>
+                        <a href="/azure/active-directory/active-directory-managing-access-to-apps">Toegang tot apps</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Verificatie voor ontwikkelaars</h3>
+                        <p>
+                        <a href="/azure/active-directory/develop/active-directory-authentication-scenarios">De basisbeginselen van verificatie</a><br/>
+                        <a href="/azure/active-directory/develop/active-directory-integrating-applications">App-integratie</a><br/>
+                        <a href="/azure/active-directory/managed-service-identity/overview">Beheerde identiteit</a><br/>
+                        <a href="/azure/active-directory/develop/active-directory-code-samples">Codevoorbeelden</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Naslaginformatie</h3>
+                        <p>
+                        <a href="/powershell/module/azurerm.resources#active_directory">PowerShell voor Azure RM</a><br/>
+                        <a href="/powershell/azure/active-directory/overview">PowerShell voor Azure AD</a><br/>
+                        <a href="/cli/azure/ad">Azure-CLI</a><br/>
+                        <a href="https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/azure_ad_overview">Microsoft Graph</a><br/>
+                        <a href="/dotnet/api/overview/azure/activedirectory">.NET</a><br/>
+                        <a href="/java/api/overview/azure/activedirectory">Java</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Hybride organisaties</h3>
+                        <p>
+                        <a href="/azure/active-directory/active-directory-hybrid-identity-design-considerations-overview">Hybride identiteitsoplossing</a><br/>
+                        <a href="/azure/active-directory/connect/active-directory-aadconnect">On-premises adreslijstintegratie</a><br/>
+                        <a href="/azure/active-directory/connect/active-directory-aadconnect-azure-adfs">Federatieservices</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Naleving en rapporten</h3>
+                        <p>
+                        <a href="/azure/active-directory/active-directory-azure-ad-controls-access-reviews-overview">Toegangsbeoordelingen</a><br/>
+                        <a href="/azure/active-directory/active-directory-tou">Gebruiksvoorwaarden</a><br/>
+                        <a href="/azure/active-directory/active-directory-reporting-azure-portal">Rapporten</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Domeinen</h3>
+                        <p>
+                        <a href="/azure/active-directory-domain-services/">Domain Services</a>
+                        </p>
                     </div>
                 </div>
             </div>

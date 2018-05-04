@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 66994dfcd84db1de0ba072e9e3a45e7ec11fcec0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 2053ed8cc420183d493097eeb2cd2ad93c82c70c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="using-the-deep-learning-virtual-machine"></a>Met behulp van de virtuele Machine Learning diep
 
@@ -35,7 +35,7 @@ Naast de voorbeelden op basis van het framework is een set van uitgebreide scena
 
 - [Een handleiding met instructies voor het bouwen van een end-to-end-oplossing om te detecteren producten binnen installatiekopieën](https://github.com/Azure/cortana-intelligence-product-detection-from-images): detectie van de installatiekopie is een techniek die kan vinden en classificeren van objecten binnen de installatiekopieën. Deze technologie loopt het risico op te zetten grote voordelen in veel praktijk zakelijke domeinen. Detailhandel kunnen bijvoorbeeld deze techniek gebruiken om te bepalen welke product een klant is opgehaald uit het plat. Deze informatie helpt op zijn beurt winkels productinventaris beheren. 
 
-- [Met de naam entiteit extractie van PubMed samenvattingen](https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition) deze zelfstudie laat zien hoe benoemde entiteiten, zoals medicijn namen of namen van ziekte extraheren uit niet-gestructureerde tekst. Deze traint u een aangepaste woord insluiten op een corpus tekst van 18 miljoen PubMed samenvattingen model gebruikt voor het maken van een model lang korte geheugen (LSTM) terugkerende neurale netwerk voor extractie entiteit en ziet u dat de domeinspecifieke word insluiten van het model kunt beter een algemene word insluiten voor het ophalen van de entiteit.
+- [Met de naam entiteit extractie van PubMed samenvattingen](https://docs.microsoft.com/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition) deze zelfstudie laat zien hoe benoemde entiteiten, zoals medicijn namen of namen van ziekte extraheren uit niet-gestructureerde tekst. Deze traint u een aangepaste woord insluiten op een corpus tekst van 18 miljoen PubMed samenvattingen model gebruikt voor het maken van een model lang korte geheugen (LSTM) terugkerende neurale netwerk voor extractie entiteit en ziet u dat de domeinspecifieke word insluiten van het model kunt beter een algemene word insluiten voor het ophalen van de entiteit.
 
 - [Deep learning voor audio](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/) deze zelfstudie laat zien hoe een grondige learning-model voor detectie audio gebeurtenis trainen op de [stedelijk geluiden gegevensset](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html) en biedt een overzicht van het werken met audiogegevens.
 

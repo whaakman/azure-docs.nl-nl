@@ -2,23 +2,23 @@
 title: Twitter-verificatie voor uw toepassing App Services configureren
 description: Informatie over het Twitter-verificatie voor uw toepassing App Services configureren.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: mattchenderson
 manager: syntaxc4
-editor: 
+editor: ''
 ms.assetid: c6dc91d7-30f6-448c-9f2d-8e91104cde73
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 04/19/2018
 ms.author: mahender
-ms.openlocfilehash: afde020b7817dc58ecea24eb4a09cf93d0986eb2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f6449f99fda9c1a612ed9f9134751ff76b25904c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-twitter-login"></a>Het configureren van uw App Service-toepassing Twitter aanmelding gebruiken
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -27,7 +27,7 @@ Dit onderwerp leest u over het configureren van Azure App Service voor het gebru
 
 U moet een Twitter-account met een geverifieerde e-mailadres en telefoonnummer getal hebben voor de procedure in dit onderwerp. Voor het maken van een nieuw Twitter-account, gaat u naar <a href="http://go.microsoft.com/fwlink/p/?LinkID=268287" target="_blank">twitter.com</a>.
 
-## <a name="register"></a>Uw toepassing registreren met Twitter
+## <a name="register"> </a>Uw toepassing registreren met Twitter
 1. Meld u aan bij de [Azure-portal], en navigeer naar uw toepassing. Kopieer uw **URL**. U gebruikt dit voor het configureren van uw app Twitter.
 2. Navigeer naar de [Twitter ontwikkelaars] website, meld u aan met de referenties van uw Twitter-account en klikt u op **nieuwe App maken**.
 3. Typ in het **naam** en een **beschrijving** voor uw nieuwe app. Plakken in uw toepassing **URL** voor de **Website** waarde. Vervolgens voor de **retouraanroep URL**, plak de **retouraanroep URL** u eerder hebt gekopieerd. Dit is de gateway van uw mobiele App toegevoegd aan het pad */.auth/login/twitter/callback*. Bijvoorbeeld `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. Zorg ervoor dat u van het HTTPS-schema gebruikmaakt.
@@ -40,7 +40,7 @@ U moet een Twitter-account met een geverifieerde e-mailadres en telefoonnummer g
    > 
    > 
 
-## <a name="secrets"></a>Informatie Twitter toevoegen aan uw toepassing
+## <a name="secrets"> </a>Twitter-gegevens aan uw toepassing toevoegen
 1. Terug in de [Azure-portal], gaat u naar uw toepassing. Klik op **instellingen**, en vervolgens **verificatie / autorisatie**.
 2. Als de verificatie / autorisatie-functie niet is ingeschakeld, schakelt u de schakeloptie voor **op**.
 3. Klik op **Twitter**. Plak in het App-ID en het App-geheim waarden die u eerder hebt verkregen. Klik vervolgens op **OK**.
@@ -53,7 +53,7 @@ U moet een Twitter-account met een geverifieerde e-mailadres en telefoonnummer g
 
 U bent nu klaar voor gebruik van Twitter voor verificatie in uw app.
 
-## <a name="related-content"></a>Verwante inhoud
+## <a name="related-content"> </a>Gerelateerde inhoud
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
 <!-- Images. -->

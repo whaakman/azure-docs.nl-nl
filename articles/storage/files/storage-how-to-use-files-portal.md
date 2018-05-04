@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
-ms.openlocfilehash: 588d260bb939c8f6439ca66828296ea455f1524a
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 9b8a7988be2c3a2622dd45a264abcb674b7d169e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="managing-azure-file-shares-with-the-azure-portal"></a>Azure-bestandsshares beheren met Azure Portal 
 [Azure Files ](storage-files-introduction.md) is het eenvoudig te gebruiken cloudbestandssysteem van Microsoft. Azure-bestandsshares kunnen worden gekoppeld in Windows, Linux en macOS. In deze handleiding worden de basisbeginselen besproken van het werken met Azure-bestandsshares met behulp van [Azure Portal](https://portal.azure.com/). Leer hoe u het volgende doet:
@@ -33,7 +33,7 @@ ms.lasthandoff: 03/29/2018
 
 Als u nog geen abonnement op Azure hebt, kunt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) maken voordat u begint.
 
-## <a name="create-a-storage-account"></a>Een opslagaccount maken
+## <a name="create-a-storage-account"></a>Create a storage account
 [!INCLUDE [storage-files-create-storage-account-portal](../../../includes/storage-files-create-storage-account-portal.md)]
 
 ## <a name="create-a-file-share"></a>Een bestandsshare maken
@@ -47,10 +47,10 @@ Een bestandsshare maken:
 4. Typ *myshare* in het vak **Naam**.
 5. Klik op **OK** om de Azure-bestandsshare te maken.
 
-## <a name="manipulating-the-contents-of-the-azure-file-share"></a>Inhoud van Azure-bestandsshare bewerken
-U beschikt nu over een Azure-bestandsshare. De volgende stap is het koppelen van de bestandsshare met SMB op [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) of [macOS](storage-how-to-use-files-mac.md). U kunt uw Azure-bestandsshare ook bewerken met Azure Portal. Alle aanvragen via Azure Portal worden gedaan via de REST-API van File, zodat u bestanden en mappen kunt maken, wijzigen en verwijderen in clients zonder toegang tot SMB.
+## <a name="work-with-the-contents-of-the-azure-file-share"></a>Werken met de inhoud van de Azure-bestandsshare
+U beschikt nu over een Azure-bestandsshare. De volgende stap is het koppelen van de bestandsshare met SMB op [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) of [macOS](storage-how-to-use-files-mac.md). U kunt ook met Azure Portal werken met uw Azure-bestandsshare. Alle aanvragen via Azure Portal worden gedaan via de REST-API van File, zodat u bestanden en mappen kunt maken, wijzigen en verwijderen in clients zonder toegang tot SMB.
 
-### <a name="create-directory"></a>Map maken
+### <a name="create-a-directory"></a>Een map maken
 Ga als volgt te werk om in de hoofdmap van uw Azure-bestandsshare een nieuwe map te maken met de naam *myDirectory*:
 
 1. Selecteer op de pagina **Bestandsservice** de bestandsshare **myshare**. De pagina voor de bestandsshare wordt geopend.

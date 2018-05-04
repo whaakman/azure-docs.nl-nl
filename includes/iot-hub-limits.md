@@ -42,7 +42,7 @@ De volgende tabel bevat de limieten die van toepassing zijn op IoT Hub-resources
 
 
 > [!NOTE]
-> Het maximum aantal apparaten dat u verbinding met een enkele IoT-hub maken kunt is momenteel 500.000. Als u deze limiet verhogen wilt, neem dan contact op met [Microsoft Support](https://azure.microsoft.com/en-us/support/options/).
+> Het maximum aantal apparaten dat u verbinding met een enkele IoT-hub maken kunt is momenteel 500.000. Als u deze limiet verhogen wilt, neem dan contact op met [Microsoft Support](https://azure.microsoft.com/support/options/).
 
 De IoT Hub-service vertraagt aanvragen wanneer de volgende quota worden overschreden:
 

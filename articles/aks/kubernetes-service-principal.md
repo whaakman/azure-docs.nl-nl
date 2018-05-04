@@ -6,18 +6,18 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: get-started-article
-ms.date: 02/24/2018
+ms.date: 04/19/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a7c80b64a33f4f71c694f80bf3e68f39ecd01828
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 81f455668e81c2a6c21b66d85199da3f475e7265
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Service-principals met AKS (Azure Container Service)
 
-Voor een AKS-cluster is een [service-principal voor Azure Active Directory][aad-service-principal] vereist voor gebruik met Azure-API's. De service-principal is nodig voor dynamisch beheer van resources zoals door [gebruikers gedefinieerde routes][user-defined-routes] en de [Layer-4 Azure Load Balancer][azure-load-balancer-overview].
+Voor een AKS-cluster is een [service-principal voor Azure Active Directory][aad-service-principal] vereist voor gebruik met Azure-API's. De service-principal is nodig voor het dynamisch maken en beheren van resources zoals [Azure Load Balancer][azure-load-balancer-overview].
 
 In dit artikel worden verschillende opties getoond om een service-principal in te stellen voor een Kubernetes-cluster.
 
@@ -80,9 +80,9 @@ Houd rekening met het volgende als u werkt met AKS en service-principals voor Az
 
 * De service-principal voor Kubernetes is een onderdeel van de configuratie van het cluster. Gebruik echter niet de id voor het implementeren van het cluster.
 * Elke service-principal is gekoppeld aan een Azure AD-toepassing. De service-principal voor een Kubernetes-cluster kan zijn gekoppeld aan elke geldige Azure AD-toepassingsnaam (bijvoorbeeld `https://www.contoso.org/example`). De URL van de toepassing hoeft geen echt eindpunt te zijn.
-* Als u de **client-id** voor de service-principal opgeeft, kunt u de waarde van de `appId` gebruiken (zoals beschreven in dit artikel) of de bijbehorende service-principal `name` (bijvoorbeeld `https://www.contoso.org/example`).
+* Als u de **client-id** voor de service-principal opgeeft, gebruikt u de waarde van de `appId` (zoals beschreven in dit artikel) of de bijbehorende service-principal `name` (bijvoorbeeld `https://www.contoso.org/example`).
 * Op de hoofd- en knooppunt-VM's in het Kubernetes-cluster worden de referenties voor de service-principal opgeslagen in het bestand `/etc/kubernetes/azure.json`.
-* Als u de opdracht `az aks create` gebruikt om de service-principal automatisch te genereren, worden de referenties voor de service-principal naar het bestand `~/.azure/acsServicePrincipal.json` geschreven op de computer die wordt gebruikt om de opdracht uit te voeren.
+* Als u de opdracht `az aks create` gebruikt om de service-principal automatisch te genereren, worden de referenties voor de service-principal naar het bestand `~/.azure/aksServicePrincipal.json` geschreven op de computer die wordt gebruikt om de opdracht uit te voeren.
 * Wanneer u een AKS-cluster verwijdert dat is gemaakt door `az aks create`, wordt de service-principal die automatisch is gemaakt, niet verwijderd. U kunt deze verwijderen met `az ad sp delete --id $clientID`.
 
 ## <a name="next-steps"></a>Volgende stappen

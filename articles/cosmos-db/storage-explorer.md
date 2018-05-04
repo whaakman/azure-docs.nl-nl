@@ -17,17 +17,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2018
 ms.author: jejiang
-ms.openlocfilehash: 18f580f1eae31c9bf3626e100217467bb48ca881
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ff4ee0a47129be5df03112006dcd45a62ad410af
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Azure Cosmos DB beheren in Azure Storage Explorer (preview)
+# <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>Azure Cosmos DB beheren in Azure Storage Explorer
 
 Het gebruik van Azure Cosmos DB in Azure Storage Explorer stelt gebruikers in staat om Azure Cosmos DB entiteiten te beheren, gegevens te manipuleren, en opgeslagen procedures en triggers bij te werken samen met andere Azure entiteiten zoals opslagblobs en wachtrijen. U kunt nu hetzelfde hulpprogramma gebruiken om uw verschillende Azure entiteiten op één plek te beheren. Op dit moment ondersteunt Azure Storage Explorer SQL-, MongoDB-, Graph- en Table-accounts.
-
-In dit artikel kunt u lezen hoe u Storage Explorer kunt gebruiken om Azure Cosmos DB te beheren.
 
 
 ## <a name="prerequisites"></a>Vereisten
@@ -75,8 +73,11 @@ Een andere manier van verbinding maken met een Azure Cosmos DB is het gebruik va
     ![Verbindingsreeks](./media/storage-explorer/connection-string.png)
 
 ## <a name="connect-to-azure-cosmos-db-by-using-local-emulator"></a>Verbinding maken met Azure Cosmos DB met behulp van een lokale emulator
+
 Gebruik de volgende stappen uit om verbinding te maken met een Cosmos Azure DB via een emulator. Momenteel is er alleen ondersteuning voor SQL-accounts.
-1. Installeer de emulator en start deze op. Zie [Cosmos DB Emulator](https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator) voor informatie over het installeren van Emulator.
+
+1. Installeer de emulator en start deze op. Zie [Cosmos DB Emulator](https://docs.microsoft.com/azure/cosmos-db/local-emulator) voor informatie over het installeren van Emulator.
+
 2. Ga naar **Lokaal en gekoppeld** in het linkerdeelvenster, klik met de rechtermuisknop op **Cosmos DB-accounts** en kies **Verbinding maken met Cosmos DB Emulator...**
 
     ![Verbinding maken met Cosmos DB Emulator](./media/storage-explorer/emulator-entry.png)
@@ -84,7 +85,6 @@ Gebruik de volgende stappen uit om verbinding te maken met een Cosmos Azure DB v
 3. Momenteel is er alleen ondersteuning voor de SQL-API. Plak uw **verbindingsreeks**, voer het **accountlabel** in, klik op **Volgende** om het overzicht te controleren en klik vervolgens op **Verbinden** om verbinding te maken met de Azure Cosmos DB-account. Zie [De verbindingsreeks ophalen](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string) voor informatie over het ophalen van de verbindingsreeks.
 
     ![Het dialoogvenster Verbinding maken met Cosmos DB Emulator](./media/storage-explorer/emulator-dialog.png)
-
 
 
 ## <a name="azure-cosmos-db-resource-management"></a>Azure Cosmos DB-resourcebeheer
@@ -208,8 +208,111 @@ Door met de rechtermuisknop op een abonnement in het deelvenster Verkenner te kl
     ![Opgeslagen procedure](./media/storage-explorer/stored-procedure.png)
 * De bewerkingen voor **triggers** en **UDF** zijn vergelijkbaar met die voor **opgeslagen procedures**.
 
+## <a name="troubleshooting"></a>Problemen oplossen
+
+[Azure Cosmos DB in Azure Storage Explorer](https://docs.microsoft.com/azure/cosmos-db/storage-explorer) is een zelfstandige app waarmee u verbinding kunt maken met Azure Cosmos DB-accounts die worden gehost in Azure en onafhankelijke clouds vanuit Windows, Mac OS of Linux. Het gebruik van Azure Cosmos DB stelt u in staat om Azure Cosmos DB-entiteiten te beheren, gegevens te manipuleren, en opgeslagen procedures en triggers bij te werken, samen met andere Azure-entiteiten zoals opslag-blobs en wachtrijen.
+
+Dit zijn oplossingen voor problemen die regelmatig voorkomen bij Azure Cosmos DB in Storage Explorer.
+
+### <a name="sign-in-issues"></a>Problemen met aanmelden
+
+Probeer uw toepassing opnieuw op te starten en kijk of de problemen kunnen worden opgelost voordat u doorgaat.
+
+#### <a name="self-signed-certificate-in-certificate-chain"></a>Zelfondertekend certificaat in de certificaatketen
+
+Er zijn enkele redenen waarom u deze fout mogelijk ziet. Dit zijn de twee meest voorkomende:
+
++ U bevindt zich achter een transparante proxy, wat betekent dat een van de betrokkenen (zoals uw IT-afdeling) HTTPS-verkeer onderschept, ontsleutelt en vervolgens versleutelt met behulp van een zelfondertekend certificaat.
+
++ U voert software uit, zoals antivirussoftware, die zelfondertekende SSL-certificaten injecteert in de HTTPS-berichten die u ontvangt.
+
+Wanneer Storage Explorer een van deze zelfondertekende certificaten tegenkomt, kan de toepassing niet meer weten of met het ontvangen HTTPS-bericht is geknoeid. Als u echter een kopie van het zelfondertekende certificaat hebt, kunt u Storage Explorer instrueren om dit te vertrouwen. Als u niet zeker weet wie het certificaat injecteert, kunt u dit zelf proberen uit te zoeken met de volgende stappen:
+
+1. Installeer Open SSL
+     - [Windows](https://slproweb.com/products/Win32OpenSSL.html) (een van de lichte versies is prima)
+     - Mac- en Linux: moet bij het besturingssysteem zijn inbegrepen
+2. Voer Open SSL uit
+    - Windows: ga naar de installatiemap, vervolgens naar **/bin/** en dubbelklik op **openssl.exe**.
+    - Mac- en Linux: voer **openssl** uit vanaf een terminal
+3. Voer `s_client -showcerts -connect microsoft.com:443` uit
+4. Zoek naar zelfondertekende certificaten. Als u niet zeker weet welke certificaten zelfondertekend zijn, zoek dan overal waar het onderwerp ('s:') en de certificaatverlener ('i') hetzelfde zijn.
+5.  Als u zelfondertekende certificaten hebt gevonden, kopieert en plakt u alles vanaf **---BEGIN CERTIFICATE---** tot en met **---END CERTIFICATE---** naar een nieuw .cer-bestand. Doe dit voor elk certificaat.
+6.  Open Storage Explorer en ga naar **Bewerken** > **SSL-certificaten** > **Certificaten importeren**. Gebruik de bestandskiezer en zoek, selecteer en open de cer-bestanden die u hebt gemaakt.
+
+Als u met behulp van de bovenstaande stappen geen zelfondertekende certificaten kunt vinden, stuur ons dan feedback, zodat we u verder kunnen helpen.
+
+#### <a name="unable-to-retrieve-subscriptions"></a>Kan geen abonnementen ophalen
+
+Als u uw abonnementen niet kunt ophalen nadat u zich hebt aangemeld:
+
+- Controleer of uw account toegang heeft tot de abonnementen door u aan te melden bij [Azure Portal](http://portal.azure.com/)
+- Zorg ervoor dat u bent aangemeld via de juiste omgeving ([Azure](http://portal.azure.com/), [Azure China](https://portal.azure.cn/), [Azure Duitsland](https://portal.microsoftazure.de/), [Azure US Government](http://portal.azure.us/) of Aangepaste omgeving/Microsoft Azure Stack)
+- Als u zich achter een proxy bevindt, controleert u of de Storage Explorer-proxy correct is geconfigureerd
+- Probeer het account te verwijderen en opnieuw toe te voegen
+- Verwijder de volgende bestanden uit de basismap (zoals: C:\Users\ContosoUser) en probeer vervolgens het account opnieuw toe te voegen:
+  - .adalcache
+  - .devaccounts
+  - .extaccounts
+- Bekijk tijdens het aanmelden de console voor ontwikkelhulpprogramma's (F12) voor eventuele foutberichten
+
+![console](./media/storage-explorer/console.png)
+
+#### <a name="unable-to-see-the-authentication-page"></a>Kan de verificatiepagina niet zien 
+
+Als u de verificatiepagina niet kunt zien:
+
+- Afhankelijk van de snelheid van uw verbinding kan het even duren voordat de aanmeldingspagina is geladen. Wacht minstens één minuut voordat u het dialoogvenster voor verificatie sluit.
+- Als u zich achter een proxy bevindt, controleert u of de Storage Explorer-proxy correct is geconfigureerd
+- Start de ontwikkelaarsconsole door op de F12-toets te drukken. Bekijk de antwoorden van de ontwikkelaarsconsole en ga na of u een aanwijzing kunt vinden waarom de verificatie niet werkt
+
+#### <a name="cannot-remove-account"></a>Kan het account niet verwijderen
+
+Als het niet lukt om een account te verwijderen of als de koppeling om opnieuw te verifiëren niet werkt:
+
+- Verwijder de volgende bestanden uit de basismap en probeer vervolgens het account opnieuw toe te voegen:
+  - .adalcache
+  - .devaccounts
+  - .extaccounts
+- Als u aan SAS gekoppelde opslagbronnen wilt verwijderen, verwijder dan:
+  - De map %AppData%/StorageExplorer voor Windows
+  - /Users/<your_name>/Library/Applicaiton SUpport/StorageExplorer voor Mac
+  - ~/.config/StorageExplorer voor Linux
+  - **U moet echter al uw referenties opnieuw invoeren** als u deze bestanden verwijdert.
+
+
+### <a name="httphttps-proxy-issue"></a>Probleem met http/https-proxy
+
+U kunt Microsoft Azure Cosmos DB-knooppunten in het linkerdeelvenster niet weergeven bij het configureren van een http/https-proxy in ASE. Dit is een bekend probleem en wordt opgelost in de volgende release. Op dit moment kunt u als tijdelijke oplossing Azure Cosmos DB Data Explorer in Azure Portal gebruiken. 
+
+### <a name="development-node-under-local-and-attached-node-issue"></a>Probleem met het knooppunt 'Ontwikkeling' onder het knooppunt 'Lokaal en gekoppeld'
+
+Er is geen reactie na klikken op het knooppunt 'Ontwikkeling' onder het knooppunt 'Lokaal en gekoppeld' in het linkerdeelvenster.  Dit gedrag is verwacht. De lokale emulator van Microsoft Azure Cosmos DB wordt in de volgende release ondersteund.
+
+![Knooppunt 'Ontwikkeling'](./media/storage-explorer/development.png)
+
+### <a name="attaching-azure-cosmos-db-account-in-local-and-attached-node-error"></a>Fout met toevoegen van Microsoft Azure Cosmos DB-account in het knooppunt 'Lokaal en gekoppeld'
+
+Als u onderstaande fout ziet na het toevoegen van een Microsoft Azure Cosmos DB-account in het knooppunt 'Lokaal en gekoppeld', controleert u of u de juiste verbindingsreeks gebruikt.
+
+![Fout met toevoegen van Microsoft Azure Cosmos DB-account in 'Lokaal en gekoppeld'](./media/storage-explorer/attached-error.png)
+
+### <a name="expand-azure-cosmos-db-node-error"></a>Fout met uitvouwen van Azure-Cosmos DB-knooppunt
+
+Mogelijk ziet u onderstaande fout tijdens een poging de structuurknooppunten links uit te vouwen. 
+
+![Uitvouwfout](./media/storage-explorer/expand-error.png)
+
+Probeer de volgende suggesties:
+
+- Controleer of het Microsoft Azure Cosmos DB-account bezig is met inrichten en probeer het opnieuw wanneer het account is gemaakt.
+- Als het account zich onder het knooppunt 'Snelle toegang' of 'Lokaal en gekoppelde' bevindt, controleert u of het account is verwijderd. Als dit het geval is, moet u het knooppunt handmatig verwijderen.
+
+## <a name="contact-us"></a>Contact opnemen
+
+Als geen van de oplossingen voor u werken, stuurt u een e-mail naar het Azure Cosmos DB Dev Tooling Team ([cosmosdbtooling@microsoft.com](mailto:cosmosdbtooling@microsoft.com)) met informatie over het probleem. Wij gaan hiermee dan aan de slag.
+
 ## <a name="next-steps"></a>Volgende stappen
 
 * Bekijk de volgende video om te zien hoe u Azure Cosmos DB in Azure Storage Explorer kunt gebruiken: [Azure Cosmos DB gebruiken in Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
-* Meer informatie over Opslagverkenner en verbinding maken met meer services vindt u in [Aan de slag met Storage Explorer (preview)](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+* Meer informatie over Storage Explorer en verbinding maken met meer services vindt u in [Aan de slag met Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 

@@ -8,15 +8,15 @@ manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: 
-ms.devlang: 
+ms.custom: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
 ms.openlocfilehash: aa213a3b1a8949f0fca5e4bbb7ec5a6a775ae6ec
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="sample-of-custom-data-flow-transforms-python"></a>Voorbeeld van aangepaste gegevensstroom transformaties (Python) 
 De naam van de transformatie in het menu is **transformeren gegevensstroom (Script)**. Lees voordat u deze bijlage lezen, [Python uitbreidbaarheid overzicht](data-prep-python-extensibility-overview.md).
@@ -49,7 +49,7 @@ Omlaag doorvoeren vereist twee transformaties. Wordt ervan uitgegaan dat gegeven
 |--------------|-----------|
 |Washington    |Redmond    |
 |              |Bellevue   |
-|              |Issaquah   |
+|              |Breda   |
 |              |Seattle    |
 |Californië    |Los Angeles|
 |              |San Diego  |
@@ -74,7 +74,7 @@ De gegevens ziet nu de volgende tabel:
 |--------------|--------------|-----------|
 |Washington    |Washington    |Redmond    |
 |              |Washington    |Bellevue   |
-|              |Washington    |Issaquah   |
+|              |Washington    |Breda   |
 |              |Washington    |Seattle    |
 |Californië    |Californië    |Los Angeles|
 |              |Californië    |San Diego  |

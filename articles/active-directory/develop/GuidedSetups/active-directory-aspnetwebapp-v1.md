@@ -5,20 +5,20 @@ services: active-directory
 documentationcenter: dev-center-name
 author: andretms
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/08/2017
+ms.date: 04/09/2018
 ms.author: andret
-ms.openlocfilehash: b23afd26f7ac1828381a0410d2455206c8f43c88
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 00fef27529dd1d69c13ceaf22e16d2b7cd47801f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/28/2018
 ---
 <!--start-intro-->
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Aanmelden met Microsoft toevoegen aan een ASP.NET-web-app
@@ -250,7 +250,7 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 <!--start-test-->
 ## <a name="test-your-code"></a>Testen van uw code
 
-Druk op `F5` uw project in Visual Studio wilt uitvoeren. De browser wordt geopend en wordt u verwezen *http://localhost: {poort}* waarin u zien hoe de *aanmelden met Microsoft* knop. Opwekken en klik op aan te melden.
+Druk op `F5` uw project in Visual Studio wilt uitvoeren. De browser wordt geopend en wordt u verwezen *http://localhost:{port}* waarin u zien hoe de *aanmelden met Microsoft* knop. Opwekken en klik op aan te melden.
 
 Als u klaar bent om te testen, gebruikt een werkaccount (Azure Active Directory) aan te melden. 
 
@@ -280,7 +280,7 @@ Bovendien ziet u een tabel met inbegrip van alle gebruikersclaims in verificatie
 ### <a name="test-accessing-a-method-that-has-an-authorize-attribute-optional"></a>Test een methode die heeft toegang tot een *[autoriseren]* kenmerk (optioneel)
 In deze stap test u toegang tot de controller Claims als anonieme gebruiker:<br/>
 Selecteer de koppeling voor afmelden van de gebruiker en de afmelden proces te voltooien.<br/>
-Typ nu in uw browser http://localhost: {poort} / claims voor toegang tot uw domeincontroller die is beveiligd met de `[Authorize]` kenmerk
+Typ nu in uw browser http://localhost:{port}/claims voor toegang tot uw domeincontroller die is beveiligd met de `[Authorize]` kenmerk
 
 #### <a name="expected-results"></a>Verwachte resultaten
 U ontvangt de prompt dat u hoeft te worden geverifieerd om te zien van de weergave.

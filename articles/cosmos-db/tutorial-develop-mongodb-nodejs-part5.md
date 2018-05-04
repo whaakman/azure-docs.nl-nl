@@ -2,24 +2,24 @@
 title: Zelfstudie voor MongoDB, Angular en Node voor Azure - deel 5 | Microsoft Docs
 description: Deel 5 van de serie zelfstudies voor het maken van een MongoDB-app met Angular en Node op Azure Cosmos DB, waarbij gebruik wordt gemaakt van dezelfde API's als voor MongoDB
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: c06247279df9eaaedf128a2eeec801b4e323c535
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: MT
+ms.openlocfilehash: 7a4b25792577247d3121c5226da55081ed55ff2d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-5-use-mongoose-to-connect-to-azure-cosmos-db"></a>Een MongoDB-app maken met Angular en Azure Cosmos DB - deel 5: Mongoose gebruiken om verbinding te maken met Azure Cosmos DB
 
@@ -44,7 +44,7 @@ Deel 5 van de zelfstudie bouwt voort op [deel 4](tutorial-develop-mongodb-nodejs
 Voltooi de stappen in [deel 4](tutorial-develop-mongodb-nodejs-part4.md) van de zelfstudie voordat u aan dit deel begint.
 
 > [!TIP]
-> Aan de hand van deze zelfstudie wordt u stapsgewijs begeleid bij het maken van de app. Als u het voltooide project wilt downloaden, kunt u de voltooide app vinden in de [angular-cosmosdb-opslagplaats](https://github.com/Azure-Samples/angular-cosmosdb) op GitHub.
+> Aan de hand van deze zelfstudie wordt u stapsgewijs begeleid bij het maken van de toepassing. Als u het voltooide project wilt downloaden, kunt u de voltooide app vinden in de [angular-cosmosdb-opslagplaats](https://github.com/Azure-Samples/angular-cosmosdb) op GitHub.
 
 ## <a name="use-mongoose-to-connect-to-azure-cosmos-db"></a>Mongoose gebruiken om verbinding te maken met Azure Cosmos DB
 
@@ -221,7 +221,7 @@ Voltooi de stappen in [deel 4](tutorial-develop-mongodb-nodejs-part4.md) van de 
 
 1. We gaan nu de app opnieuw uitvoeren. Sla uw wijzigingen op in Visual Studio Code, klik aan de linkerkant op de knop **Debug** ![pictogram Debug in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png) en klik vervolgens op de knop **Start Debugging** ![pictogram Debug in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png).
 
-3. Open in de browser de hulpmiddelen voor ontwikkelaars en het tabblad Network. Ga naar http://localhost:3000. Hier ziet u de app.
+3. Open in de browser de hulpmiddelen voor ontwikkelaars en het tabblad Network, en ga naar http://localhost:3000. Hier ziet u de toepassing.
 
     ![Nieuw Azure Cosmos DB-account in Azure Portal](./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png)
 

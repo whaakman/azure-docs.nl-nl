@@ -10,11 +10,11 @@ ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 5e8ac9da4df2428191e8a7e6402f2ac06e695503
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bd4ebbec4506824f00d09a09369ebbeaf9458c19
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Het back-up en herstellen van een server in Azure-Database voor MySQL met de Azure CLI
 
@@ -68,14 +68,14 @@ U de keuze tussen uw server configureren voor lokaal redundante back-ups of geog
 
 Tijdens het maken van een server via de `az mysql server create` opdracht, de `--geo-redundant-backup` parameter besluit uw back-up redundantie-optie. Als `Enabled`, geografisch redundante back-ups worden gemaakt. Of als `Disabled` lokaal redundante back-ups worden gemaakt. 
 
-De back-up bewaarperiode is ingesteld door de parameter `--backup-retention-days`. 
+De back-up bewaarperiode is ingesteld door de parameter `--backup-retention`. 
 
 Zie voor meer informatie over het instellen van deze waarden tijdens het maken, de [Azure-Database voor MySQL server CLI Quick Start](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 De bewaarperiode voor back-up van een server kan als volgt worden gewijzigd:
 
 ```azurecli-interactive
-az mysql server update --name mydemoserver --resource-group myresourcegroup --backup-retention-days 10
+az mysql server update --name mydemoserver --resource-group myresourcegroup --backup-retention 10
 ```
 
 Het vorige voorbeeld verandert de back-up bewaarperiode van mydemoserver in 10 dagen.

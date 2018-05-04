@@ -8,15 +8,15 @@ manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: 
-ms.devlang: 
+ms.custom: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
 ms.openlocfilehash: 7b42080ea4bf9a9e49f2695ab8746d9ead7348bd
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Ondersteunde gegevensbronnen voor Azure Machine Learning gegevens voorbereiden 
 In dit artikel bevat een overzicht van de momenteel ondersteunde gegevensbronnen voor Azure Machine Learning gegevens voorbereiden.
@@ -35,7 +35,7 @@ Lezen van on-premises SQL server of Azure SQL-database.
 - Gebruikersnaam
 - Wachtwoord
 - Verbinding maken met database
-- SQL Query
+- SQL-Query
 
 #### <a name="notes"></a>Opmerkingen
 - SQL-variant-kolommen worden niet ondersteund
@@ -88,7 +88,7 @@ Een JSON-bestand gelezen uit de opslag. Het bestand wordt "afgevlakt" bij lezen.
 #### <a name="options"></a>Opties
 - Geen
 
-### <a name="parquet"></a>Parquet
+### <a name="parquet"></a>Parketvloeren
 Lees een gegevensset parketvloeren ofwel één bestand of map.
 
 Parketvloeren als een indeling verschillende vormen in de opslag aannemen kan. Een bestand één .parquet wordt soms gebruikt voor kleinere gegevenssets. Verschillende Python-bibliotheken ondersteuning voor lezen of schrijven naar één .parquet bestanden. Momenteel worden gegevens voorbereiden voor Azure Machine Learning afhankelijk van de PyArrow Python-bibliotheek voor het lezen van parketvloeren tijdens het gebruik van lokale interactieve. Het ondersteunt één .parquet-bestanden (zolang ze zijn geschreven als zodanig en niet als onderdeel van een grotere set gegevens), evenals parketvloeren gegevenssets.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 76149ce3864811cf2b5648f8dc0aa214e5820d9f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2172acfd61188c09693b9c7dacf37ff7a638d7f4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Een virtuele Machine in Azure Learning Deep inrichten 
 
@@ -44,9 +44,9 @@ Hier volgen de stappen voor het maken van een exemplaar van de grondige Learning
       6. **Locatie**: Selecteer het datacenter die het meest geschikt is. Het is doorgaans het datacenter die de meeste van uw gegevens of heeft de dichtstbijzijnde fysieke voor snelste toegang tot het netwerk. 
       
 > [!NOTE]
-> Aangezien DLVM is ingericht op Azure NC-serie GPU VM-instanties, moet u een van de locaties in Azure met GPU's. De locaties die GPU VM's zijn momenteel: **VS-Oost, Noord-centraal VS, Zuid-centraal VS, VS-West 2, Noord-Europa, West-Europa**. Raadpleeg voor de meest recente lijst de [Azure producten op de pagina regio](https://azure.microsoft.com/en-us/regions/services/) en zoekt u **NC-serie** onder **Compute**. 
+> De DLVM ondersteunt alle NC en ND reeks GPU VM-exemplaren. Bij het inrichten van de DLVM, moet u een van de locaties in Azure met GPU's. Controleer de [Azure producten op de pagina regio](https://azure.microsoft.com/regions/services/) pagina voor de beschikbare locaties en zoekt u **NC-serie**, **NCv2-serie**, **NCv3-serie** , of **ND-serie** onder **Compute**. 
 
-   2. **Instellingen**: Selecteer een van de grootte van de NC-serie GPU-virtuele machine die voldoet aan uw functionele vereisten en kostenbeperkingen. Een opslagaccount maken voor uw virtuele machine.  ![dlvm-instellingen](./media/dlvm-provision-step-2.PNG)
+   2. **Instellingen**: Selecteer een van de NC-reeks (NC, NCv2, NCv3) of ND-serie grootten van virtuele machines GPU die voldoet aan uw functionele vereisten en kostenbeperkingen. Een opslagaccount maken voor uw virtuele machine.  ![dlvm-instellingen](./media/dlvm-provision-step-2.PNG)
    
    3. **Samenvatting**: Controleer of alle informatie die u hebt ingevoerd juist is.
    5. **Kopen**: klik op **kopen** starten van de inrichting. Een koppeling is met de voorwaarden van de transactie opgegeven. De virtuele machine heeft geen eventuele extra kosten afgezien van de berekening die voor de servergrootte van de die u hebt gekozen in de **grootte** stap. 

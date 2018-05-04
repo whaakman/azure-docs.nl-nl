@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/18/2018
 ms.author: brenduns
-ms.openlocfilehash: b732770b2eace07690d112e81c6916b16b2cb5b0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: d23f5b91e08c169975ac5d0bb8d9f048828c2910
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>VPN-gateway configuratie-instellingen voor Azure-Stack
 
@@ -45,16 +45,13 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 ### <a name="gateway-skus"></a>Gateway-SKU's
 Wanneer u een virtuele netwerkgateway maakt, moet u de gewenste gateway-SKU opgeven. Selecteer de SKU's die aan uw vereisten voldoen op basis van de typen werkbelasting, doorvoer, functies en SLA's.
 
->[!NOTE]
-> Voor klassieke virtuele netwerken moeten de oude SKU's nog altijd worden gebruikt. Zie [Werken met virtuele-netwerkgateway-SKU's (oud)](/azure/vpn-gateway/vpn-gateway-about-skus-legacy) voor meer informatie over de oude gateway-SKU's.
-
 Azure-Stack biedt de volgende VPN-gateway SKU's:
 
 |   | Doorvoer VPN-Gateway |Max. IPsec-tunnels VPN-Gateway |
 |-------|-------|-------|
 |**Basis-SKU**  | 100 Mbps  | 10    |
 |**Standaard SKU**           | 100 Mbps  | 10    |
-|**Hoge prestaties SKU** | 200 Mbps    | 30    |
+|**Hoge prestaties SKU** | 200 Mbps    | 5 |
 
 ### <a name="resizing-gateway-skus"></a>Gateway-SKU's vergroten of verkleinen
 Azure-Stack biedt geen ondersteuning voor een formaat van SKU's tussen de ondersteunde oude SKU's.
@@ -90,11 +87,11 @@ New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName t
 Wanneer u de virtuele netwerkgateway voor de configuratie van een VPN-gateway maakt, moet u een VPN-type. Het VPN-type dat u kiest, is afhankelijk van de verbinding-topologie die u wilt maken.  Een VPN-type kan ook afhankelijk van de hardware die u gebruikt. S2S-configuraties vereisen een VPN-apparaat. Sommige VPN-apparaten ondersteunen alleen een bepaalde VPN-type.
 
 > [!IMPORTANT]  
-> Op dit moment ondersteunt Azure Stack alleen het Route gebaseerd VPN-type. Als uw apparaat alleen beleid gebaseerd VPN-verbindingen ondersteunt, worden klikt u vervolgens verbindingen met die apparaten uit de Stack Azure niet ondersteund.
+> Op dit moment ondersteunt Azure Stack alleen het Route gebaseerd VPN-type. Als uw apparaat alleen beleid gebaseerd VPN-verbindingen ondersteunt, worden klikt u vervolgens verbindingen met die apparaten uit de Stack Azure niet ondersteund.  Bovendien wordt Azure Stack biedt geen ondersteuning met behulp van beleid op basis van verkeer selectoren voor Route gebaseerde Gateways op dit moment, omdat de aangepaste configuraties voor IPSec/IKE-beleid niet nog ondersteund.
 
 - **PolicyBased**: *(ondersteund door Azure, maar niet door de Azure-Stack)* op beleid gebaseerde VPN-verbindingen versleutelen pakketten en sturen via IPsec-tunnels op basis van de IPsec-beleidsregels die zijn geconfigureerd met de combinaties van adresvoorvoegsels tussen uw on-premises netwerk en de Stack Azure VNet. Het beleid (of de verkeersselector) wordt gewoonlijk gedefinieerd als een toegangslijst in de configuratie van het VPN-apparaat.
 
-- **RouteBased**: op route gebaseerd VPN-verbindingen gebruiken 'routes' in de IP-doorstuurtabel of routeringstabel om pakketten direct naar de bijbehorende tunnelinterfaces. De tunnelinterfaces versleutelen of ontsleutelen de pakketten vervolgens naar en vanuit de tunnels. Het beleid (of de verkeersselector) voor op route gebaseerd VPN-verbindingen zijn geconfigureerd als alles-naar-alles (of jokertekens). De waarde voor een RouteBased VPN-type is RouteBased.
+- **RouteBased**: op route gebaseerd VPN-verbindingen gebruiken 'routes' in de IP-doorstuurtabel of routeringstabel om pakketten direct naar de bijbehorende tunnelinterfaces. De tunnelinterfaces versleutelen of ontsleutelen de pakketten vervolgens naar en vanuit de tunnels. Het beleid (of de verkeersselector) voor op route gebaseerd VPN-verbindingen zijn geconfigureerd als alles-naar-alles (of jokertekens) door standaard en kan niet worden gewijzigd. De waarde voor een RouteBased VPN-type is RouteBased.
 
 De volgende PowerShell-voorbeeld geeft de VpnType - als RouteBased. Wanneer u een gateway maakt, moet u het juiste VPN-type voor uw configuratie kiezen.
 
@@ -110,7 +107,7 @@ De volgende tabel bevat de vereisten voor VPN-gateways.
 |--|--|--|--|--|
 | **Site-naar-Site-connectiviteit (S2S-verbinding)** | Niet ondersteund | RouteBased VPN-configuratie | RouteBased VPN-configuratie | RouteBased VPN-configuratie |
 | **Verificatiemethode**  | Niet ondersteund | Vooraf gedeelde sleutel voor S2S-connectiviteit  | Vooraf gedeelde sleutel voor S2S-connectiviteit  | Vooraf gedeelde sleutel voor S2S-connectiviteit  |   
-| **Maximumaantal S2S-verbindingen**  | Niet ondersteund | 10 | 10| 30|
+| **Maximumaantal S2S-verbindingen**  | Niet ondersteund | 10 | 10| 5|
 |**Ondersteuning voor actieve routering (BGP)** | Niet ondersteund | Niet ondersteund | Ondersteund | Ondersteund |
 
 ### <a name="gateway-subnet"></a>Gatewaysubnet
@@ -160,7 +157,7 @@ In tegenstelling tot Azure, die ondersteuning biedt voor meerdere aanbiedingen a
 |IKE-versie |IKEv2 |
 |Versleuteling en hash-algoritmen (versleuteling)     | GCMAES256|
 |Versleuteling en hash-algoritmen (verificatie) | GCMAES256|
-|SA-levensduur (tijd)  | 27,700 seconden |
+|SA-levensduur (tijd)  | 27.000 seconden |
 |SA-levensduur (bytes) | 819,200       |
 |Perfect Forward Secrecy (PFS) |PFS2048 |
 |Dead Peer Detection | Ondersteund|  

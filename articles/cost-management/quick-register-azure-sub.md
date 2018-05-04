@@ -5,16 +5,16 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 04/17/2018
 ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: b7c1fee3276d98b6b7c611a09133804c1253384a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a8ff85d9d40d2d6b1169e41ac69fac7e808a1df2
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="register-an-individual-azure-subscription-and-view-cost-data"></a>Een individueel Azure-abonnement registreren en gegevenskosten weergeven
 
@@ -22,9 +22,9 @@ Gebruik uw Azure-abonnement om u te registreren bij Azure Cost Management. Uw re
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-- Meld u via http://portal.azure.com aan bij Azure Portal.
+- Meld u aan bij Azure Portal op http://portal.azure.com.
 
-## <a name="create-a-trial-registration"></a>Registreren voor een proefabonnement
+## <a name="register-with-azure-cost-management"></a>Registreren bij Azure Cost Management
 
 1. Klik in Azure Portal, in de lijst met services, op **Cost Management en facturering**.
 2. Klik onder **Overzicht** op **Cost Management**  

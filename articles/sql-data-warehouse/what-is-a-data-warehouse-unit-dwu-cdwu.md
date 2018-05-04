@@ -10,11 +10,11 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: a83a9f9332d81e02a83efc019ad56027316301ab
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: 94791e4dc3d3c841dde4685d34d4e3fdaf7d9af7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Data Warehouse Units (dwu's) en rekencapaciteit Data Warehouse Units (cDWUs)
 Aanbevelingen over het kiezen van het aantal ideaal datawarehouse Units (dwu's, cDWUs) om te optimaliseren prijs en de prestaties en het wijzigen van het aantal eenheden. 
@@ -36,19 +36,19 @@ Dwu's verhogen:
 - Verhoogt het maximum aantal gelijktijdige query's en gelijktijdigheid sleuven.
 
 ## <a name="service-level-objective"></a>Serviceniveaudoelstelling
-De Service Level Objective (SLO) is de instelling voor schaalbaarheid die de kosten en prestaties van uw datawarehouse bepaalt. Het niveau van de service voor het optimaliseren voor Compute prestaties laag schaal worden gemeten in compute datawarehouse-eenheden (cDWU), bijvoorbeeld DW2000c. De geoptimaliseerde voor serviceniveaus elasticiteit worden gemeten in dwu's, bijvoorbeeld dw2000 zijn. 
+De Service Level Objective (SLO) is de instelling voor schaalbaarheid die de kosten en prestaties van uw datawarehouse bepaalt. Het niveau van de service voor Gen2 worden gemeten in compute datawarehouse-eenheden (cDWU), bijvoorbeeld DW2000c. Serviceniveaus Gen1 worden gemeten in dwu's, bijvoorbeeld dw2000 zijn. 
 
 De instelling SERVICE_OBJECTIVE bepaalt het serviceniveau en de prestatielaag voor uw datawarehouse op T-SQL.
 
 ```sql
---Optimized for Elasticity
+--Gen1
 CREATE DATABASE myElasticSQLDW
 WITH
 (    SERVICE_OBJECTIVE = 'DW1000'
 )
 ;
 
---Optimized for Compute
+--Gen2
 CREATE DATABASE myComputeSQLDW
 WITH
 (    SERVICE_OBJECTIVE = 'DW1000c'
@@ -60,12 +60,12 @@ WITH
 
 Elke prestatielaag maakt gebruik van een iets andere maateenheid voor hun datawarehouse-eenheden. Dit verschil wordt weergegeven op de factuur, omdat de eenheid van de schaal rechtstreeks worden vertaald naar facturering.
 
-- De geoptimaliseerd is voor de prestatielaag elasticiteit wordt gemeten in Data Warehouse Units (dwu's).
-- De geoptimaliseerde compute voor compute prestatielaag wordt gemeten in Data Warehouse Units (cDWUs). 
+- Gen1 datawarehouses worden gemeten in Data Warehouse Units (dwu's).
+- Gen2 gegevens warehousesr worden gemeten in compute Data Warehouse Units (cDWUs). 
 
-Zowel dwu's en cDWUs ondersteuning voor vergroten/verkleinen compute omhoog of omlaag en onderbreken berekenen wanneer u hoeft niet te gebruiken van het datawarehouse. Deze bewerkingen zijn alle op aanvraag. De geoptimaliseerde voor compute prestatielaag gebruikt ook een lokale cache op basis van schijven op de rekenknooppunten om prestaties te verbeteren. Als u het systeem onderbreken of schalen, de cache is ongeldig en dus een periode van opwarmen van cache is vereist voordat de optimale prestaties wordt bereikt.  
+Zowel dwu's en cDWUs ondersteuning voor vergroten/verkleinen compute omhoog of omlaag en onderbreken berekenen wanneer u hoeft niet te gebruiken van het datawarehouse. Deze bewerkingen zijn alle op aanvraag. Gen2 maakt gebruik van een lokale cache op basis van schijven op de rekenknooppunten om prestaties te verbeteren. Als u het systeem onderbreken of schalen, de cache is ongeldig en dus een periode van opwarmen van cache is vereist voordat de optimale prestaties wordt bereikt.  
 
-Als u datawarehouse units verhoogt, kunt u computerbronnen zijn lineair oplopende. De geoptimaliseerde voor compute prestatielaag biedt de beste queryprestaties en hoogste schaal heeft maar een hogere vermelding prijs. Het is ontworpen voor bedrijven die u een constante vraag voor prestaties hebt. Deze systemen maken de meeste gebruik van de cache. 
+Als u datawarehouse units verhoogt, kunt u computerbronnen zijn lineair oplopende. Gen2 biedt de beste queryprestaties en hoogste schaal maar een hogere vermelding prijs heeft. Het is ontworpen voor bedrijven die u een constante vraag voor prestaties hebt. Deze systemen maken de meeste gebruik van de cache. 
 
 ### <a name="capacity-limits"></a>Capaciteitslimieten
 Elke SQL-server (bijvoorbeeld myserver.database.windows.net) heeft een [Database Transaction Unit (DTU)](../sql-database/sql-database-what-is-a-dtu.md) quotum waarmee een bepaald aantal datawarehouse Units. Zie voor meer informatie de [werkbelasting management Capaciteitslimieten](sql-data-warehouse-service-capacity-limits.md#workload-management).
@@ -76,10 +76,9 @@ Het aantal ideaal datawarehouse Units afhankelijk van te veel uw werkbelasting e
 
 Stappen voor het vinden van de beste DWU voor uw workload:
 
-1. Tijdens de ontwikkeling, te beginnen met het selecteren van een kleinere DWU met behulp van de geoptimaliseerd voor de prestatielaag elasticiteit.  Omdat het probleem in deze fase functionele validatie is, is de optimaliseren voor de prestatielaag elasticiteit een redelijke optie. Een goed uitgangspunt is DW200. 
+1. Beginnen met het selecteren van een kleinere DWU. 
 2. De toepassingsprestaties van uw bewaken als u gegevens geladen in het systeem testen, het aantal dwu's geselecteerd vergeleken met de prestaties die u merkt observeren.
-3. Identificeer eventuele bijkomende vereisten voor periodieke perioden piek-activiteit. Als de werkbelasting aanzienlijke pieken en holten in de activiteit weergegeven en er is een goede reden regelmatig schalen en vervolgens de geoptimaliseerde voorkeur voor de prestatielaag elasticiteit.
-4. Als u meer dan 1000 DWU nodig, voorkeur voor het optimaliseren voor de prestatielaag Compute omdat Hiermee geeft u de beste prestaties.
+3. Identificeer eventuele bijkomende vereisten voor periodieke perioden piek-activiteit. Als de werkbelasting aanzienlijke pieken en holten in de activiteit weergegeven en er is een goede reden regelmatig schalen.
 
 SQL Data Warehouse is een scale-out-systeem dat de enorme hoeveelheden berekenings- en aanzienlijke hoeveelheid gegevens kunt inrichten. Als u wilt zien van de werkelijke capaciteit voor het schalen, met name bij een groter aantal dwu's, wordt u aangeraden de gegevensset schalen terwijl u schaalt om ervoor te zorgen dat er voldoende gegevens om de CPU's. Voor het testen van de schaal wordt u aangeraden ten minste 1 TB.
 

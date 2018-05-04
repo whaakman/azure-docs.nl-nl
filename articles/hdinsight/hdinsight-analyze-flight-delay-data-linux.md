@@ -11,14 +11,14 @@ ms.assetid: 0c23a079-981a-4079-b3f7-ad147b4609e5
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 04/23/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: cc5d48b881ba59679c19baa3506c3c14c0db8048
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: fd0daae8289839b64e7b54d97c78719587c18e7d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Vertraging vluchtgegevens analyseren met behulp van Hive in HDInsight op basis van Linux
 
@@ -34,6 +34,8 @@ Informatie over hoe vlucht vertraging om gegevens te analyseren met behulp van H
 * **Azure SQL-database**. U kunt een Azure SQL database gebruiken als een doelgegevensopslagplaats. Als u een SQL-database geen hebt, raadpleegt u [maken van een Azure SQL database in de Azure portal](../sql-database/sql-database-get-started.md).
 
 * **Azure CLI**. Als u de Azure CLI nog niet hebt geïnstalleerd, Zie [installeren van de Azure CLI 1.0](../cli-install-nodejs.md) voor meer stappen.
+
+* **Een SSH-client**. Zie voor meer informatie [Verbinding maken met HDInsight (Hadoop) via SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="download-the-flight-data"></a>De vluchtgegevens downloaden
 
@@ -54,24 +56,21 @@ Informatie over hoe vlucht vertraging om gegevens te analyseren met behulp van H
 
 1. Gebruik de volgende opdracht voor het uploaden van het ZIP-bestand met het hoofdknooppunt van het HDInsight-cluster:
 
-    ```
-    scp FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:
+    ```bash
+    scp FILENAME.zip sshuser@clustername-ssh.azurehdinsight.net:
     ```
 
-    Vervang *FILENAME* met de naam van het ZIP-bestand. Vervang *gebruikersnaam* met de SSH-aanmelding voor het HDInsight-cluster. Vervang *CLUSTERNAME* met de naam van het HDInsight-cluster.
-
-   > [!NOTE]
-   > Als u een wachtwoord gebruikt voor verificatie van uw SSH-aanmelding, wordt u gevraagd om het wachtwoord. Als u een openbare sleutel gebruikt, moet u mogelijk gebruik van de `-i` parameter en het pad naar de overeenkomende persoonlijke sleutel opgeven. Bijvoorbeeld `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
+    Vervang `FILENAME` met de naam van het ZIP-bestand. Vervang `sshuser` met de SSH-aanmelding voor het HDInsight-cluster. Vervang `clustername` met de naam van het HDInsight-cluster.
 
 2. Nadat het uploaden is voltooid, kunt u verbinding met het cluster via SSH:
 
-    ```ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net```
-
-    Zie voor meer informatie [Verbinding maken met HDInsight (Hadoop) via SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
+    ```bash
+    ssh sshuser@clustername-ssh.azurehdinsight.net
+    ```
 
 3. Gebruik de volgende opdracht voor het uitpakken van het ZIP-bestand:
 
-    ```
+    ```bash
     unzip FILENAME.zip
     ```
 
@@ -79,7 +78,7 @@ Informatie over hoe vlucht vertraging om gegevens te analyseren met behulp van H
 
 4. Gebruik de volgende opdracht in een map op HDInsight-opslag maken en kopieer het bestand naar de map:
 
-    ```
+    ```bash
     hdfs dfs -mkdir -p /tutorials/flightdelays/data
     hdfs dfs -put FILENAME.csv /tutorials/flightdelays/data/
     ```
@@ -90,7 +89,7 @@ Gebruik de volgende stappen om gegevens uit het CSV-bestand importeren in een Hi
 
 1. Gebruik de volgende opdracht maken en bewerken van een nieuw bestand met de naam **flightdelays.hql**:
 
-    ```
+    ```bash
     nano flightdelays.hql
     ```
 
@@ -160,13 +159,13 @@ Gebruik de volgende stappen om gegevens uit het CSV-bestand importeren in een Hi
 
 3. Starten van Hive en voer de **flightdelays.hql** bestand, gebruikt u de volgende opdracht:
 
-    ```
+    ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f flightdelays.hql
     ```
 
 4. Na de __flightdelays.hql__ is voltooid met een script, gebruikt u de volgende opdracht een interactieve Beeline-sessie te openen:
 
-    ```
+    ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
     ```
 
@@ -200,13 +199,13 @@ Als u een SQL-database nog geen hebt, gebruikt u de informatie in [maken van een
 
 1. Als u wilt installeren FreeTDS, gebruik de volgende opdracht vanaf een SSH-verbinding met het cluster:
 
-    ```
+    ```bash
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
 3. Nadat de installatie is voltooid, moet u de volgende opdracht gebruiken om te verbinden met de SQL-Database-server. Vervang **serverName** met de naam van de SQL-Database-server. Vervang **adminLogin** en **adminPassword** met de aanmelding voor SQL-Database. Vervang **databaseName** met de naam van de database.
 
-    ```
+    ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -p 1433 -D <databaseName>
     ```
 
@@ -224,7 +223,7 @@ Als u een SQL-database nog geen hebt, gebruikt u de informatie in [maken van een
 
 4. Op de `1>` vragen, voer de volgende regels:
 
-    ```
+    ```hiveql
     CREATE TABLE [dbo].[delays](
     [origin_city_name] [nvarchar](50) NOT NULL,
     [weather_delay] float,
@@ -237,7 +236,7 @@ Als u een SQL-database nog geen hebt, gebruikt u de informatie in [maken van een
 
     Gebruik de volgende query om te controleren of de tabel is gemaakt:
 
-    ```
+    ```hiveql
     SELECT * FROM information_schema.tables
     GO
     ```
@@ -255,7 +254,7 @@ Als u een SQL-database nog geen hebt, gebruikt u de informatie in [maken van een
 
 1. Gebruik de volgende opdracht om te controleren of de SQL-database door Sqoop zien kan:
 
-    ```
+    ```bash
     sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> --password <adminPassword>
     ```
 
@@ -263,7 +262,7 @@ Als u een SQL-database nog geen hebt, gebruikt u de informatie in [maken van een
 
 2. De volgende opdracht gebruiken om gegevens te exporteren uit hivesampletable aan de tabel vertragingen:
 
-    ```
+    ```bash
     sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
     ```
 
@@ -271,13 +270,13 @@ Als u een SQL-database nog geen hebt, gebruikt u de informatie in [maken van een
 
 3. Nadat de sqoop-opdracht is voltooid, moet u de tsql-hulpprogramma gebruiken om te verbinden met de database:
 
-    ```
+    ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
     ```
 
     Gebruik de volgende instructies om te controleren dat de gegevens zijn geëxporteerd naar de tabel vertragingen:
 
-    ```
+    ```sql
     SELECT * FROM delays
     GO
     ```

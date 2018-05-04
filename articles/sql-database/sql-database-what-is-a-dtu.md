@@ -10,11 +10,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 22337e412661172475a05f6fec31ae03683be988
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: d1a40eb8c3ac842976ffb1da42650466725b35e6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="database-transaction-units-dtus-and-elastic-database-transaction-units-edtus"></a>Database Transaction Units (dtu's) en elastische Database Transaction Units (edtu's)
 In dit artikel wordt uitgelegd wat DTU's (Database Transaction Units) en eDTU's (elastische Database Transaction Units) zijn en wat er gebeurt als u het maximale aantal DTU's of eDTU's hebt bereikt. Zie voor specifieke informatie over de prijzen, [prijzen van Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/).
@@ -32,12 +32,12 @@ Gebruik voor het verkrijgen van meer inzicht in het brongebruik (DTU) van uw wer
 - Inzoomen op de details van een query, geven de tekst en de geschiedenis van bronnen beter worden benut.
 - Access-prestaties afstemmen van de aanbevelingen die acties uitgevoerd door weergeven [SQL Database Advisor](sql-database-advisor.md).
 
-U kunt steeds de [servicelagen wijzigen](sql-database-service-tiers.md) met een minimale downtime voor uw toepassing (doorgaans minder dan vier seconden). Voor veel bedrijven en apps is het kunnen maken van databases en het naar wens omhoog of omlaag schalen van de prestaties al voldoende, vooral als de gebruikspatronen redelijk voorspelbaar zijn. Bij onvoorspelbare gebruikspatronen kan het echter lastig zijn uw kosten en bedrijfsmodel effectief te beheren. In dit scenario gebruikt u een elastische pool met een bepaald aantal edtu's die worden gedeeld door meerdere database in de groep.
+U kunt wijzigen [DTU Servicelagen](sql-database-service-tiers-dtu.md) op elk gewenst moment met minimale downtime voor uw toepassing (gemiddeld over het algemeen binnen vier seconden). Voor veel bedrijven en apps is het kunnen maken van databases en het naar wens omhoog of omlaag schalen van de prestaties al voldoende, vooral als de gebruikspatronen redelijk voorspelbaar zijn. Bij onvoorspelbare gebruikspatronen kan het echter lastig zijn uw kosten en bedrijfsmodel effectief te beheren. In dit scenario gebruikt u een elastische pool met een bepaald aantal edtu's die worden gedeeld door meerdere databases in de pool.
 
 ![Inleiding tot SQL Database: DTU's van individuele database per laag en niveau](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
 ## <a name="what-are-elastic-database-transaction-units-edtus"></a>Wat zijn de elastische Database Transaction Units (edtu's)?
-In plaats daarvan dan bieden een specifieke set resources (dtu's) met een SQL-Database die altijd beschikbaar ongeacht of die niet nodig zijn, u kunt plaatsen databases in een [elastische pool](sql-database-elastic-pool.md) op een SQL-Database-server die een pool van resources tussen deze database deelt. De gedeelde bronnen in een elastische pool gemeten door elastische Database Transaction Units of edtu's. Elastische pools zijn een eenvoudige en voordelige oplossing om prestatiedoelen te beheren voor databases met breed uiteenlopende en onvoorspelbare gebruikspatronen. U kunt in een elastische pool garanderen dat er geen één database gebruikmaakt van alle resources in de groep en ook of de minimale hoeveelheid resources is altijd beschikbaar zijn voor een database in een elastische pool. 
+In plaats daarvan dan bieden een specifieke set resources (dtu's) met een SQL-Database die altijd beschikbaar ongeacht of die niet nodig zijn, u kunt plaatsen databases in een [elastische pool](sql-database-elastic-pool.md) op een SQL-Database-server die een verzameling resources deelt onder deze databases. De gedeelde bronnen in een elastische pool gemeten door elastische Database Transaction Units of edtu's. Elastische pools zijn een eenvoudige en voordelige oplossing om prestatiedoelen te beheren voor databases met breed uiteenlopende en onvoorspelbare gebruikspatronen. U kunt in een elastische pool garanderen dat er geen één database gebruikmaakt van alle resources in de groep en ook of de minimale hoeveelheid resources is altijd beschikbaar zijn voor een database in een elastische pool. 
 
 ![Inleiding tot SQL Database: eDTU's per laag en niveau](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
@@ -55,6 +55,7 @@ Pools zijn geschikt voor een groot aantal databases met specifieke gebruikspatro
 Prestatieniveaus worden gekalibreerd en worden bestuurd om de resources te verstrekken die nodig zijn om de databaseworkload uit te voeren tot de maximumlimiet die is toegestaan voor uw geselecteerde servicelaag of het geselecteerde prestatieniveau. Als uw workload de limiet bereikt op het gebied van CPU/gegevens-I/O/logboekI/O, blijft u resources ontvangen op het maximaal toegestane niveau, maar u zult dan waarschijnlijk merken dat uw query's langer duren. Deze limieten resulteren niet in fouten, maar wel in een vertraging van de workload, tenzij de vertraging zo ernstig wordt dat query's een time-out geven. Als u de limiet hebt bereikt van het maximaal toegestane aantal gelijktijdige sessies/gebruikersaanvragen (werkthreads), treden expliciete fouten op. Zie [limieten voor Azure SQL Database]( sql-database-dtu-resource-limits.md#what-happens-when-database-and-elastic-pool-resource-limits-are-reached) Meld i/o voor informatie over de limiet voor bronnen dan CPU, geheugen, i/o gegevens en de transactie.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie [servicelaag](sql-database-service-tiers.md) Meld i/o voor informatie over het dtu's en beschikbaar voor individuele databases en elastische groepen met edtu's, evenals beperkingen met betrekking tot bronnen dan CPU, geheugen, i/o gegevens en de transactie.
+* Zie [aankoopmodel DTU gebaseerde](sql-database-service-tiers-dtu.md) Meld i/o voor informatie over het dtu's en beschikbaar voor individuele databases en elastische groepen met edtu's, evenals beperkingen met betrekking tot bronnen dan CPU, geheugen, i/o gegevens en de transactie.
+* Zie [vCore gebaseerde aankoopmodel (preview)](sql-database-service-tiers-vcore.md) voor meer informatie over de toewijzing en service lagen vCore op basis van een resource. 
 * Zie [SQL Database Query Performance Insight](sql-database-query-performance.md) als u meer wilt weten over uw verbruik (DTU's).
 * Zie [SQL Database benchmark overview](sql-database-benchmark-overview.md) (Overzicht van SQL Database-benchmarks) voor meer informatie over de methodologie achter de OLTP-benchmarkworkload waarmee de DTU-combinatie wordt bepaald.

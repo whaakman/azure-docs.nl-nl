@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 88a9f5988d1fe3f4de4fe10da23a5f713e3f3370
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5520781c9f687e5e32ad1d8c38922a456bb5e3ce
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configuring-role-claim-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Rol claim uitgegeven in het SAML-token voor bedrijfstoepassingen in Azure Active Directory configureren
 
@@ -146,7 +146,7 @@ Als uw toepassing aangepaste rollen in SAML-reactie die moet worden doorgegeven 
     
     | Naam kenmerk | Waarde kenmerk |
     | -------------- | ----------------|    
-    | Naam van rol      | user.assignedrole |
+    | Naam van rol      | User.assignedrole |
 
     a. Klik op **toevoegen kenmerk** openen de **kenmerk toevoegen** dialoogvenster.
 
@@ -250,7 +250,7 @@ Als uw toepassing aangepaste rollen in SAML-reactie die moet worden doorgegeven 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Raadpleeg [documentatie App ](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-tutorial-list) voor extra stappen uitvoeren.
+Raadpleeg [documentatie App ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) voor extra stappen uitvoeren.
 
 <!--Image references-->
 <!--Image references-->

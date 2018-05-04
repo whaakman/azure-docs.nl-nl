@@ -5,7 +5,7 @@ services: app-service\mobile
 documentationcenter: javascript
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: a56a1ce4-de0c-4f3c-8763-66252c52aa59
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: f166d2e533dc49ca7779b45f3dec57a53c22fc40
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 6fb8be96c9793e96f1f7d2ad8e212d056d7e9ba5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Het gebruik van Apache Cordova-clientbibliotheek voor Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -105,7 +105,7 @@ Volg deze instructies voor uw lokale instellingen toevoegen aan de configuratie:
              "https://localhost:3000"
          ],
 
-    De URL's vervangen door de URL's van uw service.  Voorbeelden zijn "http://localhost: 3000' (voor de Node.js-voorbeeld-service) of 'http://localhost:4400' (voor de service Rimpel).  Deze URL's zijn echter voorbeelden - uw situatie, met inbegrip van voor de services die worden vermeld in de voorbeelden, kunnen afwijken.
+    De URL's vervangen door de URL's van uw service.  Voorbeelden zijn "http://localhost:3000' (voor de Node.js-voorbeeld-service), of 'http://localhost:4400' (voor de service Rimpel).  Deze URL's zijn echter voorbeelden - uw situatie, met inbegrip van voor de services die worden vermeld in de voorbeelden, kunnen afwijken.
 8. Klik op de **lezen/schrijven** knop in de rechterbovenhoek van het scherm.
 9. Klik op de groene **plaatsen** knop.
 
@@ -118,7 +118,7 @@ Ook deze loopback-URL's toevoegen aan de CORS-instellingen voor uw App Service:
 4. Klik op **CORS** in het menu API.
 5. Voer de URL die u wilt toevoegen in het vak opgegeven en druk op Enter.
 6. Geef extra URL's desgewenst.
-7. Klik op **opslaan** de instellingen op te slaan.
+7. Klik op **Opslaan** om de instellingen op te slaan.
 
 Het duurt ongeveer 10-15 seconden voordat de nieuwe instellingen van kracht te laten worden.
 
@@ -180,4 +180,4 @@ U vindt gedetailleerde informatie voor API in onze [API-documentatie](http://azu
 [phonegap-invoegtoepassing-push]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-invoegtoepassing-apparaat]: https://www.npmjs.com/package/cordova-plugin-device
 [cordova-invoegtoepassing-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
-[Query object documentation]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx
+[Query object documentation]: https://msdn.microsoft.com/library/azure/jj613353.aspx

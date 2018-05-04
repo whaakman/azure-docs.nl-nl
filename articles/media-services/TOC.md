@@ -99,7 +99,8 @@
 #### Coderen met Media Encoder Premium Workflow
 ##### [Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md)
 ##### [Zelfstudies voor Media Encoder Premium Workflow](media-services-media-encoder-premium-workflow-tutorials.md)
-##### [Geavanceerde coderingswerkstromen maken met Workflow Designer](media-services-workflow-designer.md)
+##### 
+  [Geavanceerde coderingswerkstromen maken met Workflow Designer](media-services-workflow-designer.md)
 ##### [Premium Workflow met verschillende invoer](media-services-media-encoder-premium-workflow-multiplefilesinput.md)
 ### [Een taak maken waarmee fMP4-chunks worden gegenereerd](media-services-generate-fmp4-chunks.md)
 ### Media-processors
@@ -229,7 +230,7 @@
 ### [Logica voor opnieuw proberen](media-services-retry-logic-in-dotnet-sdk.md)
 
 # Naslaginformatie
-## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=media-services)
+## [Codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=media-services)
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.media)
 ## [Azure PowerShell (Service Management)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)

@@ -2,7 +2,7 @@
 title: Native ClientApps - Azure AD publiceren | Microsoft Docs
 description: Bevat informatie over het inschakelen van native client-apps om te communiceren met Azure AD Connector voor toepassingsproxy om te bieden veilige externe toegang tot uw lokale apps.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: f0cae145-e346-4126-948f-3f699747b96e
@@ -15,11 +15,11 @@ ms.date: 01/31/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 0753db5c5accf67411a9968f56aa9ad2158bad89
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: MT
+ms.openlocfilehash: 823939e76bcf982d37b58595795dca84c1830e19
+ms.sourcegitcommit: 4bc2aa08a116a0acca0af3b02b5c1d144d3cf9b1
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/30/2018
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Het inschakelen van native client-apps om te communiceren met de proxy-toepassingen
 
@@ -41,7 +41,7 @@ Uw eigen toepassing als volgt configureren:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Navigeer naar **Azure Active Directory** > **App registraties**.
-3. Selecteer **registratie van de nieuwe toepassing**.
+3. Selecteer **Nieuwe toepassing registreren**.
 4. Geef een naam voor uw toepassing, selecteert **systeemeigen** als het toepassingstype, en geef de omleidings-URI voor uw toepassing. 
 
    ![Maak een nieuwe app-registratie](./media/active-directory-application-proxy-native-client/create.png)
@@ -73,7 +73,7 @@ De systeemeigen toepassingscode bewerken in de verificatiecontext van de Active 
 ```
 // Acquire Access Token from AAD for Proxy Application
 AuthenticationContext authContext = new AuthenticationContext("https://login.microsoftonline.com/<Tenant ID>");
-AuthenticationResult result = authContext.AcquireToken("< External Url of Proxy App >",
+AuthenticationResult result = await authContext.AcquireTokenAsync("< External Url of Proxy App >",
         "<App ID of the Native app>",
         new Uri("<Redirect Uri of the Native App>"),
         PromptBehavior.Never);

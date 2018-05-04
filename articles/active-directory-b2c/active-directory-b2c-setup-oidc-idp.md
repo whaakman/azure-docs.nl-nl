@@ -6,20 +6,24 @@ documentationcenter: ''
 author: davidmu1
 manager: mtillman
 editor: parakhj
+ms.assetid: 357d193a-e33b-469c-8a93-0a8f45a60a9f
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.topic: article
-ms.date: 04/23/2018
+ms.date: 04/27/2018
 ms.author: davidmu
-ms.openlocfilehash: 52cefd4fad96e94dd2cf0871fac12a9a4d74b96f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 46223f1ec6b82828983861dae26ec8d777b77b86
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 04/30/2018
 ---
 # <a name="azure-active-directory-b2c-add-a-custom-openid-connect-identity-provider-in-built-in-policies"></a>Azure Active Directory B2C: Een aangepaste OpenID Connect id-provider in ingebouwde beleid toevoegen
 
-[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) is een authenticatieprotocol gebouwd op OAuth 2.0, die kan worden gebruikt om gebruikers veilig aanmelden. De meeste id-providers die gebruikmaken van dit protocol, zoals Azure AD worden ondersteund in Azure AD B2C. Dit artikel wordt uitgelegd hoe u aangepaste OpenID Connect identiteitsproviders naar uw ingebouwde beleid kunt toevoegen.
+>[!NOTE]
+> Deze functie is openbare preview. Gebruik de functie niet in een productieomgeving.
+
+[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) is een authenticatieprotocol gebouwd op OAuth 2.0, die kan worden gebruikt om gebruikers veilig aanmelden. De meeste id-providers die gebruikmaken van dit protocol, zoals [Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md), worden ondersteund in Azure AD B2C. Dit artikel wordt uitgelegd hoe u aangepaste OpenID Connect identiteitsproviders naar uw ingebouwde beleid kunt toevoegen.
 
 ## <a name="configuring-a-custom-openid-connect-identity-provider"></a>Een aangepaste OpenID Connect id-provider configureren
 
@@ -60,7 +64,7 @@ Het antwoord van het type wordt beschreven wat voor soort informatie wordt verzo
 * `id_token`: Er is een token ID terug naar Azure AD B2C geretourneerd door de provider van de aangepaste identiteit.
 
 
-#### <a name="response-mode"></a>Antwoord-modus
+#### <a name="response-mode"></a>Antwoordmodus
 
 De modus antwoord bepaalt de methode die moet worden gebruikt om de gegevens van de aangepaste identiteitsprovider verzenden naar Azure AD B2C.
 
@@ -68,7 +72,7 @@ De modus antwoord bepaalt de methode die moet worden gebruikt om de gegevens van
 * `query`: De code of het token wordt geretourneerd als een queryparameter.
 
 
-#### <a name="domain-hint"></a>Geheugensteun voor het domein
+#### <a name="domain-hint"></a>Domeinhint
 
 De hint domein kan worden gebruikt om over te slaan rechtstreeks naar de aanmeldingspagina van de opgegeven id-provider, in plaats van de gebruiker moet een selectie uit de lijst van beschikbare id-providers. Voer een waarde voor de hint domein zodat dit type gedrag.
 

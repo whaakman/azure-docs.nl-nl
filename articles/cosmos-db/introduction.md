@@ -2,9 +2,8 @@
 title: Inleiding tot Azure Cosmos DB | Microsoft Docs
 description: Lees hier alles over Azure Cosmos DB. Deze wereldwijd gedistribueerde database met meerdere modellen is gebouwd voor lage latentie, elastische schaalbaarheid en hoge beschikbaarheid.
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: monicar
+author: SnehaGunda
+manager: kfile
 documentationcenter: ''
 ms.assetid: a855183f-34d4-49cc-9609-1478e465c3b7
 ms.service: cosmos-db
@@ -12,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 12/15/2017
-ms.author: mimig
+ms.date: 04/08/2018
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: e78480ceb47e472029795848739b4416e0c4256e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 13c6fc8550f6b5bfac6d236a7145039d2622f0ae
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Welkom bij Azure Cosmos DB
 
@@ -36,7 +35,7 @@ Als een wereldwijd gedistribueerde databaseservice maakt Azure Cosmos DB het een
 * **Kant-en-klare wereldwijde distributie**
     * U kunt [uw gegevens distribueren](distribute-data-globally.md) naar een willekeurig aantal [Azure-regio's](https://azure.microsoft.com/regions/) met [slechts één druk op de knop](tutorial-global-distribution-sql-api.md). Op deze manier kunt u uw gegevens daar opslaan waar uw gebruikers zijn, waardoor uw klanten profiteren van de laagst mogelijke latentie. 
     * Dankzij de multihoming-API's van Azure Cosmos DB weet de app altijd wat de dichtstbijzijnde regio is en worden aanvragen naar het dichtstbijzijnde datacenter verzonden. Dit alles is mogelijk zonder wijzigingen in de configuratie. U stelt uw schrijfregio in en net zo veel leesregio's als u wilt, en de rest wordt automatisch afgehandeld.
-    * Bij het toevoegen en verwijderen van regio's voor uw Cosmos DB-database, hoeft uw toepassing hoeft niet opnieuw te worden geïmplementeerd en blijft deze maximaal beschikbaar dankzij de multihoming-API-functie.
+    * Bij het toevoegen en verwijderen van regio's voor uw Azure Cosmos DB-database, hoeft uw toepassing niet opnieuw te worden geïmplementeerd en blijft deze maximaal beschikbaar dankzij de multihoming-API-functie.
 
 * **Meerdere gegevensmodellen en populaire API's voor het raadplegen en opvragen van gegevens**
     * Het op 'atom-record-sequence' (ARS) gebaseerde gegevensmodel waarop Azure Cosmos DB is gebouwd, biedt systeemeigen ondersteuning voor meerdere gegevensmodellen, waaronder modellen op basis van documenten, grafieken, sleutels en waarden, tabellen en kolomfamilies.
@@ -44,9 +43,9 @@ Als een wereldwijd gedistribueerde databaseservice maakt Azure Cosmos DB het een
         * [SQL-API](sql-api-introduction.md): een JSON-database-engine zonder schema met uitgebreide SQL-querymogelijkheden.
         * [MongoDB-API](mongodb-introduction.md): een zeer schaalbare *MongoDB-as-a-Service*, mogelijk gemaakt door een Azure Cosmos DB-platform. Compatibel met bestaande bibliotheken, stuurprogramma's, hulpprogramma's en toepassingen van MongoDB.
         * [Cassandra-API](cassandra-introduction.md): een wereldwijd gedistribueerde Cassandra-as-a-Service, mogelijk gemaakt door een Azure Cosmos DB-platform. Compatibel met bestaande bibliotheken, stuurprogramma's, hulpprogramma's en toepassingen van [Apache Cassandra](https://cassandra.apache.org/).
-        * [Graph-API (Gremlin)](graph-introduction.md): een volledig beheerd, horizontaal schaalbare grafiekdatabase-service waarmee u eenvoudig toepassingen kunt bouwen en uitvoeren die werken met maximaal verbonden gegevenssets met ondersteuning voor Open Graph-API's (op basis van de [Apache TinkerPop-specificatie](http://tinkerpop.apache.org/), Apache Gremlin).
+        * [Gremlin (Graph) API](graph-introduction.md): een volledig beheerd, horizontaal schaalbare graafdatabase-service waarmee u eenvoudig toepassingen kunt bouwen en uitvoeren die werken met maximaal verbonden gegevenssets met ondersteuning voor Open Graph-API's (op basis van de [Apache TinkerPop-specificatie](http://tinkerpop.apache.org/), Apache Gremlin).
         * [Table-API](table-introduction.md): een sleutelwaarde-databaseservice, ontwikkeld om premium mogelijkheden te bieden (zoals automatisch indexeren, gegarandeerde lage latentie, wereldwijde distributie) voor bestaande Azure Table-opslagtoepassingen zonder dat er wijzigingen in de toepassingen zijn vereist.
-        * Er komen binnenkort nog meer gegevensmodellen beschikbaar.
+        * Aanvullende gegevensmodellen en API's zijn binnenkort beschikbaar.
 
 * **Doorvoer en opslag op aanvraag elastisch en onafhankelijk schalen, waar ook ter wereld**
     * U kunt databasedoorvoer op eenvoudige wijze schalen met de granulatie [per seconde](request-units.md) en de instelling op elk gewenst moment wijzigen. 
@@ -65,7 +64,7 @@ Als een wereldwijd gedistribueerde databaseservice maakt Azure Cosmos DB het een
     * De vijf duidelijk omschreven, praktische en intuïtieve [consistentiemodellen](consistency-levels.md) bieden een breed spectrum aan mogelijkheden: van sterke SQL-achtige consistentie tot soepele NoSQL-achtige eindconsistentie en alles daartussenin. 
   
 * **Niet-goed-geld-teruggarantie**
-    * Toonaangevende, uitgebreide [serviceovereenkomsten](https://aka.ms/acdbsla) met financiële garanties garanderen beschikbaarheid, latentie, doorvoer en de consistentie van uw bedrijfskritieke gegevens. 
+    * Toonaangevende, uitgebreide [serviceovereenkomsten](https://aka.ms/acdbsla) (SLA's) met financiële garanties garanderen beschikbaarheid, latentie, doorvoer en de consistentie van uw bedrijfskritische gegevens. 
 
 * **Geen databaseschema/indexbeheer**
     * U kunt snel nieuwe versies van het schema van uw toepassing implementeren zonder zorgen over het beheer van het schema en/of de index van uw database.
@@ -77,7 +76,7 @@ Als een wereldwijd gedistribueerde databaseservice maakt Azure Cosmos DB het een
 
 ## <a name="capability-comparison"></a>Vergelijking van functionaliteit
 
-Azure Cosmos DB biedt de beste mogelijkheden van relationele en niet-relationele databases.
+Azure Cosmos DB biedt de beste mogelijkheden van traditionele, relationele en niet-relationele databases.
 
 | Functionaliteit | Relationele databases   | Niet-relationele databases (NoSQL) |    Azure Cosmos DB |
 | --- | --- | --- | --- |

@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
 ms.openlocfilehash: 2251f8d241f3ec47d46c04160caf997bcd025124
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>Modelgegevens verzamelen met behulp van gegevensverzameling
 
@@ -38,7 +38,7 @@ Voer de volgende opdracht:
 
     pip install azureml.datacollector
 
-## <a name="set-environment-variables"></a>De omgevingsvariabelen instellen
+## <a name="set-environment-variables"></a>Omgevingsvariabelen instellen
 
 Model-gegevensverzameling is afhankelijk van twee omgevingsvariabelen. AML_MODEL_DC_STORAGE_ENABLED moet worden ingesteld op **true** (alle kleine letters) en AML_MODEL_DC_STORAGE moet worden ingesteld op de verbindingsreeks voor de Azure Storage-account waar u de gegevens worden opgeslagen.
 

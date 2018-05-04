@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: cebfc1dcaca562d26eb9e85d9b8bf0fa14e5edc9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 699d621856e9febf7a5d4093d7fdc86c39d5f242
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Licentievereisten voor selfservicegebruikers Azure AD-wachtwoord opnieuw instellen
 
-Azure Active Directory (Azure AD) voor wachtwoordherstel functie, zodat u *moet ten minste één licentie is toegewezen in uw organisatie hebben*. We afdwingen niet dat per gebruiker licentieverlening op de ervaring van wachtwoord opnieuw instellen. Om te blijven voldoen aan uw Microsoft-gebruiksrechtovereenkomst, moet u licenties toewijzen voor alle gebruikers die gebruikmaken van premium-functies.
+Azure Active Directory (Azure AD) voor wachtwoordherstel functie, zodat u *moet ten minste één licentie is toegewezen in uw organisatie hebben*. We afdwingen niet dat per gebruiker licentieverlening op de ervaring van wachtwoord opnieuw instellen. U hebt een echte licentie nodig als een gebruiker direct of indirect profiteert van een functie die door die licentie mogelijk wordt gemaakt.
 
 * **Alleen in de cloud gebruikers**: Office 365 een betaald SKU of Azure AD Basic
 * **Cloud** of **on-premises gebruikers**: Azure AD Premium-P1 of P2, Enterprise Mobility + Security (EMS) of Microsoft 365
@@ -37,8 +37,9 @@ Voor het gebruik van wachtwoord terugschrijven, moet u een van de volgende licen
 * Azure AD Premium P2
 * Enterprise Mobility + Security E3
 * Enterprise Mobility + Security E5
-* Microsoft 365 (Plan E3)
-* Microsoft 365 (Plan E5)
+* Microsoft 365 E3
+* Microsoft 365 E5
+* Microsoft 365 F1
 
 > [!WARNING]
 > Zelfstandige Office 365-abonnementen licentieverlening *bieden geen ondersteuning voor write-back van wachtwoord* en vereisen dat u een van de voorgaande plannen voor deze functie werkt.

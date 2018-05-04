@@ -8,15 +8,15 @@ manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: 
-ms.devlang: 
+ms.custom: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
 ms.openlocfilehash: 5d5797ede15be0779873f0a023433f0a915dd74a
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="supported-inspectors-for-the-azure-machine-learning-data-preparation-preview"></a>Inspectors ondersteund voor de preview van Azure Machine Learning gegevens voorbereiden
 Dit document bevat een overzicht van de reeks inspectors die beschikbaar in deze preview zijn.
@@ -39,7 +39,7 @@ Deze controle biedt voor numerieke kolommen tal van verschillende statistieken o
 
 
 ### <a name="options"></a>Opties 
-- None
+- Geen
 
 ## <a name="histogram"></a>Histogram 
 Wordt berekend en een histogram van een enkele numerieke kolom wordt weergegeven. Het aantal buckets dat wordt berekend met behulp van Scott regel. De regel kan echter via de opties worden genegeerd.

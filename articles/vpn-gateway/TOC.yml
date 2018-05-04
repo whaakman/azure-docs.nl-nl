@@ -1,0 +1,227 @@
+- name: VPN Gateway-documentatie
+  href: index.yml
+- name: Overzicht
+  items:
+    - name: Informatie over VPN-gateway
+      href: vpn-gateway-about-vpngateways.md
+- name: Voorbeelden
+  items:
+    - name: Azure PowerShell
+      href: powershell-samples.md
+- name: Zelfstudies
+  items:
+    - name: Een VPN-gateway maken en beheren
+      href: vpn-gateway-tutorial-create-gateway-powershell.md
+- name: Concepten
+  items:
+    - name: Planning en ontwerp voor VPN Gateway
+      href: vpn-gateway-plan-design.md
+    - name: Over instellingen voor VPN Gateway
+      href: vpn-gateway-about-vpn-gateway-settings.md
+    - name: Over VPN-apparaten
+      href: vpn-gateway-about-vpn-devices.md
+    - name: Over cryptografische vereisten
+      href: vpn-gateway-about-compliance-crypto.md
+    - name: Over BGP en VPN Gateway
+      href: vpn-gateway-bgp-overview.md
+    - name: Over maximaal beschikbare verbindingen
+      href: vpn-gateway-highlyavailable.md
+    - name: Over point-to-site-verbindingen
+      href: point-to-site-about.md
+    - name: Over point-to-site-routering
+      href: vpn-gateway-about-point-to-site-routing.md
+- name: Handleidingen
+  items:
+    - name: Site-to-siteverbindingen configureren
+      items:
+        - name: Azure Portal
+          href: vpn-gateway-howto-site-to-site-resource-manager-portal.md
+        - name: Azure PowerShell
+          href: vpn-gateway-create-site-to-site-rm-powershell.md
+        - name: Azure-CLI
+          href: vpn-gateway-howto-site-to-site-resource-manager-cli.md
+    - name: Configuratiescripts voor VPN-apparaten downloaden
+      href: vpn-gateway-download-vpndevicescript.md
+    - name: Point-to-site-verbindingen configureren – systeemeigen Azure-certificaatverificatie
+      items:
+        - name: Een point-to-site-VPN configureren
+          items:
+            - name: Azure Portal
+              href: vpn-gateway-howto-point-to-site-resource-manager-portal.md
+            - name: Azure PowerShell
+              href: vpn-gateway-howto-point-to-site-rm-ps.md
+        - name: Zelfondertekende certificaten genereren
+          items:
+            - name: Azure PowerShell
+              href: vpn-gateway-certificates-point-to-site.md
+            - name: Makecert
+              href: vpn-gateway-certificates-point-to-site-makecert.md
+        - name: VPN-clientconfiguratiebestanden maken en installeren
+          href: point-to-site-vpn-client-configuration-azure-cert.md
+        - name: Clientcertificaten installeren
+          href: point-to-site-how-to-vpn-client-install-azure-cert.md
+    - name: Point-to-site-verbindingen configureren – RADIUS-verificatie
+      items:
+        - name: Een point-to-site-VPN configureren
+          items:
+            - name: Azure PowerShell
+              href: point-to-site-how-to-radius-ps.md
+        - name: VPN-clientconfiguratiebestanden maken en installeren
+          href: point-to-site-vpn-client-configuration-radius.md
+        - name: P2S VPN RADIUS-verificatie integreren met NPS-server
+          href: vpn-gateway-radiuis-mfa-nsp.md
+    - name: Verbindingen tussen VNet's configureren
+      items:
+        - name: Azure Portal
+          href: vpn-gateway-howto-vnet-vnet-resource-manager-portal.md
+        - name: Azure PowerShell
+          href: vpn-gateway-vnet-vnet-rm-ps.md
+        - name: Azure-CLI
+          href: vpn-gateway-howto-vnet-vnet-cli.md
+    - name: Een VNet-naar-VNet-verbinding tussen implementatiemodellen configureren
+      items:
+        - name: Azure Portal
+          href: vpn-gateway-connect-different-deployment-models-portal.md
+        - name: Azure PowerShell
+          href: vpn-gateway-connect-different-deployment-models-powershell.md
+    - name: Gelijktijdige site-naar-site- en ExpressRoute-verbindingen configureren
+      items:
+        - name: Azure PowerShell
+          href: ../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+    - name: Meerdere site-to-siteverbindingen configureren
+      items:
+        - name: Azure Portal
+          href: vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md
+    - name: Meerdere op beleid gebaseerde VPN-apparaten verbinden
+      items:
+        - name: Azure PowerShell
+          href: vpn-gateway-connect-multiple-policybased-rm-ps.md
+    - name: IPSec-/IKE-beleid voor verbindingen configureren
+      items:
+        - name: Azure PowerShell
+          href: vpn-gateway-ipsecikepolicy-rm-powershell.md
+    - name: Maximaal beschikbare actief-actief-verbindingen configureren
+      items:
+        - name: Azure PowerShell
+          href: vpn-gateway-activeactive-rm-powershell.md
+    - name: 'Routering, BGP en VNet-Peering'
+      items:
+        - name: Een BGP configureren voor een VPN-gateway
+          items:
+            - name: Azure PowerShell
+              href: vpn-gateway-bgp-resource-manager-ps.md
+            - name: Azure-CLI
+              href: bgp-how-to-cli.md
+        - name: Geforceerde tunneling configureren
+          items:
+            - name: Azure PowerShell
+              href: vpn-gateway-forced-tunneling-rm.md
+            - name: Azure PowerShell (klassiek)
+              href: vpn-gateway-about-forced-tunneling.md
+        - name: Gatewayovergang voor VNet-peering configureren
+          href: vpn-gateway-peering-gateway-transit.md
+    - name: Gateway-instellingen van lokaal netwerk aanpassen
+      items:
+        - name: Azure Portal
+          href: vpn-gateway-modify-local-network-gateway-portal.md
+        - name: Azure PowerShell
+          href: vpn-gateway-modify-local-network-gateway.md
+        - name: Azure-CLI
+          href: vpn-gateway-modify-local-network-gateway-cli.md
+    - name: Een op een route gebaseerde VPN-gateway maken
+      items:
+        - name: Azure Portal
+          href: create-routebased-vpn-gateway-portal.md
+        - name: Azure PowerShell
+          href: create-routebased-vpn-gateway-powershell.md
+        - name: Azure-CLI
+          href: create-routebased-vpn-gateway-cli.md
+    - name: Een VPN-gatewayverbinding verifiëren
+      href: vpn-gateway-verify-connection-resource-manager.md
+    - name: Een VPN-gateway opnieuw instellen
+      href: vpn-gateway-resetgw-classic.md
+    - name: Een VPN-gateway verwijderen
+      items:
+        - name: Azure Portal
+          href: vpn-gateway-delete-vnet-gateway-portal.md
+        - name: Azure PowerShell
+          href: vpn-gateway-delete-vnet-gateway-powershell.md
+    - name: Gateway-SKU's (oud)
+      href: vpn-gateway-about-skus-legacy.md
+    - name: VPN-apparaten van derden configureren
+      items:
+        - name: Overzicht en Azure-configuratie
+          href: vpn-gateway-3rdparty-device-config-overview.md
+        - name: 'Voorbeeld: Cisco ASA-apparaat (IKEv2/geen BGP)'
+          href: vpn-gateway-3rdparty-device-config-cisco-asa.md
+    - name: Problemen oplossen
+      href: vpn-gateway-troubleshoot.md
+      items:
+        - name: Door de community voorgestelde VPN- of firewallinstellingen voor apparaten
+          href: vpn-gateway-third-party-settings.md
+        - name: VNet- of VPN-verbindingen configureren en valideren
+          href: 'https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections'
+        - name: VPN-doorvoer naar een VNet valideren
+          href: vpn-gateway-validate-throughput-to-vnet.md
+        - name: Punt-naar-site-verbindingen
+          items:
+            - name: Problemen met een punt-naar-site-verbinding
+              href: vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md
+            - name: Problemen met een punt-naar-site-verbinding - Mac OS X-VPN-client
+              href: vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md
+        - name: Problemen met een site-naar-site-verbinding
+          items:
+            - name: Site-naar-site-verbindingen
+              href: vpn-gateway-troubleshoot-site-to-site-cannot-connect.md
+            - name: Site-naar-site-verbinding wordt herhaaldelijk verbroken
+              href: vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md
+    - name: Artikelen over het klassieke implementatiemodel
+      items:
+        - name: Een site-to-siteverbinding configureren
+          href: vpn-gateway-howto-site-to-site-classic-portal.md
+        - name: Een point-to-siteverbinding configureren
+          href: vpn-gateway-howto-point-to-site-classic-azure-portal.md
+        - name: Een verbinding tussen VNet's configureren
+          href: vpn-gateway-howto-vnet-vnet-portal-classic.md
+        - name: Geforceerde tunneling configureren
+          href: vpn-gateway-about-forced-tunneling.md
+        - name: Een VPN-gateway verwijderen
+          href: vpn-gateway-delete-vnet-gateway-classic-powershell.md
+        - name: Meerdere site-naar-siteverbindingen configureren
+          href: vpn-gateway-multi-site.md
+        - name: Een VPN-gateway configureren
+          href: vpn-gateway-configure-vpn-gateway-mp.md
+        - name: Migratie van het klassieke model naar het Resource Manager-model
+          href: vpn-gateway-classic-resource-manager-migration.md
+- name: Naslaginformatie
+  items:
+    - name: Azure PowerShell
+      href: '/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn'
+    - name: Azure PowerShell (klassiek)
+      href: '/powershell/module/azure/?view=azuresmps-3.7.0#networking'
+    - name: REST
+      href: /rest/api/network/virtualnetworkgateways
+    - name: REST (klassiek)
+      href: 'https://msdn.microsoft.com/library/jj154113'
+    - name: Azure-CLI
+      href: /cli/azure/network/vnet-gateway
+- name: Resources
+  items:
+    - name: Veelgestelde vragen VPN-gateways
+      href: vpn-gateway-vpn-faq.md
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: Blog
+      href: 'https://azure.microsoft.com/blog/topics/networking'
+    - name: Forum
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork'
+    - name: Abonnements- en servicebeperkingen
+      href: ../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/vpn-gateway'
+    - name: Prijscalculator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: SLA
+      href: 'https://azure.microsoft.com/support/legal/sla'
+    - name: Video's
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway'

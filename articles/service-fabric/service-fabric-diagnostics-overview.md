@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/03/2018
+ms.date: 04/25/2018
 ms.author: dekapur;srrengar
-ms.openlocfilehash: 03fa2862bbce39ac9ee6b7da02bd93b02b05f216
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: dd2446fda204f4026ac8080c658ca1aa9419f1bd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Controle en diagnostische gegevens voor Azure Service Fabric
 
@@ -33,19 +33,20 @@ Toepassingsbewaking houdt hoe functies en onderdelen van uw toepassing worden ge
 
 Service Fabric ondersteunt een groot aantal opties voor het instrumenteren van uw toepassingscode met de juiste traceringen en telemetrie. Het is raadzaam dat u Application Insights (AI). AI van integratie met Service Fabric bevat tooling ervaringen voor Visual Studio en de Azure portal, evenals specifieke metrische gegevens op het Service Fabric, een uitgebreide logboekregistratie voor out-of-the-box-ervaring te bieden. Hoewel veel logboeken automatisch worden gemaakt en die voor u zijn verzameld met AI, wordt u aangeraden dat u verdere aangepaste logboekregistratie voor uw toepassingen toevoegt te maken van een rijkere ervaring voor diagnostische gegevens. Zie voor meer informatie over aan de slag met Application Insights met Service Fabric op [analyse van gebeurtenis met Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md).
 
-![AI-traceringsdetails](./media/service-fabric-tutorial-monitoring-aspnet/trace-details.png)
-
 ## <a name="platform-cluster-monitoring"></a>Bewaking van platform (Cluster)
 Bewaking van uw Service Fabric-cluster is essentieel om ervoor te zorgen dat het platform en alle werkbelastingen worden uitgevoerd zoals bedoeld. Een van de doelstellingen van de Service Fabric is dat toepassingen robuuste hardwarefouten. Dit doel wordt bereikt door het platform systeemservices mogelijkheid voor het detecteren van infrastructuur problemen en snel failover werkbelastingen naar andere knooppunten in het cluster. Maar in dit geval, wat gebeurt er als de systeemservices zelf problemen? Of als bij een poging te verplaatsen van een werkbelasting, regels voor de plaatsing van de services zijn geschonden? Bewaking van het cluster, kunt u op de hoogte over activiteit plaatsvinden in uw cluster, helpt bij het opsporen van problemen en corrigeren effectief blijven. Er zijn een aantal belangrijke zaken die u wilt zoeken naar:
 * Is de Service Fabric werkt zoals verwacht, wat betreft het plaatsen van uw toepassingen en netwerktaakverdeling werk op het cluster? 
 * Worden acties van de gebruiker uitgevoerd op uw cluster bevestigd en op worden uitgevoerd zoals verwacht? Dit is vooral van belang bij het schalen van een cluster.
 * Service Fabric verwerkt uw gegevens en uw service-service-communicatie binnen het cluster correct?
 
-Service Fabric bevat een uitgebreide reeks gebeurtenissen uit het vak via de operationele en de gegevens en de Messaging-kanalen. In Windows, zijn in de vorm van een enkele ETW-provider met een reeks relevante `logLevelKeywordFilters` gebruikt om te kiezen tussen verschillende kanalen. Op Linux, alle van de platform-gebeurtenissen worden geleverd via LTTng en van waar ze kunnen worden gefilterd zo nodig in één tabel zijn geplaatst. 
+Service Fabric bevat een uitgebreide reeks gebeurtenissen uit het vak. Deze [Service Fabric-gebeurtenissen](service-fabric-diagnostics-events.md) toegankelijk zijn via de EventStore APIs of het operationele kanaal (gebeurteniskanaal die worden weergegeven door het platform). 
+* EventStore - de EventStore (beschikbaar op Windows in versie 6.2 en later, Linux nog in voortgang vanaf de datum voor dit artikel laatst bijgewerkt), wordt deze gebeurtenissen via een set API's (toegankelijk via de REST-eindpunten of via de clientbibliotheek). Meer informatie over de EventStore op de [EventStore overzicht](service-fabric-diagnostics-eventstore.md).
+* Kanalen - in Windows service Fabric-Service Fabric gebeurtenisgevallen beschikbaar zijn via één ETW-provider met een reeks relevante `logLevelKeywordFilters` gebruikt om te kiezen tussen operationele gegevens & Messaging en kanalen - dit is de manier waarop we uitgaande onderscheiden Service Fabric-gebeurtenissen te filteren op die nodig zijn. Op Linux, Service Fabric-gebeurtenissen worden geleverd via LTTng en van waar ze kunnen worden gefilterd zo nodig in één opslagruimte tabel zijn geplaatst. Deze kanalen bevatten curated, gestructureerde gebeurtenissen die kunnen worden gebruikt om de status van uw cluster beter te begrijpen. Diagnostische gegevens zijn standaard ingeschakeld op het moment van het maken van het cluster waarop een tabel met Azure Storage waar de gebeurtenissen uit deze kanalen worden verzonden voor u in de toekomst een query maken. 
 
-Deze kanalen bevatten curated, gestructureerde gebeurtenissen die kunnen worden gebruikt om de status van uw cluster beter te begrijpen. Diagnostische gegevens zijn standaard ingeschakeld op het moment van het maken van het cluster waarop een tabel met Azure Storage waar de gebeurtenissen uit deze kanalen worden verzonden voor u in de toekomst een query maken. Meer informatie over het bewaken van uw cluster op [Platform niveau gebeurtenis- en logboekbestanden generatie](service-fabric-diagnostics-event-generation-infra.md).
+We raden u aan de EventStore gebruiken voor snelle analyse en idee te krijgen een momentopname van hoe uw cluster wordt uitgevoerd en als dingen als plaatsvinden verwacht. Voor het verzamelen van Logboeken en gebeurtenissen die door het cluster wordt gegenereerd, in het algemeen wordt aangeraden met behulp van de [extensie voor diagnostische gegevens van Azure](service-fabric-diagnostics-event-aggregation-wad.md). Dit kan worden geïntegreerd met Service Fabric Analytics, OMS Log Analytics Service Fabric specifieke oplossing die een aangepast dashboard biedt voor het bewaken van Service Fabric-clusters en kunt u query uitvoeren op uw cluster gebeurtenissen en waarschuwingen instellen. Meer informatie over deze [analyse van gebeurtenis met OMS](service-fabric-diagnostics-event-analysis-oms.md). 
 
-Voor het verzamelen van Logboeken en gebeurtenissen die door het cluster wordt gegenereerd, in het algemeen wordt aangeraden met behulp van de [extensie voor diagnostische gegevens van Azure](service-fabric-diagnostics-event-aggregation-wad.md). Dit kan worden geïntegreerd met OMS Log Analytics Service Fabric specifieke oplossing Service Fabric Analytics, die biedt een aangepaste dashboard voor het bewaken van Service Fabric-clusters, en kunt u query uitvoeren op uw cluster gebeurtenissen en waarschuwingen instellen. Meer informatie over deze [analyse van gebeurtenis met OMS](service-fabric-diagnostics-event-analysis-oms.md). 
+ Meer informatie over het bewaken van uw cluster op [Platform niveau gebeurtenis- en logboekbestanden generatie](service-fabric-diagnostics-event-generation-infra.md).
+
 
  ![OMS SF-oplossing](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-solution.png)
 

@@ -14,18 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: 918af6da62e0e3a1409528691bdd460b2ad61a3e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7cd902f289d0743b4aecf004f5f64a04024aa790
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="azure-marketplace-consulting-services"></a>Ondersteuningsdiensten van Azure Marketplace
 Adviesdiensten in Azure Marketplace biedt Microsoft-partners de doelstelling van het verbinden van klanten met services om te ondersteunen en uitbreiden van het gebruik van Azure. De vermelding van de offerings advies-service van de partners van Microsoft System Integrator (SI) biedt ondersteuning voor Azure Marketplace. 
 
 Deze advies serviceaanbiedingen zijn klantspecifieke betrokkenheid. Ze zijn opgelost in het bereik en de duur, worden vaste prijs of gratis en hebben een gedefinieerde uitkomst. Potentiële klanten kunnen eenvoudig worden opgenomen door partners aanvragen. Partners ontvangt een melding in hun CRM-systeem en ze zijn bedoeld om te reageren op aanvragen binnen 48 uur.
 
-Adviesdiensten in Azure Marketplace tegenover AppSource winkel worden de marketplace-winkelobjecten uitgelijnd met de doelgroepen en Microsoft cloud-producten waarmee klanten kunnen vinden die ze nodig hebben. Elke winkel biedt opties voor het publiceren van gespecialiseerde kunt u uw publishing maximaliseren. De volgende tabel geeft een overzicht van deze opties:
+## <a name="consulting-services-in-azure-marketplace-vs-appsource-storefront"></a>Advies in Azure Marketplace tegenover AppSource winkel
+De marketplace-winkelobjecten worden uitgelijnd met de doelgroepen en Microsoft cloud-producten waarmee klanten kunnen vinden die ze nodig hebben. Elke winkel biedt opties voor het publiceren van gespecialiseerde kunt u uw publishing maximaliseren. De volgende tabel geeft een overzicht van deze opties:
 
 |         |Azure Marketplace  |AppSource |
 |---------|---------|---------|

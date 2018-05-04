@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/04/2017
 ms.author: saveenr
-ms.openlocfilehash: f37a4563a758d442760f4a6be3c11bb9a9ddfc28
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 332b6c90ea51d16a439bfb21222bb753e93a02b9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Aan de slag met Azure Data Lake Analytics met Azure PowerShell
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -39,13 +39,13 @@ In deze zelfstudie wordt ervan uitgegaan dat u al bekend bent met het gebruik va
 Aanmelden met de naam van een abonnement:
 
 ```
-Login-AzureRmAccount -SubscriptionName "ContosoSubscription"
+Connect-AzureRmAccount -SubscriptionName "ContosoSubscription"
 ```
 
 In plaats van de abonnementsnaam, kunt u ook een abonnements-id gebruiken om u aan te melden:
 
 ```
-Login-AzureRmAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+Connect-AzureRmAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 
 Als dit lukt, ziet de uitvoer van deze opdracht er  uit als de volgende tekst:
@@ -96,13 +96,13 @@ OUTPUT @a
 "@
 ```
 
-Verzend het script.
+Verzenden van de scripttekst met de cmdlet `Submit-AdlJob` en de parameter `-Script`.
 
 ```
 $job = Submit-AdlJob -Account $adla -Name "My Job" –Script $script
 ```
 
-U kunt het script ook opslaan als een bestand en verzenden met de volgende opdracht:
+Als alternatief kunt u een scriptbestand indienen met de parameter `-ScriptPath`:
 
 ```
 $filename = "d:\test.usql"
@@ -110,20 +110,19 @@ $script | out-File $filename
 $job = Submit-AdlJob -Account $adla -Name "My Job" –ScriptPath $filename
 ```
 
-
-Haal de status van een bepaalde taak op. Blijf deze cmdlet gebruiken totdat de taak is voltooid.
+Haal de status van een bepaalde taak op met `Get-AdlJob`. 
 
 ```
 $job = Get-AdlJob -Account $adla -JobId $job.JobId
 ```
 
-U hoeft niet steeds Get-AdlAnalyticsJob aan te roepen tot een taak is voltooid als u de cmdlet Wait-AdlJob gebruikt.
+U hoeft niet steeds Get-AdlJob aan te roepen tot een taak is voltooid als u de cmdlet `Wait-AdlJob` gebruikt.
 
 ```
 Wait-AdlJob -Account $adla -JobId $job.JobId
 ```
 
-Download het uitvoerbestand.
+Download het uitvoerbestand met `Export-AdlStoreItem`.
 
 ```
 Export-AdlStoreItem -Account $adls -Path "/data.csv" -Destination "C:\data.csv"

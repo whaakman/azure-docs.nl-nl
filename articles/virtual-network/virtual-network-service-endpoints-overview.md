@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: dbcb1d87fafe085d6232fa621fbd9e211fa4174d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fc95077ada75ef5447e80a5252bebe3ed95dc167
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="virtual-network-service-endpoints"></a>Service-eindpunten voor virtueel netwerk
 
@@ -29,7 +29,7 @@ Deze functie is beschikbaar voor de volgende Azure-services en regio's:
 
 - **Azure Storage**: algemeen verkrijgbaar. Alle regio's in de openbare cloud van Azure en Azure Government.
 - **Azure SQL Database**: algemeen verkrijgbaar in alle Azure-regio's. 
-- **Azure SQL Datawarehouse**: preview. Alle regio's in de openbare cloud van Azure.
+- **Azure SQL Data Warehouse**: Preview. Alle regio's in de openbare cloud van Azure.
 
 Voor recente updates over de preview kijkt u op de pagina [Azure Virtual Network Updates](https://azure.microsoft.com/updates/?product=virtual-network) (Updates voor Azure Virtual Network).
 
@@ -87,6 +87,7 @@ Service-eindpunten bieden de volgende voordelen:
 - **Virtuele netwerken met peers, verbonden of meerdere virtuele netwerken**: als u Azure-services wilt koppelen aan meerdere subnetten binnen een virtueel netwerk of aan meerdere virtuele netwerken, kunt u in elk van de subnetten service-eindpunten inschakelen en de Azure-serviceresources vervolgens aan al deze subnetten koppelen.
 - **Filteren van uitgaand verkeer vanuit een virtueel netwerk naar Azure-services**: als u het verkeer vanuit een virtueel netwerk naar een Azure-service wilt inspecteren of filteren, kunt u binnen het virtuele netwerk een virtueel-netwerkapparaat implementeren. U kunt dan service-eindpunten toepassen op het subnet waarop het virtueel-netwerkapparaat is geïmplementeerd en Azure-serviceresources alleen koppelen aan dit subnet. Dit scenario kan nuttig zijn als u de toegang tot de Azure-service vanuit uw virtuele netwerk wilt beperken tot specifieke Azure-resources, met behulp van virtueel-netwerkapparaatfilters. Zie [Egress with network virtual appliances](/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Uitgaand verkeer met virtueel-netwerkapparaten) voor meer informatie.
 - **Rechtstreekse implementatie van Azure-resources naar services in virtuele netwerken**: diverse Azure-services kunnen rechtstreeks in specifieke subnetten in een virtueel netwerk worden geïmplementeerd. U kunt Azure-serviceresources koppelen aan subnetten voor [beheerde services](virtual-network-for-azure-services.md) door een service-eindpunt in te stellen in het subnet van deze beheerde services.
+- **Schijfverkeer vanaf een virtuele Azure-machine**: VM-schijfverkeer (inclusief koppelen en loskoppelen, diskIO) voor beheerde/niet-beheerde schijven, wordt niet beïnvloed door routeerwijzigingen op service-eindpunten voor Azure Storage. U kunt de REST-toegang tot pagina-blobs beperken om netwerken te selecteren, via service-eindpunten en [Azure Storage-netwerkregels](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 
 ### <a name="logging-and-troubleshooting"></a>Logboekregistratie en problemen oplossen
 
@@ -105,7 +106,7 @@ Wanneer service-eindpunten zijn geconfigureerd voor een bepaalde service, contro
 
 Service-eindpunten kunnen afzonderlijk op virtuele netwerken worden geconfigureerd door een gebruiker met schrijftoegang tot een virtueel netwerk. Als u Azure-serviceresources aan een VNet wilt koppelen, moet u machtigingen hebben voor *Microsoft.Network/JoinServicetoaSubnet* voor de subnetten die worden toegevoegd. Deze machtiging is standaard opgenomen in de ingebouwde service-beheerdersrollen en kan worden gewijzigd door aangepaste rollen te maken.
 
-Meer informatie over [ingebouwde rollen](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) en het toewijzen van specifieke machtigingen voor [aangepaste rollen](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Meer informatie over [ingebouwde rollen](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) en het toewijzen van specifieke machtigingen voor [aangepaste rollen](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Virtuele netwerken en Azure-serviceresources kunnen binnen hetzelfde abonnement of in verschillende abonnementen aanwezig zijn. Als de virtuele netwerken en Azure-serviceresources in verschillende abonnementen aanwezig zijn, moeten de resources onder dezelfde Active Directory-tenant (AD) vallen. 
 
@@ -123,5 +124,5 @@ Voor een Azure-serviceresource (zoals een Azure Storage-account) kunnen services
 - Zie [Secure an Azure Storage account to a virtual network](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Een Azure Storage-account aan een virtueel netwerk koppelen) voor meer informatie
 - Zie [Secure an Azure SQL Database to a virtual network](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Een Azure SQL Database aan een virtueel netwerk koppelen) voor meer informatie
 - Zie [Azure service integration in virtual networks](virtual-network-for-azure-services.md) (Integratie van Azure-services in virtuele netwerken) voor meer informatie
--  Snel starten: [Azure Resource Manager-sjabloon](https://azure.microsoft.com/en-us/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) als u een service-eindpunt wilt instellen op het subnet van een VNet en het Azure Storage-account op dat subnet wilt beveiligen.
+-  Snel starten: [Azure Resource Manager-sjabloon](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) als u een service-eindpunt wilt instellen op het subnet van een VNet en het Azure Storage-account op dat subnet wilt beveiligen.
 

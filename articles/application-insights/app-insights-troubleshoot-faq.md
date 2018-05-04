@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 245bd348b9eb5b434360d734e219efd7c663a406
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d7abfd1ac6f914c75297ff49462590e5b6169dbd
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Veelgestelde vragen
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 04/03/2018
 * [Cloudservices op Azure](app-insights-cloudservices.md)
 * [Appservers die in Docker](app-insights-docker.md)
 * [Single-page-web-apps](app-insights-javascript.md)
-* [Sharepoint](app-insights-sharepoint.md)
+* [SharePoint](app-insights-sharepoint.md)
 * [Windows-bureaublad-app](app-insights-windows-desktop.md)
 * [Andere platforms](app-insights-platforms.md)
 
@@ -69,7 +69,7 @@ De details zijn afhankelijk van het type project. Voor een webtoepassing:
 * Deze bestanden toevoegt aan uw project:
 
   * ApplicationInsights.config.
-  * ai.js
+  * AI.js
 * Installeert deze NuGet-pakketten:
 
   * *Application Insights-API* -de kern API
@@ -254,15 +254,37 @@ Toestaan dat uw webserver verzenden van telemetrie naar onze eindpunten https://
 
 ### <a name="proxy"></a>Proxy
 
-Verkeer leiden van uw server met een gateway op uw intranet, dit door in te stellen ApplicationInsights.config:
+Verkeer routeren van uw server met een gateway op uw intranet door overwritting deze instellingen in het voorbeeld ApplicationInsights.config. Als deze 'Eindpunt'-eigenschappen niet aanwezig in de configuratie zijn, wordt deze klassen waarbij de standaardwaarden in het voorbeeld hieronder wordt weergegeven.
 
-```XML
-<TelemetryChannel>
-    <EndpointAddress>your gateway endpoint</EndpointAddress>
-</TelemetryChannel>
+#### <a name="example-applicationinsightsconfig"></a>Voorbeeld ApplicationInsights.config:
+```xml
+<ApplicationInsights>
+    ...
+    <TelemetryChannel>
+         <EndpointAddress>https://dc.services.visualstudio.com/v2/track</EndpointAddress>
+    </TelemetryChannel>
+    ...
+    <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights">
+        <ProfileQueryEndpoint>https://dc.services.visualstudio.com/api/profiles/{0}/appId</ProfileQueryEndpoint>
+    </ApplicationIdProvider>
+    ...
+</ApplicationInsights>
 ```
 
-Uw gateway moet het verkeer te sturen https://dc.services.visualstudio.com:443/v2/track
+_Opmerking ApplicationIdProvider is beschikbaar vanaf v2.6.0_
+
+Uw gateway moet het verkeer te sturen https://dc.services.visualstudio.com:443
+
+Vervang de waarden boven aan: `http://<your.gateway.address>/<relative path>`
+ 
+Voorbeeld: 
+```
+http://<your.gateway.endpoint>/v2/track 
+http://<your.gateway.endpoint>/api/profiles/{0}/apiId
+```
+
+
+
 
 ## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>Kan ik webtests voor beschikbaarheid op een intranetserver uitvoeren?
 

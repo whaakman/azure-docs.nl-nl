@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2016
 ms.author: ancav
-ms.openlocfilehash: 80955535c8d863cd3d8d1b77e2ab8bc016b6d9f3
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c1ac5c4c44386fc05e3ee87ccdbbc4f652a94a1c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuratie van geavanceerde automatisch schalen met Resource Manager-sjablonen voor VM-Schaalsets
 U kunt de schaal in en scale-out in virtuele-Machineschaalsets op basis van drempelwaarden voor prestaties metrische door een terugkerend schema of door een bepaalde datum. U kunt ook e-mail en -webhook meldingen voor schaalacties configureren. Dit overzicht toont een voorbeeld van de configuratie van deze objecten die zijn met een Resource Manager-sjabloon op een VM-Schaalset.
@@ -200,7 +200,7 @@ In dit scenario, gebruiken we [Azure Resource Explorer](https://resources.azure.
             }
           }
     ```
-    Zie voor ondersteunde velden en hun waarden [automatisch schalen REST API-documentatie](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). De instelling voor automatisch schalen bevat nu de drie profielen hierboven is uitgelegd.
+    Zie voor ondersteunde velden en hun waarden [automatisch schalen REST API-documentatie](https://msdn.microsoft.com/library/azure/dn931928.aspx). De instelling voor automatisch schalen bevat nu de drie profielen hierboven is uitgelegd.
 
 7. Tot slot kijken naar de voor automatisch schalen **melding** sectie. Meldingen over automatisch schalen kunt u het volgende doen wanneer een scale-out of in actie met succes wordt geactiveerd.
    - Hoogte van de beheerder en co-beheerders van uw abonnement

@@ -6,13 +6,13 @@ author: anasouma
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 04/30/2018
 ms.author: wielriac
-ms.openlocfilehash: 5d1ad1555cb1e01e363456af5c50ecd090ce7147
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 79590e1987ee29ca06f9fb103f548518b2c1c57e
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="unique-features-of-azure-page-blobs"></a>Unieke kenmerken van de Azure-pagina-blobs
 
@@ -21,9 +21,6 @@ Azure Storage biedt drie typen van blob storage: blok-Blobs, toevoeg-Blobs en pa
 Pagina-blobs zijn een verzameling van 512-byte pagina's de mogelijkheid om te lezen bieden/schrijven willekeurige bereiken in bytes. Pagina-blobs zijn daarom ideaal voor het opslaan van de index en sparse gegevensstructuren zoals besturingssysteem en gegevensschijven voor virtuele Machines en Databases. Bijvoorbeeld: Azure SQL-database maakt gebruik van pagina-blobs als de onderliggende permanente opslag voor de databases. Pagina-blobs zijn bovendien ook vaak gebruikt voor bestanden die zijn bijgewerkt op basis van het bereik.  
 
 Belangrijke functies van Azure-pagina-blobs zijn de REST-interface, de duurzaamheid van de onderliggende opslag en de mogelijkheden voor naadloze migratie naar Azure. Deze functies worden in de volgende sectie uitvoeriger beschreven. Bovendien Azure pagina-blobs die momenteel worden ondersteund op twee soorten opslag: Premium-opslag- en Standard-opslag. Premium-opslag is speciaal ontworpen voor werkbelastingen vereisen consistent hoge prestaties en lage latentie premium-pagina-blobs ideaal voor hoge zodat gegevens storage-databases te maken.  Standard-opslag is rendabeler om latentie hoofdlettergevoelig werkbelastingen uit te voeren.
-
-> [!WARNING]
-> Pagina-blobs in Premium-opslag zijn alleen ontworpen voor gebruik als virtuele harde schijven. Niet wordt aangeraden het opslaan van andere typen gegevens in de pagina-blobs in Premium-opslag, zoals de kosten kan aanzienlijk groter zijn. Blok-blobs gebruiken voor het opslaan van gegevens die zich niet in een VHD.
 
 ## <a name="sample-use-cases"></a>Voorbeeld gebruiksvoorbeelden
 

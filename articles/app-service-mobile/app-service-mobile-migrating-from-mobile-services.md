@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: e94f08b9b9dad20c6f47367c47eb49aea59f4bd8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5001704f47af0c7b07744f1dceb7aa58bdb6448c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="article-top"></a>Uw bestaande Azure Mobile Service migreren naar Azure App Service
 Met de [algemene beschikbaarheid van Azure App Service], Azure Mobile Services-sites kunnen worden eenvoudig gemigreerd ter plekke om te profiteren van alle functies van de Azure App Service.  Dit document wordt uitgelegd wat u kunt verwachten wanneer uw site uit Azure Mobile Services migreren naar Azure App Service.
@@ -372,16 +372,16 @@ Nu dat uw toepassing is gemigreerd naar App Service, zijn er nog meer functies d
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[App Service-prijzen]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[App Service-prijzen]: https://azure.microsoft.com/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [Automatische schaling]: ../app-service/web-sites-scale.md
 [Azure App Service]: ../app-service/app-service-web-overview.md
 [klassieke Azure-Portal]: https://manage.windowsazure.com
 [Azure-portal]: https://portal.azure.com
-[Azure Region]: https://azure.microsoft.com/en-us/regions/
+[Azure Region]: https://azure.microsoft.com/regions/
 [Azure Scheduler plannen]: ../scheduler/scheduler-plans-billing.md
 [continu implementeren]: ../app-service/app-service-continuous-deployment.md
-[Converteren van de gemengde naamruimten]: https://azure.microsoft.com/en-us/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
+[Converteren van de gemengde naamruimten]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
 [aangepaste domeinnamen]: ../app-service/app-service-web-tutorial-custom-domain.md
 [Fiddler]: http://www.telerik.com/fiddler

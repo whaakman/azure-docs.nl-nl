@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 4/6/2018
 ms.author: raiye
-ms.openlocfilehash: 5631fb8df6453cf7a1806947f0e29ab7fff7093e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: df5844ff53d8196eb1143913b420d933ba43920f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-guest-os"></a>Azure Gast OS
 De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates toegepast op de Azure-Gastbesturingssysteemreleases. Zoeken in dit artikel om na te gaan als een bepaalde update van toepassing op het Gastbesturingssysteem dat u gebruikt. Updates altijd transporteren voor de betreffende [familie] [ family-explain] ze werden geïntroduceerd in.
@@ -40,22 +40,22 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | Rel 18-02 | [4074590], [4074588] |Windows 10-beveiliging |5.16 |13 februari 2018 |
-| Rel 18-02 | [4074587], [4074589], [4074597] |Windows-beveiliging |2.71, 3.58, 4.51 |13 februari 2018 |
-| Rel 18-02 | [4074736] |Internet Explorer |2.71, 3.58, 4.51 |13 februari 2018 |
-| Rel 18-02 | [4074595] |Flash |3.58, 4.51, 5.16 |13 februari 2018 |
+| Rel 18-02 | [4074587], [4074589], [4074597] |Windows-beveiliging |2.71, 3,58, 4,51 |13 februari 2018 |
+| Rel 18-02 | [4074736] |Internet Explorer |2.71, 3,58, 4,51 |13 februari 2018 |
+| Rel 18-02 | [4074595] |Flash |3,58, 4,51, 5.16 |13 februari 2018 |
 | N/A | [4056894] |Totalisering van de niet-beveiliging januari |2.71 |4 januari 2018 |
-| N/A | [4056896] |Totalisering van de niet-beveiliging januari |3.58 |4 januari 2018 |
-| N/A | [4056895] |Totalisering van de niet-beveiliging januari |4.51 |4 januari 2018 |
+| N/A | [4056896] |Totalisering van de niet-beveiliging januari |3,58 |4 januari 2018 |
+| N/A | [4056895] |Totalisering van de niet-beveiliging januari |4,51 |4 januari 2018 |
 | N/A | [4054176], [4054172] |Totalisering van januari .NET |2.71 |4 januari 2018 |
-| N/A | [4054175], [4054171] |Totalisering van januari .NET |3.58 |4 januari 2018 |
-| N/A | [4054177], [4054170] |Totalisering van januari .NET |4.51 |4 januari 2018 |
+| N/A | [4054175], [4054171] |Totalisering van januari .NET |3,58 |4 januari 2018 |
+| N/A | [4054177], [4054170] |Totalisering van januari .NET |4,51 |4 januari 2018 |
 
 ## <a name="january-guest-os"></a>Het Gastbesturingssysteem januari
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | Rel 18-01 | [4056898], [4056897], [4056899] |Windows-beveiliging |2.70, 3.57, 4.50 |3 januari 2018 |
 | Rel 18-01 | [4056890], [4056892] |Windows-beveiliging |5.15 |3 januari 2018 |
-| N/A | [4054518] |Updatepakket van december niet voor beveiliging |2.70 |12 december 2017 |
+| N/A | [4054518] |Updatepakket van december niet voor beveiliging |2,70 |12 december 2017 |
 | N/A | [4054520] |Updatepakket van december niet voor beveiliging |3.57 |12 december 2017 |
 | N/A | [4054519] |Updatepakket van december niet voor beveiliging |4.50 |12 december 2017 |
 | N/A | [4051956] |Update van januari tijdzone |2.70, 3.57, 4.50 |12 december 2017 |
@@ -179,8 +179,8 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 | Rel 17-05 | [4019214] |Windows-beveiliging |3.49 | 9 mei 2017 |
 | Rel 17-05 | [4018271] |Cumulatieve beveiligingsupdate voor Internet Explorer |3.49 | 9 mei 2017 |
 | Rel 17-05 | [4010323] |SHA1 advies |2.62, 4.42, 5.7 | 9 mei 2017 |
-| Rel 17-05 | [4022344] |Microsoft Security Advisory |5.7 | 9 mei 2017 |
-| Rel 17-05 | [4022345] |Microsoft Security Advisory |5.7 | 9 mei 2017 |
+| Rel 17-05 | [4022344] |Microsoft-beveiligingsadvies |5.7 | 9 mei 2017 |
+| Rel 17-05 | [4022345] |Microsoft-beveiligingsadvies |5.7 | 9 mei 2017 |
 | Rel 17-05 | [4021279] |.Net /ASP.Net Core Advisory |2.62, 3.49, 4.42, 5.7 | 9 mei 2017 |
 | N/A | [4012864] |Update van de tijdzone |2.62, 3.49, 4.42 | 9 mei 2017 |
 | N/A | [4014565] |Totalisering van de niet-beveiliging april .NET |2.62 | 11 april 2017 |
@@ -265,7 +265,7 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 | MS16-135 |[3199135] |Beveiligingsupdate voor stuurprogramma's voor kernelmodus |5.3, 4.38, 3.45, 2.57 |8 november 2016 |
 | MS16-137 |[3199173]   |Beveiligingsupdate voor Windows-verificatiemethoden |5.3, 4.38, 3.45, 2.57 |8 november 2016 |
 | MS16-138 |[3199647] |Beveiligingsupdate voor Microsoft virtuele harde schijf |5.3, 4.38, 3.45 |8 november 2016 |
-| MS16-139 |[3199720] |Beveiligingsupdate voor Windows-Kernel |2.57 |Nov 8.2016 |
+| MS16-139 |[3199720] |Beveiligingsupdate voor Windows-Kernel |2.57 |November 8.2016 |
 | MS16-140 |[3193479] |Beveiligingsupdate voor opstartbeheer |5.3, 4.38, 3.45 |8 november 2016 |
 | MS16-142 |[3198467] |Cumulatieve beveiligingsupdate voor Internet Explorer |2.57, 4.38, 5.3 |8 november 2016 |
 | N/A |[3192321] |Turkije eindigt Zomertijd naleving |5.3, 4.38, 3.45, 2.57 |8 november 2016 |
@@ -420,7 +420,7 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 | MS16-018 |[3136082] |Beveiligingsupdate voor Windows-stuurprogramma Kernel-modus voor het oplossen van onrechtmatige uitbreiding van toegangsrechten |4.29, 3.36, 2.48 |9 februari 2016 |
 | MS16-019 |[3137893] |Beveiligingsupdate voor .NET Framework voor het oplossen van externe Code worden uitgevoerd |4.29, 3.36, 2.48 |9 februari 2016 |
 | MS16-021 |[3133043] |Beveiligingsupdate voor NPS RADIUS-Server voor het oplossen van Denial of Service |4.29, 3.36, 2.48 |9 februari 2016 |
-| Microsoft Security Advisory |[3109853] |Update voor het verbeteren van TLS-interoperabiliteit |4.29, 3.36 |9 februari 2016 |
+| Microsoft-beveiligingsadvies |[3109853] |Update voor het verbeteren van TLS-interoperabiliteit |4.29, 3.36 |9 februari 2016 |
 | Nieuwe versie-MS15 101 |[3089662] |Beveiligingsproblemen in .NET Framework kunnen leiden tot uitbreiding van bevoegdheden |4.29, 3.36, 2.48 |9 februari 2016 |
 | Nieuwe versie-MS15 118 |[3104507] |Beveiligingsupdates voor .NET Framework voor het oplossen van onrechtmatige uitbreiding van toegangsrechten |4.29, 3.36, 2.48 |9 februari 2016 |
 | Nieuwe versie-MS15-128 |[3104503] |Beveiligingsupdates voor Microsoft Graphics-onderdeel voor het oplossen van externe Code worden uitgevoerd |4.29, 3.36, 2.48 |9 februari 2016 |
@@ -434,9 +434,9 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 | MS16-007 |[3124901] |Beveiligingsupdate voor Microsoft Windows voor het oplossen van externe Code worden uitgevoerd |4.28, 3.35, 2.47 |Op 12 januari 2016 |
 | MS16-008 |[3124605] |Beveiligingsupdate voor Kernel voor het oplossen van onrechtmatige uitbreiding van toegangsrechten |4.28, 3.35, 2.47 |Op 12 januari 2016 |
 | Microsoft Security Advisory revisie |[2755801] |Update voor beveiligingsproblemen in Adobe Flash Player in Internet Explorer (KB inpakken: nog te bepalen)-Advisory tijdelijke aanduiding |4.28, 3.35 |Op 12 januari 2016 |
-| Microsoft Security Advisory |[3109853] |Update voor het verbeteren van TLS-interoperabiliteit |4.28, 3.35 |Op 12 januari 2016 |
-| Microsoft Security Advisory |[3123479] |Afschaffing van SHA-1-hash-algoritme voor het Microsoft Root Certificate Program |4.28, 3.35, 2.47 |Op 12 januari 2016 |
-| Microsoft Security Advisory |[2736233] |Updates voor ActiveX Kill-Bits |4.28, 3.35, 2.47 |Op 12 januari 2016 |
+| Microsoft-beveiligingsadvies |[3109853] |Update voor het verbeteren van TLS-interoperabiliteit |4.28, 3.35 |Op 12 januari 2016 |
+| Microsoft-beveiligingsadvies |[3123479] |Afschaffing van SHA-1-hash-algoritme voor het Microsoft Root Certificate Program |4.28, 3.35, 2.47 |Op 12 januari 2016 |
+| Microsoft-beveiligingsadvies |[2736233] |Updates voor ActiveX Kill-Bits |4.28, 3.35, 2.47 |Op 12 januari 2016 |
 
 ## <a name="december-guest-os"></a>December Gastbesturingssysteem
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
@@ -462,7 +462,7 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 | MS15-120 |[3102939] |Beveiligingsupdate voor IPSec voor het oplossen van Denial of Service |4.26, 3.33 |10 november 2015 |
 | MS15-121 |[3081320] |Beveiligingsupdate voor Schannel aan-adresvervalsing |4.26, 3.33, 2.45 |10 november 2015 |
 | MS15-122 |[3105256] |Beveiligingsupdate voor Kerberos om de beveiliging functie overslaan |4.26, 3.33, 2.45 |10 november 2015 |
-| Microsoft Security Advisory |[3097966] |Per ongeluk gemelde digitale certificaten kan leiden adresvervalsing (spoofing) |4.26, 3.33, 2.45 |10 november 2015 |
+| Microsoft-beveiligingsadvies |[3097966] |Per ongeluk gemelde digitale certificaten kan leiden adresvervalsing (spoofing) |4.26, 3.33, 2.45 |10 november 2015 |
 
 ## <a name="october-guest-os"></a>Oktober Gastbesturingssysteem
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
@@ -471,15 +471,15 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 | MS15-108 |[3089659] |Beveiligingsupdate voor JScript en VBScript om de potentiële externe Code worden uitgevoerd |2.44 |13 oktober 2015 |
 | MS15-109 |[3096443] |Beveiligingsupdate voor Windows-Shell met een oplossing voor externe Code worden uitgevoerd |4.25, 3.32, 2.44 |13 oktober 2015 |
 | MS15-111 |[3096447] |Beveiligingsupdate voor Windows-Kernel voor het oplossen van onrechtmatige uitbreiding van toegangsrechten |4.25, 3.32, 2.44 |13 oktober 2015 |
-| Microsoft Security Advisory |[3092627] |September 2015 om op te lossen Windows update of toepassing vastloopt nadat 3076895 beveiligingsupdate |4.25, 3.32, 2.44 |13 oktober 2015 |
+| Microsoft-beveiligingsadvies |[3092627] |September 2015 om op te lossen Windows update of toepassing vastloopt nadat 3076895 beveiligingsupdate |4.25, 3.32, 2.44 |13 oktober 2015 |
 
 ## <a name="september-guest-os"></a>September Gastbesturingssysteem
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
 | --- | --- | --- | --- | --- |
 | MS15-093 |[3088903] |Beveiligingsupdate voor Internet Explorer |4.24, 3.31, 2.43 |8 september 2015 |
-| MS15-094 |[3089548] |Cumulatieve beveiligingsupdate voor Internet Explorer |4.24, 3.31, 2.43 |8 september 2015 |
-| MS15-096 |[3072595] |Beveiligingslek in Active Directory-Service kan denial of Service |4.24, 3.31, 2.43 |8 september 2015 |
-| MS15-097 |[3089656] |Beveiligingsproblemen in Microsoft grafische onderdeel kunnen misbruik van bevoegdheden |4.24, 3.31, 2.43 |8 september 2015 |
+| MS15 094 |[3089548] |Cumulatieve beveiligingsupdate voor Internet Explorer |4.24, 3.31, 2.43 |8 september 2015 |
+| MS15 096 |[3072595] |Beveiligingslek in Active Directory-Service kan denial of Service |4.24, 3.31, 2.43 |8 september 2015 |
+| MS15 097 |[3089656] |Beveiligingsproblemen in Microsoft grafische onderdeel kunnen misbruik van bevoegdheden |4.24, 3.31, 2.43 |8 september 2015 |
 | MS15-098 |[3089669] |Beveiligingslekken in het Windows-logboek kunnen de uitvoering van externe Code |4.24, 3.31, 2.43 |8 september 2015 |
 | MS15-101 |[3089662] |Beveiligingsproblemen in .NET Framework kunnen leiden tot uitbreiding van bevoegdheden |4.24, 3.31, 2.43 |8 september 2015 |
 | MS15-102 |[3089657] |Beveiligingsproblemen in Windows Taakbeheer kunnen leiden tot uitbreiding van bevoegdheden |4.24, 3.31, 2.43 |8 september 2015 |
@@ -492,10 +492,10 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 | MS15-080 |[3078662] |Beveiligingsproblemen in Microsoft grafische onderdeel kunnen externe Code worden uitgevoerd |4.23, 3.30, 2.42 |11 augustus 2015 |
 | MS15-082 |[3080348] |Beveiligingsproblemen in RDP kunnen externe Code worden uitgevoerd |4.23, 3.30, 2.42 |11 augustus 2015 |
 | MS15-084 |[3080129] |Beveiligingsproblemen in XML Core Services kunnen het vrijgeven van informatie |4.23, 3.30, 2.42 |11 augustus 2015 |
-| MS15-085 |[3082487] |Beveiligingslek in koppelpunt Manager kan leiden tot uitbreiding van bevoegdheden |4.23, 3.30, 2.42 |11 augustus 2015 |
-| MS15-088 |[3082458] |Onveilige opdrachtregel Parameter doorgeven kan het vrijgeven van informatie |4.23, 3.30, 2.42 |11 augustus 2015 |
+| MS15 085 |[3082487] |Beveiligingslek in koppelpunt Manager kan leiden tot uitbreiding van bevoegdheden |4.23, 3.30, 2.42 |11 augustus 2015 |
+| MS15 088 |[3082458] |Onveilige opdrachtregel Parameter doorgeven kan het vrijgeven van informatie |4.23, 3.30, 2.42 |11 augustus 2015 |
 | MS15-089 |[3060716] |Beveiligingsproblemen in Microsoft Windows kunnen leiden tot uitbreiding van bevoegdheden |4.23, 3.30, 2.42 |11 augustus 2015 |
-| MS15-090 |[3076949] |Beveiligingslek in WebDAV kan leiden tot vrijgeven van informatie |4.23, 3.30, 2.42 |11 augustus 2015 |
+| MS15 090 |[3076949] |Beveiligingslek in WebDAV kan leiden tot vrijgeven van informatie |4.23, 3.30, 2.42 |11 augustus 2015 |
 
 ## <a name="july-guest-os"></a>Het Gastbesturingssysteem juli
 | Bulletin-ID | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
@@ -511,7 +511,7 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 | MS15-074 |[3072630] |Beveiligingslek in Windows Installer-Service kan leiden tot uitbreiding van bevoegdheden |4.22, 3.29, 2.41 |14 juli 2015 |
 | MS15-075 |[3072633] |Beveiligingsproblemen in OLE kunnen leiden tot misbruik van bevoegdheden |4.22, 3.29, 2.41 |14 juli 2015 |
 | MS15-076 |[3067505] |Beveiligingslek in Windows Remote Procedure Call kan leiden tot uitbreiding van bevoegdheden |4.22, 3.29, 2.41 |14 juli 2015 |
-| MS15-077 |[3077657] |Beveiligingslek in ATM-lettertype stuurprogramma kan leiden tot uitbreiding van bevoegdheden |4.22, 3.29, 2.41 |14 juli 2015 |
+| MS15 077 |[3077657] |Beveiligingslek in ATM-lettertype stuurprogramma kan leiden tot uitbreiding van bevoegdheden |4.22, 3.29, 2.41 |14 juli 2015 |
 | N.v.t. |[3057154] |Update voor het gebruik van DES-codering beperken |4.22, 3.29, 2.41 |14 juli 2015 |
 
 ## <a name="june-guest-os"></a>Juni gastbesturingssysteem
@@ -790,9 +790,9 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 [4014567]: http://support.microsoft.com/kb/4014567
 [4015550]: http://support.microsoft.com/kb/4015550
 [4013418]: http://support.microsoft.com/kb/4013418
-[4022345]: https://technet.microsoft.com/en-us/library/security/4022345.aspx
-[4022344]: https://technet.microsoft.com/en-us/library/security/4022344.aspx
-[4021279]: https://technet.microsoft.com/en-us/library/security/4021279.aspx
+[4022345]: https://technet.microsoft.com/library/security/4022345.aspx
+[4022344]: https://technet.microsoft.com/library/security/4022344.aspx
+[4021279]: https://technet.microsoft.com/library/security/4021279.aspx
 
 
 [4015217]: http://support.microsoft.com/kb/4015217

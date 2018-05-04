@@ -8,15 +8,15 @@ ms.topic: tutorial
 ms.date: 04/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1ac6c3e428148a6609b264b0b8f8cff416b0fa4d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 33e31c47a6125ac363410a9a78e9c9310c74d51e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="scenario-1-assess-on-premises-workloads-for-migration-to-azure"></a>Scenario 1: On-premises workloads evalueren voor migratie naar Azure
 
-Omdat Contoso migratie naar Azure overweegt, wil het bedrijf een technische en financiële evaluatie uitvoeren om na te gaan of hun on-premises workloads wel geschikt voor migratie naar de cloud. Ze willen met name de machine- en databasecompatibiliteit evalueren voor migratie en een schatting maken van de capaciteit en kosten voor het uitvoeren van hun resources in Azure.
+Omdat Contoso migratie naar Azure overweegt, wil het bedrijf een technische en financiële evaluatie uitvoeren om na te gaan of hun on-premises werkbelastingen wel geschikt voor migratie naar de cloud. Ze willen met name de machine- en databasecompatibiliteit evalueren voor migratie en een schatting maken van de capaciteit en kosten voor het uitvoeren van hun resources in Azure.
 
 Om praktijkervaring op te doen en meer inzicht te krijgen in de betreffende technologieën, gaan ze een kleine on-premises reis-app evalueren en migreren. Het is een app met twee lagen, waarbij een web-app wordt uitgevoerd op één virtuele machine en een SQL Server-database wordt uitgevoerd op de tweede virtuele machine. De toepassing wordt geïmplementeerd in VMware en de omgeving wordt beheerd door een vCenter Server. Ze gaan de beoordeling uitvoeren met behulp van de DMA (Data Migration Assistant) en de Azure Migrate-service.
 
@@ -33,9 +33,9 @@ In dit scenario downloaden we DMA en voeren we het uit om de on-premises SQL Ser
 
 ## <a name="architecture"></a>Architectuur
 
-In dit scenario wordt 
+In dit scenario gaan we het volgende instellen 
 
- ![de migratiebeoordelingsarchitectuur ingesteld](./media/migrate-scenarios-assessment/migration-assessment-architecture.png)
+ ![Beoordelingsarchitectuur voor migratie](./media/migrate-scenarios-assessment/migration-assessment-architecture.png)
 
 In dit scenario geldt het volgende:
 - Contoso heeft een on-premises datacenter (**contoso-datacenter**) met een on-premises domeincontroller (**contosodc1**).
@@ -285,7 +285,7 @@ Opmerking vóór u begint: de collector ondersteunt alleen 'Engels (Verenigde St
 5. Doe het volgende in **vCenter Server-details opgeven**:
     - Geef de naam (FQDN) of het IP-adres op van de vCenter Server.
     - Geef voor **User name** en **Password** de referenties op voor het alleen-lezen-account dat de collector gebruikt om virtuele machines op de vCenter Server te detecteren.
-    - Selecteer in **Select scope** een bereik voor VM-detectie. De collector kan alleen virtuele machines detecteren binnen het opgegeven bereik. U kunt het bereik instellen op een specifieke map, een datacenter of een cluster. Deze mag niet meer dan 1000 virtuele machines bevatten. 
+    - Selecteer in **Select scope** een bereik voor VM-detectie. De collector kan alleen virtuele machines detecteren binnen het opgegeven bereik. U kunt het bereik instellen op een specifieke map, een datacenter of een cluster. Deze mag niet meer dan 1500 virtuele machines bevatten. 
 
     ![Verbinding maken met vCenter](./media/migrate-scenarios-assessment/collector-connect-vcenter.png)
 
@@ -436,7 +436,7 @@ Een Azure Migrate-evaluatie bevat de volgende informatie: of de on-premises VM's
 Uw evaluatie krijgt een betrouwbaarheidsclassificatie van 1 tot 5 sterren (waarbij 1 ster de laagste en 5 sterren de hoogste classificatie aangeeft).
 - De betrouwbaarheidsclassificatie wordt aan een evaluatie toegewezen op basis van de beschikbaarheid van de gegevenspunten die nodig zijn om de evaluatie te berekenen.
 - Aan de hand van deze classificatie kunt u beter de betrouwbaarheid inschatten van de aanbevelingen voor de grootte die Azure Migrate geeft.
-- Betrouwbaarheidsclassificatie is nuttig als u *de grootte instelt op basis van prestaties*, omdat in Azure Migrate mogelijk niet voldoende gegevenspunten zijn om de grootte in te stellen op basis van gebruik. Voor *het instellen van de grootte op basis van '
+- Betrouwbaarheidsclassificatie is nuttig als u *de grootte instelt op basis van prestaties*, omdat in Azure Migrate mogelijk niet voldoende gegevenspunten zijn om de grootte in te stellen op basis van gebruik. Voor *het instellen van de grootte op basis van 'zoals on-premises'* is de betrouwbaarheidsclassificatie altijd 5 sterren, omdat Azure Migrate alle benodigde gegevenspunten heeft om de grootte van de VM in te stellen.
 - De betrouwbaarheidsclassificatie van de evaluatie wordt toegekend op basis van het percentage beschikbare gegevenspunten:
 
    **Beschikbaarheid van gegevenspunten** | **Betrouwbaarheidsclassificatie**

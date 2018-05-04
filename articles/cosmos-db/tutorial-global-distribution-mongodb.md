@@ -1,12 +1,11 @@
 ---
 title: Zelfstudie voor Azure DB Cosmos globale distributie voor MongoDB-API | Microsoft Docs
-description: Informatie over het instellen van Azure DB die Cosmos globale distributie op basis van de MongoDB-API.
+description: Informatie over het instellen van Azure DB Cosmos globale distributie met behulp van de MongoDB-API.
 services: cosmos-db
 keywords: globale distributie, MongoDB
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,36 +13,36 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/10/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: d051c648ac66a42cefe0113d2571fe0a3050a237
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.openlocfilehash: 8bd86c5e66fdf2431e3db12a43e953b022a3770a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-mongodb-api"></a>Het instellen van Azure DB die Cosmos globale distributie op basis van de MongoDB-API
+# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-mongodb-api"></a>Instellen van Azure DB Cosmos globale distributie met behulp van de MongoDB-API
 
-In dit artikel, laten we zien hoe de Azure portal instellen van Azure DB die Cosmos globale distributie en vervolgens verbinding met de MongoDB-API gebruiken.
+In dit artikel laten we zien hoe u de Azure-portal kunt gebruiken om de Azure Cosmos DB globale distributie op te zetten en vervolgens verbinding te maken met behulp van de MongoDB-API.
 
-In dit artikel bevat informatie over de volgende taken: 
+Dit artikel behandelt de volgende taken: 
 
 > [!div class="checklist"]
-> * Globale distributie op basis van de Azure-portal configureren
-> * Configureren globale distributie met behulp van de [MongoDB-API](mongodb-introduction.md)
+> * Wereldwijde distributie configureren met behulp van Azure Portal
+> * Globale distributie configureren met behulp van de [MongoDB-API](mongodb-introduction.md)
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
-## <a name="verifying-your-regional-setup-using-the-mongodb-api"></a>Verifiëren van de regionale instellingen met de MongoDB-API
-De eenvoudigste manier van dubbele uw globale configuratie binnen API controleren voor MongoDB om uit te voeren, is de *isMaster()* opdracht van de Mongo-Shell.
+## <a name="verifying-your-regional-setup-using-the-mongodb-api"></a>Regionale instellingen verifiëren met behulp van de MongoDB-API
+De eenvoudigste manier om uw globale configuratie binnen de API voor MongoDB te controleren is het uitvoeren van de opdracht *isMaster()* vanuit de Mongo-shell.
 
-Vanuit de Mongo-Shell:
+Vanuit de Mongo-shell:
 
    ```
       db.isMaster()
    ```
    
-Voorbeeld van resultaten:
+Voorbeeldresultaten:
 
    ```JSON
       {
@@ -69,23 +68,23 @@ Voorbeeld van resultaten:
       }
    ```
 
-## <a name="connecting-to-a-preferred-region-using-the-mongodb-api"></a>Verbinding maken met een voorkeursregio met de MongoDB-API
+## <a name="connecting-to-a-preferred-region-using-the-mongodb-api"></a>Verbinding maken met een voorkeursregio met behulp van de MongoDB-API
 
-De MongoDB-API kunt u uw verzameling lezen voorkeur voor een globaal gedistribueerde database opgeven. Voor beide lage latentie leest en globale hoge beschikbaarheid, wordt aangeraden uw verzameling lezen voorkeur instelt op *dichtstbijzijnde*. Een voorkeur voor het lezen *dichtstbijzijnde* is geconfigureerd voor het lezen van de dichtstbijzijnde regio.
+Met de MongoDB-API kunt u de leesvoorkeur van uw verzameling opgeven voor een globaal gedistribueerde database. Voor zowel leesbewerkingen met lage latentie als globale hoge beschikbaarheid raden wij u aan de leesvoorkeur van uw verzameling in te stellen op *dichtstbijzijnde*. De leesvoorkeur *dichtstbijzijnde* is geconfigureerd voor het lezen van de dichtstbijzijnde regio.
 
 ```csharp
 var collection = database.GetCollection<BsonDocument>(collectionName);
 collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Nearest));
 ```
 
-Voor toepassingen met een primaire lezen/schrijven regio en een secundaire regio voor noodherstel (DR) scenario's, wordt aangeraden dat uw verzameling lezen voorkeur instelt op *secundaire voorkeur*. Een voorkeur voor het lezen *secundaire voorkeur* is geconfigureerd voor het lezen van de secundaire regio als de primaire regio niet beschikbaar is.
+Voor toepassingen met een primaire lees-/schrijfregio en een secundaire regio voor noodherstel (DR) scenario's, wordt aangeraden de leesvoorkeur van uw verzameling in te stellen op *secundaire voorkeur*. De leesvoorkeur *secundaire voorkeur* is geconfigureerd om uit de secundaire regio te lezen wanneer de primaire regio niet beschikbaar is.
 
 ```csharp
 var collection = database.GetCollection<BsonDocument>(collectionName);
 collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.SecondaryPreferred));
 ```
 
-Als u handmatig wilt ten slotte uw lezen gebieden opgeven. U kunt de regio Tag binnen uw voorkeur lezen instellen.
+Tot slot wilt u mogelijk uw leesregio’s handmatig opgeven. U kunt de regiotag instellen in uw leesvoorkeur.
 
 ```csharp
 var collection = database.GetCollection<BsonDocument>(collectionName);
@@ -93,17 +92,17 @@ var tag = new Tag("region", "Southeast Asia");
 collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Secondary, new[] { new TagSet(new[] { tag }) }));
 ```
 
-Dat is, die in deze zelfstudie is voltooid. U kunt informatie over het beheren van de consistentie van uw account globaal gerepliceerde door te lezen [consistentieniveaus in Azure Cosmos DB](consistency-levels.md). En Zie voor meer informatie over hoe globale databasereplicatie in Azure Cosmos DB werkt, [gegevens globaal met Azure Cosmos DB distribueren](distribute-data-globally.md).
+En daarmee is deze zelfstudie voltooid. Informatie over het beheren van de consistentie van uw wereldwijd gerepliceerde account kunt u vinden in [Consistentieniveaus in Azure Cosmos DB](consistency-levels.md). En voor meer informatie over hoe wereldwijde databasereplicatie werkt in Azure Cosmos DB, gaat u naar [Gegevens wereldwijd distribueren met Azure Cosmos DB](distribute-data-globally.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
 In deze zelfstudie hebt u het volgende gedaan:
 
 > [!div class="checklist"]
-> * Globale distributie op basis van de Azure-portal configureren
-> * Globale distributie op basis van de SQL-API's configureren
+> * Wereldwijde distributie configureren met behulp van Azure Portal
+> * Wereldwijde distributie configureren met behulp van de SQL-API's
 
-U kunt nu doorgaan met de volgende zelfstudie voor meer informatie over het ontwikkelen van lokaal via de lokale Azure DB die Cosmos-emulator.
+U kunt nu doorgaan met de volgende zelfstudie voor informatie over lokaal ontwikkelen met behulp van de lokale Azure Cosmos DB-emulator.
 
 > [!div class="nextstepaction"]
 > [Lokaal ontwikkelen met de emulator](local-emulator.md)

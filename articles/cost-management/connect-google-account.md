@@ -2,19 +2,19 @@
 title: Verbinding maken met een account met Google Cloud Platform naar Azure kosten Management | Microsoft Docs
 description: Verbinding maken met een account Google Cloud Platform kosten weergeven en gebruiksgegevens in kostenbeheer repots.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2018
-ms.topic: article
+ms.date: 04/26/2018
+ms.topic: conceptual
 ms.service: cost-management
-manager: carmonm
-ms.custom: 
-ms.openlocfilehash: 8f8c157be0a369817099afa211015ba7587017e3
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+manager: dougeby
+ms.custom: ''
+ms.openlocfilehash: b7141d028c496b75b061c17aa19ad6c73c0588c0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>Verbinding maken met een account met Google Cloud Platform
 
@@ -24,7 +24,7 @@ U kunt uw bestaande Google Cloud Platform-account verbinding maken met Azure kos
 
 Begint u met het verzamelen van gegevens over uw project.
 
-1. Aanmelden bij de console van Google Cloud Platform op [https://console.cloud.google.com](https://console.cloud.google.com).
+1. Aanmelden bij de console van Google Cloud Platform op [ https://console.cloud.google.com ](https://console.cloud.google.com).
 2. De project-informatie die u voorbereiden voor beheer van kosten en opmerking wilt de **projectnaam** en de **Project-ID**. De gegevens voor de volgende stappen bij de hand houden.  
     ![Google Cloud Platform-console](./media/connect-google-account/gcp-console01.png)
 3. Als facturering niet is ingeschakeld en is gekoppeld aan uw project, maakt u een rekening. Zie voor meer informatie [Maak een nieuwe factureringsaccount](https://cloud.google.com/billing/docs/how-to/manage-billing-account#create\_a\_new\_billing\_account).
@@ -46,9 +46,9 @@ Voor het verzamelen van informatie over het gebruik en activa-informatie moet ko
 - BigQuery API
 - Google Cloud SQL
 - Google Cloud Datastore API
-- Google Cloud Storage
+- Google Cloud-opslag
 - Google Cloud-opslag JSON-API
-- Google Compute Engine API
+- Google Compute Engine-API
 
 ### <a name="enable-or-verify-apis"></a>In- of Controleer of API 's
 
@@ -59,7 +59,7 @@ Voor het verzamelen van informatie over het gebruik en activa-informatie moet ko
 
 ## <a name="add-a-google-cloud-account-to-cost-management"></a>Een Google Cloud-account toevoegen aan kostenbeheer
 
-1. De portal Cloudyn openen vanuit de Azure-portal of Ga naar [https://azure.cloudyn.com](https://azure.cloudyn.com/) en zich aanmelden.
+1. De portal Cloudyn openen vanuit de Azure-portal of Ga naar [ https://azure.cloudyn.com ](https://azure.cloudyn.com/) en zich aanmelden.
 2. Klik op **instellingen** (tandwiel symbol) en selecteer vervolgens **Accounts in de Cloud**.
 3. In **accountbeheer**, selecteer de **Google-Accounts** tabblad en klik vervolgens op **nieuwe toevoegen +**.
 4. In **Google-accountnaam**, voer het e-mailadres voor de facturering account en klik vervolgens op **volgende**.

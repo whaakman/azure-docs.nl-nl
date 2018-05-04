@@ -6,19 +6,18 @@ services: application-gateway
 author: amsriva
 manager: rossort
 editor: amsriva
-ms.assetid: 04b362bc-6653-4765-86f6-55ee8ec2a0ff
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2017
+ms.date: 4/16/2018
 ms.author: amsriva
-ms.openlocfilehash: d3945436a369f624ccb1d862b9623b8cfb1ed376
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 35a7e60dc65b54cbddfcd85fa0e704823152889e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="web-application-firewall-waf"></a>Web Application Firewall (WAF)
 
@@ -60,7 +59,7 @@ Web Application Firewall is standaard geconfigureerd met CRS 3.0, maar u kunt oo
 * Beveiliging tegen schendingen van het HTTP-protocol
 * Beveiliging tegen afwijkingen van het HTTP-protocol, zoals een gebruikersagent voor de host en Accept-headers die ontbreken
 * Beveiliging tegen bots, crawlers en scanners
-* Detectie van veelvoorkomende onjuiste configuraties van toepassingen (Apache, IIS, enzovoort)
+* Detectie van veelvoorkomende onjuiste configuraties van toepassingen (bijvoorbeeld Apache, IIS, enzovoort).
 
 Raadpleeg de volgende [Core Rule Sets](#core-rule-sets) voor een gedetailleerde lijst van regels en waartegen ze beveiliging bieden.
 
@@ -74,9 +73,7 @@ De Core Rule Set 3.0 bestaat uit de 13 regelgroepen uit de onderstaande tabel. E
 
 |Regelgroep|Beschrijving|
 |---|---|
-|**[REQUEST-910-IP-REPUTATION](application-gateway-crs-rulegroups-rules.md#crs910)**|Bevat regels om te beveiligen tegen bekende spammers of schadelijke activiteiten.|
 |**[REQUEST-911-METHOD-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs911)**|Bevat regels om te beveiligen tegen lockdown-methoden (PUT, PATCH< ..)|
-|**[REQUEST-912-DOS-PROTECTION](application-gateway-crs-rulegroups-rules.md#crs912)**| Bevat regels om te beveiligen tegen DoS-aanvallen (Denial of Service).|
 |**[REQUEST-913-SCANNER-DETECTION](application-gateway-crs-rulegroups-rules.md#crs913)**| Bevat regels om te beveiligen tegen poort- en omgevingsscanners.|
 |**[REQUEST-920-PROTOCOL-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs920)**|Bevat regels om te beveiligen tegen protocol- en coderingsproblemen.|
 |**[REQUEST-921-PROTOCOL-ATTACK](application-gateway-crs-rulegroups-rules.md#crs921)**|Bevat regels om te beveiligen tegen header-injectie, 'request smuggling' en 'response splitting'.|
@@ -166,7 +163,6 @@ Application Gateway WAF biedt gedetailleerde rapporten voor elke bedreiging die 
 
 Web Application Firewall is beschikbaar onder een nieuwe WAF-SKU. Deze SKU is alleen beschikbaar in het inrichtingsmodel van Azure Resource Manager en niet in het klassieke implementatiemodel. Bovendien is de WAF-SKU alleen leverbaar in de middelgrote en grote varianten van de toepassingsgateway. Alle limieten voor de toepassingsgateway zijn ook van toepassing op de WAF-SKU. De prijzen variëren naargelang de kosten per gateway-uur en de kosten voor gegevensverwerking. De prijzen voor gateway-uren voor de WAF-SKU verschillen van de kosten voor Basic-SKU's. Zie [Prijzen van Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway/) voor meer informatie. De kosten voor gegevensverwerking zijn wel hetzelfde. Er worden geen kosten per regel of regelgroep in rekening gebracht. U kunt meerdere webtoepassingen achter dezelfde firewall voor webtoepassingen beveiligen en er zijn geen extra kosten verbonden aan de ondersteuning van meerdere toepassingen. 
 
-De facturering voor WAF start vanaf 5 mei 2017. Tot die tijd worden de gateways van de WAF-SKU volgens de standaardtarieven gefactureerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 

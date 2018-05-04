@@ -67,6 +67,8 @@
           href: insights-alerts-powershell.md
         - name: Webhookacties voor logboekwaarschuwingen
           href: monitor-alerts-unified-log-webhook.md
+        - name: Een nieuwere waarschuwing voor metrische gegevens maken met een Resource Manager-sjabloon
+          href: monitoring-create-metric-alerts-with-templates.md
         - name: Een klassieke waarschuwing voor metrische gegevens maken met een Resource Manager-sjabloon
           href: monitoring-enable-alerts-using-template.md
         - name: Waarschuwingen van de OMS-portal kopiëren naar Azure Portal

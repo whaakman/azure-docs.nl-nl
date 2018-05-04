@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 02/01/2018
 ms.openlocfilehash: 8a4bb8d825f89b08e9b7514d67ae2d2512cceec9
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-configure-azure-machine-learning-workbench-to-work-with-an-ide"></a>Het configureren van Azure Machine Learning-Workbench om te werken met een IDE 
 
@@ -31,13 +31,13 @@ Azure Machine Learning Workbench kan worden geconfigureerd om te werken met popu
 ### <a name="default-install-path-for-visual-studio-code"></a>Standaard installatiepad voor Visual Studio Code  
 
 * Windows 32-bits- `C:\Program Files (x86)\Microsoft VS Code\Code.exe`
-* Windows 64-bit - `C:\Program Files\Microsoft VS Code\Code.exe`
+* Windows 64-bits- `C:\Program Files\Microsoft VS Code\Code.exe`
 * Mac OS - selecteert u het pad .app bijvoorbeeld `/Applications/Visual Studio Code.app`, en de app wordt toegevoegd voor de rest van het pad voor u. Het volledige pad naar het uitvoerbare bestand standaard `/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code`. Als u uitvoert, hebben de `Shell Command: Install 'code' command in PATH` opdracht in VS-Code, en vervolgens kunt u ook verwijzen naar de Code van de VS-script op `/usr/local/bin/code`
 
 ### <a name="default-install-path-for-pycharm"></a>Standaard installatiepad voor PyCharm 
 
 * Windows 32-bits - `C:\Program Files (x86)\JetBrains\PyCharm Community Edition 2017.2.1\bin\pycharm.exe`. 
-* Windows 64-bit - `C:\Program Files\JetBrains\PyCharm Community Edition 2017.2.1\bin\pycharm64.exe`.
+* Windows 64-bits - `C:\Program Files\JetBrains\PyCharm Community Edition 2017.2.1\bin\pycharm64.exe`.
 * Mac OS - Selecteer het pad .app, bijvoorbeeld '/ Applications/PyCharm CE.app' en de app voegt de rest van het pad voor u. Het volledige pad naar het uitvoerbare bestand standaard `/Applications/PyCharm CE.app/Contents/MacOS/pycharm`. Wellicht vindt u ook PyCharm op de bin-map `/usr/local/bin/charm`
 
 ## <a name="open-project-in-ide"></a>Project openen in IDE 

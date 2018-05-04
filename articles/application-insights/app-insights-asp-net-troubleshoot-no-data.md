@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
 ms.openlocfilehash: 951a3217d795df6360cd3cfa2d47db08c11f978e
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Problemen met ontbrekende gegevens oplossen - Application Insights voor .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Sommige van mijn telemetrie ontbreekt
@@ -65,7 +65,7 @@ Lijkt erop dat is iets verkeerd gegaan tijdens de installatie Application Insigh
 
 Klik in Solution Explorer met de rechtermuisknop op uw project en kies **Application Insights > Application Insights configureren**. U krijgt een dialoogvenster met een uitnodiging aan te melden bij Azure en maak een Application Insights-resource opnieuw of gebruik een bestaande.
 
-## <a name="NuGetBuild"></a>"NuGet-pakketten ontbreken' op mijn buildserver
+## <a name="NuGetBuild"></a> "NuGet-pakketten ontbreken' op mijn buildserver
 *Alles bouwt OK wanneer ik ben foutopsporing op de ontwikkelcomputer, maar er een NuGet-fout op de buildserver verschijnt.*
 
 Zie [NuGet-pakket herstellen](http://docs.nuget.org/Consume/Package-Restore) en [automatische pakket herstellen](http://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore).
@@ -124,7 +124,7 @@ FIX:
     U ziet er sommige samenvatting grafieken. U kunt klikken via ze meer details.
 * Wanneer u fouten uw app opspoort, klikt u in Visual Studio de knop Application Insights.
 
-## <a name="q03"></a>Er is geen server-gegevens (of geen gegevens op alle)
+## <a name="q03"></a> Er is geen server-gegevens (of geen gegevens op alle)
 *Ik heb mijn app wordt uitgevoerd en de Application Insights-service vervolgens opent in Microsoft Azure, maar alle grafieken weergeven 'Meer informatie over het verzamelen van...' of 'Niet geconfigureerd'.* Of, *alleen paginaweergave-en gebruikersgegevens, maar er zijn geen servergegevens.*
 
 * Voer uw toepassing in de foutopsporingsmodus in Visual Studio (F5). Gebruik de toepassing om telemetrie te genereren. Controleer of u de gebeurtenissen die zijn vastgelegd in het uitvoervenster Visual Studio kunt zien. 

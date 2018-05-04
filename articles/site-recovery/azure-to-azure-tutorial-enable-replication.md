@@ -5,18 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 03/16/2018
+ms.topic: tutorial
+ms.date: 04/08/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7dd0bfbd96e6ba7b5d2174334419797c4fd60a51
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
-ms.translationtype: MT
+ms.openlocfilehash: d1bc6fcb17732da7f6b0985122dd2cff3c2c9cdf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Herstel na noodgevallen instellen van Azure-VM’s naar een secundaire Azure-regio (preview)
 
@@ -77,7 +74,7 @@ Als u een firewall-proxy op basis van URL’s gebruikt om de uitgaande connectiv
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Uitgaande connectiviteit voor IP-adresbereiken
 
-Als u een firewall, proxy of NSG-regels op basis van IP’s gebruikt om de uitgaande connectiviteit te controleren, moeten de volgende IP-adresbereiken op de whitelist staan. Download een lijst met bereiken via de volgende koppelingen:
+Als u uitgaande connectiviteit wilt beheren met behulp van IP-adressen in plaats van URL's, neem dan de juiste datacenterbereiken, Office 365-adressen en service-eindpuntadressen op in de lijst met toegestane adressen, voor op IP gebaseerde firewalls, proxy- of NSG-regels.
 
   - [Microsoft Azure Datacenter IP-bereiken](http://www.microsoft.com/en-us/download/details.aspx?id=41653)
   - [Windows Azure Datacenter IP-bereiken in Duitsland](http://www.microsoft.com/en-us/download/details.aspx?id=54770)
@@ -85,7 +82,7 @@ Als u een firewall, proxy of NSG-regels op basis van IP’s gebruikt om de uitga
   - [Office 365 URLs and IP address ranges (URL's en IP-adresbereiken voor Office 365)](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Site Recovery-service-eindpunt-IP-adressen](https://aka.ms/site-recovery-public-ips)
 
-Gebruik deze lijsten voor het configureren van het netwerktoegangsbeheer in uw netwerk. U kunt dit [script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702) gebruiken om de vereiste NSG-regels maken.
+U kunt dit [script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702) gebruiken om de vereiste NSG-regels maken.
 
 ## <a name="verify-azure-vm-certificates"></a>Azure VM-certificaten controleren
 
@@ -105,7 +102,7 @@ Azure Site Recovery heeft drie ingebouwde rollen voor het beheren van Site Recov
 
 - **Site Recovery-lezer** - deze rol heeft machtigingen voor het weergeven van alle beheerbewerkingen van Site Recovery. Deze rol is het meest geschikt is voor een IT-leidinggevende die de huidige beschermingsstatus kan bewaken en ondersteuningstickets kan aanvragen.
 
-Meer informatie over [ingebouwde Azure RBAC-rollen](../active-directory/role-based-access-built-in-roles.md)
+Meer informatie over [ingebouwde Azure RBAC-rollen](../role-based-access-control/built-in-roles.md)
 
 ## <a name="enable-replication"></a>Replicatie inschakelen
 
@@ -144,9 +141,9 @@ Site Recovery maakt standaardinstellingen en replicatiebeleid voor de doelregio.
 
 - **Cacheopslagaccounts**: Site Recovery maakt gebruik van een opslagaccount in de bronregio. Wijzigingen in de bron-VM's worden naar dit account verzonden vóór replicatie naar de doellocatie.
 
-- **Storage-accounts als doel (als de bron-VM maakt geen gebruik van schijven die worden beheerd)**: Site Recovery wordt standaard een nieuw opslagaccount gemaakt in de doelregio voor het spiegelen van de bron-VM storage-account.
+- **Doelopslagaccounts (als bron-VM geen beheerde schijven gebruikt)**: Site Recovery maakt standaard een nieuw opslagaccount in de doelregio om het bron-VM-opslagaccount te spiegelen.
 
-- **Replica beheerde schijven (of de bron-VM beheerde schijven gebruikt)**: standaard, maakt Site Recovery schijven van de replica die wordt beheerd in de doelregio voor het spiegelen van de bron-VM beheerde schijven met hetzelfde opslagtype (Standard of premium) als de bron-VM van beheerd schijf.
+- **Beheerde replicaschijven (als de bron-VM gebruikmaakt van beheerde schijven)**: Site Recovery maakt standaard replicaschijven in de doelregio om de beheerde schijven van de bron-VM's te spiegelen met hetzelfde opslagtype (Standard of Premium) als de beheerde schijf van de bron-VM's.
 
 - **Doelbeschikbaarheidssets**: Site Recovery maakt standaard een nieuwe beschikbaarheidsset in de doelregio met het achtervoegsel 'asr'. U kunt alleen beschikbaarheidssets toevoegen als VM’s deel uitmaken van een set in de bronregio.
 

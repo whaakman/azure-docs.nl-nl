@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/17/2018
+ms.date: 04/25/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 860a381e5ec2054cd6243901a8e172832e6ada53
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 2876565f3d6a3411eb170d4da640166fa3e607eb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tools-for-azure-stack-storage"></a>Hulpprogramma's voor de opslag van Azure Stack
 
@@ -47,41 +47,88 @@ Vanwege de storage-services verschillen tussen Azure en Azure-Stack, is er mogel
 
 
 ## <a name="azcopy"></a>AzCopy
-AzCopy is een opdrachtregelprogramma dat is ontworpen om gegevens te kopiëren naar en van Microsoft Azure-blob en table storage met eenvoudige opdrachten met optimale prestaties. U kunt gegevens van het ene object naar de andere kopiëren binnen uw opslagaccount of tussen opslagaccounts. Er zijn twee versies van het hulpprogramma AzCopy: AzCopy voor Windows en AzCopy op Linux. Azure-Stack ondersteunt alleen de Windows-versie. 
- 
-### <a name="download-and-install-azcopy"></a>Downloaden en installeren van AzCopy 
 
-[Download](https://aka.ms/azcopyforazurestack) de ondersteunde Windows-versie van AzCopy voor Azure-Stack. U kunt installeren en gebruiken van AzCopy op Azure-Stack dezelfde manier als Azure. Zie voor meer informatie, [gegevensoverdracht met het AzCopy-opdrachtregelprogramma](../../storage/common/storage-use-azcopy.md). 
+AzCopy is een opdrachtregelprogramma dat is ontworpen om gegevens te kopiëren naar en van Microsoft Azure-blob en table storage met eenvoudige opdrachten met optimale prestaties. U kunt gegevens van het ene object naar de andere kopiëren binnen uw opslagaccount of tussen opslagaccounts.
 
- - Voor de 1802 update of een nieuwere versies [AzCopy 7.1.0 downloaden](https://aka.ms/azcopyforazurestack20170417).
- - Voor de vorige versie [AzCopy 5.0.0 downloaden](https://aka.ms/azcopyforazurestack20150405).
+### <a name="download-and-install-azcopy"></a>Downloaden en installeren van AzCopy
+
+Er zijn twee versies van het hulpprogramma AzCopy: AzCopy voor Windows en AzCopy op Linux.
+
+ - **AzCopy in Windows**  
+    - Download de ondersteunde versie van AzCopy voor Azure-Stack. U kunt installeren en gebruiken van AzCopy op Azure-Stack dezelfde manier als Azure. Zie voor meer informatie, [AzCopy op Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy).
+        - Voor de 1802 update of nieuwere versies [AzCopy 7.1.0 downloaden](https://aka.ms/azcopyforazurestack20170417).
+        - Voor eerdere versies [AzCopy 5.0.0 downloaden](https://aka.ms/azcopyforazurestack20170417).
+
+ - **AzCopy in Linux**  
+
+    - AzCopy op Linux ondersteunt Azure Stack 1802 update of nieuwere versies. U kunt installeren en gebruiken van AzCopy op Azure-Stack dezelfde manier als Azure. Zie voor meer informatie, [AzCopy op Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux).
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>Voorbeelden van AzCopy-opdracht voor gegevensoverdracht
 
-De volgende voorbeelden ziet een typische scenario's voor het kopiëren van gegevens naar en van de Stack Azure blobs. Zie voor meer informatie, [gegevensoverdracht met het AzCopy-opdrachtregelprogramma](../../storage/storage-use-azcopy.md). 
+De volgende voorbeelden volgt gangbare scenario's voor het kopiëren van gegevens naar en van de Stack Azure blobs. Zie voor meer informatie, [AzCopy op Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) en [AzCopy op Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux).
 
-#### <a name="download-all-blobs-to-local-disk"></a>Alle blobs downloaden naar de lokale schijf
+### <a name="download-all-blobs-to-a-local-disk"></a>Alle blobs downloaden naar een lokale schijf
 
-```azcopy  
+**Windows**
+
+````AzCopy  
 AzCopy.exe /source:https://myaccount.blob.local.azurestack.external/mycontainer /dest:C:\myfolder /sourcekey:<key> /S
-```
+````
 
-#### <a name="upload-single-file-to-virtual-directory"></a>Bestand uploaden naar virtuele map 
-```azcopy  
+**Linux**
+
+````AzCopy  
+azcopy \
+    --source https://myaccount.blob.local.azurestack.external/mycontainer \
+    --destination /mnt/myfiles \
+    --source-key <key> \
+    --recursive
+````
+
+### <a name="upload-single-file-to-virtual-directory"></a>Bestand uploaden naar virtuele map
+
+**Windows**
+
+```AzCopy  
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.local.azurestack.external/mycontainer/vd /DestKey:key /Pattern:abc.txt
 ```
 
-#### <a name="move-data-between-azure-and-azure-stack-storage"></a>Gegevens verplaatsen tussen Azure en Azure Stack Storage 
-Asynchrone gegevensoverdracht tussen Azure Storage en Azure-Stack wordt niet ondersteund. u moet opgeven van de overdracht met de **/SyncCopy** optie. 
+**Linux**
 
-```azcopy  
+````AzCopy  
+azcopy \
+    --source /mnt/myfiles/abc.txt \
+    --destination https://myaccount.blob.local.azurestack.external/mycontainer/vd/abc.txt \
+    --dest-key <key>
+````
+
+### <a name="move-data-between-azure-and-azure-stack-storage"></a>Gegevens verplaatsen tussen Azure en Azure Stack Storage
+
+Asynchrone gegevensoverdracht tussen Azure Storage en Azure-Stack wordt niet ondersteund. U moet opgeven van de overdracht met de **/SyncCopy** of **--gesynchroniseerde kopie** optie.
+
+**Windows**
+
+````AzCopy  
 Azcopy /Source:https://myaccount.blob.local.azurestack.external/mycontainer /Dest:https://myaccount2.blob.core.windows.net/mycontainer2 /SourceKey:AzSKey /DestKey:Azurekey /S /SyncCopy
-```
+````
+
+**Linux**
+
+````AzCopy  
+azcopy \
+    --source https://myaccount1.blob.local.azurestack.external/myContainer/ \
+    --destination https://myaccount2.blob.core.windows.net/myContainer/ \
+    --source-key <key1> \
+    --dest-key <key2> \
+    --include "abc.txt" \
+    --sync-copy
+````
+
 ### <a name="azcopy-known-issues"></a>Azcopy bekende problemen
 
  - AzCopy bewerkingen in een bestandsarchief is niet beschikbaar omdat de opslag van bestanden is nog niet beschikbaar in Azure-Stack.
  - Asynchrone gegevensoverdracht tussen Azure Storage en Azure-Stack wordt niet ondersteund. U kunt opgeven dat de overdracht met de **/SyncCopy** optie om de gegevens te kopiëren.
- - De Linux-versie van Azcopy wordt niet ondersteund voor de opslag van de Azure-Stack. 
+ - De Linux-versie van Azcopy ondersteunt alleen 1802 update of hoger. En het biedt geen ondersteuning voor tabel-service.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -132,7 +179,7 @@ Set-AzureRmEnvironment -Name $ARMEvnName -GraphEndpoint $GraphAudience
 
 # Login
 $TenantID = Get-AzsDirectoryTenantId -AADTenantName $AADTenantName -EnvironmentName $ARMEvnName
-Connect-AzureRmAccount -EnvironmentName $ARMEvnName -TenantId $TenantID 
+Add-AzureRmAccount -EnvironmentName $ARMEvnName -TenantId $TenantID 
 
 # Set a default Azure subscription.
 Select-AzureRmSubscription -SubscriptionName $SubscriptionName

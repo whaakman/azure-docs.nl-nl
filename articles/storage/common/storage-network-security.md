@@ -2,7 +2,7 @@
 title: Configureren van Firewalls voor Azure-opslag en virtuele netwerken | Microsoft Docs
 description: Gelaagde netwerkbeveiliging configureren voor uw opslagaccount.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: cbrooksmsft
 manager: cbrooks
 editor: cbrooks
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: fc13b7cc164c948f25a6908bdf71124a5be02fb9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 52d904e7a7e8e5d520d2abd799ef0ae7e99b9894
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage Firewalls en virtuele netwerken configureren
 Azure Storage biedt een gelaagd beveiligingsmodel waarmee u voor het beveiligen van uw storage-accounts op een specifieke set toegestane netwerken.  Wanneer het netwerk regels zijn geconfigureerd, kan alleen toepassingen van toegestane netwerken toegang krijgen tot een opslagaccount.  Bij het aanroepen van een toegestane netwerk, blijven de toepassingen vereisen juiste autorisatie (een geldig toegangssleutel of SAS-token) voor toegang tot het opslagaccount.
@@ -37,11 +37,9 @@ Zodra het netwerk regels worden toegepast, worden ze afgedwongen voor alle aanvr
 
 Schijf voor virtuele Machine verkeer (waaronder koppelen en ontkoppelen van bewerkingen, en schijf-i/o) **niet** van invloed op een netwerk-regels.  REST-toegang tot de pagina-blobs is beveiligd met de netwerk-regels.
 
-> [!NOTE]
-> Back-up en herstel van virtuele Machines met niet-beheerde schijven in de storage-accounts met netwerk regels toegepast is momenteel niet ondersteund.  Zie voor meer informatie [beperkingen bij een back-up en herstellen van een virtuele machine](/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm)
->
-
 Klassieke opslagaccounts **niet** ondersteuning voor Firewalls en virtuele netwerken.
+
+Back-up en herstel van virtuele Machines met niet-beheerde schijven in de storage-accounts met netwerk regels toegepast wordt ondersteund via een uitzondering te maken, zoals beschreven in de [uitzonderingen](/storage/common/storage-network-security#exceptions) sectie van dit artikel.  Firewall-uitzonderingen zijn niet van toepassing met beheerde schijven ze al worden beheerd door Azure.
 
 ## <a name="change-the-default-network-access-rule"></a>De standaardregel voor toegang tot netwerk wijzigen
 Standaard aanvaarden opslagaccounts verbindingen van clients op een netwerk.  Om te beperken van toegang tot geselecteerde netwerken, moet u eerst de standaardactie wijzigen.
@@ -291,6 +289,7 @@ Wanneer de uitzondering 'Microsoft-Services vertrouwde' is ingeschakeld, krijgen
 
 |Service|De naam van de Resource-Provider|Doel|
 |:------|:---------------------|:------|
+|Azure Backup|Microsoft.Backup|Back-ups en niet-beheerde schijven te herstellen in IAAS virtuele machines uitvoeren. (niet vereist voor beheerde schijven). [Meer informatie](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup).|
 |Azure DevTest Labs|Microsoft.DevTestLab|Aangepaste installatiekopie maken en artefact installatie.  [Meer informatie](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-overview).|
 |Azure Event Grid|Microsoft.EventGrid|Blob Storage gebeurtenis publicaties mogelijk maken.  [Meer informatie](https://docs.microsoft.com/azure/event-grid/overview).|
 |Azure Event Hubs|Microsoft.EventHub|Archiveren van gegevens met Event Hubs vastleggen.  [Meer informatie](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|

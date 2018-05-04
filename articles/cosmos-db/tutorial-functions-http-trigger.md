@@ -1,38 +1,38 @@
 ---
-title: Maken van een HTTP-Trigger met een invoer Azure DB die Cosmos-binding | Microsoft Docs
-description: Informatie over het gebruik van Azure Functions met HTTP-Triggers to Azure Cosmos DB-query.
+title: Een HTTP-trigger maken met een Azure Cosmos DB-invoerbinding | Microsoft Docs
+description: Informatie over het gebruik van Azure Functions met HTTP-triggers voor het uitvoeren van query’s op Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-ms.assetid: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/25/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 3fca64db9e19f8295fc462b790beb95f6796ae4c
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: MT
+ms.openlocfilehash: 85a9e66491513b016380913617d8e78cf5d82f6d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="create-an-azure-functions-http-trigger-with-an-azure-cosmos-db-input-binding"></a>De trigger van een HTTP-functies van Azure maken met een binding van Azure DB die Cosmos-invoer
+# <a name="create-an-azure-functions-http-trigger-with-an-azure-cosmos-db-input-binding"></a>Een Azure Functions HTTP-trigger maken met een Azure Cosmos DB-invoerbinding
 
-Azure Cosmos-database is een globaal gedistribueerd en modellen database schemaloos en zonder server. Azure-functie is een zonder server compute-service waarmee u code op aanvraag uitvoeren. Koppel van deze twee Azure-services en u hebt de basis voor een zonder server architectuur waarmee u zich kunt richten op geweldige apps ontwikkelen en u geen zorgen over inrichten en beheren van servers voor uw berekenings en -database moet.
+Azure Cosmos DB is een globaal gedistribueerde, multi-model database die zowel schemaloos als serverloos is. Azure Function is een serverloze rekenservice waarmee u code op aanvraag uit kunt voeren. Koppel deze twee Azure-services en u hebt de basis voor een serverloze architectuur waarmee u zich kunt richten op het bouwen van geweldige apps en u geen zorgen hoeft te maken over het inrichten en onderhouden van servers voor uw reken- en databasebehoeften.
 
-Deze zelfstudie bouwt voort op de code die is gemaakt in de [Graph API Quick Start voor .NET](create-graph-dotnet.md). Deze zelfstudie wordt een Azure-functie met een [HTTP-trigger](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-bindings-http-webhook.md#http-trigger). De HTTP-trigger gebruikt een Cosmos Azure DB [invoer binding](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-triggers-bindings.md) gegevens ophalen uit de database van de grafiek in de Quick Start hebt gemaakt. Deze bepaalde HTTP-trigger voert een query Azure Cosmos DB voor gegevens, maar de invoer bindingen van Azure DB die Cosmos kunnen worden gebruikt voor het ophalen van gegevens invoerwaarden voor wat de functie vereist.
+Deze zelfstudie bouwt voort op de code die is gemaakt in de [Graph-API-snelstart voor .NET](create-graph-dotnet.md). In deze zelfstudie wordt een Azure Function toegevoegd die een [HTTP-trigger](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-bindings-http-webhook.md#http-trigger) bevat. De HTTP-trigger gebruikt een Cosmos Azure DB- [invoerbinding](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-triggers-bindings.md) om gegevens op te halen uit de graafdatabase die u in de snelstartgids hebt gemaakt. Deze specifieke HTTP-trigger vraagt gegevens op uit Azure Cosmos DB, maar invoerbindingen van Azure Cosmos DB kunnen worden gebruikt voor het ophalen van gegevensinvoerwaarden voor wat uw functie maar nodig heeft.
 
-Deze zelfstudie bevat de volgende taken:
+Deze zelfstudie bestaat uit de volgende taken:
 
 > [!div class="checklist"]
-> * Een Azure-functie-project maken 
-> * Maken van een HTTP-trigger
-> * De functie Azure publiceren
-> * De functie Azure verbinding met de Azure DB die Cosmos-database
+> * Een Azure Function-project maken 
+> * Een HTTP-trigger maken
+> * De Azure Function publiceren
+> * De Azure Function verbinden met de Azure DB Cosmos-database
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -40,46 +40,46 @@ Deze zelfstudie bevat de volgende taken:
 
     ![Visual Studio 2017 installeren met de Azure-ontwikkelworkload](./media/tutorial-functions-http-trigger/functions-vs-workloads.png)
     
-- Na het installeren of upgraden naar Visual Studio 2017 versie 15,3, moet u handmatig de 2017 van Visual Studio-hulpprogramma's voor Azure Functions bijwerken. U kunt de hulpprogramma's van bijwerken de **extra** menu onder **uitbreidingen en Updates...**   >  **Updates** > **Visual Studio Marketplace** > **Azure Functions en Web extra taken** > **Update**.
+- Na het installeren van of upgraden naar Visual Studio 2017 versie 15.3, moet u handmatig de hulpprogramma’s van Visual Studio 2017 voor Azure Functions bijwerken. U kunt de hulpprogramma’s bijwerken vanuit het menu **Extra** onder **Extensie en updates...** > **Updates** > **Visual Studio Marketplace** > **Azure Functions en WebJobs-hulpprogramma’s** > **Bijwerken**.
 
-- Voltooi de [bouwen van een .NET-toepassing met behulp van de Graph API](tutorial-develop-graph-dotnet.md) zelfstudie of get in het voorbeeld van code de [azure-cosmos-db-graph-dotnet-getting-started](https://github.com/Azure-Samples/azure-cosmos-db-graph-dotnet-getting-started) GitHub-repo- en bouw het project.
+- Voltooi de zelfstudie [Build a .NET application using the Graph API](tutorial-develop-graph-dotnet.md) (Een .NET-toepassing bouwen met behulp van de Graph-API) of download de voorbeeldcode uit de GitHub-repo [azure-cosmos-db-graph-dotnet-getting-started](https://github.com/Azure-Samples/azure-cosmos-db-graph-dotnet-getting-started) en bouw het project.
  
-## <a name="build-a-function-in-visual-studio"></a>Een functie in Visual Studio wilt bouwen
+## <a name="build-a-function-in-visual-studio"></a>Een functie bouwen in Visual Studio
 
-1. Add een **Azure Functions** project om uw oplossing door met de rechtermuisknop op het knooppunt van de oplossing in **Solution Explorer**, het Kies **toevoegen**  >   **Nieuw Project**. Kies **Azure Functions** in het dialoogvenster vak en noem deze **PeopleDataFunctions**.
+1. Voet een **Azure Functions**-project aan uw oplossing toe door in **Solution Explorer** met de rechtermuisknop op het knooppunt van de oplossing te klikken en **Toevoegen** >  **Nieuw Project** te kiezen. Kies **Azure Functions** in het dialoogvenster en noem het project **PeopleDataFunctions**.
 
-   ![Een Azure-functie-serviceproject toevoegen aan de oplossing](./media/tutorial-functions-http-trigger/01-add-function-project.png)
+   ![Een Azure Function-project toevoegen aan de oplossing](./media/tutorial-functions-http-trigger/01-add-function-project.png)
 
-2. Nadat u de Azure Functions-project maken, er zijn enkele NuGet gerelateerde updates en installeert om uit te voeren. 
+2. Nadat u het Azure Functions-project hebt gemaakt, moet u enkele NuGet-gerelateerde updates en installaties uitvoeren. 
 
-    a. Om te zorgen dat u de nieuwste functies SDK hebt, kunt u NuGet Manager gebruiken om bij te werken de **Microsoft.NET.Sdk.Functions** pakket. In **Solution Explorer**, met de rechtermuisknop op het project en selecteer **NuGet-pakketten beheren**. In de **geïnstalleerde** tabblad, Microsoft.NET.Sdk.Functions selecteren en klik op **Update**.
+    a. Zorg ervoor dat u de nieuwste Functions-SDK hebt door NuGet Manager te gebruiken om het **Microsoft.NET.Sdk.Functions**-pakket bij te werken. Klik in **Solution Explorer** met de rechtermuisknop op het project en klik op **NuGet-pakketten beheren**. Selecteer op het tabblad **Geïnstalleerd** Microsoft.NET.Sdk.Functions en klik op **Bijwerken**.
 
    ![NuGet-pakketten bijwerken](./media/tutorial-functions-http-trigger/02-update-functions-sdk.png)
 
-    b. In de **Bladeren** tabblad **azure.graphs** vinden de **Microsoft.Azure.Graphs** van het pakket en klik vervolgens op **installeren**. Dit pakket bevat de Graph API .NET Client SDK.
+    b. Voer **azure.graphs** in op het tabblad **Bladeren** om het pakket **Microsoft.Azure.Graphs** te zoeken en klik op **Installeren**. Dit pakket bevat de .NET-client-SDK van de Graph-API.
 
-   ![De Graph API installeren](./media/tutorial-functions-http-trigger/03-add-azure-graphs.png)
+   ![De Graph-API installeren](./media/tutorial-functions-http-trigger/03-add-azure-graphs.png)
 
-    c. In de **Bladeren** tabblad **mono.csharp** vinden de **Mono.CSharp** van het pakket en klik vervolgens op **installeren**.
+    c. Voer **mono.csharp** in op het tabblad **Bladeren** om het pakket **Mono.CSharp** te zoeken en klik op **Installeren**.
 
    ![Mono.CSharp installeren](./media/tutorial-functions-http-trigger/04-add-mono.png)
 
-3. Uw Solution Explorer bevatten moet nu de pakketten die u hebt geïnstalleerd, zoals hier wordt weergegeven. 
+3. Uw Solution Explorer zou nu de pakketten moeten bevatten die u hebt geïnstalleerd, zoals hier wordt weergegeven. 
    
-   Vervolgens moet schrijven van code, dus gaan we een nieuwe toevoegen **Azure-functie** item aan het project. 
+   Vervolgens moeten we wat code schrijven, dus gaan we een nieuw **Azure Function**-item toevoegen aan het project. 
 
     a. Klik op de rechtermuisknop op het projectknooppunt in **Solution Explorer** en kies  > **Nieuw item****Toevoegen**.   
-    b. In de **Add New Item** dialoogvenster, selecteer **Visual C# Items**, selecteer **Azure-functie**, type **Search** als de naam voor uw project en vervolgens Klik op **toevoegen**.  
+    b. Selecteer **Visual C#-items** in het dialoogvenster **Nieuw item toevoegen**, selecteer **Azure Function**, typ **Search** als de naam voor uw project en klik op **Toevoegen**.  
  
-   ![Maak een nieuwe functie met de naam zoeken](./media/tutorial-functions-http-trigger/05-add-function.png)
+   ![Een nieuwe functie met de naam Zoeken maken](./media/tutorial-functions-http-trigger/05-add-function.png)
 
-4. De functie Azure reageert op HTTP-aanvragen, zodat de HTTP-trigger-sjabloon hier geschikt is.
+4. De Azure Function reageert op HTTP-aanvragen, dus is de HTTP-triggersjabloon hier geschikt.
    
-   In de **nieuwe Azure-functie** de optie **Http-trigger**. We willen deze Azure-functie worden ook 'breed open', zodat we instellen de **toegangsrechten** naar **anoniem**, waarmee iedereen via. Klik op **OK**.
+   Selecteer **HTTP-trigger** in het vak **Nieuwe Azure Function**. We willen deze Azure Function ook zo breed mogelijk toegankelijk maken, dus stellen we de **Toegangsrechten** in op **Anoniem**, zodat iedereen wordt toegelaten. Klik op **OK**.
 
-   ![De toegangsrechten ingesteld voor anonieme](./media/tutorial-functions-http-trigger/06-http-trigger.png)
+   ![Toegangsrechten instellen op Anoniem](./media/tutorial-functions-http-trigger/06-http-trigger.png)
 
-5. Nadat u Search.cs aan het project Azure-functie toevoegt, kopieert u deze **met** instructies via de bestaande using-instructies:
+5. Nadat u Search.cs aan het Azure Function-project hebt toegevoegd, kopieert u deze **using**-instructies over de bestaande using-instructies heen:
 
    ```csharp
    using Microsoft.Azure.Documents;
@@ -98,7 +98,7 @@ Deze zelfstudie bevat de volgende taken:
    using System.Threading.Tasks;
    ```
 
-6. Vervolgens moet u de Azure-functie klassecode vervangen door hieronder de code. De code zoekt u de Azure DB die Cosmos-database met behulp van de Graph API voor beide alle personen of voor de specifieke persoon geïdentificeerd door de `name` querytekenreeksparameter.
+6. Vervolgens vervangt u de klassecode van de Azure Function door de onderstaande code. De code doorzoekt de Azure Cosmos DB-database met behulp van de Graph-API op alle personen of op de specifieke persoon die wordt geïdentificeerd door de querytekenreeksparameter `name`.
 
    ```csharp
    public static class Search
@@ -160,36 +160,36 @@ Deze zelfstudie bevat de volgende taken:
    }
    ```
 
-   De code is in feite dezelfde verbinding logica zoals in de oorspronkelijke consoletoepassing die seeding van de database, met een eenvoudige query voor het ophalen van de overeenkomende records.
+   De code is in feite dezelfde verbindingslogica als in de oorspronkelijke consoletoepassing waarmee de database aanvankelijk is gevuld, met een eenvoudige query voor het ophalen van de overeenkomende records.
 
-## <a name="debug-the-azure-function-locally"></a>Fouten opsporen in de Azure-functie lokaal
+## <a name="debug-the-azure-function-locally"></a>Fouten in de Azure-functie lokaal opsporen
 
-Nu dat de code voltooid is, kunt u de Azure-functie lokale hulpprogramma's voor foutopsporing en emulator om uit te voeren van de code lokaal te testen.
+Nu de code voltooid is, kunt u de lokale hulpprogramma’s voor foutopsporing en de emulator van Azure Function gebruiken om de code lokaal uit te voeren en te testen.
 
-1. Voordat u de code correct wordt uitgevoerd, moet u deze configureren voor lokale uitvoering met uw Azure Cosmos DB-verbindingsgegevens. U kunt het bestand local.settings.json gebruiken voor het configureren van de Azure-functie voor lokale uitvoering veel op dezelfde manier zou u het bestand App.config om te configureren van de oorspronkelijke consoletoepassing voor uitvoering.
+1. Voordat u de code correct kan worden uitgevoerd, moet u deze configureren voor lokale uitvoering met uw Azure Cosmos DB-verbindingsgegevens. U kunt het bestand local.settings.json gebruiken voor het configureren van de Azure Function voor lokale uitvoering, op soortgelijke wijze als u het bestand App.config zou gebruiken om de oorspronkelijke consoletoepassing voor uitvoering te configureren.
 
-    U doet dit door de volgende regels code toevoegen aan local.settings.json en kopieer uw eindpunt en AuthKey in het bestand App.Config in het project GraphGetStarted zoals weergegeven in de volgende afbeelding.
+    U doet dit door de volgende regels code toe te voegen aan local.settings.json en uw Endpoint en AuthKey ernaar te kopiëren uit het bestand App.Config in het project GraphGetStarted, zoals weergegeven in de volgende afbeelding.
 
    ```json
     "Endpoint": "",
     "AuthKey": ""
     ```
 
-   ![De sleutel voor eindpunt en autorisatie in het bestand local.settings.json ingesteld](./media/tutorial-functions-http-trigger/07-local-functions-settings.png)
+   ![De eindpunt- en autorisatiesleutel instellen in het bestand local.settings.json](./media/tutorial-functions-http-trigger/07-local-functions-settings.png)
 
-2. Opstartproject in de nieuwe functies app wijzigen. In **Solution Explorer**, met de rechtermuisknop op **PeopleDataFunctions**, en selecteer **instellen als opstartproject**.
+2. Wijzig het opstartproject in de nieuwe Functions-app. Klik in **Solution Explorer** met de rechtermuisknop op **PeopleDataFunctions** en selecteer **Instellen als opstartproject**.
 
-3. In **Solution Explorer**, klik met de rechtermuisknop **afhankelijkheden** in de **PeopleDataFunctions** project en klik vervolgens op **verwijzing toevoegen**. Selecteer de System.Configuration uit de lijst en klik vervolgens op **OK**.
+3. Klik in **Solution Explorer** met de rechtermuisknop op **Afhankelijkheden** in het project **PeopleDataFunctions** en klik op **Verwijzing toevoegen**. Selecteer de System.Configuration uit de lijst en klik op **OK**.
 
-3. Nu gaan we de app uitvoeren. Druk op F5 om te starten van de lokale foutopsporingsprogramma func.exe met de Azure-functie code gehoste en klaar voor gebruik.
+3. Nu gaan we de app uitvoeren. Druk op F5 om het lokale foutopsporingsprogramma func.exe te starten, met de Azure Function-code gehost en klaar voor gebruik.
 
-   Aan het einde van de uitvoer van de eerste van func.exe ziet u dat Azure-functie wordt gehost op localhost:7071. Dit is handig om te testen in een client.
+   Aan het einde van de eerste uitvoer van func.exe ziet u dat Azure Function wordt gehost op localhost:7071. Dit helpt bij het testen ervan in een client.
 
    ![De client testen](./media/tutorial-functions-http-trigger/08-functions-emulator.png)
 
-4. U kunt de Azure-functie testen met [Visual Studio Code](http://code.visualstudio.com/) met de extensie van Huachao Mao, [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client). REST-Client biedt lokale of externe HTTP-aanvraag mogelijkheid in een enkele klik met de rechtermuisknop. 
+4. Gebruik voor het testen van de Azure Function [Visual Studio Code](http://code.visualstudio.com/) met de extensie van Huachao Mao, [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client). REST Client biedt de mogelijkheid lokale of externe HTTP-aanvragen uit te voeren met één klik met de rechtermuisknop. 
 
-    U doet dit door een nieuw bestand met de naam test-functie-locally.http maken en voeg de volgende code:
+    U doet dit door een nieuw bestand met de naam test-function-locally.http maken en de volgende code toe te voegen:
 
     ```http
     get http://localhost:7071/api/Search
@@ -197,57 +197,57 @@ Nu dat de code voltooid is, kunt u de Azure-functie lokale hulpprogramma's voor 
     get http://localhost:7071/api/Search?name=ben
    ```
 
-    Nu met de rechtermuisknop op de eerste coderegel en selecteer vervolgens **aanvraag verzenden** zoals weergegeven in de volgende afbeelding.
+    Klik nu met de rechtermuisknop op de eerste coderegel en selecteer vervolgens **Aanvraag verzenden**, zoals weergegeven in de volgende afbeelding.
 
-   ![Een REST-aanvraag verzenden vanuit Visual Studio code](./media/tutorial-functions-http-trigger/09-rest-client-in-vs-code.png)
+   ![Een REST-aanvraag verzenden vanuit Visual Studio-code](./media/tutorial-functions-http-trigger/09-rest-client-in-vs-code.png)
 
-   Krijgt u de onbewerkte HTTP-antwoord uit de headers van de Azure-functie lokaal worden uitgevoerd, inhoud van de JSON-hoofdtekst, alles.
+   U krijgt het onbewerkte HTTP-antwoord uit de headers van de lokaal uitgevoerde Azure Functie te zien, met de inhoud van de JSON-hoofdtekst en al.
 
    ![REST-antwoord](./media/tutorial-functions-http-trigger/10-general-results.png)
 
-5. De tweede regel code nu selecteren en selecteer vervolgens **aanvraag verzenden**. Doordat de `name` Querytekenreeksparameter met een waarde die zich in de database, we kunnen de resultaten filteren de Azure-functie retourneert.
+5. Selecteer nu de tweede regel code en selecteer **Aanvraag verzenden**. Door de querytekenreeksparameter `name` toe te voegen met een waarde waarvan we weten dat die zich in de database bevindt, kunnen we de resultaten filteren die door de Azure Function worden geretourneerd.
 
-   ![De resultaten van de functie Azure filteren](./media/tutorial-functions-http-trigger/11-search-for-ben.png)
+   ![De resultaten van de Azure Function filteren](./media/tutorial-functions-http-trigger/11-search-for-ben.png)
 
-Nadat de Azure-functie wordt gevalideerd en lijkt correct te werken, is de laatste stap om te publiceren naar Azure App Service en configureer deze in de cloud uit te voeren.
+Nadat de Azure Function is gevalideerd en goed lijkt te werken, is de laatste stap om deze te publiceren naar Azure App Service en te configureren voor uitvoering in de cloud.
 
-## <a name="publish-the-azure-function"></a>De functie Azure publiceren
+## <a name="publish-the-azure-function"></a>De Azure-functie publiceren
 
-1. In **Solution Explorer**, met de rechtermuisknop op het project en selecteer vervolgens **publiceren**.
+1. Klik in **Solution Explorer** met de rechtermuisknop op het project en selecteer **Publiceren**.
 
    ![Het nieuwe project publiceren](./media/tutorial-functions-http-trigger/12-publish-function.png)
 
-2. Kunt u dit publiceren naar de cloud te testen in een openbaar scenario. In de **publiceren** tabblad **Azure functie-App**, selecteer **nieuw** voor het maken van een Azure-functie in uw Azure-abonnement, klik vervolgens op **publiceren** .
+2. We zijn klaar om het naar de cloud te publiceren om het te testen in een openbaar beschikbaar scenario. Selecteer **Azure Function-app** op het tabblad **Publiceren**, selecteer **Nieuwe maken** om een Azure Function te maken in uw Azure-abonnement en klik op **Publiceren**.
 
-   ![Een nieuwe Azure-functie-app maken](./media/tutorial-functions-http-trigger/13-publish-panel.png)
+   ![Een nieuwe Azure Function-app maken](./media/tutorial-functions-http-trigger/13-publish-panel.png)
 
-3. In de **publiceren** dialoogvenster het volgende doen:
+3. Doe in het dialoogvenster **Publiceren** het volgende:
    
-    a. In **Appnaam**, een unieke naam voor de functie geven.
+    a. Geef in **App-naam** een unieke naam voor de functie op.
 
-    b. In **abonnement**, selecteer de Azure-abonnement te gebruiken.
+    b. Selecteer in **Abonnement** het te gebruiken Azure-abonnement.
    
-    c. In **resourcegroep**, maakt u een nieuwe resourcegroep en gebruik dezelfde naam als de naam van de app.
+    c. Maak in **Resourcegroep** een nieuwe resourcegroep en gebruik dezelfde naam als de naam van de app.
    
-    d. Voor **App Service-Plan**, klikt u op **nieuw** te maken van een nieuwe op basis van verbruik App Service-Plan omdat we van plan bent de betalen per gebruik facturering om methode te gebruiken voor de server is niet vereist Azure-functie. Gebruik de standaardinstellingen op de **Configure App Service Plan** pagina en klik vervolgens op **OK**.
+    d. Klik voor **App Service-plan** op **Nieuw** om een nieuw App Service Plan op basis van verbruik te maken, omdat we van plan zijn de factureringsmethode voor betaling op basis van gebruik te gebruiken voor de serverloze Azure Function. Gebruik de standaardinstellingen op de pagina **App Service-plan configureren** en klik op **OK**.
    
-    e. Voor **Opslagaccount**, ook klikken op **nieuw** een nieuw Opslagaccount met de functie Azure gebruiken wanneer ondersteuning voor Blobs, tabellen of wachtrijen voor het activeren van de uitvoering van andere functies ooit moet maken. Gebruik de standaardinstellingen op de **Opslagaccount** pagina en klik vervolgens op **OK**.
+    e. Klik bij **Opslagaccount** ook op **Nieuw** om een nieuw opslagaccount te maken om met de Azure Function te gebruiken, voor het geval dat we ooit ondersteuning voor blobs, tabellen of wachtrijen nodig hebben om de uitvoering of andere functionaliteit te activeren. Gebruik de standaardinstellingen op de pagina **Opslagaccount** en klik op **OK**.
 
-    f. Klik vervolgens op de **maken** knop in het dialoogvenster voor het maken van alle resources in uw Azure-abonnement. Visual Studio downloadt een publicatieprofiel (een eenvoudige XML-bestand) die gebruikmaakt van de volgende keer dat u de code van uw Azure-functie publiceren.
+    f. Klik vervolgens op de knop **Maken** in het dialoogvenster om alle resources in uw Azure-abonnement te maken. Visual Studio downloadt een publicatieprofiel (een eenvoudig XML-bestand) waarvan de volgende keer dat u de code van uw Azure Function publiceert gebruik wordt gemaakt.
 
-   ![De Storage-account maken](./media/tutorial-functions-http-trigger/14-new-function-app.png)
+   ![Het opslagaccount maken](./media/tutorial-functions-http-trigger/14-new-function-app.png)
 
-    Visual Studio geeft een pagina publiceren die u gebruiken kunt als u wijzigingen aan de functie aanbrengt en moet deze opnieuw te publiceren. U hoeft niet te nu geen actie ondernemen op die pagina.
+    In Visual Studio wordt een pagina Publiceren weergegeven, die u kunt gebruiken als u wijzigingen in de Function aanbrengt en deze opnieuw moet publiceren. U hoeft nu geen actie te ondernemen op die pagina.
 
-4. Nadat de Azure-functie is gepubliceerd, gaat u naar de [Azure-portal](https://portal.azure.com/) pagina voor uw Azure-functie. Daar ziet u een koppeling naar de Azure-functie **toepassingsinstellingen**. Deze koppeling voor het configureren van de live Azure-functie voor verbinding met de Azure DB die Cosmos-database met uw gegevens persoon openen.
+4. Nadat de Azure Function is gepubliceerd, kunt u naar de [Azure-portal](https://portal.azure.com/)-pagina voor uw Azure Function gaan. Daar ziet u een koppeling naar de **Toepassingsinstellingen** van de Azure Function. Open deze koppeling om de live Azure Function te configureren voor verbinding met de Azure Cosmos DB-database met uw persoonsgegevens.
 
-   ![Instellingen van de toepassing controleren](./media/tutorial-functions-http-trigger/15-function-in-portal.png)
+   ![Toepassingsinstellingen controleren](./media/tutorial-functions-http-trigger/15-function-in-portal.png)
 
-5. Net als eerder in de consoletoepassing App.config-bestand en in de Azure-functie-app local.settings.json bestand, moet u het eindpunt en AuthKey toevoegen aan de Azure DB die Cosmos-database naar de gepubliceerde functie. Op deze manier u nooit om te controleren in de configuratiecode die uw sleutels bevat - u kunt deze configureren in de portal en zorg ervoor dat ze niet zijn opgeslagen in broncodebeheer. Elke waarde toevoegen: klik op de **nieuwe instelling toevoegen** knop, het toevoegen van **eindpunt** en de waarde van app.config, klikt u vervolgens op **toevoegen van nieuwe instelling** opnieuw en voeg **AuthKey**  en uw aangepaste waarde. Nadat u hebt toegevoegd en de waarden opgeslagen, worden uw instellingen moeten eruitzien als in het volgende.
+5. Net als u eerder in de het App.config-bestand van de consoletoepassing en in het bestand local.settings.json van de Azure Function hebt gedaan, moet u het Endpoint en de AuthKey voor de Azure Cosmos DB-database toevoegen aan de gepubliceerde functie. Op deze manier hoeft u nooit configuratiecode in te checken die uw sleutels bevat - u kunt ze configureren in de portal en er zeker van zijn dat ze niet worden opgeslagen in het broncodebeheer. Om elke waarde toe te voegen, klikt u op de knop **Nieuwe instelling toevoegen**, voegt u **Endpoint** toe en uw waarde uit app.config, klikt u vervolgens nogmaals op **Nieuwe instelling** en voegt u  **AuthKey** en uw aangepaste waarde toe. Nadat u de waarden hebt toegevoegd en opgeslagen, zouden uw instellingen er ongeveer als volgt uit moeten zien.
 
-   ![Eindpunt en AuthKey configureren](./media/tutorial-functions-http-trigger/16-app-settings.png)
+   ![Endpoint en AuthKey configureren](./media/tutorial-functions-http-trigger/16-app-settings.png)
 
-6. Zodra de Azure-functie correct is geconfigureerd in uw Azure-abonnement, opnieuw kunt u de uitbreiding van de Visual Studio Code REST Client query uitvoeren op de URL van de openbaar Azure-functie. Deze twee regels code toevoegen aan de test-functie-locally.http en voer vervolgens elke regel om deze functie te testen. De naam van de functie in de URL vervangen door de naam van de functie.
+6. Nadat de Azure Function correct is geconfigureerd in uw Azure-abonnement, kunt u de Visual Studio Code REST Client-extensie weer gebruiken om de URL van de openbaar beschikbare Azure Function op te vragen. Voeg deze twee regels code toe aan testfunctie-locally.http en voer vervolgens elke regel uit om deze functie te testen. Vervang de naam van de functie in de URL door de naam van uw functie.
 
     ```json
     get https://peoplesearchfunction.azurewebsites.net/api/Search
@@ -255,9 +255,9 @@ Nadat de Azure-functie wordt gevalideerd en lijkt correct te werken, is de laats
     get https://peoplesearchfunction.azurewebsites.net/api/Search?name=thomas
     ```
 
-    De functie reageert met de gegevens zijn opgehaald uit Azure Cosmos-database.
+    De functie reageert met de gegevens die worden opgehaald uit Azure Cosmos DB.
 
-    ![De REST-client gebruiken om op te vragen van de Azure-functie](./media/tutorial-functions-http-trigger/17-calling-function-from-code.png)
+    ![De REST-client gebruiken om een query uit te voeren op de Azure Function](./media/tutorial-functions-http-trigger/17-calling-function-from-code.png)
 
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -265,14 +265,14 @@ Nadat de Azure-functie wordt gevalideerd en lijkt correct te werken, is de laats
 In deze zelfstudie hebt u het volgende gedaan:
 
 > [!div class="checklist"]
-> * Een Azure-functie-project gemaakt 
+> * Een Azure Function-project gemaakt 
 > * Een HTTP-trigger gemaakt
-> * De functie Azure gepubliceerd
-> * De functie verbinding met de Azure DB die Cosmos-database
+> * De Azure Function is gepubliceerd
+> * De Function verbonden met de Azure DB Cosmos-database
 
-U kunt nu doorgaan naar de sectie concepten voor meer informatie over Cosmos-DB.
+U kunt nu doorgaan naar de sectie Concepten voor meer informatie over Cosmos DB.
 
 > [!div class="nextstepaction"]
 > [Wereldwijde distributie](distribute-data-globally.md) 
 
-In dit artikel is gebaseerd op een blog van [Bart Gaster van Schemaless & zonder server](http://www.bradygaster.com/category/%20Serverless%20&%20Schemaless) blogreeks. Ga naar zijn blog voor aanvullende berichten in de reeks.
+Dit artikel is gebaseerd op een blog uit [Brady Gaster's Schemaless & Serverless](http://www.bradygaster.com/category/%20Serverless%20&%20Schemaless) blogreeks. Ga naar zijn blog voor meer berichten in de reeks.

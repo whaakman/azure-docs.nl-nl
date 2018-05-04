@@ -1,6 +1,6 @@
 ---
 title: Een .NET Core- en SQL Database-web-app maken in Azure App Service onder Linux | Microsoft Docs
-description: Informatie over het verkrijgen van een .NET Core-app die in Azure App Service onder Linux werkt, met verbinding aan een SQL-database.
+description: Informatie over het verkrijgen van een .NET Core-app die in Azure App Service onder Linux werkt, met verbinding met een SQL-database.
 services: app-service\web
 documentationcenter: dotnet
 author: cephalin
@@ -12,14 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 10/10/2017
+ms.date: 04/11/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: c79d82ddc65b7302552f745ab653109677205aa4
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 654c187bcd552e9682115bc5e53ba69a3dca7c1d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>Een .NET Core- en SQL Database-web-app maken in Azure App Service onder Linux
 
@@ -27,11 +27,11 @@ ms.lasthandoff: 03/16/2018
 > In dit artikel gaat u een app implementeren in App Service onder Linux. Zie [Een .NET Core- en SQL Database-web-app maken in Azure App Service](../app-service-web-tutorial-dotnetcore-sqldb.md) als u in App Service wilt implementeren onder _Windows_.
 >
 
-[App Service on Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie onder het Linux-besturingssysteem. In deze zelfstudie wordt getoond hoe u een .NET Core-app maakt en verbinding laat maken met een SQL-database. Als u klaar bent, hebt u een .NET Core MVC-app die onder Linux in App Service wordt uitgevoerd.
+[App Service onder Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie onder het Linux-besturingssysteem. In deze zelfstudie wordt getoond hoe u een .NET Core-app maakt en verbinding laat maken met een SQL-database. Als u klaar bent, hebt u een .NET Core MVC-app die onder Linux in App Service wordt uitgevoerd.
 
 ![app die onder Linux in App Service wordt uitgevoerd](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
-U leer het volgende:
+U leert het volgende:
 
 > [!div class="checklist"]
 > * Een SQL-database in Azure maken
@@ -47,8 +47,8 @@ U leer het volgende:
 
 Vereisten voor het voltooien van deze zelfstudie:
 
-1. [Git installeren](https://git-scm.com/)
-1. [.NET Core SDK 1.1.2 installeren](https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.2-download.md)
+* [Git installeren](https://git-scm.com/)
+* [.NET Core installeren](https://www.microsoft.com/net/core/)
 
 ## <a name="create-local-net-core-app"></a>Lokale .NET Core-app maken
 
@@ -56,7 +56,7 @@ In deze stap stelt u het lokale .NET Core-project in.
 
 ### <a name="clone-the-sample-application"></a>De voorbeeldtoepassing klonen
 
-In het terminalvenster, `cd` in een werkmap.
+Voer in het terminalvenster de opdracht `cd` naar een werkmap uit.
 
 Voer de volgende opdrachten uit om de voorbeeldopslagplaats te klonen en de hoofdmap ervan te wijzigen.
 
@@ -99,7 +99,7 @@ Voor SQL Database wordt in deze zelfstudie gebruikgemaakt van [Azure SQL Databas
 
 Maak een logische Azure SQL Database-server in Cloud Shell met de opdracht [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create).
 
-Vervang de tijdelijke aanduiding *\<server_name>* door een unieke SQL Database-naam. Deze naam wordt gebruikt als onderdeel van het SQL Database-eindpunt, `<server_name>.database.windows.net`. De naam moet dus uniek zijn voor alle logische servers in Azure. De naam mag alleen kleine letters, cijfers en het afbreekstreepje (-) bevatten, en moet tussen de 3 en 50 tekens lang zijn. Vervang tevens *\<db_username>* en *\<db_password>* door een gebruikersnaam en wachtwoord dat u zelf mag kiezen. 
+Vervang de tijdelijke aanduiding *\<server_name>* door een unieke SQL Database-naam. Deze naam wordt gebruikt als onderdeel van het SQL Database-eindpunt, `<server_name>.database.windows.net`. De naam moet dus uniek zijn voor alle logische servers in Azure. De naam mag alleen kleine letters, cijfers en het afbreekstreepje (-) bevatten, en moet tussen de 3 en 50 tekens lang zijn. Vervang tevens *\<db_username>* en *\<db_password>* door een zelfgekozen gebruikersnaam en wachtwoord. 
 
 
 ```azurecli-interactive
@@ -136,7 +136,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 
 ### <a name="create-a-database"></a>Een database maken
 
-Maak een database met een [prestatieniveau van S0](../../sql-database/sql-database-service-tiers.md) op de server met de opdracht [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create).
+Maak een database met een [prestatieniveau van S0](../../sql-database/sql-database-service-tiers-dtu.md) op de server met de opdracht [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create).
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server_name> --name coreDB --service-objective S0
@@ -147,7 +147,7 @@ az sql db create --resource-group myResourceGroup --server <server_name> --name 
 Vervang de volgende reeks door de waarden *\<server_name>*, *\<db_username>* en *\<db_password>* die u eerder hebt gebruikt.
 
 ```
-Server=tcp:<server_name>.database.windows.net,1433;Initial Catalog=coreDB;Persist Security Info=False;User ID=<db_username>;Password=<db_password>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+Server=tcp:<server_name>.database.windows.net,1433;Database=coreDB;User ID=<db_username>;Password=<db_password>;Encrypt=true;Connection Timeout=30;
 ```
 
 Dit is de verbindingsreeks voor uw app .NET Core-app. Kopieer deze voor later gebruik.
@@ -176,9 +176,9 @@ Als u verbindingsreeksen voor de Azure-app wilt instellen, gebruikt u de opdrach
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer
 ```
 
-Vervolgens stelt u de instelling voor `ASPNETCORE_ENVIRONMENT`-app in op _Productie_. Deze instelling betekent dat u de app in Azure uitvoert omdat u SQLite gebruikt voor uw lokale ontwikkelomgeving en SQL Database voor uw Azure-omgeving.
+Vervolgens stelt u de instelling voor de app `ASPNETCORE_ENVIRONMENT` in op _Productie_. Deze instelling betekent dat u de app in Azure uitvoert omdat u SQLite gebruikt voor uw lokale ontwikkelomgeving en SQL Database voor uw Azure-omgeving.
 
-In het volgende voorbeeld wordt een `ASPNETCORE_ENVIRONMENT`-app-instelling in de Azure-web-app geconfigureerd. Vervang de tijdelijke aanduiding *\<app_name>*.
+In het volgende voorbeeld wordt een app-instelling voor `ASPNETCORE_ENVIRONMENT` in de Azure-web-app geconfigureerd. Vervang de tijdelijke aanduiding *\<app_name>*.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"
@@ -210,12 +210,13 @@ services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate
 
 Als met deze code wordt gedetecteerd dat deze in productie wordt uitgevoerd (wat op de Azure-omgeving wijst), wordt de verbindingsreeks gebruikt die u hebt geconfigureerd om verbinding te maken met SQL Database.
 
-De `Database.Migrate()`-aanroep helpt u wanneer deze in Azure wordt uitgevoerd, omdat automatisch de database wordt gemaakt die nodig is voor de NET Core-app, op basis van de migratieconfiguratie. 
+De aanroep `Database.Migrate()` helpt u wanneer deze in Azure wordt uitgevoerd, omdat automatisch de database wordt gemaakt die nodig is voor de NET Core-app, op basis van de migratieconfiguratie. 
 
-Sla uw wijzigingen op en voor deze door naar de Git-opslagplaats. 
+Sla uw wijzigingen op en voer deze door naar de Git-opslagplaats. 
 
 ```bash
-git commit -am "connect to SQLDB in Azure"
+git add .
+git commit -m "connect to SQLDB in Azure"
 ```
 
 ### <a name="push-to-azure-from-git"></a>Pushen naar Azure vanaf Git
@@ -276,7 +277,7 @@ public bool Done { get; set; }
 
 ### <a name="run-code-first-migrations-locally"></a>Code First Migrations lokaal uitvoeren
 
-Voer enkele opdrachten uit en werk de lokale database bij.
+Voer enkele opdrachten uit om de lokale database bij te werken.
 
 ```bash
 dotnet ef migrations add AddProperty
@@ -294,7 +295,7 @@ Breng enkele wijzigingen aan de code aan zodat de eigenschap `Done` kan worden g
 
 Open _Controllers\TodosController.cs_.
 
-Zoek de `Create()`-methode en voeg `Done` toe aan de lijst met eigenschappen in het attribuut `Bind`. Als u klaar bent, ziet uw `Create()`-methode er uit als de onderstaande code:
+Zoek de methode `Create()` en voeg `Done` toe aan de lijst met eigenschappen in het attribuut `Bind`. Als u klaar bent, ziet uw methode `Create()` er uit als de onderstaande code:
 
 ```csharp
 public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")] Todo todo)
@@ -302,7 +303,7 @@ public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")
 
 Open _Views\Todos\Create.cshtml_.
 
-In de Razor-code zou u een `<div class="form-group">`-element voor `Description` moeten zien en vervolgens een ander `<div class="form-group">`-element voor `CreatedDate`. Voeg direct na deze twee elementen een ander `<div class="form-group">`-element voor `Done` toe:
+In de Razor-code zou u een `<div class="form-group">`-element voor `Description` moeten zien en vervolgens een ander element `<div class="form-group">` voor `CreatedDate`. Voeg direct na deze twee elementen een ander element `<div class="form-group">` voor `Done` toe:
 
 ```csharp
 <div class="form-group">
@@ -316,7 +317,7 @@ In de Razor-code zou u een `<div class="form-group">`-element voor `Description`
 
 Open _Views\Todos\Index.cshtml_.
 
-Zoek het lege `<th></th>`-element. Vlak boven dit element voegt u de volgende Razor-code toe:
+Zoek het lege element `<th></th>`. Vlak boven dit element voegt u de volgende Razor-code toe:
 
 ```csharp
 <th>
@@ -324,7 +325,7 @@ Zoek het lege `<th></th>`-element. Vlak boven dit element voegt u de volgende Ra
 </th>
 ```
 
-Zoek het `<td>`-element dat de `asp-action`-taghelpers bevat. Vlak boven dit element voegt u de volgende Razor-code toe:
+Zoek het element `<td>` dat de taghelpers voor `asp-action` bevat. Vlak boven dit element voegt u de volgende Razor-code toe:
 
 ```csharp
 <td>
@@ -347,8 +348,8 @@ Ga in de browser naar `http://localhost:5000/`. U kunt nu een taakitem toevoegen
 ### <a name="publish-changes-to-azure"></a>Wijzigingen publiceren in Azure
 
 ```bash
-
-git commit -am "added done field"
+git add .
+git commit -m "added done field"
 git push azure master
 ```
 

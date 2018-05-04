@@ -1,11 +1,11 @@
 ---
-title: Model van de antwoorden van een API met de Azure portal | Microsoft Docs
-description: Deze zelfstudie laat zien hoe beleid instellen voor een API zodat deze een mocked antwoord retourneert met API Management (APIM). Deze methode endables ontwikkelaars verdergaan met het implementeren en testen van het exemplaar van API Management in geval de back-end is niet beschikbaar voor echte antwoorden verzenden.
+title: Gesimuleerde antwoorden van een API met Azure Portal | Microsoft Docs
+description: Deze zelfstudie laat zien hoe u met API Management (APIM) beleid kunt instellen voor een API zodat deze een gesimuleerd antwoord retourneert. Deze methode maakt het voor ontwikkelaars mogelijk om verder te gaan met het implementeren en testen van de instantie van API Management wanneer de back-end niet beschikbaar is voor het verzenden van echte antwoorden.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,92 +14,90 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: e485071b026c52eb23532639546ad475fc92cde3
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: MT
+ms.openlocfilehash: f3209edb23577d656e228aa0d75d852f35cd93ef
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="mock-api-responses"></a>Antwoorden mock-API
+# <a name="mock-api-responses"></a>Gesimuleerde antwoorden van een API
 
-Backend APIs worden geïmporteerd in een API APIM of gemaakt en beheerd handmatig. De stappen in deze zelfstudie ziet u hoe APIM gebruiken om te maken van een lege API en handmatig beheren. De zelfstudie laat zien hoe beleid instellen voor een API zodat deze een mocked antwoord retourneert. Deze methode kan ontwikkelaars verdergaan met het implementeren en testen van het exemplaar APIM, zelfs als de back-end niet beschikbaar is voor echte antwoorden verzenden. Mogelijkheid voor het model maken van antwoorden kan nuttig zijn bij een aantal scenario's:
+Back-end API's worden geïmporteerd in een APIM API of handmatig gemaakt en beheerd. Met de stappen in deze zelfstudie leert u hoe u APIM kunt gebruiken om een lege API te maken en deze handmatig te beheren. Deze zelfstudie laat zien hoe u beleid kunt instellen voor een API zodat deze een gesimuleerd antwoord retourneert. Deze methode maakt het voor ontwikkelaars mogelijk om verder te gaan met het implementeren en testen van de instantie van APIM, zelfs wanneer de back-end niet beschikbaar is voor het verzenden van echte antwoorden. De mogelijkheid voor het maken van gesimuleerde antwoorden kan nuttig zijn bij een aantal scenario's:
 
-+ Als de API-façade eerst is ontworpen en de implementatie van de back-end later afkomstig is. Of de back-end parallel wordt ontwikkeld.
-+ Wanneer de back-end is tijdelijk niet operationele of kan niet worden geschaald.
++ Als de API-façade eerst is ontworpen en de implementatie van de back-end later komt. Of als de back-end parallel wordt ontwikkeld.
++ Wanneer de back-end tijdelijk niet operationeel is of niet kan worden geschaald.
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Een test-API maken 
-> * Een bewerking aan de test API toevoegen
-> * Antwoord mocking inschakelen
-> * De mocked API testen
+> * Een bewerking aan de test-API toevoegen
+> * Antwoordsimulatie inschakelen
+> * De gesimuleerde API testen
 
-![Mocked bewerkingsantwoord](./media/mock-api-responses/mock-api-responses01.png)
+![Gesimuleerd bewerkingsantwoord](./media/mock-api-responses/mock-api-responses01.png)
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voltooi de volgende Snelstartgids: [Azure API Management-exemplaar maken](get-started-create-service-instance.md).
-
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
+Lees de volgende snelstartgids: [Een Azure API Management-exemplaar maken](get-started-create-service-instance.md).
 
 ## <a name="create-a-test-api"></a>Een test-API maken 
 
-De stappen in deze sectie laten zien hoe een leeg API maken met geen back-end. Ook ziet u hoe een bewerking toevoegen aan de API. Het aanroepen van de bewerking na het voltooien van de stappen in deze sectie, treedt er een fout op. U ontvangt geen fouten na voltooiing van de stappen in de sectie 'Antwoord mocking inschakelen'.
+De stappen in deze sectie laten zien hoe u een lege API zonder back-end maakt. Ook ziet u hoe u een bewerking kunt toevoegen aan de API. Bij het aanroepen van de bewerking na het voltooien van de stappen in deze sectie, treedt een fout op. U ontvangt geen foutmeldingen na voltooiing van de stappen in de sectie 'Antwoordsimulatie inschakelen'.
 
-1. Selecteer **API's** uit onder **API MANAGEMENT**.
-2. Selecteer in het menu links **+ API toevoegen**.
-3. Selecteer **leeg API** uit de lijst.
-4. Voer '*API testen*' voor **weergavenaam**.
-5. Voer '*onbeperkte*' voor **producten**.
+1. Selecteer **API's** bij **API MANAGEMENT**.
+2. Selecteer **+ API toevoegen** in het linkermenu.
+3. Selecteer **Lege API** uit de lijst.
+4. Voer '*Test API*' in als **weergavenaam**.
+5. Voer '*Onbeperkt*' in bij **Producten**.
 6. Selecteer **Maken**.
 
-## <a name="add-an-operation-to-the-test-api"></a>Een bewerking aan de test API toevoegen
+## <a name="add-an-operation-to-the-test-api"></a>Een bewerking aan de test-API toevoegen
 
 1. Selecteer de API die u in de vorige stap hebt gemaakt.
-2. Klik op **+ toevoegbewerking**.
+2. Klik op **+ Bewerking toevoegen**.
 
-    ![Mocked bewerkingsantwoord](./media/mock-api-responses/mock-api-responses02.png)
+    ![Gesimuleerd bewerkingsantwoord](./media/mock-api-responses/mock-api-responses02.png)
 
     |Instelling|Waarde|Beschrijving|
     |---|---|---|
-    |**URL** (HTTP-term)|GET|U kunt kiezen uit een van de vooraf gedefinieerde HTTP-termen.|
-    |**URL** |*/Test*|Een URL-pad voor de API. |
-    |**Weergavenaam**|*De aanroep van de test*|De naam die wordt weergegeven in de **ontwikkelaarsportal**.|
+    |**URL** (HTTP-woord)|GET|U kunt kiezen uit een van de vooraf gedefinieerde HTTP-woorden.|
+    |**URL** |*/test*|Een URL-pad voor de API. |
+    |**Weergavenaam**|*Testaanroep*|Deze naam wordt weergegeven in de **ontwikkelaarsportal**.|
     |**Beschrijving**||Geef een beschrijving van de bewerking die wordt gebruikt voor documentatie voor de ontwikkelaars met behulp van deze API in de **ontwikkelaarsportal**.|
-    |**Query** tabblad||U kunt query-parameters kunt toevoegen. Naast het bieden van een naam en beschrijving, kunt u de waarden die kunnen worden toegewezen aan deze parameter opgeven. Een van de waarden kan worden als standaardwaarde gemarkeerd (optioneel).|
-    |**Aanvraag** tabblad||U kunt inhoud aanvraagtypen, voorbeelden en schema's definiëren. |
-    |**Antwoord** tabblad|Zie de volgende procedure in deze tabel.|Antwoordstatuscodes, inhoudstypen, voorbeelden en schema's definiëren.|
+    |Tabblad **Query**||U kunt queryparameters toevoegen. Naast het invoeren van een naam en beschrijving, kunt u waarden opgeven die kunnen worden toegewezen aan deze parameter. Een van de waarden kan worden gemarkeerd als standaardwaarde (optioneel).|
+    |Tabblad **Aanvraag**||U kunt aanvraaginhoudstypen, voorbeelden en schema's definiëren. |
+    |Tabblad **Antwoord**|Zie de volgende stappen in deze tabel.|Definieer antwoordstatuscodes, inhoudstypen, voorbeelden en schema's.|
 
-3. Selecteer de **antwoord** tabblad in de URL weergegeven naam en beschrijving velden.
-4. Klik op **+ reactie toevoegen**.
+3. Selecteer het **Antwoord**-tabblad onder de velden voor de URL, Weergavenaam en Beschrijving.
+4. Klik op **+ Antwoord toevoegen**.
 5. Selecteer **200 OK** uit de lijst.
-6. Onder de **verklaringen** kop aan de rechterkant, selecteer **+ weergave toevoegen**.
-7. Voer '*application/json*' in het zoekvak en selecteer de **application/json** inhoudstype.
-8. In de **voorbeeld** tekst Voer '*{'sampleField': 'test'}*'.
+6. Selecteer **+ Weergave toevoegen** onder de kop **Representaties** aan de rechterkant.
+7. Voer '*application/json*' in het zoekvak in en selecteer het inhoudstype **application/json**.
+8. Voer in het tekstvak **Voorbeeld** '*{'sampleField': 'test'}*' in.
 9. Selecteer **Opslaan**.
 
-## <a name="enable-response-mocking"></a>Antwoord mocking inschakelen
+## <a name="enable-response-mocking"></a>Antwoordsimulatie inschakelen
 
 1. Selecteer de API die u in de stap 'Een test-API maken' hebt gemaakt.
 2. Selecteer de testbewerking die u hebt toegevoegd.
-2. Klik in het venster aan de rechterkant de **ontwerp** tabblad.
-3. In de **binnenkomend verkeer** venster, klik op het potloodpictogram.
-4. In de **Mocking** tabblad **statische reacties** voor **Mocking gedrag**.
-5. In de **API Management wordt het volgende antwoord:** in het tekstvak **200 OK, application/json**. Deze selectie geeft aan dat uw API resultaat moet geven het antwoord voorbeeld die u hebt gedefinieerd in de vorige sectie.
+2. Klik in het venster aan de rechterkant op het tabblad **Ontwerpen**.
+3. Klik in het venster **Binnenkomende verwerking** op het potlood.
+4. Selecteer in het tabblad **Simuleren** **Statische antwoorden** voor **Gedrag simuleren**.
+5. In het **API Management wordt het volgende antwoord geretourneerd:** text box, type **200 OK, application/json**. Deze selectie geeft aan dat uw API het voorbeeldantwoord zou moeten retourneren dat u hebt gedefinieerd in de vorige sectie.
 6. Selecteer **Opslaan**.
 
-## <a name="test-the-mocked-api"></a>De mocked API testen
+## <a name="test-the-mocked-api"></a>De gesimuleerde API testen
 
 1. Selecteer de API die u in de stap 'Een test-API maken' hebt gemaakt.
-2. Open de **Test** tabblad.
-3. Zorg ervoor dat de **testen aanroep** API is geselecteerd.
+2. Open het tabblad **Test**.
+3. Zorg ervoor dat de **Testaanroep**-API is geselecteerd.
 
     > [!TIP]
-    > Een gele balk met de tekst **Mocking is ingeschakeld** geeft aan dat reacties geretourneerd van de API Management verstuurt een mocking beleid en niet een antwoord van de werkelijke back-end.
+    > Een gele balk met de tekst **Simuleren is ingeschakeld** geeft aan dat reacties die zijn geretourneerd door API Management een simulatiebeleid en niet een daadwerkelijk antwoord van de back-end verzenden.
 
-3. Selecteer **verzenden** waarmee een test aanroepen.
-4. De **HTTP-antwoord** de JSON die is opgegeven als een voorbeeld van een in de eerste sectie van de zelfstudie wordt weergegeven.
+3. Selecteer **Verzenden** om een testaanroep uit te voeren.
+4. Het **HTTP-antwoord** geeft de JSON weer die is opgegeven als een voorbeeld in de eerste sectie van de zelfstudie.
 
 ## <a name="video"></a>Video
 
@@ -112,11 +110,11 @@ In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
 > * Een test-API maken
-> * Een bewerking aan de test API toevoegen
-> * Antwoord mocking inschakelen
-> * De mocked API testen
+> * Een bewerking aan de test-API toevoegen
+> * Antwoordsimulatie inschakelen
+> * De gesimuleerde API testen
 
-Ga naar de volgende zelfstudie:
+Ga door naar de volgende zelfstudie:
 
 > [!div class="nextstepaction"]
-> [Transformeren en een gepubliceerde API beveiligen](transform-api.md)
+> [Een gepubliceerde API transformeren en beveiligen](transform-api.md)

@@ -10,11 +10,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: eeb6b74fb7dfbf25e27963dd7a2f7f431feebcc8
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: 85a0157751a1c26fb7f37152d7c12f56b1c423d1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Wat is een exemplaar beheerd (preview)?
 
@@ -67,9 +67,9 @@ De volgende tabel ziet u enkele eigenschappen, toegankelijk via de Transact-SQL 
 
 ![Eenmalige aanmelding](./media/sql-database-managed-instance/sso.png) 
 
-## <a name="vcore-based-purchasing-model"></a>op basis van vCore aankoopmodel
+## <a name="vcore-based-purchasing-model-preview"></a>op basis van vCore aankoopmodel (preview)
 
-Op basis van vCore aankoopmodel geeft uw flexibiliteit, controle, transparantie en een eenvoudige manier om te vertalen naar on-premises werklastvereisten naar de cloud. Dit model kunt u scale compute, geheugen en opslag op basis van hun werkbelasting behoeften. Het model vCore is ook in aanmerking voor van 30 procent besparingen met het [Azure hybride gebruik voordeel voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+De vCore gebaseerde aankoopmodel (preview) biedt uw flexibiliteit, controle, transparantie en een eenvoudige manier om te vertalen naar on-premises werklastvereisten naar de cloud. Dit model kunt u scale compute, geheugen en opslag op basis van hun werkbelasting behoeften. Het model vCore is ook in aanmerking voor van 30 procent besparingen met het [Azure hybride gebruik voordeel voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
 Een virtuele core vertegenwoordigt de logische CPU aangeboden met de optie te kiezen tussen generaties van hardware.
 - Logische CPU's van de vierde generatie zijn gebaseerd op Intel E5 2673 v3 (Haswell)-processors van 2,4 GHz.
@@ -186,7 +186,7 @@ De Azure-Service voor het migreren van Database is een volledig beheerde service
 De migratie maakt gebruik van SQL-back-ups naar Azure blob storage. Back-ups opgeslagen in Azure storage-blob kunnen rechtstreeks worden hersteld naar exemplaar dat wordt beheerd. Als u een bestaande SQL-database herstellen naar een beheerde-exemplaar, kunt u het volgende doen:
 
 - Gebruik [Data migratie-Service (DMS)](/sql/dma/dma-overview). Zie voor een zelfstudie [migreren naar een exemplaar beheerd met behulp van Azure Database migratie Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md) van een back-upbestand van de database herstellen
-- Gebruik de [T-SQL-herstelopdracht](https://docs.microsoft.com/en-us/sql/t-sql/statements/restore-statements-transact-sql). 
+- Gebruik de [T-SQL-herstelopdracht](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql). 
   - Zie voor een zelfstudie waarin wordt getoond hoe Wide World Importers - back-upbestand Standard database terugzetten [herstelt van een back-upbestand naar een exemplaar beheerd](sql-database-managed-instance-restore-from-backup-tutorial.md). Deze zelfstudie ziet dat u hebt voor het uploaden van een back-upbestand naar de Azure-blog opslag en te beveiligen met behulp van een Shared access signature (SAS)-sleutel.
   - Zie voor meer informatie over het terugzetten van URL [systeemeigen terugzetten vanaf URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
 - [Uit een Bacpac-bestand importeren](sql-database-import.md)

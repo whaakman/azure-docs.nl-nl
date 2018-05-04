@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: cynthn
-ms.openlocfilehash: d62fe702e42929fde2bb2a0dee4ea2cc8621ff99
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: 93f165d08813506f9c4d4c0fbb885ddc958e8391
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Downloaden van een VHD Linux van Azure
 
@@ -35,7 +35,7 @@ Een VHD kan niet worden gedownload vanuit Azure als deze is gekoppeld aan een ac
 
 De VHD gebruiken als een installatiekopie van een andere virtuele machines maken, voert u deze stappen uit:
 
-1. SSH, de accountnaam en het openbare IP-adres van de virtuele machine verbinding maken met het en inrichting ervan ongedaan maakt het gebruik. U vindt het openbare IP-adres met [az netwerk openbare ip-weergeven](https://docs.microsoft.com/en-us/cli/azure/network/public-ip#az-network-public-ip-show). De + parameter van de gebruiker de laatste ingerichte gebruiker-account, worden ook verwijderd. Als u de referenties in voor de VM zijn bakken, laat u uit dit + parameter user. Het volgende voorbeeld verwijdert u de laatste ingerichte gebruikersaccount:
+1. SSH, de accountnaam en het openbare IP-adres van de virtuele machine verbinding maken met het en inrichting ervan ongedaan maakt het gebruik. U vindt het openbare IP-adres met [az netwerk openbare ip-weergeven](https://docs.microsoft.com/cli/azure/network/public-ip#az-network-public-ip-show). De + parameter van de gebruiker de laatste ingerichte gebruiker-account, worden ook verwijderd. Als u de referenties in voor de VM zijn bakken, laat u uit dit + parameter user. Het volgende voorbeeld verwijdert u de laatste ingerichte gebruikersaccount:
 
     ```bash
     ssh azureuser@<publicIpAddress>

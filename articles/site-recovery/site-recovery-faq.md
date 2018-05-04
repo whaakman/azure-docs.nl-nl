@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: 5d1010a65a112b97124a8d7d46caceb3d61e2cac
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0ec7f9e692dd4269ccb428d644c673e5c27b413a
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: veelgestelde vragen (FAQ)
 Dit artikel bevat veelgestelde vragen over Azure Site Recovery. Als u vragen hebt na het lezen van dit artikel, plaatst u deze op de [Azure Recovery Services-Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -90,7 +90,7 @@ Voor virtuele machines en fysieke servers wordt repliceren tussen lokale sites v
 Azure Site Recovery repliceert gegevens naar een Azure storage-account via een openbaar eindpunt. Replicatie is niet via een VPN site-naar-site. U kunt een VPN site-naar-site maken met een Azure-netwerk. Dit verstoren replicatie van Site Recovery niet.
 
 ### <a name="can-i-use-expressroute-to-replicate-virtual-machines-to-azure"></a>Kan ik virtuele machines repliceren naar Azure ExpressRoute gebruiken?
-Ja, ExpressRoute kan worden gebruikt voor het repliceren van virtuele machines naar Azure. Azure Site Recovery repliceert gegevens naar een Azure Storage-Account via een openbaar eindpunt. U moet instellen [openbare peering](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) met ExpressRoute voor replicatie van Site Recovery. Nadat een virtuele Azure-netwerk is niet via de virtuele machines kunt u deze kunt openen met behulp van de [privépeering](../expressroute/expressroute-circuit-peerings.md#azure-private-peering) ingesteld voor de virtuele Azure-netwerk.
+Ja, [ExpressRoute kan worden gebruikt](concepts-expressroute-with-site-recovery.md) on-premises virtuele machines repliceren naar Azure. Azure Site Recovery repliceert gegevens naar een Azure Storage-Account via een openbaar eindpunt. U moet instellen [openbare peering](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) of [Microsoft-peering](../expressroute/expressroute-circuit-peerings.md#microsoft-peering) met ExpressRoute voor replicatie van Site Recovery. Microsoft-peering, is het aanbevolen routeringsdomein voor replicatie. Nadat een virtuele Azure-netwerk is niet via de virtuele machines kunt u deze kunt openen met behulp van de [privépeering](../expressroute/expressroute-circuit-peerings.md#azure-private-peering) ingesteld voor de virtuele Azure-netwerk. Replicatie wordt niet ondersteund via persoonlijke peering.
 
 ### <a name="are-there-any-prerequisites-for-replicating-virtual-machines-to-azure"></a>Zijn er vereisten voor het repliceren van virtuele machines naar Azure?
 [Virtuele VMware-machines](vmware-physical-azure-support-matrix.md#replicated-machines) en [Hyper-V-machines](hyper-v-azure-support-matrix.md#replicated-vms) u wilt repliceren naar Azure moet voldoen aan de Azure-vereisten.

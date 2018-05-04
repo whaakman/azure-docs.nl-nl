@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2018
-ms.author: markgal;jimpark
+ms.author: markgal;jimpark;sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e6a29e184a47e3b4304f9c4683e76feab3e75dd4
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 701accb107931bd1f4472d8999102fecb4fd6373
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Back-up van virtuele machines van Azure naar de Recovery Services-kluis
 
@@ -39,7 +39,9 @@ Zie het artikel [Back-ups van virtuele machines voor Premium Storage maken en te
 Zie voor meer informatie over wat u wel en kan geen back-up, [voorbereiden van uw omgeving back-up Azure Virtual machines](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm).
 
 > [!NOTE]
-> In deze zelfstudie wordt ervan uitgegaan dat u een VM in uw Azure-abonnement hebt en dat u maatregelen hebt genomen om toe te staan dat de back-upservice toegang tot de VM kan krijgen.
+> Backup-service maakt een afzonderlijke resourcegroep dan de resourcegroep van de virtuele machine voor het opslaan van herstelpunt verzameling. Klanten wordt aangeraden geen te vergrendelen van de resourcegroep gemaakt voor gebruik door de Backup-service.
+Krijgt de naam van de resourcegroep gemaakt met Backup-service: AzureBackupRG_`<Geo>`_`<number>`
+<br>Bijvoorbeeld: AzureBackupRG_northeurope_1
 >
 >
 

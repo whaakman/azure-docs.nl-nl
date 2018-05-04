@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: daa5043a948e660b6c3e685e933855afff8f7671
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 228d2852d9554d378dc663e74460da7ab80d4b24
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Snelstartgids: een virtuele SQL Server-machine voor Windows maken met Azure PowerShell
 
@@ -40,10 +40,10 @@ Voor deze snelstartgids is moduleversie 3.6 of later van Azure PowerShell vereis
 
 ## <a name="configure-powershell"></a>PowerShell configureren
 
-1. Open PowerShell en zorg dat u toegang hebt tot uw Azure-account door de opdracht **Add-AzureRmAccount** uit te voeren.
+1. Open PowerShell en zorg dat u toegang hebt tot uw Azure-account door de opdracht **Connect-AzureRmAccount** uit te voeren.
 
    ```PowerShell
-   Add-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 
 1. Als het goed is, ziet u nu een aanmeldingsscherm waar u uw referenties kunt invoeren. Gebruik hetzelfde e-mailadres en wachtwoord waarmee u zich aanmeldt bij Azure Portal.

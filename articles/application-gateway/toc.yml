@@ -1,0 +1,127 @@
+- name: Documentatie over Application Gateway
+  href: index.yml
+- name: Overzicht
+  items:
+    - name: Over toepassingsgateways
+      href: overview.md
+- name: Snelstartgidsen
+  expanded: true
+  items:
+    - name: Webverkeer beheren - Portal
+      href: quick-create-portal.md
+    - name: Webverkeer beheren - PowerShell
+      href: quick-create-powershell.md
+    - name: Webverkeer beheren - Azure CLI
+      href: quick-create-cli.md
+- name: Zelfstudies
+  items:
+    - name: Webverkeer beheren
+      href: tutorial-manage-web-traffic-cli.md
+    - name: Webverkeer beperken
+      href: tutorial-restrict-web-traffic-cli.md
+    - name: Beveiligen met SSL
+      href: tutorial-ssl-cli.md
+    - name: Meerdere sites hosten
+      href: tutorial-multiple-sites-cli.md
+    - name: Routeren met URL
+      href: tutorial-url-route-cli.md
+    - name: Webverkeer omleiden
+      href: tutorial-url-redirect-cli.md
+- name: Voorbeelden
+  items:
+    - name: Azure PowerShell
+      href: powershell-samples.md
+    - name: Azure-CLI
+      href: cli-samples.md
+- name: Concepten
+  items:
+    - name: Web Application Firewall
+      href: waf-overview.md
+    - name: URL-routering
+      href: url-route-overview.md
+    - name: Meerdere sites hosten
+      href: multiple-site-overview.md
+    - name: SSL-beëindiging
+      href: ssl-overview.md
+    - name: URL-omleiding
+      href: redirect-overview.md
+- name: Handleidingen
+  items:
+    - name: Een toepassingsgateway maken
+      items:
+        - name: Template
+          href: create-vmss-template.md
+        - name: Web-apps - PowerShell
+          href: create-web-app.md
+    - name: SSL-beëindiging inschakelen - Portal
+      href: create-ssl-portal.md
+    - name: Meerdere sites hosten - Portal
+      href: create-multiple-sites-portal.md
+    - name: Extern verkeer omleiden
+      items:
+        - name: Azure PowerShell
+          href: redirect-external-site-powershell.md
+        - name: Azure-CLI
+          href: redirect-external-site-cli.md
+    - name: HTTP omleiden naar HTTPS
+      items:
+        - name: Azure PowerShell
+          href: redirect-http-to-https-powershell.md
+        - name: Azure-CLI
+          href: redirect-http-to-https-cli.md
+    - name: Intern verkeer omleiden
+      items:
+        - name: Azure PowerShell
+          href: redirect-internal-site-powershell.md
+        - name: Azure-CLI
+          href: redirect-internal-site-cli.md
+    - name: Webverkeer beperken - Portal
+      href: create-waf-portal.md
+    - name: Route op basis van URL - Portal
+      href: create-url-route-portal.md
+    - name: Webverkeer beheren met Azure PowerShell
+      href: tutorial-manage-web-traffic-powershell.md
+    - name: Webverkeer beperken met Azure PowerShell
+      href: tutorial-restrict-web-traffic-powershell.md
+    - name: SSL-beëindiging met Azure PowerShell
+      href: tutorial-ssl-powershell.md
+    - name: Meerdere sites hosten met Azure PowerShell
+      href: tutorial-multiple-sites-powershell.md
+    - name: Webverkeer routeren met Azure PowerShell
+      href: tutorial-url-route-powershell.md
+    - name: Webverkeer omleiden met Azure PowerShell
+      href: tutorial-url-redirect-powershell.md
+- name: Naslaginformatie
+  items:
+    - name: Azure-CLI
+      href: /cli/azure/network/application-gateway
+    - name: Azure PowerShell
+      href: /powershell/azure/overview
+    - name: .NET
+      href: /dotnet/api
+    - name: Java
+      href: /java/api
+    - name: Node.js
+      href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
+    - name: Python
+      href: 'https://azure.microsoft.com/develop/python/'
+    - name: REST
+      href: /rest/api/applicationgateway
+    - name: Azure Resource Manager
+      href: ../azure-resource-manager/resource-group-overview.md
+- name: Resources
+  items:
+    - name: Auteursjablonen
+      href: ../azure-resource-manager/resource-group-authoring-templates.md
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Communitysjablonen
+      href: 'https://azure.microsoft.com/documentation/templates'
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/#Linux'
+    - name: Regionale beschikbaarheid
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-application-gateway'
+    - name: Veelgestelde vragen
+      href: application-gateway-faq.md

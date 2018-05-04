@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 07e6e5beb96042c2da82ac8be19e391d6153eabd
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: aa5c46a4d0ca55339e8f26a3e577d03bf4b504b2
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>HTTP-API's in duurzame functies (Azure-functies)
 
@@ -131,6 +131,7 @@ De nettolading van de reactie voor de **HTTP 200** en **HTTP 202** gevallen is e
 |-----------------|-----------|-------------|
 | runtimeStatus   | tekenreeks    | De runtimestatus van het exemplaar. Mogelijke waarden zijn *met*, *in behandeling*, *mislukt*, *geannuleerd*, *beëindigd*, *Voltooid*. |
 | Invoer           | JSON      | De JSON-gegevens die wordt gebruikt voor het initialiseren van het exemplaar. |
+| customStatus    | JSON      | De JSON-gegevens voor de status van de aangepaste orchestration gebruikt. Dit veld is `null` niet ingesteld. |
 | output          | JSON      | De JSON-uitvoer van het exemplaar. Dit veld is `null` als het exemplaar niet in een voltooide status is. |
 | createdTime     | tekenreeks    | De tijd waarop het exemplaar is gemaakt. Maakt gebruik van ISO 8601-notatie wordt uitgebreid. |
 | LastUpdatedTime | tekenreeks    | De tijd waarop het exemplaar is opgeslagen. Maakt gebruik van ISO 8601-notatie wordt uitgebreid. |
@@ -180,6 +181,7 @@ Hier volgt een voorbeeld antwoord nettolading met inbegrip van de orchestration 
       }
   ],
   "input": null,
+  "customStatus": { "nextActions": ["A", "B", "C"], "foo": 2 },
   "lastUpdatedTime": "2018-02-28T05:18:54Z",
   "output": [
       "Hello Tokyo!",

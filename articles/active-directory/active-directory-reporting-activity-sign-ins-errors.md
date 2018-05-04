@@ -2,24 +2,24 @@
 title: Foutcodes voor aanmeldactiviteitenrapporten in Azure Active Directory Portal | Microsoft Docs
 description: Naslaginformatie over foutcodes voor aanmeldactiviteitenrapporten.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2018
+ms.date: 04/19/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 1e5d477aa74d3d0588e33363888d84e860d4b2f8
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 47894f0a3d7b74c8d0e271afb7d2657ce7d3be0c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Foutcodes voor aanmeldactiviteitenrapporten in Azure Active Directory Portal
 
@@ -65,6 +65,7 @@ De volgende sectie biedt een volledig overzicht van alle mogelijke fouten en de 
 |50055|Het opgegeven wachtwoord is ongeldig of verlopen.|
 |50057|Het gebruikersaccount is uitgeschakeld.|
 |50058|Er is in de opgegeven referenties geen informatie over de identiteit van de gebruiker gevonden, de gebruiker kan niet worden gevonden in de tenant of er is een aanmeldverzoek op de achtergrond verzonden, maar er is geen gebruiker aangemeld of de service kan de gebruiker niet verifiëren.|
+|50072|Gebruiker moet zich registreren voor verificatie met een tweede factor (interactief)|
 |50074|Gebruiker heeft de MFA-controle niet doorstaan.|
 |50079|Gebruiker moet zich registreren voor verificatie met een tweede factor.|
 |50089|Validatie van stroomtoken is mislukt omdat stroomtoken is verlopen.|
@@ -97,7 +98,6 @@ De volgende sectie biedt een volledig overzicht van alle mogelijke fouten en de 
 |81013|Kan gebruikersobject niet vinden op basis van de informatie in het Kerberos-ticket van de gebruiker.|
 |90014|Wordt gebruikt in verschillende gevallen waarbij een verwacht veld niet aanwezig is in de referentie.|
 |90093|De grafiek is geretourneerd met een niet-toegestane foutcode voor de aanvraag.|
-
 
 
 ## <a name="next-steps"></a>Volgende stappen

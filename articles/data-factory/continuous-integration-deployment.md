@@ -10,19 +10,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 04/30/2018
 ms.author: douglasl
-ms.openlocfilehash: 6ad0f554161937a4fdb10179e2b310facbb91945
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 16eec117514d040dc91b5d18b73d4cc6025c901e
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Continue integratie en implementatie in Azure Data Factory
 
 Continue integratie is de praktijk van elke wijziging om te testen uw codebase automatisch en zo spoedig mogelijk. Doorlopende implementatie volgt de tests die er gebeurt tijdens continue integratie en wijzigingen verstuurd naar een test- of productieomgeving-systeem.
 
 Betekent zwevend Data Factory-pijplijnen van de ene omgeving (ontwikkeling, testen, productie) naar een andere voor Azure Data Factory continue integratie en implementatie. Hiertoe continue integratie en implementatie, kunt u Data Factory-UI-integratie met Azure Resource Manager-sjablonen. De Data Factory-gebruikersinterface Resource Manager-sjabloon kan worden gegenereerd wanneer u selecteert de **ARM-sjabloon** opties. Wanneer u selecteert **exporteren ARM-sjabloon**, de portal wordt gegenereerd voor de Resource Manager-sjabloon voor de gegevensfactory en een configuratiebestand dat alle verbindingen-tekenreeksen en andere parameters bevat. Hebt u een configuratiebestand voor elke omgeving (ontwikkeling, testen, productie) maken. Het belangrijkste Resource Manager-sjabloonbestand blijft hetzelfde voor alle omgevingen.
+
+Bekijk de volgende video voor een inleiding negen minuten en demonstratie van deze functie:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-integration-and-deployment-using-Azure-Data-Factory/player]
 
 ## <a name="create-a-resource-manager-template-for-each-environment"></a>Resource Manager-sjabloon voor elke omgeving maken
 Selecteer **exporteren ARM-sjabloon** exporteren van de Resource Manager-sjabloon voor uw gegevensfactory in de ontwikkelomgeving.

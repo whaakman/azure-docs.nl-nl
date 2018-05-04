@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: a84393c5c53b8f8e4a8b688a462f433b2d611b0e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8bcc1b2c76ff1e312d1435997ef6d677656510d8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Schud, schud voor een Tweet--ophalen van een Twitter-bericht met Azure Functions!
 
@@ -33,7 +33,7 @@ Voltooid de [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/iot
 
 Een actief Azure-abonnement. Als u niet hebt, kunt u via een van de volgende manieren registreren:
 
-* Activeren van een [gratis 30-daagse evaluatieversie Microsoft Azure-account](https://azure.microsoft.com/en-us/free/)
+* Activeren van een [gratis 30-daagse evaluatieversie Microsoft Azure-account](https://azure.microsoft.com/free/)
 * Claim uw [Azure-tegoeden](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) als u MSDN of Visual Studio-abonnee bent
 
 ## <a name="open-the-project-folder"></a>Open de projectmap
@@ -44,10 +44,6 @@ Een actief Azure-abonnement. Als u niet hebt, kunt u via een van de volgende man
 - Start VS-Code.
 - De DevKit aansluiten op uw computer.
 
-VS Code vindt uw DevKit automatisch en wordt er een inleiding weergegeven:
-
-![Mini solution vscode](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_start.png)
-
 > [!NOTE]
 > Tijdens het starten van Code van de VS, verschijnt er een foutbericht weergegeven dat het Arduino IDE of verwante mededelingenbord pakket kan niet worden gevonden. Als deze fout optreedt, VS Code sluiten en de Arduino IDE opnieuw te starten. VS-Code moet het pad Arduino IDE nu correct vinden.
 
@@ -57,7 +53,8 @@ Vouw de linkerkant **ARDUINO voorbeelden** sectie, blader naar **voorbeelden voo
 
 ![Mini solution-voorbeelden](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_examples.png)
 
-Als u per ongeluk het venster sluit, kunt u deze opnieuw openen. Gebruik `Ctrl+Shift+P` (Mac OS: `Cmd+Shift+P`) typt u de opdracht om palet te openen, **Arduino**, en zoek en selecteer **Arduino: voorbeelden**.
+> [!NOTE]
+> U kunt bijvoorbeeld ook openen vanuit opdracht palet. Gebruik `Ctrl+Shift+P` (Mac OS: `Cmd+Shift+P`) typt u de opdracht om palet te openen, **Arduino**, en zoek en selecteer **Arduino: voorbeelden**.
 
 ## <a name="provision-azure-services"></a>Azure-services inrichten
 
@@ -68,7 +65,7 @@ In de terminal VS-Code in leert een interactieve opdrachtregel u de vereiste Azu
 ![cloud-inrichten](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/cloud-provision.png)
 
 > [!NOTE]
-> Als de pagina reageert niet meer in de status geladen wanneer u probeert aan te melden bij Azure, raadpleegt u dit [Veelgestelde vragen over stap] ({{'/docs/faq/#page-hangs-when-log-in-azure' | 
+> Als de pagina reageert niet meer in de status geladen wanneer u probeert aan te melden bij Azure, raadpleegt u dit [Veelgestelde vragen over stap](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#page-hangs-when-log-in-azure).
  
 ## <a name="modify-the-hashtag"></a>De #hashtag wijzigen
 
@@ -137,14 +134,14 @@ Na de initialisatie van de app, klikt u op en een release vervolgens voorzichtig
 ![Druk op B te lezen](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-5.png)
 
 ### <a name="display-a-random-tweet"></a>Een willekeurige tweet weergeven...
-![Display-a-random-tweet](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-6.png)
+![Weergave een willekeurige tweet](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/result-6.png)
 
 - Druk op de knop een opnieuw en klik vervolgens voor een nieuwe tweet schud.
 - Druk op de knop B door de rest van de tweet moeten schuiven.
 
 ## <a name="how-it-works"></a>Hoe werkt het?
 
-![diagram](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/diagram.png)
+![Diagram](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/diagram.png)
 
 Het schema Arduino verzendt een gebeurtenis met de Azure IoT Hub. Deze gebeurtenis wordt geactiveerd de Azure Functions-app. Apps van Azure Functions bevat de logica voor het verbinding maken met de Twitter-API en een tweet ophalen. Deze vervolgens de tekst tweet verpakt in een C2D bericht (Cloud-naar-apparaat) en stuurt deze terug naar het apparaat.
 
@@ -167,7 +164,7 @@ Dit voorbeeldproject maakt gebruik van een vooraf geconfigureerde Twitter bearer
   string authHeader = "Bearer " + "[your own token]";
   ...
   ```
-  ![twitter-token](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/twitter-token.png)
+  ![Twitter-token](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/twitter-token.png)
 
 6. Sla het bestand en klik op **uitvoeren**.
 
@@ -186,7 +183,7 @@ Deze voorwaarde gebeurt normaal gesproken de eerste keer dat u implementeert en 
 
 Als u andere problemen ondervindt, raadpleegt u [Veelgestelde vragen over](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) of contact met ons opnemen uit de volgende kanalen:
 
-* [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
+* [Gitter.IM](http://gitter.im/Microsoft/azure-iot-developer-kit)
 * [StackOverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Volgende stappen

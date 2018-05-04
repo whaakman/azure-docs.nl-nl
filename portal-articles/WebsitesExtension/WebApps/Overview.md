@@ -1,6 +1,6 @@
 ---
-title: Overzicht van Web Apps | Microsoft Docs
-description: Overzicht van Help-inhoud voor Web Apps in Azure Portal
+title: Overzicht van App Service | Microsoft Docs
+description: Overzicht van Help-inhoud voor App Service in Azure Portal
 services: app-service
 author: sewatson
 manager: lwelicki
@@ -8,19 +8,21 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: 13709876752dd5df356765ed636c5a7e4a665d4c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e795a6c5f76fb8d40c7e6778555de619d00b3a41
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="web-apps-documentation"></a>Documentatie voor Web Apps
+# <a name="app-service-documentation"></a>Documentatie over App Service
+Met Azure App Service kunt u webtoepassingen maken en hosten in een programmeertaal naar keuze zonder dat u de infrastructuur, taal of runtime van het webframework hoeft te beheren. Het biedt automatisch schalen en een hoge beschikbaarheid, ondersteuning voor zowel Windows als Linux en maakt automatische implementaties mogelijk vanuit GitHub, Visual Studio Team Services of een willekeurige Git-repo. Ontdek met onze snelstarts, zelfstudies en voorbeelden hoe u Azure App Service gebruikt.
 
-Met Azure Web Apps kunt u web-apps bouwen en hosten in de programmeertaal van uw keuze, zonder hiervoor infrastructuur te beheren. Het biedt automatisch schalen en een hoge beschikbaarheid, ondersteuning voor zowel Windows als Linux en maakt automatische implementaties mogelijk vanuit GitHub, Visual Studio Team Services of een willekeurige Git-repo. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u Azure Web Apps gebruikt.
+## <a name="windows-linux-and-docker"></a>Windows, Linux en Docker
+[Web Apps](/app-service/app-service-web-overview) is het belangrijkste App Service-aanbod voor het maken en hosten van webtoepassingen met Windows-omgevingen. Ontwikkelaars die liever werken met Linux kunnen kiezen voor [App Service for Linux](/app-service/containers/app-service-linux-intro). Ontwikkelaars kunnen ook Docker-installatiekopieën rechtstreeks in App Service for Linux implementeren om aangepaste runtimes/frameworks te implementeren.
 
 ## <a name="5-minute-quickstarts"></a>QuickStarts van vijf minuten
 
-Meer informatie over het implementeren van uw eerste toepassing in de cloud met behulp van Web Apps:
+Ontdek hoe u uw eerste toepassing in de cloud implementeert met behulp van App Service Web Apps:
 
 - [.NET](/azure/app-service/app-service-web-get-started-dotnet)
 - [Node.js](/azure/app-service/app-service-web-get-started-nodejs)
@@ -33,7 +35,11 @@ Meer informatie over het implementeren van uw eerste toepassing in de cloud met 
 
 Ontdek hoe u in Azure beveiligde web-apps implementeert, beheert en bewaakt.
 
-- Een toepassing maken met behulp van [.NET met Azure SQL DB](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase) of [Node.js met MongoDB](/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app)
+- Maak een toepassing met behulp van:
+  - [.NET met Azure SQL DB](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
+  - [Node.js met MongoDB](/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app)
+  - [Java met MySQL](/app-service/app-service-web-tutorial-java-mysql)
+  - [Python met PostgreSQL](/app-service/app-service-web-tutorial-python-postgresql)
 - [Een bestaand aangepast domein toewijzen aan uw toepassing](/azure/app-service/app-service-web-tutorial-custom-domain)
 - [Een bestaand SSL-certificaat binden aan uw toepassing](/azure/app-service/app-service-web-tutorial-custom-SSL)
 
@@ -51,5 +57,4 @@ Zoek scripts om algemene taken te beheren.
 
 ## <a name="more"></a>Meer
 
-- [Zie de documentatie voor meer informatie](/azure/app-service-web/index)
 - [Meer informatie over alle Azure-services](https://aka.ms/j3wr7y)

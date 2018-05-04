@@ -5,7 +5,7 @@ services: cloud-services, storage
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d7aa440d-af4a-4f80-b804-cc46178df4f9
 ms.service: cloud-services
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.openlocfilehash: 704391a60b4ba777b8fd2b156db2ea5587498383
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d092f5f6c59351530941d47565ee2c4905ddd2e7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Aan de slag met Azure Cloud Services en ASP.NET
 
@@ -34,8 +34,8 @@ De toepassing is een bulletinboard voor advertenties. Gebruikers maken een adver
 
 De toepassing maakt gebruik van het [wachtrijgerichte werkpatroon](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) om de CPU te ontlasten bij het maken van miniatuurweergaven voor een back-endproces (een CPU-intensieve bewerking).
 
-## <a name="alternative-architecture-websites-and-webjobs"></a>Alternatieve architectuur: Websites en WebJobs
-Deze zelfstudie laat zien hoe u de front-end en back-end uitvoert in een cloudservice van Azure. Een alternatieve methode is het uitvoeren van de front-end op een [Azure-website](/services/web-sites/) en het gebruiken van de functie [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) (momenteel als voorbeeld) voor de back-end. Zie [Aan de slag met de Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) voor een zelfstudie waarin gebruik wordt gemaakt van WebJobs. Zie [Vergelijking van Azure-websites, cloudservices en virtuele machines](../app-service/choose-web-site-cloud-service-vm.md) voor meer informatie over het kiezen van de services die het meest geschikt zijn voor uw scenario.
+## <a name="alternative-architecture-web-apps-and-webjobs"></a>Alternatieve architectuur: Web Apps en WebJobs
+Deze zelfstudie laat zien hoe u de front-end en back-end uitvoert in een cloudservice van Azure. Het is ook mogelijk om de front-end uit te voeren in een [Azure Web App](/azure/app-service/) en de functie [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) te gebruiken voor de back-end. Zie [Aan de slag met de Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) voor een zelfstudie waarin gebruik wordt gemaakt van WebJobs. Zie [Vergelijking van Azure-websites, cloudservices en virtuele machines](../app-service/choose-web-site-cloud-service-vm.md) voor meer informatie over het kiezen van de services die het meest geschikt zijn voor uw scenario.
 
 ## <a name="what-youll-learn"></a>Wat u leert
 * De computer klaarmaken voor het ontwikkelen van Azure door de Azure SDK te installeren.

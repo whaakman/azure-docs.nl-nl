@@ -92,6 +92,16 @@ ssh userName@masterFQDN –A –p 22
 
 Zie [Verbinding maken met een Azure Container Service-cluster](../articles/container-service/kubernetes/container-service-connect.md) voor meer informatie.
 
+### <a name="my-dns-name-resolution-isnt-working-on-windows-what-should-i-do"></a>Mijn DNS-naamomzetting werkt niet in Windows. Wat moet ik doen?
+
+Er zijn een aantal bekende DNS-problemen onder Windows waarvoor de oplossingen nog steeds geleidelijk worden stopgezet. Zorg ervoor dat u de meest recente acs-engine en Windows-versie gebruikt (met [KB4074588](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4074588) en [KB4089848](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4089848) geïnstalleerd) zodat uw omgeving hiervan kan profiteren. Zie anders de tabel hieronder voor oplossingsstappen:
+
+| DNS-symptoom | Tijdelijke oplossing  |
+|-------------|-------------|
+|Als de container van de werkbelasting instabiel is en vastloopt, wordt de naamruimte van het netwerk opgeschoond | Implementeer eventuele betrokken services opnieuw |
+| Toegang tot Service VIP is verbroken | Configureer een [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) zodat er altijd een normale (niet-gemachtigde) pod wordt uitgevoerd |
+|Als het knooppunt waarop de container wordt uitgevoerd, niet langer beschikbaar is, kunnen DNS-query's mislukken, wat tot een zogenaamde negatieve cachevermelding kan leiden | Voer de volgende code uit in de desbetreffende containers: <ul><li> `New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters' -Name MaxCacheTtl -Value 0 -Type DWord`</li><li>`New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters' -Name MaxNegativeCacheTtl -Value 0 -Type DWord`</li><li>`Restart-Service dnscache` </li></ul><br> Als hiermee het probleem niet kan worden opgelost, schakelt u DNS-caching volledig uit: <ul><li>`Set-Service dnscache -StartupType disabled`</li><li>`Stop-Service dnscache`</li></ul> |
+
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Meer informatie](../articles/container-service/kubernetes/container-service-intro-kubernetes.md) over Azure Container Service.

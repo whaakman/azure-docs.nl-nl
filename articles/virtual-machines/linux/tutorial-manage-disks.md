@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 1207ae8160739bcf27a651880dd58ea6893ebf37
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3153c57d6504346f6985823860623dc37977b79f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="manage-azure-disks-with-the-azure-cli"></a>Azure-schijven beheren met de Azure CLI
 
@@ -108,16 +108,17 @@ Een resourcegroep maken met de opdracht [az group create](https://docs.microsoft
 az group create --name myResourceGroupDisk --location eastus
 ```
 
-Maak een VM met de opdracht [az vm create]( /cli/azure/vm#az_vm_create). Het argument `--datadisk-sizes-gb` wordt gebruikt om op te geven dat een extra schijf moet worden gemaakt en gekoppeld aan de virtuele machine. Als u meer dan één schijf wilt maken en koppelen, gebruikt u een door spaties gescheiden lijst met waarden voor schijfgroottes. In het volgende voorbeeld wordt een virtuele machine gemaakt met twee gegevensschijven, beide van 128 GB. Omdat de schijfgrootte 128 GB is, zijn deze schijven beide geconfigureerd als P10, dat maximaal 500 IOP's per schijf biedt.
+Maak een VM met de opdracht [az vm create]( /cli/azure/vm#az_vm_create). In het volgende voorbeeld wordt de VM *myVM* gemaakt, wordt het gebruikersaccount *azureuser* toegevoegd en worden SSH-sleutels gemaakt als deze nog niet bestaan. Het argument `--datadisk-sizes-gb` wordt gebruikt om op te geven dat een extra schijf moet worden gemaakt en gekoppeld aan de virtuele machine. Als u meer dan één schijf wilt maken en koppelen, gebruikt u een door spaties gescheiden lijst met waarden voor schijfgroottes. In het volgende voorbeeld wordt een virtuele machine gemaakt met twee gegevensschijven, beide van 128 GB. Omdat de schijfgrootte 128 GB is, zijn deze schijven beide geconfigureerd als P10, dat maximaal 500 IOP's per schijf biedt.
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm create \
   --resource-group myResourceGroupDisk \
   --name myVM \
   --image UbuntuLTS \
   --size Standard_DS2_v2 \
-  --data-disk-sizes-gb 128 128 \
-  --generate-ssh-keys
+  --admin-username azureuser \
+  --generate-ssh-keys \
+  --data-disk-sizes-gb 128 128
 ```
 
 ### <a name="attach-disk-to-existing-vm"></a>Een schijf koppelen aan een bestaande virtuele machine

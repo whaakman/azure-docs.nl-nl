@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 84363a92445991d08a2593bb3ade863db06b8670
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 622d9f1f498435ae36d1b35b938b513849efc3c5
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Problemen met implementatie Windows virtuele machine in Azure
 
@@ -95,10 +95,6 @@ Stuurprogramma's voor Windows-VM's zich bevinden [hier](n-series-driver-setup.md
 ## <a name="i-cant-find-a-gpu-instance-within-my-n-series-vm"></a>Ik kan een GPU-exemplaar niet vinden in mijn VM N-serie
 
 Als u wilt profiteren van de GPU-mogelijkheden van N-reeks virtuele machines in Azure waarop Windows Server 2016 of Windows Server 2012 R2 wordt uitgevoerd, moet u NVIDIA grafische stuurprogramma's installeren op elke virtuele machine na de implementatie. Stuurprogramma-installatie-informatie is beschikbaar voor [VM's van Windows](n-series-driver-setup.md) en [virtuele Linux-machines](../linux/n-series-driver-setup.md).
-
-## <a name="are-client-images-supported-for-n-series"></a>Worden de clientinstallatiekopieën van de voor N-serie ondersteund?
-
-Azure ondersteunt momenteel alleen N-reeks op virtuele machines met Windows Server- en Linux-besturingssystemen.
 
 ## <a name="is-n-series-vms-available-in-my-region"></a>Virtuele machines N-reeks is beschikbaar in mijn regio?
 

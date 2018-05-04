@@ -7,79 +7,82 @@ ms.author: jeanb
 manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 10/17/2017
-ms.openlocfilehash: 1912972b2a5ef40bcc61140225f1fdbcbb1535c3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: MT
+ms.topic: overview
+ms.workload: data-services
+ms.custom: mvc
+ms.date: 03/27/2018
+ms.openlocfilehash: 4d68ee7f38c317b4ee42f5b40cc4c4196114e159
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="what-is-stream-analytics"></a>Wat is een Stream Analytics?
 
-Azure Stream Analytics is een beheerde verwerkingsengine voor gebeurtenissen, waarmee u in realtime analytische berekeningen kunt uitvoeren op gegevensstromen. De gegevens kunnen afkomstig zijn van apparaten, sensoren, websites, socialemediafeeds, toepassingen, infrastructuursystemen, enzovoort. 
+Azure Stream Analytics is een gebeurtenissen verwerkende engine waarmee u grote volumina gegevens kunt bekijken die vanaf apparaten worden gestreamd. De inkomende gegevens kunnen afkomstig zijn van apparaten, sensoren, websites, socialemediafeeds, toepassingen, enzovoort. Het ondersteunt tevens het extraheren van gegevens uit gegevensstromen, het identificeren van patronen en relaties. U kunt deze patronen gebruiken om andere acties, zoals waarschuwingen, downstream te activeren, gegevens in een rapportageprogramma in te voeren of op te slaan voor later gebruik.
 
-Met Stream Analytics kunt u grote volumes aan gegevensstromen van apparaten of processen onderzoeken, informatie onttrekken aan die gegevensstromen en patronen, trends en relaties herkennen. Gebruik deze patronen om andere processen of acties, zoals waarschuwingen of automatiseringswerkstromen, te activeren, gegevens in een rapportagetool in te voeren of op te slaan voor later onderzoek. 
+Hier volgen enkele voorbeelden waarbij Azure Stream Analytics kan worden gebruikt: 
 
-Een aantal voorbeelden:
-
-* Aandeelhandelanalyse en -waarschuwingen.
-* Fraudedetectie, -gegevens en beschermingsmaatregelen identificeren. 
-* Ingesloten sensor- en bedieningsanalyse.
-* Clickstream-analyses op internet.
+* Sensorenfusie voor het Internet of Things (IoT) en realtime analytische gegevens voor apparaattelemetrie
+* Weblogs/clickstream-analyses op internet
+* Georuimtelijke analyses voor fleetmanagement en zelfrijdende auto’s
+* Op afstand bewaken en predictief onderhoud van hoogwaardige middelen
+* Realtime analyse van Point of Sale-gegevens voor voorraadbeheer en anomaliedetectie
 
 ## <a name="how-does-stream-analytics-work"></a>Hoe werkt Stream Analytics?
 
-In dit diagram ziet u de pijplijn van Stream Analytics en wordt aangetoond hoe de gegevens worden opgenomen, geanalyseerd en worden verzonden voor presentatie of actie. 
+Azure Stream Analytics begint met een bron van streaming gegevens die in Azure Event Hub of Azure IoT Hub wordt opgenomen of afkomstig is van een gegevensarchief als Azure Blob Storage. Voor het onderzoeken van de stromen maakt u een Stream Analytics-taak die de invoerbron aangeeft die de gegevens streamt. De taak bevat ook een specificatie van een transformatiequery; hoe er wordt gezocht naar gegevens, patronen of relaties. De transformatiequery maakt gebruik van een SQL-achtige querytaal waarmee streaming gegevens gedurende een bepaalde tijd kunnen worden gefilterd, gesorteerd, gecombineerd en samengevoegd. Als de taak wordt uitgevoerd, kunt u de opties voor het sorteren van de gebeurtenissen en de duur van tijdvensters aanpassen bij het uitvoeren van combinatiebewerkingen.
+
+Nadat de binnenkomende gegevens zijn geanalyseerd, geeft u een uitvoer op voor de getransformeerde gegevens en kunt u bepalen wat u moet doen als reactie op de geanalyseerde gegevens. U kunt bijvoorbeeld de volgende acties uitvoeren:
+
+* Gegevens verzenden naar een bewaakte wachtrij om downstream aangepaste werkstromen te activeren.
+* Gegevens verzenden naar Power BI-dashboard voor realtime visualisatie.
+* Gegevens archiveren voor andere Azure-opslagapparaten.
+
+In de volgende afbeelding ziet u de Stream Analytics-pijplijn. De Stream Analytics-taak kan gebruikmaken van alle of een bepaald deel van de in- en uitvoer. In deze afbeelding wordt getoond hoe gegevens naar Stream Analytics worden verzonden, geanalyseerd en verder verzonden voor andere acties, zoals opslag of presentatie:
 
 ![Stream Analytics-pijplijn](./media/stream-analytics-introduction/stream_analytics_intro_pipeline.png)
 
-Stream Analytics begint met een gegevensstroom als bron. De gegevens kunnen worden opgenomen in Azure vanaf een apparaat met een Azure Event Hub of Azure IoT Hub. De gegevens kunnen ook worden opgehaald uit een gegevensarchief zoals Azure Blob Storage. 
-
-Voor het onderzoeken van de stroom maakt u een Stream Analytics-*taak* die aangeeft waar de gegevens vandaan komen. De taak bevat ook een specificatie van een *transformatie*; hoe er wordt gezocht naar gegevens, patronen of relaties. Voor deze taak ondersteunt Stream Analytics een SQL-achtige querytaal, waarmee u gegevens kunt filteren, sorteren en combineren, en gegevensstromen kunt samenvoegen gedurende een bepaalde periode.
-
-Als laatste geeft de taak aan waar de getransformeerde gegevens naar worden uitgevoerd. U bepaalt wat er moet gebeuren als reactie op de informatie die u hebt geanalyseerd. Als reactie op een analyse kunt u bijvoorbeeld het volgende doen:
-
-* Een opdracht verzenden om apparaatinstellingen te wijzigen. 
-* Gegevens verzenden naar een bewaakte wachtrij voor verdere actie op basis van resultaten. 
-* Gegevens verzenden naar een Power BI-dashboard.
-* Gegevens verzenden naar een opslaglocatie zoals Data Lake Store, Azure SQL Database of Azure Blob Storage.
-
-U kunt het aantal gebeurtenissen dat per seconde wordt verwerkt, aanpassen terwijl de taak wordt uitgevoerd. U kunt ook diagnostische logboeken genereren voor het oplossen van problemen.
-
 ## <a name="key-capabilities-and-benefits"></a>Belangrijkste mogelijkheden en voordelen
 
-Stream Analytics is gebruiksvriendelijk, flexibel en schaalbaar tot elke taakgrootte.
+Azure Stream Analytics is gebruiksvriendelijk, flexibel, betrouwbaar en schaalbaar tot elke taakgrootte. Het is beschikbaar voor meerdere datacenters en ook voor onafhankelijke clouds. In de volgende afbeelding worden de belangrijkste mogelijkheden van Azure Stream Analytics getoond:
 
-### <a name="connect-inputs-and-outputs"></a>Invoer en uitvoer verbinden
+![Belangrijkste mogelijkheden van Azure Stream Analytics](./media/stream-analytics-introduction/stream_analytics_key_capabilities.png)
 
-Stream Analytics maakt rechtstreeks verbinding met [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) en [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) voor opname van streams, en met de [Azure Blob Storage-service](https://docs.microsoft.com/azure/storage/storage-introduction#blob-storage-accounts) voor opname van historische gegevens. Combineer gegevens van gebeurtenishubs met Stream Analytics met andere gegevensbronnen en verwerkingsengines. De invoer van taken kan ook referentiegegevens (statische of langzaam veranderende gegevens) omvatten. U kunt gegevensstromen samenvoegen met deze referentiegegevens voor het uitvoeren van zoekbewerkingen, net zoals u dat zou doen met databasequery’s.
+## <a name="ease-of-getting-started"></a>Eenvoudig aan de slag
 
-U kunt de uitvoer van een Stream Analytics-taak in verschillende richtingen sturen. Schrijf naar opslaglocaties zoals Azure Blob, Azure SQL Database, Azure Data Lake Stores of Azure Cosmos DB. Van daaruit kunt u batchanalyses uitvoeren met Azure HDInsight. Of verzend de uitvoer naar een andere service voor gebruik door een ander proces, zoals gebeurtenishubs, Azure Service Bus, wachtrijen of naar Power BI voor visualisatie.
+Met Azure Stream Analytics kunt u zo aan de slag. Met slecht een paar klikken maakt u verbinding met meerdere bronnen en sinks, en om een end-to-endpijplijn te maken. Stream Analytics kan verbinding maken met [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/) of [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) voor opname van streaming gegevens. Het kan ook verbinding maken met de service [Azure Blob Storage](https://docs.microsoft.com/azure/storage/storage-introduction) voor opname van historische gegevens. Het kan gegevens van gebeurtenishubs combineren met andere gegevensbronnen en verwerkingsengines. Taakinvoer kan ook bestaan uit statische verwijzingsgegevens of gegevens die weinig veranderen, en u kunt streaming gegevens met deze verwijzingsgegevens samenvoegen om opzoekbewerkingen uit te voeren.
 
-### <a name="simple-to-use"></a>Eenvoudig in het gebruik
+Stream Analytics kan taakuitvoer omleiden naar talloze opslagsystemen, bijvoorbeeld [Azure Blob](https://docs.microsoft.com/azure/storage/storage-introduction), [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/), [Azure Data Lake Stores](https://docs.microsoft.com/azure/data-lake-store/) of [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction). Na opslag kunt u batch-analyses uitvoeren met HDInsight of de uitvoer verzenden naar een andere service, zoals gebeurtenishubs voor verbruik, of naar [Power BI](https://docs.microsoft.com/power-bi/) voor realtime visualisatie door gebruik te maken van een streaming API van Power BI.
 
-Voor het definiëren van transformaties gebruikt u een eenvoudige declaratieve [Stream Analytics-querytaal](https://msdn.microsoft.com/library/azure/dn834998.aspx), waarmee u geavanceerde analyses kunt maken zonder te hoeven programmeren. De querytaal gebruikt gegevensstromen als invoer. Vervolgens kunt u de gegevens filteren en sorteren, waarden combineren, berekeningen uitvoeren, gegevens samenvoegen (binnen een stroom of naar referentiegegevens) en georuimtelijke functies gebruiken. U kunt query’s in de portal bewerken met behulp van IntelliSense en syntaxiscontrole, en u kunt query’s testen met voorbeeldgegevens afkomstig uit de live gegevensstroom.
+## <a name="programmer-productivity"></a>Productiviteit van programmeurs
 
-### <a name="extensible-query-language"></a>Uitbreidbare querytaal
+Azure Stream Analytics maakt gebruik van een eenvoudige, op SQL gebaseerde querytaal die is uitgebreid met krachtige, tijdelijke beperkingen voor het analyseren van gegevens in beweging. Voor het definiëren van taaktransformaties gebruikt u een eenvoudige, declaratieve [Stream Analytics-querytaal](https://msdn.microsoft.com/library/azure/dn834998.aspx) waarmee u complexe, tijdelijke query’s en analyses kunt schrijven met behulp van SQL-constructs. De querytaal van Stream Analytics is consistent met SQL. Als u bekend bent met SQL, is dat voldoende om taken te kunnen maken. U kunt ook taken maken met ontwikkelaarstalen als Azure PowerShell, [Stream Analytics Visual Studio tools](stream-analytics-tools-for-visual-studio-install.md) of Azure Resource Manager-sjablonen. Met ontwikkelaarstalen kunt u offline transformatiequery’s ontwikkelen en de [CI/CD-pijplijn](stream-analytics-tools-for-visual-studio-cicd.md) gebruiken om taken bij Azure in te dienen. 
 
-U kunt de mogelijkheden van de querytaal uitbreiden door extra functie te definiëren en aan te roepen. U kunt functieaanroepen definiëren in de Azure Machine Learning-service en gebruikmaken van Azure Machine Learning-oplossingen. Daarnaast kunt u door de gebruiker gedefinieerde functies (UDF’s) van JavaScript integreren voor het uitvoeren van complexe berekeningen als deel van de Stream Analytics-query.
+De querytaal van Stream Analytics biedt een breed spectrum aan functies voor het analyseren en verwerken van streaming gegevens. Deze querytaal ondersteunt eenvoudige gegevensmanipulatie, van aggregatiefuncties tot complexe, georuimtelijke functies. U kunt query’s in de portal bewerken en ze testen met voorbeeldgegevens die uit de live stream worden geëxtraheerd.
 
-### <a name="scalable"></a>Schaalbaar
+U kunt de mogelijkheden van de querytaal uitbreiden door extra functies te definiëren en aan te roepen. In de Azure Machine Learning-service kunt u functieaanroepen definiëren om gebruik te kunnen maken van Azure Machine Learning-oplossingen en door gebruikers gedefinieerde JavaScript-functies (UDF’s) of door gebruikers gedefinieerde aggregaten te integreren voor het uitvoeren van complexe berekeningen als onderdeel van een Stream Analytics-query.
 
-Stream Analytics kan maximaal 1 GB aan inkomende gegevens per seconde verwerken. Dankzij integratie met [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) en [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) kunnen taken miljoenen gebeurtenissen per seconde opnemen, afkomstig van verbonden apparaten, clickstreams, logboekbestanden, enzovoort. Met de partitiefunctie van Event Hubs kunt u berekeningen partitioneren in logische stappen, die elk verder kunnen worden gepartitioneerd voor meer schaalbaarheid.
+## <a name="fully-managed"></a>Volledig beheerd 
 
-### <a name="low-cost"></a>Lage kosten
+Azure Stream Analytics is een volledige beheerde (PaaS) aanbieding in Azure. Dit betekent dat u geen hardware hoeft in te richten of clusters te beheren om uw taken te kunnen uitvoeren. Azure Stream Analytics beheert uw taak volledig door het instellen van complexe rekenclusters in de cloud en het afstemmen van de prestaties om de taak te kunnen uitvoeren. Dankzij integratie met Azure Event Hubs en Azure IoT Hub kunnen taken miljoenen gebeurtenissen per seconde opnemen, afkomstig van verbonden apparaten, clickstreams, logboekbestanden, enzovoort. Met de partitioneringsfunctie van Event Hubs kunt u berekeningen partitioneren in logische stappen, die elk verder kunnen worden gepartitioneerd voor meer schaalbaarheid.
 
-Als cloudservice is Stream Analytics kostenefficiënt. U betaalt op basis van het aantal gebruikte streamingeenheden en de hoeveelheid gegevens die wordt verwerkt. Gebruik wordt berekend op basis van het aantal gebeurtenissen dat wordt verwerkt en de hoeveelheid computercapaciteit binnen het takencluster.
+## <a name="low-total-cost-of-ownership"></a>Lage total cost of ownership
 
-### <a name="reliable"></a>Betrouwbaar
+Als cloudservice is Stream Analytics kostenefficiënt. Er is geen sprake van opstartkosten; u betaalt slechts voor de [streaming-eenheden die u verbruikt](stream-analytics-streaming-unit-consumption.md) en de hoeveelheid gegevens die wordt verwerkt. Er is geen verplichting en het inrichten van clusters is niet nodig. U kunt de streaming taken omhoog of omlaag schalen, afhankelijk van de bedrijfsbehoeften. 
 
-Als beheerde service draagt Stream Analytics bij aan het voorkomen van gegevensverlies en zorgt de service voor bedrijfscontinuïteit. De service beschikt over ingebouwde herstelmogelijkheden voor het geval dat er fouten optreden. Dankzij het vermogen om de interne toestand te handhaven, biedt de service herhaalbare resultaten zodat gebeurtenissen kunnen worden gearchiveerd en verwerking later opnieuw kan worden toegepast, en altijd dezelfde resultaten worden verkregen. Hierdoor kunt u teruggaan in de tijd en berekeningen onderzoeken terwijl de hoofdoorzaak wordt onderzocht, wat-als-analyses worden uitgevoerd, enzovoort.
+## <a name="reliability"></a>Betrouwbaarheid 
+
+Als beheerde service garandeert Stream Analytics een gebeurtenissenverwerking met een beschikbaarheid van 99,9%, wordt gegevensverlies voorkomen en bedrijfscontinuïteit geboden. Zie de pagina [Dienstovereenkomst voor Stream Analytics](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/) voor meer informatie. Stream Analytics verwerkt miljoenen gebeurtenissen per seconde en kan resultaten met een lage latentie leveren.
+Stream Analytics garandeert Exactly-once-gebeurtenissenverwerking Least-once-levering van gebeurtenissen. Het bevat ingebouwde herstelfuncties in geval de levering van een gebeurtenis mislukt. Stream Analytics kan de status van een taak intern handhaven - u kunt een taak starten vanaf de laatste uitvoertijd. Er worden herhaalbare resultaten verkregen doordat telkens dezelfde resultaten worden geboden. Dankzij deze functie van Stream Analytics kunt u teruggaan in de tijd en berekeningen onderzoeken terwijl de hoofdoorzaak wordt onderzocht. 
+
+## <a name="performance"></a>Prestaties
+
+Azure Stream Analytics is geoptimaliseerd voor hoge prestaties; het kan streaming gegevens verwerken en In-memory-berekeningen uitvoeren. U kunt omhoog of omlaag schalen voor het afhandelen van toepassingen voor realtime en complexe gebeurtenissenverwerking. Stream Analytics ondersteunt prestaties door te partitioneren. Een complexe query kan worden geparallelliseerd en uitgevoerd op meerdere streaming-knooppunten. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Aan de slag met het [experimenteren met invoer en query’s van IoT-apparaten](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md).
-* Bouw een [end-to-end Stream Analytics-oplossing](stream-analytics-real-time-fraud-detection.md) voor het onderzoeken van telefoonmetagegevens op frauduleuze oproepen.
-* Antwoorden op vragen over Stream Analytics vindt u op het [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+U hebt nu een overzicht van Azure Stream Analytics. Hierna kunt u zich verder in de materie verdiepen en uw eerste Stream Analytics-taak maken:
 
+* [Een Stream Analytics-taak maken via Azure Portal](stream-analytics-quick-create-portal.md).
+* [Create a Stream Analytics job by using Azure PowerShell](stream-analytics-quick-create-powershell.md) (Een Stream Analytics-taak maken met behulp van Azure PowerShell).

@@ -5,41 +5,41 @@ services: service-fabric
 documentationcenter: service-fabric
 author: rwike77
 manager: timlt
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: b48d1137-8c04-46e0-b430-101e07d7e470
 ms.service: service-fabric
 ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
-ms.date: 12/13/2017
+ms.date: 04/09/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 1825b2a58e1022f22c71395477a5fca54c715455
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: 92dbdf2d2e3bdc48cda9ef0e0a53212cc7ea4cb7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-powershell-samples"></a>Azure PowerShell-voorbeelden
 
-De volgende tabel bevat koppelingen naar voorbeelden van de PowerShell-scripts die maken en beheren van Service Fabric-clusters, toepassingen en services.
+De volgende tabel bevat koppelingen naar voorbeelden van PowerShell-scripts voor het maken en beheren van Service Fabric-clusters, -toepassingen en -services.
 
 [!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-powershell.md)]
 
 | | |
 |-|-|
 | **Cluster maken** ||
-| [Maak een cluster (Azure)](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)| Een Azure Service Fabric-cluster maakt. |
-|[Maak een testcluster (Azure)](./scripts/service-fabric-powershell-create-test-cluster.md)| Maakt een drie-knooppunt test Service Fabric-cluster in Azure.|
+| [Een cluster maken (Azure)](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)| Hiermee wordt een Azure Service Fabric-cluster gemaakt. |
+|[Een cluster testen (Azure)](./scripts/service-fabric-powershell-create-test-cluster.md)| Hiermee wordt een Service Fabric-testcluster met drie knooppunten gemaakt.|
 | **Cluster, knooppunten en infrastructuur beheren** ||
-| [Het toepassingscertificaat van een toevoegen](./scripts/service-fabric-powershell-add-application-certificate.md)| Voegt een X.509-certificaat van toepassing op alle knooppunten in een cluster. |
-| [Het RDP-poortbereik op cluster virtuele machines bijwerken](./scripts/service-fabric-powershell-change-rdp-port-range.md)|Hiermee wijzigt u het RDP-poortbereik op clusterknooppunt virtuele machines in een geïmplementeerde cluster.|
-| [Bijwerken van de gebruiker met beheerdersrechten en het wachtwoord voor het knooppunt VM 's](./scripts/service-fabric-powershell-change-rdp-user-and-pw.md) | De gebruikersnaam van de beheerder en het wachtwoord voor clusterknooppunt VMs-updates. |
-| [Een poort in de load balancer openen](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) | Open de poort van een toepassing in de Azure load balancer waarmee binnenkomend verkeer op een specifieke poort. |
-| [Maken van een binnenkomende groep van de netwerkbeveiligingsregel](./scripts/service-fabric-powershell-add-nsg-rule.md) | Maak een binnenkomende groep netwerkbeveiligingsregel dat binnenkomend verkeer naar het cluster op een specifieke poort toegestaan. |
+| [Een toepassingscertificaat toevoegen](./scripts/service-fabric-powershell-add-application-certificate.md)| Hiermee wordt een X.509-certificaat toegevoegd aan alle knooppunten in een cluster. |
+| [Het RDP-poortbereik bijwerken op cluster-VM's](./scripts/service-fabric-powershell-change-rdp-port-range.md)|Hiermee wijzigt u het RDP-poortbereik op clusterknooppunt-VM's in een geïmplementeerd cluster.|
+| [De gebruiker met beheerdersrechten en het wachtwoord bijwerken voor clusterknooppunt-VM's](./scripts/service-fabric-powershell-change-rdp-user-and-pw.md) | Hiermee worden de gebruiker met beheerdersrechten en het wachtwoord voor clusterknooppunt-VM's bijgewerkt. |
+| [Een poort in de load balancer openen](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) | Open een toepassingspoort in de Azure-load balancer om inkomend verkeer via een specifieke poort toe te staan. |
+| [Een regel voor inkomend verkeer voor een netwerkbeveiligingsgroep maken](./scripts/service-fabric-powershell-add-nsg-rule.md) | Maak een regel voor inkomend verkeer voor een netwerkbeveiligingsgroep om inkomend verkeer naar het cluster op een specifieke poort toe te staan. |
 | **Toepassingen beheren** ||
-| [Een toepassing implementeren](./scripts/service-fabric-powershell-deploy-application.md)| Een toepassing implementeert op een cluster.|
-| [Upgrade van een toepassing](./scripts/service-fabric-powershell-upgrade-application.md)| Bijwerken van een toepassing.|
-| [Een toepassing verwijderen](./scripts/service-fabric-powershell-remove-application.md)| Een toepassing verwijderen uit een cluster.|
+| [Een app implementeren](./scripts/service-fabric-powershell-deploy-application.md)| Hiermee wordt een toepassing geïmplementeerd in een cluster.|
+| [Een upgrade van een app uitvoeren](./scripts/service-fabric-powershell-upgrade-application.md)| Hiermee voert u een upgrade uit van een app.|
+| [Een app verwijderen](./scripts/service-fabric-powershell-remove-application.md)| Hiermee verwijdert u een app uit een cluster.|

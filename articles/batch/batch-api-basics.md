@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 02/28/2018
+ms.date: 04/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b0a18f975530d2a291e529308ee53d6d48a68e42
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1a202efd08de69e6e766c9c42047c01a03be4d96
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Grootschalige parallelle rekenoplossingen ontwikkelen met Batch
 
@@ -79,10 +79,15 @@ U kunt in één Batch-account meerdere Batch-workloads uitvoeren of uw workloads
 
 ## <a name="azure-storage-account"></a>Azure-opslagaccount
 
-Bij de meeste Batch-oplossingen wordt gebruikgemaakt van Azure Storage om resourcebestanden en uitvoerbestanden op te slaan.  
+Bij de meeste Batch-oplossingen wordt gebruikgemaakt van Azure Storage om resourcebestanden en uitvoerbestanden op te slaan. Uw Batch-taken (inclusief standaardtaken, begintaken, jobvoorbereidingstaken en jobvrijgevingstaken) geven bijvoorbeeld gewoonlijk bronbestanden op die zich in een opslagaccount bevinden.
 
-Batch ondersteunt momenteel alleen het opslagaccounttype Algemeen, zoals is beschreven in stap 5 van [Een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account) in [Over Azure-opslagaccounts](../storage/common/storage-create-storage-account.md). Uw Batch-taken (inclusief standaardtaken, begintaken, jobvoorbereidingstaken en jobvrijgevingstaken) moeten bronbestanden opgeven die zich bevinden in algemene opslagaccounts.
+Batch biedt ondersteuning voor de volgende Azure Storage-[accountopties](../storage/common/storage-account-options.md):
 
+* Accounts voor algemeen gebruik v2 (GPv2-accounts) 
+* Accounts voor algemeen gebruik v1 (GPv1-accounts)
+* Blob Storage-accounts
+
+U kunt een opslagaccount koppelen aan uw Batch-account. Dit kunt u doen tijdens het maken van het Batch-account of later. Denk bij het kiezen van een opslagaccount aan de kosten- en prestatievereisten. Het GPv2-account en het Blob Storage-account bieden, vergeleken met een GPv1-account, bijvoorbeeld hogere [limieten voor capaciteit en schaalbaarheid](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/). (Neem contact op met Azure-ondersteuning om een hogere opslaglimiet aan te vragen.) Met deze accountopties kunnen de prestaties worden verbeterd van Batch-oplossingen die een groot aantal parallelle taken bevatten die worden gelezen of geschreven vanuit het opslagaccount.
 
 ## <a name="compute-node"></a>Rekenknooppunt
 Een rekenknooppunt is een virtuele machine (VM) of cloudservice-VM van Azure die aan een specifiek deel van de workload van uw toepassing is toegewezen. De grootte van een knooppunt bepaalt het aantal CPU-kernen, de geheugencapaciteit en de grootte van het lokale bestandssysteem die aan het knooppunt worden toegewezen. U kunt pools van Windows- of Linux-knooppunten maken met behulp van Azure Cloud Services, [Azure Virtual Machines Marketplace][vm_marketplace]-installatiekopieën of aangepaste installatiekopieën die u voorbereidt. Zie de volgende sectie ([Pool](#pool)) voor meer informatie over deze opties.
@@ -252,7 +257,7 @@ Wanneer u een taak maakt, kunt u het volgende opgeven:
     `/bin/sh -c MyTaskApplication $MY_ENV_VAR`
 
     Als uw taken toepassingen of scripts moeten uitvoeren die zich niet in het `PATH` van het knooppunt bevinden of verwijzen naar omgevingsvariabelen, start u de shell expliciet in de opdrachtregel van de taak.
-* **Bronbestanden** die de te verwerken gegevens bevatten. In een Azure-opslagaccount van het type Algemeen worden deze bestanden voordat de opdrachtregel van de taak wordt uitgevoerd, automatisch vanuit Blob Storage naar het knooppunt gekopieerd. Zie de secties [Begintaak](#start-task) en [Bestanden en mappen](#files-and-directories) voor meer informatie.
+* **Bronbestanden** die de te verwerken gegevens bevatten. In een Azure Storage-account worden deze bestanden automatisch vanuit Blob Storage naar het knooppunt gekopieerd vóórdat de opdrachtregel van de taak wordt uitgevoerd. Zie de secties [Begintaak](#start-task) en [Bestanden en mappen](#files-and-directories) voor meer informatie.
 * De **omgevingsvariabelen** die zijn vereist voor de toepassing. Zie de sectie [Omgevingsinstellingen voor taken](#environment-settings-for-tasks) voor meer informatie.
 * De **beperkingen** waaronder de taak moet worden uitgevoerd. Beperkingen zijn bijvoorbeeld de maximale duur dat de taak mag worden uitgevoerd, het maximumaantal keren dat een taak opnieuw moet worden uitgevoerd indien deze mislukt en de maximale duur dat bestanden in de werkmap van de taak behouden blijven.
 * **Toepassingspakketten** voor het implementeren in het rekenknooppunt waarop de taak staat gepland voor uitvoering. [Toepassingspakketten](#application-packages) bieden vereenvoudigde implementatie en versies van de toepassingen die de taken uitvoeren. Toepassingspakketten op taakniveau zijn met name nuttig in omgevingen met gedeelde groepen. Verschillende jobs worden uitgevoerd op één groep en de groep wordt niet verwijderd wanneer een job is voltooid. Als de job minder taken dan knooppunten in de groep heeft, kunnen toepassingspakketten van taken gegevensoverdracht minimaliseren omdat uw toepassing alleen wordt geïmplementeerd op de knooppunten die taken uitvoeren.

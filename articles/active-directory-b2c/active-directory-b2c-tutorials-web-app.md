@@ -1,6 +1,6 @@
 ---
-title: Zelfstudie Azure Active Directory B2C gebruiken voor gebruikersverificatie in een voor een ASP.NET-web-app
-description: Zelfstudie over het gebruik van Azure Active Directory B2C voor het opgeven van gebruikersaanmeldingsreferenties voor een ASP.NET-web-app.
+title: 'Zelfstudie: Een webtoepassing inschakelen om te verifiëren met accounts met behulp van Azure Active Directory B2C | Microsoft Docs'
+description: Zelfstudie over het gebruik van Azure Active Directory B2C voor het opgeven van gebruikersaanmelding voor een ASP.NET-webtoepassing.
 services: active-directory-b2c
 author: davidmu1
 ms.author: davidmu
@@ -8,13 +8,13 @@ ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: 19629f383bdab19a2541ca33dd2937574c2ced17
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 10e7c6a8e9e92a559352886095e367585dc484ef
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="tutorial-authenticate-users-with-azure-active-directory-b2c-in-an-aspnet-web-app"></a>Zelfstudie: Verificatie van gebruikers met Azure Active Directory B2C in een ASP.NET-web-app
+# <a name="tutorial-enable-a-web-application-to-authenticate-with-accounts-using-azure-active-directory-b2c"></a>Zelfstudie: Een webtoepassing inschakelen om te verifiëren met accounts met behulp van Azure Active Directory B2C
 
 Deze zelfstudie laat u zien hoe u Azure Active Directory B2C (Azure AD) kunt gebruiken voor het aanmelden en registreren van gebruikers in een ASP.NET-web-app. Met Azure AD B2C zijn uw apps in staat om zich met behulp van open-standaardprotocollen te verifiëren bij sociale accounts, Enterprise-accounts en Azure Active Directory-accounts.
 
@@ -40,22 +40,22 @@ Meld u als globale beheerder van de Azure AD B2C-tenant aan bij [Azure Portal](h
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-1. Selecteer **Azure AD B2C** in de lijst met services in Azure Portal.
+1. Selecteer **Azure AD B2C** in de lijst met services in Azure Portal. 
 
-2. Klik in de B2C-instellingen op **Toepassingen** en klik vervolgens op **Toevoegen**.
+2. Klik in de B2C-instellingen op **Toepassingen** en klik vervolgens op **Toevoegen**. 
 
     Gebruik de volgende instellingen voor het registreren van de voorbeeld-web-app in uw tenant.
 
     ![Een nieuw app toevoegen](media/active-directory-b2c-tutorials-web-app/web-app-registration.png)
-
+    
     | Instelling      | Voorgestelde waarde  | Beschrijving                                        |
     | ------------ | ------- | -------------------------------------------------- |
     | **Naam** | Mijn voorbeeld-web-app | Voer een **naam** in die uw app voor consumenten beschrijft. | 
     | **Web-app / web-API opnemen** | Ja | Selecteer **Ja** voor een web-app. |
     | **Impliciete stroom toestaan** | Ja | Selecteer **Ja** omdat de app gebruikmaakt van [aanmelding via OpenID Connect](active-directory-b2c-reference-oidc.md). |
     | **Antwoord-URL** | `https://localhost:44316` | Antwoord-URL's zijn eindpunten waarop Azure AD B2C tokens retourneert die zijn aangevraagd voor de app. In deze zelfstudie wordt het voorbeeld lokaal (localhost) uitgevoerd, en wordt op poort 44316 geluisterd. |
-    | **Systeemeigen client** | Nee | Aangezien dit een web-app en geen systeemeigen client is, moet u Nee selecteren. |
-
+    | **Systeemeigen client opnemen** | Nee | Aangezien dit een web-app en geen systeemeigen client is, moet u Nee selecteren. |
+    
 3. Klik op **Maken** om uw app te registreren.
 
 Geregistreerde apps worden weergegeven in de lijst met toepassingen voor de Azure AD B2C-tenant. Selecteer de web-app in de lijst. Het eigenschappenvenster van de web-app wordt weergegeven.
@@ -70,7 +70,7 @@ Azure AD B2C maakt voor [clienttoepassingen](../active-directory/develop/active-
 
 1. Selecteer de pagina Sleutels voor de geregistreerde web-app en klik op **Sleutel genereren**.
 
-2. Klik op **Opslaan** om de sleutel weer te geven.
+2. Klik op **Opslaan** om de app-sleutel weer te geven.
 
     ![pagina algemene sleutels app](media/active-directory-b2c-tutorials-web-app/app-general-keys-page.png)
 
@@ -112,7 +112,7 @@ Als u wilt toestaan dat gebruikers zelf hun gebruikersprofielgegevens opnieuw ku
     | **Naam** | SiPe | Voer een **naam** in voor het beleid. De naam van het beleid wordt voorafgegaan door **b2c_1_**. Gebruik de volledige beleidsnaam **b2c_1_SiPe** in de voorbeeldcode. | 
     | **Identiteitsprovider** | Aanmelding met lokaal account | De identiteitsprovider waarmee de gebruiker uniek wordt aangeduid. |
     | **Profielkenmerken** | Weergavenaam en postcode | Selecteer kenmerken die gebruikers bij het bewerken van het profiel kunnen wijzigen. |
-    | **Toepassingsclaims** | Weergavenaam, Postcode, Gebruiker is nieuw, Object-id van gebruiker | Selecteer [claims](../active-directory/develop/active-directory-dev-glossary.md#claim) die u wilt opnemen in de [toegangstoken](../active-directory/develop/active-directory-dev-glossary.md#access-token) nadat een profiel is bewerkt. |
+    | **Toepassingsclaims** | Weergavenaam, Postcode, Object-id van gebruiker | Selecteer [claims](../active-directory/develop/active-directory-dev-glossary.md#claim) die u wilt opnemen in de [toegangstoken](../active-directory/develop/active-directory-dev-glossary.md#access-token) nadat een profiel is bewerkt. |
 
 2. Klik op **Maken** om het beleid te maken. 
 
@@ -134,7 +134,7 @@ Als u wilt dat het wachtwoord voor uw toepassing opnieuw kan worden ingesteld, m
 
 ## <a name="update-web-app-code"></a>Web-app-code bijwerken
 
-Nadat u een web-app hebt geregistreerd en beleid hebt gemaakt, moet u uw app configureren voor het gebruik van uw Azure AD B2C-tenant. In deze zelfstudie gaat u een voorbeeld-web-app configureren. 
+Nadat u een web-app hebt geregistreerd en beleid hebt gemaakt, moet u uw app configureren voor het gebruik van uw Azure AD B2C-tenant. In deze zelfstudie configureert u een voorbeeld-web-app die u kunt downloaden uit GitHub. 
 
 [Download een ZIP-bestand ](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) of kloon de voorbeeld-web-app vanuit GitHub.
 
@@ -142,7 +142,7 @@ Nadat u een web-app hebt geregistreerd en beleid hebt gemaakt, moet u uw app con
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
-De voorbeeld-ASP.NET-web-app is een eenvoudige takenlijst-app waarmee u een takenlijst kunt maken en bijwerken. De app maakt gebruik van [Microsoft OWIN-middlewareonderdelen](https://docs.microsoft.com/en-us/aspnet/aspnet/overview/owin-and-katana/) zodat gebruikers zich kunnen aanmelden en de app in uw Azure AD B2C-tenant kunnen gebruiken. Als u een Azure AD B2C-beleid maakt, kunnen gebruikers een sociaal account gebruiken, of een account maken om te gebruiken als identiteit waarmee ze toegang krijgen tot de app. 
+De voorbeeld-ASP.NET-web-app is een eenvoudige takenlijst-app waarmee u een takenlijst kunt maken en bijwerken. De app maakt gebruik van [Microsoft OWIN-middlewareonderdelen](https://docs.microsoft.com/aspnet/aspnet/overview/owin-and-katana/) zodat gebruikers zich kunnen aanmelden en de app in uw Azure AD B2C-tenant kunnen gebruiken. Als u een Azure AD B2C-beleid maakt, kunnen gebruikers een sociaal account gebruiken, of een account maken om te gebruiken als identiteit waarmee ze toegang krijgen tot de app. 
 
 Er bevinden zich twee projecten in de voorbeeldoplossing:
 
@@ -154,7 +154,7 @@ U moet instellen dat de app de app-registratie in uw tenant gebruikt. Dit omvat 
 
 1. Open de oplossing **B2C-WebAPI-DotNet** in Visual Studio.
 
-2. In het project **TaskWebApp** in de web-app, opent u het bestand **Web.config** en brengt u de volgende updates aan:
+2. Open in het web-app-project **TaskWebApp** het bestand **Web.config** en voer de volgende updates uit voor de bestaande sleutels:
 
     ```C#
     <add key="ida:Tenant" value="<Your tenant name>.onmicrosoft.com" />
@@ -163,7 +163,7 @@ U moet instellen dat de app de app-registratie in uw tenant gebruikt. Dit omvat 
     
     <add key="ida:ClientSecret" value="Client password (client secret or app key)" />
     ```
-3. Werk de beleidsinstellingen bij met de naam die is gegenereerd toen u uw beleid maakte.
+3. Werk de bestaande sleutels bij met de beleidsnamen die u in een vorige stap hebt gemaakt. Vergeet niet om het voorvoegsel *b2c_1_* op te nemen.
 
     ```C#
     <add key="ida:SignUpSignInPolicyId" value="b2c_1_SiUpIn" />

@@ -1,12 +1,12 @@
 ---
-title: Opslagverkenner (preview) gebruiken met Azure File Storage | Microsoft Docs
-description: Lees hier hoe u Opslagverkenner (preview) kunt gebruiken om te werken met bestandsshares en bestanden.
+title: Storage Explorer gebruiken met Azure File Storage | Microsoft Docs
+description: Lees hier hoe u Storage Explorer kunt gebruiken om te werken met bestandsshares en bestanden.
 services: storage
 documentationcenter: na
 author: cawaMS
 manager: paulyuk
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storage
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: 964691758254531cb92a5b1cbe055ef61d25dba8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8bcc2bf11ef4adbe9139635d3c24c240a46783c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="using-storage-explorer-preview-with-azure-file-storage"></a>Opslagverkenner (preview) gebruiken met Azure File Storage
+# <a name="using-storage-explorer-with-azure-file-storage"></a>Opslagverkenner gebruiken met Azure File Storage
 
-Azure File Storage is een service die bestandsshares in de cloud aanbiedt met behulp van het standaard SMB-protocol (Server Message Block). Zowel SMB 2.1 als SMB 3.0 wordt ondersteund. Met Azure File Storage kunt u oudere toepassingen die afhankelijk zijn van bestandsshares, snel en zonder kostbare regeneraties naar Azure migreren. U kunt File Storage gebruiken om gegevens openbaar te maken of om toepassingsgegevens privé op te slaan. In dit artikel leest u hoe u Opslagverkenner (preview) kunt gebruiken om te werken met bestandsshares en bestanden.
+Azure File Storage is een service die bestandsshares in de cloud aanbiedt met behulp van het standaard SMB-protocol (Server Message Block). Zowel SMB 2.1 als SMB 3.0 wordt ondersteund. Met Azure File Storage kunt u oudere toepassingen die afhankelijk zijn van bestandsshares, snel en zonder kostbare regeneraties naar Azure migreren. U kunt File Storage gebruiken om gegevens openbaar te maken of om toepassingsgegevens privé op te slaan. In dit artikel leest u hoe u Storage Explorer kunt gebruiken om te werken met bestandsshares en bestanden.
 
 ## <a name="prerequisites"></a>Vereisten
 
 U moet het volgende doen om de stappen in dit artikel uit te voeren:
 
-- [Opslagverkenner (preview) downloaden en installeren](http://www.storageexplorer.com/)
+- [Storage Explorer downloaden en installeren](http://www.storageexplorer.com/)
 
 - [Verbinding maken met een opslagaccount of -service van Azure Storage](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
 
@@ -36,9 +36,9 @@ U moet het volgende doen om de stappen in dit artikel uit te voeren:
 
 Alle bestanden moeten zich bevinden in een bestandsshare, wat in feite niets meer is dan een logische groepering van bestanden. Een account kan een onbeperkt aantal bestandsshares bevatten en elke share kan een onbeperkt aantal bestanden bevatten.
 
-Voer de volgende stappen uit om een bestandsshare te maken binnen Opslagverkenner (preview).
+Voer de volgende stappen uit om een bestandsshare te maken binnen Storage Explorer.
 
-1. Open Opslagverkenner (Preview).
+1. Open Storage Explorer.
 
 2. Vouw in het linkerdeelvenster het opslagaccount uit waarin u de bestandsshare wilt maken.
 
@@ -58,9 +58,9 @@ Voer de volgende stappen uit om een bestandsshare te maken binnen Opslagverkenne
 
 Bestandsshares bevatten bestanden en mappen (die ook weer bestanden kunnen bevatten).
 
-Volg de volgende stappen om de inhoud van een bestandsshare weer te geven binnen Opslagverkenner (preview).
+Volg de volgende stappen om de inhoud van een bestandsshare weer te geven binnen Storage Explorer:+
 
-1. Open Opslagverkenner (Preview).
+1. Open Storage Explorer.
 
 2. Vouw in het linkerdeelvenster het opslagaccount uit met de bestandsshare die u wilt weergeven.
 
@@ -78,9 +78,9 @@ Volg de volgende stappen om de inhoud van een bestandsshare weer te geven binnen
 
 U kunt op ieder moment bestandsshares toevoegen en verwijderen. Zie [Managing files in a file share](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container) (Bestanden beheren in een bestandsshare) voor informatie over het verwijderen van afzonderlijke bestanden.
 
-Voer de volgende stappen uit om een bestandsshare te verwijderen binnen Opslagverkenner (preview):
+Voer de volgende stappen uit om een bestandsshare te wissen binnen Storage Explorer:
 
-1. Open Opslagverkenner (Preview).
+1. Open Storage Explorer.
 
 2. Vouw in het linkerdeelvenster het opslagaccount uit met de bestandsshare die u wilt weergeven.
 
@@ -96,11 +96,11 @@ Voer de volgende stappen uit om een bestandsshare te verwijderen binnen Opslagve
 
 ## <a name="copy-a-file-share"></a>Een bestandsshare kopiëren
 
-U kunt met Opslagverkenner (preview) een bestandsshare naar het klembord kopiëren en de bestandsshare vervolgens in een ander opslagaccount plakken. Zie [Managing files in a file share](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container) (Bestanden beheren in een bestandsshare) voor informatie over het kopiëren van afzonderlijke bestanden.
+U kunt met Storage Explorer een bestandsshare naar het klembord kopiëren en de bestandsshare vervolgens in een ander opslagaccount plakken. Zie [Managing files in a file share](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container) (Bestanden beheren in een bestandsshare) voor informatie over het kopiëren van afzonderlijke bestanden.
 
 In de volgende stappen ziet u hoe u een bestandsshare van het ene opslagaccount naar het andere kopieert.
 
-1. Open Opslagverkenner (Preview).
+1. Open Storage Explorer.
 
 2. Vouw in het linkerdeelvenster het opslagaccount uit met de bestandsshare die u wilt kopiëren.
 
@@ -120,7 +120,7 @@ Een [SAS (Shared Access Signature; handtekening voor gedeelde toegang)](https://
 
 Voer de volgende stappen uit om een SAS te maken voor een bestandsshare:
 
-1. Open Opslagverkenner (Preview).
+1. Open Storage Explorer.
 
 2. Vouw in het linkerdeelvenster het opslagaccount uit met de bestandsshare waarvoor u een SAS wilt ophalen.
 
@@ -146,7 +146,7 @@ Voer de volgende stappen uit om een SAS te maken voor een bestandsshare:
 
 In de volgende stappen ziet u hoe u toegangsbeleid voor een bestandsshare kunt beheren (toevoegen en verwijderen). Toegangsbeleid wordt gebruikt om URL's voor SAS te maken waarmee personen gedurende een bepaalde periode de resource Opslagbestand kunnen gebruiken.
 
-1. Open Opslagverkenner (Preview).
+1. Open Storage Explorer.
 
 2. Vouw in het linkerdeelvenster het opslagaccount uit met de bestandsshare waarvan u het toegangsbeleid wilt wijzigen.
 
@@ -180,7 +180,7 @@ Als u een bestandsshare hebt gemaakt, kunt u een bestand uploaden naar die besta
 
 De volgende stappen laten zien hoe u de bestanden (en mappen) in een bestandsshare beheert.
 
-1.  Open Opslagverkenner (Preview).
+1.  Open Storage Explorer.
 
 2.  Vouw in het linkerdeelvenster het opslagaccount uit met de bestandsshare die u wilt beheren.
 
@@ -258,6 +258,6 @@ De volgende stappen laten zien hoe u de bestanden (en mappen) in een bestandssha
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- De [meest recente releaseopmerkingen en video's van Opslagverkenner (preview)](http://www.storageexplorer.com/) bekijken.
+- De [meest recente releaseopmerkingen en video's van Storage Explorer](http://www.storageexplorer.com/) bekijken.
 
 - Meer informatie lezen over [het maken van toepassingen met behulp van blobs, tabellen, wachtrijen en bestanden van Azure](https://azure.microsoft.com/documentation/services/storage/).

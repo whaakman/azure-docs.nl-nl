@@ -94,6 +94,8 @@
       items:
         - name: Id-providers configureren
           items:
+            - name: Aangepaste OpenID Connect
+              href: active-directory-b2c-setup-oidc-idp.md
             - name: Microsoft-account
               href: active-directory-b2c-setup-msa-app.md
             - name: Facebook
@@ -159,6 +161,8 @@
                   href: active-directory-b2c-custom-setup-li-idp.md
                 - name: Twitter
                   href: active-directory-b2c-custom-setup-twitter-idp.md
+                - name: Multitenant
+                  href: active-directory-b2c-setup-commonaad-custom.md
             - name: SAML-providers configureren
               items:
                 - name: ADFS
@@ -195,12 +199,12 @@
                   href: active-directory-b2c-reference-password-change-custom.md
                 - name: Aangemeld blijven inschakelen
                   href: active-directory-b2c-reference-kmsi-custom.md
-            - name: Gebruikersgedrag bijhouden
-              href: active-directory-b2c-custom-guide-eventlogger-appins.md
             - name: Problemen oplossen
               items:
                 - name: Logboeken verzamelen met Application Insights
                   href: active-directory-b2c-troubleshoot-custom.md
+                - name: Gebruikersgedrag bijhouden
+                  href: active-directory-b2c-custom-guide-eventlogger-appins.md
         - name: Naslaginformatie
           items:
             - name: Releaseopmerkingen

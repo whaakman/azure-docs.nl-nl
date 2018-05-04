@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/09/2018
+ms.date: 04/06/2018
 ms.author: mazha
 ms.custom: mvc
-ms.openlocfilehash: de04253a51d30885e936cb65a1925df4e5e96eaf
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: dad9866a3d61421987bc4a62057498e004f65e7f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Zelfstudie: Een aangepast domein toevoegen aan uw Azure CDN-eindpunt
-Deze zelfstudie laat zien hoe u een aangepast domein toevoegt aan een Azure CDN-eindpunt. Wanneer u een CDN-eindpunt gebruikt voor het leveren van inhoud, is een aangepast domein nodig als u wilt dat uw eigen domeinnaam zichtbaar is in de URL van uw CDN. Een zichtbare domeinnaam kan handig zijn voor uw klanten en nuttig zijn voor branding-doelen. 
+Deze zelfstudie laat zien hoe u een aangepast domein toevoegt aan een Azure CDN-eindpunt (Content Delivery Network). Wanneer u een CDN-eindpunt gebruikt voor het leveren van inhoud, is een aangepast domein nodig als u wilt dat uw eigen domeinnaam zichtbaar is in de URL van uw CDN. Een zichtbare domeinnaam kan handig zijn voor uw klanten en nuttig zijn voor branding-doelen. 
 
 Nadat u een CDN-eindpunt in uw profiel hebt gemaakt, is de naam van het eindpunt, namelijk een subdomein van azureedge.net, standaard opgenomen in de URL voor het leveren van CDN-inhoud (bijvoorbeeld https:\//contoso.azureedge.net/photo.png). Voor uw gemak biedt Azure CDN de mogelijkheid om een aangepast domein te koppelen met een CDN-eindpunt. Met deze optie levert u uw inhoud met een aangepast domein in uw URL in plaats van de naam van een eindpunt (bijvoorbeeld https:\//www.contoso.com/photo.png). 
 
@@ -49,7 +49,8 @@ Voordat u een aangepast domein met een Azure CDN-eindpunt gebruiken kunt, moet u
 
 Een aangepast domein en het subdomein kunnen worden slechts aan één eindpunt tegelijk worden gekoppeld. U kunt echter verschillende subdomeinen uit het aangepaste domein gebruiken voor andere Azure-service-eindpunten met behulp van meerdere CNAME-records. U kunt ook een aangepast domein met verschillende subdomeinen toewijzen aan hetzelfde CDN-eindpunt.
 
-## <a name="map-temporary-cdnverify-subdomain"></a>Tijdelijk cdnverify subdomein toewijzen
+
+## <a name="map-the-temporary-cdnverify-subdomain"></a>Tijdelijk cdnverify subdomein toewijzen
 
 Wanneer u een bestaand domein toewijst dat in productie is genomen, zijn er speciale overwegingen. Terwijl u uw aangepaste domein in het Azure Portal registreert, kan een korte periode van uitvaltijd voor het domein optreden. Om te voorkomen dat het webverkeer wordt onderbroken, moet u eerst uw aangepaste domein toewijzen aan de hostnaam van uw CDN-eindpunt met het subdomein Azure cdnverify, om een tijdelijke CNAME-toewijzing te maken. Met deze methode kunnen gebruikers zonder onderbreking toegang krijgen tot uw domein terwijl de DNS-toewijzing wordt uitgevoerd. 
 
@@ -135,7 +136,8 @@ Nadat u de registratie van uw aangepaste domein hebt voltooid, controleert u of 
 
 2. Ga naar het adres van het bestand met behulp van het aangepaste domein in uw browser. Bijvoorbeeld, als uw aangepaste domein cdn.contoso.com is, moet de URL naar het bestand in de cache moet vergelijkbaar zijn met de volgende URL: http:\//cdn.contoso.com/my-public-container/my-file.jpg.
 
-## <a name="map-permanent-custom-domain"></a>Permanent aangepast domein toewijzen
+
+## <a name="map-the-permanent-custom-domain"></a>Permanent aangepast domein toewijzen
 
 Als u hebt gecontroleerd dat het subdomein cdnverify met succes is toegewezen aan het eindpunt (of als u een nieuwe aangepast gebruikt domein dat niet in productie is), kunt u vervolgens het aangepaste domein rechtstreeks toewijzen aan de hostnaam van uw CDN-eindpunt.
 
@@ -160,6 +162,8 @@ Maken van een CNAME-record voor uw aangepaste domein:
 4. Sla uw wijzigingen op.
 
 5. Als u eerder een tijdelijk cdnverify-subdomein CNAME-record hebt gemaakt, moet u dit verwijderen. 
+
+6. Als u dit aangepaste domein voor het eerst in de productieomgeving gebruikt, volg dan de stappen voor [Het aangepaste domein koppelen aan uw CDN-eindpunt](#associate-the-custom-domain-with-your-cdn-endpoint) en [Het aangepaste domein verifiëren](#verify-the-custom-domain).
 
 Bijvoorbeeld: de procedure voor de registrar van een GoDaddy-domein is als volgt:
 
@@ -192,8 +196,6 @@ Bijvoorbeeld: de procedure voor de registrar van een GoDaddy-domein is als volgt
 7. Als u een cdnverify CNAME-record hebt, selecteer dan het potloodpictogram ernaast en daarna het prullenbak-pictogram.
 
 8. Selecteer **Verwijderen** om het CNAME-record te verwijderen.
-
-Als u dit aangepaste domein voor het eerst in de productieomgeving gebruikt, volg dan de stappen voor [Het aangepaste domein koppelen aan uw CDN-eindpunt](#associate-the-custom-domain-with-your-cdn-endpoint) en [Het aangepaste domein verifiëren](#verify-the-custom-domain).
 
 
 ## <a name="clean-up-resources"></a>Resources opschonen

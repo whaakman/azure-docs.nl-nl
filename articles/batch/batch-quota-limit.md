@@ -12,14 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/27/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3cc833e456571b63fa03574808529c8c501d7ab5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 19cdf81a355bae4d59cb49c1c588b995b040309b
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quota en limieten voor Batch-service
 
@@ -50,7 +50,7 @@ Als u een Batch-account hebt gemaakt met de groep toewijzing modus is ingesteld 
 | [Gelijktijdige taken](batch-parallel-node-tasks.md) per rekenknooppunt |4 x aantal kernen voor knooppunt |
 | [Toepassingen](batch-application-packages.md) per Batch-account |20 |
 | Toepassingspakketten per toepassing |40 |
-| Grootte van de toepassing-pakket (elk) |Approx. 195GB<sup>1</sup> |
+| Grootte van de toepassing-pakket (elk) |Ongeveer 195GB<sup>1</sup> |
 | Maximale startgrootte van taak | 32768 tekens<sup>2</sup> |
 | Taak maximale levensduur | 7 dagen<sup>3</sup> |
 | Rekenknooppunten in de pool communicatie tussen knooppunten is ingeschakeld | 100 |

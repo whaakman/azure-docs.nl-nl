@@ -1,69 +1,69 @@
 ---
-title: Inrichten van een apparaat met Azure IoT Hub apparaat inrichten Service (.NET) | Microsoft Docs
-description: Inrichten van uw apparaat met een enkele iothub met behulp van de Azure IoT Hub apparaat inrichten Service (.NET)
+title: Een apparaat inrichten met behulp van Azure IoT Hub Device Provisioning Service (.NET) | Microsoft Docs
+description: Uw apparaat inrichten in een enkele IoT-hub met behulp van IoT Hub Device Provisioning Service (.NET)
 services: iot-dps
-keywords: 
-author: msebolt
+keywords: ''
+author: bryanla
 ms.author: v-masebo
 ms.date: 09/05/2017
 ms.topic: tutorial
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 6919f962d853faa572ee7ad5d0cb9aeacd3bd2b6
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
-ms.translationtype: MT
+ms.openlocfilehash: ec08d617b461240062190ec7fdb919f051675798
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Registreren van het apparaat naar een iothub met behulp van de Azure IoT Hub inrichting Service Client (.NET)
+# <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Het apparaat registreren bij een IoT-hub met behulp van IoT Hub Device Provisioning Service-client (.NET)
 
-In de vorige zelfstudie hebt u geleerd hoe u een apparaat instellen verbinding maken met uw service apparaten inrichten. In deze zelfstudie leert u hoe aan deze service gebruiken voor het inrichten van uw apparaat met een enkele iothub met zowel  **_afzonderlijke inschrijving_**  en  **_inschrijving groepen_**. In deze handleiding ontdekt u hoe u:
+In de vorige zelfstudie hebt u geleerd hoe u een apparaat kunt instellen om verbinding te maken met Device Provisioning Service. In deze zelfstudie leert u hoe u deze service gebruikt om uw apparaat in te richten voor één IoT-hub. U gebruikt daarvoor zowel **_Individuele registratie_** als **_Registratiegroepen_**. In deze handleiding ontdekt u hoe u:
 
 > [!div class="checklist"]
 > * Het apparaat inschrijven
-> * Start het apparaat
-> * Controleer of dat het apparaat is geregistreerd
+> * Het apparaat starten
+> * Controleren of het apparaat is geregistreerd
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voordat u doorgaat, zorg ervoor dat uw apparaat configureren en de bijbehorende *Hardware Security Module* zoals beschreven in de zelfstudie [instellen van een apparaat om in te richten met behulp van Azure IoT Hub apparaat-inrichtingsservice](./tutorial-set-up-device.md).
+Voordat u verder gaat, moeten uw apparaat en diens *Hardware Security Module* zijn geconfigureerd zoals is besproken in de zelfstudie [Een apparaat instellen voor inrichten met behulp van Azure IoT Hub Device Provisioning Service](./tutorial-set-up-device.md).
 
 * Visual Studio 2015 of Visual Studio 2017
 
 > [!NOTE]
-> Visual Studio is niet vereist. De installatie van [.NET](https://www.microsoft.com/net) voldoende en ontwikkelaars kunnen hun voorkeur editor gebruiken op Windows of Linux.  
+> Visual Studio is niet vereist. De installatie van [.NET](https://www.microsoft.com/net) is voldoende en ontwikkelaars kunnen een willekeurige editor gebruiken op Windows of Linux.  
 
-Deze zelfstudie wordt de periode tijdens of meteen na de productie-proces, wanneer gegevens van een apparaat wordt toegevoegd aan de inrichting service hardware gesimuleerd. Deze code wordt doorgaans uitgevoerd op een PC of een factory-apparaat dat .NET-code kan worden uitgevoerd en moet niet worden toegevoegd aan de apparaten zelf.
+Deze zelfstudie simuleert de periode tijdens of direct na het hardwareproductieproces, wanneer apparaatgegevens aan de inrichtingsservice worden toegevoegd. Deze code wordt doorgaans uitgevoerd op een pc of fabrieksapparaat waarop .NET-code kan worden uitgevoerd. De code mag niet aan de apparaten zelf worden toegevoegd.
 
 
 ## <a name="enroll-the-device"></a>Het apparaat inschrijven
 
-Deze stap omvat het unieke beveiligings-artefacten van het apparaat toe te voegen aan de Service voor het inrichten van apparaten. Deze beveiliging artefacten zijn als volgt:
+In deze stap worden de unieke beveiligingsartefacten van het apparaat toegevoegd aan Device Provisioning Service. Deze beveiligingsartefacten zijn als volgt:
 
-- Voor op basis van TPM-apparaten:
-    - De *goedkeuringssleutel* die uniek is voor elke TPM-chip of de simulatie. Lees de [TPM-goedkeuringssleutel begrijpen](https://technet.microsoft.com/library/cc770443.aspx) voor meer informatie.
-    - De *registratie-ID* die wordt gebruikt om een apparaat in de naamruimte/scope uniek te identificeren. Of deze mogelijk niet hetzelfde zijn als de apparaat-ID. De ID is verplicht voor elk apparaat. Voor apparaten op basis van TPM kan de registratie-ID van de TPM zelf, bijvoorbeeld een SHA-256-hash van de TPM-goedkeuringssleutel afkomstig zijn.
+- Voor TPM-apparaten:
+    - De *Goedkeuringssleutel* die uniek is voor elke TPM-chip of simulatie. Lees [TPM-goedkeuringssleutel begrijpen](https://technet.microsoft.com/library/cc770443.aspx) voor meer informatie.
+    - De *Registratie-id* die wordt gebruikt om een apparaat op unieke wijze te identificeren in de naamruimte of het bereik. Deze mag gelijk zijn aan de apparaat-id, maar dit hoeft niet. De id is verplicht voor elk apparaat. Voor TPM-apparaten kan de registratie-id worden afgeleid van de TPM zelf, bijvoorbeeld een SHA-256-hash van de TPM-goedkeuringssleutel.
 
-- Voor X.509 op basis van apparaten:
-    - De [X.509-certificaat uitgegeven aan het apparaat](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx), in de vorm van een *.pem* of een *.cer* bestand. Voor afzonderlijke inschrijving die u wilt gebruiken, de *leaf certificaat* voor uw systeem X.509 terwijl voor de inschrijving van groepen, moet u gebruiken de *basiscertificaat* of een gelijkwaardige *ondertekenaar certificaat*.
-    - De *registratie-ID* die wordt gebruikt om een apparaat in de naamruimte/scope uniek te identificeren. Of deze mogelijk niet hetzelfde zijn als de apparaat-ID. De ID is verplicht voor elk apparaat. Voor X.509 op basis van apparaten, is de registratie-ID afgeleid van de algemene naam (CN) het certificaat. Zie voor meer informatie over deze vereisten [apparaat concepten](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-device).
+- Voor X.509-apparaten:
+    - Het [X.509-certificaat dat is verleend aan het apparaat](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx), in de vorm van een *PEM*- of *CER*-bestand. Voor een afzonderlijke inschrijving moet u het *leaf certificaat* voor het X.509-systeem gebruiken. Voor registratiegroepen moet u het *basiscertificaat* of een gelijkwaardig *certificaat van ondertekenaar* gebruiken.
+    - De *Registratie-id* die wordt gebruikt om een apparaat op unieke wijze te identificeren in de naamruimte of het bereik. Deze mag gelijk zijn aan de apparaat-id, maar dit hoeft niet. De id is verplicht voor elk apparaat. Voor X.509-apparaten is de registratie-id afgeleid van de algemene naam (CN) van het certificaat. Zie [Device concepts](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-device) (Apparaatconcepten) voor meer informatie over deze vereisten.
 
-Er zijn twee manieren het apparaat naar de Service voor het inrichten van apparaten te registreren:
+Er zijn twee manieren om het apparaat te registreren bij Device Provisioning Service:
 
-- **Afzonderlijke inschrijvingen** Hiermee wordt een vermelding voor één apparaat bij de Service voor het inrichten van apparaten registreren kan. Afzonderlijke inschrijvingen mag x.509-certificaten of SAS-tokens (in een echt of virtueel TPM) gebruiken zoals attestation mechanismen. U wordt aangeraden met afzonderlijke inschrijvingen voor apparaten die unieke initiële configuraties vereisen, of voor apparaten die alleen via TPM SAS-tokens als het mechanisme voor attestation kunnen gebruiken. Afzonderlijke inschrijvingen wellicht de gewenste IoT hub apparaat-ID opgegeven.
+- **Afzonderlijke inschrijvingen**: dit is een vermelding voor een enkel apparaat dat kan worden geregistreerd met Device Provisioning Service. Afzonderlijke inschrijvingen kunnen X.509-certificaten of SAS-tokens (in een echt of virtueel TPM) gebruiken als attestation-mechanismen. We raden u aan om afzonderlijke inschrijvingen te gebruiken voor apparaten die unieke initiële configuraties vereisen, en voor apparaten die alleen SAS-tokens via TPM als attestation-mechanisme kunnen gebruiken. Afzonderlijke inschrijvingen hebben mogelijk de gewenste apparaat-id voor IoT Hub die is opgegeven.
 
-- **Inschrijving groepen** dit vertegenwoordigt een groep apparaten die een specifieke attestation-mechanisme delen. Aangeraden wordt een inschrijvingsgroep voor voor een groot aantal apparaten dat een gewenste initiële configuratie delen, of voor apparaten alle gaat dezelfde tenant. Inschrijving groepen zijn X.509 alleen en alle delen van een ondertekend certificaat in de keten van hun x.509-certificaat.
+- **Inschrijvingsgroepen**: dit is een groep apparaten die een specifiek attestation-mechanisme delen. We raden u aan om een inschrijvingsgroep te gebruiken bij een groot aantal apparaten die een gewenste initiële configuratie delen, of voor apparaten die allemaal zijn verbonden met dezelfde tenant. Inschrijvingsgroepen gebruiken alleen X.509 en delen allemaal een ondertekeningscertificaat in hun keten van X.509-certificaten.
 
-### <a name="enroll-the-device-using-individual-enrollments"></a>Registreren van het apparaat met behulp van afzonderlijke inschrijvingen
+### <a name="enroll-the-device-using-individual-enrollments"></a>Het apparaat registreren met Afzonderlijke inschrijvingen
 
-1. Maak in Visual Studio een Visual C#-consoletoepassing-project met behulp van de **consoletoepassing** projectsjabloon. Noem het project **DeviceProvisioning**.
+1. Maak in Visual Studio een Visual C#-consoletoepassingsproject met behulp van de projectsjabloon**Consoletoepassing**. Noem het project **DeviceProvisioning**.
     
-1. Klik in Solution Explorer met de rechtermuisknop op de **DeviceProvisioning** project en klik vervolgens op **NuGet-pakketten beheren...** .
+1. Klik in Solution Explorer met de rechtermuisknop op het project **DeviceProvisioning** en klik op **NuGet-pakketten beheren...**.
 
-1. In de **NuGet Package Manager** Selecteer **Bladeren** en zoek naar **microsoft.azure.devices.provisioning.service**. Selecteer de vermelding en klikt u op **installeren** voor het installeren van de **Microsoft.Azure.Devices.Provisioning.Service** Inpakken en accepteer de gebruiksvoorwaarden. Deze procedure downloadt, installeert en voegt u een verwijzing naar de [Azure IoT-device SDK-service inricht](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) NuGet-pakket en de bijbehorende afhankelijkheden.
+1. Selecteer in het venster **NuGet Package Manager** de optie **Bladeren** en zoek naar **microsoft.azure.devices.provisioning.service**. Selecteer de vermelding en klik op **Installeren** om het pakket **Microsoft.Azure.Devices.Provisioning.Service** te installeren en de gebruiksvoorwaarden te accepteren. Met deze procedure worden het NuGet-pakket van de [Azure IoT Device Provisioning Service SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) en de bijbehorende afhankelijkheden gedownload en geïnstalleerd. Ook worden verwijzingen hiernaar toegevoegd.
 
 1. Voeg aan het begin van het bestand **Program.cs** de volgende `using` instructies toe:
    
@@ -71,7 +71,7 @@ Er zijn twee manieren het apparaat naar de Service voor het inrichten van appara
     using Microsoft.Azure.Devices.Provisioning.Service;
     ```
 
-1. Voeg de volgende velden toe aan de klasse **Program**: Vervang de tijdelijke aanduidingswaarde met de verbindingsreeks van de DP's in de vorige sectie hebt genoteerd.
+1. Voeg de volgende velden toe aan de klasse **Program**: Vervang de tijdelijke aanduiding door de DPS-verbindingsreeks die u in de vorige sectie hebt genoteerd.
    
     ```csharp
     static readonly string ServiceConnectionString = "{DPS connection string}";
@@ -87,7 +87,7 @@ Er zijn twee manieren het apparaat naar de Service voor het inrichten van appara
     private const ProvisioningStatus OptionalProvisioningStatus = ProvisioningStatus.Enabled;
     ```
 
-1. Voeg de volgende voor het implementeren van de registratie voor het apparaat:
+1. Voeg het volgende toe om de registratie voor het apparaat te implementeren:
 
     ```csharp
     static async Task SetRegistrationDataAsync()
@@ -112,7 +112,7 @@ Er zijn twee manieren het apparaat naar de Service voor het inrichten van appara
     }
     ```
 
-1. Voeg de volgende code naar de **Main** methode voor het openen van de verbinding met uw IoT-hub en begint de inschrijving:
+1. Voeg tot slot de volgende code aan de methode **Main** toe om de verbinding met uw IoT-hub te openen en de registratie te starten:
    
     ```csharp
     try
@@ -131,22 +131,22 @@ Er zijn twee manieren het apparaat naar de Service voor het inrichten van appara
     }
     ```
         
-1. In de Visual Studio Solution Explorer met de rechtermuisknop op uw oplossing en klik vervolgens op **Opstartprojecten instellen...** . Selecteer **één opstartproject**, en selecteer vervolgens de **DeviceProvisioning** -project in de vervolgkeuzelijst.  
+1. Klik in Solution Explorer van Visual Studio met de rechtermuisknop op uw oplossing en klik op **Set StartUp Projects...**. Selecteer **Single startup project** en selecteer het project **DeviceProvisioning** in de vervolgkeuzelijst.  
 
-1. Voer de app voor .NET-apparaat **DeviceProvisiong**. Het moet inrichten van het apparaat instellen: 
+1. Voer de app voor het .NET-apparaat **DeviceProvisiong** uit. Deze moet de inrichting van het apparaat instellen: 
 
-    ![Individuele registratie uitvoeren](./media/tutorial-net-provision-device-to-hub/individual.png)
+    ![Uitvoering van afzonderlijke registratie](./media/tutorial-net-provision-device-to-hub/individual.png)
 
-Wanneer het apparaat is ingeschreven, ziet u deze in de portal als volgt weergegeven:
+Wanneer het apparaat is ingeschreven, ziet u dat deze in de portal als volgt wordt weergegeven:
 
    ![Geslaagde inschrijving in de portal](./media/tutorial-net-provision-device-to-hub/individual-portal.png)
 
-### <a name="enroll-the-device-using-enrollment-groups"></a>Registreren van het apparaat met behulp van groepen van de inschrijving
+### <a name="enroll-the-device-using-enrollment-groups"></a>Het apparaat registreren met Registratiegroepen
 
 > [!NOTE]
-> Het voorbeeld van de groep inschrijving vereist een X.509-certificaat.
+> Het voorbeeld van de inschrijvingsgroep heeft een X.509-certificaat nodig.
 
-1. Open in de Visual Studio Solution Explorer de **DeviceProvisioning** project die eerder is gemaakt. 
+1. Open in de Solution Explorer van Visual Studio het project **DeviceProvisioning** dat eerder is gemaakt. 
 
 1. Voeg aan het begin van het bestand **Program.cs** de volgende `using` instructies toe:
     
@@ -154,14 +154,14 @@ Wanneer het apparaat is ingeschreven, ziet u deze in de portal als volgt weergeg
     using System.Security.Cryptography.X509Certificates;
     ```
 
-1. Voeg de volgende velden toe aan de klasse **Program**: Vervang de tijdelijke aanduidingswaarde met de X509 locatie van het certificaat.
+1. Voeg de volgende velden toe aan de klasse **Program**: Vervang de tijdelijke aanduiding door de locatie van het X.509-certificaat.
    
     ```csharp
     private const string X509RootCertPathVar = "{X509 Certificate Location}";
     private const string SampleEnrollmentGroupId = "sample-group-csharp";
     ```
 
-1. Het volgende toevoegen aan **Program.cs** implementeren van de registratie voor de groep:
+1. Voeg het volgende toe aan **Progam.cs** om de registratie voor de groep te implementeren:
 
     ```csharp
     public static async Task SetGroupRegistrationDataAsync()
@@ -191,7 +191,7 @@ Wanneer het apparaat is ingeschreven, ziet u deze in de portal als volgt weergeg
     }
     ```
 
-1. Tot slot vervangt de volgende code naar de **Main** methode voor het openen van de verbinding met uw IoT-hub en de groep in te schrijven:
+1. Vervang tot slot de volgende code in de methode **Main** om de verbinding met uw IoT-hub te openen en de groepsregistratie te starten:
    
     ```csharp
     try
@@ -210,34 +210,34 @@ Wanneer het apparaat is ingeschreven, ziet u deze in de portal als volgt weergeg
     }
     ```
 
-1. Voer de app voor .NET-apparaat **DeviceProvisiong**. Deze moet groep wordt ingericht voor het apparaat instellen: 
+1. Voer de app voor het .NET-apparaat **DeviceProvisiong** uit. Deze moet de groepsinrichting van het apparaat instellen: 
 
-    ![Groep-registratie uitvoeren](./media/tutorial-net-provision-device-to-hub/group.png)
+    ![Uitvoering van groepsregistratie](./media/tutorial-net-provision-device-to-hub/group.png)
 
-    Wanneer de apparaatgroep voor het apparaat wordt ingeschreven, ziet u deze in de portal als volgt weergegeven:
+    Wanneer de groep met apparaten is ingeschreven, ziet u dat deze in de portal als volgt wordt weergegeven:
 
-   ![Registratie van geslaagde groep in de portal](./media/tutorial-net-provision-device-to-hub/group-portal.png)
-
-
-## <a name="start-the-device"></a>Start het apparaat
-
-De volgende instellingen zijn nu gereed voor apparaatregistratie:
-
-1. Uw apparaat of een groep apparaten zijn geregistreerd met uw Service apparaten inrichten en 
-2. Uw apparaat is klaar met de beveiliging geconfigureerd en toegankelijk zijn via de toepassing die gebruikmaakt van de inrichtingsservice apparaat-client-SDK.
-
-Start het apparaat zodat uw clienttoepassing starten van de registratie met uw apparaat van de inrichtingsservice.  
+   ![Geslaagde groepsregistratie in de portal](./media/tutorial-net-provision-device-to-hub/group-portal.png)
 
 
-## <a name="verify-the-device-is-registered"></a>Controleer of dat het apparaat is geregistreerd
+## <a name="start-the-device"></a>Het apparaat starten
 
-Eenmaal uw apparaat opnieuw is opgestart, de volgende acties moeten worden uitgevoerd. Zie de voorbeeldtoepassing voor TPM-simulator [dps_client_sample](https://github.com/Azure/azure-iot-device-auth/blob/master/dps_client/samples/dps_client_sample/dps_client_sample.c) voor meer informatie. 
+Op dit punt is de volgende installatie gereed voor apparaatregistratie:
 
-1. Het apparaat verzendt een aanvraag voor functieregistratie met uw service apparaten inrichten.
-2. Voor de TPM-apparaten vraagt de Service voor het inrichten van apparaten terug registratie waarop het apparaat reageert. 
-3. Op de registratie is voltooid verzendt de Service voor het inrichten van apparaten de URI van de IoT-hub, apparaat-ID en de versleutelde sleutel terug naar het apparaat. 
-4. De IoT Hub-clienttoepassing op het apparaat vervolgens verbinding maakt met uw hub. 
-5. Geslaagde verbinding met de hub, ziet u het apparaat worden weergegeven in de IoT-hub **apparaat Explorer**. 
+1. Uw apparaat of groep met apparaten is geregistreerd bij Device Provisioning Service, en 
+2. Uw apparaat is gereed, de beveiliging is geconfigureerd en het apparaat is toegankelijk via de toepassing met behulp van de SDK van de Device Provisioning Service-client.
+
+Start het apparaat zodat de registratie via de clienttoepassing met Device Provisioning Service kan worden gestart.  
+
+
+## <a name="verify-the-device-is-registered"></a>Controleren of het apparaat is geregistreerd
+
+Zodra het apparaat is opgestart, worden de volgende acties uitgevoerd. Zie de voorbeeldtoepassing van TPM-simulator [dps_client_sample](https://github.com/Azure/azure-iot-device-auth/blob/master/dps_client/samples/dps_client_sample/dps_client_sample.c) voor meer informatie. 
+
+1. Vanaf het apparaat wordt een registratie-aanvraag verzonden naar Device Provisioning Service.
+2. Voor TPM-apparaten wordt vanuit Device Provisioning Service een registratie-uitdaging teruggestuurd waarop het apparaat reageert. 
+3. Als de registratie is gelukt, worden Device Provisioning Service de IoT Hub-URI, apparaat-id en versleutelingssleutel via Device Provisioning Service teruggestuurd naar het apparaat. 
+4. De IoT Hub-clienttoepassing op het apparaat maakt vervolgens verbinding met de hub. 
+5. Als de verbinding met de hub is gemaakt, wordt het apparaat weergegeven in **Device Explorer** van de IoT-hub. 
 
     ![Geslaagde verbinding met de hub in de portal](./media/tutorial-net-provision-device-to-hub/hub-connect-success.png)
 
@@ -246,10 +246,10 @@ In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
 > * Het apparaat inschrijven
-> * Start het apparaat
-> * Controleer of dat het apparaat is geregistreerd
+> * Het apparaat starten
+> * Controleren of het apparaat is geregistreerd
 
-Ga naar de volgende zelfstudie voor informatie over het inrichten van meerdere apparaten via hubs taakverdeling. 
+Ga naar de volgende zelfstudie voor informatie over het inrichten van meerdere apparaten via hubs met gelijke taakverdeling. 
 
 > [!div class="nextstepaction"]
-> [Inrichten van apparaten via IoT hubs Netwerktaakverdeling](./tutorial-provision-multiple-hubs.md)
+> [Apparaten inrichten in meerdere IoT-hubs met gelijke taakverdeling](./tutorial-provision-multiple-hubs.md)

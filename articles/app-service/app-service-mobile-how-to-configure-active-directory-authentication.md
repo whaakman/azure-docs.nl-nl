@@ -3,29 +3,29 @@ title: Azure Active Directory-verificatie voor uw toepassing App Services config
 description: Informatie over het configureren van Azure Active Directory-verificatie voor uw App Services-toepassing.
 author: mattchenderson
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 manager: syntaxc4
-editor: 
+editor: ''
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 04/19/2018
 ms.author: mahender
-ms.openlocfilehash: 990fab9aeea71b8cf344b9a49a5ed438db6663c0
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 2530cb55cb054c02df5d55ccb86e959a061e2499
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-login"></a>Configureer uw App Service-app voor het gebruik van Azure Active Directory-aanmelding
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
 In dit artikel leest u hoe Azure App Services voor het gebruik van Azure Active Directory als verificatieprovider te configureren.
 
-## <a name="express"></a>Azure Active Directory configureren met behulp van snelle instellingen
+## <a name="express"> </a>Azure Active Directory met behulp van snelle instellingen configureren
 1. In de [Azure-portal], gaat u naar uw App Service-app. Selecteer in het linkernavigatievenster **verificatie / autorisatie**.
 2. Als **verificatie / autorisatie** niet is ingeschakeld, selecteert **op**.
 3. Selecteer **Azure Active Directory**, en selecteer vervolgens **Express** onder **beheermodus**.
@@ -37,10 +37,10 @@ In dit artikel leest u hoe Azure App Services voor het gebruik van Azure Active 
 
 U bent nu klaar voor gebruik van Azure Active Directory voor verificatie in uw App Service-app.
 
-## <a name="advanced"></a>(Alternatieve methode) handmatig configureren van Azure Active Directory met geavanceerde instellingen
+## <a name="advanced"> </a>(Alternatieve methode) Handmatig configureren van Azure Active Directory met geavanceerde instellingen
 U kunt er ook voor kiezen om configuratie-instellingen handmatig. Dit is de beste oplossing als de AAD-tenant die u wilt gebruiken, wijkt af van de tenant waarmee u zich bij Azure aanmelden. Voor het voltooien van de configuratie, moet u eerst een registratie in Azure Active Directory maken en vervolgens u enkele van de registratiedetails van de in App Service moet opgeven.
 
-### <a name="register"></a>Uw App Service-app registreren bij Azure Active Directory
+### <a name="register"> </a>Uw App Service-app registreren bij Azure Active Directory
 1. Meld u aan bij de [Azure-portal], en navigeer naar uw App Service-app. Kopieer uw app **URL**. U gebruikt dit voor het configureren van de registratie van uw Azure Active Directory-app.
 2. Navigeer naar **Active Directory**, selecteer vervolgens de **App registraties**, klikt u vervolgens op **registratie van de nieuwe toepassing** boven de registratie van een nieuwe app te starten. 
 3. In de **maken** pagina, voert u een **naam** voor de registratie van uw app, selecteer de **Web-App / API** typt, in de **aanmeldings-URL** plakken vak de de URL van de toepassing (uit stap 1). Klik vervolgens op naar **maken**.
@@ -52,9 +52,9 @@ U kunt er ook voor kiezen om configuratie-instellingen handmatig. Dit is de best
 9. Sluit de **geregistreerde app** pagina. Op de **App registraties** pagina, klikt u op de **eindpunten** knop aan de bovenkant en kopieer de **Document met federatieve metagegevens** URL. 
 10. Open een nieuw browservenster en navigeer naar de URL door plakken en naar de XML-pagina bladeren. Aan de bovenkant van het document is een **EntityDescriptor** element, moet er een **id van de entiteit** kenmerk van het formulier `https://sts.windows.net/` gevolgd door een specifieke GUID voor uw tenant (een 'tenant-ID' genoemd). Deze waarde voor kopiëren - het fungeert als uw **URL-verlener**. Configureert u uw toepassing voor later gebruik.
 
-### <a name="secrets"></a>Informatie van de Azure Active Directory toevoegen aan uw App Service-app
+### <a name="secrets"> </a>Azure Active Directory-gegevens toevoegen aan uw App Service-app
 1. Terug in de [Azure-portal], gaat u naar uw App Service-app. Klik op **verificatie/autorisatie**. Als de verificatie/autorisatie-functie niet is ingeschakeld, schakelt u de schakeloptie voor **op**. Klik op **Azure Active Directory**, onder verificatieproviders voor het configureren van uw app. (Optioneel) Standaard-App Service biedt verificatie maar wordt niet geautoriseerde toegang beperkt tot uw site-inhoud en API's. U moet gebruikers machtigen in uw app-code. Stel **te ondernemen actie wanneer de aanvraag is niet geverifieerd** naar **aanmelden met Azure Active Directory**. Deze optie vereist dat alle aanvragen worden geverifieerd en alle niet-geverifieerde aanvragen worden omgeleid naar Azure Active Directory voor verificatie.
-2. in de configuratie van Active Directory-verificatie, klikt u op **Geavanceerd** onder **beheermodus**. Plak de toepassings-ID in het Client-ID (uit stap 8) en plak de URL-verlener-waarde in de id van de entiteit (uit stap 10). Klik vervolgens op **OK**.
+2. Klik in de configuratie van Active Directory-verificatie, **Geavanceerd** onder **beheermodus**. Plak de toepassings-ID in het Client-ID (uit stap 8) en plak de URL-verlener-waarde in de id van de entiteit (uit stap 10). Klik vervolgens op **OK**.
 3. Klik op de configuratiepagina van Active Directory-verificatie op **opslaan**.
 
 U bent nu klaar voor gebruik van Azure Active Directory voor verificatie in uw App Service-app.
@@ -74,7 +74,7 @@ Azure Active Directory kunt u ook systeemeigen clients registreren die biedt mee
 
 U hebt nu een systeemeigen clienttoepassing die toegang heeft tot uw App Service-app geconfigureerd.
 
-## <a name="related-content"></a>Verwante inhoud
+## <a name="related-content"> </a>Gerelateerde inhoud
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
 <!-- Images. -->

@@ -16,11 +16,11 @@ ms.workload: ''
 ms.date: 01/17/2018
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 0956f42812307f88e37ef12078a86eb85f407ce6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3473cb5260773fda0534c4f0aca1db731cce74eb
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="templates-for-azure-policy"></a>Sjablonen voor Azure-beleid
 
@@ -79,6 +79,9 @@ De volgende tabel bevat koppelingen naar json-sjablonen voor Azure-beleid. Deze 
 | [Toegestane brontypen](scripts/allowed-res-types.md) | Zorgt ervoor dat alleen goedgekeurde brontypen die zijn geïmplementeerd. U een matrix met brontypen die zijn toegestaan.  |
 | [Storage-account SKU's toegestaan](scripts/allowed-stor-acct-skus.md) | Moet een goedgekeurde SKU storage-accounts gebruiken. U opgeven een matrix van goedgekeurde SKU's. |
 | [Label en de standaardwaarde toepassen](scripts/apply-tag-def-val.md) | Voegt een bepaalde tagnaam en waarde, als dat label is niet opgegeven. U de tagnaam en waarde toe te passen.  |
+| [Versleuteling van de SQL-Database controleren](scripts/sql-database-encryption-audit.md) | Audits als SQL-database geen transparante gegevensversleuteling is ingeschakeld heeft. |
+| [Controle-instellingen van SQL Server audit](scripts/sql-server-audit.md) | Hiermee kunt u SQL server op basis van of de controle-instellingen zijn ingeschakeld. |
+| [Versleuteling van Data Lake Store afdwingen](scripts/enforce-datalakestore-encryption.md) | Geen Data Lake Store-accounts die geen versleuteling ingeschakeld weigert. |
 | [Afdwingen van code en de bijbehorende waarde](scripts/enforce-tag-val.md) | Vereist een bepaalde tagnaam en waarde. U de tagnaam en waarde af te dwingen.  |
 | [Brontypen die toegestaan niet](scripts/not-allowed-res-type.md) | Hierdoor worden de implementatie van de opgegeven brontypen. U een matrix van de volgende resourcetypen moeten worden geblokkeerd.  |
 | [SQL Server versie 12.0 vereisen](scripts/req-sql-12.md) | SQL-servers te gebruiken versie 12.0 vereist.  |

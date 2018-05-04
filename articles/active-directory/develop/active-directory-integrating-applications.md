@@ -15,11 +15,11 @@ ms.date: 04/18/2018
 ms.author: mtillman
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: ebf6653fada0897c23ebb84ab14de1040a963552
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 19eb8399c59efa94e68c0d334ba708f900ce841a
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 04/30/2018
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Toepassingen integreren met Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -71,7 +71,7 @@ Bijvoorbeeld als een webtoepassing voor de client moet lezen agenda-informatie o
 
 Het framework toestemming is gebouwd op OAuth 2.0 en de verschillende stromen, zoals code verlenen en client autorisatiereferenties verlenen, met behulp van openbare of vertrouwelijke clients. Met behulp van OAuth 2.0, maakt Azure AD het mogelijk te veel verschillende soorten clienttoepassingen, zoals in een telefoon, tablet, server of een webtoepassing is opgebouwd en toegang krijgen tot de vereiste resources.
 
-Zie voor meer informatie over het gebruik van het framework toestemming met OAuth2.0 toestemming verleent [toegang verlenen aan webtoepassingen die gebruikmaken van OAuth 2.0 en Azure AD](active-directory-protocols-oauth-code.md) en[verificatie scenario's voor Azure AD](active-directory-authentication-scenarios.md). Zie voor meer informatie over het verkrijgen van toegang tot Office 365 via Microsoft Graph [App verificatie met Microsoft Graph](https://graph.microsoft.io/docs/authorization/auth_overview).
+Zie voor meer informatie over het gebruik van het framework toestemming met OAuth2.0 toestemming verleent [toegang verlenen aan webtoepassingen die gebruikmaken van OAuth 2.0 en Azure AD](active-directory-protocols-oauth-code.md) en [verificatie scenario's voor Azure AD](active-directory-authentication-scenarios.md). Zie voor meer informatie over het verkrijgen van toegang tot Office 365 via Microsoft Graph [App verificatie met Microsoft Graph](https://graph.microsoft.io/docs/authorization/auth_overview).
 
 #### <a name="example-of-the-consent-experience"></a>Voorbeeld van de toestemming-ervaring
 

@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2017
+ms.date: 04/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: d647206b882059e0651223dc84f2ad2a314f8a87
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: bd0680a16596931b5f595bbdd4e48414c8dbde73
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Azure-resourcegroepen maken en implementeren met Visual Studio
 Met Visual Studio en de [Azure SDK](https://azure.microsoft.com/downloads/) kunt u een project maken waarmee uw infrastructuur en code in Azure worden geïmplementeerd. U kunt bijvoorbeeld de webhost, website en database voor uw app opgeven en die infrastructuur samen met de code implementeren. U kunt ook een virtuele machine, een virtueel netwerk en een opslagaccount opgeven en die infrastructuur implementeren in combinatie met een script dat wordt uitgevoerd op de virtuele machine. Met het implementatieproject voor de **Azure-resourcegroep** kunt u alle vereiste resources met één herhaalbare bewerking implementeren. Zie voor meer informatie over het implementeren en beheren van uw resources [Overzicht van Azure Resource Manager](resource-group-overview.md).
@@ -148,7 +148,7 @@ U bent nu klaar om uw project te implementeren. Wanneer u een Azure-resourcegroe
 5. Klik op **Implementeren** om het project in Azure te implementeren. Een PowerShell-console wordt geopend buiten het Visual Studio-exemplaar. Voer het beheerderswachtwoord voor de SQL Server in de PowerShell-console in wanneer om het wachtwoord wordt gevraagd. **De PowerShell-console kan zijn verborgen achter andere items of geminimaliseerd op de taakbalk.** Zoek en selecteer deze console om het wachtwoord op te geven.
    
    > [!NOTE]
-   > Visual Studio vraagt u mogelijk om de Azure PowerShell-cmdlets te installeren. U hebt de Azure PowerShell-cmdlets nodig om resourcegroepen te kunnen implementeren. Installeer ze als dit gevraagd wordt.
+   > Visual Studio vraagt u mogelijk om de Azure PowerShell-cmdlets te installeren. U hebt de Azure PowerShell-cmdlets nodig om resourcegroepen te kunnen implementeren. Installeer ze als dit gevraagd wordt. Zie [Azure PowerShell installeren en configureren](/powershell/azure/install-azurerm-ps) voor meer informatie.
    > 
    > 
 6. De implementatie kan enkele minuten in beslag nemen. U kunt de voortgang van de implementatie bekijken in het venster **Uitvoer**. Wanneer de implementatie is voltooid, ziet u een laatste bericht dat de implementatie is geslaagd en dat er ongeveer als volgt uitziet:
@@ -216,6 +216,102 @@ U hebt nu de infrastructuur geïmplementeerd voor uw app, maar er is nog geen co
     
      ![geïmplementeerde app weergeven](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
 
+## <a name="add-an-operations-dashboard-to-your-deployment"></a>Een bewerkingsdashboard toevoegen aan uw implementatie
+Nu we een oplossing hebben gemaakt, is het tijd om de laatste stap te zetten en deze operationeel te maken. U bent niet beperkt tot alleen de resources die beschikbaar zijn via de Visual Studio-interface. We kunnen gebruikmaken van gedeelde dashboards, die als resources in JSON worden gedefinieerd. Dit doen we door onze sjabloon te bewerken en een aangepaste bron toe te voegen. 
+
+1. Open het bestand WebsiteSqlDeploy.json en voeg het volgende blok json-code toe, na de opslagaccountresource maar voor het afsluitende ] van de sectie met resources.
+
+```json
+    ,{
+      "properties": {
+        "lenses": {
+          "0": {
+            "order": 0,
+            "parts": {
+              "0": {
+                "position": {
+                  "x": 0,
+                  "y": 0,
+                  "colSpan": 4,
+                  "rowSpan": 6
+                },
+                "metadata": {
+                  "inputs": [
+                    {
+                      "name": "resourceGroup",
+                      "isOptional": true
+                    },
+                    {
+                      "name": "id",
+                      "value": "[resourceGroup().id]",
+                      "isOptional": true
+                    }
+                  ],
+                  "type": "Extension/HubsExtension/PartType/ResourceGroupMapPinnedPart"
+                }
+              },
+              "1": {
+                "position": {
+                  "x": 4,
+                  "y": 0,
+                  "rowSpan": 3,
+                  "colSpan": 4
+                },
+                "metadata": {
+                  "inputs": [],
+                  "type": "Extension[azure]/HubsExtension/PartType/MarkdownPart",
+                  "settings": {
+                    "content": {
+                      "settings": {
+                        "content": "__Customizations__\n\nUse this dashboard to create and share the operational views of services critical to the application performing. To customize simply pin components to the dashboard and then publish when you're done. Others will see your changes when you publish and share the dashboard.\n\nYou can customize this text too. It supports plain text, __Markdown__, and even limited HTML like images <img width='10' src='https://portal.azure.com/favicon.ico'/> and <a href='https://azure.microsoft.com' target='_blank'>links</a> that open in a new tab.\n",
+                        "title": "Operations",
+                        "subtitle": "[resourceGroup().name]"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "metadata": {
+          "model": {
+            "timeRange": {
+              "value": {
+                "relative": {
+                  "duration": 24,
+                  "timeUnit": 1
+                }
+              },
+              "type": "MsPortalFx.Composition.Configuration.ValueTypes.TimeRange"
+            }
+          }
+        }
+      },
+      "apiVersion": "2015-08-01-preview",
+      "name": "[concat('ARM-',resourceGroup().name)]",
+      "type": "Microsoft.Portal/dashboards",
+      "location": "[resourceGroup().location]",
+      "tags": {
+        "hidden-title": "[concat('OPS-',resourceGroup().name)]"
+      }
+    }
+}
+```
+
+2. Implementeer uw resourcegroep opnieuw. Wanneer u in de Azure-portal naar uw dashboard kijkt, ziet u dat het gedeelde dashboard aan uw lijst met keuzen is toegevoegd. 
+
+    ![Aangepast dashboard](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/view-custom-dashboards.png)
+
+
+
+   > [!NOTE] 
+   > Toegang tot het dashboard kan worden beheerd met RBAC groepen, en aanpassingen kunnen na implementatie naar de resource worden gepubliceerd. Houd er rekening mee dat wanneer u de resourcegroep opnieuw implementeert, deze weer wordt teruggezet op de standaardinstelling in uw sjabloon. U kunt het beste de sjabloon bijwerken met de aanpassingen. Raadpleeg [Op programmatische wijze Azure-dashboards maken](../azure-portal/azure-portal-dashboards-create-programmatically.md) voor hulp hierbij
+
+
+    ![Aangepast dashboard](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/Ops-DemoSiteGroup-dashboard.png)
+    
+    
 ## <a name="next-steps"></a>Volgende stappen
 * Voor meer informatie over het beheren van resources via de portal raadpleegt u [Azure Portal gebruiken om uw Azure-resources te beheren](resource-group-portal.md).
 * Zie [Azure Resource Manager-sjablonen samenstellen](resource-group-authoring-templates.md) voor meer informatie over sjablonen.

@@ -1,53 +1,55 @@
 ---
-title: Inleiding tot Azure Storage | Microsoft Docs
-description: Inleiding tot Azure Storage, de gegevensopslag van Microsoft in de cloud.
+title: Inleiding tot Azure Storage - cloudopslag in Azure | Microsoft Docs
+description: Azure Storage is Microsoft's oplossing voor opslag in de cloud. Azure Storage biedt opslag voor gegevensobjecten die maximaal beschikbaar, veilig, duurzaam, in hoge mate schaalbaar en redundant is.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.service: storage
 ms.topic: get-started-article
-ms.date: 03/06/2018
+ms.date: 04/05/2018
 ms.author: tamram
-ms.openlocfilehash: 18a8065bba8a4a0ec2025d6b9134fe9fab21eb5f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 071b209ffa8ffeb8ef6d998f08bcd68868e29911
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="introduction-to-microsoft-azure-storage"></a>Inleiding tot Microsoft Azure Storage
+# <a name="introduction-to-azure-storage"></a>Kennismaking met Azure Storage
 
-Microsoft Azure Storage is een door Microsoft beheerde cloudservice waarmee u toegang krijgt tot opslag met een zeer hoge beschikbaarheid die daarnaast veilig, duurzaam, schaalbaar en redundant is. Microsoft zorgt voor het onderhoud en handelt kritieke problemen voor u af.
+Azure Storage is Microsoft's cloudoplossing bedoeld voor scenario's voor gegevensopslag. Azure Storage biedt een in hoge mate schaalbare opslag voor gegevensobjecten, een bestandssysteemservice voor de cloud, een berichtenarchief voor betrouwbaar gebruik van berichten en een NoSQL-archief. Azure Storage is:
 
-Azure Storage omvat drie gegevensservices: Blob Storage, File Storage en Queue Storage. Blob Storage ondersteunt zowel Standard- als Premium-opslag, waarbij voor Premium-opslag alleen SSD's worden gebruikt om zo de snelste prestaties te leveren. Een andere functie is 'cool' opslag, waarmee u grote hoeveelheden zelden gebruikte gegevens kunt opslaan tegen lagere kosten.
+- **Duurzaam en maximaal beschikbaar.** Redundantie zorgt ervoor dat uw gegevens veilig zijn in geval van tijdelijke hardwarefouten. U kunt er ook voor kiezen gegevens te repliceren in datacenters of geografische regio's voor extra beveiliging tegen lokale rampen of natuurrampen. Op deze manier gerepliceerde gegevens blijven maximaal beschikbaar in het geval van een stroomstoring. 
+- **Veilig.** Alle gegevens die naar Azure Storage worden geschreven, worden versleuteld door de service. Azure Storage biedt u gedetailleerde controle over wie toegang tot uw gegevens heeft.
+- **Schaalbaar.** Azure Storage is in hoge mate schaalbaar om te voldoen aan de gegevensopslag- en prestatiebehoeften van de huidige toepassingen. 
+- **Beheerd.** Microsoft Azure zorgt voor het onderhoud en handelt kritieke problemen voor u af.
+- **Toegankelijk.** Gegevens in Azure Storage zijn overal ter wereld toegankelijk via HTTP of HTTPS. Microsoft biedt SDK's voor Azure Storage in verschillende talen, te weten .NET, Java, Node.js, Python, PHP, Ruby, Go en andere, samen met een goed ontwikkelde REST-API. Azure Storage ondersteunt scription in Azure PowerShell of Azure CLI. En Azure Portal en Azure Storage Explorer bieden handige visuele oplossingen voor het werken met uw gegevens.  
 
-In dit artikel komen de volgende onderwerpen aan bod:
-* de Azure Storage-services
-* de typen opslagaccounts
-* toegang tot blobs, wachtrijen en bestanden
-* versleuteling
-* replicatie
-* gegevens overbrengen van of naar opslag
-* de verschillende opslagclientbibliotheken
+## <a name="azure-storage-services"></a>Azure Storage-services
 
-Zie [Een opslagaccount maken](storage-quickstart-create-account.md) om aan de slag te gaan met Azure Storage.
+Azure Storage omvat deze gegevensservices: 
 
-## <a name="introducing-the-azure-storage-services"></a>Introductie van de Azure Storage-services
+- [Azure Blobs](../blobs/storage-blobs-introduction.md): een in hoge mate schaalbaar objectarchief voor tekst en binaire gegevens.
+- [Azure Files](../files/storage-files-introduction.md): beheerde bestandsshares voor implementaties in de cloud of on-premises.
+- [Azure Queues](../queues/storage-queues-introduction.md): een berichtenarchief voor betrouwbare uitwisseling van berichten tussen toepassingsonderdelen. 
+- [Azure Tables](../../cosmos-db/table-storage-overview.md): een NoSQL-archief voor schemaloze opslag van gestructureerde gegevens.
 
-U kunt de services van Azure Storage (Blob Storage, File Storage en Queue Storage) pas gebruiken nadat u een opslagaccount hebt gemaakt. Vervolgens kunt u gegevens uit een specifieke service van of naar dat opslagaccount overbrengen.
+Elke service kan worden geopend via een opslagaccount. Zie [Een opslagaccount maken](storage-quickstart-create-account.md) om aan de slag te gaan.
 
 ## <a name="blob-storage"></a>Blob Storage
 
-Blobs zijn eigenlijk net bestanden zoals u die opslaat op uw computer (of tablet, mobiele apparaat, enzovoort). Ze kunnen afbeeldingen bevatten, Microsoft Excel-bestanden, HTML-bestanden, virtuele harde schijven (VHD's), big data zoals logboeken, back-ups van databases, eigenlijk bijna alles. Blobs worden opgeslagen in containers, die vergelijkbaar zijn met mappen.
+Azure Blob Storage is Microsoft's oplossing voor opslag van objecten in de cloud. Blob Storage is geoptimaliseerd voor het opslaan van grote hoeveelheden ongestructureerde gegevens, zoals tekst of binaire gegevens. 
 
-Nadat u bestanden hebt opgeslagen in Blob Storage, kunt u ze overal ter wereld openen met behulp van URL's, de REST-interface of een van de opslagclientbibliotheken uit de Azure SDK. Deze clientbibliotheken zijn beschikbaar voor meerdere talen, waaronder Node.js, Java, PHP, Ruby, Python en .NET.
+Blob-opslag is ideaal voor:
 
-Er zijn drie typen blobs: blok-blobs, pagina-blobs (gebruikt voor VHD-bestanden) en toevoeg-blobs.
+* Het rechtstreeks aan een browser leveren van afbeeldingen of documenten.
+* De opslag van bestanden voor gedistribueerde toegang.
+* Streaming van video en audio.
+* De opslag van gegevens voor back-up en herstel, herstel na noodgevallen en archivering.
+* De opslag van gegevens voor analyse door een on-premises of in Azure gehoste service.
 
-* Blok-blobs worden gebruikt voor het opslaan van gewone bestanden tot ongeveer 4,7 TB.
-* Pagina-blobs worden gebruikt voor het opslaan van bestanden voor willekeurige toegang tot maximaal 8 TB in grootte. Deze blobs worden gebruikt voor de VHD-bestanden die VM's ondersteunen.
-* Toevoeg-blobs bestaan uit blokken zoals de blok-blobs, maar zijn geoptimaliseerd voor toevoegbewerkingen. Deze blobs worden gebruikt voor bewerkingen zoals het vastleggen van logboekgegevens uit verschillende VM's in dezelfde blob.
+Objecten in Blob-opslag zijn overal ter wereld toegankelijk via HTTP of HTTPS. Gebruikers of clienttoepassingen hebben toegang tot blobs via URL's, de [REST-API van Azure Storage](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), [Azure CLI](https://docs.microsoft.com/cli/azure/storage) of een Azure Storage-clientbibliotheek. Deze clientbibliotheken zijn beschikbaar voor meerdere talen, waaronder [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/client), [Java](https://docs.microsoft.com/java/api/overview/azure/storage/client), [Node.js](http://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/en/latest/index.html), [PHP](http://azure.github.io/azure-storage-php/) en [Ruby](http://azure.github.io/azure-storage-ruby).
 
-Voor zeer grote gegevenssets waarbij netwerkbeperkingen het downloaden of uploaden van gegevens van of naar Blob Storage via de kabel onrealistisch maken, kunt u een set harde schijven opsturen naar Microsoft om gegevens rechtstreeks in het datacenter te importeren of exporteren. Zie [De Microsoft Azure Import/Export-service gebruiken om gegevens over te brengen naar Blob Storage](../storage-import-export-service.md).
+Zie [Inleiding tot opslag van objecten in Azure](../blobs/storage-blobs-introduction.md) voor meer informatie over Blob-opslag.
 
 ## <a name="azure-files"></a>Azure Files
 Met [Azure Files](../files/storage-files-introduction.md) kunt u zeer netwerkbestandsshares met een hoge beschikbaarheid instellen die toegankelijk zijn via het standaard SMB-protocol (Server Message Block). Dit betekent dat meerdere VM's dezelfde bestanden kunnen delen met zowel lees- als schrijftoegang. U kunt de bestanden ook lezen met behulp van de REST-interface of de opslagclientbibliotheken.
@@ -64,15 +66,21 @@ Bestandsshares kunnen worden gebruikt voor veelvoorkomende scenario's:
 
 Op dit moment worden verificatie op basis van Active Directory en toegangsbeheerlijsten (ACL's) niet ondersteund, maar ondersteuning hiervan wordt in de toekomst beschikbaar. De opslagaccountreferenties worden gebruikt voor verificatie voor toegang tot de bestandsshare. Dit betekent dat iedereen met de gekoppelde share volledige lees-/schrijftoegang tot de share heeft.
 
+Raadpleeg de [Inleiding tot Azure Files](../files/storage-files-introduction.md) voor meer informatie over Azure Files.
+
 ## <a name="queue-storage"></a>Queue Storage
 
 De Azure Queue-service wordt gebruikt voor het opslaan en ophalen van berichten. Berichten in de wachtrij kunnen maximaal 64 kB groot zijn, en een wachtrij kan miljoenen berichten bevatten. Wachtrijen worden meestal gebruikt voor het opslaan van lijsten met berichten die asynchroon moeten worden verwerkt.
 
 Stel dat u uw klanten in de gelegenheid wilt stellen om afbeeldingen te uploaden en dat u voor elke afbeelding miniaturen wilt maken. U kunt uw klant dan laten wachten totdat u tijdens het uploaden van de afbeeldingen de miniaturen hebt gemaakt. Een alternatief is het inzetten van een wachtrij. Wanneer de klant klaar is met uploaden, wordt er een bericht weggeschreven naar de wachtrij. Vervolgens gebruikt u Azure Function om het bericht op te halen uit de wachtrij en de miniaturen te maken. Al deze verwerkingsstappen kunnen afzonderlijk worden geschaald, waardoor u meer controle hebt bij het afstemmen van de procedure op uw specifieke scenario.
 
+Raadpleeg de [Inleiding tot Azure Queues](../queues/storage-queues-introduction.md) voor meer informatie over Azure Queues.
+
 ## <a name="table-storage"></a>Table Storage
 
 Azure Table Storage maakt nu deel uit van Cosmos DB. Voor documentatie over Azure Table Storage raadpleegt u [Overzicht van Azure Table Storage](../../cosmos-db/table-storage-overview.md). Naast de bestaande Azure Table Storage-service is er een nieuwe Azure Cosmos DB tabel-API die voor doorvoer geoptimaliseerde tabellen, wereldwijde distributie en automatische secundaire indexen biedt. Bekijk [Azure Cosmos DB: tabel-API](https://aka.ms/premiumtables) voor meer informatie en om de nieuwe premium versie uit te proberen.
+
+Zie [Overzicht van Azure Table Storage](../../cosmos-db/table-storage-overview.md) voor meer informatie over Table Storage.
 
 ## <a name="disk-storage"></a>File Storage
 
@@ -167,101 +175,33 @@ Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/storage/
 ## <a name="storage-apis-libraries-and-tools"></a>Storage-API's, -bibliotheken en -hulpprogramma's
 Azure Storage-resources zijn toegankelijk voor elke taal waarvoor HTTP/HTTPS-aanvragen mogelijk zijn. Daarnaast biedt Azure Storage programmeringsbibliotheken voor verschillende veelgebruikte talen. Deze bibliotheken vereenvoudigen veel aspecten van het werken met Azure Storage door bewerkingen zoals synchrone en asynchrone aanroepafhandeling, batchverwerking van bewerkingen, uitzonderingsbeheer, automatische nieuwe pogingen, werking, enzovoort, voor hun rekening te nemen. Bibliotheken zijn momenteel beschikbaar voor de volgende talen en platformen (deze lijst wordt in de toekomst uitgebreid):
 
-### <a name="azure-storage-data-services"></a>Azure Storage-gegevensservices
-* [REST-API voor Storage-services](/rest/api/storageservices/)
-* [Opslagclientbibliotheek voor .NET](https://docs.microsoft.com/dotnet/api/?view=azurestorage-8.1.1)
+### <a name="azure-storage-data-api-and-library-references"></a>Azure Storage-gegevens-API en bibliotheekverwijzingen
+* [REST-API voor Storage-services](https://docs.microsoft.com/rest/api/storageservices/)
+* [Opslagclientbibliotheek voor .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
+* [Opslagclientbibliotheek voor Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
+* [Opslagclientbibliotheek voor Node.js](https://docs.microsoft.com/en-us/javascript/api/azure-storage)
+* [Opslagclientbibliotheek voor Python](https://github.com/Azure/azure-storage-python)
+* [Opslagclientbibliotheek voor PHP](https://github.com/Azure/azure-storage-php)
+* [Opslagclientbibliotheek voor Ruby](https://github.com/Azure/azure-storage-ruby)
 * [Opslagclientbibliotheek voor C++](https://github.com/Azure/azure-storage-cpp)
-* [Opslagclientbibliotheek voor Java/Android](https://azure.microsoft.com/develop/java/)
-* [Opslagclientbibliotheek voor Node.js](http://dl.windowsazure.com/nodestoragedocs/index.html)
-* [Opslagclientbibliotheek voor PHP](https://azure.microsoft.com/develop/php/)
-* [Opslagclientbibliotheek voor Python](https://azure.microsoft.com/develop/python/)
-* [Opslagclientbibliotheek voor Ruby](https://azure.microsoft.com/develop/ruby/)
-* [Opslag-cmdlets voor PowerShell](/powershell/module/azure.storage/?view=azurermps-4.1.0&viewFallbackFrom=azurermps-4.0.0)
-* [Opslagopdrachten voor CLI 2.0](/cli/azure/storage)
+
+### <a name="azure-storage-management-api-and-library-references"></a>Azure Storage-beheer-API en bibliotheekverwijzingen
+* [REST API van opslagresourceprovider](https://docs.microsoft.com/rest/api/storagerp/)
+* [Clientbibliotheek van opslagresourceprovider voor .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/management)
+* [REST API van opslagservicebeheer (klassiek)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
+
+### <a name="azure-storage-data-movement-api-and-library-references"></a>Azure Storage-gegevensverplaatsing-API en bibliotheekverwijzingen
+* [REST-API van Storage Import/Export-service](https://docs.microsoft.com/rest/api/storageimportexport/)
+* [Clientbibliotheek van opslaggegevensverplaatsing voor .NET](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement)
+
+### <a name="tools-and-utilities"></a>Hulpprogramma's
+* [Azure PowerShell-cmdlets voor Storage](https://docs.microsoft.com/powershell/module/azure.storage)
+* [Azure CLI-cmdlets voor Storage](https://docs.microsoft.com/cli/azure/storage)
+* [AzCopy-opdrachtregelprogramma](http://aka.ms/downloadazcopy)
+* [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is een gratis, zelfstandige app van Microsoft waarmee u visueel met Azure Storage-gegevens kunt werken in Windows, macOS en Linux.
+* [Azure Storage-clienthulpprogramma’s](../storage-explorers.md)
+* [Azure Developer-hulpprogramma's](https://azure.microsoft.com/tools/)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Meer informatie over Blob Storage](../blobs/storage-blobs-introduction.md)
-* [Meer informatie over File Storage](../storage-files-introduction.md)
-* [Meer informatie over Queue Storage](../queues/storage-queues-introduction.md)
-
 Zie [Een opslagaccount maken](storage-quickstart-create-account.md) om aan de slag te gaan met Azure Storage.
-
-<!-- FIGURE OUT WHAT TO DO WITH ALL THESE LINKS.
-
-Azure Storage resources can be accessed by any language that can make HTTP/HTTPS requests. Additionally, Azure Storage offers programming libraries for several popular languages. These libraries simplify many aspects of working with Azure Storage by handling details such as synchronous and asynchronous invocation, batching of operations, exception management, automatic retries, operational behavior and so forth. Libraries are currently available for the following languages and platforms, with others in the pipeline:
-
-### Azure Storage data services
-* [Storage Services REST API](https://docs.microsoft.com/rest/api/storageservices/)
-* [Storage Client Library for .NET](https://docs.microsoft.com/dotnet/api/?view=azurestorage-8.1.1)
-* [Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp)
-* [Storage Client Library for Java/Android](https://azure.microsoft.com/develop/java/)
-* [Storage Client Library for Node.js](http://dl.windowsazure.com/nodestoragedocs/index.html)
-* [Storage Client Library for PHP](https://azure.microsoft.com/develop/php/)
-* [Storage Client Library for Python](https://azure.microsoft.com/develop/python/)
-* [Storage Client Library for Ruby](https://azure.microsoft.com/develop/ruby/)
-* [Storage Cmdlets for PowerShell](/powershell/module/azure.storage/?view=azurermps-4.1.0&viewFallbackFrom=azurermps-4.0.0)
-
-### Azure Storage management services
-* [Storage Resource Provider REST API Reference](/rest/api/storagerp/)
-* [Storage Resource Provider Client Library for .NET](/dotnet/api/microsoft.azure.management.storage)
-* [Storage Resource Provider Cmdlets for PowerShell 1.0](/powershell/module/azure.storage)
-* [Storage Service Management REST API (Classic)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
-
-### Azure Storage data movement services
-* [Storage Import/Export Service REST API](../storage-import-export-service.md)
-* [Storage Data Movement Client Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)
-
-### Tools and utilities
-* [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
-* [Azure Storage Client Tools](../storage-explorers.md)
-* [Azure SDKs and Tools](https://azure.microsoft.com/tools/)
-* [Azure Storage Emulator](http://www.microsoft.com/download/details.aspx?id=43709)
-* [Azure PowerShell](/powershell/azure/overview)
-* [AzCopy Command-Line Utility](http://aka.ms/downloadazcopy)
-
-## Next steps
-To learn more about Azure Storage, explore these resources:
-
-### Documentation
-* [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
-* [Create a storage account](../storage-create-storage-account.md)
-
--->
-
-### <a name="for-administrators"></a>Voor beheerders
-* [Azure PowerShell gebruiken met Azure Storage](storage-powershell-guide-full.md)
-* [Azure CLI gebruiken met Azure Storage](../storage-azure-cli.md)
-
-### <a name="for-net-developers"></a>Voor .NET-ontwikkelaars
-* [Aan de slag met Azure Blob Storage met .NET](../blobs/storage-dotnet-how-to-use-blobs.md)
-* [Ontwikkelen voor Azure Files met .NET](../files/storage-dotnet-how-to-use-files.md)
-* [Aan de slag met Azure Table Storage met .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
-* [Aan de slag met Azure Queue Storage met .NET](../storage-dotnet-how-to-use-queues.md)
-
-### <a name="for-javaandroid-developers"></a>Voor Java/Android-ontwikkelaars
-* [Blob Storage gebruiken met Java](../blobs/storage-java-how-to-use-blob-storage.md)
-* [Ontwikkelen voor Azure Files met Java](../files/storage-java-how-to-use-file-storage.md)
-* [Table Storage gebruiken met Java](../../cosmos-db/table-storage-how-to-use-java.md)
-* [Queue Storage gebruiken met Java](../storage-java-how-to-use-queue-storage.md)
-
-### <a name="for-nodejs-developers"></a>Voor Node.js-ontwikkelaars
-* [Blob Storage gebruiken met Node.js](../blobs/storage-nodejs-how-to-use-blob-storage.md)
-* [Table Storage gebruiken met Node.js](../../cosmos-db/table-storage-how-to-use-nodejs.md)
-* [Queue Storage gebruiken met Node.js](../storage-nodejs-how-to-use-queues.md)
-
-### <a name="for-php-developers"></a>Voor PHP-ontwikkelaars
-* [Blob Storage gebruiken met PHP](../blobs/storage-php-how-to-use-blobs.md)
-* [Table Storage gebruiken met PHP](../../cosmos-db/table-storage-how-to-use-php.md)
-* [Queue Storage gebruiken met PHP](../storage-php-how-to-use-queues.md)
-
-### <a name="for-ruby-developers"></a>Voor Ruby-ontwikkelaars
-* [Blob Storage gebruiken met Ruby](../blobs/storage-ruby-how-to-use-blob-storage.md)
-* [Table Storage gebruiken met Ruby](../../cosmos-db/table-storage-how-to-use-ruby.md)
-* [Queue Storage gebruiken met Ruby](../storage-ruby-how-to-use-queue-storage.md)
-
-### <a name="for-python-developers"></a>Voor Python-ontwikkelaars
-* [Blob Storage gebruiken met Python](../blobs/storage-python-how-to-use-blob-storage.md)
-* [Ontwikkelen voor Azure Files met Python](../files/storage-python-how-to-use-file-storage.md)
-* [Table Storage gebruiken met Python](../../cosmos-db/table-storage-how-to-use-python.md)
-* [Queue Storage gebruiken met Python](../storage-python-how-to-use-queue-storage.md)

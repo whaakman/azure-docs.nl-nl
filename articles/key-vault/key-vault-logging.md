@@ -2,7 +2,7 @@
 title: Logboekregistratie van Azure Sleutelkluis | Microsoft Docs
 description: Deze zelfstudie helpt u op weg met de logboekregistratie van Azure Sleutelkluis.
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/16/2017
 ms.author: barclayn
-ms.openlocfilehash: 2faf45c7329f1c98a26bcf7ec5d569dfa16cbbda
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 3406d314fb4dba92830933c4e4d373fc8bebeba3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-key-vault-logging"></a>Logboekregistratie van Azure Sleutelkluis
 Azure Sleutelkluis is beschikbaar in de meeste regio's. Zie de pagina [Prijzen van Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) voor meer informatie.
@@ -52,7 +52,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 ## <a id="connect"></a>Verbinding maken met uw abonnementen
 Start een Azure PowerShell-sessie en gebruik de volgende opdracht om u aan te melden bij uw Azure-account:  
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 Voer in het pop-upvenster in de browser uw gebruikersnaam en wachtwoord voor uw Azure-account in. Azure PowerShell haalt alle abonnementen op die zijn gekoppeld aan dit account en gebruikt standaard het eerste.
 
@@ -133,7 +133,7 @@ Als u alle blobs in deze container wilt weergeven, typt u:
     Get-AzureStorageBlob -Container $container -Context $sa.Context
 De uitvoer ziet er ongeveer als volgt uit:
 
-**Container-URI: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
+**URI van de container: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
 
 **Naam**
 
@@ -234,7 +234,7 @@ De volgende tabel bevat de operationName en de bijbehorende REST-API-opdracht.
 
 | operationName | REST-API-opdracht |
 | --- | --- |
-| Authentication |Via het Azure Active Directory-eindpunt |
+| Verificatie |Via het Azure Active Directory-eindpunt |
 | VaultGet |[Informatie over een sleutelkluis ophalen](https://msdn.microsoft.com/en-us/library/azure/mt620026.aspx) |
 | VaultPut |[Een sleutelkluis maken of bijwerken](https://msdn.microsoft.com/en-us/library/azure/mt620025.aspx) |
 | VaultDelete |[Een sleutelkluis verwijderen](https://msdn.microsoft.com/en-us/library/azure/mt620022.aspx) |

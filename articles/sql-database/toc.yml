@@ -74,8 +74,10 @@
       href: sql-database-servers-databases.md
     - name: Beheerd exemplaar
       href: sql-database-managed-instance.md
-    - name: Servicelagen
-      href: sql-database-service-tiers.md
+    - name: Servicelagen op basis van DTU
+      href: sql-database-service-tiers-dtu.md
+    - name: Servicelagen op basis van vCore
+      href: sql-database-service-tiers-vcore.md
     - name: Uitschaling lezen
       href: sql-database-read-scale-out.md
     - name: Op DTU gebaseerde resourcelimieten
@@ -412,8 +414,12 @@
               href: saas-tenancy-schema-management.md
             - name: Cross-tenant-rapportage
               href: saas-tenancy-cross-tenant-reporting.md
-            - name: ETL voor analyse
-              href: saas-tenancy-tenant-analytics.md
+            - name: Tenantanalyses
+              items:
+                - name: Met SQL DB
+                  href: saas-tenancy-tenant-analytics.md
+                - name: Met SQL DW
+                  href: saas-tenancy-tenant-analytics-adf.md
             - name: Herstel na noodgevallen met geo-herstel
               href: saas-dbpertenant-dr-geo-restore.md
             - name: Herstel na noodgevallen met geo-replicatie vanuit database

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 396f1d3d8c69ba3204d16f06d49656fd138a1126
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 07ddf1c2b76230c8d753426d70098603ff14ec4d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Met een beschrijving van een service fabric-cluster
 De Service Fabric Cluster Resource Manager biedt verschillende mechanismen voor het beschrijven van een cluster. De Cluster Resource Manager gebruikt tijdens runtime, deze informatie om te controleren of de hoge beschikbaarheid van de services die in het cluster wordt uitgevoerd. Bij het afdwingen van deze belangrijke regels ook probeert te optimaliseren het brongebruik binnen het cluster.
@@ -39,7 +39,7 @@ Het is belangrijk dat Foutdomeinen correct zijn ingesteld sinds de Service Fabri
 > [!WARNING]
 > Het is belangrijk dat de geleverde Service Fabric Foutdomein gegevens nauwkeurig is. Stel dat dat uw Service Fabric-cluster knooppunten binnen 10 virtuele machines, op vijf fysieke hosts worden uitgevoerd. In dit geval wordt er 10 virtuele machines, maar er zijn alleen 5 verschillende (hoogste niveau) fault-domeinen. Delen dezelfde fysieke host zorgt ervoor dat de virtuele machines te delen de dezelfde hoofddomein veroorzaakt omdat de virtuele machines gecoördineerde fout optreden als de fysieke host mislukt.  
 >
-> Service Fabric verwacht het Foutdomein van een knooppunt niet te wijzigen. Andere mechanismen zoals hoge beschikbaarheid van de virtuele machines gezorgd [HA virtuele machines](https://technet.microsoft.com/en-us/library/cc967323.aspx) kunnen er conflicten ontstaan met Service Fabric, omdat ze transparant migratie van virtuele machines van de ene host naar een andere gebruiken. Deze mechanismen niet opnieuw te configureren en kennis van de code in de virtuele machine is uitgevoerd. Als zodanig zijn **niet ondersteund** als omgevingen voor het uitvoeren van Service Fabric-clusters. Service Fabric moet de gebruikte beveiligingstechnologieën alleen hoge beschikbaarheid. Mechanismen zoals VM livemigratie, SAN's, of andere gebruikers zijn niet nodig. Als u gebruikt in combinatie met Service Fabric, deze mechanismen _verminderen_ toepassing beschikbaarheid en betrouwbaarheid omdat ze extra complexiteit veroorzaken gecentraliseerde bronnen van de fout toevoegen en gebruiken van betrouwbaarheid en beschikbaarheidsstrategieën die met die in Service Fabric conflicteren. 
+> Service Fabric verwacht het Foutdomein van een knooppunt niet te wijzigen. Andere mechanismen zoals hoge beschikbaarheid van de virtuele machines gezorgd [HA virtuele machines](https://technet.microsoft.com/library/cc967323.aspx) kunnen er conflicten ontstaan met Service Fabric, omdat ze transparant migratie van virtuele machines van de ene host naar een andere gebruiken. Deze mechanismen niet opnieuw te configureren en kennis van de code in de virtuele machine is uitgevoerd. Als zodanig zijn **niet ondersteund** als omgevingen voor het uitvoeren van Service Fabric-clusters. Service Fabric moet de gebruikte beveiligingstechnologieën alleen hoge beschikbaarheid. Mechanismen zoals VM livemigratie, SAN's, of andere gebruikers zijn niet nodig. Als u gebruikt in combinatie met Service Fabric, deze mechanismen _verminderen_ toepassing beschikbaarheid en betrouwbaarheid omdat ze extra complexiteit veroorzaken gecentraliseerde bronnen van de fout toevoegen en gebruiken van betrouwbaarheid en beschikbaarheidsstrategieën die met die in Service Fabric conflicteren. 
 >
 >
 

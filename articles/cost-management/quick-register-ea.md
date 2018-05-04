@@ -5,26 +5,26 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 04/26/2018
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: ''
 ms.service: cost-management
-manager: carmonm
-ms.openlocfilehash: 75ae3aabf51a14ceb3326e7f3cee3e20d9b98579
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+manager: dougeby
+ms.openlocfilehash: b4848a624425a189b403a64a62e87e87bc9e4b74
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Een Azure Enterprise Overeenkomst registreren en kostengegevens weergeven
 
-U gebruikt uw Azure Enterprise Overeenkomst om u te registreren bij Azure Cost Management. Uw registratie biedt toegang tot de Cloudyn-portal. In deze snelstart vindt u de details van de registratieprocedure voor het maken van een Cloudyn-proefabonnement en het aanmelden bij de Cloudyn-portal. U vindt er ook informatie over het weergeven van kostengegevens.
+U gebruikt uw Azure Enterprise Overeenkomst om u te registreren bij Azure Cost Management. Uw registratie biedt toegang tot de Cloudyn-portal. In deze quickstart vindt u de details van de registratieprocedure voor het maken van een Cloudyn-proefabonnement en het aanmelden bij de Cloudyn-portal. U vindt er ook informatie over het weergeven van kostengegevens.
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-- Meld u via http://portal.azure.com aan bij Azure Portal.
+- Meld u aan bij Azure Portal op http://portal.azure.com.
 
-## <a name="create-a-trial-registration"></a>Registreren voor een proefabonnement
+## <a name="register-with-azure-cost-management"></a>Registreren bij Azure Cost Management
 
 1. Klik in Azure Portal, in de lijst met services, op **Cost Management en facturering**.
 2. Klik onder **Overzicht** op **Cost Management**  
@@ -47,7 +47,7 @@ Zie [How to Find Your EA Enrollment ID and API Key for use in Azure Cost Managem
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstart hebt u uw Azure Enterprise Overeenkomst gebruikt om u te registreren bij Cost Management. U hebt zich ook aangemeld bij de Cloudyn-portal en de gegevenskosten weergegeven. Ga door naar de zelfstudie voor Cost Management voor meer informatie over Azure Cost Management.
+In deze quickstart hebt u uw Azure Enterprise Overeenkomst gebruikt om u te registreren bij Cost Management. U hebt zich ook aangemeld bij de Cloudyn-portal en de gegevenskosten weergegeven. Ga door naar de zelfstudie voor Cost Management voor meer informatie over Azure Cost Management.
 
 > [!div class="nextstepaction"]
 > [Gebruik en kosten controleren](./tutorial-review-usage.md)

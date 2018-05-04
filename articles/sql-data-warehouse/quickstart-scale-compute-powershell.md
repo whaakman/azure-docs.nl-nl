@@ -1,85 +1,81 @@
 ---
-title: 'Snelstartgids: Compute in Azure SQL Data Warehouse - PowerShell uitbreiden | Microsoft Docs'
-description: PowerShell-taken uit te schalen rekenresources door datawarehouse units aan te passen.
+title: 'Snelstart: De schaal van rekenkracht vergroten in Azure SQL Data Warehouse - PowerShell | Microsoft Docs'
+description: De schaal van rekenkracht vergroten in Azure SQL Data Warehouse in PowerShell. De schaal van rekenkracht vergroten voor betere prestaties of de schaal juist verkleinen om kosten te besparen.
 services: sql-data-warehouse
-documentationcenter: NA
-author: hirokib
-manager: jhubbard
-editor: ''
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 03/16/2018
-ms.author: elbutter;barbkess
-ms.openlocfilehash: 3236c0ad9676712afd220a3c8a9326f3ea1f59d5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: MT
+ms.topic: quickstart
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: 40fa33aad8bf5ac042f9d80493b97a914fe770bb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Snelstartgids: Scale compute in Azure SQL Data Warehouse in PowerShell
+# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Snelstart: De schaal van rekenkracht vergroten in Azure SQL Data Warehouse in PowerShell
 
-Scale compute in Azure SQL Data Warehouse in PowerShell. [Uitschalen compute](sql-data-warehouse-manage-compute-overview.md) voor betere prestaties of schaal back-berekeningen voor het opslaan van kosten. 
+De schaal van rekenkracht vergroten in Azure SQL Data Warehouse in PowerShell. [Vergroot de schaal van Compute](sql-data-warehouse-manage-compute-overview.md) voor betere prestaties of verklein de schaal juist om kosten te besparen.
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
-Deze zelfstudie vereist Azure PowerShell-moduleversie 5.1.1 of hoger. Voer `Get-Module -ListAvailable AzureRM` vinden van de versie u hebt op dit moment. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps.md). 
+Voor deze zelfstudie is moduleversie 5.1.1 of hoger van Azure PowerShell vereist. Voer `Get-Module -ListAvailable AzureRM` uit om te zien welke versie u momenteel hebt. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps.md).
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-Deze snelstartgids wordt ervan uitgegaan dat u hebt al een SQL datawarehouse die kunnen worden geschaald. Als u maken wilt, gebruikt u [maken en Connect - portal](create-data-warehouse-portal.md) voor het maken van een datawarehouse aangeroepen **mySampleDataWarehouse**. 
+In deze snelstart wordt ervan uitgegaan dat u al een SQL-datawarehouse hebt waarvan u de schaal kunt aanpassen. Gebruik [Maken en verbinden - portal](create-data-warehouse-portal.md) om een datawarehouse met de naam **mySampleDataWarehouse** te maken.
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-Meld u aan bij uw Azure-abonnement met de opdracht [Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) en volg de instructies op het scherm.
+Meld u aan bij uw Azure-abonnement met behulp van de opdracht [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) en volg de instructies op het scherm.
 
 ```powershell
-Add-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
-Als u wilt zien welke abonnement u gebruikt, [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
+Voer [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription) uit om te zien welk abonnement u gebruikt.
 
 ```powershell
 Get-AzureRmSubscription
 ```
 
-Als u gebruiken een ander abonnement dan de standaardwaarde wilt, voert u [Select-AzureRmSubscription](/powershell/module/azurerm.profile/select-azurermsubscription).
+Als u een ander abonnement dan het standaardabonnement wilt gebruiken, voert u [Select-AzureRmSubscription](/powershell/module/azurerm.profile/select-azurermsubscription) uit.
 
 ```powershell
 Select-AzureRmSubscription -SubscriptionName "MySubscription"
 ```
 
-## <a name="look-up-data-warehouse-information"></a>Datawarehouse-gegevens niet opzoeken
+## <a name="look-up-data-warehouse-information"></a>Datawarehousegegevens opzoeken
 
-Zoek de databasenaam, de servernaam en de resourcegroep voor het datawarehouse dat u wilt onderbreken en hervatten. 
+Zoek de databasenaam, de servernaam en de resourcegroep op voor het datawarehouse dat u wilt onderbreken en hervatten.
 
-Volg deze stappen voor de locatie-informatie voor uw datawarehouse niet vinden.
+Volg deze stappen om de locatiegegevens voor uw datawarehouse op te zoeken.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Klik op **SQL-databases** op de pagina naar links van de Azure portal.
-3. Selecteer **mySampleDataWarehouse** van de **SQL-databases** pagina. Hiermee opent u het datawarehouse. 
+2. Klik op de linkerpagina in Azure Portal op **SQL-databases**.
+3. Selecteer **mySampleDataWarehouse** op de pagina **SQL-databases**. De datawarehouse wordt geopend.
 
-    ![Servergroep en de bron](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
+    ![Servernaam en resourcegroep](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. Noteer de naam voor het datawarehouse van gegevens, die wordt gebruikt als de naam van de database. Vergeet niet een datawarehouse is een type van de database. Ook noteert u de naam van de server en de resourcegroep. U wilt gebruiken in het onderbreken en hervatten opdrachten.
-5. Als uw server foo.database.windows.net, gebruikt u alleen het eerste deel als de naam van de server in de PowerShell-cmdlets. In de voorgaande afbeelding is de volledige servernaam newserver 20171113.database.windows.net. We gebruiken **newserver 20171113** als de naam van de server in de PowerShell-cmdlet.
+4. Noteer de naam van het datawarehouse. Deze wordt gebruikt als de databasenaam. Een datawarehouse is een type database. Noteer ook de naam van de server en de resourcegroep. U gebruikt deze in de opdrachten voor het onderbreken en hervatten.
+5. Als uw server foo.database.windows.net is, gebruikt u alleen het eerste deel als de servernaam in de PowerShell-cmdlets. Op de voorgaande afbeelding is de volledige servernaam newserver 20171113.database.windows.net. We gebruiken **newserver-20171113** als de servernaam in de PowerShell-cmdlet.
 
 ## <a name="scale-compute"></a>De schaal van Compute aanpassen
 
-In SQL Data Warehouse, kunt u vergroten of verkleinen van rekenresources door datawarehouse units aan te passen. De [maken en Connect - portal](create-data-warehouse-portal.md) gemaakt **mySampleDataWarehouse** en met 400 dwu's wordt geïnitialiseerd. De volgende stappen aanpassen de dwu's voor **mySampleDataWarehouse**.
+In SQL Data Warehouse kunt u het aantal rekenresources verhogen of verlagen door de DWU's aan te passen. Met behulp van [Maken en verbinden - portal](create-data-warehouse-portal.md) is **mySampleDataWarehouse** gemaakt en vervolgens gestart met 400 DWU's. In de volgende stappen wordt het aantal DWU's voor **mySampleDataWarehouse** aangepast.
 
-Datawarehouse als eenheden wilt wijzigen, gebruikt u de [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) PowerShell-cmdlet. Het volgende voorbeeld wordt de datawarehouse-eenheden op DW300 voor de database **mySampleDataWarehouse** die wordt gehost in de resourcegroep **myResourceGroup** op server  **mynewserver 20171113**.
+Als u datawarehouse-eenheden wilt wijzigen, gebruikt u de PowerShell-cmdlet [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase). In het volgende voorbeeld worden de datawarehouse-eenheden ingesteld op DW300 voor de database **mySampleDataWarehouse** die wordt gehost in de resourcegroep **myResourceGroup** op server  **mynewserver 20171113**.
 
 ```Powershell
 Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
 ```
 
-## <a name="check-data-warehouse-state"></a>Controleer de status van datawarehouse
+## <a name="check-data-warehouse-state"></a>Status van datawarehouse controleren
 
-Als de huidige status van het datawarehouse wilt weergeven, gebruikt de [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) PowerShell-cmdlet. Hiermee wordt de status van de **mySampleDataWarehouse** database in ResourceGroup **myResourceGroup** en server **mynewserver 20171113.database.windows.net**.
+Als u de huidige status van de datawarehouse wilt zien, gebruikt u de PowerShell-cmdlet [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase). Hiermee wordt de status van de **mySampleDataWarehouse**-database in resourceGroup **myResourceGroup** en server **mynewserver-20171113.database.windows.net**.
 
 ```powershell
 $database = Get-AzureRmSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse
@@ -88,7 +84,7 @@ $database
 
 Dit resulteert in ongeveer het volgende:
 
-```powershell   
+```powershell
 ResourceGroupName             : myResourceGroup
 ServerName                    : mynewserver-20171113
 DatabaseName                  : mySampleDataWarehouse
@@ -114,16 +110,16 @@ ReadScale                     : Disabled
 ZoneRedundant                 : False
 ```
 
-U ziet de **Status** van de database in de uitvoer. In dit geval kunt u zien dat deze database online is.  Wanneer u deze opdracht uitvoert, ontvangt u een waarde voor de Status van Online, onderbreken, hervat, Scaling of onderbroken. 
+U ziet de **Status** van de database in de uitvoer. In dit geval kunt u zien dat deze database online is.  Wanneer u deze opdracht uitvoert, ontvangt u de statuswaarde Online, Onderbreken, Hervatten, Schalen of Onderbroken.
 
-Als de status zelfstandig wilt weergeven, gebruikt u de volgende opdracht:
+Voer de volgende opdracht uit om de status op zichzelf te bekijken:
 
 ```powershell
 $database | Select-Object DatabaseName,Status
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-U hebt nu geleerd hoe schalen compute voor uw datawarehouse. Voor meer informatie over Azure SQL Data Warehouse gaat u verder met de zelfstudie voor het laden van gegevens.
+U hebt nu geleerd hoe u de rekenkracht voor uw datawarehouse wijzigt. Voor meer informatie over Azure SQL Data Warehouse gaat u verder met de zelfstudie voor het laden van gegevens.
 
 > [!div class="nextstepaction"]
 >[Gegevens laden in een SQL-datawarehouse](load-data-from-azure-blob-storage-using-polybase.md)

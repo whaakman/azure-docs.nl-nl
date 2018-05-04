@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 1fe8a52a946b7e70a845e26b80dec94176c346f0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: dbb37c6fc2b5db8b2799eaacbfb4864c4e04fee7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="https-ingress-on-azure-container-service-aks"></a>HTTPS-inkomend op Azure Containerservice (AKS)
 
@@ -23,11 +23,11 @@ Dit document wordt begeleid bij de Voorbeeldimplementatie van een van de [NGINX 
 
 ## <a name="prerequisite"></a>Vereiste
 
-Installeren van Helm CLI - Zie de CLI Helm [documentatie] [helm cli] voor installatie-instructies.
+Installeer Helm CLI - Zie de CLI Helm [documentatie] [ helm-cli] voor installatie-instructies.
 
 ## <a name="install-an-ingress-controller"></a>Een domeincontroller inkomend installeren
 
-Helm gebruiken om de NGINX inkomend controller te installeren. De controller wordt NGINX inkomend [documentatie] [ nginx-ingress] voor gedetailleerde implementatie-informatie. 
+Helm gebruiken om de NGINX inkomend controller te installeren. De controller wordt NGINX inkomend [documentatie] [ nginx-ingress] voor gedetailleerde implementatie-informatie.
 
 Bijwerken van de grafiek-opslagplaats.
 
@@ -76,13 +76,7 @@ PIPNAME=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAdd
 az network public-ip update --resource-group $RESOURCEGROUP --name  $PIPNAME --dns-name $DNSNAME
 ```
 
-Indien nodig, voer de volgende opdracht voor het ophalen van de FQDN-naam. De IP-adres-waarde met die van uw domeincontroller inkomend bijwerken.
-
-```azurecli
-az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '52.224.125.195')].[dnsSettings.fqdn]" --output tsv
-```
-
-De domeincontroller inkomend is nu toegankelijk zijn via de FQDN-naam.
+Nu moet de controller inkomend toegankelijk zijn via de FQDN-naam.
 
 ## <a name="install-kube-lego"></a>KUBE Bouwstenen installeren
 
@@ -181,13 +175,14 @@ U ziet ook dat de verbinding is versleuteld en dat een certificaat zijn uitgegev
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over de software die in dit document wordt gedemonstreerd. 
+Meer informatie over de software die in dit document wordt gedemonstreerd.
 
+- [Helm CLI][helm-cli]
 - [NGINX ingress-controller][nginx-ingress]
 - [KUBE-LEGO][kube-lego]
 
 <!-- LINKS - external -->
-[helm-client]: https://docs.microsoft.com/en-us/azure/aks/kubernetes-helm#install-helm-cli
+[helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm#install-helm-cli
 [kube-lego]: https://github.com/jetstack/kube-lego
 [lets-encrypt]: https://letsencrypt.org/
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx

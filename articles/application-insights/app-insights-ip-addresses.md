@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: mbullwin
-ms.openlocfilehash: f56810d6520edd19ce757a91712698714902e668
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 6ea915ac10314f6304c98e40a50b26e3d1ee79eb
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>IP-adressen die worden gebruikt door de Application Insights en Log Analytics
 De [Azure Application Insights](app-insights-overview.md) service gebruikt een aantal IP-adressen. Mogelijk moet u weten van deze adressen als de app die u bewaakt achter een firewall wordt gehost.
@@ -49,11 +49,6 @@ Status monitorconfiguratie: alleen nodig wanneer u wijzigingen aanbrengt.
 | Configuratie |`auth.gfx.ms` | |`443` |
 | Configuratie |`login.live.com` | |`443` |
 | Installatie |`packages.nuget.org` , `nuget.org`, `api.nuget.org`, `az320820.vo.msecnd.net` (NuGet-Downloads) | |`443` |
-
-## <a name="hockeyapp"></a>HockeyApp
-| Doel | URL | IP | Poorten |
-| --- | --- | --- | --- |
-| Crashgegevens |gate.hockeyapp.net |104.45.136.42 |80, 443 |
 
 ## <a name="availability-tests"></a>Beschikbaarheidstests
 Dit is de lijst met adressen waaruit [webtests voor beschikbaarheid](app-insights-monitor-web-app-availability.md) worden uitgevoerd. Als u wilt uitvoeren van webtests van uw app, maar de webserver beperkt is tot specifieke clients van dienst, hebt u toe dat binnenkomend verkeer op onze beschikbaarheid test-servers.
@@ -218,7 +213,7 @@ Opmerking: *. applicationinsights.io domein is eigendom van Application Insights
 
 Opmerking: *. loganalytics.io domein eigendom is van het team logboekanalyse.
 
-## <a name="application-insights-azure-portal-extension"></a>Application Insights Azure Portal-extensie
+## <a name="application-insights-azure-portal-extension"></a>Application Insights-Azure-portal extensie
 
 | Doel | URI | IP | Poorten |
 | --- | --- | --- | --- |

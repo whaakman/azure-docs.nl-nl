@@ -1,3 +1,4 @@
+# [Basisprincipes van Azure IoT](../iot-fundamentals/index.yml)
 # [IoT Suite-documentatie](index.md)
 
 # Overzicht
@@ -94,10 +95,20 @@
 ## [Fundamentele beveiliging](securing-iot-ground-up.md)
 
 # Verwant
+## Oplossingen 
+### [Vooraf geconfigureerde oplossing van IoT Suite](/azure/iot-suite) 
+### [IoT Central](https://docs.microsoft.com/microsoft-iot-central/) 
+## Platformservices 
+### [IoT Hub](/azure/iot-hub) 
+### [IoT Hub Device Provisioning Service](/azure/iot-dps)
+### [IoT-service-SDK's](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks)
+### [Location Based Services](/azure/location-based-services) 
+### [Time Series Insights](/azure/time-series-insights) 
+## Edge 
+### [IoT Edge](/azure/iot-edge) 
+### [IoT Device-SDK's](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks) 
 ## [Stream Analytics](/azure/stream-analytics/)
 ## [Event Hubs](/azure/event-hubs/)
-## [IoT Hub](/azure/iot-hub/)
-## [Microsoft IoT Central](/azure/index#pivot=services&panel=iot)
 ## [Machine Learning](/azure/machine-learning/)
 
 # Resources

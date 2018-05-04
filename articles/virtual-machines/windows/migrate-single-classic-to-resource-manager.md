@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: cynthn
-ms.openlocfilehash: 1241f893ca69e3ddaf464e66943caa2697e6d8e7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: b81f3719f8781cf6cdb724108f4dd730f3380c86
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manually-migrate-a-classic-vm-to-a-new-arm-managed-disk-vm-from-the-vhd"></a>Handmatig een klassieke virtuele machine migreren naar een nieuwe ARM beheerd schijf virtuele machine van de VHD 
 
@@ -72,7 +72,7 @@ Beleid voor de schijfcache is standaard *alleen-lezen* voor alle Premium gegeven
 
 ### <a name="pricing"></a>Prijzen
 
-Controleer de [prijzen voor schijven beheerd](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). Prijzen van beheerde Premium-schijven is hetzelfde als het niet-beheerde Premium-schijven. Maar prijzen voor beheerde standaardschijven is anders dan standaardschijven zonder begeleiding.
+Controleer de [prijzen voor schijven beheerd](https://azure.microsoft.com/pricing/details/managed-disks/). Prijzen van beheerde Premium-schijven is hetzelfde als het niet-beheerde Premium-schijven. Maar prijzen voor beheerde standaardschijven is anders dan standaardschijven zonder begeleiding.
 
 
 ## <a name="checklist"></a>Controlelijst

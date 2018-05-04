@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 6caa0c8769ea6e62a22659089f37f74f6962e1c7
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 25a68fb535300e80efdf2adf9f3a8afe1b304667
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-workspaces"></a>Werkruimten beheren
 
@@ -34,7 +34,7 @@ Het volgende is nodig om een werkruimte te maken:
 ## <a name="determine-the-number-of-workspaces-you-need"></a>Vaststellen hoeveel werkruimten u nodig hebt
 Een werkruimte is een Azure-resource die bestaat uit een container waarin gegevens worden verzameld, samengevoegd, geanalyseerd en gepresenteerd in Azure Portal.
 
-U kunt per Azure-abonnement beschikken over meerdere werkruimten en toegang hebben tot meer dan één werkruimte. Eerder kon u gegevens alleen analyseren vanuit de huidige werkruimte en dit beperkte de mogelijkheid een query uit te voeren in meerdere werkruimten die in uw abonnement zijn gedefinieerd. Nu kunt u een [query uitvoeren in meerdere werkruimten](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search), zodat u een systeembreed overzicht van uw gegevens krijgt. In deze sectie wordt beschreven wanneer het handig kan zijn om meer dan één werkruimte te maken.
+U kunt per Azure-abonnement beschikken over meerdere werkruimten en toegang hebben tot meer dan één werkruimte. Eerder kon u gegevens alleen analyseren vanuit de huidige werkruimte en dit beperkte de mogelijkheid een query uit te voeren in meerdere werkruimten die in uw abonnement zijn gedefinieerd. Nu kunt u een [query uitvoeren in meerdere werkruimten](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search), zodat u een systeembreed overzicht van uw gegevens krijgt. In deze sectie wordt beschreven wanneer het handig kan zijn om meer dan één werkruimte te maken.
 
 Een werkruimte biedt momenteel het volgende:
 
@@ -77,7 +77,7 @@ Standaard wordt het Microsoft-account of organisatieaccount dat wordt gebruikt v
 Er zijn twee machtigingsmodellen die de toegang tot een Log Analytics-werkruimte beheren:
 
 1. Verouderde Log Analytics-gebruikersrollen
-2. [Toegang op basis van rollen in Azure](../active-directory/role-based-access-control-configure.md)
+2. [Toegang op basis van rollen in Azure](../role-based-access-control/role-assignments-portal.md)
 
 In de volgende tabel ziet u de toegang die met elk machtigingsmodel kan worden ingesteld:
 
@@ -104,7 +104,7 @@ Voor de volgende activiteiten zijn ook Azure-machtigingen vereist:
 
 
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Toegang tot Log Analytics beheren met behulp van Azure-machtigingen
-Volg de stappen in [Roltoewijzingen gebruiken voor het beheer van de toegang tot de resources van uw Azure-abonnement](../active-directory/role-based-access-control-configure.md) om toegang te verlenen tot de Log Analytics-werkruimte met behulp van Azure-machtigingen.
+Volg de stappen in [Roltoewijzingen gebruiken voor het beheer van de toegang tot de resources van uw Azure-abonnement](../role-based-access-control/role-assignments-portal.md) om toegang te verlenen tot de Log Analytics-werkruimte met behulp van Azure-machtigingen.
 
 Azure heeft twee ingebouwde gebruikersrollen voor Log Analytics:
 - Lezer van Log Analytics
@@ -156,7 +156,7 @@ Gebruik deze rollen om gebruikers toegang te geven op verschillende niveaus:
 - Resourcegroep: toegang tot alle werkruimten in de resourcegroep
 - Resource: alleen toegang tot de opgegeven werkruimte
 
-Gebruik [aangepaste rollen](../active-directory/role-based-access-control-custom-roles.md) om rollen te maken met de specifieke machtigingen die nodig zijn.
+Gebruik [aangepaste rollen](../role-based-access-control/custom-roles.md) om rollen te maken met de specifieke machtigingen die nodig zijn.
 
 ### <a name="azure-user-roles-and-log-analytics-portal-user-roles"></a>Gebruikersrollen in Azure en in Log Analytics-portal
 Als u minimaal Azure-leesmachtiging hebt in de Log Analytics-werkruimte, kunt u de OMS-portal openen door op de taak **OMS-portal** te klikken wanneer de Log Analytics-werkruimte wordt weergegeven.
@@ -174,7 +174,7 @@ De roltoewijzing in de OMS-portal wordt als volgt bepaald:
 | Voor door Cloud Solution Provider (CSP) beheerde abonnementen <br> Het account waarbij u bent aangemeld, bevindt zich in de Azure Active Directory die aan de werkruimte is gekoppeld | Beheerder | Doorgaans de klant van een CSP |
 | Voor door Cloud Solution Provider (CSP) beheerde abonnementen <br> Het account waarbij u bent aangemeld, bevindt zich niet in de Azure Active Directory die aan de werkruimte is gekoppeld | Inzender | Doorgaans de CSP |
 
-<sup>1</sup> Raadpleeg [Azure-machtigingen](../active-directory/role-based-access-control-custom-roles.md) voor meer informatie over roldefinities. Bij het evalueren van rollen is een actie van `*` niet equivalent aan `Microsoft.OperationalInsights/workspaces/*`.
+<sup>1</sup> Raadpleeg [Azure-machtigingen](../role-based-access-control/custom-roles.md) voor meer informatie over roldefinities. Bij het evalueren van rollen is een actie van `*` niet equivalent aan `Microsoft.OperationalInsights/workspaces/*`.
 
 Een aantal punten met betrekking tot de Azure Portal waarmee u rekening moet houden:
 

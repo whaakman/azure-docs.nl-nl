@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: a4f1c7c3342a2a78a2a5b765bd688bed4c85392f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 47ee22df081b71e7bafa40210a9c4cac0a844825
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-networking"></a>Azure-netwerken
 
@@ -37,7 +37,7 @@ Azure biedt tal van netwerkmogelijkheden die samen of afzonderlijk kunnen worden
 
 Azure-resources, zoals virtuele Machines, Cloud Services-Schaalsets virtuele Machines en Azure App Service-omgevingen kunnen privé met elkaar communiceren via een virtueel Azure-netwerk (VNet). Een VNet is een logische isolatie van de Azure-cloud toegewezen aan uw [abonnement](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fnetworking%2ftoc.json). U kunt meerdere VNets binnen elk Azure-abonnement en Azure implementeren [regio](https://azure.microsoft.com/regions). Elke VNet is geïsoleerd van andere vnet's. U kunt voor elk VNet:
 
-- Geef een aangepaste persoonlijke IP-adresruimte met behulp van openbare en persoonlijke (RFC 1918)-adressen. Resources in Azure wordt toegewezen en die is verbonden met het VNet een particulier IP-adres van de adresruimte die u toewijst.
+- Een aangepaste persoonlijke IP-adresruimte opgeven met behulp van openbare en persoonlijke adressen (RFC 1918). Resources in Azure wordt toegewezen en die is verbonden met het VNet een particulier IP-adres van de adresruimte die u toewijst.
 - Het VNet segmenteren in een of meer subnetten en een deel van de VNet-adresruimte voor elk subnet toegewezen.
 - Azure verschafte naamomzetting gebruiken of geef uw eigen DNS-server voor gebruik door resources die zijn verbonden met een VNet.
 
@@ -64,7 +64,7 @@ De volgende afbeelding ziet afzonderlijke punt op siteverbindingen tussen meerde
 
 ![Punt-naar-site](./media/networking-overview/point-to-site.png)
 
-Deze verbinding tot stand is gebracht tussen één computer en een VNet. Dit verbindingstype is handig als u alleen aan de slag met Azure of voor ontwikkelaars, omdat hiervoor weinig of geen wijzigingen in uw bestaande netwerk. Het is ook handig wanneer u verbinding vanaf een externe locatie, zoals een vergaderruimte maakt of thuis. Punt-naar-site-verbindingen zijn vaak samen met een site-naar-site-verbinding via de virtuele netwerkgateway. De verbinding wordt de SSTP-protocol gebruikt voor gecodeerde communicatie via Internet tussen de computer en het VNet. De latentie voor een punt-naar-site VPN-verbinding is onvoorspelbaar zijn, aangezien het verkeer over het Internet wordt verzonden.
+Deze verbinding tot stand is gebracht tussen één computer en een VNet. Dit verbindingstype is handig als u net aan de slag gaat met Azure of voor ontwikkelaars, omdat hiervoor weinig of geen wijzigingen in uw bestaande netwerk nodig zijn. Het is ook handig wanneer u verbinding vanaf een externe locatie, zoals een vergaderruimte maakt of thuis. Punt-naar-site-verbindingen zijn vaak samen met een site-naar-site-verbinding via de virtuele netwerkgateway. De verbinding wordt de SSTP-protocol gebruikt voor gecodeerde communicatie via Internet tussen de computer en het VNet. De latentie voor een punt-naar-site VPN-verbinding is onvoorspelbaar zijn, aangezien het verkeer over het Internet wordt verzonden.
 
 **Site-naar-site (IPsec/IKE-VPN-tunnel)**
 
@@ -155,7 +155,7 @@ U kunt implementeren en configureren van netwerken Azure-resources met een van d
 
 ## <a name="pricing"></a>Prijzen
 
-Sommige van de Azure VPN-services hebben een kosten, terwijl andere gratis. Weergave de [virtueel netwerk](https://azure.microsoft.com/pricing/details/virtual-network), [VPN-Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway), [Application Gateway](https://azure.microsoft.com/en-us/pricing/details/application-gateway/), [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer), [netwerk-Watcher](https://azure.microsoft.com/pricing/details/network-watcher), [DNS](https://azure.microsoft.com/pricing/details/dns), [Traffic Manager](https://azure.microsoft.com/pricing/details/traffic-manager) en [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute) prijzen van pagina's voor meer informatie.
+Sommige van de Azure VPN-services hebben een kosten, terwijl andere gratis. Weergave de [virtueel netwerk](https://azure.microsoft.com/pricing/details/virtual-network), [VPN-Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway), [Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway/), [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer), [netwerk-Watcher](https://azure.microsoft.com/pricing/details/network-watcher), [DNS](https://azure.microsoft.com/pricing/details/dns), [Traffic Manager](https://azure.microsoft.com/pricing/details/traffic-manager) en [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute) prijzen van pagina's voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 

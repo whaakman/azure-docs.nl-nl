@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: 0118e78ee7240c139ff808582d6b9b47c6b64b4b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: MT
+ms.openlocfilehash: ede354516afbd34372215a08d633969cf74b1562
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB FAQ
+# <a name="azure-cosmos-db-faq"></a>Veelgestelde vragen over Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Grondbeginselen van Azure DB Cosmos
 ### <a name="what-is-azure-cosmos-db"></a>Wat is Azure Cosmos DB?
 Azure Cosmos-database is een wereldwijd gerepliceerde en modellen database-service die geavanceerde mogelijkheden biedt via schemavrije gegevens, helpt configureerbare en betrouwbare prestaties leveren en waarmee snelle ontwikkeling. Dit wordt bereikt door middel van een beheerd platform dat wordt ondersteund door de kracht en het bereik van Microsoft Azure. 
@@ -114,7 +114,7 @@ De waarde PreferredLocations kan worden ingesteld met een van de Azure-regio's w
 ### <a name="is-there-anything-i-should-be-aware-of-when-distributing-data-across-the-world-via-the-azure-datacenters"></a>Is er iets die ik houden moet rekening bij het distribueren van gegevens over de hele wereld via de Azure-datacenters? 
 Azure Cosmos DB aanwezig is in alle Azure-regio's, zoals opgegeven op de [Azure-regio's](https://azure.microsoft.com/regions/) pagina. Omdat het de Kernservice, heeft elke nieuwe datacenter de aanwezigheid van een Azure Cosmos DB. 
 
-Vergeet niet dat Azure Cosmos DB soevereine en government clouds respecteert bij het instellen van een regio. Dat wil zeggen, als u een account in een soevereine regio maken, niet te repliceren buiten die soevereine regio. U kunt replicatie naar andere locaties soevereine van een externe account op deze manier niet inschakelen. 
+Vergeet niet dat Azure Cosmos DB soevereine en government clouds respecteert bij het instellen van een regio. Dat wil zeggen, als u een account in een [soevereine regio](https://azure.microsoft.com/global-infrastructure/), kan niet worden gerepliceerd buiten die [soevereine regio](https://azure.microsoft.com/global-infrastructure/). U kunt replicatie naar andere locaties soevereine van een externe account op deze manier niet inschakelen. 
 
 ## <a name="develop-against-the-sql-api"></a>Op basis van de SQL-API ontwikkelen
 
@@ -170,6 +170,9 @@ Ja, omdat Azure Cosmos DB een RESTful-service, resourcekoppelingen onveranderbaa
 ### <a name="is-a-local-instance-of-sql-api-available"></a>Is een lokaal exemplaar van SQL-API beschikbaar?
 Ja. De [Azure Cosmos DB Emulator](local-emulator.md) biedt een hoogwaardige emulatie van de Cosmos-DB-service. Het ondersteunt functionaliteit die identiek is aan Azure Cosmos DB, inclusief ondersteuning voor het maken en uitvoeren van query's JSON-documenten, inrichting en schalen van verzamelingen en uitvoering van opgeslagen procedures en triggers. U kunt ontwikkelen en testen van toepassingen met behulp van de Azure-Emulator Cosmos DB en deze implementeren in Azure op een wereldwijde schaal door het maken van een configuratie voor één eindpunt van de verbinding voor Azure Cosmos DB wijzigen.
 
+### <a name="why-are-long-floating-point-values-in-a-document-rounded-when-viewed-from-data-explorer-in-the-portal"></a>Waarom zijn lang drijvende-kommawaarden in een document afgerond weergeeft vanuit Gegevensverkenner in de portal. 
+Dit is de beperking van JavaScript. JavaScript drijvende-indeling met dubbele precisie getallen gebruikt zoals opgegeven in de IEEE 754 en deze kan bestaan uit getallen tussen - veilig vertegenwoordigen (253 - 1) en 253 – 1 (dat wil zeggen, 9007199254740991) alleen.
+
 ## <a name="develop-against-the-api-for-mongodb"></a>Ontwikkelen met de API voor MongoDB
 ### <a name="what-is-the-azure-cosmos-db-api-for-mongodb"></a>Wat is de Azure DB-API voor MongoDB Cosmos?
 De Azure DB-API voor MongoDB Cosmos is een compatibiliteitslaag waarmee toepassingen kunnen eenvoudig en transparant communiceren met de systeemeigen database-engine van Azure DB die Cosmos via bestaande, community ondersteund Apache MongoDB APIs en stuurprogramma's. Ontwikkelaars kunnen nu bestaande MongoDB hulpprogramma ketens en vaardigheden gebruiken om toepassingen die van Azure DB die Cosmos gebruikmaken te bouwen. Ontwikkelaars profiteren van de unieke mogelijkheden van Azure Cosmos DB, waaronder onderhoud voor automatisch indexeren, back-up en back-financieel service level agreements (Sla).
@@ -188,7 +191,7 @@ Naast de algemene foutcodes voor MongoDB heeft de MongoDB-API een eigen specifie
 | Fout               | Code  | Beschrijving  | Oplossing  |
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | Het totale aantal aanvraageenheden verbruikt is groter dan de frequentie van ingerichte aanvraag-eenheid voor de verzameling en is beperkt. | Overweeg het schalen van de doorvoer van de verzameling van de Azure-portal of u opnieuw probeert te. |
-| ExceededMemoryLimit | 16501 | Als een multitenant-service heeft de bewerking van de client geheugen aandeel overschreden. | Verminder het bereik van de bewerking via de meest beperkende querycriteria of neem contact op met ondersteuning van de [Azure-portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Example: *&nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
+| ExceededMemoryLimit | 16501 | Als een multitenant-service heeft de bewerking van de client geheugen aandeel overschreden. | Verminder het bereik van de bewerking via de meest beperkende querycriteria of neem contact op met ondersteuning van de [Azure-portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Voorbeeld:  *&nbsp; &nbsp; &nbsp; &nbsp;db.getCollection('users').aggregate ([<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$match: {naam: 'Andy'}}, <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$sort: {leeftijd: -1} }<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
 ## <a name="develop-with-the-table-api"></a>Met de tabel API ontwikkelen
 
@@ -215,10 +218,10 @@ Er zijn enkele gedrag van die afkomstig zijn van Azure Table storage gebruikers 
 Er zijn een aantal eindpunten/query-opties die niet worden ondersteund door Azure Cosmos DB tabel API in termen van de REST-API:
 | Rest-methode(n) | Rest-eindpunt/Query-optie | Doc-URL 's | Uitleg |
 | ------------| ------------- | ---------- | ----------- |
-| GET, PUT | /?restype=service@comp=properties| [Tabel-Service-eigenschappen instellen](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) en [tabel Service-eigenschappen ophalen](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Dit eindpunt wordt gebruikt voor het CORS-regels, configuratie van storage analytics en instellingen voor logboekregistratie instellen. CORS wordt momenteel niet ondersteund en analytics en logboekregistratie anders in Azure Cosmos DB dan Azure Storage-tabellen worden verwerkt |
+| GET, PUT | /? restype =service@comp= eigenschappen| [Tabel-Service-eigenschappen instellen](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) en [tabel Service-eigenschappen ophalen](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Dit eindpunt wordt gebruikt voor het CORS-regels, configuratie van storage analytics en instellingen voor logboekregistratie instellen. CORS wordt momenteel niet ondersteund en analytics en logboekregistratie anders in Azure Cosmos DB dan Azure Storage-tabellen worden verwerkt |
 | OPTIES | /<table-resource-name> | [Vooraf vlucht CORS tabel aanvraag](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Dit is onderdeel van CORS die Azure Cosmos DB momenteel niet ondersteund. |
 | TOEVOEGEN | /? restype =service@comp= statistieken | [Statistieken voor tabel-Service ophalen](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Bevat informatie hoe snel van gegevens tussen de primaire en secundaire replica's repliceren. Dit is niet nodig in Cosmos-database omdat de replicatie deel uitmaakt van schrijfbewerkingen. |
-| GET, PUT | /mytable?comp=acl | [Tabel ACL verkrijgen](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) en [tabel ACL instellen](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Dit opgehaald en ingesteld van de opgeslagen toegangsbeleid dat is gebruikt voor het beheren van Shared Access Signatures (SAS). Hoewel SAS wordt ondersteund, worden ze ingesteld en anders beheerd. |
+| GET, PUT | /MyTable? comp acl = | [Tabel ACL verkrijgen](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) en [tabel ACL instellen](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Dit opgehaald en ingesteld van de opgeslagen toegangsbeleid dat is gebruikt voor het beheren van Shared Access Signatures (SAS). Hoewel SAS wordt ondersteund, worden ze ingesteld en anders beheerd. |
 
 Daarnaast ondersteunt Azure Cosmos DB tabel API alleen de JSON-indeling niet ATOM.
 
@@ -228,8 +231,8 @@ Voor de .NET SDK in het bijzonder, zijn er bepaalde klassen en methoden die Azur
 
 | Klasse | Niet-ondersteunde methode |
 |-------|-------- |
-| CloudTableClient | \*ServiceProperties* |
-|                  | \*ServiceStats* |
+| CloudTableClient | \*ServiceProperties * |
+|                  | \*ServiceStats * |
 | CloudTable | SetPermissions * |
 |            | GetPermissions * |
 | TableServiceContext | * (is deze klasse daadwerkelijk afgeschaft) |

@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 072ce2952e3cdea47b02ef7656ca67d4bc0ae8f1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e93b3348c933f65067114bfce4ac517f1204af34
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights-API voor aangepaste gebeurtenissen en metrische gegevens
 
@@ -43,7 +43,7 @@ Als u nog een verwijzing op Application Insights-SDK hebt:
 
 * De Application Insights-SDK toevoegen aan uw project:
 
-  * [ASP.NET project](app-insights-asp-net.md)
+  * [ASP.NET-project](app-insights-asp-net.md)
   * [Java-project](app-insights-java-get-started.md)
   * [Node.js-project](app-insights-nodejs.md)
   * [JavaScript in elke webpagina](app-insights-javascript.md) 
@@ -79,7 +79,7 @@ Geen instantie ophalen van `TelemetryClient` (behalve in JavaScript in webpagina
 
 TelemetryClient is thread-safe.
 
-Voor ASP.NET en Java-projecten inkomende HTTP-aanvragen automatisch vastgelegd. Het is raadzaam om extra exemplaren van TelemetryClient voor andere module van uw app te maken. Bijvoorbeeld: mogelijk hebt u één exemplaar van TelemetryClient in uw klasse middleware rapport zakelijke logica gebeurtenissen. U kunt eigenschappen zoals gebruikers-id en de apparaat-id voor het identificeren van de computer instellen. Deze informatie is gekoppeld aan alle gebeurtenissen die door de instace verzonden. 
+Voor ASP.NET en Java-projecten inkomende HTTP-aanvragen automatisch vastgelegd. Het is raadzaam om extra exemplaren van TelemetryClient voor andere module van uw app te maken. Bijvoorbeeld: mogelijk hebt u één exemplaar van TelemetryClient in uw klasse middleware rapport zakelijke logica gebeurtenissen. U kunt eigenschappen zoals gebruikers-id en de apparaat-id voor het identificeren van de computer instellen. Deze informatie is gekoppeld aan alle gebeurtenissen die door het exemplaar wordt verzonden. 
 
 *C#*
 

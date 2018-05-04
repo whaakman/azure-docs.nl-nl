@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 04/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9e1cee4df8870886a2a10ac525d54eea5882c04f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 8ad73132839aaa77166c115feff9a70db864ba12
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar de nieuwe resourcegroep of abonnement
 
@@ -121,6 +121,7 @@ De services waarmee verplaatsen naar een nieuwe resourcegroep en een abonnement 
 * Cognitive Services
 * Content Moderator
 * Data Catalog
+* Data Factory - V1 kunnen worden verplaatst, maar het verplaatsen van V2 (preview) wordt niet ondersteund.
 * Data Lake Analytics
 * Data Lake Store
 * DNS
@@ -147,7 +148,7 @@ De services waarmee verplaatsen naar een nieuwe resourcegroep en een abonnement 
 * Storage
 * Opslag (klassiek) - Zie [klassieke implementatie beperkingen](#classic-deployment-limitations)
 * Stream Analytics - Stream Analytics-taken kunnen niet worden verplaatst, bij uitvoering in status.
-* SQL Database-server - database en de server moet zich bevinden in dezelfde resourcegroep. Wanneer u een SQL-server hebt verplaatst, worden ook alle databases die zijn verplaatst.
+* SQL Database-server - database en de server moet zich bevinden in dezelfde resourcegroep. Wanneer u een SQL-server hebt verplaatst, worden ook alle databases die zijn verplaatst. Dit omvat de Azure SQL Database en Azure SQL Data Warehouse-databases. 
 * Traffic Manager
 * Virtuele Machines - beheerde schijven kunnen niet worden verplaatst. Zie [beperkingen van de virtuele Machines](#virtual-machines-limitations)
 * Virtuele Machines (klassiek) - Zie [klassieke implementatie beperkingen](#classic-deployment-limitations)
@@ -166,7 +167,6 @@ De services die op dit moment niet inschakelen voor het verplaatsen van een reso
 * BizTalk Services
 * Certificaten - App Service-certificaten kunnen worden verplaatst, maar geüploade certificaten hebben [beperkingen](#app-service-limitations).
 * Container Service
-* Data Factory
 * DevTest Labs - te verplaatsen naar een nieuwe resourcegroep in hetzelfde abonnement is ingeschakeld, maar cross abonnement verplaatsen is niet ingeschakeld.
 * Dynamics LCS
 * ExpressRoute

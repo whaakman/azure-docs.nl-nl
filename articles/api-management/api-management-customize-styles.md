@@ -1,11 +1,11 @@
 ---
-title: De paginastijl op de Azure API Management-portal voor ontwikkelaars aanpassen | Microsoft Docs
-description: Volg de stappen van deze snelstartgids voor het aanpassen van de stijl van de elementen op de Azure API Management-portal voor ontwikkelaars.
+title: De paginastijl aanpassen in de ontwikkelaarsportal van Azure API Management | Microsoft Docs
+description: Volg de stappen van deze snelstart voor het aanpassen van de stijl van de elementen in de ontwikkelaarsportal van Azure API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,65 +14,63 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: f427663ba1c437785c8c521925d9f733c45cb40d
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: MT
+ms.openlocfilehash: 15012317d3d0a4d3e50d56966bf8d26b0ef48118
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="customize-the-style-of-the-developer-portal-pages"></a>De stijl van de portal-pagina's van ontwikkelaars aanpassen
+# <a name="customize-the-style-of-the-developer-portal-pages"></a>De stijl van de pagina's van de ontwikkelaarsportal aanpassen
 
-Er zijn drie meest voorkomende manieren naar de ontwikkelaarsportal aanpassen in Azure API Management:
+Er zijn drie gebruikelijke manieren waarop u de ontwikkelaarsportal in Azure API Management kunt aanpassen:
  
-* [De inhoud van statische pagina's en pagina-elementen voor lay-out bewerken](api-management-modify-content-layout.md)
-* Bijwerken van de stijlen die wordt gebruikt voor pagina-elementen in de portal voor ontwikkelaars (uitgelegd in deze handleiding)
-* [Wijzigen van de sjablonen voor pagina's die worden gegenereerd door de portal gebruikt](api-management-developer-portal-templates.md) (bijvoorbeeld API docs, producten, gebruikersverificatie)
+* [De inhoud van statische pagina's en pagina-indelingselementen bewerken](api-management-modify-content-layout.md)
+* De stijlen bijwerken die worden gebruikt voor pagina-elementen in de ontwikkelaarsportal (uitgelegd in deze handleiding)
+* [De sjablonen bewerken die worden gebruikt voor pagina's die worden gegenereerd door de portal](api-management-developer-portal-templates.md) (bijvoorbeeld API-documenten, producten, gebruikersverificatie, enzovoort)
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Aanpassen van de stijl van de elementen op de pagina's van de **Developer** portal
-> * De wijziging van uw weergeven
+> * Aanpassen van de stijl van elementen op pagina's van de **ontwikkelaars**portal
+> * Uw wijziging bekijken
 
-![stijl aanpassen](./media/modify-developer-portal-style/developer_portal.png)
+![Stijl aanpassen](./media/modify-developer-portal-style/developer_portal.png)
 
 ## <a name="prerequisites"></a>Vereisten
 
-+ Voltooi de volgende Snelstartgids: [Azure API Management-exemplaar maken](get-started-create-service-instance.md).
-+ Ook de volgende zelfstudie te voltooien: [importeren en publiceren van uw eerste API](import-and-publish.md).
-
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
++ Lees de volgende snelstartgids: [Een Azure API Management-exemplaar maken](get-started-create-service-instance.md).
++ Voltooi tevens de volgende zelfstudie: [Uw eerste API importeren en publiceren](import-and-publish.md).
 
 ## <a name="customize-the-developer-portal"></a>De ontwikkelaarsportal aanpassen
 
-1. Selecteer **overzicht**.
-2. Klik op de **ontwikkelaarsportal** knop op boven van de **overzicht** venster. U kunt ook klikken op de **ontwikkelaarsportal URL** koppeling.
-3. In de linkerbovenhoek van het scherm ziet u een pictogram dat bestaat uit twee Schilderkwasten. Beweeg de muisaanwijzer over dit pictogram om het menu portalaanpassing te openen.
+1. Selecteer **Overzicht**.
+2. Klik op de knop **Ontwikkelaarsportal** bovenaan het venster **Overzicht**. U kunt ook klikken op de **Ontwikkelaarsportal URL**-link.
+3. In de linkerbovenhoek van het scherm ziet u een pictogram dat bestaat uit twee schilderkwasten. Beweeg de muisaanwijzer over dit pictogram om het menu Portalaanpassing te openen.
 
-    ![stijl aanpassen](./media/modify-developer-portal-style/modify-developer-portal-style01.png)
-4. Selecteer **stijlen** in het menu openen van het deelvenster stijl aanpassen.
+    ![Stijl aanpassen](./media/modify-developer-portal-style/modify-developer-portal-style01.png)
+4. Selecteer **Stijlen** in het menu om het deelvenster Stijl aanpassen te openen.
 
-    Alle elementen die u kunt aanpassen met behulp van **stijlen** weergegeven op de pagina
-5. Voer 'headings-color' in de **wijzigen de waarden van variabelen developer portal weergave aanpassen:** veld.
+    Alle elementen die u kunt aanpassen met behulp van **Stijlen** worden weergegeven op de pagina
+5. Voer 'headings-color' in het veld **Wijzigen van de waarden om de weergave van het ontwikkelaarsportal aan te passen:** in.
 
-    De  **@headings-color**  element op de pagina wordt weergegeven. Deze variabele bepaalt de kleur van de tekst.
+    Het element **@headings-color** wordt op de pagina weergegeven. Deze variabele bepaalt de kleur van de tekst.
 
     ![stijl aanpassen](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
     
-6. Klik op het veld voor de  **@headings-color**  variabele. 
+6. Klik op het veld voor de variabele **@headings-color**. 
     
-    Kleurenkiezer vervolgkeuzelijst wordt geopend.
-7. Selecteer een nieuwe kleur van de kleurkiezers vervolgkeuzelijst.
+    De vervolgkeuzelijst Kleurenkiezer wordt geopend.
+7. Selecteer een nieuwe kleur uit de vervolgkeuzelijst Kleurenkiezer.
 
     > [!TIP]
-    > Realtime-voorbeeld is beschikbaar voor alle wijzigingen. Er verschijnt een voortgangsindicator aan de bovenkant van het deelvenster aanpassen. Na een paar seconden wijzigingen de koptekst in de zojuist geselecteerde in kleur.
+    > Een realtime-voorbeeld is beschikbaar voor alle wijzigingen. Er verschijnt een voortgangsindicator aan de bovenkant van het deelvenster Aanpassen. Na een paar seconden verandert de koptekst naar de zojuist geselecteerde kleur.
 
-8. Selecteer **publiceren** van linksonder in het deelvenster aanpassing menu.
-9. Selecteer **aanpassingen publiceert** om de wijzigingen openbaar beschikbaar.
+8. Selecteer **Publiceren** linksonder in het menu van het deelvenster Aanpassen.
+9. Selecteer **Aanpassingen publiceren** om de wijzigingen openbaar beschikbaar te maken.
 
-## <a name="view-your-change"></a>De wijziging van uw weergeven
+## <a name="view-your-change"></a>Uw wijziging bekijken
 
-1. Navigeer naar de portal voor ontwikkelaars.
+1. Navigeer naar de ontwikkelaarsportal.
 2. Hier ziet u de wijziging die u hebt aangebracht.
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -80,8 +78,8 @@ In deze zelfstudie leert u het volgende:
 In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
-> * Aanpassen van de stijl van de elementen op de pagina's van de **Developer** portal
-> * De wijziging van uw weergeven
+> * Aanpassen van de stijl van elementen op pagina's van de **ontwikkelaars**portal
+> * Uw wijziging bekijken
 
 > [!div class="nextstepaction"]
-> [De sjablonen met Azure API Management-ontwikkelaarsportal aanpassen](api-management-developer-portal-templates.md)
+> [Met sjablonen het Azure API Management-ontwikkelaarsportal aanpassen](api-management-developer-portal-templates.md)

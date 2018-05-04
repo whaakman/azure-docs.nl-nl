@@ -187,6 +187,10 @@
           href: web-sites-create-web-jobs.md
         - name: WebJobs ontwikkelen met behulp van VS
           href: websites-dotnet-deploy-webjobs.md
+        - name: Aan de slag met de WebJobs-SDK
+          href: webjobs-sdk-get-started.md
+        - name: De WebJobs-SDK gebruiken
+          href: webjobs-sdk-how-to.md
 - name: Naslaginformatie
   items:
     - name: Azure-CLI
@@ -253,6 +257,8 @@
           href: app-service-web-troubleshoot-http-502-http-503.md
         - name: Prestatieproblemen oplossen
           href: app-service-web-troubleshoot-performance-degradation.md
+        - name: Problemen met domeinen en certificaten oplossen
+          href: app-service-web-troubleshoot-domain-ssl-certificates.md
         - name: Veelgestelde vragen
           items:
             - name: 'Veelgestelde vragen over beschikbaarheid, prestaties en toepassing'

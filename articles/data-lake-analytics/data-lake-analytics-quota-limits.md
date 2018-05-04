@@ -3,7 +3,7 @@ title: De quotalimieten voor Azure Data Lake Analytics
 description: Informatie over het aanpassen en het verhogen van de quotumlimieten in Azure Data Lake Analytics (ADLA)-accounts.
 services: data-lake-analytics
 keywords: Azure Data Lake Analytics
-documentationcenter: 
+documentationcenter: ''
 author: omidm1
 editor: omidm1
 ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
@@ -12,11 +12,11 @@ ms.topic: article
 ms.workload: big-data
 ms.date: 03/15/2018
 ms.author: omidm
-ms.openlocfilehash: 22774511720173915207da80a6ca33d5dbc83e19
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c6c39fb0810a7ea8b6facec1ca80da25d2253329
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="azure-data-lake-analytics-quota-limits"></a>De quotalimieten voor Azure Data Lake Analytics
 
@@ -24,9 +24,13 @@ Informatie over het aanpassen en het verhogen van de quotumlimieten in Azure Dat
 
 ## <a name="azure-subscriptions-limits"></a>Limieten voor Azure-abonnementen
 
-**Maximum aantal ADLA accounts per abonnement:** 5
+**Maximum aantal ADLA accounts per abonnement per regio:** 5
 
-Dit is het maximum aantal ADLA accounts die u per abonnement per regio maken kunt. Als u probeert te maken van een zesde ADLA-account, krijgt u een fout "U hebt het maximum aantal Data Lake Analytics-accounts toegestaan (5) in de regio onder de abonnementsnaam van het bereikt". In dit geval kunt u een andere regio als geschikte of delete ongebruikte ADLA accounts in dezelfde regio, of neem contact op met Azure-ondersteuning door [een ondersteuningsticket openen](#increase-maximum-quota-limits) om aan te vragen een verhoging van het quotum.
+Als u probeert te maken van een zesde ADLA-account, krijgt u een fout "U hebt het maximum aantal Data Lake Analytics-accounts toegestaan (5) in de regio onder de abonnementsnaam van het bereikt". 
+
+Als u verdergaan dan deze limiet wilt, kunt u proberen deze opties:
+* Kies een andere regio als geschikte
+* Neem contact op met de ondersteuning van Azure door [een ondersteuningsticket openen](#increase-maximum-quota-limits) om aan te vragen een verhoging van het quotum.
 
 ## <a name="adla-account-limits"></a>Limieten van ADLA
 

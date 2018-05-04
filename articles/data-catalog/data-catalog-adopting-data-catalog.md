@@ -1,12 +1,12 @@
 ---
 title: Aanpak en proces voor het overstappen op Azure Data Catalog | Microsoft Docs
-description: "Dit artikel bevat een benadering en proces voor organisaties die overwegen om over te stappen op Azure Data Catalog, met inbegrip van het definiëren van een visie, het identificeren van de belangrijkste zakelijke gebruiksvoorbeelden en het kiezen van een proefproject."
+description: Dit artikel bevat een benadering en proces voor organisaties die overwegen om over te stappen op Azure Data Catalog, met inbegrip van het definiëren van een visie, het identificeren van de belangrijkste zakelijke gebruiksvoorbeelden en het kiezen van een proefproject.
 services: data-catalog
-documentationcenter: 
+documentationcenter: ''
 author: steelanddata
 manager: NA
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 0c771e7a-6fcd-417f-9247-897177719567
 ms.service: data-catalog
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: d092613d88a4186c17c8c91046bb598c4f60b307
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: e7c104fa9b136df8ac4b94ee1e444100e2a2f969
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Aanpak en proces voor het overstappen op Azure Data Catalog
 Dit artikel helpt u aan de slag te gaan met de overstap op **Azure Data Catalog** in uw organisatie. Als u wilt overstappen op **Azure Data Catalog**, richt u zich op drie essentiële items: het definiëren van uw visie, het identificeren van de belangrijkste zakelijke gebruiksvoorbeelden binnen uw organisatie en het kiezen van een proefproject.
@@ -142,7 +142,7 @@ Hier volgen enkele tips om aan de slag te gaan:
 Voordat uw team aan de slag gaat met Data Catalog, plant u een vergadering ter introductie om verwachtingen voor het proefproject te bespreken en een eerste training te geven.
 
 ### <a name="set-expectations"></a>Verwachtingen bijstellen
-Het bijstellen van uitzonderingen en doelstellingen helpt zakelijke gebruikers om zich te concentreren op specifieke resultaten. Om het project op schema te houden, geeft u regelmatig (bijvoorbeeld dagelijks of wekelijks op basis van het bereik en de duur van het project) huiswerkopdrachten op. Een van de belangrijkste mogelijkheden van Data Catalog is crowdsourcing van gegevensassets, zodat zakelijke gebruikers van de kennis van bedrijfsgegevens kunnen profiteren. Een goede huiswerkopdracht is om elk lid van het proefteam ten minste één gegevensbron die hij of zij heeft gebruikt te laten registreren of aantekenen. Zie [Een gegevensbron registreren](data-catalog-get-started.md) en [Aantekeningen toevoegen aan gegevensbronnen](data-catalog-get-started.md).
+Door verwachtingen en doelstellingen te omschrijven, kunnen zakelijke gebruikers zich beter concentreren op specifieke resultaten. Om het project op schema te houden, geeft u regelmatig (bijvoorbeeld dagelijks of wekelijks op basis van het bereik en de duur van het project) huiswerkopdrachten op. Een van de belangrijkste mogelijkheden van Data Catalog is crowdsourcing van gegevensassets, zodat zakelijke gebruikers van de kennis van bedrijfsgegevens kunnen profiteren. Een goede huiswerkopdracht is om elk lid van het proefteam ten minste één gegevensbron die hij of zij heeft gebruikt te laten registreren of aantekenen. Zie [Een gegevensbron registreren](data-catalog-get-started.md) en [Aantekeningen toevoegen aan gegevensbronnen](data-catalog-get-started.md).
 
 Vergader regelmatig met het team om enkele aantekeningen te beoordelen. Goede aantekeningen over gegevensbronnen zijn het meest belangrijk voor een geslaagde overstap op Data Catalog, omdat ze betekenisvolle inzichten voor gegevensbronnen leveren op een centrale locatie. Kennis over gegevensbronnen blijft zonder goede aantekeningen verspreid over de hele onderneming. Zie [Aantekeningen toevoegen aan gegevensbronnen](data-catalog-get-started.md).
 

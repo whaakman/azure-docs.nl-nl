@@ -5,7 +5,7 @@ services: visual-studio-online
 documentationcenter: na
 author: mlearned
 manager: erickson-doug
-editor: 
+editor: ''
 ms.assetid: b81c172a-be87-4adc-861e-d20b94be9e38
 ms.service: azure-resource-manager
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: e7d98ca3fa281a136595c37ed9b7e71de0cf7bff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fc5a45c899cd72c051dd08f7db039565a57381a7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="continuous-integration-in-visual-studio-team-services-using-azure-resource-group-deployment-projects"></a>Doorlopende integratie in Visual Studio Team Services met behulp van Azure Resource Group implementatieprojecten
 Voor het implementeren van een Azure-sjabloon u taken uitvoeren in verschillende fasen: bouw, Test, kopiëren naar Azure (ook wel 'Fasering'), en de sjabloon implementeert. Er zijn twee verschillende manieren om sjablonen te implementeren voor Visual Studio Team Services (VS Team Services). Beide methoden bieden dezelfde resultaten, dus kiest die het beste past bij uw werkstroom.
@@ -52,7 +52,7 @@ De volgende procedures helpt u stapsgewijs door de stappen die nodig zijn voor h
 1. Bewerk de definitie van de VS Team Services bouwen en toevoegen van een Azure PowerShell build stap. Kies de definitie van de build onder de **bouwen definities** categorie en kies vervolgens de **bewerken** koppeling.
    
    ![De definitie van de build bewerken][0]
-2. Voeg een nieuwe **Azure PowerShell** bouwen stap in de definitie van de build en kies vervolgens de **stap van de build toevoegen...** te klikken.
+2. Voeg een nieuwe **Azure PowerShell** bouwen stap in de definitie van de build en kies vervolgens de **stap van de build toevoegen...** .
    
    ![Build stap toevoegen][1]
 3. Kies de **implementeren taak** categorie, selecteer de **Azure PowerShell** taak en kies vervolgens de **toevoegen** knop.
@@ -74,11 +74,11 @@ De volgende procedures helpt u stapsgewijs door de stappen die nodig zijn voor h
       ![Service-principal optie][5]
    5. Uw Azure-abonnement u informatie toevoegen aan de **Azure-abonnement toevoegen** in het dialoogvenster. U moet bieden de volgende items:
       
-      * Abonnements-Id
-      * De naam van abonnement
+      * Abonnements-id
+      * Naam abonnement
       * Service-Principal-Id
       * Service-Principal-sleutel
-      * Tenant-Id
+      * Tenant-id
    6. Voeg een naam van uw keuze op de **abonnement** naamvak. Deze waarde wordt weergegeven later in de **Azure-abonnement** vervolgkeuzelijst in VS-Team Services. 
    7. Als u uw Azure-abonnement-ID niet weet, kunt u een van de volgende opdrachten te halen.
       
@@ -106,7 +106,7 @@ De volgende procedures helpt u stapsgewijs door de stappen die nodig zijn voor h
    
    | Parameter | Beschrijving |
    | --- | --- |
-   | -ResourceGroupLocation |De waarde van de geografische locatie waar de resourcegroep zich bevindt, zoals **eastus** of **'VS-Oost'**. (Toevoegen tussen enkele aanhalingstekens als de naam een spatie.) Zie [Azure-gebieden](https://azure.microsoft.com/en-us/regions/) voor meer informatie. |
+   | -ResourceGroupLocation |De waarde van de geografische locatie waar de resourcegroep zich bevindt, zoals **eastus** of **'VS-Oost'**. (Toevoegen tussen enkele aanhalingstekens als de naam een spatie.) Zie [Azure-gebieden](https://azure.microsoft.com/regions/) voor meer informatie. |
    | -ResourceGroupName |De naam van de resourcegroep die wordt gebruikt voor deze implementatie. |
    | -UploadArtifacts |Deze parameter, indien aanwezig, geeft aan dat artefacten die moet worden geüpload naar Azure uit het lokale systeem. U hoeft deze switch instellen als uw sjabloonimplementatie vereist extra artefacten die u wilt voorbereiden met de PowerShell-script (zoals configuratiescripts of geneste sjablonen). |
    | -StorageAccountName |De naam van het storage-account gebruikt voor fase artefacten voor deze implementatie. Deze parameter wordt alleen gebruikt als u bij het Faseren van artefacten voor implementatie. Als deze parameter wordt opgegeven, wordt een nieuw opslagaccount gemaakt als het script niet tijdens een eerdere implementatie gemaakt is. Als de parameter wordt opgegeven, wordt het opslagaccount moet al bestaan. |
@@ -134,7 +134,7 @@ De volgende procedures helpt u stapsgewijs door de stappen die nodig zijn voor h
 1. Bewerk de definitie van de VS Team Services bouwen om toe te voegen dat twee nieuwe stappen bouwen. Kies de definitie van de build onder de **bouwen definities** categorie en kies vervolgens de **bewerken** koppeling.
    
    ![Build-definition bewerken][12]
-2. De nieuwe build-stappen toevoegen aan de build definitie met behulp van de **stap van de build toevoegen...** te klikken.
+2. De nieuwe build-stappen toevoegen aan de build definitie met behulp van de **stap van de build toevoegen...** .
    
    ![Build stap toevoegen][13]
 3. Kies de **implementeren** taakcategorie, selecteer de **Azure bestandskopie** taak en kies vervolgens de **toevoegen** knop.

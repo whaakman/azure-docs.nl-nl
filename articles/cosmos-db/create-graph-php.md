@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: quickstart
 ms.date: 01/05/2018
 ms.author: lbosq
-ms.openlocfilehash: f6d8b8773719a59ad5326196f32a69a13a9a5d34
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 4c7046c335039f5bc689790aaf53f5dff65991d6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-php-and-the-azure-portal"></a>Azure Cosmos DB: een grafiekdatabase maken met behulp van PHP en Azure Portal
 
@@ -42,24 +42,7 @@ Voordat u een grafiekdatabase kunt maken, moet u een Gremlin-databaseaccount (Gr
 
 ## <a name="add-a-graph"></a>Een graaf toevoegen
 
-U kunt nu het hulpprogramma Data Explorer in Azure Portal gebruiken om een grafiekdatabase te maken. 
-
-1. Klik op **Data Explorer** > **Nieuwe grafiek**.
-
-    Uiterst rechts wordt het gebied **Grafiek toevoegen** weergegeven. Mogelijk moet u naar rechts scrollen om het te bekijken.
-
-    ![Azure Portal Data Explorer, pagina Grafiek toevoegen](./media/create-graph-php/azure-cosmosdb-data-explorer-graph.png)
-
-2. Geef op de pagina **Grafiek toevoegen** de instellingen voor de nieuwe grafiek op.
-
-    Instelling|Voorgestelde waarde|Beschrijving
-    ---|---|---
-    Database-id|voorbeelddatabase|Voer *sample-database* in als de naam voor de nieuwe database. Databasenamen moeten tussen de 1 en 255 tekens zijn en mogen geen `/ \ # ?` bevatten of eindigen op een spatie.
-    Grafiek-id|voorbeeldgrafiek|Voer *sample-graph* in als de naam voor uw nieuwe verzameling. Voor namen van grafieken gelden dezelfde tekenvereisten als voor database-id's.
-    Opslagcapaciteit|Vast (10 GB)|Laat de standaardwaarde **Vast (10 GB)** staan. Deze waarde is de opslagcapaciteit van de database.
-    Doorvoer|400 RU‘s|Wijzig de doorvoer in 400 aanvraageenheden per seconde (RU/s). U kunt de doorvoer later opschalen als u de latentie wilt beperken.
-
-3. Zodra het formulier is ingevuld, klikt u op **OK**.
+[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a name="clone-the-sample-application"></a>De voorbeeldtoepassing klonen
 
@@ -85,7 +68,7 @@ Nu gaan we werken met code. We gaan nu een Graph API-app klonen vanaf GitHub, de
 
 ## <a name="review-the-code"></a>De code bekijken
 
-Deze stap is optioneel. Als u wilt weten hoe de databaseresources in de code worden gemaakt, kunt u de volgende codefragmenten bekijken. De codefragmenten zijn allemaal afkomstig uit het bestand `connect.php` in de map C:\git-samples\azure-cosmos-db-graph-php-getting-started\. Als u deze stap wilt overslaan, kunt u verdergaan naar [Uw verbindingsreeks bijwerken](#update-your-connection-information). 
+Deze stap is optioneel. Als u wilt weten hoe de databaseresources in de code worden gemaakt, kunt u de volgende codefragmenten bekijken. De codefragmenten zijn allemaal afkomstig uit het bestand connect.php in de map C:\git-samples\azure-cosmos-db-graph-php-getting-started\. Als u deze stap wilt overslaan, kunt u verdergaan naar [Uw verbindingsreeks bijwerken](#update-your-connection-information). 
 
 * De Gremlin-`connection` wordt geïnitialiseerd in het begin van het bestand `connect.php` met behulp van het object `$db`.
 
@@ -122,7 +105,7 @@ Ga nu terug naar Azure Portal om de verbindingsgegevens op te halen en deze in d
     ![Een toegangssleutel in Azure Portal bekijken en kopiëren op de pagina Sleutels](./media/create-graph-php/keys.png)
 2. Open het bestand `connect.php` en plak in regel 8 de URI-waarde over `your_server_address` heen.
 
-    De initialisatie van het verbindingsobject zou er nu als volgt moeten uitzien:
+    De initialisatie van het verbindingsobject moet er nu uitzien als de volgende code:
 
     ```php
     $db = new Connection([
@@ -136,13 +119,13 @@ Ga nu terug naar Azure Portal om de verbindingsgegevens op te halen en deze in d
     ]);
     ```
 
-3. Als uw grafiekdatabaseaccount is gemaakt op of na 20 december 2017, wijzigt u `graphs.azure.com` bij de hostnaam in `gremlin.cosmosdb.azure.com`.
+3. Als uw grafiekdatabaseaccount is gemaakt op of na 20 december 2017, wijzigt u `graphs.azure.com` in de hostnaam in `gremlin.cosmosdb.azure.com`.
 
-4. Wijzig de parameter `username` in het verbindingsobject in de naam van uw database en de grafiek. Als u de aanbevolen waarden van `sample-database` gebruikt en `sample-graph`, zou deze er als volgt moeten uitzien:
+4. Wijzig de parameter `username` in het verbindingsobject in de naam van uw database en de grafiek. Als u de aanbevolen waarden van `sample-database` en `sample-graph` gebruikt, moeten deze er als de volgende code uitzien:
 
     `'username' => '/dbs/sample-database/colls/sample-graph'`
 
-    Dit is hoe het gehele verbindingsobject er nu zou moeten uitzien:
+    Het hele verbindingsobject moet er nu uitzien als het volgende codefragment:
 
     ```php
     $db = new Connection([
@@ -158,7 +141,7 @@ Ga nu terug naar Azure Portal om de verbindingsgegevens op te halen en deze in d
 
 5. Gebruik in Azure Portal de kopieerknop om de PRIMAIRE SLEUTEL te kopiëren en vervang `your_primary_key` in de wachtwoordparameter door deze waarde.
 
-    De initialisatie van het verbindingsobject zou er nu als volgt moeten uitzien:
+    De initialisatie van het verbindingsobject moet er nu als de volgende code uitzien:
 
     ```php
     $db = new Connection([
@@ -228,7 +211,7 @@ U kunt nu teruggaan naar Data Explorer en de hoekpunten bekijken die zijn toegev
     technisch | java | 
 
     > [!NOTE]
-    > In deze snelstartgids maken we een niet-gepartitioneerde verzameling. Als u echter een gepartitioneerde verzameling maakt door een partitiesleutel op te geven tijdens het maken van de verzameling, moet u de partitiesleutel opnemen als sleutel bij elk nieuw hoekpunt. 
+    > In deze snelstart gaat u een niet-gepartitioneerde verzameling maken. Als u echter een gepartitioneerde verzameling maakt door een partitiesleutel op te geven tijdens het maken van de verzameling, moet u de partitiesleutel opnemen als sleutel bij elk nieuw hoekpunt. 
 
 6. Klik op **OK**. Mogelijk moet u het scherm groter maken om **OK** weer te geven onder aan het scherm.
 
@@ -250,7 +233,7 @@ U kunt nu teruggaan naar Data Explorer en de hoekpunten bekijken die zijn toegev
 
     Als u meer gegevens toevoegt, kunt u filters gebruiken om de resultaten te beperken. Data Explorer maakt standaard gebruik van `g.V()` voor het ophalen van alle hoekpunten van een grafiek. U kunt dit wijzigen in een andere [grafiekquery](tutorial-query-graph.md), bijvoorbeeld `g.V().count()`, om een telling van alle hoekpunten in de grafiek in JSON-indeling te retourneren. Nadat u het filter hebt gewijzigd, wijzigt u het weer in `g.V()` en klikt u op **Filter toepassen** om alle resultaten opnieuw weer te geven.
 
-12. Nu kunnen we rakesh en ashley met elkaar verbinden. Zorg ervoor dat **ashley** in de lijst met **resultaten** is geselecteerd en klik vervolgens rechtsonder, naast **Doelen**, op de knop Bewerken. Mogelijk moet u het scherm verbreden om het gedeelte **Eigenschappen** te kunnen zien.
+12. Nu kunt u rakesh en ashley met elkaar verbinden. Zorg ervoor dat **ashley** in de lijst met **resultaten** is geselecteerd en klik vervolgens rechtsonder, naast **Doelen**, op de knop Bewerken. Mogelijk moet u het scherm verbreden om het gedeelte **Eigenschappen** te kunnen zien.
 
    ![Het doel van een hoekpunt in een grafiek wijzigen](./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png)
 
@@ -262,7 +245,7 @@ U kunt nu teruggaan naar Data Explorer en de hoekpunten bekijken die zijn toegev
 
    ![Twee hoekpunten die zijn verbonden in Data Explorer](./media/create-graph-php/azure-cosmosdb-graph-explorer.png)
 
-   Hiermee is het onderdeel voor het maken van resources van deze zelfstudie voltooid. U kunt naar eigen inzicht verdergaan met toevoegen van hoekpunten, aanpassen van de bestaande hoekpunten of wijzigen van de query's. Laten we nu de metrische gegevens bekijken die Azure Cosmos DB biedt en vervolgens de resources opschonen. 
+   Hiermee is het onderdeel voor het maken van resources van deze snelstart voltooid. U kunt naar eigen inzicht verdergaan met toevoegen van hoekpunten, aanpassen van de bestaande hoekpunten of wijzigen van de query's. Laten we nu de metrische gegevens bekijken die Azure Cosmos DB biedt en vervolgens de resources opschonen. 
 
 ## <a name="review-slas-in-the-azure-portal"></a>SLA’s bekijken in Azure Portal
 

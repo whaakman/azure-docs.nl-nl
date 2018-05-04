@@ -14,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 04/26/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d356535bf1a7daf45108bc790a19578108a50bb7
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
-ms.translationtype: HT
+ms.openlocfilehash: b7ad535976508cb195991c374995b0a0b6e45e10
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Wat is er nieuw in Azure Active Directory?
 
@@ -39,6 +39,217 @@ Azure AD ontvangt verbeteringen voortdurend. Om te blijven up-to-date met de mee
 -   Plannen voor wijzigingen
 
 Deze pagina maandelijks wordt bijgewerkt, dus regelmatig bezoeken.
+
+
+## <a name="april-2018"></a>2018 april
+ 
+
+
+### <a name="azure-ad-b2c-access-token-are-ga"></a>Azure AD B2C Access Token zijn NH
+
+**Type:** nieuwe functie  
+**Servicecategorie:** B2C - identiteitsbeheer van consumenten  
+**Product mogelijkheid:** B2B/B2C
+ 
+
+U kunt nu toegang tot Web-API worden beveiligd door Azure AD B2C met toegangstokens. De functie wordt verplaatst van de openbare preview naar algemene beschikbaarheid. De UI-mogelijkheden voor het configureren van Azure AD B2C-toepassingen en web-API's is verbeterd en andere kleine verbeteringen aangebracht.
+ 
+Zie voor meer informatie [Azure AD B2C: aanvragende toegangstokens](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-access-tokens).
+
+
+---
+ 
+
+### <a name="test-single-sign-on-configuration-for-saml-based-applications"></a>Configuratie voor eenmalige aanmelding voor SAML-toepassingen testen
+
+**Type:** nieuwe functie  
+**Servicecategorie:** zakelijke Apps  
+**Product mogelijkheid:** eenmalige aanmelding
+ 
+
+Wanneer SSO-toepassingen op basis van SAML configureren bent u de integratie op de configuratiepagina te testen. Als er een fout tijdens het aanmelden optreden, kunt u de fout in de ervaring voor de test en Azure AD levert u stappen voor het oplossen van dit specifieke probleem.
+
+Zie voor meer informatie:
+
+- [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps) (Eenmalige aanmelding configureren voor toepassingen die zich niet in de Azure Active Directory-toepassingsgalerie bevinden)
+- [Fouten opsporen in op basis van SAML eenmalige aanmelding tot toepassingen in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)
+
+
+---
+ 
+### <a name="azure-ad-terms-of-use-now-has-per-user-reporting"></a>Azure AD gebruiksvoorwaarden heeft nu per gebruiker rapportage
+
+**Type:** nieuwe functie  
+**Servicecategorie:** gebruiksvoorwaarden  
+**Product mogelijkheid:** naleving
+ 
+
+Beheerders kunnen nu selecteren van een bepaalde gebruiksvoorwaarden en zien alle gebruikers die toestemming hebt gegeven voor gebruiksvoorwaarden en wat datum/tijd deze plaatsgevonden heeft.
+
+
+Zie voor meer informatie de [gebruiksvoorwaarden Azure AD-functie](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+ 
+
+---
+ 
+### <a name="azure-ad-connect-health-risky-ip-for-ad-fs-extranet-lockout-protection"></a>Azure AD Connect Health: Riskante IP's voor AD FS-extranetvergrendeling beveiliging 
+
+**Type:** nieuwe functie  
+**Servicecategorie:** andere  
+**Product mogelijkheid:** bewaking en rapportage
+ 
+
+Connect Health nu ondersteunt de mogelijkheid voor het detecteren van IP adressen die groter is dan een drempel voor mislukte U/P aanmeldingen op basis van per uur of dagelijks. De mogelijkheden van deze functie zijn:
+
+- Uitgebreide rapport met IP-adres en het aantal mislukte aanmeldingen gegenereerd op basis van elk uur/dagelijks met aanpasbare drempelwaarde.
+- Waarschuwingen op basis van een e-mailadres weergegeven wanneer een specifiek IP-adres is groter dan de drempelwaarde van mislukte U/P aanmeldingen op basis van elk uur/dag.
+- Een downloadoptie om een gedetailleerde analyse van de gegevens
+
+
+Zie voor meer informatie [riskante IP-rapport](https://aka.ms/aadchriskyip).
+
+ 
+
+---
+ 
+
+### <a name="easy-app-config-with-metadata-file-or-url"></a>Eenvoudige app-config metagegevensbestand of -URL
+
+**Type:** nieuwe functie  
+**Servicecategorie:** zakelijke Apps  
+**Product mogelijkheid:** eenmalige aanmelding
+ 
+
+Op de pagina Enterprise-toepassingen kunnen beheerders een SAML-metagegevensbestand voor het configureren van SAML op basis van eenmalige aanmelding voor AAD-galerie en niet toepassing uploaden.
+
+Bovendien kunt u Azure AD-toepassing federatieve metagegevens-URL voor het configureren van eenmalige aanmelding met de doeltoepassing.
+
+Zie voor meer informatie [configureren van eenmalige aanmelding tot toepassingen die zich niet in de Azure Active Directory-toepassingsgalerie](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps).
+ 
+
+---
+ 
+
+### <a name="azure-ad-terms-of-use-now-generally-available"></a>Azure AD gebruiksvoorwaarden nu algemeen beschikbaar
+
+**Type:** nieuwe functie  
+**Servicecategorie:** gebruiksvoorwaarden  
+**Product mogelijkheid:** naleving
+ 
+
+Azure AD gebruiksvoorwaarden is verplaatst van openbare preview naar algemeen beschikbaar.
+
+Zie voor meer informatie de [gebruiksvoorwaarden Azure AD-functie](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+
+ 
+
+---
+ 
+
+### <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Uitnodigingen voor B2B gebruikers van specifieke organisaties blokkeren of toestaan
+
+**Type:** nieuwe functie  
+**Servicecategorie:** B2B  
+**Product mogelijkheid:** B2B/B2C
+ 
+
+Nu kunt u opgeven welke partners die u wilt delen en samenwerken met Azure AD B2B-samenwerking. Om dit te doen, kunt u de lijst van specifieke maken toestaan of weigeren van domeinen. Wanneer een domein is geblokkeerd met behulp van deze mogelijkheden, kunnen werknemers niet meer uitnodigingen verzenden naar mensen in dat domein.
+
+Dit helpt u bij het beheren van toegang tot uw resources tijdens het inschakelen van een vlotte gebruikerservaring goedgekeurde gebruikers.
+
+Deze functie B2B-samenwerking is beschikbaar voor alle klanten van Azure Active Directory en kan worden gebruikt in combinatie met Azure AD Premium-functies zoals voorwaardelijke toegang en identity protection voor gedetailleerde controle over wanneer en hoe de externe zakelijke gebruikers zich aanmelden in en toegang te krijgen.
+
+Zie voor meer informatie [toestaan of blokkeren uitnodigingen voor B2B gebruikers van specifieke organisaties](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-allow-deny-list).
+
+ 
+
+---
+ 
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery"></a>Nieuwe federatieve apps beschikbaar in Azure AD-App-galerie
+
+**Type:** nieuwe functie  
+**Servicecategorie:** zakelijke Apps  
+**Product mogelijkheid:** 3e integratie van derden
+ 
+
+In April 2018 toegevoegd volgende 13 nieuwe apps in onze App-galerie met Federatie ondersteunen:
+
+
+
+Criterium HCM, [FiscalNote](https://docs.microsoft.com/azure/active-directory/active-directory-saas-fiscalnote-tutorial), [Secret Server (On-Premises)](https://docs.microsoft.com/azure/active-directory/active-directory-saas-secretserver-on-premises-tutorial), [dynamische signaal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-dynamicsignal-tutorial), [mindWireless](https://docs.microsoft.com/azure/active-directory/active-directory-saas-mindwireless-tutorial), [organigram Nu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-orgchartnow-tutorial), [Ziflow](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ziflow-tutorial), [AppNeta Prestatiemeter](https://docs.microsoft.com/azure/active-directory/active-directory-saas-appneta-tutorial), [Elium](https://docs.microsoft.com/azure/active-directory/active-directory-saas-elium-tutorial) , [Fluxx Labs](https://docs.microsoft.com/azure/active-directory/active-directory-saas-fluxxlabs-tutorial), [ Cisco Cloud](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ciscocloud-tutorial), rek, [SafetyNet](https://docs.microsoft.com/azure/active-directory/active-directory-saas-safetynet-tutorial)
+
+
+
+ U kunt de lijst van de beschikbare zelfstudies hier vinden: [ https://aka.ms/appstutorial ](https://aka.ms/appstutorial).
+
+Zie voor meer informatie [uw toepassing vermelden in de Azure Active Directory-toepassingsgalerie](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
+
+
+ 
+
+---
+ 
+### <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications-public-preview"></a>Gebruikers in Azure AD GRANT B2B toegang tot uw on-premises toepassingen (openbare preview)
+
+**Type:** nieuwe functie  
+**Servicecategorie:** B2B  
+**Product mogelijkheid:** B2B/B2C
+ 
+
+Als een organisatie die gebruikmaakt van Azure Active Directory (Azure AD) B2B-samenwerkingsmogelijkheden om uit te nodigen gastgebruikers van partnerorganisaties aan uw Azure AD, kunt u nu bieden deze B2B-gebruikers toegang tot lokale apps. Deze apps lokale kunt SAML-gebaseerde authenticatie of geïntegreerde Windows-verificatie (IWA) met Kerberos-beperkte delegatie (KCD) gebruiken.
+
+Zie voor meer informatie [Grant B2B-gebruikers in Azure AD toegang tot uw on-premises toepassingen](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-hybrid-cloud-to-on-premises)
+ 
+
+---
+ 
+### <a name="get-sso-integration-tutorials-from-the-azure-marketplace"></a>SSO-integratie zelfstudies ophalen uit Azure Marketplace
+
+**Type:** gewijzigde functie  
+**Servicecategorie:** andere  
+**Product mogelijkheid:** 3e integratie van derden
+ 
+
+Als een toepassing die wordt vermeld in de [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1) ondersteunt SAML-gebaseerde eenmalige aanmelding, te klikken op **nu downloaden** biedt u de integratie-zelfstudie die is gekoppeld aan die toepassing. 
+
+
+---
+
+### <a name="faster-performance-of-azure-ad-automatic-user-provisioning-to-saas-applications"></a>Betere prestaties van Azure AD automatisch gebruikers inrichten tot SaaS-toepassingen
+
+**Type:** gewijzigde functie  
+**Servicecategorie:** Apps inrichten  
+**Product mogelijkheid:** 3e integratie van derden
+ 
+
+Voorheen klanten die gebruikmaken van de inrichting van connectors voor SaaS-toepassingen (bijvoorbeeld Salesforce, ServiceNow en vak) Azure Active Directory-gebruiker kunnen traag zeer als hun Azure AD-tenants meer dan 100.000 gecombineerde gebruikers bevat en groepen en ze gebruikten toewijzingen van gebruikers en groepen om te bepalen welke gebruikers moeten worden ingericht.
+
+Op 2 April, zijn zeer belangrijke prestatieverbeteringen geïmplementeerd voor de inrichting Azure AD-service die aanzienlijk verminderen de hoeveelheid tijd die nodig zijn voor het uitvoeren van de initiële synchronisatie tussen Azure Active Directory en doel SaaS-toepassingen.
+
+
+Als gevolg hiervan veel klanten die had eerste synchronisaties voor apps die het aantal dagen duurde of nooit voltooid, worden binnen een paar minuten of uren nu voltooid.
+
+Zie voor meer informatie [wat er gebeurt tijdens het inrichten?](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning#what-happens-during-provisioning)
+
+---
+ 
+
+### <a name="self-service-password-reset-from-windows-10-lock-screen-for-hybrid-azure-ad-joined-machines"></a>Selfservice voor wachtwoordherstel van Windows 10-vergrendelingsscherm voor hybride Azure AD die lid zijn van de machines
+
+**Type:** gewijzigde functie  
+**Servicecategorie:** wachtwoord opnieuw instellen in selfservice  
+**Product mogelijkheid:** gebruikersverificatie
+ 
+
+We hebt bieden ondersteuning voor computers die zijn hybride die lid zijn van Azure AD voor de functie Windows 10 SSPR bijgewerkt. Deze functie is beschikbaar in Windows 10 RS4 kunnen gebruikers hun wachtwoord van het vergrendelingsscherm van een Windows 10-machine. Deze functie kunnen gebruikmaken van gebruikers die zijn ingeschakeld en geregistreerd voor selfservice voor wachtwoordherstel.
+
+Zie voor meer informatie [Azure AD-wachtwoord opnieuw instellen van het aanmeldingsscherm](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-windows).
+ 
+
+---
+
+
 
 ## <a name="march-2018"></a>2018 maart
  
@@ -73,6 +284,32 @@ U kunt nu Twitter of GitHub toevoegen als een id-provider in Azure AD B2C. Twitt
 
 Zie voor meer informatie [wat is Azure AD B2B-samenwerking?](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
  
+---
+
+
+### <a name="restrict-browser-access-using-intune-managed-browser-with-azure-ad-application-based-conditional-access-for-ios-and-android"></a>Beperken van toegang tot de browser Intune Managed Browser voor iOS en Android met voorwaardelijke toegang van Azure AD op basis van een toepassing
+
+**Type:** nieuwe functie  
+**Servicecategorie:** voorwaardelijke toegang  
+**Product mogelijkheid:** identiteit beveiliging en gegevensbescherming
+ 
+
+**Nu in public preview!**
+
+**Intune Managed Browser SSO:** uw werknemers kunt eenmalige aanmelding in systeemeigen clients (zoals Microsoft Outlook) en de Intune Managed Browser voor alle Azure AD verbonden apps.
+
+**Intune Managed Browser voorwaardelijke toegang ondersteuning:** werknemers gebruikmaken van de Intune Managed browser met behulp van beleid voor voorwaardelijke toegang op basis van een toepassing kunt u nu vereisen.
+
+Meer informatie over dit op onze [blogbericht](https://cloudblogs.microsoft.com/enterprisemobility/2018/03/15/the-intune-managed-browser-now-supports-azure-ad-sso-and-conditional-access/).
+
+Zie voor meer informatie:
+
+- [Voorwaardelijke toegang op basis van een toepassing instellen](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+
+- [Beheerde-browserbeleid configureren](https://aka.ms/managedbrowser)  
+
+
+
 ---
  
 
@@ -336,7 +573,7 @@ Zie voor meer informatie [uitgegeven claims in het SAML-token voor bedrijfstoepa
 
 Voor de implementatie van de toepassing te vereenvoudigen en reduceren uw administratieve overhead, ondersteunen we nu de mogelijkheid voor het publiceren van toepassingen die gebruikmaken van jokertekens. U kunt een jokerteken als toepassing wilt publiceren, volgt u de standaardtoepassing publishing stroom maar een jokerteken gebruikt in de interne en externe URL's.
 
-Zie voor meer informatie [jokertekens toepassingen in de Azure Active Directory-toepassingsproxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-wildcard)
+Zie voor meer informatie [jokertekens toepassingen in de Azure Active Directory-toepassingsproxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-wildcard)
 
  
 
@@ -495,7 +732,7 @@ Zie voor meer informatie:
 
 **Type:** gewijzigde functie  
 **Servicecategorie:** gebruiksvoorwaarden  
-**Product mogelijkheid:** Governance
+**Product mogelijkheid:** naleving
  
 
 Wanneer u de gebruiksvoorwaarden worden weergegeven, kunt u nu klikken **met problemen bij het bekijken? Klik hier**. Op deze koppeling klikt, opent de gebruiksvoorwaarden systeemeigen op uw apparaat. Ongeacht de grootte van het lettertype in het document of de schermgrootte van apparaat, kunt u inzoomen en lezen van het document indien nodig. 
@@ -630,7 +867,7 @@ Zie voor meer informatie:
 
 **Type:** nieuwe functie  
 **Servicecategorie:** gebruiksvoorwaarden  
-**Product mogelijkheid:** Governance/naleving
+**Product mogelijkheid:** naleving
  
 U kunt nu gaat u naar het Toegangspaneel en weergeven van de gebruiksvoorwaarden die u eerder hebt geaccepteerd.
 
@@ -681,7 +918,7 @@ Zie voor meer informatie [minder prompts aanmelden: de nieuwe ervaring 'aangemel
 
 **Type:** nieuwe functie  
 **Servicecategorie:** gebruiksvoorwaarden  
-**Product mogelijkheid:** Governance/naleving
+**Product mogelijkheid:** naleving
  
 Een optie voor beheerders moet hun gebruikers uit te breiden de gebruiksvoorwaarden voorafgaand aan de voorwaarden accepteren.
 
@@ -838,7 +1075,7 @@ Zie voor meer informatie:
 
 **Type:** nieuwe functie    
 **Servicecategorie:** gebruiksvoorwaarden  
-**Product mogelijkheid:** Governance/naleving
+**Product mogelijkheid:** naleving
 
 
 
@@ -1128,7 +1365,7 @@ Zie voor meer informatie [verwijzing voor het melden van MFA in de Azure portal]
 
 **Type:** nieuwe functie  
 **Servicecategorie:** gebruiksvoorwaarden  
-**Product mogelijkheid:** Governance/naleving  
+**Product mogelijkheid:** naleving  
 
 
 
@@ -1171,7 +1408,7 @@ Zie voor meer informatie [Privileged Identity Management voor Azure-resources](h
 
 **Type:** nieuwe functie  
 **Servicecategorie:** beoordelingen openen  
-**Product mogelijkheid:** Governance/naleving  
+**Product mogelijkheid:** naleving  
 
 
 

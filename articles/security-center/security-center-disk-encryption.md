@@ -5,7 +5,7 @@ services: security, security-center
 documentationcenter: na
 author: TomShinder
 manager: swadhwa
-editor: 
+editor: ''
 ms.assetid: f6c28bc4-1f79-4352-89d0-03659b2fa2f5
 ms.service: security
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
-ms.openlocfilehash: fa55df0c4d5291834035ea5cae58fa3d75de7e02
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 9a376eb63e7ba054a125666f95c05d5e7dfb5470
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Een virtuele machine van Azure versleutelen
 Het Azure Beveiligingscentrum stuurt u een waarschuwingsbericht wanneer u virtuele machines hebt die niet versleuteld zijn. Deze waarschuwingsberichten hebben een hoge prioriteit. Het wordt aangeraden om deze virtuele machines te versleutelen.
@@ -92,7 +92,7 @@ Volg de volgende stappen om een virtuele machine van Azure te versleutelen:
 1. Als u de PowerShell ISE hebt gesloten, open PowerShell ISE dan met verhoogde bevoegdheid. Volg de bovenstaande instructies in dit artikel wanneer PowerShell ISE nog niet geopend is. Wanneer u het script hebt gesloten, open dan het bestand **ADEPrereqScript.ps1** door te klikken op **Bestand**, **Openen** en het script te selecteren in de map **c:\AzureADEScript**. Wanneer u dit artikel in zijn geheel hebt gevolgd, ga dan verder naar de volgende stap.
 2. In de console van de PowerShell ISE (het onderste venster van de  PowerShell ISE) verandert u de focus naar de locatie van het script door **cd c:\AzureADEScript** te typen en op **ENTER** te drukken.
 3. Stel het uitvoerbeleid op uw machine in zodat u het script kunt uitvoeren. Typ **Set-ExecutionPolicy Unrestricted** in de console en druk op ENTER. Wanneer u een dialoogvenster ziet over het effect van de wijzigingen in het uitvoerbeleid klikt u op **Ja op alles** of **Ja** Als u **Ja op alles** ziet, selecteert u die optie; als u **Ja op alles**niet ziet, klik dan op **Ja**).
-4. Meld u aan bij uw Azure-account. Typ **Login-AzureRmAccount** in de console en druk op **ENTER**. Er wordt een dialoogvenster weergegeven waarin u uw gegevens kunt invoeren (zorg ervoor dat u bevoegd bent om de virtuele machines te wijzigen; als u die bevoegdheid niet hebt, kunt u de virtuele machines niet versleutelen. Als u niet weet of u bevoegd bent, neem dan contact op met de eigenaar van uw abonnement of uw beheerder). U ziet nu informatie over uw **omgeving**, **account**, **tenant-ID**, **abonnements-ID** en **huidige opslagaccount**. Kopieer uw **abonnements-ID** naar het Kladblok. Dit hebt u nodig in stap 6.
+4. Meld u aan bij uw Azure-account. Typ **Connect-AzureRmAccount** in de console en druk op **ENTER**. Er wordt een dialoogvenster weergegeven waarin u uw gegevens kunt invoeren (zorg ervoor dat u bevoegd bent om de virtuele machines te wijzigen; als u die bevoegdheid niet hebt, kunt u de virtuele machines niet versleutelen. Als u niet weet of u bevoegd bent, neem dan contact op met de eigenaar van uw abonnement of uw beheerder). U ziet nu informatie over uw **omgeving**, **account**, **tenant-ID**, **abonnements-ID** en **huidige opslagaccount**. Kopieer uw **abonnements-ID** naar het Kladblok. Dit hebt u nodig in stap 6.
 5. Bepaal bij welk abonnement uw virtuele machine hoort en de locatie ervan. Ga naar [https://portal.azure.com](ttps://portal.azure.com) en meld u aan.  Klik op **Virtuele machines** in de linkerkant van het scherm. U ziet een lijst met uw virtuele machines en de abonnementen waar deze bij horen.
 
    ![Virtuele machines](./media/security-center-disk-encryption/security-center-disk-encryption-fig3.png)

@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/16/2017
-ms.openlocfilehash: 1c02f8f7b086d0441c2def0e92c54cce72fad85e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 9a9608825cf041007c000729becb34e9a3063f92
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics op IoT rand (preview)
 
@@ -60,11 +60,10 @@ U kunt volgen [deze stapsgewijze zelfstudie](https://docs.microsoft.com/azure/io
 
 
 #### <a name="create-an-asa-edge-job"></a>Een Edge ASA-taak maken
-1. Maak een nieuwe 'Stream Analytics-taak' vanuit de Azure-portal. [Directe koppeling te maken van een nieuwe ASA-taak hier](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
-
 > [!Note]
-> U kunt de Edge-taken maken in alle regio's wordt ondersteund door ASA, **behalve in 'VS-West 2' regio**.
-> Deze beperking wordt binnenkort verwijderd.
+> Deze zelfstudie richt zich op het ASA taak maken met Azure portal. U kunt ook [Visual Studio-invoegtoepassing gebruiken voor een Edge ASA-taak maken](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
+
+1. Maak een nieuwe 'Stream Analytics-taak' vanuit de Azure-portal. [Directe koppeling te maken van een nieuwe ASA-taak hier](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
 
 2. Selecteer in het scherm voor het maken van **rand** als **hostomgeving** (Zie de volgende afbeelding) ![maken van de taak](media/stream-analytics-edge/ASAEdge_create.png)
 3. Taakdefinitie
@@ -147,7 +146,6 @@ Echter de volgende functies zijn nog niet ondersteund voor rand taken:
 * Azure ML-functies.
 * Met behulp van meer dan 14 statistische functies in één stap.
 * AVRO-indeling voor invoer/uitvoer. Op dit moment worden alleen CSV en JSON ondersteund.
-* Compressie van JSON-invoer.
 * De volgende SQL-operators:
     * AnomalyDetection
     * Georuimtelijke operators:
@@ -210,6 +208,7 @@ Voor verdere hulp kunt u proberen de [Azure Stream Analytics-forum](https://soci
 * [Meer informatie over Azure Iot-zijde](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
 * [ASA op de rand van de IoT-zelfstudie](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
 * [Feedback verzenden naar het team met behulp van deze enquête](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 
+* [Ontwikkelen met Visual Studio tools rand van Stream Analytics-taken](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

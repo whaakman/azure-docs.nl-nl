@@ -1,7 +1,7 @@
+# [Basisprincipes van Azure IoT](../iot-fundamentals/index.yml)
 # [Documentatie voor IoT Hub](index.md)
 
 # Overzicht
-## [Azure en IoT](iot-hub-what-is-azure-iot.md)
 ## [Wat is Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
 ## [Overzicht van apparaatbeheer](iot-hub-device-management-overview.md)
 
@@ -169,7 +169,7 @@
 ##### [Certificaten maken - PowerShell](iot-hub-security-x509-create-certificates.md)
 
 # Naslaginformatie
-## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=iot-hub)
+## [Codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=iot-hub)
 ## [Azure-CLI](/cli/azure/iot)
 ## [.NET (service)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (apparaten)](/dotnet/api/microsoft.azure.devices.client)
@@ -186,11 +186,18 @@
 ## [REST (taken)](https://docs.microsoft.com/rest/api/iothub/jobapi)
 
 # Verwant
-## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
-## [Azure IoT Hub Device Provisioning Service](https://azure.microsoft.com/documentation/services/iot-dps/)
-## [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/)
-## [Stream Analytics](https://azure.microsoft.com/documentation/services/stream-analytics/)
-## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
+## Oplossingen 
+### [Vooraf geconfigureerde oplossing van IoT Suite](/azure/iot-suite) 
+### [IoT Central](https://docs.microsoft.com/microsoft-iot-central/) 
+## Platformservices 
+### [IoT Hub](/azure/iot-hub) 
+### [IoT Hub Device Provisioning Service](/azure/iot-dps)
+### [IoT-service-SDK's](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks)
+### [Location Based Services](/azure/location-based-services) 
+### [Time Series Insights](/azure/time-series-insights) 
+## Edge 
+### [IoT Edge](/azure/iot-edge) 
+### [IoT Device-SDK's](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks) 
 
 # Resources
 ## [Azure Certified voor IoT-apparaatcatalogus](https://catalog.azureiotsuite.com/)

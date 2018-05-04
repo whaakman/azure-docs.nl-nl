@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: tutorial
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 3/9/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 430e813b89f3e0004c517ef77f1028e00ebe5404
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: f209e992c4562f11727613c58e1e94483af03bb7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-deploy-api-management-with-service-fabric"></a>Zelfstudie: API Management implementeren met Service Fabric
 Deze zelfstudie is deel vier een serie.  De implementatie van Azure API Management met Service Fabric is een geavanceerd scenario.  API Management is handig als u API's met een geavanceerde set regels voor doorsturen moet publiceren voor uw Service Fabric-services in de back-end. Cloudtoepassingen hebben meestal een gateway in de front-end nodig om een centraal ingangspunt te bieden voor gebruikers, apparaten of andere toepassingen. In Service Fabric kan een gateway elke stateless service zijn die is ontworpen voor inkomend verkeer, zoals een ASP.NET Core-toepassing, Event Hubs, IoT-Hub of Azure API Management. 
@@ -59,7 +59,7 @@ U beschikt nu over een veilig [Windows-cluster](service-fabric-tutorial-create-v
 Meld u aan bij uw Azure-account en selecteer uw abonnement voordat u Azure-opdrachten gaat uitvoeren.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
@@ -142,7 +142,7 @@ Voor deze zelfstudie gaat u een eenvoudige webserver implementeren, die berichte
 
    Als het goed is, wordt er nu een stateless Java-service met de naam `fabric:/EchoServerApplication/EchoServerService` uitgevoerd in het Service Fabric-cluster in Azure.
 
-5. Open een browser en typ http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage. Als het goed is, wordt de tekst "[version 1.0]Hello World!!!" weergegeven.
+5. Open een browser en typ http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage. Als het goed is, ziet u "[versie 1.0] Hello World!!!" weergegeven.
 
 ## <a name="download-and-understand-the-resource-manager-templates"></a>Resource Manager-sjablonen downloaden en begrijpen
 Download de volgende Resource Manager-sjablonen en parameterbestanden en sla ze op:
@@ -179,7 +179,7 @@ Met [Microsoft.ApiManagement/service/apis](/azure/templates/microsoft.apimanagem
 
 - **displayName** kan elke naam zijn voor uw API. Voor deze zelfstudie gebruiken we 'Service Fabric-App'.
 - **name** is een unieke en beschrijvende naam voor de API, zoals 'service-fabric-app'. Deze naam wordt weergegeven in de portals ontwikkelaars en de uitgever. 
-- **serviceUrl** verwijst naar de HTTP-service die de API implementeert. API Management stuurt aanvragen door naar dit adres. De waarde van deze URL wordt niet gebruikt voor Service Fabric-back-ends. U kunt hier elke waarde invoeren. Gebruik voor deze zelfstudie bijvoorbeeld 'http://servicefabric'. 
+- **serviceUrl** verwijst naar de HTTP-service die de API implementeert. API Management stuurt aanvragen door naar dit adres. De waarde van deze URL wordt niet gebruikt voor Service Fabric-back-ends. U kunt hier elke waarde invoeren. Voor deze zelfstudie bijvoorbeeld http://servicefabric. 
 - De waarde voor **path** wordt toegevoegd aan de basis-URL voor de API Management-service. De basis-URL is gemeenschappelijk voor alle API's die worden gehost door een exemplaar van API Management-service. In API Management worden API's herkend aan hun achtervoegsel en daarom moet het achtervoegsel uniek zijn voor elke API voor een bepaalde uitgever. 
 - **protocols** bepaalt welke protocollen kunnen worden gebruikt om toegang te krijgen tot de API. Voor deze zelfstudie gebruiken en **http** en **https**.
 - **path** is een achtervoegsel voor de API. Gebruik voor deze zelfstudie 'myapp'.

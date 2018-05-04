@@ -1,6 +1,6 @@
 ---
-title: Event hub-ontvangers in Azure Stream Analytics oplossen
-description: Aanbevolen procedures voor het overwegen van Event Hubs consumer-groepen in de Stream Analytics-taken opvragen.
+title: Event Hub-ontvangers in Azure Stream Analytics oplossen
+description: Dit artikel wordt beschreven hoe u meerdere consumergroepen voor invoer van Event Hubs in Stream Analytics-taken.
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
@@ -8,21 +8,45 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/20/2017
-ms.openlocfilehash: 20614986fc6c6afa9a92d163bf973a148e0517c0
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/27/2018
+ms.openlocfilehash: aaa8c4e8d273b44f453d3f63f0be1d4baf980649
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/01/2018
 ---
-# <a name="debug-azure-stream-analytics-with-event-hub-receivers"></a>Fouten opsporen in Azure Stream Analytics met event hub-ontvangers
+# <a name="troubleshoot-event-hub-receivers-in-azure-stream-analytics"></a>Event Hub-ontvangers in Azure Stream Analytics oplossen
 
 U kunt Azure Event Hubs in Azure Stream Analytics opnemen of gegevens uit een taak uitvoeren. Er is een best practice voor het gebruik van Event Hubs meerdere consumergroepen gebruiken om te controleren of de taak schaalbaarheid. Een reden hiervoor is dat het aantal lezers in de Stream Analytics-taak voor een specifieke invoer betrekking heeft op het aantal lezers in een enkel consumergroep. Het exacte aantal ontvangers is gebaseerd op interne implementatiedetails voor de scale-out-topologie-logica. Het aantal ontvangers is extern niet toegankelijk. Het aantal lezers kunt wijzigen op de begintijd van taak of tijdens upgrades van de taak.
+
+De fout wordt weergegeven wanneer het aantal ontvangers overschrijdt het maximum is: `The streaming job failed: Stream Analytics job has validation errors: Job will exceed the maximum amount of Event Hub Receivers.`
 
 > [!NOTE]
 > Wanneer het aantal lezers gewijzigd tijdens de upgrade van een taak, worden naar het controlelogboeken tijdelijke waarschuwingen geschreven. Stream Analytics-taken worden automatisch herstellen van deze problemen van voorbijgaande aard.
 
+## <a name="add-a-consumer-group-in-event-hubs"></a>Toevoegen van een consumergroep in Event Hubs
+Een nieuwe consumergroep in uw exemplaar van Event Hubs toevoegen Volg deze stappen:
+
+1. Meld u aan bij Azure Portal.
+
+2. Ga naar de Event Hubs.
+
+3. Selecteer **Event Hubs** onder de **entiteiten** kop.
+
+4. Selecteer de Event Hub met de naam.
+
+5. Op de **Event Hubs exemplaar** pagina onder de **entiteiten** kop, selecteer **consumergroepen**. Een consumergroep met de naam **$Default** wordt vermeld.
+
+6. Selecteer **+ Consumergroep** toevoegen van een nieuwe consumergroep. 
+
+   ![Toevoegen van een consumergroep in Event Hubs](media/stream-analytics-event-hub-consumer-groups/new-eh-consumer-group.png)
+
+7. Wanneer u de invoer in de Stream Analytics-taak om te verwijzen naar de Event Hub hebt gemaakt, kunt u er de consumergroep opgegeven. $Default wordt gebruikt als niets wordt opgegeven. Wanneer u een nieuwe consumergroep maakt, de Event Hub-invoer in de Stream Analytics-taak bewerken en geef de naam van de nieuwe consumergroep.
+
+
 ## <a name="number-of-readers-per-partition-exceeds-event-hubs-limit-of-five"></a>Het aantal lezers per partitie overschrijdt de limiet van vijf Event Hubs
+
+Als uw streaming querysyntaxis verwijst meerdere keren naar de dezelfde invoerresource Event Hub, kan de engine taak meerdere lezers per query van dezelfde consumergroep kunt gebruiken. Wanneer er te veel verwijzingen naar de dezelfde consumergroep, de taak groter zijn dan de limiet van vijf en een fout opgetreden. In deze omstandigheden kunt u verder met behulp van meerdere invoer uit meerdere consumergroepen met behulp van de oplossing wordt beschreven in de volgende sectie verdelen. 
 
 Scenario's waarin het aantal lezers per partitie de Event Hubs-limiet van vijf overschrijdt omvatten het volgende:
 
@@ -73,12 +97,6 @@ FROM data
 Voor query's waarin drie of meer invoerwaarden zijn verbonden met de dezelfde consumergroep van Event Hubs, afzonderlijke consumergroepen te maken. Dit is vereist voor het maken van aanvullende Stream Analytics-invoer.
 
 
-## <a name="get-help"></a>Help opvragen
-Voor meer informatie en ondersteuning kunt u proberen onze [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
-
 ## <a name="next-steps"></a>Volgende stappen
-* [Inleiding tot Stream Analytics](stream-analytics-introduction.md)
-* [Aan de slag met Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Stream Analytics-taken schalen](stream-analytics-scale-jobs.md)
 * [Naslaggids voor stream Analytics query](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Stream Analytics management REST API-referentiemateriaal](https://msdn.microsoft.com/library/azure/dn835031.aspx)

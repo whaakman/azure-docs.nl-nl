@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 6bad6c7cd641a2ef5461ee37b89c0bdc6a221017
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 103d9d36ae1290f7af18be83f41bd9b83dbd3fbe
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Diagnostische logboekregistratie van Azure DB Cosmos
 
@@ -26,7 +26,7 @@ Nadat u begint met het gebruik van een of meer Azure DB die Cosmos-databases, u 
 
 ## <a name="logs-available-in-azure"></a>Logboeken beschikbaar in Azure
 
-Voordat we over het bewaken van uw Azure DB die Cosmos-account hebben, laten we een aantal zaken over logboekregistratie en controle te verduidelijken. Er zijn verschillende typen logboeken op de Azure-platform. Er zijn [Azure activiteitenlogboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [Azure diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [Azure metrische gegevens](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), gebeurtenissen, heartbeat-bewaking, operations-Logboeken, enzovoort. Er is een breed spectrum van Logboeken. Ziet u de volledige lijst met Logboeken in [Azure Log Analytics](https://azure.microsoft.com/en-us/services/log-analytics/) in de Azure portal. 
+Voordat we over het bewaken van uw Azure DB die Cosmos-account hebben, laten we een aantal zaken over logboekregistratie en controle te verduidelijken. Er zijn verschillende typen logboeken op de Azure-platform. Er zijn [Azure activiteitenlogboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [Azure diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [Azure metrische gegevens](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), gebeurtenissen, heartbeat-bewaking, operations-Logboeken, enzovoort. Er is een breed spectrum van Logboeken. Ziet u de volledige lijst met Logboeken in [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/) in de Azure portal. 
 
 De volgende afbeelding toont de verschillende soorten Azure logboeken die beschikbaar zijn:
 
@@ -51,7 +51,7 @@ Activiteitenlogboeken (vlak beheerbewerkingen) kunnen uitgebreidere van aard en 
 
 ### <a name="azure-metrics"></a>Azure metrische gegevens
 
-[Azure metrische gegevens](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-metrics) het belangrijkste soort Azure telemetrische gegevens (ook wel _prestatiemeteritems_) die wordt verzonden door de meeste Azure-resources. Metrische gegevens kunt u informatie weergeven over de doorvoer, opslag, consistentie, beschikbaarheid en de latentie van uw Azure DB die Cosmos-resources. Zie voor meer informatie [bewaking en foutopsporing met metrische gegevens in Azure Cosmos DB](use-metrics.md).
+[Azure metrische gegevens](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) het belangrijkste soort Azure telemetrische gegevens (ook wel _prestatiemeteritems_) die wordt verzonden door de meeste Azure-resources. Metrische gegevens kunt u informatie weergeven over de doorvoer, opslag, consistentie, beschikbaarheid en de latentie van uw Azure DB die Cosmos-resources. Zie voor meer informatie [bewaking en foutopsporing met metrische gegevens in Azure Cosmos DB](use-metrics.md).
 
 ### <a name="azure-diagnostic-logs"></a>Azure diagnostische logboeken
 

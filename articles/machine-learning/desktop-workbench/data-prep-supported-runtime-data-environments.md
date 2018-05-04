@@ -8,15 +8,15 @@ manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: 
-ms.devlang: 
+ms.custom: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
 ms.openlocfilehash: bdd1c51c915787d9e9522f6691ae0ff06d546484
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="supported-matrix-for-this-release"></a>Ondersteunde matrix voor deze release 
 Wanneer uw code worden gegevens geladen met behulp van Azure Machine Learning-gegevensbronnen of Azure Machine Learning gegevens voorbereidingen, ofwel een Pandas ophalen of Spark dataframe, de volgende combinaties van proef compute-omgevingen en gegevens locaties worden ondersteund:

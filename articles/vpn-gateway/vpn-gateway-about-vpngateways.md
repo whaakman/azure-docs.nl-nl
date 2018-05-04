@@ -1,45 +1,44 @@
 ---
-title: 'Overzicht van VPN Gateway: cross-premises VPN-verbindingen met virtuele Azure-netwerken maken| Microsoft Docs'
-description: In dit artikel wordt uitgelegd wat een VPN Gateway is en worden de manieren besproken waarop u met een VPN-verbinding via internet verbinding kunt maken met een virtueel Azure-netwerk. U vindt hier ook schema's van basisverbindingsconfiguraties.
+title: Azure VPN Gateway | Microsoft Docs
+description: Meer informatie over wat een VPN-gateway is en de manieren waarop u een VPN-gateway kunt gebruiken om verbinding te maken met virtuele netwerken in Azure. Inclusief IPsec/IKE-site-naar-site cross-premises- en VNet-naar-VNet-oplossingen, alsmede punt-naar-site-VPN.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: jpconnock
+manager: jeconnoc
 editor: ''
-tags: azure-resource-manager,azure-service-management
+tags: azure-resource-manager
+Customer intent: As someone with a basic network background that is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.assetid: 2358dd5a-cd76-42c3-baf3-2f35aadc64c8
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/2018
+ms.date: 04/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: 405af7d1191e8ea3c0ba1c526f0c5a526aef795b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 30a2029fdf169747570d8c07915270ffae8ef8f5
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="about-vpn-gateway"></a>Informatie over VPN-gateway
+# <a name="what-is-vpn-gateway"></a>Wat is VPN Gateway?
 
-Een VPN-gateway is een soort gateway voor virtuele netwerken die versleuteld verkeer naar een on-premises locatie verzendt via een openbare verbinding. U kunt VPN-gateways ook gebruiken om versleuteld verkeer tussen virtuele Azure-netwerken te verzenden via het Microsoft-netwerk. Als u versleuteld netwerkverkeer wilt verzenden tussen uw virtuele Azure-netwerk en uw on-premises site, moet u een VPN-gateway voor uw virtuele netwerk maken.
-
-Elk virtuele netwerk mag slechts over één VPN-gateway beschikken, maar u kunt meerdere verbindingen met dezelfde VPN-gateway maken. Een voorbeeld hiervan is een configuratie met meerdere siteverbindingen. Wanneer u meerdere verbindingen naar dezelfde VPN-gateway hebt gemaakt, delen alle VPN-tunnels, met inbegrip van punt-naar-site-VPN-verbindingen, de bandbreedte die voor de gateway beschikbaar is.
+Een VPN-gateway is een speciaal soort virtueel-netwerkgateway die wordt gebruikt om versleuteld verkeer te verzenden tussen een virtueel Azure-netwerk en een on-premises locatie via het openbare internet. U kunt een VPN-gateway ook gebruiken om versleuteld verkeer tussen virtuele Azure-netwerken te verzenden via het Microsoft-netwerk. Elk virtueel netwerk kan slechts één VPN-gateway hebben. U kunt echter meerdere verbindingen met dezelfde VPN-gateway maken. Wanneer u meerdere verbindingen naar dezelfde VPN-gateway hebt gemaakt, delen alle VPN-tunnels de bandbreedte die voor de gateway beschikbaar is.
 
 ## <a name="whatis"></a>Wat is een virtuele netwerkgateway?
 
-Een virtuele netwerkgateway bestaat uit twee of meer virtuele machines die zijn geïmplementeerd voor een specifiek subnet met de naam GatewaySubnet. De virtuele machines die zich in het GatewaySubnet bevinden, worden gemaakt wanneer u de virtuele netwerkgateway maakt. Virtuele machines uit virtuele netwerkgateways bevatten routeringstabellen en gatewayservices speciaal voor de bijbehorende gateway. U kunt de virtuele machines die deel uitmaken van de virtuele netwerkgateway niet rechtstreeks configureren en u mag nooit aanvullende resources implementeren op het GatewaySubnet.
+Een virtuele netwerkgateway bestaat uit twee of meer virtuele machines die zijn geïmplementeerd voor een specifiek subnet, *gatewaysubnet* genaamd. De virtuele machines die zich in het gatewaysubnet bevinden, worden gemaakt wanneer u de virtuele netwerkgateway maakt. Virtuele machines uit virtuele netwerkgateways bevatten routeringstabellen en gatewayservices speciaal voor de bijbehorende gateway. U kunt de virtuele machines die deel uitmaken van de virtuele netwerkgateway niet rechtstreeks configureren, en u mag nooit aanvullende resources implementeren op het gatewaysubnet.
 
-Wanneer u een virtuele netwerkgateway maakt met het gatewaytype Vpn wordt er een specifiek type virtuele netwerkgateway gemaakt waarmee verkeer wordt versleuteld: een VPN-gateway. Het maken van een VPN-gateway kan tot 45 minuten duren. Dit is omdat de virtuele machines voor de VPN-gateway op het GatewaySubnet worden geïmplementeerd en worden geconfigureerd met de instellingen die u hebt opgegeven. De gateway-SKU die u selecteert, bepaalt hoe effectief de virtuele machines zijn.
+Het maken van een VPN-gateway kan tot 45 minuten duren. Wanneer u een VPN-gateway maakt, worden gateway-VM's in het gatewaysubnet geïmplementeerd en geconfigureerd met de instellingen die u opgeeft. Nadat u een VPN-gateway hebt gemaakt, kunt u een IPsec/IKE-VPN-tunnelverbinding maken tussen die VPN-gateway en een andere VPN-gateway (VNet-naar-VNet) of een cross-premises IPsec/IKE-VPN-tunnelverbinding maken tussen de VPN-gateway en een on-premises VPN-apparaat (site-naar-site). U kunt ook een punt-naar-site-VPN-verbinding maken (VPN via IKEv2 of SSTP), waarmee u verbinding maakt met het virtuele netwerk vanaf een externe locatie, zoals vanuit een conferentie of thuis.
 
 ## <a name="configuring"></a>Een VPN-gateway configureren
 
-Een VPN-gatewayverbinding is afhankelijk van meerdere resources die zijn geconfigureerd met specifieke instellingen. De meeste resources kunnen afzonderlijk worden geconfigureerd, hoewel ze in sommige gevallen in een bepaalde volgorde moeten worden geconfigureerd.
+Een VPN-gatewayverbinding is afhankelijk van meerdere resources die zijn geconfigureerd met specifieke instellingen. De meeste resources kunnen afzonderlijk worden geconfigureerd, hoewel sommige resources in een bepaalde volgorde moeten worden geconfigureerd.
 
 ### <a name="settings"></a>Instellingen
 
-De instellingen die u voor elke resource hebt gekozen, zijn essentieel om een geslaagde verbinding te maken. Zie voor meer informatie over afzonderlijke resources en de instellingen voor VPN Gateway [Over VPN Gateway-instellingen](vpn-gateway-about-vpn-gateway-settings.md). Dit artikel bevat informatie over de gatewaytypen, VPN-typen, typen verbindingen, gatewaysubnetten, lokale netwerkgateways en verschillende andere resource-instellingen die u misschien wilt gebruiken.
+De instellingen die u voor elke resource hebt gekozen, zijn essentieel om een geslaagde verbinding te maken. Zie voor meer informatie over afzonderlijke resources en de instellingen voor VPN Gateway [Over VPN Gateway-instellingen](vpn-gateway-about-vpn-gateway-settings.md). Dit artikel bevat informatie over de gatewaytypen, gateway-SKU's, VPN-typen, typen verbindingen, gatewaysubnetten, lokale netwerkgateways en verschillende andere resource-instellingen die u misschien wilt gebruiken.
 
 ### <a name="tools"></a>Implementatiehulpmiddelen
 
@@ -47,7 +46,7 @@ U kunt beginnen met het maken en configureren van resources met een configuratie
 
 ### <a name="models"></a>Implementatiemodel
 
-Wanneer u een VPN-gateway configureert, zijn de stappen die u moet volgen, afhankelijk van het implementatiemodel waarmee u het virtuele netwerk hebt gemaakt. Als u bijvoorbeeld uw VNet hebt gemaakt met het klassieke implementatiemodel, gebruikt u de richtlijnen en instructies voor het klassieke implementatiemodel om de VPN-gateway te maken en de instellingen te configureren. Zie [Het Resource Manager-implementatiemodel en het klassieke implementatiemodel begrijpen](../azure-resource-manager/resource-manager-deployment-model.md) voor meer informatie over de implementatiemodellen.
+Er zijn momenteel twee implementatiemodellen voor Azure. Wanneer u een VPN-gateway configureert, zijn de stappen die u moet volgen, afhankelijk van het implementatiemodel waarmee u het virtuele netwerk hebt gemaakt. Als u bijvoorbeeld uw VNet hebt gemaakt met het klassieke implementatiemodel, gebruikt u de richtlijnen en instructies voor het klassieke implementatiemodel om de VPN-gateway te maken en de instellingen te configureren. Zie [Het Resource Manager-implementatiemodel en het klassieke implementatiemodel begrijpen](../azure-resource-manager/resource-manager-deployment-model.md) voor meer informatie over de implementatiemodellen.
 
 ### <a name="planningtable"></a>Tabel plannen
 
@@ -83,7 +82,7 @@ Een site-naar-site-VPN-gatewayverbinding (S2S) is een verbinding via een VPN-tun
 
 ### <a name="Multi"></a>Multi-site
 
-Dit type verbinding is een variatie op de site-naar-site-verbinding. U maakt meer dan één VPN-verbinding vanaf uw virtuele netwerkgateway, meestal met verschillende on-premises sites. Als u met meerdere verbindingen werkt, moet u een op een route gebaseerd VPN-type (ook bekend als een dynamische gateway voor klassieke VNets) gebruiken. Omdat elk virtueel netwerk maar één VPN-gateway kan hebben, delen alle verbindingen via de gateway de beschikbare bandbreedte. Dit wordt vaak een multi-site-verbinding genoemd.
+Dit type verbinding is een variatie op de site-naar-site-verbinding. U maakt meer dan één VPN-verbinding vanaf uw virtuele netwerkgateway, meestal met verschillende on-premises sites. Als u met meerdere verbindingen werkt, moet u een op een route gebaseerd VPN-type (ook bekend als een dynamische gateway voor klassieke VNets) gebruiken. Omdat elk virtueel netwerk maar één VPN-gateway kan hebben, delen alle verbindingen via de gateway de beschikbare bandbreedte. Dit type verbinding wordt vaak een multi-site-verbinding genoemd.
 
 ![Voorbeeld van een verbinding tussen meerdere locaties met Azure VPN Gateway](./media/vpn-gateway-about-vpngateways/vpngateway-multisite-connection-diagram.png)
 
@@ -130,11 +129,11 @@ Zolang het virtuele netwerk voldoet aan bepaalde vereisten, kunt u VNet-peering 
 
 ## <a name="ExpressRoute"></a>ExpressRoute (privéverbinding)
 
-Met Microsoft Azure ExpressRoute kunt u uw on-premises netwerken in de Microsoft Cloud uitbreiden via een persoonlijke verbinding die wordt gefaciliteerd door een connectiviteitsprovider. Met ExpressRoute kunt u verbindingen tot stand brengen met Microsoft Cloud-services, zoals Microsoft Azure, Office 365 en CRM Online. Via een connectiviteitsprovider in een co-locatiefaciliteit is connectiviteit mogelijk vanuit een any-to-any (IP VPN) netwerk, een point-to-point Ethernet-netwerk of een virtuele overlappende verbinding.
+Met ExpressRoute kunt u uw on-premises netwerken in de Microsoft Cloud uitbreiden via een persoonlijke verbinding die wordt gefaciliteerd door een connectiviteitsprovider. Met ExpressRoute kunt u verbindingen tot stand brengen met Microsoft Cloud-services, zoals Microsoft Azure, Office 365 en CRM Online. Via een connectiviteitsprovider in een co-locatiefaciliteit is connectiviteit mogelijk vanuit een any-to-any (IP VPN) netwerk, een point-to-point Ethernet-netwerk of een virtuele overlappende verbinding.
 
 ExpressRoute-verbindingen gaan niet via het openbare internet. Daardoor zijn ExpressRoute-verbindingen betrouwbaarder en sneller en hebben ze lagere latenties en betere beveiliging dan gewone verbindingen via internet.
 
-Een ExpressRoute-verbinding gebruikt geen VPN-gateway. Er wordt echter wel een virtuele netwerkgateway gebruikt als onderdeel van de vereiste configuratie. In een ExpressRoute-verbinding wordt de virtuele netwerkgateway geconfigureerd met het gatewaytype 'ExpressRoute' in plaats van 'VPN'. Zie [Technical Overview](../expressroute/expressroute-introduction.md) (Technisch overzicht) voor meer informatie over ExpressRoute.
+Een ExpressRoute-verbinding gebruikt een virtuele netwerkgateway als onderdeel van de vereiste configuratie. In een ExpressRoute-verbinding wordt de virtuele netwerkgateway geconfigureerd met het gatewaytype 'ExpressRoute' in plaats van 'VPN'. Hoewel gegevensoverdracht via een ExpressRoute-circuit standaard niet wordt versleuteld, is het mogelijk een oplossing te maken waarmee u versleuteld verkeer kunt verzenden via een ExpressRoute-circuit. Zie [Technical Overview](../expressroute/expressroute-introduction.md) (Technisch overzicht) voor meer informatie over ExpressRoute.
 
 ## <a name="coexisting"></a>Site-naar-site- en ExpressRoute-verbindingen naast elkaar
 

@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/25/2018
-ms.openlocfilehash: 1fc1791d75355cc30f2ef43fc17e39a868e2c756
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 04/27/2018
+ms.openlocfilehash: 2b2ef68622f96d87a25d203d3d67aa0877397072
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Van stroomgegevens als invoer Stream Analytics
 
@@ -45,7 +45,7 @@ Azure Event Hubs is zeer schaalbaar gebeurtenis ingestors publiceren / abonneren
 De standaard tijdstempel van gebeurtenissen die afkomstig zijn van Event Hubs in Stream Analytics is de tijdstempel die de gebeurtenis ontvangen in de event hub, namelijk `EventEnqueuedUtcTime`. Voor het verwerken van de gegevens als een stream met een tijdstempel in het geval van nettolading, moet u de [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) sleutelwoord.
 
 ### <a name="consumer-groups"></a>Consumergroepen
-Configureer elke Stream Analytics event hub-invoer hebben een eigen consumergroep. Wanneer een taak een self-join bevat of wanneer er meerdere invoer, kan sommige invoer worden gelezen door meer dan één lezer downstream. Deze situatie heeft gevolgen voor het aantal lezers in een enkel consumergroep. Om te voorkomen de Event Hubs-limiet van vijf lezers per klantengroep per partitie overschrijdt, wordt het aanbevolen om aan te wijzen een consumergroep voor elke Stream Analytics-taak. Er is een limiet van 20 consumergroepen per event hub. Zie voor meer informatie [Event Hubs-programmeergids](../event-hubs/event-hubs-programming-guide.md).
+Configureer elke Stream Analytics event hub-invoer hebben een eigen consumergroep. Wanneer een taak een self-join bevat of wanneer er meerdere invoer, kan sommige invoer worden gelezen door meer dan één lezer downstream. Deze situatie heeft gevolgen voor het aantal lezers in een enkel consumergroep. Om te voorkomen de Event Hubs-limiet van vijf lezers per klantengroep per partitie overschrijdt, wordt het aanbevolen om aan te wijzen een consumergroep voor elke Stream Analytics-taak. Er is een limiet van 20 consumergroepen per event hub. Zie voor meer informatie [Azure Stream Analytics oplossen met Event Hub-ontvangers](stream-analytics-event-hub-consumer-groups.md).
 
 ### <a name="stream-data-from-event-hubs"></a>Van stroomgegevens uit Event Hubs
 De volgende tabel bevat uitleg over elke eigenschap in de **nieuwe invoer** pagina in de Azure-portal op invoer van de gegevensstroom van een Event Hub:

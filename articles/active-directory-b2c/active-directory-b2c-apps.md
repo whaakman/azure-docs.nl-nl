@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: davidmu1
-ms.openlocfilehash: 011426f3d8eab4eb2513270a9bcd1562e3c12b31
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0329cb9e49196f77ba12940e5987487eb2b6fda9
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-b2c-types-of-applications"></a>Azure Active Directory B2C: Typen toepassingen
-Azure Active Directory (Azure AD) B2C ondersteunt verificatie voor diverse moderne app-architecturen. Ze zijn allemaal gebaseerd op de protocollen volgens de industrienorm [OAuth 2.0](active-directory-b2c-reference-protocols.md) of [OpenID Connect](active-directory-b2c-reference-protocols.md). In dit document vindt u een korte beschrijving van de typen apps die u kunt maken, onafhankelijk van de taal of het platform waaraan u de voorkeur geeft. Het document geeft ook inzicht in geavanceerde scenario's voordat u [toepassingen gaat ontwikkelen](active-directory-b2c-overview.md#get-started).
+Azure Active Directory (Azure AD) B2C ondersteunt verificatie voor diverse moderne app-architecturen. Ze zijn allemaal gebaseerd op de protocollen volgens de industrienorm [OAuth 2.0](active-directory-b2c-reference-protocols.md) of [OpenID Connect](active-directory-b2c-reference-protocols.md). In dit document vindt u een korte beschrijving van de typen apps die u kunt maken, onafhankelijk van de taal of het platform waaraan u de voorkeur geeft. Het document geeft ook inzicht in geavanceerde scenario's voordat u [toepassingen gaat ontwikkelen](active-directory-b2c-overview.md).
 
 ## <a name="the-basics"></a>De basisbeginselen
 Elke app die gebruikmaakt van Azure AD B2C moet via de [Azure Portal](https://portal.azure.com/) worden geregistreerd in uw [B2C-directory](active-directory-b2c-get-started.md). Tijdens het registratieproces van de app worden enkele waarden verzameld en toegewezen aan uw app:
@@ -30,16 +30,9 @@ Elke app die gebruikmaakt van Azure AD B2C moet via de [Azure Portal](https://po
 * Een **omleidings-URI** die kan worden gebruikt om antwoorden naar uw app terug te sturen.
 * Alle andere scenariospecifieke waarden. Zie [Een app registreren](active-directory-b2c-app-registration.md) voor meer informatie.
 
-Wanneer de app is geregistreerd, communiceert deze met Azure AD door verzoeken te sturen naar het Azure AD v2.0-eindpunt:
-
-```
-https://login.microsoftonline.com/common/oauth2/v2.0/authorize
-https://login.microsoftonline.com/common/oauth2/v2.0/token
-```
-
 Elk verzoek dat naar Azure AD B2C wordt verzonden, geeft een **beleid** op. Een beleid regelt het gedrag van Azure AD. U kunt deze eindpunten ook gebruiken om een uiterst aanpasbare verzameling gebruikerservaringen te maken. Algemene beleidsregels zijn beleidsregels voor registratie, aanmelding en het bewerken van profielen. Als u niet bekend bent met beleidsregels, lees dan over het [uitbreidbaar beleidsframework](active-directory-b2c-reference-policies.md) van Azure AD B2C voordat u verder gaat.
 
-De interactie van elke app met een v2.0-eindpunt volgt eenzelfde globaal patroon:
+De interactie van elke app volgt eenzelfde globaal patroon:
 
 1. De app leidt de gebruiker naar het v2.0-eindpunt om een [beleid](active-directory-b2c-reference-policies.md) uit te voeren.
 2. De gebruiker voltooit het beleid volgens de beleidsdefinitie.
@@ -49,7 +42,7 @@ De interactie van elke app met een v2.0-eindpunt volgt eenzelfde globaal patroon
 6. Het beveiligingstoken wordt regelmatig door de app vernieuwd.
 
 <!-- TODO: Need a page for libraries to link to -->
-Deze stappen kunnen enigszins verschillen op basis van het type app dat u maakt. In open-source bibliotheken kunt u de details vinden.
+Deze stappen kunnen enigszins verschillen op basis van het type app dat u maakt.
 
 ## <a name="web-apps"></a>Web-apps
 Voor web-apps (zoals .NET, PHP, Java, Ruby, Python en Node.js) die worden gehost op een server en worden geopend via een browser, ondersteunt Azure AD B2C [OpenID Connect](active-directory-b2c-reference-protocols.md) voor alle gebruikerservaringen. Hiertoe behoren aanmelden, registreren en profielbeheer. In de Azure AD B2C-implementatie van OpenID Connect initieert uw web-app deze gebruikerservaringen door verificatieaanvragen naar Azure AD te sturen. Het resultaat van de aanvraag is een `id_token`. Dit beveiligingstoken vertegenwoordigt de identiteit van de gebruiker. Het bevat ook informatie over de gebruiker in de vorm van claims:
@@ -75,7 +68,7 @@ In een web-app bestaat de uitvoering van een [beleid](active-directory-b2c-refer
 
 Validatie van het `id_token` met behulp van een openbare ondertekeningssleutel die is ontvangen van Azure AD is voldoende om de identiteit van de gebruiker te controleren. Hiermee wordt ook een sessiecookie ingesteld waarmee de gebruiker bij volgende pagina-aanvragen kan worden geïdentificeerd.
 
-Als u wilt zien hoe dit scenario werkt, probeer dan een van de codevoorbeelden van web-app-aanmelding in de sectie [Aan de slag](active-directory-b2c-overview.md#get-started).
+Als u wilt zien hoe dit scenario werkt, probeer dan een van de codevoorbeelden van web-app-aanmelding in de sectie [Aan de slag](active-directory-b2c-overview.md).
 
 Dit vergemakkelijkt niet alleen een eenvoudige aanmelding, maar soms heeft een webserver-app ook toegang nodig tot een back-endwebservice. In dat geval kan de web-app een iets andere [OpenID Connect-stroom](active-directory-b2c-reference-oidc.md) uitvoeren en tokens verkrijgen met behulp van autorisatiecodes en vernieuwingstokens. Dit scenario wordt beschreven in de volgende sectie over [Web-API's](#web-apis).
 
@@ -105,7 +98,7 @@ Een web-API kan tokens ontvangen van tal van clients, waaronder web-apps, bureau
 
 Voor meer informatie over autorisatiecodes, vernieuwingstokens en de stappen voor het ophalen van tokens, leest u over het [OAuth 2.0-protocol](active-directory-b2c-reference-oauth-code.md).
 
-Voor meer informatie over het beveiligen van een web-API met behulp van Azure AD B2C bekijkt u de web-API-zelfstudies in de sectie [Aan de slag](active-directory-b2c-overview.md#get-started).
+Voor meer informatie over het beveiligen van een web-API met behulp van Azure AD B2C bekijkt u de web-API-zelfstudies in de sectie [Aan de slag](active-directory-b2c-overview.md).
 
 ## <a name="mobile-and-native-apps"></a>Mobiele en systeemeigen apps
 Apps die zijn geïnstalleerd op apparaten, zoals mobiele en bureaublad-apps, hebben dikwijls namens gebruikers toegang nodig tot back-endservices of web-API's. U kunt aangepaste ervaringen voor identiteitsbeheer aan uw systeemeigen apps toevoegen en op veilige wijze back-endservices aanroepen met behulp van Azure AD B2C en de [OAuth 2.0-autorisatiecodestroom](active-directory-b2c-reference-oauth-code.md).  

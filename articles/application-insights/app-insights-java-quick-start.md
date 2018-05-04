@@ -2,7 +2,7 @@
 title: Snelstartgids met Azure Application Insights | Microsoft Docs
 description: Biedt instructies om snel een Java-web-app in te stellen om te controleren met Application Insights
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/12/2017
@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: daf7fb88b41ca21ea08e1368215578971032e47d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0198614f34b5e4ad31d9cf19f6799913dc71e21f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Beginnen met controleren van de Java-webtoepassing
 
@@ -26,7 +26,7 @@ Deze snelstartgids helpt u de Application Insights SDK toe te voegen aan een bes
 
 Dit zijn de vereisten voor het voltooien van deze Quickstart:
 
-- Oracle JRE 1.6 of later, of Zulu JRE 1.6 of later installeren
+- JRE 1.7 of 1.8 installeren
 - [Gratis Eclipse IDE voor Java EE-ontwikkelaars](http://www.eclipse.org/downloads/) installeren. In deze snelstartgids wordt gebruikgemaakt van Eclipse Oxygen (4.7)
 - U hebt een Azure-abonnement en een bestaand Java Dynamic-webproject nodig
  

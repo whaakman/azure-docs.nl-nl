@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: 4715384a0c6eb24a6a4208ca387b8c4a9871d5c7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 18465463e924c10ddc35d619992655773e12cc82
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>De gegevens wetenschappelijke virtuele Machine inrichten voor Linux (Ubuntu)
 
@@ -95,7 +95,7 @@ Hier volgen de stappen voor het maken van een exemplaar van de gegevens wetensch
    
    b. **De grootte van**:
    
-   * Selecteer een van de servertypen die voldoet aan uw functionele vereisten en kostenbeperkingen. Selecteer **Alles weergeven** om meer opties van VM-formaten te bekijken. Selecteer een VM NC-klasse voor training GPU.
+   * Selecteer een van de servertypen die voldoet aan uw functionele vereisten en kostenbeperkingen. Selecteer **Alles weergeven** om meer opties van VM-formaten te bekijken. Selecteer een NC of VM ND-klasse voor training GPU. De [producten die beschikbaar zijn in elke regio](https://azure.microsoft.com/global-infrastructure/services/) pagina geeft een lijst van de regio's met GPU's.
    
    c. **Instellingen**:
    

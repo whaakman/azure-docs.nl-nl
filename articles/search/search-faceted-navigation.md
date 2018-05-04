@@ -8,11 +8,11 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 3/10/2017
 ms.author: heidist
-ms.openlocfilehash: 1bd814250a243d03f1eedc4d0ecb2719975b9c6f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: e00e875619e4ed6800f5739362ff0c52971f6f16
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Facetnavigatie implementeren in Azure Search
 Meervoudige navigatie is een filtermechanisme waarmee zelf gerichte analyse navigatie in toepassingen. De term 'facetnavigatie' niet bekend zijn, maar u hebt waarschijnlijk het eerder gebruikt. Zoals in het volgende voorbeeld toont, wordt er meervoudige navigatie is niets meer dan de categorieën die wordt gebruikt voor het filteren van resultaten.
@@ -61,7 +61,7 @@ In de toepassingscode is het patroon facet queryparameters gebruiken om te retou
 
 ### <a name="query-basics"></a>Query-basisbeginselen
 
-In Azure Search een aanvraag via een of meer queryparameters is opgegeven (Zie [documenten zoeken](http://msdn.microsoft.com/library/azure/dn798927.aspx) voor een beschrijving van elk criterium). Geen van de query-parameters zijn vereist, maar u moet ten minste één om een query naar een geldig hebben.
+In Azure Search een aanvraag via een of meer queryparameters is opgegeven (Zie [documenten zoeken](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) voor een beschrijving van elk criterium). Geen van de query-parameters zijn vereist, maar u moet ten minste één om een query naar een geldig hebben.
 
 Precisie, zoals de mogelijkheid om te filteren irrelevante treffers wordt bereikt door een of beide van deze expressies te begrijpen:
 
@@ -228,7 +228,7 @@ SearchParameters sp = new SearchParameters()
 };
 ```
 
-Een queryparameter facet is ingesteld op een veld en afhankelijk van het gegevenstype, kan worden verder als parameters gebruikt door komma's gescheiden lijst met `count:<integer>`, `sort:<>`, `interval:<integer>`, en `values:<list>`. Een lijst met waarden wordt ondersteund voor numerieke gegevens bij het instellen van bereiken. Zie [documenten zoeken (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798927.aspx) voor informatie over het gebruik.
+Een queryparameter facet is ingesteld op een veld en afhankelijk van het gegevenstype, kan worden verder als parameters gebruikt door komma's gescheiden lijst met `count:<integer>`, `sort:<>`, `interval:<integer>`, en `values:<list>`. Een lijst met waarden wordt ondersteund voor numerieke gegevens bij het instellen van bereiken. Zie [documenten zoeken (Azure Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) voor informatie over het gebruik.
 
 De aanvraag geformuleerd door uw toepassing moet samen met de facetten, ook bouwen van filters om de set candidate documenten op basis van een waarde facet selectie vast te stellen. Voor een winkel fiets facetnavigatie biedt aanwijzingen op vragen zoals *welke kleuren, fabrikanten en typen bikes beschikbaar zijn?*. Filteren van antwoorden op vragen zoals *mountainbikes, welke exacte bikes rood zijn, in dit bereik te prijs?*. Als u op "Red" om aan te geven dat alleen rode producten moeten worden weergegeven, de volgende query de toepassing verzendt bevat een `$filter=Color eq ‘Red’`.
 
@@ -329,7 +329,7 @@ Labels worden gewoonlijk gedefinieerd in het HTML-code of het formulier (`index.
 <a name="rangefacets"></a>
 
 ## <a name="filter-based-on-a-range"></a>Filteren op basis van een bereik
-Facetten via bereiken met waarden is een algemene zoekopdracht toepassing vereiste. Bereiken worden ondersteund voor numerieke gegevens en DateTime-waarden. Meer informatie over elke methode in [documenten zoeken (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798927.aspx).
+Facetten via bereiken met waarden is een algemene zoekopdracht toepassing vereiste. Bereiken worden ondersteund voor numerieke gegevens en DateTime-waarden. Meer informatie over elke methode in [documenten zoeken (Azure Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
 
 Azure Search vereenvoudigt bereik constructie dankzij de twee methoden voor het berekenen van een bereik. Voor beide benaderingen maakt Azure Search de juiste bereiken gegeven van de invoerwaarden die u hebt opgegeven. Bijvoorbeeld, als u de waarden van 10 opgeeft | 20 | 30, wordt kan bereiken van 0-10, 10-20, 20-30 automatisch gemaakt. Uw toepassing kunt desgewenst verwijderen voor de tijdstippen die leeg zijn. 
 
@@ -362,7 +362,7 @@ Er zijn twee georuimtelijke functies in Azure Search **geo.distance** en **geo.i
 * De **geo.distance** functie wordt de afstand in kilometer tussen twee punten. Één punt is een veld en andere een constante doorgegeven als onderdeel van het filter. 
 * De **geo.intersects** functie retourneert true als er een opgegeven punt zich binnen een bepaalde veelhoek. Het punt een veld is en de veelhoek is opgegeven als een constante lijst coördinaten doorgegeven als onderdeel van het filter.
 
-Vindt u voorbeelden van filter in [OData-expressiesyntaxis (Azure Search)](http://msdn.microsoft.com/library/azure/dn798921.aspx).
+Vindt u voorbeelden van filter in [OData-expressiesyntaxis (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 <a name="tryitout"></a>
 
@@ -431,9 +431,9 @@ Om meer inzicht te krijgen over ontwerp beginselen voor meervoudige navigatie ra
 [Designing for Faceted Search]: http://www.uie.com/articles/faceted_search/
 [Design Patterns: Faceted Navigation]: http://alistapart.com/article/design-patterns-faceted-navigation
 [Create your first application]: search-create-first-solution.md
-[OData expression syntax (Azure Search)]: http://msdn.microsoft.com/library/azure/dn798921.aspx
+[OData expression syntax (Azure Search)]: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
 [Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/
 [http://www.odata.org/documentation/odata-version-2-0/overview/]: http://www.odata.org/documentation/odata-version-2-0/overview/ 
 [Faceting on Azure Search forum post]: ../faceting-on-azure-search.md?forum=azuresearch
-[Search Documents (Azure Search API)]: http://msdn.microsoft.com/library/azure/dn798927.aspx
+[Search Documents (Azure Search API)]: https://docs.microsoft.com/rest/api/searchservice/Search-Documents
 

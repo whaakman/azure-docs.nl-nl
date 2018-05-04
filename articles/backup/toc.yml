@@ -69,16 +69,18 @@
               href: backup-mabs-unattended-install.md
         - name: Workloads beveiligen
           items:
-            - name: Azure Backup Server gebruiken om back-ups te maken van een VMware-server
+            - name: VMware-server
               href: backup-azure-backup-server-vmware.md
-            - name: Azure Backup Server gebruiken om back-ups te maken van Exchange
+            - name: Exchange
               href: backup-azure-exchange-mabs.md
-            - name: Azure Backup Server gebruiken om back-ups te maken van een SharePoint-farm
+            - name: SharePoint-farm
               href: backup-azure-backup-sharepoint-mabs.md
-            - name: Azure Backup Server gebruiken om back-ups te maken van SQL
+            - name: SQL Server
               href: backup-azure-sql-mabs.md
             - name: Systeemstatus beveiligen en bare metal recovery
               href: backup-mabs-system-state-and-bmr.md
+            - name: Bestanden en toepassingen in Azure Stack
+              href: backup-mabs-files-applications-azure-stack.md
         - name: Gegevens herstellen vanaf Azure Backup Server
           href: backup-azure-alternate-dpm-server.md
     - name: Azure-bestandsshares

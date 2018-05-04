@@ -1,5 +1,3 @@
-# [Documentatie voor Azure Active Directory](index.md)
-
 # Overzicht
 ## [Wat is Azure Active Directory?](active-directory-whatis.md)
 ## [Over Azure-identiteitsbeheer](identity-fundamentals.md)
@@ -46,7 +44,6 @@
 ### [Gebruikersprofielen beheren](active-directory-users-profile-azure-portal.md)
 ### [Accounts delen](active-directory-sharing-accounts.md)
 ### [Gebruikers aan beheerdersrollen toewijzen](active-directory-users-assign-role-azure-portal.md)
-### [Een verwijderde gebruiker herstellen](active-directory-users-restore.md)
 ### [Gastgebruikers toevoegen van een andere directory (B2B)](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [Beheerders die B2B-gebruikers toevoegen](active-directory-b2b-admin-add-users.md)
 #### [Informatiewerkers die B2B-gebruikers toevoegen](active-directory-b2b-iw-add-users.md)
@@ -56,7 +53,6 @@
 #### [Uitnodigingse-mail](active-directory-b2b-invitation-email.md)
 #### [Uitnodiging inwisselen](active-directory-b2b-redemption-experience.md)
 #### [B2B-gebruikers zonder uitnodiging toevoegen](active-directory-b2b-add-user-without-invite.md)
-#### [Uitnodigingen toestaan of blokkeren](active-directory-b2b-allow-deny-list.md)
 #### [Voorwaardelijke toegang voor B2B](active-directory-b2b-mfa-instructions.md)
 #### [Beleid voor B2B-deling](active-directory-b2b-delegate-invitations.md)
 #### [Een B2B-gebruiker toevoegen aan een rol](active-directory-b2b-add-guest-to-role.md)
@@ -80,8 +76,7 @@
 ## [Groepen en leden beheren](active-directory-manage-groups.md)
 ### Groepen beheren
 #### [Azure Portal](active-directory-groups-create-azure-portal.md)
-#### [Azure AD PowerShell voor Graph (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
-#### [Azure AD PowerShell MSOnline (v1)](active-directory-accessmanagement-groups-settings-cmdlets.md)
+#### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [Groepsleden beheren](active-directory-groups-members-azure-portal.md)
 ### [Eigenaren van groepen beheren](active-directory-accessmanagement-managing-group-owners.md)
 ### [Groepslidmaatschap beheren](active-directory-groups-membership-azure-portal.md)
@@ -89,17 +84,16 @@
 #### [Licenties toewijzen aan een groep](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Licentieproblemen in een groep vaststellen en oplossen](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Gebruikers met een afzonderlijke licentie migreren naar een groepslicentie](active-directory-licensing-group-migration-azure-portal.md)
-#### [Gebruikers tussen productlicenties migreren](active-directory-licensing-group-product-migration.md)
 #### [Overige scenario's voor groepslicenties](active-directory-licensing-group-advanced.md)
 #### [Azure PowerShell-voorbeelden voor groepslicenties](active-directory-licensing-ps-examples.md)
 #### [Naslaginformatie voor producten en serviceabonnementen in Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Vervaldatum instellen voor Office 365-groepen](active-directory-groups-lifecycle-azure-portal.md)
-### [Een naamgevingsbeleid voor groepen afdwingen](groups-naming-policy.md)
 ### [Alle groepen weergeven](active-directory-groups-view-azure-portal.md)
 ### [Groepstoegang tot SaaS-apps toevoegen](active-directory-accessmanagement-group-saasapps.md)
 ### [Herstellen van een verwijderde Office 365-groep](active-directory-groups-restore-azure-portal.md)
-### [Groepsinstellingen beheren](active-directory-groups-settings-azure-portal.md)
-
+### Groepsinstellingen beheren
+#### [Azure Portal](active-directory-groups-settings-azure-portal.md)
+#### [Cmdlets](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### Geavanceerde regels maken
 #### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [Selfservicegroepen instellen](active-directory-accessmanagement-self-service-group-management.md)
@@ -116,7 +110,6 @@
 #### [Benoemde locaties configureren](active-directory-named-locations.md)
 #### [Activiteitenrapporten vinden](active-directory-reporting-migration.md)
 #### [Het Power BI-inhoudspakket van Azure Active Directory gebruiken](active-directory-reporting-power-bi-content-pack-how-to.md)
-#### [Gebruikers herstellen voor wie wordt aangegeven dat ze risico lopen](active-directory-report-security-user-at-risk-remediation.md)
 ### Naslaginformatie
 #### [Retentie](active-directory-reporting-retention.md)
 #### [Wachttijden](active-directory-reporting-latencies-azure-portal.md)
@@ -185,19 +178,10 @@
 ##### [Registerinstellingen bijwerken](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 ##### [Meer informatie over beveiliging en privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
-### [Gebruikers voor SaaS-apps inrichten en de inrichting ongedaan maken](active-directory-saas-app-provisioning.md)
-#### [Zelfstudies voor app-integratie](active-directory-saas-tutorial-list.md)
-#### [Inrichting automatiseren voor apps die SCIM ondersteunen](active-directory-scim-provisioning.md)
-#### [Kenmerktoewijzingen aanpassen](active-directory-saas-customizing-attribute-mappings.md)
-#### [Expressies schrijven voor kenmerktoewijzingen](active-directory-saas-writing-expressions-for-attribute-mappings.md)
-#### [Bereikfilters toevoegen](active-directory-saas-scoping-filters.md)
-#### [Rapporteren over het automatisch inrichten van gebruikers](active-directory-saas-provisioning-reporting.md)
-#### [Problemen met het automatisch inrichten van gebruikers oplossen](active-directory-application-provisioning-content-map.md)
 
 ### [Toegang tot apps op afstand via App Proxy](active-directory-application-proxy-get-started.md)
 #### Aan de slag
 ##### [App-Proxy inschakelen](active-directory-application-proxy-enable.md)
-##### [GDPR-ondersteuning](active-directory-application-proxy-gdpr.md)
 ##### [Apps publiceren](application-proxy-publish-azure-portal.md)
 ##### [Aangepaste domeinen](active-directory-application-proxy-custom-domains.md)
 #### [Eenmalige aanmelding](application-proxy-sso-overview.md)
@@ -208,6 +192,8 @@
 ##### [Connectors](application-proxy-understand-connectors.md)
 ##### [Beveiliging](application-proxy-security-considerations.md)
 ##### [Netwerken](application-proxy-network-topology-considerations.md)
+
+
 ##### [Upgraden van TMG of UAG](application-proxy-transition-from-uag-tmg.md)
 
 #### Geavanceerd configuratie
@@ -218,16 +204,13 @@
 ##### [Stille installatie](active-directory-application-proxy-silent-installation.md)
 ##### [Aangepaste startpagina](application-proxy-office365-app-launcher.md)
 ##### [Inlinelinks vertalen](application-proxy-link-translation.md)
-##### [Wildcard-toepassingen](active-directory-application-proxy-wildcard.md)
-
 #### Publicatie-overzicht
 ##### [Extern bureaublad](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
-##### [Qlik Sense](active-directory-application-proxy-qlik.md) 
-#### [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management)
-#### [Problemen oplossen](active-directory-application-proxy-troubleshoot.md)
+##### [Tableau](active-directory-application-proxy-tableau.md)
 
+#### [Problemen oplossen](active-directory-application-proxy-troubleshoot.md)
 
 ### Enterprise-apps beheren
 #### [Gebruikers toewijzen](active-directory-coreapps-assign-user-azure-portal.md)
@@ -238,9 +221,9 @@
 #### [Inrichting van gebruikersaccount beheren](active-directory-enterprise-apps-manage-provisioning.md)
 #### [Eenmalige aanmelding voor zakelijke apps beheren](active-directory-enterprise-apps-manage-sso.md)
 #### [Geavanceerde certificaatondertekening voor SAML-apps](active-directory-enterprise-apps-advance-certificate-options.md)
-#### [Een toepassing verbergen voor een gebruiker](active-directory-coreapps-hide-third-party-app.md)
+#### [Een app van een externe partij verbergen voor een gebruiker](active-directory-coreapps-hide-third-party-app.md)
 ### [Automatisch versnellen van aanmelding configureren met behulp van HRD-beleid](active-directory-auto-acceleration-using-hrd.md)
-### [AD FS-apps migreren naar Azure AD](migrate-adfs-apps-to-azure.md)
+
 ### [Toegang tot apps beheren](active-directory-managing-access-to-apps.md)
 #### [Toegang via eenmalige aanmelding](active-directory-appssoaccess-whatis.md)
 #### [Certificaten voor SSO](active-directory-sso-certs.md)
@@ -255,13 +238,6 @@
 ##### [Configuratie](active-directory-application-config-content-map.md)
 ##### [Aanmelden](active-directory-application-sign-in-content-map.md)
 ##### [Inrichten](active-directory-application-provisioning-content-map.md)
-###### [Verifiëren of een gebruiker is ingericht](application-provisioning-when-will-provisioning-finish-specific-user.md)
-###### [Het inrichten duurt lang](application-provisioning-when-will-provisioning-finish.md)
-###### [Het inrichten van gebruikers configureren](application-provisioning-config-how-to.md)
-###### [Problemen bij het configureren van inrichting](application-provisioning-config-problem.md)
-###### [Problemen bij het opslaan van administratorreferenties](application-provisioning-config-problem-storage-limit.md)
-###### [Er worden geen gebruikers ingericht](application-provisioning-config-problem-no-users-provisioned.md)
-###### [De verkeerde gebruikers worden ingericht](application-provisioning-config-problem-wrong-users-provisioned.md)
 ##### [Toegang beheren](active-directory-application-access-content-map.md)
 ##### [Toegangsvenster](active-directory-application-access-panel-content-map.md)
 ##### [Toepassingsproxy](active-directory-application-proxy-content-map.md)
@@ -288,16 +264,15 @@
 
 ### [On-premises identiteiten integreren met Azure AD Connect](./connect/active-directory-aadconnect.md)
 
-## [Toegang tot Azure beheren](toc.yml)
+## [Toegang tot Azure beheren](../role-based-access-control/toc.yml)
 
 ## Toegang tot resources delegeren
 ### [Beheerdersrollen](active-directory-assign-admin-roles-azure-portal.md)
-#### [Een beheerdersrol toewijzen aan een gebruiker](active-directory-users-assign-role-azure-portal.md)
-#### [Gebruikersmachtigingen voor leden en voor gasten vergelijken](users-default-permissions.md)
-### [Uitgebreide toegang beveiligen](admin-roles-best-practices.md) 
-### [Beheerdersaccounts voor noodtoegang maken](active-directory-admin-manage-emergency-access-accounts.md)
+#### [Beheerdersrollen toewijzen](active-directory-users-assign-role-azure-portal.md)
+#### [Standaard gebruikersmachtigingen](users-default-permissions.md)
 ### [Beheereenheden](active-directory-administrative-units-management.md)
 ### [De levensduur van tokens configureren](active-directory-configurable-token-lifetimes.md)
+### [Beheerdersaccounts voor noodtoegang beheren](active-directory-admin-manage-emergency-access-accounts.md)
 
 ## Toegangsbeoordelingen
 ### [Overzicht toegangsbeoordelingen](active-directory-azure-ad-controls-access-reviews-overview.md)
@@ -309,17 +284,17 @@
 ### [Gebruikerstoegang met beoordelingen beheren](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
 ### [Programma's en besturingselementen beheren](active-directory-azure-ad-controls-manage-programs-controls.md)
 
-
 ## Uw identiteiten beveiligen
 ### [Voorwaardelijke toegang](active-directory-conditional-access-azure-portal.md)
 #### [Voorwaarden](active-directory-conditional-access-conditions.md)
-#### [Locatievoorwaarde](active-directory-conditional-access-locations.md)
 #### [Besturingselementen](active-directory-conditional-access-controls.md)
 #### [Aan de slag](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Aanbevolen procedures](active-directory-conditional-access-best-practices.md)
 #### [Inzicht in apparaatbeleidsregels voor Office 365-services](active-directory-conditional-access-device-policies.md)
 #### [Klassieke beleidsregels migreren](active-directory-conditional-access-migration.md)
 #### [Hulpprogramma What-If](active-directory-conditional-access-whatif.md)
+#### Snelstartgids
+##### [MFA per cloud-app configureren](active-directory-conditional-access-app-based-mfa.md)
 #### Taken
 ##### [Klassiek MFA-beleid migreren](active-directory-conditional-access-migration-mfa.md)
 ##### [Voorwaardelijke toegang op basis van apparaten instellen](active-directory-conditional-access-policy-connected-applications.md)
@@ -331,6 +306,9 @@
 #### [Technische naslaginformatie](active-directory-conditional-access-technical-reference.md)
 #### [Veelgestelde vragen](active-directory-conditional-faqs.md)
 
+### Windows Hello
+#### [Verifiëren zonder wachtwoorden](active-directory-azureadjoin-passport.md)
+#### [Windows Hello voor Bedrijven inschakelen](active-directory-azureadjoin-passport-deployment.md)
 ### Verificatie op basis van certificaat
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
@@ -349,15 +327,8 @@
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
-## Andere services integreren met Azure AD
-### [LinkedIn integreren met Azure AD](linkedin-integration.md)
-
-## [AD DS implementeren op Azure-VM's](virtual-networks-windows-server-active-directory-virtual-machines.md)
-### [Windows Server Active Directory op virtuele Azure-machines](active-directory-deploying-ws-ad-guidelines.md)
-### [Replicadomeincontroller in een virtueel Azure-netwerk](active-directory-install-replica-active-directory-domain-controller.md)
-### [Nieuw forest in een virtueel Azure-netwerk](active-directory-new-forest-virtual-machine.md)
-
-
+## [Andere services integreren met Azure AD]()
+### [LinkedIn-integratie inschakelen](linkedin-integration.md)
 
 ## [AD FS in Azure implementeren](active-directory-aadconnect-azure-adfs.md)
 ### [Hoge beschikbaarheid](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
@@ -374,7 +345,7 @@
 
 
 # Naslaginformatie
-## [Codevoorbeelden](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [Codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Azure PowerShell-cmdlets](/powershell/azure/overview)
 ## [Naslaginformatie over de Java-API](/java/api)
 ## [.NET API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: dobett
-ms.openlocfilehash: c410db9a7255a039ab9b41ae39f2fe1018719f8f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
-ms.translationtype: MT
+ms.openlocfilehash: d1f9d1a9163eee0f3a6c3b418e5e8d4fec0581de
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="control-access-to-iot-hub"></a>Toegang tot IoT Hub regelen
 
@@ -136,8 +136,8 @@ Hier volgen de verwachte waarden:
 | --- | --- |
 | {handtekening} |Een tekenreeks HMAC SHA256 handtekening van het formulier: `{URL-encoded-resourceURI} + "\n" + expiry`. **Belangrijke**: de sleutel is gedecodeerd van base64 en gebruikt als sleutel voor het uitvoeren van de berekening HMAC SHA256. |
 | {resourceURI} |De voorvoegsels van URI (door het segment) van de eindpunten die toegankelijk zijn met dit token, beginnen met de hostnaam van de IoT-hub (geen protocol). Bijvoorbeeld: `myHub.azure-devices.net/devices/device1` |
-| {expiry} |UTF8-tekenreeksen voor het aantal seconden sinds de epoche 00:00:00 UTC op 1 januari 1970. |
-| {URL-encoded-resourceURI} |Lagere case URL-codering van de resource-URI van kleine letters |
+| {verstrijken} |UTF8-tekenreeksen voor het aantal seconden sinds de epoche 00:00:00 UTC op 1 januari 1970. |
+| {{URL-codering-resourceURI} |Lagere case URL-codering van de resource-URI van kleine letters |
 | {policyName} |De naam van het beleid voor gedeelde toegang waarnaar dit token verwijst. Ontbrekende als verwijst het token naar apparaatregister referenties. |
 
 **Opmerking van het voorvoegsel**: de URI-voorvoegsel wordt berekend door het segment en niet door teken. Bijvoorbeeld `/a/b` is een voorvoegsel voor `/a/b/c` maar niet voor `/a/bc`.
@@ -358,7 +358,7 @@ De [Azure IoT Service SDK voor C#] [ lnk-service-sdk] (versie 1.0.8+) biedt onde
 
 ### <a name="c-support"></a>C\# ondersteuning
 
-De **RegistryManager** klasse biedt een programmatische manier kunt u een apparaat registreren. In het bijzonder de **AddDeviceAsync** en **UpdateDeviceAsync** methoden kunnen u registreren en bijwerken van een apparaat in de id-register van IoT Hub. Deze twee methoden maken gebruik van een **apparaat** exemplaar als invoer. De **apparaat** klasse bevat een **verificatie** eigenschap waarmee u primaire en secundaire x.509-certificaatvingerafdrukken opgeven. De vingerafdruk van het vertegenwoordigt een SHA-1-hash van het X.509-certificaat (met behulp van binaire codering DER opgeslagen). U hebt de optie voor het opgeven van de vingerafdruk van een primaire of een secundaire vingerafdruk of beide. Primaire en secundaire vingerafdrukken worden ondersteund voor het afhandelen van certificaat rollover-scenario's.
+De **RegistryManager** klasse biedt een programmatische manier kunt u een apparaat registreren. In het bijzonder de **AddDeviceAsync** en **UpdateDeviceAsync** methoden kunnen u registreren en bijwerken van een apparaat in de id-register van IoT Hub. Deze twee methoden maken gebruik van een **apparaat** exemplaar als invoer. De **apparaat** klasse bevat een **verificatie** eigenschap waarmee u primaire en secundaire x.509-certificaatvingerafdrukken opgeven. De vingerafdruk van het vertegenwoordigt een SHA256-hash van het X.509-certificaat (met behulp van binaire codering DER opgeslagen). U hebt de optie voor het opgeven van de vingerafdruk van een primaire of een secundaire vingerafdruk of beide. Primaire en secundaire vingerafdrukken worden ondersteund voor het afhandelen van certificaat rollover-scenario's.
 
 Hier volgt een voorbeeld van C\# codefragment kunt u een apparaat met een vingerafdruk van het x.509-certificaat registreren:
 

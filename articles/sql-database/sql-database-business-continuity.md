@@ -12,11 +12,11 @@ ms.workload: On Demand
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 46236c11b15f86c26be5e8c1311ba35e8bdd90f2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e5c64ed51fd7c36b1c2cb3b5d98df18b82e08cc3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Overzicht van bedrijfscontinuïteit met Azure SQL Database
 
@@ -37,7 +37,7 @@ De volgende tabel vergelijkt de invoegen en RPO voor elke servicelaag voor de dr
 
 ### <a name="use-point-in-time-restore-to-recover-a-database"></a>Gebruik restore-punt in tijd een database herstellen
 
-SQL-Database wordt automatisch uitgevoerd wekelijks een combinatie van volledige databaseback-ups, differentiële back-ups database per uur en transactie logboekback-ups om de vijf - tien minuten om te voorkomen dat uw bedrijf verlies van gegevens. Deze back-ups worden opgeslagen in de opslag van de RA-GRS voor 35 dagen voor databases in de Standard en Premium Servicelagen en 7 dagen voor databases in de laag Basic-service. In het algemeen en zakelijke kritische Servicelagen (preview) is de bewaartermijn van de back-ups configureerbaar tot 35 dagen. Zie voor meer informatie [Servicelagen](sql-database-service-tiers.md). Als de retentietermijn voor de servicelaag niet aan uw bedrijfsvereisten voldoet, verhoogt u de retentietermijn door [de servicelaag te wijzigen](sql-database-service-tiers.md). De volledige en differentiële databaseback-ups worden ook gerepliceerd naar een [gekoppeld datacenter](../best-practices-availability-paired-regions.md) voor bescherming tegen een storing in een datacenter. Zie voor meer informatie [automatische databaseback-ups](sql-database-automated-backups.md).
+SQL-Database wordt automatisch uitgevoerd wekelijks een combinatie van volledige databaseback-ups, differentiële back-ups database per uur en transactie logboekback-ups om de vijf - tien minuten om te voorkomen dat uw bedrijf verlies van gegevens. Als u de [aankoopmodel DTU gebaseerde](sql-database-service-tiers-dtu.md), en vervolgens deze back-ups worden opgeslagen in de opslag van de RA-GRS voor 35 dagen voor databases in de Standard en Premium Servicelagen en 7 dagen voor databases in de laag Basic-service. Als de retentietermijn voor de servicelaag niet aan uw bedrijfsvereisten voldoet, verhoogt u de retentietermijn door [de servicelaag te wijzigen](sql-database-service-tiers-dtu.md#choosing-a-service-tier-in-the-dtu-based-purchasing-model). Als u de [vCore gebaseerde aankoopmodel (preview)](sql-database-service-tiers-vcore.md), de bewaartermijn van de back-ups is configureerbaar tot 35 dagen in het algemeen en kritieke bedrijfstiers. De volledige en differentiële databaseback-ups worden ook gerepliceerd naar een [gekoppeld datacenter](../best-practices-availability-paired-regions.md) voor bescherming tegen een storing in een datacenter. Zie voor meer informatie [automatische databaseback-ups](sql-database-automated-backups.md).
 
 Als de maximale ondersteunde PITR bewaarperiode niet voldoende is voor uw toepassing is, kunt u deze uitbreiden door een langdurige bewaarperiode (LTR)-beleid voor de databases te configureren. Zie [Langetermijnretentie](sql-database-long-term-retention.md) voor meer informatie.
 
@@ -97,8 +97,7 @@ Zie [Een verwijderde database herstellen](sql-database-recovery-using-backups.md
 
 > [!IMPORTANT]
 > Als de logische server is verwijderd, kunt u een verwijderde database niet herstellen.
->
->
+
 
 ### <a name="restore-backups-from-long-term-retention"></a>Terugzetten van back-ups van lange bewaartermijn
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
 ms.author: sethm
-ms.openlocfilehash: d72a4de8591898a55e4225ace154fd5ed53e6f91
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 847fe0c08d442388cfa506042272bb358058cb4c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 in Microsoft Azure Service Bus: aanvraag-antwoord-bewerkingen
 
@@ -69,7 +69,8 @@ role: RECEIVER,
 ### <a name="transfer-a-request-message"></a>Een aanvraagbericht overdragen  
 
 Een aanvraagbericht overgedragen.  
-  
+Een transactie-status kan eventueel worden toegevoegd voor bewerkingen die ondersteuning biedt voor transactie.
+
 ```  
 requestLink.sendTransfer(  
         Message(  
@@ -79,8 +80,12 @@ requestLink.sendTransfer(
                 },  
                 application-properties: {  
                         "operation" -> "<operation>",  
-                },  
-        )  
+                }
+        ),
+        [Optional] State = transactional-state: {
+                txn-id: <txn-id>
+        }
+)
 ```  
   
 ### <a name="receive-a-response-message"></a>Een antwoordbericht ontvangen  
@@ -191,11 +196,11 @@ De kaart die vertegenwoordigt een bericht moet de volgende vermeldingen bevatten
   
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
-|bericht|matrix van byte|Ja|AMQP 1.0 wire-bericht dat is gecodeerd.|  
+|message|matrix van byte|Ja|AMQP 1.0 wire-bericht dat is gecodeerd.|  
   
 ### <a name="schedule-message"></a>Schema-bericht  
 
-Hiermee plant u berichten.  
+Hiermee plant u berichten. Deze bewerking ondersteunt transactie.
   
 #### <a name="request"></a>Aanvraag  
 
@@ -217,9 +222,10 @@ De kaart die vertegenwoordigt een bericht moet de volgende vermeldingen bevatten
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
 |bericht-id|tekenreeks|Ja|`amqpMessage.Properties.MessageId` Als tekenreeks|  
-|sessie-id|tekenreeks|Ja|`amqpMessage.Properties.GroupId as string`|  
-|Partitiesleutel|tekenreeks|Ja|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|  
-|bericht|matrix van byte|Ja|AMQP 1.0 wire-bericht dat is gecodeerd.|  
+|sessie-id|tekenreeks|Nee|`amqpMessage.Properties.GroupId as string`|  
+|Partitiesleutel|tekenreeks|Nee|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|
+|via de partitiesleutel|tekenreeks|Nee|`amqpMessage.MessageAnnotations."x-opt-via-partition-key"`|
+|message|matrix van byte|Ja|AMQP 1.0 wire-bericht dat is gecodeerd.|  
   
 #### <a name="response"></a>Antwoord  
 
@@ -346,7 +352,7 @@ De berichttekst van het antwoord moet bestaan uit een **amqp-waarde** sectie met
   
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
-|bericht|matrix van byte|Ja|AMQP 1.0 wire-bericht dat is gecodeerd.|  
+|message|matrix van byte|Ja|AMQP 1.0 wire-bericht dat is gecodeerd.|  
   
 ### <a name="set-session-state"></a>Set-sessiestatus  
 
@@ -490,7 +496,7 @@ De **correlatie-filter** kaart moet ten minste één van de volgende vermeldinge
 |bericht-id|tekenreeks|Nee||  
 |tot|tekenreeks|Nee||  
 |antwoord aan|tekenreeks|Nee||  
-|label|tekenreeks|Nee||  
+|Label|tekenreeks|Nee||  
 |sessie-id|tekenreeks|Nee||  
 |antwoord-naar-sessie-id|tekenreeks|Nee||  
 |type inhoud|tekenreeks|Nee||  
@@ -537,6 +543,85 @@ Het antwoordbericht moet de volgende toepassingseigenschappen zijn:
 |statusCode|int|Ja|HTTP-antwoordcode [RFC2616]<br /><br /> 200: OK – geslaagd, anders mislukt|  
 |StatusDescription|tekenreeks|Nee|Beschrijving van de status.|  
   
+### <a name="get-rules"></a>-Regels ophalen
+
+#### <a name="request"></a>Aanvraag
+
+Het aanvraagbericht moet de volgende toepassingseigenschappen zijn:
+
+|Sleutel|Waardetype|Vereist|De inhoud|  
+|---------|----------------|--------------|--------------------|  
+|bewerking|tekenreeks|Ja|`com.microsoft:enumerate-rules`|  
+|`com.microsoft:server-timeout`|uint|Nee|Bewerking server time-out in milliseconden.|  
+
+De berichttekst voor de aanvraag moet bestaan uit een **amqp-waarde** sectie met een **kaart** met de volgende items:  
+  
+|Sleutel|Waardetype|Vereist|De inhoud|  
+|---------|----------------|--------------|--------------------|  
+|Boven|int|Ja|Het aantal regels op te halen op de pagina.|  
+|Overslaan|int|Ja|Het aantal regels over te slaan. De startIndex (+ 1) definieert op de lijst met regels. | 
+
+#### <a name="response"></a>Antwoord
+
+Het antwoordbericht bevat de volgende eigenschappen:
+
+|Sleutel|Waardetype|Vereist|De inhoud|  
+|---------|----------------|--------------|--------------------|  
+|statusCode|int|Ja|HTTP-antwoordcode [RFC2616]<br /><br /> 200: OK – geslaagd, anders mislukt|  
+|regels| matrix van kaart|Ja|Matrix van regels. Elke regel wordt vertegenwoordigd door een kaart.|
+
+Elke toewijzingsvermelding in de matrix bevat de volgende eigenschappen:
+
+|Sleutel|Waardetype|Vereist|De inhoud|  
+|---------|----------------|--------------|--------------------|  
+|Beschrijving van regel|matrix van beschreven objecten|Ja|`com.microsoft:rule-description:list` met AMQP beschreven code 0x0000013700000004| 
+
+`com.microsoft.rule-description:list` is een matrix met objecten beschreven. De matrix omvat het volgende:
+
+|Index|Waardetype|Vereist|De inhoud|  
+|---------|----------------|--------------|--------------------|  
+| 0 | matrix van beschreven objecten | Ja | `filter` zoals hieronder is opgegeven. |
+| 1 | matrix van beschreven object | Ja | `ruleAction` zoals hieronder is opgegeven. |
+| 2 | tekenreeks | Ja | De naam van de regel. |
+
+`filter` Er zijn een van de volgende typen:
+
+| De naam van de descriptor | Descriptor-code | Waarde |
+| --- | --- | ---|
+| `com.microsoft:sql-filter:list` | 0x000001370000006 | SQL-filter |
+| `com.microsoft:correlation-filter:list` | 0x000001370000009 | Correlatie-filter |
+| `com.microsoft:true-filter:list` | 0x000001370000007 | De waarde True filter die 1 = 1 |
+| `com.microsoft:false-filter:list` | 0x000001370000008 | ONWAAR filter die 1 = 0 vertegenwoordigt |
+
+`com.microsoft:sql-filter:list` is een beschreven matrix, waaronder:
+
+|Index|Waardetype|Vereist|De inhoud|  
+|---------|----------------|--------------|--------------------|  
+| 0 | tekenreeks | Ja | SQL-filterexpressie |
+
+`com.microsoft:correlation-filter:list` is een beschreven matrix, waaronder:
+
+|Index (indien aanwezig)|Waardetype|De inhoud|  
+|---------|----------------|--------------|--------------------|  
+| 0 | tekenreeks | Correlatie-id |
+| 1 | tekenreeks | Bericht-ID |
+| 2 | tekenreeks | Handeling |
+| 3 | tekenreeks | Antwoorden op |
+| 4 | tekenreeks | Label |
+| 5 | tekenreeks | Sessie-id |
+| 6 | tekenreeks | Antwoord aan de sessie-ID|
+| 7 | tekenreeks | Inhoudstype |
+| 8 | Kaart | Overzicht van de toepassing gedefinieerde eigenschappen |
+
+`ruleAction` kan zijn van de volgende typen:
+
+| De naam van de descriptor | Descriptor-code | Waarde |
+| --- | --- | ---|
+| `com.microsoft:empty-rule-action:list` | 0x0000013700000005 | Lege regelactie - er is geen regelactie aanwezig |
+| `com.microsoft:sql-rule-action:list` | 0x0000013700000006 | SQL-regelactie |
+
+`com.microsoft:sql-rule-action:list` is een matrix van beschreven objecten waarvan eerste vermelding is een tekenreeks die de SQL-regelactie expressie bevat.
+
 ## <a name="deferred-message-operations"></a>Uitgestelde berichtbewerkingen  
   
 ### <a name="receive-by-sequence-number"></a>Door volgnummer ontvangen  
@@ -579,11 +664,11 @@ De kaart die vertegenwoordigt een bericht moet de volgende vermeldingen bevatten
 |Sleutel|Waardetype|Vereist|De inhoud|  
 |---------|----------------|--------------|--------------------|  
 |LOCK-token|UUID|Ja|Vergrendeling token als `receiver-settle-mode` is 1.|  
-|bericht|matrix van byte|Ja|AMQP 1.0 wire-bericht dat is gecodeerd.|  
+|message|matrix van byte|Ja|AMQP 1.0 wire-bericht dat is gecodeerd.|  
   
 ### <a name="update-disposition-status"></a>Status van de toestand bijwerken  
 
-De status van de toestand van uitgestelde berichten bijgewerkt.  
+De status van de toestand van uitgestelde berichten bijgewerkt. Deze bewerking ondersteunt transacties.
   
 #### <a name="request"></a>Aanvraag  
 
@@ -600,7 +685,7 @@ De berichttekst voor de aanvraag moet bestaan uit een **amqp-waarde** sectie met
 |---------|----------------|--------------|--------------------|  
 |toestand-status|tekenreeks|Ja|Voltooid<br /><br /> Afgebroken<br /><br /> Onderbroken|  
 |LOCK-tokens|matrix van uuid|Ja|Bericht vergrendeling tokens disposition status bij te werken.|  
-|deadletter-reason|tekenreeks|Nee|Kan worden ingesteld als bestemming status wordt ingesteld op **onderbroken**.|  
+|wachtrij voor onbestelbare reden|tekenreeks|Nee|Kan worden ingesteld als bestemming status wordt ingesteld op **onderbroken**.|  
 |Beschrijving van de wachtrij voor onbestelbare|tekenreeks|Nee|Kan worden ingesteld als bestemming status wordt ingesteld op **onderbroken**.|  
 |Eigenschappen te wijzigen|Kaart|Nee|Lijst met Service Bus brokered-berichteigenschappen te wijzigen.|  
   

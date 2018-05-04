@@ -12,20 +12,27 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/19/2018
+ms.date: 04/20/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 4f0d07d2c64650091b5fc654a645785a12c3c3de
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 9f5752a969ff6a191ec60e175494316aea4abcaf
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="quickstart-create-a-windows-virtual-machine-by-using-powershell-in-azure-stack"></a>Snelstartgids: een virtuele Windows-machine maken met behulp van PowerShell in Azure-Stack
+# <a name="quickstart-create-a-windows-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Snelstartgids: een virtuele machine van Windows Server maken met behulp van PowerShell in Azure-Stack
 
-*Van toepassing op: Azure Stack geïntegreerd systemen*
+*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
-Deze handleiding gegevens met behulp van PowerShell voor het maken van een Windows Server 2016 virtuele machine in Azure-Stack. U kunt de stappen in dit artikel vanuit de Azure-Stack Development Kit of vanaf een externe Windows-client als u via VPN-verbinding verbonden bent uitvoeren.
+U kunt een Windows Server 2016 virtuele machine maken met behulp van PowerShell voor Azure-Stack. Volg de stappen in dit artikel maken en gebruiken van een virtuele machine. In dit artikel hebt u ook de stappen voor het:
+
+* Verbinding maken met de virtuele machine met een externe client.
+* De IIS-webserver installeren en de standaardstartpagina weergeven.
+* Opschonen van uw resources.
+
+>[!NOTE]
+ U kunt de stappen in dit artikel vanuit de Azure-Stack Development Kit of vanuit een externe Windows-client als u via een VPN verbonden bent uitvoeren.
 
 ## <a name="prerequisites"></a>Vereisten
 

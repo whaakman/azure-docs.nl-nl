@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 991db58db1bb07f338c0f80aa4db69ddb868dcab
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4da62d808caf1e88aef8e67f91815b959a19af0f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="plan-your-azure-time-series-insights-environment"></a>Uw omgeving Azure Time Series Insights plannen
 
@@ -87,14 +87,14 @@ U weet mogelijk niet van tevoren hoeveel gegevens die u verwacht te pushen. In d
 Zie voor meer informatie over het voorkomen van bandbreedtebeperking en latentie [verhelpen latentie en beperking](time-series-insights-environment-mitigate-latency.md). 
 
 ## <a name="shaping-your-events"></a>Vormgeven van uw gebeurtenissen
-Het is belangrijk om te controleren of de manier waarop u gebeurtenissen verzenden naar TSI biedt ondersteuning voor de grootte van de omgeving die u inricht (als u daarentegen, kunt u toewijzen de grootte van de omgeving voor het aantal gebeurtenissen TSI leest en de grootte van elke gebeurtenis).  Het is ook belangrijk om na te denken over de kenmerken die u wilt misschien segmenteren en filteren op bij het opvragen van uw gegevens.  Met dat gegeven in gedachte, wij aanraden voor het controleren van de JSON vormgeven van sectie van onze *gebeurtenissen verzenden* documentatie [documentatie] (https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-send-events).  Het is aan de onderkant van de pagina.  
+Het is belangrijk om te controleren of de manier waarop u gebeurtenissen verzenden naar TSI biedt ondersteuning voor de grootte van de omgeving die u inricht (als u daarentegen, kunt u toewijzen de grootte van de omgeving voor het aantal gebeurtenissen TSI leest en de grootte van elke gebeurtenis).  Het is ook belangrijk om na te denken over de kenmerken die u wilt misschien segmenteren en filteren op bij het opvragen van uw gegevens.  Met dat gegeven in gedachte, wij aanraden voor het controleren van de JSON vormgeven van sectie van onze *gebeurtenissen verzenden* documentatie [documentatie] (https://docs.microsoft.com/azure/time-series-insights/time-series-insights-send-events).  Het is aan de onderkant van de pagina.  
 
 ## <a name="ensuring-you-have-reference-data-in-place"></a>Hebt u referentiegegevens gezorgd
 Een gegevensset verwijzing is een verzameling van items die verbeteren van de gebeurtenissen uit de gebeurtenisbron. Tijd reeks Insights inkomend engine koppelt elke gebeurtenis van de gebeurtenisbron-met de bijbehorende gegevensrij in uw gegevensset verwijzing. Deze uitgebreide gebeurtenis is vervolgens beschikbaar voor query’s. Deze koppeling is gebaseerd op de primaire sleutel kolommen gedefinieerd in uw gegevensset verwijzing.
 
 Houd er rekening mee referentiegegevens met terugwerkende kracht niet is toegevoegd. Dit betekent dat alleen de gegevens van de huidige en toekomstige inkomend komt overeen met en gekoppeld aan de verwijzing naar datum is ingesteld, zodra deze is geconfigureerd en geüpload.  Als u van plan bent te veel van historische gegevens verzenden naar TSI en niet uploaden of referentiegegevens eerst in TSI maken en vervolgens u wellicht opnieuw doen van uw werk (hint, niet leuke).  
 
-Voor meer informatie over het maken en beheren van uw referentiegegevens TSI uploaden, Ga naar onze *referentiegegevens* documentatie [documentatie] (https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set).
+Voor meer informatie over het maken en beheren van uw referentiegegevens TSI uploaden, Ga naar onze *referentiegegevens* documentatie [documentatie] (https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
 
 ## <a name="next-steps"></a>Volgende stappen

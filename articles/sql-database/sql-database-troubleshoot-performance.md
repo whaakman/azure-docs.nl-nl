@@ -11,11 +11,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: v-shysun
-ms.openlocfilehash: 440f3bf41cd2dcedf964e7476323d7b3a1527624
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 710d517621cb9d4d9d2e9bf29e4facf7d75ab481
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitoring-and-performance-tuning"></a>Bewaking en prestaties afstemmen
 
@@ -49,8 +49,8 @@ U kunt ook laten Azure SQL database [automatisch de prestaties van uw query's op
 
 ## <a name="improving-database-performance-with-more-resources"></a>Verbeterde databaseprestaties met meer bronnen
 
-Ten slotte, als er geen bruikbare items die u de prestaties van uw database verbeteren zijn kunnen, kunt u de hoeveelheid beschikbare resources in Azure SQL Database. U kunt meer bronnen toewijzen door het wijzigen van de [servicelaag](sql-database-service-tiers.md) van een zelfstandige database of vergroot de edtu's van een elastische pool op elk gewenst moment.
-1. Voor zelfstandige databases, kunt u [Servicelagen wijzigen](sql-database-service-tiers.md) op aanvraag voor het verbeteren van de prestaties van de database.
+Ten slotte, als er geen bruikbare items die u de prestaties van uw database verbeteren zijn kunnen, kunt u de hoeveelheid beschikbare resources in Azure SQL Database. U kunt meer bronnen toewijzen door het wijzigen van de [DTU servicelaag](sql-database-service-tiers-dtu.md) van een zelfstandige database of vergroot de edtu's van een elastische pool op elk gewenst moment. U kunt ook als u de [vCore gebaseerde aankoopmodel (preview)](sql-database-service-tiers-vcore.md), kunt u de servicelaag of vergroot de resources die zijn toegewezen aan de database. 
+1. Voor zelfstandige databases, kunt u [Servicelagen wijzigen](sql-database-service-tiers-dtu.md) of [rekenresources](sql-database-service-tiers-vcore.md)op aanvraag voor het verbeteren van de prestaties van de database.
 2. Voor meerdere databases kunt u overwegen [elastische pools](sql-database-elastic-pool-guidance.md) automatisch schalen.
 
 ## <a name="tune-and-refactor-application-or-database-code"></a>Afstemmen en verander toepassing of databasecode

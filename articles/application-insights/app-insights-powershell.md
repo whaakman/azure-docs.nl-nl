@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: 46ba4ce992640e8a6d171ab839dd7cdb24e0b404
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d6bc4f69386cc8a9119aa852693456f6465f59ce
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/01/2018
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Application Insights-resources maken met PowerShell
 Dit artikel laat zien hoe te automatiseren voor het maken en bijwerken van de [Application Insights](app-insights-overview.md) resources automatisch met behulp van Azure Resource Management. U kunt bijvoorbeeld doen als onderdeel van een buildproces. Samen met de basic Application Insights-resource, kunt u [webtests voor beschikbaarheid](app-insights-monitor-web-app-availability.md)Stel [waarschuwingen](app-insights-alerts.md)stelt de [prijzen schema](app-insights-pricing.md), en andere Azure-resources te maken .
@@ -52,7 +52,6 @@ Maak een nieuw .json-bestand - gaan we deze aanroepen `template1.json` in dit vo
                 "allowedValues": [
                     "web",
                     "java",
-                    "HockeyAppBridge",
                     "other"
                 ],
                 "metadata": {
@@ -155,7 +154,7 @@ Maak een nieuw .json-bestand - gaan we deze aanroepen `template1.json` in dit vo
 ## <a name="create-application-insights-resources"></a>Application Insights-resources maken
 1. In PowerShell, moet u zich aanmelden bij Azure:
    
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 2. Voer een opdracht als volgt uit:
    
     ```PS

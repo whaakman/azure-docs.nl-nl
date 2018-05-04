@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/18/2018
-ms.author: devtiw
-ms.openlocfilehash: cb523b4fbf6e8abdf5c5158ab041d3485add9b23
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 04/27/2018
+ms.author: barclayn
+ms.openlocfilehash: 47ccf91a64653c928cc4da01bc98535c97440d37
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-disk-encryption-faq"></a>Azure Disk Encryption Veelgestelde vragen
 
@@ -34,7 +34,7 @@ Azure schijf versleuteling GA biedt ondersteuning voor Azure Resource Manager-sj
 
 ## <a name="how-much-does-azure-disk-encryption-cost"></a>Wat kost Azure Disk Encryption?
 
-Er zijn geen kosten voor het versleutelen van VM-schijven met Azure Disk Encryption.
+Er zijn geen kosten voor het versleutelen van VM-schijven met Azure Disk Encryption, maar er zijn kosten die zijn gekoppeld aan het gebruik van Azure Sleutelkluis. Voor meer informatie over Azure Sleutelkluis kosten verwijzen naar de [prijzen van Sleutelkluis](https://azure.microsoft.com/pricing/details/key-vault/) pagina.
 
 ## <a name="which-virtual-machine-tiers-does-azure-disk-encryption-support"></a>Welke lagen van de virtuele machine biedt ondersteuning voor Azure Disk Encryption?
 
@@ -68,7 +68,7 @@ Azure Disk Encryption wordt ondersteund door de volgende server Linux-distributi
 | SLES | Prioriteit: 11-SP4 | Gegevensschijf |
 | SLES | 11 SP4 | Gegevensschijf |
 
-*__ADE wordt ondersteund voor RHEL voor gegevensschijf. De huidige implementatie van ADE werkt voor de besturingssysteemschijf maar gezamenlijk momenteel niet wordt ondersteund. Microsoft en Red Hat werken aan een gezamenlijk ondersteunde oplossing. In de tussentijd kunt u verwijzen naar de whitepaper ADE voor Linux-besturingssysteem schijfversleuteling [hier](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption).__
+*__ADE wordt ondersteund voor RHEL voor gegevensschijf. De huidige implementatie van ADE werkt voor de besturingssysteemschijf maar gezamenlijk momenteel niet wordt ondersteund. Microsoft en Red Hat werken aan een gezamenlijk ondersteunde oplossing. In de tussentijd kunt u verwijzen naar de whitepaper ADE voor Linux-besturingssysteem schijfversleuteling [hier](https://docs.microsoft.com/azure/security/azure-security-disk-encryption).__
 
 ## <a name="how-can-i-start-using-azure-disk-encryption"></a>Hoe kan ik beginnen met behulp van Azure Disk Encryption?
 

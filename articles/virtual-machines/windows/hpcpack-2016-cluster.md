@@ -2,10 +2,10 @@
 title: HPC Pack 2016 cluster in Azure | Microsoft Docs
 description: Informatie over het implementeren van een HPC Pack 2016-cluster in Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 3dde6a68-e4a6-4054-8b67-d6a90fdc5e3f
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 03/09/2018
 ms.author: danlep
-ms.openlocfilehash: c26dd85d896445e19efb9906d953fd535fc1fb5c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 91f067de33d1ff4bc272773e3db49de47fac2feb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-an-hpc-pack-2016-cluster-in-azure"></a>Een HPC Pack 2016-cluster in Azure implementeren
 
@@ -56,7 +56,7 @@ Nadat het certificaat is gemaakt in het archief van de huidige gebruiker, gebrui
 
 ### <a name="upload-certificate-to-an-azure-key-vault"></a>Upload het certificaat naar een Azure sleutelkluis
 
-Voordat u het HPC-cluster implementeert, uploadt u het PFX-certificaat moet een [Azure sleutelkluis](../../key-vault/index.md) als een geheim en de volgende informatie voor gebruik tijdens de implementatie-record: **kluisnaam**, **kluis resourcegroep**, **certificaat-URL**, en **certificaatvingerafdruk**.
+Voordat u het HPC-cluster implementeert, uploadt u het PFX-certificaat moet een [Azure sleutelkluis](../../key-vault/index.yml) als een geheim en de volgende informatie voor gebruik tijdens de implementatie-record: **kluisnaam**, **kluis resourcegroep**, **certificaat-URL**, en **certificaatvingerafdruk**.
 
 Hier volgt een PowerShell-voorbeeldscript voor het certificaat uploaden, maken van de sleutelkluis en de vereiste gegevens te genereren. Zie voor meer informatie over het uploaden van een certificaat naar een Azure sleutelkluis [aan de slag met Azure Key Vault](../../key-vault/key-vault-get-started.md).
 

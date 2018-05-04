@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: maburlik;aljo
-ms.openlocfilehash: 37425f8a076be2579726e5a83bec3da8c6eb5fff
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 948b1bb2ce5a19007906262a4efb0ecca8e40482
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Inhoud van de zelfstandige versie van Service Fabric-pakket voor Windows Server
 In de [gedownload](http://go.microsoft.com/fwlink/?LinkId=730690) zelfstandige voor Service Fabric-pakket, vindt u de volgende bestanden:
@@ -47,7 +47,7 @@ In de [gedownload](http://go.microsoft.com/fwlink/?LinkId=730690) zelfstandige v
 | ClusterConfig.Windows.MultiMachine.json |Een cluster voorbeeld configuratiebestand met de instellingen voor een veilige, cluster met meerdere (of virtuele machine) met behulp van Windows-beveiliging, met inbegrip van de gegevens voor elke machine die in het beveiligde cluster. Het cluster is beveiligd met behulp van [Windows identiteiten](https://msdn.microsoft.com/library/ff649396.aspx). |
 | ClusterConfig.x509.DevCluster.json |Een cluster voorbeeld configuratiebestand met de instellingen voor een veilige, drie-knooppunt, single-(of virtuele machine) ontwikkelcluster, inclusief de gegevens voor elk knooppunt in het cluster. Het cluster is beveiligd met x509 certificaten. |
 | ClusterConfig.x509.MultiMachine.json |Een cluster voorbeeld configuratiebestand met de instellingen voor het cluster veilige, meerdere (of virtuele machine), met inbegrip van de gegevens voor elk knooppunt in het beveiligde cluster. Het cluster is beveiligd met x509 certificaten. |
-| ClusterConfig.gMSA.Windows.MultiMachine.json |Een cluster voorbeeld configuratiebestand met de instellingen voor het cluster veilige, meerdere (of virtuele machine), met inbegrip van de gegevens voor elk knooppunt in het beveiligde cluster. Het cluster is beveiligd met [Group Managed Service Accounts](https://technet.microsoft.com/en-us/library/jj128431(v=ws.11).aspx). |
+| ClusterConfig.gMSA.Windows.MultiMachine.json |Een cluster voorbeeld configuratiebestand met de instellingen voor het cluster veilige, meerdere (of virtuele machine), met inbegrip van de gegevens voor elk knooppunt in het beveiligde cluster. Het cluster is beveiligd met [Group Managed Service Accounts](https://technet.microsoft.com/library/jj128431(v=ws.11).aspx). |
 
 ## <a name="cluster-configuration-samples"></a>Voorbeelden van de cluster-configuratie
 Meest recente versies van de configuratiesjablonen cluster kunnen worden gevonden op de GitHub-pagina: [zelfstandige Cluster configuratie voorbeelden](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).

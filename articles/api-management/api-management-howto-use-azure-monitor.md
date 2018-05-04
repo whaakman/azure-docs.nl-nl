@@ -14,15 +14,15 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 93cbcf91af4ecf9425ed43ade400a0c82cea72d8
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f4b1a6e3ee995fb309577fd6df611a705e613041
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="monitor-published-apis"></a>Gepubliceerde API's bewaken
 
-Azure Monitor is een Azure-service die één bron biedt voor het bewaken al uw Azure-resources. Met Azure Monitor kunt u visualiseren, query's uitvoeren, routeren, archiveren en actie ondernemen op basis van de metrische gegevens en logboeken in Azure-resources als API Management. 
+Met Azure Monitor kunt u visualiseren, query's uitvoeren, routeren, archiveren en actie ondernemen op basis van de metrische gegevens en logboeken van resources in Azure.
 
 In deze zelfstudie leert u het volgende:
 
@@ -40,27 +40,25 @@ In de volgende video kunt u zien hoe u API Management kunt bewaken met Azure Mon
 
 ## <a name="prerequisites"></a>Vereisten
 
-+ Lees de volgende snelstart: [Een Azure API Management-exemplaar maken](get-started-create-service-instance.md).
++ Lees de volgende snelstartgids: [Een Azure API Management-exemplaar maken](get-started-create-service-instance.md).
 + Voltooi tevens de volgende zelfstudie: [Uw eerste API importeren en publiceren](import-and-publish.md).
-
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="view-metrics-of-your-apis"></a>Metrische gegevens van uw API's weergeven
 
 API Management geeft elke minuut metrische gegevens vrij, waardoor u in vrijwel realtime inzicht hebt in de status van uw API's. Er volgt nu een overzicht van enkele beschikbare metrische gegevens:
 
-* Capaciteit (preview): hiermee kunt u beslissingen nemen over het uitvoeren van een up- of downgrade van uw APIM-services. Dit gegeven komt elke minuut beschikbaar en is een weerspiegeling van de capaciteit van de gateway ten tijde van de export. Het bereik van het gegeven loopt van 0 tot 100 en wordt berekend op basis van gateway-resources als CPU- en geheugengebruik.
+* Capaciteit (preview): hiermee kunt u beslissingen nemen over het uitvoeren van een up- of downgrade van uw APIM-services. Dit gegeven komt elke minuut beschikbaar en is een weerspiegeling van de capaciteit van de gateway ten tijde van de export. Het gegevensbereik loopt van 0 tot 100 en wordt berekend op basis van gateway-resources als CPU- en geheugengebruik.
 * Totaal aantal gateway aanvragen: het aantal API-aanvragen per periode. 
-* Geslaagde gateway-aanvragen: het aantal API-aanvragen die HTTP-responscodes met goed gevolg hebben ontvangen, waaronder 304, 307 en codes kleiner dan 301 (bijvoorbeeld 200). 
-* Mislukt gateway-aanvragen: het aantal API-aanvragen die HTTP-responscodes bij aanvraagfouten hebben ontvangen, waaronder 400 en codes groter dan 500.
-* Niet-gemachtigde gateway-aanvragen: het aantal API-aanvragen die HTTP-responscodes hebben ontvangen, waaronder de nummers 401,403 en 429. 
+* Geslaagde gateway-aanvragen: het aantal API-aanvragen die HTTP-responscodes met goed gevolg hebben ontvangen, waaronder 304, 307 en codes kleiner dan 301 (bijvoorbeeld 200).
+* Mislukte gateway-aanvragen: het aantal API-aanvragen die HTTP-responscodes bij aanvraagfouten hebben ontvangen, waaronder 400 en codes groter dan 500.
+* Niet-gemachtigde gateway-aanvragen: het aantal API-aanvragen die HTTP-responscodes hebben ontvangen, waaronder de nummers 401,403 en 429.
 * Overige gateway-aanvragen: het aantal API-aanvragen die HTTP-responscodes hebben ontvangen die niet in een van de bovenstaande categorieën vallen (bijvoorbeeld 418).
 
 Metrische gegevens openen:
 
 1. Selecteer **Metrische gegevens** in het menu onder aan de pagina.
 2. Selecteer in de vervolgkeuzelijst de gewenste metrische gegevens (u kunt meerdere gegevens toevoegen). 
-    
+
     Selecteer bijvoorbeeld **Totaal aantal gateway-aanvragen** en **Mislukte gateway-aanvragen** in de lijst met beschikbare metrische gegevens.
 3. De grafiek toont het totale aantal API-aanroepen. Ook het aantal mislukte API-aanroepen wordt getoond. 
 
@@ -80,7 +78,7 @@ Waarschuwingen configureren:
 4. Selecteer **Niet-gemachtigde gateway-aanvragen** als het te controleren metrische gegeven.
 5. Selecteer **E-maileigenaren, bijdragers en lezers**.
 6. Druk op **OK**.
-7. Roep de vergadering-API aan zonder API-sleutel. Als eigenaar van deze API Management-service ontvangt u een e-mailmelding. 
+7. Probeer de conferentie-API aan te roepen zonder API-sleutel. Als eigenaar van deze API Management-service ontvangt u een e-mailmelding. 
 
     > [!TIP]
     > De waarschuwingsregel kan bij activering tevens een webhook of een logische Azure-app aanroepen.
@@ -89,7 +87,7 @@ Waarschuwingen configureren:
 
 ## <a name="activity-logs"></a>Activiteitenlogboeken
 
-Activiteitenlogboeken bieden inzicht in de bewerkingen die zijn uitgevoerd voor uw API Management-services. Met activiteitenlogboeken kunt u het 'wat, wie en wanneer' bepalen voor schrijfbewerkingen (PUT, POST, DELETE) die voor uw API Management-services worden uitgevoerd. 
+Activiteitenlogboeken bieden inzicht in de bewerkingen die zijn uitgevoerd voor uw API Management-services. Met activiteitenlogboeken kunt u het 'wat, wie en wanneer' bepalen voor schrijfbewerkingen (PUT, POST, DELETE) die voor uw API Management-services worden uitgevoerd.
 
 > [!NOTE]
 > Activiteitenlogboeken bevatten geen lees-bewerkingen (GET) of bewerkingen die zijn uitgevoerd in Azure Portal of met behulp van de oorspronkelijke beheer-API's.
@@ -116,15 +114,15 @@ API Management biedt momenteel diagnostische logboeken (ingedeeld in batches per
 ```json
 {  
     "isRequestSuccess" : "",
-    "time": "",   
-    "operationName": "",      
-    "category": "",   
-    "durationMs": ,   
-    "callerIpAddress": "",   
-    "correlationId": "",   
-    "location": "",      
-    "httpStatusCodeCategory": "",      
-    "resourceId": "",      
+    "time": "",
+    "operationName": "",
+    "category": "",
+    "durationMs": ,
+    "callerIpAddress": "",
+    "correlationId": "",
+    "location": "",
+    "httpStatusCodeCategory": "",
+    "resourceId": "",
     "properties": {   
         "method": "", 
         "url": "", 
@@ -206,7 +204,7 @@ In deze zelfstudie heeft u het volgende geleerd:
 > [!div class="checklist"]
 > * Activiteitenlogboeken bekijken
 > * Diagnostische logboeken weergeven
-> * Metrische gegevens van uw API weergeven 
+> * Metrische gegevens van uw API weergeven
 > * Een waarschuwingsregel instellen als uw API niet-gemachtigde aanroepen krijgt
 
 Ga door naar de volgende zelfstudie:

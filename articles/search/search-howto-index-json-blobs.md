@@ -7,13 +7,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 09/07/2017
+ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: aa0c26a722ecddabee70127bf4b4fd67855a1523
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 64d16182ce1992ec312ad1620d9d5cf11e0ddea8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexeren van JSON-blobs met Azure Search blob indexeerfunctie
 In dit artikel laat zien hoe een Azure Search blob indexeerfunctie om uit te pakken gestructureerde inhoud uit JSON-blobs in Azure Blob-opslag configureren.
@@ -36,7 +36,7 @@ Indexeren van JSON-blobs is vergelijkbaar met de reguliere document extractie in
 
 De eerste stap is het bieden van informatie van de gegevensbronverbinding die wordt gebruikt door de indexeerfunctie. Het opgegeven type voor de gegevensbron hier aangegeven als `azureblob`, bepaalt welke gegevens extractie gedrag worden aangeroepen door de indexeerfunctie. Voor JSON-blob indexeren is gegevensbron de definitie is hetzelfde voor zowel de JSON-documenten en de matrices. 
 
-    POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -88,7 +88,7 @@ Configuratie is opgegeven in de hoofdtekst van een indexeerfunctie-bewerking. In
 
 Een volledig opgegeven aanvraag kan er als volgt uitzien:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -190,7 +190,7 @@ U kunt ook afzonderlijke matrixelementen verwijzen met behulp van een op nul geb
 
 Het volgende voorbeeld is een volledig opgegeven indexeerfunctie nettolading, met inbegrip van veldtoewijzingen:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
