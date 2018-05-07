@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/27/2018
+ms.date: 05/01/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: b3096fbec6a7cc30d1ae3452b6c8b872cf3aec8f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3cb8e598864bccfbea24a2aec5d9387ff903e51c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Voorwaarden in Azure Active Directory voorwaardelijke toegang 
 
@@ -38,8 +38,10 @@ De combinatie van uw voorwaarden met uw toegangsbeheer vertegenwoordigt een bele
 
 ![Besturingselement](./media/active-directory-conditional-access-conditions/61.png)
 
-In dit artikel biedt een overzicht van de voorwaarden en hoe ze worden gebruikt in een beleid voor voorwaardelijke toegang. 
 
+Voorwaarden die u niet hebt geconfigureerd in een beleid voor voorwaardelijke toegang worden niet toegepast. Sommige voorwaarden [verplichte](active-directory-conditional-access-best-practices.md#whats-required-to-make-a-policy-work) beleid voor voorwaardelijke toegang toepassen op een omgeving. 
+
+In dit artikel biedt een overzicht van de voorwaarden en hoe ze worden gebruikt in een beleid voor voorwaardelijke toegang. 
 
 ## <a name="users-and-groups"></a>Gebruikers en groepen
 
@@ -110,7 +112,7 @@ Platform van het apparaat wordt gekenmerkt door het besturingssysteem dat wordt 
 Zie voor een volledige lijst met de ondersteunde apparaatplatforms [apparaat platform voorwaarde](active-directory-conditional-access-technical-reference.md#device-platform-condition).
 
 
-Een algemeen gebruiksvoorbeeld voor deze voorwaarde is een beleid dat de toegang tot uw cloud-apps naar beperkt [vertrouwde apparaten](active-directory-conditional-access-policy-connected-applications.md#trusted-devices). Zie voor meer scenario's met inbegrip van de voorwaarde van de platform apparaat [voorwaardelijke toegang voor Azure Active Directory op basis van een app](active-directory-conditional-access-mam.md).
+Een algemeen gebruiksvoorbeeld voor deze voorwaarde is een beleid dat de toegang tot uw cloud-apps naar beperkt [beheerde apparaten](active-directory-conditional-access-policy-connected-applications.md#managed-devices). Zie voor meer scenario's met inbegrip van de voorwaarde van de platform apparaat [voorwaardelijke toegang voor Azure Active Directory op basis van een app](active-directory-conditional-access-mam.md).
 
 
 

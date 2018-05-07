@@ -3,7 +3,7 @@ title: Verken de gegevens in een Hadoop-cluster en modellen maken in Azure Machi
 description: Met behulp van het Team gegevens wetenschap proces voor een end-to-end-scenario, die gebruikmaakt van een HDInsight Hadoop-cluster te bouwen en implementeren van een model.
 services: machine-learning,hdinsight
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: e9e76c91-d0f6-483d-bae7-2d3157b86aa0
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: bradsev
-ms.openlocfilehash: 4671493c23bfed72517e436dd6922f4ef8a213b0
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.author: deguhath
+ms.openlocfilehash: 6f16b7524bc8c268ed3a2314b8b88d25eb2f4325
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>De procedure van wetenschappelijke gegevens Team in actie: gebruik Azure HDInsight Hadoop-clusters
 In dit scenario, gebruiken we de [Team gegevens wetenschap proces (TDSP)](overview.md) in een end-to-end-scenario. We gebruiken een [Azure HDInsight Hadoop-cluster](https://azure.microsoft.com/services/hdinsight/) verkennen, om op te slaan en functie-engineering-gegevens uit de openbaar beschikbare [NYC Taxi reizen](http://www.andresmh.com/nyctaxitrips/) gegevensset, en met de gegevens down-voorbeeld. Voor het afhandelen van binaire en multiklassen classificatie en regressie voorspellende taken, maken we modellen van de gegevens met Azure Machine Learning. 
@@ -137,7 +137,7 @@ Als u het cluster voorbereiden voor experimentele data-analyse, downloaden de .h
 
     @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 
-Deze twee opdrachten downloaden alle .hql bestanden die nodig zijn in dit scenario naar een lokale map ***C:\temp &#92;*** in het hoofdknooppunt.
+Deze twee opdrachten downloaden alle .hql bestanden die nodig zijn in dit scenario naar een lokale map ***C:\temp&#92;***  in het hoofdknooppunt.
 
 ## <a name="#hive-db-tables"></a>Hive-database en per maand gepartitioneerde tabellen maken
 > [!NOTE]

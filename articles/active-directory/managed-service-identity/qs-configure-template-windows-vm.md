@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 521c5a3c0ad55afa0b71628195be7782b0e43b67
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 324a1e08e92a2c7ae76d7a6df56536540dc772a1
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Een VM beheerde Service-identiteit configureren met behulp van een sjabloon
 
@@ -34,7 +34,7 @@ In dit artikel leert u hoe op de volgende Service-identiteit beheerd bewerkingen
 
 ## <a name="azure-resource-manager-templates"></a>Azure Resource Manager-sjablonen
 
-Als met de Azure bieden portal en schrijven van scripts en Azure Resource Manager-sjablonen de mogelijkheid voor het implementeren van nieuwe of gewijzigde bronnen die zijn gedefinieerd door een Azure-resourcegroep. Er zijn diverse opties beschikbaar voor het bewerken van sjablonen en implementatie van zowel lokale als portal-gebaseerde, met inbegrip van:
+Net als bij de Azure portal en uitvoeren van scripts, [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) sjablonen bieden de mogelijkheid voor het implementeren van nieuwe of gewijzigde bronnen die zijn gedefinieerd door een Azure-resourcegroep. Er zijn diverse opties beschikbaar voor het bewerken van sjablonen en implementatie van zowel lokale als portal-gebaseerde, met inbegrip van:
 
    - Met behulp van een [aangepaste sjabloon vanuit Azure Marketplace](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), waarmee u kunt een sjabloon maken vanaf het begin of baseren op een bestaande gemeenschappelijke of [snelstartsjabloon](https://azure.microsoft.com/documentation/templates/).
    - Die zijn afgeleid van een bestaande resourcegroep door een sjabloon exporteren vanuit [de oorspronkelijke implementatie](../../azure-resource-manager/resource-manager-export-template.md#view-template-from-deployment-history), of vanuit de [huidige status van de implementatie](../../azure-resource-manager/resource-manager-export-template.md#export-the-template-from-resource-group).
@@ -112,59 +112,14 @@ Als u een virtuele machine die niet langer nodig een beheerde service-identiteit
 
 ## <a name="user-assigned-identity"></a>Identiteit toegewezen door gebruiker
 
-In deze sectie maakt u een gebruikers-id en de virtuele machine in Azure met een Azure Resource Manager-sjabloon.
+In deze sectie wijst u een toegewezen gebruikers-id aan een virtuele machine in Azure met Azure Resource Manager-sjabloon.
 
- ### <a name="create-and-assign-a-user-assigned-identity-to-an-azure-vm"></a>Maken en toewijzen van een gebruiker identiteit toegewezen aan een Azure VM
+> [!Note]
+> Zie de identiteit van een gebruiker aan zijn toegewezen met een Azure Resource Manager-sjabloon maken [maken van de identiteit van een gebruiker toegewezen](how-to-manage-ua-identity-arm.md#create-a-user-assigned-identity).
 
-1. Voer de eerste de stap in de sectie [systeemidentiteit toegewezen tijdens het maken van een virtuele machine in Azure of op een bestaande virtuele machine inschakelen](#enable-system-assigned-identity-during-creation-of-an-azure-vm-or-on-an-existing-vm)
+ ### <a name="assign-a-user-assigned-identity-to-an-azure-vm"></a>Een gebruiker identiteit toegewezen aan een Azure VM toewijzen
 
-2.  Voeg een vermelding voor een toegewezen identiteit gebruikersnaam de volgende strekking onder het gedeelte variabelen met de variabelen voor de virtuele machine in Azure.  Hiermee wordt de gebruiker toegewezen identiteit tijdens het maken van virtuele machine in Azure gemaakt:
-    
-    > [!IMPORTANT]
-    > Toegewezen identiteiten met speciale tekens (dat wil zeggen liggend streepje) in de naam van de gebruiker maken wordt momenteel niet ondersteund. Gebruik alfanumerieke tekens. Controleer regelmatig op updates.  Zie voor meer informatie [Veelgestelde vragen en bekende problemen](known-issues.md)
-
-    ```json
-    "variables": {
-        "vmName": "[parameters('vmName')]",
-        //other vm configuration variables...
-        "identityName": "[concat(variables('vmName'), 'id')]"
-    ```
-
-3. Onder de `resources` element, voeg de volgende vermelding voor het maken van een toegewezen gebruikers-id:
-
-    ```json
-    {
-        "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
-        "name": "[variables('identityName')]",
-        "apiVersion": "2015-08-31-PREVIEW",
-        "location": "[resourceGroup().location]"
-    },
-    ```
-
-4. Vervolgens onder de `resources` element de volgende vermelding voor het toewijzen van de extensies beheerde identiteit aan uw virtuele machine toevoegen:
-
-    ```json
-    {
-        "type": "Microsoft.Compute/virtualMachines/extensions",
-        "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForLinux')]",
-        "apiVersion": "2015-05-01-preview",
-        "location": "[resourceGroup().location]",
-        "dependsOn": [
-            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-        ],
-        "properties": {
-            "publisher": "Microsoft.ManagedIdentity",
-            "type": "ManagedIdentityExtensionForLinux",
-            "typeHandlerVersion": "1.0",
-            "autoUpgradeMinorVersion": true,
-            "settings": {
-                "port": 50342
-            }
-        }
-    }
-    ```
-5. Voeg de volgende vermelding als uw identiteit aan uw virtuele machine toegewezen gebruiker wilt toewijzen:
-
+1. Onder de `resources` element, de volgende vermelding voor het toewijzen van de identiteit van een gebruiker toegewezen aan uw virtuele machine toevoegen.  Zorg ervoor dat u `<USERASSIGNEDIDENTITY>` met de naam van de identiteit van de gebruiker toegewezen die u hebt gemaakt.
     ```json
     {
         "apiVersion": "2017-12-01",
@@ -174,15 +129,36 @@ In deze sectie maakt u een gebruikers-id en de virtuele machine in Azure met een
         "identity": {
             "type": "userAssigned",
             "identityIds": [
-                "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', variables('identityName'))]"
+                "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/<USERASSIGNEDIDENTITYNAME>)']"
             ]
         },
     ```
-6.  Wanneer u klaar bent, ziet de sjabloon er ongeveer als volgt:
-    > [!NOTE]
-    > De sjabloon lijst bevat niet alle benodigde variabelen maken van uw virtuele machine.  `//other configuration variables...` Plaats de vereiste configuratie-variabelen voor beknopt alternatief bevat wordt gebruikt.
+    
+2. (Optioneel) Vervolgens onder de `resources` element, de volgende vermelding voor de extensie beheerde identity toewijzen aan uw virtuele machine toevoegen. Deze stap is optioneel als u het eindpunt van de identiteit Azure exemplaar metagegevens Service (IMDS) gebruiken kunt en tokens op te halen. Gebruik de volgende syntaxis:
+    ```json
+    {
+        "type": "Microsoft.Compute/virtualMachines/extensions",
+        "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
+        "apiVersion": "2015-05-01-preview",
+        "location": "[resourceGroup().location]",
+        "dependsOn": [
+            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+        ],
+        "properties": {
+            "publisher": "Microsoft.ManagedIdentity",
+            "type": "ManagedIdentityExtensionForWindows",
+            "typeHandlerVersion": "1.0",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+                "port": 50342
+            }
+        }
+    }
+    ```
+    
+3.  Wanneer u klaar bent, ziet de sjabloon er ongeveer als volgt:
 
-      ![Schermopname van toegewezen gebruikers-id](../media/msi-qs-configure-template-windows-vm/template-user-assigned-identity.png)
+      ![Schermopname van toegewezen gebruikers-id](./media/qs-configure-template-windows-vm/qs-configure-template-windows-vm-ua-final.PNG)
 
 
 ## <a name="related-content"></a>Gerelateerde inhoud

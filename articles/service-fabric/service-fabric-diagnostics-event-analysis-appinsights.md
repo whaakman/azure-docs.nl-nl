@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/04/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: fa04e7a3c0d6f19603befed026b316eba6e46eb7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: ef7517e91965b0d7444d158f041b1d2bddea6bd2
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Analyse van gebeurtenis en visualisatie met Application Insights
 
@@ -32,7 +32,7 @@ Het doel van dit artikel is om te laten zien hoe u inzicht krijgen en oplossen v
 
 ## <a name="monitoring-in-app-insights"></a>Bewaking in de App Insights
 
-Application Insights is een uitgebreide buiten het vak met Service Fabric. Op de overzichtspagina bevat AI belangrijke informatie over uw service zoals de responstijd en het aantal aanvragen verwerkt. Door te klikken op de knop 'Zoeken' aan de bovenkant, ziet u een lijst met recente aanvragen in uw toepassing. U zou ook kunnen zien van mislukte aanvragen hier en onderzoeken welke fouten treden.
+Application Insights is een uitgebreide buiten de box experience bij gebruik van Service Fabric. Op de overzichtspagina bevat AI belangrijke informatie over uw service zoals de responstijd en het aantal aanvragen verwerkt. Door te klikken op de knop 'Zoeken' aan de bovenkant, ziet u een lijst met recente aanvragen in uw toepassing. U zou ook kunnen zien van mislukte aanvragen hier en onderzoeken welke fouten treden.
 
 ![AI-overzicht](media/service-fabric-diagnostics-event-analysis-appinsights/ai-overview.png)
 

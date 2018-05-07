@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/03/2017
+ms.date: 04/27/2017
 ms.author: jeedes
-ms.openlocfilehash: f4a7bc895e2ee9b4a66bc59f309971c577be8019
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: feb51a61ebe67f583b47ad516ddb40cd5b84b905
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quickhelp"></a>Zelfstudie: Azure Active Directory-integratie met QuickHelp
 
@@ -110,12 +110,12 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-quickhelp-tutorial/tutorial_quickhelp_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://quickhelp.com/<instancename>/#/Login`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://quickhelp.com/<ROUTEURL>`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<subdomain>.quickhelp.com`
+    b. In de **id** textbox, typ een URL: `https://auth.quickhelp.com`
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [QuickHelp Client ondersteuningsteam](https://support.quickhelp.com/) ophalen van deze waarden. 
+    > De waarde van de aanmeldings-URL is geen echte. Werk de waarde met de werkelijke URL voor eenmalige aanmelding. Neem contact op met de beheerder QuickHelp van uw organisatie of uw BrainStorm Client geslaagd Manager om de waarde.
  
 4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
@@ -152,10 +152,6 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     e. In de **achternaam** textbox `type http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
    
     f. In de **actiebalk**, klikt u op **opslaan**.
-
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
@@ -234,7 +230,7 @@ Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding conf
 Als u op de tegel QuickHelp in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing QuickHelp.
 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

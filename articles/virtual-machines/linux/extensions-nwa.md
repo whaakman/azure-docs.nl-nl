@@ -3,7 +3,7 @@ title: Extensie van virtuele machine met Azure-netwerk-Watcher-Agent voor Linux 
 description: Implementeer de netwerk-Watcher-Agent op Linux virtuele machine met de extensie van een virtuele machine.
 services: virtual-machines-linux
 documentationcenter: ''
-author: dennisg
+author: gurudennis
 manager: amku
 editor: ''
 tags: azure-resource-manager
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: bd5dc6a50b521f883dfb453127a4e41b5e46ff15
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 5a33f183470ec3879344f0cfe335bab38f9ff30f
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>De extensie van de virtuele machine Watcher-Agent voor Linux-netwerk
 
@@ -39,11 +39,12 @@ De extensie van de netwerk-Watcher-Agent kan worden uitgevoerd tegen deze Linux-
 |---|---|
 | Ubuntu | 16.04 TNS, 14.04 TNS en 12.04 TNS |
 | Debian | 7 en 8 |
-| RedHat | 6.x en 7.x |
-| Oracle Linux | 7x |
-| SUSE | 11 en 12 |
-| OpenSuse | 7.0 |
-| CentOS | 7.0 |
+| RedHat | 6 en 7 |
+| Oracle Linux | 6,8 + en 7 |
+| SUSE Linux Enterprise Server | 11 en 12 |
+| OpenSUSE Leap | 42,3 + |
+| CentOS | 6.5 + en 7 |
+| CoreOS | 899.17.0+ |
 
 Houd er rekening mee dat virtuele CoreOS op dit moment niet wordt ondersteund.
 

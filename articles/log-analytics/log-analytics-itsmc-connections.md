@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: 35d04fabc66ede309fe91969c5bec3131a282afb
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: fdf3c7d1a6621437c414e2c1fe0628f2f585d98a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Verbinding maken met ITSM producten/services met IT Service Management-Connector
 In dit artikel bevat informatie over het configureren van de verbinding tussen uw ITSM producten, services en de IT-Service Management-Connector (ITSMC) in Log Analytics om uw werkitems centraal te beheren. Zie voor meer informatie over ITSMC [overzicht](log-analytics-itsmc-overview.md).
@@ -271,7 +271,10 @@ Als de gebruiker is gemaakt, de status van **controlelijst voor de installatie c
 
 > [!NOTE]
 
-> ITSM Connector kunnen incidenten verzenden naar ServiceNow zonder andere modules geïnstalleerd op uw ServiceNow-exemplaar. Als u EventManagement module in uw ServiceNow-exemplaar gebruiken en voor het maken van gebeurtenissen of waarschuwingen in ServiceNow met behulp van de connector, de volgende rollen toevoegen aan de integratiegebruiker: - evt_mgmt_integration - evt_mgmt_operator  
+> ITSM Connector kunnen incidenten verzenden naar ServiceNow zonder andere modules geïnstalleerd op uw ServiceNow-exemplaar. Als u EventManagement module in uw ServiceNow-exemplaar gebruiken en voor het maken van gebeurtenissen of waarschuwingen in ServiceNow met behulp van de connector, moet u de volgende rollen toevoegen aan de integratiegebruiker:
+
+>    - evt_mgmt_integration
+>    - evt_mgmt_operator  
 
 
 ## <a name="connect-provance-to-it-service-management-connector-in-azure"></a>Verbinding maken met Provance IT Service Management-Connector in Azure

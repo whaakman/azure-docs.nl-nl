@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 04/19/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: d6b8ddaa0eaf560352bc0aa0127b33f32ee4574a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9f72ce802f5a2a07ad310968152ab359b4a6c31b
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Gebruik Virtual Network service-eindpunten en regels voor Azure SQL Database
 
@@ -199,7 +199,7 @@ Er is een verbindingsfout 40914 gekoppeld aan *virtueel netwerk regels*, zoals o
 
 #### <a name="error-40914"></a>Fout 40914
 
-*Berichttekst:* server kan niet worden geopend '*[servernaam]*is aangevraagd door de aanmelding. Client is niet toegestaan voor toegang tot de server.
+*Berichttekst:* server kan niet worden geopend '*[servernaam]* is aangevraagd door de aanmelding. Client is niet toegestaan voor toegang tot de server.
 
 *Foutbeschrijving:* de client zich in een subnet met de server-eindpunten in virtueel netwerk. Maar de Azure SQL Database-server heeft geen virtueel netwerk-regel waarmee het recht om te communiceren met de SQL-Database wordt verleend aan het subnet.
 
@@ -207,7 +207,7 @@ Er is een verbindingsfout 40914 gekoppeld aan *virtueel netwerk regels*, zoals o
 
 #### <a name="error-40615"></a>Fout 40615
 
-*Berichttekst:* server '{0}' is aangevraagd door de aanmelding kan niet worden geopend. Client met IP-adres '{1}' is niet toegestaan voor toegang tot de server.
+*Berichttekst:* server kan niet worden geopend '{0}is aangevraagd door de aanmelding. Client met IP-adres{1}' is niet toegestaan voor toegang tot de server.
 
 *Foutbeschrijving:* de client verbinding probeert te maken van een IP-adres dat niet is geautoriseerd voor verbinding met de Azure SQL Database-server. De firewall van de server heeft geen IP-adres-regel waarmee een client van het opgegeven IP-adres communiceren met de SQL-Database.
 
@@ -334,7 +334,7 @@ De functie van de regel virtueel netwerk voor Azure SQL Database is beschikbaar 
 
 [vm-virtual-network-service-endpoints-overview-649d]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview
 
-[vpn-gateway-indexmd-608y]: ../vpn-gateway/index.md
+[vpn-gateway-indexmd-608y]: ../vpn-gateway/index.yml
 
 
 

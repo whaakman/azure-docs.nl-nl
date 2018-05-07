@@ -3,9 +3,9 @@ title: Maak een aangepaste test - Azure Application Gateway - Azure-Portal | Mic
 description: Informatie over het maken van een aangepaste test voor Application Gateway met behulp van de portal
 services: application-gateway
 documentationcenter: na
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 33fd5564-43a7-4c54-a9ec-b1235f661f97
 ms.service: application-gateway
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
-ms.author: davidmu
-ms.openlocfilehash: bb77c9b39e1aa89f6411de8ec3b1fca41e954bf2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: victorh
+ms.openlocfilehash: 45737c1c378ec56a5e2bedec8c1f7b7bc7ba6225
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Een aangepaste test voor de toepassingsgateway maken met behulp van de portal
 
@@ -53,7 +53,7 @@ Tests worden geconfigureerd in een proces via de portal. De eerste stap is het m
   |**Naam**|customProbe|Deze waarde is een beschrijvende naam voor de test die toegankelijk is in de portal.|
   |**Protocol**|HTTP of HTTPS | Het protocol dat gebruikmaakt van de health-test.|
   |**Host**|Internet Explorer contoso.com|Deze waarde is de hostnaam die wordt gebruikt voor de test. Van toepassing alleen als er meerdere locaties is geconfigureerd op Application Gateway, of gebruik anders '127.0.0.1'. Deze waarde verschilt van de naam van de VM-host.|
-  |**Pad**|/ of een ander pad|De rest van de volledige url voor de aangepaste test. Een geldig pad begint met '/'. Gebruik voor het standaardpad van http://contoso.com alleen '/' |
+  |**Pad**|/ of een ander pad|De rest van de volledige url voor de aangepaste test. Een geldig pad begint met '/'. Voor het standaardpad van http://contoso.com gebruiken '/' |
   |**Interval (sec)**|30|Hoe vaak de test wordt uitgevoerd om te controleren of health. Het wordt niet aangeraden om in te stellen hoe lager dan 30 seconden.|
   |**Time-out (sec)**|30|De hoeveelheid tijd die de test wordt gewacht voordat een time-out optreedt. De time-outinterval moet hoog genoeg dat een http-aanroep kan worden gemaakt om ervoor te zorgen dat de health-pagina back-end is beschikbaar.|
   |**Drempelwaarde voor onjuiste status**|3|Het aantal mislukte pogingen om te worden niet in orde beschouwd. Een drempelwaarde 0 betekent dat als een controle de back-end mislukt bepaald beschadigd onmiddellijk.|

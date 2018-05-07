@@ -3,7 +3,7 @@
 #### <a name="to-download-hotfixes"></a>Hotfixes downloaden
 Voer de volgende stappen uit om de software-update te downloaden uit de Microsoft Update-catalogus.
 
-1. Start Internet Explorer en blader naar [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
+1. Start Internet Explorer en navigeer naar [ http://catalog.update.microsoft.com ](http://catalog.update.microsoft.com).
 2. Als dit de eerste keer is dat u de Microsoft Update-catalogus op deze computer gebruikt, klikt u op **Installeren** wanneer u wordt gevraagd of u de invoegtoepassing voor de Microsoft Update-catalogus wilt installeren.
     ![Installeren van de catalogus](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
 3. Voer het nummer van het Knowledge Base (KB) van de hotfix die u downloaden wilt, bijvoorbeeld in het zoekvak van de Microsoft Update Catalog **3186843**, en klik vervolgens op **Search**.

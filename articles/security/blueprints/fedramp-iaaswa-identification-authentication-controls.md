@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 21b5c453716f99be26c8dd6400bb3489477b4956
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="identification-and-authentication-ia"></a>Identificatie en verificatie (IA)
 
-## <a name="nist-800-53-control-ia-1"></a>NIST 800-53 Control IA-1
+## <a name="nist-800-53-control-ia-1"></a>NIST 800 53 besturingselement IA-1
 
 > [!NOTE]
 > Deze besturingselementen zijn gedefinieerd door NIST en de V.S. Ministerie van handel als onderdeel van de NIST Special Publication 800-53 revisie 4. Raadpleeg NIST 800 53 Rev. 4 voor informatie over het testen van de procedures en richtlijnen voor elk besturingselement.
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-1** de organisatie ontwikkelt, documenten en verspreide naar [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen] een beleid voor identificatie en verificatie dat doel, bereik, rollen, taken, management-adressen het streven, samenwerking tussen de organisatie-entiteiten en naleving; en -procedures om te vereenvoudigen, de implementatie van de identificatie en verificatiebeleid en bijbehorende identificatie en verificatie controles; en controleert en updates van het huidige beleid voor identificatie en verificatie [toewijzing: organisatie gedefinieerde frequentie]; en -procedures voor identificatie en verificatie [toewijzing: organisatie gedefinieerde frequentie].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -39,13 +39,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-ia-2"></a>NIST 800-53 Control IA-2
+ ## <a name="nist-800-53-control-ia-2"></a>NIST 800 53 besturingselement IA-2
 
 #### <a name="identification-and-authentication-organizational-users"></a>Identificatie en verificatie (organisatie gebruikers)
 
 **IA-2** uniek wordt aangeduid en organisatie-gebruikers (of processen fungeert namens gebruikers organisatie) verifieert het informatiesysteem.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-2 (1)** meervoudige authenticatie voor netwerktoegang tot beschermde accounts door het informatiesysteem wordt geïmplementeerd.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -67,13 +67,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-ia-2-2"></a>NIST 800-53 Control IA-2 (2)
+ ### <a name="nist-800-53-control-ia-2-2"></a>NIST 800 53 besturingselement IA-2 (2)
 
 #### <a name="identification-and-authentication-organizational-users--network-access-to-non-privileged-accounts"></a>Identificatie en verificatie (organisatie gebruikers) | Toegang tot het netwerk naar niet-gemachtigde Accounts
 
 **IA-2 (2)** meervoudige authenticatie voor netwerktoegang tot niet-gemachtigde accounts door het informatiesysteem wordt geïmplementeerd.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-2 (3)** multifactor-verificatie voor lokale toegang tot beschermde accounts door het informatiesysteem wordt geïmplementeerd.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-2 (4)** multifactor-verificatie voor lokale toegang tot niet-gemachtigde accounts door het informatiesysteem wordt geïmplementeerd.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-2 (5)** de organisatie personen kunnen worden geverifieerd met een afzonderlijke verificator wanneer een groep verificator dienst is vereist.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-2 (8)** replay-mailbeveiliging verificatiemechanismen voor netwerktoegang tot beschermde accounts door het informatiesysteem wordt geïmplementeerd.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -137,13 +137,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-ia-2-9"></a>NIST 800-53 Control IA-2 (9)
+ ### <a name="nist-800-53-control-ia-2-9"></a>NIST 800 53 besturingselement IA-2 (9)
 
 #### <a name="identification-and-authentication-organizational-users--network-access-to-non-privileged-accounts---replay-resistant"></a>Identificatie en verificatie (organisatie gebruikers) | Netwerktoegang tot onbevoegde-Accounts: mailbeveiliging opnieuw afspelen
 
 **IA-2 (9)** replay-mailbeveiliging verificatiemechanismen voor netwerktoegang tot niet-gemachtigde accounts door het informatiesysteem wordt geïmplementeerd.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -151,13 +151,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-ia-2-11"></a>NIST 800-53 Control IA-2 (11)
+ ### <a name="nist-800-53-control-ia-2-11"></a>NIST 800 53 besturingselement IA-2 (11)
 
 #### <a name="identification-and-authentication-organizational-users--remote-access----separate-device"></a>Identificatie en verificatie (organisatie gebruikers) | Externe toegang - afzonderlijk apparaat
 
 **IA-2 (11)** multifactor-verificatie voor externe toegang tot beschermde door het informatiesysteem wordt geïmplementeerd en niet-bevoegde accounts zodanig zijn dat een van de factoren wordt aangeboden door een apparaat dat los van het systeem toegang en het apparaat voldoet aan [ Toewijzing: organisatie gedefinieerd sterkte van mechanisme vereisten].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -165,13 +165,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-ia-2-12"></a>NIST 800-53 Control IA-2 (12)
+ ### <a name="nist-800-53-control-ia-2-12"></a>NIST 800 53 besturingselement IA-2 (12)
 
 #### <a name="identification-and-authentication-organizational-users--acceptance-of-piv-credentials"></a>Identificatie en verificatie (organisatie gebruikers) | Acceptatie van Piv referenties
 
 **IA-2 (12)** het systeem gegevens accepteert en elektronisch Personal Identity Verification (PIV) referenties worden geverifieerd.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -179,13 +179,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-ia-3"></a>NIST 800-53 Control IA-3
+ ## <a name="nist-800-53-control-ia-3"></a>NIST 800 53 besturingselement IA-3
 
 #### <a name="device-identification-and-authentication"></a>Apparaat-identificatie en verificatie
 
 **IA-3** uniek wordt aangeduid en verifieert het informatiesysteem [toewijzing: specifieke organisatie gedefinieerd en/of de typen apparaten] voordat er een [selectie (een of meer): lokale; extern; netwerk] verbinding.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-4.** de organisatie beheert systeem-id's van gegevens door te ontvangen van de autorisatie van [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen] toewijzen van een persoon, groep of rol apparaat-id.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-4.b** de organisatie beheert informatie systeem-id's door het selecteren van een id die een persoon identificeert groep, rol of apparaat.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-4.c** de organisatie beheert informatie systeem-id's door de id toewijzen aan de beoogde persoon, groep, rol of het apparaat.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-4.d** de organisatie beheert systeem-id's van gegevens door te voorkomen dat hergebruik van id's voor [toewijzing: organisatie gedefinieerde periode].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-4.e** De organisatie beheert informatie systeem-id's door het uitschakelen van de id na [toewijzing: organisatie gedefinieerde periode van inactiviteit].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-4 (4)** de organisatie beheert individuele id's door elke persoon afzonderlijk als een unieke id [toewijzing: organisatie gedefinieerd kenmerk status van afzonderlijke identificeren].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5.** de organisatie beheert informatie system verificators door te controleren als onderdeel van de eerste verificator distributie, de identiteit van de persoon, groep, rol of apparaat ontvangt de verificator.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -297,7 +297,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5.b** de organisatie beheert informatie system verificators door het opstellen van de inhoud van de eerste verificator voor verificators gedefinieerd door de organisatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5.c** de organisatie beheert informatie system verificators door ervoor te zorgen dat verificators voldoende sterkte van het mechanisme voor het beoogde gebruik hebben.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5.d** de organisatie beheert informatie system verificators door tot stand brengen en implementeren van administratieve procedures voor initiële verificator distributie, verificators/geknoeid of is beschadigd en voor het intrekken verificators.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -333,13 +333,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-ia-5e"></a>NIST 800-53 Control IA-5.e
+ ## <a name="nist-800-53-control-ia-5e"></a>NIST 800 53 besturingselement IA-5.e
 
 #### <a name="authenticator-management"></a>Verificator Management
 
 **IA-5.e** De organisatie beheert informatie system verificators door het wijzigen van de Standaardinhoud van verificators vóór de installatie van het systeem.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -353,7 +353,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5.f** de organisatie beheert informatie system verificators door het opstellen van beperkingen van de minimale en maximale levensduur en hergebruik voorwaarden voor verificators.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -367,7 +367,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5.g** de organisatie beheert informatie system verificators door het wijzigen van/vernieuwen verificators [toewijzing: organisatie gedefinieerde periode door type verificator].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -381,7 +381,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5.h** de organisatie informatie system verificators door de verificator inhoud beveiligen tegen ongeautoriseerde bekendmaking en de wijzigingsopties beheert.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -389,13 +389,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-ia-5i"></a>NIST 800-53 Control IA-5.i
+ ## <a name="nist-800-53-control-ia-5i"></a>NIST 800 53 besturingselement IA-5.i
 
 #### <a name="authenticator-management"></a>Verificator Management
 
 **IA-5.i** de organisatie beheert informatie system verificators doordat personen te nemen en met apparaten implementeren, specifieke veiligheidsmaatregelen ter bescherming van verificators.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -409,7 +409,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5.j** de organisatie beheert informatie system verificators door verificators voor groep/rol accounts te wijzigen wanneer het lidmaatschap van die accounts wijzigingen.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -417,13 +417,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-ia-5-1a"></a>NIST 800-53 Control IA-5 (1).a
+ ### <a name="nist-800-53-control-ia-5-1a"></a>NIST 800 53 besturingselement IA-5 (1) een
 
 #### <a name="authenticator-management--password-based-authentication"></a>Verificator Management | Verificatie op basis van wachtwoorden
 
 **IA-5 (1) een** het informatiesysteem voor verificatie op basis van wachtwoorden worden afgedwongen minimale wachtwoordcomplexiteit van [toewijzing: vereisten voor de hoofdlettergevoeligheid, aantal tekens, organisatie gedefinieerd mix van hoofdletters, kleine letters bestaan letters, cijfers en speciale tekens, met inbegrip van de minimale vereisten voor elk type].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -437,7 +437,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (1) .b** het informatiesysteem voor verificatie op basis van wachtwoorden worden afgedwongen ten minste het volgende aantal gewijzigde tekens wanneer nieuwe wachtwoorden worden gemaakt: [toewijzing: nummer organisatie gedefinieerd].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -451,7 +451,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (1) .c** het informatiesysteem voor verificatie op basis van wachtwoorden worden opgeslagen en worden alleen cryptografisch beveiligde wachtwoorden verzonden.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -465,7 +465,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (1) .d** wachtwoord minimum- en de beperkingen van de maximale levensduur van het informatiesysteem voor verificatie op basis van een wachtwoord wordt afgedwongen [toewijzing: getallen organisatie gedefinieerd voor de levensduur van minimum, maximum voor levensduur].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -473,13 +473,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-ia-5-1e"></a>NIST 800-53 Control IA-5 (1).e
+ ### <a name="nist-800-53-control-ia-5-1e"></a>CF,o.e van NIST 800 53 besturingselement IA-5 (1)
 
 #### <a name="authenticator-management--password-based-authentication"></a>Verificator Management | Verificatie op basis van wachtwoorden
 
 **IA-5 (1).e** Het informatiesysteem voor verificatie op basis van wachtwoorden verbiedt het wachtwoord opnieuw kunnen worden gebruikt voor [toewijzing: nummer organisatie gedefinieerd] generaties.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -487,13 +487,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-ia-5-1f"></a>NIST 800-53 Control IA-5 (1).f
+ ### <a name="nist-800-53-control-ia-5-1f"></a>.F van NIST 800 53 besturingselement IA-5 (1)
 
 #### <a name="authenticator-management--password-based-authentication"></a>Verificator Management | Verificatie op basis van wachtwoorden
 
 **IA-5 (1) .f** het informatiesysteem voor verificatie op basis van wachtwoorden staat het gebruik van een tijdelijk wachtwoord voor aanmelding bij systeem met een onmiddellijke wijziging van een permanente wachtwoord.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -501,13 +501,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-ia-5-2a"></a>NIST 800-53 Control IA-5 (2).a
+ ### <a name="nist-800-53-control-ia-5-2a"></a>NIST 800 53 besturingselement IA-5 (2) een
 
 #### <a name="authenticator-management--pki-based-authentication"></a>Verificator Management | Verificatie op basis van PKI
 
 **IA-5 (2) een** het informatiesysteem voor verificatie op basis van een PKI valideert certificeringen door te maken en verifiëren van een certificeringsinstantie pad naar een geaccepteerde vertrouwensanker, inclusief het controleren van de certificaatstatus.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -515,13 +515,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-ia-5-2b"></a>NIST 800-53 Control IA-5 (2).b
+ ### <a name="nist-800-53-control-ia-5-2b"></a>NIST 800 53 besturingselement IA-5 (2) .b
 
 #### <a name="authenticator-management--pki-based-authentication"></a>Verificator Management | Verificatie op basis van PKI
 
 **IA-5 (2) .b** het informatiesysteem voor verificatie op basis van een PKI wordt afgedwongen gemachtigde gebruikers toegang hebben tot de bijbehorende persoonlijke sleutel.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -529,13 +529,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-ia-5-2c"></a>NIST 800-53 Control IA-5 (2).c
+ ### <a name="nist-800-53-control-ia-5-2c"></a>NIST 800 53 besturingselement IA-5 (2) .c
 
 #### <a name="authenticator-management--pki-based-authentication"></a>Verificator Management | Verificatie op basis van PKI
 
 **IA-5 (2) .c** het informatiesysteem voor verificatie op basis van een PKI wordt de identiteit van de geverifieerde toegewezen aan het account van de persoon of groep.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -549,7 +549,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (2) .d** het informatiesysteem voor verificatie op basis van een PKI implementeert een lokale cache van intrekkingsgegevens ter ondersteuning van pad detectie en validatie in geval van niet meer toegankelijk intrekkingsgegevens via het netwerk.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -563,7 +563,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (3)** de organisatie vereist dat de registratie voor het ontvangen van verwerken [toewijzing: typen organisatie gedefinieerd en/of specifieke verificators] uit te voeren [selectie: persoonlijk; door een vertrouwde derde] voordat [toewijzing: organisatie gedefinieerd registratieautoriteit] met toestemming van [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -577,7 +577,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (4)** geautomatiseerde hulpprogramma's om te bepalen of wachtwoord verificators voldoende sterk om te voldoen aan de veiligheidsmaatregelen voor de organisatie [toewijzing: vereisten organisatie gedefinieerd].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -591,7 +591,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (6)** verificators overeenstemming met de categorie van de beveiliging van de gegevens waarvoor gebruik van de verificator toegang kunnen worden beschermd door de organisatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -605,7 +605,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (7)** de organisatie zorgt ervoor dat de niet-versleutelde statische verificators niet zijn ingesloten in toepassingen of scripts toegang of op de functietoetsen opgeslagen.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -619,7 +619,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-5 (8)** de organisatie implementeert [toewijzing: organisatie gedefinieerd beveiligingsmaatregelen] voor het beheren van het risico op inbreuk als gevolg van mensen met accounts op meerdere systemen.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -627,13 +627,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-ia-5-11"></a>NIST 800-53 Control IA-5 (11)
+ ### <a name="nist-800-53-control-ia-5-11"></a>NIST 800 53 besturingselement IA-5 (11)
 
 #### <a name="authenticator-management--hardware-token-based-authentication"></a>Verificator Management | Hardware op tokens gebaseerde verificatie
 
 **IA-5 (11)** mechanismen die voldoen aan de veiligheidsmaatregelen voor het informatiesysteem voor hardware-authenticatie op basis van tokens, [toewijzing: token kwaliteitsvereisten organisatie gedefinieerd].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -641,13 +641,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-ia-5-13"></a>NIST 800-53 Control IA-5 (13)
+ ### <a name="nist-800-53-control-ia-5-13"></a>NIST 800 53 besturingselement IA-5 (13)
 
 #### <a name="authenticator-management--expiration-of-cached-authenticators"></a>Verificator Management | Vervaldatum van verificaties in cache
 
 **IA-5 (13)** informatie mogen niet worden gebruikt in de cache verificators na [toewijzing: organisatie gedefinieerde periode].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -661,7 +661,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-6** het informatiesysteem geven feedback van verificatiegegevens tijdens het verificatieproces de om informatie te beschermen tegen mogelijke misbruik/gebruik door onbevoegde gebruikers.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -669,13 +669,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-ia-7"></a>NIST 800-53 Control IA-7
+ ## <a name="nist-800-53-control-ia-7"></a>NIST 800 53 besturingselement IA-7
 
 #### <a name="cryptographic-module-authentication"></a>Verificatie van de cryptografische Module
 
 **IA-7** mechanismen voor verificatie van een cryptografische module die voldoen aan de vereisten van federale wetgeving, Executive Orders richtlijnen, beleid, voorschriften, standaarden en richtlijnen voor zoals door het informatiesysteem wordt geïmplementeerd -verificatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -689,7 +689,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-8** het informatiesysteem uniek wordt aangeduid en verifieert niet van de organisatie-gebruikers (of processen fungeert namens gebruikers niet-organisatie).
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -703,7 +703,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-8 (1)** het informatiesysteem accepteert en referenties van de Personal Identity Verification (PIV) van andere federale instanties elektronisch worden geverifieerd.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -717,7 +717,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-8 (2)** het systeem gegevens accepteert alleen FICAM goedgekeurde van derden referenties.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -731,7 +731,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-8 (3)** alleen informatie FICAM goedgekeurd onderdelen van het systeem in de veiligheidsmaatregelen voor de organisatie [toewijzing: organisatie gedefinieerd informatiesystemen] te accepteren van derden referenties.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -745,7 +745,7 @@ ms.lasthandoff: 02/11/2018
 
 **IA-8 (4)** het informatiesysteem voldoet aan de FICAM verleende profielen.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|

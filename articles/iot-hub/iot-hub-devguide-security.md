@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: dobett
-ms.openlocfilehash: d1f9d1a9163eee0f3a6c3b418e5e8d4fec0581de
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: c5a9a56d444da232717b023cb7057b96c291c265
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="control-access-to-iot-hub"></a>Toegang tot IoT Hub regelen
 
@@ -393,27 +393,27 @@ var authMethod = new DeviceAuthenticationWithX509Certificate("<device id>", x509
 var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 ```
 
-## <a name="custom-device-authentication"></a>Verificatie van aangepast apparaat
+## <a name="custom-device-and-module-authentication"></a>Aangepaste apparaat en de module-verificatie
 
-U kunt de IoT-Hub [identiteitsregister] [ lnk-identity-registry] beveiligingsreferenties per apparaat configureren en toegang beheren met [tokens][lnk-sas-tokens]. Als een IoT-oplossing al een aangepaste identiteit register en/of de verificatie-schema heeft, kunt u een *token service* deze infrastructuur integreren met IoT Hub. Op deze manier kunt u andere IoT-functies in uw oplossing.
+U kunt de IoT-Hub [identiteitsregister] [ lnk-identity-registry] beveiligingsreferenties voor de per-apparaat/module configureren en toegang beheren met [tokens] [ lnk-sas-tokens]. Als een IoT-oplossing al een aangepaste identiteit register en/of de verificatie-schema heeft, kunt u een *token service* deze infrastructuur integreren met IoT Hub. Op deze manier kunt u andere IoT-functies in uw oplossing.
 
-Een service voor beveiligingstokens is een aangepaste cloudservice. Dit maakt gebruik van een IoT-Hub *gedeeld toegangsbeleid* met **DeviceConnect** machtigingen voor het maken *binnen het bereik van apparaat* tokens. Deze tokens inschakelen voor een apparaat verbinding maakt met uw IoT-hub.
+Een service voor beveiligingstokens is een aangepaste cloudservice. Dit maakt gebruik van een IoT-Hub *gedeeld toegangsbeleid* met **DeviceConnect** of **ModuleConnect** machtigingen voor het maken *binnen het bereik van apparaat* of *binnen het bereik van module* tokens. Deze tokens inschakelen op een apparaat en de module die u wilt verbinding maken met uw IoT-hub.
 
 ![Stappen van de service voor beveiligingstokens patroon][img-tokenservice]
 
 Hier volgen de belangrijkste stappen van de service voor beveiligingstokens patroon:
 
-1. Maken van een Iothub gedeeld toegangsbeleid met **DeviceConnect** machtigingen voor uw IoT-hub. Kunt u dit beleid in de [Azure-portal] [ lnk-management-portal] of via een programma. De Tokenservice die gebruikmaakt van dit beleid voor het ondertekenen van de tokens die wordt gemaakt.
-1. Wanneer een apparaat voor toegang tot uw IoT-hub, wordt het token van een ondertekende aanvraagt van uw service voor beveiligingstokens. Het apparaat kunt verifiëren met uw aangepaste identiteit register/verificatieschema om te bepalen van de identiteit van het apparaat dat de token service gebruikt voor het maken van het token.
-1. De token-service retourneert een token. Het token wordt gemaakt met behulp van `/devices/{deviceId}` als `resourceURI`, met `deviceId` als het apparaat wordt geverifieerd. De token service gebruikt het beleid voor gedeelde toegang voor het maken van het token.
-1. Het apparaat gebruikt het token rechtstreeks met de IoT-hub.
+1. Maken van een Iothub gedeeld toegangsbeleid met **DeviceConnect** of **ModuleConnect** machtigingen voor uw IoT-hub. Kunt u dit beleid in de [Azure-portal] [ lnk-management-portal] of via een programma. De Tokenservice die gebruikmaakt van dit beleid voor het ondertekenen van de tokens die wordt gemaakt.
+1. Wanneer een apparaat/module toegang tot uw IoT-hub moet, wordt het token van een ondertekende aanvraagt van uw service voor beveiligingstokens. Het apparaat kunt verifiëren met uw aangepaste identiteit register/verificatieschema om te bepalen van de identiteit van de apparaten/module die de token service gebruikt voor het maken van het token.
+1. De token-service retourneert een token. Het token wordt gemaakt met behulp van `/devices/{deviceId}` of `/devices/{deviceId}/module/{moduleId}` als `resourceURI`, met `deviceId` als het apparaat wordt geverifieerd of `moduleId` als de module wordt geverifieerd. De token service gebruikt het beleid voor gedeelde toegang voor het maken van het token.
+1. Het apparaat/module gebruikt het token rechtstreeks met de IoT-hub.
 
 > [!NOTE]
 > U kunt de .NET-klasse [SharedAccessSignatureBuilder] [ lnk-dotnet-sas] of de Java-klasse [IotHubServiceSasToken] [ lnk-java-sas] voor het maken van een token in uw service voor beveiligingstokens.
 
-De token-service kan het verlopen van het token naar wens ingesteld. Wanneer het token is verlopen, servers de iothub de apparaatverbinding. Het apparaat moet vervolgens een nieuw token aanvragen van de service voor beveiligingstokens. Een korte verlooptijd verhoogt de belasting van het apparaat en de service voor beveiligingstokens.
+De token-service kan het verlopen van het token naar wens ingesteld. Wanneer het token is verlopen, servers de IoT-hub het apparaat/module-verbinding. Het apparaat/module moet vervolgens een nieuw token aanvragen van de service voor beveiligingstokens. Een korte verlooptijd verhoogt de belasting op het apparaat/module en de service voor beveiligingstokens.
 
-Voor een apparaat verbinding maken met uw hub, moet u nog steeds deze toevoegen aan de id-register van IoT Hub, zelfs als het apparaat gebruikmaakt van een token en niet de apparaatsleutel van een verbinding maken. Daarom kunt u blijven gebruiken per apparaat toegangsbeheer door in- of uitschakelen van apparaat-id's in de [identiteitsregister][lnk-identity-registry]. Deze benadering vermindert het risico van het gebruik van tokens met lange verstrijken tijden.
+Voor een apparaat/module verbinding maken met uw hub, moet u nog steeds deze toevoegen aan de id-register van IoT Hub, zelfs als de it is een token en niet een sleutel verbinding maken. Daarom kunt u blijven per-apparaat/per-module toegangsbeheer gebruiken door de in- of uitschakelen van apparaat/module identiteiten in de [identiteitsregister][lnk-identity-registry]. Deze benadering vermindert het risico van het gebruik van tokens met lange verstrijken tijden.
 
 ### <a name="comparison-with-a-custom-gateway"></a>Vergelijking met een aangepaste gateway
 
@@ -431,7 +431,7 @@ De volgende tabel bevat de machtigingen die u kunt toegang tot uw IoT-hub.
 | --- | --- |
 | **RegistryRead** |Verleent leestoegang tot het identiteitsregister. Zie voor meer informatie [identiteitsregister][lnk-identity-registry]. <br/>Deze machtiging wordt gebruikt door de back-end-cloudservices. |
 | **RegistryReadWrite** |Verleent lezen en schrijven in het identiteitsregister. Zie voor meer informatie [identiteitsregister][lnk-identity-registry]. <br/>Deze machtiging wordt gebruikt door de back-end-cloudservices. |
-| **ServiceConnect** |Verleent toegang tot de cloud service gerichte communicatie en controle-eindpunten. <br/>Geeft het recht op apparaat-naar-cloud-berichten ontvangen berichten van cloud naar apparaat verzenden en het ophalen van de bijbehorende levering bevestigingen. <br/>Verleent toestemming voor het ophalen van de levering van bevestigingen voor het bestand uploadt. <br/>Verleent toestemming voor toegang tot apparaat horende bijwerken tags en gewenste eigenschappen, gemelde eigenschappen ophalen en uitvoeren van query's. <br/>Deze machtiging wordt gebruikt door de back-end-cloudservices. |
+| **ServiceConnect** |Verleent toegang tot de cloud service gerichte communicatie en controle-eindpunten. <br/>Geeft het recht op apparaat-naar-cloud-berichten ontvangen berichten van cloud naar apparaat verzenden en het ophalen van de bijbehorende levering bevestigingen. <br/>Verleent toestemming voor het ophalen van de levering van bevestigingen voor het bestand uploadt. <br/>Toestemming verleent voor toegang tot horende bijwerken tags en gewenste eigenschappen, gemelde eigenschappen ophalen en uitvoeren van query's. <br/>Deze machtiging wordt gebruikt door de back-end-cloudservices. |
 | **DeviceConnect** |Verleent toegang tot apparaat gerichte eindpunten. <br/>Verleent toestemming voor apparaat-naar-cloud-berichten verzenden en ontvangen berichten van de cloud-naar-apparaat. <br/>Verleent toestemming voor het uploaden van het bestand uitvoeren vanaf een apparaat. <br/>Geeft het recht apparaat twin gewenst eigenschap meldingen ontvangen en bijwerken van apparaat twin gerapporteerd eigenschappen. <br/>Verleent toestemming voor het uitvoeren van bestand uploadt. <br/>Deze machtiging wordt gebruikt door apparaten. |
 
 ## <a name="additional-reference-material"></a>Aanvullende referentiemateriaal
@@ -482,7 +482,7 @@ Als u uitproberen enkele concepten die worden beschreven in dit artikel wilt, ra
 [lnk-java-sas]: https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.auth._iot_hub_service_sas_token
 [lnk-tls-psk]: https://tools.ietf.org/html/rfc4279
 [lnk-protocols]: iot-hub-protocol-gateway.md
-[lnk-custom-auth]: iot-hub-devguide-security.md#custom-device-authentication
+[lnk-custom-auth]: iot-hub-devguide-security.md#custom-device-and-module-authentication
 [lnk-x509]: iot-hub-devguide-security.md#supported-x509-certificates
 [lnk-devguide-device-twins]: iot-hub-devguide-device-twins.md
 [lnk-devguide-directmethods]: iot-hub-devguide-direct-methods.md

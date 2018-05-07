@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 94b3c1e812bdf3345d5fb1f7308fb7a55be8f922
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 860a09d004c16de992093e79c0dbda4c469bb775
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Bewaken en beheren van Azure Data Factory-pijplijnen met behulp van de Azure-portal en PowerShell
 > [!div class="op_single_selector"]
@@ -28,11 +28,13 @@ ms.lasthandoff: 03/29/2018
 > [!NOTE]
 > Dit artikel is van toepassing op versie 1 van Data Factory, die algemeen beschikbaar is. Als u versie 2 van de Data Factory-service, die zich in de preview, Zie [bewaken en beheren van de Data Factory-pijplijnen in versie 2](../monitor-visually.md).
 
+In dit artikel wordt beschreven hoe bewaken, beheren en fouten opsporen in uw pijplijnen met behulp van Azure-portal en PowerShell.
+
 > [!IMPORTANT]
 > De toepassing voor bewaking en beheer biedt een betere ondersteuning voor bewaking en het beheren van uw gegevenspijplijnen en het oplossen van problemen. Zie voor meer informatie over het gebruik van de toepassing [bewaken en beheren van Data Factory-pijplijnen met behulp van de app voor bewaking en beheer](data-factory-monitor-manage-app.md). 
 
-
-In dit artikel wordt beschreven hoe bewaken, beheren en fouten opsporen in uw pijplijnen met behulp van Azure-portal en PowerShell.
+> [!IMPORTANT]
+> Azure Data Factory-versie 1 nu gebruikmaakt van de nieuwe [Azure-infrastructuur voor meldingsfunctie](../../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). De oude waarschuwingen infrastructuur is afgeschaft. Als gevolg hiervan uw bestaande waarschuwingen geconfigureerd voor versie 1 data Factory niet meer werkt. Uw bestaande waarschuwingen voor v1 data Factory worden niet automatisch gemigreerd. U moet deze waarschuwingen op de infrastructuur van nieuwe waarschuwingen opnieuw maken. Aanmelden bij de Azure portal en selecteert u een **Monitor** maken van nieuwe waarschuwingen op metrische gegevens (zoals mislukte wordt uitgevoerd of geslaagde wordt uitgevoerd) voor uw versie 1 data Factory.
 
 ## <a name="understand-pipelines-and-activity-states"></a>Pijplijnen en activiteiten statussen begrijpen
 U kunt met behulp van de Azure-portal:
@@ -119,7 +121,7 @@ De gegevensset segmenten in de gegevensfactory, kunnen een van de volgende statu
 <td>Het segment wordt verwerkt.</td>
 </tr>
 <tr>
-<td rowspan="4">Mislukt</td><td>TimedOut</td><td>De activiteit is uitgevoerd duurde langer dan is toegestaan door de activiteit.</td>
+<td rowspan="4">Mislukt</td><td>Time-out</td><td>De activiteit is uitgevoerd duurde langer dan is toegestaan door de activiteit.</td>
 </tr>
 <tr>
 <td>Geannuleerd</td><td>Het segment is geannuleerd door in te grijpen.</td>
@@ -136,7 +138,7 @@ De gegevensset segmenten in de gegevensfactory, kunnen een van de volgende statu
 <td>Overgeslagen</td><td>Geen</td><td>Het segment wordt niet verwerkt.</td>
 </tr>
 <tr>
-<td>None</td><td>-</td><td>Een segment wordt gebruikt voor te komen met een andere status, maar is teruggezet.</td>
+<td>Geen</td><td>-</td><td>Een segment wordt gebruikt voor te komen met een andere status, maar is teruggezet.</td>
 </tr>
 </table>
 
@@ -196,7 +198,8 @@ Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName produc
 ## <a name="debug-pipelines"></a>Fouten opsporen in pijplijnen
 Azure Data Factory biedt uitgebreide mogelijkheden voor u opsporen en oplossen van pijplijnen met behulp van de Azure portal en Azure PowerShell.
 
-> [! Opmerking} is het veel eenvoudiger daarvoor fouten met de bewaking en beheer-App. Zie voor meer informatie over het gebruik van de toepassing [bewaken en beheren van Data Factory-pijplijnen met behulp van de app voor bewaking en beheer](data-factory-monitor-manage-app.md) artikel. 
+> [!NOTE] 
+> Het is veel eenvoudiger daarvoor fouten met de bewaking en beheer-App. Zie voor meer informatie over het gebruik van de toepassing [bewaken en beheren van Data Factory-pijplijnen met behulp van de app voor bewaking en beheer](data-factory-monitor-manage-app.md) artikel. 
 
 ### <a name="find-errors-in-a-pipeline"></a>Fouten gevonden in een pijplijn
 Als de uitvoering van activiteit in een pijplijn uitvalt, wordt de status van de gegevensset die wordt geproduceerd door de pijplijn is in een foutstatus vanwege de fout. U kunt fouten opsporen en oplossen van fouten in Azure Data Factory met behulp van de volgende methoden.
@@ -296,6 +299,35 @@ Het volgende voorbeeld wordt de status van alle segmenten voor de tabel 'DAWikiA
 ```powershell
 Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -DatasetName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 ```
+## <a name="create-alerts-in-the-azure-portal"></a>Waarschuwingen in de Azure portal maken
+
+1.  Aanmelden bij de Azure portal en selecteert u een **Monitor -> waarschuwingen** om de pagina waarschuwingen te openen.
+
+    ![Open de pagina waarschuwingen.](media/data-factory-monitor-manage-pipelines/v1alerts-image1.png)
+
+2.  Selecteer **+ nieuwe waarschuwingsregel** voor het maken van een nieuwe waarschuwing.
+
+    ![Maak een nieuwe waarschuwing](media/data-factory-monitor-manage-pipelines/v1alerts-image2.png)
+
+3.  Definieer de **waarschuwing voorwaarde**. (Zorg ervoor dat u selecteert **gegevensfactory** in de **filteren op resourcetype** veld.) U kunt ook waarden opgeven voor **dimensies**.
+
+    ![De Meldingsvoorwaarde - Selecteer doel definiëren](media/data-factory-monitor-manage-pipelines/v1alerts-image3.png)
+
+    ![Definieer de voorwaarde waarschuwing - waarschuwingscriteria toevoegen](media/data-factory-monitor-manage-pipelines/v1alerts-image4.png)
+
+    ![Definieer de voorwaarde waarschuwing - waarschuwing logica toevoegen](media/data-factory-monitor-manage-pipelines/v1alerts-image5.png)
+
+4.  Definieer de **Waarschuwingsdetails**.
+
+    ![Definieer de Details van de waarschuwing](media/data-factory-monitor-manage-pipelines/v1alerts-image6.png)
+
+5.  Definieer de **actiegroep**.
+
+    ![Definieer de actie groep - Maak een nieuwe actiegroep](media/data-factory-monitor-manage-pipelines/v1alerts-image7.png)
+
+    ![Definieer de actie groep - eigenschappen instellen](media/data-factory-monitor-manage-pipelines/v1alerts-image8.png)
+
+    ![De actie groep - nieuwe actiegroep gemaakt definiëren](media/data-factory-monitor-manage-pipelines/v1alerts-image9.png)
 
 ## <a name="move-a-data-factory-to-a-different-resource-group-or-subscription"></a>Een gegevensfactory verplaatsen naar een andere resourcegroep of abonnement
 U kunt een gegevensfactory verplaatsen naar een andere resourcegroep of een ander abonnement met behulp van de **verplaatsen** opdracht balk knop op de startpagina van uw gegevensfactory.

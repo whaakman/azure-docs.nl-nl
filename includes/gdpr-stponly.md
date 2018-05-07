@@ -5,4 +5,4 @@ MS.service: azure-policy ms.topic: omvatten ms.date: 24/04/2018 ms.author: lizro
 ---
 
 >[!Note] 
->Als u algemene informatie over GDPR zoekt, raadpleegt u de [GDPR sectie van het Vertrouwenscentrum Service](https://www.microsoft.com/en-us/TrustCenter/Privacy/gdpr/default.aspx).
+>Als u algemene informatie over GDPR zoekt, raadpleegt u de [GDPR sectie van de portal Service vertrouwen](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).

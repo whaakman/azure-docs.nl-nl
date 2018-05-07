@@ -1,24 +1,24 @@
 ---
 title: Meter toewijzing gratis account - Azure-Service | Microsoft Docs
 description: Toewijzing van de meter voor services die deel uitmaakt van een gratis account-service te begrijpen.
-services: 
-documentationcenter: 
+services: ''
+documentationcenter: ''
 author: amberbhargava
 manager: amberb
-editor: 
+editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-ms.openlocfilehash: 9d7e355e755f2bac8929ab16f7f71aa3b0702658
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 683a94f25e94faf0eee7c6aa5fbae52132d58f34
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="understand-free-service-to-meter-mapping"></a>Gratis service toewijzing van de meter begrijpen
 
@@ -48,7 +48,7 @@ Elke Azure-service verzendt informatie over het gebruik op basis van de meters d
 | SQL Database | Standard S0-Databasedagen - SQL-Database | Standard S0-Databasedagen - gratis | dd6b69d3-9be0-4a91-abff-2c58bbcafd1d
 | Gedeeld - bandbreedte ** | Uitgaande gegevensoverdracht (GB) | Gegevensoverdracht, uitgaand (GB) - gratis | 0fc067a1-65d2-46da-b24b-7a9cbe2c69bd
 
-\*Als u een Windows-machine maken en kies beheerde schijf, verbruikt u beheerde schijven meter als onderdeel van de virtuele machine.
+\* Als u een Windows-machine maken en kies beheerde schijf, verbruikt u beheerde schijven meter als onderdeel van de virtuele machine.
 
 \** Gedeelde meters kunnen worden gebruikt door meerdere services. Zowel virtuele machines en opslag verzenden bijvoorbeeld gebruik tegen gegevens overbrengen Out(GB) meter.
 

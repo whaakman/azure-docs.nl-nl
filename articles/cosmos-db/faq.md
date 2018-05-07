@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: ede354516afbd34372215a08d633969cf74b1562
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 6d783a5b36fd71fbcc020025e21aed49e8fd6e05
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Veelgestelde vragen over Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Grondbeginselen van Azure DB Cosmos
@@ -214,13 +214,14 @@ Er zijn enkele gedrag van die afkomstig zijn van Azure Table storage gebruikers 
 * Namen van tabellen in de Azure Table storage zijn niet hoofdlettergevoelig, maar ze zijn in Azure Cosmos DB tabel-API
 * Sommige Azure Cosmos DB interne indelingen voor codering informatie, zoals binaire velden zijn momenteel niet zo efficiënt als een mogelijk nodig hebt. Daarom kan dit onverwachte beperkingen op gegevensgrootte veroorzaken. Bijvoorbeeld: momenteel een kan niet gebruiken de volledige 1 Meg van een Tabelentiteit voor het opslaan van binaire gegevens omdat de codering van de gegevens groter wordt.
 * Naam van de eigenschap entiteit 'Id' momenteel niet ondersteund
+* TableQuery TakeCount is niet beperkt tot 1000
 
 Er zijn een aantal eindpunten/query-opties die niet worden ondersteund door Azure Cosmos DB tabel API in termen van de REST-API:
 | Rest-methode(n) | Rest-eindpunt/Query-optie | Doc-URL 's | Uitleg |
 | ------------| ------------- | ---------- | ----------- |
 | GET, PUT | /? restype =service@comp= eigenschappen| [Tabel-Service-eigenschappen instellen](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) en [tabel Service-eigenschappen ophalen](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Dit eindpunt wordt gebruikt voor het CORS-regels, configuratie van storage analytics en instellingen voor logboekregistratie instellen. CORS wordt momenteel niet ondersteund en analytics en logboekregistratie anders in Azure Cosmos DB dan Azure Storage-tabellen worden verwerkt |
 | OPTIES | /<table-resource-name> | [Vooraf vlucht CORS tabel aanvraag](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Dit is onderdeel van CORS die Azure Cosmos DB momenteel niet ondersteund. |
-| TOEVOEGEN | /? restype =service@comp= statistieken | [Statistieken voor tabel-Service ophalen](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Bevat informatie hoe snel van gegevens tussen de primaire en secundaire replica's repliceren. Dit is niet nodig in Cosmos-database omdat de replicatie deel uitmaakt van schrijfbewerkingen. |
+| GET | /? restype =service@comp= statistieken | [Statistieken voor tabel-Service ophalen](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Bevat informatie hoe snel van gegevens tussen de primaire en secundaire replica's repliceren. Dit is niet nodig in Cosmos-database omdat de replicatie deel uitmaakt van schrijfbewerkingen. |
 | GET, PUT | /MyTable? comp acl = | [Tabel ACL verkrijgen](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) en [tabel ACL instellen](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Dit opgehaald en ingesteld van de opgeslagen toegangsbeleid dat is gebruikt voor het beheren van Shared Access Signatures (SAS). Hoewel SAS wordt ondersteund, worden ze ingesteld en anders beheerd. |
 
 Daarnaast ondersteunt Azure Cosmos DB tabel API alleen de JSON-indeling niet ATOM.

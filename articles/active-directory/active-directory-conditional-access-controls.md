@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/28/2018
+ms.date: 05/01/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: e38b7db2699cd3e4cf76d4a8e8fc558b133dd35b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8271c4c88245e98fd3709c7279904d36ad009682
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="access-controls-in-azure-active-directory-conditional-access"></a>Toegangsbeheer in Azure Active Directory voorwaardelijke toegang 
 
@@ -75,13 +75,13 @@ Met multi-factor authentication voorkomt bronnen worden geopend door onbevoegde 
 
 ### <a name="compliant-device"></a>Compatibel apparaat
 
-U kunt beleid voor voorwaardelijke toegang op basis van het apparaat configureren. Het doel van een beleid voor voorwaardelijke toegang op basis van apparaten is om toegang te verlenen tot de geconfigureerde resources alleen vanaf vertrouwde apparaten. Vereisen van een compatibel apparaat is een optie die u hebt om te definiëren welke een vertrouwd apparaat is. Als deze optie is geselecteerd, geeft uw beleid voor voorwaardelijke toegang pogingen tot toegang-toegang met apparaten die zijn gekoppeld aan uw Azure Active Directory en zijn gemarkeerd als compatibel met uw MDM-oplossing.
+U kunt beleid voor voorwaardelijke toegang op basis van het apparaat configureren. Het doel van een beleid voor voorwaardelijke toegang op basis van apparaten is om toegang te verlenen tot de geconfigureerde resources alleen via [beheerde apparaten](active-directory-conditional-access-policy-connected-applications.md#managed-devices). Vereisen van een compatibel apparaat is een optie die u hebt om te definiëren welke een beheerd apparaat is. Als deze optie is geselecteerd, uw beleid voor voorwaardelijke toegang verleent toegang aan toegangspogingen met apparaten die zijn aangebracht [geregistreerd](device-management-introduction.md) naar uw Azure Active Directory en zijn gemarkeerd als compatibel met uw MDM-oplossing.
 
 Zie voor meer informatie [Azure Active Directory-beleid voor voorwaardelijke toegang op basis van apparaten instellen](active-directory-conditional-access-policy-connected-applications.md).
 
-### <a name="domain-joined-device"></a>Domein-apparaat
+### <a name="hybrid-azure-ad-joined-device"></a>Hybride Azure AD gekoppeld apparaat
 
-U hebt vereisen van dat een domein-apparaat is een andere optie voor het configureren van beleidsregels voor voorwaardelijke toegang op basis van apparaten. Deze vereiste verwijst naar de Windows-desktops, laptops en tablets enterprise die zijn gekoppeld aan een lokale Active Directory. Als deze optie is geselecteerd, geeft uw beleid voor voorwaardelijke toegang pogingen tot toegang-toegang met apparaten die lid zijn van uw lokale Active Directory en uw Azure Active Directory.  
+Het vereisen van een hybride apparaat aan een Azure AD is een andere optie die u hebt voor het configureren van beleidsregels voor voorwaardelijke toegang op basis van apparaten. Deze vereiste verwijst naar de Windows-desktops, laptops en tablets enterprise die zijn gekoppeld aan een lokale Active Directory. Als deze optie is geselecteerd, geeft uw beleid voor voorwaardelijke toegang pogingen tot toegang-toegang met apparaten die lid zijn van uw lokale Active Directory en uw Azure Active Directory.  
 
 Zie voor meer informatie [Azure Active Directory-beleid voor voorwaardelijke toegang op basis van apparaten instellen](active-directory-conditional-access-policy-connected-applications.md).
 

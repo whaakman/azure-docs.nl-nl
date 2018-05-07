@@ -2,24 +2,24 @@
 title: Post een bericht implementatieconfiguraties voor Azure Stack Development Kit (ASDK) | Microsoft Docs
 description: Beschrijft de aanbevolen configuratiewijzigingen aanbrengen na de installatie van Azure Stack Development Kit (ASDK).
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 2183576e87aa2fb31f8be8f676a5aee7d52f68df
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 4b58f3496b25e4fc04761b9df6e27f8313b35fe9
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>Na de installatie van de ASDK configuratietaken
 Na [installeren van de ASDK](asdk-install.md), er zijn enkele aanbevolen na de installatie-configuratie worden gewijzigd. 
@@ -37,7 +37,10 @@ Set-PSRepository `
 
  Azure Stack compatibel AzureRM-modules zijn geïnstalleerd via de API-versie profielen. Azure Stack vereist het 2017-03-09-profiel API-versie-profiel dat beschikbaar is door de module AzureRM.Bootstrapper installeren. 
  
- U kunt de Stack Azure PowerShell installeren met of zonder internetverbinding op de computer ASDK:
+ U kunt de nieuwste Azure Stack PowerShell-module installeren met of zonder internetverbinding op de computer ASDK:
+
+> [!IMPORTANT]
+> Voordat u de vereiste versie installeert, moet u [verwijdert geen bestaande Azure PowerShell-modules](.\.\azure-stack-powershell-install.md#uninstall-existing-versions-of-powershell).
 
 - **Met een internetverbinding** van de hostcomputer ASDK. Voer de volgende PowerShell-script voor het installeren van deze modules op uw development kit installatie:
 

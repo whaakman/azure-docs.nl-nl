@@ -14,17 +14,17 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/14/2018
 ms.author: parakhj
-ms.openlocfilehash: cff5c1eed374683ad3e2c1f1a69f6f172f36c536
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: d5e5ab1262a9d33fcf34cce91113f39c8c8936f4
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="azure-active-directory-b2c-allow-users-to-sign-in-to-a-multi-tenant-azure-ad-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Toestaan dat gebruikers zich aanmelden bij een multitenant Azure AD-id-provider met behulp van aangepaste beleid
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Dit artikel ziet u het inschakelen van aanmelden voor gebruikers met behulp van het algemene eindpunt voor Azure Active Directory (Azure AD) met behulp van [aangepast beleid](active-directory-b2c-overview-custom.md).
+Dit artikel ziet u het inschakelen van aanmelden voor gebruikers met behulp van het eindpunt multitenant voor Azure Active Directory (Azure AD) met behulp van [aangepast beleid](active-directory-b2c-overview-custom.md). Hiermee kunnen gebruikers van meerdere Azure AD-tenants tot aanmelding bij Azure AD B2C zonder een technische-provider voor elke tenant configureren. Leden in een van deze tenants echter Gast **niet** kunnen aanmelden. Daarvoor hebt u moet [afzonderlijk configureren elke tenant](active-directory-b2c-setup-aad-custom.md).
 
 >[!NOTE]
 > We gebruiken 'contoso.com' voor de organisatie Azure AD-tenant en 'fabrikamb2c.onmicrosoft.com' als de Azure AD B2C-tenant in de volgende instructies.
@@ -36,25 +36,22 @@ Voer de stappen in de [aan de slag met aangepaste beleidsregels](active-director
 Deze stappen omvatten:
      
 1. Maken van een Azure Active Directory B2C-tenant (Azure AD B2C).
-2. Maken van een Azure AD B2C-toepassing.    
-3. Twee beleidsengine toepassingen wordt geregistreerd.  
-4. Instellen van sleutels. 
-5. Instellen van het starter pack.
+1. Maken van een Azure AD B2C-toepassing.    
+1. Twee beleidsengine toepassingen wordt geregistreerd.  
+1. Instellen van sleutels. 
+1. Instellen van het starter pack.
 
 ## <a name="step-1-create-a-multi-tenant-azure-ad-app"></a>Step 1. Een multitenant Azure AD-app maken
 
 Als u wilt aanmelden voor gebruikers met behulp van de multitenant Azure AD-eindpunt, moet u beschikken over een multitenant-toepassing geregistreerd in een van uw Azure AD-tenants. In dit artikel wordt we beschreven hoe u een multitenant Azure AD-toepassing maken in uw Azure AD B2C-tenant. Activeert u aanmelden voor gebruikers door het gebruik van die meerdere tenants Azure AD-toepassing.
 
->[!NOTE]
-> Als u Azure AD-gebruikers wilt **en gebruikers met Microsoft-accounts** om aan te melden, kunt u deze sectie overslaan en in plaats daarvan registreert een toepassing in de [Microsoft developer-portal](https://apps.dev.microsoft.com).
-
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 1. Selecteer uw account op de bovenste balk. Van de **Directory** kiest u de Azure AD B2C-tenant om de Azure AD-toepassing (fabrikamb2c.onmicrosoft.com) te registreren.
-2. Selecteer **meer services** in het linkerdeelvenster, en zoek naar "App registraties."
-3. Selecteer **Nieuwe toepassing registreren**.
-4. Voer een naam voor uw toepassing (bijvoorbeeld `Azure AD B2C App`).
-5. Selecteer **Web-app / API** als toepassingstype.
-6. Voor **aanmeldings-URL**, voer de volgende URL waar `yourtenant` wordt vervangen door de naam van uw Azure AD B2C-tenant (`fabrikamb2c.onmicrosoft.com`):
+1. Selecteer **meer services** in het linkerdeelvenster, en zoek naar "App registraties."
+1. Selecteer **Nieuwe toepassing registreren**.
+1. Voer een naam voor uw toepassing (bijvoorbeeld `Azure AD B2C App`).
+1. Selecteer **Web-app / API** als toepassingstype.
+1. Voor **aanmeldings-URL**, voer de volgende URL waar `yourtenant` wordt vervangen door de naam van uw Azure AD B2C-tenant (`fabrikamb2c.onmicrosoft.com`):
 
     >[!NOTE]
     >De waarde voor 'yourtenant' moet alleen kleine letters in de **aanmeldings-URL**.
@@ -82,8 +79,8 @@ U moet de sleutel van de toepassing registreren in de Azure AD B2C-instellingen.
    * Voor **naam**, kies een naam die overeenkomt met de naam van uw Azure AD-tenant (bijvoorbeeld `AADAppSecret`).  Het voorvoegsel `B2C_1A_` automatisch is toegevoegd aan de naam van uw sleutel.
    * Plak uw Toepassingssleutel in de **geheim** vak.
    * Selecteer **handtekening**.
-5. Selecteer **Maken**.
-6. Controleer of u de sleutel hebt gemaakt `B2C_1A_AADAppSecret`.
+1. Selecteer **Maken**.
+1. Controleer of u de sleutel hebt gemaakt `B2C_1A_AADAppSecret`.
 
 ## <a name="step-3-add-a-claims-provider-in-your-base-policy"></a>Stap 3. Toevoegen van een claimprovider in de basis-beleid
 
@@ -114,11 +111,12 @@ U kunt Azure AD definiëren als een claimprovider door Azure AD toe te voegen de
         <Item Key="HttpBinding">POST</Item>
         <Item Key="DiscoverMetadataByTokenIssuer">true</Item>
         
-        <!-- The key below allows you to specify each of the Azure AD tenants that can be used to sign in. If you would like only specific tenants to be able to sign in, uncomment the line below and update the GUIDs. -->
-        <!-- <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/00000000-0000-0000-0000-000000000000,https://sts.windows.net/11111111-1111-1111-1111-111111111111</Item> -->
+        <!-- The key below allows you to specify each of the Azure AD tenants that can be used to sign in. Update the GUIDs below for each tenant. -->
+        <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/00000000-0000-0000-0000-000000000000,https://sts.windows.net/11111111-1111-1111-1111-111111111111</Item>
 
-        <!-- The commented key below specifies that users from any tenant can sign-in. Comment or remove the line below if using the line above. -->
-        <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/</Item>
+        <!-- The commented key below specifies that users from any tenant can sign-in. Uncomment if you would like anyone with an Azure AD account to be able to sign in. -->
+        <!-- <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/</Item> -->
+
       </Metadata>
       <CryptographicKeys>
       <!-- Make sure to update the reference ID of the client secret below you just created (B2C_1A_AADAppSecret) -->
@@ -150,14 +148,15 @@ U kunt Azure AD definiëren als een claimprovider door Azure AD toe te voegen de
 1. Werk de waarde voor `<Description>`.
 1. Stel `<Item Key="client_id">` naar de toepassings-ID van de app-registratie van de Azure AD-mulity-tenant.
 
-### <a name="step-31-optional-restrict-access-to-specific-list-of-azure-ad-tenants"></a>Stap 3.1 [optioneel] toegang beperken tot aan specifieke lijst met Azure AD-tenants
-Mogelijk wilt de lijst met geldige token uitgevers van certificaten bijwerken en de toegang beperken tot specifieke lijst met Azure AD-tenants gebruikers kunnen aanmelden. Als u de waarden, moet u om te kijken naar de metagegevens voor elke specifieke Azure AD-tenants die u wilt dat gebruikers aan te melden. De indeling van de gegevens ziet er als volgt: `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`, waarbij `yourAzureADtenant` is uw Azure AD-tenant-naam (contoso.com of andere Azure AD-tenant).
+### <a name="step-31-restrict-access-to-a-specific-list-of-azure-ad-tenants"></a>Toegang tot een specifieke lijst met Azure AD-tenants stap 3.1 beperken
+
+> [!NOTE]
+> Met behulp van `https://sts.windows.net` als de waarde voor **ValidTokenIssuerPrefixes** , kunnen gebruikers van de Azure AD Meld u aan bij uw app.
+
+U moet de lijst met geldige token uitgevers van certificaten bijwerken en de toegang beperken tot specifieke lijst met Azure AD-tenants gebruikers kunnen aanmelden. Als u de waarden, moet u om te kijken naar de metagegevens voor elke specifieke Azure AD-tenants die u wilt dat gebruikers aan te melden. De indeling van de gegevens ziet er als volgt: `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`, waarbij `yourAzureADtenant` is uw Azure AD-tenant-naam (contoso.com of andere Azure AD-tenant).
 1. Open uw browser en Ga naar de URL voor metagegevens.
 1. In de browser, zoekt u naar het object 'verlener' en kopieer de waarde ervan. Deze ziet er als volgt: `https://sts.windows.net/{tenantId}/`.
 1. Plak de waarde voor de `ValidTokenIssuerPrefixes` sleutel. U kunt meerdere door deze met een komma te scheiden toevoegen. Een voorbeeld hiervan is toegelicht in het voorbeeld hierboven XML.
-
-> [!NOTE]
-> Met behulp van `https://sts.windows.net` als een waarde voor voorvoegsel toestaat alle Azure AD-gebruikers in uw app te ondertekenen.
 
 ## <a name="step-4-register-the-azure-ad-account-claims-provider"></a>Stap 4. Registreren van de claimprovider van Azure AD-account
 
@@ -212,11 +211,11 @@ U moet nu bijwerken van de relying party (RP)-bestand dat wordt nu het traject g
 ## <a name="step-6-upload-the-policy-to-your-tenant"></a>Stap 6: Het beleid uploaden naar uw tenant
 
 1. In de [Azure-portal](https://portal.azure.com), overschakelen naar de [context van uw Azure AD B2C-tenant](active-directory-b2c-navigate-to-b2c-context.md), en selecteer vervolgens **Azure AD B2C**.
-2. Selecteer **identiteit ervaring Framework**.
-3. Selecteer **alle beleidsregels**.
-4. Selecteer **uploaden beleid**.
-5. Selecteer de **het beleid overschreven als deze bestaat** selectievakje.
-6. Upload de `TrustFrameworkExtensions.xml` bestands- en de RP-bestand (bijvoorbeeld `SignUpOrSignInWithAAD.xml`) en zorg ervoor dat ze worden gevalideerd.
+1. Selecteer **identiteit ervaring Framework**.
+1. Selecteer **alle beleidsregels**.
+1. Selecteer **uploaden beleid**.
+1. Selecteer de **het beleid overschreven als deze bestaat** selectievakje.
+1. Upload de `TrustFrameworkExtensions.xml` bestands- en de RP-bestand (bijvoorbeeld `SignUpOrSignInWithAAD.xml`) en zorg ervoor dat ze worden gevalideerd.
 
 ## <a name="step-7-test-the-custom-policy-by-using-run-now"></a>Stap 7: Het aangepaste beleid testen met behulp van nu uitvoeren
 

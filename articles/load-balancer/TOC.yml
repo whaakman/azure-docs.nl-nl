@@ -22,6 +22,8 @@
       href: powershell-samples.md
 - name: Zelfstudies
   items:
+    - name: Intern verkeer gelijkmatig verdelen over VM's
+      href: tutorial-load-balancer-basic-internal-portal.md
     - name: Taken over VM's in meerdere beschikbaarheidszones verdelen
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: Taken over VM's binnen een specifieke beschikbaarheidszone verdelen

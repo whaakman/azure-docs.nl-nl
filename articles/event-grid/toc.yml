@@ -59,6 +59,8 @@
       href: monitor-event-delivery.md
     - name: Query's uitvoeren op gebeurtenisabonnementen
       href: query-event-subscriptions.md
+    - name: Een CloudEvents-schema gebruiken
+      href: cloudevents-schema.md
 - name: Naslaginformatie
   items:
     - name: Azure-CLI

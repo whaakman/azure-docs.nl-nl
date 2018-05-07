@@ -3,7 +3,7 @@ title: Spark is gebouwd machine learning-modellen operationeel maken | Microsoft
 description: Hoe worden geladen en beoordelen van learning-modellen die zijn opgeslagen in Azure Blob Storage (WASB) met behulp van Python.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 626305a2-0abf-4642-afb0-dad0f6bd24e9
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: bradsev
-ms.openlocfilehash: 3a586d40a9d195fe5ec3fa456d450cb3d86f2e9d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: 928d29da4388372ccc3721c4bcccba5d2bbf5c48
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Spark is gebouwd machine learning-modellen operationeel maken
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -115,7 +115,7 @@ De PySpark-kernels die worden geleverd met Jupyter-notebooks hebben een vooraf i
 De PySpark-kernel biedt een aantal vooraf gedefinieerde 'magics', die zijn speciale opdrachten die u met aanroepen kunt %%. Er zijn twee dergelijke opdrachten die worden gebruikt in deze codevoorbeelden.
 
 * **%% lokale** opgegeven dat de code in de volgende regels lokaal wordt uitgevoerd. De sitecode moet geldige Python-code.
-* **%%sql -o <variable name>** 
+* **%% sql -o <variable name>** 
 * Een Hive-query op de sqlContext worden uitgevoerd. Als de parameter -o is doorgegeven, het resultaat van de query wordt bewaard de %% lokale Python context als een dataframe Pandas.
 
 Voor meer informatie over de kernels voor Jupyter-notebooks en de vooraf gedefinieerde 'magics' die ze bieden, Zie [beschikbare Kernels voor Jupyter-notebooks met HDInsight Spark Linux-clusters in HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).

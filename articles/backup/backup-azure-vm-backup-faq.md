@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: e0337a7ce1392d78eba9791095f5d7a9c7d4afdd
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 785ba078669886cf16041752bd7af5a957899d28
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Vragen over de Azure VM Backup-service
 In dit artikel vindt u antwoorden op veelgestelde vragen om u snel een beeld te geven van de verschillende onderdelen van Azure VM Backup. Sommige antwoorden bevatten koppelingen naar artikelen met uitgebreide informatie over het onderwerp. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
@@ -54,6 +54,9 @@ Ja. Als het zich in momentopname ' te maken' fase, kunt u back-uptaak annuleren.
 
 ### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>Ik resourcegroep vergrendeling ingeschakeld op de beheerde computer voor back-up virtuele machines. Worden mijn back-ups gewoon uitgevoerd?
 Als de gebruiker Hiermee vergrendelt u de resourcegroep, kan Backup-service niet worden verwijderd van de oudere herstelpunten. Als gevolg van dit nieuwe back-ups mislukken als er een limiet van maximaal 18 herstelpunten die zijn opgelegd vanuit de back-end geldt. Als uw back-ups met een interne fout nadat de vergrendeling RG mislukken, volgt u deze [stappen voor het verwijderen van het terugzetten van wijst verzameling](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock).
+
+### <a name="does-backup-policy-take-daylight-saving-timedst-into-account"></a>Back-up beleid Daylight opslaan Time(DST) rekening gehouden met
+Nee. Let erop dat datum en tijd op uw lokale computer in uw lokale tijd en met uw huidige zomertijd afwijking wordt weergegeven. Dus kan de geconfigureerde tijd voor de geplande back-ups afwijken van de lokale tijd vanwege Zomertijd.
 
 ## <a name="restore"></a>Herstellen
 ### <a name="how-do-i-decide-between-restoring-disks-versus-full-vm-restore"></a>Hoe bepaal ik of ik beter afzonderlijke schijven kan herstellen of de virtuele machine als geheel?

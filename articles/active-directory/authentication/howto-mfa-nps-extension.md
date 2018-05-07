@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 05/01/2018
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 38556392624e87611d59e3b96ae63ce8ea30afbd
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d1b598dc19882a91143515e954f7dc9cdce7c384
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Uw bestaande NPS-infrastructuur integreren met Azure multi-factor Authentication
 
@@ -117,9 +117,9 @@ Wanneer u de extensie NPS implementeert, moet u deze factoren gebruiken om te be
 
 U kunt [uitschakelen van niet-ondersteunde verificatiemethoden](howto-mfa-mfasettings.md#selectable-verification-methods) in Azure.
 
-### <a name="enable-users-for-mfa"></a>Gebruikers voor MFA inschakelen
+### <a name="register-users-for-mfa"></a>Gebruikers registreren voor MFA
 
-Voordat u de volledige uitbreiding van NPS implementeren, moet u MFA inschakelen voor de gebruikers die u wilt uitvoeren van verificatie in twee stappen. Meer onmiddellijk om te testen de extensie als u deze implementeert, moet u minstens één test-account dat volledig is geregistreerd voor multi-factor Authentication.
+Voordat u implementeert en de NPS-uitbreiding wordt gebruikt, moeten gebruikers die moeten worden verificatie in twee stappen uitvoeren worden geregistreerd voor MFA. Meer onmiddellijk om te testen de extensie als u deze implementeert, moet u minstens één test-account dat volledig is geregistreerd voor multi-factor Authentication.
 
 Gebruik de volgende stappen uit om een testaccount gestart:
 1. Aanmelden bij [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup) met een testaccount. 

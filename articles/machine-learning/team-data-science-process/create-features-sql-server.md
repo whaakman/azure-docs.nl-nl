@@ -3,7 +3,7 @@ title: Maken van de functies voor gegevens in SQL Server met behulp van SQL en P
 description: Gegevens over het installatieproces van SQL Azure
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: ''
 ms.assetid: bf1f4a6c-7711-4456-beb7-35fdccd46a44
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: bradsev
-ms.openlocfilehash: 5eaa7b5b30617cabedc7ed15a8fc7b174ecc68f2
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: 206ae59ff84699eb8419d068d2f2102759ac82c1
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Met SQL en Python functies maken voor gegevens in SQL Server
 Dit document wordt beschreven hoe functies voor opgeslagen gegevens in een SQL Server VM op Azure waarmee algoritmen efficiënter meer van de gegevens genereren. U kunt SQL- of een programmeertaal zoals Python gebruiken deze taak uit te voeren. Beide benaderingen zijn hier gedemonstreerd.

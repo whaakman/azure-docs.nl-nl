@@ -1,5 +1,5 @@
 ---
-title: Overzicht van Azure-Database migratie Service Preview | Microsoft Docs
+title: Overzicht van de Service Azure Database migratie | Microsoft Docs
 description: Overzicht van de Azure-Database migratie Service, waarmee naadloze migraties van veel databasebronnen naar Azure Data-platforms.
 services: database-migration
 author: HJToland3
@@ -9,25 +9,21 @@ ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.topic: article
-ms.date: 04/25/2018
-ms.openlocfilehash: b28ea5606e4fae849a2906b0d81a9ed07f265ebf
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.date: 04/30/2018
+ms.openlocfilehash: 6a075dae79c6a65477842c086aebea69de1cab56
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
-# <a name="what-is-the-azure-database-migration-service-preview"></a>Wat is Azure Database migratie Service Preview?
-De Azure-Service voor het migreren van Database is een volledig beheerde service die is ontworpen om in te schakelen naadloze migraties uit meerdere databasebronnen naar Azure Data platforms met minimale downtime. De service is momenteel in de openbare Preview met ontwikkelingsinspanningen is gericht op:
-
-- Betrouwbaarheid en prestaties.
-- Iteratieve toevoeging van de bron-doel-paren.
-- Blijvende investeringen in wrijving gratis migraties.
+# <a name="what-is-the-azure-database-migration-service"></a>Wat is de Service Azure Database migreren?
+De Azure-Service voor het migreren van Database is een volledig beheerde service die is ontworpen om in te schakelen naadloze migraties uit meerdere databasebronnen naar Azure Data platforms met minimale downtime.
 
 ## <a name="use-familiar-tools"></a>Gebruik bekende programma's
 De migratie van Azure databaseservice integreert enkele van de functionaliteit van onze bestaande hulpprogramma's en services. Dit biedt klanten met een uitgebreide, maximaal beschikbare oplossing. De service wordt gebruikt de [gegevens migratie-assistent](http://aka.ms/dma) naar assessment rapporten genereren waarin aanbevelingen om u te begeleiden de wijzigingen die zijn vereist voordat u een migratie uitvoert. Het is aan u eventuele vereiste herstel moet worden uitgevoerd. Wanneer u klaar bent voor het migratieproces begint, voert de migratie van Azure databaseservice alle stappen van de bijbehorende. U kunt starten en vergeet uw migratie-projecten met zekerheid er rekening mee dat bekend is dat het wordt gebruikgemaakt van best practices, zoals wordt bepaald door Microsoft.
 
-## <a name="regional-availability-during-public-preview"></a>Regionale beschikbaarheid tijdens Public Preview
-De openbare Preview-versie van de Azure-Service voor het migreren van Database is momenteel beschikbaar in de volgende gebieden:
+## <a name="regional-availability"></a>Regionale beschikbaarheid
+Azure-Database migratie-Service is momenteel beschikbaar in de volgende gebieden:
 - VS - oost
 - VS - midden
 - Zuid-centraal VS

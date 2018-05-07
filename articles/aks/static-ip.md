@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 2/12/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 945132dd5f7e51f05ceda89a9cb16315aabbda8a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 623ba423d4f60fee0d18ad9455cc06effeff482a
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="use-a-static-ip-address-with-the-azure-container-service-aks-load-balancer"></a>Gebruik een statisch IP-adres met de Azure Container Service (AKS) load balancer
 
@@ -59,9 +59,11 @@ Let op het IP-adres.
 
  Indien nodig, het adres kan worden opgehaald met de [az netwerk openbare ip-lijst] [ az-network-public-ip-list] opdracht.
 
-```console
-$ az network public-ip list --resource-group MC_myResourceGRoup_myAKSCluster_eastus --query [0].ipAddress --output tsv
+```azurecli-interactive
+az network public-ip list --resource-group MC_myResourceGRoup_myAKSCluster_eastus --query [0].ipAddress --output tsv
+```
 
+```console
 40.121.183.52
 ```
 
@@ -87,9 +89,11 @@ spec:
 
 Als het statische IP-adres niet gemaakt is of is gemaakt in de verkeerde resourcegroep, mislukt het maken van de service. Als u wilt oplossen, retourneren gebeurtenissen van de service maken met de [kubectl beschrijven] [ kubectl-describe] opdracht.
 
-```console
-$ kubectl describe service azure-vote-front
+```azurecli-interactive
+kubectl describe service azure-vote-front
+```
 
+```console
 Name:                     azure-vote-front
 Namespace:                default
 Labels:                   <none>

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/23/2017
 ms.author: mahi
-ms.openlocfilehash: 57bc38e6c825f0f62e41d2680e0a39da73d3c4d0
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
-ms.translationtype: HT
+ms.openlocfilehash: 96360eabefcbbdf36ef3bd83b0c6de45c1a6f3cc
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Azure Data Lake Analytics beheren met Azure PowerShell
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -69,7 +69,7 @@ Save-AzureRmProfile -Path D:\profile.json
 Select-AzureRmProfile -Path D:\profile.json 
 ```
 
-## <a name="managing-accounts"></a>Accounts beheren
+## <a name="manage-accounts"></a>Accounts beheren
 
 ### <a name="create-a-data-lake-analytics-account"></a>Een Data Lake Analytics-account maken
 
@@ -91,7 +91,7 @@ Wanneer een resourcegroep en Data Lake Store-account beschikbaar zijn, kunt u ee
 New-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla -Location $location -DefaultDataLake $adls
 ```
 
-### <a name="get-information-about-an-account"></a>Informatie ophalen over een account
+### <a name="get-acount-information"></a>Acount informatie ophalen
 
 Informatie ophalen over een account.
 
@@ -111,7 +111,7 @@ Controleer de aanwezigheid van een specifiek Data Lake Store-account. De cmdlet 
 Test-AdlStoreAccount -Name $adls
 ```
 
-### <a name="listing-accounts"></a>Aanbieding-accounts
+### <a name="list-accounts"></a>Lijst van accounts
 
 Lijst met Data Lake Analytics-accounts binnen het huidige abonnement.
 
@@ -125,48 +125,7 @@ Lijst met Data Lake Analytics-accounts binnen een specifieke resourcegroep.
 Get-AdlAnalyticsAccount -ResourceGroupName $rg
 ```
 
-## <a name="managing-firewall-rules"></a>Firewall-regels beheren
-
-Lijst van firewallregels.
-
-```powershell
-Get-AdlAnalyticsFirewallRule -Account $adla
-```
-
-Een firewallregel toevoegen.
-
-```powershell
-$ruleName = "Allow access from on-prem server"
-$startIpAddress = "<start IP address>"
-$endIpAddress = "<end IP address>"
-
-Add-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $startIpAddress -EndIpAddress $endIpAddress
-```
-
-Een firewallregel wijzigen.
-
-```powershell
-Set-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $startIpAddress -EndIpAddress $endIpAddress
-```
-
-Een firewallregel verwijderen.
-
-```powershell
-Remove-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName
-```
-
-Azure-IP-adressen toestaan.
-
-```powershell
-Set-AdlAnalyticsAccount -Name $adla -AllowAzureIpState Enabled
-```
-
-```powershell
-Set-AdlAnalyticsAccount -Name $adla -FirewallState Enabled
-Set-AdlAnalyticsAccount -Name $adla -FirewallState Disabled
-```
-
-## <a name="managing-data-sources"></a>Gegevensbronnen beheren
+## <a name="manage-data-sources"></a>Gegevensbronnen beheren
 Azure Data Lake Analytics ondersteunt momenteel de volgende gegevensbronnen:
 
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
@@ -516,6 +475,48 @@ Write-Host '$subid' " = ""$adla_subid"" "
 Write-Host '$adla' " = ""$adla_name"" "
 Write-Host '$adls' " = ""$adla_defadlsname"" "
 ```
+
+## <a name="manage-firewall-rules"></a>Firewall-regels beheren
+
+### <a name="list-firewall-rules"></a>Lijst met firewall-regels
+
+```powershell
+Get-AdlAnalyticsFirewallRule -Account $adla
+```
+
+### <a name="add-a-firewall-rule"></a>Een firewallregel toevoegen
+
+```powershell
+$ruleName = "Allow access from on-prem server"
+$startIpAddress = "<start IP address>"
+$endIpAddress = "<end IP address>"
+
+Add-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $startIpAddress -EndIpAddress $endIpAddress
+```
+
+### <a name="change-a-firewall-rule"></a>Een firewallregel wijzigen
+
+```powershell
+Set-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $startIpAddress -EndIpAddress $endIpAddress
+```
+
+### <a name="remove-a-firewall-rule"></a>Een firewallregel verwijderen
+
+```powershell
+Remove-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName
+```
+
+### <a name="allow-azure-ip-addresses"></a>Azure-IP-adressen toestaan.
+
+```powershell
+Set-AdlAnalyticsAccount -Name $adla -AllowAzureIpState Enabled
+```
+
+```powershell
+Set-AdlAnalyticsAccount -Name $adla -FirewallState Enabled
+Set-AdlAnalyticsAccount -Name $adla -FirewallState Disabled
+```
+
 
 ## <a name="working-with-azure"></a>Werken met Azure
 

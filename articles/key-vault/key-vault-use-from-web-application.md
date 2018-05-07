@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: adhurwit
-ms.openlocfilehash: 93ef76729123c7187c3dd616419b5771324fe2cb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 83ce49d9ac368404edcc2d68859493476e74869e
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="use-azure-key-vault-from-a-web-application"></a>Azure Sleutelkluis in een webtoepassing gebruiken
 
@@ -157,7 +157,7 @@ Zie voor meer informatie over het maken van een testcertificaat [hoe: uw eigen t
 
 ### <a name="associate-the-certificate-with-an-azure-ad-application"></a>Het certificaat koppelen aan een Azure AD-toepassing
 
-Nu u een certificaat hebt, moet u deze koppelen aan een Azure AD-toepassing. De Azure-portal ondersteunt momenteel kan niet in deze werkstroom; Dit kan worden uitgevoerd via PowerShell. Voer de volgende opdrachten voor assoicate het certificaat met de Azure AD-toepassing:
+Nu u een certificaat hebt, moet u deze koppelen aan een Azure AD-toepassing. De Azure-portal ondersteunt momenteel kan niet in deze werkstroom; Dit kan worden uitgevoerd via PowerShell. Voer de volgende opdrachten om te koppelen van het certificaat met de Azure AD-toepassing:
 
 ```ps
 $x509 = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2

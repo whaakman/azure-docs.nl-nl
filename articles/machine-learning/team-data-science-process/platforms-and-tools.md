@@ -2,7 +2,7 @@
 title: Platforms en hulpprogramma's voor gegevenswetenschap projecten - Azure in een team | Microsoft Docs
 description: Itemizes en worden de gegevens en analyse bronnen beschikbaar zijn voor ondernemingen van het Team gegevens wetenschap proces standaardiseren besproken.
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: bradsev
-ms.openlocfilehash: 404e3dd106edf82f4f22e4c6a17987bd0bc51f65
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: bb1843b56f19715b5d1d81fd39e072e437dec663
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="platforms-and-tools-for-data-science-team-projects"></a>Platforms en hulpprogramma's voor gegevenswetenschap projecten in een team
 

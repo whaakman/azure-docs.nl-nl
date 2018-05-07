@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/23/2017
+ms.date: 04/30/2018
 ms.author: jroth
-ms.openlocfilehash: 7df0bc4b74694baa6b1c8a30d0c126b248e51168
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 2b398f59aed1610825f495a6089990d393531305
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Configureren van Azure Sleutelkluis-integratie voor SQL Server op Azure Virtual Machines (Resource Manager)
+
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-ps-sql-keyvault.md)
 > * [Klassiek](../sqlclassic/virtual-machines-windows-classic-ps-sql-keyvault.md)
@@ -29,7 +30,7 @@ ms.lasthandoff: 03/29/2018
 ## <a name="overview"></a>Overzicht
 Er zijn meerdere onderdelen van SQL Server-versleuteling, zoals [transparante gegevensversleuteling (TDE)](https://msdn.microsoft.com/library/bb934049.aspx), [kolom: versleuteling op bestandsniveau (wissen)](https://msdn.microsoft.com/library/ms173744.aspx), en [back-upversleuteling](https://msdn.microsoft.com/library/dn449489.aspx). Deze vormen van versleuteling hoeft te beheren en opslaan van de cryptografische sleutels die u voor versleuteling gebruikt. De service Azure Key Vault (Azure Sleutelkluis) is ontworpen voor het verbeteren van de beveiliging en beheer van deze sleutels op een locatie met veilige en maximaal beschikbaar. De [SQL Server-Connector](http://www.microsoft.com/download/details.aspx?id=45344) kan SQL-Server in het gebruik van deze sleutels van Azure Sleutelkluis.
 
-Als u met SQL Server met on-premises machines, er zijn [stappen die u kunt volgen om toegang tot Azure Key Vault vanuit uw on-premises SQL Server-machine](https://msdn.microsoft.com/library/dn198405.aspx). Maar voor SQL Server in Azure VM's, kunt u tijd besparen met behulp van de *Azure Sleutelkluis-integratie* functie.
+Als u SQL Server met lokale virtuele machines uitvoert, zijn er [stappen die u kunt volgen om toegang tot Azure Key Vault vanuit uw on-premises SQL Server-machine](https://msdn.microsoft.com/library/dn198405.aspx). Maar voor SQL Server in Azure VM's, kunt u tijd besparen met behulp van de *Azure Sleutelkluis-integratie* functie.
 
 Wanneer deze functie is ingeschakeld, en deze automatisch de SQL Server-Connector installeert, configureert u de EKM-provider voor toegang tot Azure Sleutelkluis, maakt u de referentie zodat u toegang tot uw kluis. Als u de stappen in de documentatie van de eerder genoemde lokale bekeken, ziet u dat deze functie stap 2 en 3 automatiseert. Het enige dat u toch wilt handmatig doen is de sleutelkluis en de sleutels te maken. Van daaruit wordt de volledige installatie van de SQL-VM geautomatiseerd. Zodra deze functie kan voor deze installatie is voltooid, kunt u de T-SQL-instructies om te beginnen met het versleutelen van uw databases of back-ups normaal uitvoeren.
 
@@ -39,7 +40,7 @@ Wanneer deze functie is ingeschakeld, en deze automatisch de SQL Server-Connecto
 U kunt Azure Sleutelkluis-integratie tijdens het inrichten of configureren voor een bestaande virtuele machines.
 
 ### <a name="new-vms"></a>Nieuwe virtuele machines
-Als u een nieuwe virtuele SQL Server-machine met Resource Manager inricht, biedt de Azure portal een stap Azure Sleutelkluis-integratie in te schakelen. De functie Azure Sleutelkluis is alleen beschikbaar voor de Enterprise, Developer en evaluatie-editie van SQL Server.
+Als u een nieuwe virtuele SQL Server-machine met Resource Manager inricht, biedt de Azure portal een manier voor Azure Sleutelkluis-integratie. De functie Azure Sleutelkluis is alleen beschikbaar voor de Enterprise, Developer en evaluatie-editie van SQL Server.
 
 ![Integratie van Azure Sleutelkluis in SQL](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-arm-akv.png)
 

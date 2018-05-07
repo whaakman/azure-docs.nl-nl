@@ -12,14 +12,14 @@ ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.date: 08/30/2017
 ms.author: genli
-ms.openlocfilehash: 12e5641093dd1bdc1546cc115283f48d5c134121
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d61daede687da077549e4a3e58bb0e5213c6a69b
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>Uw abonnement op Azure betalen naar gebruik voor een andere aanbieding wijzigen
 
@@ -99,7 +99,7 @@ Er is geen uitvaltijd service voor alle gebruikers die zijn gekoppeld aan het ab
 
 Als u biedt, elk overschakelt [limiet of quotum toeneemt boven de standaardlimiet](../azure-supportability/resource-manager-core-quotas-request.md) worden opnieuw ingesteld. Er is geen service-uitvaltijd, zelfs als er meer bronnen voorbij de standaardlimiet. Bijvoorbeeld, u 200 kernen op uw abonnement en uw quotum voor kernen terug naar de standaardwaarde van 20 kernen overschakelen aanbiedingen herstelt. De virtuele machines die gebruikmaken van de 200 kernen blijft de situatie ongewijzigd en zou worden uitgevoerd. Als u een andere quotum verhogen aanvraag geen maakt, echter, kan niet u alle meer cores inrichten.
 
-#### <a name="billing"></a>Facturering
+#### <a name="billing"></a>Billing
 
 Op de dag dat u wilt overschakelen, wordt een factuur gegenereerd voor alle openstaande bedragen. Uw abonnement wordt vervolgens gefactureerd per prijsvoorwaarden van de nieuwe aanbieding. Uw abonnement facturering Verjaardag wijzigingen aan de datum op waarop u aanbiedingen is gewijzigd. Informatie over het gebruik en facturering van gegevens voordat de wijziging van de aanbieding niet behouden, zodat het is raadzaam dat u een exemplaar voordat u overschakelt downloaden.
 

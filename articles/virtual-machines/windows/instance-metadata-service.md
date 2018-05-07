@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: b3ecddbfdc37bc58294dff41b62e0505b90ca940
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f6eef8be28ed7e1a7c4be2316dbf670bde76a637
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Azure service van de metagegevens van het exemplaar
 
@@ -36,7 +36,7 @@ De service is beschikbaar in het algemeen beschikbaar Azure-regio's. Niet alle A
 
 Regio's                                        | Beschikbaarheid?                                 | Ondersteunde versies
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Alle in het algemeen beschikbare globale Azure-regio 's](https://azure.microsoft.com/regions/)     | Algemeen beschikbaar   | 2017-04-02, 2017-08-01, 2017-12-01
+[Alle in het algemeen beschikbare globale Azure-regio 's](https://azure.microsoft.com/regions/)     | Algemeen beschikbaar   | 2017-04-02 2017-08-01, 2017-12-01, 2018-02-01
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Algemeen beschikbaar | 2017-04-02,2017-08-01
 [Azure China](https://www.azure.cn/)                                                           | Algemeen beschikbaar | 2017-04-02,2017-08-01
 [Azure Duitsland](https://azure.microsoft.com/overview/clouds/germany/)                    | Algemeen beschikbaar | 2017-04-02,2017-08-01
@@ -98,7 +98,7 @@ HTTP-statuscode | Reden
 404 – Niet gevonden | Het gevraagde element bestaat niet 
 405 methode is niet toegestaan | Alleen `GET` en `POST` aanvragen worden ondersteund
 429 te veel aanvragen | De API ondersteunt momenteel maximaal 5 query's per seconde
-500 Service Error     | Probeer na enige tijd
+Fout 500-Service     | Probeer na enige tijd
 
 ### <a name="examples"></a>Voorbeelden
 
@@ -286,10 +286,10 @@ Gegevens | Beschrijving | Versie geïntroduceerd
 location | Azure-regio de virtuele machine wordt uitgevoerd in de | 2017-04-02 
 naam | Naam van de virtuele machine | 2017-04-02
 aanbieding | Bieden informatie over de VM-afbeelding. Deze waarde is alleen aanwezig voor afbeeldingen van afbeelding voor Azure-galerie geïmplementeerd. | 2017-04-02
-publisher | Uitgever van de VM-installatiekopie | 2017-04-02
-sku | Specifieke SKU voor de VM-installatiekopie | 2017-04-02
+Uitgever | Uitgever van de VM-installatiekopie | 2017-04-02
+SKU | Specifieke SKU voor de VM-installatiekopie | 2017-04-02
 versie | Versie van de VM-afbeelding | 2017-04-02
-osType | Linux- of Windows | 2017-04-02
+besturingssysteemtype | Linux- of Windows | 2017-04-02
 platformUpdateDomain |  [Updatedomein](manage-availability.md) in de virtuele machine wordt uitgevoerd | 2017-04-02
 platformFaultDomain | [Foutdomein](manage-availability.md) in de virtuele machine wordt uitgevoerd | 2017-04-02
 vmId | [De unieke id](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) voor de virtuele machine | 2017-04-02
@@ -300,13 +300,14 @@ resourceGroupName | [Resourcegroep](../../azure-resource-manager/resource-group-
 placementGroupId | [Plaatsing groep](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) van de schaal van uw virtuele machine instellen | 2017-08-01
 vmScaleSetName | [Naam van de virtuele Machine-ScaleSet] (.. /.. / virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) van de schaal van uw virtuele machine instellen | 2017-12-01
 zone | [Beschikbaarheid Zone](../../availability-zones/az-overview.md) van uw virtuele machine | 2017-12-01 
-ipv4/privateIpAddress | Lokale IPv4-adres van de virtuele machine | 2017-04-02
-ipv4/publicIpAddress | Openbaar IPv4-adres van de virtuele machine | 2017-04-02
+IPv4/privateIpAddress | Lokale IPv4-adres van de virtuele machine | 2017-04-02
+IPv4/publicIpAddress | Openbaar IPv4-adres van de virtuele machine | 2017-04-02
 subnetadres / | Subnetadres van de virtuele machine | 2017-04-02 
 subnetvoorvoegsel / | Subnetvoorvoegsel, voorbeeld 24 | 2017-04-02 
 ipv6/ipAddress | Lokale IPv6-adres van de virtuele machine | 2017-04-02 
 MAC-adres | Mac-adres van VM | 2017-04-02 
 scheduledevents | Zie [gebeurtenissen gepland](scheduled-events.md) | 2017-08-01
+identity | (Preview) Beheerde Service-identiteit. Zie [verkrijgen van een toegangstoken](../../active-directory/managed-service-identity/how-to-use-vm-token.md) | 2018-02-01
 
 ## <a name="example-scenarios-for-usage"></a>Voorbeeldscenario's voor gebruik  
 

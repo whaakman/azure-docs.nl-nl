@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2018
 ms.author: dekapur
-ms.openlocfilehash: af97385981c61f32c4136921d3cf14a526fc6ddb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 698117f9f8f8ba955f5c182296af3fd32a4990ae
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="query-eventstore-apis-for-cluster-events"></a>Query EventStore APIs voor Clustergebeurtenissen
 
@@ -139,35 +139,35 @@ var clstrEvents = sfhttpClient.EventsStore.GetClusterEventListAsync(
 
 Hier volgen enkele voorbeelden van hoe u de gebeurtenis Store REST-API's voor informatie over de status van het cluster kunt aanroepen.
 
-1. Cluster-upgrades:
+*Cluster-upgrades:*
 
 Overzicht van de laatste keer het cluster correct is of geprobeerd afgelopen week worden bijgewerkt, u kunt een query de API's voor upgrades van de laatst voltooide met uw cluster, door een query uitvoert voor de gebeurtenissen 'ClusterUpgradeComplete' in de EventStore: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.2-preview&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ClusterUpgradeComplete`
 
-1. Cluster problemen met de upgrade:
+*Cluster problemen met de upgrade:*
 
 Op dezelfde manier als er problemen met een recente clusterupgrades, u kan een query voor alle gebeurtenissen voor de entiteit van het cluster. Hier ziet u diverse gebeurtenissen, met inbegrip van de initialisatie van upgrades en elke UD waarvoor de upgrade hersteld via is. Ook ziet u gebeurtenissen voor het punt waarop het terugdraaien is gestart en de bijbehorende gebeurtenissen health. Dit is de query die u voor dit gebruiken zou: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.2-preview&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 
-1. Statuswijzigingen knooppunt:
+*Statuswijzigingen knooppunt:*
 
 Controleer dat de status van uw knooppunt is gewijzigd in het afgelopen gebruik paar dagen - wanneer knooppunten is gegaan omhoog of omlaag, of zijn geactiveerd of gedeactiveerd (door het platform, de service chaos of van gebruikersinvoer) - de volgende query: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Nodes/Events?api-version=6.2-preview&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 
-1. Toepassingsgebeurtenissen van de:
+*Toepassingsgebeurtenissen van de:*
 
 U kunt ook uw recente implementaties van toepassingen en -upgrades bijhouden. Gebruik de volgende query om te zien van toepassing op alle gerelateerde gebeurtenissen in het cluster: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/Events?api-version=6.2-preview&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 
-1. Historische status van een toepassing:
+*Historische status van een toepassing:*
 
 Naast de levenscyclus van toepassingsgebeurtenissen NET ziet, kunt u ook om te zien van historische gegevens over de status van een specifieke toepassing. U kunt dit doen door op te geven van de naam van de toepassing waarvoor u wilt om de gegevens te verzamelen. Gebruik deze query alle gebeurtenissen voor application health: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/myApp/$/Events?api-version=6.2-preview&starttimeutc=2018-03-24T17:01:51Z&endtimeutc=2018-03-29T17:02:51Z&EventsTypesFilter=ProcessApplicationReport`. Als u wilt opnemen van health-gebeurtenissen die mogelijk verlopen (geworden hun tijd doorgegeven aan live (TTL)), Voeg `,ExpiredDeployedApplicationEvent` aan het einde van de query, kunt u filteren op twee soorten gebeurtenissen.
 
-1. Historische status voor alle services in 'Mijntoep':
+*Historische status voor alle services in 'Mijntoep':*
 
 Op dit moment health rapport gebeurtenissen voor services worden weergegeven als `DeployedServiceHealthReportCreated` -gebeurtenissen onder de overeenkomende Toepassingsentiteit. Gebruik de volgende query om te zien hoe uw services hebben gedaan voor "App1": `https://winlrc-staging-10.southcentralus.cloudapp.azure.com:19080/EventsStore/Applications/myapp/$/Events?api-version=6.2-preview&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=DeployedServiceHealthReportCreated`
 
-1. Herconfiguratie van de partitie:
+*Herconfiguratie van de partitie:*
 
 Alle zien die de bewegingen van de partitie die hebben plaatsgevonden in uw cluster zoeken naar de `ReconfigurationCompleted` gebeurtenis. Dit kan u helpen te achterhalen wat werkbelastingen op specifieke tijdstippen, wanneer oplossen van in uw cluster problemen op welk knooppunt uitgevoerd. Hier volgt een voorbeeldquery die die biedt: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Partitions/Events?api-version=6.2-preview&starttimeutc=2018-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=PartitionReconfigurationCompleted`
 
-1. Chaos service:
+*Chaos service:*
 
 Er is een gebeurtenis voor wanneer de Chaos service is gestart of gestopt die wordt weergegeven op het clusterniveau van het. Als uw recente gebruik van de service Chaos weergeven, gebruikt u de volgende query: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.2-preview&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ChaosStarted,ChaosStopped`
 

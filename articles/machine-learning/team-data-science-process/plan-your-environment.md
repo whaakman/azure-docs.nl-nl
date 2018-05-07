@@ -2,8 +2,8 @@
 title: Scenario's identificeren en te plannen van uw proces analytics - Azure | Microsoft Docs
 description: Abonnement voor geavanceerde analyses op basis van een reeks van belangrijke vragen.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 421520dd-7728-4d29-889c-ebe6a0a6fb07
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev
-ms.openlocfilehash: f4cf702b899b285b18c09d7a5951589d2ae71b7d
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.author: deguhath
+ms.openlocfilehash: d2b982669f126695e3e5baefce24853269947536
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Scenario's en plannen identificeren voor geavanceerde analytische gegevensverwerking
 Welke bronnen moet u van plan bent om op te nemen bij het instellen van een omgeving geavanceerde analyses verwerken van een gegevensset doen? Dit artikel bevat een reeks te stellen vragen die helpen identificeren van de taken en bronnen die relevant zijn uw scenario. De volgorde van stappen op hoog niveau voor predictive analytics wordt beschreven in [wat is er Team gegevens wetenschap proces (TDSP)?](overview.md). Elk van deze stappen vereist specifieke resources voor de taken die relevant zijn voor uw specifieke scenario. De belangrijke vragen om te bepalen van uw scenario betrekking hebben op gegevens logistiek, kenmerken, de kwaliteit van de gegevenssets en de hulpprogramma's en talen die u liever de analyse.

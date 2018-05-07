@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2c06c2220d3a3ed0a27b4f0febb4de95b2137ddc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 22c8616c1585e3f728a03a794c527cb34fc0c4eb
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Volume-prijzen en -gegevens in Application Insights beheren
 
@@ -40,11 +40,8 @@ Zie voor de huidige prijzen in uw valuta en regio, [Application Insights prijzen
 
 Het basisniveau is de standaardinstelling plan prijzen wanneer een nieuwe Application Insights-resource is gemaakt. Het basisniveau is optimaal voor alle klanten, behalve de die een Operations Management Suite-abonnement hebben.
 
-* In het basis-plan u in rekening worden gebracht door gegevensvolume. Gegevensvolume is het aantal bytes ontvangen door de Application Insights telemetrie. 
-    
-    Gegevensvolume wordt gemeten als de grootte van het niet-gecomprimeerde pakket JSON die ontvangen door de Application Insights van uw toepassing.
-
-    Voor [tabelgegevens geïmporteerd naar Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), gegevensvolume wordt gemeten als de niet-gecomprimeerde grootte van bestanden die worden verzonden naar Application Insights.
+* In het basis-plan u in rekening worden gebracht door gegevensvolume. Gegevensvolume is het aantal bytes ontvangen door de Application Insights telemetrie. Gegevensvolume wordt gemeten als de grootte van het niet-gecomprimeerde pakket JSON die ontvangen door de Application Insights van uw toepassing. Voor [tabelgegevens geïmporteerd naar Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), gegevensvolume wordt gemeten als de niet-gecomprimeerde grootte van bestanden die worden verzonden naar Application Insights.
+* Uw toepassing gegevens volume kosten worden nu gerapporteerd op een nieuwe facturering meter met de naam **gegevensopname** vanaf April 2018. Dit nieuwe meter is door de bewaking van technologieën zoals toepassingen inzicht en Log Analytics worden gedeeld en wordt momenteel onder de servicenaam van de **App Services** (en snel te wijzigen **logboekanalyse**). 
 * [Metrische gegevens livestream](app-insights-live-stream.md) gegevens wordt niet meegeteld voor de doeleinden prijzen.
 * [Continue export](app-insights-export-telemetry.md) en de [Azure Log Analytics connector](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409) beschikbaar zijn zonder extra kosten zijn in het basisniveau vanaf April 2018.
 
@@ -149,7 +146,7 @@ Voor het detecteren van de werkelijke samplefrequentie, ongeacht waar deze is to
 
 In elk bewaard record, `itemCount` geeft het aantal oorspronkelijke records die deze vertegenwoordigt. Dit is gelijk aan 1 + het aantal eerdere verwijderde records. 
 
-## <a name="automation"></a>Automatisering
+## <a name="automation"></a>Automation
 
 U kunt een script voor het instellen van het plan prijs via Azure Resource Management schrijven. [Meer informatie](app-insights-powershell.md#price).
 

@@ -76,6 +76,8 @@
           href: stream-analytics-high-frequency-trading.md
         - name: IoT-gegevensstromen verwerken
           href: stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md
+        - name: Regels op basis van een drempelwaarde
+          href: stream-analytics-threshold-based-rules.md
     - name: Controleren
       items:
         - name: Taken bewaken - Azure Portal

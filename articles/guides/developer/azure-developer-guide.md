@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: b1cda302636d8bd4d0f14536f186c7b4951c09c1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0cc08ee595bda478adbb0e39dbebca8019ebbad4
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Aan de slag-handleiding voor Azure-ontwikkelaars
 
@@ -233,11 +233,12 @@ Azure is gebouwd op een set REST-API's die ondersteuning bieden voor de gebruike
 Naast de REST-API's kunnen vele Azure-services u ook resources van uw toepassingen programmatisch te beheren met behulp van de platform-specifieke Azure SDK's, met inbegrip van SDK's voor de volgende ontwikkelplatforms:
 
 -   [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
--   [Node.js](http://azure.github.io/azure-sdk-for-node/)
--   [Java](https://docs.microsoft.com/java/api/)
+-   [Node.js](https://docs.microsoft.com/javascript/azure)
+-   [Java](https://docs.microsoft.com/java/azure)
 -   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
--   [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
+-   [Python](https://docs.microsoft.com/python/azure)
 -   [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)
+-   [Go](https://docs.microsoft.com/go/azure)
 
 Services, zoals [Mobile Apps](../../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md) en [Azure Media Services](../../media-services/media-services-dotnet-how-to-use.md) clientzijde SDK's om u te laten bieden toegang tot de services van web- en voor mobiele ClientApps.
 
@@ -305,7 +306,7 @@ Als u toegang tot Azure-resources toestaat, maar het is altijd een best practice
 
 Azure Resource Manager kunt u aangepaste labels toewijzen aan afzonderlijke resources. Labels die sleutel-waardeparen, kunnen nuttig zijn als u nodig hebt om resources voor facturering of bewaking te organiseren. Tags bieden een manier om bij te houden van bronnen tussen meerdere resourcegroepen. U kunt de labels in de portal in de Azure Resource Manager-sjabloon of programmatisch met behulp van de REST-API, de Azure CLI of PowerShell kunt toewijzen. U kunt meerdere labels toewijzen aan elke resource. Zie voor meer informatie, [met labels om uw Azure-resources te organiseren](../../resource-group-using-tags.md).
 
-### <a name="billing"></a>Facturering
+### <a name="billing"></a>Billing
 
 Zijn belangrijke problemen in het verplaatsen van on-premises computers tot de cloud gehoste services schatten gebruik van de service en gerelateerde kosten en bij te houden. Het is belangrijk om te schatten nieuwe resources kosten om uit te voeren op maandelijkse basis. U moet ook mogelijk om de weergave van de facturering voor een bepaalde maand op basis van de huidige uitgaven te projecteren.
 

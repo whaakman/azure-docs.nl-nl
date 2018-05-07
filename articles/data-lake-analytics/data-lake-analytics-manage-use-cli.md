@@ -2,7 +2,7 @@
 title: Azure Data Lake Analytics beheren met Azure-opdrachtregelinterface | Microsoft Docs
 description: Informatie over het beheren van Data Lake Analytics-accounts, gegevensbronnen, taken en gebruikers met Azure CLI
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: SnehaGunda
 manager: Kfile
 ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/29/2018
 ms.author: sngun
-ms.openlocfilehash: edaedaa517a672cd4bad5dc35527f4595ab4a85f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9504e1fcbb0128f538cb6e959cf7586f24827836
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-command-line-interface-cli"></a>Azure Data Lake Analytics beheren met Azure-opdrachtregelinterface (CLI)
 
@@ -32,7 +32,7 @@ Voordat u deze zelfstudie begint, hebt u de volgende bronnen:
 
 * Een Azure-abonnement. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 
-* Azure CLI. Zie [Azure CLI installeren en configureren](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Azure CLI. Zie [Azure CLI installeren en configureren](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
    * Download en installeer de **pre-release** [Azure CLI-hulpprogramma’s](https://github.com/MicrosoftBigData/AzureDataLake/releases) om deze demo te voltooien.
 
@@ -194,6 +194,27 @@ Gebruik de opdracht lijst zoeken naar de taak-id en gebruik vervolgens annuleren
    ```azurecli
    az dla job cancel --account "<Data Lake Analytics account name>" --job-identity "<Job Id>"
    ```
+
+## <a name="pipelines-and-recurrences"></a>Pijplijnen en herhalingen
+
+**Meer informatie over pijplijnen en herhalingen**
+
+Gebruik de `az dla job pipeline`-opdrachten om de pijplijngegevens te zien voor eerder verzonden taken.
+
+```
+az dla job pipeline list --account "<Data Lake Analytics Account Name>"
+
+az dla job pipeline show --account "<Data Lake Analytics Account Name>" --pipeline-identity "<Pipeline ID>"
+```
+
+Gebruik de `az dla job recurrence`-opdrachten om de herhalingsgegevens te zien voor eerder verzonden taken.
+
+```
+az dla job recurrence list --account "<Data Lake Analytics Account Name>"
+
+az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recurrence-identity "<Recurrence ID>"
+```
+
 
 ## <a name="use-azure-resource-manager-groups"></a>Azure Resource Manager-groepen gebruiken
 Toepassingen bestaan in het algemeen uit meerdere onderdelen, bijvoorbeeld een web-app, database, databaseserver, opslag en services van derden. Azure Resource Manager kunt u werken met de resources in uw toepassing als groep, aangeduid als een Azure-resourcegroep. U kunt implementeren, bijwerken, bewaken of verwijdert alle resources voor uw toepassing in een enkele, gecoördineerde bewerking. Voor implementatie gebruikt u een sjabloon. Deze sjabloon kan voor verschillende omgevingen worden gebruikt, zoals testen, faseren en productie. U kunt facturering voor uw organisatie verduidelijken door de samengevoegde kosten voor de hele groep weer te geven. Zie [Overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) voor meer informatie. 

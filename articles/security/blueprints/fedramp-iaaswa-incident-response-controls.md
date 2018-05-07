@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: bcdb2b151c4d14af59e8133bd871ef6c3c0b9f73
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="incident-response-ir"></a>Respons op incidenten (IR)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-1** de organisatie ontwikkelt, documenten en verspreide naar [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen] een beleid voor respons op incidenten die zijn gericht op doel, bereik, rollen, verantwoordelijkheden, management streven, coördinatie tussen de organisatie-entiteiten en naleving; en -procedures om de uitvoering van het beleid voor respons op incidenten en de bijbehorende respons op incidenten controles; en controleert en updates van het huidige beleid voor respons op incidenten [toewijzing: organisatie gedefinieerde frequentie]; en -procedures voor respons op incidenten [toewijzing: organisatie gedefinieerde frequentie].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 2.** de organisatie respons op incidenten training biedt aan gebruikers gegevens consistent zijn met de toegewezen rollen en verantwoordelijkheden binnen [toewijzing: organisatie gedefinieerde periode] van de rol van een respons op incidenten of verantwoordelijkheid.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 2.b** de organisatie respons op incidenten training biedt aan gebruikers gegevens consistent zijn met de toegewezen rollen en verantwoordelijkheden indien vereist door wijzigingen in het systeem informatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 2.c** de organisatie respons op incidenten training biedt aan gebruikers gegevens consistent zijn met de toegewezen rollen en verantwoordelijkheden [toewijzing: organisatie gedefinieerde frequentie] daarna.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-2 (1)** de organisatie gesimuleerde gebeurtenissen opgenomen in de respons op incidenten training effectieve antwoord van de werknemers in crisissituaties mogelijk te maken.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-2 (2)** geautomatiseerde mechanismen om te zorgen voor een grondige en meer realistische respons op incidenten training-omgeving maakt gebruik van de organisatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-3** de organisatie de mogelijkheid respons op incidenten voor het informatiesysteem test [toewijzing: organisatie gedefinieerde frequentie] met [toewijzing: tests organisatie gedefinieerd] om te bepalen van de respons op incidenten effectiviteit en documenten in de resultaten.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-3 (2)** de organisatie coördineert respons op incidenten testen met organisatie-elementen die verantwoordelijk is voor verwante plannen.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -139,11 +139,11 @@ ms.lasthandoff: 02/11/2018
 
  ## <a name="nist-800-53-control-ir-4a"></a>NIST 800 53 besturingselement IR-4.
 
-#### <a name="incident-handling"></a>Incident Handling
+#### <a name="incident-handling"></a>Afhandelen van incidenten
 
 **IR 4.** de organisatie implementeert een incident mogelijkheid voor beveiligingsincidenten met voorbereiding, detectie en analyse, containment, uitroeiing en herstel voor het verwerken.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -153,11 +153,11 @@ ms.lasthandoff: 02/11/2018
 
  ## <a name="nist-800-53-control-ir-4b"></a>NIST 800 53 besturingselement IR-4.b
 
-#### <a name="incident-handling"></a>Incident Handling
+#### <a name="incident-handling"></a>Afhandelen van incidenten
 
 **IR 4.b** de organisatie coördinaten afhandelen van incidenten die activiteiten met het geval van nood planningsactiviteiten.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -167,11 +167,11 @@ ms.lasthandoff: 02/11/2018
 
  ## <a name="nist-800-53-control-ir-4c"></a>NIST 800 53 besturingselement IR-4.c
 
-#### <a name="incident-handling"></a>Incident Handling
+#### <a name="incident-handling"></a>Afhandelen van incidenten
 
 **IR 4.c** is uitgerust met de organisatie de uitkomsten van afhandelen van incidenten die lopende activiteiten in de respons op incidenten procedures, training en testen, en implementeert de resulterende gewijzigd.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-4 (1)** geautomatiseerde mechanismen ter ondersteuning van het incident verwerken proces maakt gebruik van de organisatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-4 (2)** de organisatie bevat dynamische herconfiguratie van [toewijzing: onderdelen van het systeem gedefinieerde organisatie informatie] als onderdeel van de mogelijkheid respons op incidenten.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-4 (3)** identificeert de organisatie [toewijzing: organisatie gedefinieerde klassen van incidenten] en [toewijzing: organisatie gedefinieerd acties moet uitvoeren als reactie op de klassen van incidenten] om ervoor te zorgen voortzetting van de organisatie missies en bedrijfsfuncties.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-4 (4)** de organisatie correleert incidentgegevens en afzonderlijke incident antwoorden voor een hele organisatie perspectief op incidenten awareness en -antwoord.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -242,7 +242,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-4 (6)** de organisatie implementeert afhandelen van incidenten die mogelijkheid voor bedreigingen.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -256,7 +256,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-4 (8)** de organisatie coördinaten met [toewijzing: externe organisaties organisatie gedefinieerd] correleren en delen [toewijzing: incidentgegevens organisatie gedefinieerd] als u een perspectief van de gehele organisatie incident inzicht en effectiever incident antwoorden.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -270,7 +270,7 @@ ms.lasthandoff: 02/11/2018
 
 **5-IR** houdt en informatie system beveiligingsincidenten en documenten van de organisatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -284,7 +284,7 @@ ms.lasthandoff: 02/11/2018
 
 **(1) 5-IR** geautomatiseerde mechanismen om u te helpen in het volgen van beveiligingsincidenten en in de verzameling en analyse van informatie over incident maakt gebruik van de organisatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -298,7 +298,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 6.a** de organisatie vereist dat medewerkers rapport vermoed beveiligingsincidenten naar de capaciteit van de organisatie-respons op incidenten binnen [toewijzing: organisatie gedefinieerde periode].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -312,7 +312,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 6.b** incident beveiligingsinformatie naar de organisatie-rapporten [toewijzing: instanties organisatie gedefinieerd].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -326,7 +326,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-6 (1)** geautomatiseerde mechanismen om u te helpen bij de rapportage van beveiligingsincidenten maakt gebruik van de organisatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -340,7 +340,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-7** de organisatie biedt een respons op incidenten ondersteuning resource, integraal is voor de organisatie-respons op incidenten mogelijkheid biedt hulp en advies voor gebruikers van het informatiesysteem voor de verwerking en rapportage van beveiliging incidenten.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -354,7 +354,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-7 (1)** veiligheidsmaatregelen geautomatiseerde mechanismen voor het verhogen van de beschikbaarheid van incident antwoord-gerelateerde informatie en ondersteuning voor de organisatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -362,13 +362,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-ir-7-2a"></a>NIST 800-53 Control IR-7 (2).a
+ ### <a name="nist-800-53-control-ir-7-2a"></a>NIST 800 53 beheren (2) een IR-7
 
 #### <a name="incident-response-assistance--coordination-with-external-providers"></a>Hulp voor respons op incidenten | Coördinatie met externe Providers
 
 **IR-7 (2) een** de organisatie zorgt voor een directe, gezamenlijke relatie tussen de respons op incidenten capaciteit en de externe providers van informatie system beveiliging mogelijkheid.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -376,13 +376,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-ir-7-2b"></a>NIST 800-53 Control IR-7 (2).b
+ ### <a name="nist-800-53-control-ir-7-2b"></a>NIST 800 53 IR-7 (2) .b beheren
 
 #### <a name="incident-response-assistance--coordination-with-external-providers"></a>Hulp voor respons op incidenten | Coördinatie met externe Providers
 
 **IR-7 (2) .b** de organisatie identificeert de teamleden organisatie respons op incidenten aan de externe providers.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -396,7 +396,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 8.** de organisatie ontwikkelt u een plan voor respons op incidenten die de organisatie met een routekaart voor het implementeren van de respons op incidenten mogelijkheid biedt; beschrijft de structuur en organisatie van de mogelijkheid respons op incidenten; bevat in de hele organisatie; past een hoog niveau benadering voor hoe u de mogelijkheid respons op incidenten voldoet aan de unieke vereisten van de organisatie die betrekking op missie, grootte, structuur en -functies hebben. definieert te rapporteren incidenten; voorziet in maatstaven voor het meten van de capaciteit van de respons op incidenten binnen de organisatie; definieert de bronnen en ondersteuning voor het beheer die nodig zijn voor effectief beheren en de mogelijkheid van een respons op incidenten; vervallen en wordt gecontroleerd en goedgekeurd door [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -410,7 +410,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 8.b** de organisatie distribueert kopieën van het plan voor respons op incidenten [toewijzing: respons op incidenten organisatie gedefinieerd personeel (aangeduid met de naam en/of door de rol) en organisatie-elementen].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -424,7 +424,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 8.c** de organisatie controleert het plan voor respons op incidenten [toewijzing: organisatie gedefinieerde frequentie].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -438,7 +438,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 8.d** de organisatie werkt het plan voor respons op incidenten om op te lossen systeem/organisatorische wijzigingen of problemen aangetroffen tijdens de uitvoering van de planning, uitvoering of testen.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -452,7 +452,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-8.e** De organisatie communiceert respons op incidenten plan wijzigingen in [toewijzing: respons op incidenten organisatie gedefinieerd personeel (aangeduid met de naam en/of door de rol) en organisatie-elementen].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -466,7 +466,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 8.f** de organisatie het plan voor respons op incidenten beschermt tegen ongeautoriseerde bekendmaking en de wijzigingsopties.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -480,7 +480,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 9.a** de organisatie reageert op gegevens morsen met het vaststellen van de specifieke gegevens die zijn betrokken bij de informatie system verontreinigd.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -494,7 +494,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 9.b** de organisatie reageert op gegevens morsen door waarschuwingen [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen] van de gegevens worden gelekt met een methode-communicatie mogelijk is niet gekoppeld aan de worden gelekt.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -508,7 +508,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 9.c** de organisatie reageert op gegevens morsen door te isoleren van het systeem voor verontreinigde informatie of systeemonderdeel.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -522,7 +522,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 9.d** de organisatie reageert op gegevens morsen door de gegevens van het systeem voor verontreinigde informatie of het onderdeel te.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -536,7 +536,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-9.e** De organisatie reageert op gegevens morsen door andere informatiesystemen of onderdelen van het systeem die zijn vervolgens verontreinigd te identificeren.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -550,7 +550,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR 9.f** de organisatie reageert op gegevens morsen door het uitvoeren van andere [toewijzing: acties organisatie gedefinieerd].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -564,7 +564,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-9 (1)** wijst van de organisatie [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen] morsen die verantwoordelijk is voor het reageren op informatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -578,7 +578,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-9 (2)** de organisatie biedt informatie morsen antwoord training [toewijzing: organisatie gedefinieerde frequentie].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -592,7 +592,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-9 (3)** de organisatie implementeert [toewijzing: organisatie gedefinieerde procedures] om ervoor te zorgen dat de organisatie-personeel beïnvloed door informatie morsen kunnen blijven toegewezen taken worden uitgevoerd terwijl verontreinigde systemen momenteel worden uitgevoerd corrigerende maatregelen.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -606,7 +606,7 @@ ms.lasthandoff: 02/11/2018
 
 **IR-9 (4)** maakt gebruik van de organisatie [toewijzing: organisatie gedefinieerd beveiligingsmaatregelen] voor personeel blootgesteld aan informatie niet binnen-verificatie ondersteunt toegewezen.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|

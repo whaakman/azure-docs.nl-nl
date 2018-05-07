@@ -2,8 +2,8 @@
 title: Een toepassingsgateway maken met de interne omleiding - Azure CLI | Microsoft Docs
 description: Informatie over het maken van een toepassingsgateway waarmee interne webverkeer worden omgeleid naar de juiste groep met de Azure CLI.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.devlang: na
@@ -11,18 +11,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
-ms.author: davidmu
-ms.openlocfilehash: 4228a3f534a5dc58ab2efa3c5cf0edd4caee43c9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: victorh
+ms.openlocfilehash: 5bd9e8f2521120dd1d12eb9630663493b89f5844
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Een toepassingsgateway maken met de interne omleiding met de Azure CLI
 
 U kunt de Azure CLI gebruiken voor het configureren van [web verkeer omleiden](application-gateway-multi-site-overview.md) bij het maken van een [toepassingsgateway](application-gateway-introduction.md). In deze zelfstudie maakt u een back-endpool met behulp van een scale-set van virtuele machines. Configureert u listeners en regels op basis van domeinnamen waarvan u eigenaar om ervoor te zorgen webverkeer binnenkomt op de juiste groep. Deze zelfstudie wordt ervan uitgegaan dat u voorbeelden van meerdere domeinen en maakt gebruik van de eigenaar *www.contoso.com* en *www.contoso.org*.
 
-In dit artikel leert u hoe:
+In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
 > * Instellen van het netwerk
@@ -47,7 +47,7 @@ Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroupAG* i
 az group create --name myResourceGroupAG --location eastus
 ```
 
-## <a name="create-network-resources"></a>Maken van netwerkbronnen 
+## <a name="create-network-resources"></a>Netwerkbronnen maken 
 
 Maken van het virtuele netwerk met de naam *myVNet* en het subnet met de naam *myAGSubnet* met [az network vnet maken](/cli/azure/network/vnet#az_net). Vervolgens kunt u het subnet met de naam toevoegen *myBackendSubnet* die nodig is voor de back-endpool van servers via [az network vnet subnet maken](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Maken van het openbare IP-adres met de naam *myAGPublicIPAddress* met [az netwerk openbare ip-maken](/cli/azure/public-ip#az_network_public_ip_create).
 
@@ -190,7 +190,7 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"],
   "commandToExecute": "./install_nginx.sh" }'
 ```
 
@@ -212,7 +212,7 @@ Voer de domeinnaam van uw in de adresbalk van uw browser. Zoals http://www.conto
 
 ![Testen van contoso-site in de toepassingsgateway](./media/tutorial-internal-site-redirect-cli/application-gateway-nginxtest.png)
 
-Wijzig het adres in het andere domein, bijvoorbeeld http://www.contoso.org en u ziet dat het verkeer is omgeleid naar de listener voor www.contoso.com.
+Wijzig het adres bijvoorbeeld aan het andere domein http://www.contoso.org en ziet u dat het verkeer is omgeleid naar de listener voor www.contoso.com.
 
 ## <a name="next-steps"></a>Volgende stappen
 

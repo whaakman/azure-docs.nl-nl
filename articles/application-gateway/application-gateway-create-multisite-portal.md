@@ -2,25 +2,25 @@
 title: Een toepassingsgateway maken met meerdere hosting-site - Azure-portal | Microsoft Docs
 description: Informatie over het maken van een toepassingsgateway die als host fungeert voor meerdere sites met de Azure-portal.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: 403c6c254d8547b09e42f0b1561e5eff350a1f9b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: victorh
+ms.openlocfilehash: f3dd092b2298bfc97cac30b8706e0588a466e1e0
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-portal"></a>Een toepassingsgateway maken met meerdere site die als host fungeert voor het gebruik van de Azure-portal
 
 U kunt de Azure portal gebruiken voor het configureren van [hosting van meerdere websites](application-gateway-multi-site-overview.md) bij het maken van een [toepassingsgateway](application-gateway-introduction.md). In deze zelfstudie maakt u back-endpools met behulp van virtuele machines-schaalsets. Configureert u listeners en regels op basis van domeinnamen waarvan u eigenaar om ervoor te zorgen dat het webverkeer binnenkomt op de juiste servers van de groepen. Deze zelfstudie wordt ervan uitgegaan dat u voorbeelden van meerdere domeinen en maakt gebruik van de eigenaar *www.contoso.com* en *www.fabrikam.com*.
 
-In dit artikel leert u hoe:
+In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
 > * Een toepassingsgateway maken
@@ -83,15 +83,15 @@ In dit voorbeeld maakt u twee virtuele machines moet worden gebruikt als back-en
 3. Voer deze waarden voor de virtuele machine:
 
     - *contosoVM* - voor de naam van de virtuele machine.
-    - *azureuser* - voor de gebruikersnaam van de beheerder.
+    - *azureuser* als gebruikersnaam van de beheerder.
     - *Azure123456!* voor het wachtwoord.
     - Selecteer **gebruik bestaande**, en selecteer vervolgens *myResourceGroupAG*.
 
 4. Klik op **OK**.
-5. Selecteer **DS1_V2** voor de grootte van de virtuele machine en klik op **Selecteer**.
+5. Selecteer **DS1_V2** als grootte van de virtuele machine en klik op **Selecteren**.
 6. Zorg ervoor dat **myVNet** is geselecteerd voor het virtuele netwerk en het subnet is **myBackendSubnet**. 
-7. Klik op **uitgeschakelde** diagnostische gegevens over opstarten uitschakelen.
-8. Klik op **OK**, Controleer de instellingen op de pagina Samenvatting en klik vervolgens op **maken**.
+7. Klik op **Uitgeschakeld** om diagnostische gegevens over opstarten uit te schakelen.
+8. Klik op **OK**, controleer de instellingen op de overzichtspagina en klik op **Maken**.
 
 ### <a name="install-iis"></a>IIS installeren
 
@@ -102,7 +102,7 @@ In dit voorbeeld maakt u twee virtuele machines moet worden gebruikt als back-en
 2. Voer de volgende opdracht voor het installeren van IIS op de virtuele machine: 
 
     ```azurepowershell-interactive
-    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/vhorne/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
     Set-AzureRmVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `

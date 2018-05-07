@@ -14,17 +14,112 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 6274e4ebbc9f3c5b21c479b10e112459000fd28b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 7e290b3bbe3fa70522533f23febe587fbb873e35
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Opmerkingen bij de release van Microsoft Azure Storage Explorer
 
-Dit artikel bevat de release-opmerkingen voor Azure Storage Explorer 0.9.6 (Preview), evenals release-opmerkingen voor eerdere versies vrijgeven.
+Dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.0.0 release, evenals de releaseopmerkingen voor eerdere versies.
 
 [Microsoft Azure Storage Explorer](./vs-azure-tools-storage-manage-with-storage-explorer.md) is een zelfstandige app waardoor u eenvoudig werken met Azure Storage-gegevens op Windows-, Mac OS- en Linux.
+
+## <a name="version-100"></a>Versie 1.0.0
+16-04/2018
+
+### <a name="download-azure-storage-explorer-100"></a>Azure Storage Explorer 1.0.0 downloaden
+- [Azure Opslagverkenner 1.0.0 voor Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Opslagverkenner 1.0.0 voor Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Opslagverkenner 1.0.0 voor Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Nieuw
+* Verbeterde verificatie waarmee Opslagverkenner de store te gebruiken hetzelfde account als Visual Studio 2017. Deze functie wilt gebruiken, moet u aanmelding aan uw accounts en uw gefilterde abonnementen opnieuw instellen.
+* Voor back-up AAD Azure Stack-accounts, zal Opslagverkenner nu Stack Azure-abonnementen ophalen als 'Doel Azure Stack' is ingeschakeld. Niet langer hoeft te maken van een aangepaste aanmelding-omgeving.
+* Verschillende snelkoppelingen zijn toegevoegd aan het sneller navigeren in te schakelen. Deze omvatten diverse deelvensters schakelen en verplaatsen tussen editors. Zie het menu Beeld voor meer informatie.
+* Storage Explorer feedback zich nu op GitHub. U kunt onze pagina met problemen bereiken door te klikken op de knop Feedback in de onderste left of door te gaan [ https://github.com/Microsoft/AzureStorageExplorer/issues ](https://github.com/Microsoft/AzureStorageExplorer/issues). U kunt suggesties, rapporteren van problemen, vragen stellen of een andere vorm van feedback laat.
+* Als u in de SSL-certificaat problemen worden uitgevoerd en kan de strijdige certificaat niet vinden, kunt u nu Opslagverkenner starten vanaf de opdrachtregel met de `--ignore-certificate-errors` vlag. Wanneer met deze markering wordt gestart, wordt in Opslagverkenner SSL certificaatfouten negeren.
+* Er is nu een downloadoptie '' in het contextmenu voor blob- en bestand.
+* Betere toegankelijkheid en ondersteuning voor schermlezers. Als u gebruik maakt van toegankelijkheidsfuncties, raadpleegt u onze [toegankelijkheid documentatie](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-accessibility) voor meer informatie.
+* Opslagverkenner gebruikt nu Electron 1.8.3
+
+### <a name="breaking-changes"></a>Wijzigingen op te splitsen
+* Opslagverkenner is overgeschakeld naar een nieuwe verificatiebibliotheek. Als onderdeel van de switch aan de bibliotheek moet u aanmelding aan uw accounts en uw gefilterde abonnementen opnieuw instellen
+* De methode die wordt gebruikt voor het versleutelen van gevoelige gegevens is gewijzigd. Dit kan leiden tot sommige objecten Snelweergavetoegang hoeven moet opnieuw worden toegevoegd en/of u gekoppeld resources hoeven opnieuw worden gekoppeld.
+
+### <a name="fixes"></a>Oplossingen
+* Sommige gebruikers achter proxy's zou hebben groep blob uploads of downloads onderbroken door een 'kan niet omzetten' foutbericht. Dit probleem is opgelost.
+* Als het aanmelden is vereist, terwijl met behulp van een directe koppeling te klikken op de prompt Sign In zou pop-updialoogvenster een leeg. Dit probleem is opgelost.
+* Op Linux, als Opslagverkenner kan niet starten vanwege het vastlopen van een proces GPU ontvangt u nu een bericht van de crash, adviseert gebruik van de '--uitschakelen gpu' switch- en Storage Explorer wordt vervolgens automatisch opnieuw opgestart met de schakeloptie ingeschakeld.
+* Ongeldige toegangsbeleid zijn moeilijk te identiteit in het dialoogvenster toegangsbeleid. Ongeldige toegangsbeleid id's worden nu in rood voor meer zichtbaarheid beschreven.
+* Het activiteitenlogboek moet soms grote gebieden met witruimte tussen de verschillende onderdelen van een activiteit. Dit probleem is opgelost.
+* Als u een component timestamp links in een ongeldige status en vervolgens heeft geprobeerd te wijzigen van een andere component zou in de tabel query-editor de editor blokkeren. De editor wordt nu de component timestamp herstellen in de laatste geldige status wanneer een wijziging in een andere-component wordt gedetecteerd.
+* Als u onderbroken terwijl u in uw zoekopdracht in de structuurweergave, zou u gezocht en focus vanaf het tekstvak zou worden gestolen. Nu moet u expliciet starten door op de Enter-toets te drukken of door te klikken op de knop start zoeken zoeken.
+* De opdracht 'Shared Access Signature ophalen', soms uitgeschakeld wanneer de rechtermuisknop te klikken op een bestand in een bestandsshare. Dit probleem is opgelost.
+* Als het structuurknooppunt resource met de focus is gefilterd tijdens de zoekopdracht, kan u niet tabblad in de resourcestructuur en gebruik de pijltoetsen om de resourcestructuur van de te bladeren. Nu als het structuurknooppunt gerichte resource is verborgen, zal het eerste knooppunt in de resourcestructuur van de worden automatisch gericht.
+* Een extra scheidingsteken zou soms zijn zichtbaar in de werkbalk. Dit probleem is opgelost.
+* In het tekstvak breadcrumb overflow soms. Dit probleem is opgelost.
+* De Blob en bestandsshare editors zou soms voortdurend vernieuwd wanneer veel bestanden tegelijk uploaden. Dit probleem is opgelost.
+* De functie 'Map statistieken' is geen doel in de weergave Bestandsbeheer Share momentopnamen. Dit is nu uitgeschakeld.
+* Het menu bestand op Linux, niet worden weergegeven. Dit probleem is opgelost.
+* Tijdens het uploaden van een map naar een bestandsshare, standaard, wordt alleen de inhoud van de map zijn geüpload. Nu is het standaardgedrag voor het uploaden van de inhoud van de map in een overeenkomende map in de bestandsshare.
+* De volgorde van de knoppen in verschillende dialoogvensters had omgekeerd. Dit probleem is opgelost.
+* Verschillende oplossingen voor beveiliging.
+
+### <a name="known-issues"></a>Bekende problemen
+* In zeldzame gevallen kan de focus structuur ophalen achtergebleven op Snelweergavetoegang. Registreer de focus, kunt u Alles vernieuwen.
+* Wanneer u ontwikkelt voor Azure-Stack, mislukken uploaden van bepaalde bestanden zoals toevoeg-blobs.
+* Wanneer u op 'Annuleren' voor een taak, duurt het even voor die taak te annuleren. Dit is omdat we de annuleren filter tijdelijke oplossing hier gebruiken. 
+* Als u de verkeerde PINCODE/smartcardcertificaat kiest, moet u opnieuw opstarten om Opslagverkenner besluit vergeet.
+* Naam van de BLOB's (afzonderlijk of in een nieuwe naam blob-container) behoudt niet momentopnamen. Alle andere eigenschappen en metagegevens voor blobs, bestanden en entiteiten blijven behouden tijdens een naam te wijzigen.
+* Hoewel Azure Stack momenteel geen bestandsshares ondersteunt, wordt een knooppunt bestandsshares nog steeds wordt weergegeven onder een gekoppelde Azure-Stack storage-account.
+* De Electron shell die wordt gebruikt door Opslagverkenner heeft problemen met sommige hardwareversnelling GPU (graphics processing unit). Als u Opslagverkenner is leeg (leeg) hoofdvenster weer te geven, kunt u proberen Storage Explorer te starten vanaf de opdrachtregel en GPU-versnelling uitschakelen door het toevoegen van de `--disable-gpu` switch:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Voor Linux-gebruikers, moet u installeren [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Voor gebruikers op Ubuntu 14.04, moet u ervoor zorgen GCC is up-to-date - kunt u dit doen door de volgende opdrachten uit te voeren en de computer opnieuw te starten:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* U moet installeren GConf voor gebruikers op Ubuntu 17.04 - kunt u dit doen door de volgende opdrachten uit te voeren en de computer opnieuw te starten:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>Eerdere versies
+
+* [Versie 0.9.6](#version-096)
+* [Versie 0.9.5](#version-095)
+* [Versie 0.9.4 en 0.9.3](#version-094-and-093)
+* [Versie 0.9.2](#version-092)
+* [Versie 0.9.1 en 0.9.0](#version-091-and-090)
+* [Versie 0.8.16](#version-0816)
+* [Versie 0.8.14](#version-0814)
+* [Versie 0.8.13](#version-0813)
+* [Versie 0.8.12 en 0.8.11 en 0.8.10](#version-0812-and-0811-and-0810)
+* [Versie 0.8.9 en 0.8.8](#version-089-and-088)
+* [Versie 0.8.7](#version-087)
+* [Versie 0.8.6](#version-086)
+* [Versie 0.8.5](#version-085)
+* [Versie 0.8.4](#version-084)
+* [Versie 0.8.3](#version-083)
+* [Versie 0.8.2](#version-082)
+* [Versie 0.8.0](#version-080)
+* [Versie 0.7.20160509.0](#version-07201605090)
+* [Versie 0.7.20160325.0](#version-07201603250)
+* [Versie 0.7.20160129.1](#version-07201601291)
+* [Versie 0.7.20160105.0](#version-07201601050)
+* [Versie 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-096"></a>Versie 0.9.6
 28-02/2018
@@ -66,30 +161,6 @@ Dit artikel bevat de release-opmerkingen voor Azure Storage Explorer 0.9.6 (Prev
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>Eerdere versies
-
-* [Versie 0.9.5](#version-095)
-* [Versie 0.9.4 en 0.9.3](#version-094-and-093)
-* [Versie 0.9.2](#version-092)
-* [Versie 0.9.1 en 0.9.0](#version-091-and-090)
-* [Versie 0.8.16](#version-0816)
-* [Versie 0.8.14](#version-0814)
-* [Versie 0.8.13](#version-0813)
-* [Versie 0.8.12 en 0.8.11 en 0.8.10](#version-0812-and-0811-and-0810)
-* [Versie 0.8.9 en 0.8.8](#version-089-and-088)
-* [Versie 0.8.7](#version-087)
-* [Versie 0.8.6](#version-086)
-* [Versie 0.8.5](#version-085)
-* [Versie 0.8.4](#version-084)
-* [Versie 0.8.3](#version-083)
-* [Versie 0.8.2](#version-082)
-* [Versie 0.8.0](#version-080)
-* [Versie 0.7.20160509.0](#version-07201605090)
-* [Versie 0.7.20160325.0](#version-07201603250)
-* [Versie 0.7.20160129.1](#version-07201601291)
-* [Versie 0.7.20160105.0](#version-07201601050)
-* [Versie 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-095"></a>Versie 0.9.5
 06-02/2018

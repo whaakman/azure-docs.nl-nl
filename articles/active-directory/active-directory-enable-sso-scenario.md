@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: c6f01a16f5f60193c81a03a7374649f87eeb270a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: e05b2d515b997e769306146a5390d4d44fd5cf50
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Toepassingen beheren met Azure Active Directory
 Afgezien van de werkstroom of inhoud hebben bedrijven twee basisvereisten voor alle toepassingen:
@@ -111,6 +111,6 @@ U kunt uw toepassingen met gedetailleerde toegangsbeleid en vooraf geïntegreerd
 Om te beginnen toepassingen integreren met Azure AD te kijken hoe de [integratie van Azure Active Directory met toepassingen aan de slag](active-directory-integrating-applications-getting-started.md).
 
 ## <a name="see-also"></a>Zie ook
-[Index voor Toepassingsbeheer in Azure Active Directory artikel](active-directory-apps-index.md)
-[stapsgewijze implementatieplan voor eenmalige aanmelding in een SaaS-toepassing](http://aka.ms/ssodeploymentplan)
+* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md) (Artikelindex voor toepassingsbeheer in Azure Active Directory)
+* [Stapsgewijze implementatie plannen voor eenmalige aanmelding in een SaaS-toepassing](http://aka.ms/ssodeploymentplan)
 

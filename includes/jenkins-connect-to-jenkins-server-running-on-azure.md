@@ -20,7 +20,7 @@
 
 1. Het wachtwoord dat wordt weergegeven in het venster bash of terminal naar het Klembord kopiëren.
 
-1. Navigeer in uw browser naar `http://localhost:8080`.
+1. Ga in de browser naar `http://localhost:8080`.
 
 1. Plak het wachtwoord eerder hebt opgehaald in de **beheerderswachtwoord** veld en selecteert u een **doorgaan**.
 

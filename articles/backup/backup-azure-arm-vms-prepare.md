@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: ba74a95d64edb8e795b9a521308435d5af11176e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 80ae3b526ff429ead5b42769237ce9ee30f30bbd
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Uw omgeving voorbereiden op door Resource Manager geïmplementeerde virtuele machines
 
@@ -56,7 +56,7 @@ Voordat u uw omgeving hebt voorbereid, zorg er dan voor dat deze beperkingen beg
 * Een bestaande virtuele machine kan tijdens het herstel niet worden vervangen. Als u probeert te herstellen van de virtuele machine wanneer de virtuele machine bestaat, mislukt de herstelbewerking opnieuw.
 * Regio-overschrijdende back-up en herstel worden niet ondersteund.
 * Tijdens het configureren van back up, zorg ervoor dat de **Firewalls en virtuele netwerken** Opslaginstellingen account toegang toestaan via alle netwerken.
-* Voor geselecteerde netwerken nadat u instellingen voor virtuele netwerken en firewall voor uw storage-account configureert, selecteert u **vertrouwde toestaan-Microsoft-services voor toegang tot dit opslagaccount** als uitzondering aan de Azure Backup-service inschakelen toegang tot het beperkte netwerk storage-account.
+* Voor geselecteerde netwerken nadat u instellingen voor virtuele netwerken en firewall voor uw storage-account configureert, selecteert u **vertrouwde toestaan-Microsoft-services voor toegang tot dit opslagaccount** als uitzondering aan de Azure Backup-service inschakelen toegang tot het beperkte netwerk storage-account. Herstel op itemniveau wordt niet ondersteund voor opslagaccounts netwerk beperkt.
 * U kunt back-ups van virtuele machines in alle openbare gebieden van Azure. (Zie de [controlelijst](https://azure.microsoft.com/regions/#services) van ondersteunde regio's.) Als de regio die u zoekt niet vandaag ondersteund wordt, wordt deze niet in de vervolgkeuzelijst weergegeven tijdens het maken van de kluis.
 * Herstellen van een domeincontroller wordt (DC) VM die deel uitmaakt van een multi-DC-configuratie alleen ondersteund door PowerShell. Zie voor meer informatie, [een multi-DC-domeincontroller terugzetten](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 * Herstellen van virtuele machines waarvoor de volgende speciale netwerkconfiguraties wordt alleen ondersteund door PowerShell. Virtuele machines die zijn gemaakt via de werkstroom terugzetten in de gebruikersinterface wordt geen van deze netwerkconfiguraties nadat de herstelbewerking voltooid is. Zie voor meer informatie, [herstellen van virtuele machines met speciale netwerkconfiguraties](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
@@ -308,6 +308,6 @@ Als u vragen hebt of als er een functie die u wilt zien opgenomen, [Stuur ons fe
 ## <a name="next-steps"></a>Volgende stappen
 Nu dat u uw omgeving voor back-ups van uw virtuele machine hebt voorbereid, wordt de volgende logische stap is het maken van een back-up. De planning artikel vindt meer gedetailleerde informatie over back-ups van virtuele machines.
 
-* [Back-up van virtuele machines](backup-azure-arm-vms.md)
+* [Back-up maken van virtuele machines](backup-azure-arm-vms.md)
 * [Uw VM-back-infrastructuur plannen](backup-azure-vms-introduction.md)
 * [Back-ups van virtuele machine beheren](backup-azure-manage-vms.md)

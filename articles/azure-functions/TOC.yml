@@ -123,6 +123,8 @@
           href: durable-functions-versioning.md
         - name: Prestaties en schaal
           href: durable-functions-perf-and-scale.md
+        - name: Herstel bij noodgeval en geodistributie
+          href: durable-functions-disaster-recovery-geo-distribution.md
 - name: Handleidingen
   items:
     - name: Ontwikkelen

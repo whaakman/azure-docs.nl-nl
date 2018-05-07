@@ -15,23 +15,23 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 2b9095d0420987f9cad758e3c883a9e2b5cd60c4
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="personnel-security-ps"></a>Personeelsbeveiliging (PS)
 
 > [!NOTE]
 > Deze besturingselementen zijn gedefinieerd door NIST en de V.S. Ministerie van handel als onderdeel van de NIST Special Publication 800-53 revisie 4. Raadpleeg NIST 800 53 Rev. 4 voor informatie over het testen van de procedures en richtlijnen voor elk besturingselement.
 
-## <a name="nist-800-53-control-ps-1"></a>NIST 800-53 Control PS-1
+## <a name="nist-800-53-control-ps-1"></a>NIST 800 53 besturingselement PS-1
 
 #### <a name="personnel-security-policy-and-procedures"></a>Beveiligingsbeleid voor medewerkers en Procedures
 
 **PS-1** de organisatie ontwikkelt, documenten en verspreide naar [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen] een beveiligingsbeleid voor medewerkers die zijn gericht op doel, bereik, rollen, verantwoordelijkheden, management streven, coördinatie tussen de organisatie-entiteiten en naleving; en -procedures om te vereenvoudigen, de implementatie van het beveiligingsbeleid voor medewerkers en bijbehorende personeel beveiligingsmechanismen; en controleert en updates van het huidige beveiligingsbeleid voor medewerkers [toewijzing: organisatie gedefinieerde frequentie]; en personeelsbeveiligingsprocedures [toewijzing: organisatie gedefinieerde frequentie].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS-2.** de organisatie een aanwijzing risico toegewezen aan alle organisatorische posities.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS-2.b** de organisatie legt screenen criteria voor personen die posities invullen.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS-2.c** de organisatie controleert en updates positie risico aanwijzingen [toewijzing: organisatie gedefinieerde frequentie].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS-3.** de organisatie schermen personen voordat het verlenen van toegang tot het informatiesysteem.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS-3.b** de organisatie rescreens personen volgens [toewijzing: organisatie gedefinieerde voorwaarden vereisen rescreening en, indien rescreening dus aangegeven is, de frequentie van deze rescreening].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -109,13 +109,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-ps-3-3a"></a>NIST 800-53 Control PS-3 (3).a
+ ### <a name="nist-800-53-control-ps-3-3a"></a>NIST 800 53 PS-3 (3) een beheren
 
 #### <a name="personnel-screening--information-with-special-protection-measures"></a>Personeel gescreend | Gegevens met speciale beschermingsmaatregelen
 
 **PS-3 (3) een** de organisatie zorgt ervoor dat personen toegang hebben tot een systeem gegevens verwerken, opslaan of verzenden van gegevens bijzondere bescherming hebben geldig-verificatie ondersteunt die zijn toegewezen officiële de rechten van de overheid.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS-3 (3) .b** de organisatie zorgt ervoor dat de personen toegang tot een systeem gegevens verwerken, opslaan of verzenden van gegevensbeveiliging vereist speciale voldoen aan [toewijzing: extra personeel organisatie gedefinieerd afschermen criteria].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS-4.** de organisatie, bij beëindiging van afzonderlijke arbeid schakelt informatie systeemtoegang binnen [toewijzing: organisatie gedefinieerde periode].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS-4.b** de organisatie, bij beëindiging van afzonderlijke arbeid beëindigt/Hiermee verificators/referenties die zijn gekoppeld aan de persoon.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS-4.c** de organisatie, bij beëindiging van afzonderlijke arbeid voert afsluiten interviews met een beschrijving van de [toewijzing: onderwerpen over de beveiliging van informatie organisatie gedefinieerd].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS-4.d** de organisatie, bij beëindiging van afzonderlijke arbeid haalt alle organisatiegegevens betrekking hebben op beveiliging system-gerelateerde eigenschap.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS-4.e** De organisatie, bij beëindiging van afzonderlijke arbeid behoudt toegang tot bedrijfsgegevens en informatiesystemen voorheen worden beheerd door afzonderlijke beëindigd.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS 4.f** waarschuwt de organisatie, bij beëindiging van afzonderlijke arbeid [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen] in [toewijzing: organisatie gedefinieerde periode].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS-4 (2)** veiligheidsmaatregelen geautomatiseerde mechanismen om u te waarschuwen voor de organisatie [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen] bij beëindiging van een persoon.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS-5.** de organisatie controleert en bevestigt lopende operationele nodig voor het huidige bevoegdheden voor logische en fysieke toegang tot informatie systemen/faciliteiten Wanneer personen worden toegewezen of overgedragen naar een andere positie binnen de de organisatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS-5.b** initieert van de organisatie [toewijzing: organisatie gedefinieerd overdracht of opnieuw toewijzen van acties] in [toewijzing: organisatie gedefinieerde periode na de actie formele overdracht].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS-5.c** de organisatie autorisatie wijzigt naar behoefte overeen te komen met de wijzigingen in de operationele nodig vanwege opnieuw toewijzen of overdracht.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS-5.d** de organisatie ontvangt een melding [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen] in [toewijzing: organisatie gedefinieerde periode].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -297,7 +297,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS-6.a** de organisatie ontwikkelt en documenten openen overeenkomsten voor organisatiegegevens systemen.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS-6.b** de organisatie controleert en updates van de overeenkomsten toegang [toewijzing: organisatie gedefinieerde frequentie].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS-6.c** de organisatie zorgt ervoor dat personen die toegang tot bedrijfsgegevens en informatiesystemen Meld u aan de juiste toegangsrechten overeenkomsten voordat hun toegang, wordt verleend en opnieuw overeenkomsten toegang ondertekenen tot Organisatiegegevens systemen wanneer toegang overeenkomsten zijn bijgewerkt of [toewijzing: organisatie gedefinieerde frequentie].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -339,7 +339,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS-7.** de organisatie vaststelt personeel beveiligingsvereisten inclusief beveiligingsrollen en -verantwoordelijkheden voor providers van derden.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -353,7 +353,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS-7.b** derden om te voldoen aan het beveiligingsbeleid voor medewerkers en procedures die zijn ingesteld door de organisatie vereist dat de organisatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -367,7 +367,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS-7.c** personeel beveiligingsvereisten en de organisatie documenten.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -381,7 +381,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS-7.d** de organisatie vereist dat leveranciers melden [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen] personeel overdrachten of uiteinden van een derde partij medewerkers die beschikken over de organisatie-referenties en/of badges, of die informatie systeembevoegdheden binnen [toewijzing: organisatie gedefinieerde periode].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -389,13 +389,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-ps-7e"></a>NIST 800-53 Control PS-7.e
+ ## <a name="nist-800-53-control-ps-7e"></a>NIST 800 53 besturingselement PS-7.e
 
 #### <a name="third-party-personnel-security"></a>Personeelsbeveiliging van derden
 
 **PS-7.e** De organisatie bewaakt de naleving van de provider.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -409,7 +409,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS-8.** een formele sancties-proces voor personen die niet naleven beveiligingsbeleid tot stand gebrachte informatie en procedures maakt gebruik van de organisatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -423,7 +423,7 @@ ms.lasthandoff: 02/11/2018
 
 **PS-8.b** de organisatie ontvangt een melding [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen] binnen [toewijzing: organisatie gedefinieerde periode] wanneer een werknemer formele sancties proces wordt gestart, identificeren van de persoon erkende en de reden voor de sancties.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|

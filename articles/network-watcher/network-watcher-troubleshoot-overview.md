@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 646caa5e4aacd58377c0a2b5985a69277d00cec3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2f8a41834c1451d80c53cfed4bae3b7e36281702
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Inleiding tot het oplossen van problemen in de Azure-netwerk-Watcher resource
 
@@ -146,7 +146,7 @@ Error: On-prem device sent invalid payload.
      based on log : IkeFindPayloadInPacket failed with Windows error 13843(ERROR_IPSEC_IKE_INVALID_PAYLOAD)
 ```
 
-### <a name="scrubbed-wfpdiagtxt"></a>Scrubbed-wfpdiag.txt
+### <a name="scrubbed-wfpdiagtxt"></a>Verwijderd wfpdiag.txt
 
 De **Scrubbed wfpdiag.txt** logboekbestand bevat het WPF-logboek. Dit logboek bevat de logboekregistratie van het pakket verwijderen en IKE/AuthIP fouten.
 
@@ -211,7 +211,7 @@ Elapsed Time            330 sec
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het onderzoeken van VPN-Gateways en verbindingen via de portal in via [Gateway probleemoplossing - Azure-portal](network-watcher-troubleshoot-manage-portal.md).
+Zie voor meer informatie over hoe u een probleem met een gateway of gatewayverbinding op te sporen, [diagnosticeren van communicatie tussen netwerken](diagnose-communication-problem-between-networks.md).
 <!--Image references-->
 
 [1]: ./media/network-watcher-troubleshoot-overview/GatewayTenantWorkerLogs.png

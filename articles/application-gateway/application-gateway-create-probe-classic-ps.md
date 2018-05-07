@@ -3,9 +3,9 @@ title: Maken van een aangepaste test - Azure Application Gateway - PowerShell-kl
 description: Informatie over het maken van een aangepaste test voor Application Gateway met behulp van PowerShell in het klassieke implementatiemodel
 services: application-gateway
 documentationcenter: na
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 tags: azure-service-management
 ms.assetid: 338a7be1-835c-48e9-a072-95662dc30f5e
 ms.service: application-gateway
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
-ms.author: davidmu
-ms.openlocfilehash: b167a0584740a4e583a35bd6d44ec5d616ba04f7
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: victorh
+ms.openlocfilehash: 97d1376dc7908b72d8e8ec15145229cf3cf4acae
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Maak een aangepaste test voor Azure Application Gateway (klassiek) met behulp van PowerShell
 
@@ -151,9 +151,9 @@ De configuratieparameters zijn:
 |---|---|
 |**Naam** |De referentienaam voor aangepaste test. |
 * **Protocol** | Protocol dat wordt gebruikt (mogelijke waarden zijn HTTP of HTTPS).|
-| **Host** en **pad** | Volledige URL-pad dat wordt opgeroepen door de toepassingsgateway de status van het exemplaar te bepalen. Bijvoorbeeld, hebt u een website http://contoso.com/, kan vervolgens aangepaste test worden geconfigureerd voor 'http://contoso.com/path/custompath.htm' voor de controle te hebben van een geslaagde reactie van de HTTP-test.|
+| **Host** en **pad** | Volledige URL-pad dat wordt opgeroepen door de toepassingsgateway de status van het exemplaar te bepalen. Bijvoorbeeld, als u een website hebt http://contoso.com/, en vervolgens de aangepaste test kan worden geconfigureerd voor 'http://contoso.com/path/custompath.htm' voor test controles hebben een geslaagde HTTP-antwoord.|
 | **Interval** | Hiermee configureert u de controles van de test-interval in seconden.|
-| **Time-out** | Hiermee definieert u de test-time-outwaarde voor de controle van een HTTP-antwoord.|
+| **Timeout** | Hiermee definieert u de test-time-outwaarde voor de controle van een HTTP-antwoord.|
 | **UnhealthyThreshold** | Het aantal mislukte HTTP-antwoorden die nodig zijn voor de back-end-instantie als vlag *slecht*.|
 
 Naam van de test wordt verwezen in de \<BackendHttpSettings\> configuratie om toe te wijzen welke back-end-adresgroep maakt gebruik van aangepaste test-instellingen.

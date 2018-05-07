@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 05/02/2018
 ms.author: jingwang
-ms.openlocfilehash: 72d2eb9e6cf235a90c5b1cf1c125fb6719c65317
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fe68797090926f2e0e0e2fbb66ba2bb7f6d940e7
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Gegevens kopiëren van Cassandra met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -91,7 +91,7 @@ De volgende eigenschappen worden ondersteund voor Cassandra gekoppelde service:
 
 Zie het artikel gegevenssets voor een volledige lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets. Deze sectie bevat een lijst met eigenschappen die ondersteund worden door Cassandra dataset.
 
-Stel de eigenschap type van de gegevensset om gegevens te kopiëren van Cassandra, **RelationalTable**. De volgende eigenschappen worden ondersteund:
+Stel de eigenschap type van de gegevensset om gegevens te kopiëren van Cassandra, **CassandraTable**. De volgende eigenschappen worden ondersteund:
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
@@ -175,12 +175,12 @@ Bij het kopiëren van gegevens van Cassandra, worden de volgende toewijzingen va
 | BIGINT |Int64 |
 | BLOB |Byte[] |
 | BOOLEAANSE WAARDE |Boole-waarde |
-| DECIMAL |Decimale |
+| DECIMALE |Decimale |
 | DOUBLE |Double |
-| FLOAT |Single |
+| FLOAT |Enkelvoudig |
 | INET |Tekenreeks |
 | INT |Int32 |
-| TEXT |Tekenreeks |
+| TEKST |Tekenreeks |
 | TIJDSTEMPEL |DateTime |
 | TIMEUUID |GUID |
 | UUID |GUID |
@@ -238,7 +238,7 @@ De volgende tabellen tonen de virtuele tabellen die de gegevens uit de lijst, to
 | 3 |2 |102 |
 | 3 |3 |103 |
 
-**Table "ExampleTable_vt_Map":**
+**Tabel 'ExampleTable_vt_Map':**
 
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
@@ -246,7 +246,7 @@ De volgende tabellen tonen de virtuele tabellen die de gegevens uit de lijst, to
 | 1 |S2 |b |
 | 3 |S1 |t |
 
-**Table "ExampleTable_vt_StringSet":**
+**Tabel 'ExampleTable_vt_StringSet':**
 
 | pk_int | StringSet_value |
 | --- | --- |

@@ -1,0 +1,132 @@
+- name: Documentatie over DNS
+  href: index.yml
+- name: Overzicht
+  items:
+    - name: Wat is Azure DNS?
+      href: dns-overview.md
+- name: Snelstartgidsen
+  items:
+    - name: Een DNS-zone en -record maken - portal
+      href: dns-getstarted-portal.md
+    - name: Een DNS-zone en -record maken - PowerShell
+      href: dns-getstarted-powershell.md
+    - name: Een DNS-zone en -record maken - CLI
+      href: dns-getstarted-cli.md
+- name: Voorbeelden
+  items:
+    - name: Azure-CLI
+      href: cli-samples.md
+- name: Zelfstudies
+  items:
+    - name: Een persoonlijke DNS-zone en -record maken
+      href: private-dns-getstarted-powershell.md
+    - name: Uw domein delegeren naar Azure DNS
+      href: dns-delegate-domain-azure-dns.md
+    - name: Aangepaste DNS-records voor een web-app maken
+      href: dns-web-sites-custom-domain.md
+- name: Concepten
+  items:
+    - name: DNS-zones en -records
+      href: dns-zones-records.md
+    - name: DNS-delegatie met Azure DNS
+      href: dns-domain-delegation.md
+    - name: Veelgestelde vragen over DNS
+      href: dns-faq.md
+    - name: Persoonlijke DNS-zones gebruiken
+      href: private-dns-overview.md
+    - name: Scenario's voor persoonlijke DNS-zones
+      href: private-dns-scenarios.md
+    - name: DNS-statistieken en -waarschuwingen
+      href: dns-alerts-metrics.md
+    - name: Omgekeerde DNS-lookup
+      href: dns-reverse-dns-overview.md
+- name: Procedures
+  items:
+    - name: Een aangepaste DNS-zone en -record maken - Azure CLI
+      href: private-dns-getstarted-cli.md
+    - name: DNS-zones beheren
+      items:
+        - name: Azure Portal
+          href: dns-operations-dnszones-portal.md
+        - name: Azure PowerShell
+          href: dns-operations-dnszones.md
+        - name: Azure-CLI
+          href: dns-operations-dnszones-cli.md
+    - name: DNS-records beheren
+      items:
+        - name: Azure Portal
+          href: dns-operations-recordsets-portal.md
+        - name: Azure PowerShell
+          href: dns-operations-recordsets.md
+        - name: Azure-CLI
+          href: dns-operations-recordsets-cli.md
+    - name: Reverse-DNS beheren
+      items:
+        - name: Zones voor omgekeerde lookup hosten in Azure DNS
+          href: dns-reverse-dns-hosting.md
+        - name: Omgekeerde DNS-records voor Azure-services beheren
+          href: dns-reverse-dns-for-azure-services.md
+    - name: Een DNS-zonebestand importeren en exporteren
+      href: dns-import-export.md
+    - name: Integreren met andere Azure-services
+      href: dns-for-azure-services.md
+    - name: DNS-zones en records beschermen
+      href: dns-protect-zones-recordsets.md
+    - name: DNS-bewerkingen automatiseren met de .NET-SDK
+      href: dns-sdk.md
+    - name: Aangepaste domeinen voor Azure-resources
+      href: dns-custom-domain.md
+    - name: Problemen oplossen
+      items:
+        - name: Handleiding voor het oplossen van problemen
+          href: dns-troubleshoot.md
+- name: Naslaginformatie
+  items:
+    - name: Codevoorbeelden
+      href: 'https://azure.microsoft.com/resources/samples/?service=dns'
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.dns
+    - name: Azure-CLI
+      href: /cli/azure/network/dns
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.dns.models
+    - name: Java
+      href: /java/api/com.microsoft.azure.management.dns
+    - name: Node.js
+      href: 'http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/'
+    - name: Ruby
+      href: 'http://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0'
+    - name: Python
+      href: 'http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-dns.html'
+    - name: REST
+      href: /rest/api/dns/
+- name: Verwant
+  items:
+    - name: Application Gateway
+      href: /azure/application-gateway/
+    - name: Virtueel netwerk
+      href: /azure/virtual-network/
+    - name: Virtuele machine
+      href: /azure/virtual-machines/
+    - name: Load balancer
+      href: /azure/load-balancer/
+    - name: Traffic Manager
+      href: /azure/traffic-manager/
+    - name: Web-apps
+      href: /azure/app-service/
+- name: Resources
+  items:
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: Functieverzoeken
+      href: 'https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager'
+    - name: MSDN-forum
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork'
+    - name: Netwerkblog
+      href: 'http://azure.microsoft.com/blog/topics/networking'
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/dns/'
+    - name: Prijscalculator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Service-updates
+      href: 'https://azure.microsoft.com/updates/?product=dns'

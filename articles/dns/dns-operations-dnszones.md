@@ -3,7 +3,7 @@ title: DNS-zones in Azure DNS - PowerShell beheren | Microsoft Docs
 description: U kunt DNS-zones met Azure Powershell beheren. Dit artikel wordt beschreven hoe u bijwerken, verwijderen en DNS-zones maken op Azure DNS
 services: dns
 documentationcenter: na
-author: georgewallace
+author: KumudD
 manager: timlt
 ms.assetid: a67992ab-8166-4052-9b28-554c5a39e60c
 ms.service: dns
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
-ms.author: gwallace
-ms.openlocfilehash: b9c263acf754a72cde5b2716703b8e771a349457
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: kumud
+ms.openlocfilehash: e7b0bc32d3fa8fbcf73298b6988655fca7cfa793
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>DNS-Zones met behulp van PowerShell beheren
 
@@ -52,7 +52,7 @@ Het volgende voorbeeld laat zien hoe een DNS-zone maken met twee [Azure Resource
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @{ project="demo"; env="test" }
 ```
 
-Azure DNS ondersteunt nu ook persoonlijke DNS-zones (momenteel in de openbare preview).  Voor meer informatie over privé-DNS-zones raadpleegt u [Using Azure DNS for private domains](private-dns-overview.md) (Azure DNS gebruiken voor privédomeinen). Zie voor een voorbeeld van het maken van een persoonlijke DNS-zone [aan de slag met persoonlijke Azure DNS-zones met behulp van PowerShell](./private-dns-getstarted-powershell.md).
+Azure DNS ondersteunt nu ook privé-DNS-zones (momenteel in openbare preview).  Voor meer informatie over privé-DNS-zones raadpleegt u [Using Azure DNS for private domains](private-dns-overview.md) (Azure DNS gebruiken voor privédomeinen). Zie voor een voorbeeld van het maken van een privé-DNS-zone [Aan de slag met privézones in Azure DNS met behulp van PowerShell](./private-dns-getstarted-powershell.md).
 
 ## <a name="get-a-dns-zone"></a>Ophalen van een DNS-zone
 
@@ -71,23 +71,23 @@ NumberOfRecordSets    : 2
 MaxNumberOfRecordSets : 5000
 ```
 
-## <a name="list-dns-zones"></a>Lijst met DNS-zones
+## <a name="list-dns-zones"></a>DNS-zones vermelden
 
-Door de naam van de zone van weg te laten `Get-AzureRmDnsZone`, kunt u alle zones in een resourcegroep opsommen. Deze bewerking retourneert een matrix van objecten van de zone.
+Door de zonenaam weg te laten uit `Get-AzureRmDnsZone`, kunt u een opsomming maken van alle zones in een resourcegroep. Deze bewerking retourneert een matrix met zoneobjecten.
 
 ```powershell
 $zoneList = Get-AzureRmDnsZone -ResourceGroupName MyAzureResourceGroup
 ```
 
-Door de naam van zone voor zowel de naam van de resourcegroep uit weg te laten `Get-AzureRmDnsZone`, kunt u alle zones in de Azure-abonnement opsommen.
+Door zowel de zonenaam als de resourcegroepnaam uit `Get-AzureRmDnsZone` weg te laten, kunt u een opsomming maken van alle zones in het Azure-abonnement.
 
 ```powershell
 $zoneList = Get-AzureRmDnsZone
 ```
 
-## <a name="update-a-dns-zone"></a>Bijwerken van een DNS-zone
+## <a name="update-a-dns-zone"></a>Een DNS-zone bijwerken
 
-Een DNS-zone-bron kan worden gewijzigd met behulp van `Set-AzureRmDnsZone`. Deze cmdlet werkt niet bij een van de DNS-recordsets binnen de zone (Zie [het beheren van DNS-records](dns-operations-recordsets.md)). Het wordt alleen gebruikt om de eigenschappen van de bron van de zone zelf te werken. De schrijfbaar zone-eigenschappen zijn momenteel beperkt tot de [Azure Resource Manager '-tags' voor de zoneresource](dns-zones-records.md#tags).
+Wijzigingen aan een DNS-zoneresource kunnen worden aangebracht met behulp van `Set-AzureRmDnsZone`. Met deze cmdlet worden geen DNS-recordsets in de zone bijgewerkt (zie [DNS-records beheren](dns-operations-recordsets.md)). De cmdlet wordt alleen gebruikt voor het bijwerken van eigenschappen van de zoneresource zelf. De schrijfbaar zone-eigenschappen zijn momenteel beperkt tot de [Azure Resource Manager '-tags' voor de zoneresource](dns-zones-records.md#tags).
 
 Gebruik een van de volgende twee manieren om bij te werken van een DNS-zone:
 
@@ -99,7 +99,7 @@ Deze aanpak vervangt de bestaande zone labels met de opgegeven waarden.
 Set-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @{ project="demo"; env="test" }
 ```
 
-### <a name="specify-the-zone-using-a-zone-object"></a>Geef de zone met behulp van een object $zone
+### <a name="specify-the-zone-using-a-zone-object"></a>Geef de zone op met behulp van een $zone-object
 
 Deze aanpak opgehaald van het bestaande object in de zone, wijzigt de labels en vervolgens de wijzigingen worden doorgevoerd. Op deze manier kunnen u bestaande labels behouden.
 
@@ -124,29 +124,29 @@ Wanneer u `Set-AzureRmDnsZone` met een object $zone [Etag controleert](dns-zones
 DNS-zones worden verwijderd met de `Remove-AzureRmDnsZone` cmdlet.
 
 > [!NOTE]
-> Een DNS-zone verwijderen, verwijdert tevens alle DNS-records in de zone. Deze bewerking kan niet ongedaan worden gemaakt. Als de DNS-zone gebruikt wordt, worden services met behulp van de zone mislukt wanneer de zone wordt verwijderd.
+> Als u een DNS-zone verwijdert, worden ook alle DNS-records binnen de zone verwijderd. Deze bewerking kan niet ongedaan worden gemaakt. Als de DNS-zone in gebruik is en de zone wordt verwijderd, werken services die van de zone gebruik maken niet langer.
 >
->Als u wilt beveiligen tegen het onbedoeld zone verwijderen, Zie [het beveiligen van DNS-zones en records](dns-protect-zones-recordsets.md).
+>Zie [DNS-zones en records beschermen](dns-protect-zones-recordsets.md) om beveiliging in te stellen tegen het per ongeluk verwijderen van zones.
 
 
-Gebruik een van de volgende twee manieren een DNS-zone verwijderen:
+Gebruik een van de volgende twee manieren om een DNS-zone te verwijderen:
 
-### <a name="specify-the-zone-using-the-zone-name-and-resource-group-name"></a>Geef de zone met de zonenaam en de naam van resourcegroep
+### <a name="specify-the-zone-using-the-zone-name-and-resource-group-name"></a>Geef de zone op met behulp van de zonenaam en de resourcegroepnaam
 
 ```powershell
 Remove-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 ```
 
-### <a name="specify-the-zone-using-a-zone-object"></a>Geef de zone met behulp van een object $zone
+### <a name="specify-the-zone-using-a-zone-object"></a>Geef de zone op met behulp van een $zone-object
 
-U kunt opgeven dat de zone moet worden verwijderd met behulp van een `$zone` object dat wordt geretourneerd door `Get-AzureRmDnsZone`.
+U kunt de te verwijderen zone opgeven met behulp van een `$zone`-object dat wordt geretourneerd door `Get-AzureRmDnsZone`.
 
 ```powershell
 $zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 Remove-AzureRmDnsZone -Zone $zone
 ```
 
-De zone-object kan ook worden doorgesluisd in plaats van dat wordt doorgegeven als parameter:
+Het zone-object kan ook worden doorgesluisd in plaats van te worden doorgegeven als een parameter:
 
 ```powershell
 Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup | Remove-AzureRmDnsZone
@@ -155,17 +155,17 @@ Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup | R
 
 Net als bij `Set-AzureRmDnsZone`, geven de zone met behulp van een `$zone` object kunt Etag controles om ervoor te zorgen gelijktijdige wijzigingen worden niet verwijderd. Gebruik de `-Overwrite` overschakelen naar het onderdrukken van deze controles.
 
-## <a name="confirmation-prompts"></a>Bevestiging vragen
+## <a name="confirmation-prompts"></a>Bevestigingsprompts
 
-De `New-AzureRmDnsZone`, `Set-AzureRmDnsZone`, en `Remove-AzureRmDnsZone` cmdlets alle bevestiging vragen ondersteunen.
+De cmdlets `New-AzureRmDnsZone`, `Set-AzureRmDnsZone` en `Remove-AzureRmDnsZone` ondersteunen bevestigingspromts.
 
-Beide `New-AzureRmDnsZone` en `Set-AzureRmDnsZone` vragen om bevestiging als de `$ConfirmPreference` PowerShell voorkeursvariabele een waarde heeft van `Medium` of lager. Vanwege het potentieel grote invloed van het verwijderen van een DNS-zone, de `Remove-AzureRmDnsZone` cmdlet vraagt om bevestiging als de `$ConfirmPreference` PowerShell variabele heeft de waarde van een andere waarde dan `None`.
+Zowel in `New-AzureRmDnsZone` als `Set-AzureRmDnsZone` wordt om bevestiging gevraagd als de PowerShell-voorkeursvariabele `$ConfirmPreference` de waarde `Medium` of lager heeft. Vanwege het potentieel grote effect van het verwijderen van een DNS-zone vraagt de cmdlet `Remove-AzureRmDnsZone` om bevestiging als de PowerShell-variabele `$ConfirmPreference` een andere waarde heeft dan `None`.
 
-Sinds de standaardwaarde voor `$ConfirmPreference` is `High`, alleen `Remove-AzureRmDnsZone` vraagt om bevestiging standaard.
+Omdat de standaardwaarde voor `$ConfirmPreference` `High` is, wordt standaard alleen in `Remove-AzureRmDnsZone` om bevestiging gevraagd.
 
-U kunt de huidige overschrijven `$ConfirmPreference` instellen met de `-Confirm` parameter. Als u opgeeft `-Confirm` of `-Confirm:$True` , vraagt de cmdlet u om bevestiging voordat deze wordt uitgevoerd. Als u opgeeft `-Confirm:$False` , de cmdlet wordt u niet gevraagd om bevestiging.
+U kunt de huidige instelling van `$ConfirmPreference` overschrijven met behulp van de parameter `-Confirm`. Als u `-Confirm` of `-Confirm:$True` opgeeft, vraagt de cmdlet u om bevestiging voordat deze wordt uitgevoerd. Als u `-Confirm:$False` opgeeft, wordt u niet om bevestiging gevraagd.
 
-Voor meer informatie over `-Confirm` en `$ConfirmPreference`, Zie [over Voorkeursvariabelen](https://msdn.microsoft.com/powershell/reference/5.1/Microsoft.PowerShell.Core/about/about_Preference_Variables).
+Zie [over voorkeursvariabelen](https://msdn.microsoft.com/powershell/reference/5.1/Microsoft.PowerShell.Core/about/about_Preference_Variables) voor meer informatie over `-Confirm` en `$ConfirmPreference`.
 
 ## <a name="next-steps"></a>Volgende stappen
 

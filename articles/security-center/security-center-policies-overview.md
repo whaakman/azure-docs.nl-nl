@@ -3,9 +3,9 @@ title: Inleiding tot Azure Security Center-beveiligingsbeleid | Microsoft Docs
 description: Meer informatie over Azure Security Center-beveiligingsbeleid en de belangrijkste mogelijkheden.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: f24b1e4a-cc36-4542-b21e-041453cdfcd8
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: 7a4d056fa71f211dea5e7be649c39034eabc9395
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f552164edc22b450c4ace57cce5c051d1c93e780
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="security-policies-overview"></a>Overzicht van de beleidsregels voor beveiliging
 Dit artikel bevat een overzicht van beveiligingsbeleid in Security Center.
@@ -31,7 +31,7 @@ Beleidsregels van Security Center bevatten de volgende onderdelen:
 - **Gegevensverzameling**: bepaalt agent inrichting en [gegevensverzameling](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) instellingen.
 - **Beveiligingsbeleid voor**: die bepaalt Security Center monitors en raadt bepaalt. U kunt bewerken de [beveiligingsbeleid](https://docs.microsoft.com/azure/security-center/security-center-policies) in Security Center. U kunt ook [Azure beleid](security-center-azure-policy.md) (in de beperkte preview) voor het maken van nieuwe definities extra beleidsregels definiëren en beleid binnen beheergroepen toe te wijzen.
 - **E-mailmeldingen**: beveiliging contactpersonen, bepaalt en [e-mailmelding](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) instellingen.
-- **Prijscategorie**: gratis of standaard definieert [prijzen selectie](https://docs.microsoft.com/azure/security-center/security-center-pricing). De laag die u kiest, bepaalt welke Security Center-functies zijn beschikbaar voor resources binnen het bereik. U kunt een laag voor abonnementen en resourcegroepen werkruimten opgeven. 
+- **Prijscategorie**: gratis of standaard definieert [prijzen selectie](https://docs.microsoft.com/azure/security-center/security-center-pricing). De laag die u kiest, bepaalt welke Security Center-functies beschikbaar zijn voor resources binnen het bereik. U kunt een laag voor abonnementen en resourcegroepen werkruimten opgeven. 
 
 
 ## <a name="who-can-edit-security-policies"></a>Wie kan beveiligingsbeleid bewerken?

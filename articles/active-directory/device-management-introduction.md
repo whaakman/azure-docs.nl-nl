@@ -2,10 +2,10 @@
 title: Inleiding tot beheer van apparaten in Azure Active Directory | Microsoft Docs
 description: Leer hoe Apparaatbeheer kunt u controle over de apparaten die toegang hebben tot bronnen in uw omgeving.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: faea960d2b6207aab5a2f5df8dc65fddc9ba5b54
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b1edb9c4574afa77df43e4f017848acd3ae6d28
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Inleiding tot beheer van apparaten in Azure Active Directory
 
@@ -73,7 +73,7 @@ Het doel van Azure AD die lid zijn van apparaten is voor het vereenvoudigen van:
 
 
 Deze doelstellingen worden bereikt door het verstrekken van uw gebruikers met een selfservice-ervaring voor het ophalen van apparaten die eigendom zijn van werk onder het beheer van Azure AD.  
-**Azure AD Join** is bedoeld voor organisaties die cloud eerste / alleen in de cloud. Dit zijn meestal kleine en middelgrote bedrijven die geen een on-premises Windows Server Active Directory-infrastructuur. 
+**Azure AD Join** is bedoeld voor organisaties die willen worden cloud of eerst alleen in de cloud. Er is geen beperking voor de grootte of het type van organisaties die Azure AD Join kunt implementeren. Azure AD Join werkt goed zelfs in een hybride omgeving en toegang tot on-premises apps en resources kunt inschakelen.
 
 Implementatie van Azure AD die lid zijn van apparaten biedt de volgende voordelen:
 
@@ -81,11 +81,14 @@ Implementatie van Azure AD die lid zijn van apparaten biedt de volgende voordele
 
 - **Enterprise compatibele roaming** van gebruikersinstellingen op gekoppelde apparaten. Gebruikers hoeven niet te verbinding maken met een Microsoft-account (bijvoorbeeld Hotmail) om te zien van instellingen op apparaten.
 
-- **Toegang tot Windows Store voor bedrijven** met behulp van AD-account. Uw gebruikers kunnen kiezen uit een inventarisatie van toepassingen die vooraf zijn geselecteerd door de organisatie.
+- **Toegang tot Windows Store voor bedrijven** met een Azure AD-account. Uw gebruikers kunnen kiezen uit een inventarisatie van toepassingen die vooraf zijn geselecteerd door de organisatie.
 
 - **Windows Hello** ondersteuning voor veilig en eenvoudig toegang tot bronnen op het werk.
 
 - **Beperking van toegang** tot apps van alleen de apparaten die voldoen aan nalevingsbeleid.
+
+- **Naadloze toegang tot on-premises resources** wanneer het apparaat heeft regel zicht naar de lokale domeincontroller.
+
 
 Terwijl Azure AD join is voornamelijk bedoeld voor organisaties waarvoor geen een on-premises Windows Server Active Directory-infrastructuur, kunt u gewoon ook worden gebruikt in scenario's waarbij:
 

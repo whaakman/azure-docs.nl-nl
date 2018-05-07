@@ -2,22 +2,22 @@
 title: De gereserveerde virtuele Machine-exemplaren Azure korting toepassing begrijpen | Microsoft Docs
 description: Meer informatie over hoe Azure gereserveerde VM-instantie korting wordt toegepast op de VM's worden uitgevoerd.
 services: billing
-documentationcenter: 
+documentationcenter: ''
 author: vikramdesai01
 manager: vikdesai
-editor: 
+editor: ''
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: vikdesai
-ms.openlocfilehash: 2a3854077c7c8bdb20804c6b3e77500659c3c484
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 6e551fddfc5ba8924cd8c71a1775307e7569b847
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="understand-how-the-reserved-virtual-machine-instance-discount-is-applied"></a>Begrijpen hoe de korting exemplaar van de gereserveerde virtuele Machine wordt toegepast
 Nadat u een gereserveerde VM-instantie hebt gekocht, wordt de reservering korting automatisch toegepast op virtuele machines die overeenkomt met de kenmerken en de hoeveelheid van de reservering. Een reservering bevat informatie over de kosten van de infrastructuur van uw virtuele machines. De volgende tabel ziet u de kosten voor uw virtuele machine na de aankoop van een reservering. In alle gevallen moet u in rekening worden gebracht voor opslag en netwerken op de normale tarieven.
@@ -43,7 +43,7 @@ Nadat u een gereserveerde VM-instantie hebt gekocht, wordt de reservering kortin
 Om te begrijpen en de toepassing van uw reserveringen in gebruiksrapporten facturering, Zie [gereserveerde VM-instantie begrijpen gebruik](https://go.microsoft.com/fwlink/?linkid=862757).
 
 ## <a name="application-of-reservation-discount-to-windows-vms"></a>Toepassing van de reservering korting op Windows-VM 's
-Wanneer u exemplaren van de virtuele machine van Windows uitvoert, wordt de reservering toegepast ten aanzien van de kosten van de infrastructuur. De toepassing van de reservering voor de kosten van de VM-infrastructuur voor VM's van Windows is hetzelfde als voor niet - Windows virtuele machines. U wordt afzonderlijk in rekening gebracht voor de per vCPU op basis van een Windows-software. Zie [kosten voor Windows-software met reserveringen](https://go.microsoft.com/fwlink/?linkid=862756). U kunt uw Windows-licentiekosten met [Azure hybride voordeel voor Windows Server] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) uitgelegd.
+Wanneer u exemplaren van de virtuele machine van Windows uitvoert, wordt de reservering toegepast ten aanzien van de kosten van de infrastructuur. De toepassing van de reservering voor de kosten van de VM-infrastructuur voor VM's van Windows is hetzelfde als voor niet - Windows virtuele machines. U wordt afzonderlijk in rekening gebracht voor de per vCPU op basis van een Windows-software. Zie [kosten voor Windows-software met reserveringen](https://go.microsoft.com/fwlink/?linkid=862756). U kunt uw Windows-licentiekosten met [Azure hybride voordeel voor Windows Server] dekt (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende artikelen voor meer informatie over gereserveerde virtuele Machine-exemplaren.

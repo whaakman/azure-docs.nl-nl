@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.openlocfilehash: 10d7b5d3670bd7a5f289a6f9f2754ecc6aa18795
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
-ms.translationtype: HT
+ms.openlocfilehash: 3bd87090df048f2b67de88f5202998af02d42491
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Uitvoer van de Azure Stream Analytics begrijpen
 In dit artikel beschrijft de verschillende soorten uitvoer beschikbaar voor een Azure Stream Analytics-taak. Uitvoer kunnen u opslaan en sla de resultaten van de Stream Analytics-taak. Met de uitvoergegevens, kunt u doen verdere business analytics en datawarehousing van uw gegevens. 
@@ -290,10 +290,10 @@ De volgende tabel geeft een overzicht van de partitie ondersteuning en het aanta
 | Azure Blob Storage | Ja | Gebruik {date} en {time} tokens in het pad-patroon. Kies de notatie van datum, zoals jjjj/MM/DD, MM-DD-JJJJ, MM-DD-JJJJ. HH wordt gebruikt voor de tijdnotatie. | De invoer partitionering voor volgt [volledig worden query's](stream-analytics-scale-jobs.md). | 
 | Azure Event Hub | Ja | Ja | Varieert afhankelijk van de uitlijning van de partitie.</br> Bij de uitvoer van de Event Hub-partitiesleutel gelijkmatig wordt uitgelijnd met upstream (vorige) query stap is het aantal schrijvers hetzelfde aantal het aantal is partities van de Event Hub uitvoer. Elke writer maakt gebruik van de EventHub [EventHubSender klasse](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) gebeurtenissen verzenden naar de specifieke partitie. </br> Wanneer de uitvoer van de Event Hub-partitiesleutel is niet uitgelijnd met upstream (vorige) query stap, het aantal schrijvers is hetzelfde als het aantal partities in die de vorige stap. Elke writer gebruikt EventHubClient [SendBatchAsync klasse](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) gebeurtenissen verzenden naar alle partities van de uitvoer. |
 | Power BI | Nee | Geen | Niet van toepassing. | 
-| Azure Table Storage | Ja | De uitvoer kolom.  | De invoer partitionering voor volgt [volledig paralyzed query's](stream-analytics-scale-jobs.md). | 
+| Azure Table Storage | Ja | De uitvoer kolom.  | De invoer partitionering voor volgt [volledig geparallelliseerde query's](stream-analytics-scale-jobs.md). | 
 | Azure Service Bus-onderwerp | Ja | Automatisch gekozen. Het aantal partities is gebaseerd op de [Service Bus-SKU's en de grootte van](../service-bus-messaging/service-bus-partitioning.md). De partitiesleutel is een unieke integer-waarde voor elke partitie.| Hetzelfde als het aantal partities in het onderwerp uitvoer.  |
 | Azure Service Bus-wachtrij | Ja | Automatisch gekozen. Het aantal partities is gebaseerd op de [Service Bus-SKU's en de grootte van](../service-bus-messaging/service-bus-partitioning.md). De partitiesleutel is een unieke integer-waarde voor elke partitie.| Hetzelfde als het aantal partities in de wachtrij voor de uitvoer. |
-| Azure Cosmos DB | Ja | Token {partition} in de verzameling naampatroon gebruiken. de waarde {partition} is gebaseerd op de component PARTITION BY in de query. | De invoer partitionering voor volgt [volledig paralyzed query's](stream-analytics-scale-jobs.md). |
+| Azure Cosmos DB | Ja | Token {partition} in de verzameling naampatroon gebruiken. de waarde {partition} is gebaseerd op de component PARTITION BY in de query. | De invoer partitionering voor volgt [volledig geparallelliseerde query's](stream-analytics-scale-jobs.md). |
 | Azure Functions | Nee | Geen | Niet van toepassing. | 
 
 ## <a name="output-batch-size"></a>Batchgrootte voor uitvoer

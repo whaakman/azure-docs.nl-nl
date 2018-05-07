@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 5/4/18
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: 3903e0f55e996d2ff793f17fb710843c5c64127f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 87396204933ca964634656f9eb84c6d245c0c6c0
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="install-the-access-panel-browser-extension"></a>De uitbreiding voor toegang tot Configuratiescherm browser installeren
 
@@ -83,6 +83,12 @@ U kunt ook de uitbreiding downloaden voor Chrome en rand rechtstreeks vanuit de 
    3. Zoeken naar een app die beschikbaar is in de portal voor mijn Apps.
    4. Selecteer de app in de lijst met zoekresultaten.  
        De laatste drie apps die u hebt gebruikt, worden weergegeven in de **recent gebruikte** snelkoppeling lijst.
+       
+* Voor het gebruik van URL's intern bedrijf terwijl deze extern is het volgende doen:
+    1. [Configureren van Application Proxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) op uw tenant
+    2. [De toepassing publiceren](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) en de URL via toepassingsproxy
+    3. De uitbreiding te installeren en aanmelden bij het selecteren van aanmelding aan de slag
+    4. Nu kunt u bladeren naar de URL van de interne bedrijf zelfs terwijl deze extern
 
 > [!NOTE]
 > De voorgaande opties zijn alleen beschikbaar voor rand en Chrome, Firefox.

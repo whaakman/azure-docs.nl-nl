@@ -3,7 +3,7 @@ title: Geavanceerde gegevensverkenning en modellering met Spark | Microsoft Docs
 description: Gebruik HDInsight Spark doen gegevensverkenning en kruisvalidatie en hyperparameter optimalisatie van binaire classificatie en regressie modellen trainen.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: f90d9a80-4eaf-437b-a914-23514390cd60
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
-ms.author: bradsev
-ms.openlocfilehash: 3d4cd29596b14e6de07fdf06191f7d69c2d39641
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: deguhath
+ms.openlocfilehash: 9f24d05a344e0042fa498b62c874617ba7466f8f
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Met Spark verkennen en modelleren van geavanceerde gegevens
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -85,9 +85,9 @@ Het volgende codevoorbeeld geeft de locatie van de gegevens moeten worden geleze
     import datetime
     datetime.datetime.now()
 
-**OUTPUT**
+**UITVOER**
 
-datetime.datetime(2016, 4, 18, 17, 36, 27, 832799)
+DateTime.DateTime (2016, 4, 18, 17, 36, 27, 832799)
 
 ### <a name="import-libraries"></a>Bibliotheken importeren
 Importeer de benodigde bibliotheken met de volgende code:
@@ -188,7 +188,7 @@ Hier volgt de code voor gegevensopname.
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 
-**OUTPUT**
+**UITVOER**
 
 Tijd uitvoering boven cel: 276.62 seconden
 
@@ -240,7 +240,7 @@ Hier volgt de code voor het uitzetten van de reizen door passagiers aantallen
     fig.set_ylabel('Trip counts')
     plt.show()
 
-**OUTPUT**
+**UITVOER**
 
 ![Frequentie van reizen op het aantal passagiers](./media/spark-advanced-data-exploration-modeling/frequency-of-trips-by-passenger-count.png)
 
@@ -333,7 +333,7 @@ Deze code laat zien hoe u maakt een nieuwe functie verkeer keren in opslaglocati
     taxi_df_train_with_newFeatures.cache()
     taxi_df_train_with_newFeatures.count()
 
-**OUTPUT**
+**UITVOER**
 
 126050
 
@@ -384,7 +384,7 @@ Dit is de code om te indexeren en coderen categorische functies:
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 
-**OUTPUT**
+**UITVOER**
 
 Tijd uitvoering boven cel: 3.14 seconden
 
@@ -477,7 +477,7 @@ Deze code maakt een willekeurige steekproef van de gegevens (25% wordt hier gebr
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**OUTPUT**
+**UITVOER**
 
 Tijd uitvoering boven cel: 0.31 seconden
 
@@ -518,7 +518,7 @@ Dit is de code op schaal variabelen voor gebruik met de regularized lineaire SGD
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**OUTPUT**
+**UITVOER**
 
 Tijd uitvoering boven cel: 11.67 seconden
 
@@ -549,7 +549,7 @@ De benodigde tijd voor trainings- en testdoeleinden ML algoritmen kan worden ver
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**OUTPUT** 
+**UITVOER** 
 
 Tijd uitvoering boven cel: 0.13 seconden
 
@@ -664,7 +664,7 @@ De code in deze sectie ziet u hoe te trainen, evalueren en opslaan van een regre
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 
-**OUTPUT**
+**UITVOER**
 
 Coefficients: [0.0082065285375, -0.0223675576104, -0.0183812028036, -3.48124578069e-05, -0.00247646947233, -0.00165897881503, 0.0675394837328, -0.111823113101, -0.324609912762, -0.204549780032, -1.36499216354, 0.591088507921, -0.664263411392, -1.00439726852, 3.46567827545, -3.51025855172, -0.0471341112232, -0.043521833294, 0.000243375810385, 0.054518719222]
 
@@ -717,7 +717,7 @@ De code in deze sectie wordt beschreven hoe een logistic regressiemodel op basis
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 
-**OUTPUT**
+**UITVOER**
 
 Gebied onder PR 0.985336538462 =
 
@@ -729,7 +729,7 @@ Precisie 0.984174341679 =
 
 Intrekken 0.984174341679 =
 
-F1 Score = 0.984174341679
+F1 Score 0.984174341679 =
 
 Tijd uitvoering boven cel: 2.67 seconden
 
@@ -770,7 +770,7 @@ Hier volgt de code voor het maken van voorspellingen en de ROC-curve tekenen.
     plt.show()
 
 
-**OUTPUT**
+**UITVOER**
 
 ![Logistic regression ROC-curve voor algemene methode](./media/spark-advanced-data-exploration-modeling/logistic-regression-roc-curve.png)
 
@@ -797,7 +797,7 @@ De code in deze sectie wordt beschreven hoe de logistic regressiemodel voor het 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 
 
-**OUTPUT**
+**UITVOER**
 
 Tijd uitvoering boven cel: 34.57 seconden
 
@@ -853,7 +853,7 @@ De code in deze sectie ziet u hoe te trainen, evalueren en opslaan van een regre
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 
-**OUTPUT**
+**UITVOER**
 
 Tijd uitvoering boven cel: 107.98 seconden
 
@@ -889,7 +889,7 @@ Hier volgt de code voor het uitzetten van de ROC-curve.
     plt.show()
 
 
-**OUTPUT**
+**UITVOER**
 
 ![Logistic regression ROC-curve met behulp van MLlib CrossValidator](./media/spark-advanced-data-exploration-modeling/mllib-crossvalidator-roc-curve.png)
 
@@ -938,7 +938,7 @@ De code in deze sectie wordt beschreven hoe trainen, evalueren en opslaan van ee
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 
-**OUTPUT**
+**UITVOER**
 
 Gebied onder ROC 0.985336538462 =
 
@@ -982,7 +982,7 @@ De code in deze sectie wordt beschreven hoe trainen, evalueren, en een kleurover
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**OUTPUT**
+**UITVOER**
 
 Gebied onder ROC 0.985336538462 =
 
@@ -1053,7 +1053,7 @@ De code in deze sectie leest hoe u geschaalde functies voor het trainen van een 
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**OUTPUT**
+**UITVOER**
 
 Coefficients: [0.0141707753435, -0.0252930927087, -0.0231442517137, 0.247070902996, 0.312544147152, 0.360296120645, 0.0122079566092, -0.00456498588241, -0.0898228505177, 0.0714046248793, 0.102171263868, 0.100022455632, -0.00289545676449, -0.00791124681938, 0.54396316518, -0.536293513569, 0.0119076553369, -0.0173039244582, 0.0119632796147, 0.00146764882502]
 
@@ -1061,7 +1061,7 @@ Intercept: 0.854507624459
 
 RMSE = 1.23485131376
 
-R-sqr = 0.597963951127
+R sqr 0.597963951127 =
 
 Tijd uitvoering boven cel: 38.62 seconden
 
@@ -1113,11 +1113,11 @@ De code in deze sectie wordt beschreven hoe trainen, evalueren en een willekeuri
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**OUTPUT**
+**UITVOER**
 
-RMSE = 0.931981967875
+RMSE 0.931981967875 =
 
-R-sqr = 0.733445485802
+R sqr 0.733445485802 =
 
 Tijd uitvoering boven cel: 25.98 seconden
 
@@ -1164,7 +1164,7 @@ De code in deze sectie wordt beschreven hoe trainen, evalueren en een kleuroverg
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 
-**OUTPUT**
+**UITVOER**
 
 RMSE = 0.928172197114
 
@@ -1172,7 +1172,7 @@ R-sqr = 0.732680354389
 
 Tijd uitvoering boven cel: 20.9 seconden
 
-**Plot**
+**Tekenen**
 
 *tmp_results* is geregistreerd als een Hive-tabel in de vorige cel. Resultaten van de tabel worden uitgevoerd in de *sqlResults* tijdskader voor het uitzetten van gegevens. Dit is de code
 
@@ -1261,7 +1261,7 @@ De code in deze sectie toont hoe overschrijden validatie met elastische net voor
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 
-**OUTPUT**
+**UITVOER**
 
 Tijd uitvoering boven cel: 161.21 seconden
 
@@ -1286,7 +1286,7 @@ Dit is de code voor het berekenen van R sqr.
     print("R-sqr = %s" % r2)
 
 
-**OUTPUT**
+**UITVOER**
 
 R sqr 0.619184907088 =
 
@@ -1373,7 +1373,7 @@ De code in deze sectie toont hoe overschrijden validatie met parameter vegen met
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 
-**OUTPUT**
+**UITVOER**
 
 RMSE = 0.906972198262
 
@@ -1409,9 +1409,9 @@ Gebruik `unpersist()` verwijderen van objecten in het cachegeheugen opgeslagen.
     oneHotTESTregScaled.unpersist()
 
 
-**OUTPUT**
+**UITVOER**
 
-PythonRDD[122] at RDD at PythonRDD.scala: 43
+PythonRDD [122] op RDD op PythonRDD.scala: 43
 
 ** Afdruk pad naar modelbestanden moet worden gebruikt in de notebook verbruik. ** Wilt gebruiken en beoordelen van een onafhankelijke gegevensset, moet u kopieert en plakt deze bestandsnamen in de notebook' verbruik'.
 
@@ -1424,7 +1424,7 @@ PythonRDD[122] at RDD at PythonRDD.scala: 43
     print "BoostedTreeRegressionFileLoc = modelDir + \"" + btregressionfilename + "\"";
 
 
-**OUTPUT**
+**UITVOER**
 
 logisticRegFileLoc = modelDir + 'LogisticRegressionWithLBFGS_2016-05-0316_47_30.096528'
 
@@ -1434,7 +1434,7 @@ randomForestClassificationFileLoc = modelDir + 'RandomForestClassification_2016-
 
 randomForestRegFileLoc = modelDir + 'RandomForestRegression_2016-05-0316_51_57.331730'
 
-BoostedTreeClassificationFileLoc = modelDir + "GradientBoostingTreeClassification_2016-05-0316_50_40.138809"
+BoostedTreeClassificationFileLoc = modelDir + 'GradientBoostingTreeClassification_2016-05-0316_50_40.138809'
 
 BoostedTreeRegressionFileLoc = modelDir + 'GradientBoostingTreeRegression_2016-05-0316_52_18.827237'
 

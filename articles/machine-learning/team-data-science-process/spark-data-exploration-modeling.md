@@ -3,7 +3,7 @@ title: Gegevensverkenning en modellering met Spark | Microsoft Docs
 description: De gegevens te verkennen en modellering mogelijkheden van de toolkit MLlib Spark op Azure gepresenteerd.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: b989b918-5ba5-4696-b8d0-76ae510a23f4
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: bradsev
-ms.openlocfilehash: c796cc5f19ac3a30d2cdf72b8fea2813a1586c1b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: d505d432897eb7f4e792b45a95ec91ce1802eeb8
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Met Spark gegevens verkennen en modelleren
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -960,9 +960,9 @@ De code in deze sectie wordt beschreven hoe trainen, evalueren en een willekeuri
 
 **UITVOER:**
 
-RMSE = 0.891209218139
+RMSE 0.891209218139 =
 
-R-sqr = 0.759661334921
+R sqr 0.759661334921 =
 
 Tijd uitvoering boven cel: 49.21 seconden
 
@@ -1011,13 +1011,13 @@ De code in deze sectie wordt beschreven hoe trainen, evalueren en een kleuroverg
 
 **UITVOER:**
 
-RMSE = 0.908473148639
+RMSE 0.908473148639 =
 
-R-sqr = 0.753835096681
+R sqr 0.753835096681 =
 
 Tijd uitvoering boven cel: 34.52 seconden
 
-**Plot**
+**Tekenen**
 
 *tmp_results* is geregistreerd als een Hive-tabel in de vorige cel. Resultaten van de tabel worden uitgevoerd in de *sqlResults* tijdskader voor het uitzetten van gegevens. Dit is de code
 
@@ -1085,7 +1085,7 @@ Om te gebruiken en beoordelen van een onafhankelijke gegevensset wordt beschreve
     print "BoostedTreeRegressionFileLoc = modelDir + \"" + btregressionfilename + "\"";
 
 
-**OUTPUT**
+**UITVOER**
 
 logisticRegFileLoc = modelDir + 'LogisticRegressionWithLBFGS_2016-05-0317_03_23.516568'
 

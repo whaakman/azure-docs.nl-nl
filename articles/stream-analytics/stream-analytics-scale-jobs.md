@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: 1438ffa34652268572fe89dc63583cc25607d722
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2868ebd459f937f8621086b16c63f89842f376be
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Een Azure Stream Analytics-taak voor een betere doorvoer schalen
 In dit artikel leest u hoe af te stemmen een Stream Analytics query voor een betere doorvoer voor Streaming Analytics-taken. U kunt de volgende handleiding voor het schalen van uw taak voor het verwerken van de hogere belasting en te profiteren van meer systeembronnen (zoals meer bandbreedte, meer CPU-bronnen, meer geheugen).
@@ -31,7 +31,8 @@ Als uw query inherent volledig worden meerdere invoer partities is, kunt u de vo
         - Als het probleem veroorzaakt door sink beperking wordt, moet u mogelijk Verhoog het aantal partities uitvoer (en ook invoer partities zodat de taak volledig worden) of verhoog de hoeveelheid resources van de sink (bijvoorbeeld aantal Aanvraageenheden voor CosmosDB).
     - In het diagram van de taak, er is een per partitie achterstand gebeurtenis metrische gegevens voor elke invoer. Als de achterstand gebeurtenis metriek stijgt houdt, maar het is ook een indicatie dat de systeembron wordt begrensd (zowel vanwege uitvoer sink-beperking of intensief CPU).
 4.  Als u hebt vastgesteld dat de grenzen van wat een 6 SU-taak kan bereiken, kunt u afleiden lineair de verwerkingscapaciteit van de taak toevoegen van meer SUs, ervan uitgaande dat u geen leiden tot onjuiste gegevens waarmee bepaalde partitie 'hot'.
->[!Note]
+
+> [!NOTE]
 > Kies het juiste aantal Streaming-eenheden: omdat de Stream Analytics maakt een verwerkingsknooppunt voor elke 6 SU toegevoegd, is het beste het aantal knooppunten een deler van het aantal invoer partities, zodat de partities kunnen gelijkmatig worden verdeeld over de knooppunten.
 > U hebt bijvoorbeeld uw 6 gemeten SU taak kunt bereiken 4 MB/s verwerken frequentie en het aantal invoer partitie is 4. U kunt kiezen uit te voeren van uw werk met 12 SU als u de verwerkingssnelheid van ongeveer 8 MB/s of 24 SU naar het bereiken van 16 MB/s. Vervolgens kunt u bepalen wanneer SU getal voor de taak op welke waarde als een functie van de snelheid van de invoer verhogen.
 

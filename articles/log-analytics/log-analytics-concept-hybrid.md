@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 05/02/2018
 ms.author: magoedte
-ms.openlocfilehash: 9346e9a9ad310a21c6d6ce388b76ce491041289c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 1ac956d638be1e79547ff931ba5b0c7e5de1ae65
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Verzamel gegevens van computers in uw omgeving met Log Analytics
 
@@ -28,7 +28,7 @@ Azure Log Analytics kunt verzamelen van en reageren op gegevens van Windows of L
 * Uw datacenter als fysieke servers of virtuele machines
 * Virtuele machines in een cloud-gebaseerde service zoals Amazon Web Services (AWS)
 
-Computers die worden gehost in uw omgeving kunnen rechtstreeks worden verbonden met logboekanalyse of als u al deze computers met System Center Operations Manager 2012 R2 of 2016 controleren wilt, kunt u uw beheergroep bewerkingen beheren integreren met logboekanalyse en blijven uw strategie voor serviceprocessen bewerkingen en onderhoud.  
+Computers die worden gehost in uw omgeving kunnen rechtstreeks worden verbonden met logboekanalyse, of als u al deze computers met System Center Operations Manager 2012 R2, 2016 controleert of versie 1801, kunt u uw beheergroep bewerkingen beheren met integreren Meld u Analytics en uw IT-bewerkingen serviceprocessen aanhouden.  
 
 ## <a name="overview"></a>Overzicht
 
@@ -36,15 +36,11 @@ Computers die worden gehost in uw omgeving kunnen rechtstreeks worden verbonden 
 
 Voordat u analyseren en op de verzamelde gegevens fungeert, moet u eerst installeren en verbinding maken met agents voor alle computers die u wilt gegevens verzenden naar het Log Analytics-service. U kunt agents installeren op uw on-premises computers via Setup, opdrachtregel of met Desired State Configuration (DSC) in Azure Automation. 
 
-De agent voor Linux en Windows uitgaande met de Log Analytics-service communiceert via TCP-poort 443, en als de computer verbinding maakt met een firewall of proxy-server om te communiceren via Internet, bekijkt u [configuratie van de agent voor gebruik met een proxyserver of OMS Gateway](#configuring-the-agent-for-use-with-a-proxy-server-or-oms-gateway) moet worden toegepast om te begrijpen welke configuratie wordt gewijzigd. Als u de computer met System Center 2016 - Operations Manager of Operations Manager 2012 R2, bewaakt kan zijn multihomed met de service voor logboekanalyse voor het verzamelen van gegevens en door te sturen naar de service en nog steeds worden bewaakt door [Operations Manager ](log-analytics-om-agents.md). Linux-computers worden bewaakt door een Operations Manager-beheergroep geïntegreerd met logboekanalyse ontvangen geen configuratie voor gegevensbronnen en voorwaarts verzamelde gegevens via de beheergroep. De Windows-agent kan rapporteren dat maximaal vier werkruimten, terwijl de Linux-agent biedt alleen ondersteuning voor rapportage aan een enkele werkruimte.  
+De agent voor Linux en Windows uitgaande met de Log Analytics-service communiceert via TCP-poort 443, en als de computer verbinding maakt met een firewall of proxy-server om te communiceren via Internet, bekijkt u [de sectie vereisten](#prerequisites) naar inzicht in de netwerkconfiguratie die is vereist.  Als de beleidsregels van uw IT-beveiliging niet toestaan computers in het netwerk verbinding maken met Internet dat, kunt u de installatie een [OMS Gateway](log-analytics-oms-gateway.md) en configureer vervolgens de agent verbinding maken via de gateway met logboekanalyse. De agent kunt configuratie-informatie te ontvangen en verzenden van gegevens die zijn verzameld, afhankelijk van welke regels voor het verzamelen van gegevens en de oplossingen die u hebt ingeschakeld. 
 
-De agent voor Linux en Windows niet alleen om verbinding te maken in Log Analytics, het ondersteunt ook verbinding maken met het bij Azure Automation host de functie Hybride Runbook worker oplossingen zoals bijhouden en updatebeheer.  Zie voor meer informatie over de hybride Runbook Worker-rol [Azure Automation Hybrid Runbook Worker](../automation/automation-offering-get-started.md#automation-architecture-overview).  
+Als u de computer met System Center 2016 - Operations Manager of Operations Manager 2012 R2, bewaakt kan zijn multihomed met de service voor logboekanalyse voor het verzamelen van gegevens en door te sturen naar de service en nog steeds worden bewaakt door [Operations Manager ](log-analytics-om-agents.md). Linux-computers worden bewaakt door een Operations Manager-beheergroep geïntegreerd met logboekanalyse ontvangen geen configuratie voor gegevensbronnen en voorwaarts verzamelde gegevens via de beheergroep. De Windows-agent kan rapporteren dat maximaal vier werkruimten, terwijl de Linux-agent biedt alleen ondersteuning voor rapportage aan een enkele werkruimte.  
 
-Als de beleidsregels van uw IT-beveiliging niet toestaan computers in uw netwerk verbinding maken met Internet dat, kan de agent kan worden geconfigureerd voor verbinding met de OMS-Gateway voor configuratie-informatie te ontvangen en verzenden van verzamelde gegevens afhankelijk van de oplossing die u hebt ingeschakeld. Zie voor meer informatie en stapsgewijze instructies voor het configureren van uw Linux- of Windows-agent te communiceren via een OMS-Gateway naar de Log Analytics-service [computers koppelen aan OMS met behulp van de Gateway OMS](log-analytics-oms-gateway.md). 
-
-> [!NOTE]
-> De agent voor Windows biedt alleen ondersteuning voor Transport Layer Security (TLS) 1.0 en 1.1.  
-> 
+De agent voor Linux en Windows niet alleen voor het verbinden met Log Analytics, het ondersteunt ook Azure Automation host de hybride Runbook worker-rol en oplossingen zoals bijhouden en updatebeheer.  Zie voor meer informatie over de hybride Runbook Worker-rol [Azure Automation Hybrid Runbook Worker](../automation/automation-offering-get-started.md#automation-architecture-overview).  
 
 ## <a name="prerequisites"></a>Vereisten
 Voordat u begint, lees de volgende informatie om te controleren of u voldoet aan de minimale systeemvereisten.
@@ -54,6 +50,9 @@ De volgende versies van het Windows-besturingssysteem worden officieel ondersteu
 
 * Windows Server 2008 Service Pack 1 (SP1) of hoger
 * Windows 7 SP1 en hoger.
+
+> [!NOTE]
+> De agent voor Windows biedt alleen ondersteuning voor Transport Layer Security (TLS) 1.0 en 1.1.  
 
 #### <a name="network-configuration"></a>Netwerkconfiguratie
 Gegevens van de onderstaande lijst de vereist voor de Windows-agent om te communiceren met logboekanalyse proxy- en firewall-configuratie-informatie. Verkeer is uitgaand vanaf het netwerk naar het Log Analytics-service. 

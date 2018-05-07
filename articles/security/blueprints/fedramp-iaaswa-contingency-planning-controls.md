@@ -15,23 +15,23 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: f993271656e9484881ccac357acb3d50830c219e
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="contingency-planning-cp"></a>Geval van nood plannen (CP)
 
 > [!NOTE]
 > Deze besturingselementen zijn gedefinieerd door NIST en de V.S. Ministerie van handel als onderdeel van de NIST Special Publication 800-53 revisie 4. Raadpleeg NIST 800 53 Rev. 4 voor informatie over het testen van de procedures en richtlijnen voor elk besturingselement.
 
-## <a name="nist-800-53-control-cp-1"></a>NIST 800-53 Control CP-1
+## <a name="nist-800-53-control-cp-1"></a>NIST 800 53 besturingselement CP-1
 
 #### <a name="contingency-planning-policy-and-procedures"></a>Onvoorziene Policy Planning and Procedures
 
 **CP-1** de organisatie ontwikkelt, documenten en verspreide naar [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen] geval van nood beleid die zijn gericht op doel, bereik, rollen, verantwoordelijkheden, management-streven plannen samenwerking tussen de organisatie-entiteiten en naleving; en -procedures om te vereenvoudigen, de implementatie van het geval van nood plannen van beleid en de bijbehorende geval van nood plannen beveiligingsmaatregelen; en controleert en updates van de huidige geval van nood beleid plannen [toewijzing: organisatie gedefinieerde frequentie]; en het geval van nood procedures plannen [toewijzing: organisatie gedefinieerde frequentie].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP 2.** de organisatie ontwikkelt een plan voor onvoorziene gebeurtenissen voor het informatiesysteem die essentieel missies en bedrijfsfuncties en bijbehorende onvoorziene vereisten identificeert; doelstellingen voor herstel, herstel prioriteiten, biedt en metrische gegevens; adressen onvoorziene rollen, taken, toegewezen personen met contactgegevens; adressen onderhouden van essentiële missies en bedrijfsfuncties ondanks een onderbreking van de informatie-systeem, inbreuk of storing; bevat uiteindelijke, volledige informatie over gegevens terugzetten van het systeem zonder verslechtering van de beveiligingsmaatregelen die oorspronkelijk zijn gepland en geïmplementeerd; en wordt gecontroleerd en goedgekeurd door [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP 2.b** de organisatie distribueert kopieën van de onvoorziene wilt [toewijzing: organisatie gedefinieerd sleutel onvoorziene personeel (aangeduid met de naam en/of door de rol) en organisatie-elementen].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2.c** de organisatie coördineert onvoorziene planningsactiviteiten met het incident afhandeling van activiteiten.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2.d** de organisatie controleert het plan voor onvoorziene gebeurtenissen voor het informatiesysteem [toewijzing: organisatie gedefinieerde frequentie].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -95,13 +95,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-cp-2e"></a>NIST 800-53 Control CP-2.e
+ ## <a name="nist-800-53-control-cp-2e"></a>NIST 800 53 besturingselement CP-2.e
 
 #### <a name="contingency-plan"></a>Plan voor onvoorziene gebeurtenissen
 
 **CP-2.e** De organisatie updates het plan voor onvoorziene gebeurtenissen voor wijzigingen in de organisatie, de informatie system of de omgeving van bewerking en problemen die optreden tijdens implementatie plan voor onvoorziene gebeurtenissen, uitvoeren of testen.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2.f** de organisatie communiceert wijzigingen in noodgevallen plan [toewijzing: organisatie gedefinieerd sleutel onvoorziene personeel (aangeduid met de naam en/of door de rol) en organisatie-elementen].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -123,13 +123,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-cp-2g"></a>NIST 800-53 Control CP-2.g
+ ## <a name="nist-800-53-control-cp-2g"></a>NIST 800 53 besturingselement CP-2.g
 
 #### <a name="contingency-plan"></a>Plan voor onvoorziene gebeurtenissen
 
 **CP-2.g** de organisatie het plan voor onvoorziene gebeurtenissen beschermt tegen ongeautoriseerde bekendmaking en de wijzigingsopties.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2 (1)** de organisatie coördineert de ontwikkeling van een plan voor onvoorziene gebeurtenissen met organisatie-elementen die verantwoordelijk is voor verwante plannen.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -151,13 +151,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-cp-2-2"></a>NIST 800-53 Control CP-2 (2)
+ ### <a name="nist-800-53-control-cp-2-2"></a>NIST 800 53 besturingselement CP-2 (2)
 
 #### <a name="contingency-plan--capacity-planning"></a>Plan voor onvoorziene gebeurtenissen | Capaciteitsplanning
 
 **CP-2 (2)** de organisatie voert capaciteitsplanning zodat de benodigde capaciteit voor de verwerking van gegevens, telecommunicatie en omgevingsvereisten ondersteuning bij noodgevallen bewerkingen bestaat.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2 (3)** de organisatie plannen voor de hervatting van essentiële missies en zakelijke functies binnen [toewijzing: organisatie gedefinieerde periode] plan voor onvoorziene gebeurtenissen activering.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2 (4)** de organisatie plannen voor de hervatting van alle missies en zakelijke functies binnen [toewijzing: organisatie gedefinieerde periode] plan voor onvoorziene gebeurtenissen activering.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2 (5)** plannen voor de bedrijfscontinuïteit van essentiële missies en zakelijke functies met weinig of geen verlies van operationele continuïteit en bestand is tegen continuïteit totdat alle gegevens terugzetten van het systeem op primaire verwerking van de organisatie en/of opslag-sites.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-2 (8)** de organisatie identificeert essentiële informatie system activa essentiële missies en zakelijke functies ondersteunen.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP 3.** de organisatie onvoorziene training biedt aan gebruikers gegevens consistent zijn met de toegewezen rollen en verantwoordelijkheden binnen [toewijzing: organisatie gedefinieerde periode] van het uitgaande van een onvoorziene functie of verantwoordelijkheid.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP 3.b** de organisatie onvoorziene training biedt aan gebruikers gegevens consistent zijn met de toegewezen rollen en verantwoordelijkheden indien vereist door wijzigingen in het systeem informatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP 3.c** de organisatie onvoorziene training biedt aan gebruikers gegevens consistent zijn met de toegewezen rollen en verantwoordelijkheden [toewijzing: organisatie gedefinieerde frequentie] daarna.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-3 (1)** de organisatie opgenomen met het gesimuleerde gebeurtenissen in noodgevallen training effectieve antwoord van de werknemers in crisissituaties mogelijk te maken.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP 4.** de organisatie test het plan voor onvoorziene gebeurtenissen voor het informatiesysteem [toewijzing: organisatie gedefinieerde frequentie] met [toewijzing: tests organisatie gedefinieerd] om te bepalen van de effectiviteit van het plan en de organisatie Gereedheid voor het plan uitvoeren.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -297,7 +297,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP 4.b** de organisatie beoordeelt de testresultaten plan voor onvoorziene gebeurtenissen.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-4.c** de organisatie initieert corrigerende maatregelen, indien nodig.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-4 (1)** plannen met betrekking tot het organisatie-coördinaten onvoorziene plan met organisatie-elementen die verantwoordelijk is voor testen.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -333,13 +333,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-cp-4-2a"></a>NIST 800-53 Control CP-4 (2).a
+ ### <a name="nist-800-53-control-cp-4-2a"></a>NIST 800 53 CP-4 (2) een beheren
 
 #### <a name="contingency-plan-testing--alternate-processing-site"></a>Plan voor onvoorziene gebeurtenissen testen | Verwerking van de andere Site
 
 **CP-4 (2) een** de organisatie test de plan voor onvoorziene gebeurtenissen op de site alternatieve verwerking om vertrouwd te onvoorziene personeel met de opslagruimte en de beschikbare bronnen.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -347,13 +347,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-cp-4-2b"></a>NIST 800-53 Control CP-4 (2).b
+ ### <a name="nist-800-53-control-cp-4-2b"></a>NIST 800 53 CP-4 (2) .b beheren
 
 #### <a name="contingency-plan-testing--alternate-processing-site"></a>Plan voor onvoorziene gebeurtenissen testen | Verwerking van de andere Site
 
 **CP-4 (2) .b** de organisatie test het plan voor onvoorziene gebeurtenissen op de site alternatieve verwerking evalueren van de mogelijkheden van de site alternatieve verwerking om onvoorziene bewerkingen te ondersteunen.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -367,7 +367,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-6.a** de organisatie stelt een alternatieve opslaggroep site, inclusief de vereiste overeenkomsten toe te staan de opslaan en ophalen van informatie system back-upgegevens.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -381,7 +381,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-6.b** de organisatie zorgt ervoor dat de alternatieve opslagsite informatie beveiligingsmaatregelen gelijk zijn aan die van de primaire site geeft.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -395,7 +395,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-6 (1)** de organisatie identificeert een alternatieve opslagruimte die is gescheiden van de primaire opslagruimte te verminderen gevoeligheid voor de dezelfde bedreigingen.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -409,7 +409,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-6 (2)** de organisatie configureert de site alternatieve opslaggroep herstelbewerkingen volgens de hersteltijd en herstelpuntdoelen vergemakkelijkt.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -423,7 +423,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-6 (3)** potentiële toegankelijkheidsproblemen naar de alternatieve opslagruimte in het geval van een heel wordt onderbroken of noodgeval identificeert en geeft een overzicht van expliciete risicobeperking acties van de organisatie.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -437,7 +437,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP 7.** de organisatie een alternatieve verwerking site, inclusief de vereiste overeenkomsten toe te staan voor de overdracht en hervatting van vaststelt [toewijzing: organisatie gedefinieerde informatie systeembewerkingen] voor essentiële missies/bedrijven functies binnen [toewijzing: organisatie gedefinieerde tijdsperiode die consistent zijn met het moment van herstel en herstelpuntdoelen] als de primaire verwerkingscapaciteit niet beschikbaar zijn.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -451,7 +451,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP 7.b** de organisatie zorgt ervoor dat en benodigdheden vereist voor de overdracht en hervatten van de bewerkingen beschikbaar op de site alternatieve verwerking zijn of contracten zijn ter ondersteuning voor levering aan de site binnen de organisatie gedefinieerd de periode voor overdracht/hervatting van.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -465,7 +465,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-7.c** de organisatie zorgt ervoor dat de verwerking van alternatieve informatie beveiligingsmaatregelen die gelijkwaardig zijn aan die van de primaire site bevat.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -473,13 +473,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-cp-7-1"></a>NIST 800-53 Control CP-7 (1)
+ ### <a name="nist-800-53-control-cp-7-1"></a>NIST 800 53 besturingselement CP-7 (1)
 
 #### <a name="alternate-processing-site--separation-from-primary-site"></a>Alternatieve verwerking Site | Scheiding van primaire Site
 
 **CP-7 (1)** de organisatie een alternatieve verwerking site dat is gescheiden van de verwerking van de primaire site te verlagen gevoeligheid voor de dezelfde bedreigingen identificeren.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -487,13 +487,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-cp-7-2"></a>NIST 800-53 Control CP-7 (2)
+ ### <a name="nist-800-53-control-cp-7-2"></a>NIST 800 53 besturingselement CP-7 (2)
 
 #### <a name="alternate-processing-site--accessibility"></a>Alternatieve verwerking Site | Toegankelijkheid
 
 **CP-7 (2)** potentiële toegankelijkheidsproblemen met de site alternatieve verwerken in het geval van een heel wordt onderbroken of noodgeval identificeert en geeft een overzicht van expliciete risicobeperking acties van de organisatie.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -507,7 +507,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-7 (3)** de organisatie ontwikkelt alternatieve verwerking site overeenkomsten die prioriteit-of-service voorziet in overeenstemming met de vereiste organisatie-beschikbaarheid (inclusief hersteltijddoelen) bevatten.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -521,7 +521,7 @@ ms.lasthandoff: 02/11/2018
 
 **(4) CP-7** de site alternatieve verwerking van de organisatie wordt voorbereid zodat de site is gereed om te worden gebruikt als de operationele site ondersteuning van essentiële missies en zakelijke functies.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -529,13 +529,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-cp-8"></a>NIST 800-53 Control CP-8
+ ## <a name="nist-800-53-control-cp-8"></a>NIST 800 53 besturingselement CP-8
 
 #### <a name="telecommunications-services"></a>Telecommunicatieservices
 
 **CP-8** de organisatie vaststelt alternatieve telecommunicatie met inbegrip van de vereiste overeenkomsten toe te staan de hervatting van [toewijzing: organisatie gedefinieerde informatie systeembewerkingen] voor essentiële missies en business functies binnen [toewijzing: organisatie gedefinieerde periode] wanneer de primaire telecommunicatie-mogelijkheden zijn niet beschikbaar op de primaire of een alternatieve verwerking of opslag sites.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -543,13 +543,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Microsoft Azure bevindt zich in datacenters van Microsoft Azure. Microsoft Azure is verantwoordelijk voor de continuïteit van de services telecommunicatie door het proces van het gebruik van diverse fiber routes en redundante hardware voor maximale beschikbaarheid. Elk van de datacentra weergegeven als onderdeel van de Microsoft Azure-grens actieve, onafhankelijk van elkaar en volledig operationeel is de mogelijkheid om services te leveren op elk gewenst moment zijn. Naast de configuratie van de actieve datacenter vermindert Microsoft Azure ook het risico van potentiële fouten met telecommunicatie koppelingen doordat elk datacenter te hebben van ten minste twee verschillende fiber paden. Microsoft eigendom van en onderhoudt een eigen fiber-netwerk met als doel voor de ondersteuning van uitsluitend eigenschappen van Microsoft die fungeert als een globale fiber-backbone die vergelijkbaar is met meerdere ISP's. Microsoft contracten met niveau 3 communicatie voor service-onderhoud veld in het geval van fouten, fouten of fouten. De serviceniveaudoelstelling voor onderhoud op aanvraag en kritieke tijd om te herstellen is 4 uur. Kritieke problemen worden gedefinieerd als incidenten of stroomonderbrekingen, uitzondering veroorzaakt door een met geldige reden, waardoor een Equipment Microsoft storing, als gevolg van die gegevens kan niet van Microsoft ontvangen. |
 
 
- ### <a name="nist-800-53-control-cp-8-1a"></a>NIST 800-53 Control CP-8 (1).a
+ ### <a name="nist-800-53-control-cp-8-1a"></a>(((1) een van NIST 800 53 besturingselement CP-8
 
 #### <a name="telecommunications-services--priority-of-service-provisions"></a>Telecommunicatie | Prioriteit van de bepalingen van de Service
 
 **CP-8 (1) een** de organisatie ontwikkelt primaire en alternatieve telecommunicatie serviceovereenkomsten die prioriteit-of-service voorziet in overeenstemming met de vereiste organisatie-beschikbaarheid (inclusief hersteltijd bevatten doelstellingen).
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -557,13 +557,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Microsoft Azure bevindt zich in datacenters van Microsoft Azure. Microsoft Azure bepaalt de eigen netwerkroutering en prioriteit van de Service-instelling voor noodgevallen is daarom niet vereist. Microsoft Azure is verantwoordelijk voor het definiëren van een eigen routering prioriteit op basis van de eigenschap availability vereisten en noodgevallen. In de cloudomgeving is er geen prioriteitsvolgorde omdat er verschillende teams elk specifiek onderdeel weer online brengen in de RTO's gedefinieerd voor elk onderdeel. Alle onderdelen zijn daarom een prioriteit in een scenario storing. |
 
 
- ### <a name="nist-800-53-control-cp-8-1b"></a>NIST 800-53 Control CP-8 (1).b
+ ### <a name="nist-800-53-control-cp-8-1b"></a>(((1) .b van NIST 800 53 besturingselement CP-8
 
 #### <a name="telecommunications-services--priority-of-service-provisions"></a>Telecommunicatie | Prioriteit van de bepalingen van de Service
 
 **CP-8 (1) .b** de organisatie telecommunicatie serviceprioriteit aanvragen voor alle telecommunicatie services gebruikt voor het national security noodsituaties in het geval dat de primaire en/of alternatieve telecommunicatieservices zijn geleverd door een gemeenschappelijke lijn.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -571,13 +571,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Microsoft Azure bevindt zich in datacenters van Microsoft Azure. Microsoft Azure bepaalt de eigen netwerkroutering en prioriteit van de Service-instelling voor noodgevallen is daarom niet vereist. |
 
 
- ### <a name="nist-800-53-control-cp-8-2"></a>NIST 800-53 Control CP-8 (2)
+ ### <a name="nist-800-53-control-cp-8-2"></a>NIST 800 53 besturingselement CP-8 (2)
 
 #### <a name="telecommunications-services--single-points-of-failure"></a>Telecommunicatie | Enkele Storingspunten
 
 **CP-8 (2)** de organisatie alternatieve telecommunicatieservices om te verminderen de kans op een potentieel risico delen met primaire telecommunicatie verkrijgt.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -591,7 +591,7 @@ ms.lasthandoff: 02/11/2018
 
 **(3) CP-8** de organisatie verkrijgt alternatieve telecommunicatieservices van andere leveranciers die worden gescheiden van de primaire serviceproviders gevoeligheid voor de dezelfde bedreigingen te verminderen.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -599,13 +599,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Microsoft Azure vermindert het risico van potentiële fouten met telecommunicatie koppelingen door elke Azure-datacenter te hebben van ten minste twee verschillende fiber paden vereisen. De koppelingen redundante communicatie zijn tot stand gebrachte volgende ongelijksoortige paden via het netwerk van Microsoft fiber. Dit is een continu operationele oplossing beheerd met Azure. |
 
 
- ### <a name="nist-800-53-control-cp-8-4a"></a>NIST 800-53 Control CP-8 (4).a
+ ### <a name="nist-800-53-control-cp-8-4a"></a>NIST 800 53 beheren (4) een CP-8
 
 #### <a name="telecommunications-services--provider-contingency-plan"></a>Telecommunicatie | Plan voor provider onvoorziene gebeurtenissen
 
 **CP-8 (4) een** de organisatie vereist primaire en alternatieve telecommunicatie serviceproviders voor noodgevallen van plan bent.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -613,13 +613,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Microsoft Azure is het geval van nood planning beleid via de publicatie van het beveiligingsbeleid van Microsoft, beheerd door de Azure-beveiliging worden geïmplementeerd. Het doel van Azure continuïteit management-beleid is het beschermen van externe klanten en de interne Microsoft business door te geven van een service- en functionele tolerantie samen met een herstelmogelijkheid geabonneerde services en zakelijke core herstellen bevoegdheden in een vooraf bepaalde tijdsbestek tijdens een aanzienlijke storing. |
 
 
- ### <a name="nist-800-53-control-cp-8-4b"></a>NIST 800-53 Control CP-8 (4).b
+ ### <a name="nist-800-53-control-cp-8-4b"></a>NIST 800 53 CP-8 (4) .b beheren
 
 #### <a name="telecommunications-services--provider-contingency-plan"></a>Telecommunicatie | Plan voor provider onvoorziene gebeurtenissen
 
 **CP-8 (4) .b** de organisatie beoordeelt provider onvoorziene plannen om ervoor te zorgen dat de abonnementen aan organisatie onvoorziene vereisten voldoen.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -627,13 +627,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Het beveiligingsbeleid van Microsoft Azure wordt gecontroleerd en jaarlijks goedgekeurd door Azure Management-beveiliging en bijgehouden in het hulpprogramma GRC. Het beveiligingsbeleid van Microsoft in de hele organisatie is van toepassing op alle gegevens en processen die worden gebruikt bij de uitvoering van Microsoft business. Alle Microsoft-werknemers en tijdelijk personeel zijn verantwoordelijk zijn en die verantwoordelijk is voor het voldoen aan deze richtsnoer binnen hun toegewezen rollen. |
 
 
- ### <a name="nist-800-53-control-cp-8-4c"></a>NIST 800-53 Control CP-8 (4).c
+ ### <a name="nist-800-53-control-cp-8-4c"></a>NIST 800 53 CP-8 (4) .c beheren
 
 #### <a name="telecommunications-services--provider-contingency-plan"></a>Telecommunicatie | Plan voor provider onvoorziene gebeurtenissen
 
 **(4) CP-8 .c** de organisatie bewijs van het geval van nood testen/training door providers verkrijgt [toewijzing: organisatie gedefinieerde frequentie].
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -647,7 +647,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP 9.a** de organisatie voert back-ups van gegevens in het informatiesysteem op gebruikersniveau [toewijzing: organisatie gedefinieerde frequentie consistent zijn met het moment van herstel en herstelpuntdoelen].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -661,7 +661,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP 9.b** de organisatie voert back-ups van gegevens op systeemniveau in het informatiesysteem [toewijzing: organisatie gedefinieerde frequentie consistent zijn met het moment van herstel en herstelpuntdoelen].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -675,7 +675,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP 9.c** de organisatie voert back-ups van gegevens systeemdocumentatie inclusief documentatie die betrekking hebben op beveiliging [toewijzing: organisatie gedefinieerde frequentie consistent zijn met het moment van herstel en herstelpuntdoelen].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -689,7 +689,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP 9.d** de organisatie de vertrouwelijkheid, integriteit en beschikbaarheid van back-upgegevens op opslaglocaties beveiligt.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -703,7 +703,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-9 (1)** de organisatie test back-upgegevens [toewijzing: organisatie gedefinieerde frequentie] om media Betrouwbaarheids- en integriteit te controleren.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -717,7 +717,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-9 (2)** gebruikt de organisatie een steekproef van een back-upgegevens in het herstel van de geselecteerde gegevens systeemfuncties als onderdeel van het plan voor onvoorziene gebeurtenissen testen.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -731,7 +731,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-9 (3)** back-ups van de organisatie worden opgeslagen [toewijzing: systeemsoftware essentiële informatie organisatie gedefinieerd en andere beveiligingsinformatie] in een afzonderlijke faciliteit of in een container fire beoordeeld, die niet worden samengevoegd met het operationele systeem.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -745,7 +745,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-9 (5)** de organisatie brengt informatie system back-upgegevens naar de site alternatieve opslaggroep [toewijzing: organisatie gedefinieerde periode en de overdracht beoordelen consistent zijn met de hersteltijd en herstelpuntdoelen].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -753,13 +753,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-cp-10"></a>NIST 800-53 Control CP-10
+ ## <a name="nist-800-53-control-cp-10"></a>NIST 800 53 besturingselement CP-10
 
 #### <a name="information-system-recovery-and-reconstitution"></a>Herstel van het systeem en het opnieuw opbouwen
 
 **CP-10** de organisatie voor het herstel en het opnieuw opbouwen van het informatiesysteem naar een bekende status na een storing wordt onderbroken, inbreuk of biedt.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -767,13 +767,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-cp-10-2"></a>NIST 800-53 Control CP-10 (2)
+ ### <a name="nist-800-53-control-cp-10-2"></a>NIST 800 53 besturingselement CP-10 (2)
 
 #### <a name="information-system-recovery-and-reconstitution--transaction-recovery"></a>Herstel van het systeem en het opnieuw opbouwen | Herstel van transacties
 
 **(2) CP-10** transactie herstel voor systemen die op basis van een transactie door het informatiesysteem wordt geïmplementeerd.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -787,7 +787,7 @@ ms.lasthandoff: 02/11/2018
 
 **CP-10 (4)** de organisatie, biedt de mogelijkheid om terug te zetten systeemonderdelen van de gegevens binnen [toewijzing: herstel organisatie gedefinieerde perioden] uit configuratie beheerd en integriteit van beveiligde gegevens een bekende, operationele status voor de onderdelen die.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|

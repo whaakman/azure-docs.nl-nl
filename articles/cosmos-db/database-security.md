@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: a873aa9835ffab8b0d195d9fc9588167ea134128
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2b0cb1ed92694a7859912dfe0339ef719c0d15ef
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-cosmos-db-database-security"></a>Beveiliging van Azure DB Cosmos-database
 
@@ -78,7 +78,7 @@ We gaan verdiepen in elk criterium in detail.
 |Reageren op aanvallen|Zodra u hebt gemaakt voor de ondersteuning van Azure om te melden bij een aanval met wordt een 5-stap respons op incidenten-proces gestart. Het doel van de 5-proces is de normale werking beveiliging en werking zo snel mogelijk herstellen nadat er een probleem wordt gedetecteerd en onderzoek is gestart.<br><br>Meer informatie [reactie van Microsoft Azure-beveiliging in de Cloud](https://aka.ms/securityresponsepaper).|
 |Geofencing|Azure Cosmos DB zorgt ervoor dat gegevens bestuur en naleving voor soevereine regio's (bijvoorbeeld Duitsland, China, ons Gov).|
 |Beveiligde faciliteiten|Gegevens in Azure Cosmos-database is opgeslagen op SSD's in Azure beveiligde datacenters.<br><br>Meer informatie [globale datacenters van Microsoft](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)|
-|HTTPS/SSL/TLS-versleuteling|Alle client-naar-service Azure Cosmos DB interacties zijn SSL/TLS 1.2 afgedwongen. Alle intra datacenter en cross datacenter replicatie wordt ook SSL/TLS 1.2 afgedwongen.|
+|HTTPS/SSL/TLS-versleuteling|Alle client-naar-service Azure Cosmos DB interacties zijn SSL/TLS 1.2 die geschikt. Alle intra datacenter en cross datacenter replicatie wordt ook SSL/TLS 1.2 afgedwongen.|
 |Versleuteling 'at rest'|Alle gegevens die zijn opgeslagen in Azure Cosmos DB in rust versleuteld. Meer informatie [Azure DB die Cosmos-versleuteling in rust](.\database-encryption-at-rest.md)|
 |Patches servers|Als de database van een beheerde hoeven Azure Cosmos DB te beheren en de patch-servers, die automatisch voor u heeft gedaan.|
 |Beheerdersaccounts met sterke wachtwoorden|Het is moeilijk om te geloven zelfs moet worden vermeld in deze vereiste, maar in tegenstelling tot enkele van onze concurrenten, is het onmogelijk om een Administrator-account zonder wachtwoord hebben in Azure Cosmos DB.<br><br> Beveiliging via SSL en HMAC geheime gebaseerde verificatie is standaard uitbreidbaar standaard.|

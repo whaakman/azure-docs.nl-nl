@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: e6d1e093fafc6ea74dfcdfa498810ff33d27d89f
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: b202f30e5fb47bcd16f25c5961f8345dd0324139
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: De Azure AD B2C-gebruikersinterface (UI) aanpassen
 
@@ -332,7 +332,17 @@ Gebruikers kunnen hun telefoonnummers (met behulp van de tekst of stem) verifië
 
 ## <a name="localizing-your-html-content"></a>Lokalisatie van uw HTML-inhoud
 
-U kunt uw HTML-inhoud door het inschakelen van lokaliseren ['Aanpassing taal'](active-directory-b2c-reference-language-customization.md).  Azure AD B2C voor het doorsturen van de parameter Open ID Connect inschakelen van deze functie kunt `ui-locales`, naar het eindpunt.  De inhoudsserver kunt u deze parameter gebruiken voor aangepaste HTML-pagina's die een specifieke taal zijn gebonden.
+Er zijn twee manieren om te lokaliseren uw HTML-inhoud. Een manier is om in te schakelen [taal aanpassing](active-directory-b2c-reference-language-customization.md). Azure AD B2C voor het doorsturen van de parameter Open ID Connect inschakelen van deze functie kunt `ui-locales`, naar het eindpunt.  De inhoudsserver kunt u deze parameter gebruiken voor aangepaste HTML-pagina's die een specifieke taal zijn.
+
+U kunt ook inhoud ophalen vanaf verschillende locaties op basis van de landinstellingen die wordt gebruikt. U kunt een mapstructuur naar host-inhoud voor specifieke talen instellen in uw eindpunt CORS ingeschakeld. U moet de juiste is aanroepen als u het jokerteken `{Culture:RFC5646}`.  Stel bijvoorbeeld dat dit uw aangepaste URI-pagina is:
+
+```
+https://wingtiptoysb2c.blob.core.windows.net/{Culture:RFC5646}/wingtip/unified.html
+```
+U kunt de pagina in laden `fr`. Wanneer de pagina HTML en CSS inhoud ophaalt, wordt het binnenhalen van:
+```
+https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
+```
 
 ## <a name="things-to-remember-when-building-your-own-content"></a>Om te onthouden tijdens het bouwen van uw eigen inhoud
 

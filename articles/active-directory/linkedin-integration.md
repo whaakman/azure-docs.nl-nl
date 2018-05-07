@@ -9,21 +9,24 @@ ms.workload: identity
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 05/02/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 33e3305288edc3990ed88b39c819293a8adc2dfe
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9ab59033fd032cfccd2602a1a518e51a08e09581
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>LinkedIn account verbindingen voor Microsoft-apps en services
 In dit artikel kunt u informatie over het beheren van LinkedIn account verbindingen voor uw tenant in de Azure Active Directory (Azure AD)-beheercentrum. 
 
 > [!IMPORTANT]
 > LinkedIn account verbindingen functionaliteit is binnenkort beschikbaar voor Azure AD-tenants. Wanneer deze is geïmplementeerd voor uw tenant, is standaard ingeschakeld. Het is niet beschikbaar voor de Verenigde Staten government-klanten en organisaties met Exchange Online postvakken die worden gehost in Australië, Canada, China, Frankrijk, Duitsland, India, Zuid-Korea, Verenigd Koninkrijk, Japan en Zuid-Afrika. Ondersteuning voor deze locaties postvak is binnenkort beschikbaar.  Zie voor een actuele weergave van de implementatie-informatie, de [Office 365 Roadmap](https://products.office.com/business/office-365-roadmap?filters=%26freeformsearch=linkedin#abc) pagina.
+
+## <a name="benefit-to-users"></a>Voordelen voor gebruikers
+Nadat gebruikers verbinding hebben met hun LinkedIn-account, worden LinkedIn informatie wordt gebruikt voor het weergeven van persoonlijke gegevens en functies in verschillende Microsoft-apps of services. Gebruikers zien insights over de mensen die ze werken in de Microsoft-profiel-kaart, zelfs als buiten uw organisatie mensen. Na verloop van tijd hun ervaring LinkedIn ook worden meer relevante en geschikt is voor hun werk. Bijvoorbeeld, LinkedIn nieuwe verbindingen op basis van kan voorstellen die gebruikers werken met of op basis van inzicht in mensen van hun agenda die dag.
 
 ## <a name="how-linkedin-account-connections-appear-to-the-user"></a>Hoe LinkedIn account verbindingen voor de gebruiker worden weergegeven
 LinkedIn account verbindingen toestaan dat gebruikers om te zien van openbare LinkedIn profielgegevens binnen enkele van hun Microsoft-apps. Gebruikers in uw tenant kunt verbinding maken met hun werk LinkedIn en Microsoft-of schoolaccounts voor een overzicht van aanvullende informatie voor LinkedIn-profiel. Zie voor meer informatie [LinkedIn informatie en functies in Microsoft-apps en services](https://go.microsoft.com/fwlink/?linkid=850740).

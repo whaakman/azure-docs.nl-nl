@@ -14,19 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: jimdial
-ms.openlocfilehash: 105a32f37c0a6a212888f9ee8457844769b9a3c7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 6d7e41b2b631fcecefd835a10e9b91fd9bb3f17d
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Een Windows-machine maken met versnelde toegang
-
-> [!IMPORTANT]
-> Virtuele machines moeten worden gemaakt met de versnelde netwerken ingeschakeld. Deze functie kan niet worden ingeschakeld op de bestaande virtuele machines. Voer de volgende stappen uit om in te schakelen versnelde netwerken:
->   1. Verwijder de virtuele machine
->   2. Maak de virtuele machine met versnelde netwerken is ingeschakeld
->
 
 In deze zelfstudie leert u het maken van virtuele Windows-machine (VM) met versnelde netwerken. Zie voor informatie over het maken van een Linux-VM met versnelde toegang [Maak een Linux-VM met versnelde netwerken](create-vm-accelerated-networking-cli.md). Versnelde netwerken kan één i/o-virtualisatie hoofdmap (SR-IOV) voor een virtuele machine, aanzienlijk verbeteren de prestaties van netwerken. Dit pad hoge prestaties wordt de host van het gegevenspad, waardoor latentie en jitter CPU-gebruik, voor gebruik met de zwaarste netwerkbelasting op ondersteunde VM typen overgeslagen. De volgende afbeelding ziet communicatie tussen twee virtuele machines met en zonder versnelde netwerken:
 
@@ -43,23 +37,30 @@ De voordelen van versnelde netwerken zijn alleen van toepassing op de virtuele m
 * **Minder jitter:** virtuele switch verwerking is afhankelijk van de hoeveelheid beleid die moet worden toegepast en de werkbelasting van de CPU die bezig is met de verwerking. Offloading van het afdwingen van beleid op de hardware verwijdert die variabiliteit door het leveren van pakketten rechtstreeks naar de virtuele machine, het verwijderen van de host voor VM-communicatie en alle software-interrupts en context switches.
 * **CPU-gebruik verlaagd:** overslaan van de virtuele switch op de host leidt tot minder CPU-gebruik voor het verwerken van netwerkverkeer.
 
-## <a name="supported-operating-systems"></a>Ondersteunde besturingssystemen
-Microsoft Windows Server 2012 R2 Datacenter en WindowsServer 2016.
+## <a name="limitations-and-constraints"></a>Beperkingen en -beperkingen
 
-## <a name="supported-vm-instances"></a>Ondersteunde VM-exemplaren
-Versnelde netwerken wordt ondersteund op de meest algemene doeleinden en geoptimaliseerd voor compute exemplaar groottes met 4 of meer vcpu's. Op exemplaren zoals D/DSv3 of E/ESv3 die ondersteuning bieden voor hyperthreading wordt versnelde toegang ondersteund op VM-instanties met 8 vcpu's. Ondersteunde reeksen zijn: D/DSv2, D/DSv3 E/ESv3, Fs-F/Fsv2 en Ms-en Mms.
+### <a name="supported-operating-systems"></a>Ondersteunde besturingssystemen
+De volgende distributies worden buiten het uit de galerie van Azure ondersteund: 
+* **Windows Server 2016 Datacenter** 
+* **Windows Server 2012 R2 Datacenter** 
+
+### <a name="supported-vm-instances"></a>Ondersteunde VM-exemplaren
+Versnelde netwerken wordt ondersteund op de meest algemene doeleinden en geoptimaliseerd voor compute exemplaar groottes met 2 of hoger vcpu's.  Deze reeks ondersteund zijn: D/DSv2 en F/Fs
+
+Op de exemplaren die ondersteuning bieden voor hyperthreading, wordt versnelde toegang ondersteund op VM-instanties met 4 of meer vcpu's. Ondersteunde reeksen zijn: D/DSv3, E/ESv3 Fsv2 en Ms-en Mms
 
 Zie voor meer informatie over VM-instanties [Windows VM-grootten](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-## <a name="regions"></a>Regio's
+### <a name="regions"></a>Regio's
 Beschikbaar in alle openbare Azure-regio's en Azure Government Cloud.
 
-## <a name="limitations"></a>Beperkingen
-De volgende beperkingen bestaan wanneer deze wordt met deze mogelijkheid:
+### <a name="enabling-accelerated-networking-on-a-running-vm"></a>Versnelde netwerkgebruik op een actieve virtuele machine inschakelen
+Een ondersteunde VM-grootte zonder versnelde netwerken ingeschakeld kan alleen hebben voor de functie is ingeschakeld wanneer het wordt gestopt en de toewijzing ongedaan gemaakt.
 
-* **Interface maken van een netwerk:** Accelerated netwerken kan alleen worden ingeschakeld voor een nieuwe NIC. Deze kan niet worden ingeschakeld voor een bestaande NIC.
-* **Maken van VM:** een NIC met versnelde netwerken ingeschakeld kan alleen worden gekoppeld aan een VM wanneer de virtuele machine wordt gemaakt. De NIC kan niet worden gekoppeld aan een bestaande virtuele machine. Als de virtuele machine toe te voegen aan de bestaande beschikbaarheidsset is ingesteld, moeten alle virtuele machines in de beschikbaarheidsset ook versnelde netwerken ingeschakeld.
-* **Implementatie via Azure Resource Manager alleen:** virtuele machines (klassiek) kan niet worden geïmplementeerd met versnelde toegang.
+### <a name="deployment-through-azure-resource-manager"></a>Implementatie via Azure Resource Manager
+Virtuele machines (klassiek) kan niet worden geïmplementeerd met versnelde toegang.
+
+## <a name="create-a-windows-vm-with-azure-accelerated-networking"></a>Een Windows-VM met Azure versnelde netwerken maken
 
 Hoewel dit artikel stappen bevat voor het maken van een virtuele machine met versnelde netwerken met Azure PowerShell, kunt u ook [maken van een virtuele machine met versnelde netwerken met de Azure portal](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Bij het maken van een virtuele machine in de portal onder **instellingen**, selecteer **ingeschakeld**onder **versnelde netwerken**. De optie voor het inschakelen van versnelde netwerken wordt niet weergegeven in de portal, tenzij u hebt geselecteerd een [ondersteund besturingssysteem](#supported-operating-systems) en [VM-grootte](#supported-vm-instances). Nadat de virtuele machine is gemaakt, moet u de instructies in voltooien [Bevestig het stuurprogramma in het besturingssysteem is geïnstalleerd](#confirm-the-driver-is-installed-in-the-operating-system).
 
@@ -210,3 +211,91 @@ Zodra u de virtuele machine in Azure maakt, verbinding maken met de virtuele mac
     ![Apparaatbeheer](./media/create-vm-accelerated-networking/device-manager.png)
 
 Versnelde netwerken is nu ingeschakeld voor uw virtuele machine.
+
+## <a name="enable-accelerated-networking-on-existing-vms"></a>Versnelde netwerkgebruik op bestaande virtuele machines inschakelen
+Als u een virtuele machine zonder versnelde netwerken hebt gemaakt, is het mogelijk is deze functie op een bestaande virtuele machine in te schakelen.  De virtuele machine moet versnelde netwerken via ondersteunen voldoen aan de volgende vereisten die ook hierboven worden beschreven:
+
+* De virtuele machine moet een ondersteunde grootte voor versnelde netwerken
+* De virtuele machine moet een ondersteunde Azure-galerie-installatiekopie (en de kernelversie voor Linux)
+* Alle virtuele machines in een beschikbaarheidsset of VMSS moet worden gestopt/ongedaan voordat u inschakelt op een NIC versnelde netwerken
+
+### <a name="individual-vms--vms-in-an-availability-set"></a>Afzonderlijke virtuele machines en virtuele machines in een beschikbaarheidsset instellen
+Eerst stoppen/ongedaan de virtuele machine of als een Beschikbaarheidsset, alle virtuele machines in de Set:
+
+```azurepowershell
+Stop-AzureRmVM -ResourceGroup "myResourceGroup" `
+    -Name "myVM"
+```
+
+Belangrijk, neem Opmerking: als uw virtuele machine afzonderlijk, is gemaakt zonder een beschikbaarheidsset u alleen moet stoppen/toewijzing van de afzonderlijke VM om in te schakelen versnelde netwerken.  Als uw virtuele machine is gemaakt met een beschikbaarheidsset, moet alle virtuele machines die zijn opgenomen in de beschikbaarheidsset worden gestopt/ongedaan voordat u inschakelt op een van de NIC's versnelde netwerken. 
+
+Nadat gestopt, kunt u inschakelen versnelde netwerken op de NIC van uw virtuele machine:
+
+```azurepowershell
+$nic = Get-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
+    -Name "myNic"
+
+$nic.EnableAcceleratedNetworking = $true
+
+$nic | Set-AzureRmNetworkInterface
+```
+
+Opnieuw opstarten van uw virtuele machine of, als in een Beschikbaarheidsset, alle virtuele machines in de Set en controleer of de versnelde netwerken is ingeschakeld: 
+
+```azurepowershell
+Start-AzureRmVM -ResourceGroup "myResourceGroup" `
+    -Name "myVM"
+```
+
+### <a name="vmss"></a>VMSS
+VMSS verschilt enigszins maar dezelfde werkstroom volgt.  Eerst de virtuele machines stoppen:
+
+```azurepowershell
+Stop-AzureRmVmss -ResourceGroupName "myResourceGroup" ` 
+    -VMScaleSetName "myScaleSet"
+```
+
+Nadat de virtuele machines zijn gestopt, moet u de eigenschap versnelde netwerken onder de netwerkinterface bijwerken:
+
+```azurepowershell
+$vmss = Get-AzureRmVmss -ResourceGroupName "myResourceGroup" `
+    -VMScaleSetName "myScaleSet"
+
+$vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].EnableAcceleratedNetworking = $true
+
+Update-AzureRmVmss -ResourceGroupName "myResourceGroup" `
+    -VMScaleSetName "myScaleSet" `
+    -VirtualMachineScaleSet $vmss
+```
+
+Neem heeft notitie, een VMSS VM upgrades die met drie verschillende instellingen automatische, rolling of handmatige updates toepassen.  Het beleid is ingesteld op automatisch in deze instructies zodat de VMSS opgehaald de wijzigingen onmiddellijk na het opnieuw te starten.  Zodat de wijzigingen onmiddellijk worden opgepikt, moet u deze instellen op automatisch: 
+
+```azurecli
+$vmss.UpgradePolicy.AutomaticOSUpgrade = $true
+
+Update-AzureRmVmss -ResourceGroupName "myResourceGroup" `
+    -VMScaleSetName "myScaleSet" `
+    -VirtualMachineScaleSet $vmss
+```
+
+Ten slotte de VMSS starten:
+
+```azurecli
+Start-AzureRmVmss -ResourceGroupName "myResourceGroup" ` 
+    -VMScaleSetName "myScaleSet"
+```
+
+Eenmaal u opnieuw opstarten, wacht u totdat de updates te voltooien maar één keer zijn voltooid, de VF wordt weergegeven in de virtuele machine.  (Zorg ervoor dat u een ondersteund besturingssysteem en de VM-grootte)
+
+### <a name="resizing-existing-vms-with-accelerated-networking"></a>Bestaande virtuele machines met versnelde toegang vergroten of verkleinen
+
+De grootte van virtuele machines met versnelde toegang ingeschakeld kunnen alleen worden gewijzigd voor VM's die ondersteuning bieden voor versnelde netwerken.  
+
+Een virtuele machine met versnelde toegang ingeschakeld kan niet worden aangepast aan een VM-instantie die geen ondersteuning biedt voor versnelde netwerken met behulp van de bewerking formaat wijzigen.  In plaats daarvan het formaat van een van deze virtuele machines: 
+
+* De virtuele machine stoppen/Deallocate of als deze in een beschikbaarheidsgroep set/VMSS, stop/toewijzing alle VM's in de set/VMSS.
+* Versnelde netwerken moet worden uitgeschakeld op de NIC van de virtuele machine of als in een beschikbaarheidsgroep set/VMSS, alle virtuele machines in de set/VMSS.
+* Zodra de versnelde toegang is uitgeschakeld, kan de set VM/beschikbaarheid/VMSS worden verplaatst naar een nieuwe grootte die biedt geen ondersteuning voor versnelde netwerken en opnieuw opgestart.  
+
+
+

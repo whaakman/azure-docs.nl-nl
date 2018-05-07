@@ -2,7 +2,7 @@
 title: 'Verificatie van de service-naar-service: Data Lake Store met Azure Active Directory | Microsoft Docs'
 description: Meer informatie over het bereiken van de service to service-verificatie met Data Lake Store met Azure Active Directory
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 0b3f19bb92d1eeb214150bf118d546cd1c67cd78
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 58f269fa9c153a37a792d9d4efdaf0bd74eb265a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-azure-active-directory"></a>Verificatie met Data Lake Store met Azure Active Directory-Services
 > [!div class="op_single_selector"]
@@ -77,6 +77,9 @@ Wanneer u programmatisch zich aanmeldt, moet u de ID voor uw toepassing. Als de 
 7. In de **aangepaste toegang toevoegen** blade, klikt u op **OK**. De toegevoegde groep met de bijbehorende machtigingen worden vermeld in de **toegang** blade.
    
     ![Machtigingen toewijzen aan de groep](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "machtigingen toewijzen aan de groep")
+
+> [!NOTE]
+> Als u van plan uw Azure Active Directory-toepassing naar een specifieke map beperken bent, u moet ook op te geven die dezelfde Azure Active directory-toepassing **Execute** permisison naar de hoofdmap waarmee toegang tot het maken van het bestand via de. NET-SDK.
 
 > [!NOTE]
 > Als u de SDK's gebruiken om een Data Lake Store-account te maken wilt, moet u de Azure AD-webtoepassing als een rol toewijzen aan de resourcegroep waarin u het Data Lake Store-account maken.

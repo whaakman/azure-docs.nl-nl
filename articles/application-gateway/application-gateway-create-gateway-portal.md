@@ -2,20 +2,20 @@
 title: Maken van een toepassingsgateway - Azure-Portal | Microsoft Docs
 description: Informatie over het maken van een toepassingsgateway met behulp van de Azure-portal.
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
-ms.author: davidmu
-ms.openlocfilehash: df9235bc7ff61943de52a0bcc4064bf9fab6636a
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: victorh
+ms.openlocfilehash: 0df71c445d2c5fc6827b69f708203a3b3e6e2b53
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-using-the-azure-portal"></a>Een toepassingsgateway met Azure portal maken
 
@@ -64,7 +64,7 @@ Een virtueel netwerk is vereist voor de communicatie tussen de bronnen die u maa
 
 3. Voer *myBackendSubnet* voor de naam van het subnet en klik vervolgens op **OK**.
 
-## <a name="create-backend-servers"></a>Maken van back-endservers
+## <a name="create-backend-servers"></a>Back-endservers maken
 
 In dit voorbeeld maakt u twee virtuele machines moet worden gebruikt als back-endservers voor de toepassingsgateway. U kunt ook IIS installeren op de virtuele machines om te controleren of de toepassingsgateway is gemaakt.
 
@@ -75,15 +75,15 @@ In dit voorbeeld maakt u twee virtuele machines moet worden gebruikt als back-en
 3. Voer deze waarden voor de virtuele machine:
 
     - *myVM* - voor de naam van de virtuele machine.
-    - *azureuser* - voor de gebruikersnaam van de beheerder.
+    - *azureuser* als gebruikersnaam van de beheerder.
     - *Azure123456!* voor het wachtwoord.
     - Selecteer **gebruik bestaande**, en selecteer vervolgens *myResourceGroupAG*.
 
 4. Klik op **OK**.
-5. Selecteer **DS1_V2** voor de grootte van de virtuele machine en klik op **Selecteer**.
+5. Selecteer **DS1_V2** als grootte van de virtuele machine en klik op **Selecteren**.
 6. Zorg ervoor dat **myVNet** is geselecteerd voor het virtuele netwerk en het subnet is **myBackendSubnet**. 
-7. Klik op **uitgeschakelde** diagnostische gegevens over opstarten uitschakelen.
-8. Klik op **OK**, Controleer de instellingen op de pagina Samenvatting en klik vervolgens op **maken**.
+7. Klik op **Uitgeschakeld** om diagnostische gegevens over opstarten uit te schakelen.
+8. Klik op **OK**, controleer de instellingen op de overzichtspagina en klik op **Maken**.
 
 ### <a name="install-iis"></a>IIS installeren
 
@@ -123,7 +123,7 @@ In dit voorbeeld maakt u twee virtuele machines moet worden gebruikt als back-en
 
     ![Record application gateway openbaar IP-adres](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png)
 
-2. Het openbare IP-adres Kopieer en plak deze in de adresbalk van uw browser.
+2. Kopieer het openbare IP-adres en plak het in de adresbalk van de browser.
 
     ![Test toepassingsgateway](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
 
@@ -134,4 +134,4 @@ Wanneer deze niet langer nodig is, de resourcegroep, toepassingsgateway en alle 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids gemaakt u een resourcegroep, netwerkbronnen en back-endservers. Vervolgens gebruikt u deze resources om een toepassingsgateway te maken. Blijven de artikelen voor meer informatie over Toepassingsgateways en de bijbehorende resources.
+In deze snelstart hebt u een resourcegroep, netwerkbronnen en backend-servers gemaakt. Vervolgens gebruikt u deze resources om een toepassingsgateway te maken. Blijven de artikelen voor meer informatie over Toepassingsgateways en de bijbehorende resources.

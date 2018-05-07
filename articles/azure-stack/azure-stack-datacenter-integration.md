@@ -1,25 +1,25 @@
 ---
-title: "Algemene datacenter Integratieoverwegingen voor het Azure-Stack geïntegreerd systemen | Microsoft Docs"
+title: Algemene datacenter Integratieoverwegingen voor het Azure-Stack geïntegreerd systemen | Microsoft Docs
 description: Meer informatie over wat u kunt doen om nu plan en bereid voor datacenter-integratie met meerdere knooppunten Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 25ef6ba9ff105486f39cee8b6181a8c63e64ec13
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 55243ead4f088f7a2b3d54c0581c604f0dc63d07
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Aandachtspunten voor Datacenter-integratie voor Azure-Stack geïntegreerd systemen
 Als u geïnteresseerd in een Azure-Stack geïntegreerd systeem bent, moet u enkele van de belangrijke planningsoverwegingen rond de implementatie en hoe het systeem in uw datacenter past begrijpen. Dit artikel bevat een overzicht van deze overwegingen bij de infrastructuur van belangrijke beslissingen voor uw Azure-Stack-systeem met meerdere knooppunten. Een goed begrip van deze overwegingen helpt bij het werken met uw hardwareleverancier OEM als ze Azure Stack op uw datacenter implementeren.  
@@ -50,7 +50,9 @@ Wanneer een hoger niveau van toegang nodig is voor het oplossen van problemen di
 ## <a name="identity-considerations"></a>Identiteit overwegingen
 
 ### <a name="choose-identity-provider"></a>Kies de identiteitsprovider
-U moet rekening houden met welke id-provider die u wilt gebruiken voor Azure-Stack-implementatie, Azure AD of AD FS. U kunt geen id-providers overschakelen na implementatie zonder volledige systeem opnieuw installeren.
+U moet rekening houden met welke id-provider die u wilt gebruiken voor Azure-Stack-implementatie, Azure AD of AD FS. U kunt geen id-providers overschakelen na implementatie zonder volledige systeem opnieuw installeren. Als u geen eigenaar van de Azure AD-account en een account aan u geleverd door uw Cloudserviceprovider, en als u wilt overschakelen van de provider en gebruiken van een andere Azure AD-account, op dit moment hebt u contact op met uw solution provider voor het implementeren van de oplossing f of u uw kosten.
+
+
 
 Uw keuze van de provider identiteit heeft geen invloed op de virtuele machines van tenants, de van identiteitssysteem en accounts die ze gebruiken, of ze kunnen deelnemen aan een Active Directory-domein, enzovoort. Dit is een afzonderlijke.
 
@@ -113,7 +115,7 @@ Geef dat een IP-adres voor de tijd synchronisatie-server, hoewel de meeste van d
 ## <a name="connect-azure-stack-to-azure"></a>Verbinding maken met Azure Stack naar Azure
 
 Voor hybride cloud-scenario's moet u plannen hoe u wilt verbinding maken met Azure-Stack naar Azure. Er zijn twee manieren verbinding maken met virtuele netwerken in Azure-Stack van virtuele netwerken in Azure: 
-- **Site-to-site**. Een virtueel particulier netwerk (VPN)-verbinding via IPsec (IKE v1 en IKE v2). Dit type verbinding vereist een VPN-apparaat of Routing and Remote Access Service (RRAS). Zie voor meer informatie over VPN-gateways in Azure [over VPN-Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). De communicatie via deze tunnel wordt gecodeerd en beveiligd. Bandbreedte wordt echter wel beperkt door de maximale doorvoer van de tunnel (100-200 Mbps).
+- **Site-naar-site**. Een virtueel particulier netwerk (VPN)-verbinding via IPsec (IKE v1 en IKE v2). Dit type verbinding vereist een VPN-apparaat of Routing and Remote Access Service (RRAS). Zie voor meer informatie over VPN-gateways in Azure [over VPN-Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). De communicatie via deze tunnel wordt gecodeerd en beveiligd. Bandbreedte wordt echter wel beperkt door de maximale doorvoer van de tunnel (100-200 Mbps).
 - **Uitgaande NAT**. Standaard hebben alle virtuele machines in Azure Stack verbinding met externe netwerken via uitgaande NAT bevinden. Elk virtueel netwerk dat is gemaakt in Azure Stack Hiermee haalt u een openbaar IP-adres toegewezen. Of de virtuele machine direct een openbaar IP-adres wordt toegewezen of zich achter een load balancer met een openbaar IP-adres, heeft dit uitgaande toegang via de uitgaande NAT het VIP van het virtuele netwerk gebruiken. Dit werkt alleen voor communicatie die is gestart door de virtuele machine en bestemd is voor externe netwerken (internet of intranet). Deze kan niet worden gebruikt om te communiceren met de virtuele machine vanuit buiten.
 
 ### <a name="hybrid-connectivity-options"></a>Opties voor hybride verbindingen
@@ -133,9 +135,9 @@ De volgende tabel geeft een overzicht van de hybride verbinding scenario's met p
 | Scenario | Connectiviteit methode | Professionals | Nadelen | Goede voor |
 | -- | -- | --| -- | --|
 | Eén tenant Azure Stack, implementatie op een intranet | Uitgaande NAT | Grotere bandbreedte voor snellere overdrachten. Eenvoudig te implementeren; Er zijn geen gateways dat nodig is. | Verkeer dat niet is versleuteld. Er is geen isolatie- of -versleuteling buiten de TOR. | In bedrijfsimplementaties waar alle huurders evenveel vertrouwd zijn.<br><br>Ondernemingen die u een Azure ExpressRoute-circuit naar Azure hebt. |
-| Multitenant Azure Stack, implementatie op een intranet | Site-to-site VPN | Verkeer van de tenant VNet naar de bestemming is beveiligd. | Bandbreedte wordt beperkt door de site-naar-site VPN-tunnel.<br><br>Vereist een gateway in het virtuele netwerk en een VPN-apparaat op het doelnetwerk. | In bedrijfsimplementaties waar sommige tenantverkeer moeten van andere tenants worden beveiligd. |
+| Multitenant Azure Stack, implementatie op een intranet | Site-naar-site VPN | Verkeer van de tenant VNet naar de bestemming is beveiligd. | Bandbreedte wordt beperkt door de site-naar-site VPN-tunnel.<br><br>Vereist een gateway in het virtuele netwerk en een VPN-apparaat op het doelnetwerk. | In bedrijfsimplementaties waar sommige tenantverkeer moeten van andere tenants worden beveiligd. |
 | Eén tenant Stack in Azure, internet-implementatie | Uitgaande NAT | Grotere bandbreedte voor snellere overdrachten. | Verkeer dat niet is versleuteld. Er is geen isolatie- of -versleuteling buiten de TOR. | Hostingscenario's waarin de tenant opgehaald hun eigen Azure Stack-implementatie en een speciaal circuit aan de Stack van Azure-omgeving. ExpressRoute en Multiprotocol Label overschakelen (MPLS).
-| Multitenant-Stack voor Azure, internet-implementatie | Site-to-site VPN | Verkeer van de tenant VNet naar de bestemming is beveiligd. | Bandbreedte wordt beperkt door de site-naar-site VPN-tunnel.<br><br>Vereist een gateway in het virtuele netwerk en een VPN-apparaat op het doelnetwerk. | Hostingscenario's waarin de provider wil bieden een multitenant-cloud, waar de tenants niet vertrouwt elkaar en verkeer moeten worden versleuteld.
+| Multitenant-Stack voor Azure, internet-implementatie | Site-naar-site VPN | Verkeer van de tenant VNet naar de bestemming is beveiligd. | Bandbreedte wordt beperkt door de site-naar-site VPN-tunnel.<br><br>Vereist een gateway in het virtuele netwerk en een VPN-apparaat op het doelnetwerk. | Hostingscenario's waarin de provider wil bieden een multitenant-cloud, waar de tenants niet vertrouwt elkaar en verkeer moeten worden versleuteld.
 |  |  |  |  |  |
 
 ### <a name="using-expressroute"></a>Met behulp van ExpressRoute
@@ -159,7 +161,7 @@ De volgende tabel geeft een overzicht van de lijst met beschikbare opties.
 
 | Onderwerp | Oplossing voor externe controle |
 | -- | -- |
-| Azure Stack-software. | [Azure Stack Management Pack voor Operations Manager](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>[Nagios plug-in](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>Op basis van REST-API-aanroepen | 
+| Azure Stack-software. | [Azure Stack Management Pack voor Operations Manager](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>[Invoegtoepassing Nagios](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>Op basis van REST-API-aanroepen | 
 | Fysieke servers (bmc's via IPMI) | OEM-hardware - management pack voor Operations Manager-leverancier<br>Door OEM geleverde leverancier hardwareoplossing<br>Hardwareleverancier Nagios-invoegtoepassingen | OEM-partner ondersteund bewakingsoplossing (opgenomen) | 
 | Netwerkapparaten (SNMP) | Detectie van netwerkapparaten Operations Manager<br>Door OEM geleverde leverancier hardwareoplossing<br>Invoegtoepassing Nagios-switch |
 | Statuscontrole voor tenant-abonnement | [System Center Management Pack voor Windows Azure](https://www.microsoft.com/download/details.aspx?id=50013) | 

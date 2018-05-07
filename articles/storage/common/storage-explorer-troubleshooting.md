@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.openlocfilehash: f58fb5090aba3c5052d1bbdec76225d0ae50e8f2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 531ca6d781ae62aacd85dce600e3ea8b46ccf360
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Explorer probleemoplossingsgids
 
@@ -57,10 +57,11 @@ Als u waar het certificaat vandaan komt weet, kunt u proberen deze stappen om te
 
 Als u geen zelfondertekende certificaten met behulp van de voorgaande stappen niet kunt vinden, contact met ons opnemen via het hulpprogramma feedback voor meer informatie. U kunt ook kiezen Opslagverkenner starten vanaf de opdrachtregel met de `--ignore-certificate-errors` vlag. Wanneer met deze markering wordt gestart, wordt in Opslagverkenner certificaatfouten negeren.
 
-## <a name="sign-in-issues"></a>Problemen met aanmelden
+## <a name="sign-in-issues"></a>Aanmeldingsproblemen
 
 Als u zich niet aanmelden, probeert u de volgende methoden:
 
+* Als u op Mac OS en het venster aanmelden nooit weergegeven via het dialoogvenster 'Wachten op verificatie...', probeer [deze stappen](#Resetting-the-Mac-Keychain)
 * Opnieuw opstarten Opslagverkenner
 * Als het verificatievenster leeg is, wacht u minstens één minuut voordat u sluit het verificatiedialoogvenster.
 * Zorg ervoor dat uw proxy- en certificaat instellingen correct zijn geconfigureerd voor de computer en de Opslagverkenner
@@ -96,7 +97,8 @@ Als u niet verwijderen van een gekoppelde account of een opslagresource via de g
 
 Controleer eerst of dat de volgende informatie die u hebt ingevoerd juist zijn:
 
-* De proxy-URL en het poortnummer * gebruikersnaam en wachtwoord, indien vereist door de proxy
+* De proxy-URL en het poortnummer
+* Gebruikersnaam en wachtwoord, indien vereist door de proxy
 
 ### <a name="common-solutions"></a>Algemene oplossingen
 
@@ -129,7 +131,7 @@ Als uw proxy-instellingen correct zijn, hebt u mogelijk contact opnemen met uw b
 
 Als u met Azure via een proxy verbonden bent, moet u controleren of de proxyinstellingen juist zijn. Als u zijn toegang tot een resource verleend aan de eigenaar van het abonnement of account, Controleer of u hebt gelezen of lijst met machtigingen voor die bron.
 
-### <a name="issues-with-sas-url"></a>Problemen met SAS-URL
+## <a name="issues-with-sas-url"></a>Problemen met SAS-URL
 Als u verbinding met een service met behulp van een SAS-URL en deze fout optreedt maakt:
 
 * Controleer of dat de URL van de vereiste machtigingen voor lezen of lijst van bronnen biedt.
@@ -152,6 +154,19 @@ Voor Linux-distributies dan Ubuntu 16.04, moet u wellicht handmatig enkele afhan
 * Up-to-date GCC
 
 Afhankelijk van uw distro mogelijk zijn er andere pakketten die u wilt installeren. Opslagverkenner [releaseopmerkingen](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) specifieke stappen voor een aantal distributies bevatten.
+
+## <a name="resetting-the-mac-keychain"></a>Opnieuw instellen van de sleutelketen Mac
+De Mac OS sleutelhanger krijgt soms in een status waardoor problemen voor de verificatiebibliotheek van Storage Explorer. De volgende stappen uit voor de sleutelketen buiten deze probeer status ophalen:
+1. Opslagverkenner sluiten.
+2. Open sleutelhanger (**cmd + ruimte**, typt u in de sleutelketen, bereikt invoeren).
+3. Selecteer de sleutelketen 'aanmelding'.
+4. Klik op het hangslotpictogram als u wilt vergrendelen de sleutelketen (het hangslot wordt geanimeerd aan een vergrendelde positie na voltooiing wordt dat het duurt een paar seconden, afhankelijk van wat u hebt apps openen).
+
+    ![Afbeelding](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
+
+5. Opslagverkenner start.
+6. Een pop up moet worden weergegeven dat er iets zoals 'Service hub toegang wil tot de sleutelketen', voer het wachtwoord van je Mac admin-account en klik op **altijd toestaan** (of **toestaan** als **altijdtoestaan** is niet beschikbaar).
+7. Probeer aan te melden.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 04/30/2018
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: 54faa5a50b3fe965bc7f95fc0da0fdda9388412f
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
-ms.translationtype: HT
+ms.openlocfilehash: 4fe1f2ad4bad9d670094bbb4eed188baf28108ea
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="write-accelerator"></a>Schrijven van de Accelerator
 Geschreven dat Accelerator is een schijf-functionaliteit voor M-serie virtuele Machines (VM's) op Premium-opslag met Azure beheerd schijven uitsluitend. Als de naam van de staat, is het doel van de functionaliteit voor het verbeteren van de i/o-latentie van schrijfbewerkingen op basis van Azure Premium-opslag. Schrijven dat Accelerator is ideaal wanneer log-bestandsupdates nodig zijn voor het persistent maken op schijf op een maximaal zodat manier voor moderne databases.
@@ -42,7 +42,7 @@ Wanneer u de Accelerator schrijven voor een Azure-schijf/VHD, gelden deze beperk
 
 - Schijfcache Premium moet worden ingesteld op 'None' of 'Alleen-lezen'. Alle andere gebruikersmoduscache modi worden niet ondersteund.
 - Momentopname op de schijf schrijft Accelerator ingeschakeld is nog niet ondersteund. Deze beperking blokkeert Azure Backup-Service de mogelijkheid om uit te voeren van een toepassing consistente momentopname te maken van alle schijven van de virtuele machine.
-- Alleen i/o-kleinere duurt het versnelde pad. In de werkbelasting situaties waarbij bulksgewijs is het ophalen van gegevens worden geladen of wanneer de buffers transactie logboek van de verschillende DBMS worden gevuld in een grotere mate voordat het ophalen van persistent worden gemaakt voor de opslag, kans op die zijn de i/o geschreven naar schijf neemt de versnelde pad niet.
+- Alleen i/o-kleinere (< = 32KiB) duurt het versnelde pad. In de werkbelasting situaties waarbij bulksgewijs is het ophalen van gegevens worden geladen of wanneer de buffers transactie logboek van de verschillende DBMS worden gevuld in een grotere mate voordat het ophalen van persistent worden gemaakt voor de opslag, kans op die zijn de i/o geschreven naar schijf neemt de versnelde pad niet.
 
 Er zijn limieten van Azure Premium Storage VHD's per virtuele machine die kan worden ondersteund door de Accelerator schrijven. De huidige limieten zijn:
 
@@ -105,7 +105,7 @@ Get-AzureRmVmss | Update-AzureRmVmss -OsDiskWriteAccelerator:$false
 
 Twee hoofdscenario's kunnen scripts worden gebruikt, zoals wordt weergegeven in de volgende secties.
 
-#### <a name="adding--new-disk-supported-by-write-accelerator"></a>Het toevoegen van nieuwe schijf wordt ondersteund door de Accelerator schrijven
+#### <a name="adding-a-new-disk-supported-by-write-accelerator"></a>Toevoegen van een nieuwe schijf wordt ondersteund door de Accelerator schrijven
 Dit script kunt u een nieuwe schijf toevoegen aan uw virtuele machine. De schijf die is gemaakt met dit script wilt schrijven sneltoets gebruiken.
 
 ```
@@ -157,6 +157,13 @@ U moet de namen van de VM-, schijf- en resourcegroep aanpassen. Het bovenstaande
 
 > [!Note]
 > Uitvoeren van het bovenstaande script wordt Ontkoppel de schijf die is opgegeven, Accelerator schrijven tegen de schijf inschakelen en vervolgens de schijf opnieuw koppelen
+
+### <a name="enabling-through-azure-portal"></a>Inschakelen via Azure Portal
+
+U kunt de Accelerator schrijven via de Portal waar u uw instellingen voor de schijfcache opgeven inschakelen: 
+
+![Accelerator schrijven in de Azure Portal](./media/virtual-machines-common-how-to-enable-write-accelerator/wa_scrnsht.png)
+
 
 ### <a name="enabling-through-rest-apis"></a>Inschakelen via de Rest-API 's
 Om te implementeren via Rest API van Azure, moet u de Azure armclient installeren

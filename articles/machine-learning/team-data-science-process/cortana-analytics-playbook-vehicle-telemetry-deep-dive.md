@@ -2,8 +2,8 @@
 title: Diepgaand in de manier waarop te voorspellen vehicle status en groot gewoonten - Azure | Microsoft Docs
 description: De mogelijkheden van Cortana Intelligence gebruiken om inzicht in real-time en voorspeld op vehicle status en verkeer te krijgen gewoonten.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: d8866fa6-aba6-40e5-b3b3-33057393c1a8
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: bradsev
-ms.openlocfilehash: 370ab807ef85240238c51d1693796c26981edb15
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: deguhath
+ms.openlocfilehash: 10fe87757a6da8a64e4fbd7fb624fef3e666714c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Vehicle telemetrie Analytics-oplossing playbook: Deep Duik in de oplossing
 Dit menu is gekoppeld aan de secties van dit playbook: 
@@ -42,7 +42,7 @@ Deze gegevensset JSON-indeling bevat het volgende schema.
 
 | Kolom | Beschrijving | Waarden |
 | --- | --- | --- |
-| VIN |Willekeurig gegenereerde VIN |Verkregen van een master lijst 10.000 willekeurig gegenereerde VINs |
+| CHASSISNUMMER |Willekeurig gegenereerde VIN |Verkregen van een master lijst 10.000 willekeurig gegenereerde VINs |
 | Externe temperatuur |De externe temperatuur waar het besturen van de drager |Willekeurig gegenereerd nummer tussen 0 en 100 |
 | Engine temperatuur |De engine temperatuur van de drager |Willekeurig gegenereerde getal tussen 0 en 500 |
 | Snelheid |De engine-snelheid waarmee het besturen van de drager |Willekeurig gegenereerd nummer tussen 0 en 100 |
@@ -63,7 +63,7 @@ Deze gegevensset JSON-indeling bevat het volgende schema.
 
 De gegevensset vehicle model verwijzing toegewezen VINs aan modellen. 
 
-| VIN | Model |
+| CHASSISNUMMER | Model |
 | --- | --- |
 | FHL3O1SA4IEHB4WU1 |Sedan |
 | 8J0U8XCPRGW4Z3NQE |Hybride |

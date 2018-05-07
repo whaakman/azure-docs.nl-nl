@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 51b040e1dfaba8fff8136e8947edf716919f53b0
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 54e830f2ead2887c941d81a97ed619ae5cb1c750
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trackvia"></a>Zelfstudie: Azure Active Directory-integratie met TrackVia
 
@@ -108,13 +108,13 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![URL's en TrackVia domein eenmalige aanmelding informatie](./media/active-directory-saas-trackvia-tutorial/tutorial_trackvia_url.png)
 
-    In de **id** textbox, typ de waarde:`TrackVia`
+    In de **id** textbox, typ de waarde: `TrackVia`
 
 4. Controleer **weergeven geavanceerde instellingen voor URL** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
 
     ![URL's en TrackVia domein eenmalige aanmelding informatie](./media/active-directory-saas-trackvia-tutorial/tutorial_trackvia_url1.png)
 
-    In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://companyname.trackvia.com`
+    In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://companyname.trackvia.com`
      
     > [!NOTE] 
     > Eenmalige aanmelding URL-waarde is geen echte. Deze waarde bijwerken met de werkelijke URL voor eenmalige aanmelding. Neem contact op met [TrackVia Client ondersteuningsteam](mailto:support@trackvia.com) deze waarde op te halen.
@@ -126,11 +126,22 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 6. Klik op **opslaan** knop.
 
     ![Knop Single Sign-On opslaan configureren](./media/active-directory-saas-trackvia-tutorial/tutorial_general_400.png)
-    
-7. Eenmalige aanmelding configureren op **TrackVia** zijde, moet u de gedownloade verzenden **Metadata XML** naar [TrackVia ondersteuningsteam](mailto:support@trackvia.com). Ze deze instelling zodat de SAML SSO-verbinding juist is ingesteld op beide zijden ingesteld.
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+7. Op de **TrackVia configuratie** sectie, klikt u op **configureren TrackVia** openen **eenmalige aanmelding configureren** venster. Kopieer de **SAML entiteit-ID** van de **Naslaggids punt.**
+
+    ![TrackVia configuratie](./media/active-directory-saas-trackvia-tutorial/tutorial_trackvia_configure.png)
+    
+8. Ander browservenster, meld u aan bij uw bedrijf TrackVia site als beheerder.
+
+9. Klik op Trackvia **Mijn Account** instellingen en selecteer vervolgens **eenmalige aanmelding** tabblad, voert u de volgende stappen uit:
+
+    ![TrackVia configuratie](./media/active-directory-saas-trackvia-tutorial/configure1.png)
+
+    a. In de **identiteit Provider entiteit-ID** textbox plakken **SAML entiteit-ID** waarde, die u hebt gekopieerd uit de Azure portal.
+
+    b. Selecteer de **bestand kiezen** voor het uploaden van het bestand met metagegevens die u hebt gedownload van de Azure-portal.
+
+    c. Klik op **Opslaan**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
@@ -212,8 +223,6 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-
-
 <!--Image references-->
 
 [1]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_01.png
@@ -227,4 +236,3 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 [201]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_203.png
-

@@ -2,8 +2,8 @@
 title: Scenario's voor geavanceerde analyses bepalen voor Azure Machine Learning | Microsoft Docs
 description: Selecteer de juiste scenario's voor geavanceerde voorspellende analyses met het Team gegevens wetenschap proces doen.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 53aecc1e-5089-42cf-8d44-77678653f92d
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev
-ms.openlocfilehash: 3b6a92f4f4615954902124c59adca25560182de6
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.author: deguhath
+ms.openlocfilehash: 7b1b8f00e109776a3a5d3cc8c2224e8160b85704
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Scenario's voor geavanceerde analyses in Azure Machine Learning
 In dit artikel bevat een overzicht van de verschillende gegevensbronnen voorbeeld en doel-scenario's die kunnen worden verwerkt door de [Team gegevens wetenschap proces (TDSP)](overview.md). De TDSP biedt een systematische aanpak voor teams die samenwerken aan intelligente toepassingen bouwen. De scenario's die hier wordt gepresenteerd illustreren beschikbare opties in de werkstroom gegevensverwerking die afhankelijk van de gegevenskenmerken, bronlocaties en doel-opslagplaatsen in Azure zijn.

@@ -2,35 +2,36 @@
 title: Schema-updates augustus-1-2015 preview - Azure Logic Apps | Microsoft Docs
 description: JSON-definities voor Azure Logic Apps maken met 08-01-preview-schemaversie 2015
 author: stepsic-microsoft-com
-manager: anneta
-editor: 
+manager: SyntaxC4
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 0d03a4d4-e8a8-4c81-aed5-bfd2a28c7f0c
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.workload: logic-apps
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 05/31/2016
-ms.author: LADocs; stepsic
-ms.openlocfilehash: 35d7a56d5607dcc18a4407c65b92962d3d0dcd1d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: stepsic; LADocs
+ms.openlocfilehash: bdadc2e33082421500f21d5926ac1e660f4164d4
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Schema-updates voor Azure Logic Apps - preview 1 augustus 2015
 
-Deze nieuwe schema en de API-versie voor Azure Logic Apps bevat belangrijke verbeteringen die logische apps betrouwbaarder en eenvoudiger te gebruiken:
+Dit schema en de API-versie voor Azure Logic Apps bevat belangrijke verbeteringen die logische apps betrouwbaarder en eenvoudiger te gebruiken:
 
-*   De **APIApp** actietype wordt bijgewerkt naar een nieuwe [ **APIConnection** ](#api-connections) action-type.
-*   **Herhaal** is gewijzigd in [ **Foreach**](#foreach).
-*   De [ **HTTP-Listener** API-App](#http-listener) is niet langer vereist.
-*   Het aanroepen van onderliggende werkstromen gebruikt een [nieuwe schema](#child-workflows).
+* De **APIApp** actietype heet nu [ **APIConnection**](#api-connections).
+* De **herhalen** actie heet nu [ **Foreach**](#foreach).
+* De [ **HTTP-Listener** API-App](#http-listener) is niet langer vereist.
+* Het aanroepen van onderliggende werkstromen gebruikt een [nieuwe schema](#child-workflows).
 
 <a name="api-connections"></a>
+
 ## <a name="move-to-api-connections"></a>Verplaatsen naar de API-verbindingen
 
 De grootste wijziging is dat u niet langer API-Apps implementeren in uw Azure-abonnement moet, zodat u API's kunt gebruiken. Hier volgen de manieren waarop u API's kunt gebruiken:
@@ -42,156 +43,155 @@ Elke manier wordt anders verwerkt omdat het beheer en het hosten van modellen ve
 
 ### <a name="managed-apis"></a>Beheerde API 's
 
-Microsoft beheert sommige API's namens u, zoals Office 365, Salesforce, Twitter en FTP. U kunt sommige beheerde API's als-is, zoals Bing vertalen, terwijl anderen configuratie vereist. Deze configuratie wordt aangeroepen een *verbinding*.
+Microsoft beheert sommige API's namens u, zoals Office 365, Salesforce, Twitter en FTP. U kunt sommige beheerde API's als-is, zoals Bing vertalen, terwijl anderen configuratie vereisen, ook wel genoemd een *verbinding*.
 
-Wanneer u Office 365 gebruikt, moet u bijvoorbeeld een verbinding met uw Office 365-in-token maken. Dit token is veilig opgeslagen en wordt vernieuwd zodat uw logische app kunt altijd de Office 365-API aanroepen. Als u wilt verbinding maken met uw SQL- of FTP-server, moet u ook een verbinding met de verbindingsreeks maken. 
+Wanneer u Office 365 gebruikt, moet u bijvoorbeeld een verbinding met uw Office 365-in-token maken. Uw token is veilig opgeslagen en wordt vernieuwd zodat uw logische app kunt altijd de Office 365-API aanroepen. Als u wilt verbinding maken met uw SQL- of FTP-server, moet u een verbinding met de verbindingsreeks. 
 
 In deze definitie deze acties worden genoemd `APIConnection`. Hier volgt een voorbeeld van een verbinding die Office 365 voor het verzenden van een e-mailbericht aanroept:
 
-```
+``` json
 {
-    "actions": {
-        "Send_Email": {
-            "type": "ApiConnection",
-            "inputs": {
-                "host": {
-                    "api": {
-                        "runtimeUrl": "https://msmanaged-na.azure-apim.net/apim/office365"
-                    },
-                    "connection": {
-                        "name": "@parameters('$connections')['shared_office365']['connectionId']"
-                    }
-                },
-                "method": "post",
-                "body": {
-                    "Subject": "Reminder",
-                    "Body": "Don't forget!",
-                    "To": "me@contoso.com"
-                },
-                "path": "/Mail"
-            }
-        }
-    }
+   "actions": {
+      "Send_an_email": {
+         "type": "ApiConnection",
+         "inputs": {
+            "host": {
+               "api": {
+                  "runtimeUrl": "https://msmanaged-na.azure-apim.net/apim/office365"
+               },
+               "connection": {
+                  "name": "@parameters('$connections')['shared_office365']['connectionId']"
+               }
+            },
+            "method": "POST",
+            "body": {
+               "Subject": "Reminder",
+               "Body": "Don't forget!",
+               "To": "me@contoso.com"
+            },
+            "path": "/Mail"
+         }
+      }
+   }
 }
 ```
 
-De `host` object is gedeelte van de ingangen die uniek is voor de API-verbindingen en bestaat uit twee delen: `api` en `connection`.
+De `host` object maakt deel uit van de invoerwaarden die uniek is voor de API-verbindingen en bevat de volgende onderdelen: `api` en `connection`. De `api` object bevat de runtime-URL voor waar die beheerd API wordt gehost. U kunt zien alle beschikbare beheerde API's door het aanroepen van `GET https://management.azure.com/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`.
 
-De `api` heeft de runtime URL van het waar dat beheerd API wordt gehost. U kunt zien alle beschikbare beheerde API's door het aanroepen van `GET https://management.azure.com/subscriptions/{subid}/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`.
-
-Wanneer u een API gebruikt, de API kan of kunnen geen *verbindingsparameters* gedefinieerd. De API niet het geval, geen *verbinding* is vereist. Als de API is, moet u een verbinding te maken. De gemaakte verbinding heeft de naam die u kiest. U vervolgens verwijzen naar de naam in de `connection` object binnen de `host` object. Een verbinding wilt maken in een resourcegroep, aanroepen:
+Wanneer u een API gebruikt, die API kan of kunnen geen gedefinieerd een *verbindingsparameters*. Dus als u de API bevat geen definitie van deze parameters, geen verbinding vereist is. Als de API deze parameters definiëren, moet u een verbinding maken met een opgegeven naam.  
+U vervolgens verwijzen naar die naam aanwezig in de `connection` object binnen de `host` object. Een verbinding wilt maken in een resourcegroep, deze methode niet aanroepen:
 
 ```
-PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/providers/Microsoft.Web/connections/{name}?api-version=2015-08-01-preview
+PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Web/connections/<name>?api-version=2015-08-01-preview
 ```
 
 Met de volgende hoofdtekst:
 
-```
+``` json
 {
-  "properties": {
-    "api": {
-      "id": "/subscriptions/{subid}/providers/Microsoft.Web/managedApis/azureblob"
-    },
-    "parameterValues": {
-        "accountName": "{The name of the storage account -- the set of parameters is different for each API}"
-    }
-  },
-  "location": "{Logic app's location}"
+   "properties": {
+      "api": {
+         "id": "/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/managedApis/azureblob"
+      },
+      "parameterValues": {
+         "accountName": "<Azure-storage-account-name-with-different-parameters-for-each-API>"
+      }
+   },
+   "location": "<logic-app-location>"
 }
 ```
 
 ### <a name="deploy-managed-apis-in-an-azure-resource-manager-template"></a>Beheerde API's in een Azure Resource Manager-sjabloon implementeren
 
-U kunt een volledige toepassing in een Azure Resource Manager-sjabloon maken, zolang interactief aanmelden is niet vereist.
-Als aanmelden vereist is, kunt u een alles met Azure Resource Manager-sjabloon instellen, maar u hebt nog wel gaat u naar de portal voor het autoriseren van verbindingen. 
+U kunt een volledige app in een Azure Resource Manager-sjabloon maken, zolang interactief aanmelden is niet vereist.
+Als aanmelden vereist is, kunt u een alles met Azure Resource Manager-sjabloon instellen, maar u hebt nog wel gaat u naar de Azure-portal voor het autoriseren van verbindingen. 
 
-```
-    "resources": [{
-        "apiVersion": "2015-08-01-preview",
-        "name": "azureblob",
-        "type": "Microsoft.Web/connections",
-        "location": "[resourceGroup().location]",
-        "properties": {
-            "api": {
-                "id": "[concat(subscription().id,'/providers/Microsoft.Web/locations/westus/managedApis/azureblob')]"
-            },
-            "parameterValues": {
-                "accountName": "[parameters('storageAccountName')]",
-                "accessKey": "[parameters('storageAccountKey')]"
+``` json
+"resources": [ {
+   "apiVersion": "2015-08-01-preview",
+   "name": "azureblob",
+   "type": "Microsoft.Web/connections",
+   "location": "[resourceGroup().location]",
+   "properties": {
+      "api": {
+         "id": "[concat(subscription().id,'/providers/Microsoft.Web/locations/westus/managedApis/azureblob')]"
+      },
+      "parameterValues": {
+         "accountName": "[parameters('storageAccountName')]",
+         "accessKey": "[parameters('storageAccountKey')]"
+      }
+    },
+},
+{
+   "type": "Microsoft.Logic/workflows",
+   "apiVersion": "2015-08-01-preview",
+   "name": "[parameters('logicAppName')]",
+   "location": "[resourceGroup().location]",
+   "dependsOn": ["[resourceId('Microsoft.Web/connections', 'azureblob')]"],
+   "properties": {
+      "sku": {
+         "name": "[parameters('sku')]",
+         "plan": {
+            "id": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('svcPlanName'))]"
+         }
+      },
+      "parameters": {
+         "$connections": {
+             "value": {
+                  "azureblob": {
+                     "connectionId": "[concat(resourceGroup().id,'/providers/Microsoft.Web/connections/azureblob')]",
+                     "connectionName": "azureblob",
+                     "id": "[concat(subscription().id,'/providers/Microsoft.Web/locations/westus/managedApis/azureblob')]"
+                  }
+             }
+         }
+      },
+      "definition": {
+         "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
+         "contentVersion": "1.0.0.0",
+         "parameters": {
+            "type": "Object",
+            "$connections": {
+               "defaultValue": {},
+ 
             }
-        }
-    }, {
-        "type": "Microsoft.Logic/workflows",
-        "apiVersion": "2015-08-01-preview",
-        "name": "[parameters('logicAppName')]",
-        "location": "[resourceGroup().location]",
-        "dependsOn": ["[resourceId('Microsoft.Web/connections', 'azureblob')]"
-        ],
-        "properties": {
-            "sku": {
-                "name": "[parameters('sku')]",
-                "plan": {
-                    "id": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/',parameters('svcPlanName'))]"
-                }
-            },
-            "definition": {
-                "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
-                "actions": {
-                    "Create_file": {
-                        "type": "apiconnection",
-                        "inputs": {
-                            "host": {
-                                "api": {
-                                    "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/azureblob"
-                                },
-                                "connection": {
-                                    "name": "@parameters('$connections')['azureblob']['connectionId']"
-                                }
-                            },
-                            "method": "post",
-                            "queries": {
-                                "folderPath": "[concat('/', parameters('containerName'))]",
-                                "name": "helloworld.txt"
-                            },
-                            "body": "@decodeDataUri('data:, Hello+world!')",
-                            "path": "/datasets/default/files"
-                        },
-                        "conditions": []
-                    }
-                },
-                "contentVersion": "1.0.0.0",
-                "outputs": {},
-                "parameters": {
-                    "$connections": {
-                        "defaultValue": {},
-                        "type": "Object"
-                    }
-                },
-                "triggers": {
-                    "recurrence": {
-                        "type": "Recurrence",
-                        "recurrence": {
-                            "frequency": "Day",
-                            "interval": 1
-                        }
-                    }
-                }
-            },
-            "parameters": {
-                "$connections": {
-                    "value": {
-                        "azureblob": {
-                            "connectionId": "[concat(resourceGroup().id,'/providers/Microsoft.Web/connections/azureblob')]",
-                            "connectionName": "azureblob",
-                            "id": "[concat(subscription().id,'/providers/Microsoft.Web/locations/westus/managedApis/azureblob')]"
-                        }
-
-                    }
-                }
+         },
+         "triggers": {
+            "Recurrence": {
+               "type": "Recurrence",
+               "recurrence": {
+                  "frequency": "Day",
+                  "interval": 1
+               }
             }
-        }
-    }]
+         },
+         "actions": {
+            "Create_file": {
+               "type": "ApiConnection",
+               "inputs": {
+                  "host": {
+                     "api": {
+                        "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/azureblob"
+                     },
+                     "connection": {
+                       "name": "@parameters('$connections')['azureblob']['connectionId']"
+                     }
+                  },
+                  "method": "POST",
+                  "queries": {
+                     "folderPath": "[concat('/', parameters('containerName'))]",
+                     "name": "helloworld.txt"
+                  },
+                  "body": "@decodeDataUri('data:, Hello+world!')",
+                  "path": "/datasets/default/files"
+               },
+               "conditions": []
+            }
+         },
+         "outputs": {}
+      }
+   }
+} ]
 ```
 
 U kunt zien in dit voorbeeld is dat de verbindingen zijn alleen bronnen die bevinden zich in de resourcegroep. Ze verwijzen naar de beheerde API's die u in uw abonnement.
@@ -202,20 +202,18 @@ Als u uw eigen API's, die niet door Microsoft beheerde gebruiken de ingebouwde *
 
 Hier volgt een voorbeeld van de nieuwe `metadata.apiDefinitionUrl` eigenschap:
 
-```
-{
-   "actions": {
-        "mycustomAPI": {
-            "type": "http",
-            "metadata": {
-              "apiDefinitionUrl": "https://mysite.azurewebsites.net/api/apidef/"  
-            },
-            "inputs": {
-                "uri": "https://mysite.azurewebsites.net/api/getsomedata",
-                "method": "GET"
-            }
-        }
-    }
+``` json
+"actions": {
+   "mycustomAPI": {
+      "type": "Http",
+      "metadata": {
+         "apiDefinitionUrl": "https://mysite.azurewebsites.net/api/apidef/"  
+      },
+      "inputs": {
+         "uri": "https://mysite.azurewebsites.net/api/getsomedata",
+         "method": "GET"
+      }
+   }
 }
 ```
 
@@ -223,73 +221,70 @@ Als u uw Web-API op Azure App Service host, wordt uw Web-API automatisch weergeg
 
 ### <a name="call-deployed-api-apps-with-2015-08-01-preview"></a>Aanroepen van geïmplementeerde API-apps met 2015-08-01-preview
 
-Als u een API-App hebt geïmplementeerd, kunt u de app met bellen de **HTTP** in te grijpen.
-
+Als u een API-App hebt geïmplementeerd, kunt u bellen die app met de **HTTP** in te grijpen.
 Als u Dropbox weergeven van bestanden, bijvoorbeeld uw **2014-12-01-preview** versie schemadefinitie wellicht ongeveer als volgt:
 
-```
-{
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "/subscriptions/423db32d-...-b59f14c962f1/resourcegroups/avdemo/providers/Microsoft.AppService/apiapps/dropboxconnector/token": {
-            "defaultValue": "eyJ0eX...wCn90",
-            "type": "String",
-            "metadata": {
-                "token": {
-                    "name": "/subscriptions/423db32d-...-b59f14c962f1/resourcegroups/avdemo/providers/Microsoft.AppService/apiapps/dropboxconnector/token"
-                }
+``` json
+"definition": {
+   "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
+   "contentVersion": "1.0.0.0",
+   "parameters": {
+      "/subscriptions/<Azure-subscription-ID>/resourcegroups/avdemo/providers/Microsoft.AppService/apiapps/dropboxconnector/token": {
+         "defaultValue": "eyJ0eX...wCn90",
+         "type": "String",
+         "metadata": {
+            "token": {
+               "name": "/subscriptions/<Azure-subscription-ID>/resourcegroups/avdemo/providers/Microsoft.AppService/apiapps/dropboxconnector/token"
             }
-        }
+         }
+      }
     },
     "actions": {
-        "dropboxconnector": {
-            "type": "ApiApp",
-            "inputs": {
-                "apiVersion": "2015-01-14",
-                "host": {
-                    "id": "/subscriptions/423db32d-...-b59f14c962f1/resourcegroups/avdemo/providers/Microsoft.AppService/apiapps/dropboxconnector",
-                    "gateway": "https://avdemo.azurewebsites.net"
-                },
-                "operation": "ListFiles",
-                "parameters": {
-                    "FolderPath": "/myfolder"
-                },
-                "authentication": {
-                    "type": "Raw",
-                    "scheme": "Zumo",
-                    "parameter": "@parameters('/subscriptions/423db32d-...-b59f14c962f1/resourcegroups/avdemo/providers/Microsoft.AppService/apiapps/dropboxconnector/token')"
-                }
-            }
-        }
+       "dropboxconnector": {
+          "type": "ApiApp",
+          "inputs": {
+             "apiVersion": "2015-01-14",
+             "host": {
+                "id": "/subscriptions/<Azure-subscription-ID>/resourcegroups/avdemo/providers/Microsoft.AppService/apiapps/dropboxconnector",
+                "gateway": "https://avdemo.azurewebsites.net"
+             },
+             "operation": "ListFiles",
+             "parameters": {
+                "FolderPath": "/myfolder"
+             },
+             "authentication": {
+                "type": "Raw",
+                "scheme": "Zumo",
+                "parameter": "@parameters('/subscriptions/<Azure-subscription-ID>/resourcegroups/avdemo/providers/Microsoft.AppService/apiapps/dropboxconnector/token')"
+             }
+          }
+       }
     }
 }
 ```
 
-U kunt de equivalente HTTP-actie zoals in dit voorbeeld maken terwijl de parameters-sectie van de definitie van Logic Apps ongewijzigd blijft:
+U kunt nu de equivalente HTTP-actie op het volgende voorbeeld nu maken terwijl het gedeelte parameters voor de definitie van logic Apps verlaten ongewijzigd:
 
-```
-{
-    "actions": {
-        "dropboxconnector": {
-            "type": "Http",
-            "metadata": {
-              "apiDefinitionUrl": "https://avdemo.azurewebsites.net/api/service/apidef/dropboxconnector/?api-version=2015-01-14&format=swagger-2.0-standard"  
-            },
-            "inputs": {
-                "uri": "https://avdemo.azurewebsites.net/api/service/invoke/dropboxconnector/ListFiles?api-version=2015-01-14",
-                "method": "POST",
-                "body": {
-                    "FolderPath": "/myfolder"
-                },
-                "authentication": {
-                    "type": "Raw",
-                    "scheme": "Zumo",
-                    "parameter": "@parameters('/subscriptions/423db32d-...-b59f14c962f1/resourcegroups/avdemo/providers/Microsoft.AppService/apiapps/dropboxconnector/token')"
-                }
-            }
-        }
-    }
+``` json
+"actions": {
+   "dropboxconnector": {
+      "type": "Http",
+      "metadata": {
+         "apiDefinitionUrl": "https://avdemo.azurewebsites.net/api/service/apidef/dropboxconnector/?api-version=2015-01-14&format=swagger-2.0-standard"  
+      },
+      "inputs": {
+         "uri": "https://avdemo.azurewebsites.net/api/service/invoke/dropboxconnector/ListFiles?api-version=2015-01-14",
+         "method": "POST",
+         "body": {
+            "FolderPath": "/myfolder"
+         },
+         "authentication": {
+            "type": "Raw",
+            "scheme": "Zumo",
+            "parameter": "@parameters('/subscriptions/<Azure-subscription-ID>/resourcegroups/avdemo/providers/Microsoft.AppService/apiapps/dropboxconnector/token')"
+         }
+      }
+   }
 }
 ```
 
@@ -297,135 +292,123 @@ Stap voor stap één voor één van deze eigenschappen:
 
 | Eigenschap Action | Beschrijving |
 | --- | --- |
-| `type` |`Http`In plaats van`APIapp` |
-| `metadata.apiDefinitionUrl` |Als u wilt gebruiken met deze actie in de ontwerpfunctie voor Logic App, zijn de metagegevenseindpunt is samengesteld uit:`{api app host.gateway}/api/service/apidef/{last segment of the api app host.id}/?api-version=2015-01-14&format=swagger-2.0-standard` |
-| `inputs.uri` |Gemaakt op basis van:`{api app host.gateway}/api/service/invoke/{last segment of the api app host.id}/{api app operation}?api-version=2015-01-14` |
-| `inputs.method` |Altijd`POST` |
-| `inputs.body` |Identiek aan de API-App-parameters |
-| `inputs.authentication` |Identiek aan de API-App-verificatie |
+| `type` | `Http` In plaats van `APIapp` |
+| `metadata.apiDefinitionUrl` | Als u wilt gebruiken met deze actie in de ontwerpfunctie voor Logic App, zijn de metagegevenseindpunt is samengesteld uit: `{api app host.gateway}/api/service/apidef/{last segment of the api app host.id}/?api-version=2015-01-14&format=swagger-2.0-standard` |
+| `inputs.uri` | Gemaakt op basis van: `{api app host.gateway}/api/service/invoke/{last segment of the api app host.id}/{api app operation}?api-version=2015-01-14` |
+| `inputs.method` | Altijd `POST` |
+| `inputs.body` | Identiek aan de API-App-parameters |
+| `inputs.authentication` | Identiek aan de API-App-verificatie |
 
 Deze aanpak moet werken voor alle acties van de API-App. Vergeet echter niet dat deze vorige API-Apps niet langer worden ondersteund. Daarom moet u overstappen op een van de twee andere vorige opties, een beheerde API of die als host fungeert voor uw aangepaste Web-API.
 
 <a name="foreach"></a>
+
 ## <a name="renamed-repeat-to-foreach"></a>De naam 'Herhaal' gewijzigd in 'foreach'
 
-We ontvangen voor de vorige schemaversie veel feedback van klanten die **herhalen** verwarrend is en niet goed vast te leggen die **herhalen** werd echt een voor elke lus. We hebben als gevolg hiervan hernoemd `repeat` naar `foreach`. Bijvoorbeeld zou eerder u schrijven:
+We ontvangen voor de vorige schemaversie veel feedback van klanten die de **herhalen** actienaam verwarrend is en niet goed vast te leggen die **herhalen** werd echt een voor elke lus. Dus we hernoemd `repeat` naar `foreach`. U kunt deze actie zoals in dit voorbeeld eerder zou schrijven:
 
-```
-{
-    "actions": {
-        "pingBing": {
-            "type": "Http",
-            "repeat": "@range(0,2)",
-            "inputs": {
-                "method": "GET",
-                "uri": "https://www.bing.com/search?q=@{repeatItem()}"
-            }
-        }
-    }
+``` json
+"actions": {
+   "pingBing": {
+      "type": "Http",
+      "repeat": "@range(0,2)",
+      "inputs": {
+         "method": "GET",
+         "uri": "https://www.bing.com/search?q=@{repeatItem()}"
+      }
+   }
 }
 ```
 
-U zou nu schrijven:
+U zou nu deze versie in plaats daarvan schrijven:
 
-```
-{
-    "actions": {
-        "pingBing": {
-            "type": "Http",
-            "foreach": "@range(0,2)",
-            "inputs": {
-                "method": "GET",
-                "uri": "https://www.bing.com/search?q=@{item()}"
-            }
-        }
-    }
+``` json
+"actions": {
+   "pingBing": {
+      "type": "Http",
+      "foreach": "@range(0,2)",
+      "inputs": {
+         "method": "GET",
+         "uri": "https://www.bing.com/search?q=@{item()}"
+      }
+   }
 }
 ```
 
-De functie `@repeatItem()` eerder werd gebruikt om te verwijzen naar het huidige item wordt iteratie. Deze functie is nu eenvoudiger te `@item()`. 
+Ook de `repeatItem()` functie, die het item dat de lus wordt verwerkt tijdens de huidige herhaling wordt verwezen, is nu gewijzigd `item()`. 
 
 ### <a name="reference-outputs-from-foreach"></a>Verwijzing naar uitvoer van 'foreach'
 
-Voor de uitvoer van vereenvoudiging `foreach` acties niet zijn ingepakt in een object aangeroepen `repeatItems`. Terwijl de uitvoer van de vorige `repeat` voorbeeld zijn:
+Voor de uitvoer van vereenvoudiging `foreach` acties zijn niet meer samengevoegd in een object met de naam `repeatItems`. Met deze wijzigingen ook de `repeatItem()`, `repeatBody()`, en `repeatOutputs()` functies zijn verwijderd.
 
+Met behulp van de vorige `repeat` bijvoorbeeld dat u deze uitvoer:
+
+``` json
+"repeatItems": [ {
+   "name": "pingBing",
+   "inputs": {
+      "uri": "https://www.bing.com/search?q=0",
+      "method": "GET"
+   },
+   "outputs": {
+      "headers": { },
+      "body": "<!DOCTYPE html><html lang=\"en\" xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:Web=\"http://schemas.live.com/Web/\">...</html>"
+   },
+   "status": "Succeeded"
+} ]
 ```
-{
-    "repeatItems": [
-        {
-            "name": "pingBing",
-            "inputs": {
-                "uri": "https://www.bing.com/search?q=0",
-                "method": "GET"
-            },
-            "outputs": {
-                "headers": { },
-                "body": "<!DOCTYPE html><html lang=\"en\" xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:Web=\"http://schemas.live.com/Web/\">...</html>"
-            }
-            "status": "Succeeded"
-        }
-    ]
+
+U krijgt nu deze uitvoer in plaats daarvan:
+
+``` json
+[ {
+   "name": "pingBing",
+      "inputs": {
+         "uri": "https://www.bing.com/search?q=0",
+         "method": "GET"
+      },
+      "outputs": {
+         "headers": { },
+         "body": "<!DOCTYPE html><html lang=\"en\" xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:Web=\"http://schemas.live.com/Web/\">...</html>"
+      },
+      "status": "Succeeded"
+} ]
+```
+
+Voorheen ophalen van de `body` van de actie bij verwijzingen naar deze uitvoer:
+
+``` json
+"actions": {
+   "secondAction": {
+      "type": "Http",
+      "repeat": "@outputs('pingBing').repeatItems",
+      "inputs": {
+         "method": "POST",
+         "uri": "http://www.example.com",
+         "body": "@repeatItem().outputs.body"
+      }
+   }
 }
 ```
 
-Nu zijn deze uitgangen:
+Nu kunt u deze versie in plaats daarvan:
 
-```
-[
-    {
-        "name": "pingBing",
-        "inputs": {
-            "uri": "https://www.bing.com/search?q=0",
-            "method": "GET"
-        },
-        "outputs": {
-            "headers": { },
-            "body": "<!DOCTYPE html><html lang=\"en\" xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:Web=\"http://schemas.live.com/Web/\">...</html>"
-        }
-        "status": "Succeeded"
-    }
-]
-```
-
-Voorheen om aan de hoofdtekst van de actie die verwijzen naar deze uitvoer:
-
-```
-{
-    "actions": {
-        "secondAction": {
-            "type": "Http",
-            "repeat": "@outputs('pingBing').repeatItems",
-            "inputs": {
-                "method": "POST",
-                "uri": "http://www.example.com",
-                "body": "@repeatItem().outputs.body"
-            }
-        }
-    }
+``` json
+"actions": {
+   "secondAction": {
+      "type": "Http",
+      "foreach": "@outputs('pingBing')",
+      "inputs": {
+         "method": "POST",
+         "uri": "http://www.example.com",
+         "body": "@item().outputs.body"
+      }
+   }
 }
 ```
-
-Nu kunt u doen in plaats daarvan:
-
-```
-{
-    "actions": {
-        "secondAction": {
-            "type": "Http",
-            "foreach": "@outputs('pingBing')",
-            "inputs": {
-                "method": "POST",
-                "uri": "http://www.example.com",
-                "body": "@item().outputs.body"
-            }
-        }
-    }
-}
-```
-
-Met deze wijzigingen, de functies `@repeatItem()`, `@repeatBody()`, en `@repeatOutputs()` worden verwijderd.
 
 <a name="http-listener"></a>
+
 ## <a name="native-http-listener"></a>Native HTTP-listener
 
 De HTTP-Listener-mogelijkheden zijn nu ingebouwd in. Daarom moet u niet meer voor het implementeren van een HTTP-Listener API-App. Zie [de volledige details voor het maken van uw logische app eindpunt aanroepbare hier](../logic-apps/logic-apps-http-endpoint.md). 
@@ -433,31 +416,32 @@ De HTTP-Listener-mogelijkheden zijn nu ingebouwd in. Daarom moet u niet meer voo
 Met deze wijzigingen verwijderd we de `@accessKeys()` functie, die wordt vervangen door de `@listCallbackURL()` functie voor het ophalen van het eindpunt indien nodig. Bovendien moet u ten minste één trigger nu definiëren in uw logische app. Als u wilt `/run` de werkstroom, hebt u een van deze triggers: `manual`, `apiConnectionWebhook`, of `httpWebhook`.
 
 <a name="child-workflows"></a>
+
 ## <a name="call-child-workflows"></a>Aanroepen van onderliggende werkstromen
 
 Het aanroepen van onderliggende werkstromen vereist voorheen gaan naar de werkstroom, het toegangstoken ophalen en het token in de definitie van logic Apps waar u aan te roepen die onderliggende werkstroom wilt plakken. Met het nieuwe schema genereert de Logic Apps-engine automatisch een SAS tijdens runtime voor de onderliggende werkstroom zodat u hoeft geen geheimen in de definitie te plakken. Hier volgt een voorbeeld:
 
-```
-"mynestedwf": {
-    "type": "workflow",
-    "inputs": {
-        "host": {
-            "id": "/subscriptions/xxxxyyyyzzz/resourceGroups/rg001/providers/Microsoft.Logic/mywf001",
-            "triggerName": "myendpointtrigger"
-        },
-        "queries": {
-            "extrafield": "specialValue"
-        },
-        "headers": {
-            "x-ms-date": "@utcnow()",
-            "Content-type": "application/json"
-        },
-        "body": {
-            "contentFieldOne": "value100",
-            "anotherField": 10.001
-        }
-    },
-    "conditions": []
+``` json
+"myNestedWorkflow": {
+   "type": "Workflow",
+   "inputs": {
+      "host": {
+         "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/myWorkflow001",
+         "triggerName": "myEndpointTrigger"
+      },
+      "queries": {
+         "extrafield": "specialValue"
+      },
+      "headers": {
+         "x-ms-date": "@utcnow()",
+         "Content-type": "application/json"
+      },
+      "body": {
+         "contentFieldOne": "value100",
+         "anotherField": 10.001
+      }
+   },
+   "conditions": []
 }
 ```
 

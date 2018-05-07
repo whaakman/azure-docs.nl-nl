@@ -8,16 +8,16 @@ editor: ''
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/18/2018
+ms.date: 4/30/2018
 ms.author: jlian
-ms.openlocfilehash: 8d495bf89697a5e14ff79953ab98f241ef8972e8
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 8d1eb3229f22b2da3a356562250fedb3c35c4816
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Programmatisch maken abonnementen Azure Enterprise (preview)
 
@@ -65,19 +65,19 @@ Azure reageert met een lijst met alle inschrijving-accounts die u toegang tot he
 {
   "value": [
     {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
-      "name": "<enrollmentAccountId>",
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "type": "Microsoft.Billing/enrollmentAccounts",
       "properties": {
-        "principalName": "MobileOnboardingEng@contoso.com"
+        "principalName": "SignUpEngineering@contoso.com"
       }
     },
     {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
-      "name": "<enrollmentAccountId>",
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "type": "Microsoft.Billing/enrollmentAccounts",
       "properties": {
-        "principalName": "MobileBackendEng@contoso.com"
+        "principalName": "BillingPlatformTeam@contoso.com"
       }
     }
   ]
@@ -98,8 +98,8 @@ Azure reageert met een lijst met de Object-id's en e-mailadressen van accounts.
 
 ```azurepowershell
 ObjectId                               | PrincipalName
-<enrollmentAccountId>   | MobileOnboardingEng@contoso.com
-<enrollmentAccountId>   | MobileBackendEng@contoso.com
+747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | SignUpEngineering@contoso.com
+4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
 ```
 
 # <a name="azure-clitabazure-cli"></a>[Azure-CLI](#tab/azure-cli)
@@ -117,19 +117,19 @@ Azure reageert met een lijst met de Object-id's en e-mailadressen van accounts.
 {
   "value": [
     {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
-      "name": "<enrollmentAccountId>",
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "type": "Microsoft.Billing/enrollmentAccounts",
       "properties": {
-        "principalName": "MobileOnboardingEng@contoso.com"
+        "principalName": "SignUpEngineering@contoso.com"
       }
     },
     {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
-      "name": "<enrollmentAccountId>",
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "type": "Microsoft.Billing/enrollmentAccounts",
       "properties": {
-        "principalName": "MobileBackendEng@contoso.com"
+        "principalName": "BillingPlatformTeam@contoso.com"
       }
     }
   ]
@@ -142,14 +142,14 @@ Gebruik de `principalName` eigenschap om het account dat u wilt dat de abonnemen
 
 ## <a name="create-subscriptions-under-a-specific-enrollment-account"></a>Abonnementen met een specifieke inschrijving-account maken 
 
-Het volgende voorbeeld wordt een aanvraag voor het maken van abonnement met de naam *Dev Team abonnement* en abonnement aanbieding is *MS-AZR - 0017P* (reguliere EA). Het account van de inschrijving is `<enrollmentAccountId>`, dit is het account van de inschrijving voor MobileOnboardingEng@contoso.com. Deze voegt eventueel ook twee gebruikers als eigenaars van RBAC voor het abonnement.
+Het volgende voorbeeld wordt een aanvraag voor het maken van abonnement met de naam *Dev Team abonnement* en abonnement aanbieding is *MS-AZR - 0017P* (reguliere EA). Het account van de inschrijving is `747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (aanduidingswaarde, dit is een GUID), is het account van de inschrijving voor SignUpEngineering@contoso.com. Deze voegt eventueel ook twee gebruikers als eigenaars van RBAC voor het abonnement.
 
 # <a name="resttabrest"></a>[REST](#tab/rest)
 
 Gebruik de `id` van de `enrollmentAccount` in het pad van de aanvraag-abonnement maken.
 
 ```json
-POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>/providers/Microsoft.Subscription/createSubscription?api-version=2018-03-01-preview
+POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Subscription/createSubscription?api-version=2018-03-01-preview
 
 {
   "displayName": "Dev Team Subscription",
@@ -177,16 +177,17 @@ In het antwoord u terughalen een `subscriptionOperation` object voor bewaking. W
 
 Voor het gebruik van deze preview-module installeren door te voeren `Install-Module AzureRM.Subscription -AllowPrerelease` eerste. Om ervoor te zorgen `-AllowPrerelease` werkt, installeert u een recente versie van PowerShellGet van [PowerShellGet Get-Module](/powershell/gallery/psget/get_psget_module).
 
-Gebruik de [New-AzureRmSubscription](/powershell/module/azurerm.subscription.preview) samen met `enrollmentAccount` naam als de `EnrollmentAccountObjectId` -parameter voor een nieuw abonnement maken. 
+Gebruik de [New-AzureRmSubscription](/powershell/module/azurerm.subscription.preview) samen met `enrollmentAccount` object-ID als de `EnrollmentAccountObjectId` -parameter voor een nieuw abonnement maken. 
 
 ```azurepowershell-interactive
-New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId <enrollmentAccountId> -OwnerObjectId <userObjectId>,<servicePrincipalObjectId>
+New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId 747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx -OwnerObjectId <userObjectId>,<servicePrincipalObjectId>
 ```
 
 | Elementnaam  | Vereist | Type   | Beschrijving                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `Name` | Nee      | Tekenreeks | De weergavenaam van het abonnement. Als niet wordt opgegeven, wordt deze ingesteld op de naam van de aanbieding, zoals 'Microsoft Azure Enterprise'.                                 |
 | `OfferType`   | Ja      | Tekenreeks | De aanbieding van het abonnement. De twee opties voor EA zijn [MS-AZR - 0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (gebruik voor productie) en [MS-AZR - 0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (ontwikkelen en testen, moet [ingeschakeld via de portal EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
+| `EnrollmentAccountObjectId`      | Ja       | Tekenreeks | De Object-ID van het account van de inschrijving of het abonnement wordt gemaakt onder en gefactureerd op. Dit is een GUID-waarde die u via `Get-AzureRmEnrollmentAccount`. |
 | `OwnerObjectId`      | Nee       | Tekenreeks | De Object-ID van elke gebruiker die u toevoegen als een eigenaar RBAC voor het abonnement wilt wanneer deze wordt gemaakt.  |
 | `OwnerSignInName`    | Nee       | Tekenreeks | Het e-mailadres van elke gebruiker die u toevoegen als een eigenaar RBAC voor het abonnement wilt wanneer deze wordt gemaakt. U kunt deze parameter in plaats van `OwnerObjectId`.|
 | `OwnerApplicationId` | Nee       | Tekenreeks | De toepassings-ID van een service-principal die u toevoegen als een eigenaar RBAC voor het abonnement wilt wanneer deze wordt gemaakt. U kunt deze parameter in plaats van `OwnerObjectId`.| 
@@ -197,16 +198,17 @@ Zie voor een volledige lijst met alle parameters [New-AzureRmSubscription](/powe
 
 Voor het gebruik van deze preview-uitbreiding installeren door te voeren `az extension add --name subscription` eerste.
 
-Gebruik de [az-account maken](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create) samen met `enrollmentAccount` naam als de `enrollment_account_name` -parameter voor een nieuw abonnement maken.
+Gebruik de [az-account maken](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create) samen met `enrollmentAccount` object-ID als de `enrollment-account-object-id` -parameter voor een nieuw abonnement maken.
 
 ```azurecli-interactive 
-az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-name "<enrollmentAccountId>" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
+az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
 ```
 
 | Elementnaam  | Vereist | Type   | Beschrijving                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `display-name` | Nee      | Tekenreeks | De weergavenaam van het abonnement. Als niet wordt opgegeven, wordt deze ingesteld op de naam van de aanbieding, zoals 'Microsoft Azure Enterprise'.                                 |
 | `offer-type`   | Ja      | Tekenreeks | De aanbieding van het abonnement. De twee opties voor EA zijn [MS-AZR - 0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (gebruik voor productie) en [MS-AZR - 0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (ontwikkelen en testen, moet [ingeschakeld via de portal EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
+| `enrollment-account-object-id`      | Ja       | Tekenreeks | De Object-ID van het account van de inschrijving of het abonnement wordt gemaakt onder en gefactureerd op. Dit is een GUID-waarde die u via `az billing enrollment-account list`. |
 | `owner-object-id`      | Nee       | Tekenreeks | De Object-ID van elke gebruiker die u toevoegen als een eigenaar RBAC voor het abonnement wilt wanneer deze wordt gemaakt.  |
 | `owner-upn`    | Nee       | Tekenreeks | Het e-mailadres van elke gebruiker die u toevoegen als een eigenaar RBAC voor het abonnement wilt wanneer deze wordt gemaakt. U kunt deze parameter in plaats van `owner-object-id`.|
 | `owner-spn` | Nee       | Tekenreeks | De toepassings-ID van een service-principal die u toevoegen als een eigenaar RBAC voor het abonnement wilt wanneer deze wordt gemaakt. U kunt deze parameter in plaats van `owner-object-id`.| 
@@ -217,12 +219,12 @@ Zie voor een volledige lijst met alle parameters [az-account maken](/cli/azure/e
 
 ## <a name="delegate-access-to-an-enrollment-account-using-rbac"></a>Toegang tot een registratie-account met RBAC delegeren
 
-Naar een andere gebruiker of service-principal bieden de mogelijkheid voor het maken van abonnementen op basis van een specifiek account [Geef ze een eigenaar RBAC-rol op het bereik van de account van de inschrijving](../active-directory/role-based-access-control-manage-access-rest.md). Het volgende voorbeeld krijgt een gebruiker in de tenant met `principalId` van `<userObjectId>` (voor MobileOnboardingEng@contoso.com) een rol van eigenaar van de registratie-account. 
+Naar een andere gebruiker of service-principal bieden de mogelijkheid voor het maken van abonnementen op basis van een specifiek account [Geef ze een eigenaar RBAC-rol op het bereik van de account van de inschrijving](../active-directory/role-based-access-control-manage-access-rest.md). Het volgende voorbeeld krijgt een gebruiker in de tenant met `principalId` van `<userObjectId>` (voor SignUpEngineering@contoso.com) een rol van eigenaar van de registratie-account. 
 
 # <a name="resttabrest"></a>[REST](#tab/rest)
 
 ```json
-PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
+PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
 
 {
   "properties": {
@@ -238,7 +240,7 @@ Wanneer de rol van eigenaar is toegewezen aan het bereik van de account inschrij
   "properties": {
     "roleDefinitionId": "/providers/Microsoft.Billing/enrollmentAccounts/providers/Microsoft.Authorization/roleDefinitions/<ownerRoleDefinitionId>",
     "principalId": "<userObjectId>",
-    "scope": "/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>",
+    "scope": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "createdOn": "2018-03-05T08:36:26.4014813Z",
     "updatedOn": "2018-03-05T08:36:26.4014813Z",
     "createdBy": "<assignerObjectId>",
@@ -255,7 +257,7 @@ Wanneer de rol van eigenaar is toegewezen aan het bereik van de account inschrij
 Gebruik de [New AzureRmRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md) naar een andere gebruiker eigenaar toegang geven tot uw account voor de inschrijving.
 
 ```azurepowershell-interactive
-New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>
+New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 # <a name="azure-clitabazure-cli"></a>[Azure-CLI](#tab/azure-cli)
@@ -263,7 +265,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Sc
 Gebruik de [az roltoewijzing maken](../active-directory/role-based-access-control-manage-access-azure-cli.md) naar een andere gebruiker eigenaar toegang geven tot uw account voor de inschrijving.
 
 ```azurecli-interactive 
-az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountId>
+az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 ----

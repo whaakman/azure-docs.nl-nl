@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 04/28/2018
 ms.author: jingwang
-ms.openlocfilehash: f1fa79ed32969f5087107d6105fd2f4baf7640e3
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 2bc47c8963630351d3097938bc7f3d65116d9e4b
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Gegevens kopiëren van Web-tabel met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -79,7 +79,7 @@ De volgende eigenschappen worden ondersteund voor Web tabel gekoppelde service:
 
 Zie het artikel gegevenssets voor een volledige lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door Web tabel gegevensset.
 
-Om gegevens te kopiëren uit de tabel Web, stel de eigenschap type van de gegevensset **RelationalTable**. De volgende eigenschappen worden ondersteund:
+Om gegevens te kopiëren uit de tabel Web, stel de eigenschap type van de gegevensset **WebTable**. De volgende eigenschappen worden ondersteund:
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
@@ -94,7 +94,10 @@ Om gegevens te kopiëren uit de tabel Web, stel de eigenschap type van de gegeve
     "name": "WebTableInput",
     "properties": {
         "type": "WebTable",
-        "linkedServiceName": "WebLinkedService",
+        "linkedServiceName": {
+            "referenceName": "<Web linked service name>",
+            "type": "LinkedServiceReference"
+        },
         "typeProperties": {
             "index": 1,
             "path": "AFI's_100_Years...100_Movies"

@@ -6,13 +6,13 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/01/2018
 ms.author: marsma
-ms.openlocfilehash: 0e10b415f3d1c7ca502cfd63ebd27a6adcb69635
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
-ms.translationtype: HT
+ms.openlocfilehash: 7506351c0d65fb167136478d2dc383cdabd81835
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="automate-os-and-framework-patching-with-acr-build"></a>OS- en framework patchen met ACR bouwen automatiseren
 
@@ -58,7 +58,7 @@ Omdat ACR bouwen basisinstallatiekopie afhankelijkheden dynamisch ontdekt bij he
 Meer informatie over het besturingssysteem en framework patchen in de zelfstudie derde ACR bouwen [automatiseren installatiekopie is gebaseerd op update basisinstallatiekopie met Azure Container register bouwen](container-registry-tutorial-base-image-update.md).
 
 > [!NOTE]
-> Hoewel ACR bouwen in preview, bouwt basisinstallatiekopie updates trigger alleen als de basis- en toepassingsproblemen afbeeldingen zich bevinden in het register met dezelfde Azure-container.
+> Voor de eerste preview bouwt basisinstallatiekopie updates trigger alleen wanneer de basis- en toepassingsproblemen afbeeldingen zich in het register met dezelfde Azure-container bevinden.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 04/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 6d2c85225ab74c912183a0bb8d7f100d1354e6c5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6adde6a76a7675ef4d8b63757fc9419500872dd9
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Container bewaking oplossing in Log Analytics
 
@@ -34,8 +34,9 @@ De oplossing laat zien welke containers worden uitgevoerd, welke afbeelding cont
 - Service Fabric
 - Red Hat OpenShift
 
+Als u geïnteresseerd bent in controleren van de prestaties van uw werkbelastingen geïmplementeerd op Kubernetes omgevingen gehoste op AKS (Azure Container Service), Zie [Monitor Azure Container Service](../monitoring/monitoring-container-health.md).  De oplossing voor het bewaken van de Container bevat geen ondersteuning voor het bewaken van dit platform.  
 
-Het volgende diagram toont de relaties tussen verschillende container hosts en -agents met OMS.
+Het volgende diagram toont de relaties tussen verschillende container hosts en -agents met logboekanalyse.
 
 ![Diagram van de containers](./media/log-analytics-containers/containers-diagram.png)
 
@@ -91,7 +92,7 @@ De volgende tabel licht de Docker-orchestration en het besturingssysteem onderst
 ## <a name="installing-and-configuring-the-solution"></a>Installeren en configureren van de oplossing
 Gebruik de volgende informatie om te installeren en configureren van de oplossing.
 
-1. De oplossing Container bewaking toevoegen aan de OMS-werkruimte van [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) of met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen van de galerie met oplossingen](log-analytics-add-solutions.md).
+1. De oplossing Container bewaking toevoegen aan uw werkruimte voor logboekanalyse van [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) of met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen van de galerie met oplossingen](log-analytics-add-solutions.md).
 
 2. Installeren en gebruiken van Docker met een OMS-agent. Op basis van het besturingssysteem en de Docker-orchestrator, kunt u de volgende methoden voor het configureren van de agent.
   - Voor zelfstandige hosts:
@@ -116,15 +117,15 @@ Controleer de [Docker-Engine op Windows](https://docs.microsoft.com/virtualizati
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Installeren en configureren van Linux-container hosts
 
-Nadat u Docker hebt geïnstalleerd, gebruikt u de volgende instellingen voor de containerhost voor het configureren van de agent voor gebruik met Docker. U moet eerst uw OMS-werkruimte-ID en sleutel, kunt u vinden in de Azure portal. Klik in de werkruimte op **Quick Start** > **Computers** om weer te geven uw **werkruimte-ID** en **primaire sleutel**.  Kopieer en plak beide in uw favoriete editor.
+Nadat u Docker hebt geïnstalleerd, gebruikt u de volgende instellingen voor de containerhost voor het configureren van de agent voor gebruik met Docker. U moet eerst uw Log Analytics-werkruimte-ID en sleutel, kunt u vinden in de Azure portal. Klik in de werkruimte op **Quick Start** > **Computers** om weer te geven uw **werkruimte-ID** en **primaire sleutel**.  Kopieer en plak beide in uw favoriete editor.
 
 **Voor alle Linux-container hosts, virtuele CoreOS behalve:**
 
-- Zie voor meer informatie en stapsgewijze instructies voor het installeren van de OMS-Agent voor Linux [verbinding maken met uw Linux-Computers voor Operations Management Suite (OMS)](log-analytics-agent-linux.md).
+- Zie voor meer informatie en stapsgewijze instructies voor het installeren van de OMS-Agent voor Linux [uw Linux-Computers verbinden met Log Analytics](log-analytics-concept-hybrid.md).
 
 **Voor alle Linux-container hosts virtuele CoreOS waaronder:**
 
-Start de OMS-container die u wilt bewaken. Wijzigen en gebruik het volgende voorbeeld:
+Start de container die u wilt bewaken. Wijzigen en gebruik het volgende voorbeeld:
 
 ```
 sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
@@ -132,7 +133,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e 
 
 **Voor alle Azure Government Linux container hosts virtuele CoreOS waaronder:**
 
-Start de OMS-container die u wilt bewaken. Wijzigen en gebruik het volgende voorbeeld:
+Start de container die u wilt bewaken. Wijzigen en gebruik het volgende voorbeeld:
 
 ```
 sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/log:/var/log -e WSID="your workspace id" -e KEY="your key" -e DOMAIN="opinsights.azure.us" -p 127.0.0.1:25225:25225 -p 127.0.0.1:25224:25224/udp --name="omsagent" -h=`hostname` --restart=always microsoft/oms
@@ -142,9 +143,9 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 
 Als u eerder gebruikt de agent rechtstreeks is geïnstalleerd en u wilt gebruiken in plaats daarvan een agent wordt uitgevoerd in een container, moet u eerst de OMS-Agent verwijderen voor Linux. Zie [de OMS-Agent verwijderen voor Linux](log-analytics-agent-linux.md) om te begrijpen hoe de agent met succes te verwijderen.  
 
-#### <a name="configure-an-oms-agent-for-docker-swarm"></a>Configureer een OMS-agent voor Docker Swarm
+#### <a name="configure-an-oms-agent-for-docker-swarm"></a>Configureer een OMS-Agent voor Docker Swarm
 
-U kunt de OMS-Agent uitvoeren als een wereldwijde service op het Docker Swarm. Gebruik de volgende informatie om een OMS-Agent-service te maken. U moet uw OMS-werkruimte-ID en de primaire sleutel invoegen.
+U kunt de OMS-Agent uitvoeren als een wereldwijde service op het Docker Swarm. Gebruik de volgende informatie om een OMS-Agent-service te maken. U moet uw Log Analytics-werkruimte-ID en de primaire sleutel opgeven.
 
 - Voer het volgende op het hoofdknooppunt.
 
@@ -190,8 +191,8 @@ Er zijn drie manieren om toe te voegen de OMS-Agent voor Red Hat OpenShift naar 
 
 In deze sectie uitgelegd hoe u de OMS-Agent installeren als een OpenShift daemon-set.  
 
-1. Meld u bij het hoofdknooppunt OpenShift en kopieer het bestand yaml [ocp-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-omsagent.yaml) vanuit GitHub op uw hoofdknooppunt en wijzig de waarde met de OMS-werkruimte-ID en met uw primaire sleutel.
-2. Voer de volgende opdrachten voor het maken van een project voor OMS en stel de gebruikersaccount.
+1. Meld u bij het hoofdknooppunt OpenShift en kopieer het bestand yaml [ocp-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-omsagent.yaml) vanuit GitHub op uw hoofdknooppunt en wijzig de waarde die met uw Log Analytics-werkruimte-ID en met uw primaire sleutel.
+2. Voer de volgende opdrachten voor het maken van een project voor logboekanalyse en stel de gebruikersaccount.
 
     ```
     oadm new-project omslogging --node-selector='zone=default'
@@ -227,10 +228,10 @@ In deze sectie uitgelegd hoe u de OMS-Agent installeren als een OpenShift daemon
     No events.  
     ```
 
-Als u gebruiken van geheimen wilt voor het beveiligen van uw OMS-werkruimte-ID en de primaire sleutel bij gebruik van de OMS-Agent daemon-set yaml-bestand, moet u de volgende stappen uitvoeren.
+Als u gebruiken van geheimen wilt voor het beveiligen van uw Log Analytics-werkruimte-ID en de primaire sleutel bij gebruik van de OMS-Agent daemon-set yaml-bestand, moet u de volgende stappen uitvoeren.
 
-1. Meld u bij het hoofdknooppunt OpenShift en kopieer het bestand yaml [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) en geheim script genereren [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) vanuit GitHub.  Dit script genereert de geheimen yaml-bestand voor OMS-werkruimte-ID en de primaire sleutel voor het beveiligen van uw informatie secrete.  
-2. Voer de volgende opdrachten voor het maken van een project voor OMS en stel de gebruikersaccount. Het script genereren geheim vraagt om uw OMS-werkruimte-ID <WSID> en primaire sleutel <KEY> en heeft voltooid, wordt het bestand ocp-secret.yaml gemaakt.  
+1. Meld u bij het hoofdknooppunt OpenShift en kopieer het bestand yaml [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) en geheim script genereren [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) vanuit GitHub.  Dit script genereert de geheimen yaml-bestand voor Log Analytics-werkruimte-ID en de primaire sleutel voor het beveiligen van uw informatie secrete.  
+2. Voer de volgende opdrachten voor het maken van een project voor logboekanalyse en stel de gebruikersaccount. Het script genereren geheim vraagt om uw werkruimte-ID van Log Analytics <WSID> en primaire sleutel <KEY> en heeft voltooid, wordt het bestand ocp-secret.yaml gemaakt.  
 
     ```
     oadm new-project omslogging --node-selector='zone=default'  
@@ -314,7 +315,7 @@ U kunt omsagent DaemonSets maken met of zonder geheimen.
     1. Kopieer het script en de geheime sjabloonbestand en controleer of dat ze zich op dezelfde map.
         - geheim script - geheim gen.sh genereren
         - geheime sjabloon - geheim template.yaml
-    2. Voer het script, zoals in het volgende voorbeeld. Het script vraagt om de OMS-werkruimte-ID en de primaire sleutel en nadat u deze invoert, maakt het script een geheime yaml-bestand zodat u deze kunt uitvoeren.   
+    2. Voer het script, zoals in het volgende voorbeeld. Het script vraagt om de Log Analytics-werkruimte-ID en de primaire sleutel en nadat u deze invoert, maakt het script een geheime yaml-bestand zodat u deze kunt uitvoeren.   
 
         ```
         #> sudo bash ./secret-gen.sh
@@ -551,7 +552,7 @@ De volgende tabel ziet u voorbeelden van records die door de bewaking van de Con
 | Inventarisatie van de container | `ContainerInventory` | TimeGenerated, Computer, containernaam ContainerHostname, Image, ImageTag, ContainerState, ExitCode, EnvironmentVar, opdracht, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
 | Container installatiekopie inventarisatie | `ContainerImageInventory` | TimeGenerated, Computer, Image, ImageTag, ImageSize, VirtualSize, uitvoering is onderbroken, gestopt, is mislukt, SourceSystem, ImageID, TotalContainer |
 | Container-logboek | `ContainerLog` | TimeGenerated, Computer, afbeeldings-ID, containernaam LogEntrySource, LogEntry, SourceSystem, ContainerID |
-| Container service-logboek | `ContainerServiceLog`  | TimeGenerated, Computer, TimeOfCommand, Image, Command, SourceSystem, ContainerID |
+| Container service-logboek | `ContainerServiceLog`  | TimeGenerated, Computer, TimeOfCommand, Image, opdracht, SourceSystem, ContainerID |
 | Container knooppunt inventarisatie | `ContainerNodeInventory_CL`| TimeGenerated, Computer, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
 | Kubernetes-inventarisatie | `KubePodInventory_CL` | TimeGenerated, Computer, PodLabel_deployment_s, PodLabel_deploymentconfig_s, PodLabel_docker_registry_s, Name_s, Namespace_s, PodStatus_s, PodIp_s, PodUid_g, PodCreationTimeStamp_t, SourceSystem |
 | Container-proces | `ContainerProcess_CL` | TimeGenerated, Computer, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
@@ -561,7 +562,7 @@ Labels toegevoegd aan *PodLabel* gegevenstypen zijn uw eigen aangepaste etikette
 
 
 ## <a name="monitor-containers"></a>Containers bewaken
-Nadat u de oplossing is ingeschakeld in de OMS-portal hebt, de **Containers** tegel samenvattingsinformatie over de container-hosts en de containers die wordt uitgevoerd op hosts.
+Nadat u de ingeschakeld in de portal Log Analytics-oplossing hebt de **Containers** tegel samenvattingsinformatie over de container-hosts en de containers die wordt uitgevoerd op hosts.
 
 ![Containers tegel](./media/log-analytics-containers/containers-title.png)
 

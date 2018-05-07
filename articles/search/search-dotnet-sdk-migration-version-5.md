@@ -6,13 +6,13 @@ manager: jlembicz
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/01/2018
 ms.author: brjohnst
-ms.openlocfilehash: 018388cd2bd85eb86ad7b62ee247bccd6329e9ac
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 88949f4cf0e4408f5d1e4d9c9a5833b041b5a5ab
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-5"></a>Een upgrade naar de Azure Search .NET SDK versie 5
 Als u versie 4.0 preview of oudere van de [Azure Search .NET SDK](https://aka.ms/search-sdk), dit artikel helpt u bij het bijwerken van uw toepassing versie 5 te gebruiken.
@@ -57,7 +57,7 @@ De meest belangrijke recente wijziging in versie 5 is dat de `Microsoft.Azure.Se
  - `Microsoft.Azure.Search`: Dit is een meta-pakket met alle andere Azure Search pakketten als afhankelijkheden. Als u een vanaf een eerdere versie van de SDK upgrade uitvoert moeten gewoon dit pakket upgraden en opnieuw opbouwen voldoende aan de slag met de nieuwe versie.
  - `Microsoft.Azure.Search.Data`: Dit pakket gebruiken als u een Azure Search met .NET-toepassing ontwikkelt en u alleen hoeft een query of bijwerken van documenten in uw indexen. Als u ook moet maken of bijwerken van indexen, synoniem maps of andere bronnen serviceniveau gebruiken de `Microsoft.Azure.Search` in plaats daarvan het pakket.
  - `Microsoft.Azure.Search.Service`: Dit pakket gebruiken als u automatiseren met behulp van .NET ontwikkelt voor het beheren van Azure Search-index, synoniem maps, indexeerfuncties, gegevensbronnen of andere bronnen serviceniveau. Als u alleen query of update-documenten in uw indexen moet, gebruikt u de `Microsoft.Azure.Search.Data` in plaats daarvan het pakket. Als u alle functionaliteit van Azure Search moet, gebruikt de `Microsoft.Azure.Search` in plaats daarvan het pakket.
-- `Microsoft.Azure.Search.Common`: Algemene typen die nodig is voor de Azure Search .NET-bibliotheken. U hoeft geen gebruik van dit pakket rechtstreeks in uw toepassing. Dit is alleen bedoeld als een afhankelijkheid moet worden gebruikt.
+ - `Microsoft.Azure.Search.Common`: Algemene typen die nodig is voor de Azure Search .NET-bibliotheken. U hoeft geen gebruik van dit pakket rechtstreeks in uw toepassing. Dit is alleen bedoeld als een afhankelijkheid moet worden gebruikt.
  
 Deze wijziging overtreedt technisch omdat er vele typen tussen de assembly's verplaatst zijn. Daarom opnieuw opbouwen van uw toepassing is nodig om te upgraden naar versie 5 van de SDK.
 

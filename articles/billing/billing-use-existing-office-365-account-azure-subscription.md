@@ -12,14 +12,14 @@ ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: cjiang
-ms.openlocfilehash: e9f90127bce0502147572c5ac6bd65e47dbe8c35
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: dfb39b809f9a1082682d269d8bd4c180c8a264ce
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-office-365-account"></a>Aanmelden voor een Azure-abonnement met uw Office 365-account
 Als u een Office 365-abonnement hebt, kunt u uw Office 365-account voor het maken van een Azure-abonnement. Aanmelden bij de [Azure-portal](https://portal.azure.com/) met uw Office 365-gebruikersnaam en wachtwoord. Als u wilt instellen van virtuele machines of andere Azure-services gebruiken, moet u zich aanmelden voor een Azure-abonnement. U kunt uw Azure-abonnement met anderen delen en [toegangsbeheer op basis van rollen voor het beheren van toegang tot uw Azure-abonnement en resources gebruiken](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)

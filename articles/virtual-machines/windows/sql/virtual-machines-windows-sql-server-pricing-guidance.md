@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 02/20/2018
+ms.date: 05/02/2018
 ms.author: jroth
-ms.openlocfilehash: a275df84ce784147b5fd4f09afe4995417affffd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 71c86af9d4dcdf1026b4f539574b9932ef1cfc89
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Prijsinformatie voor Azure VM's van SQL Server
 
 In dit artikel biedt prijsstelling richtlijnen voor [virtuele machines van SQL Server](virtual-machines-windows-sql-server-iaas-overview.md) in Azure. Er zijn verschillende opties die invloed hebben op de kosten en het is belangrijk om op te halen van de installatiekopie van het juiste die een compromis tussen de kosten op zakelijke vereisten.
 
 > [!TIP]
-> Als u alleen weten een schatting van de kosten voor een specifieke combinatie van de editie van SQL Server en de grootte van de virtuele machine wilt, raadpleegt u de [pagina met prijzen](https://azure.microsoft.com/pricing/details/virtual-machines/windows). Selecteer uw besturingssysteem en SQL Server-editie van de **OS-Software** lijst.
+> Als u alleen weten een schatting van de kosten voor een specifieke combinatie van de editie van SQL Server en de grootte van de virtuele machine wilt, raadpleegt u de pagina met prijzen voor [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) of [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux). Selecteer het platform en SQL Server-editie van de **OS-Software** lijst.
 >
 > ![Gebruikersinterface op de pagina met prijzen VM](./media/virtual-machines-windows-sql-server-pricing-guidance/virtual-machines-pricing-ui.png)
 >
@@ -34,11 +34,11 @@ In dit artikel biedt prijsstelling richtlijnen voor [virtuele machines van SQL S
 
 ## <a name="free-licensed-sql-server-editions"></a>Vrije-gelicentieerde SQL Server-edities
 
-Als u wilt ontwikkelen, testen of een POC bouwen, gebruikt u de gratis licentie **ontwikkelaarsversie van SQL Server**. Deze editie biedt alles wat in SQL Server Enterprise edition, dus u kunt deze ongeacht welke toepassing die u wilt maken. Het is niet alleen toegestaan in productie uit te voeren. Een SQL Server Developer VM alleen de kosten voor de kosten van de virtuele machine, niet voor SQL Server-licentieverlening.
+Als u wilt ontwikkelen, testen of een POC bouwen, gebruikt u de licentie vrij **ontwikkelaarsversie van SQL Server**. Deze editie heeft alle functies van SQL Server Enterprise edition, zodat u kunt bouwen en testen van elk type toepassing. U kunt de ontwikkelaarsversie echter niet uitvoeren in de productieomgeving. Een ontwikkelversie van SQL Server VM maakt alleen kosten voor de kosten van de virtuele machine, omdat er geen gekoppelde SQL Server-licentiekosten.
 
-Als u wilt uitvoeren van een lichte werkbelasting in productie (< 4 kernen < 1 GB geheugen, < 10 GB/database), gebruikt u de gratis licentie **SQL Server Express edition**. Een VM SQL Express alleen kosten voor de kosten van de virtuele machine geen SQL-licentieverlening.
+Als u wilt uitvoeren van een lichte werkbelasting in productie (< 4 kernen < 1 GB geheugen, < 10 GB/database), gebruikt u de licentie vrij **SQL Server Express edition**. Een SQL Server Express-editie VM maakt ook alleen kosten voor de kosten van de virtuele machine.
 
-Voor deze ontwikkeling en testen of lightweight productieworkloads, kunt u ook geld besparen door het kiezen van een kleinere VM-grootte die overeenkomt met deze werkbelastingen. De DS1v2 mogelijk een goede keuze voor deze werkbelastingen.
+Voor deze ontwikkeling en testen en lichtgewicht productieworkloads, kunt u ook geld besparen door het kiezen van een kleinere VM-grootte die overeenkomt met deze werkbelastingen. De DS1v2 mogelijk een goede keuze in sommige scenario's.
 
 Als een virtuele machine van SQL Server 2017 Azure maken met een van deze installatiekopieën, Zie de volgende koppelingen:
 
@@ -53,7 +53,7 @@ Als een virtuele machine van SQL Server 2017 Azure maken met een van deze instal
 
 Als u een werkbelasting niet lightweight productie hebt, gebruikt u een van de volgende versies van SQL Server:
 
-| SQL Server Edition | Workload |
+| SQL Server-editie | Workload |
 |-----|-----|
 | Web | Kleine websites |
 | Standard | Kleine tot middelgrote werkbelastingen |
@@ -61,14 +61,17 @@ Als u een werkbelasting niet lightweight productie hebt, gebruikt u een van de v
 
 Hebt u twee opties om te betalen voor SQL Server-licentieverlening voor deze edities: *betaalde per gebruik* of *brengt uw eigen license (BYOL)*.
 
-### <a name="pay-per-usage"></a>Betalen per gebruik
+## <a name="pay-per-usage"></a>Betalen per gebruik
 
-**Betalen per gebruik van de SQL Server-licentie** betekent dat de kosten per seconde van het uitvoeren van de Azure VM de kosten van de SQL Server-licentie bevat. U kunt de prijzen voor de verschillende edities van SQL Server (Web, Standard, Enterprise) zien in de [Azure VM pagina met prijzen](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). De kosten zijn hetzelfde voor alle versies van SQL Server (2012 SP3-2017). Met een SQL Server-licentieverlening in het algemeen, is de licentiekosten per seconde afhankelijk van het aantal kernen VM.
+**Betalen per gebruik van de SQL Server-licentie** betekent dat de kosten per seconde van het uitvoeren van de Azure VM de kosten van de SQL Server-licentie bevat. U ziet de prijzen voor de verschillende edities van SQL Server (Web, Standard, Enterprise) in de Azure VM-pagina voor prijzen [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) of [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux).
+
+De kosten zijn hetzelfde voor alle versies van SQL Server (2012 SP3-2017). De licentiekosten per seconde is afhankelijk van het aantal VM-kernen, dit is een standaard voor alle SQL Server-licentieverlening.
 
 Betalen van de SQL Server wordt-licentieverlening per gebruik aanbevolen voor:
 
-- Tijdelijke of periodieke werkbelastingen. Bijvoorbeeld, een app die moet ondersteuning bieden voor een gebeurtenis voor een aantal maanden elk jaar of business-analyse op maandag.
-- Werklasten met onbekende levensduur of schaal. Bijvoorbeeld, een app die mogelijk niet vereist zijn in een paar maanden of waarvoor meer of minder rekencapaciteit, afhankelijk van de aanvraag.
+- **Tijdelijke of periodieke werkbelastingen**. Bijvoorbeeld, een app die moet ondersteuning bieden voor een gebeurtenis voor een aantal maanden elk jaar of business-analyse op maandag.
+
+- **Werkbelastingen met onbekende levensduur of schaal**. Bijvoorbeeld, een app die mogelijk niet vereist zijn in een paar maanden of waarvoor meer of minder rekencapaciteit, afhankelijk van de aanvraag.
 
 Als een virtuele machine van SQL Server 2017 Azure maken met een van deze installatiekopieën betalen per gebruik, Zie de volgende koppelingen:
 
@@ -80,11 +83,13 @@ Als een virtuele machine van SQL Server 2017 Azure maken met een van deze instal
 | Ubuntu | [SQL Server 2017 Web Azure VM](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonUbuntuServer1604LTS)<br/>[SQL Server 2017 standaard Azure VM](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonUbuntuServer1604LTS)<br/>[SQL Server 2017 Enterprise Azure VM](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseonUbuntuServer1604LTS) |
 
 > [!IMPORTANT]
-> Wanneer u een virtuele machine van SQL Server in de portal maakt de **een grootte kiezen** venster bevat de geschatte kosten. Het is belangrijk te weten dat deze schatting alleen de compute-kosten is voor het uitvoeren van de virtuele machine samen met eventuele Windows licentiekosten voor VM's van Windows. Dit omvat geen aanvullende SQL Server-licentiekosten voor Web, Standard en Enterprise-edities. Deze ook omvat geen licentie extra kosten voor Linux-systemen van derden voor virtuele Linux-machines. Als u de meest nauwkeurige prijscategorie schatting, selecteert u het besturingssysteem en de editie van SQL Server op de pagina met prijzen voor [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) en [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
+> Wanneer u een virtuele machine van SQL Server in de portal maakt de **een grootte kiezen** venster bevat de geschatte kosten. Het is belangrijk te weten dat deze schatting alleen de compute-kosten is voor het uitvoeren van de virtuele machine samen met andere besturingssystemen licentiekosten (Windows of Linux-besturingssystemen van derden).
 >
 > ![Blade voor VM-grootte kiezen](./media/virtual-machines-windows-sql-server-pricing-guidance/sql-vm-choose-size-pricing-estimate.png)
+>
+>Dit omvat geen aanvullende SQL Server-licentiekosten voor Web, Standard en Enterprise-edities. Als u de meest nauwkeurige prijscategorie schatting, selecteert u het besturingssysteem en de editie van SQL Server op de pagina met prijzen voor [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) of [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
-### <a name="bring-your-own-license-byol"></a>BYOL (Bring your own license)
+## <a name="bring-your-own-license-byol"></a>BYOL (Bring your own license)
 
 **U brengt uw eigen SQL Server-licentie via License Mobility**, ook wel **BYOL**, betekent het gebruik van een bestaande SQL Server-volumelicentie met Software Assurance in een Azure VM. Een virtuele SQL Server-machine met behulp van BYOL alleen de kosten voor de kosten van de virtuele machine wordt uitgevoerd, niet voor SQL Server-licentieverlening, gezien het feit dat u al licenties en Software Assurance hebt aangeschaft via een Volume Licensing-programma.
 
@@ -93,10 +98,11 @@ Als een virtuele machine van SQL Server 2017 Azure maken met een van deze instal
 
 U brengt uw eigen SQL wordt licenties via License Mobility aanbevolen voor:
 
-- Continue werkbelastingen. Bijvoorbeeld, een app die moet ondersteuning bieden voor zakelijke activiteiten 24 x 7.
-- Werklasten met bekende levensduur en schaal. Bijvoorbeeld, een app die is vereist voor het hele jaar en welke vraag is prognose.
+- **Continue werkbelastingen**. Bijvoorbeeld, een app die moet ondersteuning bieden voor zakelijke activiteiten 24 x 7.
 
-Als u wilt BYOL met een virtuele machine van SQL Server gebruiken, moet u een licentie hebben voor SQL Server Standard of Enterprise en [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx#tab=1), dit is een vereiste optie door enkele [Volume Licensing](https://www.microsoft.com/en-us/download/details.aspx?id=10585) programma's en een optionele aankoop met anderen.  De prijscategorie niveau opgegeven via volumelicentieprogramma's varieert, afhankelijk van het type van de overeenkomst en de hoeveelheid en of het streven naar SQL Server. Maar als een vuistregel brengen van uw eigen licentie voor continue productieworkloads heeft de volgende voordelen:
+- **Werkbelastingen met bekende levensduur en schaal**. Bijvoorbeeld, een app die is vereist voor het hele jaar en welke vraag is prognose.
+
+Als u wilt BYOL met een virtuele machine van SQL Server gebruiken, moet u een licentie hebben voor SQL Server Standard of Enterprise en [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx#tab=1), dit is een vereiste optie via een volumelicentieprogramma's en een optionele aankoop met anderen. De prijscategorie niveau opgegeven via volumelicentieprogramma's varieert, afhankelijk van het type van de overeenkomst en de hoeveelheid en of het streven naar SQL Server. Maar als een vuistregel brengen van uw eigen licentie voor continue productieworkloads heeft de volgende voordelen:
 
 | BYOL benefit | Beschrijving |
 |-----|-----|
@@ -104,18 +110,18 @@ Als u wilt BYOL met een virtuele machine van SQL Server gebruiken, moet u een li
 | **Besparingen op lange termijn** | Gemiddeld is *30% goedkoper per jaar* te kopen of vernieuwen van een SQL Server-licentie voor de eerste drie jaar. Bovendien na drie jaar hoeft u niet te vernieuwen van de licentie meer, betaalt u voor Software Assurance. Op dat moment is *200% goedkoper*. |
 | **Gratis passieve secundaire replica** | Een ander voordeel van uw eigen licentie meebrengen is de [gratis licentieverlening voor één passieve secundaire replica](https://azure.microsoft.com/pricing/licensing-faq/) per SQL-Server voor maximale beschikbaarheid dient. Deze geknipt in half licentiekosten van een maximaal beschikbare SQL Server-implementatie (bijvoorbeeld altijd op beschikbaarheidsgroepen). De rechten voor het uitvoeren van de passieve secundaire worden geleverd via de failover-Servers Software Assurance benefit. |
 
-Als een virtuele machine van SQL Server 2016 Azure maken met een van deze installatiekopieën bring-your-eigenaar-licentie, Zie de virtuele machines voorafgegaan door '{BYOL}':
+Als een virtuele machine van SQL Server 2017 Azure maken met een van deze installatiekopieën bring-your-eigenaar-licentie, Zie de virtuele machines voorafgegaan door '{BYOL}':
 
-- [SQL Server 2016 Enterprise Azure VM](https://ms.portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP1EnterpriseWindowsServer2016)
-- [SQL Server 2016 Standard Azure VM](https://ms.portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP1StandardWindowsServer2016)
+- [SQL Server 2017 Enterprise Azure VM](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2017EnterpriseWindowsServer2016)
+- [SQL Server 2017 standaard Azure VM](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2017StandardonWindowsServer2016)
 
 > [!IMPORTANT]
-> Laat ons weten binnen tien dagen hoeveel SQL Server-licenties u in Azure. De koppelingen naar de vorige afbeeldingen hebben instructies over hoe u dit doet.
+> Laat ons weten binnen tien dagen hoeveel SQL Server-licenties die u in Azure gebruikt. De koppelingen naar de vorige afbeeldingen hebben instructies over hoe u dit doet.
 
 > [!NOTE]
-> Het is niet mogelijk om te wijzigen van het licentiemodel van een betalen per seconde SQL Server-VM voor gebruik van uw eigen licentie. Als u dit wilt doen, moet u een nieuwe BYOL-VM maken en uw databases naar de nieuwe VM migreren. 
+> Het is niet mogelijk om te wijzigen van het licentiemodel van een betalen per seconde SQL Server-VM voor gebruik van uw eigen licentie. Als u dit wilt doen, moet u een nieuwe BYOL-VM maken en uw databases naar de nieuwe VM migreren.
 
-## <a name="avoid-unnecessary-costs"></a>Onnodige kosten te voorkomen
+## <a name="reduce-costs"></a>Kosten te verlagen
 
 Om te voorkomen onnodige kosten, kies de grootte van een optimale virtuele machine en overweeg onregelmatige afsluiten voor niet-doorlopende werkbelastingen.
 
@@ -125,7 +131,7 @@ De licentiekosten van SQL Server is direct gerelateerd aan het aantal kernen. Ki
 
 Er zijn nieuwe machine-grootten die goed met bepaalde typen SQL Server-werkbelasting werken. Deze machines formaten hoge serviceniveaus geheugen, opslag en i/o-bandbreedte te behouden, maar ze hebben een lagere gevirtualiseerde core-telling. Neem bijvoorbeeld het volgende voorbeeld:
 
-| VM-grootte | vCPU's | Geheugen | Maximum aantal schijven | Max I/O Throughput | SQL-licentie kosten | Totale kosten (Compute + licentieverlening) |
+| VM-grootte | vCPU's | Geheugen | Maximum aantal schijven | Maximum aantal i/o-doorvoer | SQL-licentie kosten | Totale kosten (Compute + licentieverlening) |
 |---|---|---|---|---|---|---|
 | **Standard_DS14v2** | 16 | 112 GB | 32 | 51.200 IOPS of 768 MB/s | | |
 | **Standard_DS14-4v2** | 4 | 112 GB | 32 | 51.200 IOPS of 768 MB/s | 75% lager | 57% lager |
@@ -152,8 +158,9 @@ Voor andere werkstromen, kunt u automatisch afsluiten en opnieuw starten van vir
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Voor algemene Azure prijzen richtlijnen, Zie [te voorkomen dat onverwachte kosten met Azure-facturering en kostenbeheer](../../../billing/billing-getting-started.md).
+Voor algemene Azure prijzen richtlijnen, Zie [te voorkomen dat onverwachte kosten met Azure-facturering en kostenbeheer](../../../billing/billing-getting-started.md). Voor de meest recente virtuele Machines prijzen, waaronder SQL Server, Zie de Azure VM Azure prijzen pagina voor [VM's van Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) en [virtuele Linux-machines](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
-Voor de meest recente virtuele Machines prijzen, waaronder SQL Server, Zie de [Azure VM pagina met prijzen](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
+Zie voor een overzicht van SQL Server wordt uitgevoerd op Azure Virtual Machines, de volgende artikelen:
 
-Meer informatie over virtuele machines van SQL Server voor zowel [VM's van SQL Server Windows](virtual-machines-windows-sql-server-iaas-overview.md) en [Linux VM's van SQL Server](../../linux/sql/sql-server-linux-virtual-machines-overview.md).
+- [Overzicht van SQL Server op VM's van Windows](virtual-machines-windows-sql-server-iaas-overview.md)
+- [Overzicht van SQL Server op virtuele Linux-machines](../../linux/sql/sql-server-linux-virtual-machines-overview.md)

@@ -22,6 +22,6 @@ Hier volgt een lijst met de beschikbare vooraf geconfigureerde Oracle-installati
 * Oracle Linux 7.0.0.0.0
 * Oracle Linux 7.2.0.0.0
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 [Installatiekopieën voor virtuele Oracle-machines - verschillende aandachtspunten](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
 

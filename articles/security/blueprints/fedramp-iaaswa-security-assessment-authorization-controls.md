@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: d1c9846589adaef0baeeaf16077c8e74bef1cd9f
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="security-assessment-and-authorization-ca"></a>Beoordeling van de veiligheid en autorisatie (CA)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-1** de organisatie ontwikkelt, documenten en verspreide naar [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen] beoordeling en autorisatie beveiligingsbeleid dat doel, bereik, rollen, taken, management-adressen het streven, samenwerking tussen de organisatie-entiteiten en naleving; en -procedures om te vereenvoudigen, de implementatie van de beoordeling en autorisatie beveiligingsbeleid en de bijbehorende beoordeling en autorisatie beveiligingsmechanismen; en controleert en updates van het huidige beveiligingsbeleid en -autorisatie voor [toewijzing: organisatie gedefinieerde frequentie]; en beoordeling en autorisatie beveiligingsprocedures [toewijzing: organisatie gedefinieerde frequentie].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-2.** de organisatie ontwikkelt een beveiligingsplan assessment die worden beschreven van het bereik van de besturingselementen voor de beveiliging en beheer verbeteringen onder assessment inclusief beoordeling; assessment procedures moeten worden gebruikt voor het bepalen van de beveiligingscontrole effectiviteit; en evaluatie-omgeving, assessment-team en assessment rollen en verantwoordelijkheden.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-2.b** de organisatie evalueert de beveiligingsbesturingselementen in het informatiesysteem en de omgeving van bewerking [toewijzing: organisatie gedefinieerde frequentie] om te bepalen van de omvang waarop de besturingselementen worden geïmplementeerd correct werkt Als de beoogde en produceren is het gewenste resultaat met betrekking tot vergadering tot stand gebracht beveiligingsvereisten.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-2.c** de organisatie produceert een beveiligingsrapport assessment waarin de resultaten van de evaluatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-2.d** de organisatie, biedt de resultaten van de evaluatie van het besturingselement beveiliging te [toewijzing: organisatie gedefinieerd personen of rollen].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-2 (1)** beoordelaars of assessment teams de veiligheidsmaatregelen voor de organisatie [toewijzing: organisatie gedefinieerd niveau van de onafhankelijkheid] voor het uitvoeren van beoordelingen van de veiligheid-besturingselement.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-2 (2)** de organisatie als onderdeel van het besturingselement beoordelingen van de veiligheid, inclusief [toewijzing: organisatie gedefinieerde frequentie], [selectie: aangekondigde; aangekondigd], [selectie (een of meer): gedetailleerde bewaking; beveiligingslek scannen; kwaadwillende gebruiker testen; beoordeling van bedreigingen van binnenuit; prestatiebelasting testen; [Toewijzing: andere vormen van de beoordeling van de veiligheid organisatie gedefinieerd]].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-2 (3)** de organisatie accepteert de resultaten van de evaluatie van [toewijzing: organisatie gedefinieerde informatiesysteem] uitgevoerd door [toewijzing: externe organisatie organisatie gedefinieerd] wanneer de beoordeling voldoet aan [toewijzing: organisatie gedefinieerd vereisten].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-3.** verbindingen van het systeem gegevens met andere informatiesystemen door het gebruik van koppeling beveiliging overeenkomsten worden geautoriseerd door de organisatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-3.b** de documenten organisatie voor elke koppeling, de interface-eigenschappen, beveiligingsvereisten en de aard van de informatie wordt gecommuniceerd.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-3.c** de organisatie controleert en updates koppeling beveiliging overeenkomsten [toewijzing: organisatie gedefinieerde frequentie].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-3 (3)** de organisatie mag geen van de directe verbinding van een [toewijzing: organisatie gedefinieerd geclassificeerde, niet-nationale beveiligingssysteem] met een extern netwerk zonder het gebruik van [toewijzing; organisatie gedefinieerd grens beveiliging apparaat].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-3 (5)** maakt gebruik van de organisatie [selectie: toestaan dat alle, weigeren door uitzondering; weigeren alle, toestaan door uitzondering] beleid voor het toestaan van [toewijzing: organisatie gedefinieerd informatiesystemen] verbinding maken met externe systemen.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-5.** de organisatie ontwikkelt een plan van aanpak en mijlpalen voor het informatiesysteem om vast te leggen van de organisatie corrigerende acties om op te lossen zwakke punten of gebreken tijdens de evaluatie van de besturingselementen voor beveiliging en zo gepland verlagen of elimineren van bekende beveiligingslekken in het systeem.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-5.b** de organisatie updates bestaand abonnement van de actie en mijlpalen [toewijzing: organisatie gedefinieerde frequentie] op basis van de resultaten van besturingselementen beoordelingen van de veiligheid, beveiliging impact analyses en continue bewakingsactiviteiten.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-6.a** de organisatie een senior niveau executive of manager als de officiële machtigen voor het informatiesysteem wordt toegewezen.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-6.b** de organisatie zorgt ervoor dat de autorisatie officiële het informatiesysteem voor verwerking machtigt vóór het begin van de bewerkingen.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-6.c** de organisatie werkt de autorisatie beveiliging [toewijzing: organisatie gedefinieerde frequentie].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-7.** ontwikkelt u een strategie voor een continue bewaking en implementeert een continue bewaking programma met de inrichting van de organisatie [toewijzing: organisatie gedefinieerd metrische gegevens] moeten worden bewaakt.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -297,7 +297,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-7.b** ontwikkelt u een strategie voor een continue bewaking en implementeert een continue bewaking programma met de inrichting van de organisatie [toewijzing: frequenties organisatie gedefinieerd] voor bewaking en [toewijzing: organisatie gedefinieerd frequenties] voor beoordelingen ondersteunende dergelijke bewaking.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-7.c** ontwikkelt u een strategie voor een continue bewaking en implementeert een continue bewaking programma continue beveiliging besturingselement beoordelingen in overeenstemming met de organisatie-strategie voor de doorlopende bewaking met de organisatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-7.d** de organisatie ontwikkelt u een strategie voor een continue bewaking en implementeert een continue bewaking programma met continue beveiliging controle van de status van metrische gegevens in overeenstemming met de organisatie-organisatie gedefinieerd continue bewaking strategie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -339,7 +339,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-7.e** De organisatie ontwikkelt een strategie voor een continue bewaking en implementeert een continue bewaking programma met correlatie en analyse van de beveiligingsinformatie die worden gegenereerd door de beoordelingen en bewaking.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -353,7 +353,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-7.f** de organisatie ontwikkelt u een strategie voor een continue bewaking en implementeert een continue bewaking programma met reacties adres resultaten van de analyse van beveiligingsinformatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -367,7 +367,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-7.g** de organisatie ontwikkelt u een strategie voor een continue bewaking en implementeert een continue bewaking programma met de rapportage van de beveiligingsstatus van de organisatie en het informatiesysteem [toewijzing: organisatie gedefinieerd medewerkers of rollen] [toewijzing: organisatie gedefinieerde frequentie].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -381,7 +381,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-7 (1)** beoordelaars of assessment teams de veiligheidsmaatregelen voor de organisatie [toewijzing: organisatie gedefinieerd niveau van de onafhankelijkheid] voor het bewaken van de beveiligingsbesturingselementen in het informatiesysteem voortdurend.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -395,7 +395,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-7 (3)** veiligheidsmaatregelen trend analyses bepalen of beveiliging implementaties beheren, de frequentie van continue bewakingsactiviteiten en/of de soorten activiteiten die worden gebruikt bij de voortdurende bewaking moeten worden gewijzigd voor de organisatie op basis van empirische gegevens.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -409,7 +409,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-8** de organisatie voert binnendringen testen [toewijzing: organisatie gedefinieerde frequentie] op [toewijzing: organisatie gedefinieerde informatiesystemen of onderdelen van het systeem].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -423,7 +423,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-8 (1)** veiligheidsmaatregelen voor de organisatie een onafhankelijke binnendringen agent of het team van binnendringen binnendringen testen op het systeem voor informatie of onderdelen van het systeem uitvoeren.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -431,13 +431,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-ca-9a"></a>NIST 800-53 Control CA-9.a
+ ## <a name="nist-800-53-control-ca-9a"></a>NIST 800 53 besturingselement CA-9.a
 
 #### <a name="internal-system-connections"></a>Interne systeem-verbindingen
 
 **CA-9.a** interne verbindingen van de organisatie worden geautoriseerd [toewijzing: onderdelen van het systeem gedefinieerde organisatie informatie of klassen van onderdelen] op het informatiesysteem.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -451,7 +451,7 @@ ms.lasthandoff: 02/11/2018
 
 **CA-9.b** de documenten organisatie voor elke interne verbinding, de interface-eigenschappen, beveiligingsvereisten en de aard van de informatie wordt gecommuniceerd.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|

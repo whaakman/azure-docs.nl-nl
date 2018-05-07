@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 34d1ba2e1e84c268442d47d8865d3e3bebb53e53
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 934b79977369e5cf8e6f09e85669c7fca299737c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Hybride Azure Active Directory die lid zijn van apparaten configureren
 
@@ -83,8 +83,20 @@ Zorg ervoor dat de volgende URL's toegankelijk vanaf computers in het netwerk va
 
 - https://device.login.microsoftonline.com
 
-Als uw organisaties vereist toegang tot Internet via een uitgaande proxyconfiguratie, moet Web Proxy Auto-Discovery (WPAD) zodat Windows 10-computers te registreren bij Azure AD implementeren.
+- Uw organisatie STS (federatieve domeinen)
 
+Als u niet hebt gedaan, moeten de STS (voor federatieve domeinen) van uw organisatie worden opgenomen in de gebruikersinstellingen lokaal intranet.
+
+Als uw organisatie is wilt naadloze eenmalige aanmelding gebruiken, zijn de volgende URL's moeten bereikbaar zijn vanaf de computers binnen uw organisatie en deze moeten ook worden toegevoegd aan de zone Lokaal intranet van de gebruiker:
+
+- https://autologon.microsoftazuread-sso.com
+
+- https://aadg.windows.net.nsatc.net
+
+- Ook de volgende instelling in de intranetzone van de gebruiker moet worden ingeschakeld: 'Updates voor de statusbalk via script toestaan'.
+
+
+Als uw organisatie toegang tot Internet via een uitgaande proxyconfiguratie vereist, moet u Web Proxy Auto-Discovery (WPAD) zodat Windows 10-computers te registreren bij Azure AD implementeren.
 
 ## <a name="configuration-steps"></a>Configuratiestappen
 

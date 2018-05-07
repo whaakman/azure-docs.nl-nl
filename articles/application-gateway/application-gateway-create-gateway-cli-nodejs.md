@@ -3,9 +3,9 @@ title: Maken van een Azure Application Gateway - Azure CLI 1.0 | Microsoft Docs
 description: Informatie over het maken van een toepassingsgateway met behulp van de Azure CLI 1.0 in Resource Manager
 services: application-gateway
 documentationcenter: na
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager
 ms.assetid: c2f6516e-3805-49ac-826e-776b909a9104
 ms.service: application-gateway
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
-ms.author: davidmu
-ms.openlocfilehash: fe50fb3a7434702101dc5ae7a9dd176a33423119
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: victorh
+ms.openlocfilehash: 3d67e896da5e616e443fc4e1edd9aaafb0f0e2f9
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Een toepassingsgateway maken met behulp van de Azure CLI
 
@@ -67,7 +67,7 @@ Open de **Microsoft Azure-opdrachtprompt**, en zich aanmelden.
 azure login
 ```
 
-Wanneer u in het voorgaande voorbeeld typt, wordt een code opgegeven. Ga naar https://aka.ms/devicelogin in een browser om terug te gaan met de aanmelding.
+Wanneer u in het voorgaande voorbeeld typt, wordt een code opgegeven. Navigeer naar https://aka.ms/devicelogin in een browser om terug te gaan met de aanmelding.
 
 ![cmd tonen apparaat aanmelding][1]
 

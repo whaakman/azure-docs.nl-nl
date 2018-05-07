@@ -1,24 +1,24 @@
 ---
-title: Problemen met een abnormale terugkerende taak oplossen | Microsoft Docs
+title: Fouten opsporen in terugkerende taken | Microsoft Docs
 description: Informatie over het gebruik van Azure Data Lake Tools voor Visual Studio fouten opsporen in een abnormale terugkerende taak.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: yanancai
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2017
+ms.date: 05/20/2018
 ms.author: yanacai
-ms.openlocfilehash: 9b60c861810d6577b33aa0cdf14f26dc2cfc0e4d
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 02f33fed7f8758066e34ee4e643efd9b696a0e8d
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="troubleshoot-an-abnormal-recurring-job"></a>Problemen met een abnormale terugkerende taak oplossen
 

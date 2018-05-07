@@ -145,6 +145,12 @@
           items:
             - name: Problemen met replicatie van Azure naar Azure oplossen
               href: azure-to-azure-troubleshoot-errors.md
+            - name: Problemen met de Azure Site Recovery-extensie oplossen
+              href: site-recovery-extension-troubleshoot.md
+        - name: Beheren
+          items:
+            - name: De Mobility Service-extensie automatisch bijwerken
+              href: azure-to-azure-autoupdate.md
     - name: VMware-/fysieke machine naar Azure
       items:
         - name: Netwerken

@@ -4,7 +4,7 @@ description: Het beheren van DNS-recordsets en records op Azure DNS bij het host
 services: dns
 documentationcenter: na
 author: KumudD
-manager: carmonm
+manager: jeconnoc
 ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
 ms.service: dns
 ms.devlang: azurecli
@@ -14,16 +14,16 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: kumud
-ms.openlocfilehash: 6f8a462a8de93d75f0555397bea548d2b5122c09
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 3b083f8c090fda861def7099479985419a698856
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>DNS-records en recordsets in Azure DNS met de Azure CLI 2.0 beheren
 
 > [!div class="op_single_selector"]
-> * [Azure-portal](dns-operations-recordsets-portal.md)
+> * [Azure Portal](dns-operations-recordsets-portal.md)
 > * [Azure CLI 2.0](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
@@ -223,7 +223,7 @@ U kunt geen toevoegen, verwijderen of wijzigen van de records in de automatisch 
 
 In tegenstelling tot de meeste andere recordtypen mag een CNAME-Recordset alleen één record.  U kunt de huidige waarde daarom niet vervangen door een nieuwe record toevoegen en verwijderen van de bestaande record, als voor andere recordtypen.
 
-In plaats daarvan gebruiken voor het wijzigen van een CNAME-record `az network dns record-set cname set-record`. Zie voor meer informatie`az network dns record-set cname set-record --help`
+In plaats daarvan gebruiken voor het wijzigen van een CNAME-record `az network dns record-set cname set-record`. Zie voor meer informatie `az network dns record-set cname set-record --help`
 
 In het voorbeeld wijzigt u de CNAME-Recordset *www* in de zone *contoso.com*, in de resourcegroep *MyResourceGroup*, om te verwijzen naar 'www.fabrikam.net' in plaats van de bestaande waarde:
 

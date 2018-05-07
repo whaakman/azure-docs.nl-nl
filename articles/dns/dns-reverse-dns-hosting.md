@@ -3,20 +3,20 @@ title: Zones voor reverse DNS-lookup in Azure DNS hosten | Microsoft Docs
 description: Informatie over het gebruik van Azure DNS voor het hosten van de zones voor reverse DNS-lookup voor uw IP-adresbereiken
 services: dns
 documentationcenter: na
-author: jtuliani
-manager: timlt
+author: KumudD
+manager: jeconnoc
 ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: jonatul
-ms.openlocfilehash: d5dc152af6acb510e12cd42503b6128dc6492e89
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: kumud
+ms.openlocfilehash: c5d53838ffb77ff8d33fee9d10aea4a74f3c523c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Host omgekeerde DNS-lookup zones in Azure DNS
 
@@ -52,7 +52,7 @@ Het volgende voorbeeld ziet u het maken van een reverse DNS-zone van klasse C, m
 
  ![Deelvenster 'DNS-zone maken' met vakken ingevuld](./media/dns-reverse-dns-hosting/figure2.png)
 
-**Locatie voor resourcegroep** definieert de locatie voor de resourcegroep. Dit heeft geen invloed op de DNS-zone. De DNS-zone-locatie is altijd 'global' en niet wordt weergegeven.
+**Locatie voor resourcegroep** definieert de locatie voor de resourcegroep. Dit heeft geen invloed op de DNS-zone. De locatie van de DNS-zone is altijd 'global' en wordt niet weergegeven.
 
 De volgende voorbeelden laten zien hoe deze taak uitvoeren met behulp van Azure PowerShell en Azure CLI.
 
@@ -83,7 +83,7 @@ Het volgende voorbeeld laat zien hoe een IPv6 reverse DNS-lookup zone maken met 
 
  ![Deelvenster 'DNS-zone maken' met vakken ingevuld](./media/dns-reverse-dns-hosting/figure3.png)
 
-**Locatie voor resourcegroep** definieert de locatie voor de resourcegroep. Dit heeft geen invloed op de DNS-zone. De DNS-zone-locatie is altijd 'global' en niet wordt weergegeven.
+**Locatie voor resourcegroep** definieert de locatie voor de resourcegroep. Dit heeft geen invloed op de DNS-zone. De locatie van de DNS-zone is altijd 'global' en wordt niet weergegeven.
 
 De volgende voorbeelden laten zien hoe deze taak uitvoeren met behulp van Azure PowerShell en Azure CLI.
 

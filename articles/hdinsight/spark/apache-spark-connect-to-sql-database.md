@@ -10,13 +10,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/28/2018
+ms.date: 05/01/2018
 ms.author: nitinme
-ms.openlocfilehash: 6ef0b1ce589bd19693d45a9e4f579ef260530a40
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: 63bf7d5a0ad988ff7a6b498b4e91e90de97b507b
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>HDInsight Spark-cluster gebruiken om te lezen en schrijven van gegevens naar Azure SQL-database
 
@@ -87,7 +87,7 @@ In deze sectie kunt u gegevens lezen van een tabel (bijvoorbeeld **SalesLT.Addre
 
     Druk op **SHIFT + ENTER** om de codecel uit te voeren.  
 
-2. Het volgende fragment maakt een JDBC-URL die u kunt doorgeven aan de Spark dataframe API's maakt een `Properties` object voor het opslaan van de parameters. Plak het codefragment in een codecel en druk op **SHIFT + ENTER** om uit te voeren.
+2. Gebruik het onderstaande codefragment voor het bouwen van een JDBC-URL die u kunt doorgeven aan de Spark dataframe API's maakt een `Properties` object voor het opslaan van de parameters. Plak het codefragment in een codecel en druk op **SHIFT + ENTER** om uit te voeren.
 
        import java.util.Properties
 
@@ -96,7 +96,7 @@ In deze sectie kunt u gegevens lezen van een tabel (bijvoorbeeld **SalesLT.Addre
        connectionProperties.put("user", s"${jdbcUsername}")
        connectionProperties.put("password", s"${jdbcPassword}")         
 
-3. Het volgende codefragment maakt een dataframe met de gegevens uit een tabel in uw Azure SQL database. In dit fragment gebruiken we een **SalesLT.Address** tabel die beschikbaar is als onderdeel van de **AdventureWorksLT** database. Plak het codefragment in een codecel en druk op **SHIFT + ENTER** om uit te voeren.
+3. Gebruik het onderstaande codefragment te maken van een dataframe met de gegevens uit een tabel in uw Azure SQL database. In dit fragment gebruiken we een **SalesLT.Address** tabel die beschikbaar is als onderdeel van de **AdventureWorksLT** database. Plak het codefragment in een codecel en druk op **SHIFT + ENTER** om uit te voeren.
 
        val sqlTableDF = spark.read.jdbc(jdbc_url, "SalesLT.Address", connectionProperties)
 
@@ -141,7 +141,7 @@ In deze sectie gebruiken we een CSV-voorbeeldbestand beschikbaar op het cluster 
        connectionProperties.put("user", s"${jdbcUsername}")
        connectionProperties.put("password", s"${jdbcPassword}")
 
-3. Het volgende fragment pakt u het schema van de gegevens in HVAC.csv en het schema gebruikt voor het laden van de gegevens van de CSV in een dataframe `readDf`. Plak het codefragment in een codecel en druk op **SHIFT + ENTER** om uit te voeren.
+3. Gebruik het volgende fragment extraheren van het schema van de gegevens in HVAC.csv en gebruiken van het schema voor het laden van de gegevens van de CSV in een dataframe `readDf`. Plak het codefragment in een codecel en druk op **SHIFT + ENTER** om uit te voeren.
 
        val userSchema = spark.read.option("header", "true").csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv").schema
        val readDf = spark.read.format("csv").schema(userSchema).load("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
@@ -165,6 +165,10 @@ In deze sectie gebruiken we een CSV-voorbeeldbestand beschikbaar op het cluster 
 
     ![Verbinding maken met SQL database met behulp van SSMS](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms-locate-table.png "verbinding maken met SQL database met behulp van SSMS")
 
+7. Een query uitvoeren in SSMS om te zien van de kolommen in de tabel.
+
+        SELECT * from hvactable
+
 ## <a name="stream-data-into-azure-sql-database"></a>Van stroomgegevens in Azure SQL database
 
 In deze sectie stream we gegevens in de **hvactable** dat u al in Azure SQL-database in de vorige sectie gemaakt.
@@ -184,7 +188,7 @@ In deze sectie stream we gegevens in de **hvactable** dat u al in Azure SQL-data
 3. We stream met gegevens uit de **HVAC.csv** in de hvactable. HVAC.csv bestand is beschikbaar op het cluster op */HdiSamples/HdiSamples/SensorSampleData/HVAC/*. In het volgende fragment krijgen we eerst het schema van de gegevens kunnen worden gestreamd. Vervolgens maakt u een streaming dataframe met behulp van dat het schema. Plak het codefragment in een codecel en druk op **SHIFT + ENTER** om uit te voeren.
 
        val userSchema = spark.read.option("header", "true").csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv").schema
-       val readStreamDf = spark.readStream.schema(userSchema1).csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/") 
+       val readStreamDf = spark.readStream.schema(userSchema).csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/") 
        readStreamDf.printSchema
 
 4. De uitvoer ziet u het schema van **HVAC.csv**. De **hvactable** heeft van hetzelfde schema. De uitvoer bevat de kolommen in de tabel.

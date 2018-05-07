@@ -2,9 +2,9 @@
 title: Het oplossen van problemen gedegradeerd status op Azure Traffic Manager
 description: Problemen met Traffic Manager-profielen wanneer deze wordt weergegeven als de status gedegradeerd.
 services: traffic-manager
-documentationcenter: 
-author: kumudd
-manager: timlt
+documentationcenter: ''
+author: chadmath
+manager: cshepard
 ms.assetid: 8af0433d-e61b-4761-adcc-7bc9b8142fc6
 ms.service: traffic-manager
 ms.devlang: na
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
-ms.author: kumud
-ms.openlocfilehash: b1d00fb84695d2289f37647f55a7c56cf28c8c96
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: genli
+ms.openlocfilehash: f5b2f471b13db67411f15f32abad5afc644c04ba
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Het oplossen van problemen gedegradeerde status op Azure Traffic Manager
 
@@ -43,12 +43,12 @@ Als de status van uw Traffic Manager wordt weergegeven in een **inactief** statu
 Voor het oplossen van een test-fout, moet u een hulpprogramma waarmee de HTTP-statuscode geretourneerd van de test-URL. Er zijn veel hulpprogramma's beschikbaar die u de onbewerkte HTTP-antwoord tonen.
 
 * [Fiddler](http://www.telerik.com/fiddler)
-* [cURL](https://curl.haxx.se/)
+* [CURL](https://curl.haxx.se/)
 * [wget](http://gnuwin32.sourceforge.net/packages/wget.htm)
 
 Bovendien kunt u het tabblad netwerk van de F12-foutopsporing hulpprogramma's in Internet Explorer om de HTTP-antwoorden weer te geven.
 
-In dit voorbeeld willen we zien van het antwoord van de WebTest-URL: http://watestsdp2008r2.cloudapp.net:80/test. De volgende PowerShell-voorbeeld ziet u het probleem.
+In dit voorbeeld willen we zien van het antwoord van de WebTest-URL: http://watestsdp2008r2.cloudapp.net:80/Probe. De volgende PowerShell-voorbeeld ziet u het probleem.
 
 ```powershell
 Invoke-WebRequest 'http://watestsdp2008r2.cloudapp.net/Probe' -MaximumRedirection 0 -ErrorAction SilentlyContinue | Select-Object StatusCode,StatusDescription

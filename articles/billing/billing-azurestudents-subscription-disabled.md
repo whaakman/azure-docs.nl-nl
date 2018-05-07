@@ -1,25 +1,25 @@
 ---
 title: Opnieuw activeren Azure uitgeschakeld voor studenten abonnement | Microsoft Docs
 description: Wordt uitgelegd waarom uw Azure voor studenten abonnement is uitgeschakeld en hoe u deze opnieuw activeren.
-services: 
-documentationcenter: 
+services: ''
+documentationcenter: ''
 author: amberbhargava
 manager: amberb
-editor: 
+editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/01/2018
 ms.author: amberb
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4fcbfa1201e753044ea69f9dfff39728757c242c
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7fe3573dcf3f057d843547b9e4114f3b74c6ab59
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="why-is-my-azure-for-students-subscription-disabled-and-how-do-i-reactivate-it"></a>Waarom wordt mijn Azure voor studenten abonnement is uitgeschakeld en hoe ik het opnieuw activeren?
 

@@ -2,18 +2,18 @@
 title: Azure Compute - extensie Linux diagnose | Microsoft Docs
 description: Klik hier voor meer informatie over het configureren van de Azure Linux diagnostische extensie (LAD) voor het verzamelen van meetgegevens over en gebeurtenissen van virtuele Linux-machines in Azure wordt uitgevoerd.
 services: virtual-machines-linux
-author: jasonzio
-manager: anandram
+author: abhijeetgaiha
+manager: sankalpsoni
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
-ms.author: jasonzio
-ms.openlocfilehash: 1eae6d302827c977b9258174dec68fd8f3009a11
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.author: agaiha
+ms.openlocfilehash: 84be206ef02cca9cc321e9764c016ca79816edf5
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux-extensie voor diagnostische gebruiken om te controleren van Logboeken en metrische gegevens
 
@@ -358,7 +358,7 @@ De verzameling syslogEventConfiguration heeft een vermelding voor elke syslog-fa
 Element | Waarde
 ------- | -----
 Put | Een door komma's gescheiden lijst met namen van put die afzonderlijke gebeurtenissen worden gepubliceerd. Alle gebeurtenissen die overeenkomt met de beperkingen in syslogEventConfiguration worden gepubliceerd op elke vermelde sink. Voorbeeld: 'EHforsyslog'
-facilityName | De naam van een syslog-faciliteit (zoals ' logboek\_gebruiker ' of ' LOG\_LOCAL0 '). Zie de sectie 'faciliteit' van de [syslog man pagina](http://man7.org/linux/man-pages/man3/syslog.3.html) voor een volledige lijst.
+voorziening %{facilityname/ | De naam van een syslog-faciliteit (zoals ' logboek\_gebruiker ' of ' LOG\_LOCAL0 '). Zie de sectie 'faciliteit' van de [syslog man pagina](http://man7.org/linux/man-pages/man3/syslog.3.html) voor een volledige lijst.
 minSeverity | Een urgentieniveau syslog (zoals ' logboek\_fout ' of ' LOG\_INFO '). Zie de sectie 'niveau' van de [syslog man pagina](http://man7.org/linux/man-pages/man3/syslog.3.html) voor een volledige lijst. De extensie bevat gebeurtenissen die worden verzonden naar de faciliteit aan of hoger dan het opgegeven niveau.
 
 Wanneer u opgeeft `syslogEvents`, LAD altijd schrijft gegevens naar een tabel in Azure-opslag. U kunt dezelfde gegevens geschreven naar JSON-blobs en/of Event Hubs, maar u het opslaan van gegevens naar een tabel niet uitschakelen. De partitionering gedrag voor deze tabel is hetzelfde als is beschreven voor `performanceCounters`. De tabelnaam van de is de samenvoeging van deze tekenreeksen:

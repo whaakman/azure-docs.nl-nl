@@ -2,8 +2,8 @@
 title: Gegevens in Azure blob storage met Pandas | Microsoft Docs
 description: Hoe gegevens die zijn opgeslagen in Azure blob-container met Pandas verkennen.
 services: machine-learning,storage
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: feaa9e54-01e0-48c8-a917-1eba0f9d9ec7
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: bradsev
-ms.openlocfilehash: a46735dde28740087d201d7490f135349aad76f6
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.author: deguhath
+ms.openlocfilehash: 8d769ebba349937448b8eed277d1dfb224f39115
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Met Pandas gegevens verkennen in Azure Blok-opslag
 Dit document wordt beschreven hoe gegevens die zijn opgeslagen in het gebruik van Azure blob-container verkennen [Pandas](http://pandas.pydata.org/) Python-pakket.
@@ -91,7 +91,7 @@ Hier volgen enkele voorbeelden van methoden voor het verkennen van gegevens met 
    
    Ontbrekende waarden te vervangen op een andere manier is met de modusfunctie:
    
-     dataframe_blobdata_mode dataframe_blobdata.fillna = ({< column_name >: .mode()[0]}) dataframe_blobdata ['< column_name >"]        
+     dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})        
 8. Maak een **histogram** getekend met een variabele aantal opslaglocaties uitzetten van de distributie van een variabele    
    
         dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 78148c6538efa06018628297a89681ec6ec3d32d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: f643b1203283d7aac01aa8821a180c898f33ec25
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Veelgestelde vragen en bekende problemen met beheerde Service identiteit (MSI) voor Azure Active Directory
 
@@ -119,15 +119,15 @@ Nadat de virtuele machine is gestart, kan de code kan worden verwijderd via de v
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
 
-## <a name="known-issues-with-user-assigned-msi-preview"></a>Bekende problemen met de gebruiker toegewezen MSI *(Preview)*
+## <a name="known-issues-with-user-assigned-identities"></a>Bekende problemen met toegewezen gebruikersidentiteiten
 
-- De enige manier om alle gebruiker toegewezen MSI-bestanden te verwijderen is doordat het systeem MSI toegewezen. 
+- Toegewezen identiteit gebruikerstoewijzingen zijn alleen de beschikbare voor virtuele machine en VMSS. Belangrijk: Toegewezen gebruikers-id-toewijzingen in de komende maanden wordt gewijzigd.
+- Dubbele toegewezen gebruikersidentiteiten op dezelfde virtuele machine/VMSS zorgt ervoor dat de virtuele machine/VMSS mislukken. Dit omvat identiteiten die zijn toegevoegd met een ander hoofdlettergebruik. bijvoorbeeld MyUserAssignedIdentity en myuserassignedidentity. 
 - Het inrichten van de VM-extensie voor een virtuele machine kan mislukken als gevolg van DNS-lookup-fouten. Opnieuw opstarten van de virtuele machine en probeer het opnieuw. 
-- Toevoegen van een MSI 'niet-bestaande' zorgt ervoor dat de virtuele machine mislukt. *Opmerking: De oplossing voor toewijzen-identity mislukken als MSI niet bestaat, wordt teruggedraaid-out*
-- Zelfstudie voor Azure Storage is alleen beschikbaar in de centrale EUAP ons op dit moment. 
-- U maakt een MSI met speciale tekens (dat wil zeggen liggend streepje) in de naam van de toegewezen gebruiker, wordt niet ondersteund.
-- Wanneer een tweede gebruiker toe te voegen identiteit toegewezen, de clientID mogelijk niet beschikbaar voor het aanvragen van tokens voor. Als een risicobeperking start opnieuw op de MSI-VM-extensie met de volgende twee bash-opdrachten:
+- Toevoegen van een 'niet-bestaande' toegewezen gebruikersidentiteit zorgt ervoor dat de virtuele machine mislukt. 
+- Maken van een toegewezen identiteit met speciale tekens (dat wil zeggen liggend streepje) in de naam van de gebruiker wordt niet ondersteund.
+- Identiteitsnamen toegewezen door gebruiker zijn beperkt tot 24 tekens voor de complete scenario. Toegewezen gebruikersidentiteiten met namen die langer dan 24 tekens niet worden toegewezen.  
+- Wanneer een tweede gebruiker toe te voegen identiteit toegewezen, de clientID mogelijk niet beschikbaar voor het aanvragen van tokens voor de VM-extensie. Als een risicobeperking start opnieuw op de MSI-VM-extensie met de volgende twee bash-opdrachten:
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
-- De VMAgent in Windows biedt momenteel geen ondersteuning voor gebruiker toegewezen MSI. 
-- Als een virtuele machine een MSI toegewezen gebruiker heeft, maar er is geen systeem MSI toegewezen de portal gebruikersinterface weergegeven MSI ingeschakeld. Gebruik een Azure Resource Manager-sjabloon, een Azure CLI of een SDK zodat het systeem MSI toegewezen.
+- Wanneer een virtuele machine heeft een gebruiker toegewezen identiteit, maar er is geen systeem toegewezen identiteit, de portal gebruikersinterface wordt weergegeven MSI als uitgeschakeld. Gebruik een Azure Resource Manager-sjabloon, een Azure CLI of een SDK zodat het systeem toegewezen identiteit.

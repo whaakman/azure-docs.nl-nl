@@ -3,7 +3,7 @@ title: Wat is Team Data Science Process? | Microsoft Docs
 description: Biedt een gegevens wetenschappelijke methodologie voor het leveren van predictive analytics-oplossingen en intelligente toepassingen.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: b1f677bb-eef5-4acb-9b3b-8a5819fb0e78
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
-ms.author: bradsev
-ms.openlocfilehash: f7c081dcd74164f4b1f054f5a65f2ff6aaabebd7
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: 4a73b988863a27f872c695cf209d2c46c6bb5f89
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="what-is-the-team-data-science-process"></a>Wat is Team Data Science Process?
 
@@ -65,7 +65,7 @@ De doelstellingen, taken en documentatie artefacten voor elke fase van de levens
 
 Het volgende diagram biedt een rasterweergave van de taken (in blauw) en de artefacten (in groen) die zijn gekoppeld aan elke fase van de levenscyclus (op de horizontale as) voor deze rollen (op de verticale as). 
 
-![TDSP-roles-and-tasks](./media/overview/tdsp-tasks-by-roles.png)
+![TDSP-functies-en-taken](./media/overview/tdsp-tasks-by-roles.png)
 
 ## <a name="standardized-project-structure"></a>De structuur gestandaardiseerde project
 

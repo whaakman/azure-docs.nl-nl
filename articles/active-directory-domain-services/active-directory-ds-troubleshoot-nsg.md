@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: ergreenl
-ms.openlocfilehash: ce03ee0e0936cea4b96e48fbc949f40ee0fe83a0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2336277a960925a92af3578850453ba6ae78abda
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>Ongeldige netwerkconfiguratie voor uw beheerde domein oplossen
 In dit artikel helpt u problemen op te lossen netwerkgerelateerde configuratiefouten die in het volgende bericht weergegeven resulteren:
@@ -28,6 +28,13 @@ In dit artikel helpt u problemen op te lossen netwerkgerelateerde configuratiefo
 
 Ongeldige NSG-configuraties zijn de meest voorkomende oorzaak van netwerkfouten voor Azure AD Domain Services. De Netwerkbeveiligingsgroep (NSG) is geconfigureerd voor het virtuele netwerk toegang tot geven moet [bepaalde poorten](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services). Als deze poorten worden geblokkeerd, kan Microsoft controleren of bijwerken van uw beheerde domein. Bovendien wordt de synchronisatie tussen uw Azure AD-directory en uw beheerde domein beïnvloed. Tijdens het maken van uw NSG deze poorten open houden om te voorkomen in de service wordt onderbroken.
 
+### <a name="checking-your-nsg-for-compliance"></a>Uw NSG op naleving controleren
+
+1. Navigeer naar de [Netwerkbeveiligingsgroepen](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) pagina in de Azure-portal
+2. Kies uit de tabel de NSG die is gekoppeld aan het subnet waarin uw beheerde domein is ingeschakeld.
+3. Onder **instellingen** in het deelvenster links, klikt u op **beveiligingsregels voor binnenkomende verbindingen**
+4. Bekijk de regels in de plaats en bepalen welke regels zijn blokkeert de toegang tot [deze poorten](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services).
+5. Bewerk het NSG om compatibiliteit te garanderen door het verwijderen van de regel, een regel toe te voegen of een nieuwe NSG volledig maken. Stappen om [een regel toevoegen](#add-a-rule-to-a-network-security-group-using-the-azure-portal) of [maken van een nieuwe, conform het NSG](#create-a-nsg-for-azure-ad-domain-services-using-powershell) worden hieronder.
 
 ## <a name="sample-nsg"></a>voorbeeld NSG
 De volgende tabel ziet u een voorbeeld van een NSG die uw beheerde domein beveiligde houdt terwijl Microsoft om te controleren, beheren en gegevens bijwerken.
@@ -47,7 +54,7 @@ Als u niet gebruiken van PowerShell wilt, kunt u één regels handmatig toevoege
 5. Controleer of dat de regel is gemaakt door het zoeken in de regeltabel.
 
 
-## <a name="create-an-nsg-for-azure-ad-domain-services-using-powershell"></a>Maken van een NSG voor Azure AD Domain Services met behulp van PowerShell
+## <a name="create-a-nsg-for-azure-ad-domain-services-using-powershell"></a>Maken van een NSG voor Azure AD Domain Services met behulp van PowerShell
 Deze NSG is geconfigureerd dat binnenkomend verkeer op de poorten die vereist zijn voor Azure AD Domain Services en andere ongewenste binnenkomende toegang weigert.
 
 **Vereiste: Installeren en configureren van Azure PowerShell** Volg de instructies voor [Installeer de Azure PowerShell-module en maak verbinding met uw Azure-abonnement](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).

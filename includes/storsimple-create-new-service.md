@@ -2,7 +2,7 @@
 
 
 #### <a name="to-create-a-new-service"></a>Een nieuwe service maken
-1. Meld u met uw Microsoft-accountreferenties aan bij de klassieke Azure-portal met deze URL: [https://manage.windowsazure.com/](https://manage.windowsazure.com/).
+1. Met uw Microsoft-accountreferenties, meld u aan bij de klassieke Azure portal op deze URL: [ https://manage.windowsazure.com/ ](https://manage.windowsazure.com/).
 2. Klik in de klassieke Azure-portal op **Nieuw** > **Data Services** > **StorSimple Manager** > **Snelle invoer**.
 3. Ga in het formulier dat wordt weergegeven, als volgt te werk:
    

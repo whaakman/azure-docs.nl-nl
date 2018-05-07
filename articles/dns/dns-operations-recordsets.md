@@ -3,7 +3,7 @@ title: DNS-records in Azure DNS met Azure PowerShell beheren | Microsoft Docs
 description: Het beheren van DNS-recordsets en records op Azure DNS bij het hosten van uw Azure DNS-domein. Alle PowerShell-opdrachten voor bewerkingen op recordsets en records.
 services: dns
 documentationcenter: na
-author: georgewallace
+author: KumudD
 manager: timlt
 ms.assetid: 7136a373-0682-471c-9c28-9e00d2add9c2
 ms.service: dns
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
-ms.author: gwallace
-ms.openlocfilehash: fee96a77436f09e5cf2841b36b244e2d03f57f74
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: kumud
+ms.openlocfilehash: 511af342727dc46369ae70d60a7e9a3171bf986d
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>DNS-records en recordsets in Azure DNS met Azure PowerShell beheren
 
 > [!div class="op_single_selector"]
-> * [Azure-portal](dns-operations-recordsets-portal.md)
+> * [Azure Portal](dns-operations-recordsets-portal.md)
 > * [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
@@ -379,15 +379,15 @@ De Recordset-object kan ook worden doorgesluisd in plaats van dat wordt doorgege
 Get-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" | Remove-AzureRmDnsRecordSet
 ```
 
-## <a name="confirmation-prompts"></a>Bevestiging vragen
+## <a name="confirmation-prompts"></a>Bevestigingsprompts
 
-De `New-AzureRmDnsRecordSet`, `Set-AzureRmDnsRecordSet`, en `Remove-AzureRmDnsRecordSet` cmdlets alle bevestiging vragen ondersteunen.
+De cmdlets `New-AzureRmDnsRecordSet`, `Set-AzureRmDnsRecordSet` en `Remove-AzureRmDnsRecordSet` ondersteunen bevestigingspromts.
 
 Elke cmdlet vraagt om bevestiging als de `$ConfirmPreference` PowerShell voorkeursvariabele een waarde heeft van `Medium` of lager. Sinds de standaardwaarde voor `$ConfirmPreference` is `High`, deze vragen zijn niet opgegeven voor het met de standaardinstellingen voor PowerShell.
 
-U kunt de huidige overschrijven `$ConfirmPreference` instellen met de `-Confirm` parameter. Als u opgeeft `-Confirm` of `-Confirm:$True` , vraagt de cmdlet u om bevestiging voordat deze wordt uitgevoerd. Als u opgeeft `-Confirm:$False` , de cmdlet wordt u niet gevraagd om bevestiging. 
+U kunt de huidige instelling van `$ConfirmPreference` overschrijven met behulp van de parameter `-Confirm`. Als u `-Confirm` of `-Confirm:$True` opgeeft, vraagt de cmdlet u om bevestiging voordat deze wordt uitgevoerd. Als u `-Confirm:$False` opgeeft, wordt u niet om bevestiging gevraagd. 
 
-Voor meer informatie over `-Confirm` en `$ConfirmPreference`, Zie [over Voorkeursvariabelen](https://msdn.microsoft.com/powershell/reference/5.1/Microsoft.PowerShell.Core/about/about_Preference_Variables).
+Zie [over voorkeursvariabelen](https://msdn.microsoft.com/powershell/reference/5.1/Microsoft.PowerShell.Core/about/about_Preference_Variables) voor meer informatie over `-Confirm` en `$ConfirmPreference`.
 
 ## <a name="next-steps"></a>Volgende stappen
 

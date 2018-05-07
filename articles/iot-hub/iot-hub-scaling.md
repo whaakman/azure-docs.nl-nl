@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/02/2018
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f3237ee41f8596ed3ce508857adf7dc29cee1ada
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 01e6c3a6fb922a649f0ae139af9c8515fcb8b2e0
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Kies de juiste IoT Hub-laag voor uw oplossing
 
@@ -48,7 +48,7 @@ Wanneer u uw IoT-hub maakt u een upgrade kunt uitvoeren via de laag basic naar d
 | [Inrichting Device-Service](../iot-dps/about-iot-dps.md) | Ja | Ja |
 | [Controle en diagnostische gegevens](iot-hub-monitor-resource-health.md) | Ja | Ja |
 | [Messaging-cloud-naar-apparaat](iot-hub-devguide-c2d-guidance.md) |   | Ja |
-| [Apparaat horende](iot-hub-devguide-device-twins.md) en [Apparaatbeheer](iot-hub-device-management-overview.md) |   | Ja |
+| [Apparaat horende](iot-hub-devguide-device-twins.md), [Module horende](iot-hub-devguide-module-twins.md) en [Apparaatbeheer](iot-hub-device-management-overview.md) |   | Ja |
 | [Azure IoT Edge](../iot-edge/how-iot-edge-works.md) |   | Ja |
 
 IoT Hub biedt ook een gratis laag die is bedoeld voor testen en evalueren. De mogelijkheden van de standard-laag, maar beperkt messaging rechten heeft. U upgraden niet van de laag gratis naar basis of standaard. 
@@ -61,19 +61,26 @@ Het verschil in ondersteunde mogelijkheden tussen de lagen van IoT Hub, basis en
 | --- | ---------- | ------------- |
 | [Apparaat verwijderen](https://docs.microsoft.com/rest/api/iothub/deviceapi/deletedevice) | Ja | Ja |
 | [Ophalen van apparaat](https://docs.microsoft.com/rest/api/iothub/deviceapi/getdevice) | Ja | Ja |
+| Module verwijderen | Ja | Ja |
+| Module ophalen | Ja | Ja |
 | [Register statistieken opvragen](https://docs.microsoft.com/rest/api/iothub/deviceapi/getregistrystatistics) | Ja | Ja |
 | [Ophalen van de statistieken van services](https://docs.microsoft.com/rest/api/iothub/deviceapi/getservicestatistics) | Ja | Ja |
 | [Apparaat plaatsen](https://docs.microsoft.com/rest/api/iothub/deviceapi/putdevice) | Ja | Ja |
+| Module plaatsen | Ja | Ja |
 | [Query-apparaten](https://docs.microsoft.com/rest/api/iothub/deviceapi/querydevices) | Ja | Ja |
+| Query-modules | Ja | Ja |
 | [Bestand uploaden SAS-URI maken](https://docs.microsoft.com/rest/api/iothub/httpruntime/createfileuploadsasuri) | Ja | Ja |
 | [Apparaat gebonden ontvangen](https://docs.microsoft.com/rest/api/iothub/httpruntime/receivedeviceboundnotification) | Ja | Ja |
 | [De apparaatgebeurtenis verzenden](https://docs.microsoft.com/rest/api/iothub/httpruntime/senddeviceevent) | Ja | Ja |
+| Module gebeurtenis verzenden | Ja | Ja |
 | [Bestand Uploadstatus bijwerken](https://docs.microsoft.com/rest/api/iothub/httpruntime/updatefileuploadstatus) | Ja | Ja |
 | [Apparaat bulkbewerking](https://docs.microsoft.com/rest/api/iothub/deviceapi/bulkdeviceoperation) | Ja, met uitzondering van IoT rand hebben | Ja | 
 | [Opdracht wachtrij opschonen](https://docs.microsoft.com/rest/api/iothub/deviceapi/purgecommandqueue) |   | Ja |
 | [Apparaat-twin ophalen](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/getdevicetwin) |   | Ja |
+| Module-twin ophalen |   | Ja |
 | [Apparaat-methode worden aangeroepen](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/invokedevicemethod) |   | Ja |
 | [Apparaat-twin bijwerken](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/updatedevicetwin) |   | Ja | 
+| Module-twin bijwerken |   | Ja | 
 | [Gebonden apparaatmeldingen afbreken](https://docs.microsoft.com/rest/api/iothub/httpruntime/abandondeviceboundnotification) |   | Ja |
 | [Apparaat voltooien gebonden melding](https://docs.microsoft.com/rest/api/iothub/httpruntime/completedeviceboundnotification) |   | Ja |
 | [Taak annuleren](https://docs.microsoft.com/rest/api/iothub/jobapi/canceljob) |   | Ja |

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: ancav
-ms.openlocfilehash: 34d115f36e64a34b4382ce4e11e93a0c06215c5d
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
-ms.translationtype: HT
+ms.openlocfilehash: a5c0d529357d8ab92cf63ca4a0293753d55801d6
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Ondersteunde metrische gegevens met Azure-Monitor
 Azure biedt verschillende manieren om te communiceren met metrische gegevens, inclusief grafieken ze in de portal of opvragen ze toegang hebben tot deze via de REST-API met PowerShell of CLI. Hieronder volgt een volledige lijst met alle metrische gegevens op dit moment met metrische gegevens van de Monitor van het Azure-pipeline. Het is mogelijk dat andere metrische gegevens beschikbaar zijn in de portal of met oudere API's. Deze lijst hieronder bevat alleen beschikbaar via de geconsolideerde Azure Monitor metrische pijplijn metrische gegevens. Zoeken naar en toegang hebben tot deze metrische gegevens gebruik de [2018-01-01-api-versie](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -425,6 +425,16 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 |---|---|---|---|---|---|
 |CpuUsage|CPU-gebruik|Count|Gemiddeld|CPU-gebruik op alle kernen in millicores.|ContainerName|
 |MemoryUsage|Geheugengebruik|Bytes|Gemiddeld|Totale geheugengebruik in bytes.|ContainerName|
+
+## <a name="microsoftcontainerservicemanagedclusters"></a>Microsoft.ContainerService/managedClusters
+
+|Gegevens|Metrische weergavenaam|Eenheid|Samenvoegingstype|Beschrijving|Dimensies|
+|---|---|---|---|---|---|
+|kube_node_status_allocatable_cpu_cores|Totaal aantal beschikbare cpu-kernen in een beheerde cluster|Count|Totaal|Totaal aantal beschikbare cpu-kernen in een beheerde cluster|Er zijn geen dimensies|
+|kube_node_status_allocatable_memory_bytes|Totale hoeveelheid beschikbaar geheugen in een beheerde cluster|Bytes|Totaal|Totale hoeveelheid beschikbaar geheugen in een beheerde cluster|Er zijn geen dimensies|
+|kube_pod_status_ready|Nummer van het gehele product in de status gereed|Count|Totaal|Nummer van het gehele product in de status gereed|naamruimte, schil|
+|kube_node_status_condition|Statussen voor verschillende knooppunt voorwaarden|Count|Totaal|Statussen voor verschillende knooppunt voorwaarden|voorwaarde, status, knooppunt|
+|kube_pod_status_phase|Nummer van het gehele product door fase|Count|Totaal|Nummer van het gehele product door fase|fase, naamruimte, schil|
 
 ## <a name="microsoftcustomerinsightshubs"></a>Microsoft.CustomerInsights/hubs
 
@@ -1012,6 +1022,20 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 |CPUXNS|CPU-gebruik per naamruimte|Procent|Maximum|Metrische gegevens voor het CPU-gebruik van de Premium-naamruimte voor Service Bus|Er zijn geen dimensies|
 |WSXNS|Geheugengebruik per naamruimte|Procent|Maximum|Metrische gegevens voor het geheugengebruik van de Premium-naamruimte voor Service Bus|Er zijn geen dimensies|
 
+## <a name="microsoftsignalrservicesignalr"></a>Microsoft.SignalRService/SignalR
+
+|Gegevens|Metrische weergavenaam|Eenheid|Samenvoegingstype|Beschrijving|Dimensies|
+|---|---|---|---|---|---|
+|ConnectionCount|Aantal verbindingen|Count|Maximum|De hoeveelheid gebruikersverbinding.|Er zijn geen dimensies|
+|ConnectionCountPerSecond|Het aantal verbindingen Per seconde|CountPerSecond|Gemiddeld|Het aantal gemiddelde verbindingen per seconde.|Er zijn geen dimensies|
+|MessageCount|Aantal berichten|Count|Maximum|De totale hoeveelheid bericht in de maand|Er zijn geen dimensies|
+|MessageCountPerSecond|Aantal berichten Per seconde|CountPerSecond|Gemiddeld|Het gemiddelde aantal bericht|Er zijn geen dimensies|
+|MessageUsed|Bericht dat wordt gebruikt|Procent|Maximum|Het percentage van de berichten zijn gebruikt in de maand|Er zijn geen dimensies|
+|ConnectionUsed|Verbinding die wordt gebruikt|Procent|Maximum|Het percentage van de verbindingen zijn gebruikt|Er zijn geen dimensies|
+|UserErrors|Gebruikersfouten|Procent|Maximum|Het percentage van de gebruikersfouten|Er zijn geen dimensies|
+|SystemErrors|Fouten in het bestandssysteem|Procent|Maximum|Het percentage van de fouten in het bestandssysteem|Er zijn geen dimensies|
+|SystemLoad|Systeembelasting|Procent|Maximum|Het percentage van de systeembelasting|Er zijn geen dimensies|
+
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 
 |Gegevens|Metrische weergavenaam|Eenheid|Samenvoegingstype|Beschrijving|Dimensies|
@@ -1147,6 +1171,30 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 |DeserializationError|Fouten in invoerdeserialisatie|Count|Totaal|Fouten in invoerdeserialisatie|Er zijn geen dimensies|
 |EarlyInputEvents|Gebeurtenissen waarvan de toepassingstijd eerder is dan de aankomsttijd.|Count|Totaal|Gebeurtenissen waarvan de toepassingstijd eerder is dan de aankomsttijd.|Er zijn geen dimensies|
 
+## <a name="microsofttimeseriesinsightsenvironments"></a>Microsoft.TimeSeriesInsights/environments
+
+|Gegevens|Metrische weergavenaam|Eenheid|Samenvoegingstype|Beschrijving|Dimensies|
+|---|---|---|---|---|---|
+|IngressReceivedMessages|Inkomende berichten ontvangen|Count|Totaal|Aantal berichten lezen uit alle Event hub of IoT-hub bronnen van gebeurtenissen|Er zijn geen dimensies|
+|IngressReceivedInvalidMessages|Inkomend ontvangen ongeldige berichten|Count|Totaal|Aantal ongeldige berichten lezen uit alle Event hub of IoT-hub bronnen van gebeurtenissen|Er zijn geen dimensies|
+|IngressReceivedBytes|Inkomend ontvangen Bytes|Bytes|Totaal|Het aantal bytes lezen uit alle bronnen van gebeurtenissen|Er zijn geen dimensies|
+|IngressStoredBytes|Inkomend opgeslagen Bytes|Bytes|Totaal|Totale grootte van gebeurtenissen met succes verwerkt en beschikbaar voor query|Er zijn geen dimensies|
+|IngressStoredEvents|Inkomend opgeslagen gebeurtenissen|Count|Totaal|Aantal gebeurtenissen dat platte met succes verwerkt en beschikbaar voor query|Er zijn geen dimensies|
+|IngressReceivedMessagesTimeLag|Inkomend ontvangen berichten tijdsinterval|Seconden|Maximum|Verschil tussen de tijd die het bericht is in de wachtrij in de gebeurtenisbron en de tijd die wordt verwerkt in inkomend|Er zijn geen dimensies|
+|IngressReceivedMessagesCountLag|Inkomend ontvangen berichten, aantal Lag|Count|Gemiddeld|Verschil tussen het volgnummer van de laatste in de wachtrij bericht in de gebeurtenisstroom partitie en volgorde aantal bericht dat wordt verwerkt in inkomend bron|Er zijn geen dimensies|
+
+## <a name="microsofttimeseriesinsightsenvironmentseventsources"></a>Microsoft.TimeSeriesInsights/environments/eventsources
+
+|Gegevens|Metrische weergavenaam|Eenheid|Samenvoegingstype|Beschrijving|Dimensies|
+|---|---|---|---|---|---|
+|IngressReceivedMessages|Inkomende berichten ontvangen|Count|Totaal|Aantal berichten lezen uit de bron van gebeurtenis|Er zijn geen dimensies|
+|IngressReceivedInvalidMessages|Inkomend ontvangen ongeldige berichten|Count|Totaal|Aantal ongeldige berichten lezen uit de bron van gebeurtenis|Er zijn geen dimensies|
+|IngressReceivedBytes|Inkomend ontvangen Bytes|Bytes|Totaal|Het aantal bytes lezen uit de bron van gebeurtenis|Er zijn geen dimensies|
+|IngressStoredBytes|Inkomend opgeslagen Bytes|Bytes|Totaal|Totale grootte van gebeurtenissen met succes verwerkt en beschikbaar voor query|Er zijn geen dimensies|
+|IngressStoredEvents|Inkomend opgeslagen gebeurtenissen|Count|Totaal|Aantal gebeurtenissen dat platte met succes verwerkt en beschikbaar voor query|Er zijn geen dimensies|
+|IngressReceivedMessagesTimeLag|Inkomend ontvangen berichten tijdsinterval|Seconden|Maximum|Verschil tussen de tijd die het bericht is in de wachtrij in de gebeurtenisbron en de tijd die wordt verwerkt in inkomend|Er zijn geen dimensies|
+|IngressReceivedMessagesCountLag|Inkomend ontvangen berichten, aantal Lag|Count|Gemiddeld|Verschil tussen het volgnummer van de laatste in de wachtrij bericht in de gebeurtenisstroom partitie en volgorde aantal bericht dat wordt verwerkt in inkomend bron|Er zijn geen dimensies|
+
 ## <a name="microsoftwebserverfarms"></a>Microsoft.Web/serverfarms
 
 |Gegevens|Metrische weergavenaam|Eenheid|Samenvoegingstype|Beschrijving|Dimensies|
@@ -1181,6 +1229,19 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 |AppConnections|Verbindingen|Count|Gemiddeld|Verbindingen|Exemplaar|
 |Ingangen|Aantal ingangen|Count|Gemiddeld|Aantal ingangen|Exemplaar|
 |Threads|Aantal threads|Count|Gemiddeld|Aantal threads|Exemplaar|
+|IoReadBytesPerSecond|I/o gelezen Bytes Per seconde|BytesPerSecond|Totaal|I/o gelezen Bytes Per seconde|Exemplaar|
+|IoWriteBytesPerSecond|I/o geschreven Bytes Per seconde|BytesPerSecond|Totaal|I/o geschreven Bytes Per seconde|Exemplaar|
+|IoOtherBytesPerSecond|I/o andere Bytes Per seconde|BytesPerSecond|Totaal|I/o andere Bytes Per seconde|Exemplaar|
+|IoReadOperationsPerSecond|I/o-leesbewerkingen Per seconde|BytesPerSecond|Totaal|I/o-leesbewerkingen Per seconde|Exemplaar|
+|IoWriteOperationsPerSecond|I/o-schrijfbewerkingen Per seconde|BytesPerSecond|Totaal|I/o-schrijfbewerkingen Per seconde|Exemplaar|
+|IoOtherOperationsPerSecond|I/o andere bewerkingen Per seconde|BytesPerSecond|Totaal|I/o andere bewerkingen Per seconde|Exemplaar|
+|RequestsInApplicationQueue|Aanvragen In toepassingswachtrij voor de|Count|Gemiddeld|Aanvragen In toepassingswachtrij voor de|Exemplaar|
+|CurrentAssemblies|Huidige assembly's|Count|Gemiddeld|Huidige assembly's|Exemplaar|
+|TotalAppDomains|Totaal aantal AppDomains|Count|Gemiddeld|Totaal aantal AppDomains|Exemplaar|
+|TotalAppDomainsUnloaded|Totaal aantal AppDomains verwijderd|Count|Gemiddeld|Totaal aantal AppDomains verwijderd|Exemplaar|
+|Gen0Collections|Garbagecollections van generatie 0|Count|Totaal|Garbagecollections van generatie 0|Exemplaar|
+|Gen1Collections|Garbagecollections gen 1|Count|Totaal|Garbagecollections gen 1|Exemplaar|
+|Gen2Collections|Garbagecollections gen 2|Count|Totaal|Garbagecollections gen 2|Exemplaar|
 
 ## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites (functies)
 
@@ -1193,6 +1254,19 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 |AverageMemoryWorkingSet|Gemiddeld geheugenwerkset|Bytes|Gemiddeld|Gemiddeld geheugenwerkset|Exemplaar|
 |FunctionExecutionUnits|Functie-uitvoeringseenheden|Count|Totaal|Functie-uitvoeringseenheden|Exemplaar|
 |FunctionExecutionCount|Aantal uitvoeringen van functie|Count|Totaal|Aantal uitvoeringen van functie|Exemplaar|
+|IoReadBytesPerSecond|I/o gelezen Bytes Per seconde|BytesPerSecond|Totaal|I/o gelezen Bytes Per seconde|Exemplaar|
+|IoWriteBytesPerSecond|I/o geschreven Bytes Per seconde|BytesPerSecond|Totaal|I/o geschreven Bytes Per seconde|Exemplaar|
+|IoOtherBytesPerSecond|I/o andere Bytes Per seconde|BytesPerSecond|Totaal|I/o andere Bytes Per seconde|Exemplaar|
+|IoReadOperationsPerSecond|I/o-leesbewerkingen Per seconde|BytesPerSecond|Totaal|I/o-leesbewerkingen Per seconde|Exemplaar|
+|IoWriteOperationsPerSecond|I/o-schrijfbewerkingen Per seconde|BytesPerSecond|Totaal|I/o-schrijfbewerkingen Per seconde|Exemplaar|
+|IoOtherOperationsPerSecond|I/o andere bewerkingen Per seconde|BytesPerSecond|Totaal|I/o andere bewerkingen Per seconde|Exemplaar|
+|RequestsInApplicationQueue|Aanvragen In toepassingswachtrij voor de|Count|Gemiddeld|Aanvragen In toepassingswachtrij voor de|Exemplaar|
+|CurrentAssemblies|Huidige assembly's|Count|Gemiddeld|Huidige assembly's|Exemplaar|
+|TotalAppDomains|Totaal aantal AppDomains|Count|Gemiddeld|Totaal aantal AppDomains|Exemplaar|
+|TotalAppDomainsUnloaded|Totaal aantal AppDomains verwijderd|Count|Gemiddeld|Totaal aantal AppDomains verwijderd|Exemplaar|
+|Gen0Collections|Garbagecollections van generatie 0|Count|Totaal|Garbagecollections van generatie 0|Exemplaar|
+|Gen1Collections|Garbagecollections gen 1|Count|Totaal|Garbagecollections gen 1|Exemplaar|
+|Gen2Collections|Garbagecollections gen 2|Count|Totaal|Garbagecollections gen 2|Exemplaar|
 
 ## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
 
@@ -1219,6 +1293,19 @@ Azure biedt verschillende manieren om te communiceren met metrische gegevens, in
 |AppConnections|Verbindingen|Count|Gemiddeld|Verbindingen|Exemplaar|
 |Ingangen|Aantal ingangen|Count|Gemiddeld|Aantal ingangen|Exemplaar|
 |Threads|Aantal threads|Count|Gemiddeld|Aantal threads|Exemplaar|
+|IoReadBytesPerSecond|I/o gelezen Bytes Per seconde|BytesPerSecond|Totaal|I/o gelezen Bytes Per seconde|Exemplaar|
+|IoWriteBytesPerSecond|I/o geschreven Bytes Per seconde|BytesPerSecond|Totaal|I/o geschreven Bytes Per seconde|Exemplaar|
+|IoOtherBytesPerSecond|I/o andere Bytes Per seconde|BytesPerSecond|Totaal|I/o andere Bytes Per seconde|Exemplaar|
+|IoReadOperationsPerSecond|I/o-leesbewerkingen Per seconde|BytesPerSecond|Totaal|I/o-leesbewerkingen Per seconde|Exemplaar|
+|IoWriteOperationsPerSecond|I/o-schrijfbewerkingen Per seconde|BytesPerSecond|Totaal|I/o-schrijfbewerkingen Per seconde|Exemplaar|
+|IoOtherOperationsPerSecond|I/o andere bewerkingen Per seconde|BytesPerSecond|Totaal|I/o andere bewerkingen Per seconde|Exemplaar|
+|RequestsInApplicationQueue|Aanvragen In toepassingswachtrij voor de|Count|Gemiddeld|Aanvragen In toepassingswachtrij voor de|Exemplaar|
+|CurrentAssemblies|Huidige assembly's|Count|Gemiddeld|Huidige assembly's|Exemplaar|
+|TotalAppDomains|Totaal aantal AppDomains|Count|Gemiddeld|Totaal aantal AppDomains|Exemplaar|
+|TotalAppDomainsUnloaded|Totaal aantal AppDomains verwijderd|Count|Gemiddeld|Totaal aantal AppDomains verwijderd|Exemplaar|
+|Gen0Collections|Garbagecollections van generatie 0|Count|Totaal|Garbagecollections van generatie 0|Exemplaar|
+|Gen1Collections|Garbagecollections gen 1|Count|Totaal|Garbagecollections gen 1|Exemplaar|
+|Gen2Collections|Garbagecollections gen 2|Count|Totaal|Garbagecollections gen 2|Exemplaar|
 
 ## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
 

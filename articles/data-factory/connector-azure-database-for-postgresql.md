@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 04/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 4aea42bd20f01b4dae9e940b0ed101020d64c00c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 365775f840f85efe1792f376880145c7e7db1312
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="copy-data-from-azure-database-for-postgresql-using-azure-data-factory"></a>Gegevens kopiëren van Azure-Database voor PostgreSQL met behulp van Azure Data Factory 
 
@@ -47,6 +47,13 @@ De volgende eigenschappen worden ondersteund voor Azure-Database voor PostgreSQL
 | type | De eigenschap type moet worden ingesteld op: **AzurePostgreSql** | Ja |
 | connectionString | Een ODBC-verbindingsreeks verbinding maken met Azure-Database voor PostgreSQL. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. U kunt Azure integratie Runtime of Self-hosted integratie Runtime gebruiken (indien de gegevensopslag bevindt zich in een particulier netwerk). Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. |Nee |
+
+Een typische verbindingsreeks is `Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>@admstest;Password=<Password>`. Meer eigenschappen die u per uw aanvraag instellen kunt:
+
+| Eigenschap | Beschrijving | Opties | Vereist |
+|:--- |:--- |:--- |:--- |:--- |
+| EncryptionMethod (EM)| De methode het stuurprogramma gebruikt voor het versleutelen van gegevens die tussen het stuurprogramma en de database-server verzonden. Bijvoorbeeld `ValidateServerCertificate=<0/1/6>;`| 0 (geen versleuteling) **(standaard)** / 1 (SSL) / 6 (RequestSSL) | Nee |
+| ValidateServerCertificate (VSC) | Hiermee wordt bepaald of het certificaat dat wordt verzonden door de database-server als SSL-versleuteling is ingeschakeld wordt gevalideerd door het stuurprogramma (versleutelingsmethode = 1). Bijvoorbeeld `ValidateServerCertificate=<0/1>;`| 0 (uitgeschakeld) **(standaard)** / 1 (ingeschakeld) | Nee |
 
 **Voorbeeld:**
 
@@ -90,7 +97,7 @@ Stel de eigenschap type van de gegevensset om gegevens te kopiëren uit Azure-Da
 
 Zie voor een volledige lijst met secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen voor PostgreSQL bron wordt ondersteund door Azure-Database.
 
-### <a name="azurepostgresqlsource-as-source"></a>AzurePostgreSqlSource as source
+### <a name="azurepostgresqlsource-as-source"></a>AzurePostgreSqlSource als bron
 
 Om gegevens te kopiëren uit Azure-Database voor PostgreSQL, stelt u het brontype in de kopieerbewerking naar **AzurePostgreSqlSource**. De volgende eigenschappen worden ondersteund in de kopieerbewerking **bron** sectie:
 

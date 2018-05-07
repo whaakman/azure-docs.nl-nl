@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 12/14/2017
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: d96fefb859cba5db65382801fb1ac143df12b647
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
-ms.translationtype: HT
+ms.openlocfilehash: 5f628f20cbe86d48b1757644df64b36a27dc526c
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Dynamische groepen en Azure Active Directory B2B-samenwerking
 
@@ -47,12 +47,7 @@ Wat zo'n groep als volgt uitzien:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Lees ook onze andere artikelen over Azure AD B2B-samenwerking:
-
-* [Wat is Azure AD B2B-samenwerking?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Gebruikerseigenschappen B2B-samenwerking](active-directory-b2b-user-properties.md)
-* [Een B2B-samenwerking-gebruiker toe te voegen aan een rol](active-directory-b2b-add-guest-to-role.md)
-* [B2B-samenwerking uitnodigingen delegeren](active-directory-b2b-delegate-invitations.md)
-* [B2B-samenwerking code en PowerShell-voorbeelden](active-directory-b2b-code-samples.md)
-* [SaaS-apps voor B2B-samenwerking configureren](active-directory-b2b-configure-saas-apps.md)
+- [Gebruikerseigenschappen B2B-samenwerking](active-directory-b2b-user-properties.md)
+- [Een B2B-samenwerking-gebruiker toe te voegen aan een rol](active-directory-b2b-add-guest-to-role.md)
+- [Voorwaardelijke toegang voor gebruikers voor B2B-samenwerking](active-directory-b2b-mfa-instructions.md)
 

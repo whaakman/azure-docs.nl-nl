@@ -2,21 +2,21 @@
 title: Maken van een toepassingsgateway - Azure CLI | Microsoft Docs
 description: Informatie over het maken van een toepassingsgateway met behulp van de Azure CLI.
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.devlang: azurecli
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
-ms.author: davidmu
-ms.openlocfilehash: bf7e22e86e593045d25a9f31166aebe992caeb45
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: victorh
+ms.openlocfilehash: 791cc8bca95fc2264b485c23f30e24254067f513
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-using-the-azure-cli"></a>Een toepassingsgateway met Azure CLI maken
 
@@ -38,7 +38,7 @@ Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroupAG* i
 az group create --name myResourceGroupAG --location eastus
 ```
 
-## <a name="create-network-resources"></a>Maken van netwerkbronnen 
+## <a name="create-network-resources"></a>Netwerkbronnen maken 
 
 Maken van het virtuele netwerk en subnet met behulp van [az network vnet maken](/cli/azure/vnet#az_vnet_create). Maken van het openbare IP-adres met [az netwerk openbare ip-maken](/cli/azure/public-ip#az_public_ip_create).
 
@@ -60,13 +60,13 @@ az network public-ip create \
   --name myAGPublicIPAddress
 ```
 
-## <a name="create-backend-servers"></a>Maken van back-endservers
+## <a name="create-backend-servers"></a>Back-endservers maken
 
 In dit voorbeeld maakt u twee virtuele machines moet worden gebruikt als back-endservers voor de toepassingsgateway. U kunt ook NGINX installeren op de virtuele machines om te controleren of de toepassingsgateway is gemaakt.
 
 ### <a name="create-two-virtual-machines"></a>Twee virtuele machines maken
 
-U kunt een cloud-init-configuratiebestand NGINX installeren en uitvoeren van een 'Hello World' Node.js-app op een virtuele Linux-machine. In uw huidige shell, maakt u een bestand met de naam cloud init.txt en kopieer en plak de volgende configuratie in de shell. Zorg ervoor dat u de volledige kopieert cloud init bestand correct, met name de eerste regel:
+U kunt een cloud-init-configuratiebestand maken om NGINX te installeren en een 'Hallo wereld' Node.js-app uit te voeren op een virtuele Linux-machine. Maak in uw huidige shell een bestand met de naam cloud-init.txt en plak de volgende configuratie in de shell. Zorg ervoor dat u het hele cloud-init-bestand correct kopieert, met name de eerste regel:
 
 ```yaml
 #cloud-config
@@ -110,7 +110,7 @@ runcmd:
   - nodejs index.js
 ```
 
-Maken van de netwerkinterfaces met [az netwerk nic maken](/cli/azure/network/nic#az_network_nic_create). Maken van de virtuele machines met [az vm maken](/cli/azure/vm#az_vm_create).
+Maken van de netwerkinterfaces met [az netwerk nic maken](/cli/azure/network/nic#az_network_nic_create). Maak de virtuele machines met [az vm create](/cli/azure/vm#az_vm_create).
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -160,7 +160,7 @@ Duurt enkele minuten voor de toepassingsgateway moet worden gemaakt. Nadat de to
 
 ## <a name="test-the-application-gateway"></a>Testen van de toepassingsgateway
 
-Als u het openbare IP-adres van de toepassingsgateway, gebruikt [az netwerk openbare ip-weergeven](/cli/azure/network/public-ip#az_network_public_ip_show). Het openbare IP-adres Kopieer en plak deze in de adresbalk van uw browser.
+Als u het openbare IP-adres van de toepassingsgateway, gebruikt [az netwerk openbare ip-weergeven](/cli/azure/network/public-ip#az_network_public_ip_show). Kopieer het openbare IP-adres en plak het in de adresbalk van de browser.
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -182,5 +182,5 @@ az group delete --name myResourceGroupAG
  
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids gemaakt u een resourcegroep, netwerkbronnen en back-endservers. Vervolgens gebruikt u deze resources om een toepassingsgateway te maken. Blijven de artikelen voor meer informatie over Toepassingsgateways en de bijbehorende resources.
+In deze snelstart hebt u een resourcegroep, netwerkbronnen en backend-servers gemaakt. Vervolgens gebruikt u deze resources om een toepassingsgateway te maken. Blijven de artikelen voor meer informatie over Toepassingsgateways en de bijbehorende resources.
 

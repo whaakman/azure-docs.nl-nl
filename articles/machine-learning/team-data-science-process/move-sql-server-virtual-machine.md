@@ -2,8 +2,8 @@
 title: Gegevens verplaatsen naar SQL Server op een virtuele machine in Azure | Microsoft Docs
 description: Gegevens uit platte bestanden of verplaatsen van een lokale SQL Server met SQL Server op Azure VM.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 2c9ef1d3-4f5c-4b1f-bf06-223646c8af06
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev
-ms.openlocfilehash: b8c936163e8e0880d3518f44dba107a0393fd11f
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: deguhath
+ms.openlocfilehash: 56a03347556f9ae3452548e85ce5d46f3961ed93
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Gegevens verplaatsen naar SQL Server op een virtuele Azure-machine
 In dit onderwerp bevat een overzicht van de opties voor het verplaatsen van gegevens uit platte bestanden (TSV- of CSV-indeling) of van een lokale SQL Server naar SQL Server op Azure een virtuele machine. Deze taken voor het verplaatsen van gegevens naar de cloud maken deel uit van het Team gegevens wetenschap proces.
@@ -33,8 +33,8 @@ De volgende tabel geeft een overzicht van de opties voor het verplaatsen van geg
 
 | <b>BRON</b> | <b>BESTEMMING: SQL Server op Azure VM</b> |
 | --- | --- |
-| <b>Plat bestand</b> |1. <a href="#insert-tables-bcp">Hulpprogramma voor opdrachtregelprogramma voor het bulksgewijs kopiëren (BCP)</a><br> 2. <a href="#insert-tables-bulkquery">Bulksgewijs invoegen SQL-Query</a><br> 3. <a href="#sql-builtin-utilities">Grafische ingebouwde hulpprogramma's in SQL Server</a> |
-| <b>On-Premises SQL Server</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Implementeren van een SQL Server-Database naar een Microsoft Azure VM-wizard</a><br> 2. <a href="#export-flat-file">Exporteren naar een plat bestand</a><br> 3. <a href="#sql-migration">Wizard voor migratie van SQL-Database</a> <br> 4. <a href="#sql-backup">Back-up van database maken en terugzetten</a><br> |
+| <b>Plat bestand</b> |1. <a href="#insert-tables-bcp">Hulpprogramma voor opdrachtregelprogramma voor het bulksgewijs kopiëren (BCP) </a><br> 2. <a href="#insert-tables-bulkquery">Bulksgewijs invoegen SQL-Query </a><br> 3. <a href="#sql-builtin-utilities">Grafische ingebouwde hulpprogramma's in SQL Server</a> |
+| <b>On-Premises SQL Server</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Implementeren van een SQL Server-Database naar een Microsoft Azure VM-wizard</a><br> 2. <a href="#export-flat-file">Exporteren naar een plat bestand </a><br> 3. <a href="#sql-migration">Wizard voor migratie van SQL-Database </a> <br> 4. <a href="#sql-backup">Back-up van database maken en terugzetten </a><br> |
 
 Let op: dit document wordt ervan uitgegaan dat de SQL-opdrachten worden uitgevoerd vanuit SQL Server Management Studio of Visual Studio Database Explorer.
 
@@ -51,11 +51,11 @@ Deze zelfstudie wordt ervan uitgegaan dat u hebt:
 * Ingericht **SQL Server op een virtuele machine van Azure**. Zie voor instructies [instellen van een virtuele machine van Azure SQL-Server als een server IPython Notebook voor geavanceerde analyses](../data-science-virtual-machine/setup-sql-server-virtual-machine.md).
 * Geïnstalleerd en geconfigureerd **Azure PowerShell** lokaal. Zie voor instructies [installeren en configureren van Azure PowerShell](/powershell/azure/overview).
 
-## <a name="filesource_to_sqlonazurevm"></a>Verplaatsen van gegevens van een plat bestand-bron met SQL Server op een Azure VM
+## <a name="filesource_to_sqlonazurevm"></a> Verplaatsen van gegevens van een plat bestand-bron met SQL Server op een Azure VM
 Als uw gegevens zich in een plat bestand (gerangschikt in een indeling rij/kolom), kan het worden verplaatst naar SQL Server VM op Azure via de volgende methoden:
 
 1. [Hulpprogramma voor opdrachtregelprogramma voor het bulksgewijs kopiëren (BCP)](#insert-tables-bcp)
-2. [Bulksgewijs invoegen SQL-Query](#insert-tables-bulkquery)
+2. [Bulksgewijs invoegen SQL-Query ](#insert-tables-bulkquery)
 3. [Grafische ingebouwde hulpprogramma's in SQL Server (voor importeren/exporteren, SSIS)](#sql-builtin-utilities)
 
 ### <a name="insert-tables-bcp"></a>Hulpprogramma voor opdrachtregelprogramma voor het bulksgewijs kopiëren (BCP)

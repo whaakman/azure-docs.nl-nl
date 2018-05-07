@@ -1,6 +1,6 @@
 ---
 title: Inzicht in de taal van de query Azure IoT Hub | Microsoft Docs
-description: Handleiding voor ontwikkelaars - beschrijving van de SQL-achtige IoT Hub-querytaal gebruikt voor het ophalen van informatie over apparaat horende taken uit uw IoT-hub.
+description: Handleiding voor ontwikkelaars - beschrijving van de SQL-achtige IoT-Hub query taal gebruikt voor het ophalen van informatie over apparaat/module horende taken uit uw IoT-hub.
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: f1c578b6ebb766f71d6e8b65b02724d91dde3126
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 27ddc41c463c00a061a396098f0ccfaa6cec80a1
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>IoT Hub-querytaal voor apparaat horende, taken en het routeren van berichten
+# <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>IoT Hub-querytaal voor apparaat en de module horende, taken en het routeren van berichten
 
 IoT Hub biedt een krachtige SQL-achtige taal voor het ophalen van informatie met betrekking tot [apparaat horende] [ lnk-twins] en [taken][lnk-jobs], en [berichtroutering][lnk-devguide-messaging-routes]. Dit artikel biedt:
 
@@ -559,7 +559,7 @@ De volgende operators worden ondersteund:
 | Logische |EN, OF NIET |
 | Vergelijking |=, !=, <, >, <=, >=, <> |
 
-### <a name="functions"></a>Functies
+### <a name="functions"></a>Functions
 Tijdens het opvragen van horende en zijn die de enige ondersteunde is functie:
 
 | Functie | Beschrijving |

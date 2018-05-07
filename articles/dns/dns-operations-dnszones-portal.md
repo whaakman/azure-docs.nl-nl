@@ -3,7 +3,7 @@ title: DNS-zones in Azure DNS - Azure-portal beheren | Microsoft Docs
 description: U kunt DNS-zones met de Azure portal beheren. Dit artikel wordt beschreven hoe u bijwerken, verwijderen en DNS-zones maken op Azure DNS
 services: dns
 documentationcenter: na
-author: georgewallace
+author: KumudD
 manager: timlt
 ms.service: dns
 ms.devlang: na
@@ -11,12 +11,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2017
-ms.author: gwallace
-ms.openlocfilehash: cfb1debf9447cd66856b73166a133d5d498fcc79
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: kumud
+ms.openlocfilehash: 3fbf59010e690ac022e4363eddebe1cfbba53d13
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>DNS-Zones beheren in de Azure portal
 
@@ -48,7 +48,7 @@ In dit artikel laat zien hoe uw DNS-zones beheren met behulp van de Azure-portal
 > [!NOTE]
 > De resourcegroep verwijst naar de locatie van de resourcegroep en heeft geen invloed op de DNS-zone. De locatie van de DNS-zone is altijd 'global' en wordt niet weergegeven.
 
-## <a name="list-dns-zones"></a>Lijst met DNS-zones
+## <a name="list-dns-zones"></a>DNS-zones vermelden
 
 Navigeer in de Azure-portal naar **meer services** > **Networking** > **DNS-zones**. Elke DNS-zone, is het eigen resource, zoals het aantal recordsets en naamservers kunnen worden bekeken in deze weergave. De kolom **NAAMSERVERS** bevindt zich niet in de standaardweergave toe te voegen klikt u op **kolommen**, selecteer **naamservers** en klik op **gedaan**.
 

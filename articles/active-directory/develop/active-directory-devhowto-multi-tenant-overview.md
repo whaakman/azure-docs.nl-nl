@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2018
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 281f50a942a9396bf1163f5a20feb98bf450e6eb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: f31ef7285e07467fe233d5e10534340bc912ed1c
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Aanmelden met een Azure Active Directory-gebruiker met behulp van het patroon toepassing met meerdere tenants
 Als u een Software als een servicetoepassing voor veel organisaties te bieden, kunt u uw toepassing te accepteren, aanmeldingen vanaf een tenant van Azure Active Directory (AD) configureren. Deze configuratie wordt aangeroepen met het maken van uw toepassing meerdere tenants. Gebruikers in een Azure AD-tenant zich aan te melden bij uw toepassing na ermee akkoord dat hun account gebruiken met uw toepassing.  
@@ -57,7 +57,8 @@ Azure AD ontvangt wanneer een aanvraag op de/Common eindpunt, wordt de gebruiker
 
 Het antwoord aanmelden op de toepassing wordt vervolgens bevat een token dat de gebruiker voorstelt. De waarde van de verlener in het token geeft een toepassing aan welke tenant afkomstig van de gebruiker is. Wanneer een antwoord geretourneerd van de/Common eindpunt, de waarde van de verlener in het token komt overeen met tenant van de gebruiker. 
 
-> [! IMPORTANTNT] de/Common eindpunt is niet een tenant en is niet een verlener en is alleen een multiplexer. Wanneer u/Common gebruikt, wordt de logica in uw toepassing om tokens te valideren moet worden bijgewerkt om rekening. 
+> [!IMPORTANT]
+> De/gemeenschappelijk eindpunt is niet een tenant en is niet een verlener, is alleen een multiplexer. Wanneer u/Common gebruikt, wordt de logica in uw toepassing om tokens te valideren moet worden bijgewerkt om rekening. 
 
 ## <a name="update-your-code-to-handle-multiple-issuer-values"></a>Werk uw code voor het afhandelen van meerdere waarden van de certificaatverlener
 Webtoepassingen en web-API's ontvangen en valideren van tokens van Azure AD.  
@@ -156,9 +157,6 @@ Gebruikers en beheerders kunnen toestemming aan uw toepassing op elk gewenst mom
 * Beheerders toegang tot toepassingen intrekken door deze te verwijderen van Azure AD via de [bedrijfstoepassingen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps) sectie van de [Azure-portal][AZURE-portal].
 
 Als een beheerder met een toepassing voor alle gebruikers in een tenant instemt, intrekken niet gebruikers afzonderlijk toegang. Alleen de beheerder kan toegang intrekken en alleen voor de gehele toepassing.
-
-### <a name="consent-and-protocol-support"></a>Ondersteuning voor toestemming en protocol
-Toestemming wordt ondersteund in Azure AD via de OAuth, OpenID Connect, WS-Federation en SAML-protocollen. De SAML- en WS-Federation-protocollen bieden geen ondersteuning voor de `prompt=admin_consent` parameter, zodat de beheerder toestemming is alleen mogelijk via OAuth en OpenID Connect.
 
 ## <a name="multi-tenant-applications-and-caching-access-tokens"></a>Multitenant-toepassingen en toegangstokens-caching
 Multitenant-toepassingen kunnen ook om aan te roepen API's die zijn beveiligd door Azure AD-toegangstokens ophalen. Een veelvoorkomende fout bij het gebruik van Active Directory Authentication Library (ADAL) met een multitenant-toepassing is om aan te vragen in eerste instantie een token voor een gebruiker die met/Common, een reactie ontvangen en vervolgens een daaropvolgende token voor de gebruiker ook met/Common aanvragen. Omdat het antwoord van Azure AD afkomstig is van een tenant niet-algemene, ADAL plaatst het token afkomstig is van de tenant. De volgende aanroep/Common ophalen van een toegangstoken voor de gebruiker de cachevermelding Cachemissers en de gebruiker wordt gevraagd opnieuw aanmelden. Om te voorkomen dat de cache ontbreekt, zorg volgende aanroepen voor een gebruiker al aangemeld zijn aangebracht aan de tenant-eindpunt.

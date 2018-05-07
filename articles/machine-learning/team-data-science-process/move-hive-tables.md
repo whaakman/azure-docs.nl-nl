@@ -3,7 +3,7 @@ title: Hive-tabellen maken en te laden van gegevens uit Azure Blob Storage | Mic
 description: Hive-tabellen maken en te laden van gegevens in blob naar de hive-tabellen
 services: machine-learning,storage
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: cff9280d-18ce-4b66-a54f-19f358d1ad90
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev
-ms.openlocfilehash: 593df249429bf1dcc5a59312830ed78f7cf642e8
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.author: deguhath
+ms.openlocfilehash: 7634a8bdc7492d674801a256a4d5bb73170311ee
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Hive-tabellen maken en gegevens uit Azure Blob-opslag laden
 Dit onderwerp bevat algemene Hive-query's die Hive-tabellen maken en gegevens uit Azure blob-opslag laden. Sommige richtlijnen is ook beschikbaar op het Hive-tabellen te partitioneren en over het gebruik van de optimale rij kolommen (ORC) opmaak ter verbetering van de prestaties van query's.
@@ -143,7 +143,7 @@ Hier volgt de Hive-query waarmee een Hive-tabel.
 Hier volgen de beschrijvingen van de velden die u plug moet-- en andere configuraties:
 
 * **<database name>**: de naam van de database die u wilt maken. Als u alleen wilt gebruiken de standaard-database, de query *database maken...*  kunnen worden weggelaten.
-* **<table name>**: de naam van de tabel die u wilt maken binnen de opgegeven database. Als u gebruiken de standaard-database wilt, de tabel rechtstreeks kan worden verwezen door  *<table name>*  zonder <database name>.
+* **<table name>**: de naam van de tabel die u wilt maken binnen de opgegeven database. Als u gebruiken de standaard-database wilt, de tabel rechtstreeks kan worden verwezen door *<table name>* zonder <database name>.
 * **<field separator>**: het scheidingsteken op waarmee de velden in het gegevensbestand kunnen worden geüpload naar de Hive-tabel.
 * **<line separator>**: het scheidingsteken die regels in het gegevensbestand begrenst.
 * **<storage location>**: de Azure-opslag-locatie voor het opslaan van de gegevens van Hive-tabellen. Als u geen opgeeft *locatie <storage location>* , tabellen en de database worden opgeslagen in *hive/datawarehouse/* map in de standaardcontainer van het cluster Hive standaard. Als u de opslaglocatie opgeven wilt, is de opslaglocatie zich binnen de standaardcontainer voor de database en tabellen. Deze locatie moet worden verwezen als locatie ten opzichte van de standaard-container van het cluster in de indeling van *' wasb: / / / < map 1 > / "* of *' wasb: / / / < map 1 > / < map 2 > /"*, enzovoort. Nadat de query wordt uitgevoerd, worden de relatieve mappen in de standaardcontainer gemaakt.
@@ -154,7 +154,7 @@ Hier volgt de Hive-query die gegevens in een Hive-tabel laadt.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **<path to blob data>**: Als de blob-bestand wilt uploaden naar de Hive-tabel in de standaardcontainer van HDInsight Hadoop-cluster de  *<path to blob data>*  moet de indeling *' wasb: / / /<directory in this container> / <blob file name>'*. De blob-bestand kan ook worden in een extra container van het HDInsight Hadoop-cluster. In dit geval  *<path to blob data>*  moet de indeling *' wasb: / /<container name><storage account name>.blob.core.windows.net/<blob file name>'*.
+* **<path to blob data>**: Als de blob-bestand wilt uploaden naar de Hive-tabel in de standaardcontainer van HDInsight Hadoop-cluster de *<path to blob data>* moet de indeling *' wasb: / / /<directory in this container> / <blob file name>'*. De blob-bestand kan ook worden in een extra container van het HDInsight Hadoop-cluster. In dit geval *<path to blob data>* moet de indeling *' wasb: / /<container name><storage account name>.blob.core.windows.net/<blob file name>'*.
 
   > [!NOTE]
   > De blob-gegevens kunnen worden geüpload naar de Hive-tabel is in de standaardinstellingen of extra container van het opslagaccount voor het Hadoop-cluster. Anders wordt de *gegevens laden* query klagen dat deze geen toegang de gegevens tot is mislukt.
@@ -230,7 +230,7 @@ Selecteer de gegevens van de externe tabel in stap 1 en in de tabel ORC invoegen
            FROM <database name>.<external textfile table name>
            WHERE <partition variable>=<partition value>;
 
-Het is veilig verwijderen de  *<external textfile table name>*  wanneer met behulp van de volgende query nadat alle gegevens is ingevoegd in  *<database name>.<ORC table name>* :
+Het is veilig verwijderen de *<external textfile table name>* wanneer met behulp van de volgende query nadat alle gegevens is ingevoegd in *<database name>.<ORC table name>*:
 
         DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 

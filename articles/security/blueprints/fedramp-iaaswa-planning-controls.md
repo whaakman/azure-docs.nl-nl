@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: d5e5666db71ac9f5a136c9acb448fb13bf39a853
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="planning-pl"></a>Planning (PL)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **PL-1** de organisatie ontwikkelt, documenten en verspreide naar [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen] een beleid die zijn gericht op doel, bereik, rollen, verantwoordelijkheden, management streven, coördinatie van de beveiligingsplanning tussen de organisatie-entiteiten en naleving; en -procedures om te vereenvoudigen, de implementatie van de beveiliging plannen beleid en de bijbehorende beveiligingsplanning controles; en controleert en updates van de huidige beveiligingsplanning beleid [toewijzing: organisatie gedefinieerde frequentie]; en beveiliging plannen procedures [toewijzing: organisatie gedefinieerde frequentie].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **PL 2.** de organisatie ontwikkelt een beveiligingsplan voor de gegevens consistent zijn met de organisatie ondernemingsstructuur; expliciet definieert de autorisatie-grens voor het systeem; beschrijft de operationele context van het informatiesysteem in termen van missies en bedrijfsprocessen; biedt de categorisatie van de beveiliging van de informatiesysteem inclusief ondersteunende logica; Beschrijving van de operationele omgeving voor informatie en relaties met of verbindingen met andere informatiesystemen; biedt een overzicht van de beveiligingsvereisten voor het systeem. eventuele relevante overlays identificeert, indien van toepassing; Beschrijft de beveiligingsbesturingselementen in plaats of gepland voor het voldoen aan deze vereisten met inbegrip van een logica voor de besluitvorming voor de tailoring; en wordt gecontroleerd en goedgekeurd door de autorisatie officiële of aangewezen vertegenwoordiger voorafgaande aan de implementatie plannen.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **PL 2.b** kopieën van de beveiligingsplan distribueert en communiceert van de volgende wijzigingen aan het plan naar de organisatie [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **PL-2.c** de organisatie beoordeelt de beveiligingsplan voor het informatiesysteem [toewijzing: organisatie gedefinieerde frequentie].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **PL-2.d** de organisatie het plan voor adreswijzigingen aan de informatie/systeemomgeving bewerking of problemen geïdentificeerd tijdens plan implementatie- of beveiliging besturingselement, bijgewerkt.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **PL-2.e** De organisatie beschermt de beveiligingsplan tegen ongeautoriseerde bekendmaking en de wijzigingsopties.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **PL-2 (3)** de organisatie van plan en aan beveiliging gerelateerde activiteiten die invloed hebben op het informatiesysteem met coördineert [toewijzing: organisatie gedefinieerd personen of groepen] voordat deze activiteiten uitvoeren om de impact te reduceren andere organisatie-entiteiten.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **PL 4.** de organisatie wordt tot stand gebracht en gemakkelijk beschikbaar stelt aan personen die toegang tot het informatiesysteem, moeten de regels die hun verantwoordelijkheden en het verwachte gedrag met betrekking tot informatie en gegevens systeem beschrijven het gebruik.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **PL 4.b** de organisatie een ondertekende bevestiging van dergelijke personen, die aangeeft dat ze hebben gelezen, begrijpt en akkoord gaan met de regels van gedrag, voordat u toestemming geeft toegang tot informatie en het informatiesysteem ontvangt.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **PL-4.c** controleert en updates van de regels van de werking van de organisatie [toewijzing: organisatie gedefinieerde frequentie].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **PL-4.d** de organisatie vereist dat personen die zich hebben geregistreerd voor een eerdere versie van de regels van het gedrag te lezen en onderteken het opnieuw wanneer de regels van gedrag herzien/bijgewerkt.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **PL-4 (1)** de organisatie bevat in de regels van de werking van expliciete beperkingen op het gebruik van sociale media/netwerken sites en boeken organisatiegegevens op openbare websites.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **PL 8.** de organisatie ontwikkelt een beveiligingsarchitectuur informatie voor het informatiesysteem beschrijft de algehele filosofie, vereisten en benadering te nemen met betrekking tot het beveiligen van de vertrouwelijkheid, integriteit en beschikbaarheid van organisatiegegevens; Beschrijft hoe de informatiearchitectuur voor beveiliging is geïntegreerd in en biedt ondersteuning voor de enterprise-architectuur en een beschrijving van alle informatie beveiliging veronderstellingen over, en afhankelijkheden van, externe services.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **PL-8.b** de organisatie controleert en updates van de informatie-beveiligingsarchitectuur [toewijzing: organisatie gedefinieerde frequentie] in overeenstemming met updates in de enterprise-architectuur.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **PL-8.c** de organisatie zorgt ervoor dat de geplande informatie beveiliging architectuur wijzigingen worden doorgevoerd in de beveiligingsplan Concept van bewerkingen (CONOPS), en de organisatie begrepen aankopen/acquisities van organisaties.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|

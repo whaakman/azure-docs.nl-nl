@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 019785ae0bde58b33cc4b09e2e2746f3fd474b70
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 48beb0d1c70b0f9c524ba91934a1a0a7b5e8505d
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory bewijs van concept playbook: bouwstenen
 
@@ -275,7 +275,7 @@ Geschatte tijd om te voltooien: 60 minuten
 | Vereiste | Resources |
 | --- | --- |
 | Azure AD Connect geïnstalleerd en geconfigureerd | Bouwsteen: [adreslijstsynchronisatie - Wachtwoordhashsynchronisatie](#directory-synchronization--password-hash-sync-phs--new-installation) |
-| ADLDS exemplaar vergadering vereisten | [Algemene LDAP-Connector, technische naslaginformatie: overzicht van de algemene LDAP-Connector](./connect/active-directory-aadconnectsync-connector-genericldap.md#overview-of-the-generic-ldap-connector) |
+| ADLDS exemplaar vergadering vereisten | [Algemene LDAP-Connector, technische naslaginformatie: overzicht van de algemene LDAP-Connector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap#overview-of-the-generic-ldap-connector) |
 | Lijst van werkbelastingen die van gebruikers gebruikmaken en kenmerken die zijn gekoppeld aan deze werkbelastingen | [Azure AD Connect-synchronisatie: kenmerken gesynchroniseerd naar Azure Active Directory](./connect/active-directory-aadconnectsync-attributes-synchronized.md) |
 
 
@@ -283,7 +283,7 @@ Geschatte tijd om te voltooien: 60 minuten
 
 | Stap | Resources |
 | --- | --- |
-| Algemene LDAP-Connector toevoegen | [Algemene LDAP-Connector, technische naslaginformatie: een nieuwe Connector maken](./connect/active-directory-aadconnectsync-connector-genericldap.md#create-a-new-connector) |
+| Algemene LDAP-Connector toevoegen | [Algemene LDAP-Connector, technische naslaginformatie: een nieuwe Connector maken](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap#create-a-new-connector) |
 | Uitvoeringsprofielen maken voor gemaakte connector (volledige import, delta-import, volledige synchronisatie, Deltasynchronisatie, exporteren) | [Maken van een beheerprofiel van het uitvoeren van Agent](https://technet.microsoft.com/library/jj590219(v=ws.10).aspx)<br/> [Met behulp van connectors met de Azure AD Connect Sync Service Manager](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md)|
 | Volledige import profiel uitvoeren en controleren, er zijn objecten in de connectorruimte | [Zoeken naar een Object van de ruimte Connector](https://technet.microsoft.com/library/jj590287(v=ws.10).aspx)<br/>[Met connectors met de Azure AD Connect Sync Service Manager: Connectorgebied zoeken](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md#search-connector-space) |
 | Synchronisatieregels maakt, zodat objecten in de Metaverse over vereiste kenmerken voor werkbelastingen | [Azure AD Connect-synchronisatie: aanbevolen procedures voor het wijzigen van de standaardconfiguratie: wijzigingen aan de regels voor synchronisatie](./connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Azure AD Connect-synchronisatie: inzicht declaratieve inrichting](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md)<br/>[Azure AD Connect-synchronisatie: inzicht declaratieve inrichting expressies](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 43c1907bf3f9bb8eea92dc02889df24a5a0cc9e3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 2fd3d2cb403e3889c5faa538a49fa129496ae6e8
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Het oplossen van hybride Azure Active Directory die lid zijn van downlevel-apparaten 
 
@@ -90,7 +90,7 @@ Als de hybride Azure AD join niet geslaagd is, biedt in het dialoogvenster u inf
     
     - Autoworkplace.exe is niet achtergrond verifiëren met Azure AD of AD FS. Dit kan zijn vanwege een uitgaande gebonden problemen met de netwerkverbinding met de Azure AD-URL's (Raadpleeg de vereisten). Dit kan ook worden dat multi-factor authentication (MFA) ingeschakeld/geconfigureerd voor de gebruiker is en WIAORMUTLIAUTHN niet is geconfigureerd op de federatieserver (configuratiestappen selectievakje). Een andere mogelijkheid is die thuis realm detectie (HRD) pagina gebruikersinteractie, die voorkomt dat wacht **autoworkplace.exe** van achtergrond van het verkrijgen van een token.
     
-    - Uw organisatie gebruikmaakt van Azure AD naadloze eenmalige aanmelding, `https://autologon.microsoftazuread-sso.com` is niet aanwezig op het intranet in Internet Explorer van het apparaat, en **toestaan dat updates statusbalk via script** is niet ingeschakeld voor de intranetzone.
+    - Uw organisatie gebruikmaakt van Azure AD naadloze eenmalige aanmelding, `https://autologon.microsoftazuread-sso.com` of `https://aadg.windows.net.nsatc.net` bevinden zich niet op het intranet in Internet Explorer van het apparaat, en **toestaan dat updates statusbalk via script** is niet ingeschakeld voor de intranetzone.
 
 - Een quotum is bereikt
 

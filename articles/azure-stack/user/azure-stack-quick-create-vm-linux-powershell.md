@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 04/24/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 86597defad7c76d41065270030a4c77ee901b014
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1e2dbc6020dd317e96c4116811f8e3bf87680bfb
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Snelstartgids: een virtuele Linux-server-machine maken met behulp van PowerShell in Azure-Stack
 
@@ -28,6 +28,7 @@ ms.lasthandoff: 04/28/2018
 U kunt een Ubuntu Server 16.04 TNS virtuele machine maken met behulp van PowerShell voor Azure-Stack. Volg de stappen in dit artikel maken en gebruiken van een virtuele machine.  In dit artikel hebt u ook de stappen voor het:
 
 * Verbinding maken met de virtuele machine met een externe client.
+* De NGINX-webserver installeren en de standaardstartpagina weergeven.
 * Niet-gebruikte resources opschonen.
 
 ## <a name="prerequisites"></a>Vereisten
@@ -218,6 +219,26 @@ ssh <Public IP Address>
 ```
 
 Wanneer u wordt gevraagd, typt u azureuser als de aanmeldingsgebruiker. Als u een wachtwoordzin gebruikt bij het maken van de SSH-sleutels, hebt u de wachtwoordzin opgeven.
+
+## <a name="install-the-nginx-web-server"></a>De NGINX-webserver installeren
+
+Om te werken pakket resources en het meest recente NGINX-pakket installeert, voer het volgende script:
+
+```bash
+#!/bin/bash
+
+# update package source
+apt-get -y update
+
+# install NGINX
+apt-get -y install nginx
+```
+
+## <a name="view-the-nginx-welcome-page"></a>De welkomstpagina van NGINX weergeven
+
+Met NGINX geïnstalleerd, en poort 80 is geopend op de virtuele machine, kunt u toegang tot de webserver met het openbare IP-adres van de virtuele machine. Open een webbrowser en blader naar ```http://<public IP address>```.
+
+![NGINX web server welkomstpagina](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

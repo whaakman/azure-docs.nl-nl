@@ -3,7 +3,7 @@ title: 'Schaalbare Gegevenswetenschap met Azure Data Lake: een end-to-end-overzi
 description: Het gebruik van Azure Data Lake gegevens te verkennen en binaire classificatie taken uitvoeren op een dataset.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 91a8207f-1e57-4570-b7fc-7c5fa858ffeb
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev
-ms.openlocfilehash: 6d0f889e1cc76eced172d66755a0a9275e6b7bdf
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: 427c986b3099f9ae3ee25ab0106c7a4e665a35b9
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Schaalbare Gegevenswetenschap met Azure Data Lake: een end-to-end-overzicht
 Dit overzicht toont hoe u met Azure Data Lake gegevensverkenning en binaire classificatie taken van een steekproef van de NYC taxi reis bent en ritbedrag gegevensset om te voorspellen of een tip door een tarief wordt betaald. Dit leidt u door de stappen van de [Team gegevens wetenschap proces](http://aka.ms/datascienceprocess)end-to- end, uit gegevens overname als model voor training en vervolgens naar de implementatie van een webservice die het model worden gepubliceerd.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: f9de86f33fcedacad9ccde074a252111df62c992
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 0e9a66cc52c25bf4d38fd27050a92196227a698c
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Maken, wijzigen of verwijderen van een netwerkbeveiligingsgroep
 
@@ -34,7 +34,7 @@ De volgende taken uitvoeren voordat u stappen uitvoert in elke sectie van dit ar
 - Als u de PowerShell-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Deze zelfstudie vereist de Azure PowerShell moduleversie 5.4.1 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
 - Als u Azure-opdrachtregelinterface (CLI)-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/bash), of door het uitvoeren van de CLI vanaf uw computer. Deze zelfstudie vereist de Azure CLI versie 2.0.28 of hoger. Voer `az --version` uit om te kijken welke versie is geïnstalleerd. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). Als u de Azure CLI lokaal uitvoert, moet u ook uitvoeren `az login` geen verbinding maken met Azure.
 
-## <a name="work-with-network-security-groups"></a>Werken met netwerkbeveiligingsgroepen
+## <a name="work-with-network-security-groups"></a>Met netwerkbeveiligingsgroepen werken
 
 U kunt maken, [weergeven van alle](#view-all-network-security-groups), [details weergeven van](#view-details-of-a-network-security-group), [wijzigen](#change-a-network-security-group), en [verwijderen](#delete-a-network-security-group) een netwerkbeveiligingsgroep. U kunt ook [koppelen of ontkoppelen](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource) een netwerkbeveiligingsgroep van een netwerkinterface of een subnet.
 
@@ -79,7 +79,7 @@ Voer in het zoekvak boven aan de portal *netwerkbeveiligingsgroepen*. Wanneer **
 ### <a name="change-a-network-security-group"></a>Een netwerkbeveiligingsgroep wijzigen
 
 1. Voer in het zoekvak boven aan de portal *netwerkbeveiligingsgroepen* in het zoekvak. Wanneer **netwerkbeveiligingsgroepen** worden weergegeven in zoekresultaten wilt weergeven, selecteert u deze.
-2. Selecteer de netwerkbeveiligingsgroep die u wilt wijzigen. De meest voorkomende wijzigingen zijn [toe te voegen](#create-a-security-rule) of [verwijderen](#delete-a-security-rule) beveiligingsregels en [Associating of een netwerkbeveiligingsgroep naar of van een subnet of netwerk interface dissociating](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource).
+2. Selecteer de netwerkbeveiligingsgroep die u wilt wijzigen. De meest voorkomende wijzigingen zijn [toe te voegen](#create-a-security-rule) of [verwijderen](#delete-a-security-rule) beveiligingsregels en [Associating of een netwerkbeveiligingsgroep naar of van een subnet of netwerk interface dissociating](#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet-or-network-interface).
 
 **Opdrachten**
 

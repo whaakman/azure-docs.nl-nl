@@ -3,9 +3,9 @@ title: Maken, bewerken of JSON voor logic app-definities - Azure Logic Apps uitb
 description: Ontwerpen en aanpassen van logic app-definities in JSON
 author: ecfan
 manager: SyntaxC4
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
 ms.workload: logic-apps
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: bde275eb75c97da2a99109484b46b599a5b2f871
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f37f600d001b110775d8ca0e78950e3b8743df82
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-edit-or-customize-json-for-logic-app-definitions"></a>Maken, bewerken of JSON voor logic app-definities aanpassen
 
@@ -49,7 +49,7 @@ U kunt logische apps die zijn gemaakt en geïmplementeerd hetzij rechtstreeks va
 
 2. Zoek en open uw logische app definition, die standaard wordt weergegeven in een [Resource Manager-sjabloon](../azure-resource-manager/resource-group-overview.md#template-deployment)met de naam **LogicApp.json**. U kunt gebruiken en aanpassen van deze sjabloon voor implementatie in verschillende omgevingen.
 
-3. Open het snelmenu voor de definitie van logic Apps en de sjabloon. Selecteer **openen met Logic App-ontwerper**.
+3. Open het snelmenu voor de definitie van logic Apps en de sjabloon. Selecteer **Openen met Logic App-ontwerpfunctie**.
 
    ![Open logische app in Visual Studio-oplossing](./media/logic-apps-author-definitions/open-logic-app-designer.png)
 
@@ -81,7 +81,7 @@ In de [eerste voorbeeld logische app](../logic-apps/quickstart-create-first-logi
 
 2. In de `When_a_feed-item_is_published` actie, vinden de `queries` sectie en vervang de querywaarde met `"feedUrl": "#@{parameters('currentFeedUrl')}"`. 
 
-   **Before**
+   **Voordat u**
    ``` json
    }
       "queries": {
@@ -90,7 +90,7 @@ In de [eerste voorbeeld logische app](../logic-apps/quickstart-create-first-logi
    },   
    ```
 
-   **After**
+   **Na**
    ``` json
    }
       "queries": {
@@ -119,7 +119,7 @@ Hier volgt een basisdefinitie:
 
 ``` json
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "uri": {
@@ -170,7 +170,7 @@ Logic Apps heeft diverse functies voor het werken met tekenreeksen. Stel dat u w
 
 ``` json
 {
-  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "order": {
@@ -231,7 +231,7 @@ Deze werkstroom wordt bijvoorbeeld sommige categorieën gedefinieerd als paramet
 
 ``` json
 {
-  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "specialCategories": {
@@ -321,7 +321,7 @@ Als u wilt opmaken datums, kunt u formatters tekenreeks. Bijvoorbeeld, als u de 
 
 ``` json
 {
-  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "order": {

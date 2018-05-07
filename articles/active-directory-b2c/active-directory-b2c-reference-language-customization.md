@@ -11,17 +11,13 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: davidmu
-ms.openlocfilehash: 3d0f1f2ffd02873df2e2e7eab9894d9c3421b0f7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 097033b78e3e4f640e7bf4008fd970c53315d5d7
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Aanpassing van de taal in Azure Active Directory B2C
-
->[!NOTE]
->Deze functie is openbare preview.
->
 
 Aanpassing van de taal in Azure Active Directory B2C (Azure AD B2C) kunt u uw beleid voor verschillende talen aan de klantbehoeften van uw.  Microsoft biedt de vertalingen voor [36 talen](#supported-languages), maar u kunt ook uw eigen vertalingen voor elke taal opgeven. Zelfs als uw ervaring voor slechts één taal is opgegeven, kunt u alle tekst op de pagina's aanpassen.  
 
@@ -49,7 +45,7 @@ Als u aanpassing van de taal van een beleid inschakelt, kunt u de taal van de ge
 5. Lees de informatie in het dialoogvenster en selecteer **Ja**.
 
 ## <a name="select-which-languages-in-your-user-journey-are-enabled"></a>Selecteer welke talen in uw gebruiker reis zijn ingeschakeld 
-Inschakelen van een set van talen voor de gebruiker reis moeten worden omgezet in wanneer de `ui_locales` parameter is niet opgegeven.
+Inschakelen van een set van talen voor de gebruiker reis moeten worden omgezet in wanneer dit wordt aangevraagd door de browser zonder de `ui_locales` parameter.
 1. Zorg ervoor dat uw beleid taal aanpassing van de voorgaande instructies ingeschakeld.
 2. Van de **beleid bewerken** pagina **taal aanpassing**.
 3. Selecteer een taal die u wilt ondersteunen.
@@ -102,7 +98,7 @@ Vervang `<ExtensionAttribute>` met de naam van het aangepaste kenmerk.
 Vervang `<ExtensionAttributeValue>` met de nieuwe tekenreeks die moet worden weergegeven.
 
 ### <a name="provide-a-list-of-values-by-using-localizedcollections"></a>Een lijst met waarden bieden met behulp van LocalizedCollections
-Als u voor een setlijst met waarden voor antwoorden wilt, moet u maken een `LocalizedCollections` kenmerk.  `LocalizedCollections` is een matrix met `Name` en `Value` paren. Om toe te voegen `LocalizedCollections`, gebruik de volgende notatie:
+Als u voor een setlijst met waarden voor antwoorden wilt, moet u maken een `LocalizedCollections` kenmerk.  `LocalizedCollections` is een matrix met `Name` en `Value` paren. De volgorde voor de items worden de volgorde die ze worden weergegeven.  Om toe te voegen `LocalizedCollections`, gebruik de volgende notatie:
 
 ```JSON
 {
@@ -153,9 +149,9 @@ U kunt de pagina in laden `fr`. Wanneer de pagina HTML en CSS inhoud ophaalt, wo
 https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 ```
 
-## <a name="add-custom-locales"></a>Aangepaste landinstellingen toevoegen
+## <a name="add-custom-languages"></a>Aangepaste talen toevoegen
 
-U kunt ook talen die Microsoft biedt momenteel geen vertalingen voor toevoegen. U moet de vertalingen voor alle tekenreeksen in het beleid opgeven.
+U kunt ook talen die Microsoft biedt momenteel geen vertalingen voor toevoegen. U moet de vertalingen voor alle tekenreeksen in het beleid opgeven.  Taal en landinstellingen codes zijn beperkt tot die in de ISO 639-1-standaard. 
 
 1. Van de **beleid bewerken** pagina **taal aanpassing**.
 2. Selecteer **aangepaste taal toevoegen** vanaf de bovenkant van de pagina.
@@ -165,6 +161,10 @@ U kunt ook talen die Microsoft biedt momenteel geen vertalingen voor toevoegen. 
 6. Selecteer **inschakelen**, en uw beleid voor deze taal voor uw gebruikers kan nu worden weergegeven.
 7. Sla de taal.
 
+>[!IMPORTANT]
+>U moet ofwel de aangepaste talen inschakelen of onderdrukkingen voor het uploaden, voordat u kunt opslaan.
+>
+
 ## <a name="additional-information"></a>Aanvullende informatie
 
 ### <a name="page-ui-customization-labels-as-overrides"></a>Page UI aanpassing van labels als onderdrukkingen
@@ -172,7 +172,7 @@ Wanneer u een taal aanpassing inschakelt, worden de eerdere wijzigingen in met b
 ### <a name="up-to-date-translations"></a>Up-to-date vertalingen
 Microsoft hecht te bieden de meest recente vertalingen voor het gebruik. Microsoft continu verbetert vertalingen en laat ze naleving voor u. Microsoft wordt identificeren fouten en wijzigingen in globale terminologie en -updates die werkt naadloos in uw reis gebruiker.
 ### <a name="support-for-right-to-left-languages"></a>Ondersteuning voor talen van rechts naar links
-Microsoft biedt geen momenteel ondersteuning bieden voor v.r.n.l.-talen. Als u deze functie nodig hebt, neem stemmen voor op [Azure Feedback](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag).
+Microsoft biedt geen momenteel ondersteuning bieden voor v.r.n.l.-talen. U kunt dit doen met behulp van aangepaste landinstellingen en gebruiken van CSS wijzigen hoe die de tekenreeksen weergegeven.  Als u deze functie nodig hebt, neem stemmen voor op [Azure Feedback](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag).
 ### <a name="social-identity-provider-translations"></a>Sociale identiteit provider vertalingen
 Microsoft biedt de `ui_locales` OIDC parameter aan sociale aanmeldingen. Maar bepaalde sociale identiteitsproviders, waaronder Facebook en Google en ze niet naleven. 
 ### <a name="browser-behavior"></a>Gedrag van de browser
@@ -192,7 +192,7 @@ Chrome en Firefox die zowel een aanvraag voor de taal van hun instellen. Als het
 | Fins               | fi            |
 | Frans                | fr            |
 | Gujarati              | Gu            |
-| Hindi                 | hi            |
+| Hindi                 | Hallo            |
 | Kroatisch              | uur            |
 | Hongaars             | hu            |
 | Italiaans               | it            |
@@ -204,7 +204,7 @@ Chrome en Firefox die zowel een aanvraag voor de taal van hun instellen. Als het
 | Maleis                 | ms            |
 | Noors, Bokmål      | nb            |
 | Nederlands                 | nl            |
-| Punjabi               | pa            |
+| Punjabi               | Pa            |
 | Pools                | pl            |
 | Portugees - Brazilië   | pt-br         |
 | Portugees - Portugal | pt-pt         |

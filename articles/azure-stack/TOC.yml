@@ -190,18 +190,25 @@
               href: azure-stack-delegated-provider.md
             - name: Quotatypen
               href: azure-stack-quota-types.md
-        - name: SQL- of MySQL als PaaS aanbieden
+        - name: Overzicht van PaaS-services
+          href: azure-stack-tools-paas-services.md
+        - name: SQL als PaaS bieden
+          href: azure-stack-sql-resource-provider.md
           items:
-            - name: Overzicht van PaaS-services
-              href: azure-stack-tools-paas-services.md
-            - name: MySQL-resourceprovider implementeren
-              href: azure-stack-mysql-resource-provider-deploy.md
-            - name: SQL-resourceprovider implementeren
+            - name: De resource-provider voor SQL Server implementeren
               href: azure-stack-sql-resource-provider-deploy.md
             - name: Hosting-servers toevoegen
               href: azure-stack-sql-resource-provider-hosting-servers.md
             - name: SQL-databases maken
               href: azure-stack-sql-resource-provider-databases.md
+            - name: De resource-provider voor SQL Server bijwerken
+              href: azure-stack-sql-resource-provider-update.md
+            - name: De SQL Server-resourceprovider onderhouden
+              href: azure-stack-sql-resource-provider-maintain.md
+            - name: Verwijderen van de SQL Server-resourceprovider
+              href: azure-stack-sql-resource-provider-remove.md
+        - name: Aanbieding MySQL als PaaS
+          href: azure-stack-mysql-resource-provider-deploy.md
         - name: App Service als PaaS aanbieden
           items:
             - name: Overzicht App Service op Azure Stack

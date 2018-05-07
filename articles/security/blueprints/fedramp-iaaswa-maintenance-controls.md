@@ -15,23 +15,23 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: de7dd5b4651f7f74d90d9d026af71cd676c720e6
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="maintenance-ma"></a>Onderhoud (MA)
 
 > [!NOTE]
 > Deze besturingselementen zijn gedefinieerd door NIST en de V.S. Ministerie van handel als onderdeel van de NIST Special Publication 800-53 revisie 4. Raadpleeg NIST 800 53 Rev. 4 voor informatie over het testen van de procedures en richtlijnen voor elk besturingselement.
 
-## <a name="nist-800-53-control-ma-1"></a>NIST 800-53 Control MA-1
+## <a name="nist-800-53-control-ma-1"></a>NIST 800 53 besturingselement MA-1
 
 #### <a name="system-maintenance-policy-and-procedures"></a>Onderhoud systeembeleid en Procedures
 
 **MA-1** de organisatie ontwikkelt, documenten en verspreide naar [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen] een beleid voor het onderhoud van systeem die zijn gericht op doel, bereik, rollen, verantwoordelijkheden, management streven, coördinatie tussen de organisatie-entiteiten en naleving; en -procedures om te vereenvoudigen, de implementatie van het systeem onderhoudsbeleid en de bijbehorende onderhoud controles; en controleert en updates van het huidige systeem onderhoudsbeleid [toewijzing: organisatie gedefinieerde frequentie]; en onderhoudsprocedures system [toewijzing: organisatie gedefinieerde frequentie].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 2.** de organisatie plant, uitvoert, documenten en records van het onderhoud en reparaties op onderdelen van het systeem in overeenstemming met de fabrikant of leverancier specificaties en/of organisatorische vereisten informatie bekijkt.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 2.b** de organisatie goedkeurt en hiermee alle onderhoudsactiviteiten wordt gecontroleerd of uitgevoerd op de site of op afstand en of de apparatuur wordt verwerkt op de site of verwijderd op een andere locatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 2.c** de organisatie vereist dat [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen] expliciet de verwijdering van het systeem voor informatie of onderdelen van het systeem van de organisatie faciliteiten voor externe onderhoud of reparaties goedkeuren.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 2.d** de organisatie sanitizes apparatuur alle gegevens verwijderen van de bijbehorende media vóór de verwijdering van de organisatie faciliteiten voor externe onderhoud of reparaties.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -95,13 +95,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Microsoft Azure Asset beveiliging standaard definieert de verwerking vereist voor de overdracht van activa offsite voorzorgsmaatregelen asset. De standaard Asset-beveiliging vereist dat gegevensassets opslag gewist/opgeschoond in samenhang met de NIST SP 800-88, richtlijnen voor opschoning van de Media, vóór het verlaten van het datacenter. |
 
 
- ## <a name="nist-800-53-control-ma-2e"></a>NIST 800-53 Control MA-2.e
+ ## <a name="nist-800-53-control-ma-2e"></a>NIST 800 53 besturingselement MA-2.e
 
 #### <a name="controlled-maintenance"></a>Gecontroleerde onderhoud
 
 **MA-2.e** De organisatie controleert mogelijk betrokken beveiligingsmechanismen om te controleren of de besturingselementen nog steeds werken goed van de volgende onderhoud of reparatie van de activiteiten.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 2.f** bevat van de organisatie [toewijzing: organisatie gedefinieerde onderhoud gerelateerde informatie] in de organisatie-onderhoudsrecords.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -123,13 +123,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ### <a name="nist-800-53-control-ma-2-2a"></a>NIST 800-53 Control MA-2 (2).a
+ ### <a name="nist-800-53-control-ma-2-2a"></a>NIST 800 53 besturingselement MA 2 (2) een
 
 #### <a name="controlled-maintenance--automated-maintenance-activities"></a>Beheerd onderhoud | Van geautomatiseerde onderhoudsactiviteiten
 
 **MA 2 (2) een** veiligheidsmaatregelen geautomatiseerde mechanismen planning, uitvoering, en document onderhoud en reparaties voor de organisatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 2 (2) .b** de organisatie produceert bijgewerkt, nauwkeurig, en alle gegevens over alle acties voor onderhoud en reparatie aangevraagd, gepland in proces en voltooid.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -151,13 +151,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-ma-3"></a>NIST 800-53 Control MA-3
+ ## <a name="nist-800-53-control-ma-3"></a>NIST 800 53 besturingselement MA-3
 
 #### <a name="maintenance-tools"></a>Hulpprogramma's voor onderhoud
 
 **MA-3** de organisatie goedkeurt, besturingselementen, en bewaakt informatie system-hulpprogramma's voor onderhoud.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-3 (1)** de organisatie inspecteert de hulpmiddelen voor onderhoud uitgevoerd naar een faciliteit door medewerkers van onderhoud voor onjuist of niet-geautoriseerde wijzigingen.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-3 (2)** de organisatie media met diagnostische en test-programma's voor schadelijke code controleert voordat het medium in het systeem gegevens worden gebruikt.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-3 (3)** de organisatie wordt voorkomen dat het niet-geautoriseerde verwijderen van onderhoud apparatuur organisatiegegevens door te controleren of er is geen organisatie-gegevens op de apparatuur; opschonen of vernietigen met de apparatuur; behoud de apparatuur binnen de faciliteit; of het verkrijgen van een uitzondering van [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen] expliciet verwijderen van de apparatuur van de faciliteit autoriseren.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 4.** de organisatie goedkeurt en niet-lokale onderhoud en diagnostische activiteiten controleert.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 4.b** de organisatie kan het gebruik van niet-lokale onderhoud en diagnostische hulpprogramma's als consistent zijn met organisatiebeleid en gedocumenteerd in het beveiligingsplan voor het informatiesysteem.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 4.c** sterk verificators in de inrichting van niet-lokale onderhoud en diagnostische sessies maakt gebruik van de organisatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 4.d** de organisatie onderhoudt records voor niet-lokale onderhoud en diagnostische activiteiten.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -263,13 +263,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-ma-4e"></a>NIST 800-53 Control MA-4.e
+ ## <a name="nist-800-53-control-ma-4e"></a>NIST 800 53 besturingselement MA-4.e
 
 #### <a name="nonlocal-maintenance"></a>Niet-lokale onderhoud
 
 **MA-4.e** De organisatie beëindigt sessie en netwerkverbindingen als niet-lokale onderhoud is voltooid.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-4 (2)** organisatie documenten in het beveiligingsplan voor het systeem gegevens het beleid en de procedures voor de inrichting en het gebruik van niet-lokale onderhoud en diagnostische verbindingen.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -297,7 +297,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-4 (3)** de organisatie vereist dat niet-lokale onderhoud en diagnostische services worden uitgevoerd vanaf een informatiesysteem die u implementeert een beveiliging functionaliteit die vergelijkbaar is met de mogelijkheid geïmplementeerd op het systeem in behandeling; of verwijderd het onderdeel dat moet worden verwerkt vanuit het informatiesysteem voorafgaand aan de niet-lokale onderhoud of diagnostische services, sanitizes het onderdeel (met betrekking tot organisatiegegevens) vóór de verwijdering van de organisatie faciliteiten, en nadat de service is uitgevoerd, inspecteert en het onderdeel (met betrekking tot mogelijk schadelijke softwareprogramma's) sanitizes voordat u opnieuw verbinding te maken van het onderdeel op het informatiesysteem.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-4 (6)** cryptografische mechanismen ter bescherming van de integriteit en vertrouwelijkheid van niet-lokale onderhoud en diagnostische communicatie door het informatiesysteem wordt geïmplementeerd.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 5.** stelt een proces voor het onderhoud personeel autorisatie en houdt een lijst van toegestane onderhoud organisaties of medewerkers van de organisatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -339,7 +339,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 5.b** de organisatie zorgt ervoor dat niet-escorted personeel onderhoud uitvoeren op het informatiesysteem-verificatie ondersteunt vereist.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -353,7 +353,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA 5.c** organisatie medewerkers met de vereiste toegang autorisaties en technische bevoegdheid voor de controle van de onderhoudsactiviteiten van medewerkers die niet in het bezit zijn van de vereiste toegang autorisaties Hiermee geeft u de organisatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -367,7 +367,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-5 (1) een** de organisatie worden procedures voor het gebruik van onderhoud medewerkers die niet over de juiste machtigingen of inwoners, waaronder de volgende vereisten onderhoud medewerkers die niet nodig kan hebben, zijn niet geïmplementeerd -verificatie ondersteunt, vrije ruimten of formele toegang goedkeuringen zijn escorted en onder supervisie tijdens het uitvoeren van onderhoud en diagnostische activiteiten op het informatiesysteem door goedgekeurde organisatie medewerkers die volledig zijn uitgeschakeld, hebben passende -verificatie ondersteunt, en worden gekwalificeerd technisch; voorafgaand aan de gang worden gezet onderhoud of diagnostische activiteiten door medewerkers die komen niet nodig hebben-verificatie ondersteunt, vrije ruimten of formele toegang goedkeuringen, alle opslagonderdelen vanuit het informatiesysteem zijn opgeschoonde vluchtige gegevens en alle niet-vluchtige opslagmedia zijn verwijderd of fysiek losgekoppeld van het systeem en beveiligd.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -381,7 +381,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-5 (1) .b** de organisatie ontwikkelt en implementeert alternatieve beveiligingsmaatregelen in het geval van een onderdeel van het systeem gegevens kan niet worden opgeschoonde, verwijderd of losgekoppeld van het systeem.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -395,7 +395,7 @@ ms.lasthandoff: 02/11/2018
 
 **MA-6** de organisatie verkrijgt onderhoud ondersteuning en/of spare onderdelen voor [toewijzing: onderdelen van het systeem gedefinieerde organisatie informatie] in [toewijzing: organisatie gedefinieerde periode] van de fout.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|

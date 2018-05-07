@@ -6,15 +6,15 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 4ecd08f3750e8521270369a69c6801497e587a75
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: dc6c8ef2953b7495c734ec8b16530cdd812ac792
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Stack datacenter integratie van Azure - identiteit
 U kunt Azure-Stack met behulp van Azure Active Directory (Azure AD) of Active Directory Federation Services (AD FS) implementeren als de id-providers. Voordat u Azure-Stack implementeert, moet u de keuze maken. Implementatie met behulp van AD FS ook aangeduid als Azure-Stack in de modus zonder verbinding implementeert.
@@ -23,7 +23,7 @@ De volgende tabel ziet u de verschillen tussen de twee identiteit keuzes:
 
 ||De internetverbinding verbroken|Verbonden met internet|
 |---------|---------|---------|
-|Facturering|Capaciteit moet<br> Enterprise Agreement (EA) alleen|Capaciteit of Pay-as-gebruik<br>EA of Cloud Solution Provider (CSP)|
+|Billing|Capaciteit moet<br> Enterprise Agreement (EA) alleen|Capaciteit of Pay-as-gebruik<br>EA of Cloud Solution Provider (CSP)|
 |Identiteit|Moet de AD FS|Azure AD of AD FS|
 |Marketplace-syndicatie|Ondersteund<br>BYOL-licentieverlening|Ondersteund<br>BYOL-licentieverlening|
 |Registratie|Aanbevolen, vereist een verwisselbaar medium<br> en een afzonderlijke aangesloten apparaat.|Geautomatiseerd|
@@ -60,6 +60,8 @@ Vereisten:
 
 ## <a name="setting-up-graph-integration"></a>Instellen van integratie met grafiek
 
+Grafiek biedt alleen ondersteuning voor integratie met één Active Directory-forest. Als meerdere forests bestaat, wordt alleen het forest die zijn opgegeven in de configuratie wordt gebruikt voor het ophalen van gebruikers en groepen.
+
 De volgende informatie is vereist als invoer voor de automation-parameters:
 
 
@@ -95,12 +97,14 @@ Voor deze procedure gebruikt u een computer in uw datacenternetwerk die met het 
    Register-DirectoryService -CustomADGlobalCatalog contoso.com
    ```
 
-   Wanneer u wordt gevraagd, geef de referenties voor de gebruikersaccount die u wilt gebruiken voor de grafiek service (zoals graphservice).
+   Wanneer u wordt gevraagd, geef de referenties voor de gebruikersaccount die u wilt gebruiken voor de grafiek service (zoals graphservice). De invoer voor de cmdlet Register-DirectoryService moet de naam van het forest worden-root domein in het forest in plaats van een ander domein in het forest.
 
    > [!IMPORTANT]
    > Wacht totdat de pop-referenties (Get-Credential wordt niet ondersteund in de beschermde eindpunt) en voer de referenties van het serviceaccount van de grafiek.
 
 #### <a name="graph-protocols-and-ports"></a>Grafiek-protocollen en poorten
+
+Grafiek-service in Azure-Stack gebruikt de volgende protocollen en poorten om te communiceren met een beschrijfbare Global Catalog-Server (GC) en het KDC Key Distribution Center () die kan worden verwerkt aanmeldingsaanvragen in de doel-Active Directory-forest.
 
 Grafiek-service in Azure-Stack maakt gebruik van de volgende protocollen en poorten om te communiceren met het doel van Active Directory:
 

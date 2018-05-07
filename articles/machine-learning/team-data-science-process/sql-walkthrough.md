@@ -2,8 +2,8 @@
 title: Bouw en implementeer een machine learning-model met SQL Server op een virtuele machine in Azure | Microsoft-Docs
 description: Geavanceerde analyses proces en de technologie in actie
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 6066b083-262c-4453-a712-a5c05acc3df8
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
-ms.author: bradsev
-ms.openlocfilehash: 03def1f07d45b9bde5f54922984c33879a80744c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.author: deguhath
+ms.openlocfilehash: 1e53814c0c0598380944d576e1937e38d1e1d792
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>De procedure van wetenschappelijke gegevens Team in actie: met behulp van SQL Server
 In deze zelfstudie helpt u bij het proces van het maken en implementeren van een machine learning-model met behulp van SQL Server en een openbare gegevensset--de [NYC Taxi reizen](http://www.andresmh.com/nyctaxitrips/) gegevensset. De procedure volgt een standaard wetenschappelijke werkstroom: opnemen en Verken de gegevens, engineering-functies om te vergemakkelijken learning, en vervolgens te bouwen en implementeren van een model.
@@ -75,8 +75,8 @@ Voor het instellen van uw omgeving voor Gegevenswetenschap Azure:
    > [!NOTE]
    > De voorbeeldscripts en IPython notitieblokken worden gedownload met uw virtuele-machine voor Gegevenswetenschap tijdens de installatie. Wanneer het VM-script voor na de installatie is voltooid, zijn de voorbeelden in de bibliotheek documenten van de VM:  
    > 
-   > * Voorbeeld Scripts:`C:\Users\<user_name>\Documents\Data Science Scripts`  
-   > * Voorbeeld IPython notitieblokken:`C:\Users\<user_name>\Documents\IPython Notebooks\DataScienceSamples`  
+   > * Voorbeeld Scripts: `C:\Users\<user_name>\Documents\Data Science Scripts`  
+   > * Voorbeeld IPython notitieblokken: `C:\Users\<user_name>\Documents\IPython Notebooks\DataScienceSamples`  
    >   waar `<user_name>` is Windows-aanmeldingsnaam van de VM. De voorbeeld-mappen als wordt verwezen **voorbeeldscripts** en **voorbeeld IPython notitieblokken**.
    > 
    > 
@@ -578,7 +578,7 @@ In deze oefening hebben we al verkend en engineering van de gegevens in SQL Serv
    
     ![Gegevens van Azure Machine Learning importeren][17]
 2. Selecteer **Azure SQL Database** als de **gegevensbron** in de **eigenschappen** Configuratiescherm.
-3. Voer de naam van de DNS-database in de **databaseservernaam** veld. Indeling:`tcp:<your_virtual_machine_DNS_name>,1433`
+3. Voer de naam van de DNS-database in de **databaseservernaam** veld. Indeling: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Voer de **databasenaam** in het bijbehorende veld.
 5. Voer de **SQL-gebruikersnaam** in de ** Server aqccount gebruikersnaam en het wachtwoord in de **Server het wachtwoord voor gebruikersaccount**.
 7. In de **databasequery** bewerken van tekst, plakt u de query waarmee de benodigde databasevelden (inclusief eventuele berekende velden, zoals de labels) worden opgehaald en omlaag de gegevens naar de gewenste samplegrootte voorbeelden.
@@ -604,7 +604,7 @@ Voor het implementeren van een nieuwe webservice, moet u:
 
 Maken van een experiment score van een **voltooid** training experiment, klikt u op **maken score berekenen EXPERIMENTEREN** in de onderste actiebalk.
 
-![Azure Scoring][18]
+![Score berekenen voor Azure][18]
 
 Azure Machine Learning probeert te maken van een score experiment op basis van de onderdelen van het trainingsexperiment. In het bijzonder wordt:
 

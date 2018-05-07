@@ -2,7 +2,7 @@
 title: Gegevens wetenschap proces rollen en taken - Azure in een team | Microsoft Docs
 description: Een overzicht van de belangrijke onderdelen, personeel rollen en bijbehorende taken voor een teamproject voor wetenschap van gegevens.
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: bradsev
-ms.openlocfilehash: b92bb8e633aa859324f2ff46f5d76a5934007ccf
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: 00d8761a7afe4b727c04626c0ba7c032b2277f48
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Team gegevens wetenschap proces rollen en taken
 
@@ -45,7 +45,7 @@ Met de bovenstaande veronderstelling hebben we vier verschillende rollen voor on
 
 3. ***Project Lead***. Een project lead beheert de dagelijkse activiteiten van afzonderlijke gegevenswetenschappers op een specifieke gegevens wetenschappelijke project.
 
-4. ***Afzonderlijke Inzender project***. Data Scientist, Business Analyst, Data Engineer, Architect, etc. Een project afzonderlijke inzender voert een wetenschappelijke gegevensproject. 
+4. ***Afzonderlijke Inzender project***. Gegevens wetenschappelijk, bedrijfsanalist, gegevens engineering, Architect, enzovoort. Een project afzonderlijke inzender voert een wetenschappelijke gegevensproject. 
 
 
 **[AZURE.NOTE]**: Één persoon kan meer dan één rol spelen afhankelijk van de structuur in een onderneming, of kan er meer dan één persoon werkt aan een rol. Dit komt vaak het geval in kleine bedrijven of ondernemingen met een klein aantal medewerkers in hun organisatie van de wetenschappelijke gegevens mogelijk.

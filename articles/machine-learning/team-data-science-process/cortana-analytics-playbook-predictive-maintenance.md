@@ -1,8 +1,8 @@
 ---
-title: Momenteel met Azure - sjabloon Cortana Intelligence-oplossing voor voorspeld onderhoud | Microsoft Docs
-description: Een oplossingssjabloon met Microsoft Cortana Intelligence voor voorspeld onderhoud in ruimtevaart, hulpprogramma's en transport.
+title: Azure AI Playbook voor voorspeld onderhoud oplossingen | Microsoft Docs
+description: Een uitgebreide beschrijving van de wetenschappelijke gegevens, die ook door voorspeld onderhoud oplossingen in verschillende branches.
 services: cortana-analytics
-documentationcenter: 
+documentationcenter: ''
 author: fboylu
 manager: jhubbard
 editor: cgronlun
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 05/01/2018
 ms.author: fboylu
-ms.openlocfilehash: da7826c49c3548600187956908f5369cc4891065
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: ad06617fb8c14928dca7d9ce18ad86190e8255fe
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/04/2018
 ---
-# <a name="cortana-intelligence-solution-template-playbook-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Sjabloon Playbook van Cortana Intelligence-oplossing voor voorspeld onderhoud in ruimtevaart en andere bedrijven
+# <a name="azure-ai-playbook-for-predictive-maintenance-solutions"></a>Azure AI Playbook voor voorspeld onderhoud oplossingen 
 ## <a name="executive-summary"></a>Samenvatting
 Voorspeld onderhoud is een van de meest gevraagde toepassingen van predictive analytics unarguable voordelen, met inbegrip van de enorme hoeveelheid kosten te besparen. Deze playbook is erop gericht op het verstrekken van een verwijzing voor voorspeld onderhoud oplossingen met de nadruk op belangrijke gebruiksvoorbeelden.
 Deze worden voorbereid voor de lezer een goed begrip van de meest voorkomende bedrijfsscenario's van voorspeld onderhoud uitdagingen van in aanmerking komende bedrijfsproblemen voor dergelijke oplossingen, de gegevens die nodig zijn voor het oplossen van deze zakelijke problemen, voorspellende modelleringstechnieken te geven gebruik van dergelijke gegevens en best practices met voorbeeld oplossingsarchitecturen oplossingen bouwen.

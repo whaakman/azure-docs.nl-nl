@@ -3,20 +3,20 @@ title: Overzicht van de reverse DNS-server in Azure | Microsoft Docs
 description: Meer informatie over hoe reverse DNS-werkt en hoe deze kan worden gebruikt in Azure
 services: dns
 documentationcenter: na
-author: jtuliani
-manager: timlt
+author: KumudD
+manager: jeconnoc
 ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: jonatul
-ms.openlocfilehash: 08f4f4aca20efad8f51ebc9ca8c6df8de8d0d4c7
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.author: kumud
+ms.openlocfilehash: 1ce14360d0f62a01172a8003e1d78a45885166f6
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>Overzicht van de reverse DNS- en biedt ondersteuning in Azure
 
@@ -86,7 +86,7 @@ Een reverse lookup voor de IP-adres '192.0.2.129' query's voor een PTR-record me
 
 ### <a name="ipv6"></a>IPv6
 
-De naam van een IPv6-zone voor reverse lookup worden de volgende notatie:`<IPv6 network prefix in reverse order>.ip6.arpa`
+De naam van een IPv6-zone voor reverse lookup worden de volgende notatie: `<IPv6 network prefix in reverse order>.ip6.arpa`
 
 Bijvoorbeeld:. Wanneer maken van een reverse zone voor hostrecords voor hosts met IP-adressen die zich in de 2001:db8:1000:abdc:: / 64-voorvoegsel, de zonenaam zouden worden gemaakt met het voorvoegsel van het netwerk van het adres te isoleren (2001:db8:abdc::). Vouw vervolgens het IPv6-netwerk voorvoegsel verwijderen [nul compressie](https://technet.microsoft.com/library/cc781672(v=ws.10).aspx), als deze is gebruikt om te verkorten van de IPv6-adresvoorvoegsel (2001:0db8:abdc:0000::). De volgorde, met een punt als scheidingsteken tussen elke hexadecimaal getal in het voorvoegsel voor het bouwen van de omgekeerde netwerk voorvoegsel (`0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2`) en voeg het achtervoegsel `.ip6.arpa`.
 

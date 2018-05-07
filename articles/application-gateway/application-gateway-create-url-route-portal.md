@@ -10,17 +10,17 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/26/2018
 ms.author: victorh
-ms.openlocfilehash: 4ffaeedf125b6f74aeb88e22248040c6c3ef001c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 554618b055ce5afcc67f95afa0242d36e74fabc0
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Een toepassingsgateway maken met routering regels op basis van een pad met de Azure portal
 
 U kunt de Azure portal gebruiken voor het configureren van [routeringsregels voor URL-pad gebaseerde](application-gateway-url-route-overview.md) bij het maken van een [toepassingsgateway](application-gateway-introduction.md). In deze zelfstudie maakt u back-endpools gebruik van virtuele machines. Vervolgens maakt u routeringsregels die zorg ervoor dat het webverkeer binnenkomt op de juiste servers van de groepen.
 
-In dit artikel leert u hoe:
+In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
 > * Een toepassingsgateway maken
@@ -82,16 +82,16 @@ In dit voorbeeld maakt u drie virtuele machines moet worden gebruikt als back-en
 2. Klik op **Compute** en selecteer vervolgens **Windows Server 2016 Datacenter** in de lijst met aanbevolen.
 3. Voer deze waarden voor de virtuele machine:
 
-    - *myVM1* - voor de naam van de virtuele machine.
-    - *azureuser* - voor de gebruikersnaam van de beheerder.
+    - *myVM1* als naam van de virtuele machine.
+    - *azureuser* als gebruikersnaam van de beheerder.
     - *Azure123456!* voor het wachtwoord.
     - Selecteer **gebruik bestaande**, en selecteer vervolgens *myResourceGroupAG*.
 
 4. Klik op **OK**.
-5. Selecteer **DS1_V2** voor de grootte van de virtuele machine en klik op **Selecteer**.
+5. Selecteer **DS1_V2** als grootte van de virtuele machine en klik op **Selecteren**.
 6. Zorg ervoor dat **myVNet** is geselecteerd voor het virtuele netwerk en het subnet is **myBackendSubnet**. 
-7. Klik op **uitgeschakelde** diagnostische gegevens over opstarten uitschakelen.
-8. Klik op **OK**, Controleer de instellingen op de pagina Samenvatting en klik vervolgens op **maken**.
+7. Klik op **Uitgeschakeld** om diagnostische gegevens over opstarten uit te schakelen.
+8. Klik op **OK**, controleer de instellingen op de overzichtspagina en klik op **Maken**.
 
 ### <a name="install-iis"></a>IIS installeren
 
@@ -102,7 +102,7 @@ In dit voorbeeld maakt u drie virtuele machines moet worden gebruikt als back-en
 2. Voer de volgende opdracht voor het installeren van IIS op de virtuele machine: 
 
     ```azurepowershell-interactive
-    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/vhorne/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
     Set-AzureRmVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
@@ -153,7 +153,7 @@ In dit voorbeeld maakt u drie virtuele machines moet worden gebruikt als back-en
 
     ![Record application gateway openbaar IP-adres](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. Het openbare IP-adres Kopieer en plak deze in de adresbalk van uw browser. Zoals http://http://40.121.222.19.
+2. Kopieer het openbare IP-adres en plak het in de adresbalk van de browser. Zoals http://http://40.121.222.19.
 
     ![Basis-URL te testen in de toepassingsgateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 

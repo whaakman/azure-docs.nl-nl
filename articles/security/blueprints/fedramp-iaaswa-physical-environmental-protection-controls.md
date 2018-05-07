@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 792b9da0f4e5ec73c39f56a6e4805cf3c37133c4
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="physical-and-environmental-protection-pe"></a>Fysieke en omgevingsbeveiliging beveiliging (PE)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-1** de organisatie ontwikkelt, documenten en verspreide naar [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen] een fysieke en omgevingsbeveiliging protection-beleid die zijn gericht op doel, bereik, rollen, taken, management het streven, samenwerking tussen de organisatie-entiteiten en naleving; en -procedures om te vereenvoudigen, de implementatie van de fysieke en omgevingsbeveiliging protection-beleid en de bijbehorende fysieke en omgevingsbeveiliging beveiliging besturingselementen; en controleert en updates van het huidige fysieke en omgevingsbeveiliging beveiligingsbeleid [toewijzing: organisatie gedefinieerde frequentie]; en -procedures voor beveiliging van fysieke en omgevingsbeveiliging [toewijzing: organisatie gedefinieerde frequentie].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 2.** de organisatie ontwikkelt, goedkeurt en onderhoudt een lijst met personen met geautoriseerde toegang tot de faciliteit waarin het informatiesysteem zich bevindt.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 2.b** autorisatiereferenties voor toegang van de faciliteit problemen met de organisatie.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 2.c** de organisatie controleert de lijst met gedetailleerde informatie over geautoriseerde faciliteit toegang door personen [toewijzing: organisatie gedefinieerde frequentie].
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 2.d** de organisatie worden personen verwijderd uit de lijst van de faciliteit toegang wanneer toegang niet langer vereist is.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 3.** autorisaties op fysieke toegang wordt afgedwongen door de organisatie [toewijzing: organisatie gedefinieerd binnenkomt/verlaat verwijst naar de functie waarin het informatiesysteem zich bevindt] door te controleren of afzonderlijke-verificatie ondersteunt voordat u verleent toegang tot de faciliteit; en inkomend en uitgaand voor het gebruik van de faciliteit beheren [selectie (een of meer): [toewijzing: fysieke toegang organisatie gedefinieerd besturingselement systemen/apparaten]; beveiligingen].
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 3.b** fysieke toegang auditlogboeken voor de organisatie worden bijgehouden [toewijzing: organisatie gedefinieerd binnenkomt/verlaat punten].
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 3.c** voorziet in de organisatie [toewijzing: organisatie gedefinieerd beveiligingsmaatregelen] op de toegang beheren tot gebieden binnen de faciliteit officieel aangewezen als openbaar toegankelijk.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 3.d** escorts bezoekers en controleert bezoeker activiteit van de organisatie [toewijzing: organisatie gedefinieerd gevallen bezoeker escorts vereisen en bewaking].
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-3.e** De organisatie beveiligt sleutels, combinaties en andere apparaten fysieke toegang.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 3.f** de organisatie voorraden [toewijzing: fysieke toegang organisatie gedefinieerd apparaten] elke [toewijzing: organisatie gedefinieerde frequentie].
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 3.g** de organisatie combinaties en sleutels wijzigen [toewijzing: organisatie gedefinieerde frequentie] en/of wanneer de sleutels zijn kwijtgeraakt, combinaties verdacht zijn, of personen zijn overgedragen of beëindigd.  
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-3 (1)** de organisatie worden afgedwongen autorisaties fysieke toegang tot het informatiesysteem naast de fysieke toegang besturingselementen voor de opslagruimte op [toewijzing: fysieke spaties organisatie gedefinieerd met een of meer onderdelen van het informatiesysteem].
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 4** beheert de organisatie fysieke toegang tot [toewijzing: organisatie gedefinieerde informatie system distributie en transmission regels] binnen de organisatie faciliteiten met [toewijzing: organisatie gedefinieerd beveiligingsmaatregelen] .
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 5** beheert fysieke toegang tot het systeem-uitvoerapparaten informatie om te voorkomen dat onbevoegde personen het verkrijgen van de uitvoer van de organisatie.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 6.a** de organisatie bewaakt de fysieke toegang tot de faciliteit waarin het informatiesysteem om te detecteren en reageren op beveiligingsincidenten fysieke zich bevindt.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 6.b** de organisatie beoordeelt de logboeken van de fysieke toegang [toewijzing: organisatie gedefinieerde frequentie] bij de instantie van [toewijzing: organisatie gedefinieerde gebeurtenissen of potentiële aanwijzingen voor gebeurtenissen].
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 6.c** de organisatie coördineert de resultaten van de beoordelingen en onderzoeken met de mogelijkheid van de organisatie-respons op incidenten. 
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-6 (1)** de organisatie bewaakt fysieke inbraakdetectie alarmen en toezicht apparatuur.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -297,7 +297,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-6 (4)** de organisatie bewaakt de fysieke toegang tot het informatiesysteem naast het controleren van de fysieke toegang van de faciliteit als [toewijzing: fysieke spaties organisatie gedefinieerd met een of meer onderdelen van de gegevens systeem].
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 8.** bezoeker toegangsrecords naar de faciliteit waarbij het informatiesysteem zich bevindt voor de organisatie worden bijgehouden [toewijzing: organisatie gedefinieerde periode].
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 8.b** de organisatie beoordeelt de bezoeker toegangsrecords [toewijzing: organisatie gedefinieerde frequentie].
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -339,7 +339,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-8 (1)** geautomatiseerde mechanismen ter bevordering van het onderhoud en beoordeling van de bezoeker toegangsrecords maakt gebruik van de organisatie.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -347,13 +347,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Microsoft Azure onderhoudt datacenter toegangsrecords in DCAT in de vorm van goedgekeurde DCAT aanvragen. DCAT aanvragen kunnen alleen worden goedgekeurd door het DCM-team. Toegangsniveaus in het datacenter zijn toegewezen en vanuit DCAT beheerd. Datacenter toegang wordt elk kwartaal gecontroleerd. Alle toegang tot Azure-datacenters wordt vastgelegd in DCAT en is beschikbaar voor toekomstige mogelijke onderzoeken. Bezoekers zijn vereist om te allen tijde worden escorted. Toegang tot de begeleiding binnen het datacenter wordt geregistreerd binnen het alarm bewaking van systeem en indien nodig kan worden gecorreleerd met de bezoeker voor toekomstige revisie. Bezoekerstoegang wordt altijd geëvalueerd door de toegewezen begeleiding en door het besturingselement ruimte supervisor via CCTV en het alarm bewakingssysteem. Bezoekers worden niet geleverd met toegang en moeten vergezeld gaan van hun escorts te allen tijde. |
 
 
- ## <a name="nist-800-53-control-pe-9"></a>NIST 800-53 Control PE-9
+ ## <a name="nist-800-53-control-pe-9"></a>NIST 800 53 besturingselement PE-9
 
 #### <a name="power-equipment-and-cabling"></a>Power apparatuur en bekabeling
 
 **PE-9** de organisatie beveiligt power apparatuur en power bekabeling voor het systeem gegevens tegen beschadiging en vernietigd.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -361,13 +361,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Microsoft Azure implementeert deze vereiste namens klanten. Microsoft Azure biedt beschermende spaties en de juiste labels voor kabels. Microsoft Azure-infrastructuur apparatuur, bijvoorbeeld, kabels, elektrische regels en genereren van de back-up moet worden geplaatst in omgevingen die speciaal ontwikkeld om te worden beschermd tegen milieu risico's zoals diefstal, fire, explosieven, rook, water, stof trillingen, aardbeving, schadelijke chemicaliën, elektrische storing, stroomuitval elektrische storingen (pieken). Alle draagbare onlineservices activa (bijvoorbeeld rekken, servers, netwerkapparaten) moeten worden vergrendeld of vastgemaakt plaats om te kunnen bieden bescherming tegen diefstal of verplaatsing schade. Power en informatie system-kabels in een Microsoft Azure-omgeving zijn met het label op de juiste wijze en beveiligd tegen onderschepping of beschadiging. Power en informatie system kabels worden gescheiden van elkaar op alle punten in een omgeving om te voorkomen dat de storing. |
 
 
- ## <a name="nist-800-53-control-pe-10a"></a>NIST 800-53 Control PE-10.a
+ ## <a name="nist-800-53-control-pe-10a"></a>NIST 800 53 besturingselement PE-10.a
 
 #### <a name="emergency-shutoff"></a>Noodgevallen signalen
 
 **PE 10.a** de organisatie, biedt de mogelijkheid van het afsluiten van power in de informatie system of afzonderlijke system onderdelen in noodsituaties.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -375,13 +375,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Microsoft Azure implementeert deze vereiste namens klanten. Microsoft Azure is knoppen Emergency Power uitschakelen (EPO) geïnstalleerd op locaties binnen het datacenter op lokale fire-code vereist. In sommige datacenters van Microsoft Azure beheerd moet het ontwerp datacenter niet meer EPO knoppen. |
 
 
- ## <a name="nist-800-53-control-pe-10b"></a>NIST 800-53 Control PE-10.b
+ ## <a name="nist-800-53-control-pe-10b"></a>NIST 800 53 besturingselement PE-10.b
 
 #### <a name="emergency-shutoff"></a>Noodgevallen signalen
 
 **PE 10.b** de organisatie plaatst noodgevallen signalen switches of apparaten in [toewijzing: locatie organisatie gedefinieerd door het systeem voor informatie of systeemonderdeel] veilig en eenvoudig toegang voor personeel mogelijk te maken.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -395,7 +395,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 10.c** de organisatie signalen van noodgevallen energiemogelijkheden beveiligt tegen onbevoegde activering.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -403,13 +403,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Microsoft Azure implementeert deze vereiste namens klanten. Om te voorkomen dat per ongeluk activering, mogelijk EPO knoppen hebben een beschermende behuizing, dual-activering vereist is of een akoestisch alarm gebruiken als een waarschuwing voor activering. Bovendien zijn EPO knoppen onder Videobewaking. |
 
 
- ## <a name="nist-800-53-control-pe-11"></a>NIST 800-53 Control PE-11
+ ## <a name="nist-800-53-control-pe-11"></a>NIST 800 53 besturingselement PE-11
 
 #### <a name="emergency-power"></a>Noodgevallen Power
 
 **PE-11** de organisatie biedt een korte termijn noodvoeding te vergemakkelijken [selectie (een of meer): een geordende afsluiting van het informatiesysteem; de overgang van het informatiesysteem op lange termijn alternatieve power] in geval van een primaire stroom bron uitvalt.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -423,7 +423,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-11 (1)** de organisatie een lange termijn alternatieve voeding biedt van het informatiesysteem die geschikt is voor het onderhouden van minimaal operationele functionaliteit in het geval van een uitgebreide verlies van de primaire stroombron vereist.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -431,13 +431,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Microsoft Azure is een langdurige alternatieve voeding voor het informatiesysteem die geschikt is voor het onderhouden van dat een minimaal vereiste operationele mogelijkheid wanneer een uitgebreide verlies van de primaire stroombron optreedt geïmplementeerd. Als power uitvalt of onder het niveau van een onaanvaardbaar spanning komt, wordt noodvoeding (UPS) systemen onmiddellijk starten en de power belasting overnemen. Dit biedt voldoende stroom voor het uitvoeren van de servers totdat het genereren kunnen overnemen. Noodgevallen genereren van een back-up processorvermogen voor uitgebreide onderbrekingen en voor gepland onderhoud en het datacenter met ter plaatse brandstof reserves in het geval van een natuurramp kunnen werken. Azure onderhoudt diesel generator op veel van de datacenters. Genereren van de back-up worden gebruikt wanneer dat nodig is om te raster stabiele of in buitengewone herstellen en onderhoud situaties waarvoor ons te laten de datacenters het raster power uit. |
 
 
- ## <a name="nist-800-53-control-pe-12"></a>NIST 800-53 Control PE-12
+ ## <a name="nist-800-53-control-pe-12"></a>NIST 800 53 besturingselement PE-12
 
 #### <a name="emergency-lighting"></a>Noodgevallen licht
 
 **PE-12** de organisatie de veiligheidsmaatregelen en onderhoudt automatische noodgevallen verlichtings voor het informatiesysteem die wordt geactiveerd in geval van een stroomstoring of wordt onderbroken en waarin noodgevallen wordt afgesloten en verplaatsing routes in de opslagruimte.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -445,13 +445,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Microsoft Azure implementeert deze vereiste namens klanten. Noodgevallen licht implementeren datacenters van Microsoft Azure (geleasete en volledig beheerd) in de vorm van overhead noodgevallen licht op specifieke circuits back-up gemaakt door UPS en generator-systemen (Zie PE-11). Automatische noodgevallen licht is geïmplementeerd langs alle verplaatsing routes, noodgevallen uitgangen en binnen de colocations in overeenstemming met de nationale brand en beveiliging koppeling (NFPA) levensduur veiligheid Code. In het geval dat een stroomstoring wordt verbroken, wordt automatisch het noodgevallen licht overschakelen naar power geleverd door de UPS en generator-systemen. De systemen noodgevallen licht in datacenters van Microsoft Azure ondergaan routineonderhoud om ervoor te zorgen dat ze in goede staat blijven. |
 
 
- ## <a name="nist-800-53-control-pe-13"></a>NIST 800-53 Control PE-13
+ ## <a name="nist-800-53-control-pe-13"></a>NIST 800 53 besturingselement PE-13
 
 #### <a name="fire-protection"></a>Beveiliging geactiveerd
 
 **PE-13** veiligheidsmaatregelen en onderhoudt fire onderdrukking en detectie apparaten/systemen voor het systeem gegevens die worden ondersteund door een onafhankelijke energiebron van de organisatie.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -465,7 +465,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-13 (1)** de organisatie gebruik wordt gemaakt activeert detectie apparaten/systemen voor het informatiesysteem die automatisch activeren en melden [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen] en [toewijzing: emergency organisatie gedefinieerd responders] in het geval van een brand.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -479,7 +479,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-13 (2)** de organisatie gebruik wordt gemaakt activeert onderdrukking apparaten/systemen voor het informatiesysteem waarmee u automatische meldingen van een activering [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen] en [toewijzing: organisatie gedefinieerd noodgevallen responders].
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -493,7 +493,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-13 (3)** veiligheidsmaatregelen voor de organisatie de mogelijkheid van een automatische fire onderdrukking voor het informatiesysteem wanneer de faciliteit niet doorlopend personeelsbezetting.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -507,7 +507,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 14.a** temperatuur en vochtigheid niveaus binnen de faciliteit waarbij het informatiesysteem bevindt zich op de organisatie worden bijgehouden [toewijzing: aanvaardbaar niveau organisatie gedefinieerd].
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -521,7 +521,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 14.b** de organisatie bewaakt temperatuur en vochtigheid niveaus [toewijzing: organisatie gedefinieerde frequentie].
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -535,7 +535,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-14 (2)** de organisatie de veiligheidsmaatregelen temperatuur en vochtigheid bewaking die biedt een waarschuwing of melding van wijzigingen die potentieel schadelijke aan personeel dat of apparatuur.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -549,7 +549,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-15** de organisatie het systeem gegevens beveiligt tegen schade ten gevolge van water lekken doordat master signalen of isolatie kleppen die toegankelijk, goed werkt zijn en bekende sleutel personeel.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -563,7 +563,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-15 (1)** veiligheidsmaatregelen geautomatiseerde mechanismen voor het detecteren van de aanwezigheid van water in de buurt van het systeem voor informatie en waarschuwingen voor de organisatie [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen].
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -577,7 +577,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-16** de organisatie autoriseert, bewaakt en beheert [toewijzing: organisatie gedefinieerde typen van onderdelen van het systeem] invoeren en afsluiten van de faciliteit en onderhoudt records van de items.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -591,7 +591,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 17.a** maakt gebruik van de organisatie [toewijzing: organisatie gedefinieerd beveiligingsmechanismen] op alternatieve locaties.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -605,7 +605,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 17.b** de organisatie als haalbaar evalueert, de effectiviteit van de beveiliging bepaalt op alternatieve locaties.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -619,7 +619,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE 17.c** de organisatie biedt een manier voor medewerkers kunnen communiceren met beveiligingspersoneel informatie in het geval van beveiligingsincidenten of problemen.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -633,7 +633,7 @@ ms.lasthandoff: 02/11/2018
 
 **PE-18** de organisatie posities onderdelen van het systeem binnen de faciliteit om mogelijke beschadiging van gegevens [toewijzing: organisatie gedefinieerd fysieke en omgevingsbeveiliging gevaren] en de kans voor niet-geautoriseerde minimaliseren toegang.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|

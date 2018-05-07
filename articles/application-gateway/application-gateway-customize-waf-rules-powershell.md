@@ -3,22 +3,22 @@ title: Web application firewall-regels in Azure Application Gateway - PowerShell
 description: In dit artikel bevat informatie over het aanpassen van web application firewall-regels in Application Gateway met PowerShell.
 documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.custom: 
+ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
-ms.author: davidmu
-ms.openlocfilehash: 4595864a7bc624375ba2ff6ace09ebae5b0f843a
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.author: victorh
+ms.openlocfilehash: f992fbf9ab223e18c24c27ce0577b1af2017281a
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="customize-web-application-firewall-rules-through-powershell"></a>Web application firewall-regels via PowerShell aanpassen
 

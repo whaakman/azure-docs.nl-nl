@@ -2,23 +2,23 @@
 title: Gereserveerde exemplaar van Azure-gebruik voor ondernemingen begrijpen | Microsoft Docs
 description: Informatie over het gebruik van uw toepassing van gereserveerde exemplaar voor uw Enterprise enrollment inzicht lezen.
 services: billing
-documentationcenter: 
+documentationcenter: ''
 author: manish-shukla01
 manager: manshuk
-editor: 
+editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: 515eae3c9a84a171bebc5213f5824e1b50336e34
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: cf79926e6497c50156f2a0191997ca06bc605c16
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="understand--reserved-instance-usage-for-your-enterprise-enrollment"></a>Gereserveerde exemplaar gebruiksgegevens voor uw Enterprise enrollment begrijpen
 Gebruik van gereserveerde exemplaar begrijpen met behulp van de ReservationId van [reservering pagina](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade ) en het bestand informatie over het gebruik van [EA-portal.](https://ea.azure.com) U ziet ook het gebruik van de reservering in de samenvatting van gebruik van [EA-portal.](https://ea.azure.com)

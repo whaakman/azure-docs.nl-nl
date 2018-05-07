@@ -13,26 +13,27 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/20/2018
   ms.author: bryanla
-  ms.openlocfilehash: a86827616c96dd877a88fdd89cb5b0205c2cface
-  ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+  ms.openlocfilehash: d8b144eb52400a76395096a2577fb9ecf28e01c1
+  ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
   ms.translationtype: HT
   ms.contentlocale: nl-NL
-  ms.lasthandoff: 04/28/2018
+  ms.lasthandoff: 05/03/2018
 abstract:
   description: "Welkom bij Microsoft Azure en het Internet of Things (IoT). Azure IoT is een uitgebreide verzameling services en oplossingen die zijn ontworpen om u te helpen u bij het maken van end-to-end-IoT-toepassingen in Azure. Azure IoT biedt een uitgebreide set mogelijkheden en hulpprogramma's die op uw sector, resources en vaardigheden binnen het bedrijf zijn aangepast: van volledig gehoste en beheerde SaaS-oplossingen (Software als een Service) tot afzonderlijke en gespecialiseerde PaaS-aanbiedingen (Platforms als een Service), evenals technologieën om de intelligente kant ervan te maken."
 sections:
 - title: QuickStarts van vijf minuten
   items:
   - type: paragraph
-    text: Ontdek hoe snel en gemakkelijk u over Azure IoT leert door deze snelstarts te verkennen
+    text: Lees deze artikelen voor een snelle en eenvoudige kennismaking met Azure IoT.
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/iot-central/quick-deploy-iot-central">Learn how to create a new Azure IoT Central application</a> (Informatie over hoe u een nieuwe Azure IoT Central-toepassing maakt).
-    - html: <a href="/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started">Learn how to create an IoT hub and connect your first simulated device to Azure (Node.js)</a> (Informatie over hoe u een IoT-hub maakt en uw eerste gesimuleerde apparaat met Azure (Node.js) verbindt).
-    - html: <a href="/azure/iot-edge/quickstart-linux">Deploy your first IoT Edge module and process data on a simulated device on Windows, Linux or a Mac</a> (Implementeer uw eerste IoT Edge-module en verwerk gegevens op een gesimuleerd apparaat in Windows, Linux of een Mac).
+    - html: <a href="/azure/iot-central/quick-deploy-iot-central">Leer hoe u een nieuwe Azure IoT Central-toepassing maakt.</a>
+    - html: <a href="/azure/iot-suite/iot-suite-remote-monitoring-deploy">Leer hoe u de vooraf geconfigureerde oplossing voor externe bewaking implementeert.</a>
+    - html: <a href="/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started">Leer hoe u een IoT-hub maakt en uw eerste gesimuleerde apparaat met Azure (Node.js) verbindt.</a>
+    - html: <a href="/azure/iot-edge/quickstart-linux">Implementeer uw eerste IoT Edge-module en verwerk gegevens op een gesimuleerd apparaat in Windows, Linux of een Mac).</a>
     - html: <a href="/azure/location-based-services/quick-demo-map-app">Start een kaartenzoekapp met Azure Location Based Services (preview).</a>
-    - html: <a href="/azure/time-series-insights/time-series-quickstart">Time Series Insights verkennen.</a>
+    - html: <a href="/azure/time-series-insights/time-series-quickstart">Verken Time Series Insights.</a>
 - title: Technologieën en oplossingen
   items:
   - type: paragraph
@@ -53,7 +54,7 @@ sections:
     - html: <a href="/azure/time-series-insights">Azure Time Series Insights</a>
     - html: <a href="/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks">IoT-service-SDK's</a>
   - type: paragraph
-    text: Werk aan de intelligente edge.
+    text: Bouw oplossingen met IoT-apparaten en edge computing.
   - type: list
     style: unordered
     items:

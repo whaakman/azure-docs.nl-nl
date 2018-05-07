@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/22/2018
 ms.author: davidste
-ms.openlocfilehash: e46a816b9a0d66991b8f619135b657a0d51ba395
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 039e21cb3c35f8eb024ad2fca56e8a59e3182d3a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="connector-version-release-history"></a>Releasegeschiedenis van connectorversie
 De Connectors voor Forefront Identity Manager (FIM) en Microsoft Identity Manager (MIM) worden regelmatig bijgewerkt.
@@ -32,11 +32,11 @@ In dit onderwerp lijst van alle versies van de Connectors die zijn uitgebracht.
 Verwante koppelingen:
 
 * [Download de meest recente Connectors](http://go.microsoft.com/fwlink/?LinkId=717495)
-* [Algemene LDAP-Connector](active-directory-aadconnectsync-connector-genericldap.md) documentatie verwijst naar
-* [Algemene SQL-Connector](active-directory-aadconnectsync-connector-genericsql.md) documentatie verwijst naar
+* [Algemene LDAP-Connector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap) documentatie verwijst naar
+* [Algemene SQL-Connector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql) documentatie verwijst naar
 * [Web-Services-Connector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) documentatie verwijst naar
-* [PowerShell Connector](active-directory-aadconnectsync-connector-powershell.md) documentatie verwijst naar
-* [Lotus Domino-Connector](active-directory-aadconnectsync-connector-domino.md) documentatie verwijst naar
+* [PowerShell Connector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-powershell) documentatie verwijst naar
+* [Lotus Domino-Connector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-domino) documentatie verwijst naar
 
 
 ## <a name="118300"></a>1.1.830.0
@@ -117,7 +117,7 @@ Verwante koppelingen:
 
 * Algemene SQL:
   * **Scenario: aangepast geïmplementeerd:** ' * ' functie
-  * **Beschrijving van oplossing:** gewijzigd benadering voor [met meerdere waarden verwijzing kenmerken verwerking](active-directory-aadconnectsync-connector-genericsql.md).
+  * **Beschrijving van oplossing:** gewijzigd benadering voor [met meerdere waarden verwijzing kenmerken verwerking](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql).
 
 
 ### <a name="fixed-issues"></a>Opgeloste problemen:
@@ -194,7 +194,7 @@ MA LDAP. Ze hebt u geleerd alleen objecten van de RootDSE-partitie.
 Uitgebracht: 2016 maart
 
 **Nieuwe verbindingslijn**  
-Initiële release van de [algemene SQL-Connector](active-directory-aadconnectsync-connector-genericsql.md).
+Initiële release van de [algemene SQL-Connector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql).
 
 **Nieuwe functies:**
 

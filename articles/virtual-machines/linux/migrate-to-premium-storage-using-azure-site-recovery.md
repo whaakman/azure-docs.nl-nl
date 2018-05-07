@@ -6,7 +6,7 @@ cloud: Azure
 documentationcenter: na
 author: luywang
 manager: jeconnoc
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: 5d6eb958169b7bf04e206c861250ffd98670652b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0ab8ce25e3be85061c3fc0417b30b63e04b764ab
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migreren naar Premium-opslag met behulp van Azure Site Recovery
 
@@ -157,7 +157,7 @@ Om te bevestigen dat de configuratieserver is gekoppeld aan het beleid voor wach
 
    De failover-VM heeft twee tijdelijke schijven: één van de primaire virtuele machine en de andere gemaakt tijdens het inrichten van de virtuele machine in de regio van het herstel. Als u wilt uitsluiten van de tijdelijke schijf voordat de replicatie, installeert u de mobility-service voordat u replicatie inschakelt. Zie voor meer informatie over het uitsluiten van de tijdelijke schijf, [schijven uitsluiten van replicatie](../../site-recovery/vmware-walkthrough-overview.md).
 
-2. Replicatie als volgt inschakelen:
+2. Schakel als volgt replicatie in:
    1. Selecteer **toepassing repliceren** > **bron**. Nadat u replicatie voor het eerst hebt ingeschakeld, selecteert u **+ repliceren** in de kluis aanvullende machines replicatie in te schakelen.
    2. In stap 1 voert instellen **bron** als de processerver.
    3. Geef het implementatiemodel na een failover, een premium storage-account om te migreren naar, een standaard opslagaccount logboeken en een virtueel netwerk niet opslaan in stap 2.
@@ -202,7 +202,7 @@ Site Recovery maakt een VM-exemplaar waarvan het type hetzelfde als of vergelijk
    * Voor een virtuele machine wordt gemaakt via het klassieke implementatiemodel: de virtuele machine toevoegen aan de beschikbaarheidsset voor de Azure-portal. Ga voor gedetailleerde stappen naar [een bestaande virtuele machine toevoegen aan een beschikbaarheidsset](../linux/classic/configure-availability-classic.md).
    * Voor een virtuele machine wordt gemaakt via het implementatiemodel van Resource Manager: opslaan van uw configuratie van de virtuele machine en vervolgens verwijderen en opnieuw maken van de virtuele machines in de beschikbaarheidsset. Om dit te doen, gebruikt u het script op [ingesteld Azure Resource Manager VM Beschikbaarheidsset](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). De beperkingen controleren voordat u dit script uitvoert, en de uitvaltijd plannen.
 
-2. **Verwijderen van oude VM's en schijven**. Zorg ervoor dat de Premium-schijven consistent met de schijven van de bron zijn en dat de nieuwe virtuele machines uit te dezelfde functie uit als de bron-VM's voeren. Verwijder de virtuele machine en de schijven verwijderen uit uw gegevensbron storage-accounts in de Azure portal. Als er is een probleem dat de schijf is niet verwijderd, ook al verwijderd van de virtuele machine, raadpleegt u [fouten bij het verwijderen van VHD's oplossen](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
+2. **Verwijderen van oude VM's en schijven**. Zorg ervoor dat de Premium-schijven consistent met de schijven van de bron zijn en dat de nieuwe virtuele machines uit te dezelfde functie uit als de bron-VM's voeren. Verwijder de virtuele machine en de schijven verwijderen uit uw gegevensbron storage-accounts in de Azure portal. Als er is een probleem dat de schijf is niet verwijderd, ook al verwijderd van de virtuele machine, raadpleegt u [storage resource verwijdering fouten oplossen](storage-resource-deletion-errors.md).
 
 3. **Opschonen van de Azure Site Recovery-infrastructuur**. Wanneer u Site Recovery niet langer nodig hebt, kunt u de infrastructuur opschonen. Gerepliceerde items, de configuratieserver en het herstelbeleid verwijderd en verwijder vervolgens de Azure Site Recovery-kluis.
 

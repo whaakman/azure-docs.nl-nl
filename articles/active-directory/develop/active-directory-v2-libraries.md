@@ -3,7 +3,7 @@ title: Azure Active Directory-verificatiebibliotheken voor v2.0 | Microsoft Docs
 description: Compatibel clientbibliotheken en server middleware bibliotheken en -gerelateerde bibliotheek, bron en voorbeelden koppelingen, voor het Azure Active Directory v2.0-eindpunt.
 services: active-directory
 documentationcenter: ''
-author: dstrockis
+author: SaeedAkhter-MSFT
 manager: mtillman
 editor: ''
 ms.assetid: 19cec615-e51f-4141-9f8c-aaf38ff9f746
@@ -12,19 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/22/2017
-ms.author: dastrock
+ms.date: 04/13/2018
+ms.author: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 0d9e2831f9d8676eb3e7fac91c58f3977f2e0f32
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f961f8a6795df156549eece12c2c7e4cc26713ab
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Azure Active Directory-verificatiebibliotheken voor v2.0
-De [v2.0-eindpunt voor Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare) ondersteunt de industriestandaard-protocollen voor OAuth 2.0 en OpenID Connect 1.0. U kunt verschillende bibliotheken van Microsoft en andere organisaties gebruiken met het v2.0-eindpunt.
 
-Wanneer u een toepassing die gebruikmaakt van het v2.0-eindpunt maakt, wordt aangeraden dat u bibliotheken die zijn geschreven door protocol domein experts die een methodologie Security Development Lifecycle (SDL) zoals volgen [de gevolgd door Microsoft][Microsoft-SDL]. Als u aan de hand-code-ondersteuning voor de protocollen besluit, wordt aangeraden SDL methodologie volgen en aandacht besteedt aan de beveiligingsoverwegingen in de specificaties standaarden voor elk protocol.
+De [v2.0-eindpunt voor Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare) ondersteunt de industriestandaard-protocollen voor OAuth 2.0 en OpenID Connect 1.0. De Microsoft Authentication Library (MSAL) is ontworpen voor gebruik met de Azure AD v2.0-eindpunt.  Het is ook mogelijk om te gebruiken, open source-bibliotheken die ondersteuning bieden voor OAuth 2.0 en OpenID Connect 1.0.
+
+Het verdient aanbeveling dat u bibliotheken geschreven door protocol domein experts die een methodologie Security Development Lifecycle (SDL) zoals volgen [de gevolgd door Microsoft][Microsoft-SDL]. Als u aan de hand-code-ondersteuning voor de protocollen besluit, volgt u een methodologie zoals Microsoft SDL en betalen aandacht voor zowel de beveiligingsoverwegingen in de specificaties standaarden voor elk protocol sluiten.
 
 > [!NOTE]
 > Zoekt u de Azure AD v1.0 libraries (ADAL)? Bekijk de [ADAL-bibliotheek handleiding](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries).
@@ -32,13 +33,15 @@ Wanneer u een toepassing die gebruikmaakt van het v2.0-eindpunt maakt, wordt aan
 >
 
 ## <a name="types-of-libraries"></a>Typen bibliotheken
+
 Azure AD v2.0-eindpunt werkt met twee soorten bibliotheken:
 
 * **Clientbibliotheken**. Systeemeigen clients en servers kunnen clientbibliotheken toegangstokens voor het aanroepen van een resource, zoals Microsoft Graph ophalen.
 * **Server middleware bibliotheken**. Web-apps gebruiken server middleware bibliotheken voor gebruikersaanmelding. Web-API's gebruiken server middleware bibliotheken om tokens die worden verzonden door de systeemeigen clients of door andere servers te valideren.
 
 ## <a name="library-support"></a>Bibliotheek-ondersteuning
-Omdat u kunt alle standaarden compatibele bibliotheek kiezen kunt wanneer u het v2.0-eindpunt, is het belangrijk te weten waar u voor ondersteuning. Neem contact op met de eigenaar van de bibliotheek voor problemen en functie-aanvragen in de bibliotheek-code. Neem contact op met Microsoft voor problemen en functie-aanvragen in de protocolimplementatie aan servicezijde.
+
+Omdat u kunt alle standaarden compatibele bibliotheek kiezen kunt wanneer u het v2.0-eindpunt, is het belangrijk te weten waar u voor ondersteuning. Neem contact op met de eigenaar van de bibliotheek voor problemen en functie-aanvragen in de bibliotheek-code. Neem contact op met Microsoft voor problemen en functie-aanvragen in de protocolimplementatie aan servicezijde. [Aanvragen van functie](https://feedback.azure.com/forums/169401-azure-active-directory) voor aanvullende functies die u zou willen zien in het protocol. [Maak een ondersteuningsaanvraag](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request) als u een probleem vindt waarbij het Azure AD v2.0-eindpunt is niet compatibel met OAuth 2.0- of OpenID Connect 1.0.
 
 Bibliotheken zijn twee categorieën van ondersteuning:
 
@@ -47,11 +50,10 @@ Bibliotheken zijn twee categorieën van ondersteuning:
 
 Zie de volgende secties in dit artikel voor een lijst met bibliotheken die met het v2.0-eindpunt werken.
 
-
 ## <a name="microsoft-supported-client-libraries"></a>Microsoft ondersteunde clientbibliotheken
 
 > [!IMPORTANT]
-> De MSAL preview bibliotheken zijn geschikt voor gebruik in een productieomgeving. We bieden dezelfde productie niveau ondersteuning voor deze bibliotheken zoals wij onze huidige productie-bibliotheken (ADAL doen). Tijdens de preview kunnen we wijzigingen aanbrengen in de API MSAL indeling van de interne cache en andere mechanismen van deze bibliotheken zonder voorafgaande kennisgeving u moet te laten samen met oplossingen voor problemen of verbeterde functies. Dit mogelijk invloed op uw toepassing. Bijvoorbeeld, kan een wijziging in de cache-indeling van uw gebruikers, zoals het vereisen dat ze opnieuw aanmelden invloed. Een wijziging in de API moet u mogelijk het bijwerken van uw code. Wanneer we de algemene beschikbaarheid release die we moet u bijwerken naar de versie van de algemene beschikbaarheid binnen zes maanden opgeeft, als toepassingen die zijn geschreven met behulp van een preview werkt-versie van de bibliotheek niet meer.
+> De MSAL preview bibliotheken zijn geschikt voor gebruik in een productieomgeving. Microsoft biedt dezelfde productie niveau ondersteuning voor deze bibliotheken als de huidige productie libraries (ADAL). Tijdens de preview verwachten dat de wijzigingen in de API MSAL indeling van de interne cache en andere mechanismen van deze bibliotheken zonder voorafgaande kennisgeving u moet te laten samen met oplossingen voor problemen of verbeterde functies. Dit mogelijk invloed op uw toepassing. Een wijziging in de cache-indeling moet bijvoorbeeld mogelijk uw gebruikers zich opnieuw aanmelden. Een wijziging in de API moet u mogelijk het bijwerken van uw code. Wanneer de algemene beschikbaarheid (GA)-versie beschikbaar komt, alle toepassingen met een preview-versie van de tapewisselaar moeten binnen zes maanden bijwerken of ze meer werken.
 
 | Platform | Bibliotheek | Downloaden | Broncode | Voorbeeld | Referentie
 | --- | --- | --- | --- | --- | --- |
@@ -64,8 +66,8 @@ Zie de volgende secties in dit artikel voor een lijst met bibliotheken die met h
 
 | Platform | Bibliotheek | Downloaden | Broncode | Voorbeeld | Referentie
 | --- | --- | --- | --- | --- | --- |
-| .NET 4.x | OWIN OpenID Connect middleware |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect) |[CodePlex](http://katanaproject.codeplex.com) |[MVC-App](guidedsetups/active-directory-serversidewebapp-aspnetwebappowin-intro.md) | |
-| .NET 4.x | OWIN OAuth Bearer-middleware voor AzureAD |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[CodePlex](http://katanaproject.codeplex.com) |  | |
+| .NET 4.x | OWIN OpenID Connect middleware |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect) |[GitHub](https://github.com/aspnet/AspNetKatana/) |[MVC-App](guidedsetups/active-directory-serversidewebapp-aspnetwebappowin-intro.md) | |
+| .NET 4.x | OWIN OAuth Bearer-middleware voor AzureAD |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[GitHub](https://github.com/aspnet/AspNetKatana/) |  | |
 | .NET 4.x | JWT-Handler voor .NET 4.5 | [NuGet](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt/4.0.4.403061554) | [GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
 | .NET Core | ASP.NET-middleware OpenID Connect |[Microsoft.AspNetCore.Authentication.OpenIdConnect (NuGet)][ServerLib-NetCore-Owin-Oidc-Lib] |[ASP.NET-beveiliging (GitHub)][ServerLib-NetCore-Owin-Oidc-Repo] |[MVC-app](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-v2) |
 | .NET Core | OAuth-Bearer-middleware voor ASP.NET |[Microsoft.AspNetCore.Authentication.OAuth (NuGet)][ServerLib-NetCore-Owin-Oauth-Lib] |[ASP.NET-beveiliging (GitHub)][ServerLib-NetCore-Owin-Oauth-Repo] |  |
@@ -73,13 +75,14 @@ Zie de volgende secties in dit artikel voor een lijst met bibliotheken die met h
 | Node.js |Azure AD-Passport |[npm](https://www.npmjs.com/package/passport-azure-ad) |[GitHub](https://github.com/AzureAD/passport-azure-ad) | [Web-app](active-directory-v2-devquickstarts-node-web.md)| |
 
 ## <a name="compatible-client-libraries"></a>Compatibel clientbibliotheken
+
 | Platform | Bibliotheeknaam | Geteste versie | Broncode | Voorbeeld |
 |:---:|:---:|:---:|:---:|:---:|
-| Android |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib/wiki) |0.2.1 |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib) |[Voorbeeld van de systeemeigen app](active-directory-v2-devquickstarts-android.md) |
+| Android |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib/) |0.2.1 |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib) |[Voorbeeld van de systeemeigen app](active-directory-v2-devquickstarts-android.md) |
 | iOS |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |1.2.8 |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |[Voorbeeld van de systeemeigen app](active-directory-v2-devquickstarts-ios.md) |
 | Javascript |[Hello.js](https://adodson.com/hello.js/) |1.13.5 |[Hello.js](https://github.com/MrSwitch/hello.js) |[SPA](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |
-| Java | [Notulist Java scribejava](https://github.com/scribejava/scribejava) | [Versie 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [ScribeJava](https://github.com/scribejava/scribejava/archive/scribejava-3.2.0.zip) | |
-| PHP | [De PHP-League oauth2-client](https://github.com/thephpleague/oauth2-client) | [1.4.2 versie](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [oauth2-client](https://github.com/thephpleague/oauth2-client/archive/1.4.2.zip) | |
+| Java | [Notulist Java scribejava](https://github.com/scribejava/scribejava) | [Versie 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [ScribeJava](https://github.com/scribejava/scribejava/) | |
+| PHP | [De PHP-League oauth2-client](https://github.com/thephpleague/oauth2-client) | [1.4.2 versie](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [oauth2-client](https://github.com/thephpleague/oauth2-client/) | |
 | Ruby |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth:1.3.1</br>omniauth-oauth2:1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)</br>[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |
 
 ## <a name="related-content"></a>Gerelateerde inhoud

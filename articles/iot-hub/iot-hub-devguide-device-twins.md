@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01e94298aa3691d5bce33a12745b54fd398c7ad3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ef048967bc08fed1a108872d2d7eecc2a66993fa
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Begrijpen en gebruiken van apparaat horende in IoT-Hub
 
@@ -187,7 +187,7 @@ De back-end van de oplossing is van invloed op het apparaat twin met behulp van 
     deviceId | ID van het apparaat |
     hubName | Naam van de IoT-Hub |
     operationTimestamp | [ISO8601] tijdstempel van bewerking |
-    iothub-message-schema | deviceLifecycleNotification |
+    bericht-iothub-schema | deviceLifecycleNotification |
     opType | 'replaceTwin' of 'updateTwin' |
 
     Bericht Systeemeigenschappen worden voorafgegaan door de `'$'` symbool.
@@ -318,7 +318,7 @@ Bijvoorbeeld:
 
 Deze informatie wordt opgeslagen op elk niveau (niet alleen de knooppunten van de JSON-structuur)-updates die objectsleutels verwijderen moet worden bewaard.
 
-## <a name="optimistic-concurrency"></a>Optimistische gelijktijdigheid
+## <a name="optimistic-concurrency"></a>Optimistische gelijktijdige uitvoering
 Labels, gewenst en eigenschappen van alle ondersteuning optimistische gelijktijdigheid gerapporteerd.
 Labels hebben een ETag conform [RFC7232], die staat voor de JSON-weergave van de tag. U kunt ETags in voorwaardelijke bijwerkbewerkingen van de back-end oplossing gebruiken om consistentie te garanderen.
 
@@ -352,6 +352,7 @@ Er zijn andere onderwerpen waarnaar wordt verwezen in de IoT Hub developer guide
 ## <a name="next-steps"></a>Volgende stappen
 Nu hebt u geleerd over horende apparaat, hebt u mogelijk geïnteresseerd in de volgende onderwerpen van IoT Hub developer guide:
 
+* [Begrijpen en gebruiken van module horende in IoT-Hub][lnk-module-twins]
 * [Een directe methode aangeroepen voor een apparaat][lnk-methods]
 * [Taken plannen op meerdere apparaten][lnk-jobs]
 
@@ -385,5 +386,6 @@ Als u wilt uitproberen enkele concepten die worden beschreven in dit artikel, Zi
 [lnk-twin-metadata]: iot-hub-devguide-device-twins.md#device-twin-metadata
 [lnk-concurrency]: iot-hub-devguide-device-twins.md#optimistic-concurrency
 [lnk-reconnection]: iot-hub-devguide-device-twins.md#device-reconnection-flow
+[lnk-module-twins]:iot-hub-devguide-module-twins.md
 
 [img-twin]: media/iot-hub-devguide-device-twins/twin.png

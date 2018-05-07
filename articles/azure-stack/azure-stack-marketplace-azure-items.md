@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 1081fe9f8aceb6b849d595177b7c7cac2a26cbfc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 79161d0be407a5b5692e1ad0ee25c609aefb2fb5
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-items beschikbaar voor Azure-Stack
 
@@ -82,6 +82,7 @@ Microsoft Azure-Stack ondersteunt de volgende Azure Marketplace virtuele machine
 ## <a name="linux-distributions"></a>Linux-distributies
 |  | De itemnaam van het | Beschrijving | Uitgever |
 | --- | --- | --- | --- |
+| ![Schakel Linux OS](media/azure-stack-marketplace-azure-items/clearlinux.png) | [Schakel Linux OS](https://azuremarketplace.microsoft.com/marketplace/apps/clear-linux-project.clear-linux-os) | Een verwijzing van Linux-distributie is geoptimaliseerd voor Intel-architectuur. | Linux-Project wissen |
 | ![Container Linux door virtuele CoreOS](media/azure-stack-marketplace-azure-items/coreos.png) | [Container Linux door virtuele CoreOS](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | Container Linux is een moderne en minimale Linux-distributie bieden een eenvoudige manier om containers worden uitgevoerd, clusters beheren en uw servers naadloos bijwerken - alle onderdelen waarmee datawarehouse scale compute. | CoreOS |
 | ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu Server is de meest populaire Linux's werelds voor cloudomgevingen. | Canonical |
 | ![Debian 8 'Jessie'](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 'Jessie'](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | Debian GNU/Linux is een van de meest populaire Linux-distributies. | credativ |

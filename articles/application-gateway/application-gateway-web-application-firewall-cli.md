@@ -2,30 +2,30 @@
 title: Een toepassingsgateway maken met een web application firewall - Azure CLI | Microsoft Docs
 description: Informatie over het maken van een toepassingsgateway met web application firewall via de Azure CLI.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
-ms.author: davidmu
-ms.openlocfilehash: 611e9b27baeddf61531421d7ad2bed20188ad279
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: victorh
+ms.openlocfilehash: 87125b68c81af07d0ecd9693fdf7e2dc00a93324
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-cli"></a>Een toepassingsgateway maken met een web application firewall met de Azure CLI
 
 U kunt de Azure CLI gebruiken voor het maken een [toepassingsgateway](application-gateway-introduction.md) met een [web application firewall](application-gateway-web-application-firewall-overview.md) (WAF) die gebruikmaakt van een [virtuele-machineschaalset](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Het gebruik van WAF [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) regels voor het beveiligen van uw toepassing. Deze regels omvatten bescherming tegen aanvallen, zoals SQL-injectie, cross-site scripting aanvallen en sessie hijacks. 
 
-In dit artikel leert u hoe:
+In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
 > * Instellen van het netwerk
 > * Een toepassingsgateway maken met WAF ingeschakeld
-> * Maken van een virtuele-machineschaalset
+> * Een virtuele-machineschaalset maken
 > * Een opslagaccount maken en configureren van diagnostische gegevens
 
 ![Web application firewall voorbeeld](./media/application-gateway-web-application-firewall-cli/scenario-waf.png)
@@ -34,7 +34,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Als u wilt installeren en gebruiken van de CLI lokaal, in deze zelfstudie vereist dat u de Azure CLI versie 2.0.4 zijn uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze zelfstudie Azure CLI 2.0.4 of nieuwer uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
@@ -44,7 +44,7 @@ Een resourcegroep is een logische container waarin Azure-resources worden geïmp
 az group create --name myResourceGroupAG --location eastus
 ```
 
-## <a name="create-network-resources"></a>Maken van netwerkbronnen
+## <a name="create-network-resources"></a>Netwerkbronnen maken
 
 Het virtuele netwerk en subnetten worden gebruikt voor het bieden van de netwerkverbinding met de toepassingsgateway en de bijbehorende bronnen. Maken van het virtuele netwerk met de naam *myVNet* en subnet met de naam *myAGSubnet* met [az network vnet maken](/cli/azure/network/vnet#az_network_vnet_create) en [az network vnet subnet maken](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Maken van een openbaar IP-adres met de naam *myAGPublicIPAddress* met [az netwerk openbare ip-maken](/cli/azure/network/public-ip#az_network_public_ip_create).
 
@@ -100,7 +100,7 @@ Duurt enkele minuten voor de toepassingsgateway moet worden gemaakt. Nadat de to
 - *appGatewayFrontendIP* -wijst *myAGPublicIPAddress* naar *appGatewayHttpListener*.
 - *Rule1* : de regel die is gekoppeld aan routering standaard *appGatewayHttpListener*.
 
-## <a name="create-a-virtual-machine-scale-set"></a>Maken van een virtuele-machineschaalset
+## <a name="create-a-virtual-machine-scale-set"></a>Een virtuele-machineschaalset maken
 
 In dit voorbeeld maakt u een virtuele-machineschaalset met twee servers voor de back endpool in de toepassingsgateway. De virtuele machines in de schaalset zijn gekoppeld aan de *myBackendSubnet* subnet. Maken van de schaal ingesteld, kunt u [az vmss maken](/cli/azure/vmss#az_vmss_create).
 
@@ -129,14 +129,14 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],"commandToExecute": "./install_nginx.sh" }'
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"],"commandToExecute": "./install_nginx.sh" }'
 ```
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>Een opslagaccount maken en configureren van diagnostische gegevens
 
 In deze zelfstudie gebruikt de toepassingsgateway een opslagaccount voor het opslaan van gegevens voor detectie en preventie doeleinden. U kunt ook logboekanalyse of Event Hub gebruiken om gegevens te noteren. 
 
-### <a name="create-a-storage-account"></a>Een opslagaccount maken
+### <a name="create-a-storage-account"></a>Create a storage account
 
 Maken van een opslagaccount met de naam *myagstore1* met [az storage-account maken](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_create).
 
@@ -163,7 +163,7 @@ az monitor diagnostic-settings create --name appgwdiag --resource $appgwid \
 
 ## <a name="test-the-application-gateway"></a>Testen van de toepassingsgateway
 
-Als u het openbare IP-adres van de toepassingsgateway, gebruikt [az netwerk openbare ip-weergeven](/cli/azure/network/public-ip#az_network_public_ip_show). Het openbare IP-adres Kopieer en plak deze in de adresbalk van uw browser.
+Als u het openbare IP-adres van de toepassingsgateway, gebruikt [az netwerk openbare ip-weergeven](/cli/azure/network/public-ip#az_network_public_ip_show). Kopieer het openbare IP-adres en plak het in de adresbalk van de browser.
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -182,7 +182,7 @@ In deze zelfstudie heeft u het volgende geleerd:
 > [!div class="checklist"]
 > * Instellen van het netwerk
 > * Een toepassingsgateway maken met WAF ingeschakeld
-> * Maken van een virtuele-machineschaalset
+> * Een virtuele-machineschaalset maken
 > * Een opslagaccount maken en configureren van diagnostische gegevens
 
 Blijven de artikelen voor meer informatie over Toepassingsgateways en de bijbehorende resources.

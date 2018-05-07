@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 05/02/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 2d9e0fc50bed4e8301a24a062407b490d688803d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 690bfa55166b6d5d4e418daa321fafad2f4b6293
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="what-is-azure-load-balancer"></a>Wat is Azure Load Balancer?
 
@@ -73,7 +73,11 @@ Load Balancer biedt de volgende fundamentele mogelijkheden voor TCP en UDP-toepa
 
 * **Toepassing agnostisch en transparante**
 
-    Load Balancer communiceert rechtstreeks niet met TCP of UDP of de toepassingslaag en eventuele TCP of UDP-toepassingsscenario kan worden ondersteund. Bijvoorbeeld, hoewel Load Balancer TLS zelf niet beëindigt, kunt u bouwen en TLS toepassingen uitbreiden met behulp van de Load Balancer en vervolgens de TLS-verbinding op de virtuele machine zelf te beëindigen. Load Balancer niet beëindigt een stroom en protocol handshakes optreden altijd rechtstreeks tussen de client en het exemplaar van de back-end-pool hash is geselecteerd. Bijvoorbeeld, een TCP-handshake wordt altijd optreedt tussen de client en de geselecteerde back-end-VM. Een reactie op een aanvraag naar een front-end heeft een indeling die wordt gegenereerd van de back-end-VM. Uitgaande netwerkprestaties van Load Balancer wordt alleen beperkt door de VM-SKU u kiest en stromen blijven bestaan voor lange tijd als de time-out voor inactiviteit is nooit bereikt.
+    Load Balancer communiceert rechtstreeks niet met TCP of UDP of de toepassingslaag en eventuele TCP of UDP-toepassingsscenario kan worden ondersteund.  Load Balancer niet beëindigen of afkomstig zijn van stromen, communiceren met de nettolading van de stroom biedt geen application layer gateway-functie en protocol handshakes optreden altijd rechtstreeks tussen de client en de back-endpool-instantie.  Een reactie op een binnenkomende stroom is altijd een reactie van een virtuele machine.  Als de stroom is bereikt op de virtuele machine, wordt het oorspronkelijke IP-bronadres ook behouden.  Een aantal voorbeelden ter illustratie van verdere transparantie:
+    - Een TCP-handshake vindt altijd plaats tussen de client en de geselecteerde back-end-VM. Een reactie van een aanvraag naar een front-end heeft een indeling die is gegenereerd door de back-end-VM. Valideren van verbindingen voor dit scenario moet u TCP-ping.  Gebruik [psping om](https://docs.microsoft.com/en-us/sysinternals/downloads/psping) of [nmap](https://nmap.org) om te controleren of een handshake met een goede virtuele machine is geslaagd. Houd er rekening mee ICMP is van een ander IP-protocol dan UDP of TCP- en niet wordt ondersteund voor dit doel.
+    - Nettoladingen van toepassing zijn transparant voor de Load Balancer en eventuele UDP of TCP-gebaseerde toepassing kan worden ondersteund. Voor werkbelastingen waarvoor per verwerking van HTTP-aanvraag of manipuleren van application layer nettoladingen (bijvoorbeeld bij het parseren van HTTP-URL's), moet u een laag 7 load balancer zoals [Application Gateway](https://azure.microsoft.com/en-us/services/application-gateway).
+    - Omdat de Load Balancer is agnostisch ten opzichte van de nettolading van de TCP- en TLS-offload ('SSL') is niet opgegeven, kunt u complete versleutelde scenario's met Load Balancer bouwen en grote scale-out voor TLS toepassingen krijgen door de TLS-verbinding op de virtuele machine zelf wordt beëindigd.  De TLS-sessie voor het versleutelen van capaciteit is bijvoorbeeld alleen beperkt door het type en aantal virtuele machines die u aan de groep back-end toevoegt.  Als u 'SSL-offloading', application layer behandeling of wenst te delegeren Certificaatbeheer naar Azure vereist, moet u Azure laag 7 load balancer [Application Gateway](https://azure.microsoft.com/en-us/services/application-gateway) in plaats daarvan.
+        
 
 * **Automatische herconfiguratie**
 

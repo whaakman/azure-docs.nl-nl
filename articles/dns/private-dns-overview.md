@@ -4,7 +4,7 @@ description: Overzicht van persoonlijke DNS hostingservice op Microsoft Azure.
 services: dns
 documentationcenter: na
 author: KumudD
-manager: jennoc
+manager: jeconnoc
 editor: ''
 ms.assetid: ''
 ms.service: dns
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2018
 ms.author: kumud
-ms.openlocfilehash: 7f1bd8cdcab7bdd61b3f006acf6090c53db8eda6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1c805819a22d26e650d13b0e41ebac00c4e52d91
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="using-azure-dns-for-private-domains"></a>Azure DNS gebruiken voor persoonlijke domeinen
 Het Domain Name System en DNS, is verantwoordelijk voor het omzetten van (of het oplossen van) de naam van een service het IP-adres. Azure DNS is een hosting service voor DNS-domeinen omzetten van namen met behulp van de Microsoft Azure-infrastructuur.  Naast internet gerichte DNS-domeinen ondersteunt Azure DNS ook nu persoonlijke DNS-domeinen als preview-functie.  
@@ -75,7 +75,7 @@ Persoonlijke DNS-zones is gratis tijdens de openbare preview. Deze functie wordt
 
 Informatie over het maken van een persoonlijke zone in Azure DNS met behulp van de [PowerShell](./private-dns-getstarted-powershell.md) of [CLI](./private-dns-getstarted-cli.md).
 
-Lees informatie over enkele algemene scenario's [persoonlijke Zone scenario's](./private-dns-scenarios.md) die kunnen worden gerealiseerd met privé-Zones in Azure DNS.
+Lees meer over een aantal veelvoorkomende [Privézone-scenario's](./private-dns-scenarios.md) die u kunt realiseren met Privézones in Azure DNS.
 
 Lees informatie over de [Veelgestelde vragen over](./dns-faq.md#private-dns) voor enkele veelgestelde vragen en antwoorden op persoonlijke Zones in Azure DNS, inclusief specifiek gedrag kunt u verwachten voor bepaalde soorten bewerkingen. 
 

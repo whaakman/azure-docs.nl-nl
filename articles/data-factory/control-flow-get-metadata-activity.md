@@ -12,34 +12,73 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 04/30/2018
 ms.author: shlo
-ms.openlocfilehash: e8e40b763f0c6f1f994535ab2ff335cfcbf02cf7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5c81c73bd563dd75103ed0fcb45cbc2205eed02a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Ophalen van metagegevens van activiteit in Azure Data Factory
-De Get Metadata Activity kan worden gebruikt voor het ophalen van metagegevens van gegevens in Azure Data Factory. Deze activiteit wordt alleen ondersteund voor data Factory van versie 2. Het kan worden gebruikt in de volgende scenario's:
+GetMetadata activiteit kan worden gebruikt voor het ophalen van **metagegevens** van alle gegevens in Azure Data Factory. Deze activiteit wordt alleen ondersteund voor data Factory van versie 2. Het kan worden gebruikt in de volgende scenario's:
 
 - De informatie over de metagegevens van alle gegevens valideren
 - Een pijplijn wordt geactiveerd wanneer gegevens gereed / beschikbaar
 
 De volgende functionaliteit is beschikbaar in de Controlestroom:
+
 - De uitvoer van activiteit GetMetadata kan worden gebruikt in voorwaardelijke expressies validatie uitvoeren.
 - Een pijplijn kan worden geactiveerd als voorwaarde wordt voldaan via komen-totdat herhalen
-
-Het duurt GetMetadata activiteit een gegevensset als een vereiste invoer en uitvoer metagegevensinformatie beschikbaar als uitvoer. Alleen Azure blob-gegevensset wordt momenteel ondersteund. De metagegevensvelden ondersteunde zijn grootte, structuur en lastModified-tijd.  
 
 > [!NOTE]
 > Dit artikel is van toepassing op versie 2 van Data Factory, dat zich momenteel in de previewfase bevindt. Als u van versie 1 van de Data Factory-service gebruikmaakt (GA) is algemeen beschikbaar is, raadpleegt u [Data Factory V1 documentatie](v1/data-factory-introduction.md).
 
+## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
+
+De activiteit GetMetadata duurt een gegevensset als een vereiste invoer en uitvoer van de metagegevens beschikbaar als uitvoer van activiteit. Op dit moment wordt worden de volgende connectors met bijbehorende ophalen mogelijk meatadata ondersteund:
+
+### <a name="supported-connectors"></a>Ondersteunde connectors
+
+**Opslag van bestanden:**
+
+| Connector-Metadata | itemName<br>(bestand/map) | itemType<br>(bestand/map) | grootte<br>(bestand) | gemaakt<br>(bestand/map) | LastModified<br>(bestand/map) |childItems<br>(map) |contentMD5<br>(bestand) | structuur<br/>(bestand) | aantal kolommen<br>(bestand) | Er bestaat<br>(bestand/map) |
+|:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
+| Azure Blob | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
+| Azure Data Lake Store | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| Azure File Storage | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
+| Bestandssysteem | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
+| SFTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| FTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+
+**Relationele database:**
+
+| Connector-Metadata | structuur | aantal kolommen | Er bestaat |
+|:--- |:--- |:--- |:--- |
+| Azure SQL Database | √ | √ | √ |
+| Azure SQL Data Warehouse | √ | √ | √ |
+| SQL Server | √ | √ | √ |
+
+### <a name="metadata-options"></a>Opties voor metagegevens
+
+De volgende typen van de metagegevens kunnen worden opgegeven in de lijst met GetMetadata activiteit om op te halen:
+
+| Metagegevens van type | Beschrijving |
+|:--- |:--- |
+| itemName | Naam van het bestand of map. |
+| itemType | Type van het bestand of map. Uitvoerwaarde `File` of `Folder`. |
+| grootte | De grootte van het bestand in bytes. Van toepassing op het bestand alleen. |
+| gemaakt | Gemaakte datum/tijd van het bestand of map. |
+| LastModified | Datum/tijd van het bestand of map het laatst is gewijzigd. |
+| childItems | Lijst met submappen en bestanden in de opgegeven map. Van toepassing op de map alleen. Uitvoerwaarde is een lijst met de naam en type van elk onderliggend item. |
+| contentMD5 | MD5 van het bestand. Van toepassing op het bestand alleen. |
+| structuur | De structuur van de gegevens in het bestand of de relationele database-tabel. Waarde voor uitvoer is een lijst met de naam van kolom en kolomtype. |
+| aantal kolommen | Het aantal kolommen in het bestand of de relationele tabel. |
+| Er bestaat| Hiermee wordt aangegeven of een bestand/map/tabel of niet bestaat. Opmerking zolang 'bestaat' is opgegeven in de veldenlijst GetaMetadata dat de activiteit treedt er geen fout zelfs als het item (bestand/map/tabel) bestaat niet; in plaats daarvan de methode retourneert `exists: false` in de uitvoer. |
 
 ## <a name="syntax"></a>Syntaxis
 
-### <a name="get-metadata-activity-definition"></a>De definitie van metagegevens activiteit ophalen:
-In het volgende voorbeeld retourneert de activiteit GetMetadata metagegevens over de gegevens die wordt vertegenwoordigd door de MyDataset. 
+**GetMetadata activiteit:**
 
 ```json
 {
@@ -54,7 +93,8 @@ In het volgende voorbeeld retourneert de activiteit GetMetadata metagegevens ove
     }
 }
 ```
-### <a name="dataset-definition"></a>De definitie van de gegevensset:
+
+**Gegevensset:**
 
 ```json
 {
@@ -77,27 +117,65 @@ In het volgende voorbeeld retourneert de activiteit GetMetadata metagegevens ove
 }
 ```
 
-### <a name="output"></a>Uitvoer
+## <a name="type-properties"></a>Type-eigenschappen
+
+GetMetadata activiteit kunt momenteel de volgende soorten informatie over metagegevens ophalen.
+
+Eigenschap | Beschrijving | Vereist
+-------- | ----------- | --------
+Veldenlijst | Bevat de typen metagegevens die zijn vereist. Zie voor meer informatie [opties voor metagegevens](#metadata-options) sectie op ondersteunde metagegevens. | Nee 
+Gegevensset | De verwijzingsgegevensset waarvan activiteit metagegevens worden opgehaald door de activiteit GetMetadata is. Zie [ondersteunde mogelijkheden](#supported-capabilities) sectie op ondersteunde connectors en verwijzen naar de connector onderwerp bij de details van de syntaxis van de gegevensset. | Ja
+
+## <a name="sample-output"></a>Voorbeelduitvoer
+
+Het resultaat GetMetadata wordt weergegeven in de uitvoer van activiteit. Hieronder vindt u twee voorbeelden met opties voor volledige metagegevens geselecteerd in de lijst met velden als verwijzing:
+
+### <a name="get-a-files-metadata"></a>Ophalen van metagegevens van het bestand
+
 ```json
 {
-    "size": 1024,
-    "structure": [
-        {
-            "name": "id",
-            "type": "Int64"
-        }, 
-    ],
-    "lastModified": "2016-07-12T00:00:00Z"
+  "exists": true,
+  "itemName": "test.csv",
+  "itemType": "File",
+  "size": 104857600,
+  "lastModified": "2017-02-23T06:17:09Z",
+  "created": "2017-02-23T06:17:09Z",
+  "contentMD5": "cMauY+Kz5zDm3eWa9VpoyQ==",
+  "structure": [
+    {
+        "name": "id",
+        "type": "Int64"
+    },
+    {
+        "name": "name",
+        "type": "String"
+    }
+  ],
+  "columnCount": 2
 }
 ```
 
-## <a name="type-properties"></a>Type-eigenschappen
-GetMetadata activiteit kunt momenteel de volgende soorten informatie over metagegevens ophalen van een Azure-opslag-gegevensset.
+### <a name="get-a-folders-metadata"></a>Een map metagegevens ophalen
 
-Eigenschap | Beschrijving | Toegestane waarden | Vereist
--------- | ----------- | -------------- | --------
-Veldenlijst | Bevat de typen metagegevens die zijn vereist.  | <ul><li>grootte</li><li>structuur</li><li>lastModified</li></ul> |    Nee<br/>Als dit leeg is, retourneert activiteit alle 3 ondersteunde metagegevens. 
-dataset | De verwijzingsgegevensset waarvan activiteit metagegevens worden opgehaald door de activiteit GetMetadata is. <br/><br/>Type momenteel ondersteunde dataset is Azure-Blob. Er zijn twee sub-eigenschappen: <ul><li><b>naamverwijzing</b>: verwijzing naar een bestaande Azure Blob-gegevensset</li><li><b>type</b>: omdat de gegevensset wordt verwezen, is van het type 'DatasetReference'</li></ul> |    <ul><li>Tekenreeks</li><li>DatasetReference</li></ul> | Ja
+```json
+{
+  "exists": true,
+  "itemName": "testFolder",
+  "itemType": "Folder",
+  "lastModified": "2017-02-23T06:17:09Z",
+  "created": "2017-02-23T06:17:09Z",
+  "childItems": [
+    {
+      "name": "test.avro",
+      "type": "File"
+    },
+    {
+      "name": "folder hello",
+      "type": "Folder"
+    }
+  ]
+}
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie andere controlestroomactiviteiten die door Data Factory worden ondersteund: 

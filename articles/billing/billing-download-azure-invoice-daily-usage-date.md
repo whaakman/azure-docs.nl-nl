@@ -2,26 +2,26 @@
 title: Azure-facturering facturen en dagelijks gebruiksgegevens downloaden | Microsoft Docs
 description: Beschrijft hoe downloaden of weergeven van uw Azure facturen en dagelijks gebruik factureringsgegevens.
 keywords: factuur, factuur downloaden, azure factuur, azure gebruik
-services: 
-documentationcenter: 
+services: ''
+documentationcenter: ''
 author: genlin
 manager: tonguyen
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 6d568d1d-3bd6-4348-97d0-1098b5fe0661
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eea55735d0e17de4fe543847d0d521b0e8c0c3f7
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 6fa9f9ae4ef2bd39f3c6d3ec7c6d757aa50b2fd1
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Downloaden of uw Azure-factuur en de dagelijkse gebruiksgegevens weergeven
 U kunt downloaden via uw factuur van de [Azure-portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) of wordt verzonden in e-mailbericht. Het gebruik van uw dagelijkse downloaden, gaat u naar de [Azure-Accountcentrum](https://account.azure.com/Subscriptions). Alleen bepaalde functies gemachtigd factuur en informatie over het gebruik, zoals de accountbeheerder. Zie voor meer informatie over het verkrijgen van toegang tot factureringsgegevens, [beheren van toegang tot Azure-facturering rollen](billing-manage-access.md).
@@ -90,7 +90,7 @@ Alleen de accountbeheerder toegang tot het Azure-Accountcentrum. Andere facturer
 
 Zie voor meer informatie over het gebruik van uw dagelijkse [inzicht in uw factuur voor Microsoft Azure](billing-understand-your-bill.md). Zie voor meer informatie over het beheren van kosten [te voorkomen dat onverwachte kosten met Azure-facturering en kostenbeheer](billing-getting-started.md).
 
-## <a name="noinvoice"></a>Waarom zie ik een factuur niet voor de laatste factureringsperiode?
+## <a name="noinvoice"></a> Waarom zie ik een factuur niet voor de laatste factureringsperiode?
 
 Er zijn diverse redenen dat een factuur niet wordt weergegeven:
 

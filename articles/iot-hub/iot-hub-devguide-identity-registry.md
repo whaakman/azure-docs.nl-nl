@@ -5,7 +5,7 @@ services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0706eccd-e84c-4ae7-bbd4-2b1a22241147
 ms.service: iot-hub
 ms.devlang: multiple
@@ -15,24 +15,24 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 50020f007096b45b843515ff765e40c550fcf4e3
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 8c90bc4945b613f386f98178949e5451e8fe3673
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Inzicht in het identiteitenregister van uw IoT-hub
 
-Elke iothub heeft een register-id's die worden opgeslagen informatie over de apparaten die verbinding mogen maken met de IoT-hub. Voordat een apparaat verbinding naar een iothub maken kan, moet er een vermelding voor het apparaat in het identiteitenregister van de IoT-hub. Een apparaat moet ook worden geverifieerd met de IoT-hub die op basis van de referenties die zijn opgeslagen in het identiteitsregister.
+Elke iothub heeft een identity-registry die informatie over de apparaten en de modules die verbinding mogen opgeslagen maken met de IoT-hub. Voordat een apparaat of de module verbinding met een IoT-hub maken kan, moet er een vermelding voor het apparaat of de module in het identiteitenregister van de IoT-hub. Een apparaat of de module moet ook worden geverifieerd met de IoT-hub die op basis van de referenties die zijn opgeslagen in het identiteitsregister.
 
-De apparaat-ID die is opgeslagen in het identiteitenregister is hoofdlettergevoelig.
+De apparaat- of module-ID opgeslagen in het identiteitenregister is hoofdlettergevoelig.
 
-Op een hoog niveau is het identiteitsregister een REST-compatibele verzameling apparaatbronnen identiteit. Wanneer u een vermelding in het identiteitenregister toevoegt, maakt de IoT Hub een set resources zoals de wachtrij met onderweg cloud-naar-apparaat-berichten per apparaat.
+Op een hoog niveau is het identiteitsregister een REST-compatibele verzameling apparaat of module identity-resources. Wanneer u een vermelding in het identiteitenregister toevoegt, maakt de IoT Hub een set resources zoals de wachtrij met onderweg cloud-naar-apparaat-berichten per apparaat.
 
 Gebruik de id-register wanneer u moet:
 
-* Inrichten van apparaten die verbinding met uw IoT-hub maken.
-* Per apparaat toegang tot uw hub apparaat gerichte eindpunten beheren.
+* Inrichten van apparaten of modules die verbinding met uw IoT-hub maken.
+* Toegang van per-apparaat/per-module voor het apparaat of de module gerichte eindpunten van uw hub.
 
 > [!NOTE]
 > De register-id's bevat geen toepassingsspecifieke metagegevens.
@@ -41,13 +41,14 @@ Gebruik de id-register wanneer u moet:
 
 De id-register van IoT Hub bevat de volgende bewerkingen:
 
-* Apparaat-id maken
-* Apparaat-ID bijwerken
-* Apparaat-id door-ID ophalen
-* Verwijderen van apparaat-id
+* Apparaat- of module-id maken
+* Apparaat- of module identiteit bijwerken
+* Apparaat- of module identiteit door-ID ophalen
+* Apparaat- of module identiteit verwijderen
 * Lijst van maximaal 1000 identiteiten
-* Exporteren van alle identiteiten naar Azure blob-opslag
-* Identiteiten importeren uit Azure blob-opslag
+> Er is een module identiteits- en module twin openbare preview. Onder de functie wordt ondersteund op de identiteit van de module wanneer deze algemeen is beschikbaar.
+* Apparaat-id's exporteren naar Azure blob-opslag
+* Apparaat-id's importeren uit Azure blob-opslag
 
 Alle deze bewerkingen kunt optimistische gelijktijdigheid van taken, zoals opgegeven in [RFC7232][lnk-rfc7232].
 
@@ -57,7 +58,7 @@ Alle deze bewerkingen kunt optimistische gelijktijdigheid van taken, zoals opgeg
 Een id-register van IoT-Hub:
 
 * Bevat geen metagegevens voor de toepassing.
-* Zoals een woordenboek zijn toegankelijk via de **deviceId** als de sleutel.
+* Zoals een woordenboek zijn toegankelijk via de **deviceId** of **moduleId** als de sleutel.
 * Ondersteunt geen expressieve query's.
 
 Een IoT-oplossing heeft doorgaans een afzonderlijk archief oplossings-specifieke die toepassingsspecifieke metagegevens bevat. Het archief oplossings-specifieke in een oplossing voor smart gebouw legt bijvoorbeeld de ruimte bevindt waarin een temperatuursensor wordt geïmplementeerd.
@@ -71,6 +72,8 @@ U kunt apparaten uitschakelen door het bijwerken van de **status** eigenschap va
 
 * Tijdens een inrichtingsproces orchestration. Zie voor meer informatie [apparaten inrichten][lnk-guidance-provisioning].
 * Als u voor een of andere reden denkt een apparaat is geknoeid of niet-geautoriseerde is geworden.
+
+Deze functie is niet beschikbaar voor modules.
 
 ## <a name="import-and-export-device-identities"></a>Importeren en exporteren van apparaat-id 's
 
@@ -99,29 +102,68 @@ Een complexere implementatie kan bevat de gegevens uit [operations bewaking] [ l
 > [!NOTE]
 > Als een IoT-oplossing maakt gebruik van de verbindingsstatus uitsluitend om te bepalen of cloud-naar-apparaat-berichten verzenden en berichten niet worden uitgezonden naar grote verzamelingen van apparaten, kunt u overwegen de eenvoudiger *korte verlooptijd* patroon. Dit patroon bereikt hetzelfde resultaat als een apparaat verbinding status register via de heartbeat-patroon, terwijl het efficiënter wordt onderhouden. Als u een bericht bevestigingen aanvraagt, IoT-Hub u kunt een melding over welke apparaten kunnen geen berichten ontvangen en die niet zijn.
 
-## <a name="device-lifecycle-notifications"></a>Meldingen over de levenscyclus van apparaat
+## <a name="device-and-module-lifecycle-notifications"></a>Apparaat en de module levensduurmeldingen
 
-IoT Hub kan uw IoT-oplossing melden wanneer een apparaat-id wordt gemaakt of verwijderd door het verzenden van meldingen over de levenscyclus van apparaat. Om dit te doen, moet uw IoT-oplossing het maken van een route en stelt u de gegevensbron op *DeviceLifecycleEvents*. Standaard geen lifecycle meldingen worden verzonden, dat wil zeggen, geen dergelijke routes vooraf bestaan. De melding omvat eigenschappen en hoofdtekst.
+IoT Hub kan uw IoT-oplossing melden wanneer een identiteit is gemaakt of verwijderd door de levenscyclus van meldingen te verzenden. Om dit te doen, moet uw IoT-oplossing het maken van een route en stelt u de gegevensbron op *DeviceLifecycleEvents* of *ModuleLifecycleEvents*. Standaard geen lifecycle meldingen worden verzonden, dat wil zeggen, geen dergelijke routes vooraf bestaan. De melding omvat eigenschappen en hoofdtekst.
 
 Eigenschappen: Eigenschappen bericht worden voorafgegaan door de `'$'` symbool.
 
+Melding voor apparaat:
+
 | Naam | Waarde |
 | --- | --- |
-$content-type | application/json |
-$iothub-enqueuedtime |  Tijd waarop de melding is verzonden |
-$iothub-bericht-bron | deviceLifecycleEvents |
-$content-codering | utf-8 |
-opType | **createDeviceIdentity** of **deleteDeviceIdentity** |
-hubName | Naam van de IoT-Hub |
-deviceId | ID van het apparaat |
-operationTimestamp | ISO8601 tijdstempel van bewerking |
-iothub-message-schema | deviceLifecycleNotification |
+|$content-type | application/json |
+|$iothub-enqueuedtime |  Tijd waarop de melding is verzonden |
+|$iothub-bericht-bron | deviceLifecycleEvents |
+|$content-codering | utf-8 |
+|opType | **createDeviceIdentity** of **deleteDeviceIdentity** |
+|hubName | Naam van de IoT-Hub |
+|deviceId | ID van het apparaat |
+|operationTimestamp | ISO8601 tijdstempel van bewerking |
+|bericht-iothub-schema | deviceLifecycleNotification |
 
 Hoofdtekst: In deze sectie is in JSON-indeling en de twin van de gemaakte apparaat-id vertegenwoordigt. Bijvoorbeeld:
 
 ```json
 {
     "deviceId":"11576-ailn-test-0-67333793211",
+    "etag":"AAAAAAAAAAE=",
+    "properties": {
+        "desired": {
+            "$metadata": {
+                "$lastUpdated": "2016-02-30T16:24:48.789Z"
+            },
+            "$version": 1
+        },
+        "reported": {
+            "$metadata": {
+                "$lastUpdated": "2016-02-30T16:24:48.789Z"
+            },
+            "$version": 1
+        }
+    }
+}
+```
+Melding voor de module:
+
+| Naam | Waarde |
+| --- | --- |
+$content-type | application/json |
+$iothub-enqueuedtime |  Tijd waarop de melding is verzonden |
+$iothub-bericht-bron | moduleLifecycleEvents |
+$content-codering | utf-8 |
+opType | **createModuleIdentity** of **deleteModuleIdentity** |
+hubName | Naam van de IoT-Hub |
+moduleId | ID van de module |
+operationTimestamp | ISO8601 tijdstempel van bewerking |
+bericht-iothub-schema | moduleLifecycleNotification |
+
+Hoofdtekst: In deze sectie is in JSON-indeling en de twin van de identiteit van de gemaakte module vertegenwoordigt. Bijvoorbeeld:
+
+```json
+{
+    "deviceId":"11576-ailn-test-0-67333793211",
+    "moduleId":"tempSensor",
     "etag":"AAAAAAAAAAE=",
     "properties": {
         "desired": {
@@ -160,6 +202,25 @@ Apparaat-id's worden weergegeven als JSON-documenten met de volgende eigenschapp
 
 > [!NOTE]
 > Verbindingsstatus kan alleen bestaan uit de Iothub-weergave van de status van de verbinding. Updates voor deze status kunnen worden vertraagd, afhankelijk van netwerkomstandigheden en configuraties.
+
+## <a name="module-identity-properties"></a>Identiteitseigenschappen van de module
+
+Apparaat-id's worden weergegeven als JSON-documenten met de volgende eigenschappen:
+
+| Eigenschap | Opties | Beschrijving |
+| --- | --- | --- |
+| deviceId |vereist alleen-lezen op updates |Een hoofdlettergevoelige tekenreeks (maximaal 128 tekens lang) van ASCII-7-bits alfanumerieke tekens, plus bepaalde speciale tekens: `- . + % _ # * ? ! ( ) , = @ $ '`. |
+| moduleId |vereist alleen-lezen op updates |Een hoofdlettergevoelige tekenreeks (maximaal 128 tekens lang) van ASCII-7-bits alfanumerieke tekens, plus bepaalde speciale tekens: `- . + % _ # * ? ! ( ) , = @ $ '`. |
+| generationId |vereist alleen-lezen |Een IoT hub is gegenereerd, hoofdlettergevoelig tekenreeks maximaal 128 tekens. Deze waarde wordt gebruikt om te onderscheiden van apparaten met dezelfde **deviceId**wanneer ze zijn verwijderd en opnieuw gemaakt. |
+| ETag |vereist alleen-lezen |Een tekenreeks voor een zwakke ETag voor de identiteit van het apparaat als per [RFC7232][lnk-rfc7232]. |
+| auth |optioneel |Een samengestelde-object met de informatie en beveiliging materiaal verificatie. |
+| auth.symkey |optioneel |Een samengestelde-object met een primaire en secundaire sleutel, opgeslagen in base64-indeling. |
+| status |Vereist |Een indicator toegang. Kan **ingeschakeld** of **uitgeschakelde**. Als **ingeschakeld**, het apparaat verbinding mag maken. Als **uitgeschakelde**, dit apparaat geen toegang tot een willekeurig eindpunt apparaat gerichte. |
+| statusReason |optioneel |Een 128 tekens lang tekenreeks waarin de reden voor de status van het apparaat-id wordt opgeslagen. Alle UTF-8 tekens zijn toegestaan. |
+| statusUpdateTime |alleen-lezen |Een tijdelijke aanduiding met de datum en tijd van de laatste statusupdate. |
+| connectionState |alleen-lezen |Een veld dat aangeeft verbindingsstatus: beide **verbonden** of **verbroken**. Dit veld wordt de Iothub-weergave van de status van het apparaat. **Belangrijke**: dit veld mag alleen worden gebruikt voor ontwikkeling/foutopsporing doeleinden. De verbindingsstatus wordt alleen voor apparaten met behulp van protocollen MQTT of AMQP zijn bijgewerkt. Bovendien is het gebaseerd op protocolniveau pings (MQTT pings of AMQP pings) en er een maximale vertraging van slechts 5 minuten. Daarom kunnen er valse positieven, zoals apparaten gerapporteerd als verbonden, maar die niet zijn verbonden. |
+| connectionStateUpdatedTime |alleen-lezen |De datum en tijd van laatste status van de verbinding met een tijdelijke indicator is bijgewerkt. |
+| lastActivityTime |alleen-lezen |Een tijdelijke aanduiding weer met de datum en de laatste keer dat het apparaat is verbonden, ontvangen of een bericht verzonden. |
 
 ## <a name="additional-reference-material"></a>Aanvullende referentiemateriaal
 

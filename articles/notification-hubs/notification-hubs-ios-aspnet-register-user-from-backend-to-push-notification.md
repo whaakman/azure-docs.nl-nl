@@ -5,7 +5,7 @@ services: notification-hubs
 documentationcenter: ios
 author: ysxu
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 4e3772cf-20db-4b9f-bb74-886adfaaa65d
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: fd56bb2dd627b31f00363851a4e76484aa382988
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 46eb0dab60856d774c8ad2bf7ab55e1ffc6ddb66
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>De huidige gebruiker voor pushmeldingen registreren met behulp van ASP.NET
 > [!div class="op_single_selector"]
@@ -98,7 +98,7 @@ Dit onderwerp leest u hoe u kunt registratie voor pushberichten met Azure Notifi
    
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
    
-    De eerste regel initialiseert de **DeviceInfo** singleton. De tweede regel begint de registratie voor pushmeldingen, die al aanwezig is dat u al hebt voltooid de [aan de slag met Notification Hubs] zelfstudie.
+    De eerste regel initialiseert de **DeviceInfo** singleton. De tweede regel begint de registratie voor pushmeldingen, die al aanwezig als u al hebt voltooid de [aan de slag met Notification Hubs] zelfstudie.
 7. In PushToUserAppDelegate.m, implementeert u de methode **didRegisterForRemoteNotificationsWithDeviceToken** in uw AppDelegate en voeg de volgende code:
    
         self.deviceInfo.deviceToken = deviceToken;

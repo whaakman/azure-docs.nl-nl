@@ -2,38 +2,34 @@
 title: SQL-Servers op Azure Stack Hosting | Microsoft Docs
 description: SQL-exemplaren om in te richten via de Bronprovider van de SQL-Adapter toevoegen
 services: azure-stack
-documentationCenter: 
-author: mattbriggs
+documentationCenter: ''
+author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
-ms.author: mabrigg
-ms.openlocfilehash: 0a29ef133a045b2828777050f2d7a204c0add4a8
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 05/01/2018
+ms.author: jeffgilb
+ms.openlocfilehash: a89e5bf48c24abf72f18ee98f2dcb0eda6db35cd
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/04/2018
 ---
-# <a name="add-hosting-servers-for-use-by-the-sql-adapter"></a>Hosting-servers voor gebruik door de SQL-adapter toevoegen
-
-*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
-
+# <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Hosting-servers toevoegen voor de SQL-resourceprovider
 U kunt SQL-exemplaren op virtuele machines in uw [Azure Stack](azure-stack-poc.md), of een exemplaar buiten uw Azure-Stack-omgeving, opgegeven van de resourceprovider verbinding mee kan maken. De algemene vereisten zijn:
 
 * Het SQL-exemplaar moet zijn gereserveerd voor gebruik door de werkbelastingen RP en de gebruiker. U kunt een SQL-exemplaar dat wordt gebruikt door andere gebruiker, met inbegrip van App-Services niet gebruiken.
-* De RP-adapter is niet verbonden met het domein en kan alleen verbinding maken via SQL-verificatie.
-* U moet een account met voldoende rechten voor gebruik door de RP configureren.
-* De RP en gebruikers, zoals Web-Apps gebruiken het gebruikersnetwerk, zodat de verbinding met de SQL-exemplaar op dit netwerk is vereist. Deze vereiste betekent meestal dat de IP-adres voor uw SQL-exemplaren moet op een openbaar netwerk.
-* Beheer van de SQL-exemplaren en hun hosts is aan u; het RP niet uitvoeren van de toepassing van patches, back-up, referenties wisselen, enzovoort.
+* De SQL-resourceprovider VM is niet verbonden met het domein en kan alleen verbinding maken via SQL-verificatie.
+* U moet een account met voldoende rechten voor gebruik door de resourceprovider configureren.
+* De resourceprovider en gebruikers, zoals Web-Apps, gebruikt het gebruikersnetwerk, zodat de verbinding met de SQL-exemplaar op dit netwerk is vereist. Deze vereiste betekent meestal dat de IP-adres voor uw SQL-exemplaren moet op een openbaar netwerk.
+* Beheer van de SQL-exemplaren en hun hosts is aan u; de resourceprovider niet uitvoeren van de toepassing van patches, back-up, referenties wisselen, enzovoort.
 * SKU's kunnen worden gebruikt voor het maken van verschillende klassen van de SQL-mogelijkheden, zoals prestaties altijd actief, enzovoort.
 
-
-Een aantal SQL IaaS virtuele machine afbeeldingen zijn beschikbaar via de Marketplace-Management-functie. Zorg ervoor dat u altijd de nieuwste versie van de SQL-IaaS-uitbreiding downloaden voordat u een VM die gebruikmaakt van een Marketplace-item implementeert. De SQL-afbeeldingen zijn hetzelfde als de SQL-VM's die beschikbaar in Azure zijn. Geef functies zoals automatisch patchen en Backup-functies voor virtuele SQL-machines gemaakt op basis van deze installatiekopieën, de IaaS-uitbreiding en de bijbehorende portal verbeteringen.
+Een aantal SQL IaaS virtuele machine afbeeldingen zijn beschikbaar via de Marketplace-Management-functie. Zorg ervoor dat u altijd downloaden de nieuwste versie van de **SQL IaaS extensie** voordat u een VM die gebruikmaakt van een Marketplace-item implementeert. De SQL-afbeeldingen zijn hetzelfde als de SQL-VM's die beschikbaar in Azure zijn. Geef functies zoals automatisch patchen en Backup-functies voor virtuele SQL-machines gemaakt op basis van deze installatiekopieën, de IaaS-uitbreiding en de bijbehorende portal verbeteringen.
 
 Er zijn andere opties voor het implementeren van virtuele machines SQL, met inbegrip van sjablonen in de [Azure Stack Snelstartgalerie](https://github.com/Azure/AzureStack-QuickStart-Templates).
 
@@ -84,7 +80,10 @@ Als u wilt toevoegen in een zelfstandige host server die al is ingericht, de vol
 
   De SKU-naam moet overeenkomen met de eigenschappen zodat gebruikers hun databases op de juiste wijze kunnen plaatsen. Alle hosting-servers in een SKU moeten dezelfde mogelijkheden hebben.
 
-    Een voorbeeld:
+> [!IMPORTANT]
+> Speciale tekens, inclusief spaties en perioden, worden niet ondersteund in de **familie** of **laag** namen bij het maken van een SKU voor de resourceproviders SQL en MySQL.
+
+Een voorbeeld:
 
 ![Voorraadeenheden](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
@@ -140,27 +139,6 @@ SQL Always On hosting als servers wilt toevoegen, de volgende stappen uit:
 Maak plannen en aanbiedingen om SQL-databases beschikbaar voor gebruikers. De service Microsoft.SqlAdapter toevoegen aan het plan en toevoegen van een bestaande quotum of maak een nieuwe. Als u een quotum maakt, kunt u de capaciteit om de gebruiker opgeven.
 
 ![Plannen en aanbiedingen voor zijn onder meer databases maken](./media/azure-stack-sql-rp-deploy/sqlrp-newplan.png)
-
-## <a name="maintenance-of-the-sql-adapter-rp"></a>Onderhoud van de SQL-Adapter RP
-
-Onderhoud van de SQL-exemplaren wordt niet hier, met uitzondering van de draaihoek wachtwoordgegevens besproken. U bent zelf verantwoordelijk voor patchen en back-up/herstel van de database-servers gebruikt met de SQL-Adapter.
-
-### <a name="patching-and-updating"></a>Patchen en bijwerken
- De SQL-Adapter is niet verwerkt als onderdeel van Azure-Stack omdat deze een onderdeel van de invoegtoepassing. Microsoft zal updates leveren aan de SQL-Adapter indien nodig. De SQL-Adapter is gemaakt op een _gebruiker_ virtuele machine onder de standaard Provider-abonnement. Daarom is het nodig zijn voor het bieden van Windows-patches, antivirus handtekeningen, enzovoort. De Windows update-pakketten die worden geleverd als onderdeel van de patch-en updatecyclus updates toepassen op de virtuele machine van Windows kan worden gebruikt. Wanneer een bijgewerkte adapter wordt uitgebracht, worden een script is opgegeven voor de update toepassen. Dit script maakt een nieuwe RP VM en migreer elke status die u al hebt.
-
- ### <a name="backuprestoredisaster-recovery"></a>Backup/Restore/noodherstel
- De SQL-Adapter is geen back-up als onderdeel van Azure Stack BC-DR-proces, omdat deze een onderdeel van de invoegtoepassing. Scripts wordt aangeboden mogelijk te maken:
-- Een back-up van de van de benodigde statusinformatie (opgeslagen in een Stack van Azure storage-account)
-- Het RP herstellen mocht het volledige stack herstel niet meer nodig.
-Database-servers moeten eerst worden hersteld (indien nodig), voordat de RP is hersteld.
-
-### <a name="updating-sql-credentials"></a>SQL-referenties bijwerken
-
-U bent zelf verantwoordelijk voor het maken en onderhouden van de beheerdersaccounts systeem op uw SQL-servers. Het RP moet een account met deze rechten voor het beheren van databases namens gebruikers - hoeft niet toegang tot de gegevens in deze databases. Als u bijwerken van de sa-wachtwoorden op de SQL-servers wilt, kunt u de mogelijkheid van de update van de RP-beheerinterface het opgeslagen wachtwoord gebruikt door de RP te wijzigen. Deze wachtwoorden worden opgeslagen in een Sleutelkluis voor uw Azure-Stack-exemplaar.
-
-Om de instellingen wijzigt, klikt u op **Bladeren** &gt; **SERVERVIRTUALISATIE** &gt; **SQL-Servers die als host fungeert** &gt; **SQL-aanmeldingen** en selecteert u een aanmeldingsnaam. De wijziging moet eerst op de SQL-exemplaar worden gemaakt (en alle replica's, indien nodig). In de **instellingen** -scherm, klikt u op **wachtwoord**.
-
-![Het beheerderswachtwoord bijwerken](./media/azure-stack-sql-rp-deploy/sqlrp-update-password.PNG)
 
 
 ## <a name="next-steps"></a>Volgende stappen
