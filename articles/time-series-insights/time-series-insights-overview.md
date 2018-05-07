@@ -21,7 +21,7 @@ ms.lasthandoff: 04/20/2018
 
 Time Series Insights is gebouwd voor het opslaan, visualiseren en opvragen van grote hoeveelheden tijd reeksgegevens, zoals die worden gegenereerd door de IoT-apparaten.  Als u wilt opslaan, beheren, opvragen of visualiseren time series-gegevens in de cloud, is Time Series Insights geschikt voor u.  
 
-! [Time Series Insights stroomdiagram] (media/overview/time-series-insights-flowchart.png)
+![Time Series Insights stroomdiagram] (media/overview/time-series-insights-flowchart.png)
 
 Time Series Insights heeft vier belangrijke taken:
 
@@ -68,7 +68,7 @@ Aan de slag duurt minder dan 5 minuten.
 4.  Zie de gegevens in minuten met de Time Series Insights explorer.
 
 ## <a name="time-series-insights-explorer"></a>Time Series Insights Explorer
-Dit diagram toont een voorbeeld van de tijdreeks inzichtgegevens weergegeven via de Verkenner:! [Time Series Insights explorer] (media/time-series-insights-explorer/explorer4.png)
+Dit diagram toont een voorbeeld van de tijdreeks inzichtgegevens weergegeven via de Verkenner: ![Time Series Insights explorer] (media/time-series-insights-explorer/explorer4.png)
 
 ## <a name="next-steps"></a>Volgende stappen
  - [Time Series Insights explorer gebruiken in een omgeving met demonstratie verkennen](./time-series-quickstart.md)

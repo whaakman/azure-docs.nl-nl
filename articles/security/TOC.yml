@@ -162,44 +162,13 @@
         - name: Persoonlijke gegevens beschermen met behulp van Azure-hulpprogramma's voor rapportage
           href: protection-personal-data-azure-reporting-tools.md
     - name: FEDRAMP
-      href: ./blueprints/fedramp.md
       items:
-        - name: Overzicht van beveiligingsbesturingselementen
-          href: ./blueprints/fedramp-controls-overview.md
-        - name: Toegangsbeheer
-          href: ./blueprints/fedramp-access-controls.md
-        - name: Controle en verantwoordelijkheid
-          href: ./blueprints/fedramp-audit-accountability-controls.md
-        - name: Bewustzijn en training
-          href: ./blueprints/fedramp-awareness-training-controls.md
-        - name: Configuratiebeheer
-          href: ./blueprints/fedramp-configuration-manager-controls.md
-        - name: Plannen voor onvoorziene gebeurtenissen
-          href: ./blueprints/fedramp-contingency-planning-controls.md
-        - name: Identificatie en verificatie
-          href: ./blueprints/fedramp-identification-authentication-controls.md
-        - name: Reageren op incidenten
-          href: ./blueprints/fedramp-incident-response-controls.md
-        - name: Onderhoud
-          href: ./blueprints/fedramp-maintenance-controls.md
-        - name: Mediabeveiliging
-          href: ./blueprints/fedramp-media-protection-controls.md
-        - name: Personeelsbeveiliging
-          href: ./blueprints/fedramp-personnel-security-controls.md
-        - name: Fysieke en omgevingsbeveiliging
-          href: ./blueprints/fedramp-physical-environmental-protection-controls.md
-        - name: Planning
-          href: ./blueprints/fedramp-planning-controls.md
-        - name: Risico-evaluatie
-          href: ./blueprints/fedramp-risk-assessment-controls.md
-        - name: Beveiligingsevaluatie en autorisatie
-          href: ./blueprints/fedramp-security-assessment-authorization-controls.md
-        - name: Systeem- en communicatiebeveiliging
-          href: ./blueprints/fedramp-system-communications-protection-controls.md
-        - name: Systeem- en gegevensintegriteit
-          href: ./blueprints/fedramp-system-information-integrity-controls.md
-        - name: Systeem- en servicesovername
-          href: ./blueprints/fedramp-system-services-acquisition-controls.md
+        - name: Gegevensanalyse
+          href: ./blueprints/fedramp-analytics-overview.md
+        - name: Datawarehouse
+          href: ./blueprints/fedramp-datawarehouse-overview.md
+        - name: IaaS-webtoepassing
+          href: ./blueprints/fedramp-iaaswa-overview.md
     - name: PCI DSS
       href: ./blueprints/payment-processing-blueprint.md
       items:

@@ -141,8 +141,14 @@
           href: active-directory-b2c-reference-language-customization.md
         - name: De rapportage-API gebruiken
           href: active-directory-b2c-reference-usage-reporting-api.md
+        - name: Auditlogboeken inzien
+          href: active-directory-b2c-reference-audit-logs.md
         - name: Gebruikers migreren
           href: active-directory-b2c-user-migration.md
+        - name: Met b2clogin.com
+          href: b2clogin.md
+        - name: Met leeftijd beperken
+          href: basic-age-gating.md
     - name: Identity-ervaringsframework
       items:
         - name: Aangepast beleid
@@ -153,8 +159,10 @@
               href: active-directory-b2c-get-started-custom.md
             - name: OIDC-/OAUTH-providers configureren
               items:
-                - name: Azure AD
+                - name: Azure AD (Eén tenant)
                   href: active-directory-b2c-setup-aad-custom.md
+                - name: Azure AD (Multitenant)
+                  href: active-directory-b2c-setup-commonaad-custom.md
                 - name: Microsoft-account
                   href: active-directory-b2c-custom-setup-msa-idp.md
                 - name: Google +
@@ -163,8 +171,6 @@
                   href: active-directory-b2c-custom-setup-li-idp.md
                 - name: Twitter
                   href: active-directory-b2c-custom-setup-twitter-idp.md
-                - name: Multitenant
-                  href: active-directory-b2c-setup-commonaad-custom.md
             - name: SAML-providers configureren
               items:
                 - name: ADFS

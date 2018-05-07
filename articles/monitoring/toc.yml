@@ -46,12 +46,14 @@
           href: ../log-analytics/log-analytics-azure-web-apps-analytics.md?toc=%2fazure%2fmonitoring%2ftoc.json
     - name: Containers
       items:
-        - name: Containers-oplossing
+        - name: Overzicht Containers bewaken
+          href: monitoring-container-overview.md
+        - name: AKS-containerprestaties
+          href: monitoring-container-health.md
+        - name: Docker- en Windows-containers bewaken
           href: ../log-analytics/log-analytics-containers.md?toc=%2fazure%2fmonitoring%2ftoc.json
         - name: Docker-toepassingen bewaken
           href: ../application-insights/app-insights-docker.md?toc=%2fazure%2fmonitoring%2ftoc.json
-        - name: Profieltoepassing
-          href: ../application-insights/app-insights-profiler-aspnetcore-linux.md?toc=%2fazure%2fmonitoring%2ftoc.json
     - name: Databases
       items:
         - name: Azure SQL
