@@ -15,23 +15,23 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 37812c2f7ee79685f9014a7999b4355e649ca6e1
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="media-protection-mp"></a>Media-beveiliging (MP)
 
 > [!NOTE]
 > Deze besturingselementen zijn gedefinieerd door NIST en de V.S. Ministerie van handel als onderdeel van de NIST Special Publication 800-53 revisie 4. Raadpleeg NIST 800 53 Rev. 4 voor informatie over het testen van de procedures en richtlijnen voor elk besturingselement.
 
-## <a name="nist-800-53-control-mp-1"></a>NIST 800-53 Control MP-1
+## <a name="nist-800-53-control-mp-1"></a>NIST 800 53 besturingselement MP-1
 
 #### <a name="media-protection-policy-and-procedures"></a>Media-beveiligingsbeleid en -Procedures
 
 **MP-1** de organisatie ontwikkelt, documenten en verspreide naar [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen] een beveiligingsbeleid voor media die zijn gericht op doel, bereik, rollen, verantwoordelijkheden, management streven, coördinatie tussen de organisatie-entiteiten en naleving; en -procedures om te vereenvoudigen, de implementatie van de media protection-beleid en de bijbehorende media beveiliging besturingselementen; en controleert en updates van het huidige media beveiligingsbeleid [toewijzing: organisatie gedefinieerde frequentie]; en media beveiliging procedures [toewijzing: organisatie gedefinieerde frequentie].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -39,13 +39,13 @@ ms.lasthandoff: 02/11/2018
 | **Provider (Microsoft Azure)** | Niet van toepassing |
 
 
- ## <a name="nist-800-53-control-mp-2"></a>NIST 800-53 Control MP-2
+ ## <a name="nist-800-53-control-mp-2"></a>NIST 800 53 besturingselement MP-2
 
 #### <a name="media-access"></a>Media-toegang
 
 **MP-2** de organisatie de toegang tot beperkt [toewijzing: organisatie gedefinieerde typen digitale en/of niet-digitale media] naar [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen].
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-3.** de organisatie markeert informatie Systeemmedia die de distributie-beperkingen, verwerken aanvullende opmerkingen en toepasselijke security-markeringen (indien aanwezig) van de gegevens aangeeft.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-3.b** de organisatie uitsluit [toewijzing: organisatie gedefinieerde typen informatie Systeemmedia] markeren, zolang de media binnen blijven [toewijzing: gebieden organisatie gedefinieerd beheerd].
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -83,11 +83,11 @@ ms.lasthandoff: 02/11/2018
 
  ## <a name="nist-800-53-control-mp-4a"></a>NIST 800 53 besturingselement MP-4.
 
-#### <a name="media-storage"></a>Media Storage
+#### <a name="media-storage"></a>Mediaopslag
 
 **MP 4.** fysiek bepaalt en veilig opgeslagen in de organisatie [toewijzing: organisatie gedefinieerde typen digitale en/of niet-digitale media] in [toewijzing: gebieden organisatie gedefinieerd beheerd].
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -97,11 +97,11 @@ ms.lasthandoff: 02/11/2018
 
  ## <a name="nist-800-53-control-mp-4b"></a>NIST 800 53 besturingselement MP-4.b
 
-#### <a name="media-storage"></a>Media Storage
+#### <a name="media-storage"></a>Mediaopslag
 
 **MP-4.b** informatie Systeemmedia in de organisatie worden beveiligd totdat de media worden vernietigd of met behulp van opgeschoonde goedgekeurd apparatuur, technieken en procedures.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-5.** beveiligt en bepaalt de organisatie [toewijzing: organisatie gedefinieerde typen informatie Systeemmedia] tijdens het transport buiten gecontroleerde gebieden met [toewijzing: organisatie gedefinieerd beveiligingsmaatregelen].
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-5.b** de organisatie onderhoudt accountability voor informatie Systeemmedia tijdens het transport buiten gecontroleerde gebieden.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-5.c** activiteiten die zijn gekoppeld aan het transport van informatie Systeemmedia en documenten desgewenst de organisatie.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-5.d** de organisatie beperkt de activiteiten die zijn gekoppeld aan het transport van informatie Systeemmedia tot bevoegd personeel.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-5 (4)** cryptografische mechanismen om de vertrouwelijkheid en integriteit van gegevens op digitaal medium tijdens het transport buiten gecontroleerde gebieden te beveiligen door het informatiesysteem wordt geïmplementeerd.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-6.a** sanitizes van de organisatie [toewijzing: organisatie gedefinieerde informatie Systeemmedia] vóór de verwijdering, vrijgeven buiten de organisatie-besturingselement of vrij te geven voor het gebruik van hergebruik [toewijzing: opschoning organisatie gedefinieerde-technieken en -procedures] volgens de toepasselijke federale en organisatie-standaarden en beleidsregels.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-6.b** veiligheidsmaatregelen opschoning mechanismen met de sterkte en de integriteit van overeenstemming met de beveiligingscategorie of classificatie van de gegevens voor de organisatie.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-6 (1)** de organisatie beoordeelt, goedkeurt, houdt, documenten en controleert of de acties voor opschoning en verwijdering van media.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-6 (2)** de organisatie test opschoning apparatuur en procedures [toewijzing: organisatie gedefinieerde frequentie] om te controleren dat de beoogde opschoning wordt wordt bereikt.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-6 (3)** de organisatie niet-destructieve opschoning technieken geldt voor draagbare opslagapparaten voordat dergelijke apparaten verbinding laten maken met het informatiesysteem in de volgende omstandigheden: [toewijzing: organisatie gedefinieerd omstandigheden vereisen opschoning van draagbare opslagapparaten].
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-7** de organisatie [selectie: beperkt; verbiedt] het gebruik van [toewijzing: organisatie gedefinieerde typen informatie Systeemmedia] op [toewijzing: organisatie gedefinieerde informatiesystemen of onderdelen van het systeem] met [toewijzing: organisatie gedefinieerd beveiligingsmaatregelen].
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/11/2018
 
 **MP-7 (1)** de organisatie verbiedt het gebruik van draagbare opslagapparaten in organisatiegegevens systemen wanneer deze apparaten geen persoonsgegevens eigenaar hebben.
 
-**Verantwoordelijkheden:**`Azure Only`
+**Verantwoordelijkheden:** `Azure Only`
 
 |||
 |---|---|

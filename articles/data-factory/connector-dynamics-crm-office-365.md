@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 05/02/2018
 ms.author: jingwang
-ms.openlocfilehash: 2f56443eb41e2a7f723e95f86f39c5cc47e82f6f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: b4baced183721d666354667f457f4cc5954b0d11
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Dynamics 365 (algemene gegevensservice) of Dynamics CRM met behulp van Azure Data Factory
 
@@ -276,7 +276,11 @@ Om gegevens te kopiëren naar Dynamics, stelt u het sink-type in de kopieerbewer
 | ignoreNullValues | Hiermee wordt aangegeven of null-waarden van invoergegevens (met uitzondering van sleutelvelden) tijdens een schrijfactie negeren.<br/>Toegestane waarden zijn **true** en **false**.<br>- **De waarde True**: laat de gegevens in het doelobject ongewijzigd wanneer u een bewerking upsert of bij te werken. Plaats een gedefinieerde standaardwaarde als u een insert-bewerking doet.<br/>- **ONWAAR**: de gegevens in het doelobject op NULL bijwerken wanneer u een bewerking upsert of bij te werken. Plaats een NULL-waarde als u een insert-bewerking doet. | Nee (de standaardwaarde is ONWAAR) |
 
 >[!NOTE]
->De standaardwaarde van de sink writeBatchSize en de kopieeractiviteit [parallelCopies](copy-activity-performance.md#parallel-copy) zijn beide 10 voor de Dynamics sink. 100 records worden daarom ingediend bij Dynamics het gelijktijdig.
+>De standaardwaarde van de sink '**writeBatchSize**'en de kopieeractiviteit'**[parallelCopies](copy-activity-performance.md#parallel-copy)**' zijn beide 10 voor de Dynamics sink. 100 records worden daarom ingediend bij Dynamics het gelijktijdig.
+
+Voor de Dynamics 365 online, is een limiet van [2 gelijktijdige batch-aanroepen per organisatie](https://msdn.microsoft.com/en-us/library/jj863631.aspx#Run-time%20limitations). Als deze limiet wordt overschreden, wordt een 'Server bezet' fout gegenereerd voordat de eerste aanvraag ooit wordt uitgevoerd. Houden 'writeBatchSize' kleiner dan of gelijk aan 10 zou voorkomen dat dergelijke beperking van gelijktijdige aanroepen.
+
+De optimale combinatie van '**writeBatchSize**'en'**parallelCopies**' is afhankelijk van het schema van de entiteit bijvoorbeeld aantal kolommen, rijgrootte, aantal werkstromen/plugins/workflow-activiteiten die zijn aangesloten naar deze aanroepen, enzovoort. De standaardinstelling van 10 writeBatchSize * 10 parallelCopies is de aanbeveling volgens Dynamics-service, die voor de meeste Dynamics entiteiten echter mogelijk niet optimale prestaties zou werken. Door de combinatie in de instellingen van de activiteit exemplaar aan te passen, kunt u de prestaties afstemmen.
 
 **Voorbeeld:**
 
@@ -322,12 +326,13 @@ Configureer het bijbehorende Data Factory-gegevenstype in de gegevenssetstructuu
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | Lang | ✓ | ✓ |
 | AttributeTypeCode.Boolean | Boole-waarde | ✓ | ✓ |
+| AttributeType.Customer | GUID | ✓ | | 
 | AttributeType.DateTime | Datum en tijd | ✓ | ✓ |
 | AttributeType.Decimal | Decimale | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |
 | AttributeType.EntityName | Tekenreeks | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
-| AttributeType.Lookup | GUID | ✓ | |
+| AttributeType.Lookup | GUID | ✓ | ✓ |
 | AttributeType.ManagedProperty | Boole-waarde | ✓ | |
 | AttributeType.Memo | Tekenreeks | ✓ | ✓ |
 | AttributeType.Money | Decimale | ✓ | ✓ |

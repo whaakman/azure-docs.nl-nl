@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: b89a404d583e9d495b65180e145295e6a106b3ab
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 78d90dce350282e4e7671104b5ee8ca9756897c6
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C: Complexiteitsvereisten voor wachtwoorden configureren
 
 > [!NOTE]
-> **Deze functie is in preview.**  Neem contact op met [ AADB2CPreview@microsoft.com ](mailto:AADB2CPreview@microsoft.com) om uw testtenant met deze functie is ingeschakeld.  Niet testen dit op productie tenants.
+> **Deze functie is openbare preview.**
 
 Azure Active Directory B2C (Azure AD B2C) ondersteunt de complexiteitsvereisten voor wachtwoorden die worden geleverd door een eindgebruiker bij het maken van een account te wijzigen.  Azure AD B2C gebruikt standaard `Strong` wachtwoorden.  Azure AD B2C ondersteunt ook configuratieopties voor het beheren van de complexiteit van wachtwoorden die klanten kunnen gebruiken.
 

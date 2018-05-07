@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: ebd250a7006c1235b30eb195f4bf7383b6293022
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a333d111b3f88183648f8a51185c245430c0533f
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-list-or-delete-a-user-assigned-identity-using-the-azure-cli"></a>Maken, weergeven of verwijderen van een gebruiker toegewezen identiteit met behulp van de Azure CLI
 
@@ -45,7 +45,7 @@ In dit artikel leert u hoe u kunt maken, weergeven en verwijderen van de identit
 Gebruik voor het maken van een toegewezen gebruikers-id de [az identiteit maken](/cli/azure/identity#az-identity-create) opdracht. De `-g` parameter geeft u de resourcegroep waar moet worden gemaakt van de identiteit van de gebruiker die is toegewezen, en de `-n` parameter geeft u de naam ervan. Vervang de `<RESOURCE GROUP>` en `<USER ASSIGNED IDENTITY NAME>` parameterwaarden met uw eigen waarden:
 
 > [!IMPORTANT]
-> Toegewezen identiteiten met speciale tekens (dat wil zeggen liggend streepje) in de naam van de gebruiker maken wordt momenteel niet ondersteund. Gebruik alfanumerieke tekens. Controleer regelmatig op updates.  Zie voor meer informatie [Veelgestelde vragen en bekende problemen](known-issues.md)
+> Maken van toegewezen gebruikers-id's ondersteunt alleen alfanumerieke en het koppelteken (0-9 of a-z of A-Z of -) tekens. Bovendien moeten worden beperkt tot 24 tekens voor de toewijzing aan een VM/VMSS goed te laten werken. Controleer regelmatig op updates. Zie voor meer informatie [Veelgestelde vragen en bekende problemen](known-issues.md)
 
  ```azurecli-interactive
 az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>

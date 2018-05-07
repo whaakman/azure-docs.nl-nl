@@ -2,20 +2,20 @@
 title: Een toepassingsgateway maken met URL-pad gebaseerde routeringsregels - Azure-portal | Microsoft Docs
 description: Informatie over het maken van de URL op basis van een pad routeringsregels voor een toepassingsgateway en virtuele-machineschaalset ingesteld met de Azure-portal.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: 848542f5606e77e2a7e57baed46a1dc9279c59b4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.author: victorh
+ms.openlocfilehash: 41b40bea7c9727928123252dbfc3dff3430fbc0b
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Een toepassingsgateway maken met routering regels op basis van een pad met de Azure portal
 
@@ -103,7 +103,7 @@ In dit voorbeeld maakt u drie virtuele machines moet worden gebruikt als back-en
 2. Voer de volgende opdracht voor het installeren van IIS op de virtuele machine: 
 
     ```azurepowershell-interactive
-    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/vhorne/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
     Set-AzureRmVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `

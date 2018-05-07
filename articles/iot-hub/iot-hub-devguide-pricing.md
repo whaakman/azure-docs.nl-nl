@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 390e917990586642e55913a69873b1707e371de3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9b0d2df078c59c7d261fd3231450ddfb2fdcd88e
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Azure IoT Hub prijsgegevens
 
@@ -35,11 +35,11 @@ ms.lasthandoff: 04/03/2018
 | Cloud-naar-apparaat-berichten | Verzonden berichten in segmenten van 4 KB in rekening worden gebracht, bijvoorbeeld een 6-KB-bericht 2 berichten in rekening wordt gebracht. |
 | Uploaden van bestanden | Bestandsoverdracht naar Azure Storage wordt niet door de IoT Hub datalimiet. Bestand overdracht inleiding en het voltooien van berichten worden in rekening gebracht als mailberichten gemeten in intervallen van 4 KB. Bijvoorbeeld, het overbrengen van een bestand van 10 MB is in rekening gebracht twee berichten naast de kosten van Azure Storage. |
 | Directe methoden | Geslaagde methodeaanvragen in segmenten van 4 KB in rekening worden gebracht, antwoorden met niet-lege instanties in rekening worden gebracht in de 4 KB-segmenten als aanvullende berichten. Aanvragen voor niet-verbonden apparaten worden in rekening gebracht als berichten in segmenten van 4 KB. Bijvoorbeeld, een methode met een 6-KB-instantie die in een reactie bij geen instantie van het apparaat resulteert, wordt in rekening gebracht als twee berichten. Een methode met een 6-KB-instantie die in een antwoord 1 KB van het apparaat resulteert wordt in rekening gebracht als twee berichten voor de aanvraag plus een ander bericht voor het antwoord. |
-| Apparaatdubbel leest | Apparaat twin leest uit het apparaat en de oplossing terug end worden in rekening gebracht als berichten in een 512-byte-segmenten. Bijvoorbeeld, een twin 6 KB apparaat lezen wordt in rekening gebracht als 12 berichten. |
-| Apparaat twin updates (tags en eigenschappen) | Apparaat twin updates van het apparaat en van de back-end van de oplossing in rekening worden gebracht als berichten in een 512-byte-segmenten. Bijvoorbeeld, een twin 6 KB apparaat lezen wordt in rekening gebracht als 12 berichten. |
-| Apparaat twin query 's | Query's worden in rekening gebracht als berichten, afhankelijk van de grootte van het resultaat in 512-byte-segmenten. |
+| Apparaat- en module twin leest | Twin leest uit het apparaat of de module en de oplossing terug end worden in rekening gebracht als berichten in een 512-byte-segmenten. Bijvoorbeeld, een 6-KB-twin lezen wordt in rekening gebracht als 12 berichten. |
+| Updates (tags en eigenschappen) voor apparaten en module twin | Twin updates van het apparaat of de module en van de back-end van de oplossing in rekening worden gebracht als berichten in een 512-byte-segmenten. Bijvoorbeeld, een 6-KB-twin lezen wordt in rekening gebracht als 12 berichten. |
+| Apparaat- en module twin query 's | Query's worden in rekening gebracht als berichten, afhankelijk van de grootte van het resultaat in 512-byte-segmenten. |
 | Taakbewerkingen <br/> (maken, bijwerken, weergeven, verwijderen) | Niet in rekening gebracht. |
-| Taken per apparaat bewerkingen | Bewerkingen (zoals twin apparaatupdates en methoden) taken in rekening worden gebracht die normaal werken. Een taak waardoor 1000 methodeaanroepen met 1 KB aanvragen en antwoorden lege hoofdcode is bijvoorbeeld in rekening gebracht 1000 berichten. |
+| Taken per apparaat bewerkingen | Bewerkingen (zoals twin updates en methoden) taken in rekening worden gebracht die normaal werken. Een taak waardoor 1000 methodeaanroepen met 1 KB aanvragen en antwoorden lege hoofdcode is bijvoorbeeld in rekening gebracht 1000 berichten. |
 
 > [!NOTE]
 > Alle grootte wordt berekend met inbegrip van de nettolading-grootte in bytes (protocol framing genegeerd). Voor berichten die eigenschappen en hoofdtekst hebt, wordt de grootte op een manier protocol networkdirect berekend. Zie voor meer informatie [messaging Ontwikkelaarshandleiding voor IoT-Hub][lnk-message-size].

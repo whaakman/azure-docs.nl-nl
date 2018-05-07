@@ -3,7 +3,7 @@ title: 'De procedure van wetenschappelijke gegevens Team in actie: met behulp va
 description: Geavanceerde analyses proces en de technologie in actie
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 88ba8e28-0bd7-49fe-8320-5dfa83b65724
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
-ms.author: bradsev
-ms.openlocfilehash: 6566db5f186b92179df3125deaf5ad17c6f9e974
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: b6b78c5ae4506c1405428b60887567f272d6e268
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>De procedure van wetenschappelijke gegevens Team in actie: met behulp van SQL Data Warehouse
 In deze zelfstudie wordt beschreven hoe u maken en implementeren van een machine learning-model met behulp van SQL Data Warehouse (SQL DW) voor een openbaar dataset--de [NYC Taxi reizen](http://www.andresmh.com/nyctaxitrips/) gegevensset. Het binaire classificatie model samengesteld voorspelt al dan niet een tip voor een zakenreis is betaald, en modellen voor multiklassen classificatie en regressie worden ook besproken die het distributiepunt voor de tip bedragen betaald voorspellen.
@@ -125,7 +125,7 @@ In uw *- DestDir*, het volgende PowerShell-script uitvoeren in de beheerdersmodu
 
     ./SQLDW_Data_Import.ps1
 
-Wanneer het PowerShell-script wordt uitgevoerd voor de eerste keer, wordt u gevraagd voor het invoeren van de gegevens van uw Azure SQL DW en uw Azure blob storage-account. Wanneer dit PowerShell-script is voltooid wordt voor het eerst uitvoert, de referenties u invoer zijn geschreven in een configuratiebestand SQLDW.conf in de huidige werkmap. De toekomstige uitvoeren van dit bestand PowerShell-script heeft de optie voor het lezen van dat alle parameters van dit configuratiebestand nodig. Als u enkele parameters veranderen moet, kunt u kiezen voor het invoeren van de parameters op het scherm na de prompt dit configuratiebestand verwijderd en de parameterwaarden invoeren als u wordt gevraagd of de parameterwaarden met het bewerken van het bestand SQLDW.conf in uw wijzigen*- DestDir* directory.
+Wanneer het PowerShell-script wordt uitgevoerd voor de eerste keer, wordt u gevraagd voor het invoeren van de gegevens van uw Azure SQL DW en uw Azure blob storage-account. Wanneer dit PowerShell-script is voltooid wordt voor het eerst uitvoert, de referenties u invoer zijn geschreven in een configuratiebestand SQLDW.conf in de huidige werkmap. De toekomstige uitvoeren van dit bestand PowerShell-script heeft de optie voor het lezen van dat alle parameters van dit configuratiebestand nodig. Als u enkele parameters veranderen moet, kunt u kiezen voor het invoeren van de parameters op het scherm na de prompt dit configuratiebestand verwijderd en de parameterwaarden invoeren als u wordt gevraagd of de parameterwaarden met het bewerken van het bestand SQLDW.conf in uw wijzigen *- DestDir* directory.
 
 > [!NOTE]
 > Om te voorkomen dat schema naam een conflict veroorzaakt met degenen die al aanwezig zijn in uw Azure SQL DW bij het lezen van parameters rechtstreeks vanuit het bestand SQLDW.conf, wordt een willekeurig getal 3-cijferige toegevoegd aan de schemanaam uit het bestand SQLDW.conf als de naam van het standaard schema voor elke uitvoering. Het PowerShell-script wordt u mogelijk gevraagd voor de naam van een schema: de naam van de gebruiker goeddunken worden opgegeven.
@@ -862,7 +862,7 @@ Voor het implementeren van een nieuwe webservice, moet u:
 
 Maken van een experiment score van een **voltooid** training experiment, klikt u op **maken score berekenen EXPERIMENTEREN** in de onderste actiebalk.
 
-![Azure Scoring][18]
+![Score berekenen voor Azure][18]
 
 Azure Machine Learning probeert te maken van een score experiment op basis van de onderdelen van het trainingsexperiment. In het bijzonder wordt:
 

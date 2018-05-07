@@ -53,6 +53,7 @@
 #### [Uitnodigingse-mail](active-directory-b2b-invitation-email.md)
 #### [Uitnodiging inwisselen](active-directory-b2b-redemption-experience.md)
 #### [B2B-gebruikers zonder uitnodiging toevoegen](active-directory-b2b-add-user-without-invite.md)
+#### [Uitnodigingen toestaan of blokkeren](active-directory-b2b-allow-deny-list.md)
 #### [Voorwaardelijke toegang voor B2B](active-directory-b2b-mfa-instructions.md)
 #### [Beleid voor B2B-deling](active-directory-b2b-delegate-invitations.md)
 #### [Een B2B-gebruiker toevoegen aan een rol](active-directory-b2b-add-guest-to-role.md)
@@ -273,6 +274,7 @@
 ### [Beheereenheden](active-directory-administrative-units-management.md)
 ### [De levensduur van tokens configureren](active-directory-configurable-token-lifetimes.md)
 ### [Beheerdersaccounts voor noodtoegang beheren](active-directory-admin-manage-emergency-access-accounts.md)
+### [Bevoorrechte rollen beveiligen](admin-roles-best-practices.md)
 
 ## Toegangsbeoordelingen
 ### [Overzicht toegangsbeoordelingen](active-directory-azure-ad-controls-access-reviews-overview.md)

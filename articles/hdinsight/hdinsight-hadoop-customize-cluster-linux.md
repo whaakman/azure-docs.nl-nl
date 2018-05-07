@@ -4,7 +4,7 @@ description: Aangepaste onderdelen toevoegen op Linux gebaseerde HDInsight-clust
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 48e85f53-87c1-474f-b767-ca772238cc13
@@ -12,24 +12,24 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 05/01/2018
 ms.author: larryfr
-ms.openlocfilehash: ff8b8ffc66ea4c90ca2f11edc36aac670f24eac2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 856a94b0cf64a20fbe9267b76422c47d88d21f43
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Linux gebaseerde HDInsight-clusters met behulp van scriptacties aanpassen
 
-HDInsight biedt een configuratieoptie aangeroepen **scriptactie** die aangepaste scripts die aanpassen van het cluster wordt aangeroepen. Deze scripts worden gebruikt voor het installeren van extra onderdelen en configuratie-instellingen wijzigen. Scriptacties kunnen worden gebruikt tijdens of na het maken van het cluster.
+HDInsight biedt een configuratiemethode aangeroepen **acties script** die aangepaste scripts voor het aanpassen van het cluster wordt aangeroepen. Deze scripts worden gebruikt voor het installeren van extra onderdelen en configuratie-instellingen wijzigen. Scriptacties kunnen worden gebruikt tijdens of na het maken van het cluster.
 
 > [!IMPORTANT]
 > De mogelijkheid om met scriptacties op een cluster al actief is alleen beschikbaar voor Linux gebaseerde HDInsight-clusters.
 >
 > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
-Scriptacties kunnen ook worden gepubliceerd naar Azure Marketplace als een HDInsight-toepassing. Sommige van de voorbeelden in dit document laten zien hoe u een HDInsight-toepassing met behulp van actie-scriptopdrachten van PowerShell en de .NET SDK kunt installeren. Zie voor meer informatie over HDInsight-toepassingen [publiceren HDInsight-toepassingen in Azure Marketplace](hdinsight-apps-publish-applications.md).
+Scriptacties kunnen ook worden gepubliceerd naar Azure Marketplace als een HDInsight-toepassing. Zie voor meer informatie over HDInsight-toepassingen [publiceren HDInsight-toepassingen in Azure Marketplace](hdinsight-apps-publish-applications.md).
 
 ## <a name="permissions"></a>Machtigingen
 

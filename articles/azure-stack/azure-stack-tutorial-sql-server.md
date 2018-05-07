@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/22/2017
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: f8d2dd65d9d427872fe78508ed0bcc61e644fdb0
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0e1eed2601946ddff6fa15f1a1f82398706c920d
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="make-sql-databases-available-to-your-azure-stack-users"></a>SQL-databases beschikbaar maken voor uw Azure-Stack-gebruikers
 Als de beheerder van een Azure-Stack cloud kunt u aanbiedingen die uw gebruikers laten maken (tenants) maken van SQL-databases die ze met hun cloud-systeemeigen apps, websites en werkbelastingen gebruiken kunnen. Dankzij deze aangepaste, op verzoek, cloud-gebaseerde databases aan uw gebruikers, kunt u ze bespaart tijd en bronnen. Dit als u wilt instellen, kun je het:
@@ -34,8 +34,8 @@ Als de beheerder van een Azure-Stack cloud kunt u aanbiedingen die uw gebruikers
 
 Het implementatieproces is beschreven in de [Gebruik SQL-databases op Azure-Stack artikel](azure-stack-sql-resource-provider-deploy.md), en bestaat uit de volgende primaire stappen:
 
-1. [Implementeren van de SQL-resourceprovider]( azure-stack-sql-resource-provider-deploy.md#deploy-the-resource-provider).
-2. [Controleer of de implementatie]( azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal).
+1. [Implementeren van de SQL-resourceprovider](azure-stack-sql-resource-provider-deploy.md).
+2. [Controleer of de implementatie](azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal).
 3. Een capaciteit door verbinding te maken met een hosting SQL-server.
 
 ## <a name="create-an-offer"></a>Een aanbieding maken

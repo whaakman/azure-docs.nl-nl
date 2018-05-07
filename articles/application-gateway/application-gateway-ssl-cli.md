@@ -1,26 +1,26 @@
 ---
-title: "Maken van een toepassingsgateway met SSL-beëindiging - Azure CLI | Microsoft Docs"
-description: "Informatie over het maken van een toepassingsgateway en toevoegen van een certificaat voor SSL-beëindiging met de Azure CLI."
+title: Maken van een toepassingsgateway met SSL-beëindiging - Azure CLI | Microsoft Docs
+description: Informatie over het maken van een toepassingsgateway en toevoegen van een certificaat voor SSL-beëindiging met de Azure CLI.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/18/2018
-ms.author: davidmu
-ms.openlocfilehash: c69ab3db9f23b714f7de9244e4e7015ae60a4f6e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: victorh
+ms.openlocfilehash: cdc24d0b95e30f762eb202ce08222ccde34424e9
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Maken van een toepassingsgateway met SSL-beëindiging met de Azure CLI
 
 U kunt de Azure CLI gebruiken voor het maken een [toepassingsgateway](application-gateway-introduction.md) met een certificaat voor [SSL-beëindiging](application-gateway-backend-ssl.md) die gebruikmaakt van een [virtuele-machineschaalset](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) voor back-endservers. In dit voorbeeld bevat de schaalaanpassingsset twee virtuele machine-exemplaren die zijn toegevoegd aan de standaardgroep voor back-end van de toepassingsgateway.
 
-In dit artikel leert u hoe:
+In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
 > * Een zelfondertekend certificaat maken
@@ -60,7 +60,7 @@ Het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroupAG* i
 az group create --name myResourceGroupAG --location eastus
 ```
 
-## <a name="create-network-resources"></a>Maken van netwerkbronnen
+## <a name="create-network-resources"></a>Netwerkbronnen maken
 
 Maken van het virtuele netwerk met de naam *myVNet* en het subnet met de naam *myAGSubnet* met [az network vnet maken](/cli/azure/network/vnet#az_net). Vervolgens kunt u het subnet met de naam toevoegen *myBackendSubnet* die nodig is voor de back-endservers met [az network vnet subnet maken](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Maken van het openbare IP-adres met de naam *myAGPublicIPAddress* met [az netwerk openbare ip-maken](/cli/azure/public-ip#az_network_public_ip_create).
 
@@ -115,7 +115,7 @@ az network application-gateway create \
 - *appGatewayFrontendIP* -wijst *myAGPublicIPAddress* naar *appGatewayHttpListener*.
 - *Rule1* : de regel die is gekoppeld aan routering standaard *appGatewayHttpListener*.
 
-## <a name="create-a-virtual-machine-scale-set"></a>Maken van een virtuele-machineschaalset
+## <a name="create-a-virtual-machine-scale-set"></a>Een virtuele-machineschaalset maken
 
 In dit voorbeeld maakt u een virtuele-machineschaalset met servers voor de back-endpool van de standaard in de toepassingsgateway. De virtuele machines in de schaalset zijn gekoppeld aan *myBackendSubnet* en *appGatewayBackendPool*. Maken van de schaal ingesteld, kunt u [az vmss maken](/cli/azure/vmss#az_vmss_create).
 
@@ -144,13 +144,13 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"],
   "commandToExecute": "./install_nginx.sh" }'
 ```
 
 ## <a name="test-the-application-gateway"></a>Testen van de toepassingsgateway
 
-Als u het openbare IP-adres van de toepassingsgateway, kunt u [az netwerk openbare ip-weergeven](/cli/azure/network/public-ip#az_network_public_ip_show). Het openbare IP-adres Kopieer en plak deze in de adresbalk van uw browser.
+Als u het openbare IP-adres van de toepassingsgateway, kunt u [az netwerk openbare ip-weergeven](/cli/azure/network/public-ip#az_network_public_ip_show). Kopieer het openbare IP-adres en plak het in de adresbalk van de browser.
 
 ```azurepowershell-interactive
 az network public-ip show \

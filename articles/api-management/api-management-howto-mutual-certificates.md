@@ -3,7 +3,7 @@ title: Beveiligen van back-end-services met behulp van client certificaatverific
 description: Informatie over het beveiligen van back-end-services met behulp van verificatie van clientcertificaten in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: afa5c6a07432456d703020c0b8c5c3606478b8fe
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: c3060765022cabcb877041927886b59d6725c7cf
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Het beveiligen van back-end-services met behulp van client certificaatverificatie in Azure API Management
 API Management biedt de mogelijkheid voor het beveiligen van toegang tot de back-end-service van een API met behulp van clientcertificaten. Deze handleiding wordt beschreven hoe u voor het beheren van certificaten in de publicatieportal van API en het configureren van een API voor het gebruik van een certificaat voor toegang tot de back-end-service.
 
-Zie voor meer informatie over het beheren van certificaten met behulp van API Management REST API [Azure API Management REST API certificaat entiteit][Azure API Management REST API Certificate entity].
+Zie voor meer informatie over het beheren van certificaten met behulp van API Management REST API <a href="https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity">Azure API Management REST API certificaat entiteit</a>.
 
 ## <a name="prerequisites"> </a>Vereisten
 Deze handleiding laat zien hoe uw API Management-service-exemplaar voor het gebruik van verificatie van clientcertificaten voor toegang tot de back-end-service voor een API te configureren. Voordat u de stappen in dit onderwerp, hebt u uw back-end-service die is geconfigureerd voor verificatie van clientcertificaten ([certificaatverificatie in Azure WebSites configureren Raadpleeg dit artikel] [ to configure certificate authentication in Azure WebSites refer to this article]), en hebben toegang tot het certificaat en het wachtwoord voor het certificaat voor het uploaden van in de publicatieportal van API Management.

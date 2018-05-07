@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: a019f76929ea3c7d27492f8a9d6b6994e471aabe
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="awareness-and-training-at"></a>Inzicht en Training (AT)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **AT 1** de organisatie ontwikkelt, documenten en verspreide naar [toewijzing: ondersteuningspersoneel organisatie gedefinieerd of rollen] een afhankelijkheid van de beveiliging en training beleid die zijn gericht op doel, bereik, rollen, verantwoordelijkheden, management-streven samenwerking tussen de organisatie-entiteiten en naleving; en -procedures om te vereenvoudigen, de implementatie van het bewustzijn over beveiliging en training beleid en gekoppelde beveiliging awareness en training controles; en controleert en updates van de huidige beveiliging awareness en training beleid [toewijzing: organisatie gedefinieerde frequentie]; en bewustzijn over beveiliging en training procedures [toewijzing: organisatie gedefinieerde frequentie].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **AT 2.** de organisatie basic-awareness beveiligingstraining biedt aan gebruikers van gegevens (inclusief managers, leidinggevenden en aannemers) als onderdeel van de eerste training voor nieuwe gebruikers.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **AT 2.b** de organisatie basic-awareness beveiligingstraining biedt aan gebruikers van gegevens (inclusief managers, leidinggevenden en aannemers) indien vereist door wijzigingen in het systeem informatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **AT 2.c** de organisatie basic-awareness beveiligingstraining biedt aan gebruikers van gegevens (inclusief managers, leidinggevenden en aannemers) [toewijzing: organisatie gedefinieerde frequentie] daarna.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **AT-2 (2)** de organisatie beveiliging awareness training op herkennen en potentiële indicatoren van een bedreiging vanuit de rapportage bevat.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **AT 3.** de organisatie biedt op basis van rollen beveiligingstraining aan medewerkers met toegewezen beveiligingsrollen en -verantwoordelijkheden voordat toegang tot het informatiesysteem of het uitvoeren van taken toegewezen.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **AT 3.b** de organisatie op basis van rollen beveiligingstraining biedt aan medewerkers met toegewezen beveiligingsrollen en -verantwoordelijkheden indien vereist door wijzigingen in het systeem informatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **AT 3.c** de organisatie op basis van rollen beveiligingstraining biedt aan medewerkers met toegewezen beveiligingsrollen en -verantwoordelijkheden [toewijzing: organisatie gedefinieerde frequentie] daarna.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **AT-3 (3)** de organisatie bevat praktische oefeningen in beveiligingstraining die trainingsdoelstellingen versterken.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **AT-3 (4)** de organisatie training biedt aan haar personeel op [toewijzing: organisatie gedefinieerd indicatoren van schadelijke code] verdachte communicatie en afwijkend gedrag in organisatiegegevens systemen kan herkennen.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **AT 4.** de organisatie documenten en monitors informatie over de afzonderlijke system training beveiligingsactiviteiten inclusief basisprincipes van beveiliging awareness trainings- en system-beveiligingstraining specifieke informatie.
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **AT 4.b** de organisatie behoudt records voor individuele training [toewijzing: organisatie gedefinieerde periode].
 
-**Verantwoordelijkheden:**`Customer Only`
+**Verantwoordelijkheden:** `Customer Only`
 
 |||
 |---|---|
