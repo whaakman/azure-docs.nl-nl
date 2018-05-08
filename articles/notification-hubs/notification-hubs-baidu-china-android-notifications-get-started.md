@@ -3,22 +3,22 @@ title: Aan de slag met Notification Hubs die gebruikmaken van Baidu | Microsoft 
 description: In deze zelfstudie leert u hoe u met Azure Notification Hubs pushmeldingen verzendt naar Android-apparaten die gebruikmaken van Baidu.
 services: notification-hubs
 documentationcenter: android
-author: kpiteira
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 23bde1ea-f978-43b2-9eeb-bfd7b9edc4c1
 ms.service: notification-hubs
 ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
-ms.date: 08/29/2017
-ms.author: kapiteir
-ms.openlocfilehash: 91f20a6e0ff6c2dd512879e9ab3c9369dab5d8ff
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: c680de254c55adaad8cedde6cf4748efd0c2c858
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Aan de slag met Azure Notification Hubs die gebruikmaken van Baidu
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -34,7 +34,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
 * [Baidu Push Android SDK]
 
 > [!NOTE]
-> U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F) voor meer informatie.
+> U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F) voor meer informatie.
 > 
 > 
 

@@ -3,7 +3,7 @@ title: Roadmap naar Azure Security Center-gereedheid | Microsoft Docs
 description: Dit document bevat een roadmap naar gereedheid om het Azure Security Center te versterken.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: ndicola
 editor: ''
 ms.assetid: fece670cc-df70-445d-9773-b32cbaba8d4a
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: 88b95c28cd64afb97fb34d2bced09161c3aa9312
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 51dd957a94d1e10658678d9123e9cce6183c0ab0
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Roadmap naar Azure Security Center-gereedheid
 Dit document bevat een roadmap naar gereedheid die u helpt aan de slag te gaan met Azure Security Center.
@@ -30,7 +30,7 @@ Gebruik de volgende bronnen om aan de slag te gaan met Security Center.
 
 Artikelen
 * [Inleiding tot Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* [Snelstart voor Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-get-started)
+* [Snelstartgids voor Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-get-started)
 
 Video's
 * [Korte introductievideo](https://azure.microsoft.com/resources/videos/introduction-to-azure-security-center/)

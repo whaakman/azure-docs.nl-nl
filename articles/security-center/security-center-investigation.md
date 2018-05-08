@@ -3,9 +3,9 @@ title: Incidenten en waarschuwingen onderzoeken in Azure Security Center | Micro
 description: In dit document wordt uitgelegd hoe u de onderzoeksfunctie van Azure Security Center gebruikt voor het onderzoeken van beveiligingsincidenten en waarschuwingen.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: a8e894a9-8781-4749-ae8f-8c8e01658566
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: yurid
-ms.openlocfilehash: 818c257d1959936f0dc326486e372677aacb065a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bab7b64a1635639991d639fb838b7118e234aa5b
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Incidenten en waarschuwingen onderzoeken in Azure Security Center (Preview)
 In dit document wordt uitgelegd hoe u de onderzoeksfunctie van Azure Security Center gebruikt voor het onderzoeken van beveiligingsincidenten en waarschuwingen.
@@ -105,7 +105,7 @@ U kunt een onderzoek starten vanuit een beveiligingsincident of vanuit een waars
 Vanaf hier kunt u de entiteiten onderzoeken die bij dit incident betrokken zijn en voor elk incident details bestuderen. 
 
 ## <a name="see-also"></a>Zie ook
-In dit document hebt u gelezen hoe u de onderzoeksfunctie in Security Center gebruikt. Zie de volgende onderwerpen voor meer informatie over Security Center:
+In dit document hebt u gelezen hoe u de onderzoeksfunctie in Security Center gebruikt. Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 
 * [Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Informatie over het beheren van waarschuwingen en het reageren op beveiligingsincidenten in Security Center.
 * [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md). Meer informatie over het controleren van de status van uw Azure-resources.

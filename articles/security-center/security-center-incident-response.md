@@ -3,9 +3,9 @@ title: Beveiligingsincidenten afhandelen met Azure Security Center | Microsoft D
 description: In dit document wordt uitgelegd hoe u Azure Security Center kunt gebruiken voor een scenario waarin u op een incident moet reageren.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: swadhwa
-editor: 
+editor: ''
 ms.assetid: 8af12f1c-4dce-4212-8ac4-170d4313492d
 ms.service: security-center
 ms.topic: hero-article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: yurid
-ms.openlocfilehash: 95af26a655e72a9cc370f339da5ecedbed441997
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: cca874c0511135b0b041d5d38a3986905b671393
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>Azure Security Center gebruiken voor reacties op incidenten
 Veel organisaties leren pas hoe ze moeten reageren op beveiligingsincidenten nadat ze het slachtoffer zijn geworden van een aanval. Als u de kosten en schade wilt beperken, is het belangrijk dat u een plan hebt voor het reageren op incidenten voordat er een aanval plaatsvindt. U kunt Azure Security Center gebruiken in verschillende fasen tijdens een reactie op een incident.
@@ -95,7 +95,7 @@ Sam ontvangt de case van Judy en begint de herstelstappen door te nemen die word
 
 ![Levenscyclus van reacties op incidenten](./media/security-center-incident-response/security-center-incident-response-fig6.png)
 
-### <a name="additional-resources"></a>Aanvullende bronnen
+### <a name="additional-resources"></a>Aanvullende resources
 Bedrijven die hun SIEM-oplossing (Security Information and Event Management) tijdens het onderzoeksproces gebruiken, kunnen [Security Center integreren met hun oplossing](security-center-integrating-alerts-with-log-integration.md). Azure-auditlogboeken en VM-beveiligingsgebeurtenissen kunnen ook worden geïntegreerd met behulp van het [Azure-hulpprogramma voor integratie van logboeken](https://blogs.msdn.microsoft.com/azuresecurity/2016/07/21/microsoft-azure-log-integration-preview/). U kunt deze informatie, in combinatie met de informatie die door Security Center is verstrekt, gebruiken om een aanval te onderzoeken. U kunt ook de functie [Onderzoek](https://docs.microsoft.com/azure/security-center/security-center-investigation) in Security Center gebruiken om de hoofdoorzaak van een incident te bepalen.
 
 ## <a name="conclusion"></a>Conclusie

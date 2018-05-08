@@ -3,9 +3,9 @@ title: Bedreigingsinformatierapport Azure Security Center | Microsoft Docs
 description: In dit document wordt uitgelegd hoe u bedreigingsinformatierapporten in Azure Security Center gebruikt tijdens een onderzoek om meer informatie over een beveiligingswaarschuwing te krijgen.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: swadhwa
-editor: 
+editor: ''
 ms.assetid: 5662e312-e8c2-4736-974e-576eeb333484
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
-ms.openlocfilehash: b4310cf4e6849c67031b3ec8b1fd5957e35f7ea6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 540725147579f895cc17ed2dbf46471dab6b3747
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Bedreigingsinformatierapport in Azure Security Center
 In dit document wordt uitgelegd hoe bedreigingsinformatierapporten in Azure Security Center u kunnen helpen meer te weten te komen over een bedreiging die een beveiligingswaarschuwing heeft gegenereerd.
@@ -66,7 +66,7 @@ U kunt uw huidige waarschuwingen controleren met de tegel **Beveiligingswaarschu
 Hier kunt u de PDF voor het rapport downloaden en meer lezen over het gedetecteerde beveiligingsprobleem, waarna u op basis van de informatie actie kunt ondernemen.
 
 ## <a name="see-also"></a>Zie ook
-In dit document hebt u geleerd hoe beveiligingsinformatierapporten van Azure Security Center u kunnen helpen tijdens een onderzoek naar beveiligingswaarschuwingen. Zie de volgende onderwerpen voor meer informatie over Azure Security Center:
+In dit document hebt u geleerd hoe beveiligingsinformatierapporten van Azure Security Center u kunnen helpen tijdens een onderzoek naar beveiligingswaarschuwingen. Zie de volgende onderwerpen voor meer informatie over het Azure Beveiligingscentrum:
 
 * [Veelgestelde vragen over Azure Security Center](security-center-faq.md). Raadpleeg de veelgestelde vragen over het gebruik van de service.
 * [Azure Security Center gebruiken voor reacties op incidenten](security-center-incident-response.md)

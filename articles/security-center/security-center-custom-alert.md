@@ -3,9 +3,9 @@ title: Regels voor aangepaste waarschuwingen in Azure Security Center | Microsof
 description: In dit document leest u hoe u regels voor aangepaste waarschuwingen maakt in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: f335d8c4-0234-4304-b386-6f1ecda07833
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: yurid
-ms.openlocfilehash: 10c5c3e6f714aac4c08cb810f54eb09c3d2bbe70
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e43d925317e32d2fcbdeb75eff71de0cc5a91378
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Regels voor aangepaste waarschuwingen in Azure Security Center (Preview)
 In dit document leest u hoe u regels voor aangepaste waarschuwingen maakt in Azure Security Center.
@@ -67,7 +67,7 @@ Nadat u de nieuwe waarschuwingsregel hebt gemaakt, wordt deze opgenomen in de li
 U ziet dat de parameters (zoekquery, drempelwaarde, enzovoort) die zijn vastgelegd tijdens het maken van de regel, beschikbaar zijn in de waarschuwing voor deze aangepaste regel.
 
 ## <a name="see-also"></a>Zie ook
-In dit document hebt u kunnen lezen hoe u een aangepaste regel voor een waarschuwing maakt in Azure Security Center. Zie de volgende onderwerpen voor meer informatie over Azure Security Center:
+In dit document hebt u kunnen lezen hoe u een aangepaste regel voor een waarschuwing maakt in Azure Security Center. Zie de volgende onderwerpen voor meer informatie over het Azure Beveiligingscentrum:
 
 * [Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Informatie over het beheren van waarschuwingen en het reageren op beveiligingsincidenten in Security Center.
 * [Beveiligingsstatus bewaken in Azure Security Center](security-center-monitoring.md). Meer informatie over het controleren van de status van uw Azure-resources.

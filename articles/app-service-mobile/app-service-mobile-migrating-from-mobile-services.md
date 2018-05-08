@@ -372,7 +372,7 @@ Nu dat uw toepassing is gemigreerd naar App Service, zijn er nog meer functies d
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[App Service-prijzen]: https://azure.microsoft.com/pricing/details/app-service/
+[prijzen van App Service]: https://azure.microsoft.com/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [Automatische schaling]: ../app-service/web-sites-scale.md
 [Azure App Service]: ../app-service/app-service-web-overview.md

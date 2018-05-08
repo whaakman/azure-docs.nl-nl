@@ -3,9 +3,9 @@ title: Azure Security Center-zelfstudie - Beveiligingsbeleidsregels opstellen en
 description: Azure Security Center-zelfstudie - Beveiligingsbeleidsregels opstellen en beoordelen
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
 ms.service: security-center
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
 ms.author: yurid
-ms.openlocfilehash: a740cec8a3177e0de5f33b362d5c4956671cd427
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 16dc8553fdc1209d1973934a87660ff61df8e68a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="tutorial-define-and-assess-security-policies"></a>Zelfstudie: Beveiligingsbeleidsregels opstellen en beoordelen
 Security Center helpt ervoor te zorgen dat beveiligingsvereisten van het bedrijf en de overheid worden nageleefd, door middel van beveiligingsbeleidsregels waarmee de gewenste configuratie van uw workloads kunnen worden gedefinieerd. Wanneer u beleidsregels voor uw Azure-abonnementen definieert en deze aanpast aan het type workload of de vertrouwelijkheid van uw gegevens, kan Security Center beveiligingsaanbevelingen geven voor beveiliging voor uw computer-, netwerk-, SQL- en opslag- en toepassingsresources. In deze zelfstudie leert u het volgende:

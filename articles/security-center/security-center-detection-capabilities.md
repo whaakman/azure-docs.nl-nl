@@ -3,9 +3,9 @@ title: Detectiemogelijkheden in Azure Security Center | Microsoft Docs
 description: In dit document wordt uitgelegd hoe de detectiemogelijkheden van Azure Security Center werken.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: swadhwa
-editor: 
+editor: ''
 ms.assetid: 4c5599cc-99a1-430f-895f-601615ef12a0
 ms.service: security-center
 ms.topic: hero-article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2017
 ms.author: yurid
-ms.openlocfilehash: edef9bc1ba2420a4b7d95f891fd8b0b7e144c2ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 636f81361a59c1bfe1ba778722b79564609fb02a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Detectiemogelijkheden van Azure Security Center
 In dit document worden de geavanceerde detectiemogelijkheden van Azure Security Center besproken, waarmee actieve bedreigingen die gericht zijn op uw Microsoft Azure-resources kunnen worden geïdentificeerd en waarmee u de inzichten krijgt die nodig zijn om snel te kunnen reageren.
@@ -80,7 +80,7 @@ Voor Azure Security Center werken beveiligingsonderzoeks- en data-scienceteams d
 Deze gecombineerde inspanningen moeten resulteren in nieuwe en verbeterde detecties waarvan u onmiddellijk kunt profiteren: u hoeft helemaal geen actie te ondernemen.
 
 ## <a name="see-also"></a>Zie ook
-In dit document hebt u kunnen lezen hoe de detectiemogelijkheden in Azure Security Center werken. Zie de volgende onderwerpen voor meer informatie over Security Center:
+In dit document hebt u kunnen lezen hoe de detectiemogelijkheden in Azure Security Center werken. Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 
 * [Plannings- en bedieningsgids voor Azure Security Center](security-center-planning-and-operations-guide.md)
 * [Beveiligingswaarschuwingen beheren en erop reageren in Azure Security Center](security-center-managing-and-responding-alerts.md)
