@@ -99,8 +99,7 @@
 #### Coderen met Media Encoder Premium Workflow
 ##### [Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md)
 ##### [Zelfstudies voor Media Encoder Premium Workflow](media-services-media-encoder-premium-workflow-tutorials.md)
-##### 
-  [Geavanceerde coderingswerkstromen maken met Workflow Designer](media-services-workflow-designer.md)
+##### [Geavanceerde coderingswerkstromen maken met Workflow Designer](media-services-workflow-designer.md)
 ##### [Premium Workflow met verschillende invoer](media-services-media-encoder-premium-workflow-multiplefilesinput.md)
 ### [Een taak maken waarmee fMP4-chunks worden gegenereerd](media-services-generate-fmp4-chunks.md)
 ### Media-processors
@@ -178,8 +177,8 @@
 ### [Verwerken met Content Moderator](media-services-content-moderation.md)
 
 ## [Telemetrie configureren](media-services-telemetry-overview.md)
-###[.NET](media-services-dotnet-telemetry.md)
-###[REST](media-services-rest-telemetry.md)
+### [.NET](media-services-dotnet-telemetry.md)
+### [REST](media-services-rest-telemetry.md)
 
 ## Schalen
 ### [Mediaverwerking](media-services-scale-media-processing-overview.md)
