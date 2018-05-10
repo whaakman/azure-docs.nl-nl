@@ -2,25 +2,19 @@
 title: Uitnodigingen voor Azure Active Directory B2B-samenwerking delegeren | Microsoft Docs
 description: Azure Active Directory B2B-samenwerking gebruikerseigenschappen kunnen worden geconfigureerd
 services: active-directory
-documentationcenter: 
-author: twooley
-manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 05/23/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: facf0f62823c84742986c9fb585990d7fedb2ab1
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: a4a1303c3992b8c576650859eea65591392b9b20
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="delegate-invitations-for-azure-active-directory-b2b-collaboration"></a>Gemachtigde uitnodigingen voor Azure Active Directory B2B-samenwerking
 
@@ -50,15 +44,10 @@ Tenants zijn standaard ingesteld op #4. (U kunnen B2B gebruikers uitnodigen voor
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Lees ook onze andere artikelen over Azure AD B2B-samenwerking:
+Zie de volgende artikelen over Azure AD B2B-samenwerking:
 
-* [Wat is Azure AD B2B-samenwerking?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Gebruikerseigenschappen B2B-samenwerking](active-directory-b2b-user-properties.md)
-* [Een B2B-samenwerking-gebruiker toe te voegen aan een rol](active-directory-b2b-add-guest-to-role.md)
-* [Dynamische groepen en B2B-samenwerking](active-directory-b2b-dynamic-groups.md)
-* [B2B-samenwerking code en PowerShell-voorbeelden](active-directory-b2b-code-samples.md)
-* [SaaS-apps voor B2B-samenwerking configureren](active-directory-b2b-configure-saas-apps.md)
-* [B2B-samenwerking gebruikerstokens](active-directory-b2b-user-token.md)
-* [Gebruikersclaims voor B2B-samenwerking toewijzing](active-directory-b2b-claims-mapping.md)
-* [Office 365 extern delen](active-directory-b2b-o365-external-user.md)
-* [Huidige beperkingen voor B2B-samenwerking](active-directory-b2b-current-limitations.md)
+- [Wat is Azure AD B2B-samenwerking?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [B2B-samenwerking gastgebruikers zonder een uitnodiging toevoegen](active-directory-b2b-add-user-without-invite.md)
+- [Een B2B-samenwerking-gebruiker toe te voegen aan een rol](active-directory-b2b-add-guest-to-role.md)
+
+

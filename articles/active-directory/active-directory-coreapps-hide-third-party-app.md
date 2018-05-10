@@ -3,23 +3,24 @@ title: Een toepassing van de gebruikerservaring in Azure Active Directory verber
 description: Hoe een toepassing van de gebruikerservaring in Azure Active Directory toegang panelen of Office 365 voor ruimtevaartuigen verbergen.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
 editor: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 7da8c60feed7cbb630e5b48653c657cc8fed9e99
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 564b724ab3971e0566fb2b1dc3a75c2eeac3d391
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="hide-an-application-from-users-experience-in-azure-active-directory"></a>Een toepassing van de gebruikerservaring in Azure Active Directory verbergen
 
@@ -40,13 +41,13 @@ Gebruik de volgende stappen voor het verbergen van de toepassing in het deelvens
 1.  Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account met globale beheerdersrechten voor de map.
 2.  Selecteer **alle services**, voer **Azure Active Directory** in het tekstvak in en selecteer vervolgens **Enter**.
 3.  Op de **Azure Active Directory - *directoryname***  scherm (dat wil zeggen, de Azure AD scherm voor de map die u beheert), selecteer **bedrijfstoepassingen**.
-![Zakelijke apps](media/active-directory-coreapps-hide-third-party-app/app1.png)
+![Enterprise-apps](media/active-directory-coreapps-hide-third-party-app/app1.png)
 4.  Op de **bedrijfstoepassingen** Schakel in het scherm **alle toepassingen**. U ziet een lijst met de apps die u kunt beheren.
 5.  Op de **bedrijfstoepassingen - alle toepassingen** scherm, selecteert u een app.</br>
-![Zakelijke apps](media/active-directory-coreapps-hide-third-party-app/app2.png)
+![Enterprise-apps](media/active-directory-coreapps-hide-third-party-app/app2.png)
 6.  Op de ***appname*** scherm (dat wil zeggen, het scherm met de naam van de geselecteerde app in de titel), selecteert u eigenschappen.
 7.  Op de  ***appname* -eigenschappen** Schakel in het scherm **Ja** voor **zichtbaar voor gebruikers?**.
-![Zakelijke apps](media/active-directory-coreapps-hide-third-party-app/app3.png)
+![Enterprise-apps](media/active-directory-coreapps-hide-third-party-app/app3.png)
 8.  Selecteer de **opslaan** opdracht.
 
 ### <a name="how-do-i-hide-office-365-applications-from-users-access-panel"></a>Hoe kan ik Office 365-toepassingen uit van de gebruiker toegang deelvenster verbergen?

@@ -2,24 +2,24 @@
 title: Verificatie op basis van een header met PingAccess voor Azure AD-toepassingsproxy | Microsoft Docs
 description: Toepassingen publiceren met PingAccess en App-Proxy naar header gebaseerde verificatie ondersteunt.
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: bfff8ebff87b6c3c501202e95c463a0f4e235ffc
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: bb341c5700f573e61cdbbe992aa0b0eb99389b2f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Verificatie op basis van een koptekst voor eenmalige aanmelding met toepassingsproxy en PingAccess
 
@@ -95,7 +95,7 @@ Volg deze stappen voor het publiceren van uw app. Voor een meer overzicht van de
    ![Selecteer op basis van een koptekst eenmalige aanmelding](./media/application-proxy-ping-access/sso-header.PNG)
 
 11. Sluit de blade van Enterprise-toepassingen of schuif helemaal naar links om te keren naar het menu van Azure Active Directory.
-12. Selecteer **App registraties**.
+12. Selecteer **App-registraties**.
 
    ![Selecteer de App-registraties](./media/application-proxy-ping-access/app-registrations.png)
 

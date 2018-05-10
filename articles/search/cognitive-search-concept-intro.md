@@ -8,15 +8,15 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: heidist
-ms.openlocfilehash: 853e8fbc0c7044dc97a29254bfd4130e7f81bbbd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: cce10ceb190ac90b57e77bfa5903b30b2c249a2c
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="what-is-cognitive-search"></a>Wat is cognitieve zoeken?
 
-Cognitieve search is een preview-functie van Azure Search, beschikbaar is op alle lagen in Zuid-centraal VS en West-Europa, waarmee AI wordt toegevoegd aan indexering werkbelastingen. Ophalen van gegevens, verwerking van natuurlijke taal en beeldverwerking tijdens het indexeren de latente informatie gevonden in niet-gestructureerde of niet-doorzoekbare inhoud en maakt het doorzoekbaar in Azure Search.
+Cognitieve search is een preview-functie van [Azure Search](search-what-is-azure-search.md), beschikbaar is op alle lagen in Zuid-centraal VS en West-Europa, waarmee AI wordt toegevoegd aan indexering werkbelastingen. Ophalen van gegevens, verwerking van natuurlijke taal en beeldverwerking tijdens het indexeren de latente informatie gevonden in niet-gestructureerde of niet-doorzoekbare inhoud en maakt het doorzoekbaar in Azure Search.
 
 AI-integratie is via *cognitieve vaardigheden* die brondocumenten via sequentiële processen, in de route naar een zoekindex aanvullen. 
 

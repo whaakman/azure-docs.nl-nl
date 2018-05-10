@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: mtillman
 ms.custom: aaddev
-ms.openlocfilehash: 00ca193b281f0a8d24935dd8673cae4e05b4d167
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: c817964ebab358f8e31e7435b7067fc60e9516fa
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory Graph API
 > [!IMPORTANT]
@@ -46,7 +46,7 @@ Azure AD Graph API biedt de volgende functies:
 * **Verificatie met Azure AD**: elke aanvraag naar de Azure AD Graph API moet worden geverifieerd door een JSON Web Token (JWT) in de autorisatie-header van de aanvraag toe te voegen. Dit token wordt verkregen door het maken van een aanvraag naar Azure AD-tokeneindpunt en geldige referenties opgeeft. U kunt de clientreferentiestroom van OAuth 2.0 of de autorisatiecodetoekenning te verkrijgen van een token voor het aanroepen van de grafiek. Voor meer informatie [OAuth 2.0 in Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx).
 * **Op basis van rollen autorisatie (RBAC)**: beveiligingsgroepen worden gebruikt voor het uitvoeren van RBAC in Azure AD Graph API. Bijvoorbeeld, als u wilt bepalen of een gebruiker toegang tot een specifieke bron heeft, de toepassing kunt aanroepen de [groepslidmaatschap controleren (transitieve)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/functions-and-actions#checkMemberGroups) bewerking, die resulteert in waar of ONWAAR.
 * **Differentiële Query**: differentiële query kunt u het bijhouden van wijzigingen in een map tussen de twee perioden zonder vaak query's in Azure AD Graph API aanbrengen. Dit type aanvraag retourneert alleen de wijzigingen die zijn aangebracht tussen het vorige differentiële-aanvraag en de huidige aanvraag. Zie voor meer informatie [Azure AD Graph API differentiële Query](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query).
-* **Directory-uitbreidingen**: organisatie-eenheid kunt aangepaste eigenschappen toevoegen aan de directory-objecten zonder een externe gegevensarchief. Bijvoorbeeld, als uw toepassing een Skype-ID-eigenschap voor elke gebruiker vereist, kunt u de nieuwe eigenschap registreren in de map en is beschikbaar voor gebruik op elk gebruikersobject. Zie voor meer informatie [Azure AD Graph API Directory-Schemauitbreidingen](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions).
+* **Directory-uitbreidingen**: U kunt aangepaste eigenschappen voor directory-objecten toevoegen zonder een externe gegevensarchief. Bijvoorbeeld, als uw toepassing een Skype-ID-eigenschap voor elke gebruiker vereist, kunt u de nieuwe eigenschap registreren in de map en is beschikbaar voor gebruik op elk gebruikersobject. Zie voor meer informatie [Azure AD Graph API Directory-Schemauitbreidingen](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions).
 * **Beveiligd door machtigingsbereiken**: Azure AD Graph API-machtigingsbereiken waarmee veilige toegang tot Azure AD-gegevens met behulp van OAuth 2.0 maakt. Deze ondersteuning biedt voor tal van client-app-typen, met inbegrip van:
   
   * gebruikersinterfaces waarmee gedelegeerde toegang tot gegevens via de autorisatie van de aangemelde gebruiker krijgen (gedelegeerd)

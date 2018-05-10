@@ -2,22 +2,19 @@
 title: Verleen partner lokaal beheerde accounts toegang krijgen bronnen in de cloud als gebruikers van Azure AD B2B tot | Microsoft Docs
 description: Geef de externe partners lokaal beheerde toegang tot lokale en cloudresources met dezelfde referenties met Azure AD B2B-samenwerking.
 services: active-directory
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: ''
-tags: ''
 ms.service: active-directory
+ms.component: B2B
 ms.topic: article
-ms.workload: identity
 ms.date: 04/24/2018
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 9abbc5576708468abdda3efeeae4f28376257e32
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: dc4c8b3f5cb20eaf76fc0ee47d195aca26d06f90
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources-using-azure-ad-b2b-collaboration"></a>Verleen partner lokaal beheerde serviceaccounts toegang bronnen in de cloud met Azure AD B2B-samenwerking
 

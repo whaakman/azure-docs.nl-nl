@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: 8382fadc02a7e80b6f28bd777f423013aed9add3
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 50328fc3b594a9162ffb9f82f699f43f9106640f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>Installatie van de Mobility-Service met System Center Configuration Manager automatiseren
 
@@ -49,7 +49,7 @@ U kunt ook installatie van de Mobility-Service met automatiseren [Azure Automati
 4. Kopieer de **MobSvc.passphrase** bestand naar de **MobSvcWindows** map op de netwerkshare.
 5. Blader naar de opslagplaats installatieprogramma op de configuratieserver met de volgende opdracht:
 
-   `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
+   `cd %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository`
 
 6. Kopieer de **Microsoft ASR\_UA\_*versie*\_Windows\_GA\_*datum*\_Release.exe**  naar de **MobSvcWindows** map op de netwerkshare.
 7. Kopieer de volgende code en sla het bestand als **install.bat** in de **MobSvcWindows** map.
@@ -174,7 +174,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
   | **Parameternaam** | **Waarde** |
   |--|--|
   | Naam | Installeren van Microsoft Azure Mobility-Service (Windows) |
-  | Opdrachtregel | install.bat |
+  | Opdrachtregel | Install.bat |
   | Programma kan worden uitgevoerd | Of een gebruiker is aangemeld |
 
   ![Schermopname van pakket en programma-wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties.png)
@@ -230,7 +230,7 @@ U kunt de voortgang van de implementatie controleren met behulp van de Configura
 4. Kopieer de **MobSvc.passphrase** bestand naar de **MobSvcLinux** map op de netwerkshare.
 5. Blader naar de opslagplaats installatieprogramma op de configuratieserver met de opdracht:
 
-   `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
+   `cd %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository`
 
 6. Kopieer de volgende bestanden naar de **MobSvcLinux** map op uw netwerk:
    * Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz

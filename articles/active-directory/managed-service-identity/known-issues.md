@@ -8,17 +8,18 @@ manager: mtillman
 editor: ''
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
+ms.component: msi
 ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: f643b1203283d7aac01aa8821a180c898f33ec25
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 552f9e7cae4d7f46ea1548cfe7d9482bff79e5bc
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Veelgestelde vragen en bekende problemen met beheerde Service identiteit (MSI) voor Azure Active Directory
 
@@ -87,7 +88,7 @@ Wanneer de Service-identiteit beheerd op een virtuele machine is ingeschakeld, w
 
 De beheerde Service identiteit van VM-extensie biedt momenteel geen ondersteuning voor de mogelijkheid om het schema aan een resource group-sjabloon. Hierdoor worden de gegenereerde sjabloon geen configuratieparameters in te schakelen beheerde Service-identiteit voor de resource weergegeven. Deze secties kunnen handmatig worden toegevoegd aan de hand van de voorbeelden in [een VM beheerde Service-identiteit configureren met behulp van een sjabloon](qs-configure-template-windows-vm.md).
 
-Zodra de schema-export-functionaliteit beschikbaar voor de MSI-VM-extensie, wordt het weergegeven in [exporteren resourcegroepen met VM-extensies](../../virtual-machines/windows/extensions-export-templates.md#supported-virtual-machine-extensions).
+Zodra de schema-export-functionaliteit beschikbaar voor de MSI-VM-extensie, wordt het weergegeven in [exporteren resourcegroepen met VM-extensies](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
 
 ### <a name="configuration-blade-does-not-appear-in-the-azure-portal"></a>Configuratie-blade niet wordt weergegeven in de Azure-portal
 

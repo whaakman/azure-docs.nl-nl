@@ -2,12 +2,12 @@
 title: Uw toepassing te gebruiken van Azure Active Directory registreren | Microsoft Docs
 description: In dit artikel bevat voor IT-professionals wordt geschreven, richtlijnen voor het Azure-toepassingen integreren met Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: mtillman
-editor: 
-ms.assetid: dd69f2bc-37c5-457c-857d-27acb84267fb
+editor: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/14/2018
 ms.author: kgremban
 ms.custom: seohack1
-ms.openlocfilehash: 514db22ad070fed20d89be442cecc2f3ee808ead
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 804c135afae97ffc8b2cf78c31fd8c3653e9911d
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Line-of-business-apps ontwikkelen voor Azure Active Directory
 Deze handleiding biedt een overzicht van het ontwikkelen van line-of-business (LoB)-toepassingen voor Azure Active Directory (AD). De doelgroep is globale beheerders Active Directory/Office 365.
@@ -76,7 +76,7 @@ Voor toepassingen die u vertrouwt, kunt u de gebruikerservaring met ermee akkoor
 
 Zie voor meer informatie over de toestemming van de gebruiker en de toestemming in Azure optreden, [toepassingen integreren met Azure Active Directory](active-directory-integrating-applications.md).
 
-## <a name="related-articles"></a>Gerelateerde artikelen
+## <a name="related-articles"></a>Verwante artikelen
 * [Veilige externe toegang tot on-premises toepassingen met Azure AD-toepassingsproxy inschakelen](active-directory-application-proxy-get-started.md)
 * [Voorwaardelijke toegang tot Azure Preview voor SaaS-Apps](active-directory-conditional-access-azure-portal-get-started.md)
 * [Het beheren van toegang tot apps met Azure AD](active-directory-managing-access-to-apps.md)

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: a4b1e30f1350a5e5886899069b05b8b87bb7000d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 34824401ec8d21949c5c5036a11197a09e240bd7
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Profiel live Azure-web-apps met Application Insights
 
-*Deze functie van Azure Application Insights is algemeen beschikbaar is voor de functie Web Apps van Azure App Service en is Preview-versie voor Azure-rekenresources.*
+*Deze functie van Azure Application Insights is algemeen beschikbaar is voor de functie Web Apps van Azure App Service en is Preview-versie voor Azure-rekenresources. Voor informatie met betrekking tot [lokale gebruik van de profiler](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers).*
 
 In dit artikel worden de hoeveelheid tijd die nodig om in elke methode van uw live-webtoepassing wanneer u [Application Insights](app-insights-overview.md). Het hulpprogramma Application Insights Profiler geeft gedetailleerde profielen van live-aanvragen die door uw app zijn behandeld. Profiler markeert de *hot pad* die gebruikmaakt van de meeste tijd. Aanvragen met verschillende reactietijden zijn profiel op basis van steekproeven. Met behulp van tal van technieken minimaliseert u de overhead die is gekoppeld aan de toepassing.
 

@@ -2,24 +2,24 @@
 title: Een aangepaste startpagina van gepubliceerde apps instellen via Azure AD-toepassingsproxy | Microsoft Docs
 description: Bevat informatie over de basisbeginselen van Azure AD-toepassingsproxy connectors
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: d31100015a11bc57d488f1d6af93db8526e38968
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 1627f3590bd92f2460368cffab48d43c5a82d3c4
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Een aangepaste startpagina van gepubliceerde apps instellen via Azure AD-toepassingsproxy
 
@@ -42,7 +42,7 @@ Voordat u de URL van de startpagina instellen, houd de volgende vereisten:
 
 * Zorg ervoor dat het opgegeven pad een subdomein-pad voor de hoofd-domein-URL is.
 
-  Als de URL hoofddomein is, bijvoorbeeld https://apps.contoso.com/app1/, de startpagina-URL die u configureert moet beginnen met https://apps.contoso.com/app1/.
+  Als het hoofddomein URL, bijvoorbeeld https://apps.contoso.com/app1/, de startpagina-URL die u configureert, moet beginnen met https://apps.contoso.com/app1/.
 
 * Als u een wijziging in de gepubliceerde app aanbrengt, kan de wijziging van de waarde van de URL van de opnieuw. Wanneer u de app in de toekomst bijwerkt, moet u controleren en, indien nodig werkt u de URL van de startpagina.
 

@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.reviewers: billgib
 ms.author: genemi
-ms.openlocfilehash: 474b7842c8295be0dd30c2c03b92dc68ce40630d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: dc70fe43c63d6b77d4a122f196f59fe51573b7aa
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Schema in een SaaS-toepassing die gebruikmaakt van shard multitenant SQL-databases beheren
 
@@ -172,5 +172,5 @@ In deze zelfstudie hebt u het volgende geleerd:
 > * Verwijzing naar gegevens in alle tenant databases bijwerken
 > * Een index in een tabel maken in alle tenantdatabases
 
-Probeer vervolgens de [Ad-hoc reporting zelfstudie] (saas-multitenantdb-ad-hoc-reporting.md) om te verkennen gedistribueerde query's uitvoeren voor tenant databases.
+Probeer vervolgens de [Ad-hoc reporting zelfstudie](saas-multitenantdb-adhoc-reporting.md) om te verkennen gedistribueerde query's uitvoeren voor tenant databases.
 

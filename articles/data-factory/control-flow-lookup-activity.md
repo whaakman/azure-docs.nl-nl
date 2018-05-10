@@ -11,18 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/05/2018
+ms.date: 05/08/2018
 ms.author: shlo
-ms.openlocfilehash: 0a321de96b26b183432a30868829081c1656be3f
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: 18748aafa2b70d349f9914e2a8afc1c7477ca26e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>De activiteit opzoeken in Azure Data Factory
-U kunt lookup-activiteit gebruiken om te lezen of het opzoeken van een record, de tabelnaam of de waarde van een externe bron. Er kan naar deze uitvoer worden verwezen door volgende activiteiten. 
 
-Lookup-activiteit is handig als u wilt een lijst met bestanden, records of tabellen dynamisch ophalen uit een configuratiebestand of een gegevensbron. De uitvoer van de activiteit kan verder worden gebruikt door andere activiteiten uit te voeren specifieke verwerking op alleen die items.
+Lookup activiteit kan worden gebruikt voor het ophalen van een gegevensset uit een van de ADF-ondersteunde gegevensbron.  Worden kan gebruikt in het volgende scenario:
+- Dynamisch bepalen welke objecten (bestanden, tabellen, enzovoort) om te werken op een volgende activiteit in plaats van hard-coding van de objectnaam
+
+Lookup-activiteit kunt lezen en de inhoud van een configuratiebestand, een configuratietabel of het resultaat van het uitvoeren van een query of een opgeslagen procedure.  De uitvoer van Lookup-activiteit worden gebruikt in een latere kopiëren of transformatieactiviteit als het een waarde singleton of in een ForEach-activiteit gebruikt als het is een matrix van kenmerken.
 
 > [!NOTE]
 > Dit artikel is van toepassing op versie 2 van Azure Data Factory, dat zich momenteel in de previewfase bevindt. Als u versie 1 van de Data Factory-service gebruikt die algemeen beschikbaar is (GA), raadpleegt u [Documentatie van versie 1 van Data Factory](v1/data-factory-introduction.md).
@@ -33,7 +35,7 @@ De volgende gegevensbronnen worden momenteel ondersteund voor het opzoeken van:
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
-Het maximum aantal rijen dat wordt geretourneerd door de activiteit opzoeken is **5000**, tot aan **10MB** in grootte.
+Het maximum aantal rijen dat wordt geretourneerd door de activiteit opzoeken is **5000**, tot aan **2MB** in grootte.
 
 ## <a name="syntax"></a>Syntaxis
 

@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: 285b8d0acc8a6cbe1a6441a4aabf372de204309e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 02c380c78fa773b56a3c8b666e890836a3d8e54b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>Instellen en Log Analytics gebruiken met een multitenant SaaS van SQL Database-app
 
@@ -65,7 +65,7 @@ De scripts voor Wingtip Tickets SaaS-multitenant-database en de broncode van toe
 
 Log Analytics is een afzonderlijke service, die moet worden geconfigureerd. Log Analytics verzamelt logboekgegevens, Telemetrie en metrische gegevens in een werkruimte voor logboekanalyse. Net als andere resources in Azure moet een werkruimte voor logboekanalyse worden gemaakt. De werkruimte hoeft niet te worden gemaakt in dezelfde resourcegroep bevinden als de toepassingen die deze controleert. Zo vaak doet zinvol het meest al. Gebruik één resourcegroep voor de app Wingtip Tickets om ervoor te zorgen dat de werkruimte wordt verwijderd met de toepassing.
 
-1. Open in de PowerShell ISE *... \\WingtipTicketsSaaS MultiTenantDb master\\Learning-Modules\\prestatiebewaking en beheer\\Meld Analytics\\** Demo LogAnalytics.ps1***.
+1. Open in de PowerShell ISE *... \\WingtipTicketsSaaS MultiTenantDb master\\Learning-Modules\\prestatiebewaking en beheer\\Meld Analytics\\Demo LogAnalytics.ps1*.
 2. Het script wordt uitgevoerd, druk op F5.
 
 U kunt nu logboekanalyse openen in de Azure portal of de Operations Management Suite-portal. Het duurt enkele minuten voor het verzamelen van telemetriegegevens in de werkruimte voor logboekanalyse en zichtbaar te maken. Hoe langer laat u het systeem verzamelen van diagnostische gegevens, hoe meer interessante de ervaring is. 
@@ -90,7 +90,7 @@ Open in deze oefening Log Analytics en de Operations Management Suite-portal om 
 
 4. Selecteer de **Azure SQL Analytics** tegel om dit te openen.
 
-    ![Overzichttegel](media/saas-dbpertenant-log-analytics/overview.png)
+    ![Overzichtstegel](media/saas-dbpertenant-log-analytics/overview.png)
 
 5. De weergaven in de oplossing Schuif opzij, met hun eigen interne schuifbalk onderaan. Vernieuw de pagina, indien nodig.
 

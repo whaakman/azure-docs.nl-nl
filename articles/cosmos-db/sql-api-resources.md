@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 20af4611920328ddcaa6e658101184451217a011
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 69ee7baeda524647dd259ea22bb948b0168fd913
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Hiërarchisch bronmodel en basisconcepten voor Azure Cosmos DB
 
@@ -50,7 +50,7 @@ Als u het volgende diagram illustreert, hiërarchische Azure Cosmos DB **resourc
 ![Azure hiërarchische resourcemodel Cosmos-DB][1]  
 **Hiërarchische resourcemodel**   
 
-Als u wilt werken met resources, moet u [een databaseaccount maken](create-sql-api-dotnet.md) met behulp van uw Azure-abonnement. Een databaseaccount kan bestaan uit een reeks **databases**, elk met meerdere **verzamelingen**, elk van die op zijn beurt bevatten ** opgeslagen procedures, triggers, UDF's, documenten en verwante  **bijlagen**. Een database ook gekoppelde **gebruikers**, elk met een reeks **machtigingen** voor toegang tot de verzamelingen, opgeslagen procedures, triggers, UDF's, documenten of bijlagen. Hoewel databases, gebruikers, machtigingen en verzamelingen systeem gedefinieerde resources met bekende schema's, bevatten documenten en bijlagen willekeurige, door de gebruiker gedefinieerde JSON-inhoud.  
+Als u wilt werken met resources, moet u [een databaseaccount maken](create-sql-api-dotnet.md) met behulp van uw Azure-abonnement. Een databaseaccount kan bestaan uit een reeks **databases**, elk met meerdere **verzamelingen**, elk van die op zijn beurt bevatten **opgeslagen procedures, triggers, UDF's, documenten en verwante bijlagen**. Een database ook gekoppelde **gebruikers**, elk met een reeks **machtigingen** voor toegang tot de verzamelingen, opgeslagen procedures, triggers, UDF's, documenten of bijlagen. Hoewel databases, gebruikers, machtigingen en verzamelingen systeem gedefinieerde resources met bekende schema's, bevatten documenten en bijlagen willekeurige, door de gebruiker gedefinieerde JSON-inhoud.  
 
 | Resource | Beschrijving |
 | --- | --- |

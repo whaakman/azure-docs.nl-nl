@@ -9,11 +9,11 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 05/07/2018
-ms.openlocfilehash: 66d316f50f161c2e905c3f76da30580b44a63a23
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: a970bd889e6994833b2e34adc90af594f9db4d6b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="build-and-deploy-text-classification-models-with-azure-machine-learning"></a>Bouw en implementeer tekst classificatiemodellen kunnen met Azure Machine Learning
 
@@ -137,7 +137,7 @@ df_test.head()
     <tr style="text-align: right;">
       <th></th>
       <th>Label</th>
-      <th>Tekst</th>
+      <th>tekst</th>
     </tr>
   </thead>
   <tbody>
@@ -420,13 +420,14 @@ text_classifier.fit(df_train)
             text_callable_list=None, text_cols=['text'], text_regex_list=None,
             weight_col=None)
 
-### <a name="examine-and-set-the-parameters-of-the-different-pipeline-steps"></a>Bekijken en instellen van de parameters van de stappen voor andere pijplijn
 
-Hoewel het aanbrengen van een scikit-model meer voorverwerking vóór aanpassen met behulp van een pijplijn van preprocessor en stappen featurizer (transformation) wordt uitgevoerd. Daarom de verwijzing naar een "pipeline" voor training. Tijdens de evaluatie van de volledige pipeline, met inbegrip van voorverwerking en scikit-model prediction meer, wordt toegepast op een test gegevensset.
+Tijdens de training, moet u de tekst- en label kolommen hebben. Terwijl alleen de kolom is nodig voor voorspellingen. 
+
+### <a name="examine-and-set-the-parameters-of-the-different-pipeline-steps"></a>Bekijken en instellen van de parameters van de stappen voor andere pijplijn
+    
+Gewoonlijk stelt u de parameters voordat u een model passen. 
 
 ***Voorbeeld met text_word_ngrams*** 
-
-Gewoonlijk stelt u de parameters voordat u een model passen. 
 
 De volgende codevoorbeelden laten zien hoe het model met behulp van de standaardparameters voor pijplijn en het model trainen. 
 
@@ -573,7 +574,7 @@ De classificatie getraind tekst toepassen op de testgegevensset klasse voorspell
     <tr style="text-align: right;">
       <th></th>
       <th>Label</th>
-      <th>Tekst</th>
+      <th>tekst</th>
       <th>kansen</th>
       <th>Voorspelling</th>
     </tr>

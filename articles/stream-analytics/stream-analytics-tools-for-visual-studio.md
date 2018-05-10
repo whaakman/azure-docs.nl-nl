@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: eaaee36a2f4dd5a313f8871cea5fd885812fe351
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: fe9998e3b1f5e2a3376f833c3dd8212e4a639274
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>Azure Stream Analytics-hulpprogramma's voor Visual Studio gebruiken
 Azure Stream Analytics-hulpprogramma's voor Visual Studio zijn nu algemeen beschikbaar. Deze hulpprogramma's inschakelen van een rijkere ervaring voor gebruikers van de Stream Analytics oplossen, evenals een complexe query's schrijven en zelfs schrijven lokaal query's. U kunt ook een Stream Analytics-taak exporteren naar een Visual Studio-project.
@@ -28,6 +28,20 @@ Na het voltooien van deze zelfstudie, kunt u zich kunt:
 * Test uw taak lokaal met lokale voorbeeldgegevens.
 * Gebruik de bewaking problemen kunt oplossen.
 * Bestaande taken exporteren naar projecten.
+
+>[!IMPORTANT]
+>
+>Voorbereiding voor de nieuwe algemene Data Protection regelgeving (GDPR) overgang naar effect op 25 mei 2018, wordt aanbevolen dat gebruikers van Azure Stream Analytics-Tools voor Visual Studio naar versie 2.3.3000.5 bijwerken of hoger. Deze versie bevat wijzigingen die zijn gebaseerd op de beveiligingsvereisten van de meest recente gegevens. Vorige versies zijn niet beschikbaar voor download en zijn afgeschaft. 
+>
+>**Wat moet ik doen?**
+>
+>1. Controleer als u een eerdere versie dan 2.3.3000.5 van Azure Stream Analytics-hulpprogramma's voor Visual Studio. 
+>   
+>   ![Controleer de hulpprogrammaversie](./media/stream-analytics-tools-for-vs/about-data-lake.png)
+> 
+>2. Als uw versie van een eerdere versie van 2.3.3000.5, werkt u uw Azure Data Lake Tools voor Visual Studio via het Downloadcentrum: 
+>    - [Voor Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools)
+>    - [Voor Visual Studio 2013 en 2015](https://www.microsoft.com/en-us/download/details.aspx?id=54630)
 
 ## <a name="prerequisites"></a>Vereisten
 U moet de volgende vereisten om deze zelfstudie te voltooien:
@@ -137,7 +151,7 @@ Deze map bevat de volgende bestanden:
 
 * Entry.json
 * Exit.json
-* Registration.json
+* Registration.JSON
 
 ## <a name="question-number-of-vehicles-entering-a-toll-booth"></a>Vraag: Aantal voertuigen een tolstation stand
 Dubbelklik in het project op **Script.asaql** het script in de editor te openen. Het script in de vorige sectie in de editor plakken. De query-editor biedt ondersteuning voor IntelliSense syntaxiskleuren en de markering van een fout.
@@ -195,7 +209,7 @@ U ziet de voortgang in de **uitvoer** venster.
    ![Verzenden van taak](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-submit-job-02.png)
 
  
-### <a name="start-the-job"></a>Start de taak
+### <a name="start-the-job"></a>Taak starten
 Nu uw taak wordt gemaakt en de taakweergave wordt automatisch geopend. 
 1. Selecteer de groene pijl om de taak te starten.
 

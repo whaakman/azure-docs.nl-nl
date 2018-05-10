@@ -7,13 +7,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: multiple
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 05/09/2018
 ms.author: raynew
-ms.openlocfilehash: 660ced47b48e981b65c6b9390809e345be8eda2d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 754b0bdea4ccb93de16fda4eea5e012e0630daea
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Zakelijke continuïteit en herstel na noodgevallen (BCDR): Azure-gebieden gekoppeld
 
@@ -25,31 +25,30 @@ Elke Azure-regio is gekoppeld aan een andere regio binnen de dezelfde Geografie,
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 
-Afbeelding 1: Azure regionale paar diagram
+Afbeelding 1: Azure regionale paren
 
 | Geografie | Gekoppelde regio's |  |
 |:--- |:--- |:--- |
 | Azië |Oost-Azië |Zuidoost-Azië |
-| Australië |Australië - oost |Australië - zuidoost |
+| Australië |Australië - oost |Australië - Zuidoost |
+| Brazilië |Brazilië-Zuid (2) |Zuid-centraal VS |
 | Canada |Canada - centraal |Canada - oost |
 | China |China - noord |China East|
+| Europa |Noord-Europa |West-Europa |
+| Duitsland |Duitsland - centraal |Duitsland - noordoost |
 | India |Centraal-India |Zuid-India |
 | India |West, India (1) |Zuid-India |
 | Japan |Japan - oost |Japan - west |
 | Korea |Korea - centraal |Korea - zuid |
-| Noord-Amerika |Noord-centraal VS |Zuid-centraal VS |
 | Noord-Amerika |VS - oost |VS - west |
 | Noord-Amerika |VS - oost 2 |VS - midden |
-| Noord-Amerika |VS - west 2 |West-centraal VS |
-| Europa |Noord-Europa |West-Europa |
-| Japan |Japan - oost |Japan - west |
-| Brazilië |Brazilië-Zuid (2) |Zuid-centraal VS |
+| Noord-Amerika |Noord-centraal VS |Zuid-centraal VS |
+| Noord-Amerika |VS - west 2 |West-centraal VS 
+| VK |Verenigd Koninkrijk West |Verenigd Koninkrijk Zuid |
+| het Ministerie van Defensie in de VS |US DoD - oost |US DoD - centraal |
+| Amerikaanse overheid |VS (overheid) - Arizona |VS (overheid) - Texas |
 | Amerikaanse overheid |VS Gov Iowa (3) |VS (overheid) - Virginia |
 | Amerikaanse overheid |VS Gov Virginia (4) |VS (overheid) - Texas |
-| Amerikaanse overheid |VS (overheid) - Arizona |VS (overheid) - Texas |
-| Amerikaanse ministerie van defensie |US DoD - oost |US DoD - centraal |
-| VERENIGD KONINKRIJK |Verenigd Koninkrijk West |Verenigd Koninkrijk Zuid |
-| Duitsland |Duitsland - centraal |Duitsland - noordoost |
 
 Tabel 1 - toewijzing van Azure regionale paren
 

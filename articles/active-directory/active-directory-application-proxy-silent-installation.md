@@ -2,11 +2,11 @@
 title: Een installatie zonder toezicht toepassingsproxy van Azure AD-connector | Microsoft Docs
 description: Bevat informatie over het uitvoeren van een installatie zonder toezicht van Azure AD Connector voor toepassingsproxy om te bieden veilige externe toegang tot uw lokale apps.
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 3aa1c7f2-fb2a-4693-abd5-95bb53700cbb
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.date: 01/31/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: dbda2448c5bf2b6998d120a082e036d7e0125a1f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 33719ea36af3b3b554fc1d32878d7d72e11b7886
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Een script voor installatie zonder toezicht voor de Azure AD-toepassingsproxy-connector maken
 
@@ -51,7 +51,7 @@ Er zijn twee methoden die kunt u de connector te registreren:
 * Registreert u de connector met behulp van een token offline gemaakt
 
 ### <a name="register-the-connector-using-a-windows-powershell-credential-object"></a>De connector met behulp van een Windows PowerShell-referentieobject registreren
-1. Maak een Windows PowerShell-referenties object `$cred` die een administratieve gebruikersnaam en wachtwoord voor uw directory bevat. Voer de volgende opdracht vervangen  *\<gebruikersnaam\>*  en  *\<wachtwoord\>*:
+1. Maak een Windows PowerShell-referenties object `$cred` die een administratieve gebruikersnaam en wachtwoord voor uw directory bevat. Voer de volgende opdracht vervangen *\<gebruikersnaam\>* en  *\<wachtwoord\>*:
    
         $User = "<username>"
         $PlainPassword = '<password>'

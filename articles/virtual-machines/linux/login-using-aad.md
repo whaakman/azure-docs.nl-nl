@@ -12,13 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/01/2018
+ms.date: 05/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 1a2bb6def032d1790a67e458afb162402c1443a7
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: 652f9867b7423ce4307dba1c77e8f38fcd596c67
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Aanmelden bij een virtuele Linux-machine in Azure met Azure Active Directory-verificatie (Preview)
 
@@ -43,14 +43,16 @@ De volgende Linux-distributies worden momenteel ondersteund tijdens de preview v
 
 | Distributie | Versie |
 | --- | --- |
-| Ubuntu Server | Ubuntu 16.04 TNS en Ubuntu Server 17.10 |
+| CentOS | CentOS 6,9 en CentOS 7.4 |
+| Red Hat Enterprise Linux | RHEL 7 | 
+| Ubuntu Server | Ubuntu 14.04 TNS, Ubuntu Server 16.04 en Ubuntu Server 17.10 |
 
 De volgende Azure-regio's worden momenteel ondersteund tijdens de preview van deze functie:
 
-- Zuid-centraal VS
+- Alle openbare Azure-regio 's
 
 >[!IMPORTANT]
-> Voor het gebruik van deze preview-functie, moet u alleen een ondersteunde Linux-distro implementeren en in een ondersteunde Azure-regio.
+> Voor het gebruik van deze preview-functie, moet u alleen een ondersteunde Linux-distro implementeren en in een ondersteunde Azure-regio. De functie wordt niet ondersteund in Azure Government of soevereine clouds.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -79,7 +81,7 @@ Installeer het Azure Active Directory-logboek in VM-extensie te melden voor een 
 
 ```azurecli-interactive
 az vm extension set \
-    --publisher Microsoft.Azure.ActiveDirectory.LinuxSSH.Edp \
+    --publisher Microsoft.Azure.ActiveDirectory.LinuxSSH \
     --name AADLoginForLinux \
     --resource-group myResourceGroup \
     --vm-name myVM

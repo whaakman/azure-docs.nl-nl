@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: iainfou
-ms.openlocfilehash: 9093fcf008f199cc1a78d50979f6387a2e1b5262
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: cc91366bda4dd443392c78cd61e5cc0ddb261fe2
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Een virtuele-machineschaalset die gebruikmaakt van beschikbaarheid Zones maken
 
@@ -194,7 +194,7 @@ Het volgende voorbeeld wordt een Linux-één zone-scale set met de naam *myScale
 }
 ```
 
-Voor een compleet voorbeeld van de schaal van een enkele zone en netwerkbronnen, raadpleegt u [in dit voorbeeld Resource Manager-sjabloon](https://github.com/Azure/vm-scale-sets/blob/master/zones/singlezone.json)
+Voor een compleet voorbeeld van de schaal van een enkele zone en netwerkbronnen, raadpleegt u [in dit voorbeeld Resource Manager-sjabloon](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/singlezone.json)
 
 ### <a name="zone-redundant-scale-set"></a>Zone-redundante schaalset
 
@@ -216,7 +216,7 @@ Geef voor het maken van een zone-redundante schaalset meerdere waarden in de `zo
 
 Als u een openbaar IP-adres of een load balancer maakt, geeft u de *"sku": {'name': 'Standaard'} '* eigenschap voor het maken van de zone-redundante netwerkbronnen. U moet ook een Netwerkbeveiligingsgroep en regels zodanig dat alle verkeer maken. Zie voor meer informatie [overzicht van Azure Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md).
 
-Voor een compleet voorbeeld van een zone-redundante schaal en netwerkbronnen, raadpleegt u [in dit voorbeeld Resource Manager-sjabloon](https://github.com/Azure/vm-scale-sets/blob/master/zones/multizone.json)
+Voor een compleet voorbeeld van een zone-redundante schaal en netwerkbronnen, raadpleegt u [in dit voorbeeld Resource Manager-sjabloon](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json)
 
 ## <a name="next-steps"></a>Volgende stappen
 

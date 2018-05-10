@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 5cbd1738bd53179cb9705a86886b6cf811e9988a
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: d2523502c20a7cdc4fb4ec388f167f1640919717
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-a-new-simulated-device"></a>Een nieuw gesimuleerd apparaat maken
 
@@ -33,7 +33,7 @@ In het eerste scenario wil Contoso voor het testen van een nieuw smart gloeilamp
 | Naam                     | Waarden                      |
 | ------------------------ | --------------------------- |
 | Kleur                    | Wit, rood, blauw            |
-| Helderheid               | 0 en 100                    |
+| Helderheid               | 0 tot 100                    |
 | Geschatte resterende levensduur | Aftelling van 10.000 uur |
 
 *Telemetry*
@@ -258,7 +258,11 @@ De eenvoudigste manier om een nieuwe apparaattype maken in de simulatie-service 
 
 1. In de **omgevingsvariabelen** sectie, het bewerken van de waarde van de **pc's\_IOTHUB\_CONNSTRING** variabele moet de verbindingsreeks van de IoT-Hub u eerder hebt genoteerd. Sla uw wijzigingen.
 
-1. Klik in Solution Explorer met de rechtermuisknop op de **apparaat simulatie** oplossing en kies **Opstartprojecten instellen**. Kies **één opstartproject** en selecteer **SimulationAgent**. Klik vervolgens op **OK**.
+1. Klik in Solution Explorer met de rechtermuisknop op de **WebService** project, kies **eigenschappen**, en kies vervolgens **Debug**.
+
+1. In de **omgevingsvariabelen** sectie, het bewerken van de waarde van de **pc's\_IOTHUB\_CONNSTRING** variabele moet de verbindingsreeks van de IoT-Hub u eerder hebt genoteerd. Sla uw wijzigingen.
+
+1. Klik in Solution Explorer met de rechtermuisknop op de **apparaat simulatie** oplossing en kies **Opstartprojecten instellen**. Kies **één opstartproject** en selecteer **WebService**. Klik vervolgens op **OK**.
 
 1. Elk apparaattype heeft een JSON-modelbestand en de bijbehorende scripts in de **gegevens/Services/devicemodels** map. Kopieer in Solution Explorer de **Koelunit** bestanden maken de **gloeilamp** bestanden zoals weergegeven in de volgende tabel:
 
@@ -294,10 +298,12 @@ De **gloeilamp 01.json** -bestand definieert de kenmerken van het type, zoals de
         "status": "on"
       },
       "Interval": "00:00:20",
-      "Scripts": {
-        "Type": "javascript",
-        "Path": "lightbulb-01-state.js"
-      }
+      "Scripts": [
+        {
+          "Type": "javascript",
+          "Path": "lightbulb-01-state.js"
+        }
+      ]
     },
     ```
 
@@ -468,7 +474,7 @@ Beperk het aantal gesimuleerde apparaten die verbinding met de oplossing tijdens
 
 U bent nu klaar voor het testen van het type van uw nieuwe gesimuleerde gloeilamp door het apparaat simulatie project lokaal uit te voeren.
 
-1. Klik in Solution Explorer met de rechtermuisknop op **SimulationAgent**, kies **Debug** en kies vervolgens **nieuw exemplaar gestart**.
+1. Klik in Solution Explorer met de rechtermuisknop op **WebService**, kies **Debug** en kies vervolgens **nieuw exemplaar gestart**.
 
 1. Om te controleren dat de twee gesimuleerde apparaten zijn verbonden met uw IoT-Hub, de Azure portal te openen in uw browser.
 

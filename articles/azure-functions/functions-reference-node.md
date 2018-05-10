@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/04/2018
 ms.author: tdykstra
-ms.openlocfilehash: e593f58f6b92e562067401381cfce06d5fb18e29
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 78f29cd4a20861e40bb7f7f398979b8d93387a7b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript-handleiding voor ontwikkelaars
 
@@ -302,7 +302,7 @@ module.exports = function(context) {
 U moet definiëren een `package.json` bestand in de hoofdmap van uw app functie. Het definiëren van het bestand, kunt alle functies in de app delen de dezelfde in de cache pakketten, waardoor de beste prestaties. Als een conflict ontstaat, u het kunt oplossen door toe te voegen een `package.json` bestand in de map van een specifieke functie.  
 
 ## <a name="environment-variables"></a>Omgevingsvariabelen
-Als u een omgevingsvariabele of een app die waarde instellen, gebruikt `process.env`, zoals weergegeven in het volgende voorbeeld:
+Als u een omgevingsvariabele of een app die waarde instellen, gebruikt `process.env`, zoals hier wordt weergegeven in de `GetEnvironmentVariable` functie:
 
 ```javascript
 module.exports = function (context, myTimer) {

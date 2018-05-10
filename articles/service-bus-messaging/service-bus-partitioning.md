@@ -2,32 +2,28 @@
 title: Gepartitioneerde Azure Service Bus-wachtrijen en onderwerpen maken | Microsoft Docs
 description: Beschrijft hoe Service Bus-wachtrijen en onderwerpen met behulp van meerdere bericht beleggingsmakelaars partitie.
 services: service-bus-messaging
-documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: a0c7d5a2-4876-42cb-8344-a1fc988746e7
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/14/2017
+ms.date: 05/08/2016
 ms.author: sethm
-ms.openlocfilehash: beebfb496604b422e091cd3b4425933f3cea1283
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0759decec9d80f1f836110a8907049213ca1eed6
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="partitioned-queues-and-topics"></a>Gepartitioneerde wachtrijen en onderwerpen
-Azure Service Bus maakt gebruik van meerdere bericht beleggingsmakelaars om berichten te verwerken en meerdere berichten-stores voor het opslaan van berichten. Een conventionele wachtrij of onderwerp is verwerkt door een enkel bericht broker en opgeslagen in één berichten-store. Service Bus *partities* wachtrijen en onderwerpen, inschakelen of *berichtentiteiten*, moet worden gepartitioneerd op meerdere bericht beleggingsmakelaars en berichten-stores. Dit betekent dat de totale doorvoer van een gepartitioneerde entiteit wordt niet langer beperkt door de prestaties van een enkel bericht broker of berichten-store. Bovendien weer een tijdelijke onderbreking van berichten-store niet een gepartitioneerde wachtrij of onderwerp niet beschikbaar. Gepartitioneerde wachtrijen en onderwerpen kunnen bevatten alle uitgebreide Service Bus-functies, zoals ondersteuning voor transacties en sessies.
+
+Azure Service Bus maakt gebruik van meerdere bericht beleggingsmakelaars om berichten te verwerken en meerdere berichten-stores voor het opslaan van berichten. Een conventionele wachtrij of onderwerp is verwerkt door een enkel bericht broker en opgeslagen in één berichten-store. Service Bus *partities* wachtrijen en onderwerpen, inschakelen of *berichtentiteiten*, moet worden gepartitioneerd op meerdere bericht beleggingsmakelaars en berichten-stores. Partitioneren betekent dat de totale doorvoer van een gepartitioneerde entiteit wordt niet langer beperkt door de prestaties van een enkel bericht broker of berichten-store. Bovendien weer een tijdelijke onderbreking van berichten-store niet een gepartitioneerde wachtrij of onderwerp niet beschikbaar. Gepartitioneerde wachtrijen en onderwerpen kunnen bevatten alle uitgebreide Service Bus-functies, zoals ondersteuning voor transacties en sessies.
 
 Zie voor meer informatie over de interne werking van Service Bus de [Service Bus-architectuur] [ Service Bus architecture] artikel.
 
-Partitioneren is standaard ingeschakeld bij het maken van de entiteit in alle wachtrijen en onderwerpen in de standaard- en Premium messaging. U kunt standaard laag berichtentiteiten zonder partitioneren maken, maar wachtrijen en onderwerpen in een Premium-naamruimte altijd worden gepartitioneerd; Deze optie kan niet worden uitgeschakeld. 
-
-Het is niet mogelijk om te wijzigen van de partitionering optie op een bestaande wachtrij of onderwerp in de lagen Standard of Premium, kunt u alleen de optie instellen bij het maken van de entiteit.
+> [!NOTE]
+> Partitioneren is beschikbaar bij het maken van de entiteit voor alle wachtrijen en onderwerpen in de basis of standaard SKU's. Het is niet beschikbaar voor de bericht-SKU Premium, maar eventuele bestaande gepartitioneerde entiteiten in Premium werkt zoals verwacht.
+ 
+Het is niet mogelijk om te wijzigen van de partitionering optie op een bestaande wachtrij of onderwerp; u kunt de optie alleen instellen bij het maken van de entiteit.
 
 ## <a name="how-it-works"></a>Hoe werkt het?
 
@@ -37,7 +33,7 @@ Wanneer een client wil ontvangen een bericht van een gepartitioneerde wachtrij o
 
 Er is geen extra kosten bij het verzenden van een bericht of het bericht in een gepartitioneerde wachtrij of onderwerp.
 
-## <a name="enable-partitioning"></a>Partitioneren inschakelen
+## <a name="enable-partitioning"></a>Partitionering inschakelen
 
 De Azure SDK versie 2.2 of hoger gebruiken voor het gebruik van gepartitioneerde wachtrijen en onderwerpen met Azure Service Bus, of geef `api-version=2013-10` of hoger in de HTTP-aanvragen.
 
@@ -47,7 +43,7 @@ In de Standard messaging laag, kunt u Service Bus-wachtrijen en onderwerpen in 1
 
 ### <a name="premium"></a>Premium
 
-In een naamruimte van de laag Premium kunt u Service Bus-wachtrijen en onderwerpen in 1, 2, 3, 4, 5, 10, 20, 40 of 80 GB grootten (de standaardwaarde is 1 GB). Service Bus maakt twee partities per entiteit met het partitioneren van de standaard ingeschakeld. U kunt de maximale grootte van uw gepartitioneerde wachtrij of onderwerp zien door te kijken op de vermelding ervan op de [Azure-portal][Azure portal], in de **overzicht** blade voor die entiteit.
+In een naamruimte van de laag Premium kunt u Service Bus-wachtrijen en onderwerpen in 1, 2, 3, 4, 5, 10, 20, 40 of 80 GB-grootten (de standaardwaarde is 1 GB). Service Bus maakt twee partities per entiteit met het partitioneren van de standaard ingeschakeld. U kunt de maximale grootte van uw gepartitioneerde wachtrij of onderwerp zien door te kijken op de vermelding ervan op de [Azure-portal][Azure portal], in de **overzicht** blade voor die entiteit.
 
 Zie voor meer informatie over partitioneren in de laag Premium messaging uit [Service Bus Premium en Standard Messaging](service-bus-premium-messaging.md). 
 
@@ -73,11 +69,11 @@ Sommige scenario's, zoals sessies of transacties, vereisen berichten worden opge
 
 Afhankelijk van het scenario worden verschillende berichteigenschappen als een partitiesleutel gebruikt:
 
-**Sessie-id**: als een bericht heeft de [BrokeredMessage.SessionId] [ BrokeredMessage.SessionId] eigenschap instelt, wordt de Service Bus deze eigenschap wordt gebruikt als de partitiesleutel. Op deze manier worden alle berichten die deel uitmaken van dezelfde sessie verwerkt door de dezelfde bericht broker. Hierdoor kunnen Service Bus bericht ordening en consistentie van de sessiestatus te garanderen.
+**Sessie-id**: als een bericht heeft de [BrokeredMessage.SessionId] [ BrokeredMessage.SessionId] eigenschap instelt, wordt de Service Bus deze eigenschap wordt gebruikt als de partitiesleutel. Op deze manier worden alle berichten die deel uitmaken van dezelfde sessie verwerkt door de dezelfde bericht broker. Sessies inschakelen Service Bus garanderen bericht ordening en consistentie van de sessiestatus.
 
 **PartitionKey**: als een bericht heeft de [BrokeredMessage.PartitionKey] [ BrokeredMessage.PartitionKey] eigenschap maar niet de [BrokeredMessage.SessionId] [ BrokeredMessage.SessionId] eigenschap instelt, wordt de Service Bus maakt gebruik van de [PartitionKey] [ PartitionKey] eigenschap als de partitiesleutel. Als het bericht zowel bevat de [SessionId] [ SessionId] en de [PartitionKey] [ PartitionKey] set eigenschappen, beide eigenschappen moeten identiek zijn. Als de [PartitionKey] [ PartitionKey] eigenschap is ingesteld op een andere waarde dan de [SessionId] [ SessionId] retourneert een ongeldige eigenschap, Service Bus uitzondering van de bewerking. De [PartitionKey] [ PartitionKey] eigenschap moet worden gebruikt als een afzender verzendt een niet-sessie op de hoogte transactionele berichten. De partitiesleutel zorgt ervoor dat alle berichten die zijn verzonden binnen een transactie worden verwerkt door de dezelfde messaging broker.
 
-**MessageId**: als de wachtrij of onderwerp heeft de [QueueDescription.RequiresDuplicateDetection] [ QueueDescription.RequiresDuplicateDetection] eigenschap ingesteld op **true** en de [ BrokeredMessage.SessionId] [ BrokeredMessage.SessionId] of [BrokeredMessage.PartitionKey] [ BrokeredMessage.PartitionKey] eigenschappen zijn niet ingesteld, wordt de [ BrokeredMessage.MessageId] [ BrokeredMessage.MessageId] eigenschap fungeert als de partitiesleutel. (Houd er rekening mee dat de Microsoft .NET- en AMQP-bibliotheken een bericht-ID automatisch toewijzen als de betreffende toepassing niet bestaat.) In dit geval worden alle kopieën van hetzelfde bericht verwerkt door de dezelfde bericht broker. Hierdoor kunnen Service Bus om te detecteren en verwijderen van dubbele berichten. Als de [QueueDescription.RequiresDuplicateDetection] [ QueueDescription.RequiresDuplicateDetection] eigenschap niet is ingesteld op **true**, Service Bus houdt geen rekening met de [MessageId] [ MessageId] eigenschap als partitiesleutel.
+**MessageId**: als de wachtrij of onderwerp heeft de [QueueDescription.RequiresDuplicateDetection] [ QueueDescription.RequiresDuplicateDetection] eigenschap ingesteld op **true** en de [ BrokeredMessage.SessionId] [ BrokeredMessage.SessionId] of [BrokeredMessage.PartitionKey] [ BrokeredMessage.PartitionKey] eigenschappen zijn niet ingesteld, wordt de [ BrokeredMessage.MessageId] [ BrokeredMessage.MessageId] eigenschap fungeert als de partitiesleutel. (De Microsoft .NET- en AMQP-bibliotheken wijst automatisch een bericht-ID als de betreffende toepassing niet bestaat.) In dit geval worden alle kopieën van hetzelfde bericht verwerkt door de dezelfde bericht broker. Deze ID kunt Service Bus om te detecteren en verwijderen van dubbele berichten. Als de [QueueDescription.RequiresDuplicateDetection] [ QueueDescription.RequiresDuplicateDetection] eigenschap niet is ingesteld op **true**, Service Bus houdt geen rekening met de [MessageId] [ MessageId] eigenschap als partitiesleutel.
 
 ### <a name="not-using-a-partition-key"></a>Niet met behulp van een partitiesleutel
 In het ontbreken van een partitiesleutel distribueert Service Bus berichten round-robin toewijst op alle fragmenten van gepartitioneerde wachtrij of onderwerp. Als het gekozen fragment niet beschikbaar is, wijst Service Bus het bericht toe aan een andere fragment. Op deze manier de verzendbewerking slaagt ondanks berichten-store, tijdelijk niet beschikbaar. U wordt echter niet bereiken de gegarandeerde ordening waarmee een partitiesleutel.
@@ -86,10 +82,10 @@ Zie voor een diepgaandere bespreking van de verhouding tussen de beschikbaarheid
 
 Service Bus geven genoeg tijd heeft in de wachtrij plaatsen het bericht in een andere fragment de [MessagingFactorySettings.OperationTimeout] [ MessagingFactorySettings.OperationTimeout] waarde die is opgegeven door de client die u verzendt het bericht moet groter zijn dan 15 seconden. Het verdient aanbeveling in te stellen de [OperationTimeout] [ OperationTimeout] eigenschap op de standaardwaarde van 60 seconden.
 
-Houd er rekening mee dat een partitiesleutel 'pincodes"een bericht naar een specifieke fragment. Als de berichten-store die dit fragment bevat niet beschikbaar is, betekent dit dat Service Bus een fout geretourneerd. In het ontbreken van een partitiesleutel, Service Bus geen andere fragment kunt kiezen en de bewerking is geslaagd. Daarom wordt aanbevolen dat u niet een partitiesleutel opgeeft tenzij deze vereist is.
+Een partitiesleutel pincodes' "een bericht naar een specifieke fragment. Als de berichten-store die dit fragment bevat niet beschikbaar is, betekent dit dat Service Bus een fout geretourneerd. In het ontbreken van een partitiesleutel, Service Bus geen andere fragment kunt kiezen en de bewerking is geslaagd. Daarom wordt aanbevolen dat u niet een partitiesleutel opgeeft tenzij deze vereist is.
 
 ## <a name="advanced-topics-use-transactions-with-partitioned-entities"></a>Onderwerpen over geavanceerde: het gebruik van transacties met gepartitioneerde entiteiten
-Berichten die worden verzonden als onderdeel van een transactie moeten een partitiesleutel opgeven. Dit is een van de volgende eigenschappen: [BrokeredMessage.SessionId][BrokeredMessage.SessionId], [BrokeredMessage.PartitionKey][BrokeredMessage.PartitionKey], of [ BrokeredMessage.MessageId][BrokeredMessage.MessageId]. Alle berichten die worden verzonden als onderdeel van dezelfde transactie moeten dezelfde partitiesleutel opgeven. Als u probeert een bericht zonder een partitiesleutel binnen een transactie te verzenden, wordt met Service Bus een ongeldige bewerking-uitzondering geretourneerd. Als u probeert te verzenden binnen dezelfde transactie meerdere berichten met verschillende partitiesleutels, betekent dit dat Service Bus een ongeldige bewerking-uitzondering geretourneerd. Bijvoorbeeld:
+Berichten die worden verzonden als onderdeel van een transactie moeten een partitiesleutel opgeven. De sleutel kan bestaan uit een van de volgende eigenschappen: [BrokeredMessage.SessionId][BrokeredMessage.SessionId], [BrokeredMessage.PartitionKey][BrokeredMessage.PartitionKey], of [ BrokeredMessage.MessageId][BrokeredMessage.MessageId]. Alle berichten die worden verzonden als onderdeel van dezelfde transactie moeten dezelfde partitiesleutel opgeven. Als u probeert een bericht zonder een partitiesleutel binnen een transactie te verzenden, wordt met Service Bus een ongeldige bewerking-uitzondering geretourneerd. Als u probeert te verzenden binnen dezelfde transactie meerdere berichten met verschillende partitiesleutels, betekent dit dat Service Bus een ongeldige bewerking-uitzondering geretourneerd. Bijvoorbeeld:
 
 ```csharp
 CommittableTransaction committableTransaction = new CommittableTransaction();
@@ -129,7 +125,7 @@ Service Bus ondersteunt automatische bericht doorsturen van aan of tussen gepart
 * **Hoge consistentie functies**: als een entiteit functies zoals sessies, detectie van duplicaten of expliciete controle van de partitiesleutel gebruikt, wordt de messaging bewerkingen altijd worden omgeleid naar specifieke fragmenten. Als een van de fragmenten intensief verkeer ervaren of het onderliggende archief niet in orde is, wordt deze bewerkingen mislukken en beschikbaarheid wordt beperkt. Over het algemeen is de consistentiecontrole nog steeds veel hoger zijn dan niet-gepartitioneerde entiteiten; alleen een subset van verkeer ondervindt problemen, in plaats van alle verkeer. Zie voor meer informatie dit [bespreking van de beschikbaarheid en consistentie](../event-hubs/event-hubs-availability-and-consistency.md).
 * **Beheer**: bewerkingen zoals het maken, bijwerken en verwijderen moeten worden uitgevoerd op de fragmenten van de entiteit. Als een fragment niet in orde is, kan dit leiden tot fouten voor deze bewerkingen. Voor de Get-bewerking moet informatie zoals bericht telt worden samengevoegd uit alle fragmenten. Als een fragment niet in orde is, wordt de beschikbaarheidsstatus van de entiteit gerapporteerd als beperkt.
 * **Laag volume bericht scenario's**: voor dergelijke scenario's, vooral wanneer het HTTP-protocol, moet u mogelijk meerdere uitvoeren ontvangstbewerkingen ter verkrijging van alle berichten. Voor ontvangstaanvragen, het front-end voert een receive op alle fragmenten en plaatst alle antwoorden die worden ontvangen. Een aanvraag van de volgende ontvangen op de verbinding wilt profiteren van deze opslaan in cache en ontvangen latenties wordt niet lager zijn. Als u meerdere verbindingen of HTTP gebruiken, stelt die een nieuwe verbinding voor elke aanvraag. Hierdoor is er geen garantie dat deze zou land op hetzelfde knooppunt. Als alle bestaande berichten die worden vergrendeld en in de cache opgeslagen in een andere front-end, de ontvangstbewerking retourneert **null**. Berichten uiteindelijk verlopen en u ze opnieuw kunt ontvangen. HTTP-keepalive wordt aanbevolen.
-* **Bladeren/Peek berichten**: [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) altijd retourneert geen het aantal berichten dat is opgegeven in de [MessageCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.messagecount) eigenschap. Er zijn twee veelvoorkomende redenen voor dit. Een reden hiervoor is dat de geaggregeerde grootte van de verzameling van berichten is groter dan de maximale grootte van 256 KB. Een andere reden is dat als de wachtrij of onderwerp heeft de [EnablePartitioning eigenschap](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning) ingesteld op **true**, een partitie geen voldoende berichten naar het aangevraagde aantal berichten te voltooien. In het algemeen als een toepassing wil ontvangen van een bepaald aantal berichten, deze moet aanroepen [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) herhaaldelijk totdat het aantal berichten ophalen of er zijn geen berichten meer om te kijken. Zie voor meer informatie, codevoorbeelden, waaronder de [QueueClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) of [SubscriptionClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.peekbatch) API-documentatie.
+* **Bladeren/Peek berichten**: [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) altijd retourneert geen het aantal berichten dat is opgegeven in de [MessageCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.messagecount) eigenschap. Er zijn twee veelvoorkomende redenen voor dit probleem. Een reden hiervoor is dat de geaggregeerde grootte van de verzameling van berichten is groter dan de maximale grootte van 256 KB. Een andere reden is dat als de wachtrij of onderwerp heeft de [EnablePartitioning eigenschap](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning) ingesteld op **true**, een partitie geen voldoende berichten naar het aangevraagde aantal berichten te voltooien. In het algemeen als een toepassing wil ontvangen van een bepaald aantal berichten, deze moet aanroepen [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) herhaaldelijk totdat het aantal berichten ophalen of er zijn geen berichten meer om te kijken. Zie voor meer informatie, codevoorbeelden, waaronder de [QueueClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) of [SubscriptionClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.peekbatch) API-documentatie.
 
 ## <a name="latest-added-features"></a>Meest recente extra functies
 * Toevoegen of verwijderen regel wordt nu ondersteund met gepartitioneerde entiteiten. Verschillend zijn van niet-gepartitioneerde entiteiten, deze bewerkingen worden niet ondersteund onder transacties. 
@@ -140,7 +136,7 @@ Service Bus ondersteunt automatische bericht doorsturen van aan of tussen gepart
 Service Bus legt momenteel de volgende beperkingen met betrekking tot gepartitioneerde wachtrijen en onderwerpen:
 
 * Gepartitioneerde wachtrijen en onderwerpen bieden geen ondersteuning voor het verzenden van berichten die deel uitmaken van verschillende sessies in één transactie.
-* Service Bus kunnen momenteel maximaal 100 gepartitioneerde wachtrijen en onderwerpen per naamruimte. Elke gepartitioneerde wachtrij of onderwerp telt naar het quotum van 10.000 entiteiten per naamruimte (geldt niet voor Premium-laag).
+* Service Bus staat momenteel maximaal 100 gepartitioneerde wachtrijen en onderwerpen per naamruimte toe. Elke gepartitioneerde wachtrij of onderwerp telt naar het quotum van 10.000 entiteiten per naamruimte (geldt niet voor Premium-laag).
 
 ## <a name="next-steps"></a>Volgende stappen
 Meer informatie over de belangrijkste concepten van de AMQP 1.0-messaging-specificatie in de [AMQP 1.0-protocol handleiding](service-bus-amqp-protocol-guide.md).

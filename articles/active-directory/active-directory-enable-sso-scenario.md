@@ -3,30 +3,30 @@ title: Toepassingen beheren met Azure Active Directory | Microsoft Docs
 description: Dit artikel de voordelen van Azure Active Directory integreren met uw on-premises, cloud en SaaS-toepassingen.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
-ms.assetid: 95b96f10-2d5c-4b78-8af8-d3657a24140f
 ms.service: active-directory
+ms.component: app-mgmt
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/15/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: e05b2d515b997e769306146a5390d4d44fd5cf50
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 041901a6b1ca0707237360bd7943ae950558f138
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Toepassingen beheren met Azure Active Directory
 Afgezien van de werkstroom of inhoud hebben bedrijven twee basisvereisten voor alle toepassingen:
 
 1. Voor productiviteit verhogen, moeten toepassingen gemakkelijk detecteren en gebruiken
-2. Voor het inschakelen van beveiliging en beheeracties, moet de organisatie controle en toezicht op wie kan en daadwerkelijk is toegang tot elke toepassing
+2. Voor het inschakelen van beveiliging en beheeracties, moet de organisatie controle en toezicht kunnen zorgen over wie toegang heeft tot en wie daadwerkelijk elke toepassing
 
-In de wereld van cloud-toepassingen die deze best kan worden bereikt met behulp van de identiteit van besturingselement '*WIE mag doen wat*'.
+In de wereld van cloud-toepassingen is dit best kan worden bereikt met behulp van de identiteit van besturingselement '*WIE mag doen wat*. "
 
 In het computing terminologie:
 
@@ -38,8 +38,8 @@ Beide onderdelen samen worden aangeduid als *identiteit en toegang Management (I
 OK, wat het probleem is? Als de IAM *niet beheerd* op één locatie met een geïntegreerde oplossing:
 
 * Identiteit beheerders hebben afzonderlijk maken en bijwerken van gebruikersaccounts in alle toepassingen afzonderlijk, een activiteit redundante en tijd in beslag neemt.
-* Gebruikers hebben tot meerdere referenties voor toegang tot de toepassingen die ze nodig hebben om te werken met onthouden. Als gevolg hiervan, gaan gebruikers er vaak schrijf hun wachtwoorden of andere beheeroplossingen voor wachtwoord waardoor gegevens beveiligingsrisico's gebruiken.
-* Redundante tijdrovend activiteiten Verklein de hoeveelheid tijd gebruikers en beheerders zakelijke activiteiten die verhogen van de onderrand van uw bedrijf werkt.
+* Gebruikers hebben tot meerdere referenties voor toegang tot de toepassingen die ze nodig hebben om te werken met onthouden. Als gevolg hiervan, gaan gebruikers er vaak schrijf hun wachtwoorden of andere beheeroplossingen wachtwoord gebruiken. Deze alternatieven introduceren gegevens beveiligingsrisico's.
+* Redundante, tijdrovend activiteiten Reduceer de gebruikers en beheerders besteden aan zakelijke activiteiten die uw bedrijf onder regel toenemen.
 
 Ja, wat in het algemeen wordt voorkomen dat organisaties uit gebruik nemen van geïntegreerde IAM-oplossingen?
 
@@ -51,16 +51,16 @@ Ja, wat in het algemeen wordt voorkomen dat organisaties uit gebruik nemen van g
 Azure Active Directory is een uitgebreide Identity als een Service (IDaaS) van Microsoft die:
 
 * Hiermee kunt u IAM als een cloudservice 
-* Voorziet in centraal toegangsbeleid beheer, eenmalige aanmelding (SSO) en rapportage 
+* Biedt centraal toegangsbeleid, eenmalige aanmelding (SSO) en rapportage 
 * Ondersteunt de geïntegreerde access management voor [duizenden toepassingen](https://azure.microsoft.com/marketplace/active-directory/) in de galerie met toepassingen, inclusief Salesforce, Google Apps, Box, Concur en meer. 
 
 Met Azure Active Directory, alle toepassingen die u publiceert voor uw partners en klanten (werk of consumer) hebben dezelfde identiteit en toegang tot beheermogelijkheden.<br> Hiermee kunt u de operationele kosten aanzienlijk te verlagen.
 
 Wat gebeurt er als u wilt een toepassing die nog niet wordt vermeld in de galerie met toepassingen implementeren? Dit is wat tijd in beslag dan eenmalige aanmelding configureren voor toepassingen uit de galerie met toepassingen, biedt Azure AD u een wizard waarmee u met de configuratie.
 
-De waarde van Azure AD zich verder uitstrekt dan 'net' cloud-toepassingen. U kunt deze ook gebruiken met on-premises toepassingen via een beveiligde externe toegang. Met veilige externe toegang, kunt u elimineren het de noodzaak voor VPN-verbindingen of andere implementaties van traditionele RAS-beheer.
+De waarde van Azure AD zich verder uitstrekt dan 'net' cloud-toepassingen. U kunt deze ook gebruiken met on-premises toepassingen via een beveiligde externe toegang. Met veilige externe toegang elimineert u de noodzaak voor VPN-verbindingen of andere implementaties van traditionele RAS-beheer.
 
-Dankzij de centraal toegangsbeleid beheer en eenmalige aanmelding (SSO) voor alle toepassingen, levert Azure AD de oplossing voor de belangrijkste gegevens beveiliging en productiviteit problemen.
+Dankzij de centraal toegangsbeleid beheer en eenmalige aanmelding (SSO) voor alle toepassingen, levert Azure AD de oplossing voor de gegevensbeveiliging van de belangrijkste en de productiviteit van problemen.
 
 * Gebruikers hebben toegang tot meerdere toepassingen met één aanmelding met een meer tijd voor inkomsten genereren of zakelijke operationele activiteiten uitgevoerd.
 * Identity-beheerders kunnen toegang tot toepassingen op één plek beheren.
@@ -76,12 +76,12 @@ De SSO-proces bestaat uit twee stappen:
 Als u Azure AD-toepassingen beheren en eenmalige aanmelding inschakelen:
 
 * Verificatie is uitgevoerd op de on-premises-(bijvoorbeeld AD) of Azure AD-account van de gebruiker.
-* Autorisatie wordt uitgevoerd op het Azure AD-toewijzing en beveiliging beleid consistent eindgebruiker gezorgd en het inschakelen van u toewijzing, locaties en MFA voorwaarden toevoegen op elke toepassing, ongeacht de interne mogelijkheden.
+* Autorisatie wordt uitgevoerd op het Azure AD-toewijzing en beveiliging beleid gezorgd consistente gebruikerservaring en het inschakelen van u toewijzing, locaties en MFA voorwaarden toevoegen op elke toepassing, ongeacht de interne mogelijkheden.
 
 Het is belangrijk te weten dat de manier waarop die de autorisatie is ingesteld op de doeltoepassing varieert afhankelijk van hoe de toepassing is geïntegreerd met Azure AD.
 
 * **Toepassingen die vooraf zijn geïntegreerd door serviceprovider** zoals Office 365 en Azure, dit zijn toepassingen rechtstreeks op Azure AD is gebouwd en afhankelijk van de uitgebreide mogelijkheden voor identiteits- en toegangsbeheer. Toegang tot deze toepassingen is ingeschakeld door middel van directorygegevens en uitgifte van tokens.
-* **Toepassingen die vooraf zijn geïntegreerd door Microsoft en aangepaste toepassingen** dit onafhankelijke cloudtoepassingen die afhankelijk zijn van een interne applicatie directory en kunnen werken onafhankelijk van Azure AD zijn. Toegang tot deze toepassingen is door uitgifte van een specifieke referentie toegewezen aan een account voor groep van toepassing ingeschakeld. Afhankelijk van de toepassingsmogelijkheden, de referentie mogelijk een federation-token of gebruikersnaam en wachtwoord voor een account dat u eerder in de toepassing is ingericht.
+* **Toepassingen die vooraf zijn geïntegreerd door Microsoft en aangepaste toepassingen** dit onafhankelijke cloudtoepassingen die afhankelijk zijn van een interne applicatie directory en kunnen werken onafhankelijk van Azure AD zijn. Toegang tot deze toepassingen is door uitgifte van een referentie toepassingsspecifieke is toegewezen aan een account voor de toepassing ingeschakeld. Afhankelijk van de toepassingsmogelijkheden, de referentie mogelijk een federation-token of gebruikersnaam en wachtwoord voor een account dat u eerder in de toepassing is ingericht.
 * **On-premises toepassingen** toepassingen zijn gepubliceerd via de Azure AD-toepassingsproxy voornamelijk toegang tot on-premises toepassingen inschakelen. Deze toepassingen afhankelijk zijn van een centrale on-premises adreslijst zoals Windows Server Active Directory. Toegang tot deze toepassingen wordt ingeschakeld door de activering van de proxy voor het leveren van inhoud van de toepassing aan de eindgebruiker bij het naleven van de lokale aanmelding vereiste.
 
 Als een gebruiker lid wordt van uw organisatie, moet u bijvoorbeeld een account voor de gebruiker maken in Azure AD voor de primaire bewerkingen voor eenmalige aanmelding. Als deze gebruiker toegang tot een beheerde toepassing zoals Salesforce vereist, moet u ook een account voor deze gebruiker maken in Salesforce en koppel deze aan het Azure-account te maken van eenmalige aanmelding werkt. Wanneer de gebruiker uw organisatie verlaat, verdient het aanbeveling om de Azure AD-account te verwijderen en alle bijbehorende equivalent accounts in de IAM slaat de gebruiker heeft toegang tot toepassingen.
@@ -90,7 +90,7 @@ Als een gebruiker lid wordt van uw organisatie, moet u bijvoorbeeld een account 
 In moderne ondernemingen zijn IT-afdelingen vaak niet op de hoogte van alle cloud-toepassingen die worden gebruikt. In combinatie met Cloud App Discovery biedt Azure AD u een oplossing voor het detecteren van deze toepassingen.
 
 ## <a name="account-management"></a>Accountbeheer
-Het beheren van accounts in verschillende toepassingen is traditioneel een handmatig proces uitgevoerd door IT of de ondersteuningsafdeling in de organisatie. Azure AD automatiseert volledig accountbeheer tussen alle serviceprovider geïntegreerde toepassingen en die vooraf zijn geïntegreerd met Microsoft ondersteuning van geautomatiseerde gebruikersinrichting of SAML-compileerprogramma inrichten toepassingen.
+Het beheren van accounts in verschillende toepassingen is traditioneel een handmatig proces uitgevoerd door IT of de ondersteuningsafdeling in de organisatie. Azure AD automatiseert volledig accountbeheer over toepassingen die zijn geïntegreerd met serviceproviders en toepassingen vooraf geïntegreerd met Microsoft ondersteuning van geautomatiseerde gebruikersinrichting of SAML-compileerprogramma inrichten.
 
 ## <a name="automated-user-provisioning"></a>Automatisch gebruikers inrichten
 Sommige toepassingen bieden automatiseringsinterfaces voor het maken en verwijderen (of deactivering) van accounts. Als een provider een interface biedt, wordt gebruikt door Azure AD. Dit vermindert de operationele kosten omdat administratieve taken automatisch gebeurt en verbetert de beveiliging van uw omgeving, omdat dit de kans op onbevoegde toegang verkleint.
@@ -99,7 +99,7 @@ Sommige toepassingen bieden automatiseringsinterfaces voor het maken en verwijde
 U kunt toegang tot toepassingen die gebruikmaken van afzonderlijke of regel aangestuurd toewijzingen beheren met Azure AD. U kunt ook overdragen toegang tot beheer van de juiste mensen in de organisatie zorgen voor de beste toezicht en de belasting van de helpdesk verminderen.
 
 ## <a name="on-premises-applications"></a>On-premises toepassingen
-De ingebouwde application proxy kunt u voor het publiceren van uw on-premises toepassingen aan uw gebruikers waardoor zowel consistente ervaring met moderne cloudtoepassing en de voordelen van Azure AD-mogelijkheden voor bewaking, rapportage en beveiliging van toegang.
+De ingebouwde toepassingsproxy kunt u uw on-premises toepassingen aan uw gebruikers waardoor publiceren zowel consistente ervaring met moderne cloudtoepassing en de voordelen van Azure AD-mogelijkheden voor bewaking, rapportage en beveiliging van toegang.
 
 ## <a name="reporting-and-monitoring"></a>Rapportage- en controle
 Azure AD biedt u vooraf geïntegreerde rapportage en monitoring mogelijkheden waarmee u te weten wie toegang tot toepassingen en heeft wanneer deze ze daadwerkelijk gebruikt.

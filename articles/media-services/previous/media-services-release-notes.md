@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: b36c9150ef251939c9c484da93bc8a086b869676
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 62f5ae4a9152d3f1b1641cc69136bf472527ba2a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services release-opmerkingen
 Deze releaseopmerkingen voor Azure Media Services geven een overzicht van wijzigingen van vorige versies en bekende problemen.
@@ -44,6 +44,10 @@ Deze releaseopmerkingen voor Azure Media Services geven een overzicht van wijzig
 
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>Versiegeschiedenis van REST-API
 Zie voor informatie over de geschiedenis van de REST-API voor Media Services-versie, de [naslaginformatie over REST API van Azure Media Services].
+
+## <a name="may-2018"></a>2018 mei 
+
+Vanaf 12 mei 2018, live kanalen wordt niet langer ondersteuning voor de RTP/MPEG-2-transportstroom opnameprotocol. Migreer van RTP/MPEG-2 RTMP of gefragmenteerde MP4 (Smooth Streaming) opnemen-protocollen.
 
 ## <a name="october-2017-release"></a>Release van oktober 2017
 > [!IMPORTANT] 

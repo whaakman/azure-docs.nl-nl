@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: cfc8ac74f626ada30dda72b58e4b4bc7f0d9e806
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: f9d51869b9a6ba63c73637c50f5a19e864bc23e4
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services-concepten
 In dit onderwerp biedt een overzicht van de belangrijkste concepten van Media Services.
@@ -108,7 +108,7 @@ Zie voor meer informatie over ondersteunde coderingsprogramma's [coderingsprogra
 In Azure Media Services vertegenwoordigt een kanaal een pijplijn voor het verwerken van live streaming inhoud. Een kanaal ontvangt live invoer gegevensstromen in twee manieren:
 
 * Een on-premises live codering verzendt multi-bitrate RTMP of Smooth Streaming (gefragmenteerde MP4) naar het kanaal. U kunt de volgende live coderingsprogramma's die multi-bitrate Smooth Streaming uitvoeren: MediaExcel, Ateme, stel communicatie, Envivio, Cisco en Elemental. De volgende live coderingsprogramma's voeren RTMP: Adobe Flash Live coderingsprogramma, Telestream Wirecast, Teradek, Haivision en Tricaster coderingsprogramma's. De opgenomen streams doorgeven kanalen zonder verdere transcodering en codering. Desgevraagd levert Media Services de stream aan klanten.
-* Een single-bitrate stream (in een van de volgende indelingen: RTP (MPEG-TS)), RTMP of Smooth Streaming (gefragmenteerde MP4)) naar het kanaal dat is ingeschakeld voor het uitvoeren van live codering met Media Services wordt verzonden. Het kanaal codeert de inkomende single-bitrate stream vervolgens live naar een (adaptieve) multi-bitrate videostream. Desgevraagd levert Media Services de stream aan klanten.
+* Een single-bitrate stream (in een van de volgende indelingen: RTMP of Smooth Streaming (gefragmenteerde MP4)) naar het kanaal dat is ingeschakeld voor het uitvoeren van live codering met Media Services wordt verzonden. Het kanaal codeert de inkomende single-bitrate stream vervolgens live naar een (adaptieve) multi-bitrate videostream. Desgevraagd levert Media Services de stream aan klanten.
 
 ### <a name="channel"></a>Kanaal
 In Media Services [kanaal](https://docs.microsoft.com/rest/api/media/operations/channel)s zijn verantwoordelijk voor het verwerken van live streaming inhoud. Een kanaal biedt een invoereindpunt (de URL voor opnemen) dat u vervolgens aan een live transcoder leveren. Het kanaal live invoer gegevensstromen ontvangt van de live transcoder en wordt het beschikbaar gemaakt voor streaming via een of meer streaming-eindpunten. Kanalen bieden ook een preview-eindpunt (preview URL) die u gebruikt om te bekijken en valideren van uw stream voor verdere verwerking en levering.

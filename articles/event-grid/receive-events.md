@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: babanisa
-ms.openlocfilehash: db79629c5f806fe50d22200574c29052a485dd06
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4d88004f37b40fa92e617545e1a94656744a7db0
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Gebeurtenissen op een HTTP-eindpunt ontvangen
 
@@ -48,6 +48,8 @@ Klik op de koppeling 'Bestanden weergeven' in uw Azure-functie (de meeste rechte
 ## <a name="endpoint-validation"></a>Validatie van het eindpunt
 
 Het eerste wat u wilt doen is afgehandeld `Microsoft.EventGrid.SubscriptionValidationEvent` gebeurtenissen. Telkens wanneer iemand zich op een gebeurtenis abonneert, raster gebeurtenis een validatiegebeurtenis verzendt naar het eindpunt met een `validationCode` in de nettolading van gegevens. Het eindpunt is vereist voor de echo dit terug in de hoofdtekst van de reactie naar [aantonen dat u het eindpunt geldig is en in eigendom van door u](security-authentication.md#webhook-event-delivery). Als u een [gebeurtenis raster Trigger](../azure-functions/functions-bindings-event-grid.md) in plaats van een WebHook geactiveerd functie, de validatie van het eindpunt is afgehandeld. Als u een API-service van derden (zoals [Zapier](https://zapier.com) of [IFTTT](https://ifttt.com/)), mogelijk niet via programmacode echo code voor de validatie. U kunt handmatig het abonnement via een validatie-URL die wordt verzonden in de validatie-gebeurtenis abonnement voor deze services valideren. Kopieer de URL in de `validationUrl` eigenschap en verzendt een GET-aanvragen via een REST-client of de webbrowser.
+
+Handmatige validatie is een Preview-versie. Als u wilt gebruiken, moet u de [gebeurtenis raster extensie](/cli/azure/azure-cli-extensions-list) voor [AZ CLI 2.0](/cli/azure/install-azure-cli). U kunt installeren met `az extension add --name eventgrid`. Als u de REST-API gebruikt, zorg ervoor dat u gebruikt `api-version=2018-05-01-preview`.
 
 Programmatisch echo van code voor de validatie, moet u de volgende code gebruiken:
 

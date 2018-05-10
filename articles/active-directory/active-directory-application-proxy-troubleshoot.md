@@ -2,24 +2,24 @@
 title: Problemen met toepassingsproxy | Microsoft Docs
 description: Bevat informatie over het oplossen van fouten in Azure AD-toepassingsproxy.
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 970caafb-40b8-483c-bb46-c8b032a4fb74
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 6fcf360df6da36919c251bef0a8214deba6b5605
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 54e0ebe60981ef429fdfc97cee1b460b03261a9f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Oplossen van problemen met toepassingsproxy en foutberichten
 Als er fouten optreden bij het openen van een gepubliceerde toepassing of in de publicatie van toepassingen, controleert u de volgende opties om te zien of Microsoft Azure AD-toepassingsproxy correct werkt:
@@ -34,7 +34,7 @@ Zie voor meer informatie over het hulpprogramma Azure AD-probleemoplossing [hulp
 ## <a name="the-page-is-not-rendered-correctly"></a>De pagina is niet correct weergegeven
 Mogelijk hebt u problemen met uw toepassing rendering of werkt niet goed zonder specifieke foutberichten worden weergegeven. Dit kan gebeuren als u het pad van het artikel gepubliceerd, maar de toepassing moet inhoud buiten dat pad.
 
-Bijvoorbeeld, als u het pad https://yourapp/app publiceren, maar de toepassing afbeeldingen in https://yourapp/media roept, won't ze worden weergegeven. Zorg ervoor dat u de toepassingen met het hoogste niveau pad publiceren, moet u alle relevante inhoud bevatten. In dit voorbeeld zou worden http://yourapp/.
+Bijvoorbeeld, als u het pad publiceren https://yourapp/app maar roept de toepassing afbeeldingen https://yourapp/media, won't worden gerenderd. Zorg ervoor dat u de toepassingen met het hoogste niveau pad publiceren, moet u alle relevante inhoud bevatten. In dit voorbeeld zou zijn http://yourapp/.
 
 Als u het pad voor het opnemen van inhoud waarnaar wordt verwezen, maar nog steeds moeten gebruikers op een dieper koppeling in het pad wijzigt, Zie het blogbericht [-instelling van de juiste koppeling voor toepassingen in de Azure AD-toepassingsproxy toegang Configuratiescherm en Office 365 app linksboven tot](https://blogs.technet.microsoft.com/applicationproxyblog/2016/04/06/setting-the-right-link-for-application-proxy-applications-in-the-azure-ad-access-panel-and-office-365-app-launcher/).
 

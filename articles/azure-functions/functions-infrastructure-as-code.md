@@ -1,12 +1,12 @@
 ---
 title: Automatisering van resource voor een functie-app in Azure Functions | Microsoft Docs
-description: "Informatie over het bouwen van een Azure Resource Manager-sjabloon die de functie-app wordt geïmplementeerd."
+description: Informatie over het bouwen van een Azure Resource Manager-sjabloon die de functie-app wordt geïmplementeerd.
 services: Functions
 documtationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 keywords: Azure functions, functies, zonder server architectuur, infrastructuur als code, azure resourcemanager
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.server: functions
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: 6f31ba7b43c70f52bdd67d27512a322ec6258608
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 28b2f5aba69e5c058feb7119eb31352220922998
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Implementatie van de resource voor de functie-app in Azure Functions automatiseren
 
@@ -56,7 +56,9 @@ Een Azure storage-account is vereist voor een functie-app. U moet een account vo
 }
 ```
 
-Daarnaast biedt de eigenschappen `AzureWebJobsStorage` en `AzureWebJobsDashboard` moet worden opgegeven als de app-instellingen in de siteconfiguratie. De Azure Functions-runtime gebruikt de `AzureWebJobsStorage` verbindingsreeks interne wachtrijen maken. De verbindingsreeks `AzureWebJobsDashboard` wordt gebruikt voor aanmelding tot Azure Table storage en power de **Monitor** tabblad in de portal.
+Daarnaast is de eigenschap `AzureWebJobsStorage` moet worden opgegeven als een appinstelling in configuratie van de site. Als de functie-app niet gebruikt Application Insights voor bewaking, kunnen er moet ook worden opgegeven `AzureWebJobsDashboard` als een app-instelling.
+
+De Azure Functions-runtime gebruikt de `AzureWebJobsStorage` verbindingsreeks interne wachtrijen maken.  Wanneer u Application Insights niet is ingeschakeld, wordt gebruikt door de runtime het `AzureWebJobsDashboard` verbindingsreeks aan te melden voor Azure Table storage en power de **Monitor** tabblad in de portal.
 
 Deze eigenschappen zijn opgegeven in de `appSettings` verzameling in de `siteConfig` object:
 

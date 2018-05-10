@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: mbullwin
-ms.openlocfilehash: 05d271eb7d046819bb8fc2be20623cba0000d8f4
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 942cc355c186b73e0b8802bfbf79ef8b4b39191a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exporteren van telemetrie in Application Insights
 Wilt u uw telemetrie langer dan de standaard bewaarperiode houden? Of op een speciale wijze worden verwerkt? Continue Export is ideaal voor dit. De gebeurtenissen die u in de Application Insights-portal ziet kunnen worden geëxporteerd naar JSON-indeling in Microsoft Azure-opslag. Daar kunt u downloaden van uw gegevens en wat u code schrijven moet verwerken.  
 
-Met behulp van continue Export mogelijk extra kosten in rekening gebracht. Controleer uw [prijzen model](http://azure.microsoft.com/pricing/details/application-insights/).
+Met behulp van continue Export mogelijk extra kosten in rekening gebracht. Controleer uw [prijzen model](https://azure.microsoft.com/pricing/details/application-insights/).
 
 Voordat u de continue export instelt, zijn er enkele alternatieven die kunt u overwegen:
 

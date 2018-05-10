@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: antonfr;mbullwin
-ms.openlocfilehash: c847052134b1d83cd606e0e2b51b63b580f7917c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 45d2f39ff7fb2e5a22cda74cd0c794db28e351f1
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="alerts-with-dynamic-thresholds-in-azure-monitor-limited-public-preview"></a>Waarschuwingen met dynamische drempelwaarden in de Azure-Monitor (beperkte openbare Preview)
 
@@ -85,7 +85,7 @@ Waarschuwingen met dynamische drempelwaarden kunnen worden geconfigureerd via de
 
    Als u waarschuwing veroorzaakt door tijdelijke pieken, wordt u aangeraden de instellingen 'Number schendingen van de waarschuwing activeren'. Deze functionaliteit kunt u ontvangt een waarschuwing alleen als de drempelwaarde is geschonden X keer achter elkaar of Y tijden buiten het laatste Z perioden. Bijvoorbeeld:
 
-    Waarschuwing wordt gegeven als het probleem doorlopend gedurende 15 minuten, 3 opeenvolgende keren in een bepaalde periode van 5 minuten, gebruik de volgende instellingen:
+    De waarschuwing wordt gegeven als het probleem continue gedurende 15 minuten is, 3 opeenvolgende keren in een bepaalde periode van 5 minuten, gebruik de volgende instellingen:
 
    ![Geëvalueerd op basis van](./media/monitoring-alerts-dynamic-thresholds/0008.png)
 

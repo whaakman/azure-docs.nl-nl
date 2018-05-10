@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: cynthn
-ms.openlocfilehash: b81f3719f8781cf6cdb724108f4dd730f3380c86
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d0307b26741a6bbbf29626e670467cdd72697646
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="manually-migrate-a-classic-vm-to-a-new-arm-managed-disk-vm-from-the-vhd"></a>Handmatig een klassieke virtuele machine migreren naar een nieuwe ARM beheerd schijf virtuele machine van de VHD 
 
@@ -92,6 +92,8 @@ Bereid uw toepassing uitvaltijd. U hebt hiervoor een schone migratie stoppen van
 
 Bereid uw toepassing uitvaltijd. U hebt hiervoor een schone migratie stoppen van de verwerking in het huidige systeem. Alleen dan kunt u dit downloaden naar consistente status die u naar het nieuwe platform migreren kunt. Duur van uitvaltijd is afhankelijk van de hoeveelheid gegevens op de schijven om te migreren.
 
+Dit onderdeel vereist Azure PowerShell moduleversie 6.0.0 of hoger. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). U moet ook uitvoeren `Connect-AzureRmAccount` geen verbinding maken met Azure.
+
 
 1.  Stel eerst de algemene parameters:
 
@@ -121,11 +123,11 @@ Bereid uw toepassing uitvaltijd. U hebt hiervoor een schone migratie stoppen van
 
 2.  Een beheerde OS-schijf met behulp van de VHD van de klassieke VM maken.
 
-    Zorg ervoor dat u de volledige URI van de OS-VHD naar de parameter $osVhdUri hebt opgegeven. Typ ook **- AccountType** als **PremiumLRS** of **StandardLRS** op basis van het type schijven (Premium of Standard) u migreert naar.
+    Zorg ervoor dat u de volledige URI van de OS-VHD naar de parameter $osVhdUri hebt opgegeven. Typ ook **- AccountType** als **Premium_LRS** of **Standard_LRS** op basis van het type schijven (Premium of Standard) u migreert naar.
 
     ```powershell
     $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk (New-AzureRmDiskConfig '
-    -AccountType PremiumLRS -Location $location -CreateOption Import -SourceUri $osVhdUri) '
+    -AccountType Premium_LRS -Location $location -CreateOption Import -SourceUri $osVhdUri) '
     -ResourceGroupName $resourceGroupName
     ```
 
@@ -134,14 +136,14 @@ Bereid uw toepassing uitvaltijd. U hebt hiervoor een schone migratie stoppen van
     ```powershell
     $VirtualMachine = New-AzureRmVMConfig -VMName $virtualMachineName -VMSize $virtualMachineSize
     $VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -ManagedDiskId $osDisk.Id '
-    -StorageAccountType PremiumLRS -DiskSizeInGB 128 -CreateOption Attach -Windows
+    -StorageAccountType Premium_LRS -DiskSizeInGB 128 -CreateOption Attach -Windows
     ```
 
 4.  Een beheerde gegevensschijf uit het gegevensbestand van de VHD maken en toe te voegen aan de nieuwe virtuele machine.
 
     ```powershell
     $dataDisk1 = New-AzureRmDisk -DiskName $dataDiskName -Disk (New-AzureRmDiskConfig '
-    -AccountType PremiumLRS -Location $location -CreationDataCreateOption Import '
+    -AccountType Premium_LRS -Location $location -CreationDataCreateOption Import '
     -SourceUri $dataVhdUri ) -ResourceGroupName $resourceGroupName
     
     $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name $dataDiskName '

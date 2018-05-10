@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/10/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: ff3fd8ea331c02aa2666ec20b56dbbaef473a4df
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b1dcbfc51e63a5bca9186b62c871b2623653bbab
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack PKI-certificaatvereisten
 
@@ -35,7 +35,7 @@ Azure-Stack is een infrastructuur voor openbare-netwerk met behulp van extern to
 ## <a name="certificate-requirements"></a>Certificaatvereisten
 De volgende lijst beschrijft de vereisten voor certificaten die nodig zijn voor het implementeren van Azure-Stack: 
 - Certificaten moeten zijn uitgegeven door een interne certificeringsinstantie of een openbare certificeringsinstantie. Als een openbare certificeringsinstantie wordt gebruikt, moet worden opgenomen in de installatiekopie van het basisbesturingssysteem als onderdeel van het Microsoft-programma vertrouwde basis-instantie. U vindt hier de volledige lijst: https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
-- De infrastructuur van uw Azure-Stack moet netwerktoegang hebben tot de certificeringsinstantie die wordt gebruikt om uw certificaten te ondertekenen
+- De infrastructuur van uw Azure-Stack moet toegang tot het netwerk hebben tot de locatie van de certificeringsinstantie certificaatintrekkingslijst (CRL) gepubliceerd in het certificaat. Deze CRL moet een http-eindpunt
 - Wanneer u certificaten, moeten certificaten dat een uitgegeven door de dezelfde interne certificeringsinstantie gebruikt voor het ondertekenen van certificaten die zijn opgegeven bij de implementatie of een openbare certificeringsinstantie van boven
 - Het gebruik van zelfondertekende certificaten worden niet ondersteund.
 - Het certificaat kan een certificaat voor één jokerteken die betrekking hebben op alle naamruimten in het veld onderwerp alternatieve naam (SAN) zijn. U kunt ook kunt u afzonderlijke certificaten met jokertekens voor eindpunten, zoals **acs** en Sleutelkluis waar ze vereist zijn. 
@@ -45,6 +45,7 @@ De volgende lijst beschrijft de vereisten voor certificaten die nodig zijn voor 
 - Het pfx-certificaatbestand moeten de waarden ' Server (1.3.6.1.5.5.7.3.1) ' en 'Clientverificatie (1.3.6.1.5.5.7.3.2)' in het veld 'Enhanced Key Usage' hebben.
 - Het certificaat ' verleend aan: "veld moet niet hetzelfde zijn als de ' uitgegeven door: ' veld.
 - De wachtwoorden op alle certificate pfx-bestanden moeten hetzelfde zijn op het moment van implementatie
+- Wachtwoord voor het certificaat pfx is een complex wachtwoord.
 - Zorg ervoor dat de namen van certificaathouders en alternatieve onderwerpnamen met alle certificaten overeenkomen met de specificaties die worden beschreven in dit artikel om te voorkomen dat mislukte implementatie.
 
 > [!NOTE]
@@ -114,7 +115,7 @@ De volgende tabel beschrijft de eindpunten en certificaten zijn vereist voor de 
 |App Service|Web-verkeer standaard SSL-certificaat|&#42;.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.sso.appservice.*&lt;region>.&lt;fqdn>*<br>(Multi domein Wildcard-SSL-certificaat<sup>1</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 |App Service|API|api.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL-certificaat<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 |App Service|FTP|ftp.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL-certificaat<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
-|App Service|SSO|sso.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL-certificaat<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
+|App Service|Eenmalige aanmelding|sso.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL-certificaat<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 
 <sup>1</sup> vereist een certificaat met meerdere jokertekens alternatieve onderwerpnamen. Meerdere jokertekens SAN's op één certificaat wordt mogelijk niet ondersteund door alle openbare certificeringsinstanties 
 

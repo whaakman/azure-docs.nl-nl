@@ -10,11 +10,11 @@ ms.custom: scale out apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: billgib
-ms.openlocfilehash: 3220c538e08753ed3515f42a5b8110df71745a63
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: ef35bbb28f5b13068f92f4bf07c7807b4a5d407a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Multitenant SaaS-database tenancymodus patronen
 
@@ -88,7 +88,7 @@ Azure SQL Database biedt de hulpprogramma's die nodig zijn om te configureren, b
 
 #### <a name="operations-scale-for-database-per-tenant"></a>Bewerkingen voor de database per tenant schalen
 
-De Azure SQL Database-platform heeft veel beheerfuncties zijn ontworpen voor het beheer van grote aantallen van databases op grote schaal, zoals ook meer dan 100.000 databases.  Deze voorzieningen maken het patroon database per tenant aannemelijke.
+De Azure SQL Database-platform heeft veel beheerfuncties zijn ontworpen voor het beheren van grote aantallen van databases op grote schaal, zoals ook meer dan 100.000 databases.  Deze voorzieningen maken het patroon database per tenant aannemelijke.
 
 Stel bijvoorbeeld dat een systeem heeft een database 1000-tenant als slechts één database.  De database wellicht 20 indexen.  Als de worden geconverteerd naar de databases van 1000 single-tenant, wordt het aantal indexen komt tot 20.000.  In SQL-Database als onderdeel van [automatische afstemming][docu-sql-db-automatic-tuning-771a], de automatische indexering functies zijn standaard ingeschakeld.  Automatische indexering beheert voor u alle 20.000 indexen en hun lopende maken en -neerzetten-optimalisatie.  Deze geautomatiseerde acties worden uitgevoerd binnen een individuele database, en ze niet zijn gecoördineerd of beperkt door soortgelijke acties in andere databases.  Automatisch indexeren wordt behandeld indexen anders in een bezet database dan in een minder bezet database.  Dit type index management aanpassing zou zijn op de schaal van de database per tenant als deze grote beheertaak zou moeten handmatig worden uitgevoerd.
 
@@ -99,7 +99,7 @@ Andere functies die goed schaalbaar omvatten het volgende:
 - Versleuteling op schijf.
 - Prestatietelemetrie.
 
-#### <a name="automation"></a>Automatisering
+#### <a name="automation"></a>Automation
 
 De beheerbewerkingen die kunnen worden vastgelegd in een script en die worden aangeboden via een [devops] [ http-visual-studio-devops-485m] model.  De bewerkingen kunnen zelfs worden geautomatiseerd en worden weergegeven in de toepassing.
 

@@ -2,10 +2,8 @@
 title: Aanmelden toevoegen aan een iOS-toepassing met behulp van het Azure AD v2.0-eindpunt | Microsoft Docs
 description: Het bouwen van een iOS-app die gebruikers met beide persoonlijke Microsoft-account aanmeldt en werk- of schoolaccount accounts met behulp van de bibliotheken van derden.
 services: active-directory
-documentationcenter: 
-author: brandwe
+author: xerners
 manager: mtillman
-editor: 
 ms.assetid: fd3603c0-42f7-438c-87b5-a52d20d6344b
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +13,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 398ddbd004b4a12f4aa79ed64cc85f0e5bc5407a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5323f9a514c3c1c6134656e41af68e479fd8fdc5
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="add-sign-in-to-an-ios-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a>Aanmelden voor een iOS-app met behulp van een derde partij-bibliotheek met Graph API met behulp van het v2.0-eindpunt toevoegen
 Op het Microsoft Identity-platform wordt gebruikgemaakt van open standaarden, zoals OAuth2 en OpenID Connect. Ontwikkelaars kunnen een bibliotheek die ze willen integreren in onze services gebruiken. Om te helpen ons platform gebruiken met andere bibliotheken ontwikkelaars, hebben we enkele scenario's zoals deze voorbeelden van het configureren van derden bibliotheken verbinding maken met het identiteitsplatform van Microsoft geschreven. De meeste bibliotheken die implementeren [de RFC6749 OAuth2-specificatie](https://tools.ietf.org/html/rfc6749) verbinding kunnen maken met het identiteitsplatform van Microsoft.
@@ -564,7 +562,7 @@ Tot slot gaan we kijken hoe u de gegevens terug naar de MasterViewController. De
 ```
 
 
-## <a name="run-the-sample"></a>Het voorbeeld uitvoert
+## <a name="run-the-sample"></a>De voorbeeldtoepassing uitvoeren
 Als u hebt het basisproject gebruikt of gevolgd samen met de procedure moet nu uw toepassing uitvoeren. De simulator Start en op **aanmelden** om de toepassing te gebruiken.
 
 ## <a name="get-security-updates-for-our-product"></a>Beveiligingsupdates voor onze product

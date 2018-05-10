@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/20/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 41a5ff2613706b7454a96daa52c7cb20c734c394
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 1a7a711c9b255aabdae76d28908d81f349aebe4a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Virtuele machines starten/stoppen tijdens rustige uren oplossing (preview) in Azure Automation
 
@@ -26,7 +26,7 @@ Deze oplossing biedt een automatiseringsoptie gedecentraliseerde voor gebruikers
 
 ## <a name="prerequisites"></a>Vereisten
 
-* De runbooks werken met een [Uitvoeren als-account voor Azure](automation-offering-get-started.md#authentication-methods). De Run As-account is de gewenste verificatiemethode omdat deze wordt certificaatverificatie gebruikt in plaats van een wachtwoord dat mogelijk verlopen of regelmatig wordt gewijzigd.
+* De runbooks werken met een [Uitvoeren als-account voor Azure](automation-create-runas-account.md). De Run As-account is de gewenste verificatiemethode omdat deze wordt certificaatverificatie gebruikt in plaats van een wachtwoord dat mogelijk verlopen of regelmatig wordt gewijzigd.
 * Deze oplossing beheert alleen virtuele machines die zich in hetzelfde abonnement als uw Azure Automation-account.
 * Deze oplossing is geïmplementeerd alleen voor de volgende Azure-regio's: Australië-Zuidoost, Canada centraal, India centraal, VS-Oost, Japan-Oost, Zuidoost-Azië, VK Zuid en West-Europa.
 
@@ -80,8 +80,8 @@ Voer de volgende stappen uit om toe te voegen van de starten/stoppen virtuele ma
    * Selecteer een **planning**. Dit is een terugkerende datum en tijd voor het starten en stoppen van de virtuele machines in de doel-resourcegroepen. De planning is standaard geconfigureerd voor de UTC-tijdzone. Als u een andere regio is niet beschikbaar. Zie voor meer informatie over het configureren van de planning voor de tijdzone van uw specifieke na het configureren van de oplossing [wijzigen van de planning voor opstarten en afsluiten](#modify-the-startup-and-shutdown-schedule).
    * Voor het ontvangen van **e-mailmeldingen** van SendGrid, accepteer de standaardwaarde van **Ja** en geef een geldig e-mailadres. Als u selecteert **Nee** maar toch op een later tijdstip dat u wilt ontvangen van e-mailmeldingen, kunt u bijwerken de **External_EmailToAddress** variabele met geldige e-mailadressen, gescheiden door komma's, en vervolgens wijzigen van de variabele **External_IsSendEmail** met de waarde **Ja**.
 
-> [!IMPORTANT]
-> De standaardwaarde voor **ResourceGroup doelnamen** is een **&ast;**. Dit is bedoeld voor alle VM's in een abonnement. Als u niet dat de oplossing wilt voor alle VM's in uw abonnement is deze waarde worden bijgewerkt naar een lijst met namen van resourcegroepen moet voordat u de planning inschakelt als doel.
+    > [!IMPORTANT]
+    > De standaardwaarde voor **ResourceGroup doelnamen** is een **&ast;**. Dit is bedoeld voor alle VM's in een abonnement. Als u niet dat de oplossing wilt voor alle VM's in uw abonnement is deze waarde worden bijgewerkt naar een lijst met namen van resourcegroepen moet voordat u de planning inschakelt als doel.
 
 1. Nadat u de oorspronkelijke instellingen vereist voor de oplossing hebt geconfigureerd, klikt u op **OK** sluiten de **Parameters** pagina en selecteer **maken**. Nadat alle instellingen zijn geverifieerd, wordt de oplossing is geïmplementeerd voor uw abonnement. Dit proces kan enkele seconden duren en u kunt de voortgang onder volgen **meldingen** in het menu.
 
@@ -218,7 +218,7 @@ In alle scenario's, de **External_Start_ResourceGroupNames**, **External_Stop_Re
 
 ### <a name="schedules"></a>Planningen
 
-De volgende tabel geeft een lijst van elk van de standaardplanningen in uw Automation-account hebt gemaakt.  U kunt deze wijzigen of uw eigen aangepaste schema's maken. Standaard elk van deze zijn uitgeschakeld, behalve voor **Scheduled_StartVM** en **Scheduled_StopVM**.
+De volgende tabel geeft een lijst van elk van de standaardplanningen in uw Automation-account hebt gemaakt. U kunt deze wijzigen of uw eigen aangepaste schema's maken. Standaard elk van deze zijn uitgeschakeld, behalve voor **Scheduled_StartVM** en **Scheduled_StopVM**.
 
 U moet alle schema's, niet inschakelen omdat dit overlappende planning acties mogelijk maken. Het is raadzaam om te bepalen welke optimalisaties die u wilt uitvoeren en dienovereenkomstig wijzigen. Zie de voorbeeldscenario's in de overzichtssectie voor verdere uitleg.
 
@@ -226,7 +226,7 @@ U moet alle schema's, niet inschakelen omdat dit overlappende planning acties mo
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | Om de 8 uur | Kan het runbook AutoStop_CreateAlert_Parent om de 8 uur die op zijn beurt Hiermee stopt u de waarden op basis van een VM in External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames en External_ExcludeVMNames in Azure Automation-variabelen worden uitgevoerd. U kunt ook een door komma's gescheiden lijst met virtuele machines opgeven met behulp van de parameter VMList.|
 |Scheduled_StopVM | De gebruiker gedefinieerde dagelijks | Het runbook Scheduled_Parent uitvoert met een parameter van het *stoppen* elke dag op de opgegeven tijd. Automatisch alle virtuele machines die voldoen aan de regels die zijn gedefinieerd door asset variabelen gestopt. U moet het bijbehorende schema inschakelen **geplande-StartVM**.|
-|Scheduled_StartVM | De gebruiker gedefinieerde dagelijks | Het runbook Scheduled_Parent uitvoert met een parameter van het *Start* elke dag op de opgegeven tijd.  Alle virtuele machines die voldoen aan de regels die zijn gedefinieerd door de juiste variabelen wordt automatisch gestart. U moet het bijbehorende schema inschakelen **geplande StopVM**.|
+|Scheduled_StartVM | De gebruiker gedefinieerde dagelijks | Het runbook Scheduled_Parent uitvoert met een parameter van het *Start* elke dag op de opgegeven tijd. Alle virtuele machines die voldoen aan de regels die zijn gedefinieerd door de juiste variabelen wordt automatisch gestart. U moet het bijbehorende schema inschakelen **geplande StopVM**.|
 |Gesequentieerd StopVM | 1:00 uur (UTC), elke vrijdag | Het runbook Sequenced_Parent uitvoert met een parameter van het *stoppen* elke vrijdag op de opgegeven tijd. Sequentieel (oplopend) stopt alle virtuele machines met een code van **SequenceStop** gedefinieerd door de betreffende variabelen. Raadpleeg het gedeelte Runbooks voor meer informatie over labelwaarden en activa-variabelen. U moet het bijbehorende schema inschakelen **geordende StartVM**.|
 |Gesequentieerd StartVM | 13:00 uur (UTC), elke maandag | Het runbook Sequenced_Parent uitvoert met een parameter van het *Start* elke maandag op de opgegeven tijd. Sequentieel alle VM's (aflopend) begint met een code van **klikvolgorde** gedefinieerd door de betreffende variabelen. Raadpleeg het gedeelte Runbooks voor meer informatie over labelwaarden en activa-variabelen. U moet het bijbehorende schema inschakelen **geordende StopVM**.|
 

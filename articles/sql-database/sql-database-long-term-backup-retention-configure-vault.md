@@ -7,18 +7,22 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 05/08/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 0154ec9f08f81d2aa47c607c05f09309f7c23c7e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: f26f9b6f1b0ddef348c39df5aa4badc5df93b725
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention-using-azure-recovery-services-vault"></a>Configureren en herstel van back-up langdurig bewaren van Azure SQL Database worden met behulp van de Azure Recovery Services-kluis
 
 U kunt de Azure Recovery Services-kluis voor het opslaan van back-ups van Azure SQL database en vervolgens een database herstelt via back-ups behouden in de kluis die met de Azure-portal of PowerShell configureren.
+
+> [!NOTE]
+> Als onderdeel van de initiële versie van de evaluatieversie van langdurig bewaren van back-up in oktober 2016, zijn back-ups opgeslagen in de kluis van Azure Services Recovery Service. Deze update verwijdert u deze afhankelijkheid, maar voor achterwaartse compatibiliteit de oorspronkelijke API tot en met 31 mei 2018 wordt ondersteund. Als u nodig hebt om te communiceren met back-ups in de Azure-Services Recovery-kluis, Zie [langdurig back-up bewaren met behulp van Azure Services Recovery Service kluis](sql-database-long-term-backup-retention-configure-vault.md). 
+
 
 ## <a name="azure-portal"></a>Azure Portal
 

@@ -2,24 +2,24 @@
 title: Publiceren van extern bureaublad met Azure AD-toepassingsproxy | Microsoft Docs
 description: Bevat informatie over de basisbeginselen van Azure AD-toepassingsproxy connectors.
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.author: daveba
+ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 44b54ad4331d48202044316486a5b1d1ef9202d2
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 9d013c22041c2ff64af7790836103068ffbf48ea
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Extern bureaublad met Azure AD-toepassingsproxy publiceren
 
@@ -75,14 +75,14 @@ Verbinding maken met de RDS-implementatie als beheerder en wijzig de naam van de
 1. Verbinding maken met de RDS-server uitvoeren van de RD Connection Broker-functie.
 2. Start **Serverbeheer**.
 3. Selecteer **extern bureaublad-Services** in het deelvenster aan de linkerkant.
-4. Selecteer **overzicht**.
+4. Selecteer **Overzicht**.
 5. Selecteer de vervolgkeuzelijst in de sectie overzicht van de implementatie en kies **implementatie-eigenschappen bewerken**.
 6. Wijzig in het tabblad Extern bureaublad-Gateway de **servernaam** veld naar de externe URL die u voor het eindpunt van de host Extern bureaublad in Application Proxy instelt.
 7. Wijzig de **aanmelden methode** veld **wachtwoordverificatie**.
 
   ![Scherm van de eigenschappen van implementatie van RDS](./media/application-proxy-publish-remote-desktop/rds-deployment-properties.png)
 
-8. Voer deze opdracht voor elke verzameling. Vervang  *\<yourcollectionname\>*  en  *\<proxyfrontendurl\>*  met uw eigen gegevens. Met deze opdracht kunt eenmalige aanmelding tussen RD Web- en RD-Gateway en optimaliseert de prestaties:
+8. Voer deze opdracht voor elke verzameling. Vervang *\<yourcollectionname\>* en *\<proxyfrontendurl\>* met uw eigen gegevens. Met deze opdracht kunt eenmalige aanmelding tussen RD Web- en RD-Gateway en optimaliseert de prestaties:
 
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s:<proxyfrontendurl>`nrequire pre-authentication:i:1"

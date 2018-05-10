@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: sasolank
-ms.openlocfilehash: 9a6e63e95b833c960356b82a19127ec91a791b98
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 595abcaafdea5cde3f868567bac7fb9cf0ee424b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>API Management in een interne VNET integreren met Application Gateway 
 
@@ -298,7 +298,7 @@ Het volgende voorbeeld wordt een eenvoudige regel voor het '/ echo /' pad router
 $echoapiRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "externalapis" -Paths "/echo/*" -BackendAddressPool $apimProxyBackendPool -BackendHttpSettings $apimPoolSetting
 ```
 
-Als het pad komt niet overeen met de padregels wilt inschakelen via de API Management, de regelconfiguratie pad-kaart, configureert u een standaard-back-end-adresgroep met de naam **dummyBackendPool**. Bijvoorbeeld: http://api.contoso.net/calc/* overschakelt naar de **dummyBackendPool** zoals deze is gedefinieerd als de standaardgroep voor niet-overeenkomende verkeer.
+Als het pad komt niet overeen met de padregels wilt inschakelen via de API Management, de regelconfiguratie pad-kaart, configureert u een standaard-back-end-adresgroep met de naam **dummyBackendPool**. Bijvoorbeeld: http://api.contoso.net/calc/sum overschakelt naar de **dummyBackendPool** zoals deze is gedefinieerd als de standaardgroep voor niet-overeenkomende verkeer.
 
 ```powershell
 $urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $echoapiRule, $dummyPathRule -DefaultBackendAddressPool $dummyBackendPool -DefaultBackendHttpSettings $dummyBackendSetting

@@ -2,18 +2,18 @@
 title: Installeren van een Linux-hoofddoelserver voor failover van Azure met on-premises | Microsoft Docs
 description: Voordat een virtuele Linux-machine opnieuw te beveiligen, moet u een Linux-hoofddoelserver. Informatie over het installeren van een.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: nsoneji
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 05/08/2018
 ms.author: nisoneji
-ms.openlocfilehash: 4d54ecb3f92754fa6575ec17ec5572b6fb9abb88
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 986f36cccc9755e5b5a7fc2f81d7e6dff2bf1ccf
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="install-a-linux-master-target-server"></a>Een Linux-hoofddoel-server installeren
 Nadat u uw virtuele machines in Azure een failover, u kunt een failback uit op de virtuele machines naar de lokale site. Als u wilt een failback uit, moet u beveiligt u de virtuele machine van Azure naar de lokale site opnieuw. Voor dit proces moet u de doelserver van een lokale voor het ontvangen van het verkeer. 
@@ -240,18 +240,13 @@ Gebruik de volgende stappen voor het maken van een schijf bewaren:
 
 1. Koppelen van een nieuwe schijf van 1 TB aan de Linux-hoofddoel virtuele machine en de machine start.
 
-2. Gebruik de **multipath -lle** opdracht voor meer informatie over de multipath-ID van de schijf bewaren.
-    
-     `multipath -ll`
+2. Gebruik de **multipath -lle** opdracht voor meer informatie over de multipath-ID van de schijf bewaren: **multipath -lle**
 
-        ![The multipath ID of the retention disk](./media/vmware-azure-install-linux-master-target/media/image22.png)
+    ![Multipath-ID](./media/vmware-azure-install-linux-master-target/image22.png)
 
-3. Formatteren van de schijf en maak vervolgens een bestandssysteem op het nieuwe station.
-
+3. Formatteren van de schijf en maak vervolgens een bestandssysteem op het nieuwe station: **mkfs.ext4 /dev/mapper/< multipath-id van de bewaarschijf >**.
     
-    `mkfs.ext4 /dev/mapper/<Retention disk's multipath id>`
-    
-    ![Een bestandssysteem maken op het station](./media/vmware-azure-install-linux-master-target/image23-centos.png)
+    ![Bestandssysteem](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
 4. Nadat u het bestandssysteem gemaakt, moet u de bewaarperiode schijf koppelen.
 
@@ -266,7 +261,7 @@ Gebruik de volgende stappen voor het maken van een schijf bewaren:
     
     Selecteer **invoegen** om te beginnen met het bewerken van het bestand. Maak een nieuwe regel en voeg vervolgens de volgende tekst. De schijf multipath-ID op basis van de gemarkeerde multipath-ID van de vorige opdracht bewerken.
 
-     **/dev/mapper/ <Retention disks multipath id> /mnt/bewaren ext4 rw 0 0**
+    **/dev/mapper/ <Retention disks multipath id> /mnt/bewaren ext4 rw 0 0**
 
     Selecteer **Esc**, en typ vervolgens **: wq** (schrijven en sluiten) het editorvenster te sluiten.
 
@@ -355,7 +350,7 @@ U ziet dat de **versie** veld kunt u het versienummer van het hoofddoel.
 * Het hoofddoel mag geen eventuele momentopnamen op de virtuele machine. Als momentopnamen bevat, mislukt de failback.
 
 * Als gevolg van een aantal aangepaste configuraties voor NIC, de netwerkinterface is uitgeschakeld tijdens het opstarten en de hoofddoelserver-agent kan niet worden geïnitialiseerd. Zorg ervoor dat de volgende eigenschappen correct zijn ingesteld. Controleer deze eigenschappen in de Ethernet-kaart van het bestand /etc/sysconfig/network-scripts/ifcfg-eth *.
-    * BOOTPROTO=dhcp
+    * BOOTPROTO = dhcp
     * ONBOOT = yes
 
 

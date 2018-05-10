@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2018
 ms.author: johnkem
-ms.openlocfilehash: 76021642073c7463254f51e84efd9af459af2244
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 5b372ae5a7ff2ad26e4bb83675f592df3f08931b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Diagnostische instellingen voor automatisch inschakelen bij het maken van de resource met een Resource Manager-sjabloon
 In dit artikel laten we zien hoe u kunt een [Azure Resource Manager-sjabloon](../azure-resource-manager/resource-group-authoring-templates.md) diagnostische instellingen configureren op een bron wanneer deze wordt gemaakt. Hiermee kunt u op automatisch starten streaming uw diagnostische logboeken en metrische gegevens naar Event Hubs in een Opslagaccount wilt archiveren, of ze worden verzonden naar logboekanalyse wanneer een bron wordt gemaakt.
@@ -259,7 +259,7 @@ Schakel diagnostische gegevens op een berekeningsresource door bijvoorbeeld een 
 3. De inhoud van uw WADCfg XML-bestand in de eigenschap XMLCfg, alle XML-tekens juist aanhalingstekens toevoegen.
 
 > [!WARNING]
-> Deze laatste stap is lastig direct. [Raadpleeg dit artikel](../virtual-machines/windows/extensions-diagnostics-template.md#diagnostics-configuration-variables) voor een voorbeeld waarin het configuratieschema Diagnostics splitst in variabelen die zijn escape-teken en de juiste indeling.
+> Deze laatste stap is lastig direct. [Raadpleeg dit artikel](../virtual-machines/extensions/diagnostics-template.md#diagnostics-configuration-variables) voor een voorbeeld waarin het configuratieschema Diagnostics splitst in variabelen die zijn escape-teken en de juiste indeling.
 > 
 > 
 

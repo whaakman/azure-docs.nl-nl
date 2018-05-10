@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/18/2018
+ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 18a0ca32f51e6c1be01e59c3899bc2e625868cad
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 718a7eb1e6457c669456d88e5c6e80157b28066c
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager Frequently Asked Questions (FAQ)
 
@@ -29,6 +29,10 @@ ms.lasthandoff: 04/16/2018
 Zoals uitgelegd in [hoe Traffic Manager werkt](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Traffic Manager werkt op het niveau van DNS. DNS-antwoorden op de clients omleiden naar het juiste service-eindpunt wordt verzonden. Clients vervolgens rechtstreeks verbinding gemaakt met de service-eindpunt, niet via het Traffic Manager.
 
 Traffic Manager biedt daarom geen een eindpunt of de IP-adres voor de clients verbinding maken. Als u statische IP-adres voor uw service, die moet worden geconfigureerd op de service, niet in Traffic Manager.
+
+### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>Welke soorten verkeer kunnen worden gerouteerd via Traffic Manager?
+Zoals uitgelegd in [hoe Traffic Manager werkt](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), een Traffic Manager-eindpunt kan internetgericht service die wordt gehost binnen of buiten Azure worden. Traffic Manager kunt daarom het verkeer dat afkomstig van het openbare internet aan een set eindpunten is dat ook internet kampen versturen. Als er eindpunten die zich in een particulier netwerk (bijvoorbeeld een interne versie van [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer)) of gebruikers die DNS-aanvragen van dergelijke interne netwerken Traffic Manager kan niet worden gebruikt voor deze verkeer.
+
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>Traffic Manager biedt ondersteuning voor 'een tijdelijke' sessies?
 
@@ -121,7 +125,7 @@ Een regio kan worden toegewezen aan slechts één eindpunt binnen een profiel al
 
 Ja, alleen API-versie 2017-03-01 en nieuwere ondersteunt de geografische routering typt. Alle oudere versies van de API kunnen niet worden gebruikt voor het gemaakte profielen van geografische routeringstype of geografische regio's toewijzen aan eindpunten. Als een oudere versie van de API wordt gebruikt voor het ophalen van de profielen van een Azure-abonnement, wordt een profiel van geografische routeringstype niet geretourneerd. Bovendien wanneer u een oudere versie van de API, een profiel geretourneerd die heeft eindpunten met de toewijzing van een geografische regio, heeft niet de toewijzing van de geografische regio die wordt weergegeven.
 
-## <a name="real-user-measurements"></a>Real User Measurements
+## <a name="real-user-measurements"></a>Real-user-metingen
 
 ### <a name="what-are-the-benefits-of-using-real-user-measurements"></a>Wat zijn de voordelen van het gebruik van echte metingen van de gebruiker?
 Wanneer u routeringsmethode voor prestaties, Traffic Manager haalt het beste Azure-regio voor uw eindgebruikers verbinding maken met door te inspecteren van de bron-IP en het Subnet van de Client EDNS (indien doorgegeven) en controleren op basis van het netwerk latentie intelligence de service onderhoudt. Echte gebruiker metingen verbetert dit voor de eindgebruiker base doordat hun ervaring bijdragen aan deze tabel latentie naast controleren die in deze tabel voldoende de netwerken van de eindgebruiker omvat vanaf waar uw eindgebruikers verbinding met Azure maken. Dit leidt tot een grotere nauwkeurigheid in de routering van uw eindgebruikers.
@@ -182,7 +186,7 @@ Nee, hoeft u niet voor het hosten van elke server-side-onderdeel op Azure voor e
 ### <a name="will-my-azure-bandwidth-usage-increase-when-i-use-real-user-measurements"></a>Mijn Azure bandbreedtegebruik vergroten bij het gebruik van echte metingen van de gebruiker?
 Zoals vermeld in het vorige antwoord, worden de serveronderdelen van echte metingen van de gebruiker die eigendom zijn en worden beheerd door Azure. Dit betekent dat uw Azure-bandbreedtegebruik wordt niet verhogen omdat het gebruik van echte metingen van de gebruiker. Houd er rekening mee dat dit geen eventuele bandbreedtegebruik buiten welke Azure kosten omvat. We minimaliseren de bandbreedte die wordt gebruikt door alleen een installatiekopie van één pixel downloaden naar de latentie voor een Azure-regio meting. 
 
-## <a name="traffic-view"></a>Traffic View
+## <a name="traffic-view"></a>Verkeersweergave
 
 ### <a name="what-does-traffic-view-do"></a>Wat doet verkeer weergeven?
 Weergave van verkeer is een functie van de verkeer-Manager waarmee u uw gebruikers en hoe hun ervaring wordt meer inzicht. Dit maakt gebruik van de query's ontvangen door het Traffic Manager en het netwerk latentie intelligence tabellen die de service onderhoudt waarmee u het volgende:

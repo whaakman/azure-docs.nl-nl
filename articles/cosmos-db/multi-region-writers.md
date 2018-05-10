@@ -9,11 +9,11 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 2da6b4e957c7e44f399866fd11853363f7424e7d
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: 12306b7868fa7fb2321f26657aab81beabb9db35
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="multi-master-at-global-scale-with-azure-cosmos-db"></a>Meerdere master op globale schaal met Azure Cosmos-DB 
  
@@ -22,6 +22,25 @@ Globaal ontwikkelen gedistribueerde toepassingen die met lokale latentie reagere
 ![Meerdere masters architectuur](./media/multi-region-writers/multi-master-architecture.png)
 
 U kunt met ondersteuning voor Azure Cosmos DB meerdere masters schrijfbewerkingen uitvoeren voor containers van gegevens (bijvoorbeeld verzamelingen, grafieken en tabellen) gedistribueerd overal ter wereld. U kunt gegevens in elke regio die is gekoppeld aan uw databaseaccount bijwerken. Deze Gegevensupdates kunnen asynchroon doorgeven. Naast het voorzien in snel toegang en schrijflatentie van uw gegevens, bevat meerdere master ook een praktische oplossing voor failover en taakverdeling problemen. Kortom, met Azure Cosmos DB beschikt u over schrijflatentie van < 10 ms op het 99th percentiel overal in de wereld, 99,999% schrijven en lezen beschikbaarheid overal ter wereld en de mogelijkheid om te schalen beide doorvoer overal overal ter wereld lezen en schrijven.   
+
+> [!IMPORTANT]
+> Ondersteuning voor meerdere masters is private Preview-versie, de preview-versie te gebruiken [aanmelden](#sign-up-for-multi-master-support) nu.
+
+## <a name="sign-up-for-multi-master-support"></a>Aanmelden voor meerdere masters ondersteuning
+
+Als u al een Azure-abonnement hebt, kunt u zich kunt aanmelden bij het meerdere masters preview-programma in de Azure portal. Als u geen ervaring met Azure, zich aanmelden voor een [gratis proefversie](https://azure.microsoft.com/free) waar u 12 maanden gratis toegang tot Azure Cosmos DB krijgen. De volgende stappen om aan te vragen toegang tot het programma meerdere masters preview.
+
+1. In de [Azure-portal](https://portal.azure.com), klikt u op **maken van een resource** > **Databases** > **Azure Cosmos DB**.  
+
+2. Geef een naam voor uw account voor Azure Cosmos DB, kiest u de API, abonnement, resourcegroep en locatie op de pagina nieuwe Account.  
+
+3. Selecteert u vervolgens **zich registreren voor de preview vandaag** onder het veld Multi Mater Preview.  
+
+   ![Aanmelden voor meerdere masters preview](./media/multi-region-writers/sign-up-for-multi-master-preview.png)
+
+4. In de **zich registreren voor de preview vandaag** deelvenster, klikt u op **OK**. Nadat u de aanvraag verzendt, wordt de status gewijzigd in **in afwachting van goedkeuring** in de blade-account maken.  
+
+Nadat u de aanvraag indient, ontvangt u een e-mailbericht dat uw aanvraag is goedgekeurd. Vanwege het grote aantal aanvragen ontvangt u meldingen binnen een week. U hoeft niet te maken van een ondersteuningsticket voor het voltooien van de aanvraag. Aanvragen wordt gecontroleerd in de volgorde waarin ze werden ontvangen.
 
 ## <a name="a-simple-multi-master-example--content-publishing"></a>Een eenvoudig meerdere masters voorbeeld – inhoud publiceren  
 

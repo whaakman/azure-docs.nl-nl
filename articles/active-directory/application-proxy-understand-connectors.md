@@ -3,23 +3,23 @@ title: Azure AD-toepassingsproxy connectors begrijpen | Microsoft Docs
 description: Bevat informatie over de basisbeginselen van Azure AD-toepassingsproxy connectors.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: barbkess
 manager: mtillman
-ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
-ms.author: billmath
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: fe8d5c40249431be60dc8844adf7efa1b8e87c5f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 14e2b82b5c32e1b36bf730b7b834c9b8ad124629
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD-toepassingsproxy connectors begrijpen
 
@@ -72,7 +72,7 @@ Zie voor meer informatie over groepen connector, [publiceren van toepassingen op
 
 Terwijl connectors wordt automatisch taakverdeling binnen een connector-groep, is het ook belangrijk om ervoor te zorgen dat u hebt gepland voldoende capaciteit tussen connectors voor het afhandelen van de omvang van het verwachte verkeer. In het algemeen de meer gebruikers die u hebt een machine die u moet de grootste. Hieronder vindt u een tabel geeft een overzicht van het volume andere machines kan verwerken. Houd er rekening mee is alle gebaseerd op verwachte transacties Per tweede (TPS) in plaats van door gebruiker sinds gebruik patronen variëren en kunnen niet worden gebruikt om te voorspellen laden.  Rekening mee dat er enkele verschillen op basis van de grootte van de antwoorden en de reactietijd van de back-end-toepassing zijn-grotere antwoord en tragere responstijden in een lagere maximale TPS resulteert.
 
-|Kerngeheugens|RAM|Latentie (MS) verwacht-P99|Max TPS|
+|Kerngeheugens|RAM|Latentie (MS) verwacht-P99|Maximale TPS|
 | ----- | ----- | ----- | ----- |
 |2|8|325|586|
 |4|16|320|1150|
@@ -157,7 +157,7 @@ De logboeken, Ga naar de Event Viewer, open de **weergave** menu en schakel **lo
 
 U kunt de status van de service in het venster Services controleren. De connector bestaat uit twee Windows-Services: de werkelijke connector en de updater. Beide parameters moeten de tijd worden uitgevoerd.
 
- ![AzureAD Services Local](./media/application-proxy-understand-connectors/aad-connector-services.png)
+ ![AzureAD Services lokale](./media/application-proxy-understand-connectors/aad-connector-services.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

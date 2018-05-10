@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 05/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: eba67e6fe7d836d7b36d2bcd576eeaf4c70df970
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ac43817fb3f253c35cd69a8ecd8931afca50892b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="quickstart-configure-per-cloud-app-mfa-with-azure-active-directory-conditional-access"></a>Snelstartgids: Per cloud-app MFA met voorwaardelijke toegang van Azure Active Directory configureren 
 
 
-Om te vereenvoudigen de aanmeldingservaring van uw gebruikers, is het raadzaam om aanmelden bij uw cloud-apps met een gebruikersnaam en een wachtwoord te kunnen. Veel omgevingen hebben echter ten minste enkele apps waarvoor u wordt aangeraden om te vereisen een sterkere vorm van accountverificatie,, zoals multi-factor authentication-server. Dit kan zijn, voor de voorbeeld-waar, voor toegang tot e-mailsysteem van uw organisatie of uw HR-apps.  
+Om te vereenvoudigen de aanmeldingservaring van uw gebruikers, is het raadzaam zodat ze aan te melden bij uw cloud-apps met een gebruikersnaam en een wachtwoord. Veel omgevingen hebben echter ten minste enkele apps waarvoor u wordt aangeraden om te vereisen een sterkere vorm van accountverificatie,, zoals multi-factor authentication-server. Dit kan zijn, voor de voorbeeld-waar, voor toegang tot e-mailsysteem van uw organisatie of uw HR-apps.  
 
 Deze snelstartgids ziet u hoe u kunt multi-factor authentication-server alleen nodig voor een reeks geselecteerde cloud-apps in uw omgeving met een [beleid voor voorwaardelijke toegang van Azure AD](active-directory-conditional-access-azure-portal.md).
 
@@ -160,7 +160,7 @@ Wanneer u het hulpprogramma met configureert **Britta Simon** als gebruiker en *
 
 1. Op de [voorwaardelijke toegang - beleid](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) pagina in het menu bovenaan, klikt u op **wat gebeurt er als**.  
  
-    ![What-If](./media/active-directory-conditional-access-app-based-mfa/14.png)
+    ![What If](./media/active-directory-conditional-access-app-based-mfa/14.png)
 
 2. Klik op **gebruikers**, selecteer **Britta Simon**, en klik vervolgens op **Selecteer**.
 

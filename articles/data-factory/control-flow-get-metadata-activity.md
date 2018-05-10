@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/08/2018
 ms.author: shlo
-ms.openlocfilehash: 5c81c73bd563dd75103ed0fcb45cbc2205eed02a
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 91ef3f9f15797c8c0c599e8c01070369e1af0b58
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Ophalen van metagegevens van activiteit in Azure Data Factory
 GetMetadata activiteit kan worden gebruikt voor het ophalen van **metagegevens** van alle gegevens in Azure Data Factory. Deze activiteit wordt alleen ondersteund voor data Factory van versie 2. Het kan worden gebruikt in de volgende scenario's:
@@ -74,7 +74,10 @@ De volgende typen van de metagegevens kunnen worden opgegeven in de lijst met Ge
 | contentMD5 | MD5 van het bestand. Van toepassing op het bestand alleen. |
 | structuur | De structuur van de gegevens in het bestand of de relationele database-tabel. Waarde voor uitvoer is een lijst met de naam van kolom en kolomtype. |
 | aantal kolommen | Het aantal kolommen in het bestand of de relationele tabel. |
-| Er bestaat| Hiermee wordt aangegeven of een bestand/map/tabel of niet bestaat. Opmerking zolang 'bestaat' is opgegeven in de veldenlijst GetaMetadata dat de activiteit treedt er geen fout zelfs als het item (bestand/map/tabel) bestaat niet; in plaats daarvan de methode retourneert `exists: false` in de uitvoer. |
+| Er bestaat| Hiermee wordt aangegeven of een bestand/map/tabel of niet bestaat. Houd er rekening mee dat als 'bestaat' is opgegeven in de veldenlijst GetaMetadata, de activiteit treedt er geen fout zelfs als het item (bestand/map/tabel) bestaat niet; in plaats daarvan de methode retourneert `exists: false` in de uitvoer. |
+
+>[!TIP]
+>Als u valideren wilt of een bestand/map/tabel of niet bestaat, geef `exists` in de veldenlijst GetMetadata activiteit kunt u controleren de `exists: true/false` het gevolg zijn van de uitvoer van de activiteit. Als `exists` is niet geconfigureerd in de lijst de GetMetadata activiteit mislukt wanneer het object is niet gevonden.
 
 ## <a name="syntax"></a>Syntaxis
 
@@ -107,10 +110,9 @@ De volgende typen van de metagegevens kunnen worden opgegeven in de lijst met Ge
         },
         "typeProperties": {
             "folderPath":"container/folder",
-            "Filename": "file.json",
+            "filename": "file.json",
             "format":{
                 "type":"JsonFormat"
-                "nestedSeperator": ","
             }
         }
     }
@@ -123,12 +125,12 @@ GetMetadata activiteit kunt momenteel de volgende soorten informatie over metage
 
 Eigenschap | Beschrijving | Vereist
 -------- | ----------- | --------
-Veldenlijst | Bevat de typen metagegevens die zijn vereist. Zie voor meer informatie [opties voor metagegevens](#metadata-options) sectie op ondersteunde metagegevens. | Nee 
+Veldenlijst | Bevat de typen metagegevens die zijn vereist. Zie voor meer informatie [opties voor metagegevens](#metadata-options) sectie op ondersteunde metagegevens. | Ja 
 Gegevensset | De verwijzingsgegevensset waarvan activiteit metagegevens worden opgehaald door de activiteit GetMetadata is. Zie [ondersteunde mogelijkheden](#supported-capabilities) sectie op ondersteunde connectors en verwijzen naar de connector onderwerp bij de details van de syntaxis van de gegevensset. | Ja
 
 ## <a name="sample-output"></a>Voorbeelduitvoer
 
-Het resultaat GetMetadata wordt weergegeven in de uitvoer van activiteit. Hieronder vindt u twee voorbeelden met opties voor volledige metagegevens geselecteerd in de lijst met velden als verwijzing:
+Het resultaat GetMetadata wordt weergegeven in de uitvoer van activiteit. Hieronder ziet u twee voorbeelden met opties voor volledige metagegevens geselecteerd in de lijst met velden als verwijzing. Als u het resultaat van de volgende activiteit, gebruikt u het patroon van `@{activity('MyGetMetadataActivity').output.itemName}`.
 
 ### <a name="get-a-files-metadata"></a>Ophalen van metagegevens van het bestand
 

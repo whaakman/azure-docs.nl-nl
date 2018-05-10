@@ -2,10 +2,10 @@
 title: Hulp bij het openen en gebruiken van de portal voor mijn Apps in Azure Active Directory | Microsoft Docs
 description: Hulp bij het aanmelden bij en veelvoorkomende taken uitvoeren in het deelvenster toegang.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c67cd675-b567-41e1-8bc2-e06fe0b38d3b
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 285ee0c4e7f963c372c4f95face73864ba2a4f68
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 681831dcc65fa74d8d2e26f58849140498843c49
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-my-apps-portal"></a>Problemen oplossen met toegang tot en met behulp van de portal mijn Apps
 
@@ -29,7 +29,7 @@ Als u problemen met aanmelden bij of met behulp van de portal voor mijn Apps ond
 
 Probeer deze algemene tips:
 
-- Eerst moet controleren om te zien of u van de juiste URL gebruikmaakt [https://myapps.microsoft.com](https://myapps.microsoft.com).
+- Eerst moet controleren om te zien of u van de juiste URL gebruikmaakt [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
 - Probeer de URL van uw browser vertrouwde sites toevoegen.
 - Zorg ervoor dat uw wachtwoord juist is en niet is verlopen. Zie voor meer informatie [uw werk of school-wachtwoord opnieuw instellen](active-directory-passwords-update-your-own-password.md).
 - Controleren om ervoor te zorgen dat uw contactgegevens verificatie up-to-date is en de toegang niet blokkeert. Zie voor meer informatie [wat Azure multi-factor Authentication betekent voor mij?](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user).
@@ -55,7 +55,7 @@ Controleren om ervoor te zorgen dat u voldoet aan de volgende browservereisten:
 - **Rand**: verjaardagseditie van Windows 10 of hoger.
 - **Chrome**: Windows 7 of hoger, en op Mac OS X of hoger.
 - **Firefox 26,0 of hoger**: Windows XP SP2 of hoger, en op Mac OS X 10.6 of hoger.
-- **Internet Explorer 8, 9, 10, 11**: op Windows 7 of hoger (beperkte ondersteuning).
+- **Internet Explorer 11**: op Windows 7 of hoger (beperkte ondersteuning).
 
 U kunt ook de uitbreiding downloaden voor Chrome en rand rechtstreeks vanuit de volgende sites:
 

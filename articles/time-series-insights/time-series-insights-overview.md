@@ -11,17 +11,17 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
 ms.date: 01/26/2018
-ms.openlocfilehash: e31cebfd027e93096e233f2963445e4fc50a7e9d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f29fe50468aabadcf92d2ed3de3f9ec631d17f21
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="what-is-azure-time-series-insights"></a>Wat is Azure Time Series Insights?
 
 Time Series Insights is gebouwd voor het opslaan, visualiseren en opvragen van grote hoeveelheden tijd reeksgegevens, zoals die worden gegenereerd door de IoT-apparaten.  Als u wilt opslaan, beheren, opvragen of visualiseren time series-gegevens in de cloud, is Time Series Insights geschikt voor u.  
 
-![Time Series Insights stroomdiagram] (media/overview/time-series-insights-flowchart.png)
+![Time Series Insights stroomdiagram](media/overview/time-series-insights-flowchart.png)
 
 Time Series Insights heeft vier belangrijke taken:
 
@@ -68,7 +68,7 @@ Aan de slag duurt minder dan 5 minuten.
 4.  Zie de gegevens in minuten met de Time Series Insights explorer.
 
 ## <a name="time-series-insights-explorer"></a>Time Series Insights Explorer
-Dit diagram toont een voorbeeld van de tijdreeks inzichtgegevens weergegeven via de Verkenner: ![Time Series Insights explorer] (media/time-series-insights-explorer/explorer4.png)
+Dit diagram toont een voorbeeld van de tijdreeks inzichtgegevens weergegeven via de Verkenner: ![Time Series Insights explorer](media/time-series-insights-explorer/explorer4.png)
 
 ## <a name="next-steps"></a>Volgende stappen
  - [Time Series Insights explorer gebruiken in een omgeving met demonstratie verkennen](./time-series-quickstart.md)

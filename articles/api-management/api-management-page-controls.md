@@ -2,10 +2,10 @@
 title: Azure API Management-paginabesturingselementen | Microsoft Docs
 description: Meer informatie over de paginabesturingselementen beschikbaar voor gebruik in developer portal sjablonen in Azure API Management.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: apimpm
-ms.openlocfilehash: 4fd91ae079ff054932f4572874001dd69dd848e7
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: da68c9b7ebbb1880e35bd60b12db9f920f51e13c
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-api-management-page-controls"></a>Azure API Management-paginabesturingselementen
 Azure API Management biedt de volgende besturingselementen voor gebruik in het developer portal sjablonen.  
@@ -43,10 +43,10 @@ Plaats deze in de gewenste locatie in de portal developer-sjabloon voor het gebr
 -   [abonneren knop](#subscribe-button)  
 -   [abonnement annuleren](#subscription-cancel)  
   
-##  <a name="app-actions"></a>App-acties  
+##  <a name="app-actions"></a> App-acties  
  De `app-actions` beheer biedt een gebruikersinterface voor interactie met toepassingen op de pagina gebruikersprofiel in de portal voor ontwikkelaars.  
   
- ![App- &#45; acties besturingselement](./media/api-management-page-controls/APIM-app-actions-control.png "APIM acties voor app beheer")  
+ ![App&#45;acties besturingselement](./media/api-management-page-controls/APIM-app-actions-control.png "APIM acties voor app beheer")  
   
 ### <a name="usage"></a>Gebruik  
   
@@ -65,10 +65,10 @@ Plaats deze in de gewenste locatie in de portal developer-sjabloon voor het gebr
   
 -   [Toepassingen](api-management-user-profile-templates.md#Applications)  
   
-##  <a name="basic-signin"></a>Basic-aanmelding  
+##  <a name="basic-signin"></a> Basic-aanmelding  
  De `basic-signin` control biedt een besturingselement voor het verzamelen van aanmelden gebruikersgegevens in de aanmeldingspagina in de portal voor ontwikkelaars.  
   
- ![Basic &#45; signin-besturingselement](./media/api-management-page-controls/APIM-basic-signin-control.png "APIM basic signin-besturingselement")  
+ ![Basic&#45;signin-besturingselement](./media/api-management-page-controls/APIM-basic-signin-control.png "APIM basic signin-besturingselement")  
   
 ### <a name="usage"></a>Gebruik  
   
@@ -84,7 +84,7 @@ Plaats deze in de gewenste locatie in de portal developer-sjabloon voor het gebr
   
 -   [Aanmelden](api-management-page-templates.md#SignIn)  
   
-##  <a name="paging-control"></a>besturingselement voor paginering  
+##  <a name="paging-control"></a> besturingselement voor paginering  
  De `paging-control` biedt pagineringsfunctionaliteit moet worden ingeschakeld op developer portal-pagina's die een lijst met items weergeven.  
   
  ![besturingselement van het wisselbestand](./media/api-management-page-controls/APIM-paging-control.png "APIM paginering besturingselement")  
@@ -107,7 +107,7 @@ Plaats deze in de gewenste locatie in de portal developer-sjabloon voor het gebr
   
 -   [Lijst met producten](api-management-product-templates.md#ProductList)  
   
-##  <a name="providers"></a>providers  
+##  <a name="providers"></a> providers  
  De `providers` beheer biedt een controle voor selectie van verificatieproviders op de pagina aanmelden in de portal voor ontwikkelaars.  
   
  ![providers besturingselement](./media/api-management-page-controls/APIM-providers-control.png "APIM providers besturingselement")  
@@ -126,7 +126,7 @@ Plaats deze in de gewenste locatie in de portal developer-sjabloon voor het gebr
   
 -   [Aanmelden](api-management-page-templates.md#SignIn)  
   
-##  <a name="search-control"></a>besturingselement voor zoeken  
+##  <a name="search-control"></a> besturingselement voor zoeken  
  De `search-control` biedt functionaliteit voor het zoeken op developer portal-pagina's die een lijst met items weergeven.  
   
  ![besturingselement zoeken](./media/api-management-page-controls/APIM-search-control.png "APIM zoekbesturing")  
@@ -147,10 +147,10 @@ Plaats deze in de gewenste locatie in de portal developer-sjabloon voor het gebr
   
 -   [Lijst met producten](api-management-product-templates.md#ProductList)  
   
-##  <a name="sign-up"></a>aanmelden  
+##  <a name="sign-up"></a> aanmelden  
  De `sign-up` control biedt een besturingselement voor het verzamelen van informatie over gebruikersprofielen in de aanmeldingspagina in de portal voor ontwikkelaars.  
   
- ![aanmelding &#45; besturingselement up](./media/api-management-page-controls/APIM-sign-up-control.png "APIM aanmelding besturingselement")  
+ ![Meld u&#45;besturingselement up](./media/api-management-page-controls/APIM-sign-up-control.png "APIM aanmelding besturingselement")  
   
 ### <a name="usage"></a>Gebruik  
   
@@ -166,10 +166,10 @@ Plaats deze in de gewenste locatie in de portal developer-sjabloon voor het gebr
   
 -   [Aanmelden](api-management-page-templates.md#SignUp)  
   
-##  <a name="subscribe-button"></a>abonneren knop  
+##  <a name="subscribe-button"></a> abonneren knop  
  De `subscribe-button` biedt een controle voor een gebruiker op een product abonneren.  
   
- ![abonneren &#45; knopbesturingselement](./media/api-management-page-controls/APIM-subscribe-button-control.png "APIM abonneren knopbesturingselement")  
+ ![abonneren&#45;besturingselement opdrachtknop](./media/api-management-page-controls/APIM-subscribe-button-control.png "APIM abonneren knopbesturingselement")  
   
 ### <a name="usage"></a>Gebruik  
   
@@ -185,10 +185,10 @@ Plaats deze in de gewenste locatie in de portal developer-sjabloon voor het gebr
   
 -   [Product](api-management-product-templates.md#Product)  
   
-##  <a name="subscription-cancel"></a>abonnement annuleren  
+##  <a name="subscription-cancel"></a> abonnement annuleren  
  De `subscription-cancel` control biedt een besturingselement voor het annuleren van een abonnement op een product in de pagina gebruikersprofiel in de portal voor ontwikkelaars.  
   
- ![abonnement &#45; besturing annuleren](./media/api-management-page-controls/APIM-subscription-cancel-control.png "APIM abonnement annuleren besturingselement")  
+ ![abonnement&#45;besturing annuleren](./media/api-management-page-controls/APIM-subscription-cancel-control.png "APIM abonnement annuleren besturingselement")  
   
 ### <a name="usage"></a>Gebruik  
   

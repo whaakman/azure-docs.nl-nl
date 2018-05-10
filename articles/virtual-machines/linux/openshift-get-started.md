@@ -5,21 +5,21 @@ services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
 manager: najoshi
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 
+ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 5d154a1c860a5ebd7af2efd55b470bb14efe6c67
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: c8e740a66271c88b3abb036867d1760cc9e77607
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="openshift-in-azure"></a>OpenShift in Azure
 
@@ -31,14 +31,14 @@ OpenShift bevat Kubernetes voor container orchestration en -beheer. Ontwikkelaar
 - Eenvoudige implementatie en schalen.
 - Op lange termijn onderhoud van de levenscyclus voor teams en toepassingen.
 
-Er zijn meerdere versies van OpenShift, die twee zijn beschikbaar in Azure uit te voeren:
+Er zijn meerdere versies van OpenShift beschikbaar:
 
 - OpenShift Origin
 - OpenShift Container Platform
 - OpenShift Online
 - OpenShift toegewezen
 
-De vier versies die in dit artikel, twee zijn beschikbaar voor klanten om te implementeren in Azure op hun eigen: OpenShift oorsprong en OpenShift Container Platform.
+Van de vier versies die in dit artikel slechts twee beschikbaar voor klanten om te implementeren in Azure: OpenShift oorsprong en OpenShift Container Platform.
 
 ## <a name="openshift-origin"></a>OpenShift Origin
 

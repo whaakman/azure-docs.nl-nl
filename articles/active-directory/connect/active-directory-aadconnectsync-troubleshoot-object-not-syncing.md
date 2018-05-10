@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 05b60b091fe87620c88ad9eb761f1028c24d5730
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 5bc0fd3854488704f5368bfe1134d8fa9c959c9b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Problemen met een object dat niet kan worden gesynchroniseerd naar Azure AD
 
@@ -88,7 +88,7 @@ Wanneer u een object cs opent, zijn er meerdere tabbladen boven. De **importeren
 ![CS-object](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/csobject.png)    
 De **oude waarde** ziet u wat momenteel wordt opgeslagen in het Connect en de **nieuwe waarde** wat is ontvangen van het bronsysteem en is nog niet toegepast. Als er een fout op het object, worden wijzigingen niet verwerkt.
 
-**Error**  
+**Fout**  
 ![CS-object](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssyncerror.png)  
 De **synchronisatiefout** tabblad is alleen zichtbaar als er een probleem met het object. Zie voor meer informatie [synchronisatiefouten oplossen](#troubleshoot-errors-in-operations-tab).
 
@@ -139,7 +139,7 @@ U hebt een connector voor:
 - Elk Active Directory-forest de gebruiker wordt weergegeven. Deze weergave kan bestaan foreignSecurityPrincipals en neem contact op met objecten.
 - Een connector in Azure AD.
 
-Als u de connector naar Azure AD ontbreekt, Lees [MV-kenmerken](#MV-attributes) om te controleren of de criteria voor naar Azure AD wordt ingericht.
+Als u de connector naar Azure AD ontbreekt, Lees [MV-kenmerken](#mv-attributes) om te controleren of de criteria voor naar Azure AD wordt ingericht.
 
 Op dit tabblad kunt u om te navigeren naar de [ruimte connectorobject](#connector-space-object-properties). Selecteer een rij en klikt u op **eigenschappen**.
 

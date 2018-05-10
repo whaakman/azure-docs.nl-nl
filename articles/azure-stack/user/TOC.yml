@@ -91,10 +91,14 @@
               href: azure-stack-kv-push-secret-into-vm.md
             - name: Voorbeeld-app van KeyVault
               href: azure-stack-kv-sample-app.md
+        - name: Oplossingssjablonen
+          items:
             - name: Oplossingssjablonen
               items:
                 - name: Een Service Fabric-cluster implementeren
                   href: azure-stack-solution-template-service-fabric-cluster.md
+                - name: Een Kubernetes-cluster implementeren
+                  href: azure-stack-solution-template-kubernetes-deploy.md
     - name: Apps bouwen
       items:
         - name: Ontwikkelen voor Azure Stack

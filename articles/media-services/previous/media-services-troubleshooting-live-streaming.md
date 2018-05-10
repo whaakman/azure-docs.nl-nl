@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: 7e2fe84c51f93bdeb6cd99e23624d1796aff6c1f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 84e3e9fc18671d7199eeaf638377a6681cf09fb4
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshooting-guide-for-live-streaming"></a>Handleiding voor het oplossen van problemen met live streaming
-Dit onderwerp bevat suggesties over het oplossen van enkele live streaming problemen.
+Dit artikel bevat suggesties over het oplossen van enkele live streaming problemen.
 
 ## <a name="issues-related-to-on-premises-encoders"></a>Problemen met on-premises coderingsprogramma 's
 Deze sectie vindt u suggesties over het oplossen van problemen met betrekking tot on-premises-coderingsprogramma's die zijn geconfigureerd voor het verzenden van een single-bitrate stream AMS-kanalen die zijn ingeschakeld voor live codering.
@@ -44,23 +44,10 @@ Deze sectie vindt u suggesties over het oplossen van problemen met betrekking to
     **Stappen voor probleemoplossing**: Zorg ervoor dat de codering wordt niet langer te worden gepusht AMS, stoppen en opnieuw instellen van het kanaal. Als opnieuw uit te voeren, probeert u het coderingsprogramma verbinding te maken met de nieuwe instellingen. Als dit nog niet het probleem wordt opgelost, probeert u een nieuw kanaal volledig te maken, soms kanalen beschadigd kunnen raken na een aantal mislukte pogingen.  
 * **Potentiële probleem**: de GOP grootte of Sleutelframe instellingen zijn niet optimaal. 
   
-    **Stappen voor probleemoplossing**: GOP aanbevolen grootte of keyframe interval is 2 seconden. Sommige coderingsprogramma's berekenen deze instelling in het aantal frames, terwijl andere seconden. Bijvoorbeeld: bij het uitvoeren van 30fps, de grootte van de GOP zou worden 60 frames die gelijk is aan twee seconden.  
+    **Stappen voor probleemoplossing**: GOP aanbevolen grootte of keyframe interval is twee seconden. Sommige coderingsprogramma's berekenen deze instelling in het aantal frames, terwijl andere seconden. Bijvoorbeeld: bij het uitvoeren van 30 fps, de grootte van de GOP zou worden 60 frames die gelijk is aan twee seconden.  
 * **Potentiële probleem**: de stroom gesloten poorten blokkeren. 
   
-    **Stappen voor probleemoplossing**: bij het streamen via RTMP, Controleer de firewall en proxy-instellingen om te bevestigen dat de uitgaande poorten 1935 en 1936 geopend zijn. Wanneer u RTP streaming, moet u bevestigen dat de uitgaande poort 2010 open is. 
-
-### <a name="problem-when-configuring-the-encoder-to-stream-with-the-rtp-protocol-there-is-no-place-to-enter-a-host-name"></a>Probleem: Bij het configureren van het coderingsprogramma naar een stream met het protocol RTP, er is geen geschikt voor een hostnaam opgeeft.
-* **Potentiële probleem**: veel RTP coderingsprogramma's niet toegestaan voor hostnamen en een IP-adres moet worden verkregen.  
-  
-    **Stappen voor probleemoplossing**: als u het IP-adres zoekt, open een opdrachtprompt op elke computer. U doet dit in Windows, opent u het venster uitvoeren starten (WIN + R) en typ 'cmd' te openen.  
-  
-    Zodra de opdrachtprompt geopend is, typt u 'Ping [AMS-hostnaam]'. 
-  
-    De hostnaam kan worden afgeleid door het poortnummer van de Azure URL voor opnemen, zoals gemarkeerd in het volgende voorbeeld weg te laten: 
-  
-    RTP://Test2-amstest009.RTP.Channel.mediaservices.Windows.NET:2010 / 
-  
-    ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle10.png)
+    **Stappen voor probleemoplossing**: bij het streamen via RTMP, Controleer de firewall en proxy-instellingen om te bevestigen dat de uitgaande poorten 1935 en 1936 geopend zijn. 
 
 > [!NOTE]
 > Verzenden als nadat u de stappen die u nog steeds niet met succes streamen, een ondersteuningsticket met de Azure portal.

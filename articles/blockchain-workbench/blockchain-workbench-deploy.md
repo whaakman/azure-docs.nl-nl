@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 01f396b4a2b8851ce1433a297981d30328c113b8
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: a16d65e9c462bfcacc5ae9f29889667efd9ddb84
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Azure Blockchain Workbench implementeren
 
@@ -79,27 +79,6 @@ Vervolgens moet u het toepassingsmanifest voor het gebruik van toepassingsrollen
 
 4.  Klik op **opslaan** de application manifest wijzigingen wilt opslaan.
 
-### <a name="add-graph-api-key-to-application"></a>Graph API-sleutel toevoegen aan de toepassing
-
-Blockchain Workbench maakt gebruik van Azure AD als het beheersysteem hoofdidentiteit voor gebruikers die interactie met blockchain toepassingen. Opdat de Blockchain Workbench voor toegang tot Azure AD en ophalen van gebruikersgegevens, zoals namen en e-mailberichten, moet u een toegangssleutel toevoegen. De sleutel Blockchain Workbench gebruikt voor verificatie met Azure AD.
-
-1. Selecteer voor de toepassing die u hebt geregistreerd, **instellingen** in het detailvenster van de geregistreerde toepassing.
-2. Selecteer **Sleutels**.
-3. Voeg een nieuwe sleutel toe door op te geven van een sleutel **beschrijving** en het kiezen van **verloopt** duurwaarde. 
-
-    ![Sleutel maken](media/blockchain-workbench-deploy/app-key-create.png)
-
-    |Instelling  | Waarde  |
-    |---------|---------|
-    | Beschrijving | `Service` |
-    | Verloopt op | Kies een duur voor het verlopen |
-
-4. Selecteer **Opslaan**. 
-5. Kopieer de waarde van de sleutel en opgeslagen voor later. U moet voor de implementatie.
-
-    > [!IMPORTANT]
-    >  Als u de sleutel voor de implementatie niet opslaat, moet u een nieuwe sleutel te genereren. U kunt de sleutelwaarde niet later ophalen vanuit de portal.
-
 ### <a name="add-graph-api-required-permissions"></a>Graph API vereist machtigingen toevoegen
 
 De API-App moet om toestemming te vragen van de gebruiker toegang tot de map. De volgende vereiste machtiging voor de API-toepassing instellen:
@@ -121,6 +100,27 @@ De API-App moet om toestemming te vragen van de gebruiker toegang tot de map. De
    ![Machtigingen verlenen](media/blockchain-workbench-deploy/client-app-grant-permissions.png)
 
    Machtiging verlenen kunt Blockchain Workbench voor toegang tot gebruikers in de directory. De leesmachtiging is vereist om te zoeken en leden toevoegen aan Blockchain Workbench.
+
+### <a name="add-graph-api-key-to-application"></a>Graph API-sleutel toevoegen aan de toepassing
+
+Blockchain Workbench maakt gebruik van Azure AD als het beheersysteem hoofdidentiteit voor gebruikers die interactie met blockchain toepassingen. Opdat de Blockchain Workbench voor toegang tot Azure AD en ophalen van gebruikersgegevens, zoals namen en e-mailberichten, moet u een toegangssleutel toevoegen. De sleutel Blockchain Workbench gebruikt voor verificatie met Azure AD.
+
+1. Selecteer voor de toepassing die u hebt geregistreerd, **instellingen** in het detailvenster van de geregistreerde toepassing.
+2. Selecteer **Sleutels**.
+3. Voeg een nieuwe sleutel toe door op te geven van een sleutel **beschrijving** en het kiezen van **verloopt** duurwaarde. 
+
+    ![Sleutel maken](media/blockchain-workbench-deploy/app-key-create.png)
+
+    |Instelling  | Waarde  |
+    |---------|---------|
+    | Beschrijving | `Service` |
+    | Verloopt op | Kies een duur voor het verlopen |
+
+4. Selecteer **Opslaan**. 
+5. Kopieer de waarde van de sleutel en opgeslagen voor later. U moet voor de implementatie.
+
+    > [!IMPORTANT]
+    >  Als u de sleutel voor de implementatie niet opslaat, moet u een nieuwe sleutel te genereren. U kunt de sleutelwaarde niet later ophalen vanuit de portal.
 
 ### <a name="get-application-id"></a>Toepassings-ID ophalen
 
@@ -170,6 +170,7 @@ Nadat de vereiste stappen zijn voltooid, bent u klaar voor het implementeren van
     | Wachtwoord | Het wachtwoord wordt gebruikt voor de verbinding met virtuele machines. |
     | SSH | Gebruik van een openbare RSA-sleutel in de indeling van één regel die begint met **ssh-rsa** of gebruik de PEM-indeling van meerdere regels. U kunt met behulp van SSH-sleutels genereren `ssh-keygen` op Linux en OS X of PuTTYGen in Windows met. Zie voor meer informatie over het SSH-sleutels [het gebruik van SSH-sleutels met Windows in Azure](../virtual-machines/linux/ssh-from-windows.md). |
     | Databasewachtwoord / databasewachtwoord bevestigen | Geef het wachtwoord moet worden gebruikt voor toegang tot de database gemaakt als onderdeel van de implementatie. |
+    | Implementatie regio | Geef aan waar Blockchain Workbench resources implementeren. Voor de beste beschikbaarheid dit moet overeenkomen met de **locatie** instelling. |
     | Abonnement | Geef het Azure-abonnement dat u wilt gebruiken voor uw implementatie. |
     | Resourcegroepen | Een nieuwe resourcegroep maken door te selecteren **nieuw** en geef de naam van een unieke resource-groep. |
     | Locatie | Geef de regio die u wilt implementeren van het framework. |
@@ -199,7 +200,7 @@ Nadat de vereiste stappen zijn voltooid, bent u klaar voor het implementeren van
     | Prestaties van de opslag | Kies de gewenste VM-opslagprestaties voor uw netwerk blockchain. |
     | Grootte virtuele machine | Kies de gewenste VM-grootte voor het netwerk blockchain. |
 
-10. Klik op **OK** naar de sectie network grootte en de prestaties te voltooien.
+10. Selecteer **OK** naar de sectie network grootte en de prestaties te voltooien.
 
 11. Voltooi de **Azure Monitor** instellingen.
 
@@ -207,9 +208,8 @@ Nadat de vereiste stappen zijn voltooid, bent u klaar voor het implementeren van
 
     | Instelling | Beschrijving  |
     |---------|--------------|
-    | Bewaking | Kies of u wilt dat Azure Monitor moet worden gebruikt voor het bewaken van uw netwerk blockchain |
-    | Verbinding maken met bestaande OMS-exemplaar | Kies of u voor het gebruik van een bestaande Operations Management Suite-exemplaar of een nieuwe maken |
-    | Locatie van OMS-werkruimte | Kies een regio voor de OMS-werkruimte. Dit moet overeenkomen met de regio voor de locatie Blockchain Workbench |
+    | Bewaking | Kies of u Azure-Monitor voor het bewaken van uw netwerk blockchain inschakelen |
+    | Verbinding maken met bestaande Log Analytics-exemplaar | Kiezen of u wilt gebruiken met een bestaande Log Analytics-exemplaar of een nieuwe maken. Als u een bestaand exemplaar gebruikt, Voer uw werkruimte-ID en de primaire sleutel. |
 
 12. Klik op **OK** voor het voltooien van de Monitor van de Azure-sectie.
 

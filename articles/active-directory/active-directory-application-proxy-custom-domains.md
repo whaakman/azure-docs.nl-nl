@@ -2,28 +2,28 @@
 title: Aangepaste domeinen in Azure AD-toepassingsproxy | Microsoft Docs
 description: Aangepaste domeinen in Azure AD-toepassingsproxy beheren zodat de URL voor de app hetzelfde is, ongeacht waar uw gebruikers toegang toe.
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 2fe9f895-f641-4362-8b27-7a5d08f8600f
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: b198c6aba4227e33eae4af49c019bc4012086a51
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 91cb67bb7a8ebcf0b06561a4c647098c577a473a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Werken met aangepaste domeinen in Azure AD-toepassingsproxy
 
-Wanneer u een toepassing via Azure Active Directory-toepassingsproxy publiceert, maakt u een externe URL voor uw gebruikers gaan wanneer ze extern werken. Deze URL wordt het standaarddomein *yourtenant.msappproxy.net*. Bijvoorbeeld, als u een app met de naam uitgaven en uw tenant gepubliceerd is met de naam Contoso, de externe URL https://expenses-contoso.msappproxy.net zou zijn. Als u wilt om uw eigen domeinnaam te gebruiken, moet u een aangepast domein voor uw toepassing configureren. 
+Wanneer u een toepassing via Azure Active Directory-toepassingsproxy publiceert, maakt u een externe URL voor uw gebruikers gaan wanneer ze extern werken. Deze URL wordt het standaarddomein *yourtenant.msappproxy.net*. Bijvoorbeeld, als u gepubliceerd een app met de naam uitgaven en uw tenant is met de naam Contoso, en vervolgens de externe URL https://expenses-contoso.msappproxy.net. Als u wilt om uw eigen domeinnaam te gebruiken, moet u een aangepast domein voor uw toepassing configureren. 
 
 Het is raadzaam dat u instelt aangepaste domeinen voor uw toepassingen indien mogelijk. Enkele van de voordelen van aangepaste domeinen:
 

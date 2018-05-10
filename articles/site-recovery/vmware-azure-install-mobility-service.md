@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: 445a5f10eac0959dab57e10680659c0792ad6fba
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 3279dbc2eeecd3a3f0f36a47d8dd51ef4f3f503f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="install-the-mobility-service"></a>De Mobility-service installeren 
 
@@ -27,7 +27,7 @@ Azure Site Recovery Mobility-Service is geïnstalleerd op virtuele VMware-machin
 
 
 >[!IMPORTANT]
-> Vanaf versie 9.7.0.0, op virtuele machines van Windows, de Mobility-Service installeert installatieprogramma ook de meest recente beschikbare [Azure VM-agent](../virtual-machines/windows/extensions-features.md#azure-vm-agent). Als een computer failover naar Azure wordt uitgevoerd, is de computer voldoet aan de vereisten voor het gebruik van een VM-extensie agentinstallatie.
+> Vanaf versie 9.7.0.0, op virtuele machines van Windows, de Mobility-Service installeert installatieprogramma ook de meest recente beschikbare [Azure VM-agent](../virtual-machines/extensions/features-windows.md#azure-vm-agent). Als een computer failover naar Azure wordt uitgevoerd, is de computer voldoet aan de vereisten voor het gebruik van een VM-extensie agentinstallatie.
 
 ## <a name="prerequisites"></a>Vereisten
 Deze vereiste stappen voltooien voordat u Mobility-Service handmatig op uw server installeren:
@@ -45,7 +45,7 @@ Deze vereiste stappen voltooien voordat u Mobility-Service handmatig op uw serve
 
 | Naam van het installatiebestand sjabloon| Besturingssysteem |
 |---|--|
-|Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1 (64-bit) </br> WindowsServer 2012 (64-bits) </br> Windows Server 2012 R2 (64-bit) </br> WindowsServer 2016 (64-bits) |
+|Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1 (64-bits) </br> WindowsServer 2012 (64-bits) </br> Windows Server 2012 R2 (64-bits) </br> WindowsServer 2016 (64-bits) |
 |Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5, 6.6, 6.7, 6,8, 6,9 (alleen 64-bits) </br> CentOS 6.4, 6.5, 6.6, 6.7, 6,8, 6,9 (alleen 64-bits) |
 |Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.1, 7.2, 7.3 (alleen 64-bits) </br> CentOS 7.0, 7.1, 7.2, 7.3 (alleen 64-bits) |
 |Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 (alleen 64-bits)|

@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 05/08/2018
 ms.author: genli
-ms.openlocfilehash: cc43d1a0e07eac78a47e6f183c2fd066a489f4f4
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bbd817750d6c6d43ae6973eb38b866b76921f33b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Configureren en beheren van problemen voor Azure Cloud Services: veelgestelde vragen (FAQ's)
 
@@ -34,6 +34,7 @@ Dit artikel bevat veelgestelde vragen over het configureren en beheren van probl
 - [Hoe kan ik een Certificate Signing Request (CSR) zonder 'RDP-ing' met het exemplaar genereren?](#how-can-i-generate-a-certificate-signing-request-csr-without-rdp-ing-in-to-the-instance)
 - [Mijn Cloud Service Management-certificaat verloopt. Hoe het te vernieuwen?](#my-cloud-service-management-certificate-is-expiring-how-to-renew-it)
 - [Hoe kunt u de installatie van de belangrijkste SSL-certificaat (.pfx) en tussenliggende certificate(.p7b) automatiseren?](#how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b)
+- [Wat is het doel van het certificaat 'Microsoft Azure Service Management voor MachineKey'?](#what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate)
 
 **Controle en logboekregistratie**
 
@@ -103,6 +104,10 @@ De **Get-AzurePublishSettingsFile** maakt een nieuw beheercertificaat in **abonn
 ### <a name="how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b"></a>Hoe kunt u de installatie van de belangrijkste SSL-certificaat (.pfx) en tussenliggende certificate(.p7b) automatiseren?
 
 U kunt deze taak automatiseren met behulp van een opstartscript (cmd-batch/PowerShell) en die opstartscript registreren in het servicedefinitiebestand. Zowel het opstartscript en het certificaat (.p7b-bestand) in de projectmap van dezelfde map van het opstartscript toevoegen.
+
+### <a name="what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate"></a>Wat is het doel van het certificaat 'Microsoft Azure Service Management voor MachineKey'?
+
+Dit certificaat wordt gebruikt voor het versleutelen van computersleutels op Azure-Web-rollen. Bekijk voor meer informatie, dit advies [https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731].
 
 Raadpleeg voor meer informatie de volgende artikelen:
 - [Het configureren en starten van de taken uitvoeren voor een Cloudservice](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)

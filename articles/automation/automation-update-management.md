@@ -8,17 +8,17 @@ ms.author: gwallace
 ms.date: 04/23/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 3bd3c4f6501000f2490bc26cf7c6ff0345d3e7cc
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: 5c76114484d10873eeb2d7a4516d4196b1d8aaf6
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Updatebeheer in Azure
 
 De oplossing updatebeheer in Azure automation kunt u voor het beheren van updates voor uw Windows- en Linux-computers geïmplementeerd in Azure, on-premises omgevingen of andere cloudproviders besturingssysteem. U kunt snel de status van de beschikbare updates op alle agentcomputers beoordelen en de procedure voor het installeren van vereiste updates voor servers beheren.
 
-U kunt Updatebeheer voor virtuele machines rechtstreeks vanaf uw [Azure Automation](automation-offering-get-started.md)-account inschakelen.
+Updatebeheer voor virtuele machines kunt u rechtstreeks vanuit uw Azure Automation-account.
 Zie [Updates voor meerdere virtuele machines in Azure beheren](manage-update-multi.md) voor informatie over het inschakelen van Updatebeheer voor virtuele machines vanaf uw Automation-account. U kunt ook updatebeheer inschakelen voor een enkele virtuele machine via de pagina van de virtuele machine in de Azure-portal. Dit scenario is beschikbaar voor zowel [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) en [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) virtuele machines.
 
 ## <a name="solution-overview"></a>Oplossingenoverzicht
@@ -37,6 +37,9 @@ Het volgende diagram toont een conceptueel overzicht van het gedrag en de gegeve
 Nadat een computer een scan voor compatibiliteit van updates voert, verzendt de agent de informatie in bulk met logboekanalyse. Op Windows-computers wordt de nalevingsscan standaard elke twaalf uur uitgevoerd. Naast het schema voor scannen, wordt de scan voor compatibiliteit van updates binnen 15 minuten als Microsoft Monitoring Agent (MMA) opnieuw wordt opgestart voordat de installatie van update en na installatie van update gestart. Op Linux-computers wordt de nalevingsscan standaard elke drie uur uitgevoerd. Wanneer de MMA-agent opnieuw is opgestart, wordt er altijd binnen vijftien minuten een aanvullende nalevingsscan gestart.
 
 De oplossing rapporteert hoe up-to-date de computer is op basis van de bron waarmee u in de huidige configuratie synchroniseert. Als de Windows-computer is geconfigureerd om te rapporteren aan WSUS, kunnen de resultaten afwijken van wat er wordt weergegeven in Microsoft Update, afhankelijk van wanneer WSUS voor het laatst is gesynchroniseerd met Microsoft Update. Dit is hetzelfde voor Linux-computers die zijn geconfigureerd voor rapportage aan een lokale opslagplaats ten opzichte van een openbare opslagplaats.
+
+> [!NOTE]
+> Updatebeheer is vereist op bepaalde URL's en poorten die worden ingeschakeld voor het correct rapporteren aan de service, Zie [Network planning voor Hybrid Workers](automation-hybrid-runbook-worker.md#network-planning) voor meer informatie over deze vereisten.
 
 U kunt software-updates implementeren en installeren op computers die updates vereisen door daarvoor een planning in te stellen. Updates die zijn geclassificeerd als *optioneel*, worden niet opgenomen in het implementatiebereik voor Windows-computers. Alleen vereiste updates worden uitgevoerd. De geplande implementatie wordt gedefinieerd welke doelcomputers ontvangen de toepasselijke updates door het expliciet opgeven van computers of selecteren van een [computergroep](../log-analytics/log-analytics-computer-groups.md) die is gebaseerd op het logboek van zoekopdrachten van een bepaalde set van computers. U geeft ook een planning op voor het goedkeuren en toekennen van een bepaalde tijdsperiode waarin updates mogen worden geïnstalleerd. Updates worden geïnstalleerd door runbooks in Azure Automation. U kunt deze runbooks niet weergeven en ze vereisen geen configuratie. Wanneer een update-implementatie wordt gemaakt, wordt er een planning opgesteld waarmee een masterupdate-runbook voor de in de planning opgenomen computers start op het opgegeven tijdstip. Dit master-runbook start een onderliggend runbook op elke agent die installatie van de vereiste updates uitvoert.
 
@@ -192,8 +195,8 @@ Maak een nieuwe Update-implementatie door te klikken op de **schema-update-imple
 |Besturingssysteem| Linux- of Windows|
 | Machines bijwerken |Selecteer een opgeslagen zoekopdracht of Machine kiest uit de vervolgkeuzelijst en selecteert u afzonderlijke machines |
 |Updateclassificaties|Selecteer de updateclassificaties die u nodig hebt|
-|Updates om uit te sluiten|Voer alle KB om uit te sluiten zonder het voorvoegsel 'KB'|
-|Schema-instellingen|Selecteer de tijd om te starten en selecteer hetzij eenmaal of terugkerende voor het terugkeerpatroon|
+|Updates die moeten worden uitgesloten|Voer alle KB om uit te sluiten zonder het voorvoegsel 'KB'|
+|Planningsinstellingen|Selecteer de tijd om te starten en selecteer hetzij eenmaal of terugkerende voor het terugkeerpatroon|
 | Onderhoudsvenster |Aantal minuten instellen voor updates. De waarde kan niet worden worden minder dan 30 minuten en niet meer dan 6 uur |
 
 ## <a name="update-classifications"></a>Updateclassificaties
@@ -220,11 +223,22 @@ De volgende tabellen bevatten een overzicht van de updateclassificaties in updat
 |Essentiële en beveiligingsupdates     | Updates voor een specifiek probleem of een productspecifiek en beveiligingsgerelateerd probleem.         |
 |Andere Updates     | Alle andere updates die niet essentieel in aard of beveiligingsupdates.        |
 
+## <a name="ports"></a>Poorten
+
+De volgende adressen zijn vereist voor het beheer van updates. Communicatie met deze adressen wordt via poort 443 uitgevoerd.
+
+* *.ods.opinsights.azure.com
+* *.oms.opinsights.azure.com
+* ods.systemcenteradvisor.com
+* *.blob.core.windows.net
+
+Voor meer informatie over de poorten die nodig zijn de hybride Runbook Worker, [Hybrid Worker-rol poorten](automation-hybrid-runbook-worker.md#hybrid-worker-role)
+
 ## <a name="search-logs"></a>Zoeken in Logboeken
 
 Naast de informatie die beschikbaar zijn in de portal kunnen zoekopdrachten worden gedaan op basis van de logboeken. Met de **bijhouden** pagina openen, klikt u op **logboekanalyse**, Hiermee opent u de **logboek zoeken** pagina
 
-### <a name="sample-queries"></a>Voorbeeldquery 's
+### <a name="sample-queries"></a>Voorbeeldquery's
 
 De volgende tabel bevat een voorbeeld-logboek zoekt bijwerkrecords die door deze oplossing worden verzameld:
 
@@ -273,9 +287,9 @@ Als u problemen ondervindt tijdens de onboarding van de oplossing of een virtuel
 | Bericht | Reden | Oplossing |
 |----------|----------|----------|
 | Kan de machine niet registreren voor patchbeheer,</br>Registratie is mislukt met uitzondering</br>System.InvalidOperationException: {"Message":"Machine is al</br>geregistreerd bij een ander account. "} | Machine is al vrijgegeven aan een andere werkruimte voor updatebeheer | Voer het opruimen van oude artefacten uit door [de hybride runbookgroep te verwijderen](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|
-| Kan geen Machine te registreren voor patchbeheer, de registratie is mislukt met uitzondering</br>System.Net.Http.HttpRequestException: Er is een fout opgetreden tijdens het verzenden van de aanvraag. ---></br>System.Net.WebException: De onderliggende verbinding</br>is gesloten: Er is een onverwachte fout</br>opgetreden tijdens het ontvangen. ---> System.ComponentModel.Win32Exception:</br>De client en server kunnen niet communiceren,</br>omdat ze geen gemeenschappelijk algoritme hebben | Communicatie wordt geblokkeerd door proxy/gateway/firewall | [Netwerkvereisten bekijken](automation-offering-get-started.md#network-planning)|
-| Kan de machine niet registreren voor patchbeheer,</br>Registratie is mislukt met uitzondering</br>Newtonsoft.Json.JsonReaderException: Fout tijdens het parseren van oneindig positieve waarde. | Communicatie wordt geblokkeerd door proxy/gateway/firewall | [Netwerkvereisten bekijken](automation-offering-get-started.md#network-planning)|
-| Het certificaat dat is doorgegeven door de service \<wsid\>. oms.opinsights.azure.com</br>is niet uitgegeven door een certificeringsinstantie</br>die wordt gebruikt voor Microsoft-services. Contact</br>de netwerkbeheerder om na te gaan of er een proxy wordt uitgevoerd waarmee</br>TLS/SSL-communicatie wordt onderschept. |Communicatie wordt geblokkeerd door proxy/gateway/firewall | [Netwerkvereisten bekijken](automation-offering-get-started.md#network-planning)|
+| Kan geen Machine te registreren voor patchbeheer, de registratie is mislukt met uitzondering</br>System.Net.Http.HttpRequestException: Er is een fout opgetreden tijdens het verzenden van de aanvraag. ---></br>System.Net.WebException: De onderliggende verbinding</br>is gesloten: Er is een onverwachte fout</br>opgetreden tijdens het ontvangen. ---> System.ComponentModel.Win32Exception:</br>De client en server kunnen niet communiceren,</br>omdat ze geen gemeenschappelijk algoritme hebben | Communicatie wordt geblokkeerd door proxy/gateway/firewall | [Netwerkvereisten bekijken](automation-hybrid-runbook-worker.md#network-planning)|
+| Kan de machine niet registreren voor patchbeheer,</br>Registratie is mislukt met uitzondering</br>Newtonsoft.Json.JsonReaderException: Fout tijdens het parseren van oneindig positieve waarde. | Communicatie wordt geblokkeerd door proxy/gateway/firewall | [Netwerkvereisten bekijken](automation-hybrid-runbook-worker.md#network-planning)|
+| Het certificaat dat is doorgegeven door de service \<wsid\>. oms.opinsights.azure.com</br>is niet uitgegeven door een certificeringsinstantie</br>die wordt gebruikt voor Microsoft-services. Contact</br>de netwerkbeheerder om na te gaan of er een proxy wordt uitgevoerd waarmee</br>TLS/SSL-communicatie wordt onderschept. |Communicatie wordt geblokkeerd door proxy/gateway/firewall | [Netwerkvereisten bekijken](automation-hybrid-runbook-worker.md#network-planning)|
 | Kan de machine niet registreren voor patchbeheer,</br>Registratie is mislukt met uitzondering</br>AgentService.HybridRegistration.</br>PowerShell.Certificates.CertificateCreationException:</br>Maken van een zelfondertekend certificaat is mislukt. ---></br>System.UnauthorizedAccessException: Toegang is geweigerd. | Genereren van zelfondertekend certificaat is mislukt | Controleer of het systeemaccount</br>leestoegang heeft tot de map:</br>**C:\ProgramData\Microsoft\**</br>** Crypto\RSA**|
 
 ## <a name="next-steps"></a>Volgende stappen

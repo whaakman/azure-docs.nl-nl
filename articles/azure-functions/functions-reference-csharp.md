@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 91e85fb25f9324f9b8d83884fe34a014f280de0b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9de8119cbde486800639bc5f3559a1a2859ec204
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C# script (.csx) referentie voor ontwikkelaars
 
@@ -335,7 +335,7 @@ De volgende assembly's kunnen worden verwezen met eenvoudige naam (bijvoorbeeld 
 ## <a name="referencing-custom-assemblies"></a>Aangepaste assembly's die verwijzen naar
 
 Om te verwijzen naar een aangepaste assembly, kunt u ofwel een *gedeelde* assembly of een *persoonlijke* assembly:
-- Gedeelde assembly's worden gedeeld door alle functies binnen een functie-app. Om te verwijzen naar een aangepaste assembly, uploadt u de assembly die de functie-app, zoals een `bin` map in de functie app-hoofdmap. 
+- Gedeelde assembly's worden gedeeld door alle functies binnen een functie-app. Om te verwijzen naar een aangepaste assembly, uploadt u de assembly naar een map met de naam `bin` in uw [functie app-hoofdmap](functions-reference.md#folder-structure) (wwwroot). 
 - Persoonlijke assembly's deel uitmaken van een bepaalde functie context en ondersteuning voor sideloading van verschillende versies. Persoonlijke assembly's moeten worden geüpload een `bin` map in de functie Active directory. Verwijst naar de assembly's met behulp van de bestandsnaam, zoals `#r "MyAssembly.dll"`. 
 
 Zie de sectie voor meer informatie over de bestanden uploaden naar uw map voor de functie op [management pakket](#using-nuget-packages).

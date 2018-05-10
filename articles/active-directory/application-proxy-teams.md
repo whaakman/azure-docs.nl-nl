@@ -2,24 +2,24 @@
 title: Toegang tot apps van Azure AD-toepassingsproxy in Teams | Microsoft Docs
 description: Azure AD-toepassingsproxy gebruiken voor toegang tot uw on-premises toepassing via Microsoft-Teams.
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: a8dca307bb97898f229b39710a3b566ee913fcca
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 66fdc03d2945b84615ee39dcbcc9bc71ddb06711
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Toegang tot uw on-premises toepassingen via Microsoft-Teams
 
@@ -38,7 +38,7 @@ Als u al uw Apps die zijn gepubliceerd, maar niet meer de externe URL's weet, op
 
 Zodra u de app via toepassingsproxy publiceert, uw gebruikers laten weten dat ze als een tabblad rechtstreeks in hun kanalen Teams toevoegen kunnen, en de app beschikbaar is voor iedereen in het team om te gebruiken. Hebben ze deze drie stappen:
 
-1. Navigeer naar de Teams kanaal waar u deze app toevoegen en selecteer  **+**  een tabblad toevoegen.
+1. Navigeer naar de Teams kanaal waar u deze app toevoegen en selecteer **+** een tabblad toevoegen.
 
    ![Selecteer een tabblad toevoegen](./media/application-proxy-teams/add-tab.png)
 

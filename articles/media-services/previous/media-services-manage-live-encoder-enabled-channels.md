@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 05/08/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: f5bee7b85a423ba7a1b0b36b4b6910275551849c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: c4d5533c443d27afa56471ce048efc5a375f6780
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Live streamen met Azure Media Services om multi-bitrate streams te maken
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 05/07/2018
 ## <a name="overview"></a>Overzicht
 Azure Media Services (AMS) een **kanaal** vertegenwoordigt een pijplijn voor het verwerken van live streaming inhoud. Een **kanaal** live invoer streams ontvangt op twee manieren:
 
-* Een on-premises live codering verzendt een stream met één bitsnelheid naar het kanaal dat is ingeschakeld voor het uitvoeren van de live codering met Media Services in een van de volgende indelingen: RTP (MPEG-TS), RTMP of Smooth Streaming (gefragmenteerde MP4). Het kanaal codeert de inkomende single-bitrate stream vervolgens live naar een (adaptieve) multi-bitrate videostream. Desgevraagd levert Media Services de stream aan klanten.
+* Een on-premises live codering verzendt een single-bitrate stream naar het kanaal dat is ingeschakeld voor het uitvoeren van live codering met Media Services in een van de volgende indelingen: RTMP of Smooth Streaming (gefragmenteerde MP4). Het kanaal codeert de inkomende single-bitrate stream vervolgens live naar een (adaptieve) multi-bitrate videostream. Desgevraagd levert Media Services de stream aan klanten.
 * Een on-premises live codering verzendt een multi-bitrate **RTMP** of **Smooth Streaming** (gefragmenteerde MP4) naar het kanaal dat niet is ingeschakeld voor het uitvoeren van live codering met AMS. De opgenomen streams **kanaal**s zonder verdere verwerking. Deze methode wordt aangeroepen **pass-through**. U kunt de volgende live coderingsprogramma's die multi-bitrate Smooth Streaming uitvoeren: MediaExcel, Ateme, stel communicatie, Envivio, Cisco en Elemental. De volgende live coderingsprogramma's voeren RTMP: Adobe Flash Media Live coderingsprogramma (FMLE), Telestream Wirecast, Haivision, Teradek en Tricaster coderingsprogramma's.  Een live coderingsprogramma kan ook een stream met één bitsnelheid verzenden naar een kanaal dat niet is ingeschakeld voor Live Encoding, maar dit wordt niet aanbevolen. Desgevraagd levert Media Services de stream aan klanten.
   
   > [!NOTE]
@@ -79,7 +79,7 @@ Beginnen met 25 januari 2016 Media Services uitgerold een update die automatisch
 De drempelwaarde voor een niet-gebruikte periode is nominaal 12 uur, maar kan worden gewijzigd.
 
 ## <a name="live-encoding-workflow"></a>Werkstroom voor Live codering
-Het onderstaande diagram ziet u een live streaming-werkstroom waarbij een kanaal een single-bitrate stream in een van de volgende protocollen ontvangt: RTMP, Smooth Streaming of RTP (MPEG-TS); deze codeert stream naar een multi-bitrate stream vervolgens. 
+Het onderstaande diagram ziet u een live streaming-werkstroom waarbij een kanaal een single-bitrate stream in een van de volgende protocollen ontvangt: RTMP of Smooth Streaming; deze codeert stream naar een multi-bitrate stream vervolgens. 
 
 ![Live-werkstroom][live-overview]
 
@@ -91,7 +91,7 @@ Hieronder volgen de algemene stappen voor het maken van veelvoorkomende toepassi
 > 
 > 
 
-1. Sluit een videocamera aan op een computer. Start en configureer een on-premises live coderingsprogramma dat een **één** bitrate stream in een van de volgende protocollen: RTMP, Smooth Streaming of RTP (MPEG-TS). 
+1. Sluit een videocamera aan op een computer. Start en configureer een on-premises live coderingsprogramma dat een **één** bitrate stream in een van de volgende protocollen: RTMP of Smooth Streaming. 
    
     Deze stap kan ook worden uitgevoerd nadat u uw kanaal hebt gemaakt.
 2. Maak en start een kanaal. 
@@ -125,48 +125,8 @@ Hieronder volgen de algemene stappen voor het maken van veelvoorkomende toepassi
 ### <a id="Ingest_Protocols"></a>Streaming-opnameprotocol
 Als de **coderingstype** is ingesteld op **standaard**, geldige opties zijn:
 
-* **RTP** (MPEG-TS): MPEG-2-transportstroom via RTP.  
 * Single-bitrate **RTMP**
 * Single-bitrate **gefragmenteerde MP4** (Smooth Streaming)
-
-#### <a name="rtp-mpeg-ts---mpeg-2-transport-stream-over-rtp"></a>RTP (MPEG-TS) - MPEG-2-transportstroom via RTP.
-Typische gebruiksscenario's: 
-
-Professionele omroeporganisaties werken doorgaans met geavanceerde lokale live coderingsprogramma's van leveranciers zoals elementair technologieën, Ericsson, Ateme, Imagine of Envivio voor het verzenden van een stroom. Vaak wordt gebruikt in combinatie met een IT-afdeling en particuliere netwerken.
-
-Overwegingen:
-
-* Het gebruik van een bepaald programma transportstroom (SharePoint Team Services) invoer wordt ten zeerste aanbevolen. 
-* U kunt maximaal 8 audio-stromen met MPEG-2 TS via RTP invoeren. 
-* De video-stream moet een gemiddelde bitrate hieronder 15 Mbps
-* De cumulatieve gemiddelde bitrate audio stromen moeten uit minder dan 1 Mbps
-* De ondersteunde codecs zijn als volgt:
-  
-  * MPEG-2 / H.262 Video 
-    
-    * Belangrijkste profiel (4:2:0)
-    * Hoge-profiel (4:2:0, 4:2:2)
-    * 422 profiel (4:2:0, 4:2:2)
-  * MPEG-4 AVC / H.264-Video  
-    
-    * Basislijn, Main, hoge-profiel (8-bits versie 4:2:0)
-    * Profiel voor maximaal 10 (10-bits versie 4:2:0)
-    * Hoge 422 profiel (10-bits versie 4:2:2)
-  * AAC MPEG-2-Kredietbrief Audio 
-    
-    * Mono, Stereo, rond (5.1, 7.1)
-    * MPEG-2-stijl ADTS verpakking
-  * Dolby Digital (AC-3) Audio 
-    
-    * Mono, Stereo, rond (5.1, 7.1)
-  * MPEG-Audio (laag II en III) 
-    
-    * Mono, Stereo
-* Aanbevolen uitzending coderingsprogramma's omvatten:
-  
-  * Stel communicatie Selenio ENC 1
-  * Stel communicatie Selenio ENC 2
-  * Live elemental
 
 #### <a id="single_bitrate_RTMP"></a>Single-bitrate RTMP
 Overwegingen:
@@ -232,36 +192,21 @@ U kunt de IP-adressen die zijn toegestaan om verbinding met het preview-eindpunt
 Deze sectie wordt beschreven hoe de instellingen voor het live coderingsprogramma binnen het kanaal kunnen worden aangepast, wanneer de **Type codering** van een kanaal is ingesteld op **standaard**.
 
 > [!NOTE]
-> Wanneer meerdere taal nummers invoeren en tijdens het doorzoeken van live codering met Azure, alleen RTP voor invoer van meerdere talen wordt ondersteund. U kunt maximaal 8 audio-stromen met MPEG-2 TS via RTP definiëren. Meerdere audio houdt met RTMP of Smooth streaming opnemen wordt momenteel niet ondersteund. Bij het uitvoeren van live codering met [lokale live coderen](media-services-live-streaming-with-onprem-encoders.md), geldt er geen dergelijke beperking, omdat een kanaal wat wordt verzonden naar AMS passeren zonder verdere verwerking.
+> Uw bijdrage feed mogen slechts één audio track – opnemen van meerdere audio sporen wordt momenteel niet ondersteund. Bij het uitvoeren van live codering met [lokale live coderen](media-services-live-streaming-with-onprem-encoders.md), kunt u een bijdrage feed Smooth Streaming-Protocol met meerdere audio houdt verzenden.
 > 
 > 
 
 ### <a name="ad-marker-source"></a>AD-markering bron
 U kunt opgeven dat de bron voor advertentiemarkeringssignalen opgeven. Standaardwaarde is **Api**, wat aangeeft dat het live coderingsprogramma binnen het kanaal naar een asynchrone luisteren moet **Advertentiemarkerings-API**.
 
-De geldige optie is **Scte35** (alleen toegestaan als het streaming opnemen-protocol is ingesteld op RTP (MPEG-TS). Wanneer Scte35 wordt opgegeven, wordt het live coderingsprogramma SCTE 35 signalen uit de invoerstroom RTP (MPEG-TS) parseren.
-
 ### <a name="cea-708-closed-captions"></a>CEA 708 bijschriften gesloten
 Een optionele vlag Dit geeft aan het live coderingsprogramma voor het negeren van alle gegevens van de bijschriften CEA 708 ingesloten in de binnenkomende video. Wanneer de vlag is ingesteld op false (standaard), het coderingsprogramma detecteert en opnieuw CEA 708 gegevens invoegen in de video uitvoerstromen.
-
-### <a name="video-stream"></a>Video-Stream
-Optioneel. Beschrijft de invoerstroom video. Als dit veld niet is opgegeven, wordt de standaardwaarde wordt gebruikt. Deze instelling is alleen toegestaan als de invoer streaming-protocol is ingesteld op RTP (MPEG-TS).
-
-#### <a name="index"></a>Index
-Een op nul gebaseerde index die aangeeft welke video invoerstroom moet worden verwerkt door het live coderingsprogramma binnen het kanaal. Deze instelling geldt alleen als opnemen streaming-protocol is RTP (MPEG-TS).
-
-Standaardwaarde is nul. Het verdient aanbeveling om in een bepaald programma transportstroom (SharePoint Team Services) te verzenden. Als de invoerstroom meerdere programma's bevat, het live coderingsprogramma parseert programma kaart tabel (bet) in de invoer, identificeert de invoer met een naam van het type stream van MPEG-2-Video of H.264 en gerangschikt in de volgorde die is opgegeven in de BET. De op nul gebaseerde index wordt vervolgens gebruikt om op te halen de n-de vermelding in de overeenkomst.
-
-### <a name="audio-stream"></a>Audio-Stream
-Optioneel. Hierin wordt beschreven in de invoer audio stromen. Als dit veld niet is opgegeven, wordt de standaardwaarden opgegeven toepassing. Deze instelling is alleen toegestaan als de invoer streaming-protocol is ingesteld op RTP (MPEG-TS).
 
 #### <a name="index"></a>Index
 Het verdient aanbeveling om in een bepaald programma transportstroom (SharePoint Team Services) te verzenden. Als de invoerstroom bevat meerdere programma's, het live coderingsprogramma binnen het kanaal wordt geparseerd programma kaart tabel (bet) in de invoer, identificeert de invoer met een naam van het type stream van MPEG-2 AAC ADTS of systeem A AC-3 of systeem AC-3-B of persoonlijke PES MPEG-2 of MPEG-1 Audio- of Audio MPEG-2, en worden in de volgorde die is opgegeven in de BET. De op nul gebaseerde index wordt vervolgens gebruikt om op te halen de n-de vermelding in de overeenkomst.
 
 #### <a name="language"></a>Taal
 De taal-id van de audiostroom, conform ISO 639-2, zoals eng Als dat niet aanwezig is, is de standaardinstelling en (niet-gedefinieerd).
-
-Er mag maximaal 8 audiostroom sets opgegeven als invoer voor het kanaal MPEG-2 TS via RTP. Echter, kunnen er geen twee vermeldingen met dezelfde waarde voor Index.
 
 ### <a id="preset"></a>Systeem-definitie
 Hiermee geeft u de vooraf ingestelde moet worden gebruikt door het live coderingsprogramma binnen dit kanaal. De enige toegestane waarde is momenteel **Default720p** (standaard).
@@ -387,13 +332,11 @@ In de volgende tabel wordt het verband tussen de verschillende Kanaalstatussen e
 * U wordt alleen gefactureerd als het kanaal in de **met** status. Raadpleeg voor meer informatie [dit](media-services-manage-live-encoder-enabled-channels.md#states) sectie.
 * De maximum aanbevolen duur van een live gebeurtenis is momenteel acht uur. Neem contact op met amslived@microsoft.com als u een kanaal voor langere tijd wilt uitvoeren.
 * Zorg ervoor dat u hebt het streaming-eindpunt van waaruit u inhoud wilt streamen in de **met** status.
-* Wanneer meerdere taal nummers invoeren en tijdens het doorzoeken van live codering met Azure, alleen RTP voor invoer van meerdere talen wordt ondersteund. U kunt maximaal 8 audio-stromen met MPEG-2 TS via RTP definiëren. Meerdere audio houdt met RTMP of Smooth streaming opnemen wordt momenteel niet ondersteund. Bij het uitvoeren van live codering met [lokale live coderen](media-services-live-streaming-with-onprem-encoders.md), geldt er geen dergelijke beperking, omdat een kanaal wat wordt verzonden naar AMS passeren zonder verdere verwerking.
 * De codering voorinstelling maakt gebruik van het principe van 'max framesnelheid' van 30 fps. Als de invoer is 60fps / 59.97i, de ingevoerde frames zijn verwijderd/de-interlaced op 30/29,97 fps. Als de invoer 50fps/50i is, zijn de ingevoerde frames verwijderd/de-interlaced op 25 fps. Als de invoer 25 fps is, wordt de uitvoer blijft bij 25 fps.
 * Vergeet niet te stoppen YOUR kanalen wanneer u klaar bent. Als u dit niet, blijven facturering.
 
 ## <a name="known-issues"></a>Bekende problemen
 * Opstarttijd-kanaal is verbeterd met een gemiddelde van 2 minuten, maar soms van toegenomen vraag kan nog steeds maximaal 20 + minuten duren.
-* RTP ondersteuning is voor professionele omroeporganisaties geleverd. Raadpleeg de opmerkingen bij RTP in [dit](https://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
 * Lei afbeeldingen moeten voldoen aan beschreven beperkingen [hier](media-services-manage-live-encoder-enabled-channels.md#default_slate). Als u probeert een kanaal maken met een standaard lei die groter is dan 1920 x 1080, de aanvraag zal uiteindelijk fout optreedt.
 * Nogmaals... STOP deze kanalen Vergeet niet wanneer u klaar bent streaming. Als u dit niet, blijven facturering.
 

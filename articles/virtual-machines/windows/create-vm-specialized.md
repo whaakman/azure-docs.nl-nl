@@ -2,10 +2,10 @@
 title: Een Windows-virtuele machine maken vanaf een speciale VHD in Azure | Microsoft Docs
 description: Maak een nieuwe Windows VM door het koppelen van een gespecialiseerde beheerde schijf als de OS-schijf met het implementatiemodel van Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
 ms.service: virtual-machines-windows
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 01/09/2018
 ms.author: cynthn
-ms.openlocfilehash: 578d31aef5ddeafbd806d0bae4231c135968f78a
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 7b1a145040297debe2c348d61f204fc82d2e7d4d
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-using-powershell"></a>Een Windows-virtuele machine maken vanaf een speciale schijf met behulp van PowerShell
 
@@ -40,7 +40,7 @@ Dit onderwerp leest u hoe u beheerde schijven te gebruiken. Als u een verouderde
 Als u PowerShell gebruikt, zorg ervoor dat u de nieuwste versie van de AzureRM.Compute PowerShell-module hebt. 
 
 ```powershell
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+Install-Module AzureRM -RequiredVersion 6.0.0
 ```
 Zie voor meer informatie [Azure PowerShell Versioning](/powershell/azure/overview).
 
@@ -137,7 +137,7 @@ Afhankelijk van uw netwerkverbinding en de grootte van de VHD-bestand met deze o
 
 ### <a name="create-a-managed-disk-from-the-vhd"></a>Een beheerde schijf van de VHD maken
 
-Maak een beheerde schijf van de gespecialiseerde VHD in uw storage-account met [nieuw AzureRMDisk](/powershell/module/azurerm.compute/new-azurermdisk). In dit voorbeeld wordt **myOSDisk1** voor de naam van de schijf, plaatst u de schijf in *StandardLRS* opslag en maakt gebruik van *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd* als de URI voor de bron-VHD.
+Maak een beheerde schijf van de gespecialiseerde VHD in uw storage-account met [nieuw AzureRMDisk](/powershell/module/azurerm.compute/new-azurermdisk). In dit voorbeeld wordt **myOSDisk1** voor de naam van de schijf, plaatst u de schijf in *Standard_LRS* opslag en maakt gebruik van *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd* als de URI voor de bron-VHD.
 
 Een nieuwe resourcegroep maken voor de nieuwe virtuele machine.
 
@@ -153,7 +153,7 @@ Nieuwe schijf met het besturingssysteem van de geüploade VHD maken.
 $sourceUri = (https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd)
 $osDiskName = 'myOsDisk'
 $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
-    (New-AzureRmDiskConfig -AccountType StandardLRS  `
+    (New-AzureRmDiskConfig -AccountType Standard_LRS  `
     -Location $location -CreateOption Import `
     -SourceUri $sourceUri) `
     -ResourceGroupName $destinationResourceGroup
@@ -337,7 +337,7 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 De OS-schijf toevoegen aan de configuratie met behulp van [Set AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk). In dit voorbeeld wordt de grootte van de schijf moet ingesteld *128 GB* en koppelt u de beheerde schijf als een *Windows* besturingssysteemschijf.
  
 ```powershell
-$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType StandardLRS `
+$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Standard_LRS `
     -DiskSizeInGB 128 -CreateOption Attach -Windows
 ```
 

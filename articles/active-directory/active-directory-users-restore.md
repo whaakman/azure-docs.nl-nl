@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 05/09/2018
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 9e28184000964564bcf170a2c8015f3b4c220209
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 8dbb546954f8eee0bf997b3d2f4f92d67c0b7869
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="restore-a-deleted-user-in-azure-active-directory"></a>Een verwijderde gebruiker in Azure Active Directory terugzetten
 
@@ -31,17 +31,15 @@ In dit artikel bevat instructies voor het herstellen of een eerder verwijderde g
 ## <a name="how-to-restore-a-recently-deleted-user"></a>Het herstellen van een onlangs verwijderde gebruiker
 Wanneer een gebruiker onlangs is verwijderd, wordt alle directorygegevens bewaard. Als de gebruiker is hersteld, wordt die informatie ook hersteld.
 
-1. In de [Azure AD-beheercentrum](https://aad.portal.azure.com), selecteer **gebruikers en groepen** &gt; **alle gebruikers**. 
-2. Onder **weergeven**, de pagina om weer te geven filteren **onlangs verwijderd gebruikers**. 
-3. Selecteer een of meer onlangs verwijderde gebruikers.
-4. Selecteer **terugzetten gebruiker**.
+1. In de [Azure AD-beheercentrum](https://aad.portal.azure.com), selecteer **gebruikers** &gt; **gebruikers verwijderd**. 
+2. Selecteer een of meer onlangs verwijderde gebruikers.
+3. Selecteer **terugzetten gebruiker**.
 
 ## <a name="how-to-permanently-delete-a-recently-deleted-user"></a>Een onlangs verwijderde gebruiker permanent te verwijderen
 
-1. In de [Azure AD-beheercentrum](https://aad.portal.azure.com), selecteer **gebruikers en groepen** &gt; **alle gebruikers**. 
-2. Onder **weergeven**, de pagina om weer te geven filteren **onlangs verwijderd gebruikers**. 
-3. Selecteer een of meer onlangs verwijderde gebruikers.
-4. Selecteer **definitief verwijderen**.
+1. In de [Azure AD-beheercentrum](https://aad.portal.azure.com), selecteer **gebruikers** &gt; **gebruikers verwijderd**. 
+2. Selecteer een of meer onlangs verwijderde gebruikers.
+3. Selecteer **definitief verwijderen**.
 
 ## <a name="required-permissions"></a>Vereiste machtigingen
 De volgende machtigingen zijn voldoende zijn voor het herstellen van een gebruiker.

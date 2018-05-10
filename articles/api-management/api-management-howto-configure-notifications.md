@@ -2,10 +2,10 @@
 title: Meldingen configureren en e-mailsjablonen in Azure API Management | Microsoft Docs
 description: Informatie over het configureren van meldingen en e-mailsjablonen in Azure API Management.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 228cbb103e13c478bea460bb04de43d6480bc60e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 60788f76dac58ead10e43e892d587a86bdd3fcad
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Meldingen en e-mailsjablonen configureren in Azure API Management
 API Management biedt de mogelijkheid voor het configureren van meldingen voor specifieke gebeurtenissen en de e-mailsjablonen die worden gebruikt om te communiceren met de beheerders en ontwikkelaars van exemplaar van API Management configureren. Dit artikel laat zien hoe u meldingen configureren voor de gebeurtenissen beschikbaar en biedt een overzicht van de configuratie van de e-mailsjablonen gebruikt deze gebeurtenissen.
@@ -26,7 +26,7 @@ API Management biedt de mogelijkheid voor het configureren van meldingen voor sp
 
 Als u geen exemplaar van API Management-service, voert u de volgende Quick Start: [Azure API Management-exemplaar maken](get-started-create-service-instance.md).
 
-## <a name="publisher-notifications"></a>Meldingen configureren
+## <a name="publisher-notifications"> </a>Meldingen configureren
 
 1. Selecteer uw **API MANAGEMENT** exemplaar.
 2. Klik op **meldingen** om de beschikbare meldingen weer te geven.
@@ -50,7 +50,7 @@ Als u geen exemplaar van API Management-service, voert u de volgende Quick Start
     ![Geadresseerden voor meldingen][api-management-email-addresses]
 4. Klik op **Toevoegen**.
 
-## <a name="email-templates"></a>Meldingssjablonen configureren
+## <a name="email-templates"> </a>Meldingssjablonen configureren
 API Management biedt meldingssjablonen voor de e-mailberichten die worden verzonden in de loop van beheer en het gebruik van de service. De volgende e-mailsjablonen worden geleverd.
 
 * Toepassing galerie inzending is goedgekeurd

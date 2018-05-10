@@ -2,24 +2,19 @@
 title: Azure Active Directory B2B-samenwerking code en voorbeelden van PowerShell | Microsoft Docs
 description: Voorbeelden van code en PowerShell voor Azure Active Directory B2B-samenwerking
 services: active-directory
-documentationcenter: 
-author: twooley
-manager: mtillman
-editor: 
-tags: 
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 04/11/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 6006dde5ea34db9881a02550e7aff33e48c6498e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 53fba48725e0f4f496beee6eee96ff45847b633e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Azure Active Directory B2B-samenwerking code en PowerShell-voorbeelden
 
@@ -30,7 +25,7 @@ U kunt bulk-uitnodiging externe gebruikers naar een organisatie van e-mailadress
   
   Naam                  |  InvitedUserEmailAddress
   --------------------- | --------------------------
-  Gmail B2B Invitee     | b2binvitee@gmail.com
+  Gmail B2B genodigde     | b2binvitee@gmail.com
   Outlook B2B genodigde   | b2binvitee@outlook.com
 
 
@@ -233,15 +228,5 @@ namespace SampleInviteApp
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Lees ook onze andere artikelen over Azure AD B2B-samenwerking:
+- [Wat is Azure AD B2B-samenwerking?](active-directory-b2b-what-is-azure-ad-b2b.md)
 
-* [Wat is Azure AD B2B-samenwerking?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Gebruikerseigenschappen B2B-samenwerking](active-directory-b2b-user-properties.md)
-* [Een B2B-samenwerking-gebruiker toe te voegen aan een rol](active-directory-b2b-add-guest-to-role.md)
-* [B2B-samenwerking uitnodigingen delegeren](active-directory-b2b-delegate-invitations.md)
-* [Dynamische groepen en B2B-samenwerking](active-directory-b2b-dynamic-groups.md)
-* [SaaS-apps voor B2B-samenwerking configureren](active-directory-b2b-configure-saas-apps.md)
-* [B2B-samenwerking gebruikerstokens](active-directory-b2b-user-token.md)
-* [Gebruikersclaims voor B2B-samenwerking toewijzing](active-directory-b2b-claims-mapping.md)
-* [Office 365 extern delen](active-directory-b2b-o365-external-user.md)
-* [Huidige beperkingen voor B2B-samenwerking](active-directory-b2b-current-limitations.md)

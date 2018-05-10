@@ -2,25 +2,19 @@
 title: Vergelijk B2B-samenwerking en B2C in Azure Active Directory | Microsoft Docs
 description: Wat is het verschil tussen Azure Active Directory B2B-samenwerking en Azure AD B2C?
 services: active-directory
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 03/15/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 32d7d135e67a05b59279e647c1fb2aa8c9686cef
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0e8781fcf2710b00ba352bff29a370cbb73e0648
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>Vergelijk B2B-samenwerking en B2C in Azure Active Directory
 
@@ -41,16 +35,6 @@ Meer informatie: [blogbericht](https://blogs.technet.microsoft.com/enterprisemob
 
 ### <a name="next-steps"></a>Volgende stappen
 
-Lees ook onze andere artikelen over Azure AD B2B-samenwerking:
+- [Wat is Azure AD B2B-samenwerking?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [Gebruikerseigenschappen B2B-samenwerking](active-directory-b2b-user-properties.md)
 
-* [Wat is Azure AD B2B-samenwerking?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Gebruikerseigenschappen B2B-samenwerking](active-directory-b2b-user-properties.md)
-* [Een B2B-samenwerking-gebruiker toe te voegen aan een rol](active-directory-b2b-add-guest-to-role.md)
-* [B2B-samenwerking uitnodigingen delegeren](active-directory-b2b-delegate-invitations.md)
-* [Dynamische groepen en B2B-samenwerking](active-directory-b2b-dynamic-groups.md)
-* [SaaS-apps voor B2B-samenwerking configureren](active-directory-b2b-configure-saas-apps.md)
-* [B2B-samenwerking gebruikerstokens](active-directory-b2b-user-token.md)
-* [Gebruikersclaims voor B2B-samenwerking toewijzing](active-directory-b2b-claims-mapping.md)
-* [Office 365 extern delen](active-directory-b2b-o365-external-user.md)
-* [Huidige beperkingen voor B2B-samenwerking](active-directory-b2b-current-limitations.md)
-* [Ondersteuning krijgen voor B2B-samenwerking](active-directory-b2b-support.md)

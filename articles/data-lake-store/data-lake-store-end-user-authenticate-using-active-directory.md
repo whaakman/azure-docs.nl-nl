@@ -2,7 +2,7 @@
 title: 'Verificatie van de eindgebruiker: Data Lake Store met Azure Active Directory | Microsoft Docs'
 description: Meer informatie over het bereiken van de eindgebruiker verificatie met Data Lake Store met Azure Active Directory
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: dca040fba78d6501bc835fdac402e69149d493b5
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 39ee32ec8b1d005aac12cb88262d7e2f37898721
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-azure-active-directory"></a>Verificatie van de eindgebruiker met Data Lake Store met Azure Active Directory
 > [!div class="op_single_selector"]
@@ -83,7 +83,7 @@ Zorg ervoor dat u selecteert bij de instructies in de koppeling volgen, **systee
 
 ## <a name="step-2-get-application-id-and-redirect-uri"></a>Stap 2: Ophalen van toepassings-ID en omleidings-URI
 
-Zie [de toepassings-ID ophalen](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) voor het ophalen van de toepassings-ID (oftewel de client-ID in de klassieke Azure portal) van de systeemeigen Azure AD-toepassing.
+Zie [de toepassings-ID ophalen](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) voor het ophalen van de toepassings-ID.
 
 Voer de volgende stappen uit voor het ophalen van de omleidings-URI.
 
@@ -102,15 +102,15 @@ Voer de volgende stappen uit voor het ophalen van de omleidings-URI.
 
 2. Van de **instellingen** blade voor de toepassing, klikt u op **vereist machtigingen**, en klik vervolgens op **toevoegen**.
 
-    ![Client-ID](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-1.png)
+    ![client-id](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-1.png)
 
 3. In de **API-toegang toevoegen** blade, klikt u op **selecteert u een API**, klikt u op **Azure Data Lake**, en klik vervolgens op **Selecteer**.
 
-    ![Client-ID](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-2.png)
+    ![client-id](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-2.png)
  
 4.  In de **API-toegang toevoegen** blade, klikt u op **machtigingen selecteren**, schakel het selectievakje in zodat **volledige toegang tot Data Lake Store**, en klik vervolgens op **selecteren**.
 
-    ![Client-ID](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-3.png)
+    ![client-id](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-3.png)
 
     Klik op **Gereed**.
 

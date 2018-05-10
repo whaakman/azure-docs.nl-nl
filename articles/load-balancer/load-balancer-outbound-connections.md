@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 05/08/2018
 ms.author: kumud
-ms.openlocfilehash: c12b52c6b8862d00d51b51a5a120292f89c3ac1f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 5cff443ac3bbd89a2245e7adb21458ecc62fd494
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="outbound-connections-in-azure"></a>Uitgaande verbindingen in Azure
 
@@ -119,7 +119,7 @@ Wanneer u [standaard Load Balancer met beschikbaarheid Zones](load-balancer-stan
 
 ### <a name="pat"></a>Poort onechte snat omzetten (PAT)
 
-Wanneer een resource met openbare Load Balancer gekoppeld aan VM-instanties is, wordt elke bron uitgaande verbinding herschreven. De bron is van het virtuele netwerk persoonlijke IP-adresruimte herschreven naar de frontend openbare IP-adres van de load balancer. De 5-tuple van stroom (IP-bronadres, bronpoort, IP-protocol (transport), IP-doeladres, doelpoort) moet uniek zijn in de openbare IP-adresruimte.  
+Wanneer een resource met openbare Load Balancer gekoppeld aan VM-instanties is, wordt elke bron uitgaande verbinding herschreven. De bron is van het virtuele netwerk persoonlijke IP-adresruimte herschreven naar de frontend openbare IP-adres van de load balancer. De 5-tuple van stroom (IP-bronadres, bronpoort, IP-protocol (transport), IP-doeladres, doelpoort) moet uniek zijn in de openbare IP-adresruimte.  Poort onechte snat omzetten kan worden gebruikt met TCP of UDP IP-protocollen.
 
 Kortstondige poorten (snat omzetten) worden gebruikt om dit te bereiken nadat het herschrijven van de persoonlijke IP-bronadres, omdat meerdere stromen afkomstig van één openbaar IP-adres zijn. 
 

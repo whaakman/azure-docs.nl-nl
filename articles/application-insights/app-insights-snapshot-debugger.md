@@ -10,13 +10,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 07/03/2017
+ms.date: 05/08/2018
 ms.author: mbullwin; pharring
-ms.openlocfilehash: a742dc3c3538cd9fc5053fd9cd9aeec740ec0394
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: 0721fa42a8d770b82a4b18865b513569bcc8807f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Fouten opsporen in momentopnamen op uitzonderingen in .NET-toepassingen
 
@@ -193,11 +193,12 @@ Eigenaars van het Azure-abonnement kunnen inspecteren momentopnamen. Andere gebr
 
 Als u wilt machtigen, wijzen de `Application Insights Snapshot Debugger` rol aan gebruikers die momentopnamen inspecteert. Deze rol kan worden toegewezen aan individuele gebruikers of groepen door abonnementseigenaren voor de Application Insights-resource van het doel of de resourcegroep of abonnement.
 
-1. Open de blade Access Control (IAM).
-1. Klik op de knop toevoegen +.
-1. Selecteer Application Insights momentopname foutopsporingsprogramma in de vervolgkeuzelijst rollen.
+1. Navigeer naar de Application Insights-resource in de Azure portal.
+1. Klik op **toegangsbeheer (IAM)**.
+1. Klik op de **+ toevoegen** knop.
+1. Selecteer **Application Insights momentopname foutopsporingsprogramma** van de **rollen** vervolgkeuzelijst.
 1. Zoeken en geef een naam voor de gebruiker toe te voegen.
-1. Klik op de knop Opslaan om de gebruiker toevoegen aan de rol.
+1. Klik op de **opslaan** om toe te voegen van de gebruiker aan de rol.
 
 
 > [!IMPORTANT]
@@ -267,22 +268,22 @@ De momentopname-Collector kan echter in Azure App Services deoptimize activerend
 
 De volgende tips helpen u problemen oplossen met de momentopname-foutopsporing.
 
-## <a name="use-the-snapshot-health-check"></a>Gebruik de momentopname-statuscontrole
-Als er geen momentopname beschikbaar voor een bepaalde uitzondering, het kan worden veroorzaakt door verschillende redenen, waaronder outdate momentopname collector versies, dagelijks drempelwaarde bereikt, de momentopname is alleen duurt om te worden geüpload, enzovoort. Om u te helpen u dergelijke problemen diagnosticeren, moesten een momentopname Health Check-service voor het analyseren van aanpakt waarom er geen momentopname is.
+### <a name="use-the-snapshot-health-check"></a>Gebruik de momentopname-statuscontrole
+Enkele veelvoorkomende problemen ertoe leiden dat de fouten opsporen in momentopname openen niet weergegeven. Met behulp van een verouderde momentopname Collector, bijvoorbeeld; de dagelijkse uploadlimiet; is bereikt of misschien de momentopname is net lang duurt om te uploaden. Gebruik de momentopname-Serverstatus controleren voor algemene problemen.
 
-Als u momentopnamen die zijn gekoppeld met een uitzondering niet ziet, zal er een koppeling in de blade End-to-end trace viewer voor het invoeren van de statuscontrole van de momentopname.
+Er is een koppeling in het deelvenster met uitzondering van de end-to-end-trace-weergave krijgt u de momentopname-Serverstatus controleren.
 
 ![Voer de momentopname-statuscontrole](./media/app-insights-snapshot-debugger/enter-snapshot-health-check.png)
 
-Vervolgens ziet u een interactieve chat bot zoals sessie statuscontrole op verschillende aspecten van uw service wordt uitgevoerd en adviezen per cheque aan te bieden.
+De interactieve, chat-achtige interface gezocht naar veelvoorkomende problemen en helpt u om te corrigeren.
 
 ![Statuscontrole](./media/app-insights-snapshot-debugger/healthcheck.png)
 
-Er zijn ook enkele handmatige stappen die u doen kunt om op te sporen van de status van uw momentopname-service. Raadpleeg de volgende secties:
+Als dit het probleem niet oplost, Raadpleeg de volgende handmatige stappen voor probleemoplossing.
 
 ### <a name="verify-the-instrumentation-key"></a>Controleer of de instrumentatiesleutel
 
-Zorg ervoor dat u de juiste instrumentatiesleutel in uw gepubliceerde toepassing. Application Insights wordt normaal gesproken de instrumentatiesleutel gelezen uit het bestand ApplicationInsights.config. Controleer of de waarde is hetzelfde als de instrumentatiesleutel voor de Application Insights-resource die u in de portal ziet.
+Zorg ervoor dat u de juiste instrumentatiesleutel in uw gepubliceerde toepassing. Normaal gesproken de instrumentatiesleutel uit het bestand ApplicationInsights.config is gelezen. Controleer of de waarde is hetzelfde als de instrumentatiesleutel voor de Application Insights-resource die u in de portal ziet.
 
 ### <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>Een upgrade uitvoert naar de nieuwste versie van het NuGet-pakket
 
@@ -293,7 +294,7 @@ Visual Studio NuGet Package Manager gebruiken om ervoor te zorgen dat u de nieuw
 Nadat een momentopname is gemaakt, wordt een bestand met Mini-geheugendump (dmp) op schijf gemaakt. Een afzonderlijke uploader-proces dat minidump-bestand maakt en uploadt, samen met eventuele bijbehorende-PDB-bestanden naar Application Insights momentopname foutopsporingsprogramma opslag. Nadat de minidump heeft geüpload, wordt deze verwijderd van de schijf. De logboekbestanden voor het proces uploader zijn opgeslagen op schijf. In een App Service-omgeving vindt u deze logboeken in `D:\Home\LogFiles`. Met de site voor het beheer van Kudu voor App Service kunt u deze logboekbestanden.
 
 1. Open uw App Service-toepassing in de Azure portal.
-2. Selecteer de **geavanceerde hulpmiddelen** blade of zoeken naar **Kudu**.
+2. Klik op **geavanceerde hulpmiddelen**, of zoek naar **Kudu**.
 3. Klik op **gaat**.
 4. In de **-console voor foutopsporing** vervolgkeuzelijst de optie **CMD**.
 5. Klik op **logboekbestanden**.
@@ -401,7 +402,7 @@ Volg deze stappen voor uw Cloudservice rol configureren met een specifieke lokal
 
 ### <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Gebruik Application Insights zoeken uitzonderingen met momentopnamen
 
-Wanneer een momentopname wordt gemaakt, is de activerend uitzondering gemarkeerd met een momentopname-ID. Die ID momentopname wordt opgenomen als een aangepaste eigenschap wanneer de uitzonderingstelemetrie naar Application Insights wordt gemeld. Met de Search-blade in Application Insights en u vindt alle telemetrie met de `ai.snapshot.id` aangepaste eigenschap.
+Wanneer een momentopname wordt gemaakt, is de activerend uitzondering gemarkeerd met een momentopname-ID. Die ID momentopname wordt opgenomen als een aangepaste eigenschap wanneer de uitzonderingstelemetrie naar Application Insights wordt gemeld. Met behulp van **Search** in Application Insights, vindt u alle telemetrie met de `ai.snapshot.id` aangepaste eigenschap.
 
 1. Blader naar uw Application Insights-resource in de Azure-portal.
 2. Klik op **Search**.

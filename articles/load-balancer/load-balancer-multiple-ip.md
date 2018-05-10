@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: fcd9ff8b726b5dc3e0d447bc384dbcc7cc1a4e88
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 3bf2f793baec4a0fdacadd7fb6d3d6784aa17f29
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>De Load Balancer op meerdere IP-configuraties met behulp van de Azure-portal
 
@@ -120,7 +120,7 @@ Configureer de front-end-IP-adresgroep op de load balancer voor elke website (co
 
 4. Selecteer de load balancer (**mylb**) dat u wilt toevoegen aan de front-end-IP-adresgroep.
 
-5. Onder **instellingen**, selecteer **Frontend Pools**. Selecteer in het volgende deelvenster aan de bovenkant **toevoegen**.
+5. Onder **instellingen**, selecteer **Frontend IP-configuratie**. Selecteer in het volgende deelvenster aan de bovenkant **toevoegen**.
 
 6. Typ een naam voor uw front-end-IP-adres (bijvoorbeeld **contosofe** of **fabrikamfe**).
 
@@ -128,7 +128,7 @@ Configureer de front-end-IP-adresgroep op de load balancer voor elke website (co
 
 8. De tweede front-end-IP-adres maken door te herhalen <a href="#step3-3">stap 3</a> via <a href="#step3-7">stap 7</a> in deze sectie.
 
-Nadat de front-toepassingen is geconfigureerd, de IP-adressen worden weergegeven onder de load balancer **Frontend-IP-adresgroep** instellingen. 
+Nadat de front-toepassingen is geconfigureerd, de IP-adressen worden weergegeven onder de load balancer **Frontend IP-configuratie** instellingen. 
     
 ### <a name="step-4-configure-the-back-end-pool"></a>Stap 4: Configureer de back-end-adresgroep
 

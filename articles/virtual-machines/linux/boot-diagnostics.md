@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: delhan
-ms.openlocfilehash: 0183da348a515787d9382df6db3df8524d584d93
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 38cc806cb77af60cda10f3aeac2e5ed13b445b8c
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-linux-virtual-machines-in-azure"></a>Het gebruik van diagnostische gegevens over opstarten Linux virtuele machines in Azure oplossen
 
@@ -44,15 +44,20 @@ Beide functies worden ondersteund voor virtuele Azure-machines in alle regio's. 
 - [FSTAB-fouten](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors)
 
 ## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>Diagnostische gegevens op een nieuwe virtuele machine inschakelen
-1. Wanneer u een nieuwe virtuele machine maakt in de Preview Portal, selecteert u de **Azure Resource Manager** uit de vervolgkeuzelijst van het implementatiemodel:
+1. Wanneer u een nieuwe virtuele machine maakt vanuit de Azure-portal, selecteer de **Azure Resource Manager** uit de vervolgkeuzelijst van implementatie model:
  
     ![Resource Manager](./media/boot-diagnostics/screenshot3.jpg)
 
-2. Configureer de optie Bewaking om het opslagaccount te selecteren waarin u wilt deze diagnostische bestanden wilt plaatsen.
+2. In **instellingen**, inschakelen de **opstarten diagnostics**, en selecteer vervolgens een opslagaccount dat u wilt deze diagnostische bestanden moeten worden geplaatst.
  
-    ![VM maken](./media/boot-diagnostics/screenshot4.jpg)
+    ![VM maken](./media/boot-diagnostics/create-storage-account.png)
 
-3. Als u met een Azure Resource Manager-sjabloon implementeert, gaat u naar de resource van de virtuele machine en voegt u de sectie diagnostisch profiel toe. Vergeet niet de API-versieheader '2015-06-15' te gebruiken.
+    > [!NOTE]
+    > De functie voor Boot diagnostics ondersteunt geen premium-opslagaccount. Als u de premium-opslagaccount voor diagnostische gegevens over opstarten gebruikt, ontvangt u mogelijk de StorageAccountTypeNotSupported-fout bij het starten van de virtuele machine. 
+    >
+    > 
+
+3. Als u met een Azure Resource Manager-sjabloon implementeert, gaat u naar de bron van de virtuele machine en de sectie diagnostics-profiel toevoegen. Vergeet niet de API-versieheader '2015-06-15' te gebruiken.
 
     ```json
     {
@@ -74,11 +79,19 @@ Beide functies worden ondersteund voor virtuele Azure-machines in alle regio's. 
         }
     ```
 
-## <a name="update-an-existing-virtual-machine"></a>Een bestaande virtuele machine bijwerken
+Bekijk onze opslagplaats hier voor het implementeren van een steekproef virtuele machine met diagnostische gegevens over opstarten is ingeschakeld.
 
-U kunt ook een bestaande virtuele machine via de portal bijwerken zodat de diagnostische gegevens over opstarten via de portal. Selecteer de optie Diagnostische gegevens over het opstarten en selecteer vervolgens Opslaan. Start de VM opnieuw op om de wijzigingen door te voeren.
+## <a name="enable-boot-diagnostics-on-existing-virtual-machine"></a>Diagnostische gegevens over opstarten op bestaande virtuele machine inschakelen 
 
-![Bestaande VM bijwerken](./media/boot-diagnostics/screenshot5.png)
+Schakel diagnostische gegevens over opstarten op een bestaande virtuele machine door de volgende stappen uit:
+
+1. Meld u aan bij de [Azure-portal](https://portal.azure.com), en selecteer vervolgens de virtuele machine.
+2. In **ondersteuning + probleemoplossing**, selecteer **diagnostics opstarten** > **instellingen**, de status wijzigen in **op**, en vervolgens Selecteer een opslagaccount. 
+4. Zorg ervoor dat de optie opstarten diagnostics is geselecteerd en sla de wijziging.
+
+    ![Bestaande VM bijwerken](./media/boot-diagnostics/enable-for-existing-vm.png)
+
+3. Start de VM opnieuw op om de wijzigingen door te voeren.
 
 ## <a name="next-steps"></a>Volgende stappen
 

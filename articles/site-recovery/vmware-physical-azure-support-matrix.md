@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/08/2018
+ms.date: 05/09/2018
 ms.author: raynew
-ms.openlocfilehash: fc5fceb0105726cdd7fc45df25c8a3a21d270502
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 2c6867b02fd88c4616647c8602906fbf786da414
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matrix-ondersteuning voor VMware en fysieke server-replicatie naar Azure
 
@@ -22,7 +22,7 @@ In dit artikel bevat een overzicht van ondersteunde onderdelen en -instellingen 
 
 **Scenario** | **Details**
 --- | ---
-Virtuele VMware-machines | Replicatie van on-premises virtuele VMware-machines naar Azure. U kunt dit scenario in de Azure portal of met behulp van PowerShell implementeren.
+Virtuele VMware-machines | Replicatie van on-premises virtuele VMware-machines naar Azure. U kunt dit scenario in de Azure portal of met behulp van [PowerShell](vmware-azure-disaster-recovery-powershell.md).
 Fysieke servers | Replicatie van de lokale Windows-/ Linux fysieke serversto Azure. U kunt dit scenario in de Azure portal kunt implementeren.
 
 ## <a name="on-premises-virtualization-servers"></a>Lokale virtualisatieservers
@@ -101,7 +101,6 @@ Debian 8 | 9.14, 9.15 | 3.16.0-4-AMD64 naar 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 
 --- | ---
 Bestandssystemen | ext3, ext4, XFS.
 Volumebeheer | LVM2.
-Multipath-software | Apparaat toewijzen.
 Opslagapparaten Paravirtualized | Apparaten die zijn geëxporteerd door geparavirtualiseerde stuurprogramma's worden niet ondersteund.
 Meerdere wachtrij blok i/o-apparaten | Wordt niet ondersteund.
 Fysieke servers met de opslagcontroller HP CCISS | Wordt niet ondersteund.
@@ -162,7 +161,7 @@ Volume van de gast of de server met striped schijf > 4 TB <br><br/>Logische volu
 Gast/server - opslagruimten | Nee
 Gast/serverschijf hot toevoegen of verwijderen | Nee
 Gast/server - schijf uitsluiten | Ja
-Gastbesturingssysteem of de server MPIO (Multipath I/O) | N/A
+Gastbesturingssysteem of de server MPIO (Multipath I/O) | Nee
 
 > [!NOTE]
 > UEFI opstart VMware virtuele machines met Windows Server 2012 of later kunnen worden gemigreerd naar Azure. Er gelden de volgende beperkingen:

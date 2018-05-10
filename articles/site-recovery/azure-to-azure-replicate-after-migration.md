@@ -7,11 +7,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/07/2018
 ms.author: ponatara
-ms.openlocfilehash: c06af21cd6e273b98c004e8bd0e6eac61ba7d644
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 034052c0406ee51f33c598634f92d27867c7cbe7
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Instellen van herstel na noodgevallen voor Azure VM's na de migratie naar Azure 
 
@@ -30,11 +30,11 @@ Voordat u herstel na noodgevallen hebt ingesteld, controleert u of de migratie i
 
 ## <a name="install-the-azure-vm-agent"></a>De Azure VM-agent installeren
 
-De Azure [VM-agent](../virtual-machines/windows/agent-user-guide.md) moet worden geïnstalleerd op de virtuele machine, zodat de Site-Recovery kan worden gerepliceerd.
+De Azure [VM-agent](../virtual-machines/extensions/agent-windows.md) moet worden geïnstalleerd op de virtuele machine, zodat de Site-Recovery kan worden gerepliceerd.
 
 
 1. Als u wilt de VM-agent installeren op virtuele machines waarop Windows wordt uitgevoerd, downloaden en uitvoeren van de [installatieprogramma van agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). U moet beheerdersbevoegdheden op de virtuele machine om de installatie te voltooien.
-2. Als u wilt de VM-agent installeren op virtuele machines waarop Linux wordt uitgevoerd, installeer de meest recente [Linux-agent](../virtual-machines/linux/agent-user-guide.md). U moet administrator-bevoegdheden om de installatie te voltooien. We raden dat u installeren vanuit de opslagplaats van uw distributiepunt. Niet aanbevolen voor het installeren van de Linux-VM-agent rechtstreeks vanuit GitHub. 
+2. Als u wilt de VM-agent installeren op virtuele machines waarop Linux wordt uitgevoerd, installeer de meest recente [Linux-agent](../virtual-machines/extensions/agent-linux.md). U moet administrator-bevoegdheden om de installatie te voltooien. We raden dat u installeren vanuit de opslagplaats van uw distributiepunt. Niet aanbevolen voor het installeren van de Linux-VM-agent rechtstreeks vanuit GitHub. 
 
 
 ## <a name="validate-the-installation-on-windows-vms"></a>Valideren van de installatie op Windows-VM 's

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: magoedte
-ms.openlocfilehash: 1ac956d638be1e79547ff931ba5b0c7e5de1ae65
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 2597b434bc6db0d5639709a9ce869462c3e47f56
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Verzamel gegevens van computers in uw omgeving met Log Analytics
 
@@ -40,7 +40,7 @@ De agent voor Linux en Windows uitgaande met de Log Analytics-service communicee
 
 Als u de computer met System Center 2016 - Operations Manager of Operations Manager 2012 R2, bewaakt kan zijn multihomed met de service voor logboekanalyse voor het verzamelen van gegevens en door te sturen naar de service en nog steeds worden bewaakt door [Operations Manager ](log-analytics-om-agents.md). Linux-computers worden bewaakt door een Operations Manager-beheergroep geïntegreerd met logboekanalyse ontvangen geen configuratie voor gegevensbronnen en voorwaarts verzamelde gegevens via de beheergroep. De Windows-agent kan rapporteren dat maximaal vier werkruimten, terwijl de Linux-agent biedt alleen ondersteuning voor rapportage aan een enkele werkruimte.  
 
-De agent voor Linux en Windows niet alleen voor het verbinden met Log Analytics, het ondersteunt ook Azure Automation host de hybride Runbook worker-rol en oplossingen zoals bijhouden en updatebeheer.  Zie voor meer informatie over de hybride Runbook Worker-rol [Azure Automation Hybrid Runbook Worker](../automation/automation-offering-get-started.md#automation-architecture-overview).  
+De agent voor Linux en Windows niet alleen voor het verbinden met Log Analytics, het ondersteunt ook Azure Automation host de hybride Runbook worker-rol en oplossingen zoals bijhouden en updatebeheer.  Zie voor meer informatie over de hybride Runbook Worker-rol [Azure Automation Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md).
 
 ## <a name="prerequisites"></a>Vereisten
 Voordat u begint, lees de volgende informatie om te controleren of u voldoet aan de minimale systeemvereisten.

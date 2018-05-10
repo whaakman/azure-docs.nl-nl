@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: billmath
-ms.openlocfilehash: bf26e91308cfec0dc8ede20e683919b5764a4868
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5fedbac439636b56da217e7babd30820bce7b342
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="user-privacy-and-azure-ad-connect-health"></a>Privacy van gebruikers en Azure AD Connect Health 
 
@@ -50,15 +50,47 @@ Als u de gegevensverzameling en -bewaking voor een afzonderlijke bewaakte server
 - Als u de Health-Agent niet hebt verwijderd voordat u deze stap uitvoert, ziet u mogelijk foutgebeurtenissen op de server (s) die betrekking hebben op de Health-Agent.
 - Alle gegevens die behoren tot het exemplaar van de bewaakte service is verwijderd volgens het Gegevensretentiebeleid van Microsoft Azure.
 
-### <a name="disable-data-collection-and-monitoring-for-a-monitored-server"></a>Gegevensverzameling en -bewaking voor een bewaakte server uitschakelen
-Zie [verwijderen van een server van Azure AD Connect Health](active-directory-aadconnect-health-operations.md#delete-a-server-from-the-azure-ad-connect-health-service).
-
 ### <a name="disable-data-collection-and-monitoring-for-an-instance-of-a-monitored-service"></a>Uitschakelen van gegevensverzameling en -bewaking voor een exemplaar van een bewaakte service
 Zie [verwijderen van een service-exemplaar van Azure AD Connect Health](active-directory-aadconnect-health-operations.md#delete-a-service-instance-from-azure-ad-connect-health-service).
 
+### <a name="disable-data-collection-and-monitoring-for-a-monitored-server"></a>Gegevensverzameling en -bewaking voor een bewaakte server uitschakelen
+Zie [verwijderen van een server van Azure AD Connect Health](active-directory-aadconnect-health-operations.md#delete-a-server-from-the-azure-ad-connect-health-service).
+
+### <a name="disable-data-collection-and-monitoring-for-all-monitored-services-in-azure-ad-connect-health"></a>Uitschakelen van gegevensverzameling en -bewaking van alle bewaakte services in Azure AD Connect Health
+Azure AD Connect Health biedt ook de optie voor het verzamelen van gegevens van stoppen **alle** services geregistreerd in de tenant. U wordt aangeraden zorgvuldig en volledige bevestiging van alle globale beheerders voordat de actie te ondernemen. Zodra het proces wordt gestart, stopt Connect Health-service ontvangen, verwerken en de rapportage van alle gegevens van alle services. Bestaande gegevens in het Connect Health-service niet meer dan 30 dagen bewaard.
+Als u stop het verzamelen van gegevens van specifieke server wilt, volg de stappen in de verwijdering van specifieke servers. Om te stoppen tenant-wise gegevensverzameling, volgt u de volgende stappen voor het verzamelen van gegevens stoppen en verwijderen van alle services van de tenant.
+
+1.  Klik op **algemene instellingen** onder configuratie in de hoofdblade. 
+2.  Klik op **gegevens verzamelen stoppen** knop boven aan de blade. De andere opties van de tenant-instellingen wordt uitgeschakeld wanneer het proces wordt gestart.  
+ 
+ ![Stop het verzamelen van gegevens](./media/active-directory-aadconnect-health-gdpr/gdpr4.png)
+  
+3.  Zorg ervoor dat de lijst met vrijgegeven services die worden beïnvloed door het verzamelen van gegevens wordt gestopt. 
+4.  Voer de naam van de exacte tenant zodat de **verwijderen** actieknop
+5.  Klik op **verwijderen** voor het activeren van het verwijderen van alle services. Connect Health stopt ontvangen, verwerken en de rapportage-gegevens verzonden van uw services vrijgegeven. Het volledige proces kan 24 uur duren. U ziet deze stap is niet omkeerbaar. 
+6.  Nadat het proces is voltooid, ziet u alle geregistreerde services in Connect Health meer. 
+
+ ![Nadat het verzamelen van gegevens is gestopt](./media/active-directory-aadconnect-health-gdpr/gdpr5.png)
 
 ## <a name="re-enable-data-collection-and-monitoring-in-azure-ad-connect-health"></a>Opnieuw inschakelen van gegevensverzameling en bewaken in Azure AD Connect Health
 Als opnieuw wilt inschakelen in Azure AD Connect Health voor een eerder verwijderde bewaakte service bewaken, moet u verwijderen en [opnieuw installeren van de health-agent](active-directory-aadconnect-health-agent-install.md) op alle servers.
+
+### <a name="re-enable-data-collection-and-monitoring-for-all-monitored-services"></a>Opnieuw inschakelen van gegevensverzameling en -bewaking van alle bewaakte services
+
+Tenant-Wise gegevensverzameling kan worden hervat in Azure AD Connect Health. U wordt aangeraden zorgvuldig en volledige bevestiging van alle globale beheerders voordat de actie te ondernemen.
+
+>[!IMPORTANT]
+> De volgende stappen zijn beschikbaar nadat de 24 uur van de actie uitschakelen.
+> Na het inschakelen van verzamelen van gegevens, worden de aangeboden inzicht en bewakingsgegevens in Connect Health niet weergegeven verouderde gegevens die worden verzameld voordat. 
+
+1.  Klik op **algemene instellingen** onder configuratie in de hoofdblade. 
+2.  Klik op **gegevensverzameling inschakelen** knop boven aan de blade. 
+ 
+ ![Gegevensverzameling inschakelen](./media/active-directory-aadconnect-health-gdpr/gdpr6.png)
+ 
+3.  Voer de naam van de exacte tenant voor het activeren van de **inschakelen** knop.
+4.  Klik op **inschakelen** knop machtigen van verzamelen van gegevens in het Connect Health-service. De wijziging wordt binnenkort worden toegepast. 
+5.  Ga als volgt de [installatieproces](active-directory-aadconnect-health-agent-install.md) opnieuw installeren van de agent op de servers moeten worden bewaakt en de services aanwezig zijn in de portal.  
 
 
 ## <a name="next-steps"></a>Volgende stappen

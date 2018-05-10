@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/3/2018
 ms.author: jonor
-ms.openlocfilehash: 1aab466a06711a334df0584334e5229b33f57754
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: a62d52e30b04b525dc8ff685ed6c3033d6029542
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="microsoft-azure-virtual-datacenter-a-network-perspective"></a>Virtuele Microsoft Azure-Datacenter: Een netwerk-perspectief
 **Microsoft Azure**: sneller, geld besparen, integreren lokale apps en gegevens
@@ -192,7 +192,7 @@ Onderdelen van de infrastructuur bevatten de volgende functionaliteit:
 -   [**UDR**][UDR]. Verkeer in een virtueel netwerk wordt doorgestuurd op basis van de routeringstabel system standaard. Een Route voor het definiëren van de gebruiker is een aangepaste routetabel netwerkbeheerders kunt koppelen aan een of meer subnetten overschrijven het gedrag van de routeringstabel van systeem en het definiëren van een communicatiepad binnen een virtueel netwerk. De aanwezigheid van udr's zorgt ervoor dat uitgaande verkeer van de doorvoer spoke door specifieke aangepaste VM's en/of virtuele netwerkapparaten en netwerktaakverdelers aanwezig in de hub en in de spokes.
 -   [**NSG**][NSG]. Een Netwerkbeveiligingsgroep is een lijst met beveiligingsregels voor verbindingen die fungeren als verkeer filteren op IP-bronnen, doel-IP-protocollen, bron-IP-poorten en doel-IP-poorten. Het NSG kan worden toegepast op een subnet, een virtuele NIC-kaart die is gekoppeld aan een Azure VM of beide. Het nsg's zijn essentieel voor een juiste datatransportbesturing implementeren in de hub en in de spokes. Het niveau van beveiliging die worden geboden door de NSG is een functie van welke poorten u opent, en wat is het doel. Klanten wordt aangeraden extra VM filters met een host gebaseerde firewall zoals IPtables of de Windows Firewall.
 -   [**DNS**][DNS]. De naamomzetting van resources in de VNets van een vDC is beschikbaar via DNS. Azure biedt DNS-services voor beide [openbare][DNS] en [persoonlijke] [ PrivateDNS] naamomzetting. Persoonlijke zones naamomzetting zowel binnen een virtueel netwerk en tussen virtuele netwerken. U kunt persoonlijke zones niet alleen span tussen virtuele netwerken in dezelfde regio, maar ook in regio's en -abonnementen hebben. Voor de omzetting van openbare biedt Azure DNS een hostingservice voor DNS-domeinen naamomzetting met behulp van Microsoft Azure-infrastructuur. Door uw domeinen in Azure te hosten, kunt u uw DNS-records met dezelfde referenties, API's, hulpprogramma's en facturering beheren als voor uw andere Azure-services.
--   [** Abonnement] [ SubMgmt] en [resourcegroep Management][RGMgmt]**. Een abonnement definieert een natuurlijke grens voor het maken van meerdere groepen van resources in Azure. Resources in een abonnement worden samen in logische containers met de naam resourcegroepen worden samengesteld. De resourcegroep vertegenwoordigt een logische groep om de resources van een vDC te organiseren.
+-   [**Abonnement** ] [ SubMgmt] en [ **resourcegroep Management**][RGMgmt]. Een abonnement definieert een natuurlijke grens voor het maken van meerdere groepen van resources in Azure. Resources in een abonnement worden samen in logische containers met de naam resourcegroepen worden samengesteld. De resourcegroep vertegenwoordigt een logische groep om de resources van een vDC te organiseren.
 -   [**RBAC**][RBAC]. Via RBAC is het mogelijk te kaart organisatierol samen met de rechten voor toegang tot specifieke Azure-resources, zodat u kunt gebruikers beperken tot alleen een bepaalde subset van acties. Met RBAC, kunt u de juiste rol toewijzen aan gebruikers, groepen en toepassingen binnen het bereik van de relevante toegang verlenen. Het bereik van een roltoewijzing kan dit een Azure-abonnement, resourcegroep of één resource. RBAC kunt overname van machtigingen. Een rol die is toegewezen aan een bovenliggend bereik verleent toegang ook naar de onderliggende elementen erin opgenomen. Met RBAC kunt u taken scheiden en de hoeveelheid toegang verlenen aan gebruikers die ze nodig hebben voor het uitvoeren van hun taken. Bijvoorbeeld, gebruikmaken van RBAC te laten een werknemer virtuele machines in een abonnement beheren terwijl een andere SQL-databases binnen hetzelfde abonnement kunt beheren.
 -   [**VNet-Peering**][VNetPeering]. De fundamentele functie gebruikt voor het maken van de infrastructuur van een vDC is VNet-Peering, een mechanisme dat verbinding twee virtuele netwerken (vnet's maakt) in dezelfde regio via het netwerk van Azure data center of met behulp van de Azure world wide-backbone tussen regio's.
 

@@ -8,11 +8,11 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 006d04efb0a6bebc424cb005bf63af2b3cd7a42e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: f38054eaf2829149a496f840366b6f2f9e03e12b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>Het opnieuw opbouwen van een Azure Search-index
 
@@ -35,8 +35,8 @@ Van plan bent frequente, volledig opnieuw worden opgebouwd tijdens het ontwikkel
 | Wijziging | Status opnieuw samenstellen|
 |--------------|---------------|
 | Wijzig de naam van een veld-gegevenstype, of de [indexkenmerken](https://docs.microsoft.com/rest/api/searchservice/create-index) | Wijzigen van de velddefinitie van een doorgaans leidt ertoe dat een sancties opnieuw maken, met uitzondering van deze [indexkenmerken](https://docs.microsoft.com/rest/api/searchservice/create-index): ophalen mogelijk, SearchAnalyzer, SynonymMaps. U kunt de kenmerken ophalen mogelijk, SearchAnalyzer en SynonymMaps toevoegen aan een bestaand veld zonder de index opnieuw worden opgebouwd.|
-| Een veld toevoegen | Er is geen vereiste strikte op opnieuw. Bestaande geïndexeerde documenten zijn een null-waarde opgegeven voor het nieuwe veld. In een toekomstige opnieuw indexeren, worden de waarden van de brongegevens toegevoegd aan documenten. |
-| Een veld verwijderen | Er is geen vereiste strikte op opnieuw. Een verwijderd veld wordt niet gebruikt, maar fysiek de definitie van veld en inhoud blijven in de index tot het volgende opnieuw bouwen. |
+| Een veld toevoegen | Er is geen vereiste strikte op opnieuw. Bestaande geïndexeerde documenten zijn een null-waarde opgegeven voor het nieuwe veld. In een toekomstige opnieuw indexeren Vervang de waarden uit de brongegevens de null-waarden toegevoegd door Azure Search. |
+| Een veld verwijderen | U verwijderen niet rechtstreeks een veld uit een Azure Search-index. In plaats daarvan moet u uw toepassing de 'verwijderd' veld om te voorkomen dat deze negeren hebben. Fysiek, blijven de definitie van veld en inhoud in de index tot de volgende keer dat u uw index met behulp van een schema dat u het betreffende veld wordt weggelaten opnieuw opbouwen.|
 
 > [!Note]
 > Opnieuw opbouwen is ook vereist als u overschakelt van lagen. Als u meer capaciteit op een bepaald moment besluit, is er geen in-place upgrade. Een nieuwe service moet worden gemaakt op het punt capaciteit en indexen helemaal moeten worden gebaseerd op de nieuwe service. 

@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: d71f9fc2b69e1a99b518c2317cccde712ab40fec
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 2d3219f6f2617fec941e308febb2e47efa184170
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="overview-of-live-streaming-using-azure-media-services"></a>Overzicht van Live streamen met Azure Media Services
 
@@ -54,7 +54,7 @@ Een **kanaal** vertegenwoordigt een pijplijn voor de verwerking van inhoud voor 
   > Het gebruik van de passthrough-methode is de meest voordelige manier om live te streamen wanneer u meerdere gebeurtenissen gedurende een langere periode streamt en u al hebt geïnvesteerd in on-premises coderingsprogramma’s. Zie de details over de [prijzen](https://azure.microsoft.com/pricing/details/media-services/).
   > 
   > 
-* Een on-premises live codering verzendt een single-bitrate stream naar het kanaal dat is ingeschakeld voor het uitvoeren van live codering met Media Services in een van de volgende indelingen: RTMP of Smooth Streaming (gefragmenteerde MP4). RTP (MPEG-TS) wordt ook ondersteund, mits u een specifieke verbinding met de Azure-datacenter hebben. De volgende live coderingsprogramma's met RTMP uitvoer bekend zijn bij het werken met kanalen van dit type: Telestream Wirecast, FMLE. Het kanaal codeert de inkomende single-bitrate stream vervolgens live naar een (adaptieve) multi-bitrate videostream. Desgevraagd levert Media Services de stream aan klanten.
+* Een on-premises live codering verzendt een single-bitrate stream naar het kanaal dat is ingeschakeld voor het uitvoeren van live codering met Media Services in een van de volgende indelingen: RTMP of Smooth Streaming (gefragmenteerde MP4). De volgende live coderingsprogramma's met RTMP uitvoer bekend zijn bij het werken met kanalen van dit type: Telestream Wirecast, FMLE. Het kanaal codeert de inkomende single-bitrate stream vervolgens live naar een (adaptieve) multi-bitrate videostream. Desgevraagd levert Media Services de stream aan klanten.
 
 Beginnen met de release van Media Services 2.10 wanneer u een kanaal maakt, kunt u op welke manier u wilt dat voor dit kanaal voor het ontvangen van de invoerstroom en of u wilt voor het kanaal live codering van uw stream uitvoeren. U hebt hiervoor twee opties:
 
@@ -68,7 +68,7 @@ Volgende tabel bevat een handleiding voor het vergelijken van de twee kanaal-typ
 | --- | --- | --- |
 | Single-bitrate-invoer is gecodeerd in meerdere bitsnelheden in de cloud |Nee |Ja |
 | Maximale resolutie van het aantal lagen |1080p, 8 lagen 60 + fps |720p, 6 lagen 30 fps |
-| Invoer-protocollen |RTMP, Smooth Streaming |RTMP, Smooth Streaming- en RTP |
+| Invoer-protocollen |RTMP, Smooth Streaming |RTMP, Smooth Streaming |
 | Prijs |Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/media-services/) en klik op het tabblad 'Live Video' |Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/media-services/) |
 | Maximale uitvoeringstijd |24x7 |8 uur |
 | Ondersteuning voor het invoegen van slates |Nee |Ja |

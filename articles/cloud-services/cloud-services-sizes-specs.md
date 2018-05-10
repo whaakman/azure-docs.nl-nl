@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 542632dc61f1acecd8ca8ac45fb29bfa6aa839c2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bde4347c487be8986c72435172b18c10effa0690
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="sizes-for-cloud-services"></a>Grootten voor Cloudservices
 Dit onderwerp beschrijft de beschikbare grootten en opties voor Cloudservice rolexemplaren (webrollen en werkrollen). Het biedt tevens overwegingen voor de implementatie moet letten bij het plannen van deze bronnen te gebruiken. Is een ID die u in plaats van elke grootte uw [servicedefinitiebestand](cloud-services-model-and-package.md#csdef). Prijzen voor elke grootte beschikbaar zijn op de [Cloud Services-prijzen](https://azure.microsoft.com/pricing/details/cloud-services/) pagina.
@@ -81,21 +81,21 @@ In de volgende tabellen ziet u de grootten en de capaciteiten die ze bieden.
 * De maximale netwerkbandbreedte is de maximale geaggregeerde bandbreedte die is toegekend en toegewezen per VM-type. De maximale bandbreedte geeft richtlijnen voor het selecteren van het juiste type virtuele machine om ervoor te zorgen dat er voldoende netwerkcapaciteit beschikbaar is. Wanneer u verplaatst tussen de laag, Gemiddeld, hoog en zeer hoge, neemt de doorvoer toe. De werkelijke netwerkprestaties zijn afhankelijk van talloze factoren, waaronder de netwerk- en toepassingsbelastingen en de instellingen van het toepassingsnetwerk.
 
 ## <a name="a-series"></a>A-serie
-| Grootte            | CPU-kernen | Geheugen: GiB  | Lokale HDD: GiB       | Max. aantal NIC's/netwerkbandbreedte |
+| Grootte            | CPU-kernen | Geheugen: GiB  | Tijdelijke opslag: GiB       | Max. aantal NIC's/netwerkbandbreedte |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | ExtraSmall      | 1         | 0,768        | 20                   | 1/laag |
-| Klein           | 1         | 1,75         | 225                  | 1/gemiddeld |
-| Middelgroot          | 2         | 3,5 GB       | 490                  | 1/gemiddeld |
-| Groot           | 4         | 7            | 1000                 | 2/hoog |
-| Zijn      | 8         | 14           | 2040                 | 4/hoog |
-| A5              | 2         | 14           | 490                  | 1/gemiddeld |
-| A6              | 4         | 28           | 1000                 | 2/hoog |
-| A7              | 8         | 56           | 2040                 | 4/hoog |
+| Klein           | 1         | 1,75         | 70                   | 1/gemiddeld |
+| Middelgroot          | 2         | 3,5          | 135                  | 1/gemiddeld |
+| Groot           | 4         | 7            | 285                  | 2/hoog |
+| Zijn      | 8         | 14           | 605                  | 4/hoog |
+| A5              | 2         | 14           | 135                  | 1/gemiddeld |
+| A6              | 4         | 28           | 285                  | 2/hoog |
+| A7              | 8         | 56           | 605                  | 4/hoog |
 
 ## <a name="a-series---compute-intensive-instances"></a>A-serie: rekenintensieve exemplaren
 Zie voor informatie en overwegingen over het gebruik van deze formaten [hoge prestaties compute-VM-grootten](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-| Grootte            | CPU-kernen | Geheugen: GiB  | Lokale HDD: GiB       | Max. aantal NIC's/netwerkbandbreedte |
+| Grootte            | CPU-kernen | Geheugen: GiB  | Tijdelijke opslag: GiB       | Max. aantal NIC's/netwerkbandbreedte |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | A8*             |8          | 56           | 1817                 | 2/hoog |
 | A9*             |16         | 112          | 1817                 | 4/zeer hoog |
@@ -106,7 +106,7 @@ Zie voor informatie en overwegingen over het gebruik van deze formaten [hoge pre
 
 ## <a name="av2-series"></a>Av2-serie
 
-| Grootte            | CPU-kernen | Geheugen: GiB  | Lokale SSD: GiB       | Max. aantal NIC's/netwerkbandbreedte |
+| Grootte            | CPU-kernen | Geheugen: GiB  | Tijdelijke opslag (SSD): GiB       | Max. aantal NIC's/netwerkbandbreedte |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_A1_v2  | 1         | 2            | 10                   | 1/gemiddeld                 |
 | Standard_A2_v2  | 2         | 4            | 20                   | 2/gemiddeld                 |
@@ -118,7 +118,7 @@ Zie voor informatie en overwegingen over het gebruik van deze formaten [hoge pre
 
 
 ## <a name="d-series"></a>D-serie
-| Grootte            | CPU-kernen | Geheugen: GiB  | Lokale SSD: GiB       | Max. aantal NIC's/netwerkbandbreedte |
+| Grootte            | CPU-kernen | Geheugen: GiB  | Tijdelijke opslag (SSD): GiB       | Max. aantal NIC's/netwerkbandbreedte |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_D1     | 1         | 3,5          | 50                   | 1/gemiddeld |
 | Standard_D2     | 2         | 7            | 100                  | 2/hoog |
@@ -130,7 +130,7 @@ Zie voor informatie en overwegingen over het gebruik van deze formaten [hoge pre
 | Standard_D14    | 16        | 112          | 800                  | 8/zeer hoog |
 
 ## <a name="dv2-series"></a>Dv2-serie
-| Grootte            | CPU-kernen | Geheugen: GiB  | Lokale SSD: GiB       | Max. aantal NIC's/netwerkbandbreedte |
+| Grootte            | CPU-kernen | Geheugen: GiB  | Tijdelijke opslag (SSD): GiB       | Max. aantal NIC's/netwerkbandbreedte |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_D1_v2  | 1         | 3,5          | 50                   | 1/gemiddeld |
 | Standard_D2_v2  | 2         | 7            | 100                  | 2/hoog |
@@ -145,7 +145,7 @@ Zie voor informatie en overwegingen over het gebruik van deze formaten [hoge pre
 
 ## <a name="dv3-series"></a>Dv3-serie
 
-| Grootte            | CPU-kernen | Geheugen: GiB   | Lokale SSD: GiB       | Max. aantal NIC's/netwerkbandbreedte |
+| Grootte            | CPU-kernen | Geheugen: GiB   | Tijdelijke opslag (SSD): GiB       | Max. aantal NIC's/netwerkbandbreedte |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
 | Standard_D2_v3  | 2         | 8             | 50                   | 2/gemiddeld |
 | Standard_D4_v3  | 4         | 16            | 100                  | 2/hoog |
@@ -156,7 +156,7 @@ Zie voor informatie en overwegingen over het gebruik van deze formaten [hoge pre
 
 ## <a name="ev3-series"></a>Ev3-serie
 
-| Grootte            | CPU-kernen | Geheugen: GiB   | Lokale SSD: GiB       | Max. aantal NIC's/netwerkbandbreedte |
+| Grootte            | CPU-kernen | Geheugen: GiB   | Tijdelijke opslag (SSD): GiB       | Max. aantal NIC's/netwerkbandbreedte |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
 | Standard_E2_v3  | 2         | 16            | 50                   | 2/gemiddeld |
 | Standard_E4_v3  | 4         | 32            | 100                  | 2/hoog |
@@ -167,7 +167,7 @@ Zie voor informatie en overwegingen over het gebruik van deze formaten [hoge pre
 
 
 ## <a name="g-series"></a>G-serie
-| Grootte            | CPU-kernen | Geheugen: GiB  | Lokale SSD: GiB       | Max. aantal NIC's/netwerkbandbreedte |
+| Grootte            | CPU-kernen | Geheugen: GiB  | Tijdelijke opslag (SSD): GiB       | Max. aantal NIC's/netwerkbandbreedte |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_G1     | 2         | 28           | 384                  |1/hoog |
 | Standard_G2     | 4         | 56           | 768                  |2/hoog |
@@ -180,7 +180,7 @@ Virtuele Azure-machines uit de H-serie zijn de volgende generatie HPC-VM's, geri
 
 Naast een zeer hoge CPU-kracht biedt de H-serie ook verschillende opties voor RDMA-netwerken met lage latentie met gebruik van FDR InfiniBand, evenals verschillende geheugenconfiguraties om geheugenintensieve rekenvereisten te ondersteunen.
 
-| Grootte            | CPU-kernen | Geheugen: GiB  | Lokale SSD: GiB       | Max. aantal NIC's/netwerkbandbreedte |
+| Grootte            | CPU-kernen | Geheugen: GiB  | Tijdelijke opslag (SSD): GiB       | Max. aantal NIC's/netwerkbandbreedte |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_H8     | 8         | 56           | 1000                 | 8/hoog |
 | Standard_H16    | 16        | 112          | 2000                 | 8/zeer hoog |

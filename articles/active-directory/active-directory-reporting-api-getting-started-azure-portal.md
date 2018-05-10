@@ -2,45 +2,73 @@
 title: Aan de slag met Azure AD rapportage-API | Microsoft Docs
 description: Hoe u aan de slag met de Azure Active Directory rapportage-API
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8813b911-a4ec-4234-8474-2eef9afea11e
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/14/2017
+ms.date: 05/07/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9c858b8f2d5a4a348bc0b4443ddbe0000a5b62f4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a818c9b0e2c9097f45d2fdd39676ef6807d06ca5
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="getting-started-with-the-azure-active-directory-reporting-api"></a>Aan de slag met de Azure Active Directory rapportage-API
+# <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Aan de slag met de Azure Active Directory rapportage-API
 
-Azure Active Directory beschikt u over tal van rapporten. De gegevens van deze rapporten kunnen zeer nuttig zijn voor uw toepassingen, zoals SIEM-systemen, audit- en business intelligence-hulpprogramma's. De API's van Azure AD Reporting bieden toegang tot de gegevens op programmeerniveau via een set op REST-gebaseerde API's. U kunt deze API's vanuit een groot aantal computertalen en hulpprogramma's aanroepen.
+Azure Active Directory biedt u tal van [rapporten](active-directory-reporting-azure-portal.md). De gegevens van deze rapporten kunnen zeer nuttig zijn voor uw toepassingen, zoals SIEM-systemen, audit- en business intelligence-hulpprogramma's. 
 
-In dit artikel biedt u de informatie die u moet aan de slag met Azure AD rapportage-API's.
-In de volgende sectie stelt u meer informatie over het gebruik van de audit en meld u API's. 
+Met behulp van de Azure AD rapportage-API u programmatische toegang krijgen tot de gegevens via een set op basis van REST-API's. U kunt deze API's vanuit een groot aantal computertalen en hulpprogramma's aanroepen.
 
-Veelgestelde vragen Lees onze [Veelgestelde vragen over](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-faq). Voer de gegevens voor problemen [een ondersteuningsticket bestand](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
+Dit artikel bevat een routekaart voor toegang tot de rapportagegegevens met de bijbehorende API.
 
-## <a name="learning-map"></a>Leertraject
-1. **Voorbereiden** -voordat u uw API-voorbeelden testen kunt, u moet voltooien de [vereisten voor toegang tot de Azure AD rapportage-API](active-directory-reporting-api-prerequisites-azure-portal.md).
-2. **Verken** -ophalen van een eerste indruk van de rapportage-API's:
+Als u problemen ondervindt, raadpleegt u [ondersteuning voor Azure Active Directory krijgen](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto).
+
+
+## <a name="prerequisites"></a>Vereisten
+
+Voor toegang tot de rapportage-API, zelfs als u van plan bent over de toegang tot de API met behulp van een script, moet u:
+
+1. Toewijzen van rollen (Security Reader beveiliging Admin, globale beheerder)
+2. Een toepassing registreren
+3. Machtigingen verlenen
+4. Verzamelen van configuratie-instellingen
+
+
+ 
+Zie voor gedetailleerde instructies de [vereisten voor toegang tot de Azure Active Directory-rapportage API](active-directory-reporting-api-prerequisites-azure-portal.md).
+
+
+## <a name="recommendation"></a>Aanbeveling 
+
+Als u van plan bent op bij het ophalen van rapportgegevens zonder tussenkomst van de gebruiker, moet u rekening houden met behulp van de Azure AD rapportage-API met certificaten.
+
+Zie voor gedetailleerde instructies [ophalen van gegevens met behulp van de Azure AD rapportage-API met certificaten](active-directory-reporting-api-with-certificates.md).
+
+
+## <a name="explore"></a>Verkennen
+
+Haal een eerste indruk van de rapportage-API's:
    
-   * [Met behulp van de voorbeelden voor de API-controle](active-directory-reporting-api-audit-samples.md) 
-   * [Met behulp van de voorbeelden voor het rapport aanmeldingsactiviteiten API](active-directory-reporting-api-sign-in-activity-samples.md)
-3. **Aanpassen** -Maak uw eigen oplossing: 
-   
-   * [Met behulp van de audit API-referentiemateriaal](active-directory-reporting-api-audit-reference.md) 
-   * [Met behulp van de aanmeldingsactiviteiten rapport API-verwijzing](active-directory-reporting-api-sign-in-activity-reference.md)
+   - [Met behulp van de voorbeelden voor de API-controle](active-directory-reporting-api-audit-samples.md) 
+ 
+   - [Met behulp van de voorbeelden voor het rapport aanmeldingsactiviteiten API](active-directory-reporting-api-sign-in-activity-samples.md)
 
-## <a name="next-steps"></a>Volgende stappen
-Als u wilt zien van alle beschikbare Azure AD Graph API-eindpunten, gebruikt u deze koppeling: [https://graph.windows.net/tenant-name/activities/$ metagegevens? api-version = beta](https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta).
+
+## <a name="customize"></a>Aanpassen  
+
+Maak uw eigen oplossing: 
+   
+   - [Met behulp van de audit API-referentiemateriaal](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
+
+   - [Met behulp van de aanmeldingsactiviteiten rapport API-verwijzing](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+
+
 

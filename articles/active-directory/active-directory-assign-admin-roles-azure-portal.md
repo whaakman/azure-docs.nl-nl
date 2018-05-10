@@ -14,11 +14,11 @@ ms.date: 03/15/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: fc7a67c644894606b09ed3ad594ff9f87b29f307
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 6e663fe275fc195cb611e1032adc147bf4e99b1d
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Beheerrollen toewijzen in Azure Active Directory
 
@@ -41,7 +41,7 @@ De volgende beheerdersrollen zijn beschikbaar:
   > [!NOTE]
   > Voor Exchange ActiveSync-beleid voor voorwaardelijke toegang in Azure implementeert, moet de gebruiker ook globale beheerder zijn.
   
-* **Servicebeheerder CRM**: gebruikers met deze functie hebben algemene machtigingen binnen Microsoft CRM Online, wanneer de service aanwezig is, evenals de mogelijkheid ondersteuningstickets beheren en controleren van de servicestatus. Meer informatie op [over Office 365-beheerdersrollen](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **Servicebeheerder Dynamics 365**: gebruikers met deze functie hebben algemene machtigingen binnen Microsoft CRM Online, wanneer de service aanwezig is, evenals de mogelijkheid ondersteuningstickets beheren en controleren van de servicestatus. Meer informatie op [over Office 365-beheerdersrollen](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 * **Apparaatbeheerders**: gebruikers met deze rol worden beheerders van de lokale computer op alle Windows 10-apparaten die zijn gekoppeld aan Azure Active Directory. Ze hebben niet de mogelijkheid voor het beheren van apparaten-objecten in Azure Active Directory.
 
@@ -104,7 +104,7 @@ De volgende beheerdersrollen zijn beschikbaar:
 
 ## <a name="administrator-permissions"></a>Administrator-machtigingen
 
-### <a name="billing-administrator"></a>Factureringsbeheerder
+### <a name="billing-administrator"></a>Financieel medewerker
 
 | Kan doen | Is niet mogelijk |
 | --- | --- |
@@ -127,24 +127,24 @@ De volgende beheerdersrollen zijn beschikbaar:
 | <p>Gegevens van bedrijfs- en gebruikersgegevens weergeven</p><p>Office-ondersteuningstickets beheren</p><p>Wachtwoorden voor gebruikers en andere Helpdesk-beheerders alleen wijzigen</p>|<p>Factuur- en bewerkingen voor Office-producten</p><p>Gebruiker weergaven maken en beheren</p><p>Maken, bewerken, en gebruikers en groepen verwijderen en gebruikerslicenties beheren</p><p>Domeinen beheren</p><p>Beheren van bedrijfsgegevens</p><p>Beheerdersrollen aan anderen delegeren</p><p>Adreslijstsynchronisatie gebruiken</p><p>Rapporten weergeven</p>|
 
 ### <a name="information-protection-administrator"></a>Information Protection-beheerder
-in | Kan doen
+In | Kan doen
 -------- | ---------
 Azure Information Protection | <li>Labels en instellingen configureren in het beleid voor globale en bereik<li>Configureren en beheren van sjablonen voor beveiliging<li>Activeren of deactiveren beveiliging--
  
-### <a name="reports-reader"></a>Rapporten lezer 
+### <a name="reports-reader"></a>Rapportenlezer 
 Kan doen | Is niet mogelijk
 ------ | ----------
 Weergave Azure AD-aanmeldingspagina rapporten en controlelogboeken<br>Gegevens van bedrijfs- en gebruikersgegevens weergeven<br>Dashboard voor toegang tot Office 365-gebruiksgegevens | Gebruiker weergaven maken en beheren<br>Maken, bewerken, en gebruikers en groepen verwijderen en gebruikerslicenties beheren<br>Beheerdersrollen aan anderen delegeren<br>Beheren van bedrijfsgegevens
 
 ### <a name="security-reader"></a>Beveiligingslezer
-| in | Kan doen |
+| In | Kan doen |
 | --- | --- |
 | Identity Protection Center |Alle beveiligingsrapporten en informatie over de instellingen voor beveiligingsfuncties lezen<ul><li>Anti-spam<li>Versleuteling<li>Preventie van gegevensverlies<li>Anti-malware<li>Geavanceerde threat protection<li>Antiphishing-<li>Mailflow regels |
 | Privileged Identity Management |<p>Alleen-lezen toegang tot alle informatie zichtbaar is in Azure AD PIM: beleidsregels en rapporten voor Azure AD-roltoewijzingen beveiliging controleert en in de toekomst leestoegang heeft tot gegevens en rapporten voor scenario's naast de roltoewijzing Azure AD.<p>**Kan geen** aanmelden voor Azure AD PIM of wijzigingen aanbrengt. In de PIM-portal of via PowerShell kan iemand met deze rol aanvullende functies (bijvoorbeeld globale beheerder of beheerder met bevoorrechte rol) activeren als de gebruiker geschikt is voor deze. |
 | <p>Monitor voor Office 365-servicestatus</p><p>Office 365-beveiliging en naleving Center</p> |<ul><li>Lees- en waarschuwingen beheren<li>Lezen van beveiligingsbeleid<li>Lezen dreigingen en Cloud App Discovery quarantaine in zoeken en onderzoeken<li>Alle rapporten lezen |
 
 ### <a name="security-administrator"></a>Beveiligingsbeheerder
-| in | Kan doen |
+| In | Kan doen |
 | --- | --- |
 | Identity Protection Center |<ul><li>Alle machtigingen van de rol Lezer van de beveiliging.<li>Bovendien de mogelijkheid om alle IPC-bewerkingen, met uitzondering van opnieuw instellen van wachtwoorden uitvoeren. |
 | Privileged Identity Management |<ul><li>Alle machtigingen van de rol Lezer van de beveiliging.<li>**Kan geen** rollidmaatschappen voor Azure AD of instellingen beheren. |

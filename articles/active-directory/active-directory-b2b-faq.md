@@ -2,25 +2,19 @@
 title: Azure Active Directory B2B-samenwerking Veelgestelde vragen | Microsoft Docs
 description: Vind antwoorden op veelgestelde vragen over Azure Active Directory B2B-samenwerking.
 services: active-directory
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 03/06/2018
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 2f039361bce9615e8b8b9aa62dc152db504a6dc1
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6160e3e6f23bf4eabb33295fa19323c71c7ed18d
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B-samenwerking Veelgestelde vragen
 
@@ -129,16 +123,5 @@ Zie voor meer informatie over wat de behoeften van uw organisatie te gebruiken v
 
 ### <a name="next-steps"></a>Volgende stappen
 
-Lees ook onze andere artikelen over Azure AD B2B-samenwerking:
+- [Wat is Azure AD B2B-samenwerking?](active-directory-b2b-what-is-azure-ad-b2b.md)
 
-* [Wat is Azure AD B2B-samenwerking?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Hoe voeg beheerders van Azure AD B2B-samenwerking gebruikers?](active-directory-b2b-admin-add-users.md)
-* [Hoe kunnen IT-medewerkers B2B-samenwerking gebruikers toevoegen](active-directory-b2b-iw-add-users.md)
-* [De elementen van de uitnodigingsmail voor B2B-samenwerking](active-directory-b2b-invitation-email.md)
-* [B2B-samenwerking uitnodiging inwisseling](active-directory-b2b-redemption-experience.md)
-* [Azure AD B2B-samenwerking licentieverlening](active-directory-b2b-licensing.md)
-* [Het oplossen van Azure AD B2B-samenwerking](active-directory-b2b-troubleshooting.md)
-* [Azure AD B2B-samenwerking API en de aanpassing](active-directory-b2b-api.md)
-* [Multi-Factor Authentication voor gebruikers van B2B-samenwerking](active-directory-b2b-mfa-instructions.md)
-* [B2B-samenwerking gebruikers zonder een uitnodiging toevoegen](active-directory-b2b-add-user-without-invite.md)
-* [Artikel index voor application management in Azure AD](active-directory-apps-index.md)

@@ -12,37 +12,44 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/03/2018
+ms.date: 05/07/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 72372a37c4ddcc6135fc7477807e4ff94ae90c77
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: ab05907f1f23c3856b41a941c1b95992ed5a79a4
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Vereisten voor toegang tot de Azure Active Directory rapportage-API
 
 De [Azure Active Directory (Azure AD) API's reporting](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) u programmatische toegang bieden tot de gegevens via een set op basis van REST-API's. U kunt deze API's vanuit een groot aantal computertalen en hulpprogramma's aanroepen.
 
-De rapportage-API maakt gebruikt [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) toegang verlenen aan de web-API's. 
+De rapportage-API maakt gebruikt [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) toegang verlenen aan de web-API's.
+
+Als u met het voorbereiden van uw toegang tot de rapportage-API, moet u:
+
+1. Rollen toewijzen
+2. Een toepassing registreren
+3. Machtigingen verlenen
+4. Verzamelen van configuratie-instellingen
+
+
+
+## <a name="assign-roles"></a>Rollen toewijzen
 
 Als u toegang tot de rapportagegegevens via de API, moet u een van de volgende rollen toegewezen:
 
 - Beveiligingslezer
+
 - Beveiligingsbeheerder
+
 - Globale beheerder
 
 
-Als u met het voorbereiden van uw toegang tot de rapportage-API, moet u het volgende doen:
 
-1. Een toepassing registreren 
-2. Machtigingen verlenen 
-3. Verzamelen van configuratie-instellingen 
 
-Voor vragen, problemen of feedback, [een ondersteuningsticket bestand](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto).
-
-## <a name="register-an-azure-active-directory-application"></a>Een Azure Active Directory-toepassing registreren
+## <a name="register-an-application"></a>Een toepassing registreren
 
 U moet een app registreren, zelfs als u bij het openen van de rapportage-API met een script. Hiermee krijgt u een **toepassings-ID**, die is vereist voor een aanroep van de autorisatie en kunnen uw code te ontvangen van tokens.
 
@@ -86,7 +93,7 @@ Afhankelijk van de API die u wilt openen, moet u uw app in de volgende machtigin
 
 | API | Machtiging |
 | --- | --- |
-| Windows Azure Active Directory | Mapgegevens lezen |
+| Windows Azure Active Directory | Adreslijstgegevens lezen |
 | Microsoft Graph | Lees dat alle logboekgegevens controleren |
 
 
@@ -145,11 +152,12 @@ De volgende sectie bevat de stappen voor beide API's. Als u niet wilt voor toega
 
 
 ## <a name="gather-configuration-settings"></a>Verzamelen van configuratie-instellingen 
+
 Deze sectie wordt beschreven hoe u de volgende instellingen van uw directory ophalen:
 
-* Domeinnaam
-* Client-id
-* Clientgeheim
+- Domeinnaam
+- Client-id
+- Clientgeheim
 
 U moet deze waarden bij het configureren van de rapportage-API aanroepen. 
 
@@ -219,6 +227,10 @@ Als u uw toepassing clientgeheim, moet u een nieuwe sleutel maken en opslaan van
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Wilt u de toegang tot de gegevens van de Azure AD rapportage-API op een programmatische manier? Bekijk [aan de slag met Azure Active Directory Reporting API](active-directory-reporting-api-getting-started.md).
-* Als u meer informatie over Azure Active Directory-rapportage wilt, raadpleegt u de [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).  
+
+- [Ophalen van gegevens met behulp van de Azure Active Directory rapportage-API met certificaten](active-directory-reporting-api-with-certificates.md).
+
+- [Ophalen van een eerste indruk van de rapportage-API 's](active-directory-reporting-api-getting-started-azure-portal.md#explore)
+
+- [Uw eigen oplossing maken](active-directory-reporting-api-getting-started-azure-portal.md#customize)
 

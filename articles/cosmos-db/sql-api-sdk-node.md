@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 1/4/2018
+ms.date: 5/3/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4c219820fd5b8d5502bae394142dfbe80db1f59
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: ef80c99225a9045686ba8de3fe8fd7cf7070b5cd
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure SDK voor Cosmos Documentdb Node.js voor SQL-API: releaseopmerkingen en resources
 > [!div class="op_single_selector"]
@@ -61,6 +61,16 @@ ms.lasthandoff: 05/07/2018
 </table></br>
 
 ## <a name="release-notes"></a>Releaseopmerkingen
+
+### <a name="1.14.4"/>1.14.4</a>
+* npm documentatie is opgelost.
+
+### <a name="1.14.3"/>1.14.3</a>
+* Ondersteuning toegevoegd voor standaard nieuwe pogingen bereikt op verbindingsproblemen.
+* Toegevoegde ondersteuning voor wijziging van de verzameling lezen-feed.
+* Vaste sessie consistentie oplossingen die afwisselend veroorzaakt 'lezen sessie niet beschikbaar'.
+* Ondersteuning toegevoegd voor query metrische gegevens.
+* Http-Agent kunt u het maximum aantal verbindingen gewijzigd.
 
 ### <a name="1.14.2"/>1.14.2</a>
 * Bijgewerkte documentatie om te verwijzen naar Azure Cosmos DB in plaats van Azure DocumentDB.
@@ -193,6 +203,8 @@ Een aanvraag voor het gebruik van de Cosmos-DB dat een buiten gebruik gestelde S
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
+| [1.14.4](#1.14.4) |03 mei 2018 |--- |
+| [1.14.3](#1.14.3) |03 mei 2018 |--- |
 | [1.14.2](#1.14.2) |21 december 2017 |--- |
 | [1.14.1](#1.14.1) |10 november 2017 |--- |
 | [1.14.0](#1.14.0) |9 november 2017 |--- |

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2018
+ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 7679fd253370d8ca9ca9ac57dc080806050f5c3c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f6452d8f88b91fe0cbf144ce951b84ba4cec0047
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="outbound-connections-classic"></a>Uitgaande verbindingen (klassiek)
 
@@ -37,11 +37,11 @@ Er zijn meerdere [uitgaande scenario's](#scenarios). U kunt deze scenario's kunt
 
 Azure biedt drie verschillende methoden om uitgaande verbinding klassieke implementaties bereiken.  Niet alle klassieke implementaties hebben alle drie scenario's die voor hen beschikbaar:
 
-| Scenario | Methode | Beschrijving | Web-Werkrol | IaaS | 
-| --- | --- | --- | --- | --- |
-| [1. Virtuele machine met een Instance Level Public IP-adres](#ilpip) | Snat omzetten, poort zich voordoet niet gebruikt. |Azure maakt gebruik van het openbare IP-adres toegewezen virtuele Machine. Het exemplaar heeft alle kortstondige poorten beschikbaar. | Nee | Ja |
-| [2. openbaar eindpunt voor netwerktaakverdeling](#publiclbendpoint) | Snat omzetten met poort zich voordoet (PAT) naar het openbare-eindpunt |Het openbare IP-adres openbaar eindpunt deelt Azure met meerdere persoonlijke eindpunten. Azure gebruikt kortstondige poorten van het openbare-eindpunt voor PAT. | Ja | Ja |
-| [3. Zelfstandige VM ](#defaultsnat) | Snat omzetten met poort zich voordoet (PAT) | Azure automatisch een openbaar IP-adres aanwijst voor snat omzetten, deelt dit openbare IP-adres met de volledige implementatie en kortstondige poorten van het eindpunt voor openbare IP-adres voor PAT gebruikt. Dit is een alternatieve scenario voor de bovenstaande scenario's. Wordt niet aanbevolen het als u nodig hebt zichtbaarheid en controle. | Ja | Ja|
+| Scenario | Methode | IP-protocollen | Beschrijving | Web-Werkrol | IaaS | 
+| --- | --- | --- | --- | --- | --- |
+| [1. Virtuele machine met een Instance Level Public IP-adres](#ilpip) | Snat omzetten, poort zich voordoet niet gebruikt. | TCP, UDP, ICMP, ESP | Azure maakt gebruik van het openbare IP-adres toegewezen virtuele Machine. Het exemplaar heeft alle kortstondige poorten beschikbaar. | Nee | Ja |
+| [2. openbaar eindpunt voor netwerktaakverdeling](#publiclbendpoint) | Snat omzetten met poort zich voordoet (PAT) naar het openbare-eindpunt | TCP, UDP | Het openbare IP-adres openbaar eindpunt deelt Azure met meerdere persoonlijke eindpunten. Azure gebruikt kortstondige poorten van het openbare-eindpunt voor PAT. | Ja | Ja |
+| [3. Zelfstandige VM ](#defaultsnat) | Snat omzetten met poort zich voordoet (PAT) | TCP, UDP | Azure automatisch een openbaar IP-adres aanwijst voor snat omzetten, deelt dit openbare IP-adres met de volledige implementatie en kortstondige poorten van het eindpunt voor openbare IP-adres voor PAT gebruikt. Dit is een alternatieve scenario voor de bovenstaande scenario's. Wordt niet aanbevolen het als u nodig hebt zichtbaarheid en controle. | Ja | Ja |
 
 Dit is een subset van uitgaande verbinding functionaliteit beschikbaar voor implementaties van Resource Manager in Azure.  
 

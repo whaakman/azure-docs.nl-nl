@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/27/2018
+ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: cdadf48aa23e3dd76d8a511794f00725f073611d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9f24dd917f4197f933fd58f7c646c18372da8593
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Marketplace-items van Azure naar Azure Stack downloaden
 
@@ -31,7 +31,7 @@ Als u welke inhoud besluit wilt opnemen in uw Azure-Stack marketplace, moet u re
 ## <a name="download-marketplace-items-in-a-connected-scenario-with-internet-connectivity"></a>Marketplace-items in een scenario met verbonden (met een internetverbinding) downloaden
 
 1. Als u wilt downloaden marketplace-items, moet u eerst [Azure Stack registreren bij Azure](azure-stack-register.md).
-2. Aanmelden bij de Azure-Stack-beheerdersportal (https://portal.local.azurestack.external).
+2. Aanmelden bij de Azure-Stack-beheerdersportal (voor ASDK, gebruik https://portal.local.azurestack.external).
 3. Sommige marketplace-items kunnen oplopen. Controleer of er voldoende schijfruimte op het systeem door te klikken op **Resourceproviders** > **opslag**.
 
     ![](media/azure-stack-download-azure-marketplace-item/image01.png)
@@ -60,7 +60,7 @@ Voordat u de marketplace syndication-hulpprogramma gebruiken kunt, zorg ervoor d
 
 Gebruik de volgende stappen voor het downloaden van de vereiste marketplace-items van de computer die verbinding heeft met internet:
 
-1. Open een PowerShell-console als beheerder en [Azure Stack specifieke PowerShell-modules installeren](azure-stack-powershell-install.md). Zorg ervoor dat u installeert **PowerShell versie 1.2.11 of hoger**.  
+1. Open een PowerShell-console als beheerder en [Azure Stack specifieke PowerShell-modules installeren](azure-stack-powershell-install.md). Zorg ervoor dat u installeert **PowerShell-Module voor Azure Stack versie 1.2.11 of hoger**.  
 
 2. De Azure-account dat u hebt gebruikt voor het registreren van de Azure-Stack toevoegen. Uitvoeren als u wilt toevoegen op het account, de **Add-AzureRmAccount** cmdlet zonder parameters. U wordt gevraagd de referenties van uw Azure-account in te voeren en wellicht 2-factor-verificatie op basis van de configuratie van uw account te gebruiken.  
 
@@ -92,7 +92,7 @@ Gebruik de volgende stappen voor het downloaden van de vereiste marketplace-item
 5. De syndicatie-module importeren en het hulpprogramma starten met de volgende opdrachten:  
 
    ```powershell
-   Import-Module .\ Syndication\AzureStack.MarketplaceSyndication.psm1
+   Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
 
    Sync-AzSOfflineMarketplaceItem `
      -destination "<Destination folder path>" `
@@ -100,21 +100,28 @@ Gebruik de volgende stappen voor het downloaden van de vereiste marketplace-item
      -AzureSubscriptionId $AzureContext.Subscription.Id  
    ```
 
-6. Wanneer het hulpprogramma wordt uitgevoerd, wordt u gevraagd de referenties van uw Azure-account in te voeren. Aanmelden bij de Azure-account dat u hebt gebruikt voor het registreren van de Azure-Stack. Na de aanmelding is geslaagd, ziet u het volgende scherm met de lijst met beschikbare marketplace-items.  
+6. Wanneer het hulpprogramma wordt uitgevoerd, wordt u gevraagd de referenties van uw Azure-account in te voeren. Aanmelden bij de Azure-account dat u hebt gebruikt voor het registreren van de Azure-Stack. Nadat de aanmelding is geslaagd, ziet u het volgende scherm met de lijst met beschikbare marketplace-items.  
 
    ![Azure Marketplace-items pop](./media/azure-stack-download-azure-marketplace-item/image05.png)
 
 7. Selecteer de installatiekopie die u wilt downloaden en noteer de versie van de installatiekopie. U kunt meerdere installatiekopieën selecteren door de Ctrl-toets ingedrukt te houden. U gebruikt de afbeeldingsversie voor het importeren van de afbeelding in de volgende sectie.  Klik vervolgens op **Ok**, en accepteer de juridische voorwaarden door te klikken op **Ja**. U kunt ook de lijst met afbeeldingen filteren met behulp van de **criteria toevoegen** optie. 
 
-   Het downloaden van het duurt even afhankelijk van de grootte van de afbeelding. Één keer downloaden van de afbeeldingen is beschikbaar in het doelpad die u eerder hebt opgegeven. De download bevat de VHD-bestand en galerie-items in de notatie Azpkg.
+   Het downloaden van het duurt even afhankelijk van de grootte van de afbeelding. Één keer downloaden van de afbeeldingen is beschikbaar in het doelpad die u eerder hebt opgegeven. De download bevat een VHD-bestand (voor virtuele machines) of een. ZIP-bestand (voor uitbreidingen van de virtuele machine) en een galerij-item in de notatie Azpkg.
 
 ### <a name="import-the-image-and-publish-it-to-azure-stack-marketplace"></a>De installatiekopie van het importeren en deze publiceren naar de Stack Azure marketplace
+Er zijn drie verschillende typen van items in de marketplace: virtuele Machines, virtuele Machine uitbreidingen en Oplossingssjablonen. Oplossingssjablonen worden hierna besproken.
+> [!NOTE]
+> Uitbreidingen van de virtuele Machine kan niet worden toegevoegd aan Azure-Stack op dit moment.
 
 1. Nadat u de installatiekopie en galerij downloaden, ze en de inhoud opslaan in de map AzureStack-hulpprogramma's-master om een verwisselbaar station en kopieer het naar de Stack van Azure-omgeving (u kunt deze kopiëren lokaal naar elke locatie, zoals: 'C:\MarketplaceImages').     
 
 2. Voordat u de installatiekopie importeert, moet u verbinden met de Azure-Stack-operator omgeving met behulp van de stappen in [Azure Stack-operator PowerShell-omgeving configureren](azure-stack-powershell-configure-admin.md).  
 
-3. De installatiekopie importeren naar Azure Stack met de cmdlet Add-AzsVMImage. Wanneer u deze cmdlet gebruikt, zorg ervoor dat u de *publisher*, *bieden*, en andere parameterwaarden met de waarden van de installatiekopie die u wilt importeren. U krijgt de *publisher*, *bieden*, en *sku* waarden van de installatiekopie van het object imageReference van het Azpkg-bestand dat u eerder hebt gedownload en de  *versie* waarde uit stap 6 in de vorige sectie.
+3. Als uw download een klein 3MB VHD-bestand met de naam fixed3.vhd opgenomen, is het een oplossingssjabloon. Dit bestand is niet nodig; verder met stap 5. Zorg ervoor dat u alle afhankelijke items downloaden, zoals aangegeven in de beschrijving voor het downloaden.
+
+4. De installatiekopie importeren naar Azure Stack met de cmdlet Add-AzsVMImage. Wanneer u deze cmdlet gebruikt, zorg ervoor dat u de *publisher*, *bieden*, en andere parameterwaarden met de waarden van de installatiekopie die u wilt importeren. U krijgt de *publisher*, *bieden*, en *sku* waarden van de installatiekopie van het object imageReference van het Azpkg-bestand dat u eerder hebt gedownload en de  *versie* waarde uit stap 6 in de vorige sectie.
+
+Als u de imageReference zoekt, moet u de naam van de AZPKG-bestand met de. ZIP-extensie, pakt u het naar een tijdelijke locatie en open het bestand DeploymentTemplates\CreateUiDefinition.json met een teksteditor. Deze sectie vinden:
 
    ```json
    "imageReference": {
@@ -140,9 +147,9 @@ Gebruik de volgende stappen voor het downloaden van de vereiste marketplace-item
     -Location Local
    ```
 
-4. De portal gebruiken voor het uploaden van uw Marketplace-item (. Azpkg) naar Azure Stack Blob-opslag. U kunt uploaden naar de lokale opslag van de Azure-Stack of uploaden naar Azure Storage. (Dit is een tijdelijke locatie voor het pakket.) Zorg ervoor dat de blob openbaar toegankelijk is en noteer de URI.  
+5. De portal gebruiken voor het uploaden van uw Marketplace-item (. Azpkg) naar Azure Stack Blob-opslag. U kunt uploaden naar de lokale opslag van de Azure-Stack of uploaden naar Azure Storage. (Dit is een tijdelijke locatie voor het pakket.) Zorg ervoor dat de blob openbaar toegankelijk is en noteer de URI.  
 
-5. Het marketplace-item publiceren naar Azure Stack met behulp van de **toevoegen AzsGalleryItem**. Bijvoorbeeld:
+6. Het marketplace-item publiceren naar Azure Stack met behulp van de **toevoegen AzsGalleryItem**. Bijvoorbeeld:
 
    ```powershell
    Add-AzsGalleryItem `
@@ -150,7 +157,7 @@ Gebruik de volgende stappen voor het downloaden van de vereiste marketplace-item
      –Verbose
    ```
 
-6. Nadat het galerie-item wordt gepubliceerd, kunt u het weergeven van de **nieuw** > **Marketplace** deelvenster.  
+7. Nadat het galerie-item wordt gepubliceerd, kunt u het weergeven van de **nieuw** > **Marketplace** deelvenster. Als uw download een oplossingssjabloon is, zorg er dan voor dat u de afhankelijke VHD-installatiekopie ook gedownload.
 
    ![Marketplace](./media/azure-stack-download-azure-marketplace-item/image06.png)
 

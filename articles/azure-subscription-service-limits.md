@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: byvinyal
-ms.openlocfilehash: 28b6f6c269dfb1550b4ed12af3366b483d402f86
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: 8a8482fa93ca902746e4fc8ef6d67b274a926bdc
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-abonnement en servicelimieten, quota's en beperkingen
 Dit document vindt u enkele van de meest voorkomende Microsoft Azure limieten, quota's worden ook wel worden genoemd. Dit document betrekking niet op dit moment op alle Azure-services. Na verloop van tijd wordt de lijst uitgebreid en bijgewerkt ten aanzien van het platform.
@@ -27,7 +27,7 @@ Dit document vindt u enkele van de meest voorkomende Microsoft Azure limieten, q
 Ga naar [overzicht van Azure prijzen](https://azure.microsoft.com/pricing/) voor meer informatie over prijzen voor Azure. Daar kunt u uw kosten met schatten de [Prijscalculator](https://azure.microsoft.com/pricing/calculator/) of via de detailpagina met prijzen voor een service (bijvoorbeeld [VM's van Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)). Zie voor meer tips voor het beheer van uw kosten [te voorkomen dat onverwachte kosten met Azure-facturering en kostenbeheer](billing/billing-getting-started.md).
 
 > [!NOTE]
-> Als u wilt de limiet of bovenstaande quotum verhogen de **standaard limiet**, [opent u een ondersteuningsaanvraag online klant kosteloos](azure-supportability/resource-manager-core-quotas-request.md). De limieten kunnen niet worden verhoogd boven de **maximumlimiet** waarde weergegeven in de volgende tabellen. Als er geen **maximumlimiet** kolom en vervolgens de resource heeft geen instelbare limieten.
+> Als u wilt de limiet of bovenstaande quotum verhogen de **standaard limiet**, [opent u een ondersteuningsaanvraag online klant kosteloos](azure-resource-manager/resource-manager-quota-errors.md). De limieten kunnen niet worden verhoogd boven de **maximumlimiet** waarde weergegeven in de volgende tabellen. Als er geen **maximumlimiet** kolom en vervolgens de resource heeft geen instelbare limieten.
 >
 > [Gratis proefversie van abonnementen](https://azure.microsoft.com/offers/ms-azr-0044p) zijn niet in aanmerking komen voor limiet of quotum toeneemt. Als u hebt een [gratis proefabonnement](https://azure.microsoft.com/offers/ms-azr-0044p), kunt u upgraden naar een [betalen naar gebruik](https://azure.microsoft.com/offers/ms-azr-0003p/) abonnement. Zie voor meer informatie [Upgrade gratis proefversie van Azure naar betalen per gebruik](billing/billing-upgrade-azure-subscription.md) en [gratis proefabonnement Veelgestelde vragen over](https://azure.microsoft.com/free/free-account-faq).
 >

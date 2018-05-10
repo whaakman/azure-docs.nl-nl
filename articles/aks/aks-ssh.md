@@ -3,21 +3,35 @@ title: Voeg SSH toe aan de clusterknooppunten Azure Kubernetes Service (AKS)
 description: Een SSH-verbinding maken met een Azure Kubernetes Service (AKS)-cluster met knooppunten
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c2b77e558db0e323370c24b87a75357235677f7e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: c9d142a58f53c28c8f791692cf48b648522ccb99
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="ssh-into-azure-kubernetes-service-aks-cluster-nodes"></a>Voeg SSH toe aan de clusterknooppunten Azure Kubernetes Service (AKS)
 
 Soms moet u mogelijk toegang krijgen tot een knooppunt Azure Kubernetes Service (AKS) voor onderhoud, logboekgegevens verzameld of andere bewerkingen voor het oplossen van problemen. Azure Kubernetes Service (AKS) knooppunten worden niet blootgesteld aan internet. Gebruik de stappen uiteengezet in dit document een SSH-verbinding maken met een AKS-knooppunt.
+
+## <a name="reset-ssh-keys"></a>SSH-sleutels opnieuw instellen
+
+Als u een AKS zonder SSH-sleutels hebt geïmplementeerd, of u geen toegang tot de juiste SSH-sleutels hebt, kunnen u deze opnieuw met de Azure portal.
+
+Blader naar uw cluster AKS, selecteer een knooppunt AKS (virtuele machine) en selecteer **wachtwoord opnieuw instellen** opnieuw instellen van de openbare SSH-sleutel.
+
+![AKS VM met de knop wachtwoord opnieuw instellen](media/aks-ssh/reset-password.png)
+
+Selecteer **openbare opnieuw SSH-sleutel**, geef de gebruikersnaam van de cluster AKS, namelijk **azueruser** standaard en de kopie in een openbare SSH-sleutel. Selecteer **Update** wanneer u klaar.
+
+![AKS portal VM met de knop wachtwoord opnieuw instellen](media/aks-ssh/reset-password-2.png)
+
+Zodra de SSH-sleutel is opnieuw ingesteld, kunt u een SSH verbinding maakt met behulp van de bijbehorende persoonlijke sleutel.
 
 ## <a name="get-aks-node-address"></a>AKS knooppuntadres ophalen
 
@@ -56,7 +70,7 @@ NAME                       READY     STATUS    RESTARTS   AGE
 aks-ssh-554b746bcf-kbwvf   1/1       Running   0          1m
 ```
 
-Kopieer uw SSH-sleutel naar de schil, de naam van de schil vervangen door de juiste waarde.
+De persoonlijke SSH-sleutel naar de schil kopiëren, de naam van de schil vervangen door de juiste waarde.
 
 ```console
 kubectl cp ~/.ssh/id_rsa aks-ssh-554b746bcf-kbwvf:/id_rsa

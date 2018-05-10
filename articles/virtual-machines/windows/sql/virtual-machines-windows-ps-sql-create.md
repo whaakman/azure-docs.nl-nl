@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: 7dff9fd736b1b0c616ee2d4f2591d632345156b9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2f0d9c42e32f2dd1181eac8d74c324b5ff2b0c53
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Het inrichten van SQL Server virtuele machines met Azure PowerShell
 
@@ -31,7 +31,7 @@ In dit artikel is de Azure PowerShell-moduleversie 3,6 of hoger vereist. Voer `G
 
 ## <a name="configure-your-subscription"></a>Configureer uw abonnement
 
-1. Open PowerShell en toegang tot uw Azure-account maken door het uitvoeren van de **Connect-AzureRmAccount** opdracht.
+1. Open PowerShell en zorg dat u toegang hebt tot uw Azure-account door de opdracht **Connect-AzureRmAccount** uit te voeren.
 
    ```PowerShell
    Connect-AzureRmAccount
@@ -246,7 +246,7 @@ $Credential = Get-Credential -Message "Type the name and password of the local a
 ```
 
 ### <a name="set-the-operating-system-properties-for-the-virtual-machine"></a>Stel de eigenschappen van het besturingssysteem voor de virtuele machine
-Nu we klaar zijn voor het instellen van eigenschappen van het besturingssysteem van de virtuele machine met [Set AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) cmdlet in te stellen van het type besturingssysteem als Windows, vereisen de [agent van de virtuele machine](../agent-user-guide.md) om te worden geïnstalleerd, geeft dat de cmdlet mogelijk automatisch bijwerken maakt en stelt de naam van de virtuele machine, de computernaam en de referentie die met behulp van de variabelen die u eerder is geïnitialiseerd.
+Nu we klaar zijn voor het instellen van eigenschappen van het besturingssysteem van de virtuele machine met [Set AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) cmdlet in te stellen van het type besturingssysteem als Windows, vereisen de [agent van de virtuele machine](../../extensions/agent-windows.md) om te worden geïnstalleerd, geeft dat de cmdlet mogelijk automatisch bijwerken maakt en stelt de naam van de virtuele machine, de computernaam en de referentie die met behulp van de variabelen die u eerder is geïnitialiseerd.
 
 De volgende cmdlet om in te stellen van de eigenschappen van het besturingssysteem voor uw virtuele machine worden uitgevoerd.
 

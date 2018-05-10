@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: ashwink
-ms.openlocfilehash: e429ba460a97daed4a7bdf71895fe24c1619a645
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 475ee794d2b67639b447a1ca66b12d3d589425cb
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-monitor-cli-20-quick-start-samples"></a>Azure CLI-2.0 Monitor snel starten-voorbeelden
 Dit artikel ziet u voorbeelden opdrachtregelinterface (CLI)-opdrachten kunt u toegang tot Azure Monitor functies. Monitor voor Azure kunt u voor automatisch schalen Cloud Services, virtuele Machines en Web-Apps en voor het verzenden van meldingen van waarschuwingen of web-URL's op basis van waarden van de geconfigureerde telemetriegegevens aanroepen.
@@ -206,7 +206,7 @@ az monitor autoscale list --resource-group <group name>
 az monitor autoscale show --name <settings name> --resource-group <group name>
 ```
 
-### <a name="set-auotoscale-settings"></a>Instellingen voor het auotoscale
+### <a name="set-autoscale-settings"></a>Instellingen voor automatisch schalen
 
 ```azurecli
 az monitor autoscale create --name <settings name> --resource-group <group name> \

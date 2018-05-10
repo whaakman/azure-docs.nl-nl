@@ -1,25 +1,25 @@
 ---
-title: "Azure Stack firewall plannen voor Azure-Stack geïntegreerd systemen | Microsoft Docs"
+title: Azure Stack firewall plannen voor Azure-Stack geïntegreerd systemen | Microsoft Docs
 description: Beschrijft de Azure-Stack firewall overwegingen voor implementaties met meerdere knooppunten verbonden met een Azure-Stack Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2018
+ms.date: 05/09/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 919618c0779d47f0add02d5e7d3ab9ab4b5bdd10
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3d8a02cc540251d77b61cf0e5b7e2aa8292f1f5f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-stack-firewall-integration"></a>Integratie van Azure Stack-firewall
 Het verdient aanbeveling dat u een firewall-apparaat gebruiken voor het beveiligde Azure-Stack. Hoewel firewalls bij zaken als gedistribueerde denial-of-service (DDOS) aanvallen, inbraakdetectie en inhoudscontrole helpen kunnen, kunnen ze ook een knelpunt doorvoer voor Azure storage-services zoals blobs, tabellen en wachtrijen geworden.
@@ -44,7 +44,7 @@ Enkele van de nadelen van het gebruik van de NAT voor openbare VIP zijn:
 Het verdient aanbeveling momenteel SSL ontsleuteling op alle Azure-Stack-verkeer uitschakelen. Als dit wordt ondersteund in toekomstige updates, worden richtlijnen gegeven die over het inschakelen van SSL-ontsleuteling voor Azure-Stack.
 
 ## <a name="edge-firewall-scenario"></a>Edge-firewall-scenario
-In de implementatie van een edge Azure Stack geïmplementeerd rechtstreeks achter de router van de rand of de firewall. In deze scenario's wordt ondersteund voor de firewall moet boven de rand of als het apparaat van de rand fungeert als deze gelijk Cost Multi Path (ECMP) met BGP of statische routering ondersteunt.
+In de implementatie van een edge Azure Stack geïmplementeerd rechtstreeks achter de router van de rand of de firewall. In deze scenario's wordt ondersteund voor de firewall moet boven de rand (Scenario 1), waarbij het ondersteunt zowel actieve en actief / passief firewallconfiguraties of fungeert als het apparaat van rand (Scenario 2) waar deze alleen actief / actief-firewall ondersteunt de configuratie van vertrouwen op gelijk Cost Multi Path (ECMP) met BGP of statische routering voor failover.
 
 Normaal gesproken zijn openbaar routeerbare IP-adressen opgegeven voor het openbare VIP-adresgroep van het externe netwerk tijdens de implementatie. In een edge-scenario, is het niet raadzaam openbaar routeerbare IP-adressen in een ander netwerk gebruiken om beveiligingsredenen. Dit scenario kan een gebruiker om de ervaring voor de volledige zelf gecontroleerde cloud zoals in een openbare cloud zoals Azure.  
 

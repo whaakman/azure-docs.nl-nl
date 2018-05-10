@@ -2,10 +2,10 @@
 title: Het instellen of bewerken van Azure API Management-beleid | Microsoft Docs
 description: Dit onderwerp leest hoe u kunt instellen of bewerken van Azure API Management-beleidsregels.
 services: api-management
-documentationcenter: 
-author: Juliako
+documentationcenter: ''
+author: vladvino
 manager: cflower
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 409069cbc382610a48139df75f0f64b1682d8ee6
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: aaf86a440328e27c8c47b809536951eeaf2104b9
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>Het instellen of bewerken van Azure API Management-beleidsregels
 
@@ -29,8 +29,8 @@ Zie voor gedetailleerde informatie over het beleid [-beleid in Azure API Managem
 
 Als u wilt instellen of bewerken van een beleid, volg de volgende stappen uit:
 
-1. Aanmelden bij de Azure portal op [https://portal.azure.com](https://portal.azure.com).
-2. Blader naar uw APIM-exemplaar.
+1. Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
+2. Blader naar de APIM-instantie.
 3. Klik op de **API's** tabblad.
 4. Selecteer een van de API's die u eerder hebt geïmporteerd.
 5. Selecteer de **ontwerp** tabblad.

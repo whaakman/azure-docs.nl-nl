@@ -1,45 +1,43 @@
 ---
-title: Programmatisch beleid maken en weergeven compatibiliteitsgegevens met Azure-beleid | Microsoft Docs
+title: Programmatisch beleid maken en Nalevingsgegevens met Azure-beleid weergeven
 description: In dit artikel leidt u door via een programma maken en beheren van beleidsregels voor Azure-beleid.
 services: azure-policy
 keywords: ''
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/28/2018
+ms.date: 05/07/2018
 ms.topic: article
 ms.service: azure-policy
 manager: carmonm
 ms.custom: ''
-ms.openlocfilehash: bd0dbb1b6b44b34fc86b8c73fa586b1b4cf880f3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5737c33fc4c139e3b0a5535d371ef7cc1d11b9e6
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Programmatisch beleid maken en Nalevingsgegevens weergeven
 
-In dit artikel leidt u door via een programma maken en beheren van beleid. Ook ziet u hoe de nalevingsstatussen resource weergeven en het beleid. Beleidsdefinities van het afdwingen verschillende regels en acties via uw resources. Afdwinging zorgt ervoor dat resources voldoen aan uw bedrijfsnormen en de serviceovereenkomsten blijven.
+In dit artikel leidt u door via een programma maken en beheren van beleid. Ook ziet u hoe de nalevingsstatussen resource weergeven en het beleid. Beleidsdefinities van het afdwingen verschillende regels en effecten via uw resources. Afdwinging zorgt ervoor dat resources voldoen aan uw bedrijfsnormen en de serviceovereenkomsten blijven.
 
 ## <a name="prerequisites"></a>Vereisten
 
 Voordat u begint, controleert u of de volgende vereisten wordt voldaan:
 
 1. Als u nog niet gedaan hebt, installeert u de [ARMClient](https://github.com/projectkudu/ARMClient). Er is een hulpprogramma waarmee HTTP-aanvragen worden verzonden naar Azure Resource Manager gebaseerde API's.
-2. Werk uw PowerShell-module van Azure RM bij naar de nieuwste versie. Zie voor meer informatie over de nieuwste versie, Azure PowerShell https://github.com/Azure/azure-powershell/releases.
+2. Werk uw PowerShell-module van Azure RM bij naar de nieuwste versie. Zie voor meer informatie over de nieuwste versie [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 3. Registreer de beleid Insights-resourceprovider met Azure PowerShell om ervoor te zorgen dat uw abonnement met de resourceprovider werkt. Als u een resourceprovider wilt registreren, moet u toestemming hebben om de registreeractie voor de resourceprovider uit te voeren. Deze bewerking is opgenomen in de rollen Inzender en Eigenaar. Voer de volgende opdracht uit om de resourceprovider te registreren:
 
   ```azurepowershell-interactive
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.PolicyInsights
+  Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
   ```
 
   Zie voor meer informatie over het registreren en weergeven van de resourceproviders [Resourceproviders en typen](../azure-resource-manager/resource-manager-supported-services.md).
-4. Als u nog niet gedaan hebt, moet u Azure CLI installeren. U kunt de meest recente versie op [Azure CLI-2.0 installeren op Windows](/azure/install-azure-cli-windows?view=azure-cli-latest).
+4. Als u nog niet gedaan hebt, moet u Azure CLI installeren. U kunt de meest recente versie op [Azure CLI-2.0 installeren op Windows](/cli/azure/install-azure-cli-windows).
 
 ## <a name="create-and-assign-a-policy-definition"></a>Maken en toewijzen van een beleidsdefinitie
 
 Er is de eerste stap voor betere zichtbaarheid van uw resources maken en toewijzen van beleid via uw resources. De volgende stap is te leren hoe u via een programma maken en toewijzen van een beleid. Het voorbeeldbeleid audits storage-accounts die zijn geopend met alle openbare netwerken met behulp van PowerShell, Azure CLI en HTTP-aanvragen.
-
-De volgende opdrachten maken beleidsdefinities voor de prijscategorie Standard. De prijscategorie Standard helpt u bij bereiken geschaald management, nalevingsbeoordeling en herstel. Zie voor meer informatie over Prijscategorieën [prijzen van Azure beleid](https://azure.microsoft.com/pricing/details/azure-policy).
 
 ### <a name="create-and-assign-a-policy-definition-with-powershell"></a>Maken en toewijzen van de beleidsdefinitie van een met PowerShell
 
@@ -68,7 +66,7 @@ De volgende opdrachten maken beleidsdefinities voor de prijscategorie Standard. 
 2. Voer de volgende opdracht voor het maken van de beleidsdefinitie van een met behulp van het bestand AuditStorageAccounts.json.
 
   ```azurepowershell-interactive
-  New-AzureRmPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy AuditStorageAccounts.json
+  New-AzureRmPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy 'AuditStorageAccounts.json'
   ```
 
   De opdracht maakt u een beleidsdefinitie van een met de naam _Audit Storage-Accounts is geopend voor openbare netwerken_. Zie voor meer informatie over andere parameters die u kunt gebruiken, [nieuw AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition).
@@ -76,10 +74,8 @@ De volgende opdrachten maken beleidsdefinities voor de prijscategorie Standard. 
 
   ```azurepowershell-interactive
   $rg = Get-AzureRmResourceGroup -Name 'ContosoRG'
-
   $Policy = Get-AzureRmPolicyDefinition -Name 'AuditStorageAccounts'
-
-  New-AzureRmPolicyAssignment -Name 'AuditStorageAccounts' -PolicyDefinition $Policy -Scope $rg.ResourceId –Sku @{Name='A1';Tier='Standard'}
+  New-AzureRmPolicyAssignment -Name 'AuditStorageAccounts' -PolicyDefinition $Policy -Scope $rg.ResourceId
   ```
 
   Vervang _ContosoRG_ met de naam van de beoogde resourcegroep.
@@ -124,7 +120,7 @@ Gebruik de volgende procedure om de beleidsdefinitie van een te maken.
   armclient PUT "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
   ```
 
-  Vervang de preceding_ &lt;subscriptionId&gt; met de ID van uw beoogde abonnement.
+  Vervang de voorgaande &lt;subscriptionId&gt; met de ID van uw beoogde abonnement.
 
 Zie voor meer informatie over de structuur van de query [beleidsdefinities – maken of bijwerken](/rest/api/resources/policydefinitions/createorupdate).
 
@@ -140,10 +136,6 @@ Gebruik de volgende procedure een beleidstoewijzing maken en toewijzen van de be
           "parameters": {},
           "policyDefinitionId": "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Storage Accounts Open to Public Networks",
           "scope": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>"
-      },
-      "sku": {
-          "name": "A1",
-          "tier": "Standard"
       }
   }
   ```
@@ -192,7 +184,7 @@ az policy definition create --name 'audit-storage-accounts-open-to-public-networ
 3. Gebruik de volgende opdracht voor het maken van een beleidstoewijzing. Van de voorbeeldinformatie in vervangen &lt; &gt; symbolen met uw eigen waarden.
 
   ```azurecli-interactive
-  az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>' --sku 'standard'
+  az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
   ```
 
 U kunt de Beleidstoewijzings-ID ophalen met behulp van PowerShell met de volgende opdracht:
@@ -211,38 +203,37 @@ Zie voor meer informatie over hoe u bronbeleid met Azure CLI kunt beheren, [Azur
 
 ## <a name="identify-non-compliant-resources"></a>Niet-compatibele resources identificeren
 
-Een bron is niet-compatibel als deze niet aan beleid of initiatief regels in een toewijzing. De volgende tabel toont hoe verschillende beleidsacties werken met de evaluatie van de voorwaarde voor de resulterende compatibiliteitsstatus:
+Een bron is niet-compatibel als deze niet aan beleid of initiatief regels in een toewijzing. De volgende tabel toont hoe verschillende beleid bij de evaluatie van de voorwaarde voor de resulterende compatibiliteitsstatus:
 
-| **Resource-status** | **Actie** | **Evaluatie van het beleid** | **Compatibiliteitsstatus** |
+| Resource-status | Effect | Evaluatie van het beleid | Compatibiliteitsstatus |
 | --- | --- | --- | --- |
-| Bestaat | Weigeren, controleren, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Niet-compatibel |
-| Bestaat | Weigeren, controleren, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Compatibel |
-| Nieuw | Audit, AuditIfNotExist\* | True | Niet-compatibel |
-| Nieuw | Audit, AuditIfNotExist\* | False | Compatibel |
+| Bestaat | Weigeren, Controleren, Toevoegen\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Niet-compatibel |
+| Bestaat | Weigeren, Controleren, Toevoegen\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Compatibel |
+| Nieuw | Controleren, AuditIfNotExist\* | True | Niet-compatibel |
+| Nieuw | Controleren, AuditIfNotExist\* | False | Compatibel |
 
-\* De acties Append, DeployIfNotExist en AuditIfNotExist vereisen de instructie om te worden voldaan. Welke acties moeten echter ook de voorwaarde bestaan moet FALSE zijn niet compatibel. Indien TRUE, activeert de voorwaarde als evaluatie van de voorwaarde bestaan voor de bijbehorende resources.
+\* De gevolgen Append, DeployIfNotExist en AuditIfNotExist vereisen de instructie om te worden voldaan. De gevolgen is ook vereist voor de voorwaarde bestaan moet FALSE zijn niet compatibel. Indien TRUE, activeert de IF-voorwaarde de evaluatie van de bestaansvoorwaarde voor de gerelateerde resources.
 
 Om beter te begrijpen hoe resources worden gemarkeerd als niet-compatibel, gaan we gebruiken de toewijzing van voorbeeld van een beleid dat hierboven is gemaakt.
 
 Stel bijvoorbeeld dat er een resourcegroep: ContsoRG, met bepaalde opslagaccounts (rood gemarkeerd) die zichtbaar zijn voor openbare netwerken.
 
-![Storage-accounts die zijn blootgesteld aan openbare netwerken](./media/policy-insights/resource-group01.png)
+![Storage-accounts die zijn blootgesteld aan openbare netwerken](media/policy-insights/resource-group01.png)
 
 In dit voorbeeld moet u Let van beveiligingsrisico's. Nu dat u een beleidstoewijzing gemaakt hebt, wordt deze voor alle opslagaccounts in de resourcegroep ContosoRG geëvalueerd. Gebeurtenissen uit te voeren op de drie niet-compatibele storage-accounts, als gevolg daarvan wijzigen van hun statussen voor **niet-compatibel.**
 
-![Niet-compatibele storage-accounts gecontroleerd](./media/policy-insights/resource-group03.png)
+![Niet-compatibele storage-accounts gecontroleerd](media/policy-insights/resource-group03.png)
 
 Gebruik de volgende procedure om resources in een resourcegroep die niet compatibel zijn met de beleidstoewijzing. In het voorbeeld zijn de resources storage-accounts in de resourcegroep ContosoRG.
 
 1. De beleidstoewijzings-ID ophalen met de volgende opdrachten:
 
   ```azurepowershell-interactive
-  $policyAssignment = Get-AzureRmPolicyAssignment | Where-Object {$_.Properties.displayName -eq 'Audit Storage Accounts with Open Public Networks'}
-
+  $policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.displayName -eq 'Audit Storage Accounts with Open Public Networks' }
   $policyAssignment.PolicyAssignmentId
   ```
 
-  Zie voor meer informatie over het ophalen van een beleidstoewijzing ID [Get-AzureRMPolicyAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/Get-AzureRmPolicyAssignment).
+  Zie voor meer informatie over het ophalen van een beleidstoewijzing ID [Get-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/Get-AzureRmPolicyAssignment).
 
 2. Voer de volgende opdracht om de resource-id van de niet-compatibele bronnen gekopieerd naar een JSON-bestand:
 
@@ -302,16 +293,6 @@ De resultaten zien er ongeveer als volgt uit:
 ```
 
 U kunt alleen Beleidsgebeurtenissen met HTTP-aanvragen weergeven zoals beleid-statussen. Zie voor meer informatie over het uitvoeren van query's Beleidsgebeurtenissen de [Beleidsgebeurtenissen](/rest/api/policy-insights/policyevents) artikel.
-
-## <a name="change-a-policy-assignments-pricing-tier"></a>Wijzig de beleidstoewijzing van een van prijscategorie
-
-U kunt de *Set AzureRmPolicyAssignment* PowerShell-cmdlet om bij te werken met prijzen laag naar Standard of vrije voor een bestaande beleidstoewijzing van. Bijvoorbeeld:
-
-```azurepowershell-interactive
-Set-AzureRmPolicyAssignment -Id '/subscriptions/<subscriptionId/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/<policyAssignmentID>' -Sku @{Name='A1';Tier='Standard'}
-```
-
-Zie voor meer informatie over de cmdlet [Set AzureRmPolicyAssignment](/powershell/module/azurerm.resources/Set-AzureRmPolicyAssignment).
 
 ## <a name="next-steps"></a>Volgende stappen
 

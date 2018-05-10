@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 80ae3b526ff429ead5b42769237ce9ee30f30bbd
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 489875e595c9f28a1e30cbb29cde078f1b716f7f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Uw omgeving voorbereiden op door Resource Manager geïmplementeerde virtuele machines
 
@@ -172,7 +172,7 @@ Nadat u de back-up is ingeschakeld, wordt uw back-upbeleid volgens schema uitgev
 Als u problemen met de registratie van de virtuele machine hebt, raadpleegt u de volgende informatie over het installeren van de VM-agent en op de netwerkverbinding. Moet u waarschijnlijk niet de volgende informatie als u virtuele machines die zijn gemaakt in Azure beveiligt. Maar als u uw virtuele machines naar Azure hebt gemigreerd, moet u dat u de VM-agent correct geïnstalleerd en dat de virtuele machine met het virtuele netwerk communiceren kan.
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>De VM-agent installeren op de virtuele machine
-Voor de back-up-extensie te kunnen gebruiken, de Azure [VM-agent](../virtual-machines/windows/agent-user-guide.md) moet worden geïnstalleerd op virtuele machine van Azure. Als uw virtuele machine is gemaakt vanuit Azure Marketplace, is de VM-agent al aanwezig op de virtuele machine. 
+Voor de back-up-extensie te kunnen gebruiken, de Azure [VM-agent](../virtual-machines/extensions/agent-windows.md) moet worden geïnstalleerd op virtuele machine van Azure. Als uw virtuele machine is gemaakt vanuit Azure Marketplace, is de VM-agent al aanwezig op de virtuele machine. 
 
 De volgende informatie is bedoeld voor situaties waarin u *niet* gemaakt met behulp van een virtuele machine uit Azure Marketplace. U kunt bijvoorbeeld een virtuele machine gemigreerd van een on-premises datacenter. In dat geval moet de VM-agent worden geïnstalleerd ter bescherming van de virtuele machine.
 
@@ -180,9 +180,9 @@ Als u problemen back-ups van de virtuele machine in Azure hebt, gebruikt u de vo
 
 | **Bewerking** | **Windows** | **Linux** |
 | --- | --- | --- |
-| De VM-agent installeren |Download en installeer de [agent-MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). U moet administrator-bevoegdheden om de installatie te voltooien. |Installeer de meest recente [Linux-agent](../virtual-machines/linux/agent-user-guide.md). U moet administrator-bevoegdheden om de installatie te voltooien. Het is raadzaam om de installatie van de agent van uw opslagplaats voor distributie. We *wordt niet aanbevolen* installeren van de Linux-VM-agent rechtstreeks vanuit GitHub.  |
-| De VM-agent bijwerken |Bijwerken van de VM-agent is net zo eenvoudig als het opnieuw installeren van de [binaire bestanden voor VM-agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br><br>Zorg ervoor dat er geen back-upbewerking wordt uitgevoerd terwijl de VM-agent wordt bijgewerkt. |Volg de instructies voor [bijwerken van de Linux VM-agent](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Het is raadzaam om de agent van uw opslagplaats distributiepunten bijwerken. We *wordt niet aanbevolen* bijwerken van de Linux VM-agent rechtstreeks vanuit GitHub.<br><br>Zorg ervoor dat er geen back-upbewerking wordt uitgevoerd terwijl de VM-agent wordt bijgewerkt. |
-| De installatie van de VM-agent valideren |1. Blader naar de map C:\WindowsAzure\Packages in de Azure VM. <br><br>2. Het bestand WaAppAgent.exe niet vinden. <br><br>3. Klik met de rechtermuisknop op het bestand, ga naar **Eigenschappen** en selecteer vervolgens het tabblad **Details**. De **productversie** veld moet 2.6.1198.718 of hoger. |N/A |
+| De VM-agent installeren |Download en installeer de [agent-MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). U hebt Administrator-bevoegdheden nodig om de installatie te kunnen uitvoeren. |<li> Installeer de meest recente [Linux-agent](../virtual-machines/extensions/agent-linux.md). U hebt Administrator-bevoegdheden nodig om de installatie te kunnen uitvoeren. Het is raadzaam om de installatie van agent van uw opslagplaats voor distributie. We **wordt niet aanbevolen** installeren Linux VM-agent rechtstreeks vanuit github.  |
+| De VM-agent bijwerken |Om de VM-agent bij te werken hoeft u alleen de [binaire bestanden voor de VM-agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) opnieuw te installeren. <br>Zorg ervoor dat er geen back-upbewerking wordt uitgevoerd terwijl de VM-agent wordt bijgewerkt. |Volg de instructies voor het [bijwerken van de Linux VM-agent](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Het is raadzaam om de agent van uw opslagplaats distributiepunten bijwerken. We **wordt niet aanbevolen** bijwerken Linux VM-agent rechtstreeks vanuit github.<br>Zorg ervoor dat er geen back-upbewerking wordt uitgevoerd terwijl de VM-agent wordt bijgewerkt. |
+| De installatie van de VM-agent valideren |<li>Ga naar de map *C:\WindowsAzure\Packages* in de Azure VM. <li>Het bestand WaAppAgent.exe moet hier aanwezig zijn.<li> Klik met de rechtermuisknop op het bestand, ga naar **Eigenschappen** en selecteer vervolgens het tabblad **Details**. In het veld Productversie moet versie 2.6.1198.718 of hoger worden weergegeven. |N/A |
 
 ### <a name="backup-extension"></a>Backup-extensie
 Nadat de VM-agent is geïnstalleerd op de virtuele machine, wordt in de Azure Backup-service de Backup-extensie in de VM-agent geïnstalleerd. Upgrades naadloos de Backup-service en -patches van de Backup-extensie.

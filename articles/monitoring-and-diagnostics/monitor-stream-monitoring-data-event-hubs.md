@@ -3,7 +3,7 @@ title: Het bewaken van gegevens naar Event Hubs Azure Stream | Microsoft Docs
 description: Informatie over het streamen van alle Azure-bewaking gegevens naar een event hub te halen van de gegevens in een SIEM-partner of -hulpprogramma voor analyse.
 author: johnkemnetz
 manager: robb
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.service: monitoring-and-diagnostics
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/05/2018
 ms.author: johnkem
-ms.openlocfilehash: 1b1c50f106be8848fb1f32deefa6cb9acb7a298a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9cc4eb8d8f1494a7ea7a63297751f8e251aedf05
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Stroom Azure voor het bewaken van gegevens naar een event hub voor verbruik door een extern hulpprogramma
 
@@ -79,7 +79,7 @@ U moet een agent voor het verzenden van Gast OS bewakingsgegevens in een event h
 
 ### <a name="stream-linux-data-to-an-event-hub"></a>Stream Linux-gegevens naar een event hub
 
-De [Linux Azure diagnoseagent](../virtual-machines/linux/diagnostic-extension.md) kan worden gebruikt voor het verzenden van gegevens van een Linux-machine naar een event hub bewaking. Dit doen door de event hub toe te voegen als een sink in uw LAD beveiligde instellingen voor het configuratiebestand JSON. [Raadpleeg dit artikel voor meer informatie over het toevoegen van de hub gebeurtenisopvanger aan uw Linux Azure diagnoseagent](../virtual-machines/linux/diagnostic-extension.md#protected-settings).
+De [Linux Azure diagnoseagent](../virtual-machines/extensions/diagnostics-linux.md) kan worden gebruikt voor het verzenden van gegevens van een Linux-machine naar een event hub bewaking. Dit doen door de event hub toe te voegen als een sink in uw LAD beveiligde instellingen voor het configuratiebestand JSON. [Raadpleeg dit artikel voor meer informatie over het toevoegen van de hub gebeurtenisopvanger aan uw Linux Azure diagnoseagent](../virtual-machines/extensions/diagnostics-linux.md#protected-settings).
 
 > [!NOTE]
 > U instellen streaming van Gast OS bewakingsgegevens naar een event hub in de portal niet. In plaats daarvan moet u handmatig het configuratiebestand bewerken.

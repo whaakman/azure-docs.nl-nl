@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 05/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 0896f2b23f9b74e12935c0a8b073b64dc743e6a8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 469e72a70d23b3d23eeeb68b3aa2a9e3527d038e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="copy-data-from-netezza-using-azure-data-factory-beta"></a>Gegevens kopiëren van Netezza met behulp van Azure Data Factory (bèta)
 
@@ -50,6 +50,13 @@ De volgende eigenschappen worden ondersteund voor Netezza gekoppelde service:
 | type | De eigenschap type moet worden ingesteld op: **Netezza** | Ja |
 | connectionString | Een ODBC-verbindingsreeks verbinding maken met Netezza. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. U kunt Self-hosted integratie Runtime of Azure integratie Runtime gebruiken (als uw gegevensarchief openbaar toegankelijk). Als niet wordt opgegeven, wordt de standaardwaarde Azure integratie Runtime. |Nee |
+
+Een typische verbindingsreeks is `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`. Meer eigenschappen die u per uw aanvraag instellen kunt:
+
+| Eigenschap | Beschrijving | Vereist |
+|:--- |:--- |:--- |:--- |
+| SecurityLevel | Het niveau van beveiliging SSL/TLS () die gebruikmaakt van het stuurprogramma voor de verbinding met het gegevensarchief. Bijvoorbeeld `SecurityLevel=preferredSecured`. Ondersteunde waarden zijn:<br/>-Alleen niet-beveiligde (**onlyUnSecured**): het stuurprogramma maakt geen gebruik van SSL.<br/>- **Voorkeur onbeveiligd (preferredUnSecured) (standaard)**: als de server een keuze biedt, het stuurprogramma geen gebruik van SSL. <br/>- **Voorkeur beveiligd (preferredSecured)**: als de server een keuze biedt, SSL wordt gebruikt door het stuurprogramma. <br/>- **Alleen beveiligd (onlySecured)**: het stuurprogramma geen verbinding maken tenzij een SSL-verbinding beschikbaar is | Nee |
+| CACertBestand | Het volledige pad naar het SSL-certificaat dat wordt gebruikt door de server. Bijvoorbeeld `UseSystemTrustStore=<cert path>;`| Ja, als SSL is ingeschakeld |
 
 **Voorbeeld:**
 

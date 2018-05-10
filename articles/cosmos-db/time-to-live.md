@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: 61db8f85e73d2c071bdec0ace60911813fa4f0e8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 13f2caa631817a5745f39b44faccb11252a2d549
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Gegevens in Azure Cosmos DB verzamelingen automatisch met TTL verloopt
 Toepassingen kunnen maken en opslaan van de enorme hoeveelheden gegevens. Sommige van deze gegevens, zoals machine gegenereerde gegevens, logboeken en gebruiker gebeurtenissessie informatie is alleen nuttig voor een beperkte periode. Zodra de gegevens wordt overtollige aan de behoeften van de toepassing het is veilig om deze gegevens verwijderen en de opslagbehoeften van een toepassing te verminderen.
@@ -124,7 +124,7 @@ U kunt de TTL voor een document opnieuw instellen als volgt een schrijfbewerking
     Document readDocument = response.Resource;
     readDocument.TimeToLive = 60 * 30 * 30; // update time to live
     
-    response = await client.ReplaceDocumentAsync(salesOrder);
+    response = await client.ReplaceDocumentAsync(readDocument);
 
 ## <a name="removing-ttl-from-a-document"></a>TTL verwijderen uit een document
 Als een TTL-waarde is ingesteld op een document en niet langer dat document wilt verloopt, kunt vervolgens u ophalen van het document, verwijder de TTL-veld en vervang het document op de server. Als het veld TTL wordt verwijderd uit het document, wordt de standaardwaarde van de verzameling worden toegepast. Om te stoppen van een document verlopen en niet overgenomen van de verzameling moet u de TTL-waarde ingesteld op-1.
@@ -136,7 +136,7 @@ Als een TTL-waarde is ingesteld op een document en niet langer dat document wilt
     Document readDocument = response.Resource;
     readDocument.TimeToLive = null; // inherit the default TTL of the collection
     
-    response = await client.ReplaceDocumentAsync(salesOrder);
+    response = await client.ReplaceDocumentAsync(readDocument);
 
 ## <a name="disabling-ttl"></a>TTL uitschakelen
 Als u wilt uitschakelen TTL volledig op een verzameling en stoppen van het achtergrondproces van verlopen documenten zoekt u de eigenschap DefaultTTL in de verzameling moeten worden verwijderd. Als u deze eigenschap verschilt van het instellen op -1. Instellen op 1 betekent dat nieuwe documenten die worden toegevoegd aan de verzameling wordt permanent live, maar u kunt deze waarschuwing negeren op specifieke documenten in de verzameling. Verwijderen van deze eigenschap volledig uit de verzameling betekent dat er geen documenten verloopt, zelfs als er documenten waarvoor een eerdere standaard expliciet worden genegeerd.

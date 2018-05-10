@@ -6,8 +6,8 @@ documentationcenter: ''
 author: asmalser
 manager: mtillman
 editor: ''
-ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
+ms.component: app-mgmt
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: bded73b4a335dc85a84691f5edabac5055f43cca
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b57c6841566f3fd75ca0c48e055f54513247cb30
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Het beheer van gebruikersaccount inrichten voor zakelijke apps in Azure portal
 In dit artikel wordt beschreven hoe u de [Azure-portal](https://portal.azure.com) voor het beheren van automatische account gebruikersaanvragen en verwijderen van gegevens voor toepassingen die ondersteuning bieden voor deze, met name lijsten die zijn toegevoegd in de categorie 'aanbevolen' van de [Azure Active Directory-toepassingsgalerie](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Zie voor meer informatie over automatische account gebruikersaanvragen en hoe het werkt, [gebruikersaanvragen automatiseren en Deprovisioning voor SaaS-toepassingen met Azure Active Directory](active-directory-saas-app-provisioning.md).
@@ -45,12 +45,12 @@ De **inrichten** deelvenster begint met een **modus** menu ziet u welke inrichti
 Als u de **automatische** optie wordt weergegeven, een scherm weergegeven dat is onderverdeeld in vier secties:
 
 ### <a name="admin-credentials"></a>Referenties voor beheerder
-Dit is waar de referenties nodig voor Azure AD verbinding maken met de toepassing Gebruikersbeheer API worden ingevoerd. De invoer vereist clientdownload is afhankelijk van de toepassing. Zie voor meer informatie over de vereisten voor specifieke toepassingen en het type referentie, de [zelfstudie voor de configuratie voor de specifieke toepassing](active-directory-saas-app-provisioning.md).
+Deze sectie is waar de referenties nodig voor Azure AD verbinding maken met de toepassing Gebruikersbeheer API worden ingevoerd. De invoer vereist clientdownload is afhankelijk van de toepassing. Zie voor meer informatie over de vereisten voor specifieke toepassingen en het type referentie, de [zelfstudie voor de configuratie voor de specifieke toepassing](active-directory-saas-app-provisioning.md).
 
 Als u de **verbinding testen** knop kunt u de referenties testen door Azure AD poging verbinding maken met de app de app met behulp van de opgegeven referenties inrichten.
 
 ### <a name="mappings"></a>Toewijzingen
-Dit is waar beheerders kunnen weergeven en bewerken welke kenmerken gebruikersstroom tussen Azure AD en de doeltoepassing wanneer gebruikersaccounts worden ingericht of bijgewerkt.
+Deze sectie is waar beheerders kunnen weergeven en bewerken welke kenmerken gebruikersstroom tussen Azure AD en de doeltoepassing wanneer gebruikersaccounts worden ingericht of bijgewerkt.
 
 Er is een vooraf geconfigureerde verzameling toewijzingen tussen Azure AD-gebruikersobjecten en gebruikersobjecten van elke SaaS-app. Sommige apps beheren andere soorten objecten, zoals groepen of contactpersonen. Selecteer een van de toewijzingen in de tabel ziet u de editor voor kolomtoewijzing aan de rechterkant, waar ze kunnen worden bekeken en aangepast.
 
@@ -59,13 +59,13 @@ Er is een vooraf geconfigureerde verzameling toewijzingen tussen Azure AD-gebrui
 Ondersteunde aanpassingen zijn onder andere:
 
 * Inschakelen en uitschakelen van de toewijzingen voor specifieke objecten, zoals het Azure AD-gebruikersobject in de SaaS-app gebruikersobject.
-* Bewerken welke kenmerken stromen van het gebruikersobject Azure AD naar de app gebruikersobject. Zie voor meer informatie over toewijzing van kenmerken [kenmerk toewijzing typen](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-types).
-* Filter de inrichting acties die Azure AD worden uitgevoerd op de doeltoepassing. In plaats van Azure AD volledig-objecten synchroniseren, kunt u de acties uitgevoerd beperken. Bijvoorbeeld door het selecteren van **Update**, Azure AD-alleen updates bestaande gebruikers-accounts in een toepassing en geen nieuwe maakt. Door het selecteren van **maken**, Azure alleen nieuwe gebruikersaccounts maakt, maar wordt de bestaande bestanden niet bijgewerkt. Deze functie kan beheerders verschillende toewijzingen voor het maken van een account maken en bijwerken van werkstromen.
+* Het bewerken van de kenmerken die van het gebruikersobject Azure AD naar de app gebruikersobject stromen. Zie voor meer informatie over toewijzing van kenmerken [kenmerk toewijzing typen](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-types).
+* Filter de inrichting acties die Azure AD worden uitgevoerd op de doeltoepassing. In plaats van Azure AD volledig objecten synchroniseren, kunt u de acties uitgevoerd beperken. Bijvoorbeeld door het selecteren van **Update**, Azure AD-alleen updates bestaande gebruikers-accounts in een toepassing en geen nieuwe maakt. Door het selecteren van **maken**, Azure alleen nieuwe gebruikersaccounts maakt, maar wordt de bestaande bestanden niet bijgewerkt. Deze functie kan beheerders verschillende toewijzingen voor het maken van een account maken en bijwerken van werkstromen.
 
 ### <a name="settings"></a>Instellingen
 Deze sectie kan beheerders starten en stoppen van de Azure AD-service voor de geselecteerde toepassing inricht, evenals eventueel de inrichting cache wissen en de service opnieuw starten.
 
-Als inrichting wordt ingeschakeld voor het eerst uitvoert voor een toepassing, schakelt u de service door het wijzigen van de **inrichting Status** naar **op**. Dit zorgt ervoor dat de Azure AD-service inricht om uit te voeren voor een eerste synchronisatie waar deze de gebruikers die zijn toegewezen leest in de **gebruikers en groepen** sectie, zoekt de doeltoepassing voor hen en voert u de inrichting acties die zijn gedefinieerd in de Azure AD **toewijzingen** sectie. Tijdens dit proces slaat de inrichting service in de cache opgeslagen gegevens over welke accounts voor gebruikers die worden beheerd, zodat niet-beheerde accounts in de doeltoepassingen die nooit binnen het bereik van de toewijzing zijn niet worden beïnvloed door de inrichting ongedaan bewerkingen. Na de eerste synchronisatie met de inrichting service automatisch worden gebruikers en groepsobjecten op een interval van tien minuten.
+Als inrichting wordt ingeschakeld voor het eerst uitvoert voor een toepassing, schakelt u de service door het wijzigen van de **inrichting Status** naar **op**. Deze wijziging zorgt ervoor dat de Azure AD-service inricht om uit te voeren voor een eerste synchronisatie waar deze de gebruikers die zijn toegewezen leest in de **gebruikers en groepen** sectie, zoekt de doeltoepassing voor hen en voert u vervolgens de inrichting acties gedefinieerd in de Azure AD **toewijzingen** sectie. Tijdens dit proces slaat de inrichting service in de cache opgeslagen gegevens over welke accounts voor gebruikers die worden beheerd, zodat niet-beheerde accounts in de doeltoepassingen die nooit binnen het bereik van de toewijzing zijn niet worden beïnvloed door de inrichting ongedaan bewerkingen. Na de eerste synchronisatie met de inrichting service automatisch gebruikers en groepen objecten worden in een interval van tien minuten.
 
 Wijzigen van de **inrichting Status** naar **uit** gewoon de inrichting-service wordt onderbroken. In deze status Azure niet maken, bijwerken of verwijderen van een gebruiker of groepsobjecten worden weergegeven in de app. Wijzigen van de status tot on zorgt ervoor dat de service om op te halen waarop dit werd afgebroken.
 
@@ -74,11 +74,11 @@ Selecteren van de **huidige status wissen en opnieuw starten van synchronisatie*
 ### <a name="synchronization-details"></a>Synchronisatiedetails
 Deze sectie bevat aanvullende informatie over de werking van de inrichting service, inclusief de eerste en laatste keer dat de inrichting-service wordt uitgevoerd op de toepassing en hoeveel gebruikers en groepsobjecten worden beheerd.
 
-Vindt u koppelingen naar de **inrichting activiteitenrapport**, waarmee u een logboek van alle gebruikers en groepen hebt gemaakt, bijgewerkt en verwijderd tussen Azure AD en de doeltoepassing en de **inrichting foutenrapport** waarmee u meer gedetailleerde foutberichten worden weergegeven voor gebruiker en groepsobjecten die niet worden gelezen konden, gemaakt, bijgewerkt of verwijderd. 
+Vindt u koppelingen naar de **inrichting activiteitenrapport** die voorziet in een logboek van alle gebruikers en groepen hebt gemaakt, bijgewerkt en verwijderd tussen Azure AD en de doeltoepassing en de **foutenrapportinrichten** die voorziet in gedetailleerde foutberichten worden weergegeven voor gebruikers en groepen objecten die niet konden worden gelezen, gemaakt, bijgewerkt of verwijderd. 
 
 ## <a name="feedback"></a>Feedback
 
-We hopen u zoals uw Azure AD-ervaring. Zorg ervoor dat uw feedback! Plaats uw feedback en ideeën voor verbetering van de **beheerportal** sectie van onze [Feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  We Doe enthousiast bent over het bouwen van cool nieuw per dag uit, en gebruik van de richtlijnen voor vorm en definiëren wat we hierna bouwen.
+Zorg ervoor dat uw feedback! Plaats uw feedback en ideeën voor verbetering van de **beheerportal** sectie van onze [Feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Het technische team is enthousiast over het bouwen van cool nieuw elke dag en het gebruik van de richtlijnen voor vorm en definieert u wat hierna bouwen.
 
 
 [0]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-pane.PNG

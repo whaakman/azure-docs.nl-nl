@@ -2,24 +2,24 @@
 title: Publicatie van toepassingen op afzonderlijke netwerken en locaties met behulp van groepen van de connector in Azure AD-toepassingsproxy | Microsoft Docs
 description: Bevat informatie over het maken en beheren van groepen van connectors in Azure AD-toepassingsproxy.
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 58886fc8d1b713207d8cd2c5547d2f99420ba6eb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f7fcd6e9746984b79ba83d0d9157b356bf315dfe
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publiceren van toepassingen op afzonderlijke netwerken en locaties met groepen van de connector
 
@@ -78,7 +78,7 @@ Neem bijvoorbeeld een organisatie met verschillende virtuele machines die zijn v
   
 Met groepen van Azure AD-toepassingsproxy-connector, kunt u een algemene service de toegang tot alle toepassingen beveiligen zonder aanvullende afhankelijkheid in uw bedrijfsnetwerk inschakelen:
 
-![AzureAD Iaas Multiple Cloud Vendors](./media/application-proxy-publish-apps-separate-networks/application-proxy-multiple-cloud-vendors.png)
+![AzureAD Iaas meerdere Cloud leveranciers](./media/application-proxy-publish-apps-separate-networks/application-proxy-multiple-cloud-vendors.png)
 
 ### <a name="multi-forest--different-connector-groups-for-each-forest"></a>Meerdere forests – verschillende connector groepen voor elke forest
 

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: 5b0d7eb0767bb18cd74c545dc386aa16be487dae
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 75bba953a7a5737f0388e53a9f6f38dd8324eb83
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Uw Linux VM optimaliseren voor Azure
 Maken van virtuele Linux-machine (VM) is eenvoudig doen vanaf de opdrachtregel of in de portal. Deze zelfstudie laat zien hoe u om te controleren of u dit hebt ingesteld om de prestaties van het Microsoft Azure-platform te optimaliseren. In dit onderwerp maakt gebruik van een virtuele Ubuntu Server-machine, maar u kunt ook maken Linux virtuele machine met [uw eigen installatiekopieën die u als sjabloon](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -28,7 +28,7 @@ Maken van virtuele Linux-machine (VM) is eenvoudig doen vanaf de opdrachtregel o
 ## <a name="prerequisites"></a>Vereisten
 In dit onderwerp wordt ervan uitgegaan dat u hebt al een werkende Azure-abonnement ([gratis proefversie te registreren](https://azure.microsoft.com/pricing/free-trial/)) en u hebt al een virtuele machine ingericht in uw Azure-abonnement. Zorg ervoor dat u de meest recente hebt [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij uw Azure-abonnement met [az aanmelding](/cli/azure/reference-index#az_login) voordat u [een virtuele machine maken](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="azure-os-disk"></a>Azure OS Disk
+## <a name="azure-os-disk"></a>Azure Besturingssysteemschijf
 Wanneer u een Linux-VM in Azure maakt, heeft deze twee schijven zijn gekoppeld. **/ dev/sda** staat voor de schijf OS **/dev/sdb** staat voor de tijdelijke schijf.  Gebruik niet de belangrijkste besturingssysteemschijf (**/dev/sda**) voor alles behalve het besturingssysteem die is geoptimaliseerd voor snelle VM-opstarten en biedt geen goede prestaties voor uw werkbelastingen. U wilt een of meer schijven toevoegen aan uw virtuele machine persistent ophalen en opslag van uw gegevens geoptimaliseerd. 
 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>Het toevoegen van schijven voor grootte- en prestatiedoelen
@@ -132,6 +132,6 @@ Denk eraan dat als met alle optimalisatie discussies die u nodig hebt voor het u
 Sommige nuttig koppelingen naar aanvullende bronnen: 
 
 * [Premium Storage: opslag met hoge prestaties voor de werkbelasting van virtuele Azure-machines](premium-storage.md)
-* [Gebruikershandleiding voor Azure Linux-Agent](agent-user-guide.md)
+* [Gebruikershandleiding voor Azure Linux-Agent](../extensions/agent-linux.md)
 * [MySQL-prestaties op Azure Linux virtuele machines optimaliseren](classic/optimize-mysql.md)
 * [Configureren van Software-RAID op Linux](configure-raid.md)

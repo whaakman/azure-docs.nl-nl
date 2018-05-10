@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 533a80edbb115dfd324db9e4488e5c66dc36667e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 77effb7892e6d59087d07109958f4682886f12db
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Problemen met SSH-verbindingen met een Azure Linux VM die is mislukt, fouten, of wordt geweigerd
 Er zijn diverse redenen dat u op problemen Secure Shell (SSH), SSH verbindingsfouten stuit, of SSH wordt geweigerd wanneer u probeert verbinding maken met virtuele Linux-machine (VM). Dit artikel helpt u bij het vinden en los de problemen. U kunt de Azure-portal, Azure CLI of uitbreiding van de VM-toegang voor Linux kunt oplossen van problemen met de verbinding.
@@ -80,7 +80,7 @@ Gebruik van netwerk-Watcher [volgende hop](../../network-watcher/network-watcher
 ## <a name="use-the-azure-cli-20"></a>De Azure CLI 2.0 gebruiken
 Als u nog niet gedaan hebt, installeert u de nieuwste [Azure CLI 2.0](/cli/azure/install-az-cli2) en meld u aan op een Azure-account met [az aanmelding](/cli/azure/reference-index#az_login).
 
-Als u hebt gemaakt en de installatiekopie van een aangepaste Linux-schijf geüpload, controleert u of de [Microsoft Azure Linux Agent](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) versie 2.0.5 of hoger is geïnstalleerd. VM's zijn gemaakt met behulp van afbeeldingen, is deze uitbreiding voor toegang tot al geïnstalleerd en geconfigureerd voor u.
+Als u hebt gemaakt en de installatiekopie van een aangepaste Linux-schijf geüpload, controleert u of de [Microsoft Azure Linux Agent](../extensions/agent-windows.md) versie 2.0.5 of hoger is geïnstalleerd. VM's zijn gemaakt met behulp van afbeeldingen, is deze uitbreiding voor toegang tot al geïnstalleerd en geconfigureerd voor u.
 
 ### <a name="reset-ssh-configuration"></a>SSH-configuratie opnieuw instellen
 U kunt in eerste instantie voor het instellen van de SSH-configuratie op de standaardwaarden en de SSH-server op de virtuele machine opnieuw opstarten. Houd er rekening mee dat dit niet de gebruikersnaam, wachtwoord of SSH-sleutels wijzigt.
@@ -155,7 +155,7 @@ Als u dat nog niet gedaan hebt, [installeren van de Azure CLI 1.0 en maak verbin
 azure config mode arm
 ```
 
-Als u hebt gemaakt en de installatiekopie van een aangepaste Linux-schijf geüpload, controleert u of de [Microsoft Azure Linux Agent](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) versie 2.0.5 of hoger is geïnstalleerd. VM's zijn gemaakt met behulp van afbeeldingen, is deze uitbreiding voor toegang tot al geïnstalleerd en geconfigureerd voor u.
+Als u hebt gemaakt en de installatiekopie van een aangepaste Linux-schijf geüpload, controleert u of de [Microsoft Azure Linux Agent](../extensions/agent-windows.md) versie 2.0.5 of hoger is geïnstalleerd. VM's zijn gemaakt met behulp van afbeeldingen, is deze uitbreiding voor toegang tot al geïnstalleerd en geconfigureerd voor u.
 
 ### <a name="reset-ssh-configuration"></a>SSH-configuratie opnieuw instellen
 De configuratie van de SSHD is mogelijk onjuist geconfigureerd of de service is een fout opgetreden. U kunt herstellen SSHD om ervoor te zorgen dat de SSH-configuratie zelf is geldig. Opnieuw instellen van SSHD, moet de eerste probleemoplossing die u rekening houden.

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8c90bc4945b613f386f98178949e5451e8fe3673
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: dce0114c19f6153d2cba789cdc00920d42834b2d
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Inzicht in het identiteitenregister van uw IoT-hub
 
@@ -193,7 +193,7 @@ Apparaat-id's worden weergegeven als JSON-documenten met de volgende eigenschapp
 | ETag |vereist alleen-lezen |Een tekenreeks voor een zwakke ETag voor de identiteit van het apparaat als per [RFC7232][lnk-rfc7232]. |
 | auth |optioneel |Een samengestelde-object met de informatie en beveiliging materiaal verificatie. |
 | auth.symkey |optioneel |Een samengestelde-object met een primaire en secundaire sleutel, opgeslagen in base64-indeling. |
-| status |Vereist |Een indicator toegang. Kan **ingeschakeld** of **uitgeschakelde**. Als **ingeschakeld**, het apparaat verbinding mag maken. Als **uitgeschakelde**, dit apparaat geen toegang tot een willekeurig eindpunt apparaat gerichte. |
+| status |vereist |Een indicator toegang. Kan **ingeschakeld** of **uitgeschakelde**. Als **ingeschakeld**, het apparaat verbinding mag maken. Als **uitgeschakelde**, dit apparaat geen toegang tot een willekeurig eindpunt apparaat gerichte. |
 | statusReason |optioneel |Een 128 tekens lang tekenreeks waarin de reden voor de status van het apparaat-id wordt opgeslagen. Alle UTF-8 tekens zijn toegestaan. |
 | statusUpdateTime |alleen-lezen |Een tijdelijke aanduiding met de datum en tijd van de laatste statusupdate. |
 | connectionState |alleen-lezen |Een veld dat aangeeft verbindingsstatus: beide **verbonden** of **verbroken**. Dit veld wordt de Iothub-weergave van de status van het apparaat. **Belangrijke**: dit veld mag alleen worden gebruikt voor ontwikkeling/foutopsporing doeleinden. De verbindingsstatus wordt alleen voor apparaten met behulp van protocollen MQTT of AMQP zijn bijgewerkt. Bovendien is het gebaseerd op protocolniveau pings (MQTT pings of AMQP pings) en er een maximale vertraging van slechts 5 minuten. Daarom kunnen er valse positieven, zoals apparaten gerapporteerd als verbonden, maar die niet zijn verbonden. |
@@ -205,7 +205,7 @@ Apparaat-id's worden weergegeven als JSON-documenten met de volgende eigenschapp
 
 ## <a name="module-identity-properties"></a>Identiteitseigenschappen van de module
 
-Apparaat-id's worden weergegeven als JSON-documenten met de volgende eigenschappen:
+Module-id's worden weergegeven als JSON-documenten met de volgende eigenschappen:
 
 | Eigenschap | Opties | Beschrijving |
 | --- | --- | --- |
@@ -215,7 +215,7 @@ Apparaat-id's worden weergegeven als JSON-documenten met de volgende eigenschapp
 | ETag |vereist alleen-lezen |Een tekenreeks voor een zwakke ETag voor de identiteit van het apparaat als per [RFC7232][lnk-rfc7232]. |
 | auth |optioneel |Een samengestelde-object met de informatie en beveiliging materiaal verificatie. |
 | auth.symkey |optioneel |Een samengestelde-object met een primaire en secundaire sleutel, opgeslagen in base64-indeling. |
-| status |Vereist |Een indicator toegang. Kan **ingeschakeld** of **uitgeschakelde**. Als **ingeschakeld**, het apparaat verbinding mag maken. Als **uitgeschakelde**, dit apparaat geen toegang tot een willekeurig eindpunt apparaat gerichte. |
+| status |vereist |Een indicator toegang. Kan **ingeschakeld** of **uitgeschakelde**. Als **ingeschakeld**, het apparaat verbinding mag maken. Als **uitgeschakelde**, dit apparaat geen toegang tot een willekeurig eindpunt apparaat gerichte. |
 | statusReason |optioneel |Een 128 tekens lang tekenreeks waarin de reden voor de status van het apparaat-id wordt opgeslagen. Alle UTF-8 tekens zijn toegestaan. |
 | statusUpdateTime |alleen-lezen |Een tijdelijke aanduiding met de datum en tijd van de laatste statusupdate. |
 | connectionState |alleen-lezen |Een veld dat aangeeft verbindingsstatus: beide **verbonden** of **verbroken**. Dit veld wordt de Iothub-weergave van de status van het apparaat. **Belangrijke**: dit veld mag alleen worden gebruikt voor ontwikkeling/foutopsporing doeleinden. De verbindingsstatus wordt alleen voor apparaten met behulp van protocollen MQTT of AMQP zijn bijgewerkt. Bovendien is het gebaseerd op protocolniveau pings (MQTT pings of AMQP pings) en er een maximale vertraging van slechts 5 minuten. Daarom kunnen er valse positieven, zoals apparaten gerapporteerd als verbonden, maar die niet zijn verbonden. |

@@ -6,8 +6,8 @@ documentationcenter: ''
 author: asmalser-msft
 manager: mtillman
 editor: ''
-ms.assetid: 4d86f3dc-e2d3-4bde-81a3-4a0e092551c0
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 3b7f2f104046313e7d60cea4ef296f265d204aec
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 19a1ae7ae7acc6fe09a529dd174363735343027e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Systeem voor het identiteitsbeheer van verschillende domeinen gebruiken voor het automatisch inrichten van gebruikers en groepen van Azure Active Directory voor toepassingen
 
@@ -35,7 +35,7 @@ Deze mogelijkheid kan worden gebruikt in combinatie met de functie 'bring your o
 Er zijn twee gebruiksvoorbeelden voor using SCIM in Azure Active Directory:
 
 * **Inrichting van gebruikers en groepen van toepassingen die ondersteuning bieden voor SCIM** toepassingen die ondersteuning bieden voor SCIM 2.0 en bearer-tokens van OAuth gebruiken voor verificatie met Azure AD zonder configuratie werkt.
-* **Maak uw eigen inrichting oplossing voor toepassingen die ondersteuning bieden voor andere inrichting op basis van een API** voor niet-SCIM toepassingen, kunt u een eindpunt SCIM voor de omzetting tussen het eindpunt van de Azure AD SCIM en API biedt ondersteuning voor de gebruiker voor de toepassing maken inrichting. Als u een eindpunt SCIM ontwikkelen, bieden we Common Language Infrastructure (CLI)-bibliotheken en codevoorbeelden die wordt beschreven hoe u met een eindpunt SCIM bieden en vertalen SCIM berichten.  
+* **Bouwen van uw eigen oplossing voor toepassingen die ondersteuning bieden voor andere API-gebaseerde inrichting** voor niet-SCIM toepassingen, kunt u een eindpunt SCIM voor de omzetting tussen het Azure AD SCIM-eindpunt en de toepassing wordt ondersteund voor API maken gebruikers inrichten. Om u te helpen bij het ontwikkelen van een eindpunt SCIM, zijn er bibliotheken en codevoorbeelden die wordt beschreven hoe u met een eindpunt SCIM bieden en vertalen SCIM berichten Common Language Infrastructure (CLI).  
 
 ## <a name="provisioning-users-and-groups-to-applications-that-support-scim"></a>Gebruikers en groepen van toepassingen die ondersteuning bieden voor SCIM inrichten
 Azure AD kan worden geconfigureerd voor het automatisch inrichten toegewezen gebruikers en groepen van toepassingen die worden geïmplementeerd een [systeem voor verschillende domeinen Identity Management 2 (SCIM)](https://tools.ietf.org/html/draft-ietf-scim-api-19) webservice en OAuth bearer-tokens voor authenticatie geaccepteerd. Binnen de SCIM 2.0-specificatie toepassingen moeten voldoen aan deze vereisten voldoet:
@@ -56,7 +56,7 @@ Toepassingen die ondersteuning bieden voor het profiel SCIM is beschreven in dit
 **Verbinding met het maken van een toepassing die SCIM ondersteunt:**
 
 1. Aanmelden bij [de Azure-portal](https://portal.azure.com). 
-2. Blader naar ** Azure Active Directory > zakelijke toepassingen en selecteer **nieuwe toepassing > alle > niet-galerie toepassing**.
+2. Blader naar **Azure Active Directory > bedrijfstoepassingen**, en selecteer **nieuwe toepassing > alle > niet-galerie toepassing**.
 3. Voer een naam voor uw toepassing en klik op **toevoegen** pictogram van een app-object te maken.
     
   ![][1]
@@ -131,12 +131,12 @@ De eenvoudigste manier voor het implementeren van een SCIM-eindpunt dat inrichti
    FileAgnt.exe http://<ip-address>:9000 TargetFile.csv
   ````
 8. In Windows onder **Windows-instellingen > netwerk- en instellingen voor Internet**, selecteer de **Windows Firewall > instellingen voor geavanceerde**, en maak een **regel voor binnenkomende verbindingen** die kan inkomende toegang tot poort 9000.
-9. Als de Windows-computer zich achter een router, moet de router worden geconfigureerd voor het uitvoeren van Network Access Translation tussen de poort 9000 die wordt blootgesteld aan internet en poort 9000 op de Windows-computer. Dit is vereist voor Azure AD kunnen toegang krijgen tot dit eindpunt in de cloud.
+9. Als de Windows-computer zich achter een router, moet de router worden geconfigureerd voor het uitvoeren van Network Access Translation tussen de poort 9000 die wordt blootgesteld aan internet en poort 9000 op de Windows-computer. Deze configuratie is vereist voor Azure AD hebben toegang tot dit eindpunt in de cloud.
 
 **Het voorbeeld SCIM eindpunt in Azure AD registreren:**
 
 1. Aanmelden bij [de Azure-portal](https://portal.azure.com). 
-2. Blader naar ** Azure Active Directory > zakelijke toepassingen en selecteer **nieuwe toepassing > alle > niet-galerie toepassing**.
+2. Blader naar **Azure Active Directory > bedrijfstoepassingen**, en selecteer **nieuwe toepassing > alle > niet-galerie toepassing**.
 3. Voer een naam voor uw toepassing en klik op **toevoegen** pictogram van een app-object te maken. Het application-object gemaakt is bedoeld om de doel-app u zou inrichten en implementeren van eenmalige aanmelding voor, en niet alleen het eindpunt SCIM vertegenwoordigen.
 4. Selecteer in het scherm voor het resulterende de **inrichten** tabblad in de linkerkolom staat.
 5. In de **modus inrichting** selecteert u **automatische**.
@@ -144,7 +144,7 @@ De eenvoudigste manier voor het implementeren van een SCIM-eindpunt dat inrichti
   ![][2]
   *Afbeelding 4: Configureren in de Azure portal-inrichting*
     
-6. In de **Tenant-URL** en voer de beschikbaar gesteld op internet-URL en poort van uw eindpunt SCIM. Zou dit ongeveer http://testmachine.contoso.com:9000 of http://<ip-address>:9000/, waarbij < ip-adres > internet is blootgesteld IP-adres.  
+6. In de **Tenant-URL** en voer de beschikbaar gesteld op internet-URL en poort van uw eindpunt SCIM. De vermelding is ongeveer http://testmachine.contoso.com:9000 of http://<ip-address>:9000/, waarbij < ip-adres > internet is blootgesteld IP-adres.  
 7. Als het eindpunt SCIM een OAuth bearer-token van een verlener dan Azure AD vereist, kopieert u de vereiste OAuth bearer-token naar de optionele **geheim Token** veld. Als dit veld leeg laat, wordt Azure AD een OAuth-bearer-token van Azure AD bij elke aanvraag uitgegeven opnemen. Apps die gebruikmaken van Azure AD als een id-provider kunt controleren of deze Azure AD-verleend token.
 8. Klik op de **testverbinding** knop Azure Active Directory proberen te verbinden met het eindpunt SCIM hebben. Als de pogingen mislukken, wordt informatie over de fout wordt weergegeven.  
 9. Als de pogingen tot verbinding maken met de toepassing te voltooien, klikt u op **opslaan** om op te slaan de beheerdersreferenties.
@@ -239,7 +239,7 @@ Met behulp van de CLI-bibliotheken, kunnen ontwikkelaars die bibliotheken met hu
     }
     }
 
-Deze service moet een HTTP-adres en de server certificaat voor serververificatie hebben waarvan de basiscertificeringsinstantie het volgende is: 
+Deze service moet een HTTP-adres en de server certificaat voor serververificatie hebben waarvan de basiscertificeringsinstantie een van de volgende namen is: 
 
 * CNNIC
 * Comodo
@@ -347,12 +347,12 @@ Ontwikkelaars met behulp van de bibliotheken CLA is geleverd door Microsoft voor
 ## <a name="user-and-group-schema"></a>Schema voor gebruikers en groepen
 Azure Active Directory kunnen twee soorten resources met webservices SCIM inrichten.  Deze typen resources zijn gebruikers en groepen.  
 
-User-bronnen worden geïdentificeerd door de schema-id en urn: ietf:params:scim:schemas:extension:enterprise:2.0:User, die is opgenomen in deze specificatie van het protocol: http://tools.ietf.org/html/draft-ietf-scim-core-schema.  De standaardtoewijzing van de kenmerken van gebruikers in Azure Active Directory in de kenmerken van resources urn: ietf:params:scim:schemas:extension:enterprise:2.0:User hieronder vindt u in de tabel 1.  
+User-bronnen worden geïdentificeerd door de schema-id 'urn: ietf:params:scim:schemas:extension:enterprise:2.0:User', die is opgenomen in deze specificatie van het protocol: http://tools.ietf.org/html/draft-ietf-scim-core-schema.  De standaardtoewijzing van de kenmerken van gebruikers in Azure Active Directory in de kenmerken van resources 'urn: ietf:params:scim:schemas:extension:enterprise:2.0:User' hieronder vindt u in de tabel 1.  
 
 Groep resources worden geïdentificeerd door de schema-id en http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  Tabel 2 hieronder bevat de standaardtoewijzing van de kenmerken van groepen in Azure Active Directory in de kenmerken van http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group resources.  
 
 ### <a name="table-1-default-user-attribute-mapping"></a>Tabel 1: Standaard Gebruikerskoppeling kenmerk
-| Azure Active Directory-gebruiker | urn: ietf:params:scim:schemas:extension:enterprise:2.0:User |
+| Azure Active Directory-gebruiker | 'urn: ietf:params:scim:schemas:extension:enterprise:2.0:User' |
 | --- | --- |
 | IsSoftDeleted |actief |
 | displayName |displayName |
@@ -534,7 +534,7 @@ De volgende afbeelding ziet u de Azure Active Directory voor het beheren van de 
     GET ~/scim/Users?filter=id eq 54D382A4-2050-4C03-94D1-E769F1D15682 and manager eq 2819c223-7f76-453a-919d-413861904646&attributes=id HTTP/1.1
     Authorization: Bearer ...
   ````
-  De waarde van de queryparameter kenmerken id, betekent dat als een gebruikersobject aanwezig is die voldoet aan de expressie die is opgegeven als de waarde van de queryparameter filter vervolgens de service moet reageren met een urn: ietf:params:scim:schemas:core:2.0:User of urn: ietf:params:scim:schemas:extension:enterprise:2.0:User bron, met inbegrip van alleen de waarde van kenmerk van de bron-id.  De waarde van de **id** kenmerk bekend is dat de aanvrager. Het is opgenomen in de waarde van de queryparameter filter; het doel van deze vragen is daadwerkelijk om aan te vragen een minimale representatie van een resource die voldoen aan de filterexpressie een indicatie van het al dan niet een dergelijk object bestaat.   
+  De waarde van de queryparameter kenmerken 'id' betekent dat als een gebruikersobject aanwezig is die voldoet aan de expressie die is opgegeven als de waarde van de queryparameter filter vervolgens de service moet reageren met een ' urn: ietf:params:scim:schemas:core:2.0: Gebruiker' of 'urn: ietf:params:scim:schemas:extension:enterprise:2.0:User' bron, met inbegrip van alleen de waarde van die bron 'id'-kenmerk.  De waarde van de **id** kenmerk bekend is dat de aanvrager. Het is opgenomen in de waarde van de queryparameter filter; het doel van deze vragen is daadwerkelijk om aan te vragen een minimale representatie van een resource die voldoen aan de filterexpressie een indicatie van het al dan niet een dergelijk object bestaat.   
 
   Als de service is gebouwd met behulp van de Common Language Infrastructure-bibliotheken voor het implementeren van services SCIM door Microsoft geleverd, wordt de aanvraag omgezet in een aanroep van de Query-methode van de service provider. De waarde van de eigenschappen van het object dat is opgegeven als de waarde van het argument parameters zijn als volgt: 
   

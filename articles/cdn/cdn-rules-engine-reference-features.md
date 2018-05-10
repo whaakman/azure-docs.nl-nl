@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: v-deasim
-ms.openlocfilehash: c7681d6ed867f218eb871f1e96c18d00813798af
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: fe1f61c7242cf4213b19e9496d557ae7a2253fe8
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Functies in de engine Azure CDN-regels
 Dit artikel vindt u gedetailleerde beschrijvingen van de beschikbare functies voor Azure Content Delivery Network (CDN) [regelengine](cdn-rules-engine.md).
@@ -392,7 +392,7 @@ Deze functie configureren met het definiëren van de volgende opties:
 Optie|Beschrijving
 --|--
 Oorspronkelijke pad| Definieer het relatieve pad naar de soorten waarvan Cachesleutel wordt herschreven aanvragen. Een relatief pad worden gedefinieerd met een base oorsprongpad selecteren en vervolgens een reguliere-expressiepatroon te definiëren.
-Nieuwe pad|Definieer het relatieve pad voor de nieuwe cache-sleutel. Een relatief pad worden gedefinieerd met een base oorsprongpad selecteren en vervolgens een reguliere-expressiepatroon te definiëren. Deze relatieve pad kan dynamisch worden samengesteld door het gebruik van HTTP-variabelen
+Nieuwe pad|Definieer het relatieve pad voor de nieuwe cache-sleutel. Een relatief pad worden gedefinieerd met een base oorsprongpad selecteren en vervolgens een reguliere-expressiepatroon te definiëren. Deze relatieve pad kan dynamisch worden geconstrueerd met behulp van [HTTP variabelen](cdn-http-variables.md).
 **Standaardgedrag:** Cachesleutel van een aanvraag wordt bepaald door de aanvraag-URI.
 
 [Terug naar boven](#azure-cdn-rules-engine-features)
@@ -884,9 +884,9 @@ Een van de volgende acties worden uitgevoerd op een aanvraag-header:
 
 Optie|Beschrijving|Voorbeeld
 -|-|-
-Toevoegen|De opgegeven waarde zal worden toegevoegd aan het einde van de bestaande waarde voor de aanvraag-header.|**Headerwaarde (Client) aanvraag:** Value1 <br/> **Headerwaarde (http-regelengine) aanvraag:** Value2 <br/>**Nieuwe aanvraag-header-waarde:** Value1Value2
-Overschrijven|De waarde van de aanvraag-header wordt ingesteld op de opgegeven waarde.|**Headerwaarde (Client) aanvraag:** Value1 <br/>**Headerwaarde (http-regelengine) aanvraag:** Value2 <br/>**Nieuwe aanvraag-header-waarde:** Value2 <br/>
-Verwijderen|Hiermee verwijdert u de opgegeven aanvraagheader.|**Headerwaarde (Client) aanvraag:** Value1 <br/> **Configuratie van de Client-aanvraagheader wijzigen:** verwijderen van de desbetreffende aanvraagheader. <br/>**Resultaat:** de opgegeven aanvraagkop niet doorgestuurd naar de oorspronkelijke server.
+Toevoegen|De opgegeven waarde zal worden toegevoegd aan het einde van de bestaande waarde voor de aanvraag-header.|**Aanvraag-header-waarde (client):**<br/>Value1<br/>**Aanvraag-header-waarde (regelengine):**<br/>Value2 <br/>**Nieuwe aanvraag-header-waarde:** <br/>Value1Value2
+Overschrijven|De waarde van de aanvraag-header wordt ingesteld op de opgegeven waarde.|**Aanvraag-header-waarde (client):**<br/>Value1<br/>**Aanvraag-header-waarde (regelengine):**<br/>Value2<br/>**Nieuwe aanvraag-header-waarde:**<br/> Value2 <br/>
+Verwijderen|Hiermee verwijdert u de opgegeven aanvraagheader.|**Aanvraag-header-waarde (client):**<br/>Value1<br/>**Client-aanvraag-header-configuratie wijzigen:**<br/>Verwijder de desbetreffende aanvraagheader.<br/>**Resultaat:**<br/>De opgegeven aanvraagkop niet doorgestuurd naar de oorspronkelijke server.
 
 Belangrijke informatie:
 
@@ -922,9 +922,9 @@ Een van de volgende acties worden uitgevoerd op een antwoordheader:
 
 Optie|Beschrijving|Voorbeeld
 -|-|-
-Toevoegen|De opgegeven waarde zal worden toegevoegd aan het einde van de bestaande waarde voor de antwoord-header.|**Antwoord headerwaarde (Client):** Value1 <br/> **Antwoord headerwaarde (http-regelengine):** Value2 <br/>**Nieuwe antwoord headerwaarde:** Value1Value2
-Overschrijven|De waarde van de antwoord-header wordt met de opgegeven waarde worden ingesteld.|**Antwoord headerwaarde (Client):** Value1 <br/>**Antwoord headerwaarde (http-regelengine):** Value2 <br/>**Nieuwe antwoord headerwaarde:** Value2 <br/>
-Verwijderen|Hiermee verwijdert u de opgegeven antwoordheader.|**Antwoord headerwaarde (Client):** Value1 <br/> **Configuratie van de Client antwoordheader wijzigen:** antwoordheader van de desbetreffende verwijderen. <br/>**Resultaat:** de opgegeven antwoordkop niet doorgestuurd naar de aanvrager.
+Toevoegen|De opgegeven waarde zal worden toegevoegd aan het einde van de bestaande waarde voor de antwoord-header.|**De headerwaarde (client) antwoord:**<br />Value1<br/>**De headerwaarde (regelengine) antwoord:**<br/>Value2<br/>**Nieuwe antwoord header-waarde:**<br/>Value1Value2
+Overschrijven|De waarde van de antwoord-header wordt met de opgegeven waarde worden ingesteld.|**De headerwaarde (client) antwoord:**<br/>Value1<br/>**De headerwaarde (regelengine) antwoord:**<br/>Value2 <br/>**Nieuwe antwoord header-waarde:**<br/>Value2 <br/>
+Verwijderen|Hiermee verwijdert u de opgegeven antwoordheader.|**De headerwaarde (client) antwoord:**<br/>Value1<br/>**Client antwoord header-configuratie wijzigen:**<br/>Verwijder de desbetreffende response-header.<br/>**Resultaat:**<br/>De opgegeven antwoordkop niet doorgestuurd naar de aanvrager.
 
 Belangrijke informatie:
 
@@ -998,7 +998,7 @@ Belangrijke informatie:
 - Om te voorkomen dat een aanvraagheader CDN-specifieke die ernaar worden doorgestuurd, moet u deze uit door spaties gescheiden lijst in het veld header lijst verwijderd.
 
 De volgende HTTP-headers zijn opgenomen in de lijst met:
-- via
+- Via
 - X doorgestuurd voor
 - X-doorgestuurd-protocol
 - X-Host
@@ -1234,8 +1234,8 @@ De configuratie van deze functie is vereist voor het instellen van de volgende o
 Optie|Beschrijving
 -|-
 Code|Selecteer de antwoordcode die wordt geretourneerd naar de aanvrager.
-Bron & patroon| Deze instellingen geven aan een aanvraag-URI-patroon waarmee het type van aanvragen die kunnen worden omgeleid. Alleen aanvragen waarvan de URL van de volgende criteria voldoet wordt omgeleid: <br/> <br/> **Bron (of een punt voor toegang tot inhoud):** selecteert u een relatief pad zijn dat een bronserver identificeert. Dit pad is de _/XXXX/_ sectie en de naam van uw eindpunt. <br/> **Bron (patroon):** een patroon dat aanvragen worden aangeduid met het relatieve pad moet worden gedefinieerd. Dit patroon van een reguliere expressie moet een pad dat begint direct na de eerder geselecteerde toegang tot inhoud wijst (Zie hierboven) definiëren. <br/> -Zorg ervoor dat de aanvraag-URI (dat wil zeggen, bron & patroon) eerder gedefinieerde criteria niet conflicteert met eventuele overeenkomst voorwaarden gedefinieerd voor deze functie. <br/> -Geef een patroon; Als u een lege waarde als het patroon, worden alle tekenreeksen worden vergeleken.
-Doel| Definieer de URL waarnaar de bovenstaande aanvragen worden omgeleid. <br/> Dynamisch maken gebruik van deze URL: <br/> -Een reguliere-expressiepatroon <br/>-HTTP variabelen <br/> Vervang de waarden die zijn vastgelegd in het patroon van de bron in het doel-patroon met $_n_ waar _n_ identificeert een waarde door de volgorde waarin deze is vastgelegd. $1 vertegenwoordigt bijvoorbeeld de eerste waarde die is vastgelegd in het patroon van de bron, terwijl $2 de tweede waarde vertegenwoordigt. <br/> 
+Bron & patroon| Deze instellingen geven aan een aanvraag-URI-patroon waarmee het type van aanvragen die kunnen worden omgeleid. Alleen aanvragen waarvan de URL van de volgende criteria voldoet wordt omgeleid: <br/> <br/> **Bron (of een punt voor toegang tot inhoud):** selecteert u een relatief pad zijn dat een bronserver identificeert. Dit pad is de _/XXXX/_ sectie en de naam van uw eindpunt. <br/><br/> **Bron (patroon):** een patroon dat aanvragen worden aangeduid met het relatieve pad moet worden gedefinieerd. Dit patroon van een reguliere expressie moet een pad dat begint direct na de eerder geselecteerde toegang tot inhoud wijst (Zie hierboven) definiëren. <br/> -Zorg ervoor dat de aanvraag-URI (dat wil zeggen, bron & patroon) eerder gedefinieerde criteria niet conflicteert met eventuele overeenkomst voorwaarden gedefinieerd voor deze functie. <br/> -Geef een patroon; Als u een lege waarde als het patroon, worden alle tekenreeksen worden vergeleken.
+Doel| Definieer de URL waarnaar de bovenstaande aanvragen worden omgeleid. <br/><br/> Dynamisch maken gebruik van deze URL: <br/> -Een reguliere-expressiepatroon <br/>- [HTTP-variabelen](cdn-http-variables.md) <br/><br/> Vervang de waarden die zijn vastgelegd in het patroon van de bron in het doel-patroon met $_n_ waar _n_ identificeert een waarde door de volgorde waarin deze is vastgelegd. $1 vertegenwoordigt bijvoorbeeld de eerste waarde die is vastgelegd in het patroon van de bron, terwijl $2 de tweede waarde vertegenwoordigt. <br/> 
 Het is raadzaam een absolute URL gebruiken. Het gebruik van een relatieve URL kan CDN URL's omleiden naar een ongeldig pad.
 
 **Voorbeeldscenario**
@@ -1276,8 +1276,8 @@ Belangrijke informatie:
 
 Optie|Beschrijving
 -|-
- Bron & patroon | Deze instellingen geven aan een aanvraag-URI-patroon waarmee het type van aanvragen die opnieuw kunnen worden geschreven. Alleen aanvragen waarvan de URL van de volgende criteria voldoet herschreven: <br/>     - **Bron (of een punt voor toegang tot inhoud):** selecteert u een relatief pad zijn dat een bronserver identificeert. Dit pad is de _/XXXX/_ sectie en de naam van uw eindpunt. <br/> - **Bron (patroon):** een patroon dat aanvragen worden aangeduid met het relatieve pad moet worden gedefinieerd. Dit patroon van een reguliere expressie moet een pad dat begint direct na de eerder geselecteerde toegang tot inhoud wijst (Zie hierboven) definiëren. <br/> Controleer of dat de aanvraag-URI (dat wil zeggen, bron & patroon) eerder gedefinieerde criteria niet conflicteert met een van de overeenkomst voorwaarden gedefinieerd voor deze functie. Geef een patroon; Als u een lege waarde als het patroon, worden alle tekenreeksen worden vergeleken. 
- Doel  |Definieer de relatieve URL waarnaar de bovenstaande aanvragen worden herschreven door: <br/>    1. Als u een punt voor toegang tot inhoud die een bronserver identificeert. <br/>    2. Het definiëren van een relatief pad met: <br/>        -Een reguliere-expressiepatroon <br/>        -HTTP variabelen <br/> <br/> Vervang de waarden die zijn vastgelegd in het patroon van de bron in het doel-patroon met $_n_ waar _n_ identificeert een waarde door de volgorde waarin deze is vastgelegd. $1 vertegenwoordigt bijvoorbeeld de eerste waarde die is vastgelegd in het patroon van de bron, terwijl $2 de tweede waarde vertegenwoordigt. 
+ Bron & patroon | Deze instellingen geven aan een aanvraag-URI-patroon waarmee het type van aanvragen die opnieuw kunnen worden geschreven. Alleen aanvragen waarvan de URL van de volgende criteria voldoet herschreven: <br/><br/>  - **Bron (of een punt voor toegang tot inhoud):** selecteert u een relatief pad zijn dat een bronserver identificeert. Dit pad is de _/XXXX/_ sectie en de naam van uw eindpunt. <br/><br/> - **Bron (patroon):** een patroon dat aanvragen worden aangeduid met het relatieve pad moet worden gedefinieerd. Dit patroon van een reguliere expressie moet een pad dat begint direct na de eerder geselecteerde toegang tot inhoud wijst (Zie hierboven) definiëren. <br/> Controleer of dat de aanvraag-URI (dat wil zeggen, bron & patroon) eerder gedefinieerde criteria niet conflicteert met een van de overeenkomst voorwaarden gedefinieerd voor deze functie. Geef een patroon; Als u een lege waarde als het patroon, worden alle tekenreeksen worden vergeleken. 
+ Doel  |Definieer de relatieve URL waarnaar de bovenstaande aanvragen worden herschreven door: <br/>    1. Als u een punt voor toegang tot inhoud die een bronserver identificeert. <br/>    2. Het definiëren van een relatief pad met: <br/>        -Een reguliere-expressiepatroon <br/>        - [HTTP-variabelen](cdn-http-variables.md) <br/> <br/> Vervang de waarden die zijn vastgelegd in het patroon van de bron in het doel-patroon met $_n_ waar _n_ identificeert een waarde door de volgorde waarin deze is vastgelegd. $1 vertegenwoordigt bijvoorbeeld de eerste waarde die is vastgelegd in het patroon van de bron, terwijl $2 de tweede waarde vertegenwoordigt. 
  Deze functie kunt de POP's moeten worden herschreven van de URL zonder dat u een traditionele omleiding uitvoert. Dat wil zeggen, ontvangt de aanvrager de dezelfde antwoordcode alsof de herschreven URL hadden aangevraagd.
 
 **Voorbeeldscenario 1**

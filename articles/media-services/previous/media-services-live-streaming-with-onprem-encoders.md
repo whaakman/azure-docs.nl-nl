@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: e1a7c3cec7925c6fb01aafba152dde2383cee442
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: b01e4498e63ab989b0b78246636cba50ed4f82d6
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Live streamen met on-premises-coderingsprogramma's die multi-bitrate streams maken
 
@@ -34,7 +34,7 @@ In Azure Media Services een *kanaal* vertegenwoordigt een pijplijn voor het verw
   > Een Pass Through-methode is de meest voordelige manier om live te streamen.
 
 
-* Een on-premises live codering verzendt een single-bitrate stream naar het kanaal dat is ingeschakeld voor het uitvoeren van live codering met Media Services in een van de volgende indelingen: RTP (MPEG-TS), RTMP of Smooth Streaming (gefragmenteerde MP4). Het kanaal voert vervolgens live codering van de binnenkomende single-bitrate stream naar een multi-bitrate (adaptieve) videostream. De stroom levert Media Services aan klanten die deze vragen.
+* Een on-premises live codering verzendt een single-bitrate stream naar het kanaal dat is ingeschakeld voor het uitvoeren van live codering met Media Services in een van de volgende indelingen: RTMP of Smooth Streaming (gefragmenteerde MP4). Het kanaal voert vervolgens live codering van de binnenkomende single-bitrate stream naar een multi-bitrate (adaptieve) videostream. De stroom levert Media Services aan klanten die deze vragen.
 
 Beginnen met de release van Media Services 2.10 wanneer u een kanaal maakt, kunt u opgeven hoe u uw kanaal voor het ontvangen van de invoerstroom wilt. U kunt ook opgeven of u wilt dat het kanaal live codering van de stroom kan uitvoeren. U hebt hiervoor twee opties:
 

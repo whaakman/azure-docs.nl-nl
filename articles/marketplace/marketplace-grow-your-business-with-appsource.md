@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: ellacroi
-ms.openlocfilehash: f0d9739dda608b7c49ff9a8fbd93d08b301c0b9c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0af34a725849acf6fbb6523f03e90a85ce5ba719
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="grow-your-business-with-appsource"></a>Uw bedrijf met AppSource uitbreiden
 Zowel Azure Marketplace en AppSource zijn de startende punten voor gezamenlijke Ga op de markt activiteiten met Microsoft en een vliegwiel voor zakelijke groei. Launch-promotie, genereren van de vraag en gemeenschappelijke verkoop en marketing gebruikt, mag uw marketplace-aanbieding de spil van uw cloud-business-engine. Er zijn geen kosten voor deelname. Microsoft-klanten Bezoek onze marktplaatsen cloud elke dag om te zoeken naar de juiste apps en services te verbeteren van hun bedrijf. Ons doel is om te verbinden van organisaties met de oplossingen en services van Microsoft en onze ecosysteem voor partners. 
@@ -88,7 +88,7 @@ De volgende tabellen worden de details elke stap van het invullen van uw aanbied
 **Via details - Marketing artefacten**
 | Via instellingen       | Aanbevolen procedures          | 
 |:---------------------------------------- |:----------------------------------------------------- |
-| **Aanbieding-logo (PNG-indeling, 58 x 48)**    | Uw logo moet worden ontworpen en geoptimaliseerd voor een digitaal medium.<br>Logo in PNG-indeling van de aanbieding zoekpagina uploaden. |
+| **Aanbieding-logo (PNG-indeling, 48 x 48)**    | Uw logo moet worden ontworpen en geoptimaliseerd voor een digitaal medium.<br>Logo in PNG-indeling van de aanbieding zoekpagina uploaden. |
 | **Aanbieding-logo (PNG. 216 x 216)**     | Uw logo moet worden ontworpen en geoptimaliseerd voor een digitaal medium. <br>Logo in PNG-indeling voor de aanbieding app-details weergeven van pagina uploaden. |
 | **Meer informatie**   | Ondersteunende verkoop en marketing activa onder 'Meer informatie,' voor het voorbeeld, whitepapers, brochures, controlelijsten, PowerPoints, enzovoort bevatten. Alle bestanden moeten in PDF-indeling. Niet verkocht, moet u de kandidaat informeren. <br>De koppeling toevoegen aan de startpagina van uw app naar al uw documenten en URL parameters toevoegen om te helpen bij te houden bezoekers en proefversies. |
 | **Video's**       | Ten minste één video uploaden, maximaal vier video's zijn toegestaan. De video moet de waarde van uw aanbieding communiceren. Zorg ervoor dat de kandidaat is de hero van het artikel, niet in uw bedrijf. De video moet contact op met de principal uitdagingen en doelstellingen van uw belangrijkste besluit maker persona. <br>Aanbevolen lengte: 60-90 seconden. U woorden die sleutel zoeken op naam van de video's opnemen.<br>Overweeg aanvullende video's, zoals een how-to video. video- of een klant testimonial video een aan de slag. |
@@ -98,7 +98,7 @@ De volgende tabellen worden de details elke stap van het invullen van uw aanbied
 
 Wanneer uw aanbieding op AppSource wordt vermeld, hebt u het recht om weer te geven van de badge 'Beschikbaar op AppSource' op uw website behaald. 
 
-    ![AppSource badge](./media/marketplace-appsource/appsourcebadge.png)
+ ![AppSource badge](./media/marketplace-appsource/appsourcebadge.png)
     
 Deze badge toe te voegen aan uw site bijdraagt aan dat uw aanbieding op AppSource en u kunt een koppeling maken potentiële klanten rechtstreeks naar de pagina in de lijst. De badge AppSource is beschikbaar in drie grootten. U kunt downloaden via de badge samen met instructies voor het gebruik op [promoveren van de beschikbaarheid van uw app op Microsoft AppSource](https://appsource.microsoft.com/blogs/promote-your-app-s-availability-on-microsoft-appsource).
 

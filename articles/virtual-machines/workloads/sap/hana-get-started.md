@@ -2,12 +2,12 @@
 title: 'Snelstartgids: Handmatige installatie van de single instance SAP HANA op Azure Virtual Machines | Microsoft Docs'
 description: Snelstartgids voor handmatige installatie van de single instance SAP HANA op Azure Virtual Machines
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: c51a2a06-6e97-429b-a346-b433a785c9f0
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: 321a86d6ce355273820617e6de9df2b0816c73fa
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 45c7e1b76f64db142fc8fdca85b1e1fa9aca6a42
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Snelstartgids: Handmatige installatie van de single instance SAP HANA op Azure Virtual machines
 ## <a name="introduction"></a>Inleiding
@@ -48,7 +48,7 @@ Op dit moment worden Azure Virtual machines gecertificeerd door SAP voor SAP HAN
 
 Als u zoekt een SAP HANA-exemplaar of S/4HANA of BW/4HANA system zeer snel tijdig worden geïmplementeerd, moet u het gebruik van [SAP-Cloudbibliotheek toestel](http://cal.sap.com). Vindt u documentatie over het implementeren, bijvoorbeeld een systeem S/4HANA via SAP CAL op Azure in [in deze handleiding](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h). Alle moet u beschikken over een Azure-abonnement en een SAP-gebruiker die kan worden geregistreerd met SAP-Cloudbibliotheek toestel is.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 ### <a name="sap-hana-backup"></a>SAP HANA back-up
 Zie voor informatie over back-ups SAP HANA-databases op Azure Virtual machines:
 * [Back-handleiding voor SAP HANA op Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
@@ -251,7 +251,7 @@ Zie voor een beschrijving van de indeling standaard bestandssysteem van SAP HANA
 
 Wanneer u SAP NetWeaver op een standaard SLES/SLES voor SAP-toepassingen 12 Azure-galerie installatiekopie installeert, wordt een bericht weergegeven dat er geen wisselruimte, zoals wordt weergegeven in de volgende schermafbeelding. Als u wilt dit bericht negeren, kunt u handmatig een wisselbestand toevoegen met behulp van **dd**, **mkswap**, en **swapon**. Voor meer informatie over hoe, zoeken naar 'Handmatig toevoegen van een wisselbestand' de [met behulp van de YaST Partitioner](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/sles-for-sap-12-sp1.zip) gedeelte van de SUSE-documentatie.
 
-Er is een andere optie wisselruimte configureren met behulp van de Linux VM-agent. Zie voor meer informatie de [gebruikershandleiding voor Azure Linux Agent](../../linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Er is een andere optie wisselruimte configureren met behulp van de Linux VM-agent. Zie voor meer informatie de [gebruikershandleiding voor Azure Linux Agent](../../extensions/agent-linux.md).
 
 ![Pop-bericht verschijnt dat er onvoldoende wisselruimte is](./media/hana-get-started/image010.jpg)
 
