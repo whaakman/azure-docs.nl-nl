@@ -1,0 +1,177 @@
+- name: Documentatie over Lab Services
+  href: index.yml
+- name: Overzicht
+  items:
+    - name: Over Lab-Services
+      href: lab-services-overview.md
+    - name: Labtypen vergelijken
+      href: compare-lab-types.md
+- name: Zelfstudies
+  items:
+    - name: DevTest Labs
+      items:
+        - name: 1. Een aangepast lab instellen
+          href: tutorial-create-custom-lab.md
+        - name: 2. Een aangepast lab openen
+          href: tutorial-use-custom-lab.md
+    - name: Leslokaallabs
+      items:
+        - name: 1. Een lab-account maken
+          href: tutorial-setup-lab-account.md
+        - name: 2. Een leslokaallab instellen
+          href: tutorial-setup-classroom-lab.md
+        - name: 3. Een leslokaallab openen
+          href: tutorial-connect-virtual-machine-classroom-lab.md
+- name: Voorbeelden
+  items:
+    - name: DevTest Labs
+      items:
+        - name: Resource Manager-sjablonen
+          href: 'https://github.com/Azure/azure-devtestlab/tree/master/Samples'
+        - name: Azure PowerShell
+          href: samples-powershell.md
+        - name: Azure-CLI
+          href: samples-cli.md
+- name: Concepten
+  items:
+    - name: DevTest Labs
+      href: devtest-lab-concepts.md
+      items:
+        - name: Labs gebruiken voor ontwikkelaars
+          href: devtest-lab-developer-lab.md
+        - name: Labs gebruiken voor testomgevingen
+          href: devtest-lab-test-env.md
+        - name: Labs gebruiken voor training
+          href: devtest-lab-training-lab.md
+        - name: DevTest Labs
+          href: devtest-lab-overview.md
+- name: Handleidingen
+  items:
+    - name: Leslokaallabs
+      items:
+        - name: Lab-accounts beheren
+          href: how-to-manage-lab-accounts.md
+        - name: Leslokaallabs beheren
+          href: how-to-manage-classroom-labs.md
+        - name: Leslokaallabs openen
+          href: how-to-use-classroom-lab.md
+    - name: DevTest-labs
+      items:
+        - name: Een aangepast lab maken
+          href: devtest-lab-create-lab.md
+        - name: Een virtuele machine in het aangepaste lab maken
+          href: devtest-lab-create-first-vm.md
+        - name: Beleid voor het aangepaste lab instellen
+          href: devtest-lab-get-started-with-lab-policies.md
+        - name: Virtuele machines in een aangepast lab gebruiken
+          items:
+            - name: Virtuele machines maken
+              href: devtest-lab-add-vm.md
+            - name: Claimbare virtuele machines maken en beheren
+              href: devtest-lab-add-claimable-vm.md
+            - name: Virtuele machines maken en beheren met Azure CLI
+              href: devtest-lab-vmcli.md
+            - name: Een virtuele machine maken op basis van een Resource Manager-sjabloon
+              href: devtest-lab-use-resource-manager-template.md
+            - name: Een VM opnieuw opstarten
+              href: devtest-lab-restart-vm.md
+        - name: Omgevingen gebruiken in een aangepast lab
+          items:
+            - name: Een omgeving maken
+              href: devtest-lab-create-environment-from-arm.md
+        - name: Toegang tot labs beveiligen
+          items:
+            - name: Eigenaars en gebruikers van een lab toevoegen
+              href: devtest-lab-add-devtest-user.md
+            - name: Machtigingen aanpassen met behulp van aangepaste rollen
+              href: devtest-lab-grant-user-permissions-to-specific-lab-policies.md
+        - name: Een aangepast lab configureren
+          items:
+            - name: Beleid en planningen instellen
+              href: devtest-lab-set-lab-policy.md
+            - name: Kostenbeheer configureren
+              href: devtest-lab-configure-cost-management.md
+            - name: Azure Marketplace-installatiekopieën configureren
+              href: devtest-lab-configure-marketplace-images.md
+            - name: Een gelicentieerde installatiekopie inschakelen
+              href: devtest-lab-enable-licensed-images.md
+            - name: Labels toevoegen aan een aangepast lab
+              href: devtest-lab-add-tag.md
+            - name: Post-aankondiging in een aangepast lab
+              href: devtest-lab-announcements.md
+            - name: Ondersteuningsinformatie toevoegen aan een aangepast lab
+              href: devtest-lab-internal-support-message.md
+        - name: Een aangepaste installatiekopie of formule selecteren
+          href: devtest-lab-comparing-vm-base-image-types.md
+        - name: Aangepaste installatiekopieën beheren
+          items:
+            - name: Aangepaste installatiekopie maken vanaf een virtuele machine
+              href: devtest-lab-create-custom-image-from-vm-using-portal.md
+            - name: Aangepaste installatiekopie van een VHD maken met Azure Portal
+              href: devtest-lab-create-template.md
+            - name: Aangepaste installatiekopie van een VHD maken met PowerShell
+              href: devtest-lab-create-custom-image-from-vhd-using-powershell.md
+            - name: VHD-bestand uploaden met AzCopy
+              href: devtest-lab-upload-vhd-using-azcopy.md
+            - name: VHD-bestand uploaden met PowerShell
+              href: devtest-lab-upload-vhd-using-powershell.md
+            - name: VHD-bestand uploaden met Opslagverkenner
+              href: devtest-lab-upload-vhd-using-storage-explorer.md
+        - name: Herbruikbare sjablonen beheren
+          items:
+            - name: Een Git-opslagplaats voor artefacten en sjablonen toevoegen
+              href: devtest-lab-add-artifact-repo.md
+            - name: Formules beheren
+              href: devtest-lab-manage-formulas.md
+        - name: Artefacten beheren
+          items:
+            - name: Aangepast artefacten maken
+              href: devtest-lab-artifact-author.md
+            - name: Problemen met artefacten vaststellen
+              href: devtest-lab-troubleshoot-artifact-failure.md
+        - name: Virtuele netwerken beheren
+          items:
+            - name: Virtuele netwerken configureren
+              href: devtest-lab-configure-vnet.md
+            - name: Een IP-configuratie-optie selecteren
+              href: devtest-lab-shared-ip.md
+        - name: Gegevensschijven beheren
+          items:
+            - name: Gegevensschijven koppelen en ontkoppelen
+              href: devtest-lab-attach-detach-data-disk.md
+        - name: Uw lab schalen
+          href: devtest-lab-scale-lab.md
+        - name: Integratie met CI/CD
+          items:
+            - name: Labs integreren in uw VSTS CI/CD-pijplijn
+              href: devtest-lab-integrate-ci-cd-vsts.md
+        - name: Labs maken of wijzigen met behulp van Resource Manager-sjabloon
+          href: devtest-lab-use-arm-and-powershell-for-lab-resources.md
+- name: Naslaginformatie
+  items:
+    - name: CLI 2.0
+      href: /cli/azure/lab
+    - name: PowerShell
+      href: '/powershell/module/azurerm.devtestlabs/#devtest_labs'
+    - name: REST-API
+      href: 'https://docs.microsoft.com/rest/api/dtl/'
+- name: Resources
+  items:
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=developer-tools'
+    - name: Prijscalculator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Veelgestelde vragen - DevTest Labs
+      href: devtest-lab-faq.md
+    - name: Service-updates
+      href: 'https://azure.microsoft.com/updates/?product=devtest-lab'
+    - name: MSDN-forum
+      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureDevTestLabs'
+    - name: Teamblog
+      href: 'https://blogs.msdn.microsoft.com/devtestlab/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-devtest-labs'
+    - name: Video's
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab'
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/devtest-lab/'

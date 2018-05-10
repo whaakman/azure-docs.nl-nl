@@ -4,7 +4,7 @@ description: Dit artikel bevat een set met aanbevolen procedures voor het gebrui
 services: security
 documentationcenter: na
 author: TomShinder
-manager: swadhwa
+manager: mbaldwin
 editor: TomShinder
 ms.assetid: 7f6aa45f-138f-4fde-a611-aaf7e8fe56d1
 ms.service: security
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: d6d723f40cdc0382fa41a51eb32e7b59f0798627
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 0aaf49aaa31a022e040fc7019a2f115f92555010
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-network-security-best-practices"></a>Aanbevolen beveiligingsprocedures voor Azure-netwerk
 Microsoft Azure kunt u virtuele machines en apparaten verbinding maken met andere apparaten in het netwerk door ze te plaatsen op Azure Virtual Networks. Een Azure-netwerk is een constructie waarmee u virtuele netwerkinterfacekaarten verbinden met een virtueel netwerk om een TCP/IP-basis communicatie tussen netwerkapparaten. Azure virtuele Machines die zijn verbonden met een Azure-netwerk kan verbinding maken met apparaten op de dezelfde Azure Virtual Network, verschillende virtuele netwerken van Azure, op het Internet of zelfs op uw eigen on-premises netwerken.

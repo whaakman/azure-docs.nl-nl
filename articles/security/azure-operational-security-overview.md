@@ -4,7 +4,7 @@ description: Dit artikel bevat een overzicht van de Azure-operationele beveiligi
 services: security
 documentationcenter: na
 author: unifycloud
-manager: swadhwa
+manager: mbaldwin
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: ca42e0cc76bc385f04cb2e010ff91dbb27bd627a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 20dfbd2c5c2c38abddf332dc6a20ddb271c95ace
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-operational-security-overview"></a>Overzicht van Azure operationele beveiliging
 Azure bedrijfsbeveiliging verwijst naar de services, besturingselementen en functies die beschikbaar zijn voor gebruikers voor het beveiligen van hun gegevens, toepassingen en andere elementen in Microsoft Azure. [Azure bedrijfsbeveiliging](https://docs.microsoft.com/azure/security/azure-operational-security) is een framework waarin de kennis die is opgedaan met tal van mogelijkheden die uniek voor Microsoft zijn, met inbegrip van de Microsoft Security Development Lifecycle (SDL), de Microsoft Security Response Programma Center en grondige kennis van de cyberbeveiliging beveiliging threat Liggend.
@@ -42,17 +42,17 @@ OMS is een beheeroplossing cloud-gebaseerde IT met veel aanbiedingen, zoals de a
 De kernfunctionaliteit van OMS wordt geleverd door een reeks services die in Azure worden uitgevoerd. Elke service biedt een specifieke beheerfunctie. U kunt services combineren om verschillende beheerscenario's te bewerkstelligen. Dit omvat:
 
 -   Log Analytics
--   Automatisering
--   Back-up maken
+-   Automation
+-   Backup
 -   Site Recovery
 
 ### <a name="log-analytics"></a>Log Analytics
 [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) biedt bewakingsservices voor OMS door in een centrale opslagplaats gegevens te verzamelen van beheerde resources. Deze gegevens kunnen gebeurtenissen, prestatiegegevens en aangepaste gegevens omvatten die via de API worden geleverd. Na verzameling zijn de gegevens beschikbaar voor waarschuwingen, analyse en export. Met deze methode kunt u gegevens uit een groot aantal bronnen consolideren, zodat u gegevens uit uw Azure-services met uw bestaande on-premises omgeving kunt combineren. De methode maakt ook een duidelijk onderscheid tussen het verzamelen van gegevens en het bewerken hiervan. Zo zijn alle bewerkingen beschikbaar voor alle soorten gegevens.
 
-### <a name="automation"></a>Automatisering
+### <a name="automation"></a>Automation
 Microsoft [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) biedt een manier voor gebruikers om de handmatige, langlopende, foutgevoelige en regelmatig herhaalde taken die vaak worden uitgevoerd in een cloud en enterprise-omgeving te automatiseren. Het bespaart tijd en verhoogt de betrouwbaarheid van regelmatige beheertaken. Deze worden zelfs gepland om met regelmatige intervallen automatisch te worden uitgevoerd. U kunt processen automatiseren met behulp van runbooks of configuratiebeheer automatiseren met behulp van Desired State Configuration.
 
-### <a name="backup"></a>Back-up maken
+### <a name="backup"></a>Backup
 [Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup) is de service op basis van Azure kunt u back-up (of beveiligen) en het herstellen van uw gegevens in de Microsoft cloud. Met Azure Backup vervangt u uw bestaande on-premises of off-site back-upoplossing door een betrouwbare, veilige en kostenbesparende cloudoplossing. Azure Backup biedt meerdere onderdelen die u kunt downloaden en implementeren op de desbetreffende computer, server, of in de cloud. Welk onderdeel, of welke agent, u implementeert, is afhankelijk van wat u wilt beveiligen. Alle onderdelen van Azure Backup (ongeacht of u gegevens on-premises of in de cloud wilt beveiligen) kunnen worden gebruikt om back-ups te maken naar een Recovery Services-kluis in Azure. Zie de [Azure Backup-onderdelen tabel](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup#which-azure-backup-components-should-i-use).
 
 ### <a name="site-recovery"></a>Siteherstel

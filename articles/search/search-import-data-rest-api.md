@@ -8,12 +8,12 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 12/08/2016
-ms.openlocfilehash: b622cffad66dc5d09df2d737bf2c1d30543a4252
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.date: 04/20/2018
+ms.openlocfilehash: 53b20c9db7efe1f8876eec7c0167dc151aa38786
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upload-data-to-azure-search-using-the-rest-api"></a>Gegevens uploaden naar Azure Search met behulp van de REST-API
 > [!div class="op_single_selector"]
@@ -60,9 +60,9 @@ Elk JSON-object in de matrix ''waarde'' vertegenwoordigt een document dat moet w
 Nu u de benodigde veldwaarden voor uw indexbewerkingen hebt verzameld, kunt u de hoofdtekst voor uw HTTP-aanvraag en JSON-aanvraag opstellen om de gegevens te importeren.
 
 #### <a name="request-and-request-headers"></a>Aanvragen en aanvraagheaders
-U moet in de URL de servicenaam, de indexnaam ("hotels" in dit geval) en de juiste API-versie (de huidige API-versie is `2016-09-01` op het moment van publicatie van dit document) opgeven. U moet de aanvraagheaders `Content-Type` en `api-key` definiëren. Voor deze laatste moet u gebruikmaken van een van de administratorsleutels van uw service.
+U moet in de URL de servicenaam, de indexnaam ("hotels" in dit geval) en de juiste API-versie (de huidige API-versie is `2017-11-11` op het moment van publicatie van dit document) opgeven. U moet de aanvraagheaders `Content-Type` en `api-key` definiëren. Voor deze laatste moet u gebruikmaken van een van de administratorsleutels van uw service.
 
-    POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2016-09-01
+    POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 

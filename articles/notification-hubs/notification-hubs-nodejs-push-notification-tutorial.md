@@ -4,33 +4,33 @@ description: Informatie over het gebruik van Notification Hubs pushmeldingen ver
 keywords: push-bericht, push notifications,node.js push, ios push
 services: notification-hubs
 documentationcenter: nodejs
-author: ysxu
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: ded4749c-6c39-4ff8-b2cf-1927b3e92f93
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: yuaxu
-ms.openlocfilehash: ff2dd0c2ededa3664c48b5ff77b05466fceb4b3f
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 7463d41382c59e4f7f03b58dbcbc3f5c45e9d15c
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Pushmeldingen verzenden met Azure Notification Hubs en Node.js
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
 ## <a name="overview"></a>Overzicht
 > [!IMPORTANT]
-> U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een account voor de gratis proefversie maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-nodejs-how-to-use-notification-hubs) voor meer informatie.
+> U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-nodejs-how-to-use-notification-hubs) voor meer informatie.
 > 
 > 
 
-Deze handleiding wordt beschreven hoe u om pushmeldingen te verzenden met behulp van Azure Notification Hubs rechtstreeks vanuit een Node.js-toepassing. 
+Deze handleiding leest u hoe om pushmeldingen te verzenden met behulp van Azure Notification Hubs rechtstreeks vanuit een Node.js-toepassing. 
 
 De scenario's worden behandeld zijn pushmeldingen verzenden naar toepassingen op de volgende platforms:
 
@@ -65,19 +65,19 @@ Start een teksteditor en voeg het volgende toe boven aan de **server.js** -besta
 
     var azure = require('azure');
 
-### <a name="setup-an-azure-notification-hub-connection"></a>Een Azure Notification Hub-verbinding instellen
-De **NotificationHubService** object kunt u samenwerken met notification hubs. De volgende code maakt een **NotificationHubService** -object voor de nofication hub met de naam **hubname**. Voeg deze toe aan de bovenkant van de **server.js** bestand na de instructie voor het importeren van de azure-module:
+### <a name="set-up-an-azure-notification-hub-connection"></a>Een Azure Notification Hub-verbinding instellen
+De **NotificationHubService** object kunt u samenwerken met notification hubs. De volgende code maakt een **NotificationHubService** -object voor de notification hub met de naam **hubname**. Voeg deze toe aan de bovenkant van de **server.js** bestand na de instructie voor het importeren van de azure-module:
 
     var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
 
-De verbinding **connectionstring** waarde kan worden verkregen van de [Azure Portal] door de volgende stappen uit te voeren:
+De verbinding **connectionstring** waarde kan worden verkregen van de [Azure-portal] door de volgende stappen uit te voeren:
 
 1. Klik in het navigatiedeelvenster links op **Bladeren**.
 2. Selecteer **Notification Hubs**, en gaat u naar de hub die u wilt gebruiken voor het voorbeeld. U kunt verwijzen naar de [Windows Store aan de slag zelfstudie](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) als u informatie over het maken van een nieuwe Notification Hub nodig.
 3. Selecteer **instellingen**.
-4. Klik op **toegangsbeleid**. Hier ziet u beide verbindingsreeksen gedeelde en volledige toegang.
+4. Klik op **toegangsbeleid**. Ziet u beide verbindingsreeksen gedeelde en volledige toegang.
 
-![Azure Portal - Notification Hubs](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
+![Azure portal - Notification Hubs](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
 
 > [!NOTE]
 > U kunt ook de verbindingsreeks ophalen met de **Get-AzureSbNamespace** cmdlet geleverd door [Azure PowerShell](/powershell/azureps-cmdlets-docs) of de **azure sb naamruimte weergeven** opdracht met de [Azure-opdrachtregelinterface (Azure CLI)](../cli-install-nodejs.md).
@@ -139,7 +139,7 @@ De **MpnsService** -object biedt een **verzenden** methode die kan worden gebrui
 
 * **Labels** -de label-id. Als er is geen code is opgegeven, wordt de melding verzonden naar alle clients.
 * **Nettolading** -XML-nettolading van het bericht.
-* **Doelnaam**  -  `toast` voor pop-upmeldingen. `token`voor meldingen van de tegel.
+* **Doelnaam**  -  `toast` voor pop-upmeldingen. `token` voor meldingen van de tegel.
 * **NotificationClass** -de prioriteit van de melding. Zie de **elementen voor HTTP-Header** sectie van de [Pushmeldingen vanaf een server](http://msdn.microsoft.com/library/hh221551.aspx) document voor geldige waarden.
 * **Opties** : optioneel aanvraagheaders.
 * **Callback** -callback-functie.

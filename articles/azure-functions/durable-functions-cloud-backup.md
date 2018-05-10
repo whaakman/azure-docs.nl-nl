@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 35877831c7f63c20fee2f2bc3838e73bb98328c0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4e7b7b6af1f41eb0077d8a8605eb2a553c251f8e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Fan-uitgaand/fan-in-scenario in duurzame functies - Cloud back-voorbeeld
 
@@ -57,7 +57,13 @@ De `E2_BackupSiteContent` functie maakt gebruik van de standaard *function.json*
 
 Dit is de code die de orchestrator-functie implementeert:
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_BackupSiteContent/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_BackupSiteContent/index.js)]
 
 Deze functie voor orchestrator in wezen doet het volgende:
 
@@ -67,9 +73,11 @@ Deze functie voor orchestrator in wezen doet het volgende:
 4. Wacht tot alle uploads te voltooien.
 5. Retourneert de som totaal aantal bytes dat is geüpload naar Azure Blob Storage.
 
-U ziet de `await Task.WhenAll(tasks);` regel. Alle aanroepen voor de `E2_CopyFileToBlob` functie zijn *niet* afgewacht. Dit is opzettelijk zodat ze parallel worden uitgevoerd. Wanneer we deze matrix van taken aan doorgeven `Task.WhenAll`, krijgen we weer een taak die won't voltooien *tot alle kopieerbewerkingen hebt voltooid*. Als u ervaring hebt met de taak parallelle bibliotheek (TPL) in .NET, dan dit geen nieuw voor u is. Het verschil is dat deze taken mogelijk gelijktijdig op meerdere virtuele machines worden uitgevoerd en de extensie duurzame functies zorgt ervoor dat de end-to-end-uitvoering tegen recyclen van processen is.
+U ziet de `await Task.WhenAll(tasks);` (C#) en `yield context.df.Task.all(tasks);` (JS) regel. Alle aanroepen voor de `E2_CopyFileToBlob` functie zijn *niet* afgewacht. Dit is opzettelijk zodat ze parallel worden uitgevoerd. Wanneer we deze matrix van taken aan doorgeven `Task.WhenAll`, krijgen we weer een taak die won't voltooien *tot alle kopieerbewerkingen hebt voltooid*. Als u ervaring hebt met de taak parallelle bibliotheek (TPL) in .NET, dan dit geen nieuw voor u is. Het verschil is dat deze taken mogelijk gelijktijdig op meerdere virtuele machines worden uitgevoerd en de extensie duurzame functies zorgt ervoor dat de end-to-end-uitvoering tegen recyclen van processen is.
 
-Na het in afwachting van `Task.WhenAll`, we weten dat alle functieaanroepen zijn voltooid en back-waarden aan ons zijn geretourneerd. Elke aanroep van `E2_CopyFileToBlob` retourneert het aantal bytes geüpload, zodat toe te voegen die alle retourwaarden samen het berekenen van het aantal som totaal aantal bytes is.
+Taken zijn vergelijkbaar met de JavaScript-concept van pas. Echter, `Promise.all` heeft enkele verschillen van `Task.WhenAll`. Het concept van `Task.WhenAll` is overgebracht via als onderdeel van de `durable-functions` JavaScript-module en is uitsluitend van toepassing op het.
+
+Na het in afwachting van `Task.WhenAll` (of de prestaties op te leveren van `context.df.Task.all`), we weten dat alle functieaanroepen zijn voltooid en back-waarden aan ons zijn geretourneerd. Elke aanroep van `E2_CopyFileToBlob` retourneert het aantal bytes geüpload, zodat toe te voegen die alle retourwaarden samen het berekenen van het aantal som totaal aantal bytes is.
 
 ## <a name="helper-activity-functions"></a>Activiteit hulpfuncties
 
@@ -79,7 +87,15 @@ Activiteit hulpfuncties net als bij andere voorbeelden zijn alleen normale funct
 
 En dit is de implementatie:
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_GetFileList/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_GetFileList/index.js)]
+
+De implementatie van JavaScript van `E2_GetFileList` maakt gebruik van de `readdirp` module recursief lezen in de mapstructuur.
 
 > [!NOTE]
 > U wellicht waarom u kan niet alleen plaats deze code rechtstreeks in de orchestrator-functie. U kunt, maar dit strijdig is met een van de fundamentele regels van orchestrator-functies, die is dat ze nooit i/o, inclusief toegang tot lokale bestandssysteem moeten doen.
@@ -88,9 +104,17 @@ De *function.json* voor het bestand `E2_CopyFileToBlob` op dezelfde manier eenvo
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/function.json)]
 
-De implementatie is ook heel eenvoudig. Dit gebeurt dat u een aantal geavanceerde functies van Azure Functions-Bindingen (dat wil zeggen, het gebruik van de `Binder` parameter), maar u hoeft niet te hoeven maken over de gegevens voor dit scenario.
+De C#-implementatie is ook heel eenvoudig. Dit gebeurt dat u een aantal geavanceerde functies van Azure Functions-Bindingen (dat wil zeggen, het gebruik van de `Binder` parameter), maar u hoeft niet te hoeven maken over de gegevens voor dit scenario.
+
+### <a name="c"></a>C#
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+
+De implementatie van JavaScript heeft geen toegang tot de `Binder` functie van Azure Functions, zodat de [Azure-opslag-SDK voor knooppunt](https://github.com/Azure/azure-storage-node) de plaatsvindt. Let op: de SDK vereist een `AZURE_STORAGE_CONNECTION_STRING` app-instelling.
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_CopyFileToBlob/index.js)]
 
 De implementatie laadt het bestand van de schijf en asynchroon streams de inhoud naar een blob met dezelfde naam in de container 'back-ups'. De geretourneerde waarde is het aantal bytes dat wordt gekopieerd naar opslag, dat vervolgens wordt gebruikt door de orchestrator-functie het totaal te berekenen.
 

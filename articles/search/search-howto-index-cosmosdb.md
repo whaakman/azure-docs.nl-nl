@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: eugenesh
 robot: noindex
-ms.openlocfilehash: fcc77104103cea91f5eecb972e1d6e872c933015
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a724057981b5b389011ffc4c2fc93994c2b8be9e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Cosmos DB verbinding te maken met Azure Search met behulp van indexeerfuncties
 
@@ -271,7 +271,7 @@ Als u een aangepaste query gebruikt, zorg ervoor dat de `_ts` eigenschap wordt t
 
 <a name="IncrementalProgress"></a>
 ### <a name="incremental-progress-and-custom-queries"></a>Voortgang van de incrementele en aangepaste query 's
-Incrementele voortgang tijdens het indexeren zorgt ervoor dat als de uitvoering van de indexeerfunctie wordt onderbroken door tijdelijke fouten of uitvoeringstijd limiet, de indexeerfunctie kan worden opgepikt waar deze was gebleven volgende keer dat deze wordt uitgevoerd, in plaats van de volledige verzameling vanaf het begin opnieuw te indexeren. Dit is vooral belangrijk wanneer u grote verzamelingen. 
+Incrementele voortgang tijdens het indexeren zorgt ervoor dat als de uitvoering van de indexeerfunctie wordt onderbroken door tijdelijke fouten of uitvoeringstijd limiet, de indexeerfunctie kan worden opgepikt waar deze was gebleven volgende keer dat deze wordt uitgevoerd, hoeft niet te indexeren van de volledige verzameling vanaf het begin. Dit is vooral belangrijk wanneer u grote verzamelingen. 
 
 Schakel incrementele voortgang bij gebruik van een aangepaste query door ervoor te zorgen dat uw query orders de resultaten worden op de `_ts` kolom. Hierdoor kunnen periodieke controle wijst die Azure Search gebruikt om incrementele voortgang in geval van problemen.   
 

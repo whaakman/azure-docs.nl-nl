@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: elioda
-ms.openlocfilehash: f3110e81a7229f8f279609a64949c7f0ce78d338
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b867976c637cdd4dd9b696382103c63f1af2e8b3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Verzenden van berichten vanuit de cloud op uw apparaat met IoT Hub (.NET)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -176,7 +176,7 @@ In deze sectie, wijzigt u de **SendCloudToDevice** app feedback aanvragen en ont
 ## <a name="next-steps"></a>Volgende stappen
 In deze zelfstudie hebt u geleerd hoe cloud-naar-apparaat-berichten verzenden en ontvangen. 
 
-Zie voor voorbeelden van volledige end-to-end-oplossingen die gebruikmaken van IoT Hub [Azure IoT Suite].
+Zie voor voorbeelden van volledige end-to-end-oplossingen die gebruikmaken van IoT Hub [oplossingsverbetering Azure IoT externe controle].
 
 Zie voor meer informatie over het ontwikkelen van oplossingen met IoT Hub, de [Ontwikkelaarshandleiding voor IoT Hub].
 
@@ -195,5 +195,5 @@ Zie voor meer informatie over het ontwikkelen van oplossingen met IoT Hub, de [O
 [Ontwikkelaarshandleiding voor IoT Hub]: iot-hub-devguide.md
 [aan de slag met IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[Azure IoT Suite]: https://docs.microsoft.com/azure/iot-suite/
+[oplossingsverbetering Azure IoT externe controle]: https://docs.microsoft.com/azure/iot-suite/
 [apparaat Azure IoT SDK's]: iot-hub-devguide-sdks.md

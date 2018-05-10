@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: ba73f386a19cc8bedb8879e6f7eea316154b7a57
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: MT
+ms.openlocfilehash: 75b89ad7f118d107f570b5e323d61bbc9b94bc40
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 Geoptimaliseerd voor geheugen aanbieding voor VM-grootten een hoge ratio van geheugen voor CPU die zijn ideaal voor relationele database-servers, middelgrote tot grote caches en in het geheugen analytics. In dit artikel bevat informatie over het aantal Vcpu, gegevensschijven en NIC's, evenals opslag doorvoer en bandbreedte voor elke grootte in deze groepering. 
 
@@ -26,9 +26,9 @@ Geoptimaliseerd voor geheugen aanbieding voor VM-grootten een hoge ratio van geh
 
 * De Ev3-serie functies de E5-2673 v4 2.3 GHz (Broadwell) processor in een hyper-threaded configuratie biedt een betere toegevoegde waarde voor de meest algemene doel werkbelastingen en de Ev3 uitgelijnd met de virtuele machines in het algemeen van de meeste andere clouds te brengen.  Geheugen is (van 7 GiB/vCPU naar 8 GiB/vCPU) uitgevouwen terwijl schijf en netwerk grenzen op basis van per core uitgelijnd met de overstap naar hyperthreading zijn aangepast.  De Ev3 is het volgen tot aan het hoge geheugen VM-grootten van de D/Dv2 families.
 
-## <a name="esv3-series-sup1sup"></a>Esv3-serie <sup>1</sup>
+## <a name="esv3-series"></a>Esv3-serie 
 
-ACU: 160-190
+ACU: 160-190 <sup>1</sup>
 
 Exemplaren uit de ESv3-serie zijn gebaseerd op Intel XEON ® E5-2673 v4-processors van 2,3 GHz (Broadwell) en kunnen maar liefst 3,5 GHz bereiken door de Intel Turbo Boost Technology 2.0 en maken gebruik van Premium Storage. Ev3-exemplaren zijn ideaal voor geheugenintensieve bedrijfstoepassingen.
 
@@ -51,9 +51,9 @@ Exemplaren uit de ESv3-serie zijn gebaseerd op Intel XEON ® E5-2673 v4-processo
 <sup>3</sup> exemplaar is geïsoleerd, zodat de hardware die zijn toegewezen aan één klant.
 
 
-## <a name="ev3-series-sup1sup"></a>Ev3-serie <sup>1</sup>
+## <a name="ev3-series"></a>Ev3-serie 
 
-ACU: 160 - 190 
+ACU: 160-190 <sup>1</sup>
 
 Exemplaren uit de Ev3-serie zijn gebaseerd op Intel XEON ® E5-2673 v4-processors van 2,3 GHz (Broadwell) en kunnen maar liefst 3,5 GHz bereiken door de Intel Turbo Boost Technology 2.0. Ev3-exemplaren zijn ideaal voor geheugenintensieve bedrijfstoepassingen.
 
@@ -75,9 +75,9 @@ Gegevensschijfopslag wordt apart van virtuele machines in rekening gebracht. Als
 <sup>2</sup> beperkte core grootten beschikbaar. 
 
 
-## <a name="m-series-sup1sup"></a>M-serie <sup>1</sup>
+## <a name="m-series"></a>M-serie 
 
-ACU: 160-180
+ACU: 160-180 <sup>1</sup>
 
 | Grootte            | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Maximum aantal NIC's / netwerkbandbreedte (Mbps) verwacht |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
@@ -95,9 +95,9 @@ ACU: 160-180
 <sup>4</sup> exemplaar is geïsoleerd, zodat de hardware die zijn toegewezen aan één klant.
 <br>
 
-## <a name="gs-series-sup1sup"></a>GS-serie <sup>1</sup>
+## <a name="gs-series"></a>GS-serie 
 
-ACU: 180 - 240
+ACU: 180-240 <sup>1</sup>
 
 | Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Maximum aantal NIC's / netwerkbandbreedte (Mbps) verwacht |
 |---|---|---|---|---|---|---|---|
@@ -131,9 +131,9 @@ ACU: 180 - 240
 <br>
 
 
-## <a name="dsv2-series-sup1sup"></a>DSv2-serie <sup>1</sup>
+## <a name="dsv2-series"></a>DSv2-serie 
 
-ACU: 210 - 250
+ACU: 210-250 <sup>1</sup>
 
 | Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Maximum aantal NIC's / netwerkbandbreedte (Mbps) verwacht |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -174,9 +174,9 @@ ACU: 210 - 250
 
 <br>
 
-## <a name="ds-series-sup1sup"></a>DS-serie <sup>1</sup>
+## <a name="ds-series"></a>DS-serie 
 
-ACU: 160
+ACU: 160 <sup>1</sup>
 
 | Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Maximum aantal NIC's / netwerkbandbreedte (Mbps) verwacht |
 | --- | --- | --- | --- | --- | --- | --- | --- |

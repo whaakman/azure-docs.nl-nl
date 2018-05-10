@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: 6d783a5b36fd71fbcc020025e21aed49e8fd6e05
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: fe192fb83c8bf29af0d02f47da366d8551dd6af6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Veelgestelde vragen over Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Grondbeginselen van Azure DB Cosmos
@@ -190,7 +190,7 @@ Naast de algemene foutcodes voor MongoDB heeft de MongoDB-API een eigen specifie
 
 | Fout               | Code  | Beschrijving  | Oplossing  |
 |---------------------|-------|--------------|-----------|
-| TooManyRequests     | 16500 | Het totale aantal aanvraageenheden verbruikt is groter dan de frequentie van ingerichte aanvraag-eenheid voor de verzameling en is beperkt. | Overweeg het schalen van de doorvoer van de verzameling van de Azure-portal of u opnieuw probeert te. |
+| TooManyRequests     | 16500 | Het totale aantal aanvraageenheden verbruikt is groter dan de frequentie van ingerichte aanvraag-eenheid voor de verzameling en is beperkt. | Houd rekening met de doorvoer naar een container of een set van containers toegewezen van de Azure portal of Bezig met opnieuw opnieuw schalen. |
 | ExceededMemoryLimit | 16501 | Als een multitenant-service heeft de bewerking van de client geheugen aandeel overschreden. | Verminder het bereik van de bewerking via de meest beperkende querycriteria of neem contact op met ondersteuning van de [Azure-portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Voorbeeld:  *&nbsp; &nbsp; &nbsp; &nbsp;db.getCollection('users').aggregate ([<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$match: {naam: 'Andy'}}, <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$sort: {leeftijd: -1} }<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
 ## <a name="develop-with-the-table-api"></a>Met de tabel API ontwikkelen
@@ -386,7 +386,7 @@ De tabel-API biedt dezelfde queryfunctionaliteit als Azure Table storage. Azure 
 ### <a name="when-should-i-change-tablethroughput-for-the-table-api"></a>Wanneer moet ik TableThroughput wijzigen voor de tabel-API?
 Wanneer een van de volgende voorwaarden van toepassing is, moet u TableThroughput wijzigen:
 * U voert een uitpakken, transformeren en laden (ETL) van gegevens of u wilt uploaden van een grote hoeveelheid gegevens in korte tijd. 
-* U moet meer doorvoer van de container op de back-end. Bijvoorbeeld, ziet u dat de gebruikte doorvoer meer dan de ingerichte doorvoer is en u zijn ophalen beperkt. Zie voor meer informatie [Set doorvoer voor Azure Cosmos DB containers](set-throughput.md).
+* U moet meer doorvoer van de container of van een set van containers op de back-end. Bijvoorbeeld, ziet u dat de gebruikte doorvoer meer dan de ingerichte doorvoer is en u zijn ophalen beperkt. Zie voor meer informatie [Set doorvoer voor Azure Cosmos DB containers](set-throughput.md).
 
 ### <a name="can-i-scale-up-or-scale-down-the-throughput-of-my-table-api-table"></a>Kan ik opschalen of terugschroeven de doorvoer van de tabel tabel API? 
 Ja, kunt u de Azure DB die Cosmos-portal scale deelvenster schalen van de doorvoer. Zie voor meer informatie [Set doorvoer](set-throughput.md).
@@ -401,7 +401,7 @@ Geen. Er is geen wijziging in de prijs voor bestaande klanten voor Azure Table-o
 De prijs is afhankelijk van de toegewezen TableThroughput. 
 
 ### <a name="how-do-i-handle-any-throttling-on-the-tables-in-table-api-offering"></a>Hoe u verwerkt beperking op de tabellen in de tabel API aanbieding? 
-Als het percentage aanvragen groter is dan de capaciteit van de ingerichte doorvoer voor de onderliggende container, u krijgt een fout en de SDK de aanroep pogingen door het toepassen van het beleid voor opnieuw proberen.
+Als het percentage aanvragen groter is dan de capaciteit van de ingerichte doorvoer voor de onderliggende container of een set van containers, u krijgt een fout en de SDK de aanroep pogingen door het toepassen van het beleid voor opnieuw proberen.
 
 ### <a name="why-do-i-need-to-choose-a-throughput-apart-from-partitionkey-and-rowkey-to-take-advantage-of-the-table-api-offering-of-azure-cosmos-db"></a>Waarom moet ik een doorvoer naast PartitionKey en RowKey om te profiteren van de tabel-API-aanbod van Azure DB die Cosmos kiezen?
 Als u niet dat een in het bestand app.config of via de portal opgeven, Azure Cosmos-DB een standaard-doorvoer ingesteld voor de container. 

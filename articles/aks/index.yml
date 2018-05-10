@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Container Service (AKS)
+title: Azure Kubernetes Service (AKS)
 metadata:
   document_id: 
-  title: Documentatie voor Azure Container Service (AKS) - zelfstudies, API-verwijzing | Microsoft Docs
+  title: Documentatie voor Azure Kubernetes Service (AKS) - zelfstudies, API-verwijzing | Microsoft Docs
   meta.description: AKS allows you to quickly deploy a production ready Kubernetes cluster in Azure. Learn how to use AKS with these quickstarts, tutorials, and samples.
   services: container-service
   author: carolz
@@ -14,13 +14,13 @@ metadata:
   ms.topic: landing-page
   ms.date: 07-21-2017
   ms.author: carolz
-  ms.openlocfilehash: 7b18da63a74059e48d41f9e0a068a4f7618aa97a
-  ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+  ms.openlocfilehash: b67814bc2dd622758ade1fc76f1fade99f718bd6
+  ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
   ms.translationtype: HT
   ms.contentlocale: nl-NL
-  ms.lasthandoff: 04/18/2018
+  ms.lasthandoff: 05/07/2018
 abstract:
-  description: Azure Container Service (AKS) beheert uw gehoste Kubernetes-omgeving en zorgt dat de implementatie en het beheer van toepassingen in containers snel en eenvoudig is en geen kennis over het beheer van containers vereist. Het verlicht ook de last van actieve bewerkingen en onderhoud door inrichten, upgraden en bronnen op aanvraag schalen mogelijk te maken, zonder uw toepassingen offline te brengen.<div class="IMPORTANT alert"><p>Belangrijk</p><p>AKS (Azure Container Service) is momenteel in de <strong>preview-fase</strong>. Previews worden voor u beschikbaar gesteld op voorwaarde dat u akkoord gaat met de <a href="https://azure.microsoft.com/support/legal/preview-supplemental-terms/">aanvullende gebruiksvoorwaarden</a>. Sommige aspecten van deze functionaliteit kunnen wijzigen voordat deze functionaliteit algemeen beschikbaar wordt.</p></div>
+  description: Azure Kubernetes Service (AKS) beheert uw gehoste Kubernetes-omgeving en zorgt dat de implementatie en het beheer van toepassingen in containers snel en eenvoudig zijn en geen kennis over het beheer van containers vereisen. Het verlicht ook de last van actieve bewerkingen en onderhoud door inrichten, upgraden en bronnen op aanvraag schalen mogelijk te maken, zonder uw toepassingen offline te brengen.<div class="IMPORTANT alert"><p>Belangrijk</p><p>AKS (Azure Kubernetes Service) is momenteel in de <strong>preview-fase</strong>. Previews worden voor u beschikbaar gesteld op voorwaarde dat u akkoord gaat met de <a href="https://azure.microsoft.com/support/legal/preview-supplemental-terms/">aanvullende gebruiksvoorwaarden</a>. Sommige aspecten van deze functionaliteit kunnen wijzigen voordat deze functionaliteit algemeen beschikbaar wordt.</p></div>
 sections:
 - title: QuickStarts van vijf minuten
   items:

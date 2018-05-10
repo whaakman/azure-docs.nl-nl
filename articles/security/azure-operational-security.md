@@ -4,9 +4,9 @@ description: Meer informatie over de Microsoft Operations Management Suite (OMS)
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 8528eeb4eac8397beaa3d0dca37ce9eb33167b32
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: d5bea758a0b2a950f51ec443707d9d32dee9cbc4
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-operational-security"></a>Azure-operationele beveiliging
 ## <a name="introduction"></a>Inleiding
@@ -67,8 +67,8 @@ De kernfunctionaliteit van OMS wordt geleverd door een reeks services die in Azu
 | Service  | Beschrijving|
 | :------------- | :-------------|
 | Log Analytics | Bewaak en analyseer de beschikbaarheid en prestaties van verschillende resources, met inbegrip van fysieke en virtuele machines. |
-|Automatisering | Automatiseer handmatige processen en dwing configuraties af voor fysieke en virtuele machines. |
-| Back-up | Back-up en herstel van essentiële gegevens. |
+|Automation | Automatiseer handmatige processen en dwing configuraties af voor fysieke en virtuele machines. |
+| Backup | Back-up en herstel van essentiële gegevens. |
 | Site Recovery | Bied hoge beschikbaarheid voor kritieke toepassingen. |
 
 ### <a name="log-analytics"></a>Log Analytics
@@ -148,7 +148,7 @@ Om klanten te helpen bedreigingen te voorkomen, te detecteren en erop te reagere
 
 -   **Scheiding van gegevens**: gegevens worden op een logische manier apart van elkaar gehouden, in elk onderdeel van de service. Alle gegevens worden gemarkeerd per organisatie. Deze markering blijft aanwezig gedurende de levenscyclus van de gegevens en deze wordt afgedwongen op elke laag van de service.
 
--   **Toegang tot gegevens**: aanbevelingen voor beveiliging en onderzoeken van mogelijke bedreigingen, medewerkers van Microsoft kunnen toegang krijgen tot gegevens die worden verzameld of geanalyseerd door Azure-services, inclusief crashdumpbestanden, worden verwerkt door het maken van gebeurtenissen, VM schijf momentopnamen artefacten, waaronder mogelijk per ongeluk gegevens van de klant of persoonlijke gegevens van uw virtuele machines. We voldoen aan de [privacyverklaring voor Microsoft Online Services-voorwaarden en](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), welke status die Microsoft is niet maakt gebruik van gegevens van de klant of een afleiding van gegevens uit het voor reclame of vergelijkbare commerciële doeleinden.
+-   **Toegang tot gegevens**: aanbevelingen voor beveiliging en onderzoeken van mogelijke bedreigingen, medewerkers van Microsoft kunnen toegang krijgen tot gegevens die worden verzameld of geanalyseerd door Azure-services, waaronder crashdumpbestanden, het maken van gebeurtenissen, schijf van de virtuele machine verwerken momentopnamen en artefacten, waaronder mogelijk per ongeluk gegevens van de klant of persoonlijke gegevens van uw virtuele machines. We voldoen aan de [privacyverklaring voor Microsoft Online Services-voorwaarden en](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), welke status die Microsoft is niet maakt gebruik van gegevens van de klant of een afleiding van gegevens uit het voor reclame of vergelijkbare commerciële doeleinden.
 
 -   **Gegevensgebruik**: Microsoft gebruikt informatie over patronen en bedreigingen die worden gezien tussen meerdere tenants voor het verbeteren van onze mogelijkheden voor voorkoming en detectie; wij doen dit in overeenstemming met de privacyverplichtingen beschreven in onze [Privacyverklaring](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx).
 
@@ -193,7 +193,7 @@ Deze logboeken worden gegenereerd door een resource en leveren van uitgebreide, 
 
 Bijvoorbeeld Windows-gebeurtenislogboeken system zijn één categorie van diagnostische logboeken voor virtuele machines en blob, table en queue logboeken zijn categorieën van diagnostische logboeken voor opslagaccounts.
 
-Diagnostische logboeken afwijken van de [activiteitenlogboek (voorheen bekend als het auditlogboek of operationeel logboek)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). Het activiteitenlogboek verschaft inzicht in de bewerkingen die zijn uitgevoerd op resources in uw abonnement. Diagnostische logboeken bieden inzicht in bewerkingen dat de bron zelf uitgevoerd.
+Diagnostische logboeken afwijken van de [activiteitenlogboek (voorheen bekend als het auditlogboek of operationeel logboek)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). Het activiteitenlogboek verschaft inzicht in de bewerkingen die zijn uitgevoerd op resources in uw abonnement. Diagnoselogboeken bieden inzicht in bewerkingen die door de resources zelf zijn uitgevoerd.
 
 ### <a name="metrics"></a>Metrische gegevens
 
@@ -263,7 +263,7 @@ De volgende acties uitgevoerd door Storage Analytics zijn factureerbare:
 
 De volgende soorten geverifieerde en anonieme aanvragen worden geregistreerd.
 
-| Geauthenticeerd  | Anoniem|
+| Geverifieerd  | Anoniem|
 | :------------- | :-------------|
 | Geslaagde aanvragen | Geslaagde aanvragen |
 |Mislukte aanvragen, met inbegrip van de time-outperiode, beperking, netwerk, autorisatie en andere fouten | -Aanvragen via een Shared Access Signature (SAS), met inbegrip van mislukte en geslaagde aanvragen |

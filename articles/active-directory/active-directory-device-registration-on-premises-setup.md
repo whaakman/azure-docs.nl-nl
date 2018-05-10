@@ -16,11 +16,11 @@ ms.date: 12/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: 8c692323803247cd54d27f369ea749e462fbc359
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0ce4497a8bebf9078363509c1f962728ab4189f8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Lokale voorwaardelijke toegang instellen met behulp van Azure Active Directory-apparaatregistratie
 Als u werkplek koppelen gebruikers hun persoonlijke apparaten naar de apparaatregistratieservice van Azure Active Directory (Azure AD), kunnen hun apparaten kunnen worden gemarkeerd als bekend is bij uw organisatie. Hier volgt een stapsgewijze handleiding voor het inschakelen van voorwaardelijke toegang tot on-premises toepassingen met behulp van Active Directory Federation Services (AD FS) in Windows Server 2012 R2.
@@ -86,7 +86,7 @@ Volg de stappen in de controlelijst inschakelen en configureren van de Azure Act
 ## <a name="part-3-enable-device-writeback-in-azure-ad"></a>Deel 3: Schakel apparaat terugschrijven in Azure AD
 | Taak | Referentie |
 | --- | --- |
-| Deel 2 van "Enabling device writeback in Azure AD Connect." Nadat u klaar bent, keert u terug naar deze handleiding. |[Apparaat terugschrijven inschakelen in Azure AD Connect](#upgrade-your-active-directory-domain-services-schema) |
+| Deel 2 van "Enabling device writeback in Azure AD Connect." Nadat u klaar bent, keert u terug naar deze handleiding. |[Apparaat terugschrijven inschakelen in Azure AD Connect](./connect/active-directory-aadconnect-feature-device-writeback.md) |
 
 ## <a name="optional-part-4-enable-multi-factor-authentication"></a>[Optioneel] Deel 4: Schakel multi-factor Authentication
 Sterk aanbevolen een van de verschillende opties voor multi-factor Authentication te configureren. Als u meervoudige authenticatie wilt, Zie [de multi-factor Authentication-beveiligingsoplossing kiezen voor u](authentication/concept-mfa-whichversion.md). Het bevat een beschrijving van elke oplossing en koppelingen naar informatie waarmee u de oplossing van uw keuze configureren.

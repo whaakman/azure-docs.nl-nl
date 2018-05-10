@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: d6a4701c0318edf8292c777615196a2170a68750
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 065ac8b2e9cb48408c7922a1937e541521ccd8cf
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Maken, wijzigen of verwijderen van een routetabel
 
-Azure automatisch routeert netwerkverkeer tussen Azure subnetten, virtuele netwerken en on-premises netwerken. Als u wijzigen van Azure standaard routering wilt, kunt u dat doen door het maken van een routetabel. Als u niet bekend met Azure routering bent, raden wij aan lezen de [Routering-overzicht](virtual-networks-udr-overview.md) en het uitvoeren van de [netwerkverkeer met een routetabel omgeleid](tutorial-create-route-table-portal.md) zelfstudie voordat taken in dit artikel is voltooid.
+Azure automatisch routeert netwerkverkeer tussen Azure subnetten, virtuele netwerken en on-premises netwerken. Als u wijzigen van Azure standaard routering wilt, kunt u dat doen door het maken van een routetabel. Als u geen ervaring met routering in virtuele netwerken, kunt u meer informatie over het in de [Routering overzicht](virtual-networks-udr-overview.md) of door te voeren een [zelfstudie](tutorial-create-route-table-portal.md).
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -31,8 +31,10 @@ De volgende taken uitvoeren voordat u stappen uitvoert in elke sectie van dit ar
 
 - Als u nog een Azure-account hebt, zich aanmelden voor een [gratis proefaccount](https://azure.microsoft.com/free).
 - Als u de portal gebruikt, opent u https://portal.azure.com, en meld u aan met uw Azure-account.
-- Als u de PowerShell-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Deze zelfstudie vereist de Azure PowerShell-moduleversie 5.2.0 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
-- Als u Azure-opdrachtregelinterface (CLI)-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/bash), of door het uitvoeren van de CLI vanaf uw computer. Deze zelfstudie vereist de Azure CLI versie 2.0.26 of hoger. Voer `az --version` uit om te kijken welke versie is geïnstalleerd. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). Als u de Azure CLI lokaal uitvoert, moet u ook uitvoeren `az login` geen verbinding maken met Azure.
+- Als u de PowerShell-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Deze zelfstudie vereist de Azure PowerShell-moduleversie 5.7.0 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
+- Als u Azure-opdrachtregelinterface (CLI)-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/bash), of door het uitvoeren van de CLI vanaf uw computer. Deze zelfstudie vereist de Azure CLI versie 2.0.31 of hoger. Voer `az --version` uit om te kijken welke versie is geïnstalleerd. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). Als u de Azure CLI lokaal uitvoert, moet u ook uitvoeren `az login` geen verbinding maken met Azure.
+
+Het account dat u zich aanmelden bij of verbinding maken met Azure met, moet worden toegewezen aan de [netwerk Inzender](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rol of naar een [aangepaste rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) die is toegewezen de nodige acties die worden vermeld in [machtigingen ](#permissions).
 
 ## <a name="create-a-route-table"></a>Een routetabel maken
 
@@ -49,7 +51,7 @@ Er is een limiet aan hoeveel routetabellen per Azure-locatie en abonnement kunt 
 
 ## <a name="view-route-tables"></a>De routetabellen weergeven
 
-Voer in het zoekvak boven aan de portal *routetabellen* in het zoekvak. Wanneer **routetabellen** wordt weergegeven in de zoekresultaten, selecteer deze. De routetabellen die zijn opgenomen in uw abonnement worden weergegeven.
+Voer in het zoekvak boven aan de portal *routetabellen* in het zoekvak. Wanneer **routetabellen** worden weergegeven in zoekresultaten wilt weergeven, selecteert u deze. De routetabellen die zijn opgenomen in uw abonnement worden weergegeven.
 
 **Opdrachten**
 
@@ -58,12 +60,12 @@ Voer in het zoekvak boven aan de portal *routetabellen* in het zoekvak. Wanneer 
 
 ## <a name="view-details-of-a-route-table"></a>Details weergeven van een routetabel
 
-1. Voer in het zoekvak boven aan de portal *routetabellen* in het zoekvak. Wanneer **routetabellen** wordt weergegeven in de zoekresultaten, selecteer deze.
-2. Selecteer de routetabel in de lijst die u wilt bekijken voor. Onder **instellingen** vindt u de **Routes** in de routetabel en de **subnetten** de routetabel is gekoppeld aan.
+1. Voer in het zoekvak boven aan de portal *routetabellen* in het zoekvak. Wanneer **routetabellen** worden weergegeven in zoekresultaten wilt weergeven, selecteert u deze.
+2. Selecteer de routetabel in de lijst die u wilt bekijken voor. Onder **instellingen**, vindt u de **Routes** in de routetabel en de **subnetten** de routetabel is gekoppeld aan.
 3. Zie voor meer informatie over algemene instellingen voor Azure, de volgende informatie:
     *   [Activiteitenlogboek](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
     *   [Toegangsbeheer (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
-    *   [Tags](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags)
+    *   [Tags](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Hiermee vergrendelt u](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Automatiseringsscript](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
 
@@ -74,7 +76,7 @@ Voer in het zoekvak boven aan de portal *routetabellen* in het zoekvak. Wanneer 
 
 ## <a name="change-a-route-table"></a>Een routetabel wijzigen
 
-1. Voer in het zoekvak boven aan de portal *routetabellen* in het zoekvak. Wanneer **routetabellen** wordt weergegeven in de zoekresultaten, selecteer deze.
+1. Voer in het zoekvak boven aan de portal *routetabellen* in het zoekvak. Wanneer **routetabellen** worden weergegeven in zoekresultaten wilt weergeven, selecteert u deze.
 2. Selecteer de routetabel die u wilt wijzigen. De meest voorkomende wijzigingen zijn [toe te voegen](#create-a-route) of [verwijderen](#delete-a-route) routes en [koppelen](#associate-a-route-table-to-a-subnet) routetabellen, of [dissociating](#dissociate-a-route-table-from-a-subnet) routetabellen uit subnetten.
 
 **Opdrachten**
@@ -86,7 +88,7 @@ Voer in het zoekvak boven aan de portal *routetabellen* in het zoekvak. Wanneer 
 
 Een subnet kan nul of één routetabel gekoppeld hebben. Een routetabel kan worden gekoppeld aan nul of meerdere subnetten. Aangezien routetabellen niet gekoppeld aan virtuele netwerken, moet u een routetabel met elk subnet dat u wilt dat de routetabel gekoppeld aan koppelen. Uitgaand van het subnet alle verkeer wordt doorgestuurd op basis van de routes die u hebt gemaakt in routetabellen, [routes standaard](virtual-networks-udr-overview.md#default), en routes doorgegeven vanuit een on-premises netwerk als het virtuele netwerk is verbonden met een gateway virtuele Azure-netwerk ( ExpressRoute of VPN als BGP met een VPN-gateway). U kunt alleen een routetabel met subnetten in virtuele netwerken die bestaan in de dezelfde Azure-locatie en het abonnement als de routetabel koppelen.
 
-1. Voer in het zoekvak boven aan de portal *virtuele netwerken* in het zoekvak. Wanneer **virtuele netwerken** wordt weergegeven in de zoekresultaten, selecteer deze.
+1. Voer in het zoekvak boven aan de portal *virtuele netwerken* in het zoekvak. Wanneer **virtuele netwerken** worden weergegeven in zoekresultaten wilt weergeven, selecteert u deze.
 2. Selecteer het virtuele netwerk in de lijst met het subnet dat u wilt een routetabel te koppelen.
 3. Selecteer **subnetten** onder **instellingen**.
 4. Selecteer het subnet dat u wilt de routetabel te koppelen.
@@ -101,7 +103,7 @@ Een subnet kan nul of één routetabel gekoppeld hebben. Een routetabel kan word
 
 Wanneer u een routetabel van een subnet ontkoppelen, Azure routeert verkeer op basis van de [routes standaard](virtual-networks-udr-overview.md#default).
 
-1. Voer in het zoekvak boven aan de portal *virtuele netwerken* in het zoekvak. Wanneer **virtuele netwerken** wordt weergegeven in de zoekresultaten, selecteer deze.
+1. Voer in het zoekvak boven aan de portal *virtuele netwerken* in het zoekvak. Wanneer **virtuele netwerken** worden weergegeven in zoekresultaten wilt weergeven, selecteert u deze.
 2. Selecteer het virtuele netwerk waarin het subnet dat u wilt ontkoppelen van een routetabel uit.
 3. Selecteer **subnetten** onder **instellingen**.
 4. Selecteer het subnet dat u wilt ontkoppelen van een routetabel.
@@ -116,7 +118,7 @@ Wanneer u een routetabel van een subnet ontkoppelen, Azure routeert verkeer op b
 
 Als een routetabel gekoppeld aan subnetten is, kan niet worden verwijderd. [Ontkoppelen](#dissociate-a-route-table-from-a-subnet) een routetabel van alle subnetten voordat u probeert te verwijderen.
 
-1. Voer in het zoekvak boven aan de portal *routetabellen* in het zoekvak. Wanneer **routetabellen** wordt weergegeven in de zoekresultaten, selecteer deze.
+1. Voer in het zoekvak boven aan de portal *routetabellen* in het zoekvak. Wanneer **routetabellen** worden weergegeven in zoekresultaten wilt weergeven, selecteert u deze.
 2. Selecteer **...**  aan de rechterkant van de routetabel die u wilt verwijderen.
 3. Selecteer **verwijderen**, en selecteer vervolgens **Ja**.
 
@@ -129,7 +131,7 @@ Als een routetabel gekoppeld aan subnetten is, kan niet worden verwijderd. [Ontk
 
 Er is een limiet voor het aantal routes per routetabel per Azure-locatie en abonnement kunnen maken. Zie [Netwerkenlimieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) voor meer informatie.
 
-1. Voer in het zoekvak boven aan de portal *routetabellen* in het zoekvak. Wanneer **routetabellen** wordt weergegeven in de zoekresultaten, selecteer deze.
+1. Voer in het zoekvak boven aan de portal *routetabellen* in het zoekvak. Wanneer **routetabellen** worden weergegeven in zoekresultaten wilt weergeven, selecteert u deze.
 2. Selecteer de routetabel in de lijst die u wilt toevoegen van een route naar.
 3. Selecteer **Routes**onder **instellingen**.
 4. Selecteer **+ Toevoegen**.
@@ -137,7 +139,7 @@ Er is een limiet voor het aantal routes per routetabel per Azure-locatie en abon
 6. Voer de **adresvoorvoegsel**, in CIDR-notatie, die u verkeer om te leiden wilt. Het voorvoegsel kan niet worden gedupliceerd in meer dan één route in de routetabel, hoewel het voorvoegsel op dat binnen een ander voorvoegsel kan zijn. Als u 10.0.0.0/16 gedefinieerd als een voorvoegsel in één route, kunt u bijvoorbeeld nog steeds een andere route met het adresvoorvoegsel 10.0.0.0/24 definiëren. Azure selecteert een route voor verkeer op basis van het langste voorvoegsel overeen. Zie voor meer informatie over hoe Azure routes selecteert, [Routering-overzicht](virtual-networks-udr-overview.md#how-azure-selects-a-route).
 7. Selecteer een **volgende hop type**. Zie voor een gedetailleerde beschrijving van alle volgende hoptypen [Routering-overzicht](virtual-networks-udr-overview.md).
 8. Geef een IP-adres voor **adres van volgende hop**. U kunt alleen een adres invoeren als u hebt geselecteerd *virtueel apparaat* voor **volgende hop type**.
-9. Selecteer **OK**. 
+9. Selecteer **OK**.
 
 **Opdrachten**
 
@@ -148,7 +150,7 @@ Er is een limiet voor het aantal routes per routetabel per Azure-locatie en abon
 
 Een routetabel bevat geen of meerdere routes. Zie voor meer informatie over welke gegevens worden weergegeven wanneer de routes weer te geven, [Routering-overzicht](virtual-networks-udr-overview.md).
 
-1. Voer in het zoekvak boven aan de portal *routetabellen* in het zoekvak. Wanneer **routetabellen** wordt weergegeven in de zoekresultaten, selecteer deze.
+1. Voer in het zoekvak boven aan de portal *routetabellen* in het zoekvak. Wanneer **routetabellen** worden weergegeven in zoekresultaten wilt weergeven, selecteert u deze.
 2. Selecteer de routetabel in de lijst die u wilt weergeven van routes voor.
 3. Selecteer **Routes** onder **instellingen**.
 
@@ -159,7 +161,7 @@ Een routetabel bevat geen of meerdere routes. Zie voor meer informatie over welk
 
 ## <a name="view-details-of-a-route"></a>Details weergeven van een route
 
-1. Voer in het zoekvak boven aan de portal *routetabellen* in het zoekvak. Wanneer **routetabellen** wordt weergegeven in de zoekresultaten, selecteer deze.
+1. Voer in het zoekvak boven aan de portal *routetabellen* in het zoekvak. Wanneer **routetabellen** worden weergegeven in zoekresultaten wilt weergeven, selecteert u deze.
 2. Selecteer de gewenste details wilt weergeven van een route voor routetabel.
 3. Selecteer **Routes**.
 4. Selecteer de gewenste details wilt weergeven van route.
@@ -171,7 +173,7 @@ Een routetabel bevat geen of meerdere routes. Zie voor meer informatie over welk
 
 ## <a name="change-a-route"></a>Een route wijzigen
 
-1. Voer in het zoekvak boven aan de portal *routetabellen* in het zoekvak. Wanneer **routetabellen** wordt weergegeven in de zoekresultaten, selecteer deze.
+1. Voer in het zoekvak boven aan de portal *routetabellen* in het zoekvak. Wanneer **routetabellen** worden weergegeven in zoekresultaten wilt weergeven, selecteert u deze.
 2. Selecteer de routetabel die u wilt wijzigen van een route voor.
 3. Selecteer **Routes**.
 4. Selecteer de route die u wilt wijzigen.
@@ -184,7 +186,7 @@ Een routetabel bevat geen of meerdere routes. Zie voor meer informatie over welk
 
 ## <a name="delete-a-route"></a>Een route verwijderen
 
-1. Voer in het zoekvak boven aan de portal *routetabellen* in het zoekvak. Wanneer **routetabellen** wordt weergegeven in de zoekresultaten, selecteer deze.
+1. Voer in het zoekvak boven aan de portal *routetabellen* in het zoekvak. Wanneer **routetabellen** worden weergegeven in zoekresultaten wilt weergeven, selecteert u deze.
 2. Selecteer de routetabel die u wilt verwijderen van een route voor.
 3. Selecteer **Routes**.
 4. Selecteer in de lijst met routes **...**  aan de rechterkant van de route die u wilt verwijderen.
@@ -197,9 +199,9 @@ Een routetabel bevat geen of meerdere routes. Zie voor meer informatie over welk
 
 ## <a name="view-effective-routes"></a>De effectieve routes weergeven
 
-De effectieve routes voor elke netwerkinterface die is gekoppeld aan een virtuele machine zijn een combinatie routetabellen u hebt gemaakt, Azure standaardroutes, en alle routes die is doorgegeven vanuit de on-premises netwerken via BGP via een gateway virtuele Azure-netwerk. Inzicht in de effectieve routes voor een netwerkinterface is handig bij het oplossen van problemen met de routering. U kunt de effectieve routes voor een netwerkinterface die is gekoppeld aan een actieve virtuele machine weergeven.
+De effectieve routes voor elke netwerkinterface die is gekoppeld aan een virtuele machine zijn een combinatie van routetabellen die u hebt gemaakt, Azure standaardroutes en eventuele routes doorgegeven vanuit de on-premises netwerken via BGP via een gateway virtuele Azure-netwerk. Inzicht in de effectieve routes voor een netwerkinterface is handig bij het oplossen van problemen met de routering. U kunt de effectieve routes voor een netwerkinterface die is gekoppeld aan een actieve virtuele machine weergeven.
 
-1. Voer de naam van een virtuele machine die u wilt weergeven van effectieve routes voor in het zoekvak boven aan de portal. Als u de naam van een virtuele machine niet weet, voert u *virtuele machines* in het zoekvak. Wanneer **virtuele machines** wordt weergegeven in de zoekresultaten, selecteer deze en selecteer een virtuele machine in de lijst.
+1. Voer de naam van een virtuele machine die u wilt weergeven van effectieve routes voor in het zoekvak boven aan de portal. Als u de naam van een virtuele machine niet weet, voert u *virtuele machines* in het zoekvak. Wanneer **virtuele machines** worden weergegeven in zoekresultaten wilt weergeven, selecteert u deze en selecteer een virtuele machine in de lijst.
 2. Selecteer **Networking** onder **instellingen**.
 3. Selecteer de naam van een netwerkinterface.
 4. Selecteer **effectieve routes** onder **ondersteuning + probleemoplossing**.
@@ -226,21 +228,24 @@ Het volgende hoptype tussen een virtuele machine en het IP-adres van een andere 
 
 - Azure CLI: [az netwerk-watcher weergeven volgende hop](/cli/azure/network/watcher?view=azure-cli-latest#az_network_watcher_show_next_hop)
 - PowerShell: [Get-AzureRmNetworkWatcherNextHop](/powershell/module/azurerm.network/get-azurermnetworkwatchernexthop) 
- 
+
 ## <a name="permissions"></a>Machtigingen
 
-Om uit te voeren taken op routetabellen en routes, moet uw account worden toegewezen aan de [netwerk Inzender](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rol of naar een [aangepaste](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) rol die is de juiste machtigingen toegewezen die worden vermeld in de volgende tabel:
+Om uit te voeren taken op routetabellen en routes, moet uw account worden toegewezen aan de [netwerk Inzender](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rol of naar een [aangepaste](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) rol die is toegewezen de nodige acties die worden vermeld in de volgende tabel:
 
-|Bewerking                                                       |   Bewerkingsnaam                               |
-|--------------------------------------------------------------  |   -------------------------------------------  |
-|Microsoft.Network/routeTables/read                              |   Routetabel ophalen                              |
-|Microsoft.Network/routeTables/write                             |   Maken of bijwerken van de routetabel                 |
-|Microsoft.Network/routeTables/delete                            |   Routetabel verwijderen                           |
-|Microsoft.Network/routeTables/join/action                       |   Deelnemen aan de routetabel                             |
-|Microsoft.Network/routeTables/routes/read                       |   Route ophalen                                    |
-|Microsoft.Network/routeTables/routes/write                      |   Route maken of bijwerken                       |
-|Microsoft.Network/routeTables/routes/delete                     |   Route verwijderen                                 |
-|Microsoft.Network/networkInterfaces/effectiveRouteTable/action  |   Netwerk-Interface met ingang van de routetabel ophalen  | 
-|Microsoft.Network/networkWatchers/nextHop/action                |   De volgende hop van een virtuele machine opgehaald                  |
+| Bewerking                                                          |   Naam                                                  |
+|--------------------------------------------------------------   |   -------------------------------------------           |
+| Microsoft.Network/routeTables/read                              |   Een routetabel lezen                                    |
+| Microsoft.Network/routeTables/write                             |   Maken of bijwerken van een routetabel                        |
+| Microsoft.Network/routeTables/delete                            |   Een routetabel verwijderen                                  |
+| Microsoft.Network/routeTables/join/action                       |   Een routetabel aan een subnet koppelen                   |
+| Microsoft.Network/routeTables/routes/read                       |   Een route lezen                                          |
+| Microsoft.Network/routeTables/routes/write                      |   Een route maken of bijwerken                              |
+| Microsoft.Network/routeTables/routes/delete                     |   Een route verwijderen                                        |
+| Microsoft.Network/networkInterfaces/effectiveRouteTable/action  |   De effectieve routetabel voor een netwerkinterface ophalen |
+| Microsoft.Network/networkWatchers/nextHop/action                |   De volgende hop van een virtuele machine opgehaald                           |
 
-De *Join routetabel* bewerking is vereist voor het koppelen van een routetabel aan een subnet.
+## <a name="next-steps"></a>Volgende stappen
+
+- Maak een route tabel met [PowerShell](powershell-samples.md) of [Azure CLI](cli-samples.md) steekproef scripts of met behulp van Azure [Resource Manager-sjablonen](template-samples.md)
+- Maken en toepassen van [Azure beleid](policy-samples.md) voor virtuele netwerken

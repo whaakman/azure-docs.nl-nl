@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/02/2018
+ms.date: 05/03/2018
 ms.author: kumud
-ms.openlocfilehash: 684c226e566d6a5a2db456d24ad2fc5811f08067
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e6f3ae71a924840c973b2536d332070b9a12d0dc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Overzicht van Azure Load Balancer standaard
 
@@ -218,11 +218,12 @@ Standaard Load Balancer is een bedrag product op basis van het aantal load balan
 
 ## <a name="limitations"></a>Beperkingen
 
-- Load Balancer back-end voor exemplaren kunnen niet worden gevonden in virtuele netwerken peer is ingesteld op dit moment. Alle exemplaren van de back-end moeten zich in dezelfde regio.
 - Er zijn geen veranderlijke SKU's. U kunt de SKU van een bestaande resource niet wijzigen.
 - De bron van een zelfstandige virtuele machine beschikbaarheidsset resource of bron voor virtuele machine scale set kan verwijzen naar een SKU, niet beide.
-- [Waarschuwingen van Azure controleren](../monitoring-and-diagnostics/monitoring-overview-alerts.md) worden niet ondersteund op dit moment.
+- Een Load Balancer-regel kan niet twee virtuele netwerken omvatten.  Frontends en hun bijbehorende back-end-exemplaren moeten zich bevinden in hetzelfde virtuele netwerk.  
+- Load Balancer frontends zijn niet toegankelijk via het algemene virtueel netwerk peering.
 - [Abonnement bewerkingen verplaatsen](../azure-resource-manager/resource-group-move-resources.md) worden niet ondersteund voor standaard SKU LB en PIP resources.
+- Web-werkrollen zonder een VNet en andere Microsoft-platform-services kunnen worden geopend als alleen een als interne standaard Load Balancer wordt gebruikt als gevolg van een neveneffect van hoe het pre-VNet-services en andere platform functie services. U moet geen gebruik van dit aangezien de betreffende service zelf of het onderliggende platform kan zonder kennisgeving worden gewijzigd. U moet altijd wordt ervan uitgegaan dat u wilt maken [uitgaande verbinding](load-balancer-outbound-connections.md) expliciet indien gewenst bij gebruik van een interne standaard Load Balancer alleen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

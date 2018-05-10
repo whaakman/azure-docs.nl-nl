@@ -3,24 +3,22 @@ title: Azure Active Directory-licentieverlening voor aanvullende scenario's op b
 description: Meer scenario's voor Azure Active Directory op basis van een groep licentieverlening
 services: active-directory
 keywords: Azure AD-licentieverlening
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
 editor: piotrci
-ms.assetid: 
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: users-groups-roles
 ms.date: 06/02/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf18076c81ecf7471771674fe40d36dba3b9866d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bb8bd727618eda2a887cc9e1b739889204eb87fa
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenario's, beperkingen en bekende problemen met behulp van groepen voor licentieverlening in Azure Active Directory beheren
 
@@ -139,7 +137,7 @@ U kunt een PowerShell-script gebruiken om te controleren of gebruikers beschikke
 
 1. Voer de `connect-msolservice` cmdlet om te verifiëren en verbinding maken met uw tenant.
 
-2. `Get-MsolAccountSku`kan worden gebruikt voor het detecteren van alle ingerichte productlicenties in de tenant.
+2. `Get-MsolAccountSku` kan worden gebruikt voor het detecteren van alle ingerichte productlicenties in de tenant.
 
   ![Schermafbeelding van de cmdlet Get-Msolaccountsku](media/active-directory-licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 

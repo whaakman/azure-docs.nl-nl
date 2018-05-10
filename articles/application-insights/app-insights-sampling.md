@@ -3,7 +3,7 @@ title: Telemetrie steekproeven in Azure Application Insights | Microsoft Docs
 description: Hoe het volume van telemetrie onder controle te houden.
 services: application-insights
 documentationcenter: windows
-author: vgorbenko
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 015ab744-d514-42c0-8553-8410eef00368
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
-ms.author: mbullwin
-ms.openlocfilehash: 8f0c6e6567e82f885bb5cd0c6b6af797b393969c
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.author: mbullwin; vitalyg
+ms.openlocfilehash: 53753a3202362c73356e8e39bfca9d813f6387e0
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="sampling-in-application-insights"></a>Steekproeven in Application Insights
 
@@ -38,7 +38,7 @@ Steekproeven verlaagt de kosten van verkeer en gegevens en kunt u voorkomen bepe
 ## <a name="types-of-sampling"></a>Typen steekproeven
 Er zijn drie steekproeven van alternatieve methoden:
 
-* **Adaptieve steekproeven** automatisch het volume van telemetrie uit de SDK in uw ASP.NET-app verzonden. Beginnen met de SDK v 2.0.0-beta3 is dit de standaardmethode steekproeven. Adaptieve steekproeven is momenteel alleen beschikbaar voor ASP.NET-serverzijde telemetrie. Voor Asp.NET Core toepassingen gericht op volledige Framework, adaptieve steekproeven is beschikbaar vanaf versie 1.0.0 van Microsoft.ApplicationInsights.AspNetCore SDK. Voor Asp.NET Core toepassingen gericht op NetCore is de adaptieve steekproeven van 2.2.0-beta1 van Microsoft.ApplicationInsights.AspNetCore SDK beschikbaar.
+* **Adaptieve steekproeven** automatisch het volume van telemetrie uit de SDK in uw ASP.NET-app verzonden. Beginnen met de SDK v 2.0.0-beta3 is dit de standaardmethode steekproeven. Adaptieve steekproeven is momenteel alleen beschikbaar voor ASP.NET-serverzijde telemetrie. Voor Asp.NET Core toepassingen volledige Framework als doel, zijn de adaptieve steekproeven beschikbaar vanaf versie 1.0.0 van Microsoft.ApplicationInsights.AspNetCore SDK. Voor Asp.NET Core-toepassingen die gericht is op NetCore is adaptieve steekproeven van 2.2.0-beta1 van Microsoft.ApplicationInsights.AspNetCore SDK beschikbaar.
 
 * **Vast aantal steekproeven** vermindert het volume van de telemetrie van uw server ASP.NET of Java en van de browsers van uw gebruikers verzonden. Stelt u het tarief. De client en server synchroniseert de steekproeven zodat die, in zoekopdracht u tussen gerelateerde paginaweergaven en aanvragen navigeren kunt.
 * **Opname steekproeven** werkt in de Azure-portal. Het aantal de telemetrie van uw app, op een samplefrequentie die u instelt binnenkomt wordt verwijderd. Telemetrie verkeer dat wordt verzonden vanuit uw app niet verminderen, maar kunt u binnen uw maandelijkse quotum houden. Het belangrijkste voordeel van opname steekproeven is dat u de samplingfrequentie instellen kunt zonder dat uw app en het op uniforme wijze voor alle servers en clients werkt. 

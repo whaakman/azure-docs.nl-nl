@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/14/2017
+ms.date: 05/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: b0bc5abd768be0fa5876aaef108cd71a15d94510
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 3b70817f973f0bfbdcec2aa8c76a431eec308bcf
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Overzicht van de structuur en de syntaxis van Azure Resource Manager-sjablonen
 In dit artikel beschrijft de structuur van een Azure Resource Manager-sjabloon. Dit geeft de verschillende secties van een sjabloon en de eigenschappen die beschikbaar in deze secties zijn. De sjabloon bestaat uit JSON en uitdrukkingen die u gebruiken kunt om waarden voor uw implementatie samen te stellen. Zie voor een stapsgewijze zelfstudie over het maken van een sjabloon, [maken van uw eerste Azure Resource Manager-sjabloon](resource-manager-create-first-template.md).
@@ -32,6 +32,7 @@ In de meest eenvoudige structuur bevat een sjabloon voor de volgende elementen:
     "contentVersion": "",
     "parameters": {  },
     "variables": {  },
+    "functions": {  },
     "resources": [  ],
     "outputs": {  }
 }
@@ -43,7 +44,8 @@ In de meest eenvoudige structuur bevat een sjabloon voor de volgende elementen:
 | contentVersion |Ja |De versie van de sjabloon (zoals 1.0.0.0). U kunt een waarde opgeven voor dit element. Bij het implementeren van resources met behulp van de sjabloon, kan deze waarde kan worden gebruikt om ervoor te zorgen dat de juiste sjabloon wordt gebruikt. |
 | parameters |Nee |De waarden die beschikbaar zijn wanneer de implementatie wordt uitgevoerd voor het aanpassen van de resource-implementatie. |
 | variabelen |Nee |De waarden die worden gebruikt als JSON-fragmenten in de sjabloon voor sjabloontaalexpressies vereenvoudigen. |
-| bronnen |Ja |Brontypen die worden geïmplementeerd of bijgewerkt in een resourcegroep. |
+| functions |Nee |Gebruiker gedefinieerde functies die beschikbaar in de sjabloon zijn. |
+| resources |Ja |Brontypen die worden geïmplementeerd of bijgewerkt in een resourcegroep. |
 | uitvoer |Nee |De waarden die na de implementatie worden geretourneerd. |
 
 Elk element bevat eigenschappen die u kunt instellen. Het volgende voorbeeld bevat de volledige syntaxis van een sjabloon:
@@ -92,6 +94,25 @@ Elk element bevat eigenschappen die u kunt instellen. Het volgende voorbeeld bev
             }
         ]
     },
+    "functions": [
+      {
+        "namespace": "<namespace-for-your-function>",
+        "members": {
+          "<function-name>": {
+            "parameters": [
+              {
+                "name": "<parameter-name>",
+                "type": "<type-of-parameter-value>"
+              }
+            ],
+            "output": {
+              "type": "<type-of-output-value>",
+              "value": "<function-expression>"
+            }
+          }
+        }
+      }
+    ],
     "resources": [
       {
           "condition": "<boolean-value-whether-to-deploy>",
@@ -184,6 +205,59 @@ Het volgende voorbeeld ziet u een eenvoudige variabele-definitie:
 ```
 
 Zie voor meer informatie over het definiëren van variabelen [gedeelte variabelen van Azure Resource Manager-sjablonen](resource-manager-templates-variables.md).
+
+## <a name="functions"></a>Functions
+
+U kunt uw eigen functies maken in uw sjabloon. Deze functies zijn beschikbaar voor gebruik in uw sjabloon. Normaal gesproken definieert u een complexe expressie die u niet wilt herhalen in uw sjabloon. Maken van de gebruiker gedefinieerde functies van expressies en [functies](resource-group-template-functions.md) die worden ondersteund in sjablonen.
+
+Er zijn enkele beperkingen bij het definiëren van een gebruikersfunctie:
+
+* De functie heeft geen toegang tot variabelen.
+* De functie niet gebruiken de [verwijst naar functie](resource-group-template-functions-resource.md#reference).
+* Parameters voor de functie kunnen geen standaardwaarden hebben.
+
+Uw functies vereisen een naamruimtewaarde naamconflicten met sjabloonfuncties worden voorkomen. Het volgende voorbeeld ziet u een functie die resulteert in een opslagaccountnaam:
+
+```json
+"functions": [
+  {
+    "namespace": "contoso",
+    "members": {
+      "uniqueName": {
+        "parameters": [
+          {
+            "name": "namePrefix",
+            "type": "string"
+          }
+        ],
+        "output": {
+          "type": "string",
+          "value": "[concat(toLower(parameters('namePrefix')), uniqueString(resourceGroup().id))]"
+        }
+      }
+    }
+  }
+],
+```
+
+U kunt de functie met aanroepen:
+
+```json
+"resources": [
+  {
+    "name": "[contoso.uniqueName(parameters('storageNamePrefix'))]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "apiVersion": "2016-01-01",
+    "sku": {
+      "name": "Standard_LRS"
+    },
+    "kind": "Storage",
+    "location": "South Central US",
+    "tags": {},
+    "properties": {}
+  }
+]
+```
 
 ## <a name="resources"></a>Resources
 In de bronnensectie definieert u de resources die worden geïmplementeerd of bijgewerkt. Deze sectie kunt krijgen ingewikkeld omdat de typen die u implementeert de juiste waarden opgeven dat u begrijpt.

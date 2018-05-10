@@ -4,9 +4,9 @@ description: Meer informatie over hoe het plaatsen van controlepunten en de antw
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: b1bca62e256c1ede5df6888dd7c47ce2aa816bb9
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 39cdb9b2c6eae9a3176aedc64b8d187e298fdfdd
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Controlepunten en replayaanvallen in duurzame functies (Azure-functies)
 
@@ -28,7 +28,9 @@ Altijd een beroep dit garandeert duurzame functies betrouwbare uitvoering van in
 
 ## <a name="orchestration-history"></a>Orchestration-geschiedenis
 
-Stel dat u hebt de volgende orchestrator-functie.
+Stel dat u hebt de volgende orchestrator-functie:
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -46,7 +48,22 @@ public static async Task<List<string>> Run(
 }
 ```
 
-Op elk `await` instructie, de controlepunten duurzame Framework van de taak de uitvoeringsstatus van de functie naar de tabelopslag. Deze status is wat wordt aangeduid als de *orchestration geschiedenis*.
+#### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const output = [];
+    output.push(yield context.df.callActivityAsync("E1_SayHello", "Tokyo"));
+    output.push(yield context.df.callActivityAsync("E1_SayHello", "Seattle"));
+    output.push(yield context.df.callActivityAsync("E1_SayHello", "London"));
+
+    return output;
+});
+```
+
+Op elk `await` (C#) of `yield` (JavaScript)-instructie de controlepunten duurzame Framework van de taak de uitvoeringsstatus van de functie naar de tabelopslag. Deze status is wat wordt aangeduid als de *orchestration geschiedenis*.
 
 ## <a name="history-table"></a>Geschiedenistabel
 
@@ -66,7 +83,7 @@ Na voltooiing, de geschiedenis van de eerder vermelde functie ziet er ongeveer a
 | PartitionKey (InstanceId)                     | EventType             | Timestamp               | Invoer | Naam             | Resultaat                                                    | Status | 
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|---------------------| 
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     | 
-| eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | null  | E1_HelloSequence |                                                           |                     | 
+| eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | Null  | E1_HelloSequence |                                                           |                     | 
 | eaee885b | TaskScheduled         | 2017-05-05T18:45:32.670Z |       | E1_SayHello      |                                                           |                     | 
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:32.670Z |       |                  |                                                           |                     | 
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.232Z |       |                  |                                                           |                     | 

@@ -241,9 +241,9 @@
               href: connector-presto.md
             - name: QuickBooks
               href: connector-quickbooks.md
-            - name: Salesforce
+            - name: SalesForce
               href: connector-salesforce.md
-            - name: Salesforce Service Cloud
+            - name: SalesForce Service Cloud
               href: connector-salesforce.md
             - name: Salesforce Marketing Cloud
               href: connector-salesforce-marketing-cloud.md
@@ -316,22 +316,24 @@
           href: compute-linked-services.md
     - name: Controlestroom
       items:
-        - name: If Condition Activity
-          href: control-flow-if-condition-activity.md
-        - name: Until-activiteit
-          href: control-flow-until-activity.md
-        - name: Web Activity
-          href: control-flow-web-activity.md
-        - name: Opzoekactiviteit
-          href: control-flow-lookup-activity.md
-        - name: Activiteit ophalen van metagegevens
-          href: control-flow-get-metadata-activity.md
         - name: Activiteit uitvoeren van pijplijn
           href: control-flow-execute-pipeline-activity.md
+        - name: Activiteiten filteren
+          href: control-flow-filter-activity.md
         - name: Voor elke activiteit
           href: control-flow-for-each-activity.md
+        - name: Activiteit ophalen van metagegevens
+          href: control-flow-get-metadata-activity.md
+        - name: If Condition Activity
+          href: control-flow-if-condition-activity.md
+        - name: Opzoekactiviteit
+          href: control-flow-lookup-activity.md
+        - name: Until-activiteit
+          href: control-flow-until-activity.md
         - name: Wachtactiviteit
           href: control-flow-wait-activity.md
+        - name: Web Activity
+          href: control-flow-web-activity.md
         - name: Expressietaal
           href: control-flow-expression-language-functions.md
         - name: Systeemvariabelen

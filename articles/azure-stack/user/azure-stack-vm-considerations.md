@@ -2,23 +2,23 @@
 title: Verschillen en overwegingen voor virtuele machines in Azure Stack | Microsoft Docs
 description: Meer informatie over de verschillen en overwegingen bij het werken met virtuele machines in Azure-Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 6613946D-114C-441A-9F74-38E35DF0A7D7
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 05/04/2018
 ms.author: brenduns
-ms.openlocfilehash: 50c0f293ac669ade4e45a5f45b0adf9a7c4b6c36
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 8c9fd7d5824e5d315a7dd30e5052fe10802d197e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Overwegingen voor virtuele Machines in Azure Stack
 
@@ -59,9 +59,9 @@ De volgende tabel bevat de virtuele machines die worden ondersteund op Azure-Sta
 |Geoptimaliseerd geheugen|D-serie       |[D11 - D14](azure-stack-vm-sizes.md#mo-d)            |
 |Geoptimaliseerd geheugen|DS-serie      |[DS11 - DS14](azure-stack-vm-sizes.md#mo-ds)|
 |Geoptimaliseerd geheugen|Dv2-serie     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
-|Geoptimaliseerd geheugen|DSv2-series -  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
+|Geoptimaliseerd geheugen|DSv2-serie-  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
 
-Grootte van virtuele machines en hun bijbehorende resource hoeveelheden zijn consistent met de Azure-Stack en Azure. Deze consistentie bevat bijvoorbeeld de hoeveelheid geheugen, het aantal kernen en nummer of grootte van gegevensschijven dat kan worden gemaakt. Prestaties van de hetzelfde VM-grootte in Azure-Stack is afhankelijk van de onderliggende kenmerken van een bepaalde Azure Stack-omgeving.
+Grootte van virtuele machines en hun bijbehorende resource hoeveelheden zijn consistent met de Azure-Stack en Azure. Deze consistentie bevat de hoeveelheid geheugen, het aantal kernen en nummer of grootte van gegevensschijven dat kan worden gemaakt. Prestaties van de hetzelfde VM-grootte in Azure-Stack is afhankelijk van de onderliggende kenmerken van een bepaalde Azure Stack-omgeving.
 
 ## <a name="virtual-machine-extensions"></a>Extensies van de virtuele machine
 
@@ -93,6 +93,17 @@ Get-AzureRmResourceProvider | `
   where-Object {$_.ProviderNamespace -like “Microsoft.compute”}
 ```
 De lijst met ondersteunde resourcetypen en API-versies kan verschillen als de operator cloud uw Azure-Stack-omgeving naar een nieuwere versie bijwerkt.
+
+## <a name="windows-activation"></a>Windows-activering
+
+Windows-producten moeten worden gebruikt in overeenstemming met de Product Use Rights en de licentievoorwaarden voor Microsoft. Maakt gebruik van Azure Stack [automatische activering van virtuele machine](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (AVMA) voor het activeren van virtuele machines (VM's) voor Windows Server. 
+ - Omdat de Stack van Azure-host is geactiveerd met AVMA-sleutels voor Windows Server 2016, alle virtuele machines die uitvoeren van Windows Server 2012 of later automatisch geactiveerd.
+ - Virtuele machines die bij het uitvoeren van Windows Server 2008 R2 niet automatisch worden geactiveerd en moet worden geactiveerd met behulp van [MAK-activering](https://technet.microsoft.com/library/ff793438.aspx). 
+
+Microsoft Azure maakt gebruik van KMS-activering voor het activeren van VM's van Windows. Als u een virtuele machine uit Azure Stack naar Azure en optreden activeren problemen verplaatst, Zie [oplossen Azure Windows virtuele machine activeringsproblemen](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems). Als u meer informatie vindt u op de [probleemoplossing Windows activation-fouten op Azure Virtual machines](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/) Azure Support-teamblog post.
+
+
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

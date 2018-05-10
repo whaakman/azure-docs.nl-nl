@@ -14,12 +14,6 @@
       href: quickstart-load-balancer-standard-public-portal.md
     - name: Een load balancer van het type Standard maken - Azure CLI
       href: quickstart-load-balancer-standard-public-cli.md
-- name: Voorbeelden
-  items:
-    - name: Azure-CLI
-      href: cli-samples.md
-    - name: Azure PowerShell
-      href: powershell-samples.md
 - name: Zelfstudies
   items:
     - name: Intern verkeer gelijkmatig verdelen over VM's
@@ -28,6 +22,12 @@
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: Taken over VM's binnen een specifieke beschikbaarheidszone verdelen
       href: tutorial-load-balancer-standard-public-zonal-portal.md
+- name: Voorbeelden
+  items:
+    - name: Azure-CLI
+      href: cli-samples.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
 - name: Concepten
   items:
     - name: Wat is Load Balancer Standard?
@@ -152,7 +152,7 @@
       href: /azure/application-gateway/
     - name: ExpressRoute
       href: /azure/expressroute/
-    - name: Virtueel netwerk
+    - name: Virtual Network
       href: /azure/virtual-network/
     - name: VPN Gateway
       href: /azure/vpn-gateway/

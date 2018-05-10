@@ -6,31 +6,29 @@ documentationcenter: ''
 author: curtand
 manager: mtillman
 editor: ''
-ms.assetid: b9f01876-29d1-4ab8-8b74-04d43d532f4b
 ms.service: active-directory
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: cd11ea68f298395236abf83295b939462ba00964
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b1185fef53797a88ae929e35be56d2bc79067b49
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Een niet-beheerde directory overnemen als administrator in Azure Active Directory
-Dit artikel wordt beschreven op twee manieren overnemen van een DNS-domeinnaam in een niet-beheerde map in Azure Active Directory (Azure AD). Wanneer een self-service gebruiker zich voor een cloudservice die gebruikmaakt van Azure AD aanmeldt, worden ze toegevoegd aan een niet-beheerde Azure AD-directory op basis van hun e-maildomein. Zie voor meer informatie over self-service of "een" aanmelden voor een service [wat is er toepassing met selfserviceregistratie voor Azure Active Directory?]()
+Dit artikel wordt beschreven op twee manieren overnemen van een DNS-domeinnaam in een niet-beheerde map in Azure Active Directory (Azure AD). Wanneer een selfservice gebruiker zich aanmeldt voor een cloudservice die gebruikmaakt van Azure AD, wordt deze toegevoegd aan een niet-beheerde Azure AD-adreslijst op basis van zijn e-maildomein. Zie voor meer informatie over self-service of "een" aanmelden voor een service [wat is er toepassing met selfserviceregistratie voor Azure Active Directory?]()
 
 ## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>Bepalen hoe u een niet-beheerde directory overnemen
-Tijdens het proces van beheerder overname, kunt u eigendom bewijzen, zoals beschreven in [een aangepaste domeinnaam toevoegen aan Azure AD](add-custom-domain.md). De volgende secties wordt de ervaring voor de beheerder in meer detail uitgelegd, maar hier volgt een samenvatting:
+Tijdens het proces van overname door een beheerder kunt u eigendom bewijzen, zoals beschreven in [Een aangepaste domeinnaam toevoegen aan Azure AD](add-custom-domain.md). In de volgende secties wordt de ervaring voor de beheerder gedetailleerder uitgelegd, maar hier volgt een samenvatting:
 
-* Wanneer u uitvoert een ['interne' admin overname](#internal-admin-takeover) van een niet-beheerde Azure-map die u als globale beheerder van de niet-beheerde directory wordt toegevoegd. Er zijn geen gebruikers, domeinen of service-abonnementen worden gemigreerd naar een map die u beheert.
+* Wanneer u een ['interne' beheerdersovername](#internal-admin-takeover) van een niet-beheerde Azure-adreslijst uitvoert, wordt u als globale beheerder van de niet-beheerde adreslijst toegevoegd. Er worden geen gebruikers, domeinen of serviceabonnementen gemigreerd naar een andere adreslijst die u beheert.
 
-* Wanneer u uitvoert een ['externe' beheerder overname](#external-admin-takeover) van een niet-beheerde Azure-map u de DNS-naam van de niet-beheerde map kunt toevoegen aan uw beheerde Azure-map. Wanneer u de naam van het domein toevoegt, wordt een toewijzing van gebruikers tot bronnen in uw beheerde Azure-map gemaakt zodat gebruikers toegang houden tot services zonder onderbreking. 
+* Wanneer u een ['externe' beheerdersovername](#external-admin-takeover) uitvoert van een niet-beheerde Azure-adreslijst, voegt u de naam van het DNS-domein van de niet-beheerde adreslijst toe aan uw beheerde Azure-adreslijst. Wanneer u de domeinnaam toevoegt, wordt een toewijzing van gebruikers aan bronnen gemaakt in uw beheerde Azure-adreslijst, zodat gebruikers zonder onderbreking toegang houden tot services. 
 
 ## <a name="internal-admin-takeover"></a>Interne admin overname
 

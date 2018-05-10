@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: v-masebo;dobett
-ms.openlocfilehash: 7733aa11dd76eac564c115b10c57a84da5666d38
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b28a02462fe7a5a7f831102b3707fe03f84342ad
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Uploaden van bestanden op uw apparaat naar de cloud met IoT Hub
 
@@ -36,7 +36,7 @@ De [aan de slag met IoT Hub](iot-hub-node-node-getstarted.md) zelfstudie laat zi
 * Trillingen gegevens dat met hoge frequentie
 * Een vorm van voorverwerkte gegevens.
 
-Deze bestanden zijn meestal batch verwerkt in de cloud met hulpprogramma's zoals [Azure Data Factory](../data-factory/introduction.md) of de [Hadoop](../hdinsight/index.md) stack. Wanneer u upland bestanden van een apparaat moet, kunt u de beveiliging en betrouwbaarheid van IoT Hub.
+Deze bestanden zijn meestal batch verwerkt in de cloud met hulpprogramma's zoals [Azure Data Factory](../data-factory/introduction.md) of de [Hadoop](../hdinsight/index.yml) stack. Wanneer u upland bestanden van een apparaat moet, kunt u de beveiliging en betrouwbaarheid van IoT Hub.
 
 Aan het einde van deze zelfstudie kunt u twee console Node.js-apps uitvoeren:
 
@@ -219,7 +219,7 @@ In deze zelfstudie hebt u geleerd hoe de mogelijkheden voor het uploaden van bes
 
 * [Een iothub via een programma maken][lnk-create-hub]
 * [Inleiding tot C-SDK][lnk-c-sdk]
-* [Azure IoT SDKs][lnk-sdks]
+* [Azure IoT SDK 's][lnk-sdks]
 
 <!-- Links -->
 [Azure IoT Developer Center]: http://azure.microsoft.com/develop/iot

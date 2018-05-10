@@ -1,6 +1,6 @@
 ---
-title: Een Azure Container Service (AKS) interne load balancer maken
-description: Een interne load balancer gebruiken met Azure Container Service (AKS).
+title: Een Azure Kubernetes Service (AKS) interne load balancer maken
+description: Een interne load balancer gebruiken met Azure Kubernetes Service (AKS).
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 3/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 7b9ecdb5364f7c0f5bb68ce693e53bc2c5327337
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
-ms.translationtype: MT
+ms.openlocfilehash: 6a657df82e1670f7a9d604dd5166ab53bb38bf74
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="use-an-internal-load-balancer-with-azure-container-service-aks"></a>Een interne load balancer gebruiken met Azure Container Service (AKS)
+# <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Een interne load balancer gebruiken met Azure Kubernetes Service (AKS)
 
-Interne load balancing maakt een service Kubernetes toegankelijk voor toepassingen die worden uitgevoerd in hetzelfde virtuele netwerk als het cluster Kubernetes. Dit documentgegevens maken van een interne load balancer met Azure Container Service (AKS).
+Interne load balancing maakt een service Kubernetes toegankelijk voor toepassingen die worden uitgevoerd in hetzelfde virtuele netwerk als het cluster Kubernetes. Dit documentgegevens maken van een interne load balancer met Azure Kubernetes Service (AKS).
 
 ## <a name="create-internal-load-balancer"></a>Interne load balancer maken
 
@@ -38,11 +38,11 @@ spec:
     app: azure-vote-front
 ```
 
-Zodra geïmplementeerd, wordt een Azure load balancer gemaakt en beschikbaar gesteld in hetzelfde virtuele netwerk als het cluster AKS. 
+Zodra geïmplementeerd, wordt een Azure load balancer gemaakt en beschikbaar gesteld in hetzelfde virtuele netwerk als het cluster AKS.
 
 ![Afbeelding van AKS interne load balancer](media/internal-lb/internal-lb.png)
 
-Wanneer bij het ophalen van de service details, het IP-adres in de `EXTERNAL-IP` kolom is het IP-adres van de interne load balancer. 
+Wanneer bij het ophalen van de service details, het IP-adres in de `EXTERNAL-IP` kolom is het IP-adres van de interne load balancer.
 
 ```console
 $ kubectl get service azure-vote-front
@@ -71,7 +71,7 @@ spec:
     app: azure-vote-front
 ```
 
-Bij het ophalen van de details van de service het IP-adres op de `EXTERNAL-IP` moet overeenkomen met het opgegeven IP-adres. 
+Bij het ophalen van de details van de service het IP-adres op de `EXTERNAL-IP` moet overeenkomen met het opgegeven IP-adres.
 
 ```console
 $ kubectl get service azure-vote-front

@@ -10,10 +10,10 @@ ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: 8372c405087c0dc7a000a65265bb99c395c3a8d6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Verzenden van taken paginaknipsel van Azure Media openen
 Azure Media openen vereist een **submitSubclipCallback** methode voor het verwerken van de verzending van de taak paginaknipsel worden geïmplementeerd. Deze functie is voor het implementeren van een HTTP POST van de uitvoer openen met een webservice. Deze webservice is waar u de coderingstaak kunt verzenden. De uitvoer van de openen is ofwel een Media Encoder Standard codering voorinstelling voor gerenderde taken of de nettolading van de REST-API voor dynamische manifest filter aanroepen. Dit Pass Through-model is nodig omdat media services-accountreferenties niet beveiligd in de clientbrowser zijn.

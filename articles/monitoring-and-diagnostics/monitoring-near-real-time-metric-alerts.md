@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/27/2018
 ms.author: snmuvva, vinagara
 ms.custom: ''
-ms.openlocfilehash: 6d440a49cb30210d3c0eed7d24e4811cc56925b9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c4a4a82eedc41b7690af005faecc1505257183ab
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="newer-metric-alerts-for-azure-services-in-the-azure-portal"></a>Nieuwere metrische waarschuwingen voor Azure-services in de Azure portal
 Monitor voor Azure ondersteunt nu een nieuwe metrische Waarschuwingstype. De nieuwere waarschuwingen verschillen van [klassieke metrische waarschuwingen](insights-alerts-portal.md) in een aantal manieren:
@@ -35,7 +35,7 @@ Zie voor informatie over het maken van een nieuwere metrische waarschuwing in Az
 
 
 ## <a name="portal-powershell-cli-rest-support"></a>Portal, PowerShell, CLI, REST-ondersteuning
-Op dit moment kunt u waarschuwingen voor nieuwere metrische alleen in de Azure-portal [REST-API](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template) of [Resource Manager-sjablonen](monitoring-create-metric-alerts-with-templates.md). Ondersteuning voor het configureren van de nieuwere waarschuwingen met behulp van PowerShell en de Azure-opdrachtregelinterface (Azure CLI 2.0) is binnenkort beschikbaar.
+Op dit moment kunt u waarschuwingen voor nieuwere metrische alleen in de Azure-portal [REST-API](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate) of [Resource Manager-sjablonen](monitoring-create-metric-alerts-with-templates.md). Ondersteuning voor het configureren van de nieuwere waarschuwingen met behulp van PowerShell en de Azure-opdrachtregelinterface (Azure CLI 2.0) is binnenkort beschikbaar.
 
 ## <a name="metrics-and-dimensions-supported"></a>Metrische gegevens en dimensies die worden ondersteund
 Ondersteuning voor nieuwere metrische waarschuwingen waarschuwingen voor de metrische gegevens die gebruikmaken van dimensies. U kunt dimensies gebruiken voor het filteren van uw metric naar het juiste niveau. Alle ondersteunde metrische gegevens samen met de toepasselijke dimensies kunnen worden verkend en gevisualiseerd van [Azure Monitor - Metrics Explorer (Preview)](monitoring-metric-charts.md).

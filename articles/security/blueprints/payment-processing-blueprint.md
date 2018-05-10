@@ -3,7 +3,7 @@ title: Azure-beveiliging en naleving blauwdruk - omgevingen PCI DSS-compatibele 
 description: Azure-beveiliging en naleving blauwdruk - omgevingen PCI DSS-compatibele betaling verwerken
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 2f1e00a8-0dd6-477f-9453-75424d06a1df
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
-ms.author: frasim
-ms.openlocfilehash: 5851d5499c61cf99d7f85d07642a292f3b8c19d2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jomolesk
+ms.openlocfilehash: 1b77aee3bceef13128ada34fb325240dda98bc41
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Azure-beveiliging en naleving blauwdruk - omgevingen PCI DSS-compatibele betaling verwerken
 
@@ -43,7 +43,7 @@ De fundamentele architectuur bestaat uit de volgende onderdelen:
 - **Implementatiesjablonen**. In deze implementatie [Azure Resource Manager-sjablonen](/azure/azure-resource-manager/resource-group-overview#template-deployment) worden gebruikt voor de onderdelen van de architectuur automatisch implementeren in Microsoft Azure door te geven configuratieparameters tijdens de installatie.
 - **Geautomatiseerde implementatiescripts**. Deze scripts helpen bij het implementeren van de end-to-end-oplossing. De scripts bestaan uit:
     - Een installatie van de module en [hoofdbeheerder](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) installatiescript wordt gebruikt om te installeren en te controleren of vereiste PowerShell-modules en -rollen van de globale beheerder correct zijn geconfigureerd.
-    - Installatie van een PowerShell-script wordt gebruikt voor het implementeren van de end-to-end-oplossing, die beschikbaar zijn via een ZIP-bestand en een Bacpac-bestand met een vooraf samengestelde demo-webtoepassing met [SQL-databasevoorbeeld](https://github.com/Microsoft/azure-sql-security-sample). inhoud. De broncode voor deze oplossing beschikbaar is voor controle is [ blauwdruk code opslagplaats][code-repo]. 
+    - Installatie van een PowerShell-script wordt gebruikt voor het implementeren van de end-to-end-oplossing, die beschikbaar zijn via een ZIP-bestand en een Bacpac-bestand met een vooraf samengestelde demo-webtoepassing met [SQL-databasevoorbeeld](https://github.com/Microsoft/azure-sql-security-sample). inhoud. De broncode voor deze oplossing is beschikbaar is voor controle [opslagplaats blauwdruk code] [-code-opslagplaats]. 
 
 ## <a name="architectural-diagram"></a>Architectuurdiagram
 
@@ -299,7 +299,7 @@ Standaardimplementatie is bedoeld om een basislijn met security center aanbeveli
 
 ## <a name="deploy-the-solution"></a>De oplossing implementeren
 
-De onderdelen voor implementatie van deze oplossing zijn beschikbaar in de [PCI blauwdruk code opslagplaats][code-repo]. De implementatie van de fundamentele architectuur moet verschillende stappen uitgevoerd via Microsoft PowerShell v5. Voor verbinding met de website, moet u een aangepaste domeinnaam (zoals contoso.com) opgeven. Hiermee wordt opgegeven met de `-customHostName` in stap 2-switch. Zie voor meer informatie [aanschaffen van een aangepaste domeinnaam voor Azure-Web-Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Een aangepaste domeinnaam is niet met succes implementeren en uitvoeren van de oplossing vereist, maar u zult geen verbinding maken met de website voor demonstratiedoeleinden.
+De onderdelen voor het implementeren van deze oplossing zijn beschikbaar in de [PCI blauwdruk code opslagplaats] [-code-opslagplaats]. De implementatie van de fundamentele architectuur moet verschillende stappen uitgevoerd via Microsoft PowerShell v5. Voor verbinding met de website, moet u een aangepaste domeinnaam (zoals contoso.com) opgeven. Hiermee wordt opgegeven met de `-customHostName` in stap 2-switch. Zie voor meer informatie [aanschaffen van een aangepaste domeinnaam voor Azure-Web-Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Een aangepaste domeinnaam is niet met succes implementeren en uitvoeren van de oplossing vereist, maar u zult geen verbinding maken met de website voor demonstratiedoeleinden.
 
 De scripts toevoegen domeingebruikers aan de Azure AD-tenant die u opgeeft. We raden u aan te maken van een nieuwe Azure AD-tenant te gebruiken als test.
 
@@ -384,11 +384,3 @@ De oplossing is gelezen door Coalfire systems, Inc. (PCI-DSS gekwalificeerde bev
 - Alle klantnamen van de, transactierecords en alle bijbehorende gegevens op deze pagina zijn fictief, gemaakt met het oog op deze fundamentele architectuur en slechts ter illustratie. Er is geen echte verwantschap of relatie is bedoeld en geen mag niet worden afgeleid.  
 - Deze oplossing is ontwikkeld door Microsoft en Avyan advies en is beschikbaar in de [MIT-licentie](https://opensource.org/licenses/MIT).
 - Deze oplossing is door Coalfire, van Microsoft PCI-DSS auditor onderzocht. De [PCI-naleving controleren](https://aka.ms/pciblueprintcrm32) biedt een onafhankelijke, van derden controleren van de oplossing en de onderdelen die moeten worden opgelost. 
-
-### <a name="document-authors"></a>Auteurs van documenten
-
-- *Frank Simorjay (Microsoft)*  
-- *Gururaj Pandurangi (Avyan advies)*
-
-
-[code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "Code-opslagplaats"

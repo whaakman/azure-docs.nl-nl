@@ -3,7 +3,7 @@ title: Azure betaling verwerking blauwdruk - Identiteitsvereisten?
 description: PCI-DSS vereiste 8
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 1a398601-8c48-4f8e-b3d4-eba94edad61c
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
-ms.openlocfilehash: f77cc3c9926b5316913c70e5f4412383e55c5193
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.author: jomolesk
+ms.openlocfilehash: a83040a6b5174307ea73e5473165835458d217f6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="identity-requirements-for-pci-dss-compliant-environments"></a>Identiteitsvereisten voor PCI DSS-compatibele omgevingen 
 ## <a name="pci-dss-requirement-8"></a>PCI-DSS vereiste 8
@@ -43,7 +43,7 @@ De effectiviteit van een wachtwoord wordt grotendeels bepaald door het ontwerp e
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt een gebruiksvoorbeeld en een beschrijving voor het juiste gebruik van beheerders voor de voorbeeldimplementatie.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore biedt een gebruiksvoorbeeld en een beschrijving voor het juiste gebruik van beheerders voor de voorbeeldimplementatie.|
 
 
 
@@ -56,7 +56,7 @@ De effectiviteit van een wachtwoord wordt grotendeels bepaald door het ontwerp e
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore implementeert Azure Active Directory en Azure Active Directory Role-Based toegangsbeheer (RBAC) om te controleren of alle gebruikers een unieke id hebben Zie voor meer informatie [richtlijnen PCI - identiteitsbeheer](payment-processing-blueprint.md#identity-management).<br /><br />|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore implementeert Azure Active Directory en Azure Active Directory Role-Based toegangsbeheer (RBAC) om te controleren of alle gebruikers een unieke id hebben Zie voor meer informatie [richtlijnen PCI - identiteitsbeheer](payment-processing-blueprint.md#identity-management).<br /><br />|
 
 
 
@@ -69,7 +69,7 @@ De effectiviteit van een wachtwoord wordt grotendeels bepaald door het ontwerp e
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore implementeert Azure Active Directory en Azure Active Directory Role-Based toegangsbeheer (RBAC) om te controleren of alle gebruikers een unieke id hebben Zie voor meer informatie [richtlijnen PCI - identiteitsbeheer](payment-processing-blueprint.md#identity-management).<br /><br />|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore implementeert Azure Active Directory en Azure Active Directory Role-Based toegangsbeheer (RBAC) om te controleren of alle gebruikers een unieke id hebben Zie voor meer informatie [richtlijnen PCI - identiteitsbeheer](payment-processing-blueprint.md#identity-management).<br /><br />|
 
 
 
@@ -82,7 +82,7 @@ De effectiviteit van een wachtwoord wordt grotendeels bepaald door het ontwerp e
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt gebruik van Azure Active Directory voor gebruikersbeheer. Intrekking van gebruikers kan worden uitgevoerd in Active Directory.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt gebruik van Azure Active Directory voor gebruikersbeheer. Intrekking van gebruikers kan worden uitgevoerd in Active Directory.|
 
 
 
@@ -95,7 +95,7 @@ De effectiviteit van een wachtwoord wordt grotendeels bepaald door het ontwerp e
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt gebruik van Azure Active Directory voor gebruikersbeheer. De `-enableADDomainPasswordPolicy` optie kan worden ingesteld om ervoor te zorgen wachtwoorden verlopen na 90 dagen.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt gebruik van Azure Active Directory voor gebruikersbeheer. De `-enableADDomainPasswordPolicy` optie kan worden ingesteld om ervoor te zorgen wachtwoorden verlopen na 90 dagen.|
 
 
 
@@ -110,7 +110,7 @@ De effectiviteit van een wachtwoord wordt grotendeels bepaald door het ontwerp e
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure heeft goedgekeurd van toepassing bedrijven en organisaties beveiligingsbeleid, met inbegrip van een beleid voor beveiliging. De beleidsregels zijn goedgekeurd, gepubliceerd, en wordt gecommuniceerd aan Microsoft Azure. Het beveiligingsbeleid informatie vereist dat de toegang tot Microsoft Azure activa om te worden toegekend op basis van een zakelijke rechtvaardiging met de activumeigenaar toestemming en op basis van de principes van de 'nodig ter informatie' en 'minimale bevoegdheden beperkt'. Daarnaast vereisten voor levenscyclusbeheer van toegang met inbegrip van toegang inrichten, verificatie, autorisatie ook een oplossing voor het beleid, verwijderen van toegangsrechten, en periodieke toegang tot beoordelingen. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De demo Contoso Webstore is geïmplementeerd met Azure Active Directory en Azure Active Directory Role-Based toegangsbeheer voor het beheren van de gebruikerstoegang tot de installatie. Zie voor meer informatie [richtlijnen PCI - identiteitsbeheer](payment-processing-blueprint.md#identity-management).<br /><br />|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De demo Contoso Webstore is geïmplementeerd met Azure Active Directory en Azure Active Directory Role-Based toegangsbeheer voor het beheren van de gebruikerstoegang tot de installatie. Zie voor meer informatie [richtlijnen PCI - identiteitsbeheer](payment-processing-blueprint.md#identity-management).<br /><br />|
 
 
 
@@ -123,7 +123,7 @@ De effectiviteit van een wachtwoord wordt grotendeels bepaald door het ontwerp e
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Contoso Webstore is duidelijke scheiding van functies (BEPLANTEN) voor alle gebruikers van de demo geïmplementeerd. Zie voor meer informatie ' 'Azure Active Directory: Identity Protection' op [richtlijnen PCI - identiteitsbeheer](payment-processing-blueprint.md#identity-management).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Contoso Webstore is duidelijke scheiding van functies (BEPLANTEN) voor alle gebruikers van de demo geïmplementeerd. Zie voor meer informatie ' 'Azure Active Directory: Identity Protection' op [richtlijnen PCI - identiteitsbeheer](payment-processing-blueprint.md#identity-management).|
 
 
 
@@ -136,7 +136,7 @@ De effectiviteit van een wachtwoord wordt grotendeels bepaald door het ontwerp e
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het maken, afdwingen en bewaking van een wachtwoordbeleid die compatibel zijn met PCI DSS-vereisten.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het maken, afdwingen en bewaking van een wachtwoordbeleid die compatibel zijn met PCI DSS-vereisten.|
 
 
 
@@ -149,7 +149,7 @@ De effectiviteit van een wachtwoord wordt grotendeels bepaald door het ontwerp e
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het maken, afdwingen en bewaking van een wachtwoordbeleid die compatibel zijn met PCI DSS-vereisten.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het maken, afdwingen en bewaking van een wachtwoordbeleid die compatibel zijn met PCI DSS-vereisten.|
 
 
 
@@ -165,7 +165,7 @@ De effectiviteit van een wachtwoord wordt grotendeels bepaald door het ontwerp e
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De uitvoering van Contoso Webstore voor multi-factor authentication is uitgeschakeld om eenvoudig te gebruiken voor de demo. Multi-factor authentication-server kan worden geïmplementeerd met behulp van [Azure multi-factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De uitvoering van Contoso Webstore voor multi-factor authentication is uitgeschakeld om eenvoudig te gebruiken voor de demo. Multi-factor authentication-server kan worden geïmplementeerd met behulp van [Azure multi-factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/).|
 
 
 
@@ -178,7 +178,7 @@ De effectiviteit van een wachtwoord wordt grotendeels bepaald door het ontwerp e
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure tot stand heeft gebracht Sleutelbeheer procedures voor het beheren van de cryptografische sleutels gedurende hun levensduur (bijv, generatie, distributie, intrekken). Microsoft Azure maakt gebruik van Microsoft zakelijke PKI-infrastructuur. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore afgedwongen sterke wachtwoorden, gedocumenteerd in de Implementatiehandleiding. Zie voor meer informatie [richtlijnen PCI - versleuteling](payment-processing-blueprint.md#encryption-and-secrets-management).<br /><br />|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore afgedwongen sterke wachtwoorden, gedocumenteerd in de Implementatiehandleiding. Zie voor meer informatie [richtlijnen PCI - versleuteling](payment-processing-blueprint.md#encryption-and-secrets-management).<br /><br />|
 
 
 
@@ -192,7 +192,7 @@ De effectiviteit van een wachtwoord wordt grotendeels bepaald door het ontwerp e
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure tot stand heeft gebracht Sleutelbeheer procedures voor het beheren van de cryptografische sleutels gedurende hun levensduur (bijv, generatie, distributie, intrekken). Microsoft Azure maakt gebruik van Microsoft zakelijke PKI-infrastructuur. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore afgedwongen sterke wachtwoorden, gedocumenteerd in de Implementatiehandleiding. Zie voor meer informatie [richtlijnen PCI - versleuteling](payment-processing-blueprint.md#encryption-and-secrets-management).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore afgedwongen sterke wachtwoorden, gedocumenteerd in de Implementatiehandleiding. Zie voor meer informatie [richtlijnen PCI - versleuteling](payment-processing-blueprint.md#encryption-and-secrets-management).|
 
 
 
@@ -208,7 +208,7 @@ U kunt ook hebt de wachtwoorden/wachtwoordzinnen complexiteit en sterkte ten min
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore afgedwongen sterke wachtwoorden, gedocumenteerd in de Implementatiehandleiding.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore afgedwongen sterke wachtwoorden, gedocumenteerd in de Implementatiehandleiding.|
 
 
 
@@ -221,7 +221,7 @@ U kunt ook hebt de wachtwoorden/wachtwoordzinnen complexiteit en sterkte ten min
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt gebruik van Azure Active Directory voor gebruikersbeheer. De `-enableADDomainPasswordPolicy` optie kan worden ingesteld om ervoor te zorgen wachtwoorden verlopen ten minste één keer om de 90 dagen.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt gebruik van Azure Active Directory voor gebruikersbeheer. De `-enableADDomainPasswordPolicy` optie kan worden ingesteld om ervoor te zorgen wachtwoorden verlopen ten minste één keer om de 90 dagen.|
 
 
 
@@ -234,7 +234,7 @@ U kunt ook hebt de wachtwoorden/wachtwoordzinnen complexiteit en sterkte ten min
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore afgedwongen sterke wachtwoorden, gedocumenteerd in de Implementatiehandleiding. Zie voor meer informatie [richtlijnen PCI - identiteitsbeheer](payment-processing-blueprint.md#identity-management).<br /><br />|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore afgedwongen sterke wachtwoorden, gedocumenteerd in de Implementatiehandleiding. Zie voor meer informatie [richtlijnen PCI - identiteitsbeheer](payment-processing-blueprint.md#identity-management).<br /><br />|
 
 
 
@@ -247,7 +247,7 @@ U kunt ook hebt de wachtwoorden/wachtwoordzinnen complexiteit en sterkte ten min
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore afgedwongen sterke wachtwoorden, gedocumenteerd in de Implementatiehandleiding. Zie voor meer informatie [richtlijnen PCI - identiteitsbeheer](payment-processing-blueprint.md#identity-management).<br /><br />|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore afgedwongen sterke wachtwoorden, gedocumenteerd in de Implementatiehandleiding. Zie voor meer informatie [richtlijnen PCI - identiteitsbeheer](payment-processing-blueprint.md#identity-management).<br /><br />|
 
 
 
@@ -264,7 +264,7 @@ U kunt ook hebt de wachtwoorden/wachtwoordzinnen complexiteit en sterkte ten min
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Azure beheerders zijn vereist voor multi-factor authentication gebruiken voor toegang tot bij het uitvoeren van onderhoud en beheer op Azure systemen en -servers. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt drie accounts tijdens de implementatie: admin, sqladmin, en erna (de standaardgebruiker aangemeld bij de web-app tijdens het uitvoeren van de demo). Multi-factor authentication-server is niet geïmplementeerd voor de demo.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt drie accounts tijdens de implementatie: admin, sqladmin, en erna (de standaardgebruiker aangemeld bij de web-app tijdens het uitvoeren van de demo). Multi-factor authentication-server is niet geïmplementeerd voor de demo.|
 
 
 
@@ -280,7 +280,7 @@ U kunt ook hebt de wachtwoorden/wachtwoordzinnen complexiteit en sterkte ten min
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Azure beheerders zijn vereist voor multi-factor authentication gebruiken voor toegang tot bij het uitvoeren van onderhoud en beheer op Azure systemen en -servers. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt drie accounts tijdens de implementatie: admin, sqladmin, en erna (de standaardgebruiker aangemeld bij de web-app tijdens het uitvoeren van de demo). Multi-factor authentication-server is niet geïmplementeerd voor de demo.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt drie accounts tijdens de implementatie: admin, sqladmin, en erna (de standaardgebruiker aangemeld bij de web-app tijdens het uitvoeren van de demo). Multi-factor authentication-server is niet geïmplementeerd voor de demo.|
 
 
 
@@ -294,7 +294,7 @@ U kunt ook hebt de wachtwoorden/wachtwoordzinnen complexiteit en sterkte ten min
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Azure beheerders zijn vereist voor multi-factor authentication gebruiken voor toegang tot bij het uitvoeren van onderhoud en beheer op Azure systemen en -servers. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt drie accounts tijdens de implementatie: admin, sqladmin, en erna (de standaardgebruiker aangemeld bij de web-app tijdens het uitvoeren van de demo). Multi-factor authentication-server is niet geïmplementeerd voor de demo.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt drie accounts tijdens de implementatie: admin, sqladmin, en erna (de standaardgebruiker aangemeld bij de web-app tijdens het uitvoeren van de demo). Multi-factor authentication-server is niet geïmplementeerd voor de demo.|
 
 
 
@@ -311,7 +311,7 @@ U kunt ook hebt de wachtwoorden/wachtwoordzinnen complexiteit en sterkte ten min
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor de volgende richtlijnen en documenteren en procedures voor verificatie en het beleid voor alle gebruikers communiceren.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor de volgende richtlijnen en documenteren en procedures voor verificatie en het beleid voor alle gebruikers communiceren.|
 
 
 
@@ -327,7 +327,7 @@ U kunt ook hebt de wachtwoorden/wachtwoordzinnen complexiteit en sterkte ten min
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt drie accounts tijdens de implementatie: admin, sqladmin, en erna (de standaardgebruiker aangemeld bij de web-app tijdens het uitvoeren van de demo). Multi-factor authentication-server is niet geïmplementeerd voor de demo.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt drie accounts tijdens de implementatie: admin, sqladmin, en erna (de standaardgebruiker aangemeld bij de web-app tijdens het uitvoeren van de demo). Multi-factor authentication-server is niet geïmplementeerd voor de demo.|
 
 
 
@@ -343,7 +343,7 @@ U kunt ook hebt de wachtwoorden/wachtwoordzinnen complexiteit en sterkte ten min
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing voor Microsoft Azure-klanten. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Niet van toepassing voor Microsoft Azure-klanten.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Niet van toepassing voor Microsoft Azure-klanten.|
 
 
 
@@ -358,7 +358,7 @@ U kunt ook hebt de wachtwoorden/wachtwoordzinnen complexiteit en sterkte ten min
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt drie accounts tijdens de implementatie: admin, sqladmin, en erna (de standaardgebruiker aangemeld bij de web-app tijdens het uitvoeren van de demo). Multi-factor authentication-server is niet geïmplementeerd voor de demo. Alle gebruikers de toegang wordt beheerd via [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), welke u beveiligt cryptografische sleutels en geheimen beveiligen die door cloudtoepassingen en -services. |
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt drie accounts tijdens de implementatie: admin, sqladmin, en erna (de standaardgebruiker aangemeld bij de web-app tijdens het uitvoeren van de demo). Multi-factor authentication-server is niet geïmplementeerd voor de demo. Alle gebruikers de toegang wordt beheerd via [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), welke u beveiligt cryptografische sleutels en geheimen beveiligen die door cloudtoepassingen en -services. |
 
 
 
@@ -374,7 +374,7 @@ U kunt ook hebt de wachtwoorden/wachtwoordzinnen complexiteit en sterkte ten min
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore beschermt alle kaarthouder gegevens met Azure Sleutelkluis en versleuteling van records wordt beschreven in de Implementatiedocumentatie van de. Zie voor meer informatie [richtlijnen PCI - versleuteling](payment-processing-blueprint.md#encryption-and-secrets-management).<br /><br />|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore beschermt alle kaarthouder gegevens met Azure Sleutelkluis en versleuteling van records wordt beschreven in de Implementatiedocumentatie van de. Zie voor meer informatie [richtlijnen PCI - versleuteling](payment-processing-blueprint.md#encryption-and-secrets-management).<br /><br />|
 
 
 
@@ -387,7 +387,7 @@ U kunt ook hebt de wachtwoorden/wachtwoordzinnen complexiteit en sterkte ten min
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het afdwingen van het beveiligingsbeleid en operationele procedures voor identificatie en verificatie wordt gedocumenteerd, dat in gebruik is, en bekend is dat alle betrokken partijen.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het afdwingen van het beveiligingsbeleid en operationele procedures voor identificatie en verificatie wordt gedocumenteerd, dat in gebruik is, en bekend is dat alle betrokken partijen.|
 
 
 

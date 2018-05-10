@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/03/2018
 ms.author: douglasl
-ms.openlocfilehash: af92eec8b6461563a366805d5eb4cbb964b028a5
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: ff47060ddfee458279c9fed0fd3fcafcf35229d2
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="custom-setup-for-the-azure-ssis-integration-runtime"></a>Aangepaste instellingen voor de integratie van Azure SSIS runtime
 
@@ -32,6 +32,10 @@ U kunt gratis of niet-gelicentieerde onderdelen en betaalde of gelicentieerde on
 -   Als u wilt gebruiken `gacutil.exe` voor het installeren van assembly's in de Global Assembly Cache (GAC), moet u opgeven als onderdeel van uw aangepaste installatie of het exemplaar dat is opgegeven in de openbare Preview-container gebruiken.
 
 -   Als u moet uw Azure-SSIS-IR met aangepaste installatie toevoegen aan een VNet, wordt alleen Azure Resource Manager VNet ondersteund. Klassieke VNet wordt niet ondersteund.
+
+-   Administratorshare is momenteel niet ondersteund in de Azure-SSIS-IR
+
+-   Als u wilt een bestandsshare worden toegewezen aan een station in de aangepaste instellingen, de `net use` opdracht wordt momenteel niet ondersteund. U kunt een opdracht zoals als gevolg hiervan niet gebruiken `net use d: \\fileshareserver\sharename`. Gebruik in plaats daarvan de `cmdkey` command - bijvoorbeeld `cmdkey /add:fileshareserver /user:yyy /pass:zzz` - voor toegang tot de `\\fileshareserver\folder` rechtstreeks in uw pakketten.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -121,7 +125,7 @@ Voor het aanpassen van uw Azure-SSIS-IR, moet u de volgende zaken:
 
        1. Een `Sample` map een aangepaste instellingen bevat voor het installeren van een eenvoudige taak op elk knooppunt van uw Azure-SSIS-IR De taak niet maar slaapstand enkele seconden. De map bevat ook een `gacutil` map `gacutil.exe`.
 
-       2. Een `UserScenarios` map acht aangepaste instellingen voor scenario's met echte gebruiker bevat.
+       2. Een `UserScenarios` map, die verschillende aangepaste instellingen voor scenario's met echte gebruiker bevat.
 
     ![Inhoud van de openbare preview-container](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image11.png)
 
@@ -133,17 +137,17 @@ Voor het aanpassen van uw Azure-SSIS-IR, moet u de volgende zaken:
 
        3. Een `EXCEL` map een aangepaste instellingen bevat voor het installeren van de open source-assembly's (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll`, en `ExcelDataReader.dll`) op elk knooppunt van uw Azure-SSIS-IR
 
-       4. Een `MSDTC` map, die een aangepaste installatie voor het wijzigen van de netwerk- en configuraties voor het exemplaar Microsoft Distributed Transaction Coordinator (MSDTC) op elk knooppunt van uw Azure-SSIS-IR bevat.
+       4. Een `MSDTC` map een aangepaste instellingen bevat voor het wijzigen van de netwerk- en configuraties voor het exemplaar Microsoft Distributed Transaction Coordinator (MSDTC) op elk knooppunt van uw Azure-SSIS-IR
 
-       5. Een `ORACLE ENTERPRISE` map waarin u een script met aangepaste installatie (`main.cmd`) en een installatie zonder toezicht-configuratiebestand (`client.rsp`) voor het installeren van het OCI van Oracle-stuurprogramma op elk knooppunt van uw Azure-SSIS IR Enterprise Edition (afgeschermd voorbeeld). Deze instelling kunt u de Oracle-Verbindingsbeheer, de bron en bestemming gebruiken. U moet eerst downloaden `winx64_12102_client.zip` van [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html) en uploadt u dit samen met `main.cmd` en `client.rsp` naar de container. Als u verbinding maken met Oracle TNS hebt gebruikt, moet u ook downloaden `tnsnames.ora`, bewerken en uploaden naar de container, zodat deze in de installatiemap van Oracle tijdens de installatie kan worden gekopieerd.
+       5. Een `ORACLE ENTERPRISE` map waarin u een script met aangepaste installatie (`main.cmd`) en een installatie zonder toezicht-configuratiebestand (`client.rsp`) voor het installeren van het OCI van Oracle-stuurprogramma op elk knooppunt van uw Azure-SSIS IR Enterprise Edition. Deze instelling kunt u de Oracle-Verbindingsbeheer, de bron en bestemming gebruiken. Download de nieuwste Oracle-client - eerst bijvoorbeeld `winx64_12102_client.zip` - van [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html) en uploadt u dit samen met `main.cmd` en `client.rsp` naar de container. Als u verbinding maken met Oracle TNS hebt gebruikt, moet u ook downloaden `tnsnames.ora`, bewerken en uploaden naar de container, zodat deze in de installatiemap van Oracle tijdens de installatie kan worden gekopieerd.
 
-       6. Een `ORACLE STANDARD` map waarin u een script met aangepaste installatie (`main.cmd`) voor het installeren van het stuurprogramma Oracle ODP.NET op elk knooppunt van uw Azure-SSIS-IR Deze instelling kunt u de ADO.NET-Verbindingsbeheer, de bron en bestemming gebruiken. Eerst downloaden `ODP.NET_Managed_ODAC122cR1.zip` van [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html), en uploadt u dit samen met `main.cmd` naar de container.
+       6. Een `ORACLE STANDARD` map waarin u een script met aangepaste installatie (`main.cmd`) voor het installeren van het stuurprogramma Oracle ODP.NET op elk knooppunt van uw Azure-SSIS-IR Deze instelling kunt u de ADO.NET-Verbindingsbeheer, de bron en bestemming gebruiken. Download de meest recente stuurprogramma ODP.NET Oracle - eerst bijvoorbeeld `ODP.NET_Managed_ODAC122cR1.zip` - van [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html), en uploadt u dit samen met `main.cmd` naar de container.
 
-       7. Een `SAP BW` map waarin u een script met aangepaste installatie (`main.cmd`) voor het installeren van de assembly van de connector SAP .NET (`librfc32.dll`) op elk knooppunt van uw Azure-SSIS IR Enterprise Edition (afgeschermd voorbeeld). Deze instelling kunt u de SAP BW Connection Manager, de bron en bestemming gebruiken. Eerst de 64-bits of de 32-bits versie van uploaden `librfc32.dll` uit de SAP-installatiemap naar de container, samen met `main.cmd`. Het script kopieert de SAP-assembly in de `%windir%\SysWow64` of `%windir%\System32` map tijdens de installatie.
+       7. Een `SAP BW` map waarin u een script met aangepaste installatie (`main.cmd`) voor het installeren van de assembly van de connector SAP .NET (`librfc32.dll`) op elk knooppunt van uw Azure-SSIS IR Enterprise Edition. Deze instelling kunt u de SAP BW Connection Manager, de bron en bestemming gebruiken. Eerst de 64-bits of de 32-bits versie van uploaden `librfc32.dll` uit de SAP-installatiemap naar de container, samen met `main.cmd`. Het script kopieert de SAP-assembly in de `%windir%\SysWow64` of `%windir%\System32` map tijdens de installatie.
 
        8. Een `STORAGE` map waarin u een aangepaste installatie om Azure PowerShell installeren op elk knooppunt van uw Azure-SSIS-IR Deze instelling kunt u implementeren en uitvoeren van SSIS-pakketten die worden uitgevoerd [PowerShell-scripts voor het bewerken van uw Azure Storage-account](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-use-blobs-powershell). Kopiëren `main.cmd`, een voorbeeld van een `AzurePowerShell.msi` (of installeer de nieuwste versie), en `storage.ps1` aan de container. PowerShell.dtsx als sjabloon gebruiken voor uw pakketten. De pakketsjabloon combineert een [Azure Blob downloaden taak](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task), downloads `storage.ps1` als een bewerkbaar PowerShell-script en een [taak proces uitvoeren](https://blogs.msdn.microsoft.com/ssis/2017/01/26/run-powershell-scripts-in-ssis/) die het script wordt uitgevoerd op elk knooppunt.
 
-       9. Een `TERADATA` map waarin u een script met aangepaste installatie (`main.cmd)`, het bijbehorende bestand (`install.cmd`), en installer-pakketten (`.msi`). Deze bestanden installeren Teradata-connectors, de TPT API en het ODBC-stuurprogramma op elk knooppunt van uw Azure-SSIS IR Enterprise Edition (afgeschermd voorbeeld). Deze instelling kunt u de Teradata Connection Manager, de bron en bestemming gebruiken. Download eerst het Teradata-hulpprogramma's en hulpprogramma's (TTU) 15.x zip-bestand (bijvoorbeeld `TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip`) van [Teradata](http://partnerintelligence.teradata.com), en upload dit samen met de bovenstaande `.cmd` en `.msi` bestanden naar de container.
+       9. Een `TERADATA` map waarin u een script met aangepaste installatie (`main.cmd)`, het bijbehorende bestand (`install.cmd`), en installer-pakketten (`.msi`). Deze bestanden installeren Teradata-connectors, de TPT API en het ODBC-stuurprogramma op elk knooppunt van uw Azure-SSIS IR Enterprise Edition. Deze instelling kunt u de Teradata Connection Manager, de bron en bestemming gebruiken. Download eerst het Teradata-hulpprogramma's en hulpprogramma's (TTU) 15.x zip-bestand (bijvoorbeeld `TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip`) van [Teradata](http://partnerintelligence.teradata.com), en upload dit samen met de bovenstaande `.cmd` en `.msi` bestanden naar de container.
 
     ![Mappen in de map van de gebruiker-scenario 's](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image12.png)
 

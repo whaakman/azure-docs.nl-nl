@@ -4,9 +4,9 @@ description: Dit artikel bevat een overzicht van de Azure-database beveiligingsf
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 3c83645f61cd42c8c2b46f787c9e7531726d3fbb
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: b5e9e412fddf727237b008e37238fa2c547694de
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-database-security-overview"></a>Overzicht van Azure-database-beveiliging
 
@@ -99,14 +99,14 @@ Bovendien wordt altijd versleuteld versleuteling transparant voor toepassingen. 
 ## <a name="access-control"></a>Toegangsbeheer
 Voor de beveiliging regelt SQL Database toegang met firewallregels die de connectiviteit beperken op basis van IP-adres. Met behulp van verificatiemechanismen moeten gebruikers hun identiteit kunnen aantonen en met autorisatiemechanismen worden gebruikers beperkt tot bepaalde gegevens en acties.
 
-### <a name="database-access"></a>Toegang tot de database
+### <a name="database-access"></a>Databasetoegang
 
 Gegevensbeveiliging begint met het beheren van toegang tot uw gegevens. Het datacenter die als host fungeert voor uw gegevens beheert fysieke toegang terwijl u een firewall voor het beheren van beveiliging op de netwerklaag kunt configureren. U kunt ook toegang beheren door aanmeldingen voor verificatie configureren en machtigingen voor server en database-rollen te definiëren.
 
 We hebben in deze sectie over:
 
 -   Firewall en firewallregels
--   Authentication
+-   Verificatie
 -   Autorisatie
 
 #### <a name="firewall-and-firewall-rules"></a>Firewall en firewallregels
@@ -115,14 +115,14 @@ Microsoft Azure SQL Database levert een relationele-databaseservice voor Azure e
 
 De [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) service is alleen beschikbaar via TCP-poort 1433. Zorg voor toegang tot een SQL Database vanaf uw computer ervoor dat de firewall van uw clientcomputer uitgaande TCP-communicatie op TCP-poort 1433 toestaat. Blokkeer binnenkomende verbindingen op TCP-poort 1433 als u deze niet nodig hebt voor andere toepassingen.
 
-#### <a name="authentication"></a>Authentication
+#### <a name="authentication"></a>Verificatie
 
 SQL Database-verificatie verwijst naar hoe u uw identiteit bewijst bij het maken van verbinding met de database. SQL Database ondersteunt twee typen verificatie:
 
 -   **SQL-verificatie:** een eenmalige aanmeldingsaccount wordt gemaakt wanneer een logische SQL-exemplaar is gemaakt, de Account van de SQL Database-abonnee genoemd. Dit account maakt verbinding met [SQL Server-verificatie](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview) (gebruikersnaam en wachtwoord). Het account fungeert als beheerder voor de logische serverinstantie en voor alle gebruikersdatabases die hieraan zijn gekoppeld. De machtigingen van het abonnee-account kunnen niet worden beperkt. Er kan slechts één van deze accounts bestaan.
 -   **Azure Active Directory-verificatie:** [Azure Active Directory-verificatie](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) is een mechanisme van verbinding maken met Microsoft Azure SQL Database en SQL Data Warehouse met behulp van identiteiten in Azure Active Directory ( Azure AD). Hiermee kunt u de identiteit van de databasegebruikers centraal te beheren.
 
-![Authentication](./media/azure-databse-security-overview/azure-database-fig2.png)
+![Verificatie](./media/azure-databse-security-overview/azure-database-fig2.png)
 
  Voordelen van Azure Active Directory-verificatie zijn:
   - Het biedt een alternatief voor SQL Server-verificatie.

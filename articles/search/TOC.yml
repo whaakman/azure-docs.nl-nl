@@ -2,11 +2,13 @@
   href: index.yml
 - name: Overzicht
   items:
-    - name: Over Azure Search
+    - name: Wat is Azure Search?
       href: search-what-is-azure-search.md
 - name: Snelstartgidsen
   expanded: true
   items:
+    - name: Cognitief zoeken proberen
+      href: cognitive-search-quickstart-blob.md
     - name: Een service maken
       href: search-create-service-portal.md
     - name: Portal
@@ -37,13 +39,15 @@
           href: search-fiddler.md
 - name: Zelfstudies
   items:
-    - name: 1 - Azure SQL Database indexeren
+    - name: Indexeren met Cognitief zoeken
+      href: cognitive-search-tutorial-blob.md
+    - name: Azure SQL Database indexeren
       href: search-indexer-tutorial.md
-    - name: 2 - Azure-blobs indexeren
+    - name: Azure-blobs indexeren
       href: search-semi-structured-data.md
-    - name: 3 - Synoniemen toevoegen in .NET
+    - name: Synoniemen toevoegen in .NET
       href: search-synonyms-tutorial-sdk.md
-    - name: 4 - Kennismaken met de portal
+    - name: Kennismaken met de portal
       href: search-get-started-portal.md
 - name: Voorbeelden
   items:
@@ -53,14 +57,18 @@
       href: 'https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search'
 - name: Concepten
   items:
+    - name: Cognitief zoeken (preview)
+      href: cognitive-search-concept-intro.md
     - name: Zoeken in volledige tekst
       href: search-lucene-query-architecture.md
+    - name: Taalkundige analyse
+      href: search-analyzers.md
     - name: Indexeren
       href: search-what-is-data-import.md
     - name: Indexdefinitie
       href: search-what-is-an-index.md
-    - name: Taalkundige analyse
-      href: search-analyzers.md
+    - name: Indexeerfuncties
+      href: search-indexer-overview.md
 - name: Handleidingen
   items:
     - name: Plannen en ontwerpen
@@ -123,8 +131,6 @@
           href: 'https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search'
     - name: Gegevens indexeren
       items:
-        - name: Overzicht van indexeerfuncties
-          href: search-indexer-overview.md
         - name: Indexeerfunctie voor Azure Blob Storage
           href: search-howto-indexing-azure-blob-storage.md
         - name: Indexeerfunctie voor Azure Table Storage
@@ -141,7 +147,25 @@
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
         - name: Veldtoewijzingen in indexeerfuncties
           href: search-indexer-field-mappings.md
-    - name: Search
+        - name: Een index opnieuw maken
+          href: search-howto-reindex.md
+    - name: Cognitief zoeken (preview)
+      items:
+        - name: Een set vaardigheden definiëren
+          href: cognitive-search-defining-skillset.md
+        - name: Naar een aantekening verwijzen
+          href: cognitive-search-concept-annotations-syntax.md
+        - name: Toewijzen aan indexvelden
+          href: cognitive-search-output-field-mapping.md
+        - name: Informatie uit installatiekopieën verwerken en extraheren
+          href: cognitive-search-concept-image-scenarios.md
+        - name: Aangepaste vaardigheden integreren
+          href: cognitive-search-custom-skill-interface.md
+        - name: Voorbeeld - aangepaste vaardigheden
+          href: cognitive-search-create-custom-skill-example.md
+        - name: Tips voor probleemoplossing
+          href: cognitive-search-concept-troubleshooting.md
+    - name: Zoeken in volledige tekst
       items:
         - name: Basisquery's bouwen
           href: search-query-overview.md
@@ -165,7 +189,7 @@
           href: search-filters.md
         - name: Facetfilters
           href: search-filters-facets.md
-        - name: Syntaxis voor OData-expressies
+        - name: Filterexpressiesyntaxis
           href: 'https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search'
     - name: Beheer en analyse
       items:
@@ -187,10 +211,41 @@
       href: 'http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html'
     - name: REST
       href: /rest/api/searchservice
+      items:
+        - name: 01-09-2016-preview
+          href: search-api-2016-09-01-preview.md
     - name: REST (beheer)
       href: /rest/api/searchmanagement
-    - name: Service REST (Preview)
-      href: search-api-2016-09-01-preview.md
+    - name: Cognitief zoeken (preview)
+      items:
+        - name: 11-11-2017-preview (REST)
+          href: search-api-2017-11-11-preview.md
+          items:
+            - name: Vaardighedenset maken (preview)
+              href: ref-create-skillset.md
+            - name: Indexeerfunctie maken (preview)
+              href: ref-create-indexer.md
+        - name: Vooraf gedefinieerde vaardigheden
+          href: cognitive-search-predefined-skills.md
+          items:
+            - name: Sleuteltermextractie
+              href: cognitive-search-skill-keyphrases.md
+            - name: Taaldetectie
+              href: cognitive-search-skill-language-detection.md
+            - name: Herkenning van benoemde entiteiten
+              href: cognitive-search-skill-named-entity-recognition.md
+            - name: Tekst samenvoegen
+              href: cognitive-search-skill-textmerger.md
+            - name: Tekst splitsen
+              href: cognitive-search-skill-textsplit.md
+            - name: Stemming
+              href: cognitive-search-skill-sentiment.md
+            - name: Analyse van de afbeelding
+              href: cognitive-search-skill-image-analysis.md
+            - name: OCR
+              href: cognitive-search-skill-ocr.md
+            - name: Shaper
+              href: cognitive-search-skill-shaper.md
 - name: Resources
   items:
     - name: Veelgestelde vragen
@@ -199,6 +254,8 @@
       href: 'https://azure.microsoft.com/pricing/details/search/'
     - name: Service-updates
       href: 'https://azure.microsoft.com/updates/?product=search'
+    - name: Documentatie voor Cognitief zoeken
+      href: cognitive-search-resources-documentation.md
     - name: Cursusmateriaal en zelfstudie
       items:
         - name: Video's en zelfstudies

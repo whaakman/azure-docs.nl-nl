@@ -1,12 +1,12 @@
 ---
 title: Aanbevolen beveiligingsprocedures voor IoT | Microsoft Docs
 description: Aanbevolen beveiligingsprocedures voor het beveiligen van uw IoT-infrastructuur
-services: 
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 24e7bda2-5f7b-44e3-b8af-761abd3276ff
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: e21911d0b0748c50d6f93ff267b8d0283fd74400
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: f060f79ee7676909943bb0dbc4369d1cbff60b46
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/07/2018
 ---
 [!INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]
 
@@ -29,10 +29,10 @@ Zie voor meer informatie over het beveiligen van uw IoT-oplossing:
 * [IoT-beveiligingsarchitectuur][lnk-security-architecture]
 * [Beveiligen van uw IoT-omgeving][lnk-security-deployment]
 
-U kunt ook enkele van de andere functies en mogelijkheden van de vooraf geconfigureerde IoT Suite-oplossingen verkennen:
+U kunt ook een aantal andere functies en mogelijkheden van de IoT-oplossing accelerators verkennen:
 
-* [Overzicht van voorspeld onderhoud vooraf geconfigureerde oplossing][lnk-predictive-overview]
-* [Veelgestelde vragen over Azure IoT Suite][lnk-faq]
+* [Overzicht van voorspeld onderhoud oplossing accelerator][lnk-predictive-overview]
+* [Veelgestelde vragen over Azure IoT-oplossing accelerators][lnk-faq]
 
 U kunt meer informatie over beveiliging in IoT Hub [toegangsbeheer met IoT Hub] [ lnk-devguide-security] in de IoT Hub developer guide.
 

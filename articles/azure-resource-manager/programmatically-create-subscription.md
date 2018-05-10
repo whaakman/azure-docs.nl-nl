@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 4/30/2018
 ms.author: jlian
-ms.openlocfilehash: 8d1eb3229f22b2da3a356562250fedb3c35c4816
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: f55f878d53b3813ea2ff2510998d47820de76a6a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Programmatisch maken abonnementen Azure Enterprise (preview)
 
@@ -49,7 +49,7 @@ Nadat u hebt toegevoegd aan een Azure-EA inschrijving als de eigenaar van een Ac
 - U hebt een of meer EA of EA Dev/Test-abonnementen, wat betekent dat u hebt doorlopen handmatig registreren ten minste eenmaal
 - U bent aangemeld bij de accounteigenaar *basismap*, dit is de map die abonnementen zijn gemaakt in standaard
 
-Als de bovenstaande twee voorwaarden wordt voldaan, een `enrollmentAccount` resource wordt geretourneerd en u kunt beginnen met het maken van abonnementen onder dat account. Alle abonnementen die zijn gemaakt onder het account worden gefactureerd op met de EA-inschrijving die het account is.
+Als de bovenstaande drie voorwaarden wordt voldaan, een `enrollmentAccount` resource wordt geretourneerd en u kunt beginnen met het maken van abonnementen onder dat account. Alle abonnementen die zijn gemaakt onder het account worden gefactureerd op met de EA-inschrijving die het account is.
 
 # <a name="resttabrest"></a>[REST](#tab/rest)
 

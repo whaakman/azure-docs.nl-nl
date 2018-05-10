@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 04/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 017cb5850788bd230c4a4ba256997f2776c07bec
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: MT
+ms.openlocfilehash: db16a4ba2177e92fa4500af0969c44471004ba73
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Gebeurtenis raster berichtbezorging en probeer het opnieuw 
 
@@ -35,7 +35,7 @@ De volgende codes voor HTTP-antwoord geven aan dat een gebeurtenis met succes is
 
 ### <a name="failure-codes"></a>Fout-codes
 
-De volgende codes voor HTTP-antwoord geven aan dat een gebeurtenis bezorging is mislukt. Gebeurtenis raster opnieuw geprobeerd om de gebeurtenis te verzenden. 
+De volgende codes voor HTTP-antwoord geven aan dat een gebeurtenis bezorging is mislukt. 
 
 - 400 onjuiste aanvraag
 - 401-niet toegestaan
@@ -46,9 +46,9 @@ De volgende codes voor HTTP-antwoord geven aan dat een gebeurtenis bezorging is 
 - 503 Service niet beschikbaar
 - 504 Time-out van gateway
 
-Andere antwoordcode of een gebrek aan een antwoord geeft een fout. Gebeurtenis raster pogingen levering. 
+Als gebeurtenis raster een fout die aangeeft dat het eindpunt is niet beschikbaar ontvangt, probeert het opnieuw om de gebeurtenis te verzenden. 
 
-## <a name="retry-intervals"></a>Intervallen voor nieuwe pogingen
+## <a name="retry-intervals-and-duration"></a>Intervallen voor nieuwe pogingen en duur
 
 Een beleid voor opnieuw proberen van exponentieel uitstel gebruikt voor gebeurtenis raster voor de levering van de gebeurtenis. Als uw webhook niet reageert of een foutcode retourneert, opnieuw gebeurtenis raster levering op het volgende schema:
 
@@ -62,9 +62,7 @@ Een beleid voor opnieuw proberen van exponentieel uitstel gebruikt voor gebeurte
 
 Gebeurtenis raster voegt een kleine willekeurige toe aan alle intervallen voor opnieuw proberen. Levering van de gebeurtenis wordt opnieuw geprobeerd eens per uur na een uur.
 
-## <a name="retry-duration"></a>Probeer duur
-
-Azure Event raster verloopt alle gebeurtenissen die niet worden bezorgd binnen 24 uur.
+Gebeurtenis raster verloopt standaard alle gebeurtenissen die niet worden bezorgd binnen 24 uur.
 
 ## <a name="next-steps"></a>Volgende stappen
 

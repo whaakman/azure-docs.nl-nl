@@ -4,14 +4,14 @@
   items:
     - name: Informatie over VPN-gateway
       href: vpn-gateway-about-vpngateways.md
-- name: Voorbeelden
-  items:
-    - name: Azure PowerShell
-      href: powershell-samples.md
 - name: Zelfstudies
   items:
     - name: Een VPN-gateway maken en beheren
       href: vpn-gateway-tutorial-create-gateway-powershell.md
+- name: Voorbeelden
+  items:
+    - name: Azure PowerShell
+      href: powershell-samples.md
 - name: Concepten
   items:
     - name: Planning en ontwerp voor VPN Gateway

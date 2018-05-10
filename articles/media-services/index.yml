@@ -1,0 +1,49 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentatie voor Azure Media Services
+metadata:
+  document_id: 
+  title: Documentatie voor Azure Media Services | Microsoft Docs
+  meta.description: Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more.
+  services: media-services
+  author: juliako
+  manager: cfowler
+  ms.service: media-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04-21-2018
+  ms.author: juliako
+  ms.openlocfilehash: 6bee2f17db6d1f79dd2ba84a278ff6a82b871a9e
+  ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+  ms.translationtype: HT
+  ms.contentlocale: nl-NL
+  ms.lasthandoff: 05/07/2018
+abstract:
+  description: Azure Media Services is een cloudgebaseerd platform waarmee u oplossingen bouwt voor het creëren van videostreaming van broadcast-kwaliteit, het verbeteren van toegankelijkheid en distributie, het analyseren van inhoud en nog veel meer.
+sections:
+- title: 
+  items:
+  - type: list
+    style: cards
+    className: cardsA
+    items:
+    - html: <a href="/azure/media-services/latest/"> <br><strong>Azure Media Services v3 (preview-versie)</strong></a> <p>Informatie over streamen op aanvraag, live uitzenden en het analyseren van uw video's met Media Services v3.</p>
+    - html: <a href="/azure/media-services/previous/"> <br><strong>Azure Media Services v2 (GA)</strong></a> <p>Informatie over streamen op aanvraag, live uitzenden en het analyseren van uw video's met Media Services v2.</p>
+- title: QuickStarts van vijf minuten
+  items:
+  - type: paragraph
+    text: "Informatie over hoe u een Media Services-account maakt, uw video's codeert en Azure Media Player gebruikt om video's af te spelen:"
+  - type: list
+    style: ordered
+    items:
+    - html: Bestanden streamen&#58; <a href="/azure/media-services/latest/stream-files-dotnet-quickstart">v3</a> | <a href="/azure/media-services/previous/media-services-portal-vod-get-started">v2</a>
+- title: Zelfstudies met stapsgewijze instructies
+  items:
+  - type: paragraph
+    text: "Informatie over streamen op aanvraag en het analyseren van uw video's met Media Services:"
+  - type: list
+    style: ordered
+    items:
+    - html: Video's uploaden, coderen, streamen&#58; <a href="/azure/media-services/latest/stream-files-tutorial-with-api">v3</a> | <a href="/azure/media-services/previous/media-services-dotnet-get-started">v2</a>
+    - html: Video's analyseren&#58; <a href="/azure/media-services/latest/analyze-videos-tutorial-with-api">v3</a> | <a href="/azure/media-services/previous/media-services-analytics-overview">v2</a>

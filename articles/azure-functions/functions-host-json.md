@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 8187a4bc6278f917c28418baf3cda2d75ea4e3d8
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: d1dec6f2da4f6fcbeb38585fc6a1cfcd9d622c4a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>host.JSON-documentatie voor Azure Functions
 
@@ -142,6 +142,46 @@ Bepaalt de [steekproeven functie in Application Insights](functions-monitoring.m
 |IsEnabled|true|Hiermee of steekproeven uitgeschakeld.| 
 |maxTelemetryItemsPerSecond|5|De drempelwaarde op welke steekproeven begint.| 
 
+## <a name="durabletask"></a>durableTask
+
+Configuratie-instellingen voor [duurzame functies](durable-functions-overview.md).
+
+```json
+{
+  "durableTask": {
+    "HubName": "MyTaskHub",
+    "ControlQueueBatchSize": 32,
+    "PartitionCount": 4,
+    "ControlQueueVisibilityTimeout": "00:05:00",
+    "WorkItemQueueVisibilityTimeout": "00:05:00",
+    "MaxConcurrentActivityFunctions": 10,
+    "MaxConcurrentOrchestratorFunctions": 10,
+    "AzureStorageConnectionStringName": "AzureWebJobsStorage",
+    "TraceInputsAndOutputs": false,
+    "EventGridTopicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
+    "EventGridKeySettingName":  "EventGridKey"
+  }
+}
+```
+
+Taak hub namen moeten beginnen met een letter en bestaan uit alleen letters en cijfers. Als u niet opgeeft, wordt de standaardnaam voor het hub van taak voor een functie-app is **DurableFunctionsHub**. Zie voor meer informatie [taak hubs](durable-functions-task-hubs.md).
+
+|Eigenschap  |Standaard | Beschrijving |
+|---------|---------|---------|
+|hubName|DurableFunctionsHub|Alternatieve [taak hub](durable-functions-task-hubs.md) namen kunnen worden gebruikt om meerdere duurzame functies toepassingen van elkaar te isoleren, zelfs als ze de dezelfde back-end voor opslag gebruiken.|
+|ControlQueueBatchSize|32|Het aantal berichten om op te halen uit de wachtrij van het besturingselement op een tijdstip.|
+|PartitionCount |4|Het aantal partities voor de wachtrij van het besturingselement. Een positief geheel getal tussen 1 en 16 kan zijn.|
+|ControlQueueVisibilityTimeout |5 minuten|Time-out voor de zichtbaarheid van Wachtrijberichten besturingselement uit wachtrij geplaatst.|
+|WorkItemQueueVisibilityTimeout |5 minuten|Time-out voor de zichtbaarheid van het werk uit wachtrij geplaatst item Wachtrijberichten.|
+|MaxConcurrentActivityFunctions |10 x het aantal processors op de huidige computer|Het maximum aantal activiteit functies die gelijktijdig kunnen worden verwerkt op een exemplaar van één host.|
+|MaxConcurrentOrchestratorFunctions |10 x het aantal processors op de huidige computer|Het maximum aantal activiteit functies die gelijktijdig kunnen worden verwerkt op een exemplaar van één host.|
+|AzureStorageConnectionStringName |AzureWebJobsStorage|De naam van de appinstelling met de verbindingsreeks voor Azure Storage gebruikt voor het beheren van de onderliggende Azure Storage-resources.|
+|TraceInputsAndOutputs |false|Een waarde die aangeeft of de invoer en uitvoer van de functieaanroepen te traceren. Het standaardgedrag bij het traceren van gebeurtenissen voor uitvoering van de functie is het aantal bytes in de geserialiseerde invoer en uitvoer voor functieaanroepen bevatten. Dit biedt minimale informatie over hoe de invoer en uitvoer eruit zonder aanzienlijk groter worden de logboeken of per ongeluk blootstellen gevoelige informatie naar de logboeken. Deze eigenschap instelt op true, zal het registreren van de functie standaard de volledige inhoud van de functie in- en uitgangen aanmelden.|
+|EventGridTopicEndpoint ||De URL van een eindpunt van de aangepaste onderwerp Azure gebeurtenis raster. Wanneer deze eigenschap is ingesteld, worden orchestration levenscyclus meldingsgebeurtenissen worden gepubliceerd naar dit eindpunt.|
+|EventGridKeySettingName ||De naam van de app-instelling met de sleutel die wordt gebruikt voor verificatie met het Azure gebeurtenis raster aangepaste onderwerp op `EventGridTopicEndpoint`.
+
+Veel van deze zijn voor het optimaliseren van de prestaties. Zie voor meer informatie [prestaties en schaalbaarheid](durable-functions-perf-and-scale.md).
+
 ## <a name="eventhub"></a>eventHub
 
 Configuratie-instellingen voor [Event Hub-triggers en bindingen](functions-bindings-event-hubs.md).
@@ -150,7 +190,7 @@ Configuratie-instellingen voor [Event Hub-triggers en bindingen](functions-bindi
 
 ## <a name="functions"></a>functions
 
-Een lijst met functies die de host van de taak wordt uitgevoerd.  Een lege matrix betekent dat alle functies uitvoeren.  Bedoeld voor gebruik alleen wanneer [lokaal uitgevoerd](functions-run-local.md). In functie-apps gebruiken de *function.json* `disabled` eigenschap in plaats van deze eigenschap in *host.json*.
+Een lijst met functies die de host van de taak wordt uitgevoerd. Een lege matrix betekent dat alle functies uitvoeren. Bedoeld voor gebruik alleen wanneer [lokaal uitgevoerd](functions-run-local.md). In functie-apps gebruiken de *function.json* `disabled` eigenschap in plaats van deze eigenschap in *host.json*.
 
 ```json
 {
@@ -190,7 +230,7 @@ Configuratie-instellingen voor [health monitor voor de Host](https://github.com/
 |healthCheckInterval|10 seconden|Het tijdsinterval tussen de periodieke achtergrond status wordt gecontroleerd. | 
 |healthCheckWindow|2 minuten|Een verschuivende tijdvenster gebruikt in combinatie met de `healthCheckThreshold` instelling.| 
 |healthCheckThreshold|6|Maximum aantal keren dat de statuscontrole kan mislukken voordat een recyclebewerking host wordt gestart.| 
-|counterThreshold|0.80|De drempelwaarde waarmee een prestatiemeteritem beschouwd als niet in orde.| 
+|counterThreshold|0,80|De drempelwaarde waarmee een prestatiemeteritem beschouwd als niet in orde.| 
 
 ## <a name="http"></a>http
 
@@ -211,7 +251,7 @@ Als u een opslagaccount voor meerdere apps van de functie deelt, zorg dat elke f
 }
 ```
 
-## <a name="logger"></a>logger
+## <a name="logger"></a>Logboek
 
 Besturingselementen voor het filteren voor Logboeken geschreven door een [ILogger object](functions-monitoring.md#write-logs-in-c-functions) of door [context.log](functions-monitoring.md#write-logs-in-javascript-functions).
 
@@ -287,7 +327,7 @@ Configuratie-instellingen voor de logboeken die u met behulp van maakt een `Trac
 
 |Eigenschap  |Standaard | Beschrijving |
 |---------|---------|---------| 
-|consoleLevel|info|Het niveau van de tracering voor console-aanmelding. Opties zijn: `off`, `error`, `warning`, `info`, en `verbose`.|
+|consoleLevel|Info|Het niveau van de tracering voor console-aanmelding. Opties zijn: `off`, `error`, `warning`, `info`, en `verbose`.|
 |fileLoggingMode|debugOnly|De tracering niveau voor logboekregistratie. Opties zijn `never`, `always`, `debugOnly`.| 
 
 ## <a name="watchdirectories"></a>watchDirectories
@@ -299,21 +339,6 @@ Een set [gedeelde mappen code](functions-reference-csharp.md#watched-directories
     "watchDirectories": [ "Shared" ]
 }
 ```
-
-## <a name="durabletask"></a>durableTask
-
-[Taak hub](durable-functions-task-hubs.md) naam in voor [duurzame functies](durable-functions-overview.md).
-
-```json
-{
-  "durableTask": {
-    "HubName": "MyTaskHub"
-  }
-}
-```
-
-Taak hub namen moeten beginnen met een letter en bestaan uit alleen letters en cijfers. Als u niet opgeeft, wordt de standaardnaam voor het hub van taak voor een functie-app is **DurableFunctionsHub**. Zie voor meer informatie [taak hubs](durable-functions-task-hubs.md).
-
 
 ## <a name="next-steps"></a>Volgende stappen
 

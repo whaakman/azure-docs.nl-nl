@@ -4,9 +4,9 @@ description: In dit artikel biedt een reeks controlelijst voor beveiliging van d
 services: security
 documentationcenter: na
 author: unifycloud
-manager: swadhwa
+manager: mbaldwin
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 37523506369ece144183dba76feb8b23b6c1acb2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 7712196caefeea8a62045d432d762fbd16f42011
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-database-security-checklist"></a>Controlelijst voor de beveiliging van de Azure-database
 
@@ -32,7 +32,7 @@ Deze omvatten:
 -   Beveiligde verbinding met de database met de beveiligde verbindingsreeksen
 -   Toegangsbeheer gebruiken
 -   Gegevensversleuteling
--   Controle van SQL-Database
+-   SQL Database Auditing
 -   Detectie van dreigingen SQL-Database
 
 ## <a name="introduction"></a>Inleiding
@@ -58,7 +58,7 @@ Het is raadzaam dat u leest de [Azure Security Best Practices](https://docs.micr
 Azure-Database is een databaseplatform robuuste met een volledige reeks beveiligingsfuncties die voldoen aan veel organisatie- en regelgeving nalevingsvereisten. U kunt eenvoudig gegevens beveiligen door de fysieke toegang tot uw gegevens beheren en het gebruik van een groot aantal opties voor beveiliging van gegevens op het file-, kolom- of met transparante gegevensversleuteling, -Celcodering of beveiliging op rijniveau. Altijd kan versleutelde ook bewerkingen op de versleutelde gegevens, het proces van toepassingsupdates vereenvoudigen. Op zijn beurt biedt toegang tot de controlelogboeken van de activiteit van de SQL-Database u de informatie die u nodig hebt, zodat u weet hoe en wanneer gegevens worden geopend.
 
 ## <a name="next-steps"></a>Volgende stappen
-U kunt de beveiliging van uw database tegen kwaadwillende gebruikers of onbevoegde toegang met een paar eenvoudige stappen kunt verbeteren. In deze zelfstudie leert u naar:
+U hoeft slechts een paar eenvoudige stappen uit te voeren om de beveiliging van uw database tegen kwaadwillende gebruikers of onbevoegde toegang te verbeteren. In deze zelfstudie leert u het volgende:
 
 - Instellen van [firewall-regels](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) voor de server en of de database.
 - Uw gegevens beschermen met [versleuteling](https://docs.microsoft.com/sql/relational-databases/security/encryption/sql-server-encryption).

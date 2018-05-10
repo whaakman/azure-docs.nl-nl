@@ -80,6 +80,8 @@ items:
         href: unique-keys.md
       - name: Database zonder servers
         href: serverless-computing-database.md
+      - name: Overzicht van BulkExecutor
+        href: bulk-executor-overview.md
       - name: Beveiliging
         href: database-security.md
         items:
@@ -87,8 +89,6 @@ items:
             href: database-encryption-at-rest.md
           - name: Toegang tot gegevens beveiligen
             href: secure-access-to-data.md
-      - name: TCO
-        href: 'https://aka.ms/cosmosdb-tco-paper'
       - name: Gebruiksvoorbeelden
         href: use-cases.md
         items:
@@ -171,6 +171,10 @@ items:
                 href: multi-region-writers.md
           - name: Handleidingen
             items:
+              - name: BulkExecutor - .NET
+                href: bulk-executor-dot-net.md
+              - name: BulkExecutor - JAVA
+                href: bulk-executor-java.md
               - name: Query’s uitvoeren
                 items:
                   - name: SQL-query's uitvoeren
@@ -247,6 +251,10 @@ items:
                 href: sql-api-sdk-node.md
               - name: Python
                 href: sql-api-sdk-python.md
+              - name: BulkExecutor - .NET
+                href: sql-api-sdk-bulk-executor-dot-net.md
+              - name: BulkExecutor - JAVA
+                href: sql-api-sdk-bulk-executor-java.md
               - name: REST
                 href: /rest/api/cosmos-db/
               - name: REST-resourceprovider
@@ -257,8 +265,6 @@ items:
             items:
               - name: Visual Studio Code-extensie
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
-              - name: Documentatie over schema agnostisch indexeren
-                href: 'http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf'
               - name: SQL-testomgeving
                 href: 'https://aka.ms/cosmos-db-playground'
       - name: MongoDB-API-documenten
@@ -433,6 +439,8 @@ items:
         href: set-throughput.md
       - name: Firewallondersteuning
         href: firewall-support.md
+      - name: Service-eindpunt voor virtueel netwerk instellen
+        href: vnet-service-endpoint.md
       - name: Metrische gegevens
         href: use-metrics.md
       - name: SLA's bewaken
@@ -465,3 +473,5 @@ items:
         href: faq.md
       - name: Gegevensconsistentie uitgelegd aan de hand van honkbal
         href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'
+      - name: Whitepapers
+        href: whitepapers.md

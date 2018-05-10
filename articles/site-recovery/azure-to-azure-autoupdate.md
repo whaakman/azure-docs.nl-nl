@@ -8,15 +8,15 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: rajanaki
-ms.openlocfilehash: 45f2e2927f699769bb385038c04d4dd23e075a9a
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: d9b653e4766746d2142a7e1040d6d60ec2aacc44
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="automatic-update-of-mobility-service-extension-in-azure-to-azure-replication"></a>Automatische update van de Mobility-Service de extensie in de replicatie van Azure naar Azure
 
-Azure Site Recovery heeft een maandelijkse release uitgebracht waarbij verbeteringen in bestaande functies of er nieuwe bestanden worden toegevoegd en bekende problemen, indien van toepassing zijn opgelost. Dit betekent dat er om te blijven met de service, moet u plannen voor de implementatie van deze patches een maandelijkse uitgebracht. Om te voorkomen dat de failover-kop die zijn gekoppeld aan de upgrade, kunnen gebruikers in plaats daarvan kiezen om toe te staan van Site Recovery om updates van de onderdelen te beheren. Zoals beschreven in de [architectuur verwijzing](azure-to-azure-architecture.md) voor noodherstel van Azure naar Azure, de Mobility-Service wordt geïnstalleerd op alle Azure virtuele machines waarvoor replicatie is ingeschakeld tijdens het repliceren van virtuele machines van één Azure de regio naar een andere. In dit document worden de volgende:
+Azure Site Recovery heeft een maandelijkse release uitgebracht waarbij verbeteringen in bestaande functies of er nieuwe bestanden worden toegevoegd en bekende problemen, indien van toepassing zijn opgelost. Dit betekent dat er om te blijven met de service, moet u over de implementatie van deze patches per maand. Om te voorkomen dat de failover-kop die zijn gekoppeld aan de upgrade, kunnen gebruikers in plaats daarvan kiezen om toe te staan van Site Recovery om updates van de onderdelen te beheren. Zoals beschreven in de [architectuur verwijzing](azure-to-azure-architecture.md) voor noodherstel van Azure naar Azure, de Mobility-Service wordt geïnstalleerd op alle Azure virtuele machines waarvoor replicatie is ingeschakeld tijdens het repliceren van virtuele machines van één Azure de regio naar een andere. Wanneer u automatische updates hebt ingeschakeld, wordt de Mobility-extensie met elke nieuwe release bijgewerkt. In dit document worden de volgende:
 
 - Hoe werkt het automatisch bijwerken?
 - Automatische updates inschakelen
@@ -25,6 +25,9 @@ Azure Site Recovery heeft een maandelijkse release uitgebracht waarbij verbeteri
 ## <a name="how-does-automatic-update-work"></a>Hoe werkt het automatisch bijwerken
 
 Wanneer u Site Recovery voor het beheren van updates toestaat, is een globale runbook (die wordt gebruikt door de Azure-services) wordt geïmplementeerd via een automation-account is gemaakt in hetzelfde abonnement als de kluis. Een automation-account wordt gebruikt voor een specifieke kluis. Het runbook controleert voor elke virtuele machine in een kluis waarvoor automatische updates zijn ingeschakeld en een upgrade van de uitbreiding van de Mobility-Service wordt gestart als een nieuwere versie beschikbaar is. De standaardplanning van de runbook-recurrs dagelijks om 12:00 uur volgens de tijdzone van de gerepliceerde virtuele machine geo. De runbook-planning kan ook worden gewijzigd via de automation-account door de gebruiker, indien nodig. 
+
+> [!NOTE]
+> Inschakelen van automatische updates hoeft niet opnieuw opstarten van uw Azure VM's en heeft geen invloed op continue replicatie.
 
 ## <a name="enable-automatic-updates"></a>Automatische updates inschakelen
 

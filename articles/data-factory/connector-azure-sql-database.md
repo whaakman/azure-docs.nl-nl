@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2018
+ms.date: 05/05/2018
 ms.author: jingwang
-ms.openlocfilehash: c4f27f59412fbfc72e193f916895c3e67091f5f6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0503b355089fe6bbcc7632ac93fd21e71f268032
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Kopiëren van gegevens of naar Azure SQL Database met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -100,7 +100,7 @@ Volg deze stappen voor het gebruik van de service principal gebaseerde AAD-toepa
     - Sleutel van toepassing
     - Tenant-id
 
-2. **[Inrichten van een Azure Active Directory-beheerder](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)**  voor uw Azure SQL-Server op Azure-portal als u dit nog niet hebt gedaan. De AAD-beheerder moet een AAD-gebruiker of groep AAD, maar mag niet een service-principal. Deze stap is uitgevoerd, zodat in de volgende stap u een AAD-identiteit gebruiken kunt voor het maken van een ingesloten database-gebruiker voor de service principal.
+2. **[Inrichten van een Azure Active Directory-beheerder](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  voor uw Azure SQL-Server op Azure-portal als u dit nog niet hebt gedaan. De AAD-beheerder moet een AAD-gebruiker of groep AAD, maar mag niet een service-principal. Deze stap is uitgevoerd, zodat in de volgende stap u een AAD-identiteit gebruiken kunt voor het maken van een ingesloten database-gebruiker voor de service principal.
 
 3. **Een ingesloten database-gebruiker maken voor de service-principal**, door verbinding te maken van de database van/naar die u wilt kopiëren van gegevens met behulp van hulpprogramma's zoals SSMS met een AAD identiteit met ten minste ALTER machtigingen en het uitvoeren van de volgende T-SQL. Meer informatie op de ingesloten databasegebruiker [hier](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
     
@@ -111,7 +111,7 @@ Volg deze stappen voor het gebruik van de service principal gebaseerde AAD-toepa
 4. **De service-principal de vereiste machtigingen verlenen** zoals u gewend voor SQL-gebruikers, bijvoorbeeld bent door het uitvoeren van onderstaande:
 
     ```sql
-    EXEC sp_addrolemember '[your application name]', 'readonlyuser';
+    EXEC sp_addrolemember [role name], [your application name];
     ```
 
 5. In de ADF, configureert u een service van Azure SQL Database gekoppeld.
@@ -160,7 +160,7 @@ Voor het gebruik van MSI op basis van tokenverificatie AAD-toepassing, als volgt
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
     ```
 
-2. **[Inrichten van een Azure Active Directory-beheerder](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)**  voor uw Azure SQL-Server op Azure-portal als u dit nog niet hebt gedaan. De AAD-beheerder kan een AAD-gebruiker of AAD-groep zijn. Als u de groep met MSI een beheerdersrol verleent, stap 3 en 4 hieronder overslaan als de beheerder volledige toegang tot de database hebben zou.
+2. **[Inrichten van een Azure Active Directory-beheerder](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  voor uw Azure SQL-Server op Azure-portal als u dit nog niet hebt gedaan. De AAD-beheerder kan een AAD-gebruiker of AAD-groep zijn. Als u de groep met MSI een beheerdersrol verleent, stap 3 en 4 hieronder overslaan als de beheerder volledige toegang tot de database hebben zou.
 
 3. **Maak een ingesloten database-gebruiker voor de AAD-groep**, door verbinding te maken van de database van/naar die u wilt kopiëren van gegevens met behulp van hulpprogramma's zoals SSMS met een AAD identiteit met ten minste ALTER machtigingen en het uitvoeren van de volgende T-SQL. Meer informatie op de ingesloten databasegebruiker [hier](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
     
@@ -171,7 +171,7 @@ Voor het gebruik van MSI op basis van tokenverificatie AAD-toepassing, als volgt
 4. **De AAD-groep nodig machtigingen verlenen** zoals u gewend voor SQL-gebruikers, bijvoorbeeld bent door het uitvoeren van onderstaande:
 
     ```sql
-    EXEC sp_addrolemember '[your AAD group name]', 'readonlyuser';
+    EXEC sp_addrolemember [role name], [your AAD group name];
     ```
 
 5. In de ADF, configureert u een service van Azure SQL Database gekoppeld.

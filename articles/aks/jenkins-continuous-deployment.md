@@ -1,6 +1,6 @@
 ---
-title: Doorlopende implementatie Jenkins met Kubernetes in Azure Container Service
-description: Het automatiseren van een proces continue implementatie met Jenkins te implementeren en een beperkte app op Kubernetes in Azure Container Service bijwerken
+title: Continue implementatie met Kubernetes in Azure Kubernetes Service Jenkins
+description: Het automatiseren van een proces continue implementatie met Jenkins te implementeren en een beperkte app op Kubernetes in Azure Kubernetes Service bijwerken
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 03/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 7ebe7a88fcb0a0785b72c512e64a2d9aeb5fc506
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: efdb89c5f4c6bdb9b007b7c0020cbdb8f6034eed
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="continuous-deployment-with-jenkins-and-azure-container-service"></a>Continue implementatie met Jenkins en Azure Container Service
+# <a name="continuous-deployment-with-jenkins-and-azure-kubernetes-service"></a>Continue implementatie met Jenkins en Azure Kubernetes Service
 
-Dit document wordt gedemonstreerd hoe een eenvoudige continue implementatiewerkstroom tussen Jenkins en een Azure Container Service (AKS)-cluster instellen.
+Dit document wordt gedemonstreerd hoe een eenvoudige continue implementatiewerkstroom tussen Jenkins en een Azure Kubernetes Service (AKS)-cluster instellen.
 
 De voorbeeldwerkstroom bevat de volgende stappen uit:
 
@@ -33,7 +33,7 @@ De voorbeeldwerkstroom bevat de volgende stappen uit:
 U kunt de volgende items nodig om de stappen in dit artikel te voltooien.
 
 - Basiskennis van Kubernetes, Git CI/CD en Azure Container register (ACR).
-- Een [Azure Container Service (AKS)-cluster] [ aks-quickstart] en [AKS referenties geconfigureerd] [ aks-credentials] op uw ontwikkelsysteem.
+- Een [Azure Kubernetes Service (AKS)-cluster] [ aks-quickstart] en [AKS referenties geconfigureerd] [ aks-credentials] op uw ontwikkelsysteem.
 - Een [Azure Container register (ACR) register][acr-quickstart], de servernaam ACR aanmelding en [ACR referenties] [ acr-authentication] met push als pull-toegang.
 - Azure CLI op uw ontwikkelsysteem geïnstalleerd.
 - Docker geïnstalleerd op uw ontwikkelsysteem.

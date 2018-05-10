@@ -2,24 +2,24 @@
 title: Omzetten van koppelingen en URL's Azure AD-toepassingsproxy | Microsoft Docs
 description: Bevat informatie over de basisbeginselen van Azure AD-toepassingsproxy connectors.
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: MarkusVi
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
-ms.author: daveba
+ms.date: 05/04/2018
+ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: d5d704dac58d65dd7d62bc3eca400f9541714d5d
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
-ms.translationtype: MT
+ms.openlocfilehash: 5009266dc2cbea360ef9c5dfa69fc2c13225d8cd
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Koppelingen voor apps die zijn gepubliceerd met Azure AD-toepassingsproxy hardcoded omleiden
 
@@ -27,12 +27,43 @@ Azure AD-toepassingsproxy stelt uw lokale apps beschikbaar voor gebruikers die e
 
 De beste manier om ervoor te zorgen dat koppelingen werken op dezelfde manier zowel binnen als buiten uw bedrijfsnetwerk noodzakelijk is voor het configureren van de externe URL's van uw apps voor dezelfde zijn als de interne URL's. Gebruik [aangepaste domeinen](active-directory-application-proxy-custom-domains.md) voor het configureren van de externe URL's om uw zakelijke domeinnaam in plaats van de proxy van het standaardtoepassingsdomein.
 
-Als u aangepaste domeinen niet in uw tenant gebruiken, houdt uw koppelingen werken ongeacht waar uw gebruikers zich met de functie koppeling vertaling van Application Proxy. Wanneer u apps die rechtstreeks op de interne eindpunten of poorten verwijzen hebt, kunt u deze interne URL's toewijzen aan de gepubliceerde externe toepassing Proxy URL's. Wanneer de vertaling van de koppeling is ingeschakeld en toepassingsproxy doorzoekt HTML en CSS voor gepubliceerde interne koppelingen, de service voor toepassingsproxy zet deze zodat uw gebruikers beschikken over een ononderbroken ervaring.
 
->[!NOTE]
->De koppeling NAT-functie is voor tenants die voor welke reden dan ook niet met aangepaste domeinen hebben de dezelfde interne en externe URL's voor hun apps. Voordat u deze functie inschakelt, zien als [aangepaste domeinen in Azure AD-toepassingsproxy](active-directory-application-proxy-custom-domains.md) voor u kan doen.
->
->Of, als de toepassing die u wilt configureren met een koppeling vertaling SharePoint is, raadpleegt u [alternatieve toegangstoewijzingen voor SharePoint 2013 configureren](https://technet.microsoft.com/library/cc263208.aspx) voor een andere methode om de toewijzing van koppelingen.
+Als u aangepaste domeinen niet in uw tenant gebruiken, zijn er verschillende opties voor het ontwikkelen van deze functionaliteit. Al deze waarden zijn ook compatibel met aangepaste domeinen en elkaar, zodat u aangepaste domeinen en andere oplossingen indien nodig kunt configureren. 
+
+**Optie 1: De Managed Browser gebruiken** – deze oplossing is alleen van toepassing als u van plan bent te raden of vereisen dat gebruikers toegang krijgen de toepassing via de Intune Managed Browser tot. Verwerkt alle gepubliceerde URL's. 
+
+**Optie 2: De extensie MyApps gebruiken** : deze oplossing vereist gebruikers voor het installeren van een client-side Browseruitbreiding maar verwerkt alle gepubliceerde URL's en werkt met de meest populaire browsers. 
+
+**Optie 3: De instelling van de vertaling koppeling gebruiken** – dit is een beheerder side-instelling die niet wordt weergegeven aan gebruikers. Dit wordt echter alleen URL's in HTML en CSS verwerkt. Vastgelegde interne URL's gegenereerd via Javascript werkt (bijvoorbeeld) niet.  
+
+Deze drie functies houdt uw koppelingen werken ongeacht waar uw gebruikers zijn. Wanneer u apps die rechtstreeks op de interne eindpunten of poorten verwijzen hebt, kunt u deze interne URL's toewijzen aan de gepubliceerde externe toepassing Proxy URL's. 
+
+ 
+> [!NOTE]
+> De laatste optie is alleen voor tenants die voor welke reden dan ook niet met aangepaste domeinen hebben de dezelfde interne en externe URL's voor hun apps. Voordat u deze functie inschakelt, zien als [aangepaste domeinen in Azure AD-toepassingsproxy](active-directory-application-proxy-custom-domains.md) voor u kan doen. 
+
+>Of, als de toepassing die u wilt configureren met een koppeling vertaling SharePoint is, raadpleegt u [alternatieve toegangstoewijzingen voor SharePoint 2013 configureren](https://technet.microsoft.com/library/cc263208.aspx) voor een andere methode om de toewijzing van koppelingen. 
+
+ 
+### <a name="option-1-intune-managed-browser-integration"></a>Optie 1: De Intune Managed Browser-integratie 
+
+De Intune Managed Browser kunt u uw toepassing en de inhoud verder te beschermen. Voor het gebruik van deze oplossing, moet u vereisen/raadzaam om gebruikers toegang tot de toepassing via de Intune Managed Browser. Alle interne URL's gepubliceerd met toepassingsproxy wordt herkend door de Managed Browser en omgeleid naar de bijbehorende externe URL. Dit zorgt ervoor dat alle vastgelegde interne URL's werken en als een gebruiker, gaat u naar de browser en de interne URL rechtstreeks van het type, het werkt zelfs als de gebruiker extern is.  
+
+Raadpleeg voor meer informatie, inclusief het configureren van deze optie de [Managed Browser](https://docs.microsoft.com/intune/app-configuration-managed-browser) documentatie.  
+
+### <a name="option-2-myapps-browser-extension"></a>Optie 2: MyApps Browseruitbreiding 
+
+Met de extensie van de Browser MyApps alle interne URL's gepubliceerd met toepassingsproxy herkend door de uitbreiding en omgeleid naar de bijbehorende externe URL. Dit zorgt ervoor dat alle vastgelegde interne URL's werken en als een gebruiker naar de adresbalk van de browser overschakelt en de interne URL rechtstreeks van het type, het werkt zelfs als de gebruiker extern is.  
+
+Deze functie wilt gebruiken, moet de gebruiker downloaden van de extensie en zijn aangemeld. Er is geen andere configuratie die nodig zijn voor beheerders of gebruikers. 
+
+ 
+
+### <a name="option-3-link-translation-setting"></a>Optie 3: Koppeling vertaling instelling 
+
+Wanneer de vertaling van de koppeling is ingeschakeld, wordt de service voor toepassingsproxy HTML en CSS doorzocht voor gepubliceerde interne koppelingen en zet deze zodat uw gebruikers beschikken over een ononderbroken ervaring. 
+
+
 
 ## <a name="how-link-translation-works"></a>Hoe werkt de vertaling koppelen
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/22/2018
+ms.date: 05/22/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 627b5bf39c066cd974b70f9db974fcf3fd73b251
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 82069b31ee51e0dd60691edca490b1a60384288a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-ad-token-reference"></a>Azure AD-tokenverwijzing
 Azure Active Directory (Azure AD) verzendt verschillende typen beveiligingstokens bij de verwerking van elke verificatiestroom. Dit document beschrijft de indeling, de beveiligingskenmerken en de inhoud van elk type token. 
@@ -164,6 +164,8 @@ Vernieuwen van tokens kunnen worden ongeldig gemaakt of op elk gewenst moment om
 
 > [!NOTE]
 >Als een niet-password authenticatiemethode is gebruikt (Windows Hello, de verificator-app, biometrie zoals een vlak of vingerafdruk) voor het bereiken van het token, wachtwoord van de gebruiker te wijzigen forceert geen de gebruiker opnieuw worden geverifieerd (maar deze wordt gedwongen de verificator-app voor het opnieuw verifiëren).  Dit is omdat de gekozen verificatie invoer (een gezicht, bijvoorbeeld) is niet gewijzigd en kan daarom opnieuw worden gebruikt voor het opnieuw te verifiëren.
+>
+> Vertrouwelijke clients worden niet beïnvloed door wijziging van intrekking wachtwoord.  Een vertrouwelijk client met een vernieuwingstoken voordat een wachtwoordwijziging abl die vernieuwingstoken gebruiken blijven voor tokens meer worden uitgegeven. 
 
 ## <a name="sample-tokens"></a>Voorbeeld-Tokens
 

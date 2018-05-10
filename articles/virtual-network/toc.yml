@@ -31,6 +31,8 @@
       href: powershell-samples.md
     - name: Resource Manager-sjablonen
       href: template-samples.md
+    - name: Azure Policy-sjablonen
+      href: policy-samples.md
 - name: Concepten
   items:
     - name: Beveiliging
@@ -44,7 +46,7 @@
     - name: Virtueel netwerk voor Azure-services
       href: virtual-network-for-azure-services.md
     - name: Containernetwerken
-      href: container-networking.md
+      href: ../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json
     - name: Bedrijfscontinuïteit
       href: virtual-network-disaster-recovery-guidance.md
     - name: IP-adressering

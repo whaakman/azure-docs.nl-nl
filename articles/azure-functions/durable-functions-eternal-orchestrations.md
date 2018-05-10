@@ -4,9 +4,9 @@ description: Informatie over het implementeren van eeuwige integraties met behul
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: cb4115b98091f55a0324ea795ffcc83cb29223a4
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f42526430599e47e673d359433e91b4687cbeb9e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Eeuwige integraties in duurzame functies (Azure-functies)
 
@@ -36,6 +36,9 @@ Wanneer `ContinueAsNew` wordt aangeroepen, het exemplaar enqueues een bericht na
 
 > [!NOTE]
 > Het duurzame taak Framework blijft behouden dezelfde exemplaar-ID, maar intern maakt u een nieuwe *uitvoerings-ID* voor de orchestrator-functie die opnieuw wordt ingesteld door `ContinueAsNew`. Deze uitvoerings-ID in het algemeen niet beschikbaar is extern, maar het mogelijk handig te weten over wanneer de uitvoering van de orchestration-foutopsporing.
+
+> [!NOTE]
+> De `ContinueAsNew` methode is nog niet beschikbaar in JavaScript.
 
 ## <a name="periodic-work-example"></a>Voorbeeld van de periodieke werk
 

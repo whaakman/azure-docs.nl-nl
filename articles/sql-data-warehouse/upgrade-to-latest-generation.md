@@ -10,20 +10,20 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 673386ad236f596aa4c64fe2e8c885fb86afe170
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 58d65ef05ed872bb357070de9866253baea5dc70
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Prestaties optimaliseren door bijwerken van SQL Data Warehouse
 Azure SQL Data Warehouse upgraden naar de nieuwste generatie van Azure hardware- en storage-architectuur.
 
 ## <a name="why-upgrade"></a>Waarom upgraden?
-U kunt nu probleemloos upgraden naar de optimaliseren voor de prestatielaag Compute in de Azure portal. Als u een geoptimaliseerd voor elasticiteit datawarehouse hebt, wordt upgraden aanbevolen. Door een upgrade uitvoert, kunt u gebruiken de nieuwste Azure hardware en verbeterde opslagarchitectuur. U kunt profiteren van betere prestaties, hogere schaalbaarheid en onbeperkte kolommen opslag. 
+U kunt nu probleemloos upgraden naar SQL Data Warehouse Gen2 in de Azure portal. Als u een Gen1 datawarehouse hebt, wordt upgraden aanbevolen. Door een upgrade uitvoert, kunt u gebruiken de nieuwste Azure hardware en verbeterde opslagarchitectuur. U kunt profiteren van betere prestaties, hogere schaalbaarheid en onbeperkte kolommen opslag. 
 
 ## <a name="applies-to"></a>Van toepassing op
-Deze upgrade geldt voor datawarehouses in de optimaliseren voor de prestatielaag elasticiteit.
+Deze upgrade geldt voor datawarehouses Gen1.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 
@@ -31,22 +31,22 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 ## <a name="before-you-begin"></a>Voordat u begint
 > [!NOTE]
-> Als uw bestaande geoptimaliseerd voor elasticiteit datawarehouse niet is in een regio waar geoptimaliseerd voor Compute beschikbaar is, kunt u [geo-herstel te optimaliseren voor Compute](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) via PowerShell naar een ondersteunde regio.
+> Als uw bestaande Gen1 datawarehouse zich niet in een regio waar Gen2 beschikbaar is, kunt u [geo-herstel naar Gen2](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) via PowerShell naar een ondersteunde regio.
 > 
 >
 
-1. Als de geoptimaliseerde voor elasticiteit datawarehouse moet worden bijgewerkt, is onderbroken, [hervatten van het datawarehouse](pause-and-resume-compute-portal.md).
+1. Als het datawarehouse Gen1 moeten worden bijgewerkt, is onderbroken, [hervatten van het datawarehouse](pause-and-resume-compute-portal.md).
 2. Worden voorbereid voor een aantal minuten uitvaltijd. 
 
 
 
 ## <a name="start-the-upgrade"></a>De upgrade start
 
-1. Ga naar uw optimaliseren voor elasticiteit datawarehouse in de Azure portal op en klik op **Upgrade naar geoptimaliseerd voor Compute**: ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
+1. Ga naar uw Gen1 datawarehouse in de Azure portal op en klik op **upgraden naar Gen2**: ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
 
-2. Standaard **selecteert u de voorgestelde prestatieniveau** voor het datawarehouse op basis van uw huidige prestatieniveau van optimaliseren voor elasticiteit met behulp van de onderstaande toewijzing:
+2. Standaard **selecteert u de voorgestelde prestatieniveau** voor het datawarehouse op basis van uw huidige prestatieniveau van Gen1 met behulp van de onderstaande toewijzing:
     
-| Geoptimaliseerd voor flexibiliteit | Geoptimaliseerd voor rekenen |
+| Gen1 | Gen2 |
 | :----------------------: | :-------------------: |
 |      DW100 – DW1000      |        DW1000c        |
 |          DW1200          |        DW1500c        |
@@ -56,7 +56,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 |          DW6000          |        DW6000c        |
 
 
-3. Zorg ervoor dat uw werkbelasting vóór de upgrade worden uitgevoerd, en stilgelegd is voltooid. Treedt uitvaltijd voor enkele minuten duren voordat uw datawarehouse weer online als een geoptimaliseerd voor Compute-datawarehouse is. **Klik op upgraden**. De prijs van de optimaliseren voor de prestatielaag Compute is momenteel half-uitgeschakeld tijdens de preview-periode:
+3. Zorg ervoor dat uw werkbelasting vóór de upgrade worden uitgevoerd, en stilgelegd is voltooid. Treedt uitvaltijd voor enkele minuten duren voordat uw datawarehouse weer als een datawarehouse Gen2 online is. **Klik op upgraden**. De prijs van de prestatielaag Gen2 is momenteel half-uitgeschakeld tijdens de preview-periode:
     
     ![Upgrade_2](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_2.png)
 
@@ -68,7 +68,13 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
    
    De tweede stap van het upgradeproces is de gegevensmigratie ('upgrade - Online'). Gegevensmigratie is een achtergrondproces online nieuwe die kolomgegevens van de oude opslagarchitectuur langzaam worden verplaatst naar de nieuwe opslagarchitectuur gebruik te maken van een lokale SSD-cache. Tijdens deze periode worden uw datawarehouse online zijn voor het doorzoeken en laden. Al uw gegevens zijn beschikbaar om op te vragen ongeacht of deze is gemigreerd of niet. De gegevensmigratie gebeurt met een frequentie variëren afhankelijk van de gegevensgrootte van uw, het prestatieniveau en het nummer van de columnstore-segmenten. 
 
-5. **Optionele aanbeveling:** sneller het migratieproces achtergrond, wordt aanbevolen om af te dwingen onmiddellijk verplaatsing van gegevens door te voeren [Alter Index rebuild](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-index) op alle columnstore-tabellen op een grotere SLO en resource de klasse. Deze bewerking is offline vergeleken met de nieuwe achtergrondproces; de gegevensmigratie wordt wel veel sneller waar u kunt vervolgens profiteren van de nieuwe uitgebreide opslagarchitectuur met een hoge kwaliteit rowgroups eenmaal voltooid. 
+5. **Zoeken naar uw datawarehouse Gen2** met behulp van de blade SQL database bladeren. 
+
+> [!NOTE]
+> Er is momenteel een probleem waarbij Gen2 gegevens worden in datawarehouses niet in de SQL datawarehouse weergegeven worden blade bladeren. Gebruik de blade SQL database bladeren om uw bijgewerkte Gen2 datawarehouse vinden. Er wordt gewerkt aan deze oplossing.
+> 
+
+6. **Optionele aanbeveling:** sneller het migratieproces achtergrond, wordt aanbevolen om af te dwingen onmiddellijk verplaatsing van gegevens door te voeren [Alter Index rebuild](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-index) op alle columnstore-tabellen op een grotere SLO en resource de klasse. Deze bewerking is offline vergeleken met de nieuwe achtergrondproces; de gegevensmigratie wordt wel veel sneller waar u kunt vervolgens profiteren van de nieuwe uitgebreide opslagarchitectuur met een hoge kwaliteit rowgroups eenmaal voltooid. 
 
 Deze volgende query worden de vereiste Alter Index Rebuild-opdrachten voor het migratieproces snellere gegenereerd:
 

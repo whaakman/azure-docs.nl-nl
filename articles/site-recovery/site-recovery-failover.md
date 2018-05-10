@@ -1,18 +1,18 @@
 ---
 title: Failover in Site Recovery | Microsoft Docs
-description: "Azure Site Recovery coördineert de replicatie, failovers en herstel van virtuele machines en fysieke servers. Meer informatie over failover naar Azure of een secundair datacenter."
+description: Azure Site Recovery coördineert de replicatie, failovers en herstel van virtuele machines en fysieke servers. Meer informatie over failover naar Azure of een secundair datacenter.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 05/02/2018
 ms.author: ponatara
-ms.openlocfilehash: f7a60cd82508629ad3cf46882564aa68995ba3e6
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 40f35cde2b55da0763f6ee65b065f5dd8a55b9c6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="failover-in-site-recovery"></a>Failover in Site Recovery
 Dit artikel wordt beschreven hoe met failover-virtuele machines en fysieke servers beveiligd door Site Recovery.
@@ -95,10 +95,10 @@ Failover van virtuele machines vereist in bepaalde gevallen, een extra tussensta
 * Hyper-V virtuele machines die beveiligd als de fysieke servers
 * Waar volgende stuurprogramma's niet aanwezig als opstartstuurprogramma zijn virtuele VMware-machines
     * storvsc
-    * vmbus
+    * VMBus
     * storflt
     * Intelide
-    * atapi
+    * ATAPI
 * Virtuele VMware-machines waarvoor geen DHCP-service is ingeschakeld ongeacht of ze zijn geïnstalleerd via DHCP of statische IP-adressen
 
 In alle andere gevallen is dit tussenstap is niet vereist en de tijd voor de failover is lager.

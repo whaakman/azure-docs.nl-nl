@@ -1,26 +1,26 @@
 ---
-title: Overzicht van duurzame Functions - Azure (preview)
+title: Overzicht van duurzame Functions - Azure
 description: Inleiding tot de extensie duurzame functies voor Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: b5269bb51c787c927b4224b3520d5514b6d24501
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: d253562e0ecb0d53739a4cdc5f9747e33d7e1171
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="durable-functions-overview-preview"></a>Overzicht van duurzame Functions (preview)
+# <a name="durable-functions-overview"></a>Overzicht van duurzame functies
 
 *Duurzame functies* is een uitbreiding van [Azure Functions](functions-overview.md) en [Azure WebJobs](../app-service/web-sites-create-web-jobs.md) die u kunt schrijven stateful functies in een omgeving zonder server. De extensie beheert de status, controlepunten en opnieuw opstarten voor u.
 
@@ -31,7 +31,7 @@ De uitbreiding kunt u definiëren stateful werkstromen in een nieuw type aangero
 * Ze automatisch controlepunt hun uitgevoerd wanneer de functie wacht op. Lokale status is nooit verloren gaan als het proces wordt gerecycled of de virtuele machine opnieuw is opgestart.
 
 > [!NOTE]
-> Duurzame functies is Preview-versie en is een geavanceerde uitbreiding voor Azure-functies die niet geschikt voor alle toepassingen. De rest van dit artikel wordt ervan uitgegaan dat u een sterke bekend bent met hebt [Azure Functions](functions-overview.md) concepten en de uitdagingen die zijn betrokken bij de ontwikkeling van de toepassing zonder server.
+> Duurzame Functions is een geavanceerde extensie voor Azure-functies die niet geschikt voor alle toepassingen. De rest van dit artikel wordt ervan uitgegaan dat u een sterke bekend bent met hebt [Azure Functions](functions-overview.md) concepten en de uitdagingen die zijn betrokken bij de ontwikkeling van de toepassing zonder server.
 
 Het primaire gebruiksvoorbeeld voor duurzame functies is coördinatie van complexe, stateful problemen in zonder server toepassingen vereenvoudigen. De volgende secties worden enkele typische toepassing patronen die van duurzame functies profiteren kunnen.
 
@@ -42,6 +42,8 @@ Het primaire gebruiksvoorbeeld voor duurzame functies is coördinatie van comple
 ![Functie chaining diagram](media/durable-functions-overview/function-chaining.png)
 
 Duurzame functies kunt u dit patroon bondig in code te implementeren.
+
+#### <a name="c"></a>C#
 
 ```cs
 public static async Task<object> Run(DurableOrchestrationContext ctx)
@@ -60,6 +62,19 @@ public static async Task<object> Run(DurableOrchestrationContext ctx)
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+
+```js
+const df = require("durable-functions");
+
+module.exports = df(function*(ctx) {
+    const x = yield ctx.df.callActivityAsync("F1");
+    const y = yield ctx.df.callActivityAsync("F2", x);
+    const z = yield ctx.df.callActivityAsync("F3", y);
+    return yield ctx.df.callActivityAsync("F4", z);
+});
+```
+
 De waarden 'F1', 'F2', 'F3' en 'F4' zijn de namen van andere functies in de functie-app. Controlestroom wordt geïmplementeerd met behulp van de normale imperatieve constructies coderen. Dat wil zeggen, code wordt uitgevoerd boven naar beneden en kan betrekking hebben op bestaande control flow taalsemantiek, zoals voorwaardelijke en lussen.  Fout tijdens het verwerken van de logica kan worden opgenomen in een try/catch/finally-blokken.
 
 De `ctx` parameter ([DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html)) biedt methoden voor het aanroepen van andere functies met de naam, de parameters doorgeven, en het retourneren van uitvoer van de functie. Elke keer dat de code aanroepen `await`, het framework duurzame functies *controlepunten* de voortgang van het huidige exemplaar van de functie. Als het proces of de VM wordt gerecycled halverwege via de uitvoering, het exemplaar van de functie wordt hervat vanuit de vorige `await` aanroepen. Meer informatie over dit gedrag voor opnieuw opstarten later.
@@ -70,7 +85,9 @@ De `ctx` parameter ([DurableOrchestrationContext](https://azure.github.io/azure-
 
 ![Diagram fan-uitgaand/fan-in](media/durable-functions-overview/fan-out-fan-in.png)
 
-Met normale functies kan airconditioningapparatuur uit worden gedaan door de functie meerdere berichten verzenden naar een wachtrij. Terug in de airconditioningapparatuur is echter veel moeilijker. U moet de code te schrijven om bij te houden wanneer de wachtrij-geactiveerde functies beëindigen en opslaan van de uitvoer van de functie. De extensie duurzame functies verwerkt dit patroon met relatief eenvoudige code.
+Met normale functies kan airconditioningapparatuur uit worden gedaan door de functie meerdere berichten verzenden naar een wachtrij. Terug in de airconditioningapparatuur is echter veel moeilijker. U moet schrijven van code om bij te houden wanneer de wachtrij-geactiveerde functies beëindigen en uitvoer van de functie opslaan. De extensie duurzame functies verwerkt dit patroon met relatief eenvoudige code.
+
+#### <a name="c"></a>C#
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -91,6 +108,28 @@ public static async Task Run(DurableOrchestrationContext ctx)
     int sum = parallelTasks.Sum(t => t.Result);
     await ctx.CallActivityAsync("F3", sum);
 }
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+
+```js
+const df = require("durable-functions");
+
+module.exports = df(function*(ctx) {
+    const parallelTasks = [];
+
+    // get a list of N work items to process in parallel
+    const workBatch = yield ctx.df.callActivityAsync("F1");
+    for (let i = 0; i < workBatch.length; i++) {
+        parallelTasks.push(ctx.df.callActivityAsync("F2", workBatch[i]));
+    }
+
+    yield ctx.df.task.all(parallelTasks);
+
+    // aggregate all N outputs and send result to F3
+    const sum = parallelTasks.reduce((prev, curr) => prev + curr, 0);
+    yield ctx.df.callActivityAsync("F3", sum);
+});
 ```
 
 Het werk fan-out wordt gedistribueerd naar meerdere exemplaren van de functie `F2`, en het werk wordt bijgehouden met behulp van een dynamische lijst met taken. De .NET `Task.WhenAll` -API wordt aangeroepen om te wachten tot alle opgeroepen functies om te voltooien. Vervolgens wordt de `F2`functie levert worden samengevoegd in de taaklijst met dynamische en doorgegeven aan bij de `F3` functie.
@@ -151,7 +190,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-De [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) `starter` parameter is een waarde van de `orchestrationClient` uitvoer binding, die deel uitmaakt van de extensie duurzame functies. Het biedt methoden voor begin, verzenden van gebeurtenissen, wordt afgebroken en een query uitvoert voor nieuwe of bestaande orchestrator-functie-exemplaren. In het bovenstaande voorbeeld wordt een HTTP-geactiveerd-functie omvat een `functionName` waarde van de binnenkomende URL en geeft die naar waarde [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_). Deze binding-API retourneert een antwoord met een `Location` header en aanvullende informatie over de instantie die later kan worden gebruikt om te zoeken registreert de status van het exemplaar gestart of beëindigd deze.
+De [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) `starter` parameter is een waarde van de `orchestrationClient` uitvoer binding, die deel uitmaakt van de extensie duurzame functies. Het biedt methoden voor begin, verzenden van gebeurtenissen, wordt afgebroken en een query uitvoert voor nieuwe of bestaande orchestrator-functie-exemplaren. In het vorige voorbeeld is een HTTP-geactiveerd-functie wordt in een `functionName` waarde van de binnenkomende URL en geeft die naar waarde [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_). Deze binding-API retourneert een antwoord met een `Location` header en aanvullende informatie over de instantie die later kan worden gebruikt om te zoeken registreert de status van het exemplaar gestart of beëindigd deze.
 
 ## <a name="pattern-4-monitoring"></a>Patroon #4: controleren
 
@@ -162,6 +201,8 @@ Een voorbeeld zou de eerdere asynchrone HTTP API scenario worden omgekeerd. In p
 ![Diagram van de monitor](media/durable-functions-overview/monitor.png)
 
 Duurzame functies gebruikt, kunnen meerdere beeldschermen houden willekeurige eindpunten worden gemaakt in een paar regels code. De monitoren uitvoering kunnen beëindigen wanneer een bepaalde voorwaarde wordt voldaan, of worden afgesloten met de [DurableOrchestrationClient](durable-functions-instance-management.md), en hun wachtinterval kan worden gewijzigd op basis van een bepaalde voorwaarde (dat wil zeggen exponentieel uitstel.) De volgende code implementeert een basic-monitor.
+
+#### <a name="c"></a>C#
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -189,6 +230,34 @@ public static async Task Run(DurableOrchestrationContext ctx)
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+
+```js
+const df = require("durable-functions");
+const df = require("moment");
+
+module.exports = df(function*(ctx) {
+    const jobId = ctx.df.getInput();
+    const pollingInternal = getPollingInterval();
+    const expiryTime = getExpiryTime();
+
+    while (moment.utc(ctx.df.currentUtcDateTime).isBefore(expiryTime)) {
+        const jobStatus = yield ctx.df.callActivityAsync("GetJobStatus", jobId);
+        if (jobStatus === "Completed") {
+            // Perform action when condition met
+            yield ctx.df.callActivityAsync("SendAlert", machineId);
+            break;
+        }
+
+        // Orchestration will sleep until this time
+        const nextCheck = moment.utc(ctx.df.currentUtcDateTime).add(pollingInterval, 's');
+        yield ctx.df.createTimer(nextCheck.toDate());
+    }
+
+    // Perform further work here, or let the orchestration end
+});
+```
+
 Wanneer een aanvraag wordt ontvangen, is een nieuw exemplaar van de orchestration gemaakt voor die taak-ID. Het exemplaar worden opgevraagd status totdat een voorwaarde wordt voldaan en dat de lus wordt afgesloten. Een duurzame timer wordt gebruikt voor het polling-interval. Werk verder kan worden uitgevoerd of de orchestration kunt beëindigen. Wanneer de `ctx.CurrentUtcDateTime` overschrijdt de `expiryTime`, de ends monitor.
 
 ## <a name="pattern-5-human-interaction"></a>Patroon #5: Menselijke tussenkomst
@@ -200,6 +269,8 @@ Een voorbeeld van een bedrijfsproces waarbij een menselijke tussenkomst is een g
 ![Diagram van menselijke tussenkomst](media/durable-functions-overview/approval.png)
 
 Dit patroon kan worden geïmplementeerd met behulp van een orchestrator-functie. De orchestrator zou gebruiken een [duurzame timer](durable-functions-timers.md) goedkeuring aanvragen en escaleren in geval van een time-out. Werd gewacht voor een [externe gebeurtenis](durable-functions-external-events.md), die de melding die worden gegenereerd door een aantal menselijke tussenkomst zou zijn.
+
+#### <a name="c"></a>C#
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -224,7 +295,39 @@ public static async Task Run(DurableOrchestrationContext ctx)
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+
+```js
+const df = require("durable-functions");
+const moment = require('moment');
+
+module.exports = df(function*(ctx) {
+    yield ctx.df.callActivityAsync("RequestApproval");
+
+    const dueTime = moment.utc(ctx.df.currentUtcDateTime).add(72, 'h');
+    const durableTimeout = ctx.df.createTimer(dueTime.toDate());
+
+    const approvalEvent = ctx.df.waitForExternalEvent("ApprovalEvent");
+    if (approvalEvent === yield ctx.df.Task.any([approvalEvent, durableTimeout])) {
+        durableTimeout.cancel();
+        yield ctx.df.callActivityAsync("ProcessApproval", approvalEvent.result);
+    } else {
+        yield ctx.df.callActivityAsync("Escalate");
+    }
+});
+```
+
 De duurzame timer wordt gemaakt door het aanroepen van `ctx.CreateTimer`. De melding wordt ontvangen door `ctx.WaitForExternalEvent`. En `Task.WhenAny` aangeroepen om te bepalen of u wilt escaleren (time-out gebeurt eerst) of goedkeuring verwerken (goedkeuring wordt ontvangen voordat de time-out).
+
+Een externe client de gebeurtenismelding kunt leveren aan een wachtrij orchestrator-functie met behulp van de [ingebouwde HTTP APIs](durable-functions-http-api.md#raise-event) of met behulp van [DurableOrchestrationClient.RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_System_String_System_String_System_Object_) API van een andere functie:
+
+```csharp
+public static async Task Run(string instanceId, DurableOrchestrationClient client)
+{
+    bool isApproved = true;
+    await client.RaiseEventAsync(instanceId, "ApprovalEvent", isApproved);
+}
+```
 
 ## <a name="the-technology"></a>De technologie
 
@@ -244,7 +347,7 @@ Het gedrag voor opnieuw afspelen maakt beperkingen voor het type code dat kan wo
 
 ## <a name="language-support"></a>Taalondersteuning
 
-C# is momenteel de enige ondersteunde taal voor duurzame functies. Dit omvat de orchestrator-functies en functies van de activiteit. In de toekomst, wordt er ondersteuning voor alle talen die ondersteuning biedt voor Azure Functions toevoegen. Zie de Azure Functions [GitHub-opslagplaats lijst](https://github.com/Azure/azure-functions-durable-extension/issues) om te zien van de laatste status van onze andere talen werken ondersteunen.
+Momenteel C# (functies v1- en v2)- en JavaScript (alleen functies v2) zijn de enige ondersteunde talen voor duurzame functies. Dit omvat de orchestrator-functies en functies van de activiteit. In de toekomst, wordt er ondersteuning voor alle talen die ondersteuning biedt voor Azure Functions toevoegen. Zie de Azure Functions [GitHub-opslagplaats lijst](https://github.com/Azure/azure-functions-durable-extension/issues) om te zien van de laatste status van onze andere talen werken ondersteunen.
 
 ## <a name="monitoring-and-diagnostics"></a>Controle en diagnose
 
@@ -275,7 +378,7 @@ Tabelopslag wordt gebruikt voor het opslaan van de uitvoergeschiedenis voor orch
 
 ## <a name="known-issues-and-faq"></a>Bekende problemen en veelgestelde vragen
 
-In het algemeen alle bekende problemen moeten worden bijgehouden in de [GitHub problemen](https://github.com/Azure/azure-functions-durable-extension/issues) lijst. Als u een probleem opgetreden en het probleem niet kunt in GitHub vinden, opent u een nieuwe uitgifte en bevat een gedetailleerde beschrijving van het probleem. Zelfs als u gewoon wilt een vraag stellen, opent u een probleem met de GitHub en deze code als een vraag gerust.
+Alle bekende problemen moeten worden bijgehouden in de [GitHub problemen](https://github.com/Azure/azure-functions-durable-extension/issues) lijst. Als u een probleem opgetreden en het probleem niet kunt in GitHub vinden, opent u een nieuwe uitgifte en bevat een gedetailleerde beschrijving van het probleem.
 
 ## <a name="next-steps"></a>Volgende stappen
 

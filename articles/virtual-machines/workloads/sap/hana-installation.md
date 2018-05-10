@@ -14,18 +14,18 @@ ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8ef85c098058c97e5ec6d758fcf1dab5b1a87786
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 768d9c31cdf019bf73a9d3b3a239c537c72725f6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Het installeren en configureren van SAP HANA (grote exemplaren) in Azure
 
 Hier volgen enkele belangrijke definities moet weten voordat u deze handleiding leest. In [SAP HANA (grote exemplaren) overzicht en architectuur op Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) er zijn twee verschillende soorten HANA grote exemplaar eenheden met geïntroduceerd:
 
 - S72, S72m S144, S144m, S192 en S192m die naar verwezen als 'Type ik klasse' van SKU's.
-- S384, S384m S384xm, S576, S768 en S960 die naar als de 'Type II class-instructie van SKU's verwezen.
+- S384, S384m S384xm, S576m, S768m en S960m die naar als de 'Type II class-instructie van SKU's verwezen.
 
 De klasse-aanduiding gaat moet worden gebruikt in de documentatie van de grote exemplaar HANA uiteindelijk verwijzen naar verschillende mogelijkheden en vereisten op basis van HANA grote exemplaar SKU's.
 
@@ -53,8 +53,8 @@ In specifieke, Controleer de volgende parameters en uiteindelijk wordt aangepast
 
 - net.core.rmem_max = 16777216
 - net.core.wmem_max = 16777216
-- net.core.rmem_default = 16777216
-- net.core.wmem_default = 16777216
+- NET.Core.rmem_default 16777216 =
+- NET.Core.wmem_default 16777216 =
 - net.core.optmem_max = 16777216
 - net.ipv4.tcp_rmem = 65536 16777216 16777216
 - net.ipv4.tcp_wmem = 65536 16777216 16777216
@@ -65,7 +65,7 @@ Voor alle RHEL vrijgegeven en beginnen met SLES12, de
 - sunrpc.tcp_slot_table_entries = 128
 
 parameter moet worden ingesteld als in/etc/modprobe.d/sunrpc-local.conf. Als het bestand niet bestaat, moet deze eerst worden gemaakt door de volgende vermelding toe te voegen: 
-- options sunrpc tcp_max_slot_table_entries=128
+- Opties voor sunrpc tcp_max_slot_table_entries = 128
 
 **Vierde stap** is om te controleren van de systeemtijd van uw exemplaar van HANA grote eenheid. De exemplaren worden geïmplementeerd met de tijdzone van een systeem met daarin de locatie van de Azure-regio die de HANA grote exemplaar stempel bevindt zich in. U bent kunt wijzigen van de systeemtijd of de tijdzone van de exemplaren die u eigenaar. Dit leidt en ordening meer exemplaren in uw tenant, moet u aan te passen aan de tijdzone van de nieuwe geleverde exemplaren worden voorbereid. Microsoft-bewerkingen hebben geen inzicht in de tijdzone die u instellen met de exemplaren na de overdracht. Geïmplementeerde exemplaren kunnen daarom niet worden ingesteld in dezelfde tijdzone als het account dat u hebt gewijzigd. Als gevolg hiervan, is het uw verantwoordelijkheid als klant om te controleren en indien nodig de tijdzone van de exemplaren afgegeven aanpassen. 
 
@@ -100,7 +100,7 @@ De naamgeving van de opslagvolumes worden vermeld in de volgende tabel:
 
 | Opslaggebruik | De naam van koppelpunt | Volumenaam | 
 | --- | --- | ---|
-| HANA gegevens | /hana/data/SID/mnt0000<m> | Storage IP:/hana_data_SID_mnt00001_tenant_vol |
+| HANA gegevens | /Hana/Data/SID/mnt0000<m> | Storage IP:/hana_data_SID_mnt00001_tenant_vol |
 | HANA-logboek | /Hana/log/SID/mnt0000<m> | Storage IP:/hana_log_SID_mnt00001_tenant_vol |
 | HANA logboekback-up | /Hana/log/backups | Storage IP:/hana_log_backups_SID_mnt00001_tenant_vol |
 | HANA gedeeld | /Hana/Shared/SID | Storage IP:/hana_shared_SID_mnt00001_tenant_vol/shared |
@@ -139,8 +139,8 @@ De controller voor opslag en de knooppunten in de stempels grote exemplaar worde
 Om te optimaliseren SAP HANA naar de opslag die onder gebruikt, moet u ook de volgende SAP HANA-configuratieparameters instellen:
 
 - max_parallel_io_requests 128
-- async_read_submit on
-- async_write_submit_active on
+- async_read_submit op
+- async_write_submit_active op
 - alle async_write_submit_blocks
  
 Voor SAP HANA 1.0 versies tot SPS12, deze parameters worden ingesteld tijdens de installatie van de SAP HANA-database, zoals beschreven in [SAP Opmerking #2267798 - configuratie van de SAP HANA-Database](https://launchpad.support.sap.com/#/notes/2267798)
@@ -234,7 +234,7 @@ Ga naar softwareonderhoud en zoek naar smt in YAST. Selecteer smt die automatisc
 ![SMT in yast](./media/hana-installation/image5_smt_in_yast.PNG)
 
 
-De selectie voor installatie op de smtserver accepteren. Eenmaal geïnstalleerd, gaat u naar de configuratie van de SMT-server en voert u de organisatie-referenties van het SUSE klant Center die u eerder hebt opgehaald. Voer uw Azure VM-hostnaam ook als de URL van de SMT-Server. In deze demonstratie was https://smtserver zoals weergegeven in de volgende afbeeldingen.
+De selectie voor installatie op de smtserver accepteren. Eenmaal geïnstalleerd, gaat u naar de configuratie van de SMT-server en voert u de organisatie-referenties van het SUSE klant Center die u eerder hebt opgehaald. Voer uw Azure VM-hostnaam ook als de URL van de SMT-Server. In deze demonstratie is https://smtserver zoals weergegeven in de volgende afbeeldingen.
 
 ![Configuratie van SMT-server](./media/hana-installation/image6_configuration_of_smtserver1.png)
 

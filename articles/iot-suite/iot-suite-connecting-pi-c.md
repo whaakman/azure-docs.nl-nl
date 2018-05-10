@@ -1,12 +1,12 @@
 ---
 title: Frambozen Pi voor externe controle met C - Azure inrichten | Microsoft Docs
-description: Hierin wordt beschreven hoe een frambozen Pi apparaat aansluit op de Azure IoT Suite vooraf geconfigureerde oplossing voor externe controle met behulp van een toepassing die is geschreven in c
+description: Hierin wordt beschreven hoe een frambozen Pi apparaat aansluit op de externe controle oplossingsverbetering met behulp van een toepassing die is geschreven in c
 services: iot-suite
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fc50a33f-9fb9-42d7-b1b8-eb5cff19335e
 ms.service: iot-suite
 ms.devlang: na
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/14/2018
 ms.author: dobett
-ms.openlocfilehash: e3fb95bc5084bb633541f70a5e68cc8d6af83298
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 79a97dda31308cdd0ffeb1196a8a11e0f431803e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-preconfigured-solution-c"></a>Verbind het apparaat frambozen Pi met de vooraf geconfigureerde oplossing voor externe controle (C)
+# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-c"></a>Verbind het apparaat frambozen Pi met de externe controle oplossingsverbetering (C)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Deze zelfstudie laat zien hoe een fysiek apparaat verbindt met de vooraf geconfigureerde oplossing voor externe controle. Net als bij meest embedded-toepassingen die worden uitgevoerd op een beperkte apparaten, is de clientcode voor de toepassing frambozen Pi-apparaat geschreven in c In deze zelfstudie bouwt u de toepassing op een Pi frambozen het Raspbian-besturingssysteem.
+Deze zelfstudie laat zien hoe een fysiek apparaat verbindt met de externe controle oplossingsverbetering. Net als bij meest embedded-toepassingen die worden uitgevoerd op een beperkte apparaten, is de clientcode voor de toepassing frambozen Pi-apparaat geschreven in c In deze zelfstudie bouwt u de toepassing op een Pi frambozen het Raspbian-besturingssysteem.
 
 ### <a name="required-hardware"></a>Vereiste hardware
 
@@ -49,7 +49,7 @@ SSH-client moet u op de computer waarmee u kunt extern toegang tot de opdrachtre
 
 In dit artikel wordt ervan uitgegaan dat u hebt geïnstalleerd dat de nieuwste versie van de [Raspbian OS op uw Pi frambozen](https://www.raspberrypi.org/learning/software-guide/quickstart/).
 
-De volgende stappen ziet u hoe u uw Pi frambozen voorbereidt voor het bouwen van een toepassing C die verbinding met de vooraf geconfigureerde oplossing maakt:
+De volgende stappen ziet u hoe u uw Pi frambozen voorbereidt voor het bouwen van een toepassing C die verbinding met de oplossingsverbetering maakt:
 
 1. Verbinding maken met uw frambozen Pi met **ssh**. Zie voor meer informatie [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) op de [frambozen Pi website](https://www.raspberrypi.org/).
 

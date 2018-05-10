@@ -3,7 +3,7 @@ title: Mongoimport en mongorestore gebruiken met de Azure Cosmos DB-API voor Mon
 description: Informatie over het gebruik van mongoimport en mongorestore voor het importeren van gegevens naar een API voor MongoDB-account
 keywords: mongoimport, mongorestore
 services: cosmos-db
-author: AndrewHoh
+author: SnehaGunda
 manager: kfile
 documentationcenter: ''
 ms.assetid: 352c5fb9-8772-4c5f-87ac-74885e63ecac
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
-ms.author: anhoh
+ms.date: 05/07/2018
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 5c87483e384a09591aca496292638d7b68476beb
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 36d098a76e57b65ba82c24ed81ebbe3d21489a9f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB: Import MongoDB-gegevens 
 
@@ -28,7 +28,7 @@ Als u gegevens wilt migreren van MongoDB naar een Azure Cosmos DB-account voor g
 * Download een *mongoimport.exe* of *mongorestore.exe* van de [MongoDB-Downloadcentrum](https://www.mongodb.com/download-center).
 * De [API voor de MongoDB-verbindingsreeks](connect-mongodb-account.md) ophalen.
 
-Als u gegevens uit MongoDB importeert en plannen voor gebruik met de Azure-Cosmos-database, moet u de [hulpprogramma voor gegevensmigratie](import-data.md) om gegevens te importeren.
+Als u gegevens uit MongoDB importeert en plannen voor gebruik met de SQL-API van Azure Cosmos DB, moet u de [hulpprogramma voor gegevensmigratie](import-data.md) om gegevens te importeren.
 
 Deze zelfstudie bestaat uit de volgende taken:
 
@@ -39,7 +39,7 @@ Deze zelfstudie bestaat uit de volgende taken:
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Verhoogt de doorvoer: de duur van de migratie is afhankelijk van de hoeveelheid doorvoer die u voor uw verzamelingen instellen. Zorg ervoor dat de doorvoer voor grotere gegevens migraties verhogen. Nadat u de migratie hebt voltooid, verlaagt u de doorvoer voor het opslaan van kosten. Voor meer informatie over de toenemende doorvoer in de [Azure-portal](https://portal.azure.com), Zie [prestatieniveaus en prijscategorieën in Azure Cosmos DB](performance-levels.md).
+* Verhoogt de doorvoer: de duur van de migratie is afhankelijk van de hoeveelheid doorvoer die u voor een afzonderlijke verzameling instelt of een set van verzamelingen. Zorg ervoor dat de doorvoer voor grotere gegevens migraties verhogen. Nadat u de migratie hebt voltooid, verlaagt u de doorvoer voor het opslaan van kosten. Voor meer informatie over de toenemende doorvoer in de [Azure-portal](https://portal.azure.com), Zie [prestatieniveaus en prijscategorieën in Azure Cosmos DB](performance-levels.md).
 
 * Schakel SSL: Azure Cosmos DB heeft strenge beveiligingsvereisten en standaarden. Zorg ervoor dat SSL in te schakelen wanneer u met uw account communiceert. De procedures in de rest van het artikel bevatten informatie over het inschakelen van SSL voor mongoimport en mongorestore.
 
@@ -47,10 +47,11 @@ Deze zelfstudie bestaat uit de volgende taken:
 
 1. In de [Azure-portal](https://portal.azure.com), in het linkerdeelvenster klikt u op de **Azure Cosmos DB** vermelding.
 2. In de **abonnementen** deelvenster, selecteer de accountnaam van uw.
-3. In de **verbindingsreeks** blade, klikt u op **verbindingsreeks**.  
-Het rechter deelvenster bevat alle informatie die u nodig hebt om verbinding te maken aan uw account.
+3. In de **verbindingsreeks** blade, klikt u op **verbindingsreeks**.
 
-    ![Connection String-blade](./media/mongodb-migrate/ConnectionStringBlade.png)
+   Het rechter deelvenster bevat alle informatie die u nodig hebt om verbinding te maken aan uw account.
+
+   ![Connection String-blade](./media/mongodb-migrate/ConnectionStringBlade.png)
 
 ## <a name="import-data-to-the-api-for-mongodb-by-using-mongoimport"></a>Gegevens importeren in de API voor MongoDB met behulp van mongoimport
 
@@ -80,9 +81,27 @@ Voorbeeld:
 
 1. Vooraf maken en schalen van uw verzamelingen:
         
-    * Standaard levert Azure Cosmos DB een nieuwe verzameling MongoDB met 1000 aanvraageenheden (RUs). Voordat u de migratie met behulp van mongoimport, mongorestore of mongomirror, vooraf maken van alle verzamelingen uit de [Azure-portal](https://portal.azure.com) of van MongoDB-stuurprogramma's en hulpprogramma's. Als uw verzameling groter dan 10 GB is, zorg ervoor dat u een [shard/gepartitioneerd verzameling](partition-data.md) met een juiste shard-sleutel.
+    * Standaard levert Azure Cosmos DB een nieuwe verzameling MongoDB met 1000 aanvraageenheden (RUs per seconde). Voordat u de migratie met behulp van mongoimport, mongorestore of mongomirror, vooraf maken van alle verzamelingen uit de [Azure-portal](https://portal.azure.com) of van MongoDB-stuurprogramma's en hulpprogramma's. Als uw verzameling groter dan 10 GB is, zorg ervoor dat u een [shard/gepartitioneerd verzameling](partition-data.md) met een juiste shard-sleutel.
 
-    * Van de [Azure-portal](https://portal.azure.com), waardoor de doorvoercapaciteit uw verzamelingen van 1000 RUs voor een verzameling van één partitie en 2500 RUs voor een verzameling shard slechts voor de migratie. U kunt met de hogere doorvoer voorkomen bandbreedtebeperking en migreren in minder tijd. Met elk uur facturering in Azure Cosmos DB, kunt u de doorvoer reduceren onmiddellijk na de migratie om kosten te besparen.
+    * Van de [Azure-portal](https://portal.azure.com), waardoor de doorvoercapaciteit uw verzamelingen van 1000 RUs per seconde voor een verzameling van één partitie en 2500 RUs per seconde voor een verzameling shard slechts voor de migratie. U kunt met de hogere doorvoer voorkomen bandbreedtebeperking en migreren in minder tijd. Met elk uur facturering in Azure Cosmos DB, kunt u de doorvoer reduceren onmiddellijk na de migratie om kosten te besparen.
+
+    * Naast inrichting RUs per seconde op het niveau verzameling, kunt u ook RU per seconde inrichten voor een set van verzamelingen op het niveau van bovenliggende database. Hiervoor moet de database en de verzamelingen vooraf te maken, evenals een shard-sleutel voor elke verzameling definiëren.
+
+    * U kunt shard verzamelingen via uw favoriete hulpprogramma, stuurprogramma of SDK maken. In dit voorbeeld gebruiken we de Mongo-Shell een shard verzameling maken:
+
+        ```
+        db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )
+        ```
+    
+        Resultaten:
+
+        ```JSON
+        {
+            "_t" : "ShardCollectionResponse",
+            "ok" : 1,
+            "collectionsharded" : "admin.people"
+        }
+        ```
 
 2. De geschatte kosten RU voor een schrijfbewerking voor één document berekenen:
 
@@ -92,7 +111,7 @@ Voorbeeld:
     
         ```db.coll.insert({ "playerId": "a067ff", "hashedid": "bb0091", "countryCode": "hk" })```
         
-    c. Voer ```db.runCommand({getLastRequestStatistics: 1})``` en ontvangt u een antwoord zoals deze:
+    c. Voer ```db.runCommand({getLastRequestStatistics: 1})``` en ontvangt u een antwoord als volgt:
      
         ```
         globaldb:PRIMARY> db.runCommand({getLastRequestStatistics: 1})
@@ -111,7 +130,7 @@ Voorbeeld:
     
     a. Uitgebreide logboekregistratie in de MongoDB-Shell inschakelen met behulp van deze opdracht: ```setVerboseShell(true)```
     
-    b. Een eenvoudige query uitgevoerd voor de database: ```db.coll.find().limit(1)```. U ontvangt een antwoord zoals deze:
+    b. Een eenvoudige query uitgevoerd voor de database: ```db.coll.find().limit(1)```. U ontvangt een antwoord als volgt:
 
         ```
         Fetched 1 record(s) in 100(ms)

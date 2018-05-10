@@ -3,7 +3,7 @@ title: Azure betaling verwerking blauwdruk - versleutelingsvereisten
 description: PCI-DSS vereiste 4
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 43f75ba9-cb4e-49ab-b3f4-09e48310bc18
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
-ms.openlocfilehash: 3eb5b663558c2a68c13368b179ff942dd3c53716
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.author: jomolesk
+ms.openlocfilehash: 6de3290fc2147e3c8ed63642b6e8470093898ef6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="encryption-requirements-for-pci-dss-compliant-environments"></a>Versleutelingsvereisten voor PCI DSS-compatibele omgevingen 
 ## <a name="pci-dss-requirement-4"></a>PCI-DSS vereiste 4
@@ -53,7 +53,7 @@ Gevoelige gegevens moet worden versleuteld tijdens de verzending via netwerken d
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore is een PaaS-oplossing waarmee sterke cryptografie voor de implementatie als volgt:<br /><br />Om te voldoen aan de vereisten van versleutelde gegevens in rust, [Azure Storage](https://azure.microsoft.com/services/storage/) gebruikgemaakt van de volgende:<br /><br /><ul><li>[Azure Storage-versleuteling (SSE) voor gegevens in rust](/azure/storage/storage-service-encryption)</li><li>SQL Database: Een PaaS SQL Database-exemplaar wordt gebruikt voor de database veiligheidsmaatregelen presenteren. Zie voor meer informatie [richtlijnen PCI - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).</li><li>[Azure Disk Encryption (Bitlocker)](/azure/security/azure-security-disk-encryption)</li></ul>Met Azure Key Vault wordt uitgelijnd met Azure Government, PCI DSS en HIPAA-vereisten.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore is een PaaS-oplossing waarmee sterke cryptografie voor de implementatie als volgt:<br /><br />Om te voldoen aan de vereisten van versleutelde gegevens in rust, [Azure Storage](https://azure.microsoft.com/services/storage/) gebruikgemaakt van de volgende:<br /><br /><ul><li>[Azure Storage-versleuteling (SSE) voor gegevens in rust](/azure/storage/storage-service-encryption)</li><li>SQL Database: Een PaaS SQL Database-exemplaar wordt gebruikt voor de database veiligheidsmaatregelen presenteren. Zie voor meer informatie [richtlijnen PCI - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).</li><li>[Azure Disk Encryption (Bitlocker)](/azure/security/azure-security-disk-encryption)</li></ul>Met Azure Key Vault wordt uitgelijnd met Azure Government, PCI DSS en HIPAA-vereisten.|
 
 
 
@@ -66,7 +66,7 @@ Gevoelige gegevens moet worden versleuteld tijdens de verzending via netwerken d
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | SNMP- en draadloze netwerken worden niet geïmplementeerd in de oplossing.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | SNMP- en draadloze netwerken worden niet geïmplementeerd in de oplossing.|
 
 
 
@@ -79,7 +79,7 @@ Gevoelige gegevens moet worden versleuteld tijdens de verzending via netwerken d
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore heeft geen elke messaging oplossing wordt geïmplementeerd en die niet-beveiligde primaire account nummer (PAN) gegevens worden verzonden.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore heeft geen elke messaging oplossing wordt geïmplementeerd en die niet-beveiligde primaire account nummer (PAN) gegevens worden verzonden.|
 
 
 
@@ -92,7 +92,7 @@ Gevoelige gegevens moet worden versleuteld tijdens de verzending via netwerken d
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het vastleggen en coderen gegevensoverdrachten met gegevens van de kaarthouder.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het vastleggen en coderen gegevensoverdrachten met gegevens van de kaarthouder.|
 
 
 

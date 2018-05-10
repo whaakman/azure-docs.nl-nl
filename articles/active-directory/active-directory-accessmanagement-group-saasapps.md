@@ -1,26 +1,24 @@
 ---
 title: Toegang tot SaaS-toepassingen beheren met behulp van een groep | Microsoft Docs
-description: "Het gebruik van groepen in Azure Active Directory Premium of Basic toewijzen van toegang tot SaaS-toepassingen die zijn geïntegreerd met Azure Active Directory."
+description: Het gebruik van groepen in Azure Active Directory Premium of Basic toewijzen van toegang tot SaaS-toepassingen die zijn geïntegreerd met Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: ab8dee63-bedc-46ca-8852-234f5c16ae98
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: it-pro
-ms.openlocfilehash: 4aee5b28fd42be98fac8f9c7d61538319e3efd9a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bdcda54d4e43c81bde587b949cdc12a0237469a9
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="using-a-group-to-manage-access-to-saas-applications"></a>Een groep gebruiken om SaaS-toepassingen te beheren
 Met Azure Active Directory (Azure AD) met een licentie voor Azure AD Premium of Azure AD Basic, kunt u groepen gebruiken voor het toewijzen van toegang tot een SaaS-toepassing die geïntegreerd met Azure AD. Bijvoorbeeld, als u toegang toewijzen voor de marketingafdeling vijf verschillende SaaS-toepassingen gebruiken wilt, kunt u een groep met de gebruikers van de marketingafdeling maken en vervolgens die groep toewijzen aan deze vijf SaaS-toepassingen die nodig zijn voor de marketingafdeling. Op deze manier kunt u tijd besparen door het lidmaatschap van de marketingafdeling op één plek beheren. Gebruikers zijn vervolgens toegewezen aan de toepassing wanneer ze zijn toegevoegd als leden van de groep marketing en hun toewijzingen verwijderd uit de toepassing wanneer ze zijn verwijderd uit de groep marketing. Deze mogelijkheid kan worden gebruikt met honderden toepassingen die u uit binnen de Azure AD-Toepassingsgalerie kunt toevoegen.

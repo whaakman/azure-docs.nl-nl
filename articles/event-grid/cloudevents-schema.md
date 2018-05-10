@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: babanisa
-ms.openlocfilehash: a2612d2154ea5b991f549a0678374336e1a95c40
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
-ms.translationtype: MT
+ms.openlocfilehash: a882073fce28be1b93a6c9118c40398062f61bc5
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Gebruik CloudEvents schema met gebeurtenis raster
 
@@ -89,6 +89,8 @@ U kunt gebeurtenis raster gebruiken voor zowel invoer en uitvoer van gebeurtenis
 | Gebeurtenis raster  | CloudEvents-indeling
 | CloudEvents-indeling | Gebeurtenis raster
 | Gebeurtenis raster  | Gebeurtenis raster
+
+Voor alle gebeurtenis schema's gebeurtenis raster validatie is vereist bij het publiceren van een gebeurtenis raster onderwerp en bij het maken van een gebeurtenisabonnement. Zie voor meer informatie [gebeurtenis raster beveiligings- en verificatie](security-authentication.md).
 
 ### <a name="input-schema"></a>Invoer schema
 

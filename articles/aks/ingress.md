@@ -1,25 +1,25 @@
 ---
-title: Inkomende gegevens met Azure Container Service (AKS)-cluster configureren
-description: Installeer en configureer een NGINX ingress-domeincontroller in een Azure Container Service (AKS)-cluster.
+title: Inkomende gegevens met Azure Kubernetes Service (AKS)-cluster configureren
+description: Installeer en configureer een inkomend NGINX domeincontroller in een Azure Kubernetes Service (AKS)-cluster.
 services: container-service
 author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 03/03/2018
+ms.date: 04/28/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: dbb37c6fc2b5db8b2799eaacbfb4864c4e04fee7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: a6c9036a85e1c979d649896a9361e401f6f7cc0a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="https-ingress-on-azure-container-service-aks"></a>HTTPS-inkomend op Azure Containerservice (AKS)
+# <a name="https-ingress-on-azure-kubernetes-service-aks"></a>HTTPS-inkomend voor Azure Kubernetes-Service (AKS)
 
 Een domeincontroller inkomend is een onderdeel van de software die biedt reverse proxy worden geconfigureerd voor verkeersroutering en TLS beëindiging voor Kubernetes services. Kubernetes inkomend bronnen worden gebruikt voor het configureren van de regels van toegangsroutes en routes voor afzonderlijke Kubernetes services. Een domeincontroller inkomend en inkomend regels gebruikt, kan één externe adres voor het routeren van verkeer naar meerdere services in een cluster Kubernetes worden gebruikt.
 
-Dit document wordt begeleid bij de Voorbeeldimplementatie van een van de [NGINX inkomend controller] [ nginx-ingress] in een Azure Container Service (AKS)-cluster. Bovendien de [KUBE Bouwstenen] [ kube-lego] project wordt gebruikt om automatisch te genereren en configureer [we versleutelen] [ lets-encrypt] certificaten. Ten slotte worden verschillende toepassingen uitgevoerd in het cluster AKS, die toegankelijk via één adres is.
+Dit document wordt begeleid bij de Voorbeeldimplementatie van een van de [NGINX inkomend controller] [ nginx-ingress] in een Azure Kubernetes Service (AKS)-cluster. Bovendien de [KUBE Bouwstenen] [ kube-lego] project wordt gebruikt om automatisch te genereren en configureer [we versleutelen] [ lets-encrypt] certificaten. Ten slotte worden verschillende toepassingen uitgevoerd in het cluster AKS, die toegankelijk via één adres is.
 
 ## <a name="prerequisite"></a>Vereiste
 
@@ -46,9 +46,9 @@ Tijdens de installatie wordt een Azure openbare IP-adres voor de controller inko
 ```console
 $ kubectl get service -l app=nginx-ingress --namespace kube-system
 
-NAME                                       TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)                      AGE
-eager-crab-nginx-ingress-controller        LoadBalancer   10.0.182.160   13.82.238.45   80:30920/TCP,443:30426/TCP   20m
-eager-crab-nginx-ingress-default-backend   ClusterIP      10.0.255.77    <none>         80/TCP                       20m
+NAME                                       TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)                      AGE
+eager-crab-nginx-ingress-controller        LoadBalancer   10.0.182.160   51.145.155.210  80:30920/TCP,443:30426/TCP   20m
+eager-crab-nginx-ingress-default-backend   ClusterIP      10.0.255.77    <none>          80/TCP                       20m
 ```
 
 Omdat de inkomende gegevens zijn geen regels hebt gemaakt, als u naar het openbare IP-adres bladeren, wordt u doorgestuurd naar de NGINX inkomend domeincontrollers standaard 404-pagina.
@@ -63,7 +63,7 @@ Aangezien HTTPS-certificaten worden gebruikt, moet u een FQDN-naam voor het inko
 #!/bin/bash
 
 # Public IP address
-IP="52.224.125.195"
+IP="51.145.155.210"
 
 # Name to associate with public IP address
 DNSNAME="demo-aks-ingress"

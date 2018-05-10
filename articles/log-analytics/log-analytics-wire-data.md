@@ -2,10 +2,10 @@
 title: Wire-oplossing in Log Analytics | Microsoft Docs
 description: Draadgegevens worden geleverd zijn geconsolideerde netwerk en de prestaties gegevens van computers met OMS-agent, met inbegrip van Operations Manager en verbonden met een Windows-agents. Gegevens van het netwerk wordt gecombineerd met uw gegevens aan het logboek voor hulp bij het correleren van gegevens.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: fc3d7127-0baa-4772-858a-5ba995d1519b
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: magoedte
-ms.openlocfilehash: 658d92900763249aeeb3542132f4fe0c43ba005f
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
-ms.translationtype: MT
+ms.openlocfilehash: d824272f5b5569971eddcf0a43bd5ba97f60f506
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Kabel gegevens 2.0 (Preview)-oplossing in Log Analytics
 
@@ -58,8 +58,8 @@ Draadgegevens worden afkomstig de gegevens uit de Microsoft-Agent voor afhankeli
 
 | **Verbonden bron** | **Ondersteund** | **Beschrijving** |
 | --- | --- | --- |
-| Windows-agents | Ja | Draadgegevens worden geleverd, analyseert en verzamelt gegevens van agent-Windows-computers. <br><br> Naast de [OMS-Agent](log-analytics-windows-agent.md), Windows-agents Microsoft afhankelijkheid Agent vereist. Zie de [ondersteunde besturingssystemen](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
-| Linux-agents | Ja | Draadgegevens worden geleverd, analyseert en verzamelt gegevens van Linux-agent-computers.<br><br> Naast de [OMS-Agent](log-analytics-quick-collect-linux-computer.md), Linux-agents Microsoft afhankelijkheid Agent vereist. Zie de [ondersteunde besturingssystemen](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
+| Windows-agents | Ja | Draadgegevens worden geleverd, analyseert en verzamelt gegevens van agent-Windows-computers. <br><br> Naast de [OMS-Agent](log-analytics-windows-agent.md), Windows-agents Microsoft afhankelijkheid Agent vereist. Zie de [ondersteunde besturingssystemen](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
+| Linux-agents | Ja | Draadgegevens worden geleverd, analyseert en verzamelt gegevens van Linux-agent-computers.<br><br> Naast de [OMS-Agent](log-analytics-quick-collect-linux-computer.md), Linux-agents Microsoft afhankelijkheid Agent vereist. Zie de [ondersteunde besturingssystemen](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
 | Beheergroep System Center Operations Manager | Ja | Kabel gegevens analyseert en verzamelt gegevens van Windows en Linux-agents in een verbonden [System Center Operations Manager-beheergroep](log-analytics-om-agents.md). <br><br> Een directe verbinding van de System Center Operations Manager agent-computer met logboekanalyse is vereist. Gegevens uit de beheergroep doorgestuurd met logboekanalyse. |
 | Azure Storage-account | Nee | Draadgegevens worden geleverd verzamelt gegevens van computers die door agents, dus er zijn geen gegevens te verzamelen van Azure Storage. |
 
@@ -115,7 +115,7 @@ De volgende secties worden de ondersteunde besturingssystemen voor de Agent afha
 
 #### <a name="red-hat-linux-7"></a>Red Hat Linux 7
 
-| De versie van besturingssysteem | Kernelversie |
+| **De versie van besturingssysteem** | **Kernelversie** |
 | --- | --- |
 | 7.0 | 3.10.0-123 |
 | 7.1 | 3.10.0-229 |
@@ -124,7 +124,7 @@ De volgende secties worden de ondersteunde besturingssystemen voor de Agent afha
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 
-| De versie van besturingssysteem | Kernelversie |
+| **De versie van besturingssysteem** | **Kernelversie** |
 | --- | --- |
 | 6.0 | 2.6.32-71 |
 | 6.1 | 2.6.32-131 |
@@ -138,7 +138,7 @@ De volgende secties worden de ondersteunde besturingssystemen voor de Agent afha
 
 #### <a name="red-hat-linux-5"></a>Red Hat Linux 5
 
-| De versie van besturingssysteem | Kernelversie |
+| **De versie van besturingssysteem** | **Kernelversie** |
 | --- | --- |
 | 5.8 | 2.6.18-308 |
 | 5.9 | 2.6.18-348 |
@@ -149,7 +149,7 @@ De volgende secties worden de ondersteunde besturingssystemen voor de Agent afha
 
 #### <a name="oracle-linux-6"></a>Oracle Linux 6
 
-| De versie van besturingssysteem | Kernelversie |
+| **De versie van besturingssysteem** | **Kernelversie** |
 | --- | --- |
 | 6.2 | Oracle 2.6.32-300 (UEK R1) |
 | 6.3 | Oracle 2.6.39-200 (UEK R2) |
@@ -159,7 +159,7 @@ De volgende secties worden de ondersteunde besturingssystemen voor de Agent afha
 
 #### <a name="oracle-linux-5"></a>Oracle Linux 5
 
-| De versie van besturingssysteem | Kernelversie |
+| **De versie van besturingssysteem** | **Kernelversie** |
 | --- | --- |
 | 5.8 | Oracle 2.6.32-300 (UEK R1) |
 | 5.9 | Oracle 2.6.39-300 (UEK R2) |
@@ -170,7 +170,7 @@ De volgende secties worden de ondersteunde besturingssystemen voor de Agent afha
 
 #### <a name="suse-linux-11"></a>SUSE Linux 11
 
-| De versie van besturingssysteem | Kernelversie |
+| **De versie van besturingssysteem** | **Kernelversie** |
 | --- | --- |
 | 11 | 2.6.27 |
 | 11 SP1 | 2.6.32 |
@@ -180,16 +180,16 @@ De volgende secties worden de ondersteunde besturingssystemen voor de Agent afha
 
 #### <a name="suse-linux-10"></a>SUSE Linux 10
 
-| De versie van besturingssysteem | Kernelversie |
+| **De versie van besturingssysteem** | **Kernelversie** |
 | --- | --- |
 | 10 SP4 | 2.6.16.60 |
 
 #### <a name="dependency-agent-downloads"></a>Agent voor afhankelijkheden gedownload
 
-| **File** | **OS** | **Versie** | **SHA-256** |
+| **File** | **Besturingssysteem** | **Versie** | **SHA-256** |
 | --- | --- | --- | --- |
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.0.5 | 73B3F6A2A76A08D58F72A550947FF839B588591C48E6EDDD6DDF73AA3FD82B43 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.0.5 | A1BAD0B36EBF79F2B69113A07FCF48C68D90BD169C722689F9C83C69FC032371 |
+| [InstallDependencyAgent Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.0.5 | A1BAD0B36EBF79F2B69113A07FCF48C68D90BD169C722689F9C83C69FC032371 |
 
 
 
@@ -217,9 +217,9 @@ Gebruik de volgende stappen voor het installeren van de Agent voor afhankelijkhe
 
 Opties van de volgende tabel gebruiken om te installeren vanaf een opdrachtregel. Een overzicht van de vlaggen voor de installatie kunt u het installatieprogramma uitvoeren met behulp van de /? markering als volgt.
 
-InstallDependencyAgent-Windows.exe /?
+InstallDependencyAgent Windows.exe /?
 
-| **Flag** | **Beschrijving** |
+| **Vlag** | **Beschrijving** |
 | --- | --- |
 | <code>/?</code> | Een lijst van de opdrachtregelopties ophalen. |
 | <code>/S</code> | Een installatie zonder vragen van de gebruiker op de achtergrond uitvoeren. |
@@ -244,7 +244,7 @@ Een overzicht van de vlaggen voor de installatie uitvoert het installatieprogram
 InstallDependencyAgent-Linux64.bin -help
 ```
 
-| **Flag** | **Beschrijving** |
+| **Vlag** | **Beschrijving** |
 | --- | --- |
 | <code>-help</code> | Een lijst van de opdrachtregelopties ophalen. |
 | <code>-s</code> | Een installatie zonder vragen van de gebruiker op de achtergrond uitvoeren. |
@@ -252,13 +252,13 @@ InstallDependencyAgent-Linux64.bin -help
 
 Bestanden voor de Agent voor afhankelijkheden worden geplaatst in de volgende mappen:
 
-| Bestanden | **Locatie** |
+| **Bestanden** | **Locatie** |
 | --- | --- |
 | Core-bestanden | /Opt/Microsoft/Dependency-agent |
 | Logboekbestanden | /var/opt/Microsoft/Dependency-agent/log |
-| De config-bestanden | /etc/opt/microsoft/dependency-agent/config |
+| De config-bestanden | /etc/opt/Microsoft/Dependency-agent/config |
 | Uitvoerbare bestanden voor service | /Opt/Microsoft/Dependency-agent/bIn/Microsoft-Dependency-agent<br><br>/Opt/Microsoft/Dependency-agent/bIn/Microsoft-Dependency-Agent-Manager |
-| Binaire opslag-bestanden | /var/opt/microsoft/dependency-agent/storage |
+| Binaire opslag-bestanden | /var/opt/Microsoft/Dependency-agent/Storage |
 
 ### <a name="installation-script-examples"></a>Voorbeelden van scripts voor installatie
 
@@ -364,7 +364,7 @@ De naam van het management pack is Microsoft.IntelligencePacks.ApplicationDepend
 
 ## <a name="using-the-solution"></a>De oplossing gebruiken
 
-Installeren en configureren van de oplossing
+**Installeren en configureren van de oplossing**
 
 Gebruik de volgende informatie om te installeren en configureren van de oplossing.
 
@@ -438,7 +438,7 @@ Een record met een type _WireData_ is gemaakt voor elk type invoergegevens. Wire
 | LocalPortNumber | Lokale poortnummer |
 | RemoteIP | Extern IP-adres gebruikt door de externe computer |
 | RemotePortNumber | Poortnummer van het externe IP-adres |
-| SessionID | Een unieke waarde die sessie van de communicatie tussen twee IP-adressen aangeeft |
+| Sessie-id | Een unieke waarde die sessie van de communicatie tussen twee IP-adressen aangeeft |
 | SentBytes | Aantal verzonden bytes |
 | TotalBytes | Totaal aantal bytes dat tijdens de sessie is verzonden |
 | ApplicationProtocol | Type netwerkprotocol gebruikt   |

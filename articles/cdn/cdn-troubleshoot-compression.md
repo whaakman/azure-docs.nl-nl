@@ -2,10 +2,10 @@
 title: Het oplossen van problemen bestandscompressie in Azure CDN | Microsoft Docs
 description: Problemen oplossen met Azure CDN bestandscompressie.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a6624e65-1a77-4486-b473-8d720ce28f8b
 ms.service: cdn
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 5ef8a8262eb40aa827161764f03a63d031e43273
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 14d50cb7cac77af75dd4b7293812154d1f24e47c
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Problemen met CDN-bestandscompressie oplossen
 Dit artikel helpt u problemen oplossen met [CDN bestandscompressie](cdn-improve-performance.md).
@@ -61,9 +61,9 @@ Er moet eerst een snelle controle van de aanvraag doen.  U kunt uw browser [hulp
 
 ![CDN-aanvraagheaders](./media/cdn-troubleshoot-compression/cdn-request-headers.png)
 
-### <a name="verify-compression-settings-standard-cdn-profile"></a>Controleer of de compressie-instellingen (standaard CDN-profiel)
+### <a name="verify-compression-settings-standard-cdn-profiles"></a>Controleer of de compressie-instellingen (standaard CDN-profielen)
 > [!NOTE]
-> Deze stap is alleen van toepassing als uw CDN-profiel is een **Azure CDN Standard van Verizon** of **Azure CDN Standard van Akamai** profiel. 
+> Deze stap geldt alleen als uw CDN-profiel een **Azure CDN Standard van Microsoft**, **Azure CDN Standard van Verizon**, of **Azure CDN Standard van Akamai** profiel. 
 > 
 > 
 
@@ -74,9 +74,9 @@ Navigeer naar uw eindpunt in de [Azure-portal](https://portal.azure.com) en klik
 
 ![CDN compressie-instellingen](./media/cdn-troubleshoot-compression/cdn-compression-settings.png)
 
-### <a name="verify-compression-settings-premium-cdn-profile"></a>Controleer of de compressie-instellingen (Premium-CDN-profiel)
+### <a name="verify-compression-settings-premium-cdn-profiles"></a>Controleer of de compressie-instellingen (Premium-CDN-profielen)
 > [!NOTE]
-> Deze stap is alleen van toepassing als uw CDN-profiel is een **Azure CDN Premium van Verizon** profiel.
+> Deze stap geldt alleen als uw CDN-profiel een **Azure CDN Premium van Verizon** profiel.
 > 
 > 
 
@@ -88,9 +88,9 @@ Navigeer naar uw eindpunt in de [Azure-portal](https://portal.azure.com) en klik
 
 ![CDN premium compressie-instellingen](./media/cdn-troubleshoot-compression/cdn-compression-settings-premium.png)
 
-### <a name="verify-the-content-is-cached"></a>Controleer of dat de inhoud in cache wordt opgeslagen
+### <a name="verify-the-content-is-cached-verizon-cdn-profiles"></a>Controleer of de inhoud in cache (Verizon CDN-profielen)
 > [!NOTE]
-> Deze stap is alleen van toepassing als uw CDN-profiel is een **Azure CDN van Verizon** profiel (Standard of Premium).
+> Deze stap geldt alleen als uw CDN-profiel een **Azure CDN Standard van Verizon** of **Azure CDN Premium van Verizon** profiel.
 > 
 > 
 
@@ -101,9 +101,9 @@ Controleer met ontwikkelhulpprogramma's van uw browser de antwoordheaders om te 
 
 ![CDN-antwoordheaders](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
 
-### <a name="verify-the-file-meets-the-size-requirements"></a>Controleer of het bestand voldoet aan de vereiste grootte
+### <a name="verify-the-file-meets-the-size-requirements-verizon-cdn-profiles"></a>Controleer of het bestand voldoet aan de vereiste grootte (Verizon CDN-profielen)
 > [!NOTE]
-> Deze stap is alleen van toepassing als uw CDN-profiel is een **Azure CDN van Verizon** profiel (Standard of Premium).
+> Deze stap geldt alleen als uw CDN-profiel een **Azure CDN Standard van Verizon** of **Azure CDN Premium van Verizon** profiel.
 > 
 > 
 

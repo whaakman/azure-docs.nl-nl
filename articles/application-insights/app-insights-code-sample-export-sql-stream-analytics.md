@@ -2,10 +2,9 @@
 title: Exporteren naar SQL van Azure Application Insights | Microsoft Docs
 description: Continu Application Insights gegevens exporteren naar SQL met Stream Analytics.
 services: application-insights
-documentationcenter: 
-author: noamben
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
-editor: mrbullwinkle
 ms.assetid: 48903032-2c99-4987-9948-d6e4559b4a63
 ms.service: application-insights
 ms.workload: tbd
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2015
 ms.author: mbullwin
-ms.openlocfilehash: 8d008727d964df56d128265b632dafa4ab776f98
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: e410bb87d017a7659c3eaffbedef378aaf7f5716
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Overzicht: Exporteren naar SQL van Application Insights met Stream Analytics
 Dit artikel laat zien hoe u verplaatst uw telemetriegegevens van [Azure Application Insights] [ start] in een Azure SQL database met behulp van [continue Export] [ export] en [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -32,7 +31,7 @@ We beginnen met de veronderstelling dat u al hebt de app die u wilt bewaken.
 We gebruiken de gegevens van de pagina in dit voorbeeld, maar dit patroon kan gemakkelijk worden uitgebreid naar andere gegevenstypen zoals aangepaste gebeurtenissen en uitzonderingen. 
 
 ## <a name="add-application-insights-to-your-application"></a>Application Insights toevoegen aan uw toepassing
-Aan de slag:
+Aan de slag gaan:
 
 1. [Application Insights instellen voor uw webpagina's](app-insights-javascript.md). 
    
@@ -171,10 +170,10 @@ Het pad naar het voorvoegsel patroon geeft aan hoe de invoerbestanden in Stream 
 
 In dit voorbeeld:
 
-* `webapplication27`de naam van de Application Insights-resource **allemaal in kleine letters**. 
-* `1234...`de instrumentatiesleutel van de Application Insights-resource is **met streepjes verwijderd**. 
-* `PageViews`is het type gegevens wilt analyseren. De beschikbare typen, is afhankelijk van het filter dat u in de continue Export instellen. De geëxporteerde gegevens om de beschikbare typen Zie en bekijk de [exporteren gegevensmodel](app-insights-export-data-model.md).
-* `/{date}/{time}`een patroon er wordt letterlijk geschreven.
+* `webapplication27` de naam van de Application Insights-resource **allemaal in kleine letters**. 
+* `1234...` de instrumentatiesleutel van de Application Insights-resource is **met streepjes verwijderd**. 
+* `PageViews` is het type gegevens wilt analyseren. De beschikbare typen, is afhankelijk van het filter dat u in de continue Export instellen. De geëxporteerde gegevens om de beschikbare typen Zie en bekijk de [exporteren gegevensmodel](app-insights-export-data-model.md).
+* `/{date}/{time}` een patroon er wordt letterlijk geschreven.
 
 Als u de naam en sleutel van uw Application Insights-resource, Essentials open op de overzichtspagina, of instellingen.
 

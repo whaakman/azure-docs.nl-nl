@@ -3,11 +3,11 @@ title: Op Linux FAQ-Azure App Service | Microsoft Docs
 description: Azure App Service op Linux Veelgestelde vragen over.
 keywords: Azure app service, web-app, veelgestelde vragen over, linux, oss
 services: app-service
-documentationCenter: 
+documentationCenter: ''
 author: ahmedelnably
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: b22d5f3497c388192764aa6b4ee8c95fec568bd8
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8d25c70a0e5db92bca6f3970049a2e1325fe124b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Op Linux FAQ-Azure App Service
 
@@ -46,6 +46,10 @@ Deze actie is hetzelfde als een herstart Docker.
 **Kan ik Secure Shell (SSH) om verbinding met de app-container virtuele machine (VM) te gebruiken?**
 
 Ja, kunt u dat doen via de bronsite van de besturingselement-management (SCM).
+
+> [!NOTE] 
+> U kunt ook verbinding maken met de app-container rechtstreeks vanuit uw lokale ontwikkelcomputer met SSH, SFTP of Visual Studio Code (voor live foutopsporing Node.js-apps). Zie voor meer informatie [foutopsporing op afstand en SSH in App Service op Linux](https://aka.ms/linux-debug).
+>
 
 **Hoe kan ik een Linux-App Service-abonnement via een SDK of een Azure Resource Manager-sjabloon maken?**
 

@@ -3,7 +3,7 @@ title: Azure betaling verwerking blauwdruk - vereisten
 description: PCI-DSS vereiste 12
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: a79d59d8-20e3-4efe-8686-c8f4ed80e220
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
-ms.openlocfilehash: 05e9ed7c886d37a024db1eedbc541705b7d8a9a9
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.author: jomolesk
+ms.openlocfilehash: 2fb238e9b95180d6156159c87ec008a71943e698
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="policy-requirements-for-pci-dss-compliant-environments"></a>Vereisten voor PCI DSS-compatibele omgevingen  
 ## <a name="pci-dss-requirement-12"></a>PCI-DSS vereiste 12
@@ -39,7 +39,7 @@ Een beleid voor sterke beveiliging zet de toon beveiliging voor de hele entiteit
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het instellen en beheren van een beleid voor beveiliging.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het instellen en beheren van een beleid voor beveiliging.|
 
 
 
@@ -52,7 +52,7 @@ Een beleid voor sterke beveiliging zet de toon beveiliging voor de hele entiteit
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het bijwerken van hun informatie-beveiligingsbeleid ten minste eenmaal per jaar, of wanneer er wijzigingen zijn in hun omgeving in kaarthouder gegevens (CDE).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het bijwerken van hun informatie-beveiligingsbeleid ten minste eenmaal per jaar, of wanneer er wijzigingen zijn in hun omgeving in kaarthouder gegevens (CDE).|
 
 
 
@@ -69,7 +69,7 @@ Een beleid voor sterke beveiliging zet de toon beveiliging voor de hele entiteit
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het implementeren van een proces voor het beoordeling van risico's die zijn gericht op alle bedreigingen die worden vermeld in de vereiste 12.2.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het implementeren van een proces voor het beoordeling van risico's die zijn gericht op alle bedreigingen die worden vermeld in de vereiste 12.2.|
 
 
 
@@ -86,7 +86,7 @@ Zorg ervoor dat deze gebruiksbeleid is het volgende vereist.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het maken en onderhouden van de beleidsregels correct gebruik, implementatie en verificatie voor kritieke technologieën binnen hun CDE dicteren.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het maken en onderhouden van de beleidsregels correct gebruik, implementatie en verificatie voor kritieke technologieën binnen hun CDE dicteren.|
 
 
 
@@ -99,7 +99,7 @@ Zorg ervoor dat deze gebruiksbeleid is het volgende vereist.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het maken en onderhouden van de beleidsregels correct gebruik, implementatie en verificatie voor kritieke technologieën binnen hun CDE dicteren.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het maken en onderhouden van de beleidsregels correct gebruik, implementatie en verificatie voor kritieke technologieën binnen hun CDE dicteren.|
 
 
 
@@ -112,7 +112,7 @@ Zorg ervoor dat deze gebruiksbeleid is het volgende vereist.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het maken en onderhouden van de beleidsregels correct gebruik, implementatie en verificatie voor kritieke technologieën binnen hun CDE dicteren.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het maken en onderhouden van de beleidsregels correct gebruik, implementatie en verificatie voor kritieke technologieën binnen hun CDE dicteren.|
 
 
 
@@ -125,7 +125,7 @@ Zorg ervoor dat deze gebruiksbeleid is het volgende vereist.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het maken en onderhouden van de beleidsregels correct gebruik, implementatie en verificatie voor kritieke technologieën binnen hun CDE dicteren.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het maken en onderhouden van de beleidsregels correct gebruik, implementatie en verificatie voor kritieke technologieën binnen hun CDE dicteren.|
 
 
 
@@ -138,7 +138,7 @@ Zorg ervoor dat deze gebruiksbeleid is het volgende vereist.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het maken en onderhouden van de beleidsregels correct gebruik, implementatie en verificatie voor kritieke technologieën binnen hun CDE dicteren.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het maken en onderhouden van de beleidsregels correct gebruik, implementatie en verificatie voor kritieke technologieën binnen hun CDE dicteren.|
 
 
 
@@ -151,7 +151,7 @@ Zorg ervoor dat deze gebruiksbeleid is het volgende vereist.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het maken en onderhouden van de beleidsregels correct gebruik, implementatie en verificatie voor kritieke technologieën binnen hun CDE dicteren.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het maken en onderhouden van de beleidsregels correct gebruik, implementatie en verificatie voor kritieke technologieën binnen hun CDE dicteren.|
 
 
 
@@ -164,7 +164,7 @@ Zorg ervoor dat deze gebruiksbeleid is het volgende vereist.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het bepalen van de aanvaardbare netwerklocaties voor virtuele machines in de cloud, opslag en ondersteunende services.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het bepalen van de aanvaardbare netwerklocaties voor virtuele machines in de cloud, opslag en ondersteunende services.|
 
 
 
@@ -177,7 +177,7 @@ Zorg ervoor dat deze gebruiksbeleid is het volgende vereist.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het bepalen van de aanvaardbare netwerklocaties voor virtuele machines in de cloud, opslag en ondersteunende services.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het bepalen van de aanvaardbare netwerklocaties voor virtuele machines in de cloud, opslag en ondersteunende services.|
 
 
 
@@ -190,7 +190,7 @@ Zorg ervoor dat deze gebruiksbeleid is het volgende vereist.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure maakt gebruik van Microsoft zakelijke AD sessie lock-functie worden afgedwongen sessie uitsluitingen na een periode van inactiviteit. Netwerkverbindingen worden beëindigd na 30 minuten van inactiviteit. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het maken en onderhouden van de beleidsregels correct gebruik, implementatie en verificatie voor kritieke technologieën binnen hun CDE dicteren.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het maken en onderhouden van de beleidsregels correct gebruik, implementatie en verificatie voor kritieke technologieën binnen hun CDE dicteren.|
 
 
 
@@ -203,7 +203,7 @@ Zorg ervoor dat deze gebruiksbeleid is het volgende vereist.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het maken en onderhouden van de beleidsregels correct gebruik, implementatie en verificatie voor kritieke technologieën binnen hun CDE dicteren.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het maken en onderhouden van de beleidsregels correct gebruik, implementatie en verificatie voor kritieke technologieën binnen hun CDE dicteren.|
 
 
 
@@ -217,7 +217,7 @@ Wanneer er een geautoriseerde zakelijke behoeften, moeten het gebruiksbeleid ver
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het garanderen dat toegang tot gegevens via de RAS-technologieën kaarthouder personeel zijn uitgesloten van het kopiëren, verplaatsen en opslaan van gegevens van de kaarthouder op de lokale harde schijven en verwisselbare media van elektronische, tenzij u uitdrukkelijk toestemming voor een bepaalde zakelijke behoeften.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het garanderen dat toegang tot gegevens via de RAS-technologieën kaarthouder personeel zijn uitgesloten van het kopiëren, verplaatsen en opslaan van gegevens van de kaarthouder op de lokale harde schijven en verwisselbare media van elektronische, tenzij u uitdrukkelijk toestemming voor een bepaalde zakelijke behoeften.|
 
 
 
@@ -230,7 +230,7 @@ Wanneer er een geautoriseerde zakelijke behoeften, moeten het gebruiksbeleid ver
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het maken en onderhouden van de beleidsregels correct gebruik, implementatie en verificatie voor kritieke technologieën binnen hun CDE dicteren.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het maken en onderhouden van de beleidsregels correct gebruik, implementatie en verificatie voor kritieke technologieën binnen hun CDE dicteren.|
 
 
 
@@ -248,7 +248,7 @@ Wanneer er een geautoriseerde zakelijke behoeften, moeten het gebruiksbeleid ver
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten die serviceproviders zijn verantwoordelijk voor hun programma PCI-naleving documenteren.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten die serviceproviders zijn verantwoordelijk voor hun programma PCI-naleving documenteren.|
 
 
 
@@ -261,7 +261,7 @@ Wanneer er een geautoriseerde zakelijke behoeften, moeten het gebruiksbeleid ver
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het definiëren en informatie beveiligingstaken naar hun werknemers toewijzen.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het definiëren en informatie beveiligingstaken naar hun werknemers toewijzen.|
 
 
 
@@ -274,7 +274,7 @@ Wanneer er een geautoriseerde zakelijke behoeften, moeten het gebruiksbeleid ver
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het definiëren en informatie beveiligingstaken naar hun werknemers toewijzen.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het definiëren en informatie beveiligingstaken naar hun werknemers toewijzen.|
 
 
 
@@ -287,7 +287,7 @@ Wanneer er een geautoriseerde zakelijke behoeften, moeten het gebruiksbeleid ver
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het definiëren en informatie beveiligingstaken naar hun werknemers toewijzen.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het definiëren en informatie beveiligingstaken naar hun werknemers toewijzen.|
 
 
 
@@ -300,7 +300,7 @@ Wanneer er een geautoriseerde zakelijke behoeften, moeten het gebruiksbeleid ver
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het maken en onderhouden van de beleidsregels correct gebruik, implementatie en verificatie voor kritieke technologieën binnen hun CDE dicteren.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het maken en onderhouden van de beleidsregels correct gebruik, implementatie en verificatie voor kritieke technologieën binnen hun CDE dicteren.|
 
 
 
@@ -313,7 +313,7 @@ Wanneer er een geautoriseerde zakelijke behoeften, moeten het gebruiksbeleid ver
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het maken en onderhouden van de beleidsregels correct gebruik, implementatie en verificatie voor kritieke technologieën binnen hun CDE dicteren.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het maken en onderhouden van de beleidsregels correct gebruik, implementatie en verificatie voor kritieke technologieën binnen hun CDE dicteren.|
 
 
 
@@ -326,7 +326,7 @@ Wanneer er een geautoriseerde zakelijke behoeften, moeten het gebruiksbeleid ver
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het maken en onderhouden van de beleidsregels correct gebruik, implementatie en verificatie voor kritieke technologieën binnen hun CDE dicteren.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het maken en onderhouden van de beleidsregels correct gebruik, implementatie en verificatie voor kritieke technologieën binnen hun CDE dicteren.|
 
 
 
@@ -339,7 +339,7 @@ Wanneer er een geautoriseerde zakelijke behoeften, moeten het gebruiksbeleid ver
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het maken en beheren van beveiliging bewustzijn van medewerkers met toegang tot het CDE omringende-beleid.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het maken en beheren van beveiliging bewustzijn van medewerkers met toegang tot het CDE omringende-beleid.|
 
 
 
@@ -355,7 +355,7 @@ Wanneer er een geautoriseerde zakelijke behoeften, moeten het gebruiksbeleid ver
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor personeel ontvangen en bevestigt informatiebeveiliging en PCI-DSS-awareness training ten minste eenmaal per jaar.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor personeel ontvangen en bevestigt informatiebeveiliging en PCI-DSS-awareness training ten minste eenmaal per jaar.|
 
 
 
@@ -368,7 +368,7 @@ Wanneer er een geautoriseerde zakelijke behoeften, moeten het gebruiksbeleid ver
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor personeel ontvangen en bevestigt informatiebeveiliging en PCI-DSS-awareness training ten minste eenmaal per jaar.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor personeel ontvangen en bevestigt informatiebeveiliging en PCI-DSS-awareness training ten minste eenmaal per jaar.|
 
 
 
@@ -384,7 +384,7 @@ Wanneer er een geautoriseerde zakelijke behoeften, moeten het gebruiksbeleid ver
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor medewerkers met toegang op de CDE grondige achtergrondonderzoek ondergaan.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor medewerkers met toegang op de CDE grondige achtergrondonderzoek ondergaan.|
 
 
 
@@ -397,7 +397,7 @@ Wanneer er een geautoriseerde zakelijke behoeften, moeten het gebruiksbeleid ver
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor de bewaking van PCI-naleving voor serviceproviders met wie kaarthouder gegevens wordt gedeeld of de beveiliging van het CDE kan beïnvloeden. Klanten moeten ervoor zorgen dat een lijst met alle service biedt binnen hun CDE gebruikt.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor de bewaking van PCI-naleving voor serviceproviders met wie kaarthouder gegevens wordt gedeeld of de beveiliging van het CDE kan beïnvloeden. Klanten moeten ervoor zorgen dat een lijst met alle service biedt binnen hun CDE gebruikt.|
 
 
 
@@ -411,7 +411,7 @@ Wanneer er een geautoriseerde zakelijke behoeften, moeten het gebruiksbeleid ver
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor de bewaking van PCI-naleving voor serviceproviders met wie kaarthouder gegevens wordt gedeeld of de beveiliging van het CDE kan beïnvloeden. Klanten moeten ervoor zorgen dat een lijst met alle service biedt binnen hun CDE gebruikt.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor de bewaking van PCI-naleving voor serviceproviders met wie kaarthouder gegevens wordt gedeeld of de beveiliging van het CDE kan beïnvloeden. Klanten moeten ervoor zorgen dat een lijst met alle service biedt binnen hun CDE gebruikt.|
 
 
 
@@ -427,7 +427,7 @@ Wanneer er een geautoriseerde zakelijke behoeften, moeten het gebruiksbeleid ver
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het onderhouden van schriftelijke overeenkomsten met serviceproviders die de verantwoordelijkheid voor het onderhouden van de beveiliging van gegevens van de kaarthouder zijn bevestigd.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het onderhouden van schriftelijke overeenkomsten met serviceproviders die de verantwoordelijkheid voor het onderhouden van de beveiliging van gegevens van de kaarthouder zijn bevestigd.|
 
 
 
@@ -440,7 +440,7 @@ Wanneer er een geautoriseerde zakelijke behoeften, moeten het gebruiksbeleid ver
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor er is een tot stand gebrachte proces voor het juiste vanwege toewijding inzetten vóór engagement inclusief serviceproviders bezighouden.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor er is een tot stand gebrachte proces voor het juiste vanwege toewijding inzetten vóór engagement inclusief serviceproviders bezighouden.|
 
 
 
@@ -453,7 +453,7 @@ Wanneer er een geautoriseerde zakelijke behoeften, moeten het gebruiksbeleid ver
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten is verantwoordelijk voor het onderhouden van een programma voor het bewaken van de internetproviders PCI DSS compatibiliteitsstatus ten minste eenmaal per jaar.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten is verantwoordelijk voor het onderhouden van een programma voor het bewaken van de internetproviders PCI DSS compatibiliteitsstatus ten minste eenmaal per jaar.|
 
 
 
@@ -466,7 +466,7 @@ Wanneer er een geautoriseerde zakelijke behoeften, moeten het gebruiksbeleid ver
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het bewaren van een kopie van de [verantwoordelijkheid samenvatting Matrix](https://aka.ms/pciblueprintcrm32), dit geeft een overzicht van de PCI DSS-voorschriften die de verantwoordelijkheid van de klant en welke de verantwoordelijkheid van de Microsoft Azure zijn.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het bewaren van een kopie van de [verantwoordelijkheid samenvatting Matrix](https://aka.ms/pciblueprintcrm32), dit geeft een overzicht van de PCI DSS-voorschriften die de verantwoordelijkheid van de klant en welke de verantwoordelijkheid van de Microsoft Azure zijn.|
 
 
 
@@ -482,7 +482,7 @@ Wanneer er een geautoriseerde zakelijke behoeften, moeten het gebruiksbeleid ver
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten die serviceproviders zijn verantwoordelijk voor hun verantwoordelijkheden voor het onderhouden van PCI-naleving zijn bevestigd. |
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten die serviceproviders zijn verantwoordelijk voor hun verantwoordelijkheden voor het onderhouden van PCI-naleving zijn bevestigd. |
 
 
 
@@ -495,7 +495,7 @@ Wanneer er een geautoriseerde zakelijke behoeften, moeten het gebruiksbeleid ver
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het ontwikkelen van IR-plan en tests die overweegt een klant-besturingselementen die met betrekking tot gedeelde touch-punten en alle toepassingen van de klant gebruik van Azure infrastructuur. Het is van de klant verantwoordelijkheid nauwkeurige contactgegevens bieden aan Azure in het geval van een incident moet worden gerapporteerd aan die van invloed kan hun toepassingen of gegevens.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het ontwikkelen van IR-plan en tests die overweegt een klant-besturingselementen die met betrekking tot gedeelde touch-punten en alle toepassingen van de klant gebruik van Azure infrastructuur. Het is van de klant verantwoordelijkheid nauwkeurige contactgegevens bieden aan Azure in het geval van een incident moet worden gerapporteerd aan die van invloed kan hun toepassingen of gegevens.|
 
 
 
@@ -515,7 +515,7 @@ Wanneer er een geautoriseerde zakelijke behoeften, moeten het gebruiksbeleid ver
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het ontwikkelen van IR-plan en tests die overweegt een klant-besturingselementen die met betrekking tot gedeelde touch-punten en alle toepassingen van de klant gebruik van Azure infrastructuur. Het is van de klant verantwoordelijkheid nauwkeurige contactgegevens bieden aan Azure in het geval van een incident moet worden gerapporteerd aan die van invloed kan hun toepassingen of gegevens.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het ontwikkelen van IR-plan en tests die overweegt een klant-besturingselementen die met betrekking tot gedeelde touch-punten en alle toepassingen van de klant gebruik van Azure infrastructuur. Het is van de klant verantwoordelijkheid nauwkeurige contactgegevens bieden aan Azure in het geval van een incident moet worden gerapporteerd aan die van invloed kan hun toepassingen of gegevens.|
 
 
 
@@ -529,7 +529,7 @@ Wanneer er een geautoriseerde zakelijke behoeften, moeten het gebruiksbeleid ver
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het ontwikkelen van IR-plan en tests die overweegt een klant-besturingselementen die met betrekking tot gedeelde touch-punten en alle toepassingen van de klant gebruik van Azure infrastructuur. Het is van de klant verantwoordelijkheid nauwkeurige contactgegevens bieden aan Azure in het geval van een incident moet worden gerapporteerd aan die van invloed kan hun toepassingen of gegevens.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het ontwikkelen van IR-plan en tests die overweegt een klant-besturingselementen die met betrekking tot gedeelde touch-punten en alle toepassingen van de klant gebruik van Azure infrastructuur. Het is van de klant verantwoordelijkheid nauwkeurige contactgegevens bieden aan Azure in het geval van een incident moet worden gerapporteerd aan die van invloed kan hun toepassingen of gegevens.|
 
 
 
@@ -542,7 +542,7 @@ Wanneer er een geautoriseerde zakelijke behoeften, moeten het gebruiksbeleid ver
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het ontwikkelen van IR-plan en tests die overweegt een klant-besturingselementen die met betrekking tot gedeelde touch-punten en alle toepassingen van de klant gebruik van Azure infrastructuur. Het is van de klant verantwoordelijkheid nauwkeurige contactgegevens bieden aan Azure in het geval van een incident moet worden gerapporteerd aan die van invloed kan hun toepassingen of gegevens.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het ontwikkelen van IR-plan en tests die overweegt een klant-besturingselementen die met betrekking tot gedeelde touch-punten en alle toepassingen van de klant gebruik van Azure infrastructuur. Het is van de klant verantwoordelijkheid nauwkeurige contactgegevens bieden aan Azure in het geval van een incident moet worden gerapporteerd aan die van invloed kan hun toepassingen of gegevens.|
 
 
 
@@ -555,7 +555,7 @@ Wanneer er een geautoriseerde zakelijke behoeften, moeten het gebruiksbeleid ver
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het ontwikkelen van IR-plan en tests die overweegt een klant-besturingselementen die met betrekking tot gedeelde touch-punten en alle toepassingen van de klant gebruik van Azure infrastructuur. Het is van de klant verantwoordelijkheid nauwkeurige contactgegevens bieden aan Azure in het geval van een incident moet worden gerapporteerd aan die van invloed kan hun toepassingen of gegevens.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het ontwikkelen van IR-plan en tests die overweegt een klant-besturingselementen die met betrekking tot gedeelde touch-punten en alle toepassingen van de klant gebruik van Azure infrastructuur. Het is van de klant verantwoordelijkheid nauwkeurige contactgegevens bieden aan Azure in het geval van een incident moet worden gerapporteerd aan die van invloed kan hun toepassingen of gegevens.|
 
 
 
@@ -568,7 +568,7 @@ Wanneer er een geautoriseerde zakelijke behoeften, moeten het gebruiksbeleid ver
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het ontwikkelen van IR-plan en tests die overweegt een klant-besturingselementen die met betrekking tot gedeelde touch-punten en alle toepassingen van de klant gebruik van Azure infrastructuur. Het is van de klant verantwoordelijkheid nauwkeurige contactgegevens bieden aan Azure in het geval van een incident moet worden gerapporteerd aan die van invloed kan hun toepassingen of gegevens.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het ontwikkelen van IR-plan en tests die overweegt een klant-besturingselementen die met betrekking tot gedeelde touch-punten en alle toepassingen van de klant gebruik van Azure infrastructuur. Het is van de klant verantwoordelijkheid nauwkeurige contactgegevens bieden aan Azure in het geval van een incident moet worden gerapporteerd aan die van invloed kan hun toepassingen of gegevens.|
 
 
 
@@ -581,7 +581,7 @@ Wanneer er een geautoriseerde zakelijke behoeften, moeten het gebruiksbeleid ver
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het ontwikkelen van IR-plan en tests die overweegt een klant-besturingselementen die met betrekking tot gedeelde touch-punten en alle toepassingen van de klant gebruik van Azure infrastructuur. Het is van de klant verantwoordelijkheid nauwkeurige contactgegevens bieden aan Azure in het geval van een incident moet worden gerapporteerd aan die van invloed kan hun toepassingen of gegevens.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het ontwikkelen van IR-plan en tests die overweegt een klant-besturingselementen die met betrekking tot gedeelde touch-punten en alle toepassingen van de klant gebruik van Azure infrastructuur. Het is van de klant verantwoordelijkheid nauwkeurige contactgegevens bieden aan Azure in het geval van een incident moet worden gerapporteerd aan die van invloed kan hun toepassingen of gegevens.|
 
 
 
@@ -604,7 +604,7 @@ Beoordelingen moeten betrekking hebben op de volgende processen:
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten die serviceproviders zijn verantwoordelijk voor hun beoordelingen van processen voor het bevestigen van PCI-naleving besturingselement prestaties documenteren.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten die serviceproviders zijn verantwoordelijk voor hun beoordelingen van processen voor het bevestigen van PCI-naleving besturingselement prestaties documenteren.|
 
 
 
@@ -623,7 +623,7 @@ Beoordelingen moeten betrekking hebben op de volgende processen:
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten die serviceproviders zijn verantwoordelijk voor hun beoordelingen van processen voor het bevestigen van PCI-naleving besturingselement prestaties documenteren.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten die serviceproviders zijn verantwoordelijk voor hun beoordelingen van processen voor het bevestigen van PCI-naleving besturingselement prestaties documenteren.|
 
 
 

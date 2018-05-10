@@ -3,8 +3,8 @@ title: Maken van een virtuele machine van Azure met versnelde toegang | Microsof
 description: Informatie over het maken van een virtuele Linux-machine met versnelde netwerken.
 services: virtual-network
 documentationcenter: ''
-author: jdial
-manager: jeconnoc
+author: gsilva5
+manager: gedegrac
 editor: ''
 ms.assetid: ''
 ms.service: virtual-network
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
-ms.author: jimdial
-ms.openlocfilehash: 6d7e41b2b631fcecefd835a10e9b91fd9bb3f17d
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.author: gsilva
+ms.openlocfilehash: de69cdf69f30639d048dccd7d433c86f6cb9db7b
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Een Windows-machine maken met versnelde toegang
 
@@ -270,7 +270,7 @@ Update-AzureRmVmss -ResourceGroupName "myResourceGroup" `
 
 Neem heeft notitie, een VMSS VM upgrades die met drie verschillende instellingen automatische, rolling of handmatige updates toepassen.  Het beleid is ingesteld op automatisch in deze instructies zodat de VMSS opgehaald de wijzigingen onmiddellijk na het opnieuw te starten.  Zodat de wijzigingen onmiddellijk worden opgepikt, moet u deze instellen op automatisch: 
 
-```azurecli
+```azurepowershell
 $vmss.UpgradePolicy.AutomaticOSUpgrade = $true
 
 Update-AzureRmVmss -ResourceGroupName "myResourceGroup" `
@@ -280,7 +280,7 @@ Update-AzureRmVmss -ResourceGroupName "myResourceGroup" `
 
 Ten slotte de VMSS starten:
 
-```azurecli
+```azurepowershell
 Start-AzureRmVmss -ResourceGroupName "myResourceGroup" ` 
     -VMScaleSetName "myScaleSet"
 ```

@@ -1,0 +1,120 @@
+- name: Basisprincipes van Azure IoT
+  href: ../iot-fundamentals/index.yml
+- name: Azure Maps-documentatie
+  href: index.yml
+- name: Overzicht
+  items:
+    - name: Over Azure Maps
+      href: about-azure-maps.md
+- name: Snelstartgidsen
+  items:
+    - name: Een kaart-app maken
+      href: quick-demo-map-app.md
+- name: Zelfstudies
+  items:
+    - name: 1 - Zoeken naar bezienswaardigheden
+      href: tutorial-search-location.md
+    - name: 2 - Route naar een bestemming
+      href: tutorial-route-location.md
+    - name: 3 - Meerdere routes per vervoersoptie
+      href: tutorial-prioritized-routes.md
+- name: Concepten
+  items:
+    - name: Zoomniveaus en tegelraster
+      href: zoom-levels-and-tile-grid.md
+    - name: Dekking voor geocodering
+      href: geocoding-coverage.md
+    - name: Dekking voor verkeer
+      href: traffic-coverage.md
+    - name: Dekking voor weergave
+      href: render-coverage.md
+    - name: Dekking voor routering
+      href: routing-coverage.md
+    - name: Ondersteunde talen
+      href: supported-languages.md
+- name: Handleidingen
+  items:
+    - name: Maps-accounts beheren
+      items:
+        - name: Accounts en sleutels beheren
+          href: how-to-manage-account-keys.md
+    - name: Kaartgegevens van REST-API's ophalen
+      items:
+        - name: Zoeken naar een adres
+          href: how-to-search-for-address.md
+    - name: JavaScript-kaarten maken
+      items:
+        - name: Map Control gebruiken
+          href: how-to-use-map-control.md
+        - name: Een kaart maken
+          href: map-create.md
+        - name: Een speld toevoegen
+          href: map-add-pin.md
+        - name: Een pop-up toevoegen
+          href: map-add-popup.md
+        - name: Een vorm toevoegen
+          href: map-add-shape.md
+        - name: Een aangepaste HTML toevoegen
+          href: map-add-custom-html.md
+        - name: Zoekresultaten tonen
+          href: map-search-location.md
+        - name: Informatie ophalen uit een coördinaat
+          href: map-get-information-from-coordinate.md
+        - name: Routebeschrijving van A naar B
+          href: map-route.md
+        - name: Verkeer weergeven
+          href: map-show-traffic.md
+        - name: Interactie met muisgebeurtenissen
+          href: map-events.md
+- name: Naslaginformatie
+  items:
+    - name: Services API - REST
+      href: 'https://docs.microsoft.com/rest/api/maps/'
+    - name: Map Control API - Javascript
+      href: 'https://docs.microsoft.com/javascript/api/azure-maps-javascript/'
+- name: Verwant
+  items:
+    - name: Oplossingen
+      items:
+        - name: Vooraf geconfigureerde oplossing van IoT Suite
+          href: /azure/iot-suite
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+    - name: Platformservices
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: IoT Hub Device Provisioning Service
+          href: /azure/iot-dps
+        - name: Kaarten
+          href: /azure/azure-maps
+        - name: Service-SDK's
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: IoT Device-SDK's
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+- name: Resources
+  items:
+    - name: Azure IoT-ontwikkelaarscentrum
+      href: 'https://azure.microsoft.com/develop/iot/'
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+    - name: MSDN-forum
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs'
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/azure-maps'
+    - name: Prijscalculator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Service-updates
+      href: 'https://azure.microsoft.com/updates'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-location-based-services'
+    - name: Technische casestudy's
+      href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
+    - name: Video's
+      href: 'https://azure.microsoft.com/documentation/videos'

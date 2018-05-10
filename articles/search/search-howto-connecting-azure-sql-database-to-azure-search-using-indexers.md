@@ -9,11 +9,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: aa24c3197af28101b2f3a0acda6d0ae81b9e96d5
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5545b2e40777496ab8c808a8c2692b346d3509c5
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Verbinding maken met Azure SQL Database in Azure Search met indexeerfuncties
 
@@ -50,7 +50,7 @@ Afhankelijk van verschillende factoren, met betrekking tot uw gegevens, het gebr
 |----------|---------|
 | Gegevens zijn afkomstig van één tabel of weergave | Als de gegevens is verspreid over meerdere tabellen, kunt u één enkele weergave van de gegevens maken. Echter, als u een weergave gebruikt, u niet mogelijk gebruik van SQL Server geïntegreerd opsporing vernieuwen van een index met incrementele wijzigingen. Zie voor meer informatie [vastleggen gewijzigd en verwijderd rijen](#CaptureChangedRows) hieronder. |
 | Gegevenstypen zijn compatibel | De meeste, maar niet alle de SQL-typen worden ondersteund in een Azure Search-index. Zie voor een lijst [toewijzing gegevenstypen](#TypeMapping). |
-| Synchronisatie van realtime gegevens is niet vereist | Een indexeerfunctie kan de tabel opnieuw indexeren van maximaal vijf minuten. Als uw gegevens vaak worden gewijzigd en de wijzigingen worden weergegeven in de index binnen enkele seconden of minuten op één moeten, wordt u aangeraden de [REST-API](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) of [.NET SDK](search-import-data-dotnet.md) voor de bijgewerkte rijen direct push. |
+| Synchronisatie van realtime gegevens is niet vereist | Een indexeerfunctie kunt indexeren van uw tabel maximaal vijf minuten. Als uw gegevens vaak worden gewijzigd en de wijzigingen worden weergegeven in de index binnen enkele seconden of minuten op één moeten, wordt u aangeraden de [REST-API](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) of [.NET SDK](search-import-data-dotnet.md) voor de bijgewerkte rijen direct push. |
 | Incrementele indexeren is mogelijk | Als u een grote gegevensset en plannen voor de indexeerfunctie uitvoeren op een planning hebt, is Azure Search moet kunnen nieuwe, gewijzigde of verwijderde rijen efficiënt te identificeren. Niet-incrementele indexeren is alleen toegestaan als u indexeren op aanvraag (niet op schema), of minder dan 100.000 rijen te indexeren. Zie voor meer informatie [vastleggen gewijzigd en verwijderd rijen](#CaptureChangedRows) hieronder. |
 
 > [!NOTE] 
@@ -178,7 +178,7 @@ U kunt toevoegen, wijzigen of verwijderen van een planning voor een bestaande in
 
 ## <a name="capture-new-changed-and-deleted-rows"></a>Nieuwe, gewijzigde en verwijderde rijen vastleggen
 
-Maakt gebruik van Azure Search **incrementele indexeren** om te voorkomen dat opnieuw indexeren de gehele tabel of weergave telkens wanneer een indexeerfunctie wordt uitgevoerd. Azure Search biedt dat twee detectie beleidsregels ter ondersteuning van incrementele indexeren wijzigen. 
+Maakt gebruik van Azure Search **incrementele indexeren** om te voorkomen dat de hele tabel te indexeren of weergeven telkens wanneer een indexeerfunctie wordt uitgevoerd. Azure Search biedt dat twee detectie beleidsregels ter ondersteuning van incrementele indexeren wijzigen. 
 
 ### <a name="sql-integrated-change-tracking-policy"></a>In SQL geïntegreerde wijzigingen bijhouden van beleid
 Als uw SQL database ondersteunt [bijhouden](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server), wordt u aangeraden **SQL geïntegreerde wijzigen Traceringsbeleid**. Dit is het meest efficiënt beleid. Bovendien kunt u Azure Search, verwijderde rijen identificeren zonder dat u hoeft een expliciete 'soft delete'-kolom toevoegen aan uw tabel.

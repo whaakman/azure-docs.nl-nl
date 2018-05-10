@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 05/05/2018
 ms.author: shlo
-ms.openlocfilehash: 7d6abb72fca71c213f9810784581a9af2dafb3a2
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
-ms.translationtype: MT
+ms.openlocfilehash: 0a321de96b26b183432a30868829081c1656be3f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>De activiteit opzoeken in Azure Data Factory
 U kunt lookup-activiteit gebruiken om te lezen of het opzoeken van een record, de tabelnaam of de waarde van een externe bron. Er kan naar deze uitvoer worden verwezen door volgende activiteiten. 
@@ -31,22 +31,7 @@ Lookup-activiteit is handig als u wilt een lijst met bestanden, records of tabel
 
 De volgende gegevensbronnen worden momenteel ondersteund voor het opzoeken van:
 
-- Amazon Redshift
-- Azure Blob Storage
-- Azure Cosmos DB
-- Azure Data Lake Store
-- Azure File storage
-- Azure SQL Database
-- Azure SQL Data Warehouse
-- Azure Table Storage
-- Dynamics 365
-- Dynamics CRM
-- Bestandssysteem
-- PostgreSQL
-- SalesForce
-- SalesForce Service Cloud
-- SFTP
-- SQL Server
+[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
 Het maximum aantal rijen dat wordt geretourneerd door de activiteit opzoeken is **5000**, tot aan **10MB** in grootte.
 
@@ -73,8 +58,8 @@ Het maximum aantal rijen dat wordt geretourneerd door de activiteit opzoeken is 
 ## <a name="type-properties"></a>Type-eigenschappen
 Naam | Beschrijving | Type | Vereist?
 ---- | ----------- | ---- | --------
-dataset | Biedt de dataset-verwijzing voor de zoekopdracht. Details van de sectie 'Eigenschappen van gegevensset' in elke bijbehorende connector artikel ophalen. | Sleutel-waardepaar | Ja
-bron | Bevat Broneigenschappen van gegevensset-specifieke, hetzelfde zijn als de bron voor kopiëren-activiteit. Details van de sectie 'activiteitseigenschappen kopiëren' in elke bijbehorende connector artikel ophalen. | Sleutel-waardepaar | Ja
+Gegevensset | Biedt de dataset-verwijzing voor de zoekopdracht. Details van de sectie 'Eigenschappen van gegevensset' in elke bijbehorende connector artikel ophalen. | Sleutel-waardepaar | Ja
+source | Bevat Broneigenschappen van gegevensset-specifieke, hetzelfde zijn als de bron voor kopiëren-activiteit. Details van de sectie 'activiteitseigenschappen kopiëren' in elke bijbehorende connector artikel ophalen. | Sleutel-waardepaar | Ja
 firstRowOnly | Geeft aan of alleen de eerste rij of alle rijen retourneren. | Boole-waarde | Nee. De standaardwaarde is `true`.
 
 Houd rekening met de volgende punten:
@@ -285,7 +270,7 @@ Dit exemplaar van Azure SQL Database bevat de gegevens moeten worden gekopieerd 
 }
 ```
 
-### <a name="sourcetablejson"></a>sourcetable.json
+### <a name="sourcetablejson"></a>SourceTable.JSON
 
 #### <a name="set-of-objects"></a>Set van objecten
 

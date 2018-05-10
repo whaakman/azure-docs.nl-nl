@@ -1,7 +1,7 @@
 ---
 title: Geavanceerde bewaking in de oplossing voor externe controle - Azure | Microsoft Docs
 description: Deze zelfstudie laat zien hoe u apparaten met het dashboard externe controle oplossing controleren.
-services: 
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -12,17 +12,17 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: fe0d936b4ee0d7703222c86c00959869b99f7851
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 63d5d8de82d97e7f8ca65ad04cdd4357cace0be1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>Geavanceerde bewaking met behulp van de oplossing voor externe controle uitvoeren
 
 Deze zelfstudie ziet de mogelijkheden van het dashboard voor externe controle. De zelfstudie maakt ter introductie van het volgen van deze mogelijkheden gebruik van een scenario in de Contoso IoT-toepassing.
 
-In deze zelfstudie maakt u twee gesimuleerde Contoso vrachtwagen apparaten gebruiken voor informatie over het bewaken van uw apparaten vanuit het dashboard van de vooraf geconfigureerde oplossing. Als een Contoso-operator moet u de locatie en het gedrag van uw vrachtwagens in het veld bewaken.
+In deze zelfstudie maakt u twee gesimuleerde Contoso vrachtwagen apparaten gebruiken voor informatie over het bewaken van uw apparaten vanuit het dashboard van de accelerator oplossing. Als een Contoso-operator moet u de locatie en het gedrag van uw vrachtwagens in het veld bewaken.
 
 In deze zelfstudie leert u het volgende:
 
@@ -30,14 +30,14 @@ In deze zelfstudie leert u het volgende:
 > * De apparaten in het dashboard filteren
 > * Realtime telemetrie van paginaweergaven
 > * Details van de apparaten weergeven
-> * Alarmen van uw apparaten weergeven
+> * Waarschuwingen van uw apparaten weergeven
 > * Het systeem KPI's weergeven
 
 ## <a name="prerequisites"></a>Vereisten
 
 Volg deze zelfstudie, moet u een geïmplementeerd exemplaar van de oplossing voor externe controle in uw Azure-abonnement.
 
-Als u de oplossing voor externe controle nog niet hebt geïmplementeerd, maar u moet voltooien de [implementeren van de vooraf geconfigureerde oplossing voor externe controle](iot-suite-remote-monitoring-deploy.md) zelfstudie.
+Als u de oplossing voor externe controle nog niet hebt geïmplementeerd, maar u moet voltooien de [implementeren van de externe controle oplossingsverbetering](iot-suite-remote-monitoring-deploy.md) zelfstudie.
 
 ## <a name="choose-the-devices-to-display"></a>Kiezen welke apparaten om weer te geven
 
@@ -57,7 +57,7 @@ Als u wilt maken, bewerken, en filters verwijderen of kies **filters beheren**.
 
 ## <a name="view-real-time-telemetry"></a>Realtime telemetrie van paginaweergaven
 
-De vooraf geconfigureerde oplossing gedetailleerde realtime telemetrische gegevens in de grafiek getekend op de **Dashboard** pagina. De telemetrie-grafiek toont telemetrie-informatie voor de apparaten die zijn geselecteerd door de huidige filter:
+De oplossingsverbetering gedetailleerde realtime telemetrische gegevens in de grafiek getekend op de **Dashboard** pagina. De telemetrie-grafiek toont telemetrie-informatie voor de apparaten die zijn geselecteerd door de huidige filter:
 
 ![Vrachtwagen telemetrie tekent](media/iot-suite-remote-monitoring-monitor/dashboardtelemetryview.png)
 
@@ -65,39 +65,41 @@ Selecteer de telemetrie-waarden om te bekijken, kies het type telemetrie aan de 
 
 ![Vrachtwagen telemetrie tekent](media/iot-suite-remote-monitoring-monitor/dashboardselecttelemetry.png)
 
-Kies de weergave live telemetrie onderbreken, **Flowing**. Als u wilt de live weergave opnieuw inschakelen, kiest u **onderbreken**:
+<!-- 05/01 - this features appears to have been removed
+To pause the live telemetry display, choose **Flowing**. To re-enable the live display, choose **Pause**:
 
-![Onderbreken en hervatten van telemetrie weergeven](media/iot-suite-remote-monitoring-monitor/dashboardtelemetrypause.png)
+![Pause and restart telemetry display](media/iot-suite-remote-monitoring-monitor/dashboardtelemetrypause.png)-->
 
 ## <a name="use-the-map"></a>Gebruik de kaart
 
-De kaart bevat informatie over de gesimuleerde vrachtwagens geselecteerd door de huidige filterset. U kunt inzoomen en pannen van de kaart om locaties in meer of minder details weer te geven. De apparaatpictogrammen op de kaart geven een **alarmen** of **waarschuwingen** die voor het apparaat actief zijn. Een samenvatting van het aantal **alarmen** en **waarschuwingen** wordt weergegeven aan de linkerkant van de kaart.
+De kaart bevat informatie over de gesimuleerde vrachtwagens geselecteerd door de huidige filterset. U kunt inzoomen en pannen van de kaart om locaties in meer of minder details weer te geven. De apparaatpictogrammen op de kaart geven een **waarschuwingen** of **waarschuwingen** die voor het apparaat actief zijn. Een samenvatting van het aantal **waarschuwingen** en **waarschuwingen** wordt weergegeven aan de linkerkant van de kaart.
 
-Het om Apparaatdetails te bekijken, Pannen en zoomen van de kaart om te zoeken van de apparaten en klik vervolgens op het apparaat op de kaart. De volgende gegevens bevatten:
+<!-- 05/01 - cannot select a deice on the map
+To view the device details, pan and zoom the map to locate the devices, then click the device on the map. The details include:
 
-* Recente telemetrie waarden
-* Methoden die worden ondersteund door het apparaat
-* Apparaateigenschappen
+* Recent telemetry values
+* Methods the device supports
+* Device properties
 
-![Details van de weergave-apparaat op het dashboard](media/iot-suite-remote-monitoring-monitor/dashboarddevicedetail.png)
+![View device details on the dashboard](media/iot-suite-remote-monitoring-monitor/dashboarddevicedetail.png)-->
 
-## <a name="view-alarms-from-your-devices"></a>Alarmen van uw apparaten weergeven
+## <a name="view-alerts-from-your-devices"></a>Waarschuwingen van uw apparaten weergeven
 
-De kaart markeert de apparaten in de huidige filterset met **alarmen** en **waarschuwingen**. De **System alarmen** Configuratiescherm bevat gedetailleerde informatie over de meest recente alarmen van uw apparaten:
+De kaart markeert de apparaten in de huidige filterset met **waarschuwingen** en **waarschuwingen**. De **waarschuwingen** Configuratiescherm bevat gedetailleerde informatie over de meest recente waarschuwingen van uw apparaten:
 
-![Weergave system alarmen op het dashboard](media/iot-suite-remote-monitoring-monitor/dashboardsystemalarms.png)
+![Systeem-waarschuwingen weergeven op het dashboard](media/iot-suite-remote-monitoring-monitor/dashboardsystemalarms.png)
 
-U kunt de **System alarmen** filter de tijdsduur voor een recente alarmen aanpassen. Standaard worden in het deelvenster alarmen vanuit het afgelopen uur weergegeven:
+U kunt de **Dashboard** filter om aan te passen de tijdsduur voor een recente meldingen. Standaard worden in het deelvenster waarschuwingen van het afgelopen uur weergegeven:
 
-![De alarmen filteren op tijd](media/iot-suite-remote-monitoring-monitor/dashboardalarmsfilter.png)
+![De waarschuwingen filteren op tijd](media/iot-suite-remote-monitoring-monitor/dashboardalarmsfilter.png)
 
 ## <a name="view-the-system-kpis"></a>Het systeem KPI's weergeven
 
 De **Dashboard** pagina system KPI's wordt weergegeven:
 
-![De alarmen filteren op tijd](media/iot-suite-remote-monitoring-monitor/dashboardkpis.png)
+![Dashboard KPI 's](media/iot-suite-remote-monitoring-monitor/dashboardkpis.png)
 
-U kunt de **System KPI** filter om aan te passen de tijdsduur voor de KPI-aggregatie. Standaard worden in het deelvenster KPI's tijdens het afgelopen uur geaggregeerd weergegeven.
+U kunt de **Dashboard** filter om aan te passen de tijdsduur voor de KPI-aggregatie. Standaard worden in het deelvenster KPI's tijdens het afgelopen uur geaggregeerd weergegeven.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -108,7 +110,7 @@ Deze zelfstudie hebt u geleerd hoe u de **Dashboard** pagina te filteren en te c
 > * De apparaten in het dashboard filteren
 > * Realtime telemetrie van paginaweergaven
 > * Details van de apparaten weergeven
-> * Alarmen van uw apparaten weergeven
+> * Waarschuwingen van uw apparaten weergeven
 > * Het systeem KPI's weergeven
 
 U kunt het bewaken van uw apparaten hebt geleerd, de voorgestelde volgende stappen zijn voor meer informatie over hoe:

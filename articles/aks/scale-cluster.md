@@ -1,6 +1,6 @@
 ---
-title: Een AKS-cluster (Azure Container Service) schalen
-description: Lees hier alles over het schalen van een AKS-cluster (Azure Container Service).
+title: Een Azure Kubernetes Service (AKS)-cluster schalen
+description: Een Azure Kubernetes Service (AKS)-cluster schalen.
 services: container-service
 author: gabrtv
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: fbbc24c958152806964412b426aff81a894d4412
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: MT
+ms.openlocfilehash: 37f949e1e043e62b8bd8f73a2b40d0549f77adc3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="scale-an-azure-container-service-aks-cluster"></a>Een AKS-cluster (Azure Container Service) schalen
+# <a name="scale-an-azure-kubernetes-service-aks-cluster"></a>Een Azure Kubernetes Service (AKS)-cluster schalen
 
 Het is niet moeilijk om een AKS-cluster naar een ander aantal knooppunten te schalen.  Selecteer het gewenste aantal knooppunten en voer de opdracht `az aks scale` uit.  Tijdens het omlaag schalen, knooppunten zorgvuldig zich [cordoned en geleegd] [ kubernetes-drain] onderbreking van actieve toepassingen minimaliseren.  Als u omhoog gaat schalen, wacht de opdracht `az` totdat de knooppunten zijn gemarkeerd `Ready` door het Kubernetes-cluster.
 

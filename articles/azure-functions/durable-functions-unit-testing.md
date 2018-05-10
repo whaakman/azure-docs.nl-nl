@@ -4,9 +4,9 @@ description: Meer informatie over hoe eenheid test duurzame functies.
 services: functions
 author: kadimitr
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/28/2018
 ms.author: kadimitr
-ms.openlocfilehash: a8d2a2281dcaf6e5e308ad4a2aafb167f9ba9121
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7de9a6f0d4dfcb45932b89504c0d38c3c70283e9
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="durable-functions-unit-testing"></a>Duurzame functies eenheid testen
 
@@ -28,7 +28,7 @@ Testen van de eenheden is een belangrijk onderdeel van de moderne software devel
 
 De voorbeelden in dit artikel vereisen kennis van de volgende concepten en frameworks: 
 
-* Testen van de eenheden
+* Moduletests uitvoeren
 
 * Durable Functions 
 
@@ -128,7 +128,7 @@ Na het combineren van alle stappen heeft de unit-test de volgende code:
 
 ## <a name="unit-testing-orchestrator-functions"></a>Testen van orchestrator-functies van de eenheden
 
-Orchestrator-functies zijn nog meer interessante voor het testen aangezien meestal veel meer bedrijfslogica hebben eenheid. Orchestrator-functies kunnen op dit moment wordt alleen in C# worden geïmplementeerd.
+Orchestrator-functies zijn nog meer interessante voor het testen aangezien meestal veel meer bedrijfslogica hebben eenheid.
 
 In dit gedeelte de eenheid tests valideert de uitvoer van de `E1_HelloSequence` Orchestrator-functie:
 

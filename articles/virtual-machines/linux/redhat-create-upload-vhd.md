@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 05/04/2018
 ms.author: szark
-ms.openlocfilehash: e0e0fdbb3702ec16e9d5a33659c1ddbee589b989
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 9893ab83584e2fc93ea9cf29c0b74b957080d5ad
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Een op Red Hat gebaseerde virtuele machine voor Azure voorbereiden
 In dit artikel leert u hoe u een virtuele machine van Red Hat Enterprise Linux (RHEL) voorbereidt voor gebruik in Azure. De versies van RHEL die worden beschreven in dit artikel zijn 6.7 + en 7.1 +. De hypervisors voor voorbereiding die worden besproken in dit artikel zijn Hyper-V, op basis van de kernel virtuele machine (KVM) en VMware. Zie voor meer informatie over de vereisten voor in aanmerking komt voor deelname aan het programma voor toegang tot de Cloud van Red Hat [Red Hat van toegang tot de Cloud website](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) en [RHEL uitgevoerd op Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
@@ -159,7 +159,7 @@ Deze sectie wordt ervan uitgegaan dat u hebt al een ISO-bestand van de website v
 
 5. Zorg ervoor dat de netwerkservice tijdens het opstarten wordt gestart met de volgende opdracht:
 
-        # sudo chkconfig network on
+        # sudo systemctl enable network
 
 6. Registreer uw abonnement Red Hat zodat de installatie van pakketten uit de opslagplaats voor RHEL met de volgende opdracht:
 
@@ -411,7 +411,7 @@ Deze sectie wordt ervan uitgegaan dat u hebt al een ISO-bestand van de website v
 
 6. Zorg ervoor dat de netwerkservice tijdens het opstarten wordt gestart met de volgende opdracht:
 
-        # chkconfig network on
+        # sudo systemctl enable network
 
 7. Registreer uw abonnement Red Hat zodat de installatie van pakketten uit de opslagplaats voor RHEL met de volgende opdracht:
 
@@ -665,7 +665,7 @@ Deze sectie wordt ervan uitgegaan dat u al een RHEL virtuele machine in VMware h
 
 3. Zorg ervoor dat de netwerkservice tijdens het opstarten wordt gestart met de volgende opdracht:
 
-        # sudo chkconfig network on
+        # sudo systemctl enable network
 
 4. Registreer uw abonnement Red Hat zodat de installatie van pakketten uit de opslagplaats voor RHEL met de volgende opdracht:
 

@@ -1,27 +1,23 @@
 ---
 title: Meer informatie over verificatie in twee stappen in de Azure MFA | Microsoft Docs
-description: 'Wat is Azure multi-factor Authentication, MFA, meer informatie over de multi-factor Authentication-client en de verschillende methoden en versies die beschikbaar zijn waarom gebruiken. '
-keywords: Inleiding tot MFA mfa overzicht, wat is mfa
+description: Wat is Azure multi-factor Authentication, MFA en de verschillende methoden en versies die beschikbaar zijn waarom te gebruiken.
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: richagi
-ms.assetid: c40d7a34-1274-4496-96b0-784850c06e9b
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 06/03/2017
 ms.author: joflore
-ms.openlocfilehash: 74441b5053a9c7c25d94406293828fe92f210bee
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: richagi
+ms.openlocfilehash: 2bf2cbefb2b60ad5278bdee7bd97aff1ed6212a4
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="what-is-azure-multi-factor-authentication"></a>Wat is Azure Multi-Factor Authentication?
+
 Verificatie in twee stappen is een authenticatiemethode die meer dan één verificatiemethode is vereist en een kritieke tweede beveiligingslaag wordt toegevoegd aan de gebruikersaanmeldingen en transacties. Het werkt door te vereisen van twee of meer van de volgende verificatiemethoden:
 
 * Iets u weet (doorgaans een wachtwoord)

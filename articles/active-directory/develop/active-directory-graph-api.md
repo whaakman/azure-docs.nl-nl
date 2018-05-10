@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: mtillman
 ms.custom: aaddev
-ms.openlocfilehash: c0f5110fe73fb48cf6cf5307de08045bd843cb5a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: MT
+ms.openlocfilehash: 00ca193b281f0a8d24935dd8673cae4e05b4d167
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory Graph API
 > [!IMPORTANT]
@@ -50,7 +50,7 @@ Azure AD Graph API biedt de volgende functies:
 * **Beveiligd door machtigingsbereiken**: Azure AD Graph API-machtigingsbereiken waarmee veilige toegang tot Azure AD-gegevens met behulp van OAuth 2.0 maakt. Deze ondersteuning biedt voor tal van client-app-typen, met inbegrip van:
   
   * gebruikersinterfaces waarmee gedelegeerde toegang tot gegevens via de autorisatie van de aangemelde gebruiker krijgen (gedelegeerd)
-  * Service/daemon-toepassingen dat de bewerking op de achtergrond zonder een aangemelde gebruiker aanwezig is en op rollen gebaseerde toegang toepassingsspecifieke beheren
+  * Service/daemon-toepassingen die op de achtergrond uitgevoerd zonder een aangemelde gebruiker aanwezig en toepassingsspecifieke rollen gebaseerd toegangsbeheer gebruiken
     
     Beide gedelegeerd en Toepassingsmachtigingen vertegenwoordigen een bevoegdheid die worden weergegeven door de Azure AD Graph API en kunnen worden aangevraagd door clienttoepassingen via registratie machtigingen toepassingsfuncties in de [Azure-portal](https://portal.azure.com). [Azure AD Graph API-Machtigingsbereiken](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes) bevat informatie over wat er beschikbaar is voor gebruik door de clienttoepassing.
 

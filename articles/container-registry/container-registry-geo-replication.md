@@ -6,23 +6,17 @@ author: stevelas
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: overview-article
-ms.date: 10/24/2017
+ms.date: 04/10/2018
 ms.author: stevelas
-ms.openlocfilehash: 6b82f49d2bf4ed321f5e847d11780535e01531f7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e4695428b03961f5e899007609dfb1088dde77a8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Geo-replicatie in Azure Container Registry
 
-Bedrijven die de aanwezigheid van een lokale of een hot back-up wilt kiezen voor het uitvoeren van de services van meerdere Azure-regio's. Als een best practice kunt als u een register container in elke regio waarin afbeeldingen worden uitgevoerd netwerk sluiten bewerkingen, snelle, betrouwbare installatiekopie laag overdrachten inschakelen.
-
-Geo-replicatie kunt een Azure container registry functioneren als een enkele register meerdere regio's met meerdere masters registers fungeren.
-
-> [!IMPORTANT]
-> De functie voor geo-replicatie van Azure Container Registry is momenteel beschikbaar als **preview-versie**. Previews worden voor u beschikbaar gesteld op voorwaarde dat u akkoord met gaat de [aanvullende gebruiksvoorwaarden](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Sommige aspecten van deze functionaliteit kunnen wijzigen voordat deze functionaliteit algemeen beschikbaar wordt.
->
+Bedrijven die de aanwezigheid van een lokale of een hot back-up wilt kiezen voor het uitvoeren van de services van meerdere Azure-regio's. Als een best practice kunt als u een register container in elke regio waarin afbeeldingen worden uitgevoerd netwerk sluiten bewerkingen, snelle, betrouwbare installatiekopie laag overdrachten inschakelen. Geo-replicatie kunt een Azure container registry functioneren als een enkele register meerdere regio's met meerdere masters registers fungeren.
 
 Een register geo-replicatie biedt de volgende voordelen:
 

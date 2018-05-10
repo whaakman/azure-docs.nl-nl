@@ -4,9 +4,9 @@ description: Meer informatie over welke taak hub is in de uitbreiding duurzame f
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: b241bad7b0060551eba5e78efbb1b729bf5d0098
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 563667684accf8b434052cd412bf6e93c77ea63a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Taak hubs in duurzame functies (Azure-functies)
 
@@ -35,6 +35,7 @@ Een hub taak bestaat uit de volgende opslagbronnen:
 * Een of meer wachtrijen van control.
 * Een werkitem-wachtrij.
 * Van een geschiedenistabel.
+* Een tabel van de exemplaren.
 * Een storage-container met een of meer lease blobs.
 
 Van al deze resources worden automatisch gemaakt in het standaard Azure Storage-account als orchestrator of activiteit functies uitvoeren of zijn gepland. De [prestaties en schaalbaarheid](durable-functions-perf-and-scale.md) artikel wordt uitgelegd hoe u deze resources worden gebruikt.

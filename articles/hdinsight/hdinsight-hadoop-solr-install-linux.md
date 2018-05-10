@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: 8a642b569389d960e7a3a1fa2c7cb0f2d87bd809
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 707f25a71a22f136a3cfc537ec3dd939e06dea08
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Installeren en gebruiken van Solr op HDInsight Hadoop-clusters
 
@@ -87,7 +87,7 @@ Gebruik de volgende stappen bijvoorbeeld gegevens toevoegen aan Solr en deze ver
     Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
      > [!IMPORTANT]
-     > Stappen verderop in dit document wordt een SSL-tunnel verbinding maken met de webgebruikersinterface Solr gebruikt. Voor het gebruik van deze stappen, moet u een SSL-tunnel maakt en configureer vervolgens uw browser om het te gebruiken.
+     > De stappen verderop in dit document gebruikt een SSH-tunnel verbinding maken met de webgebruikersinterface Solr. Voor het gebruik van deze stappen, moet u een SSH-tunnel tot stand brengen en configureer vervolgens uw browser om het te gebruiken.
      >
      > Zie voor meer informatie de [SSH-Tunneling gebruiken met HDInsight](hdinsight-linux-ambari-ssh-tunnel.md) document.
 

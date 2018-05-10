@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8ad73132839aaa77166c115feff9a70db864ba12
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 5548ced4f81cf52d6aec4ce5ab2a3262eb347bd3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar de nieuwe resourcegroep of abonnement
 
@@ -53,7 +53,7 @@ Voordat u een resource verplaatst, moeten er enkele belangrijke stappen worden u
   az account show --subscription <your-destination-subscription> --query tenantId
   ```
 
-  Als de tenant-id's voor de bron- en doelserver abonnementen niet hetzelfde zijn, moet u de volgende methoden gebruiken om af te stemmen van de tenant-id's: 
+  Als de tenant-id's voor de bron- en doelserver abonnementen niet hetzelfde zijn, moet u de volgende methoden gebruiken om af te stemmen van de tenant-id's:
 
   * [Eigendom van een Azure-abonnement naar een ander account overdragen](../billing/billing-subscription-transfer.md)
   * [Het koppelen of een Azure-abonnement toevoegen aan Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md)
@@ -112,7 +112,7 @@ De services waarmee verplaatsen naar een nieuwe resourcegroep en een abonnement 
 * App Service-apps (web-apps) - Zie [App Service-beperkingen](#app-service-limitations)
 * App Service Certificates
 * Application Insights
-* Automatisering
+* Automation
 * Azure Cosmos DB
 * Batch
 * Bing Maps
@@ -166,12 +166,12 @@ De services die op dit moment niet inschakelen voor het verplaatsen van een reso
 * Azure Database for MySQL
 * BizTalk Services
 * Certificaten - App Service-certificaten kunnen worden verplaatst, maar geüploade certificaten hebben [beperkingen](#app-service-limitations).
-* Container Service
+* Kubernetes-Service
 * DevTest Labs - te verplaatsen naar een nieuwe resourcegroep in hetzelfde abonnement is ingeschakeld, maar cross abonnement verplaatsen is niet ingeschakeld.
 * Dynamics LCS
 * ExpressRoute
 * Load Balancers - Zie [Load Balancer-beperkingen](#lb-limitations)
-* Beheerde toepassingen
+* Managed Applications
 * Beheerde schijven - Zie [beperkingen van de virtuele Machines](#virtual-machines-limitations)
 * Openbare IP - Zie [openbare IP-beperkingen](#pip-limitations)
 * Recovery Services-kluis - ook komen niet verplaatsen van de Compute, Network en Storage-resources die zijn gekoppeld aan de Recovery Services-kluis, Zie [Recovery Services-beperkingen](#recovery-services-limitations).
@@ -203,13 +203,13 @@ U kunt een virtueel netwerk niet verplaatsen naar een ander abonnement als het v
 
 ## <a name="app-service-limitations"></a>App Service-beperkingen
 
-De beperkingen voor het verplaatsen van resources in App Service verschillen op basis van of het verplaatsen van de resources binnen een abonnement of in een nieuw abonnement. 
+De beperkingen voor het verplaatsen van resources in App Service verschillen op basis van of het verplaatsen van de resources binnen een abonnement of in een nieuw abonnement.
 
 De beperkingen die worden beschreven in deze secties van toepassing op geüploade certificaten, niet-App Service-certificaten. App Service Certificate kunt u een nieuwe resourcegroep of abonnement zonder beperkingen. Als u meerdere WebApps die gebruikmaken van de dezelfde App Service-certificaat, verplaatst u eerst alle web-apps hebt vervolgens het certificaat te verplaatsen.
 
 ### <a name="moving-within-the-same-subscription"></a>Verplaatsen binnen hetzelfde abonnement
 
-Wanneer u een Web-App verplaatst _binnen hetzelfde abonnement_, u kunt de geüploade SSL-certificaten niet verplaatsen. Echter kunt u een Web-App in de nieuwe resourcegroep zonder het verplaatsen van de geüploade SSL-certificaat en de SSL-functionaliteit van uw app werkt nog altijd. 
+Wanneer u een Web-App verplaatst _binnen hetzelfde abonnement_, u kunt de geüploade SSL-certificaten niet verplaatsen. Echter kunt u een Web-App in de nieuwe resourcegroep zonder het verplaatsen van de geüploade SSL-certificaat en de SSL-functionaliteit van uw app werkt nog altijd.
 
 Als u verplaatsen van het SSL-certificaat met de Web-App wilt, voert u de volgende stappen uit:
 
@@ -227,7 +227,7 @@ Wanneer u een Web-App verplaatst _voor abonnementen_, gelden de volgende beperki
     - Geüploade of geïmporteerde SSL-certificaten
     - App Service-omgevingen
 - Alle App Service-resources in de resourcegroep moeten samen worden verplaatst.
-- App Service-bronnen kunnen alleen worden verplaatst van de resourcegroep waarin ze werden gemaakt. Als een App Service-resource niet meer in de oorspronkelijke resourcegroep is, deze moet worden teruggezet naar die oorspronkelijke resourcegroep eerst en vervolgens kunnen worden verplaatst tussen abonnementen. 
+- App Service-bronnen kunnen alleen worden verplaatst van de resourcegroep waarin ze werden gemaakt. Als een App Service-resource niet meer in de oorspronkelijke resourcegroep is, deze moet worden teruggezet naar die oorspronkelijke resourcegroep eerst en vervolgens kunnen worden verplaatst tussen abonnementen.
 
 ## <a name="classic-deployment-limitations"></a>Beperkingen voor klassieke implementatie
 

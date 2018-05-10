@@ -3,22 +3,22 @@ title: Sjablonen
 description: Dit onderwerp worden de sjablonen voor Azure notification hubs.
 services: notification-hubs
 documentationcenter: .net
-author: ysxu
-manager: erikre
-editor: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: a41897bb-5b4b-48b2-bfd5-2e3c65edc37e
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: 1ca24a4bf08ecdbe1c1e47a931613144309a04a9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 3e587bdf0efc7c5b416183640abb19286a5cff31
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="templates"></a>Sjablonen
 ## <a name="overview"></a>Overzicht
@@ -50,9 +50,9 @@ U kunt vergelijkbare nettoladingen maken voor MPNS (Windows Phone) en (Android) 
 
 Deze vereiste zorgt ervoor dat de app-back-end voor het produceren van verschillende nettoladingen voor elk platform, waardoor het effectief de back-end die verantwoordelijk is voor een deel van de laag voor presentatie van de app. Sommige problemen bevatten te lokaliseren en grafische indelingen (vooral voor Windows Store-apps die meldingen voor verschillende soorten tegels bevatten).
 
-De functie van de sjabloon Notification Hubs kunt een client-app voor het maken van speciale registraties, aangeroepen sjabloon registraties, waaronder, naast de reeks labels, een sjabloon. De functie van de sjabloon Notification Hubs kunt een client-app te koppelen van apparaten met behulp van sjablonen of u met werkt (voorkeur)-installaties of -registraties. Gezien de voorgaande voorbeelden van de nettolading, is de informatie alleen platformonafhankelijk het werkelijke waarschuwingsbericht (Hallo!). Een sjabloon is een verzameling instructies voor de Notification Hub voor het formatteren van een bericht platformonafhankelijk voor de registratie van die specifieke client-app. In het voorgaande voorbeeld is het platform onafhankelijke bericht één eigenschap: **bericht = Hallo!**.
+De functie van de sjabloon Notification Hubs kunt een client-app voor het maken van speciale registraties, aangeroepen sjabloon registraties, waaronder, naast de reeks labels, een sjabloon. De functie van de sjabloon Notification Hubs kunt een client-app te koppelen van apparaten met behulp van sjablonen of u met werkt (voorkeur)-installaties of -registraties. Gezien de voorgaande voorbeelden van de nettolading, is de informatie alleen platformonafhankelijk het werkelijke waarschuwingsbericht (Hallo!). Een sjabloon is een verzameling instructies voor de Notification Hub voor het formatteren van een bericht platformonafhankelijk voor de registratie van die specifieke client-app. In het voorgaande voorbeeld is het bericht platformonafhankelijk één eigenschap: **bericht = Hallo!**.
 
-De volgende afbeelding ziet u de bovenstaande procedure:
+De volgende afbeelding illustreert het proces:
 
 ![](./media/notification-hubs-templates/notification-hubs-hello.png)
 
@@ -74,7 +74,7 @@ U ziet dat het werkelijke bericht is vervangen door de expressie $(bericht). Dez
 
 Als u met installatie-model werkt, bevat de installatie 'sjablonen' sleutel een JSON met meerdere sjablonen. Als u met registratie model werkt, kunt de clienttoepassing meerdere registraties maken om te kunnen gebruiken, meerdere sjablonen. bijvoorbeeld, een sjabloon voor waarschuwingsberichten en een sjabloon voor updates van de tegel. Client-toepassingen kunnen u ook systeemeigen registraties (registraties zonder sjabloon) en sjabloon registraties elkaar.
 
-De Notification Hub verzendt een melding voor elke sjabloon zonder rekening te houden of ze tot dezelfde clientapp behoren. Dit gedrag kan worden gebruikt om te vertalen platformonafhankelijk meldingen naar meer meldingen. Bijvoorbeeld kan hetzelfde platform onafhankelijke bericht met de Notification Hub worden naadloos omgezet in een toast-melding en een update tegel zonder dat de back-end worden hiervan bewust zijn. Houd er rekening mee dat sommige platformen (bijvoorbeeld iOS) meerdere meldingen op hetzelfde apparaat samenvouwen mogelijk als ze worden verzonden in een korte periode.
+De Notification Hub verzendt een melding voor elke sjabloon zonder rekening te houden of ze tot dezelfde clientapp behoren. Dit gedrag kan worden gebruikt om te vertalen platformonafhankelijk meldingen naar meer meldingen. Bijvoorbeeld kan hetzelfde platformonafhankelijk bericht met de Notification Hub worden naadloos omgezet in een toast-melding en een update tegel zonder dat de back-end worden hiervan bewust zijn. Sommige platformen (bijvoorbeeld iOS) mogelijk meerdere meldingen samenvouwen op hetzelfde apparaat als ze worden verzonden in een korte periode.
 
 ## <a name="using-templates-for-personalization"></a>Met behulp van sjablonen voor persoonlijke instellingen
 Een ander voordeel van met behulp van sjablonen is de mogelijkheid Notification Hubs gebruiken om uit te voeren per registratie personalisatie van meldingen. Neem bijvoorbeeld een app weer waarin een tegel met de voorwaarden weer op een specifieke locatie. Een gebruiker kan kiezen tussen c of Fahrenheit graden en een prognose enkele of vijf dagen. Met behulp van sjablonen, de installatie van elke client-app kunt registreren voor de vereiste indeling (1 dag Celsius, 1 dag Fahrenheit, 5 dagen c 5 dagen Fahrenheit), en de back-end een enkel bericht met de gegevens die zijn vereist voor het vervullen van deze sjablonen verzenden (bijvoorbeeld een prognose met c en Fahrenheit graden vijf dagen).
@@ -126,9 +126,9 @@ De volgende tabel ziet u de taal die is toegestaan in sjablonen:
 
 De expressies mag geen van de voorgaande formulieren.
 
-Wanneer u samenvoeging gebruikt, moet u de volledige expressie tussen met {}. Bijvoorbeeld, {$(prop) + '-' + $(prop2)}. |
+Bij gebruik van de samenvoeging met de gehele expressie moet tussen {}. Bijvoorbeeld, {$(prop) + '-' + $(prop2)}. |
 
-Bijvoorbeeld, is het volgende niet een geldig XML-sjabloon:
+De volgende sjabloon is bijvoorbeeld niet een geldig XML-sjabloon:
 
     <tile>
       <visual>
@@ -139,7 +139,7 @@ Bijvoorbeeld, is het volgende niet een geldig XML-sjabloon:
     </tile>
 
 
-Uitgelegd hierboven, wanneer u samenvoeging moeten expressies worden verpakt tussen accolades. Bijvoorbeeld:
+Zoals eerder uitgelegd wanneer u samenvoeging, moeten expressies tussen accolades worden geplaatst. Bijvoorbeeld:
 
     <tile>
       <visual>

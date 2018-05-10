@@ -2,8 +2,8 @@
 title: Detectie - fout-afwijkingen in Application Insights van smartcard | Microsoft Docs
 description: Hiermee wordt u gewezen op ongewone wijzigingen in de frequentie van mislukte aanvragen voor uw web-app en bevat diagnostische analyse. Is geen configuratie nodig.
 services: application-insights
-documentationcenter: 
-author: yorac
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
-ms.author: mbullwin
-ms.openlocfilehash: ca484f4d11cf8ab18db2d0c6152f369a90311f10
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.author: mbullwin; yossiy
+ms.openlocfilehash: 29ae81551d4bd4be4123c8e7780b8b5ecc259f09
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="smart-detection---failure-anomalies"></a>Slimme detectie - fout afwijkingen
 [Application Insights](app-insights-overview.md) automatisch een melding in bijna realtime als uw web-app optreedt in een abnormale toename in de frequentie van mislukte aanvragen. Een ongewone stijging van de snelheid van HTTP-aanvragen of afhankelijkheidsaanroepen die worden gerapporteerd als mislukt wordt gedetecteerd. Voor aanvragen voor zijn mislukte aanvragen meestal die met reactiecodes van 400 of hoger. Om te sorteren en onderzoeken van het probleem, wordt een analyse van de kenmerken van de fouten en gerelateerde telemetrie beschikbaar in de melding. Er zijn ook koppelingen naar de Application Insights-portal voor verdere diagnose. Moet de functie geen installatie of de configuratie, zoals het machine learning-algoritmen gebruikt om te voorspellen van de normale Faalpercentage.

@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 05/02/2018
 ms.author: raynew
-ms.openlocfilehash: 524de918bd24d51680110dc2af213bf328e349fd
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: f7c6e3eeb8db75a3857e687fecc9ee2748e92696
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-replication-to-azure"></a>Netwerktoewijzing voorbereiden voor replicatie van virtuele Hyper-V-machines naar Azure
 
@@ -55,8 +55,8 @@ Hier volgt een voorbeeld ter illustratie van dit mechanisme. U gaat nu een organ
 
 **Locatie** | **VMM-server** | **VM-netwerken** | **Toegewezen aan**
 ---|---|---|---
-New York | VMM-NewYork| VMNetwork1-NewYork | Toegewezen aan VMNetwork1 Chicago
- |  | VMNetwork2-NewYork | Niet toegewezen
+New York | VMM-NewYork| VMNetwork1 NewYork | Toegewezen aan VMNetwork1 Chicago
+ |  | VMNetwork2 NewYork | Niet toegewezen
 Chicago | VMM-Chicago| VMNetwork1-Chicago | Toegewezen aan VMNetwork1 NewYork
  | | VMNetwork1-Chicago | Niet toegewezen
 
@@ -80,7 +80,7 @@ SilverCloud2 | <p>N.v.t.</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNe
 
 **Locatie** | **Logisch netwerk** | **Bijbehorende VM-netwerk**
 ---|---|---
-New York | LogicalNetwork1-NewYork | VMNetwork1-NewYork
+New York | LogicalNetwork1-NewYork | VMNetwork1 NewYork
 Chicago | LogicalNetwork1-Chicago | VMNetwork1-Chicago
  | LogicalNetwork2Chicago | VMNetwork2-Chicago
 
@@ -106,7 +106,7 @@ Als u wilt zien wat er gebeurt in het geval van een failback (omgekeerde replica
 
 **VM** | **Verbonden met het VM-netwerk**
 ---|---
-VM1 | VMNetwork1-Network
+VM1 | VMNetwork1-netwerk
 VM2 (replica van VM1) | VMNetwork1-Chicago
 
 Met deze instellingen gaan we bekijken wat er gebeurt in een aantal mogelijke scenario's.

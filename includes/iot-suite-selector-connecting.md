@@ -1,3 +1,19 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 43acf33ec7787378595ad62540a868100bf587f7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 05/07/2018
+---
 > [!div class="op_single_selector"]
 > * [C op Windows](../articles/iot-suite/iot-suite-connecting-devices.md)
 > * [C op Linux](../articles/iot-suite/iot-suite-connecting-devices-linux.md)
@@ -5,7 +21,7 @@
 > * [Node.js op Raspberry Pi](../articles/iot-suite/iot-suite-connecting-pi-node.md)
 > * [C op Raspberry Pi](../articles/iot-suite/iot-suite-connecting-pi-c.md)
 
-In deze zelfstudie implementeert u een **Koelunit** apparaat dat de volgende telemetrie naar de externe controle verzendt [vooraf geconfigureerde oplossing](../articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md):
+In deze zelfstudie implementeert u een **Koelunit** apparaat dat de volgende telemetrie naar de externe controle verzendt [oplossingsverbetering](../articles/iot-suite/iot-suite-what-are-solution-accelerators.md):
 
 * Temperatuur
 * Druk
@@ -23,11 +39,11 @@ U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u gee
 
 ## <a name="before-you-start"></a>Voordat u begint
 
-Voordat u code voor uw apparaat schrijven, wordt uw vooraf geconfigureerde oplossing voor externe controle implementeert en een nieuwe fysieke apparaat toevoegt aan de oplossing.
+Voordat u code voor uw apparaat schrijven, wordt uw externe controle oplossingsverbetering implementeren en een nieuwe fysieke apparaat toevoegt aan de oplossing.
 
-### <a name="deploy-your-remote-monitoring-preconfigured-solution"></a>Implementeer uw vooraf geconfigureerde oplossing voor externe controle
+### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>Uw externe controle oplossingsverbetering implementeren
 
-De **Koelunit** apparaat die u in deze zelfstudie maakt gegevens verzendt naar een exemplaar van de [externe controle](../articles/iot-suite/iot-suite-remote-monitoring-explore.md) vooraf geconfigureerde oplossing. Als u dit nog niet hebt in uw Azure-account al en de vooraf geconfigureerde oplossing voor externe controle ingericht, Zie [implementeren van de vooraf geconfigureerde oplossing voor externe controle](../articles/iot-suite/iot-suite-remote-monitoring-deploy.md)
+De **Koelunit** apparaat die u in deze zelfstudie maakt gegevens verzendt naar een exemplaar van de [externe controle](../articles/iot-suite/iot-suite-remote-monitoring-explore.md) oplossingsverbetering. Als u dit nog niet hebt externe controle oplossingsverbetering in uw Azure-account voorzien, Zie [remote monitoring solution accelerator implementeren](../articles/iot-suite/iot-suite-remote-monitoring-deploy.md)
 
 Wanneer het implementatieproces voor de oplossing voor externe controle is voltooid, klikt u op **starten** dashboard van de oplossing in uw browser te openen.
 
@@ -38,7 +54,7 @@ Wanneer het implementatieproces voor de oplossing voor externe controle is volto
 > [!NOTE]
 > Als u al een apparaat in uw oplossing hebt toegevoegd, kunt u deze stap overslaan. De volgende stap vereist echter de verbindingsreeks van uw apparaat. U kunt ophalen van een apparaat-verbindingsreeks uit de [Azure-portal](https://portal.azure.com) of met behulp van de [az iot](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest) CLI-hulpprogramma.
 
-Een apparaat kan alleen verbinding maken met de vooraf geconfigureerde oplossing als het zichzelf met geldige referenties kan identificeren bij IoT Hub. U hebt de mogelijkheid om op te slaan de apparaat-verbindingsreeks met deze referenties wanneer u het apparaat toevoegen de oplossing. De verbindingsreeks van het apparaat in uw clienttoepassing verderop in deze zelfstudie te nemen.
+Voor een apparaat verbinding maken met de oplossingsverbetering, moet deze zelf identificeren met IoT Hub met geldige referenties. U hebt de mogelijkheid om op te slaan de apparaat-verbindingsreeks met deze referenties wanneer u het apparaat toevoegen de oplossing. De verbindingsreeks van het apparaat in uw clienttoepassing verderop in deze zelfstudie te nemen.
 
 Als u wilt een apparaat toevoegt aan uw oplossing voor externe controle, kunt u de volgende stappen uitvoeren op de **apparaten** pagina in de oplossing:
 
@@ -54,9 +70,9 @@ Als u wilt een apparaat toevoegt aan uw oplossing voor externe controle, kunt u 
 
     ![Referenties ophalen](media/iot-suite-selector-connecting/credentials.png)
 
-U hebt nu een fysiek apparaat toegevoegd aan de vooraf geconfigureerde oplossing voor externe controle en de verbindingsreeks van het apparaat hebt genoteerd. In de volgende secties vindt implementeren u de clienttoepassing die de verbindingsreeks van het apparaat verbinding maakt met uw oplossing.
+U hebt nu een fysiek apparaat toegevoegd aan de externe controle oplossingsverbetering en de verbindingsreeks van het apparaat hebt genoteerd. In de volgende secties vindt implementeren u de clienttoepassing die de verbindingsreeks van het apparaat verbinding maakt met uw oplossing.
 
-De clienttoepassing implementeert de ingebouwde **Koelunit** Apparaatmodel. Een model van de vooraf geconfigureerde oplossing apparaat Hiermee geeft u de volgende met betrekking tot een apparaat:
+De clienttoepassing implementeert de ingebouwde **Koelunit** Apparaatmodel. Een model oplossing accelerator apparaat Hiermee geeft u de volgende met betrekking tot een apparaat:
 
 * De eigenschappen van het apparaat rapporteert aan de oplossing. Bijvoorbeeld, een **Koelunit** apparaat rapporteert informatie over de firmware en de locatie.
 * De typen telemetrie het apparaat verzendt naar de oplossing. Bijvoorbeeld, een **Koelunit** apparaat verzendt temperatuur en vochtigheid druk waarden.

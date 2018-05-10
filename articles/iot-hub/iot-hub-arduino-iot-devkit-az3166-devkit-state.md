@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: liydu
-ms.openlocfilehash: 33d8a36cc88bd1c263f2c4a38a59e04e1253357c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ac013cf234fdc7249d4d71992435adcc27fcc64e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
 
@@ -90,10 +90,10 @@ Verbonden met uw IoT MXChip DevKit op uw computer:
 ## <a name="next-steps"></a>Volgende stappen
 
 U hebt geleerd hoe:
-- Sluit een apparaat MXChip IoT DevKit aan uw Azure IoT Suite.
+- Een apparaat MXChip IoT DevKit aansluiten op uw oplossingsverbetering Azure IoT externe controle.
 - Gebruik de functie van Azure IoT-apparaat horende detecteren en beheren van de kleur van de DevKit RGB-LED.
 
 Hier volgen de mogelijke volgende stappen:
 
-* [Overzicht van Azure IoT Suite](https://docs.microsoft.com/azure/iot-suite/)
+* [Overzicht van Azure accelerator voor externe controle IoT-oplossing](https://docs.microsoft.com/azure/iot-suite/)
 * [Sluit een apparaat MXChip IoT DevKit aan uw toepassing Microsoft IoT centrale](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

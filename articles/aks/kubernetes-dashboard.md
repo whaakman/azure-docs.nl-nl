@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 47608993320d987822422ea103e4e2043de2d2e8
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
-ms.translationtype: MT
+ms.openlocfilehash: ab137c8397f747ba07475910cd4461d88951d6be
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="kubernetes-dashboard-with-azure-container-service-aks"></a>Kubernetes dashboard met Azure Container Service (AKS)
+# <a name="kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Kubernetes dashboard met Azure Kubernetes Service (AKS)
 
 De Azure CLI kunnen worden gebruikt voor het starten van het Kubernetes Dashboard. Dit document wordt begeleid bij het dashboard Kubernetes beginnen met de Azure CLI en bepaalde bewerkingen basic dashboard ook wordt uitgelegd. Voor meer informatie over het dashboard Kubernetes Zie [Kubernetes Web UI Dashboard][kubernetes-dashboard].
 
@@ -63,13 +63,13 @@ Naast het maken en weergeven van toepassingen, kan het dashboard Kubernetes word
 
 Een implementatie bewerken, klikt u op **implementaties** in het menu links en selecteer vervolgens de **NGINX** implementatie. Tot slot selecteert **bewerken** in de bovenste navigatiebalk voor rechts.
 
-![Kubernetes Edit](./media/container-service-kubernetes-ui/view-deployment.png)
+![Kubernetes bewerken](./media/container-service-kubernetes-ui/view-deployment.png)
 
 Zoek de `spec.replica` -waarde moet 1 zijn, wijzigt u deze waarde in 3. Het aantal replica's van de NGINX-implementatie wordt hierbij verhoogd van 1 tot 3.
 
 Selecteer **Update** als u klaar bent.
 
-![Kubernetes Edit](./media/container-service-kubernetes-ui/edit-deployment.png)
+![Kubernetes bewerken](./media/container-service-kubernetes-ui/edit-deployment.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

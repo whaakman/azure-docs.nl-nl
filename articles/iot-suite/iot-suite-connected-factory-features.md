@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/20/2018
 ms.author: dobett
-ms.openlocfilehash: fea9ccc53bd019039cf1e989d72db7a218e4517c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e0bd023e73088897303fe0f9de47641cd6ea0389
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="what-is-azure-iot-suite-connected-factory"></a>Wat is Azure IoT Suite verbonden Factory?
 
@@ -51,7 +51,7 @@ Verbonden Factory omvat de volgende functies:
 ## <a name="azure-time-series-insights"></a>Azure Time Series Insights
 
 - [Inzicht van Azure Time Series](../time-series-insights/time-series-insights-overview.md) is gebouwd voor het opslaan en opvragen van grote hoeveelheden timeseries gegevens te visualiseren. Verbonden Factory maakt gebruik van deze service.
-- Verbonden factory kan worden geïntegreerd met deze service kunt u uitvoeren grondige, realtime analyse van de apparaatgegevens van uw.
+- Verbonden Factory kan worden geïntegreerd met deze service kunt u uitvoeren grondige, realtime analyse van de apparaatgegevens van uw.
 
 ## <a name="rules-and-alerts"></a>Regels en waarschuwingen
 
@@ -65,11 +65,11 @@ Verbonden Factory omvat de volgende functies:
 ## <a name="customizability"></a>Aanpassingsmogelijkheden
 
 - [Aanpassen](iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md) de oplossing te voldoen aan specifieke zakelijke vereisten.
-- Volledige oplossing-broncode is beschikbaar op GitHub. Zie de [verbonden factory vooraf geconfigureerde oplossing](https://github.com/Azure/azure-iot-connected-factory) opslagplaats.
+- Volledige oplossing-broncode is beschikbaar op GitHub. Zie de [verbonden Factory vooraf geconfigureerde oplossing](https://github.com/Azure/azure-iot-connected-factory) opslagplaats.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over de verbonden factory vooraf geconfigureerde oplossing door te lezen van de volgende artikelen:
+Meer informatie over de verbonden Factory vooraf geconfigureerde oplossing door te lezen van de volgende artikelen:
 
-* [Overzicht van verbonden factory vooraf geconfigureerde oplossing](iot-suite-connected-factory-sample-walkthrough.md)
-* [Implementeer een gateway voor verbonden factory]( iot-suite-connected-factory-gateway-deployment.md)
+* [Oplossing walkthrough over vooraf geconfigureerde verbonden Factory](iot-suite-connected-factory-sample-walkthrough.md)
+* [Implementeer een gateway voor Factory verbonden]( iot-suite-connected-factory-gateway-deployment.md)

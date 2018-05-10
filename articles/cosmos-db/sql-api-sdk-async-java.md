@@ -13,11 +13,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: b80ad9837939af5406989d08e18f6f3d9fe3064f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 25a84c42430c76d296e12d3f83040fa18febdcb1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK voor SQL-API: releaseopmerkingen en resources
 > [!div class="op_single_selector"]
@@ -31,8 +31,8 @@ ms.lasthandoff: 04/28/2018
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST-resourceprovider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-> 
-> 
+> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
 De SQL-API asynchrone Java SDK verschilt van de SQL-API Java SDK dankzij de asynchrone bewerkingen met ondersteuning van de [Netty bibliotheek](http://netty.io/). De vooraf bestaande [SQL API Java SDK](sql-api-sdk-java.md) biedt geen ondersteuning voor asynchrone bewerkingen. 
 
@@ -63,7 +63,7 @@ De SQL-API asynchrone Java SDK verschilt van de SQL-API Java SDK dankzij de asyn
 * Los om te voorkomen dat sessietoken doorgeven bij het lezen van de master-resources.
 * Meer voorbeelden toegevoegd.
 * Meer benchmarking scenario's toegevoegd.
-* Header-bestanden van de vaste Java voor het genereren van de juiste javadoc.
+* Header-bestanden van de vaste Java voor het genereren van de juiste java-document.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * GA-SDK met end-to-end-ondersteuning voor niet-blokkerende i/o-gebruik de [Netty bibliotheek](http://netty.io/) in de modus van de gateway. 
@@ -71,7 +71,7 @@ De SQL-API asynchrone Java SDK verschilt van de SQL-API Java SDK dankzij de asyn
 ## <a name="release-and-retirement-dates"></a>Release-en buiten gebruik stellen
 Microsoft biedt melding ten minste **12 maanden** voordat het buiten gebruik stellen van een SDK om de overgang naar een nieuwere/ondersteunde versie vloeiend.
 
-Nieuwe functies en functionaliteit en optimalisaties alleen zijn toegevoegd aan de huidige SDK, als zodanig wordt aanbevolen dat u altijd een upgrade uitvoert naar de nieuwste SDK versie zo snel mogelijk.
+Nieuwe functies en functionaliteit en optimalisaties worden alleen toegevoegd aan de huidige SDK. Daarom wordt het aanbevolen dat u altijd een upgrade naar de nieuwste versie van de SDK zo spoedig mogelijk uitvoert.
 
 Elk verzoek aan de Cosmos-database met behulp van een buiten gebruik gestelde SDK worden geweigerd door de service.
 

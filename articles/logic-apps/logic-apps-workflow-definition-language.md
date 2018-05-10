@@ -3,7 +3,7 @@ title: Werkstroom Definition Language schema - Azure Logic Apps | Microsoft Docs
 description: Schrijven van aangepaste werkstroomdefinities voor Azure Logic Apps met de werkstroom Definition Language
 services: logic-apps
 author: ecfan
-manager: SyntaxC4
+manager: cfowler
 editor: ''
 documentationcenter: ''
 ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
@@ -12,13 +12,13 @@ ms.workload: logic-apps
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: reference
-ms.date: 04/25/2018
+ms.date: 04/30/2018
 ms.author: estfan
-ms.openlocfilehash: 7c253fd83bcc1f1dde93ac6ef0c26da1fa1a9a4b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: efbfffec10b665ebab230375e774e476199c4ad5
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="logic-apps-workflow-definitions-with-the-workflow-definition-language-schema"></a>Logic Apps werkstroomdefinities met het schema van de werkstroom Definition Language
 
@@ -54,7 +54,7 @@ Hier volgt de structuur op hoog niveau voor de werkstroomdefinitie van een:
 
 ## <a name="parameters"></a>Parameters
 
-In de `parameters` sectie, het definiëren van de parameters die invoer voor de werkstroom tijdens runtime accepteren. Voordat u deze parameters in andere gedeelten van de werkstroom gebruiken kunt, ervoor zorgen dat u de parameters in deze secties declareren.
+In de `parameters` sectie, het definiëren van de werkstroomparameters die gebruikmaakt van uw logische app op implementatie voor het accepteren van invoer. Zowel parameterdeclaraties en parameterwaarden zijn vereist bij de implementatie. Voordat u deze parameters in andere gedeelten van de werkstroom gebruiken kunt, ervoor zorgen dat u de parameters in deze secties declareren. 
 
 Hier volgt de algemene structuur voor de parameterdefinitie van een:  
 
@@ -80,7 +80,7 @@ Hier volgt de algemene structuur voor de parameterdefinitie van een:
 | allowedValues | Nee | Zelfde als `type` | Een matrix met waarden die de parameter kan accepteren |  
 | metagegevens | Nee | JSON-object | Andere parameterdetails, bijvoorbeeld de naam of een leesbare beschrijving voor uw logische app of het moment van ontwerp gegevens die worden gebruikt door Visual Studio of andere hulpprogramma 's |  
 ||||
-  
+
 ## <a name="triggers-and-actions"></a>Triggers en acties  
 
 In de werkstroomdefinitie van een, de `triggers` en `actions` secties de oproepen die ontstaan tijdens de uitvoering van de werkstroom definiëren. Zie voor de syntaxis en meer informatie over deze secties [werkstroom triggers en acties](../logic-apps/logic-apps-workflow-actions-triggers.md).
@@ -88,6 +88,9 @@ In de werkstroomdefinitie van een, de `triggers` en `actions` secties de oproepe
 ## <a name="outputs"></a>Uitvoer 
 
 In de `outputs` sectie, het definiëren van de gegevens die de werkstroom kan worden geretourneerd wanneer u klaar bent met het uitgevoerd. Bijvoorbeeld, als u wilt bijhouden van een specifieke status of de waarde van elke uitvoeren, opgeven dat de uitvoer van de werkstroom die gegevens retourneert. 
+
+> [!NOTE]
+> Bij het reageren op binnenkomende aanvragen van een service REST API, gebruik geen `outputs`. Gebruik in plaats daarvan de `Response` action-type. Zie voor meer informatie [werkstroom triggers en acties](../logic-apps/logic-apps-workflow-actions-triggers.md).
 
 Hier volgt de algemene structuur voor de definitie van een uitvoer: 
 
@@ -108,9 +111,6 @@ Hier volgt de algemene structuur voor de definitie van een uitvoer:
 ||||| 
 
 Raadpleeg de logische app uitvoeringsgeschiedenis en details in de Azure portal als u de uitvoer van een werkstroom uitvoert, of gebruik de [werkstroom REST-API](https://docs.microsoft.com/rest/api/logic/workflows). U kunt ook uitvoer doorgeven met externe systemen, bijvoorbeeld Power BI zodat u kunt dashboards maken. 
-
-> [!NOTE]
-> Bij het reageren op binnenkomende aanvragen van een service REST API, gebruik geen `outputs`. Gebruik in plaats daarvan de `Response` action-type. Zie voor meer informatie [werkstroom triggers en acties](../logic-apps/logic-apps-workflow-actions-triggers.md).
 
 <a name="expressions"></a>
 
@@ -217,9 +217,10 @@ In [expressies](#expressions) en [functies](#functions), operators specifieke ta
 
 <a name="functions"></a>
 
-## <a name="functions"></a>Functies
+## <a name="functions"></a>Functions
 
-Aantal expressies worden de waarden van de runtime-acties die mogelijk nog niet wanneer een logische app wordt gestart. U kunt gebruiken om te verwijzen naar of te werken met deze waarden in expressies voor *functies*. Bijvoorbeeld, kunt u wiskundige functies voor berekeningen, zoals de [add()](../logic-apps/workflow-definition-language-functions-reference.md#add) functie de som van gehele getallen of tekst retourneert. 
+Aantal expressies worden de waarden van de runtime-acties die mogelijk nog niet wanneer een logische app wordt gestart. U kunt gebruiken om te verwijzen naar of te werken met deze waarden in expressies voor [ *functies*](../logic-apps/workflow-definition-language-functions-reference.md). Bijvoorbeeld, kunt u wiskundige functies voor berekeningen, zoals de [add()](../logic-apps/workflow-definition-language-functions-reference.md#add) functie de som van gehele getallen of tekst retourneert. Zie voor gedetailleerde informatie over elke functie de [alfabetische verwijzingsartikel](../logic-apps/workflow-definition-language-functions-reference.md).
+Of gaan leren over functies en hun algemene doeleinden.
 
 Hier volgen een paar voorbeelden van taken die u met functies kunt uitvoeren: 
 

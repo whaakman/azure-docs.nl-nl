@@ -3,8 +3,8 @@ title: Pen testen | Microsoft Docs
 description: Het artikel biedt een overzicht van het binnendringen testproces (pentest) en hoe uitvoeren pentest vergelijken met uw apps uitgevoerd in de Azure-infrastructuur.
 services: security
 documentationcenter: na
-author: YuriDio
-manager: swadhwa
+author: terrylan
+manager: mbaldwin
 editor: TomSh
 ms.assetid: 695d918c-a9ac-4eba-8692-af4526734ccc
 ms.service: security
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2018
 ms.author: barclayn
-ms.openlocfilehash: 1b7b6604de80beadf15dabe0d2da1d7a2e5fabd6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: a64316eda25bd02f89b5afdd7b98c0193381d023
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="pen-testing"></a>Pen testen
 Een van de voordelen van het gebruik van Azure voor de implementatie en het testen van toepassingen is dat u snel omgevingen gemaakt kunt krijgen.  U hoeft te hoeven maken over aanschaf, ophalen, en ' bekabeld en stapelen ' uw eigen lokale hardware.

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 98969cf2f6604843bc1502990222264e7acc363b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 77326832f42cc1ef74ae7a380f4e38d3c67d17b7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>VMware Monitoring (Preview)-oplossing in Log Analytics
 
@@ -37,7 +37,7 @@ Gebruik de volgende informatie om te installeren en configureren van de oplossin
 * De oplossing VMware bewaking toevoegen aan uw abonnement met behulp van de procedure beschreven in [toevoegen van een beheeroplossing](log-analytics-add-solutions.md#add-a-management-solution).
 
 #### <a name="supported-vmware-esxi-hosts"></a>Ondersteunde VMware ESXi-hosts
-vSphere ESXi-Host 5.5 en 6.0
+vSphere Host ESXi 5.5, 6.0 en 6.5
 
 #### <a name="prepare-a-linux-server"></a>Bereid een server voor Linux
 Maak een Linux-besturingssysteem VM alle syslog-gegevens ontvangen van de ESXi-hosts. De [OMS Linux-Agent](log-analytics-linux-agents.md) is de verzameling voor alle ESXi-host syslog-gegevens. U kunt meerdere ESXi-hosts gebruiken voor het doorsturen van logboeken met een enkel Linux-server, zoals in het volgende voorbeeld.  
@@ -45,7 +45,7 @@ Maak een Linux-besturingssysteem VM alle syslog-gegevens ontvangen van de ESXi-h
    ![Syslog-stroom](./media/log-analytics-vmware/diagram.png)
 
 ### <a name="configure-syslog-collection"></a>Syslog verzamelen configureren
-1. Syslog-doorsturen voor VSphere instellen. Zie voor gedetailleerde informatie om u te helpen bij het opstellen van syslog doorsturen [syslog configureren op ESXi 5.x en 6.0 (2003322)](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322). Ga naar **ESXi-hostconfiguratie** > **Software** > **geavanceerde instellingen** > **Syslog**.
+1. Syslog-doorsturen voor VSphere instellen. Zie voor gedetailleerde informatie om u te helpen bij het opstellen van syslog doorsturen [syslog op ESXi 5.0 en hoger (2003322) configureren](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322). Ga naar **ESXi-hostconfiguratie** > **Software** > **geavanceerde instellingen** > **Syslog**.
    ![vsphereconfig](./media/log-analytics-vmware/vsphere1.png)  
 2. In de *Syslog.global.logHost* veld, het toevoegen van de Linux-server en het poortnummer *1514*. Bijvoorbeeld, `tcp://hostname:1514` of `tcp://123.456.789.101:1514`
 3. Open de hostfirewall ESXi voor syslog. **De hostconfiguratie ESXi** > **Software** > **beveiligingsprofiel** > **Firewall** en open **Eigenschappen**.  
@@ -154,7 +154,7 @@ De oplossing omvat andere nuttige query's die kunnen helpen bij het beheren van 
 
 [!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
-![Query 's](./media/log-analytics-vmware/queries.png)
+![query's](./media/log-analytics-vmware/queries.png)
 
 
 #### <a name="save-queries"></a>Query's opslaan

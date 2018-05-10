@@ -2,24 +2,22 @@
 title: Aangepaste domeinnamen in uw Azure Active Directory beheren | Microsoft Docs
 description: Beheerconcepten en uitleg over het beheren van een domeinnaam in Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 5063cd0a-dba2-4ba9-aa65-b8117490d73a
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.openlocfilehash: 64c1be4358305a736ac1dd8a1b7194c80100d256
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 81c2371d5dbb17399071c80ff4e8b81813ed014c
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Aangepaste domeinnamen in uw Azure Active Directory beheren
 Een domeinnaam is een belangrijk onderdeel van de id voor veel directory-resources: het deel uitmaakt van een gebruikersnaam of e-mailadres voor een gebruiker deel van het adres voor een groep, en kan deel uitmaken van de app-ID-URI voor een toepassing. Een resource in Azure Active Directory (Azure AD), kan een domeinnaam die al is geverifieerd als eigendom van de map die de bron bevat bevatten. Alleen een globale beheerder kunt domein-beheertaken uitvoeren in Azure AD.

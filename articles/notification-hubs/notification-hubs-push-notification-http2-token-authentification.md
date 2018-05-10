@@ -3,21 +3,21 @@ title: Verificatie op basis van tokens (HTTP/2) voor APNS in Azure Notification 
 description: Dit onderwerp wordt uitgelegd hoe u de authenticatie van het nieuwe token voor APNS
 services: notification-hubs
 documentationcenter: .net
-author: kpiteira
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/17/2017
-ms.author: kapiteir
-ms.openlocfilehash: 5a21bcd9f12fc3f96b17a556ba15526c35ababe2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: ca86130e9c184576fc44119190d6224a363c6561
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>Verificatie op basis van tokens (HTTP/2) voor APNS
 ## <a name="overview"></a>Overzicht
@@ -42,7 +42,7 @@ Houd er rekening mee dat als u een migratie van met referenties van certificaat 
 
 ## <a name="obtaining-authentication-information-from-apple"></a>Verificatie-informatie verkrijgen van Apple
 Op tokens gebaseerde verificatie inschakelt, moet u de volgende eigenschappen uit uw Apple Developer-Account:
-### <a name="key-identifier"></a>Sleutel-id
+### <a name="key-identifier"></a>Id van sleutel
 De sleutel-id kan worden verkregen via de pagina 'Sleutels' in de Apple Developer-Account
 
 ![](./media/notification-hubs-push-notification-http2-token-authentification/obtaining-auth-information-from-apple.png)
@@ -75,8 +75,8 @@ Er is een nieuwe eigenschap – *verificatiemodus*. Token kunt u uw hub bijwerke
 U kunt onze [management API's](https://msdn.microsoft.com/library/azure/dn495827.aspx) bijwerken van uw notification hub voor verificatie op basis van een token.
 Afhankelijk van of is de toepassing die u configureert een Sandbox of productie-app (opgegeven in uw ontwikkelaarsaccount Apple), een van de bijbehorende eindpunten te gebruiken:
 
-- Sandboxeindpunt: [3-https://api.development.push.apple.com:443-apparaat](https://api.development.push.apple.com:443/3/device)
-- Productie-eindpunt: [3-https://api.push.apple.com:443-apparaat](https://api.push.apple.com:443/3/device)
+- Sandboxeindpunt: [https://api.development.push.apple.com:443/3/device](https://api.development.push.apple.com:443/3/device)
+- Productie-eindpunt: [https://api.push.apple.com:443/3/device](https://api.push.apple.com:443/3/device)
 
 > [!IMPORTANT]
 > Verificatie op basis van tokens vereist een API-versie van: **2017 04 of hoger**.

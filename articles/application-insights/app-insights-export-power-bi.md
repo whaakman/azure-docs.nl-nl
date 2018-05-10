@@ -2,8 +2,8 @@
 title: Exporteren naar Power BI in Azure Application Insights | Microsoft Docs
 description: Analytics-query's kunnen worden weergegeven in Power BI.
 services: application-insights
-documentationcenter: 
-author: noamben
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 7f13ea66-09dc-450f-b8f9-f40fdad239f2
 ms.service: application-insights
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: mbullwin
-ms.openlocfilehash: 19595983ba49a88d9139c85afbf38d3106d4a81d
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: c9b53c26eea0a5eced32acf196204aef3c3bb125
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Power BI feed vanuit Application Insights
 [Power BI](http://www.powerbi.com/) is een suite met hulpprogramma's voor business waarmee u gegevens analyseren en inzichten te delen. Uitgebreide dashboards zijn beschikbaar op elk apparaat. U kunt gegevens uit diverse bronnen, met inbegrip van analysequery's van combineren [Azure Application Insights](app-insights-overview.md).
@@ -121,8 +121,8 @@ Als het verminderen van de gegevensset die afkomstig zijn van de query Analytics
 
 1. Maak een [API-sleutel](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 2. Werk het Power BI-M-script dat u hebt geëxporteerd van analytische gegevens door de Azure Resource Manager-URL vervangen door de Application Insights-API.
-   * Vervang **https://management.azure.com/subscriptions/...**
-   * met **https://api.applicationinsights.io/beta/apps/...**
+   * Vervang  **https://management.azure.com/subscriptions/...**
+   * met  **https://api.applicationinsights.io/beta/apps/...**
 3. Ten slotte de referenties bijwerken op basis en gebruik van uw API-sleutel.
   
 

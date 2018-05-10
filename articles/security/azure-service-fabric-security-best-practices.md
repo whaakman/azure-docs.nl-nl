@@ -4,9 +4,9 @@ description: Dit artikel bevat een set met aanbevolen procedures voor beveiligin
 services: security
 documentationcenter: na
 author: unifycloud
-manager: swadhwa
+manager: mbaldwin
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: tomsh
-ms.openlocfilehash: a8b76e2895edcdbbddafbee7116e163d1789c06d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b908589903d243b2d284e2a23b6111785229c16f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric best practices voor beveiliging
 Een toepassing in Azure implementeren is snel, eenvoudig en rendabele. Voordat u uw cloudtoepassing in productie implementeert, controleert u onze lijst met essentiële en aanbevolen procedures voor het implementeren van beveiligde clusters in uw toepassing.
@@ -126,7 +126,7 @@ Replicator configuraties configureren de replicator die verantwoordelijk is voor
 
 ## <a name="configure-ssl-for-azure-service-fabric"></a>SSL configureren voor Azure Service Fabric
 Het verificatieproces server [verifieert](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) management eindpunten van het cluster naar een management-client. De management-client vervolgens herkent dat deze met het echte cluster communiceert. Dit certificaat biedt ook een [SSL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) voor de HTTPS-API en voor Service Fabric Explorer via HTTPS.
-U moet een aangepaste domeinnaam voor uw cluster. Wanneer u een certificaat bij een certificeringsinstantie aanvraagt, moet de onderwerpnaam van het certificaat overeenkomen met de aangepaste domeinnaam die u voor uw cluster gebruikt.
+U hebt voor uw cluster een aangepaste domeinnaam nodig. Wanneer u een certificaat bij een certificeringsinstantie aanvraagt, moet de onderwerpnaam van het certificaat overeenkomen met de aangepaste domeinnaam die u voor uw cluster gebruikt.
 
 SSL configureren voor een toepassing, moet u eerst een SSL-certificaat dat is ondertekend door een Certificeringsinstantie verkrijgen. De CA is een vertrouwde derde partij die om veiligheidsredenen SSL-certificaten verleent. Als u een SSL-certificaat nog geen hebt, moet u aanvragen bij een bedrijf dat SSL-certificaten verkoopt.
 

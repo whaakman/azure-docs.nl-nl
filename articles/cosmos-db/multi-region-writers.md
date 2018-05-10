@@ -1,322 +1,118 @@
 ---
-title: Meerdere hoofddatabase architecturen met Azure Cosmos DB | Microsoft Docs
-description: Meer informatie over het ontwerpen van toepassingsarchitecturen met lokale lees- en schrijfbewerkingen over meerdere geografische regio's met Azure Cosmos DB.
+title: Meerdere masters op globale schaal met Azure Cosmos DB | Microsoft Docs
+description: ''
 services: cosmos-db
-documentationcenter: ''
-author: SnehaGunda
+author: rimman
 manager: kfile
-ms.assetid: 706ced74-ea67-45dd-a7de-666c3c893687
 ms.service: cosmos-db
-ms.devlang: multiple
+ms.workload: data-services
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/23/2017
-ms.author: sngun
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5e8853d521173a9a8d3c925361e43ce469471918
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.date: 05/07/2018
+ms.author: rimman
+ms.openlocfilehash: 2da6b4e957c7e44f399866fd11853363f7424e7d
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
-# <a name="multi-master-globally-replicated-database-architectures-with-azure-cosmos-db"></a>Meerdere master gerepliceerd globaal database architecturen met Azure Cosmos-DB
-Azure Cosmos DB ondersteunt klare [globale replicatie](distribute-data-globally.md), waarmee u gegevens naar meerdere regio's met lage latentie toegang overal in de werklast verdelen. Dit model wordt meestal gebruikt voor publisher/consumer werkbelastingen wanneer er een schrijver in één geografische regio en globaal gedistribueerde lezers in andere regio (lezen). 
+# <a name="multi-master-at-global-scale-with-azure-cosmos-db"></a>Meerdere master op globale schaal met Azure Cosmos-DB 
+ 
+Globaal ontwikkelen gedistribueerde toepassingen die met lokale latentie reageren terwijl consistente weergaven van gegevens over de hele wereld onderhouden een probleem lastig is. Klanten gebruiken globaal gedistribueerde databases, omdat ze willen data access-latentie verbeteren, hoge beschikbaarheid van gegevens bereiken en zorg ervoor dat gegarandeerde noodherstel en, (4) om te voldoen aan hun zakelijke vereisten. Meerdere master in Azure Cosmos DB biedt een hoge mate van beschikbaarheid (99,999%), één cijfer milliseconde latentie schrijven van gegevens en schaalbaarheid met ondersteuning voor ingebouwde uitgebreide en flexibele conflict oplossen. Deze functies aanzienlijk vereenvoudigt de ontwikkeling van globaal gedistribueerde toepassingen. Voor globaal gedistribueerde toepassingen is met meerdere masters ondersteuning van cruciaal belang. 
 
-U kunt ook Azure Cosmos DB globale Replicatieondersteuning gebruiken om toepassingen waarin schrijvers en lezers worden globaal gedistribueerd te bouwen. Dit document bevat een patroon waarmee lokale schrijf- en lokale leestoegang voor gedistribueerde schrijvers met behulp van Azure DB die Cosmos bereiken.
+![Meerdere masters architectuur](./media/multi-region-writers/multi-master-architecture.png)
 
-## <a id="ExampleScenario"></a>Publicatie - een voorbeeldscenario
-We bekijken een werkelijk scenario te beschrijven hoe u globaal gedistribueerde meerdere-region/meerdere-pre-master lezen schrijven patronen kunt gebruiken met Azure Cosmos DB. U kunt een content publishing platform gebouwd op Azure Cosmos DB. Hier volgen enkele vereisten waaraan dit platform voor consumenten en uitgevers voor een goede gebruikerservaring moet voldoen.
+U kunt met ondersteuning voor Azure Cosmos DB meerdere masters schrijfbewerkingen uitvoeren voor containers van gegevens (bijvoorbeeld verzamelingen, grafieken en tabellen) gedistribueerd overal ter wereld. U kunt gegevens in elke regio die is gekoppeld aan uw databaseaccount bijwerken. Deze Gegevensupdates kunnen asynchroon doorgeven. Naast het voorzien in snel toegang en schrijflatentie van uw gegevens, bevat meerdere master ook een praktische oplossing voor failover en taakverdeling problemen. Kortom, met Azure Cosmos DB beschikt u over schrijflatentie van < 10 ms op het 99th percentiel overal in de wereld, 99,999% schrijven en lezen beschikbaarheid overal ter wereld en de mogelijkheid om te schalen beide doorvoer overal overal ter wereld lezen en schrijven.   
 
-* Zowel auteurs en abonnees verdeeld over de hele wereld 
-* Auteurs moeten (schrijven) artikelen publiceren naar de lokale regio (dichtst)
-* Auteurs hebben lezers/abonnees van hun artikelen die zijn verdeeld over de hele wereld. 
-* Abonnees moeten een melding krijgen wanneer nieuwe artikelen worden gepubliceerd.
-* Abonnees moet leesrechten artikelen hun lokale regio. Ze moeten ook worden kunnen beoordelingen toevoegen aan deze artikelen. 
-* Iedereen met inbegrip van de auteur van de artikelen moet kunnen weergeven, alle beoordelingen zijn verbonden met artikelen vanaf een lokale regio. 
+## <a name="a-simple-multi-master-example--content-publishing"></a>Een eenvoudig meerdere masters voorbeeld – inhoud publiceren  
 
-Miljoenen consumenten en uitgevers miljarden artikelen, ervan uitgaande dat we hebben snel pakt u de problemen van de schaal samen met garanderen plaats van toegang. Net als bij de meeste schaalbaarheidsproblemen, ligt de oplossing in de strategie voor een goede partitionering. Daarna bekijken we het model artikelen, controleren en meldingen als documenten, Azure DB die Cosmos-accounts configureren en implementeren van een gegevenstoegangslaag. 
+We bekijken een echte-scenario waarin wordt beschreven hoe u ondersteuning voor meerdere masters gebruiken met Azure Cosmos DB. U kunt een content publishing platform gebouwd op Azure Cosmos DB. Hier volgen enkele vereisten waaraan dit platform voor consumenten en uitgevers voor een goede gebruikerservaring moet voldoen. 
 
-Als u weten over partitioneren en partitiesleutels wilt, Zie [partitionerings- en schalen in Azure Cosmos DB](partition-data.md).
+* Zowel auteurs en abonnees worden verdeeld over de hele wereld.  
 
-## <a id="ModelingNotifications"></a>Modellering meldingen
-Meldingen zijn gegevensfeeds specifiek voor een gebruiker. Daarom zijn de toegangspatronen voor meldingen documenten altijd in de context van één gebruiker. U zou bijvoorbeeld 'een melding naar een gebruiker boeken' of 'alle meldingen voor een bepaalde gebruiker ophalen'. Ja, de beste keuze van de partitiesleutel voor dit type zou worden `UserId`.
+* Auteurs moeten artikelen (schrijven) publiceren op hun lokale regio (dichtst).  
 
-    class Notification 
-    { 
-        // Unique ID for Notification. 
-        public string Id { get; set; }
+* Auteurs hebben lezers/abonnees van hun artikelen die zijn verdeeld over de hele wereld.  
 
-        // The user Id for which notification is addressed to. 
-        public string UserId { get; set; }
+* Abonnees moeten een melding krijgen wanneer nieuwe artikelen worden gepubliceerd.  
 
-        // The partition Key for the resource. 
-        public string PartitionKey 
-        { 
-            get 
-            { 
-                return this.UserId; 
-            }
-        }
+* Abonnees moet leesrechten artikelen hun lokale regio. Ze moeten ook worden kunnen beoordelingen toevoegen aan deze artikelen.  
 
-        // Subscription for which this notification is raised. 
-        public string SubscriptionFilter { get; set; }
+* Iedereen met inbegrip van de auteur van de artikelen moet kunnen weergeven, alle beoordelingen zijn verbonden met artikelen vanaf een lokale regio.  
 
-        // Subject of the notification. 
-        public string ArticleId { get; set; } 
-    }
+Miljoenen consumenten en uitgevers miljarden artikelen, ervan uitgaande dat we hebben snel pakt u de problemen van de schaal samen met garanderen plaats van toegang. Een gebruiksvoorbeeld is een ideale keuze voor meerdere Azure DB die Cosmos-master. 
 
-## <a id="ModelingSubscriptions"></a>Modellering abonnementen
-Abonnementen kunnen worden gemaakt voor de verschillende criteria zoals een specifieke categorie artikelen interessegebied of een bepaalde uitgever. Daarom de `SubscriptionFilter` een goede keuze voor de partitiesleutel is.
+## <a name="benefits-of-having-multi-master-support"></a>Voordelen van meerdere masters ondersteuning 
 
-    class Subscriptions 
-    { 
-        // Unique ID for Subscription 
-        public string Id { get; set; }
+Ondersteuning voor meerdere masters is essentieel voor globaal gedistribueerde toepassingen. Meerdere master is samengesteld uit [meerdere master gebieden](distribute-data-globally.md) die gelijkmatig deelnemen aan een schrijven overal model (actief / actief-patroon) en deze wordt gebruikt om ervoor te zorgen dat gegevens beschikbaar is op elk gewenst moment wanneer u deze nodig. Wijzigingen in een afzonderlijke regio zijn asynchroon doorgegeven aan alle andere regio's (die op zijn beurt master gebieden in hun eigen). Azure DB Cosmos-regio's als master regio's in een configuratie met meerdere masters automatisch besturingssysteem werken om convergeren de gegevens van alle replica's en zorg ervoor dat [globale consistentie en gegevensintegriteit](consistency-levels.md). De volgende afbeelding toont de lezen/schrijven-replicatie voor een single-master en mult-master.
 
-        // Subscription source. Could be Author | Category etc. 
-        public string SubscriptionFilter { get; set; }
+![Single-master en meerdere masters](./media/multi-region-writers/single-vs-multi-master.png)
 
-        // subscribing User. 
-        public string UserId { get; set; }
+Geïmplementeerd met meerdere master op uw eigen voegt last voor ontwikkelaars. Grootschalige klanten die zich willen implementeren meerdere master op hun eigen spendeert mogelijk honderden uren configureren en testen van een configuratie met meerdere masters overal ter wereld en veel hebben een speciale reeks engineers waarvan enige taak is om te controleren en onderhouden van de meerdere master replicatie. Maken en beheren van meerdere masters setup op uw eigen duurt, resources weg van de toepassing zelf innoveren en resulteert in veel hogere kosten. Azure Cosmos DB biedt ondersteuning voor meerdere masters 'out-of-the-box' en verwijdert u deze overhead van ontwikkelaars.  
 
-        public string PartitionKey 
-        { 
-            get 
-            { 
-                return this.SubscriptionFilter; 
-            } 
-        } 
-    }
+Kortom biedt met meerdere master de volgende voordelen:
 
-## <a id="ModelingArticles"></a>Vormgeven aan artikelen
-Zodra een artikel wordt geïdentificeerd door meldingen, de volgende query's doorgaans zijn gebaseerd op de `Article.Id`. Kiezen `Article.Id` als partitie biedt de sleutel dus het beste distributiepunt voor het opslaan van de artikelen in een verzameling Azure Cosmos DB. 
+* **Herstel na noodgevallen voor een betere, beschikbaarheid en failover schrijven**-meerdere master kan worden gebruikt voor het behouden van de hoge beschikbaarheid van een essentiële database naar een grotere mate. Bijvoorbeeld kan meerdere hoofddatabase gegevens repliceren van één regio in een regio failover wanneer de primaire regio niet beschikbaar vanwege een storing of een regionale noodgeval. Dergelijk gebied failover fungeert als een volledig functionele master regio ter ondersteuning van toepassing. Meerdere master biedt betere 'overlevingsvermogen' bescherming met betrekking tot een natuurramp, stroomuitval of sabotage of beide omdat resterende regio's kan zich in een geografisch verschillende meerdere masters met een gegarandeerde schrijven beschikbaarheid > 99,999%. 
 
-    class Article 
-    { 
-        // Unique ID for Article 
-        public string Id { get; set; }
-        
-        public string PartitionKey 
-        { 
-            get 
-            { 
-                return this.Id; 
-            } 
-        }
-        
-        // Author of the article
-        public string Author { get; set; }
+* **Schrijflatentie verbeterd voor eindgebruikers** - dichter uw gegevens (die u wilt verzorgen) is voor eindgebruikers, hoe nauwkeuriger de ervaring worden. Bijvoorbeeld, als er gebruikers zijn in Europa, maar uw database zich in de Verenigde Staten of Australië, extra latentie is ongeveer 140 ms en 300 ms voor de desbetreffende regio's. Vertragingen zijn onaanvaardbaar beginnen met voor veel populaire games, bankieren vereisten of interactieve toepassingen (web of mobile). Latentie een enorme rol speelt bij perceptie van de klant van een ervaring van hoge kwaliteit en is gebleken dat het gedrag van gebruikers tot op zekere hoogte merkbare invloed. Technologie verbetert en met name met de komst van AR, VR en MR moeten vereisen nog meer ervaringen van indrukwekkende en natuurlijke, ontwikkelaars nu voor het produceren van softwaresystemen met strenge latentievereisten. Daarom is het belangrijker lokaal beschikbare toepassingen en gegevens (inhoud voor de apps). Met meerdere master in Azure Cosmos DB is prestaties net zo snel als reguliere lokale leest en schrijft en verbeterde globaal door geo-distributie.  
 
-        // Category/genre of the article
-        public string Category { get; set; }
+* **Verbeterde schaalbaarheid schrijven en de doorvoer van schrijfbewerkingen** - meerdere master krijgt hogere doorvoer en groter gebruik en biedt tegelijkertijd meerdere modellen voor consistentie met juistheid garandeert en een back-up door Sla's. 
 
-        // Tags associated with the article
-        public string[] Tags { get; set; }
+  ![Schalen schrijfbewerkingen met meerdere master](./media/multi-region-writers/scale-write-throughput.png)
 
-        // Title of the article
-        public string Title { get; set; }
-        
-        //... 
-    }
+* **Betere ondersteuning voor niet-verbonden omgevingen (bijvoorbeeld randapparaten)** -meerdere master kan gebruikers repliceren alle of een subset van gegevens uit een edge-apparaat in een regio die het dichtst in een omgeving zonder verbinding. Dit scenario wordt gebruikt voor de verkopers automation-systemen, waar een subset van gegevens met betrekking tot de afzonderlijke verkoper worden opgeslagen in een afzonderlijk laptop (een niet-verbonden apparaat). Master gebieden in de cloud overal ter wereld bevinden kunnen als het doel van de kopie van de externe randapparaten werken.  
 
-## <a id="ModelingReviews"></a>Modellering beoordelingen
-Beoordelingen zijn voornamelijk zoals artikelen, geschreven en gelezen in de context van het artikel. Kiezen `ArticleId` een partitie sleutel biedt aanbevolen distributie en efficiënte toegang van revisies die zijn gekoppeld aan het artikel. 
+* **Taakverdeling** -met meerdere master de belasting in de hele toepassing kan worden uitgevoerd door gebruikers/werkbelastingen verplaatsen van een sterk geladen regio naar regio's waar load gelijkmatig wordt verdeeld. Schrijven capaciteit kan gemakkelijk worden uitgebreid door een nieuw gebied toevoegen en vervolgens een aantal schrijfbewerkingen overschakelt naar de nieuwe regio. 
 
-    class Review 
-    { 
-        // Unique ID for Review 
-        public string Id { get; set; }
+* **Beter gebruik van ingerichte capaciteit** - met meerdere master voor schrijven zware en gemengde werkbelastingen, kunt u de ingerichte capaciteit verzadigen over meerdere regio's...  In sommige gevallen die u opnieuw kunt distribueren lees- en schrijfbewerkingen meer evenredig, zodat er minder doorvoer moeten worden ingericht en leidt tot meer kostenbesparingen voor klanten.  
 
-        // Article Id of the review 
-        public string ArticleId { get; set; }
+* **Eenvoudiger en is toleranter app-architecturen** -toepassingen verplaatsen naar meerdere masters configuratie ophalen herstelmogelijkheden van gegevens gegarandeerd.  Azure Cosmos DB verbergen van de complexiteit, kan deze het toepassingsontwerp en de architectuur aanzienlijk vereenvoudigen. 
 
-        public string PartitionKey 
-        { 
-            get 
-            { 
-                return this.ArticleId; 
-            } 
-        }
-        
-        //Reviewer Id 
-        public string UserId { get; set; }
-        public string ReviewText { get; set; }
-        
-        public int Rating { get; set; } }
-    }
+* **Risico gratis failover testen** -Failover testen geen een verslechtering van op de doorvoer van schrijfbewerkingen. Alle andere regio's zijn volledige-masters met meerdere master, dus failover niet zoveel invloed op de doorvoer van schrijfbewerkingen hebben wordt.  
 
-## <a id="DataAccessMethods"></a>Methoden voor gegevenstoegang laag
-Nu we kijken naar de belangrijkste gegevens toegangsmethoden we moet implementeren. Hier volgt een lijst met methoden die de `ContentPublishDatabase` moet:
+* **Lagere totale kosten van Ownership(TCO) en DevOps** -schaalbaarheid, prestaties, wereldwijde distributie vergadering hersteltijddoelen zijn vaak kostbaar vanwege dure invoegtoepassingen of onderhouden van een back-up-infrastructuur die in rust pas na noodgevallen biedt. Met Azure Cosmos DB meerdere master back-up gemaakt door de toonaangevende Sla's, niet langer ontwikkelaars maken en onderhouden van de 'back-end lijm logica' zelf vereisen en ophalen van een gemoedsrust waarop hun bedrijfskritieke werkbelastingen worden uitgevoerd. 
 
-    class ContentPublishDatabase 
-    { 
-        public async Task CreateSubscriptionAsync(string userId, string category);
-    
-        public async Task<IEnumerable<Notification>> ReadNotificationFeedAsync(string userId);
-    
-        public async Task<Article> ReadArticleAsync(string articleId);
-    
-        public async Task WriteReviewAsync(string articleId, string userId, string reviewText, int rating);
-    
-        public async Task<IEnumerable<Review>> ReadReviewsAsync(string articleId); 
-    }
+## <a name="use-cases-where-multi-master-support-is-needed"></a>Gebruiksvoorbeelden wanneer meerdere masters ondersteuning nodig is
 
-## <a id="Architecture"></a>Configuratie van Azure DB Cosmos-account
-Als u wilt garanderen lokale leest en schrijft, we moet partitie-alleen gegevens niet op partitie sleutel, maar ook op basis van het toegangspatroon geografische in regio's. Het model afhankelijk is van een account Azure Cosmos DB database geo-replicatie voor elke regio. Bijvoorbeeld, met twee gebieden is hier een instelling voor schrijfacties voor meerdere landen/regio:
+Er zijn talrijke gebruiksvoorbeelden voor meerdere master in Azure Cosmos DB: 
 
-| Accountnaam | Schrijfregio's | Leesregio |
-| --- | --- | --- |
-| `contentpubdatabase-usa.documents.azure.com` | `West US` |`North Europe` |
-| `contentpubdatabase-europe.documents.azure.com` | `North Europe` |`West US` |
+* **IoT** -vereenvoudigde gedistribueerde implementatie van de IoT-gegevensverwerking kunt u meerdere Azure DB die Cosmos-master. Geografisch verspreide edge-implementaties die gebruikmaken van CRDT conflict gratis gerepliceerde gegevens typen vaak moeten voor het bijhouden van reeksgegevens tijd vanaf meerdere locaties. Elk apparaat kan worden homed op een van de dichtstbijzijnde regio's en een apparaat kan worden verzonden (bijvoorbeeld een auto) en kan dynamisch opnieuw om te schrijven naar een andere regio worden ondergebracht.  
 
-Het volgende diagram toont hoe lees- en schrijfbewerkingen worden uitgevoerd in een typische toepassing met deze instellingen:
+* **E-Commerce** -zodat de gebruikerservaring in scenario's voor e-commerce zeker moet hoge beschikbaarheid en herstelmogelijkheden bij scenario's is mislukt. Als een regio is mislukt, willen gebruikerssessies, on, actieve winkelen lijsten moeten naadloos worden opgenomen door een andere regio zonder verlies van status. In de tussentijd updates die door de gebruiker op de juiste wijze moeten worden verwerkt (bijvoorbeeld wordt toegevoegd en wordt verwijderd uit de winkelwagen moeten overdragen via). Met meerdere master kan Azure Cosmos DB verwerken dergelijke scenario's zonder problemen, met een overgang tussen actieve regio's en tegelijkertijd een consistente weergave van de gebruiker verwerkt. 
 
-![Azure meerdere masters Cosmos-DB-architectuur](./media/multi-region-writers/multi-master.png)
+* **Fraude/Afwijkingsdetectie** -vaak toepassingen die controleren van de gebruiker of accountactiviteit worden globaal gedistribueerd en moet bijhouden meerdere gebeurtenissen tegelijkertijd. Tijdens het maken en onderhouden van scores voor een gebruiker, moeten acties uit verschillende geografische regio's scores zodat het risico metrieken inline tegelijkertijd bijwerken. Azure Cosmos DB kunt zorgen ontwikkelaars niet hebben voor het afhandelen van conflict scenario's op het toepassingsniveau van de. 
 
-Hier volgt een codefragment met het initialiseren van de clients in een DAL uitgevoerd in de `West US` regio.
-    
-    ConnectionPolicy writeClientPolicy = new ConnectionPolicy { ConnectionMode = ConnectionMode.Direct, ConnectionProtocol = Protocol.Tcp };
-    writeClientPolicy.PreferredLocations.Add(LocationNames.WestUS);
-    writeClientPolicy.PreferredLocations.Add(LocationNames.NorthEurope);
+* **Samenwerking** - voor toepassingen die positie op basis van de populariteit van artikelen zoals goederen bij de verkoop of media om te worden verbruikt enzovoort. Populariteit bijhouden over geografische regio's ophalen ingewikkeld, met name wanneer royalties worden betaald of echte reclame beslissingen moeten kunnen worden uitgevoerd. Rangschikking, sorteren en rapportage over veel regio's wereldwijd in realtime met Azure Cosmos DB kan ontwikkelaars functies met weinig moeite en zonder gevaar op latenties te leveren. 
 
-    DocumentClient writeClient = new DocumentClient(
-        new Uri("https://contentpubdatabase-usa.documents.azure.com"), 
-        writeRegionAuthKey,
-        writeClientPolicy);
+* **Softwarelicentiecontrole** - tellen en gebruik reguleren (zoals API-aanroepen transacties per seconde minuten gebruikt) globaal met eenvoud met behulp van Azure DB die Cosmos meerdere master kan worden geïmplementeerd. Ingebouwde conflictoplossing zorgt ervoor dat beide nauwkeurigheid van tellingen en regelgeving in realtime. 
 
-    ConnectionPolicy readClientPolicy = new ConnectionPolicy { ConnectionMode = ConnectionMode.Direct, ConnectionProtocol = Protocol.Tcp };
-    readClientPolicy.PreferredLocations.Add(LocationNames.NorthEurope);
-    readClientPolicy.PreferredLocations.Add(LocationNames.WestUS);
+* **Persoonlijke instellingen** - prijzen of u geografisch verspreide prestatiemeteritems die acties zoals loyaliteit activeren onderhoudt verwijst of persoonlijke gebruikerssessie implementeren bekijkt, hoge beschikbaarheid en vereenvoudigd geo-distributie telling verstrekt door Azure Cosmos DB, kunt hoge prestaties voor toepassingen leveren met eenvoud. 
 
-    DocumentClient readClient = new DocumentClient(
-        new Uri("https://contentpubdatabase-europe.documents.azure.com"),
-        readRegionAuthKey,
-        readClientPolicy);
+## <a name="conflict-resolution-with-multi-master"></a>Conflictoplossing met meerdere master 
 
-Met de voorgaande setup kan de gegevenstoegangslaag doorsturen alle schrijfbewerkingen naar het lokale account op basis van waarop deze wordt geïmplementeerd. Leesbewerkingen worden uitgevoerd door bij het lezen van beide accounts voor de globale weergave van gegevens. Deze methode kan worden uitgebreid met zoveel regio's waar nodig. Dit is bijvoorbeeld een installatie met drie geografische regio's:
+Met meerdere master is de uitdaging vaak dat twee (of meer) replica's van dezelfde record tegelijkertijd kunnen worden bijgewerkt door verschillende schrijvers in twee of meer verschillende regio's. Gelijktijdige schrijfbewerkingen kunnen leiden tot twee verschillende versies van dezelfde record en zonder ingebouwde conflictoplossing en de toepassing zelf conflictoplossing om op te lossen deze inconsistentie moet uitvoeren.  
 
-| Accountnaam | Schrijfregio's | Regio 1 lezen | Regio 2 lezen |
-| --- | --- | --- | --- |
-| `contentpubdatabase-usa.documents.azure.com` | `West US` |`North Europe` |`Southeast Asia` |
-| `contentpubdatabase-europe.documents.azure.com` | `North Europe` |`West US` |`Southeast Asia` |
-| `contentpubdatabase-asia.documents.azure.com` | `Southeast Asia` |`North Europe` |`West US` |
+**Voorbeeld** -gaan we ervan uit dat u van Azure DB die Cosmos gebruikmaakt als het persistentie-archief voor de toepassing van een webwinkel winkelwagen en deze toepassing wordt geïmplementeerd in twee gebieden: VS-Oost en VS-West.  Als er ongeveer op hetzelfde moment, een gebruiker in San Francisco een item toegevoegd aan de winkelwagen (bijvoorbeeld een boek) tijdens het proces van een inventaris in de VS-Oost, wordt een ander winkelwagen winkelwagen item (bijvoorbeeld een nieuw telefoonnummer) ongeldig voor die dezelfde gebruiker in reactie op een s upplier melding dat de releasedatum had vertraagd. Op tijdstip T1 maakt zijn de winkelwagen winkelwagen records in de twee regio's verschillend. De database wordt de replicatie en het mechanisme voor conflictoplossing gebruiken voor het omzetten van deze inconsistentie en uiteindelijk een van de twee versies van de winkelwagen worden geselecteerd. Met behulp van de conflict resolutie methodiek vaakst door meerdere masters databases (bijvoorbeeld laatste schrijven wins) is toegepast, is het onmogelijk voor de gebruiker of toepassing te voorspellen, welke versie wordt geselecteerd. In beide gevallen gegevens niet verloren of onverwachte problemen optreden. Als de versie van de regio Oost is geselecteerd, klikt u vervolgens de selectie van de gebruiker van een nieuwe aankoop item (dat wil zeggen, een boek) gaat verloren en of de regio West is geselecteerd, klikt u vervolgens het eerder gekozen item (dat wil zeggen, phone) is nog steeds in de winkelwagen. In beide gevallen informatie gaat verloren. Ten slotte winkelwagen een ander proces de winkelwagen te bekijken tussen de tijdstippen T1 en T2 zullen ook niet-deterministisch gedrag. Bijvoorbeeld een achtergrondproces dat het magazijn vervulling selecteert en de kosten van de back-upfunctie winkelwagen-updates zou leiden tot resultaten die met de uiteindelijke inhoud van de winkelwagen conflicteren. Als het proces wordt uitgevoerd in de regio West en alternatieve 1 realiteit wordt, zou deze de kosten van de back-upfunctie voor twee items compute, hoewel de winkelwagen binnenkort slechts één item, het rapport hebben mogelijk. 
 
-## <a id="DataAccessImplementation"></a>Data access-laag implementatie
-Nu we bekijken de uitvoering van de gegevenstoegangslaag (DAL) voor een toepassing met twee beschrijfbare regio's. De DAL moet implementeren de volgende stappen uit:
+Azure Cosmos DB implementeert de logica voor het verwerken van conflicterende schrijfbewerkingen in de database-engine zelf. Biedt Azure Cosmos DB **omzettingsondersteuning uitgebreide en flexibele conflict** door het aanbieden van verschillende conflict resolutie modellen, met inbegrip van automatische (het CRDT conflict gratis gerepliceerd gegevenstypen), laatste schrijven Wins (LWW) en aangepaste ( Opgeslagen Procedure) voor automatische conflictoplossing. De resolutie conflict modellen juist is en consistentie garanties bieden en de last van ontwikkelaars aan te denken consistentie, beschikbaarheid, prestaties, replicatielatentie en complexe combinaties van-gebeurtenissen onder geo-failovers verwijderen en regio-overschrijdende schrijven conflicten.  
 
-* Maken van meerdere exemplaren van `DocumentClient` voor elke account. Met twee regio's, elk DAL-exemplaar heeft een `writeClient` en één `readClient`. 
-* Op basis van de geïmplementeerde regio van de toepassing, configureren van de eindpunten voor `writeclient` en `readClient`. Bijvoorbeeld, de DAL worden geïmplementeerd in `West US` gebruikt `contentpubdatabase-usa.documents.azure.com` voor het uitvoeren van schrijfbewerkingen. De DAL geïmplementeerd in `NorthEurope` gebruikt `contentpubdatabase-europ.documents.azure.com` voor schrijfbewerkingen.
+  ![Mult-master conflictoplossing](./media/multi-region-writers/multi-master-conflict-resolution-blade.png)
 
-Met de voorgaande setup kunnen de data access-methoden worden geïmplementeerd. Schrijven operations doorsturen van het schrijven naar de bijbehorende `writeClient`.
+Hebt u 3 soorten conflict resolutie modellen die worden aangeboden door Azure Cosmos DB. De semantiek van de conflict resolutie modellen zijn als volgt: 
 
-    public async Task CreateSubscriptionAsync(string userId, string category)
-    {
-        await this.writeClient.CreateDocumentAsync(this.contentCollection, new Subscriptions
-        {
-            UserId = userId,
-            SubscriptionFilter = category
-        });
-    }
+**Automatische** -dit is het standaardbeleid voor de oplossing van conflicten. Dit beleid zorgt ervoor dat Azure Cosmos DB automatisch oplossen de conflicterende updates aan de serverzijde en sterke-uiteindelijke-consistentie wordt gegarandeerd. Azure Cosmos DB implementeert intern automatische conflictoplossing door gebruik van Conflict-vrij-gerepliceerd-gegevenstypen (CRDTs) in de database-engine.  
 
-    public async Task WriteReviewAsync(string articleId, string userId, string reviewText, int rating)
-    {
-        await this.writeClient.CreateDocumentAsync(this.contentCollection, new Review
-        {
-            UserId = userId,
-            ArticleId = articleId,
-            ReviewText = reviewText,
-            Rating = rating
-        });
-    }
+**Laatste schrijven Wins (LWW)** - tijdstempeleigenschap kiezen dit beleid kunt u bij het oplossen van conflicten op basis van het systeem gedefinieerde gesynchroniseerd of een aangepaste eigenschap is gedefinieerd voor de conflicterende versie van de records. De conflictoplossing gebeurt op de server en de versie met de meest recente tijdstempel voeren is geselecteerd.  
 
-Voor het lezen van meldingen en beoordelingen, moet u lezen van zowel regio's en union de resultaten zoals weergegeven in het volgende fragment:
+**Aangepaste** -u kunt een gedefinieerd conflict resolutie toepassingslogica registreren met het registreren van een opgeslagen procedure. De opgeslagen procedure wordt ophalen aangeroepen na detectie van update veroorzaakt een conflict in het kader van een databasetransactie op de server. Als u de optie selecteert, maar niet registreren van een opgeslagen procedure (of als de opgeslagen procedure er een uitzondering gegenereerd tijdens runtime), kunt u toegang tot alle van de conflicterende versies via de conflicten Feed en deze afzonderlijk kunt oplossen.  
 
-    public async Task<IEnumerable<Notification>> ReadNotificationFeedAsync(string userId)
-    {
-        IDocumentQuery<Notification> writeAccountNotification = (
-            from notification in this.writeClient.CreateDocumentQuery<Notification>(this.contentCollection) 
-            where notification.UserId == userId 
-            select notification).AsDocumentQuery();
-        
-        IDocumentQuery<Notification> readAccountNotification = (
-            from notification in this.readClient.CreateDocumentQuery<Notification>(this.contentCollection) 
-            where notification.UserId == userId 
-            select notification).AsDocumentQuery();
+## <a name="next-steps"></a>Volgende stappen  
 
-        List<Notification> notifications = new List<Notification>();
+In dit artikel vernomen u globaal gedistribueerd over meerdere master gebruiken met Azure Cosmos DB. Haal vervolgens een overzicht van de volgende bronnen: 
 
-        while (writeAccountNotification.HasMoreResults || readAccountNotification.HasMoreResults)
-        {
-            IList<Task<FeedResponse<Notification>>> results = new List<Task<FeedResponse<Notification>>>();
+* [Meer informatie over hoe Azure Cosmos DB globale distributie ondersteunt](distribute-data-globally.md)  
 
-            if (writeAccountNotification.HasMoreResults)
-            {
-                results.Add(writeAccountNotification.ExecuteNextAsync<Notification>());
-            }
+* [Meer informatie over automatische failovers in Azure Cosmos-DB](regional-failover.md)  
 
-            if (readAccountNotification.HasMoreResults)
-            {
-                results.Add(readAccountNotification.ExecuteNextAsync<Notification>());
-            }
+* [Meer informatie over globale consistentie met Azure Cosmos-DB](consistency-levels.md)  
 
-            IList<FeedResponse<Notification>> notificationFeedResult = await Task.WhenAll(results);
-
-            foreach (FeedResponse<Notification> feed in notificationFeedResult)
-            {
-                notifications.AddRange(feed);
-            }
-        }
-        return notifications;
-    }
-
-    public async Task<IEnumerable<Review>> ReadReviewsAsync(string articleId)
-    {
-        IDocumentQuery<Review> writeAccountReviews = (
-            from review in this.writeClient.CreateDocumentQuery<Review>(this.contentCollection) 
-            where review.ArticleId == articleId 
-            select review).AsDocumentQuery();
-        
-        IDocumentQuery<Review> readAccountReviews = (
-            from review in this.readClient.CreateDocumentQuery<Review>(this.contentCollection) 
-            where review.ArticleId == articleId 
-            select review).AsDocumentQuery();
-
-        List<Review> reviews = new List<Review>();
-        
-        while (writeAccountReviews.HasMoreResults || readAccountReviews.HasMoreResults)
-        {
-            IList<Task<FeedResponse<Review>>> results = new List<Task<FeedResponse<Review>>>();
-
-            if (writeAccountReviews.HasMoreResults)
-            {
-                results.Add(writeAccountReviews.ExecuteNextAsync<Review>());
-            }
-
-            if (readAccountReviews.HasMoreResults)
-            {
-                results.Add(readAccountReviews.ExecuteNextAsync<Review>());
-            }
-
-            IList<FeedResponse<Review>> notificationFeedResult = await Task.WhenAll(results);
-
-            foreach (FeedResponse<Review> feed in notificationFeedResult)
-            {
-                reviews.AddRange(feed);
-            }
-        }
-
-        return reviews;
-    }
-
-Dus als u een goede te nemen partitionerende sleutel en statische op basis van een account partitioneren, kunt u bereiken met meerdere regio lokale geschreven en gelezen met behulp van Azure DB die Cosmos.
-
-## <a id="NextSteps"></a>Volgende stappen
-In dit artikel wordt beschreven hoe u globaal gedistribueerde meerdere landen/regio lezen-schrijven patronen kunt gebruiken met Azure Cosmos DB met inhoud publiceren als een voorbeeldscenario.
-
-* Meer informatie over hoe Azure Cosmos DB ondersteunt [globale distributie](distribute-data-globally.md)
-* Meer informatie over [automatische en handmatige failover in Azure Cosmos-DB](regional-failover.md)
-* Meer informatie over [globale consistentie met Azure Cosmos-DB](consistency-levels.md)
-* Ontwikkelen met meerdere regio's met behulp van de [Azure DB Cosmos - SQL-API](tutorial-global-distribution-sql-api.md)
-* Ontwikkelen met meerdere regio's met behulp van de [Azure DB Cosmos - MongoDB-API](tutorial-global-distribution-MongoDB.md)
-* Ontwikkelen met meerdere regio's met behulp van de [Azure DB Cosmos - tabel-API](tutorial-global-distribution-table.md)
+* Ontwikkelen met meerdere regio's met behulp van de Cosmos Azure DB - [SQL-API](tutorial-global-distribution-sql-api.md), [MongoDB API](tutorial-global-distribution-mongodb.md), of [tabel-API](tutorial-global-distribution-table.md)  

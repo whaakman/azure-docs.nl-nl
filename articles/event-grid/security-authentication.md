@@ -6,27 +6,27 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 04/27/2018
 ms.author: babanisa
-ms.openlocfilehash: 4b9ab8aaef091573d204b8de58115cc03707aa01
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: 8c601d13f0f4d7c44db5735c2f89f570faa4f0c9
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Gebeurtenis raster beveiligings- en -verificatie 
 
 Azure Event raster heeft drie soorten verificatie:
 
 * Gebeurtenisabonnementen
-* Gebeurtenis publiceren
+* Gebeurtenispublicatie
 * WebHook gebeurtenis levering
 
 ## <a name="webhook-event-delivery"></a>WebHook gebeurtenis levering
 
 Webhooks zijn veel manieren voor het ontvangen van gebeurtenissen uit Azure Event raster. Wanneer een nieuwe gebeurtenis klaar is, wordt in de gebeurtenis raster Webhook een HTTP-aanvraag verzendt naar de geconfigureerde HTTP-eindpunt met de gebeurtenis in de hoofdtekst.
 
-Wanneer u uw eigen WebHook-eindpunt met raster gebeurtenis registreert, stuurt u een POST-aanvraag met een eenvoudige validatiecode om te bewijzen eindpunt eigendom. Uw app moet reageren door echo terug code voor de validatie. Gebeurtenis raster leveren niet gebeurtenissen aan WebHook-eindpunten die nog niet gevalideerd.
+Wanneer u uw eigen WebHook-eindpunt met raster gebeurtenis registreert, stuurt u een POST-aanvraag met een eenvoudige validatiecode om te bewijzen eindpunt eigendom. Uw app moet reageren door echo terug code voor de validatie. Gebeurtenis raster leveren niet gebeurtenissen aan WebHook-eindpunten die nog niet gevalideerd. Als u een API-service van derden (zoals [Zapier](https://zapier.com) of [IFTTT](https://ifttt.com/)), mogelijk niet via programmacode echo code voor de validatie. U kunt handmatig het abonnement via een validatie-URL die wordt verzonden in de validatie-gebeurtenis abonnement voor deze services valideren. Die URL kopiëren en verzenden van een aanvraag voor ophalen via een REST-client of de webbrowser.
 
 ### <a name="validation-details"></a>Validatie-informatie
 
@@ -34,6 +34,7 @@ Wanneer u uw eigen WebHook-eindpunt met raster gebeurtenis registreert, stuurt u
 * De gebeurtenis bevat een waarde voor header 'Aeg gebeurtenistype: SubscriptionValidation'.
 * De hoofdtekst van de gebeurtenis heeft hetzelfde schema als andere gebeurtenissen gebeurtenis raster.
 * Gegevens van de gebeurtenis bevat de eigenschap 'validationCode' met een willekeurige tekenreeks. Bijvoorbeeld ' validationCode: acb13... '.
+* Gegevens van de gebeurtenis bevat de eigenschap 'validationUrl' met een URL voor het valideren van het abonnement handmatig.
 * De matrix bevat alleen de validatiegebeurtenis. Andere gebeurtenissen worden verzonden in een afzonderlijke aanvraag nadat u echo teruggestuurd code voor de validatie.
 
 Een voorbeeld SubscriptionValidationEvent wordt weergegeven in het volgende voorbeeld:
@@ -44,7 +45,8 @@ Een voorbeeld SubscriptionValidationEvent wordt weergegeven in het volgende voor
   "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "subject": "",
   "data": {
-    "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
+    "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6",
+    "validationUrl": "https://rp-eastus2.eventgrid.azure.net:553/eventsubscriptions/estest/validate?id=B2E34264-7D71-453A-B5FB-B62D0FDC85EE&t=2018-04-26T20:30:54.4538837Z&apiVersion=2018-05-01-preview&token=1BNqCxBBSSE9OnNSfZM4%2b5H9zDegKMY6uJ%2fO2DFRkwQ%3d"
   },
   "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
   "eventTime": "2018-01-25T22:12:19.4556811Z",
@@ -60,6 +62,9 @@ Om te bewijzen dat eindpunt eigendom, echo teruggestuurd de validatiecode in de 
   "validationResponse": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
 }
 ```
+
+Of het abonnement handmatig valideren door een GET-aanvraag verzenden naar de URL van de validatie. Het gebeurtenisabonnement blijft in behandeling totdat gevalideerd.
+
 ### <a name="event-delivery-security"></a>Gebeurtenis levering van beveiliging
 
 U kunt uw eindpunt webhook beveiligen door queryparameters toevoegen aan de webhook-URL bij het maken van een gebeurtenisabonnement. Stel één van deze queryparameters moeten een geheim, zoals een [toegangstoken](https://en.wikipedia.org/wiki/Access_token) dat de webhook kunt gebruiken voor het herkennen van de gebeurtenis afkomstig is van de gebeurtenis raster met geldige machtigingen. Gebeurtenis raster neemt deze queryparameters in elke gebeurtenis levering aan de webhook.

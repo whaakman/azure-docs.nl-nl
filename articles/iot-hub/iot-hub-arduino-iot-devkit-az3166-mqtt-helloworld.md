@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2018
 ms.author: liydu
-ms.openlocfilehash: 13b1c5b9ae05a6c2d11420812efc1af17912aa28
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: 073ac7cf2d8d8d5dac6a5a4f9b9d4e3d1af6f095
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Berichten verzenden naar een server MQTT
 
@@ -93,5 +93,5 @@ Als u problemen ondervindt, raadpleegt u [Veelgestelde vragen over](https://micr
 
 U hebt geleerd hoe u uw Iot MXChip DevKit configureren als een client MQTT en de protocollen MQTT-clientbibliotheek gebruiken om berichten te verzenden naar een broker MQTT, vindt hier u de voorgestelde volgende stappen uit:
 
-* [Overzicht van Azure IoT Suite](https://docs.microsoft.com/azure/iot-suite/)
+* [Overzicht van Azure accelerator voor externe controle IoT-oplossing](https://docs.microsoft.com/azure/iot-suite/)
 * [Sluit een apparaat MXChip IoT DevKit aan uw toepassing Microsoft IoT centrale](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

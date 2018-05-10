@@ -1,6 +1,6 @@
 ---
-title: GPU's op Azure Containerservice (AKS)
-description: GPU's op Azure Containerservice (AKS) gebruiken
+title: GPU's voor Azure Kubernetes-Service (AKS)
+description: GPU's gebruiken voor Azure Kubernetes-Service (AKS)
 services: container-service
 author: lachie83
 manager: jeconnoc
@@ -9,20 +9,20 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: laevenso
 ms.custom: mvc
-ms.openlocfilehash: 6c30c966ad88f904ee652d88abd1717819077d2a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1e07845591583c7159958d4e2eb7eeb2f126b75f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="using-gpus-on-aks"></a>Met behulp van GPU's op AKS
+# <a name="using-gpus-on-aks"></a>GPU's in AKS gebruiken
 
 AKS ondersteunt het maken van GPU ingeschakeld knooppunt groepen. Azure biedt momenteel één of meerdere GPU VMs ingeschakeld. GPU ingeschakeld VM's zijn ontworpen voor rekenintensieve en grafisch-intensieve visualisatie werkbelastingen. Een lijst met GPU ingeschakeld VMs vindt [hier](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu).
 
 ## <a name="create-an-aks-cluster"></a>Een AKS-cluster maken
 
 GPU's zijn meestal nodig voor rekenintensieve workloads zoals grafisch-intensieve en visualisatie werkbelastingen. Raadpleeg de volgende [document](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu) om te bepalen van de juiste VM-grootte voor uw workload.
-We raden een minimale grootte van `Standard_NC6` voor uw Azure Container Service (AKS)-knooppunten.
+We raden een minimale grootte van `Standard_NC6` voor uw Azure Kubernetes Service (AKS)-knooppunten.
 
 > [!NOTE]
 > GPU ingeschakeld VMs speciale hardware die is onderworpen aan hogere prijzen en regio beschikbaarheid bevatten. Zie voor meer informatie de [prijzen](https://azure.microsoft.com/pricing/) hulpprogramma en [beschikbaarheid in regio's](https://azure.microsoft.com/global-infrastructure/services/) website voor meer informatie.
@@ -50,7 +50,7 @@ az aks get-credentials --resource-group myGPUCluster --name myGPUCluster
 
 ## <a name="confirm-gpus-are-schedulable"></a>Controleer dat GPU 's zijn Planbare
 
-Voer de volgende opdrachten om te bevestigen dat de GPU's Planbare via Kubernetes zijn. 
+Voer de volgende opdrachten om te bevestigen dat de GPU's Planbare via Kubernetes zijn.
 
 De huidige lijst met knooppunten ophalen.
 
@@ -165,7 +165,7 @@ spec:
       volumes:
         - name: nvidia
           hostPath:
-            path: /usr/local/nvidia         
+            path: /usr/local/nvidia
 ```
 
 Gebruik de [kubectl maken] [ kubectl-create] opdracht de taak uit te voeren. Deze opdracht parseert het manifestbestand en maakt de gedefinieerde Kubernetes-objecten.

@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 04/23/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: c4b05044b0894e565ec4136f368314cb22041a7b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: 3bd3c4f6501000f2490bc26cf7c6ff0345d3e7cc
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Updatebeheer in Azure
 
@@ -133,7 +133,7 @@ Als de agent kan niet communiceren met logboekanalyse en deze is geconfigureerd 
 
 Bij pas toegevoegde Linux-agents staat de status **Bijgewerkt** na het uitvoeren van een beoordeling. Dit proces kan maximaal zes uur duren.
 
-Om te controleren op een Operations Manager-beheergroep communiceert met Log Analytics, Zie [Operations Manager-integratie valideren met logboekanalyse](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
+Om te controleren op een Operations Manager-beheergroep communiceert met Log Analytics, Zie [Operations Manager-integratie valideren met logboekanalyse](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-log-analytics).
 
 ## <a name="data-collection"></a>Gegevensverzameling
 

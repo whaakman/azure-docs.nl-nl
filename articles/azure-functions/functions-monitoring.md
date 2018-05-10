@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 5b141924266630bfd3b63ec5129f9f225da3170b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: cbdb4691bac01843a451c988e09d77dd10f97461
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions controleren
 
@@ -29,34 +29,46 @@ ms.lasthandoff: 03/30/2018
 
 ![Application Insights Metrics Explorer](media/functions-monitoring/metrics-explorer.png)
 
-Functies heeft ook ingebouwde bewaking die geen gebruik maakt van Application Insights. Application Insights wordt aangeraden omdat het biedt meer gegevens en betere manieren om de gegevens te analyseren. Zie voor informatie over de ingebouwde bewaking, de [laatste sectie van dit artikel](#monitoring-without-application-insights).
+Functies heeft ook [ingebouwde bewaking die geen gebruik maakt van Application Insights](#monitoring-without-application-insights). Application Insights wordt aangeraden omdat het biedt meer gegevens en betere manieren om de gegevens te analyseren.
 
-## <a name="enable-application-insights-integration"></a>Application Insights-integratie inschakelen
+## <a name="application-insights-pricing-and-limits"></a>Application Insights-prijzen en beperkingen
 
-Voor een functie-app om gegevens te verzenden naar Application Insights moet weten de instrumentatiesleutel van een Application Insights-exemplaar. Er zijn twee manieren waarop u deze verbinding in de [Azure-portal](https://portal.azure.com):
+U kunt gratis Application Insights-integratie met de functie Apps uitproberen. Echter, is er een dagelijkse limiet voor gratis, hoeveel gegevens kan worden verwerkt en u mogelijk dat bereikt tijdens het testen. Azure biedt portal en e-mailmeldingen wanneer u uw dagelijkse limiet bijna bereikt.  Maar als u deze waarschuwingen gemist en de limiet bereikt, wordt nieuwe logboeken niet weergegeven in Application Insights-query's. Dus worden op de hoogte van de limiet om te voorkomen dat onnodig tijd voor het oplossen van problemen. Zie voor meer informatie [-prijzen en -gegevens volume in Application Insights beheren](../application-insights/app-insights-pricing.md).
 
-* [Maken van een verbonden exemplaar van de Application Insights wanneer u de functie-app maakt](#new-function-app).
-* [Een Application Insights-instantie verbinden met een bestaande app in de functie](#existing-function-app).
+## <a name="enable-app-insights-integration"></a>Integratie van de App Insights inschakelen
+
+Voor een functie-app om gegevens te verzenden naar Application Insights moet weten de instrumentatiesleutel van een Application Insights-resource. De sleutel moet worden opgegeven in een app-instelling met de naam APPINSIGHTS_INSTRUMENTATIONKEY.
+
+U kunt instellen om deze verbinding in de [Azure-portal](https://portal.azure.com):
+
+* [Automatisch voor een nieuwe functie-app](#new-function-app)
+* [Handmatig verbinding maken met een App Insights-resource](#manually-connect-an-app-insights-resource)
 
 ### <a name="new-function-app"></a>Nieuwe functie-app
 
-Application Insights op de functie-App inschakelen **maken** pagina:
+1. Ga naar de functie-app **maken** pagina.
 
 1. Stel de **Application Insights** overschakelen **op**.
 
 2. Selecteer een **Application Insights locatie**.
 
+   Kies de regio die zich het dichtst bij de regio van de functie-app in een [Azure Geografie](https://azure.microsoft.com/global-infrastructure/geographies/) waar u uw gegevens worden opgeslagen.
+
    ![Application Insights inschakelen tijdens het maken van een functie-app](media/functions-monitoring/enable-ai-new-function-app.png)
 
-### <a name="existing-function-app"></a>Bestaande functie-app
+3. Geef de vereiste informatie.
 
-De instrumentatiesleutel ophalen en opslaan in een functie-app:
+1. Selecteer **Maken**.
 
-1. De Application Insights-exemplaar maken. Toepassingstype ingesteld op **algemene**.
+De volgende stap is het [ingebouwde logboekregistratie uitschakelen](#disable-built-in-logging).
 
-   ![Application Insights-exemplaar, typt u algemene maken](media/functions-monitoring/ai-general.png)
+### <a name="manually-connect-an-app-insights-resource"></a>Handmatig verbinding maken met een App Insights-resource 
 
-2. Kopieer de instrumentatiesleutel van de **Essentials** pagina van de Application Insights-exemplaar. Beweeg de muisaanwijzer over het einde van de weergegeven sleutelwaarde ophalen van een **Klik hier om te kopiëren** knop.
+1. De Application Insights-resource maken. Toepassingstype ingesteld op **algemene**.
+
+   ![Een Application Insights-resource maken algemeen type](media/functions-monitoring/ai-general.png)
+
+2. Kopieer de instrumentatiesleutel van de **Essentials** pagina van de Application Insights-resource. Beweeg de muisaanwijzer over het einde van de weergegeven sleutelwaarde ophalen van een **Klik hier om te kopiëren** knop.
 
    ![De Application Insights-instrumentatiesleutel kopiëren](media/functions-monitoring/copy-ai-key.png)
 
@@ -70,13 +82,46 @@ De instrumentatiesleutel ophalen en opslaan in een functie-app:
 
 Als u Application Insights inschakelt, kunt u uitschakelen het beste de [ingebouwde logboekregistratie die gebruikmaakt van Azure storage](#logging-to-storage). De ingebouwde logboekregistratie is handig voor het testen met lichte werkbelastingen, maar is niet bedoeld voor gebruik in productieomgevingen hoge belasting. Voor productie, bewaking, wordt Application Insights aanbevolen. Als de ingebouwde logboekregistratie wordt gebruikt in productie, is het mogelijk dat de record logboekregistratie onvolledig vanwege een beperking op Azure Storage.
 
-Ingebouwde als logboekregistratie wilt uitschakelen, verwijdert u de `AzureWebJobsDashboard` app-instelling. Zie voor meer informatie over het verwijderen van app-instellingen in de Azure portal de **toepassingsinstellingen** sectie van [het beheren van een functie-app](functions-how-to-use-azure-function-app-settings.md#settings).
+Ingebouwde als logboekregistratie wilt uitschakelen, verwijdert u de `AzureWebJobsDashboard` app-instelling. Zie voor meer informatie over het verwijderen van app-instellingen in de Azure portal de **toepassingsinstellingen** sectie van [het beheren van een functie-app](functions-how-to-use-azure-function-app-settings.md#settings). Voordat u de app-instelling verwijdert, zorg ervoor dat er geen bestaande functies in dezelfde functie-app voor Azure Storage-triggers of bindingen gebruikt.
 
-Wanneer u Application Insights en ingebouwde logboekregistratie uitschakelen, inschakelen de **Monitor** tabblad voor een functie in de Azure portal, u naar Application Insights gaat.
+## <a name="view-telemetry-in-monitor-tab"></a>Telemetrie weergeven in het tabblad Monitor
 
-## <a name="view-telemetry-data"></a>Telemetrie-gegevens weergeven
+Nadat u hebt ingesteld van Application Insights-integratie zoals weergegeven in de vorige secties, kunt u weergeven telemetrische gegevens in de **Monitor** tabblad.
 
-Om te navigeren naar de verbonden Application Insights-exemplaar van een functie-app in de portal, selecteer de **Application Insights** koppeling op een van de functie app **overzicht** pagina.
+1. Selecteer in de pagina van de functie-app een functie die ten minste eenmaal is uitgevoerd nadat de Application Insights is geconfigureerd en selecteer vervolgens de **Monitor** tabblad.
+
+   ![Tabblad Monitor selecteren](media/functions-monitoring/monitor-tab.png)
+
+2. Selecteer **vernieuwen** periodiek totdat de lijst met aanroepen van de functie wordt weergegeven.
+
+   Duurt maximaal 5 minuten voor de lijst wilt weergeven, vanwege de manier waarop de telemetrie batches clientgegevens voor verzending naar de server. (Deze vertraging niet van toepassing op de [livestream metrische gegevens](../application-insights/app-insights-live-stream.md). Of de service maakt verbinding met de functies host wanneer u de pagina laadt om Logboeken rechtstreeks naar de pagina worden gestreamd.)
+
+   ![Lijst met aanroepen](media/functions-monitoring/monitor-tab-ai-invocations.png)
+
+2. Overzicht van de logboeken voor een bepaalde functie-aanroep, selecteer de **datum** kolom koppeling voor deze aanroep.
+
+   ![Details van de aanroep koppelen](media/functions-monitoring/invocation-details-link-ai.png)
+
+   De uitvoer van de logboekregistratie voor deze aanroep wordt weergegeven in een nieuwe pagina.
+
+   ![Aanroepdetails](media/functions-monitoring/invocation-details-ai.png)
+
+De pagina's (aanroeplijst en details) koppelen aan de Application Insights Analytics-query die de gegevens worden opgehaald:
+
+![Voer in Application Insights](media/functions-monitoring/run-in-ai.png)
+
+![Application Insights Analytics aanroeplijst](media/functions-monitoring/ai-analytics-invocation-list.png)
+
+In deze query's, kunt u zien dat de aanroeplijst beperkt met de laatste 30 dagen niet meer dan 20 rijen is (`where timestamp > ago(30d) | take 20`) en de aanroep details lijst voor de afgelopen 30 dagen zonder beperkingen.
+
+Zie voor meer informatie [telemetriegegevens Query](#query-telemetry-data) verderop in dit artikel.
+
+## <a name="view-telemetry-in-app-insights"></a>Weergave telemetrie uit de App Insights
+
+Voor Application Insights openen vanuit een functie-app in de Azure portal, selecteer de **Application Insights** koppelen de **functies geconfigureerd** sectie van de functie-app **overzicht** pagina.
+
+![Application Insights koppeling op de pagina overzicht](media/functions-monitoring/ai-link.png)
+
 
 Zie voor meer informatie over het gebruik van Application Insights de [Application Insights documentatie](https://docs.microsoft.com/azure/application-insights/). Deze sectie vindt enkele voorbeelden van gegevens weergeven in Application Insights. Als u al bekend met Application Insights bent, kunt u gaan rechtstreeks naar [de secties over het configureren en aanpassen van de telemetriegegevens](#configure-categories-and-log-levels).
 
@@ -256,7 +301,7 @@ Zoals beschreven in de vorige sectie, de runtime gegevens worden verzameld over 
 
 ## <a name="configure-sampling"></a>Steekproeven configureren
 
-Application Insights is een [steekproeven](../application-insights/app-insights-sampling.md) functie die u beschermen kunt tegen het opstellen van te veel telemetriegegevens op tijdstippen van piekbelasting. Wanneer het aantal items telemetrie groter is dan een opgegeven snelheid, begint de Application Insights voor het negeren van willekeurig aantal binnenkomende items. U kunt configureren steekproeven in *host.json*.  Hier volgt een voorbeeld:
+Application Insights is een [steekproeven](../application-insights/app-insights-sampling.md) functie die u beschermen kunt tegen het opstellen van te veel telemetriegegevens op tijdstippen van piekbelasting. Wanneer het aantal items telemetrie groter is dan een opgegeven snelheid, begint de Application Insights voor het negeren van willekeurig aantal binnenkomende items. De standaardinstelling voor het maximum aantal items per seconde is 5. U kunt configureren steekproeven in *host.json*.  Hier volgt een voorbeeld:
 
 ```json
 {
@@ -489,13 +534,19 @@ Voor het rapporteren van een probleem met Application Insights-integratie in fun
 
 ## <a name="monitoring-without-application-insights"></a>Bewaking zonder Application Insights
 
-Beter Application Insights voor controlefuncties omdat het biedt meer gegevens en betere manieren om de gegevens te analyseren. Maar u kunt ook zoeken logboeken en telemetriegegevens in de Azure portal-pagina's voor een functie-app.
+Beter Application Insights voor controlefuncties omdat het biedt meer gegevens en betere manieren om de gegevens te analyseren. Maar als u liever het ingebouwde logboekregistratie systeem die gebruikmaakt van Azure Storage, kunt u blijven gebruiken.
 
 ### <a name="logging-to-storage"></a>Logboekregistratie naar de opslag
 
-Ingebouwde logboekregistratie maakt gebruik van het opslagaccount dat is opgegeven door de verbindingsreeks in de `AzureWebJobsDashboard` app-instelling. Als die appinstelling is geconfigureerd, kunt u de logboekgegevens in de Azure portal kunt zien. Ga in de opslagbronnen naar bestanden, selecteer de file-service voor de functie en gaat u naar `LogFiles > Application > Functions > Function > your_function` om te zien van het logboekbestand. Selecteer een functie in een functie-app-pagina, en selecteer vervolgens de **Monitor** tabblad, en u een lijst van de functies die ophalen. Selecteer een functie wordt uitgevoerd om te controleren van de duur van de invoergegevens, fouten en bijbehorende logboekbestanden.
+Ingebouwde logboekregistratie maakt gebruik van het opslagaccount dat is opgegeven door de verbindingsreeks in de `AzureWebJobsDashboard` app-instelling. Selecteer een functie in een functie-app-pagina, en selecteer vervolgens de **Monitor** tabblad en ervoor kiezen om te zorgen dat deze in de klassieke weergave.
 
-Als u Application Insights en hebt [ingebouwde logboekregistratie uitgeschakeld](#disable-built-in-logging), wordt de **Monitor** tabblad gaat u naar Application Insights.
+![Klassieke weergave](media/functions-monitoring/switch-to-classic-view.png)
+
+ U ophalen een lijst van de functies die. Selecteer een functie wordt uitgevoerd om te controleren van de duur van de invoergegevens, fouten en bijbehorende logboekbestanden.
+
+Als u Application Insights eerder hebt ingeschakeld, maar nu wilt u gaat u terug naar ingebouwde logboekregistratie handmatig uitschakelen van Application Insights en selecteer vervolgens de **Monitor** tabblad. Voor Application Insights-integratie is uitgeschakeld, verwijder de APPINSIGHTS_INSTRUMENTATIONKEY app-instelling.
+
+Zelfs als de **Monitor** tabblad ziet u gegevens van Application Insights, kunt u logboekgegevens zien in het bestandssysteem als u nog niet hebt [ingebouwde logboekregistratie uitgeschakeld](#disable-built-in-logging). Ga in de opslagbronnen naar bestanden, selecteer de file-service voor de functie en gaat u naar `LogFiles > Application > Functions > Function > your_function` om te zien van het logboekbestand.
 
 ### <a name="real-time-monitoring"></a>Realtime-controle
 

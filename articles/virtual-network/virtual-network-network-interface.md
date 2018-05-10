@@ -15,18 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 72c3968b59fda10d81af553cbf2324a2683c596b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 65e461eaebaafab6f8a95bed333928d017c540d4
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Maken, wijzigen of verwijderen van een netwerkinterface
 
 Informatie over het maken, de instellingen voor wijzigen en verwijderen van een netwerkinterface. Een netwerkinterface kunt een virtuele Machine van Azure om te communiceren met internet, Azure en lokale bronnen. Wanneer u een virtuele machine met de Azure portal maakt, maakt de portal één netwerkinterface met de standaardinstellingen voor u. U kunt in plaats daarvan netwerkinterfaces te maken met aangepaste instellingen en een of meer netwerkinterfaces aan een virtuele machine toevoegen wanneer u deze maakt. U kunt ook standaard netwerkinterface-instellingen voor een bestaande netwerkinterface wijzigen. In dit artikel wordt uitgelegd hoe een netwerkinterface met aangepaste instellingen te maken, bestaande instellingen, zoals de toewijzing van netwerken filter (netwerkbeveiligingsgroep), subnettoewijzing, DNS-serverinstellingen en doorsturen via IP, wijzigen en verwijderen van een netwerkinterface.
 
 Als u moet toe te voegen, wijzigen of verwijderen van IP-adressen voor een netwerkinterface, Zie [beheren IP-adressen](virtual-network-network-interface-addresses.md). Als u toevoegen netwerkinterfaces wilt aan of verwijderen van netwerkinterfaces van virtuele machines, Zie [toevoegen of verwijderen van netwerkinterfaces](virtual-network-network-interface-vm.md).
-
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -37,7 +36,7 @@ De volgende taken uitvoeren voordat u stappen uitvoert in elke sectie van dit ar
 - Als u de PowerShell-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Deze zelfstudie vereist de Azure PowerShell moduleversie 5.4.1 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
 - Als u Azure-opdrachtregelinterface (CLI)-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/bash), of door het uitvoeren van de CLI vanaf uw computer. Deze zelfstudie vereist de Azure CLI versie 2.0.28 of hoger. Voer `az --version` uit om te kijken welke versie is geïnstalleerd. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). Als u de Azure CLI lokaal uitvoert, moet u ook uitvoeren `az login` geen verbinding maken met Azure.
 
-Het account dat u zich bij Azure met aanmelden moet worden toegewezen aan een minimum, machtigingen voor de rol Inzender netwerk voor uw abonnement. Zie voor meer informatie over het toewijzen van rollen en machtigingen aan accounts, [ingebouwde functies voor op rollen gebaseerd toegangsbeheer van Azure](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
+Het account dat u zich aanmelden bij of verbinding maken met Azure met, moet worden toegewezen aan de [netwerk Inzender](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rol of naar een [aangepaste rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) die is toegewezen de nodige acties die worden vermeld in [machtigingen ](#permissions).
 
 ## <a name="create-a-network-interface"></a>Een netwerkinterface maken
 
@@ -88,7 +87,7 @@ U kunt weergeven en wijzigen van de meeste instellingen voor een netwerkinterfac
     - **Eigenschappen:** bevat de belangrijkste instellingen over van de netwerkinterface, met inbegrip van het MAC-adres (leeg als de netwerkinterface is niet gekoppeld aan een virtuele machine) en het abonnement deze voorkomt in.
     - **Effectieve beveiligingsregels:** beveiligingsregels staan als de netwerkinterface is gekoppeld aan een actieve virtuele machine en een NSG gekoppeld aan de netwerkinterface, het subnet dat toegewezen is aan of beide. Zie voor meer informatie over wat wordt weergegeven, [effectieve beveiligingsregels weergeven](#view-effective-security-rules). Zie voor meer informatie over het nsg's, [Netwerkbeveiligingsgroepen](security-overview.md).
     - **Effectieve routes:** Routes worden weergegeven als de netwerkinterface is gekoppeld aan een actieve virtuele machine. De routes zijn een combinatie van de Azure standaardroutes, eventuele door de gebruiker gedefinieerde routes en eventuele BGP-routes die mogelijk aanwezig zijn voor het subnet dat aan de netwerkinterface is toegewezen. Zie voor meer informatie over wat wordt weergegeven, [effectieve routes weergeven](#view-effective-routes). Zie voor meer informatie over Azure standaardroutes en de gebruiker gedefinieerde routes, [Routering-overzicht](virtual-networks-udr-overview.md).
-    - **Algemene instellingen van Azure Resource Manager:** Zie voor meer informatie over de algemene instellingen van Azure Resource Manager, [activiteitenlogboek](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs), [toegangsbeheer (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [labels](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags), [Vergrendelt](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), en [automatiseringsscript](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group).
+    - **Algemene instellingen van Azure Resource Manager:** Zie voor meer informatie over de algemene instellingen van Azure Resource Manager, [activiteitenlogboek](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs), [toegangsbeheer (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [labels](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Vergrendelt](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), en [automatiseringsscript](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group).
 
 <a name="view-settings-commands"></a>**Opdrachten**
 
@@ -204,7 +203,7 @@ Wanneer u een netwerkinterface verwijdert, worden alle MAC of IP-adressen zijn t
 
 ## <a name="resolve-connectivity-issues"></a>Verbindingsproblemen oplossen
 
-Als u niet communiceren naar of van een virtuele machine, netwerk-beveiligingsregels of routes effectieve voor een netwerkinterface kunnen het probleem veroorzaakt. U hebt de volgende opties voor het probleem op te lossen:
+Als u geen communicatie naar of van een virtuele machine, netwerkbeveiligingsregels of routes effectieve voor een netwerkinterface, kan worden veroorzaakt door het probleem. U hebt de volgende opties voor het probleem op te lossen:
 
 ### <a name="view-effective-security-rules"></a>De effectieve beveiligingsregels weergeven
 
@@ -240,11 +239,30 @@ De volgende hop-functie van Azure-netwerk-Watcher kunt u bepalen of routes voork
 - Azure CLI: [az netwerk nic-ingang-route-tabel weergeven](/cli/azure/network/nic#az-network-nic-show-effective-route-table)
 - PowerShell: [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable)
 
-## <a name="next-steps"></a>Volgende stappen
-Als een virtuele machine maken met meerdere netwerkinterfaces of IP-adressen, Zie de volgende artikelen:
+## <a name="permissions"></a>Machtigingen
 
-|Taak|Hulpprogramma|
-|---|---|
-|Een virtuele machine met meerdere NIC's maken|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-|Één NIC VM maken met meerdere IPv4-adressen|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
-|Maak een enkel NIC-VM met een particulier IPv6-adres (achter een Load Balancer van Azure)|[CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Azure Resource Manager-sjabloon](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+Om uit te voeren taken op netwerkinterfaces, moet uw account worden toegewezen aan de [netwerk Inzender](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rol of naar een [aangepaste](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) rol die is de juiste machtigingen toegewezen die worden vermeld in de volgende tabel:
+
+| Bewerking                                                                     | Naam                                                      |
+| ---------                                                                  | -------------                                             |
+| Microsoft.Network/networkInterfaces/read                                   | Netwerkinterface ophalen                                     |
+| Microsoft.Network/networkInterfaces/write                                  | Maken of bijwerken van de netwerkinterface                        |
+| Microsoft.Network/networkInterfaces/join/action                            | Een netwerkinterface koppelen aan een virtuele machine           |
+| Microsoft.Network/networkInterfaces/delete                                 | Verwijderen van netwerkinterface                                  |
+| Microsoft.Network/networkInterfaces/joinViaPrivateIp/action                | Voeg een resource toe aan een netwerkinterface via een servi...     |
+| Microsoft.Network/networkInterfaces/effectiveRouteTable/action             | Network interface effectieve routetabel ophalen               |
+| Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action  | Effectieve netwerkbeveiligingsgroepen interface ophalen           |
+| Microsoft.Network/networkInterfaces/loadBalancers/read                     | Load balancers voor netwerkinterface ophalen                      |
+| Microsoft.Network/networkInterfaces/serviceAssociations/read               | Koppeling van de service ophalen                                   |
+| Microsoft.Network/networkInterfaces/serviceAssociations/write              | Maken of bijwerken van een service-koppeling                    |
+| Microsoft.Network/networkInterfaces/serviceAssociations/delete             | Koppeling van de service verwijderen                                |
+| Microsoft.Network/networkInterfaces/serviceAssociations/validate/action    | Koppeling van de service te valideren                              |
+| Microsoft.Network/networkInterfaces/ipconfigurations/read                  | IP-configuratie van een netwerkinterface ophalen                    |
+
+## <a name="next-steps"></a>Volgende stappen
+
+- Een virtuele machine maken met meerdere NIC's met behulp van de [Azure CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- Maken van een enkel NIC VM met meerdere IPv4-adressen met de [Azure CLI](virtual-network-multiple-ip-addresses-cli.md) of [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
+- Maak een enkel NIC-VM met een persoonlijke IPv6-adres (achter een Load Balancer van Azure) met de [Azure CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), of [Azure Resource Manager-sjabloon](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+- Maak een interface die met [PowerShell](powershell-samples.md) of [Azure CLI](cli-samples.md) steekproef scripts of met behulp van Azure [Resource Manager-sjablonen](template-samples.md)
+- Maken en toepassen van [Azure beleid](policy-samples.md) voor virtuele netwerken

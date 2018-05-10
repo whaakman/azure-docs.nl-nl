@@ -2,8 +2,8 @@
 title: Releaseopmerkingen voor Visual Studio-extensie voor ontwikkelaars analyses
 description: De meest recente updates voor Visual Studio-hulpprogramma's voor ontwikkelaars analyses.
 services: application-insights
-documentationcenter: 
-author: acearun
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 2001db30-efc5-417a-a413-93c1b218975f
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: mbullwin
-ms.openlocfilehash: b1181698deee265e4b6b2df8bb18e2297cdc8599
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.author: mbullwin; aruna
+ms.openlocfilehash: 53a4d7fe1d92826b92866e170fd731edbd5ba1bf
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>Releaseopmerkingen voor Developer Analytics Tools
 
@@ -289,8 +289,3 @@ U hoeft niet langer aan te melden bij Azure Application Insights-pakketten toevo
 
 ![Het dialoogvenster New Project](./media/app-insights-release-notes-vsix/newproject.png)
 
-### <a name="device-support"></a>Ondersteuning voor apparaten
-Op *Connect ();* 2015 we [aangekondigd](https://azure.microsoft.com/blog/deep-diagnostics-for-web-apps-with-application-insights/) dat onze ontwikkelaarservaring van mobiele apparaten HockeyApp is. HockeyApp kunt u betabuilds naar uw testers distribueren, verzamelen en analyseren van alle crashes van uw app en feedback te verzamelen rechtstreeks vanuit uw klanten.
-HockeyApp ondersteunt uw app op elk ander platform dat u maken, wilt of dat nu iOS, Android, of Windows of een oplossing platformoverschrijdende zoals Xamarin, Cordova en Unity.
-
-In toekomstige versies van de extensie Application Insights hebt stellen we een meer geïntegreerde ervaring tussen HockeyApp en Visual Studio. Op dit moment kunt u beginnen met HockeyApp door de NuGet-verwijzing toe te voegen. Zie de [documentatie](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone) voor meer informatie.

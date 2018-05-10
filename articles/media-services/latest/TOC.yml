@@ -1,0 +1,73 @@
+- name: Documentatie voor Media Services
+  href: ./index.yml
+- name: Overzicht
+  items:
+    - name: Informatie over Media Services
+      href: media-services-overview.md
+- name: Snelstartgidsen
+  expanded: true
+  items:
+    - name: Videobestanden streamen met .NET
+      href: stream-files-dotnet-quickstart.md
+- name: Zelfstudies
+  items:
+    - name: 'Uploaden, coderen en streamen'
+      href: stream-files-tutorial-with-api.md
+    - name: Uw video analyseren
+      href: analyze-videos-tutorial-with-api.md
+- name: Voorbeelden
+  items:
+    - name: Azure-codevoorbeelden
+      href: 'https://azure.microsoft.com/resources/samples/?service=media-services'
+    - name: Azure-CLI
+      href: cli-samples.md
+- name: Concepten
+  items:
+    - name: Assets
+      href: assets-concept.md
+    - name: Automatisch gegenereerde adaptieve bitrateladder
+      href: autogen-bitrate-ladder.md
+    - name: Mediagegevens
+      href: intelligence-concept.md
+    - name: Opslagaccounts
+      href: storage-account-concept.md
+    - name: Transformaties en taken
+      href: transform-concept.md
+    - name: Reageren op gebeurtenissen
+      href: reacting-to-media-services-events.md
+- name: Handleidingen
+  items:
+    - name: Een account maken - CLI
+      href: create-account-cli-how-to.md
+    - name: Toegang tot API's - CLI
+      href: access-api-cli-how-to.md
+    - name: Taakstatusgebeurtenissen - CLI
+      href: job-state-events-cli-how-to.md
+    - name: Inhoud uploaden - .NET
+      items:
+        - name: Van HTTP(s)
+          href: job-input-from-http-how-to.md
+        - name: Uit een lokaal bestand
+          href: job-input-from-local-file-how-to.md
+- name: Naslaginformatie
+  items:
+    - name: Azure CLI 2.0
+      href: 'https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest'
+    - name: REST
+      href: 'https://go.microsoft.com/fwlink/p/?linkid=873030'
+    - name: Gebeurtenisschema's
+      href: media-services-event-schemas.md
+- name: Resources
+  items:
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
+    - name: Prijzen
+      href: 'https://azure.microsoft.com/pricing/details/media-services/'
+    - name: Regionale beschikbaarheid
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Video's
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=media-services'
+    - name: Releaseopmerkingen
+      href: release-notes.md
+    - name: Quota en beperkingen
+      href: limits-quotas-constraints.md

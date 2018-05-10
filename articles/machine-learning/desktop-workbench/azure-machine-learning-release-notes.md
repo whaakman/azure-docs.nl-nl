@@ -9,21 +9,32 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: reference
 ms.date: 03/28/2018
-ms.openlocfilehash: e30943426ad68171e1464f828a9c8672b06c975a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 1eb4e7859ae62fca4e4a11f69abda3f767ab9596
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="whats-new-in-azure-machine-learning"></a>Wat is nieuw in Azure Machine Learning?
 
-In dit artikel meer informatie over de nieuwe versies voor [Azure Machine Learning Services](../service/overview-what-is-azure-ml.md). 
+In dit artikel meer informatie over de nieuwe releases van [Azure Machine Learning](../service/overview-what-is-azure-ml.md). 
+
+
+## <a name="2018-05-sprint-5"></a>2018-05 (sprint 5)
+
+Met deze versie van Azure Machine Learning, kunt u het volgende doen:
++ Featurize afbeeldingen met een quantized versie van ResNet 50, een classificatie op basis van deze functies, trainen en [model implementeren op een FPGA op Azure](../service/how-to-deploy-fpga-web-service.md) voor inferencing zeer lage latentie.
+
++ Snel bouwen en implementeren van maximaal nauwkeurige machine learning en grondige learning-modellen met [aangepaste Azure Machine Learning-pakketten](../service/reference-python-package-overview.md) voor de volgende gebieden:
+  + [Computer vision](../service/how-to-build-deploy-image-classification-models.md)
+  + [Tekstanalyse](../service/how-to-build-deploy-text-classification-models.md)
+  + [Prognose](../service/how-to-build-deploy-forecast-models.md)
 
 ## <a name="2018-03-sprint-4"></a>2018-03 (sprint 4)
 **Versienummer**: 0.1.1801.24353 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([uw versie vinden](../service/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 
-Welkom bij de vijfde update van Azure Machine Learning-Workbench. Veel van de volgende updates worden gedaan als directe resultaten van uw feedback. Zorg ervoor dat ze afkomstig zijn.
+Veel van de volgende updates worden gedaan als directe resultaten van uw feedback. Zorg ervoor dat ze afkomstig zijn.
 
 **Belangrijke nieuwe functies en wijzigingen**
 

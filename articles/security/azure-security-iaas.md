@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: a6d6e0b7ea844f0a4d60ae7a157ac76dc8bdb8f8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2498c8b1acff79d50f34c703af77c555a00fd1a2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Aanbevolen beveiligingsprocedures voor IaaS-workloads in Azure
 
@@ -85,7 +85,7 @@ Met behulp van Azure voor labs en ontwikkelomgevingen kan organisaties om te tes
 
 De [Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) service gebruikt [rollen gebaseerd toegangsbeheer](../role-based-access-control/overview.md) (RBAC). Met behulp van RBAC kunt u taken scheiden binnen uw team in rollen die verlenen alleen het niveau van toegang nodig zijn voor gebruikers om hun werk te doen. RBAC wordt geleverd met vooraf gedefinieerde functies (eigenaar, lab-gebruiker en Inzender). U kunt zelfs deze rollen toewijzen aan externe partners en samenwerking aanzienlijk te vereenvoudigen.
 
-Omdat DevTest Labs RBAC gebruikt, is het mogelijk te maken als u meer, [aangepaste rollen](../devtest-lab/devtest-lab-grant-user-permissions-to-specific-lab-policies.md). DevTest Labs niet alleen vereenvoudigt het beheer van machtigingen, het vereenvoudigt het proces van het ophalen van omgevingen ingericht. Hiermee kunt u ook andere typische uitdagingen van teams die op een ontwikkel- en testomgevingen werkt behandelt. Voorbereiding is vereist, maar de lange termijn, deze wordt gemakkelijker voor uw team.
+Omdat DevTest Labs RBAC gebruikt, is het mogelijk te maken als u meer, [aangepaste rollen](../lab-services/devtest-lab-grant-user-permissions-to-specific-lab-policies.md). DevTest Labs niet alleen vereenvoudigt het beheer van machtigingen, het vereenvoudigt het proces van het ophalen van omgevingen ingericht. Hiermee kunt u ook andere typische uitdagingen van teams die op een ontwikkel- en testomgevingen werkt behandelt. Voorbereiding is vereist, maar de lange termijn, deze wordt gemakkelijker voor uw team.
 
 Azure DevTest Labs functies:
 

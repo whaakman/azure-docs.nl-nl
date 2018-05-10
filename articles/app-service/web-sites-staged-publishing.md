@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: ec2399c955f718186bbedc0e4bad61ccc61fd972
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2fabf0d61ffd2f526fab49816eab36a86497a358
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Faseringsomgevingen in Azure App Service instellen
 <a name="Overview"></a>
@@ -30,11 +30,7 @@ Wanneer u uw web-app, web-app op Linux-, mobiele back-end- en API-app implemente
 * Zorgt ervoor dat alle exemplaren van de sleuf zijn opgewarmd voordat gewisseld naar de productie implementeert eerst een app in een sleuf en deze in productie te wisselen. Hierdoor is er uitvaltijd wanneer u uw app implementeert. Het verkeer omleiden naadloze is en er zijn geen aanvragen worden verwijderd als gevolg van de wisseling bewerkingen. Deze volledige werkstroom kan worden geautomatiseerd door configureren [automatisch wisselen](#Auto-Swap) wanneer vooraf swap-validatie is niet nodig.
 * Als een wisseling heeft de sleuf met eerder voorbereide app de vorige productie-app. Als de gewisseld naar de productiesite wijzigingen zijn niet zoals u verwacht, kunt u de dezelfde swap onmiddellijk om uw "laatst bekende goede site" uitvoeren terug.
 
-Elke laag van App Service plan ondersteunt een verschillend aantal implementatiesites. Sleuven om erachter te komen het nummer van uw app-laag ondersteunt, Zie [App Servicelimieten](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits).
-
-* Wanneer uw app meerdere sleuven heeft, kunt u de laag niet wijzigen.
-* Schalen is niet beschikbaar voor niet-productieve sleuven.
-* Gekoppelde bronbeheer wordt niet ondersteund voor niet-productieve sleuven. In de [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) u kunt dit mogelijk invloed op een productiesite alleen voorkomen door het tijdelijk de-productiesite verplaatsen naar een andere laag van de App Service-plan. Houd er rekening mee dat de niet-productiesite nogmaals dezelfde categorie met de productiesite delen moet voordat u kunt de twee sleuven omwisselen.
+Elke laag van App Service plan ondersteunt een verschillend aantal implementatiesites. Sleuven om erachter te komen het nummer van uw app-laag ondersteunt, Zie [App Servicelimieten](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits). Als u wilt schalen van uw app met een andere tier, moet de doel-laag het nummer van uw app gebruikmaakt van al sleuven ondersteunen. Bijvoorbeeld als uw app meer dan 5 sleuven heeft, u niet kunt schalen omlaag naar **standaard** laag, omdat **standaard** laag ondersteunt alleen 5 implementatiesites.
 
 <a name="Add"></a>
 

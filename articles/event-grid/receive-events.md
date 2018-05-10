@@ -6,13 +6,13 @@ author: banisadr
 manager: darosa
 ms.service: event-grid
 ms.topic: article
-ms.date: 02/16/2018
+ms.date: 04/26/2018
 ms.author: babanisa
-ms.openlocfilehash: 179f7c46186762eed2f7f8ac90620ac2fec9caf3
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: db79629c5f806fe50d22200574c29052a485dd06
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Gebeurtenissen op een HTTP-eindpunt ontvangen
 
@@ -27,9 +27,9 @@ Dit artikel wordt beschreven hoe u [valideren van een HTTP-eindpunt](security-au
 
 ## <a name="add-dependencies"></a>Afhankelijkheden toevoegen
 
-Als u in .net ontwikkelt [toevoegen van een afhankelijkheid](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) aan de functie voor de `Microsoft.Azure.EventGrid` [Nuget-pakket](https://www.nuget.org/packages/Microsoft.Azure.EventGrid). SDK's voor andere talen beschikbaar zijn via de [SDK's publiceren](./sdk-overview.md#publish-sdks) verwijzing. Deze pakketten bevatten zoals de modellen voor systeemeigen gebeurtenistypen `EventGridEvent`, `StorageBlobCreatedEventData`, en `EventHubCaptureFileCreatedEventData`.
+Als u in .NET ontwikkelt [toevoegen van een afhankelijkheid](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) aan de functie voor de `Microsoft.Azure.EventGrid` [Nuget-pakket](https://www.nuget.org/packages/Microsoft.Azure.EventGrid). SDK's voor andere talen beschikbaar zijn via de [SDK's publiceren](./sdk-overview.md#data-plane-sdks) verwijzing. Deze pakketten bevatten zoals de modellen voor systeemeigen gebeurtenistypen `EventGridEvent`, `StorageBlobCreatedEventData`, en `EventHubCaptureFileCreatedEventData`.
 
-Om dit te doen, klikt u op de koppeling 'Bestanden weergeven' in uw Azure-functie (de meeste rechterdeelvenster in de Azure functions-portal) en een bestand met de naam project.json maken. Voeg de volgende inhoud naar de `project.json` -bestand en sla het:
+Klik op de koppeling 'Bestanden weergeven' in uw Azure-functie (de meeste rechterdeelvenster in de Azure functions-portal) en maken van een bestand met de naam project.json. Voeg de volgende inhoud naar de `project.json` -bestand en sla het:
 
  ```json
 {
@@ -41,19 +41,17 @@ Om dit te doen, klikt u op de koppeling 'Bestanden weergeven' in uw Azure-functi
     }
    }
 }
-
 ```
 
-![Toegevoegde Nuget-pakket](./media/receive-events/add-dependencies.png)
+![Toegevoegde NuGet-pakket](./media/receive-events/add-dependencies.png)
 
 ## <a name="endpoint-validation"></a>Validatie van het eindpunt
 
-Het eerste wat we willen dat te doen is verwerkt `Microsoft.EventGrid.SubscriptionValidationEvent` gebeurtenissen. Telkens wanneer een nieuw abonnement voor de gebeurtenis is gemaakt, raster gebeurtenis een validatiegebeurtenis verzendt naar het eindpunt met een `validationCode` in de nettolading van gegevens. Het eindpunt is vereist voor de echo dit terug in de hoofdtekst van de reactie naar [aantonen dat u het eindpunt geldig is en in eigendom van door u](security-authentication.md#webhook-event-delivery). Als u een [gebeurtenis raster Trigger](../azure-functions/functions-bindings-event-grid.md) in plaats van een WebHook geactiveerd functie, de validatie van het eindpunt is afgehandeld.
+Het eerste wat u wilt doen is afgehandeld `Microsoft.EventGrid.SubscriptionValidationEvent` gebeurtenissen. Telkens wanneer iemand zich op een gebeurtenis abonneert, raster gebeurtenis een validatiegebeurtenis verzendt naar het eindpunt met een `validationCode` in de nettolading van gegevens. Het eindpunt is vereist voor de echo dit terug in de hoofdtekst van de reactie naar [aantonen dat u het eindpunt geldig is en in eigendom van door u](security-authentication.md#webhook-event-delivery). Als u een [gebeurtenis raster Trigger](../azure-functions/functions-bindings-event-grid.md) in plaats van een WebHook geactiveerd functie, de validatie van het eindpunt is afgehandeld. Als u een API-service van derden (zoals [Zapier](https://zapier.com) of [IFTTT](https://ifttt.com/)), mogelijk niet via programmacode echo code voor de validatie. U kunt handmatig het abonnement via een validatie-URL die wordt verzonden in de validatie-gebeurtenis abonnement voor deze services valideren. Kopieer de URL in de `validationUrl` eigenschap en verzendt een GET-aanvragen via een REST-client of de webbrowser.
 
-Gebruik de volgende code voor de verwerking van het valideren van abonnementen:
+Programmatisch echo van code voor de validatie, moet u de volgende code gebruiken:
 
 ```csharp
-
 using System.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -102,7 +100,6 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 ```
 
 ```javascript
-
 var http = require('http');
 
 module.exports = function (context, req) {
@@ -122,7 +119,6 @@ module.exports = function (context, req) {
     }
     context.done();
 };
-
 ```
 
 ### <a name="test-validation-response"></a>Validatie antwoord testen
@@ -130,7 +126,6 @@ module.exports = function (context, req) {
 Test de validatiefunctie antwoord door de voorbeeldgebeurtenis in het veld voor de functie plakken:
 
 ```json
-
 [{
   "id": "2d1781af-3a4c-4d7c-bd0c-e34b19da4e66",
   "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -143,7 +138,6 @@ Test de validatiefunctie antwoord door de voorbeeldgebeurtenis in het veld voor 
   "metadataVersion": "1",
   "dataVersion": "1"
 }]
-
 ```
 
 Wanneer u op uitvoeren klikt, de uitvoer moet 200 OK en `{"ValidationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}` in de hoofdtekst:
@@ -152,10 +146,9 @@ Wanneer u op uitvoeren klikt, de uitvoer moet 200 OK en `{"ValidationResponse":"
 
 ## <a name="handle-blob-storage-events"></a>Blob storage gebeurtenissen verwerken
 
-We kunnen nu uitbreiden met de functie voor het afhandelen van `Microsoft.Storage.BlobCreated`:
+Nu gaan we uitbreiden van de functie voor het afhandelen van `Microsoft.Storage.BlobCreated`:
 
 ```cs
-
 using System.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -211,7 +204,6 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 ```
 
 ```javascript
-
 var http = require('http');
 
 module.exports = function (context, req) {
@@ -245,7 +237,6 @@ module.exports = function (context, req) {
 De nieuwe functionaliteit van de functie testen door de gegevens een [Blob storage gebeurtenis](./event-schema-blob-storage.md#example-event) in de testveld en wordt uitgevoerd:
 
 ```json
-
 [{
   "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/xstoretestaccount",
   "subject": "/blobServices/default/containers/testcontainer/blobs/testfile.txt",
@@ -269,23 +260,21 @@ De nieuwe functionaliteit van de functie testen door de gegevens een [Blob stora
   "dataVersion": "",
   "metadataVersion": "1"
 }]
-
 ```
 
 U ziet de uitvoer van de blob-URL in het logboek voor de functie:
 
 ![Uitvoerlogboek](./media/receive-events/blob-event-response.png)
 
-U kunt ook deze live out testen door het maken van een Blob storage-account of algemene doel V2 (GPv2) Storage-account, [toe te voegen en de gebeurtenis abonnement](../storage/blobs/storage-blob-event-quickstart.md), en het instellen van het eindpunt naar de URL van de functie:
+U kunt ook testen door het maken van een Blob storage-account of algemene doel V2 (GPv2) Storage-account, [toe te voegen en de gebeurtenis abonnement](../storage/blobs/storage-blob-event-quickstart.md), en het instellen van het eindpunt naar de URL van de functie:
 
-![URL van de functie](./media/receive-events/function-url.png)
+![Functie-URL](./media/receive-events/function-url.png)
 
 ## <a name="handle-custom-events"></a>Aangepaste gebeurtenissen verwerken
 
-Ten slotte kunt de functie zodra er meer uitbreiden zodat deze kan ook aangepaste gebeurtenissen verwerken. We een controle toevoegen voor ons eigen gebeurtenis `Contoso.Items.ItemReceived`. Uw laatste code ziet er als volgt:
+Ten slotte kunt de functie zodra er meer uitbreiden zodat deze kan ook aangepaste gebeurtenissen verwerken. Toevoegen van een selectievakje voor de gebeurtenis `Contoso.Items.ItemReceived`. Uw laatste code moet eruitzien als:
 
 ```cs
-
 using System.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -354,7 +343,6 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 ```
 
 ```javascript
-
 var http = require('http');
 var t = require('tcomb');
 
@@ -401,7 +389,6 @@ module.exports = function (context, req) {
 Ten slotte test uw EA functie aankan nu uw aangepaste gebeurtenistype:
 
 ```json
-
 [{
     "subject": "Contoso/foo/bar/items",
     "eventType": "Microsoft.EventGrid.CustomEventType",
@@ -415,7 +402,6 @@ Ten slotte test uw EA functie aankan nu uw aangepaste gebeurtenistype:
     "dataVersion": "",
     "metadataVersion": "1"
 }]
-
 ```
 
 U kunt ook deze live door functionaliteit testen [een aangepaste gebeurtenis met CURL verzenden via de Portal](./custom-event-quickstart-portal.md) of door [boeken in een eigen onderwerp](./post-to-custom-topic.md) met behulp van een service of toepassing die naar een eindpunt zoals postenkan[Postman](https://www.getpostman.com/). Maak een aangepaste onderwerp en een gebeurtenisabonnement met het eindpunt instellen als de URL van de functie.

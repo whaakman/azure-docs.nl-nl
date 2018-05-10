@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: byvinyal
-ms.openlocfilehash: f8b97aeb4c37578b884c924bd1919a59fa0f1cf8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: MT
+ms.openlocfilehash: 28b6f6c269dfb1550b4ed12af3366b483d402f86
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-abonnement en servicelimieten, quota's en beperkingen
 Dit document vindt u enkele van de meest voorkomende Microsoft Azure limieten, quota's worden ook wel worden genoemd. Dit document betrekking niet op dit moment op alle Azure-services. Na verloop van tijd wordt de lijst uitgebreid en bijgewerkt ten aanzien van het platform.
@@ -53,6 +53,7 @@ Een nieuwe tabel is in de onderstaande grenzen in overeenstemming met eventuele 
 * [Automatisering](#automation-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [Azure Event Grid](#azure-event-grid-limits)
+* [Azure Maps](#azure-maps-limits)
 * [Azure Redis-cache](#azure-redis-cache-limits)
 * [Een back-up maken](#backup-limits)
 * [Batch](#batch-limits)
@@ -61,7 +62,7 @@ Een nieuwe tabel is in de onderstaande grenzen in overeenstemming met eventuele 
 * [Cloud Services](#cloud-services-limits)
 * [Container Instances](#container-instances-limits)
 * [Container Registry](#container-registry-limits)
-* [Container Service (AKS)](#container-service-aks-limits)
+* [Kubernetes-Service](#container-service-aks-limits)
 * [Data Factory](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
@@ -69,7 +70,7 @@ Een nieuwe tabel is in de onderstaande grenzen in overeenstemming met eventuele 
 * [DNS](#dns-limits)
 * [Event Hubs](#event-hubs-limits)
 * [IoT Hub](#iot-hub-limits)
-* [Service voor IoT Hub apparaat-inrichting](#iot-hub-device-provisioning-service-limits)
+* [IoT Hub Device Provisioning Service](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
 * [Log Analytics](#log-analytics-limits)
 * [Media Services](#media-services-limits)
@@ -78,8 +79,8 @@ Een nieuwe tabel is in de onderstaande grenzen in overeenstemming met eventuele 
 * [Controle](#monitor-limits)
 * [Multi-Factor Authentication](#multi-factor-authentication)
 * [Netwerken](#networking-limits)
-* [Network Watcher](#network-watcher-limits)
-* [Notification Hub Service](#notification-hub-service-limits)
+* [Netwerk-Watcher](#network-watcher-limits)
+* [Notification Hub-Service](#notification-hub-service-limits)
 * [Resourcegroep](#resource-group-limits)
 * [Scheduler](#scheduler-limits)
 * [Zoeken](#search-limits)
@@ -129,7 +130,7 @@ De volgende tabel worden de functies en de ondergrenzen van de Basic, Standard e
 
 [!INCLUDE [container-registry-limits](../includes/container-registry-limits.md)]
 
-### <a name="container-service-aks-limits"></a>Limieten voor container Service (AKS)
+### <a name="kubernetes-service-limits"></a>Servicelimieten Kubernetes
 [!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
 
 ### <a name="networking-limits"></a>Netwerklimieten
@@ -281,6 +282,9 @@ Zie voor meer informatie over limieten voor een meer gedetailleerd niveau, zoals
 ### <a name="azure-event-grid-limits"></a>Azure Event raster limieten
 [!INCLUDE [event-grid-limits](../includes/event-grid-limits.md)]
 
+### <a name="azure-maps-limits"></a>Azure Maps-limieten
+[!INCLUDE [maps-limits](../includes/maps-limits.md)]
+
 ### <a name="storsimple-system-limits"></a>Beperkt StorSimple-systeem
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
 
@@ -305,7 +309,7 @@ Zie voor meer informatie over limieten voor een meer gedetailleerd niveau, zoals
 ### <a name="key-vault-limits"></a>Limieten voor Sleutelkluis
 [!INCLUDE [key-vault-limits](../includes/key-vault-limits.md)]
 
-### <a name="multi-factor-authentication"></a>Meervoudige verificatie
+### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 [!INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
 
 ### <a name="automation-limits"></a>Limieten voor Automation

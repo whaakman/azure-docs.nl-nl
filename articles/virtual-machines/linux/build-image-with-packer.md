@@ -1,25 +1,25 @@
 ---
-title: "Het maken van Linux Azure VM-installatiekopieën met verpakker | Microsoft Docs"
-description: "Informatie over het gebruik van verpakker installatiekopieën maken van virtuele Linux-machines in Azure"
+title: Het maken van Linux Azure VM-installatiekopieën met verpakker | Microsoft Docs
+description: Informatie over het gebruik van verpakker installatiekopieën maken van virtuele Linux-machines in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/13/2017
+ms.date: 05/03/2018
 ms.author: iainfou
-ms.openlocfilehash: 49a3e7f3aab3ae95c6f40b167880bb48d0fc851b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7d7ba6a493cca3dd14829e6527136af6df424c05
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Het gebruik van verpakker voor het maken van installatiekopieën van Linux virtuele machines in Azure
 Elke virtuele machine (VM) in Azure wordt gemaakt van een installatiekopie die u de Linux-distributie en de versie van het besturingssysteem definieert. Voorbeelden van afbeeldingen zijn vooraf geïnstalleerde toepassingen en configuraties. Azure Marketplace bevat veel installatiekopieën van het eerste en derde partij voor het meest voorkomende distributies en omgevingen met toepassingen, of kunt u uw eigen aangepaste installatiekopieën die zijn afgestemd op uw behoeften. Dit artikel wordt uitgelegd hoe u de open-source hulpprogramma [verpakker](https://www.packer.io/) om te definiëren en te maken van aangepaste installatiekopieën in Azure.
@@ -211,9 +211,11 @@ az vm create \
     --generate-ssh-keys
 ```
 
+Als u maken van virtuele machines in een andere resourcegroep of de regio dan uw installatiekopie verpakker wilt, geeft u de afbeeldings-ID in plaats van de installatiekopienaam van de. U kunt de afbeeldings-ID met verkrijgen [az afbeelding worden weergegeven](/cli/azure/image#az-image-show).
+
 Het duurt enkele minuten voor het maken van de virtuele machine. Wanneer de virtuele machine is gemaakt, dient u de `publicIpAddress` weergegeven door de Azure CLI. Dit adres wordt gebruikt voor toegang tot de NGINX-site via een webbrowser.
 
-Open poort 80 via Internet met zodat webverkeer bereiken van uw virtuele machine [az vm open poort](/cli/azure/vm#open-port):
+Open poort 80 via internet met [az vm open-port](/cli/azure/vm#open-port) zodat beveiligd webverkeer uw virtuele machine kan bereiken:
 
 ```azurecli
 az vm open-port \
@@ -223,7 +225,7 @@ az vm open-port \
 ```
 
 ## <a name="test-vm-and-nginx"></a>Virtuele machine en NGINX testen
-Nu kunt u een webbrowser openen en voer `http://publicIpAddress` in de adresbalk. Geef uw eigen openbare IP-adres op uit het creatieproces van de virtuele machine proces. De standaard NGINX-pagina wordt weergegeven zoals in het volgende voorbeeld:
+Nu kunt u een webbrowser openen en `http://publicIpAddress` in de adresbalk invoeren. Geef uw eigen openbare IP-adres op uit het creatieproces van de virtuele machine proces. De standaard NGINX-pagina wordt weergegeven zoals in het volgende voorbeeld:
 
 ![Standaardsite van NGINX](./media/build-image-with-packer/nginx.png) 
 

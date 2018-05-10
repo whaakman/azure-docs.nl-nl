@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b91d446f4c43a4ecae40ef49e5e7f930f25e6ad2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: f474921acbd3a5082afea03dd982bcfa9c52dcda
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="use-draft-with-azure-container-service-aks"></a>Concept gebruiken met Azure Containerservice (AKS)
+# <a name="use-draft-with-azure-kubernetes-service-aks"></a>Concept gebruiken met Azure Kubernetes-Service (AKS)
 
 Concept is een open-source hulpprogramma waarmee bevatten en implementeren van deze containers in een cluster Kubernetes, zodat u zich kunt concentreren op basis van de dev-cyclus--de 'interne loop' van geconcentreerd ontwikkeling. Concept werkt als de code wordt ontwikkeld, maar alvorens toe te wijzen aan versiebeheer. Met het concept, u kunt snel opnieuw implementeren een toepassing op Kubernetes als codewijzigingen optreden. Zie voor meer informatie over ontwerp, de [concept documentatie op Github][draft-documentation].
 
@@ -27,7 +27,7 @@ Bij de stappen die in dit document worden uiteengezet, wordt ervan uitgegaan dat
 
 U moet ook een persoonlijke Docker-register in Azure Container register (ACR). Zie voor instructies over het implementeren van een ACR-exemplaar de [Quick Start Azure Container register][acr-quickstart].
 
-Helm moet ook worden geïnstalleerd in uw cluster AKS. Zie voor meer informatie over het installeren van helm [Helm voor gebruik met Azure Container Service (AKS)][aks-helm].
+Helm moet ook worden geïnstalleerd in uw cluster AKS. Zie voor meer informatie over het installeren van helm [Helm voor gebruik met Azure Kubernetes Service (AKS)][aks-helm].
 
 Tot slot moet u [Docker](https://www.docker.com).
 

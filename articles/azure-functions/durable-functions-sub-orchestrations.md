@@ -4,9 +4,9 @@ description: Klik hier voor meer informatie over het aanroepen van integraties v
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 5184bef81d1cd6ca7b41c1634def24031a4a5942
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 7545a371749ed9af88f08af23cce3a513f494374
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Onderliggende integraties in duurzame functies (Azure-functies)
 
@@ -27,6 +27,9 @@ Naast het aanroepen van functies van de activiteit kunnen orchestrator-functies 
 Een orchestrator-functie kan een andere orchestrator-functie aanroepen door het aanroepen van de [CallSubOrchestratorAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorAsync_) of de [CallSubOrchestratorWithRetryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorWithRetryAsync_) methode. De [fouten afhandelen & compensatie](durable-functions-error-handling.md#automatic-retry-on-failure) artikel bevat meer informatie over automatische probeer het opnieuw.
 
 Onderliggende orchestrator-functies werken net zo als functies vanuit het perspectief van de aanroeper van activiteit. Ze kunnen een waarde retourneren Veroorzaak een exception en door de bovenliggende orchestrator-functie kan worden afgewacht.
+
+> [!NOTE]
+> De `CallSubOrchestratorAsync` en `CallSubOrchestratorWithRetryAsync` methoden zijn nog niet beschikbaar in JavaScript.
 
 ## <a name="example"></a>Voorbeeld
 

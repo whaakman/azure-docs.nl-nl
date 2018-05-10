@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: a51b7d115a8287340450b3525a9b1a325702485b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 5f8ddc9c57df878137ee1ff1b6431e40acfd5eb4
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Automatische online back-up en herstel met Azure Cosmos-DB
 Azure Cosmos-database wordt automatisch back-ups van al uw gegevens met regelmatige tussenpozen. De automatische back-ups worden gemaakt zonder de prestaties of beschikbaarheid van uw databasebewerkingen. Uw back-ups apart zijn opgeslagen in een andere storage-service en deze back-ups globaal voor tolerantie tegen regionale noodsituaties worden gerepliceerd. De automatische back-ups zijn bedoeld voor scenario's wanneer u uw Cosmos-DB-container per ongeluk verwijdert en later nodig hebt voor herstel van gegevens of een noodherstel.  
@@ -50,7 +50,11 @@ De volgende afbeelding ziet u periodieke volledige back-ups van alle Cosmos DB e
 ## <a name="backup-retention-period"></a>Back-up bewaarperiode
 Zoals hierboven wordt beschreven, duurt Azure Cosmos DB momentopnamen van uw gegevens om de vier uur op het niveau van de partitie. Op elk gewenst worden alleen de laatste twee momentopnamen bewaard. Echter, als de verzamelingdatabase wordt verwijderd, behouden we de bestaande momentopnamen voor alle van de verwijderde partities binnen de opgegeven verzamelingdatabase voor 30 dagen.
 
-Als u onderhouden van uw eigen momentopnamen wilt, kunt u het exporteren naar een JSON-optie gebruiken in de database van de Cosmos Azure [hulpprogramma voor gegevensmigratie](import-data.md#export-to-json-file) aanvullende back-ups plannen.
+Voor SQL-API als u wilt behouden van uw eigen momentopnamen, kunt u het exporteren naar een JSON-optie in de database van de Cosmos Azure [hulpprogramma voor gegevensmigratie](import-data.md#export-to-json-file) aanvullende back-ups plannen.
+
+> [!NOTE]
+> Als u 'Inrichten doorvoer voor een set van containers op het niveau van de Database' – Houd er rekening mee wordt het terugzetten van gebeurt op niveau van de account volledige Database. Ook moet u ervoor zorgen dat binnen de 8 uur tot onze support bereiken als u per ongeluk uw container - tabel/verzameling/grafiek verwijderd als u deze nieuwe mogelijkheid gebruikt. 
+
 
 ## <a name="restoring-a-database-from-an-online-backup"></a>Een database terugzetten vanuit een online back-up
 Als u de database of een verzameling per ongeluk verwijdert, kunt u [bestand een ondersteuningsticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) of [contact op met ondersteuning voor Azure](https://azure.microsoft.com/support/options/) de gegevens van de laatste automatische back-up wilt terugzetten. Als u wilt uw database terugzetten vanwege beschadigingsprobleem gegevens (inclusief gevallen waar de documenten binnen een verzameling worden verwijderd), Zie [afhandeling van gegevensbeschadiging](#handling-data-corruption) als nodig is voor extra stappen ondernemen om te voorkomen dat de beschadigde gegevens de bestaande back-ups overschrijven. Voor een specifieke momentopname van de back-up moet worden hersteld, vereist Cosmos DB dat de gegevens voor de duur van de back-cyclus voor het die momentopname beschikbaar is.

@@ -1,4 +1,4 @@
-- name: Azure Container Service (AKS)
+- name: Azure Kubernetes Service (AKS)
   href: ./index.yml
 - name: Overzicht
   items:
@@ -25,9 +25,7 @@
       href: tutorial-kubernetes-scale.md
     - name: 6 - Een toepassing bijwerken
       href: tutorial-kubernetes-app-update.md
-    - name: 7 - Bewaken met Log Analytics
-      href: tutorial-kubernetes-monitor.md
-    - name: 8 - Een cluster upgraden
+    - name: 7 - Een cluster upgraden
       href: tutorial-kubernetes-upgrade-cluster.md
 - name: Concepten
   items:
@@ -57,12 +55,16 @@
           href: azure-files-dynamic-pv.md
     - name: Netwerk configureren
       items:
+        - name: Overzicht van netwerken
+          href: networking-overview.md
         - name: Statisch IP-adres
           href: static-ip.md
         - name: Interne load balancer
           href: internal-lb.md
         - name: Inkomend verkeer en TLS
           href: ingress.md
+        - name: Routering van HTTP-toepassing
+          href: http-application-routing.md
     - name: Verificatie en beveiliging
       items:
         - name: Een service-principal maken

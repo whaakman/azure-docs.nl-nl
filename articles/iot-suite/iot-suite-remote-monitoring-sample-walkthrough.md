@@ -1,12 +1,12 @@
 ---
 title: Architectuur van de oplossing voor externe controle - Azure | Microsoft Docs
-description: Een overzicht van de architectuur van de vooraf geconfigureerde oplossing voor externe controle.
-services: 
+description: Een overzicht van de architectuur van de externe controle oplossingsverbetering.
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
 ms.devlang: na
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: e19ba9c88e4fbe4f065c45ce7029247436f7155c
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 3eaaa1ec09e9bd593a2d14e4a3bc751c431869d0
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="remote-monitoring-preconfigured-solution-architecture"></a>Externe controle vooraf geconfigureerde oplossingsarchitectuur
+# <a name="remote-monitoring-solution-accelerator-architecture"></a>Externe controle accelerator oplossingsarchitectuur
 
-IoT Suite remote monitoring [vooraf geconfigureerde oplossing](iot-suite-what-are-preconfigured-solutions.md) implementeert u een oplossing voor de end-to-end-controle voor meerdere machines op externe locaties. De oplossing combineert belangrijke Azure-services voor een algemene implementatie van het bedrijfsscenario. U kunt de oplossing gebruiken als een beginpunt voor uw eigen implementatie en [aanpassen](iot-suite-remote-monitoring-customize.md) om te voldoen aan uw eigen specifieke zakelijke vereisten.
+Externe controle [oplossingsverbetering](iot-suite-what-are-solution-accelerators.md) implementeert u een oplossing voor de end-to-end-controle voor meerdere machines op externe locaties. De oplossing combineert belangrijke Azure-services voor een algemene implementatie van het bedrijfsscenario. U kunt de oplossing gebruiken als een beginpunt voor uw eigen implementatie en [aanpassen](iot-suite-remote-monitoring-customize.md) om te voldoen aan uw eigen specifieke zakelijke vereisten.
 
 In dit artikel wordt stapsgewijs een aantal belangrijke elementen van externe controle beschreven, zodat u beter begrijpt hoe dit werkt. Deze kennis helpt u bij:
 
@@ -33,13 +33,13 @@ In dit artikel wordt stapsgewijs een aantal belangrijke elementen van externe co
 
 ## <a name="logical-architecture"></a>Logische architectuur
 
-Het volgende diagram geeft een overzicht van de logische onderdelen van de vooraf geconfigureerde oplossing voor externe controle heen worden weergegeven op de [IoT-architectuur](iot-suite-what-is-azure-iot.md):
+Het volgende diagram geeft een overzicht van de logische onderdelen van de externe controle oplossingsverbetering heen worden weergegeven op de [IoT-architectuur](iot-suite-what-is-azure-iot.md):
 
 ![Logische architectuur](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
 ## <a name="why-microservices"></a>Waarom microservices?
 
-Cloudarchitectuur heeft ontwikkeld sinds de eerste vooraf geconfigureerde oplossingen de release van Microsoft. [Microservices](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) beproefde uit veiligheidsoverwegingen als u de schaal en flexibiliteit zonder verlies van ontwikkelingssnelheid is ontstaan. Diverse Microsoft-services gebruiken dit patroon van een architectuur intern met betrouwbaar en schaalbaarheid resultaten. De bijgewerkte vooraf geconfigureerde oplossingen plaatsen deze geleerde lessen concreet, zodat u ook van deze profiteren kunt.
+Cloudarchitectuur heeft ontwikkeld sinds de eerste oplossing accelerators de release van Microsoft. [Microservices](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) beproefde uit veiligheidsoverwegingen als u de schaal en flexibiliteit zonder verlies van ontwikkelingssnelheid is ontstaan. Diverse Microsoft-services gebruiken dit patroon van een architectuur intern met betrouwbaar en schaalbaarheid resultaten. De bijgewerkte oplossing accelerators plaatsen deze geleerde lessen concreet, zodat u ook van deze profiteren kunt.
 
 > [!TIP]
 > Zie [.NET Application Architecture](https://www.microsoft.com/net/learn/architecture) (.NET-toepassingsarchitectuur) en [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) (Microservices: een toepassingsrevolutie aangedreven door de cloud) voor meer informatie over microservicearchitectuur.
@@ -67,7 +67,7 @@ U kunt fysieke apparaten vanuit het dashboard in de oplossingsportal inrichten.
 
 ### <a name="iot-hub-and-the-iot-manager-microservice"></a>IoT Hub en de microservice IoT-manager
 
-De [IoT-hub](../iot-hub/index.md) opgenomen gegevens die worden verzonden vanaf de apparaten in de cloud en maakt het beschikbaar is voor de `telemetry-agent` microservice.
+De [IoT-hub](../iot-hub/index.yml) opgenomen gegevens die worden verzonden vanaf de apparaten in de cloud en maakt het beschikbaar is voor de `telemetry-agent` microservice.
 
 De IoT Hub in de oplossing doet ook het volgende:
 
@@ -112,11 +112,11 @@ Gebruik de RESTful-eindpunt geleverd door deze microservice telemetrie, regels e
 
 ### <a name="storage"></a>Storage
 
-De [opslagadapter](https://github.com/Azure/pcs-storage-adapter-dotnet) microservice is een adapter voor de belangrijkste storage-service gebruikt voor de vooraf geconfigureerde oplossing. Het biedt coolbarsimple-verzameling en sleutel / waarde-opslag.
+De [opslagadapter](https://github.com/Azure/pcs-storage-adapter-dotnet) microservice is een adapter voor de belangrijkste storage-service gebruikt voor de oplossingsverbetering. Het biedt coolbarsimple-verzameling en sleutel / waarde-opslag.
 
-De standaardimplementatie van de vooraf geconfigureerde oplossing maakt gebruik van Cosmos DB als de belangrijkste storage-service.
+De standaardimplementatie van de oplossingsverbetering gebruikt Cosmos DB als de belangrijkste storage-service.
 
-De database van de Cosmos-DB opslaat-gegevens in de vooraf geconfigureerde oplossing. De **opslagadapter** microservice fungeert als een adapter voor de andere microservices in de oplossing voor toegang tot opslagservices.
+De database van de Cosmos-DB opslaat-gegevens in de oplossingsverbetering. De **opslagadapter** microservice fungeert als een adapter voor de andere microservices in de oplossing voor toegang tot opslagservices.
 
 ## <a name="presentation"></a>Presentatie
 
@@ -128,7 +128,7 @@ De [online gebruikersinterface is een toepassing reageren Javascript](https://gi
 * Is opgemaakt met CSS.
 * Communiceert met openbare gerichte microservices via AJAX-aanroepen.
 
-De gebruikersinterface geeft alle functionaliteit van de vooraf geconfigureerde oplossing en communiceert met andere services, zoals:
+De gebruikersinterface geeft de functionaliteit voor de accelerator oplossing en communiceert met andere services, zoals:
 
 * De [verificatie](https://github.com/Azure/pcs-auth-dotnet) microservice om gebruikersgegevens te beschermen.
 * De [iothub-manager](https://github.com/Azure/iothub-manager-dotnet) microservice weergeven en beheren van de IoT-apparaten.
@@ -139,8 +139,8 @@ De [ui-config](https://github.com/Azure/pcs-config-dotnet) microservice kunt u d
 
 Als u de bron-documentatie voor code- en developer verkennen wilt, beginnen met een de twee belangrijkste GitHub-opslagplaatsen:
 
-* [Vooraf geconfigureerde oplossing voor externe controle met Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
-* [Vooraf geconfigureerde oplossing voor externe controle met Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
-* [Vooraf geconfigureerde oplossing voor externe controle architectuur)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
+* [Oplossingsverbetering voor externe controle met Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
+* [Oplossingsverbetering voor externe controle met Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
+* [Oplossingsverbetering voor externe controle architectuur)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
 
-Zie voor meer informatie over de vooraf geconfigureerde oplossing voor externe controle [aanpassen van de vooraf geconfigureerde oplossing](iot-suite-remote-monitoring-customize.md).
+Zie voor meer informatie over de externe controle oplossingsverbetering [aanpassen van de oplossingsverbetering](iot-suite-remote-monitoring-customize.md).

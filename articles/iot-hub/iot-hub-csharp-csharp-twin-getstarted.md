@@ -5,7 +5,7 @@ services: iot-hub
 documentationcenter: node
 author: dsk-2015
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f7e23b6e-bfde-4fba-a6ec-dbb0f0e005f4
 ms.service: iot-hub
 ms.devlang: node
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/15/2017
 ms.author: dkshir
-ms.openlocfilehash: 6073d594117e69676b753a1e3af25fffa3583a2b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b337e463ac4aefd7e4644af4c2cdcad4f3c5300a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="get-started-with-device-twins-netnet"></a>Aan de slag met apparaat horende (.NET/.NET)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -42,8 +42,6 @@ Voor deze zelfstudie hebt u het volgende nodig:
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
-
-Als u de apparaat-id in plaats daarvan programmatisch maken wilt, leest u de bijbehorende sectie in het [uw gesimuleerde apparaat verbonden met uw iothub met .NET] [ lnk-device-identity-csharp] artikel.
 
 ## <a name="create-the-service-app"></a>De service-app maken
 In deze sectie maakt u een .NET-consoletoepassing maken (met C#) waarmee de metagegevens van de locatie wordt toegevoegd aan de apparaat-twin gekoppeld **myDeviceId**. Deze vervolgens het apparaat horende opgeslagen in de IoT-hub te selecteren van de apparaten die zich in de Verenigde Staten en de waarden die gerapporteerd van een mobiele verbinding een query.
@@ -99,7 +97,7 @@ In deze sectie maakt u een .NET-consoletoepassing maken (met C#) waarmee de meta
         Console.WriteLine("Press Enter to exit.");
         Console.ReadLine();
 
-1. Open in Solution Explorer de **opstartprojecten instellen...**  en zorg ervoor dat de **actie** voor **AddTagsAndQuery** project **Start**. De oplossing bouwen.
+1. Open in Solution Explorer de **opstartprojecten instellen...**  en zorg ervoor dat de **actie** voor **AddTagsAndQuery** project **Start**. Bouw de oplossing.
 1. Deze toepassing uitvoeren door met de rechtermuisknop op de **AddTagsAndQuery** project en selecteer **Debug**, gevolgd door **nieuw exemplaar gestart**. U ziet één apparaat in de resultaten van de query wordt gevraagd voor alle apparaten vinden in **Redmond43** en er is geen voor de query die de resultaten beperkt tot apparaten die gebruikmaken van een mobiel netwerk.
    
     ![De resultaten van de query-venster][img-addtagapp]
@@ -187,7 +185,7 @@ In deze sectie maakt u een .NET-consoletoepassing die is verbonden met uw hub al
        Console.WriteLine("Press Enter to exit.");
        Console.ReadLine();
 
-1. Open in Solution Explorer de **opstartprojecten instellen...**  en zorg ervoor dat de **actie** voor **ReportConnectivity** project **Start**. De oplossing bouwen.
+1. Open in Solution Explorer de **opstartprojecten instellen...**  en zorg ervoor dat de **actie** voor **ReportConnectivity** project **Start**. Bouw de oplossing.
 1. Deze toepassing uitvoeren door met de rechtermuisknop op de **ReportConnectivity** project en selecteer **Debug**, gevolgd door **nieuw exemplaar gestart**. U ziet het ophalen van de informatie twin, en vervolgens verzenden connectiviteit heeft als een *gerapporteerd eigenschap*.
    
     ![Apparaat-app verbinding rapport uitvoeren][img-rundeviceapp]

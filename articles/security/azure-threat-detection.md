@@ -4,9 +4,9 @@ description: Meer informatie over Identity Protection en de mogelijkheden ervan.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: d2fab26d8ff9f006cfed82685a738b791d0b0624
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: eb1bf9f6465a8a94fd2de75f581817887c333289
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure Advanced Threat detectie
 ## <a name="introduction"></a>Inleiding
@@ -56,7 +56,7 @@ Dit document richt zich op de technologie van Azure-platform en klantgerichte be
 
 [Azure Active Directory: Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) is een functie van de [Azure AD Premium-P2](https://docs.microsoft.com/azure/active-directory/active-directory-editions) edition waarmee u een overzicht van de risicogebeurtenissen en mogelijke beveiligingsproblemen die invloed hebben op de identiteiten van uw organisatie. Microsoft heeft identiteiten voor een cloud-gebaseerde is beveiligen via een tien jaar en met Azure AD Identity Protection Microsoft is deze dezelfde beveiliging systemen beschikbaar maken voor enterprise-klanten. Identity Protection gebruikmaakt van bestaande Azure AD afwijkingsdetectie detectiemogelijkheden beschikbaar via [Azure AD-rapporten voor afwijkende activiteiten](https://docs.microsoft.com/azure/active-directory/active-directory-view-access-usage-reports#anomalous-activity-reports), en introduceert nieuwe risico gebeurtenistypen dat realtime afwijkingen kunnen detecteren.
 
-Identity Protection maakt gebruik van geavanceerde machine learning-algoritmen en methodiek voor het opsporen van afwijkingen en gebeurtenissen die aangeven mogelijk dat een identiteit is ingebroken risico. Met deze gegevens Identity Protection genereert rapporten en waarschuwingen die zodat u kunt deze risicogebeurtenissen onderzoeken en de juiste doorvoeren of risicobeperking actie ondernemen.
+Identity Protection maakt gebruik van geavanceerde algoritmen voor machine learning en methodieken voor het opsporen van afwijkingen en risicogebeurtenissen die mogelijk aangeven dat een identiteit in gevaar is. Met deze gegevens Identity Protection genereert rapporten en waarschuwingen die zodat u kunt deze risicogebeurtenissen onderzoeken en de juiste doorvoeren of risicobeperking actie ondernemen.
 
 Maar Azure Active Directory: Identity Protection is meer dan een hulpprogramma voor bewaking en rapportage. Op basis van de risico's, berekent Identity Protection het risiconiveau van een gebruiker voor elke gebruiker, zodat u kunt beleid op basis van een risico voor het automatisch beveiligen van de identiteit van uw organisatie configureren.
 
@@ -116,7 +116,7 @@ Het OMS-dashboard Beveiliging en controle is ingedeeld in vier hoofdcategorieën
 
 ![OMS-dashboard Beveiliging en controle](./media/azure-threat-detection/azure-threat-detection-fig3.jpg)
 
--   **Beveiligingsdomeinen:** op dit gebied kunt u zich verder verkennen beveiligingsrecord gedurende een bepaalde periode, toegang tot evaluatie van schadelijke software, bijwerken assessment, netwerkbeveiliging, informatie over identiteit en toegang, computers met beveiligingsgebeurtenissen en snel toegang hebben tot Azure Security Center-dashboard.
+-   **Beveiligingsdomeinen:** op dit gebied kunt u zich verder verkennen beveiligingsrecord gedurende een bepaalde periode, toegang tot evaluatie van schadelijke software, bijwerken assessment, netwerkbeveiliging, informatie over identiteit en toegang, computers met beveiligingsgebeurtenissen en snel hebben toegang tot Azure Security Center-dashboard.
 
 -   **Problemen die aandacht vereisen:** deze optie kunt u het aantal actieve problemen en de ernst van deze problemen snel kan identificeren.
 
@@ -187,7 +187,7 @@ Onderzoekers ontvangen ook informatie over bedreigingen die wordt gedeeld tussen
 
 -   **Uitgaande DDoS Botnet en de detectie en** -een algemene doelstelling van aanvallen die gericht is op cloud-bronnen is met de rekencapaciteit van deze bronnen uit te voeren van andere aanvallen.
 
--   **Nieuwe gebruikersgedrag Analytics-Servers en virtuele machines -** wanneer een server of de virtuele machine is geknoeid, aanvallers gebruikmaken van een groot aantal technieken schadelijke code uitvoeren op dat systeem tijdens detectie vermijden, gezorgd persistentie en beveiligingsmechanismen en vermindert.
+-   **Nieuwe gebruikersgedrag Analytics-Servers en virtuele machines -** wanneer een server of de virtuele machine is geknoeid, aanvallers een groot aantal technieken schadelijke code uitvoeren op dat systeem tijdens detectie vermijden, gezorgd persistentie en waardoor gebruiken beveiligingsmechanismen.
 
 -   **Azure SQL Database-Bedreigingsdetectie -** detectie van dreigingen voor Azure SQL Database, waarmee wordt aangegeven afwijkende databaseactiviteiten die aangeeft ongebruikelijke en potentieel schadelijke probeert te krijgen of misbruik van databases.
 
@@ -213,7 +213,7 @@ Voorbeelden zijn:
 
 -   **Uitgaande aanvallen:** aanvallers vaak cloudresources met het doel van het gebruik van deze bronnen voor aanvullende aanvallen koppelen als doel. Geïnfecteerde virtuele machines kan bijvoorbeeld worden gebruikt voor beveiligingsaanvallen op andere virtuele machines starten, verzenden van SPAM of scannen open poorten en andere apparaten op Internet. Door machine learning toe te passen op netwerkverkeer kan Security Center het detecteren wanneer uitgaande netwerkcommunicatie groter is dan de norm. Als SPAM, ongebruikelijke e verkeer Security Center ook correleert met intelligence vanuit Office 365 om te bepalen of het e-mailbericht waarschijnlijk slechte of het resultaat van een geldig e-campagne.
 
-### <a name="anomaly-detection"></a>Afwijkingsdetectie
+### <a name="anomaly-detection"></a>Anomaliedetectie
 
 Azure Security Center maakt ook gebruik van afwijkingsdetectie om bedreigingen te identificeren. In tegenstelling tot gedragsanalyses (die afhankelijk zijn van bekende patronen die zijn afgeleid van grote gegevenssets) is afwijkingsdetectie meer "gepersonaliseerd" en richt het zich op basislijnen die specifiek voor uw implementaties zijn. Machine learning wordt toegepast om de normale activiteit voor uw implementaties te bepalen en vervolgens worden regels gegenereerd om afwijkende omstandigheden te definiëren die een veiligheidsrisico zouden kunnen vormen. Hier volgt een voorbeeld:
 
@@ -255,7 +255,7 @@ Deze gecombineerde inspanningen moeten resulteren in nieuwe en verbeterde detect
 
 -   **Updates voor anti-malware-Platform-** automatisch bijgewerkt met de Microsoft Antimalware-platform.
 
--   **Actieve beveiliging -** telemetrie metagegevens over gedetecteerde bedreigingen en verdachte bronnen rapporten naar Microsoft Azure om ervoor te zorgen snelle reactie op de zich ontwikkelende bedreigingen liggend en het inschakelen van realtime synchrone handtekening levering via de Microsoft Active Protection System (MAPS).
+-   **Actieve beveiliging -** telemetrie metagegevens over gedetecteerde bedreigingen en verdachte bronnen rapporten naar Microsoft Azure om ervoor te zorgen snelle reactie op de zich ontwikkelende bedreigingen liggend en het inschakelen van realtime synchrone handtekening levering via de Microsoft Active Protection systeem (MAPS).
 
 -   **Voorbeelden van de reporting -** biedt en voorbeelden rapporten naar Microsoft Antimalware-service voor het verfijnen van de service en het oplossen van problemen inschakelen.
 
@@ -288,7 +288,7 @@ SQL Database Threat detectoren gebruiken een van de volgende methoden voor detec
 
 ### <a name="application-gateway-web-application-firewall"></a>Application Gateway Web Application Firewall
 
-[Web Application Firewall](../app-service/environment/app-service-app-service-environment-web-application-firewall.md) is een functie van [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview) die biedt beveiliging voor webtoepassingen die gebruikmaken van toepassingsgateway voor standaard [levering Toepassingsbeheer](https://kemptechnologies.com/in/application-delivery-controllers) functies. Web application firewall doet dit door deze te beschermen tegen de meeste van de [OWASP top 10 veelvoorkomende web beveiligingslekken](https://www.owasp.org/index.php/Top_10_2010-Main)
+[Web Application Firewall](../app-service/environment/app-service-app-service-environment-web-application-firewall.md) is een functie van [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview) die biedt beveiliging voor webtoepassingen die gebruikmaken van toepassingsgateway voor standaard [levering Toepassingsbeheer](https://kemptechnologies.com/in/application-delivery-controllers)functies. Web application firewall doet dit door deze te beschermen tegen de meeste van de [OWASP top 10 veelvoorkomende web beveiligingslekken](https://www.owasp.org/index.php/Top_10_2010-Main)
 
 ![Application Gateway-webtoepassing Firewally](./media/azure-threat-detection/azure-threat-detection-fig13.png)
 

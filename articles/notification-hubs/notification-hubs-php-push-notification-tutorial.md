@@ -2,23 +2,23 @@
 title: Notification Hubs gebruiken met PHP
 description: Informatie over het gebruik van Azure Notification Hubs vanuit een PHP-back-end.
 services: notification-hubs
-documentationcenter: 
-author: ysxu
-manager: erikre
-editor: 
+documentationcenter: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 0156f994-96d0-4878-b07b-49b7be4fd856
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: php
 ms.devlang: php
 ms.topic: article
-ms.date: 06/07/2016
-ms.author: yuaxu
-ms.openlocfilehash: c27b6308ff528224a0398e0ff40537db05417bb0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 930da7cca312ac6233b337dd7ddac478c3bbee7b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>Hoe Notification Hubs gebruiken vanuit PHP
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -31,7 +31,7 @@ In dit onderwerp laten we zien hoe:
 * Ga als volgt de [Get gestart zelfstudie](notification-hubs-ios-apple-push-notification-apns-get-started.md) implementeren voor uw mobiele platform van de keuze van het back-end-gedeelte in PHP.
 
 ## <a name="client-interface"></a>Client-interface
-De belangrijkste clientinterface kan bieden dezelfde methoden die beschikbaar zijn in de [.NET Notification Hubs SDK](http://msdn.microsoft.com/library/jj933431.aspx), Hiermee kunt u rechtstreeks vertalen de zelfstudies en voorbeelden die momenteel beschikbaar is op deze site en die is bijgedragen door de community op het internet.
+De belangrijkste clientinterface kan bieden dezelfde methoden die beschikbaar zijn in de [.NET Notification Hubs SDK](http://msdn.microsoft.com/library/jj933431.aspx), kunt u rechtstreeks vertalen de zelfstudies en voorbeelden die momenteel beschikbaar is op deze site en die is bijgedragen door de de community op het internet.
 
 U vindt de code die zijn beschikbaar in de [PHP REST wrapper voorbeeld].
 
@@ -45,10 +45,10 @@ Een iOS systeemeigen bericht verzenden:
     $hub->sendNotification($notification, null);
 
 ## <a name="implementation"></a>Implementatie
-Als u nog niet hebt gedaan, volgt u onze [Get gestart zelfstudie] omhoog naar de laatste sectie waar u hebt voor het implementeren van de back-end.
+Als u nog niet hebt gedaan, volgt u de [Get gestart zelfstudie] omhoog naar de laatste sectie waar u hebt voor het implementeren van de back-end.
 Ook als u wilt dat u kunt de code uit de [PHP REST wrapper voorbeeld] en rechtstreeks naar de [Voltooi de zelfstudie](#complete-tutorial) sectie.
 
-De details voor het implementeren van een volledige REST-wrapper vindt u op [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). In deze sectie wordt de PHP-implementatie van de belangrijkste stappen vereist voor toegang tot Notification Hubs REST-eindpunten worden beschreven:
+De details voor het implementeren van een volledige REST-wrapper vindt u op [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). In deze sectie beschrijven we de PHP-implementatie van de belangrijkste stappen vereist voor toegang tot Notification Hubs REST-eindpunten:
 
 1. De verbindingsreeks parseren
 2. Het verificatietoken genereren
@@ -132,7 +132,7 @@ Laat het ons definiëren eerst een klasse die een melding vertegenwoordigt.
         }
     }
 
-Deze klasse is een container voor een native notification-instantie, of een set eigenschappen in geval van een melding van de sjabloon en een set headers die-indeling (systeemeigen platform of sjabloon) en platform-specifieke eigenschappen (zoals Apple verlopen eigenschap en WNS bevat headers).
+Deze klasse is een container voor een instantie systeemeigen melding of een set eigenschappen in geval van een melding van de sjabloon en een set headers, met de indeling (systeemeigen platform of sjabloon) en platform-specifieke eigenschappen (zoals Apple verlopen eigenschap en WNS headers).
 
 Raadpleeg de [Notification Hubs REST-API's, documentatie](http://msdn.microsoft.com/library/dn495827.aspx) en de specifieke notification-platforms worden gebruikt voor alle beschikbare opties.
 

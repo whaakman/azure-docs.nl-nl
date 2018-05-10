@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 0cc08ee595bda478adbb0e39dbebca8019ebbad4
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: e0a04d44edf39c90533c59d67ea2dfce69f092cd
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Aan de slag-handleiding voor Azure-ontwikkelaars
 
@@ -240,7 +240,7 @@ Naast de REST-API's kunnen vele Azure-services u ook resources van uw toepassing
 -   [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)
 -   [Go](https://docs.microsoft.com/go/azure)
 
-Services, zoals [Mobile Apps](../../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md) en [Azure Media Services](../../media-services/media-services-dotnet-how-to-use.md) clientzijde SDK's om u te laten bieden toegang tot de services van web- en voor mobiele ClientApps.
+Services, zoals [Mobile Apps](../../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md) en [Azure Media Services](../../media-services/previous/media-services-dotnet-how-to-use.md) clientzijde SDK's om u te laten bieden toegang tot de services van web- en voor mobiele ClientApps.
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager 
     

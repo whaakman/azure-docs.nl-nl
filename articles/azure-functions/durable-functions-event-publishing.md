@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/20/2018
 ms.author: tdykstra
-ms.openlocfilehash: 6e7fdd4faa4213681813733aa8afe81d56835862
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 50e517e5719fb102fd91072abe59d3908176278e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Duurzame fungeert publiceren naar Azure gebeurtenis raster (preview)
 
@@ -220,7 +220,7 @@ Raadpleeg de logboeken van de functie die u hebt gemaakt in de Azure portal.
         "functionName": "Sample",
         "instanceId": "055d045b1c8a415b94f7671d8df693a6",
         "reason": "",
-        "eventType": 0
+        "runtimeStatus": "Running"
     },
     "eventType": "orchestratorEvent",
     "eventTime": "2018-04-20T09:28:19.6492068Z",
@@ -239,7 +239,7 @@ Raadpleeg de logboeken van de functie die u hebt gemaakt in de Azure portal.
         "functionName": "Sample",
         "instanceId": "055d045b1c8a415b94f7671d8df693a6",
         "reason": "",
-        "eventType": 1
+        "runtimeStatus": "Completed"
     },
     "eventType": "orchestratorEvent",
     "eventTime": "2018-04-20T09:28:36.5061317Z",
@@ -261,7 +261,7 @@ De volgende lijst wordt uitgelegd dat het schema van de levenscyclus van gebeurt
     * **Functienaam**: de naam van de Orchestrator-functie.
     * **instanceId**: instanceId duurzame functies.
     * **reden**: aanvullende gegevens die zijn gekoppeld aan de gebeurtenis bijhouden. Zie voor meer informatie [diagnostische gegevens in duurzame functies (Azure-functies)](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-diagnostics)
-    * **eventType**: Status van de Orchestration-Runtime. 0: wordt uitgevoerd, 1: voltooid, 2: ContinuedAsNew, 3: is mislukt, 4: geannuleerd, 5: beëindigd, 6: in behandeling. 
+    * **runtimeStatus**: Status van de Orchestration-Runtime. Actief is, voltooid, is mislukt, geannuleerd. 
 * **eventType**: 'orchestratorEvent'
 * **eventTime**: gebeurtenis-tijd (UTC).
 * **dataVersion**: versie van het schema van de levenscyclus van de gebeurtenis.

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: 9a360b41b24f4aca3c3aba29387ecd55faf881b7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0e4c4c9e950610526a29e02d70827a1279d9686a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Kosten beheren via Besturingsmechanismen gegevensvolume en te bewaren in Log Analytics
 Log Analytics is ontworpen om scale en ondersteuning voor het verzamelen, te indexeren en opslaan van grote hoeveelheden gegevens per dag van elke bron in uw onderneming of geïmplementeerd in Azure.  Hoewel dit kan een primaire stuurprogramma voor uw organisatie, is kostenefficiëntie uiteindelijk het onderliggende stuurprogramma. Het is ook afhankelijk van het plan geselecteerd hiertoe het is belangrijk om te begrijpen dat de kosten van een werkruimte logboek Analytisc NET is niet gebaseerd op het volume van de gegevens die zijn verzameld, en hoe lang u hebt gekozen voor het opslaan van gegevens die zijn gegenereerd op basis van uw verbonden bronnen.  
@@ -33,14 +33,15 @@ De kosten van de gegevens zijn aanzienlijk afhankelijk van de volgende factoren:
 - De gegevens van de periode wordt bewaard in de werkruimte  
 - Aantal oplossingen voor het beheer ingeschakeld, gegevensbron en frequentie van de verzameling 
 
-Raadpleeg de documentatie van elke oplossing aangezien deze biedt een schatting maken van hoeveel gegevens worden verzameld.   
+> [!NOTE]
+> Raadpleeg de documentatie van elke oplossing aangezien deze biedt een schatting maken van hoeveel gegevens worden verzameld.   
 
-Als u zich op de prijscategorie 'gratis', is gegevens beperkt tot 7 dagen bewaren. Verzamelde gegevens is beschikbaar voor de afgelopen 31 dagen voor de 'Per-GB (zelfstandig)' of 'Per knooppunt (OMS)' lagen en retentie kan worden verhoogd naar 2 jaar. Als u een langere bewaartermijn selecteert gelden. Het gratis-plan heeft 500 MB daglimiet opname en als u vindt dat u steeds meer bedragen dan de toegestane volume, kunt u uw werkruimte naar de Per GB of Per knooppunt lagen voor het verzamelen van gegevens boven deze limiet. U kunt op elk gewenst moment en voor meer informatie over prijzen wijzigen van het type van uw abonnement, Zie [prijsinformatie](https://azure.microsoft.com/pricing/details/log-analytics/). 
+Als u op de *vrije* plan, gegevens zijn beperkt tot 7 dagen bewaren. Voor de *zelfstandige* of *betaalde* laag, verzamelde gegevens is beschikbaar voor de afgelopen 31 dagen. De *vrije* plan heeft 500 MB daglimiet opname en als u vindt dat u steeds meer bedragen dan de toegestane volume, kunt u uw werkruimte naar een betaald abonnement voor het verzamelen van gegevens boven deze limiet. 
 
 > [!NOTE]
-> In April 2018, we [geïntroduceerd](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) een nieuw prijsmodel voor het bewaken van Azure. Dit model neemt een eenvoudige 'betalen naar gebruik' model in de volledige portfolio van de bewaking van services. Meer informatie over de [nieuwe prijzen model](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), hoe naar [beoordeling van de gevolgen voor de upgrade naar dit model](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model) op basis van de gebruikspatronen en [hoe u kunt kiezen voor het nieuwe model](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model). 
+> Als u wilt selecteren van een langere bewaartermijn voor de betaalde laag gelden. U kunt op elk gewenst moment en voor meer informatie over prijzen wijzigen van het type van uw abonnement, Zie [prijsinformatie](https://azure.microsoft.com/pricing/details/log-analytics/). 
 
-Ongeacht de prijscategorie model of laag is het beheren van de hoeveelheid gegevens fundmental voor het beheer van uw kosten. Dit zijn dagelijks initiaal en gegevens bewaren afgezien van de keuze en configuratie van de specifieke oplossing, binnen logboekanalyse er zijn twee manieren waarbij de hoeveelheid gegevens kan worden beperkt en helpen de kosten kunt bepalen.  
+Er zijn twee manieren waarbij de hoeveelheid gegevens kan worden beperkt en helpen de kosten bepalen, zijn dit dagelijkse initiaal en gegevens bewaren.  
 
 ## <a name="review-estimated-cost"></a>Geschatte kosten controleren
 Log Analytics maakt het gemakkelijker te begrijpen wat de kosten zijn waarschijnlijk worden op basis van recente gebruikspatronen.  U doet dit door de volgende stappen uitvoeren.  
@@ -54,9 +55,9 @@ Hier kunt u het gegevensvolume van uw bekijken voor de maand. Dit omvat alle geg
 Log Analytics kosten worden toegevoegd aan uw Azure-factuur. Ziet u details van uw Azure factureren onder de sectie facturering van de Azure portal of in de [Azure Billing Portal](https://account.windowsazure.com/Subscriptions).  
 
 ## <a name="daily-cap"></a>Dagelijkse limiet
-Wanneer een werkruimte voor logboekanalyse maken van de Azure portal en u kiest voor de *vrije* plan wordt ingesteld op een 500 MB per dag limiet. Er is geen limiet voor de prijscategorie plannen. Een dagelijkse limiet configureren en te beperken tot de dagelijkse opname van uw werkruimte, maar wees voorzichtig als het doel mag geen dagelijkse limiet.  Anders op dat punt, verliest u gegevens voor de rest van de dag en is van invloed op de mogelijkheden tot de voorwaarden van de gezondheid van ondersteuningsservices voor IT-resources.  Het dagelijkse kapje is moet worden gebruikt als een manier voor het beheren van het onverwachte toename van het gegevensvolume van uw beheerde resources en blijven binnen de limiet, of wanneer u wilt beperken gewoon niet-geplande kosten voor uw werkruimte bedoeld.  
+Wanneer een werkruimte voor logboekanalyse maken van de Azure portal en u kiest voor de *vrije* plan wordt ingesteld op een 500 MB per dag limiet. Er is geen limiet voor de prijscategorie plannen. Een dagelijkse limiet configureren en te beperken tot de dagelijkse opname van uw werkruimte, maar wees voorzichtig als het doel mag geen dagelijkse limiet.  Anders gaan de gegevens voor de rest van de dag kan invloed hebben op andere Azure-services en oplossingen waarvan functionaliteit mogelijk afhankelijk van de actuele gegevens beschikbaar in de werkruimte verloren.  Als gevolg hiervan waarschuwingen de mogelijkheid om te zien en ontvang wanneer de voorwaarden van de gezondheid van ondersteuningsservices voor IT-resources ondervinden gevolgen.  Het dagelijkse kapje is moet worden gebruikt als een manier voor het beheren van het onverwachte toename van het gegevensvolume van uw beheerde resources en blijven binnen de limiet, of wanneer u wilt beperken gewoon niet-geplande kosten voor uw werkruimte bedoeld.  
 
-Wanneer de dagelijkse limiet is bereikt, stopt het verzamelen van factureerbare gegevenstypen voor de rest van de dag.  Een waarschuwing weergegeven dat aan de bovenkant van de pagina voor de geselecteerde werkruimte voor logboekanalyse en wordt een bewerkingsgebeurtenis verzonden naar de *bewerking* tabel onder **LogManagement** categorie. Verzamelen van gegevens wordt hervat nadat de tijd reset gedefinieerd onder *dagelijkse limiet wordt ingesteld op*. Het is raadzaam om het definiëren van een waarschuwingsregel op basis van deze bewerkingsgebeurtenis, geconfigureerd om te waarschuwen wanneer de daglimiet voor gegevens is bereikt. 
+Wanneer de dagelijkse limiet is bereikt, stopt het verzamelen van factureerbare gegevenstypen voor de rest van de dag. Een waarschuwing weergegeven dat aan de bovenkant van de pagina voor de geselecteerde werkruimte voor logboekanalyse en wordt een bewerkingsgebeurtenis verzonden naar de *bewerking* tabel onder **LogManagement** categorie. Verzamelen van gegevens wordt hervat nadat de tijd reset gedefinieerd onder *dagelijkse limiet wordt ingesteld op*. Het is raadzaam om het definiëren van een waarschuwingsregel op basis van deze bewerkingsgebeurtenis, geconfigureerd om te waarschuwen wanneer de daglimiet voor gegevens is bereikt. 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Identificeren welke daglimiet gegevens definiëren 
 Bekijk [Log Analytics gebruik en de geschatte kosten](log-analytics-usage.md) leert de trend opname van gegevens en wat is het dagelijkse volume kapje definiëren. Het moet worden overwogen zorgvuldig, omdat het niet mogelijk uw resources bewaken nadat de limiet is bereikt. 

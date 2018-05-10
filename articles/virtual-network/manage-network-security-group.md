@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 0e9a66cc52c25bf4d38fd27050a92196227a698c
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 7a244a5dbb86b076f99975ad477d4062699270b5
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Maken, wijzigen of verwijderen van een netwerkbeveiligingsgroep
 
@@ -34,6 +34,8 @@ De volgende taken uitvoeren voordat u stappen uitvoert in elke sectie van dit ar
 - Als u de PowerShell-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/powershell), of door te voeren PowerShell vanaf uw computer. Azure Cloud Shell is een gratis interactieve shell waarmee u de stappen in dit artikel kunt uitvoeren. In deze shell zijn algemene Azure-hulpprogramma's vooraf geïnstalleerd en geconfigureerd voor gebruik met uw account. Deze zelfstudie vereist de Azure PowerShell moduleversie 5.4.1 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
 - Als u Azure-opdrachtregelinterface (CLI)-opdrachten voor het uitvoeren van taken in dit artikel, ofwel de opdrachten uitvoert in de [Azure Cloud Shell](https://shell.azure.com/bash), of door het uitvoeren van de CLI vanaf uw computer. Deze zelfstudie vereist de Azure CLI versie 2.0.28 of hoger. Voer `az --version` uit om te kijken welke versie is geïnstalleerd. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren](/cli/azure/install-azure-cli). Als u de Azure CLI lokaal uitvoert, moet u ook uitvoeren `az login` geen verbinding maken met Azure.
 
+Het account dat u zich aanmelden bij of verbinding maken met Azure met moet worden toegewezen aan de [netwerk Inzender](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rol of naar een [aangepaste rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) die is toegewezen de nodige acties die worden vermeld in [machtigingen ](#permissions).
+
 ## <a name="work-with-network-security-groups"></a>Met netwerkbeveiligingsgroepen werken
 
 U kunt maken, [weergeven van alle](#view-all-network-security-groups), [details weergeven van](#view-details-of-a-network-security-group), [wijzigen](#change-a-network-security-group), en [verwijderen](#delete-a-network-security-group) een netwerkbeveiligingsgroep. U kunt ook [koppelen of ontkoppelen](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource) een netwerkbeveiligingsgroep van een netwerkinterface of een subnet.
@@ -44,7 +46,7 @@ Er is een limiet voor het aantal netwerkbeveiligingsgroepen die per Azure-locati
 
 1. Selecteer in de linkerbovenhoek van de portal **+ maken van een resource**.
 2. Selecteer **Networking**, selecteer daarna **netwerkbeveiligingsgroep**.
-3. Voer een **naam** voor de netwerkbeveiligingsgroep, selecteert u uw **abonnement**, maak een nieuwe **resourcegroep**, of Selecteer een bestaande resourcegroep, selecteert u een **Locatie**, en selecteer vervolgens **maken**. 
+3. Voer een **naam** voor de netwerkbeveiligingsgroep, selecteert u uw **abonnement**, maak een nieuwe **resourcegroep**, of Selecteer een bestaande resourcegroep, selecteert u een **Locatie**, en selecteer vervolgens **maken**.
 
 **Opdrachten**
 
@@ -67,7 +69,7 @@ Voer in het zoekvak boven aan de portal *netwerkbeveiligingsgroepen*. Wanneer **
 3. Zie voor meer informatie over de algemene instellingen voor Azure vermeld, de volgende artikelen:
     *   [Activiteitenlogboek](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
     *   [Toegangsbeheer (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
-    *   [Tags](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags)
+    *   [Tags](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Hiermee vergrendelt u](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Automatiseringsscript](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
 
@@ -211,7 +213,7 @@ Terwijl u bepaalde instellingen zoals tags en machtigingen voor een bestaande be
 
 ### <a name="delete-an-application-security-group"></a>De beveiligingsgroep van een toepassing verwijderen
 
-U kunt de beveiligingsgroep van een toepassing niet verwijderen als er netwerkinterfaces in deze. Door de netwerkinterface-instellingen wijzigen of verwijderen van de netwerkinterfaces, moet u alle netwerkinterfaces verwijderen uit de beveiligingsgroep van de toepassing. Zie voor meer informatie [toevoegen aan of verwijder een netwerkinterface van de beveiligingsgroepen toepassing](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups) of [verwijderen van een netwerkinterface](virtual-network-network-interface.md#delete-a-network-interface).
+U kunt de beveiligingsgroep van een toepassing niet verwijderen als er netwerkinterfaces in deze. Alle netwerkinterfaces verwijderen uit de beveiligingsgroep van de toepassing door de netwerkinterface-instellingen wijzigen of verwijderen van de netwerkinterfaces. Zie voor meer informatie [toevoegen aan of verwijder een netwerkinterface van de beveiligingsgroepen toepassing](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups) of [verwijderen van een netwerkinterface](virtual-network-network-interface.md#delete-a-network-interface).
 
 **Opdrachten**
 
@@ -220,18 +222,33 @@ U kunt de beveiligingsgroep van een toepassing niet verwijderen als er netwerkin
 
 ## <a name="permissions"></a>Machtigingen
 
-Om taken voor netwerkbeveiligingsgroepen beveiligingsregels en beveiligingsgroepen toepassing uitvoert, moet uw account worden toegewezen aan de [netwerk Inzender](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rol of naar een [aangepaste](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) rol die is toegewezen de juiste machtigingen in de volgende tabel weergegeven:
+Om taken voor netwerkbeveiligingsgroepen beveiligingsregels en beveiligingsgroepen toepassing uitvoert, moet uw account worden toegewezen aan de [netwerk Inzender](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rol of naar een [aangepaste rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) die is toegewezen de juiste machtigingen die worden vermeld in de volgende tabellen:
 
-|Bewerking                                                       |   Bewerkingsnaam                               |
-|--------------------------------------------------------------  |   -------------------------------------------  |
-|Microsoft.Network/ruleTables/read                              |   Netwerkbeveiligingsgroep ophalen                              |
-|Microsoft.Network/ruleTables/write                             |   Maken of bijwerken van netwerkbeveiligingsgroep                 |
-|Microsoft.Network/ruleTables/delete                            |   Netwerkbeveiligingsgroep verwijderen                           |
-|Microsoft.Network/ruleTables/join/action                       |   Netwerkbeveiligingsgroep toevoegen                             |
-|Microsoft.Network/ruleTables/rules/read                       |   Regel voor ophalen                                    |
-|Microsoft.Network/ruleTables/rules/write                      |   Regel maken of bijwerken                       |
-|Microsoft.Network/ruleTables/rules/delete                     |   Regel verwijderen                                 |
-|Microsoft.Network/networkInterfaces/effectiveruleTable/action  |   Aan netwerk Interface effectieve netwerkbeveiligingsgroep ophalen  | 
-|Microsoft.Network/networkWatchers/nextHop/action                |   De volgende hop van een virtuele machine opgehaald                  |
+### <a name="network-security-groups"></a>Netwerkbeveiligingsgroepen
 
-De *netwerkbeveiligingsgroep toevoegen* bewerking is vereist voor het koppelen van een netwerkbeveiligingsgroep aan een subnet.
+| Bewerking                                                        |   Naam                                                                |
+|-------------------------------------------------------------- |   -------------------------------------------                         |
+| Microsoft.Network/ruleTables/read                             |   Netwerkbeveiligingsgroep ophalen                                          |
+| Microsoft.Network/ruleTables/write                            |   Maken of bijwerken van netwerkbeveiligingsgroep                             |
+| Microsoft.Network/ruleTables/delete                           |   Netwerkbeveiligingsgroep verwijderen                                       |
+| Microsoft.Network/ruleTables/join/action                      |   Koppelen van een netwerkbeveiligingsgroep aan een subnet of netwerk-interface |
+| Microsoft.Network/ruleTables/rules/read                       |   Regel voor ophalen                                                            |
+| Microsoft.Network/ruleTables/rules/write                      |   Regel maken of bijwerken                                               |
+| Microsoft.Network/ruleTables/rules/delete                     |   Regel verwijderen                                                         |
+| Microsoft.Network/networkInterfaces/effectiveruleTable/action |   Aan netwerk Interface effectieve netwerkbeveiligingsgroep ophalen              |
+| Microsoft.Network/networkWatchers/nextHop/action              |   De volgende hop van een virtuele machine opgehaald                                         |
+
+### <a name="application-security-groups"></a>Toepassingsbeveiligingsgroepen
+
+| Bewerking                                                                     | Naam                                                     |
+| --------------------------------------------------------------             | -------------------------------------------              |
+| Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action     | Een IP-configuratie toevoegen aan de beveiligingsgroep van een toepassing|
+| Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | Een beveiligingsregel toevoegen aan de beveiligingsgroep van een toepassing    |
+| Microsoft.Network/applicationSecurityGroups/read                           | Een beveiligingsgroep voor de toepassing ophalen                        |
+| Microsoft.Network/applicationSecurityGroups/write                          | Maken of bijwerken van de beveiligingsgroep van een toepassing           |
+| Microsoft.Network/applicationSecurityGroups/delete                         | De beveiligingsgroep van een toepassing verwijderen                     |
+
+## <a name="next-steps"></a>Volgende stappen
+
+- Maken van een netwerk of de groep wordt gebruikt door toepassing beveiliging [PowerShell](powershell-samples.md) of [Azure CLI](cli-samples.md) steekproef scripts of met behulp van Azure [Resource Manager-sjablonen](template-samples.md)
+- Maken en toepassen van [Azure beleid](policy-samples.md) voor virtuele netwerken

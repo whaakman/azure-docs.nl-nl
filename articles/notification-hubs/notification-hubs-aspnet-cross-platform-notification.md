@@ -2,23 +2,23 @@
 title: Cross-platform meldingen verzenden naar gebruikers met Azure Notification Hubs (ASP.NET)
 description: Informatie over het gebruik van Notification Hubs-sjablonen te verzenden, in een afzonderlijke aanvraag, een melding platform networkdirect die gericht is op alle platforms.
 services: notification-hubs
-documentationcenter: 
-author: ysxu
-manager: erikre
-editor: 
+documentationcenter: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 11d2131b-f683-47fd-a691-4cdfc696f62b
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/03/2016
-ms.author: yuaxu
-ms.openlocfilehash: 3c6dde338cb154f0cbe02642e4ff0f81d070aa25
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 95793aac3c25563e3af39f3c47cebdd06e25e35f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="send-cross-platform-notifications-to-users-with-notification-hubs"></a>Cross-platform meldingen verzenden naar gebruikers met Notification Hubs
 In een vorige zelfstudie [meldingen verzenden naar gebruikers met Notification Hubs], hebt u geleerd hoe u pushmeldingen naar alle apparaten die zijn geregistreerd voor een specifieke geverifieerde gebruiker. In deze zelfstudie zijn meerdere aanvragen vereist een melding te verzenden naar elke ondersteund clientplatform. Azure Notification Hubs ondersteunt sjablonen, waarmee u kunt opgeven hoe een specifiek apparaat wil ontvangen van meldingen. Deze methode vereenvoudigt het verzenden van meldingen op meerdere platforms. 
@@ -81,14 +81,14 @@ Cross-platform om meldingen te verzenden met behulp van sjablonen, het volgende 
             return Request.CreateResponse(HttpStatusCode.OK);
         }
    
-    Deze code verzendt een melding op alle platforms op hetzelfde moment, zonder dat u moet een systeemeigen nettolading opgeven. Notification Hubs bouwt en levert de nettolading van de juiste voor elk apparaat met de opgegeven *tag* waarde, zoals opgegeven in de geregistreerde sjablonen.
+    Deze code verzendt een melding op alle platforms op hetzelfde moment, zonder dat u hebt een systeemeigen nettolading opgeven. Notification Hubs bouwt en levert de nettolading van de juiste voor elk apparaat met de opgegeven *tag* waarde, zoals opgegeven in de geregistreerde sjablonen.
 
-4. Uw WebApi-back-end-project opnieuw te publiceren.
+4. Publiceren van uw project WebApi-back-end.
 
 5. Voer de clientapp opnieuw en controleer vervolgens of de registratie is geslaagd.
 
 6. (Optioneel) De clientapp implementeren op een tweede apparaat en voer vervolgens de app.
-    Houd er rekening mee dat er een melding wordt weergegeven op elk apparaat.
+    Een melding weergegeven op elk apparaat.
 
 ## <a name="next-steps"></a>Volgende stappen
 Nu dat u deze zelfstudie hebt voltooid, meer informatie over Notification Hubs en sjablonen in de volgende onderwerpen:

@@ -1,12 +1,12 @@
 ---
 title: Linux-apparaten voor externe controle in de C - Azure inrichten | Microsoft Docs
-description: Beschrijft hoe een apparaat aansluit op de Azure IoT Suite vooraf geconfigureerde oplossing voor externe controle met behulp van een toepassing die is geschreven in C op Linux wordt uitgevoerd.
-services: 
+description: Beschrijft hoe een apparaat aansluit op de externe controle oplossingsverbetering met behulp van een toepassing die is geschreven in C op Linux wordt uitgevoerd.
+services: iot-suite
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0c7c8039-0bbf-4bb5-9e79-ed8cff433629
 ms.service: iot-suite
 ms.devlang: na
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/14/2018
 ms.author: dobett
-ms.openlocfilehash: 2c6b245e938b44891314c3e752c064ff152f2c9a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 9ccf2b185c5aa67b41aab650989ad0326aba0215
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-linux"></a>Verbind het apparaat met de vooraf geconfigureerde oplossing voor externe controle (Linux)
+# <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-linux"></a>Uw apparaat aansluit op de externe controle oplossingsverbetering (Linux)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Deze zelfstudie laat zien hoe een fysiek apparaat verbindt met de vooraf geconfigureerde oplossing voor externe controle.
+Deze zelfstudie laat zien hoe een fysiek apparaat verbindt met de externe controle oplossingsverbetering.
 
 ## <a name="create-a-c-client-project-on-linux"></a>Maken van een project C-client op Linux
 

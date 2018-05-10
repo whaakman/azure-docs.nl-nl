@@ -3,22 +3,22 @@ title: Registratie van beheer
 description: In dit onderwerp wordt uitgelegd hoe u apparaten registreren met notification hubs kunnen pushmeldingen worden ontvangen.
 services: notification-hubs
 documentationcenter: .net
-author: ysxu
-manager: erikre
-editor: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: fd0ee230-132c-4143-b4f9-65cef7f463a1
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: 969f6b9654200b7f742b6405faa2cff2b13ba537
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 7f9052da066fcc0021151bf3b547484859cf216d
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="registration-management"></a>Registratiebeheer
 ## <a name="overview"></a>Overzicht
@@ -31,15 +31,15 @@ Registreren van apparaten met een Notification Hub wordt bereikt met een **regis
 Een registratie koppelt de ingang Platform Notification Service (PNS) voor een apparaat met tags en mogelijk een sjabloon. De PNS-ingang is mogelijk een ChannelURI, apparaattoken of GCM-registratie-id. Labels worden gebruikt voor het routeren van meldingen naar de juiste set apparaat verwerkt. Zie voor meer informatie [Routering en code-expressies](notification-hubs-tags-segment-push-message.md). Sjablonen worden gebruikt voor de per-registratie transformatie implementeren. Zie voor meer informatie [sjablonen](notification-hubs-templates-cross-platform-push-messages.md).
 
 #### <a name="installations"></a>Installaties
-Een installatie is een uitgebreide registratie met een groot aantal push gerelateerd eigenschappen. Het is de nieuwste en beste aanpak voor het registreren van uw apparaten. Echter niet ondersteund door de clientkant .NET SDK ([Notification Hub SDK voor back-end-bewerkingen](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)) vanaf nog.  Dit betekent dat als u vanaf het clientapparaat zelf registreert, moet u zou gebruiken de [Notification Hubs REST-API](https://msdn.microsoft.com/library/mt621153.aspx) benadering voor ondersteuning van installaties. Als u een back-endservice gebruikt, moet u gebruikmaken van [Notification Hub SDK voor back-end-bewerkingen](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+Een installatie is een uitgebreide registratie met een groot aantal push gerelateerd eigenschappen. Het is de nieuwste en beste aanpak voor het registreren van uw apparaten. Echter niet ondersteund door de client-side .NET SDK ([Notification Hub SDK voor back-end-bewerkingen](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)) vanaf nog.  Dit betekent dat als u vanaf het clientapparaat zelf registreert, moet u zou gebruiken de [Notification Hubs REST-API](https://msdn.microsoft.com/library/mt621153.aspx) benadering voor ondersteuning van installaties. Als u een back-endservice gebruikt, moet u gebruikmaken van [Notification Hub SDK voor back-end-bewerkingen](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 Hier volgen enkele belangrijke voordelen voor het gebruik van installaties:
 
 * Maken of bijwerken van een installatie is volledig idempotent. Zo kunt u het opnieuw zonder vragen over dubbele registraties.
 * Het installatiemodel kunt eenvoudig doen afzonderlijke pushes - doelen specifiek apparaat. Een Systeemlabel **' $InstallationId: [omwille van] '** automatisch met elke installatie op basis van de registratie wordt toegevoegd. U kunt dus een verzenden naar deze code op een specifiek apparaat zonder extra programmeren aanroepen.
-* Met installaties kunt u doen gedeeltelijke registratie-updates. De gedeeltelijke update van een installatie wordt aangevraagd met een PATCH methode met de [JSON-Patch standaard](https://tools.ietf.org/html/rfc6902). Dit is bijzonder nuttig wanneer u wilt bijwerken, tags voor de registratie. U hoeft te halen de registratie van de gehele en verzend de vorige labels opnieuw.
+* Met installaties kunt u doen gedeeltelijke registratie-updates. De gedeeltelijke update van een installatie wordt aangevraagd met een PATCH methode met de [JSON-Patch standaard](https://tools.ietf.org/html/rfc6902). Dit is handig als u wilt bijwerken, tags voor de registratie. U hoeft te halen de registratie van de gehele en verzend de vorige labels opnieuw.
 
-Een installatie mag de volgende eigenschappen. Zie voor een volledig overzicht van de installatie-eigenschappen, [maken of een installatie met REST-API worden overschreven](https://msdn.microsoft.com/library/azure/mt621153.aspx) of [installatie-eigenschappen](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
+Een installatie, kan de volgende eigenschappen bevatten. Zie voor een volledig overzicht van de installatie-eigenschappen, [maken of een installatie met REST-API worden overschreven](https://msdn.microsoft.com/library/azure/mt621153.aspx) of [installatie-eigenschappen](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
 
     // Example installation format to show some supported properties
     {,
@@ -82,23 +82,23 @@ Het is belangrijk te weten dat registraties en installaties standaard niet lange
 Registraties en installaties moeten een geldige PNS-ingang voor elk apparaat/kanaal bevatten. Omdat de PNS-ingangen kunnen alleen worden verkregen in een client-app op het apparaat, wordt een patroon is rechtstreeks op het apparaat aan de clientapp registreren. Aan de andere kant beveiligingsoverwegingen en zakelijke logica die zijn gerelateerd aan tags u mogelijk voor het beheren van de apparaatregistratie in de back-end van de app. 
 
 #### <a name="templates"></a>Sjablonen
-Als u wilt gebruiken [sjablonen](notification-hubs-templates-cross-platform-push-messages.md), installatie van het apparaat ook bevatten alle sjablonen die zijn gekoppeld aan het apparaat in een JSON formatteren (Zie het bovenstaande voorbeeld). De sjabloonnamen helpen bij het doel van verschillende sjablonen voor hetzelfde apparaat.
+Als u wilt gebruiken [sjablonen](notification-hubs-templates-cross-platform-push-messages.md), installatie van het apparaat bevat ook alle sjablonen die zijn gekoppeld aan het apparaat in een JSON formatteren (Zie het bovenstaande voorbeeld). De sjabloonnamen helpen bij het doel van verschillende sjablonen voor hetzelfde apparaat.
 
-Houd er rekening mee dat de sjabloonnaam van elke wordt toegewezen aan een instantie van de sjabloon en een optionele set van labels. Elk platform kunt bovendien aanvullende Sjablooneigenschappen hebben. Voor Windows Store (met WNS) en Windows Phone 8 (met behulp van MPNS), kan een extra set van headers deel uitmaken van de sjabloon. In het geval van APNs, kunt u een eigenschap verloopdatum instellen moet een constante of een sjabloonexpressie. Voor een volledig overzicht van de installatie-eigenschappen-Zie [maken of een installatie met REST overschrijven](https://msdn.microsoft.com/library/azure/mt621153.aspx) onderwerp.
+De sjabloonnaam van elke wordt toegewezen aan een instantie van de sjabloon en een optionele set van labels. Elk platform kunt bovendien aanvullende Sjablooneigenschappen hebben. Voor Windows Store (met WNS) en Windows Phone 8 (met behulp van MPNS), kan een extra set van headers deel uitmaken van de sjabloon. In het geval van APNs, kunt u een eigenschap verloopdatum instellen moet een constante of een sjabloonexpressie. Voor een volledig overzicht van de installatie-eigenschappen-Zie [maken of een installatie met REST overschrijven](https://msdn.microsoft.com/library/azure/mt621153.aspx) onderwerp.
 
 #### <a name="secondary-tiles-for-windows-store-apps"></a>Secundaire tegels voor Windows Store-Apps
-Voor toepassingen voor Windows Store-client, verzenden van meldingen naar secundaire tegels is hetzelfde als ze worden verzonden naar de primaire alias. Dit wordt ook ondersteund in installaties. Houd er rekening mee dat secundaire tegels hebben een verschillende ChannelUri die de SDK op uw clientapp transparant verwerkt.
+Voor toepassingen voor Windows Store-client, verzenden van meldingen naar secundaire tegels is hetzelfde als ze worden verzonden naar de primaire alias. Dit wordt ook ondersteund in installaties. Secundaire tegels hebben een verschillende ChannelUri die de SDK op uw clientapp transparant verwerkt.
 
 Het woordenboek SecondaryTiles maakt gebruik van de dezelfde TileId die wordt gebruikt voor het object SecondaryTiles in uw Windows Store-app niet maken.
 Net als bij de primaire ChannelUri kunt ChannelUris secundaire tegels op elk moment wijzigen. Om de installaties behouden in de notification hub is bijgewerkt, moet het apparaat te vernieuwen met de huidige ChannelUris van de secundaire tegels.
 
 ## <a name="registration-management-from-the-device"></a>Beheer van de registratie van het apparaat
-Bij het beheren van de registratie van de client-apps, is alleen de back-end die verantwoordelijk is voor het verzenden van meldingen. Client-apps PNS-ingangen up-to-date te houden en registreer labels. De volgende afbeelding ziet u dit patroon.
+Bij het beheren van de registratie van de client-apps, is alleen de back-end die verantwoordelijk is voor het verzenden van meldingen. Client-apps up-to-date houden van PNS-ingangen en tags te registreren. De volgende afbeelding ziet u dit patroon.
 
 ![](./media/notification-hubs-registration-management/notification-hubs-registering-on-device.png)
 
 Het apparaat eerst de PNS-ingang opgehaald uit de PNS vervolgens rechtstreeks door de notification hub geregistreerd. Nadat de registratie geslaagd is, kan de back-end voor de app een melding die gericht is op deze inschrijving verzenden. Zie voor meer informatie over het verzenden van meldingen [Routering en code-expressies](notification-hubs-tags-segment-push-message.md).
-Merk op dat in dit geval gebruikt u luistert alleen rechten voor toegang tot uw notification hubs van het apparaat. Zie voor meer informatie [beveiliging](notification-hubs-push-notification-security.md).
+In dit geval kunt u alleen Listen rechten toegang tot uw notification hubs van het apparaat. Zie voor meer informatie [beveiliging](notification-hubs-push-notification-security.md).
 
 Registreren van het apparaat is de eenvoudigste methode, maar er enkele nadelen.
 Het eerste nadeel is dat een client-app alleen de labels bijwerken kunt wanneer de app actief is. Bijvoorbeeld, als een gebruiker heeft twee apparaten die geregistreerd labels die gerelateerd zijn aan sport-teams, wanneer het eerste apparaat voor een aanvullende code (bijvoorbeeld Seahawks registreert), zal het tweede apparaat het geen meldingen ontvangen over de Seahawks totdat de app op het tweede apparaat is een tweede keer uitgevoerd. Meer in het algemeen als labels worden beïnvloed door meerdere apparaten, is het beheren van de labels van de back-end een wenselijk optie.
@@ -292,7 +292,7 @@ U kunt ook de PATCH methode met behulp van de [JSON-Patch standaard](https://too
     }
 
 
-#### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration-id"></a>Voorbeeldcode registreren bij een notification hub van een apparaat een registratie-id
+#### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration-id"></a>Voorbeeldcode registreren bij een notification hub van een apparaat een registratie-ID
 U kunt CRUDS basisbewerkingen op registraties uitvoeren van uw app-end. Bijvoorbeeld:
 
     var hub = NotificationHubClient.CreateClientFromConnectionString("{connectionString}", "hubName");

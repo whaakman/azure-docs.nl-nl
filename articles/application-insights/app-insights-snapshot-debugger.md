@@ -3,7 +3,7 @@ title: Azure Application Insights foutopsporingsprogramma momentopname voor de .
 description: Fouten opsporen in momentopnamen worden automatisch verzameld wanneer uitzonderingen worden veroorzaakt in productie .NET-toepassingen
 services: application-insights
 documentationcenter: ''
-author: pharring
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,18 +11,18 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
-ms.author: mbullwin
-ms.openlocfilehash: 0ba58f1384d7c93af30f9b175a5a154811c9a1e0
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: MT
+ms.author: mbullwin; pharring
+ms.openlocfilehash: a742dc3c3538cd9fc5053fd9cd9aeec740ec0394
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Fouten opsporen in momentopnamen op uitzonderingen in .NET-toepassingen
 
 Wanneer er een uitzondering optreedt, kunt u automatisch een debug-momentopname verzamelen van uw live-webtoepassing. De momentopname toont de status van de broncode en variabelen op het moment dat de uitzondering is opgetreden. De momentopname-foutopsporing (preview) in [Azure Application Insights](app-insights-overview.md) uitzonderingstelemetrie van uw web-app wordt bewaakt. Deze verzamelt momentopnamen op uw eerste ArgumentOutOfRangeException uitzonderingen zodat u de informatie die u nodig hebt voor het vaststellen van problemen in productie hebt. Bevatten de [momentopname collector NuGet-pakket](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) in uw toepassing, en desgewenst verzameling parameters in configureren [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Momentopnamen worden weergegeven op [uitzonderingen](app-insights-asp-net-exceptions.md) in de Application Insights-portal.
 
-U kunt foutopsporingsmomentopnamen in het portaal bekijken om de aanroepstack te zien en variabelen inspecteren bij elk aanroepstackframe. Als u een krachtigere foutopsporing ervaring met broncode, opent u momentopnamen met Visual Studio 2017 Enterprise door [downloaden van de momentopname Debugger-extensie voor Visual Studio](https://aka.ms/snapshotdebugger). In Visual Studio kunt u ook [Snappoints om interactief momentopnamen te ingesteld](https://aka.ms/snappoint) zonder te wachten op een uitzondering.
+U kunt foutopsporingsmomentopnamen in het portaal bekijken om de aanroepstack te zien en variabelen inspecteren bij elk aanroepstackframe. Als u een krachtigere foutopsporing ervaring met broncode, opent u momentopnamen met Visual Studio 2017 Enterprise door [downloaden van de momentopname Debugger-extensie voor Visual Studio](https://aka.ms/snapshotdebugger). In Visual Studio, kunt u ook [Snappoints om interactief momentopnamen te ingesteld](https://aka.ms/snappoint) zonder te wachten op een uitzondering.
 
 Verzameling van de momentopname is beschikbaar voor:
 * .NET framework en ASP.NET-toepassingen met .NET Framework 4.5 of hoger.
@@ -55,7 +55,7 @@ De volgende omgevingen worden ondersteund:
         <!-- DeveloperMode is a property on the active TelemetryChannel. -->
         <IsEnabledInDeveloperMode>false</IsEnabledInDeveloperMode>
         <!-- How many times we need to see an exception before we ask for snapshots. -->
-        <ThresholdForSnapshotting>5</ThresholdForSnapshotting>
+        <ThresholdForSnapshotting>1</ThresholdForSnapshotting>
         <!-- The maximum number of examples we create for a single problem. -->
         <MaximumSnapshotsRequired>3</MaximumSnapshotsRequired>
         <!-- The maximum number of problems that we can be tracking at any time. -->
@@ -146,8 +146,8 @@ De volgende omgevingen worden ondersteund:
        "InstrumentationKey": "<your instrumentation key>"
      },
      "SnapshotCollectorConfiguration": {
-       "IsEnabledInDeveloperMode": true,
-       "ThresholdForSnapshotting": 5,
+       "IsEnabledInDeveloperMode": false,
+       "ThresholdForSnapshotting": 1,
        "MaximumSnapshotsRequired": 3,
        "MaximumCollectionPlanSize": 50,
        "ReconnectInterval": "00:15:00",
@@ -213,7 +213,7 @@ In de weergave fouten opsporen in momentopname ziet u een aanroepstack en een de
 
 ![Weergave fouten opsporen in momentopname in de portal](./media/app-insights-snapshot-debugger/open-snapshot-portal.png)
 
-Momentopnamen kunnen gevoelige gegevens bevatten, en ze zijn standaard niet zichtbaar. Momentopnamen kunnen weergeven, hebt u de `Application Insights Snapshot Debugger` rol aan u toegewezen.
+Momentopnamen kunnen gevoelige gegevens bevatten en standaard deze ook niet kan worden weergegeven. Momentopnamen kunnen weergeven, hebt u de `Application Insights Snapshot Debugger` rol aan u toegewezen.
 
 ## <a name="debug-snapshots-with-visual-studio-2017-enterprise"></a>Fouten opsporen in momentopnamen met Visual Studio 2017 Enterprise
 1. Klik op de **momentopname downloaden** knop voor het downloaden van een `.diagsession` bestand, dat kan worden geopend door Visual Studio 2017 Enterprise.
@@ -228,7 +228,22 @@ De gedownloade momentopname bevat symboolbestanden die zijn gevonden op de webse
 
 ## <a name="how-snapshots-work"></a>De werking van momentopnamen
 
-Wanneer uw toepassing wordt gestart, moet op een afzonderlijke momentopname uploader proces dat uw toepassing voor aanvragen van de momentopname bewaakt wordt gemaakt. Wanneer een momentopname wordt aangevraagd, wordt een schaduwkopie van het actieve proces aangebracht in milliseconden ongeveer 10 tot 20. Het proces van de schaduw wordt vervolgens geanalyseerd en een momentopname wordt gemaakt terwijl het hoofdproces nog steeds worden uitgevoerd en verkeer leveren aan gebruikers. De momentopname wordt vervolgens geüpload naar Application Insights samen met eventuele relevante (.pdb)-symboolbestanden die nodig zijn om de momentopname weer te geven.
+De momentopname-Collector wordt geïmplementeerd als een [Application Insights telemetrie Processor](app-insights-configuration-with-applicationinsights-config.md#telemetry-processors-aspnet). Wanneer uw toepassing wordt uitgevoerd, wordt de momentopname Collector telemetrie Processor toegevoegd aan uw toepassing telemetrie pijplijn.
+Elke keer dat de toepassing aanroepen [TrackException](app-insights-asp-net-exceptions.md#exceptions), de momentopname-Collector een probleem-ID van het type uitzondering wordt veroorzaakt en de methode activerend wordt berekend.
+Elke keer dat uw toepassing TrackException roept, wordt een item verhoogd voor de juiste probleem-ID. Wanneer de teller de `ThresholdForSnapshotting` waarde, het probleem-ID wordt toegevoegd aan een verzameling van plan bent.
+
+De momentopname-Collector bewaakt ook uitzonderingen als ze worden gegenereerd met een abonnement op de [AppDomain.CurrentDomain.FirstChanceException](https://docs.microsoft.com/dotnet/api/system.appdomain.firstchanceexception) gebeurtenis. Wanneer deze gebeurtenis wordt gestart, wordt het probleem-ID van de uitzondering berekend en vergeleken met de id van het probleem in de verzameling van plan bent.
+Als er een overeenkomst is, wordt een momentopname van het actieve proces gemaakt. De momentopname is een unieke id toegewezen en de uitzondering wordt vermeld met die id. Nadat de handler FirstChanceException retourneert, is de uitzondering thrown normaal verwerkt. De uitzondering bereikt uiteindelijk de methode TrackException opnieuw waar, samen met de momentopname-id wordt gerapporteerd naar Application Insights.
+
+Het hoofdproces blijft uitvoeren en verkeer leveren aan gebruikers met weinig onderbrekingen. Tegelijkertijd leert wordt de momentopname doorgegeven aan de momentopname Uploader-proces. De momentopname van Uploader maakt een minidump en geüpload naar Application Insights samen met eventuele relevante symboolbestanden (.pdb).
+
+> [!TIP]
+> - De momentopname van een proces is een onderbroken kloon van het proces dat wordt uitgevoerd.
+> - Maken van een momentopname duurt ongeveer 10 tot 20 milliseconden.
+> - De standaardwaarde voor `ThresholdForSnapshotting` is 1. Dit is ook de minimumwaarde. Daarom uw app heeft voor het activeren van dezelfde uitzondering **tweemaal** voordat een momentopname wordt gemaakt.
+> - Stel `IsEnabledInDeveloperMode` op true als u genereren van momentopnamen wilt tijdens foutopsporing in Visual Studio.
+> - De frequentie van momentopnamen maken wordt beperkt door de `SnapshotsPerTenMinutesLimit` instelling. De limiet is standaard een momentopname van elke tien minuten.
+> - Niet meer dan 50 momentopnamen per dag kunnen worden geüpload.
 
 ## <a name="current-limitations"></a>Huidige beperkingen
 
@@ -242,22 +257,42 @@ Het foutopsporingsprogramma momentopname vereist symboolbestanden op de producti
 Voor Azure Compute en andere typen, zorg ervoor dat de symboolbestanden in dezelfde map van de hoofdtoepassing .dll (meestal `wwwroot/bin`) of zijn beschikbaar op het huidige pad.
 
 ### <a name="optimized-builds"></a>Geoptimaliseerde builds
-In sommige gevallen kunnen niet lokale variabelen worden weergegeven in de release builds vanwege optimalisaties die worden toegepast tijdens het maken.
+In sommige gevallen kunnen niet lokale variabelen worden weergegeven in de release builds vanwege optimalisaties die worden toegepast door het JIT-compileerprogramma.
+De momentopname-Collector kan echter in Azure App Services deoptimize activerend methoden die deel van de verzameling van plan bent uitmaken.
+
+> [!TIP]
+> De extensie Application Insights-Site installeren in uw App Service deoptimization ondersteuning krijgen.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
 De volgende tips helpen u problemen oplossen met de momentopname-foutopsporing.
 
+## <a name="use-the-snapshot-health-check"></a>Gebruik de momentopname-statuscontrole
+Als er geen momentopname beschikbaar voor een bepaalde uitzondering, het kan worden veroorzaakt door verschillende redenen, waaronder outdate momentopname collector versies, dagelijks drempelwaarde bereikt, de momentopname is alleen duurt om te worden geüpload, enzovoort. Om u te helpen u dergelijke problemen diagnosticeren, moesten een momentopname Health Check-service voor het analyseren van aanpakt waarom er geen momentopname is.
+
+Als u momentopnamen die zijn gekoppeld met een uitzondering niet ziet, zal er een koppeling in de blade End-to-end trace viewer voor het invoeren van de statuscontrole van de momentopname.
+
+![Voer de momentopname-statuscontrole](./media/app-insights-snapshot-debugger/enter-snapshot-health-check.png)
+
+Vervolgens ziet u een interactieve chat bot zoals sessie statuscontrole op verschillende aspecten van uw service wordt uitgevoerd en adviezen per cheque aan te bieden.
+
+![Statuscontrole](./media/app-insights-snapshot-debugger/healthcheck.png)
+
+Er zijn ook enkele handmatige stappen die u doen kunt om op te sporen van de status van uw momentopname-service. Raadpleeg de volgende secties:
+
 ### <a name="verify-the-instrumentation-key"></a>Controleer of de instrumentatiesleutel
 
 Zorg ervoor dat u de juiste instrumentatiesleutel in uw gepubliceerde toepassing. Application Insights wordt normaal gesproken de instrumentatiesleutel gelezen uit het bestand ApplicationInsights.config. Controleer of de waarde is hetzelfde als de instrumentatiesleutel voor de Application Insights-resource die u in de portal ziet.
 
+### <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>Een upgrade uitvoert naar de nieuwste versie van het NuGet-pakket
+
+Visual Studio NuGet Package Manager gebruiken om ervoor te zorgen dat u de nieuwste versie van Microsoft.ApplicationInsights.SnapshotCollector. Opmerkingen bij de release kunnen worden gevonden op https://github.com/Microsoft/ApplicationInsights-Home/issues/167
+
 ### <a name="check-the-uploader-logs"></a>Raadpleeg de logboeken uploader
 
-Nadat een momentopname is gemaakt, wordt een bestand met Mini-geheugendump (dmp) op schijf gemaakt. Een afzonderlijke uploader proces duurt dat minidump-bestand en uploadt, samen met eventuele bijbehorende-PDB-bestanden naar Application Insights momentopname foutopsporingsprogramma opslag. Nadat de minidump heeft geüpload, wordt deze verwijderd van de schijf. De logboekbestanden voor het proces uploader worden bewaard op de schijf. In een App Service-omgeving vindt u deze logboeken in `D:\Home\LogFiles`. Met de site voor het beheer van Kudu voor App Service kunt u deze logboekbestanden.
+Nadat een momentopname is gemaakt, wordt een bestand met Mini-geheugendump (dmp) op schijf gemaakt. Een afzonderlijke uploader-proces dat minidump-bestand maakt en uploadt, samen met eventuele bijbehorende-PDB-bestanden naar Application Insights momentopname foutopsporingsprogramma opslag. Nadat de minidump heeft geüpload, wordt deze verwijderd van de schijf. De logboekbestanden voor het proces uploader zijn opgeslagen op schijf. In een App Service-omgeving vindt u deze logboeken in `D:\Home\LogFiles`. Met de site voor het beheer van Kudu voor App Service kunt u deze logboekbestanden.
 
 1. Open uw App Service-toepassing in de Azure portal.
-
 2. Selecteer de **geavanceerde hulpmiddelen** blade of zoeken naar **Kudu**.
 3. Klik op **gaat**.
 4. In de **-console voor foutopsporing** vervolgkeuzelijst de optie **CMD**.
@@ -292,7 +327,7 @@ SnapshotUploader.exe Information: 0 : Deleted D:\local\Temp\Dumps\c12a605e73c443
 ```
 
 > [!NOTE]
-> Het bovenstaande voorbeeld is van versie 1.2.0 van het Microsoft.ApplicationInsights.SnapshotCollector Nuget-pakket. In eerdere versies van het proces uploader heet `MinidumpUploader.exe` en het logboek minder gedetailleerd is.
+> Het bovenstaande voorbeeld is van versie 1.2.0 van het Microsoft.ApplicationInsights.SnapshotCollector NuGet-pakket. In eerdere versies van het proces uploader heet `MinidumpUploader.exe` en het logboek minder gedetailleerd is.
 
 In het vorige voorbeeld de instrumentatiesleutel wordt `c12a605e73c44346a984e00000000000`. Deze waarde moet overeenkomen met de instrumentatiesleutel voor uw toepassing.
 De minidump is gekoppeld aan een momentopname met de ID `139e411a23934dc0b9ea08a626db16c5`. U kunt deze ID later te vinden van de bijbehorende uitzonderingstelemetrie in Application Insights Analytics gebruiken.
@@ -316,7 +351,7 @@ Voor toepassingen die zijn _niet_ gehost in App Service, de uploader-logboeken z
 Voor rollen in Cloudservices, de tijdelijke standaardmap mogelijk te klein voor de bestanden met Mini-geheugendump, wat leidt tot verloren momentopnamen.
 De ruimte die nodig zijn, is afhankelijk van de totale werkset van uw toepassing en het aantal gelijktijdige momentopnamen.
 De werkset van een 32-bits ASP.NET-Webrol is meestal tussen 200 MB en 500 MB.
-U moet voor ten minste twee gelijktijdige momentopnamen toestaan.
+Wacht ten minste twee gelijktijdige momentopnamen.
 Bijvoorbeeld, als uw toepassing gebruikmaakt van 1 GB van totale werkset, moet u zorgen dat er ten minste 2 GB aan schijfruimte voor het opslaan van momentopnamen is.
 Volg deze stappen voor uw Cloudservice rol configureren met een specifieke lokale bron voor momentopnamen.
 
@@ -366,7 +401,7 @@ Volg deze stappen voor uw Cloudservice rol configureren met een specifieke lokal
 
 ### <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Gebruik Application Insights zoeken uitzonderingen met momentopnamen
 
-Wanneer een momentopname wordt gemaakt, is de activerend uitzondering gemarkeerd met een momentopname-ID. Wanneer de uitzonderingstelemetrie wordt gemeld naar Application Insights dat momentopname-ID is opgenomen als een aangepaste eigenschap. Met de Search-blade in Application Insights en u vindt alle telemetrie met de `ai.snapshot.id` aangepaste eigenschap.
+Wanneer een momentopname wordt gemaakt, is de activerend uitzondering gemarkeerd met een momentopname-ID. Die ID momentopname wordt opgenomen als een aangepaste eigenschap wanneer de uitzonderingstelemetrie naar Application Insights wordt gemeld. Met de Search-blade in Application Insights en u vindt alle telemetrie met de `ai.snapshot.id` aangepaste eigenschap.
 
 1. Blader naar uw Application Insights-resource in de Azure-portal.
 2. Klik op **Search**.
@@ -383,6 +418,10 @@ Als u wilt zoeken naar een specifieke momentopname-ID van de logboeken Uploader,
 2. Met behulp van de tijdstempel van het logboek Uploader, het filter tijdsbereik van de zoekopdracht omvatten die tijdsbereik aanpassen.
 
 Als u een uitzondering met die ID momentopname niet ziet, is niet de uitzonderingstelemetrie gerapporteerd naar Application Insights. Deze situatie kan zich voordoen als uw toepassing is vastgelopen nadat de momentopname die het heeft, maar voordat de uitzonderingstelemetrie gemeld. In dit geval, controleert u de App Service-Logboeken onder `Diagnose and solve problems` om te zien of er onverwachte opnieuw wordt opgestart zijn of onverwerkte uitzonderingen.
+
+### <a name="edit-network-proxy-or-firewall-rules"></a>Netwerk proxy of firewall-regels bewerken
+
+Als uw toepassing verbinding met Internet via een proxy of firewall maakt, moet u wellicht de regels voor het toestaan van uw toepassing om te communiceren met de momentopname-foutopsporingsprogramma bewerken. Hier volgt [een lijst met IP-adressen en poorten gebruikt door het foutopsporingsprogramma momentopname](app-insights-ip-addresses.md#snapshot-debugger).
 
 ## <a name="next-steps"></a>Volgende stappen
 

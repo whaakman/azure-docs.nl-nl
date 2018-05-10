@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: robb,bwren
-ms.openlocfilehash: 16478d0223f59abb239d39fa27453e41b6980727
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 27d3835b5574492fdb62df0131ca3a542dd21ec3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Bewaking van de Azure-toepassingen en bronnen
 
@@ -60,7 +60,7 @@ Kernbewaking biedt fundamentele, vereiste bewaking over Azure-resources. Deze se
 
 Metrische gegevens beschikbaar zijn die prestatiestatistieken bieden voor verschillende bronnen en ook het besturingssysteem in een virtuele machine. U kunt deze gegevens bekijken met een van de explorers in de Azure portal en waarschuwingen op basis van deze metrische gegevens te maken. Azure biedt een pipeline-de snelste metrische gegevens (5 minuten naar beneden op 1 minuut), dus u deze voor tijd kritieke waarschuwingen en meldingen gebruiken moet.
 
-U kunt ook deze metrische gegevens en de logboeken Azure Log Analytics voor trends en gedetailleerde analyse verzenden of maken van aanvullende waarschuwingsregels proactief om u te waarschuwen van kritieke problemen als gevolg van deze analyse.  
+U kunt ook deze metrische gegevens en de logboeken verzenden naar Azure Log Analytics voor trends en gedetailleerde analyse of maken van aanvullende waarschuwingsregels proactief om u te waarschuwen van kritieke problemen als gevolg van deze analyse.  
 
 > [!NOTE]
 > Log Analytics multidimensionale metrische gegevens verzenden via de diagnostische instellingen is momenteel niet ondersteund. Metrische gegevens met dimensies worden geëxporteerd als platte eendimensionale metrische gegevens, als totaal van alle dimensiewaarden.

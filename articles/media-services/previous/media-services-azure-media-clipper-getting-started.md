@@ -10,10 +10,10 @@ ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: ac64d97aeeef6147aa62658c9ee440bf058f4db1
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Illustraties maken met Azure Media openen
 Deze sectie leest u de eenvoudige stappen van aan de slag met Azure Media openen. De volgende gedeelten vindt de details over het configureren van Azure Media openen.
@@ -87,24 +87,24 @@ var subclipper = new subclipper({
 ```
 
 De parameters voor de initialisatie van de methodeaanroep zijn:
-- `selector`{VEREIST, string}: CSS-selector van de overeenkomende HTML-element waar het object moet worden gerenderd.
-- `restVersion`{VEREIST, string}: het Azure Media Services REST-API-versie naar doel. De versie van de REST definieert de indeling van de uitvoer wordt gegenereerd door de widget. Op dit moment wordt alleen 2.0 ondersteund.
-- `submitSubclipCallback`{VEREIST, beloven} De callback-functie die wordt aangeroepen wanneer de knop 'verzenden' van het object wordt geklikt. De functie voor retouraanroepen verwachten uitvoer wordt gegenereerd door de widget (een configuratie van de taak weergeven of een filterdefinitie). Zie voor meer informatie verzenden subclip retouraanroep.
-- `logLevel`{OPTIONEEL, {'info', 'waarschuwing', 'fout'}}: het logboekregistratieniveau moet worden weergegeven in de browser-console. Standaardwaarde: fout
-- `minimumMarkerGap`{OPTIONEEL, int}: de minimumgrootte van een subclip (in seconden). Opmerking: de waarde moet groter zijn dan of gelijk zijn aan 6, dit is de standaardwaarde.
-- `singleBitrateMp4Profile`{OPTIONEEL, JSON-object} Het single-bitrate mp4-profiel moet worden gebruikt voor de configuratie van de render-taak die worden gegenereerd door de widget. Als niet wordt opgegeven, wordt de [single-bitrate MP4-profiel standaard](https://docs.microsoft.com/azure/media-services/media-services-mes-preset-h264-single-bitrate-1080p).
-- `multiBitrateMp4Profile`{OPTIONEEL, JSON-object} De multi bitrate mp4-profiel moet worden gebruikt voor weergeven die zijn gegenereerd door de widget in de configuratie. Als niet wordt opgegeven, wordt de [multi-bitrate MP4-profiel standaard](https://docs.microsoft.com/azure/media-services/media-services-mes-preset-h264-multiple-bitrate-1080p).
-- `keymap`{OPTIONEEL, json-object} U kunt aanpassen van de sneltoetsen van het object. Zie voor meer informatie [aanpasbare sneltoetsen](media-services-azure-media-clipper-keyboard-shortcuts.md).
-- `assetsPanelLoaderCallback`{OPTIONEEL, belofte} De callback-functie is aangeroepen om te laden (asynchroon) een nieuwe pagina van de activa in het deelvenster activa telkens wanneer de gebruiker naar de onderkant van het deelvenster schuift. Zie voor meer informatie Asset deelvenster loader retouraanroep.
-- `height`{OPTIONEEL, number} De totale hoogte van de widget (minimumhoogte is 600 px zonder activa deelvenster en 850 px met het deelvenster activa).
-- `subclippingMode`(Optioneel, {'all', 'weergeven', 'filter'}): de subclipping modus/modi toegestaan. De standaardwaarde is alles.
-- `filterAssetsTypes`(Optioneel, bool): filterAssetsTypes kunt u de vervolgkeuzelijst filters in het deelvenster activa weergeven/verbergen. De standaardwaarde is true.
-- `speedLevels`(Optioneel, array): speedLevels kunt u de instelling van de van de verschillende snelheidsniveaus voor de video-speler, Zie [Azure Media Player documentatie](http://amp.azure.net/libs/amp/latest/docs/#amp.player.playbackspeedoptions) voor meer informatie.
-- `resetOnJobDone`(Optioneel, bool): resetOnJobDone kunt openen om in te stellen de subclipper naar de oorspronkelijke status wanneer een taak met succes wordt ingediend.
-- `autoplayVideo`(Optioneel, bool): autoplayVideo kunt openen automatisch afspelen de video belasting. De standaardwaarde is true.
-- `language`{OPTIONEEL, tekenreeks}: taal de taal van de widget wordt ingesteld. Als niet wordt opgegeven, probeert de widget voor lokalisatie van de berichten op basis van de taal van de browser. Als er geen taal is gedetecteerd in de browser, wordt de widget wordt standaard ingesteld op Engels. Zie voor meer informatie de [lokalisatie configureren](media-services-azure-media-clipper-localization.md) sectie.
-- `languages`{OPTIONEEL, JSON}: de parameter talen vervangt de standaard-woordenlijst van talen door een aangepaste woordenlijst gedefinieerd door de gebruiker. Zie voor meer informatie de [lokalisatie configureren](media-services-azure-media-clipper-localization.md) sectie.
-- `extraLanguages`(Optioneel, JSON): de parameter extraLanaguages nieuwe talen toevoegen aan de standaardwoordenlijst. Zie voor meer informatie de [lokalisatie configureren](media-services-azure-media-clipper-localization.md) sectie.
+- `selector` {VEREIST, string}: CSS-selector van de overeenkomende HTML-element waar het object moet worden gerenderd.
+- `restVersion` {VEREIST, string}: het Azure Media Services REST-API-versie naar doel. De versie van de REST definieert de indeling van de uitvoer wordt gegenereerd door de widget. Op dit moment wordt alleen 2.0 ondersteund.
+- `submitSubclipCallback` {VEREIST, beloven} De callback-functie die wordt aangeroepen wanneer de knop 'verzenden' van het object wordt geklikt. De functie voor retouraanroepen verwachten uitvoer wordt gegenereerd door de widget (een configuratie van de taak weergeven of een filterdefinitie). Zie voor meer informatie verzenden subclip retouraanroep.
+- `logLevel` {OPTIONEEL, {'info', 'waarschuwing', 'fout'}}: het logboekregistratieniveau moet worden weergegeven in de browser-console. Standaardwaarde: fout
+- `minimumMarkerGap` {OPTIONEEL, int}: de minimumgrootte van een subclip (in seconden). Opmerking: de waarde moet groter zijn dan of gelijk zijn aan 6, dit is de standaardwaarde.
+- `singleBitrateMp4Profile` {OPTIONEEL, JSON-object} Het single-bitrate mp4-profiel moet worden gebruikt voor de configuratie van de render-taak die worden gegenereerd door de widget. Als niet wordt opgegeven, wordt de [single-bitrate MP4-profiel standaard](https://docs.microsoft.com/azure/media-services/media-services-mes-preset-h264-single-bitrate-1080p).
+- `multiBitrateMp4Profile` {OPTIONEEL, JSON-object} De multi bitrate mp4-profiel moet worden gebruikt voor weergeven die zijn gegenereerd door de widget in de configuratie. Als niet wordt opgegeven, wordt de [multi-bitrate MP4-profiel standaard](https://docs.microsoft.com/azure/media-services/media-services-mes-preset-h264-multiple-bitrate-1080p).
+- `keymap` {OPTIONEEL, json-object} U kunt aanpassen van de sneltoetsen van het object. Zie voor meer informatie [aanpasbare sneltoetsen](media-services-azure-media-clipper-keyboard-shortcuts.md).
+- `assetsPanelLoaderCallback` {OPTIONEEL, belofte} De callback-functie is aangeroepen om te laden (asynchroon) een nieuwe pagina van de activa in het deelvenster activa telkens wanneer de gebruiker naar de onderkant van het deelvenster schuift. Zie voor meer informatie Asset deelvenster loader retouraanroep.
+- `height` {OPTIONEEL, number} De totale hoogte van de widget (minimumhoogte is 600 px zonder activa deelvenster en 850 px met het deelvenster activa).
+- `subclippingMode` (Optioneel, {'all', 'weergeven', 'filter'}): de subclipping modus/modi toegestaan. De standaardwaarde is alles.
+- `filterAssetsTypes` (Optioneel, bool): filterAssetsTypes kunt u de vervolgkeuzelijst filters in het deelvenster activa weergeven/verbergen. De standaardwaarde is true.
+- `speedLevels` (Optioneel, array): speedLevels kunt u de instelling van de van de verschillende snelheidsniveaus voor de video-speler, Zie [Azure Media Player documentatie](http://amp.azure.net/libs/amp/latest/docs/#amp.player.playbackspeedoptions) voor meer informatie.
+- `resetOnJobDone` (Optioneel, bool): resetOnJobDone kunt openen om in te stellen de subclipper naar de oorspronkelijke status wanneer een taak met succes wordt ingediend.
+- `autoplayVideo` (Optioneel, bool): autoplayVideo kunt openen automatisch afspelen de video belasting. De standaardwaarde is true.
+- `language` {OPTIONEEL, tekenreeks}: taal de taal van de widget wordt ingesteld. Als niet wordt opgegeven, probeert de widget voor lokalisatie van de berichten op basis van de taal van de browser. Als er geen taal is gedetecteerd in de browser, wordt de widget wordt standaard ingesteld op Engels. Zie voor meer informatie de [lokalisatie configureren](media-services-azure-media-clipper-localization.md) sectie.
+- `languages` {OPTIONEEL, JSON}: de parameter talen vervangt de standaard-woordenlijst van talen door een aangepaste woordenlijst gedefinieerd door de gebruiker. Zie voor meer informatie de [lokalisatie configureren](media-services-azure-media-clipper-localization.md) sectie.
+- `extraLanguages` (Optioneel, JSON): de parameter extraLanaguages nieuwe talen toevoegen aan de standaardwoordenlijst. Zie voor meer informatie de [lokalisatie configureren](media-services-azure-media-clipper-localization.md) sectie.
 
 ## <a name="typescript-definition"></a>Machineschrift definitie
 Een [machineschrift](https://www.typescriptlang.org/) definitiebestand voor de openen vindt [hier](http://amp.azure.net/libs/amc/latest/azuremediaclipper.d.ts).

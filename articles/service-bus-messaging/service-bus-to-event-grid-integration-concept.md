@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: 1da2b6568125c61db2c4dda3bd81abb8f1a59ec7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: fbea3d4b6bb82ac002550434d737f27c441d439e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Overzicht integratie Azure Service Bus met Azure Event Grid
 
@@ -47,9 +47,9 @@ Service Bus gaat vandaag gebeurtenissen verzenden voor twee scenario's:
 * [ActiveMessagesWithNoListenersAvailable](#active-messages-available-event)
 * [DeadletterMessagesAvailable](#dead-lettered-messages-available-event)
 
-Bovendien worden de standaard Event Grid-beveiliging en [verificatiemechanismen](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication) gebruikt.
+Bovendien worden de standaard Event Grid-beveiliging en [verificatiemechanismen](https://docs.microsoft.com/azure/event-grid/security-authentication) gebruikt.
 
-Zie [Azure Event Grid-gebeurtenisschema's](https://docs.microsoft.com/en-us/azure/event-grid/event-schema) voor meer informatie.
+Zie [Azure Event Grid-gebeurtenisschema's](https://docs.microsoft.com/azure/event-grid/event-schema) voor meer informatie.
 
 #### <a name="active-messages-available-event"></a>De gebeurtenis Actieve berichten beschikbaar
 
@@ -138,7 +138,7 @@ Ga als volgt te werk als u een nieuw Event Grid-abonnement wilt maken:
 
 ## <a name="azure-cli-instructions"></a>Instructies voor Azure CLI
 
-Controleer eerst of Azure CLI versie 2.0 of hoger is geïnstalleerd. [Download het installatieprogramma](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). Selecteer **Windows+X** en open een nieuwe PowerShell-console met beheerdersmachtigingen. U kunt ook een opdrachtshell in Azure Portal gebruiken.
+Controleer eerst of Azure CLI versie 2.0 of hoger is geïnstalleerd. [Download het installatieprogramma](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Selecteer **Windows+X** en open een nieuwe PowerShell-console met beheerdersmachtigingen. U kunt ook een opdrachtshell in Azure Portal gebruiken.
 
 Voer de volgende code uit:
 
@@ -154,7 +154,7 @@ az eventgrid event-subscription create --resource-id $namespaceid --name “<YOU
 
 ## <a name="powershell-instructions"></a>Instructies voor PowerShell
 
-Controleer of u Azure PowerShell hebt geïnstalleerd. [Download het installatieprogramma](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0). Selecteer **Windows+X** en open een nieuwe PowerShell-console met beheerdersmachtigingen. U kunt ook een opdrachtshell in Azure Portal gebruiken.
+Controleer of u Azure PowerShell hebt geïnstalleerd. [Download het installatieprogramma](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0). Selecteer **Windows+X** en open een nieuwe PowerShell-console met beheerdersmachtigingen. U kunt ook een opdrachtshell in Azure Portal gebruiken.
 
 ```PowerShell-interactive
 Connect-AzureRmAccount
@@ -175,10 +175,10 @@ U kunt nu kennismaken met de andere instelopties of [testen of er gebeurtenissen
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Voorbeelden](service-bus-to-event-grid-integration-example.md) ophalen van Service Bus en Event Grid.
-* Meer informatie over [Event Grid](https://docs.microsoft.com/en-us/azure/azure-functions/).
-* Meer informatie over [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/).
-* Meer informatie over [Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/).
-* Meer informatie over [Service Bus](https://docs.microsoft.com/en-us/azure/azure-functions/).
+* Meer informatie over [Event Grid](https://docs.microsoft.com/azure/azure-functions/).
+* Meer informatie over [Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
+* Meer informatie over [Logic Apps](https://docs.microsoft.com/azure/logic-apps/).
+* Meer informatie over [Service Bus](https://docs.microsoft.com/azure/azure-functions/).
 
 [1]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgrid1.png
 [19]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgriddiagram.png

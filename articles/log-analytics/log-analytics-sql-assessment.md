@@ -2,10 +2,10 @@
 title: Optimalisatie van uw SQL Server-omgeving met Azure Log Analytics | Microsoft Docs
 description: Met Azure Log Analytics kunt u de SQL-Serverstatus controleren oplossing voor het evalueren van de risico's en de status van uw omgevingen op een vast interval.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
 ms.service: log-analytics
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/19/2018
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5da04e9479ebd6cec886a8c5ca38d040aec2758d
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
-ms.translationtype: MT
+ms.openlocfilehash: 47f912932f9a0e1383ef5f82d1d3e33b5ababa9c
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Optimalisatie van uw SQL-omgeving met de oplossing voor SQL Server-Serverstatus controleren in Log Analytics
 
@@ -54,7 +54,7 @@ Als u wilt de statuscontrole op basis van uw servers met SQL Server uitvoeren, v
 
 1. Installeer de [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) als de server niet door System Center 2016 - Operations Manager of Operations Manager 2012 R2 bewaakt wordt.
 2. Als deze wordt bewaakt met System Center 2016 - Operations Manager of Operations Manager 2012 R2 en de beheergroep is niet geïntegreerd met de Log Analytics-service, kan de server worden multihomed met logboekanalyse voor het verzamelen van gegevens en door te sturen naar de service en nog steeds bewaakt door Operations Manager.  
-3. Anders, als uw Operations Manager-beheergroep is geïntegreerd met de service, moet u de domeincontrollers voor het verzamelen van gegevens toevoegen door de service die de stappen onder [toevoegen door agents beheerde computers](log-analytics-om-agents.md#connecting-operations-manager-to-oms) nadat u hebt ingeschakeld de oplossing in uw werkruimte.  
+3. Anders, als uw Operations Manager-beheergroep is geïntegreerd met de service, moet u de domeincontrollers voor het verzamelen van gegevens toevoegen door de service die de stappen onder [toevoegen door agents beheerde computers](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) nadat u hebt ingeschakeld de oplossing in uw werkruimte.  
 
 De agent op de SQL Server welke rapporten aan een beheergroep van Operations Manager verzamelt gegevens, worden doorgestuurd naar de toegewezen beheerserver en vervolgens rechtstreeks vanaf een beheerserver verzonden naar de Log Analytics-service.  De gegevens niet naar de Operations Manager-database geschreven.  
 
@@ -163,7 +163,7 @@ Voordat u een oplossing voor evaluatie in Log Analytics gebruiken kunt, moet u d
 De beoordelingen samengevatte compatibiliteit voor uw infrastructuur en inzoomen in aanbevelingen weergeven.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Aanbevelingen voor een focusgebied bekijken en corrigerende actie ondernemen
-1. Meld u aan bij Azure Portal op [https://portal.azure.com](https://portal.azure.com).
+1. Meld u aan bij de Azure-portal op [https://portal.azure.com](https://portal.azure.com).
 2. Klik in Azure Portal op **Meer services** in de linkerbenedenhoek. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics**.
 3. Selecteer een werkruimte in het deelvenster abonnementen van logboekanalyse en klik vervolgens op de **overzicht** tegel.  
 4. Op de **overzicht** pagina, klikt u op de **SQL-Serverstatus controleren** tegel.

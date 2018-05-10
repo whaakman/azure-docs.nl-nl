@@ -1,3 +1,19 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 8eada6b88c320396b30ecdeb96c95e4ec61679ce
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 05/07/2018
+---
 ## <a name="view-device-telemetry"></a>Telemetrie van apparaten weergeven
 
 U kunt de telemetrie van uw apparaat op verzonden weergeven de **apparaten** pagina in de oplossing.
@@ -41,4 +57,4 @@ Gebruiken om aan te roepen methoden op uw apparaten, de **apparaten** pagina in 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Het artikel [aanpassen van de vooraf geconfigureerde oplossing voor externe controle](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) enkele manieren voor het aanpassen van de vooraf geconfigureerde oplossing beschrijft.
+Het artikel [aanpassen van de externe controle oplossingsverbetering](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) enkele manieren voor het aanpassen van de oplossingsverbetering beschrijft.

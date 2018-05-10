@@ -1,6 +1,6 @@
 ---
 title: Raspberry Pi voor externe controle in Node.js - Azure inrichten | Microsoft Docs
-description: Beschrijft hoe een frambozen Pi apparaat aansluit op de Azure IoT Suite vooraf geconfigureerde oplossing voor externe controle met behulp van een toepassing die is geschreven in Node.js.
+description: Beschrijft hoe een frambozen Pi apparaat aansluit op de externe controle oplossingsverbetering met behulp van een toepassing die is geschreven in Node.js.
 services: iot-suite
 suite: iot-suite
 documentationcenter: na
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: dobett
-ms.openlocfilehash: 7f489a6b26edb9a58b21d318785d3804197b33cb
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: a47cc34e6791ae03f4da968e3d44660b47e1214d
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-preconfigured-solution-nodejs"></a>Verbind het apparaat frambozen Pi met de vooraf geconfigureerde oplossing voor externe controle (Node.js)
+# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Verbind het apparaat frambozen Pi met de externe controle oplossingsverbetering (Node.js)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Deze zelfstudie laat zien hoe een fysiek apparaat verbindt met de vooraf geconfigureerde oplossing voor externe controle. In deze zelfstudie gebruikt u Node.js, dit is een goede optie voor omgevingen met minimale resourcebeperkingen.
+Deze zelfstudie laat zien hoe een fysiek apparaat verbindt met de externe controle oplossingsverbetering. In deze zelfstudie gebruikt u Node.js, dit is een goede optie voor omgevingen met minimale resourcebeperkingen.
 
 ### <a name="required-hardware"></a>Vereiste hardware
 

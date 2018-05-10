@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/22/2017
 ms.author: raynew
-ms.openlocfilehash: a7c1dcae5708164252fa04a0fd1471eb1ae9bf90
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 897b45782dee14099d5d7a7b12c49e2bfd60b309
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Een groep met apparaatgroeptoewijzing afhankelijkheid verfijnen
 
@@ -24,18 +24,18 @@ In dit artikel wordt beschreven hoe een groep verfijnen door het visualiseren va
 # <a name="prepare-the-group-for-dependency-visualization"></a>Voorbereiden van de groep voor afhankelijkheid visualisatie
 Als u wilt weergeven van afhankelijkheden van een groep, die u wilt downloaden en installeren van agents op elke on-premises machine die deel uitmaakt van de groep. Bovendien hebt u machines zonder internetverbinding, u moet downloaden en installeren [OMS gateway](../log-analytics/log-analytics-oms-gateway.md) erop.
 
-### <a name="download-and-install-the-vm-agents"></a>Download en installeer de VM-agents
+### <a name="download-and-install-the-vm-agents"></a>De VM-agents downloaden en installeren
 1. In **overzicht**, klikt u op **beheren** > **groepen**, gaat u naar de vereiste groep.
 2. In de lijst met computers in de **-agent voor afhankelijkheden** kolom, klikt u op **vereist installatie** voor instructies over het downloaden en installeren van de agents.
 3. Op de **afhankelijkheden** pagina, downloaden en installeren van Microsoft Monitoring Agent (MMA) en de afhankelijkheid-agent op elke virtuele machine die deel uitmaakt van de groep.
-4. Kopieer de werkruimte-ID en sleutel. U moet deze wanneer u de MMA op de lokale computers installeert.
+4. Kopieer de werkruimte-id en -sleutel. U moet deze wanneer u de MMA op de lokale computers installeert.
 
-### <a name="install-the-mma"></a>Installeer de MMA
+### <a name="install-the-mma"></a>De MMA installeren
 
 De agent installeren op een Windows-computer:
 
 1. Dubbelklik op de gedownloade agent.
-2. Klik op de pagina **Welkom** op **Volgende**. Op de **licentievoorwaarden** pagina, klikt u op **ik ga akkoord** de licentievoorwaarden accepteren.
+2. Klik op de pagina **Welkom** op **Volgende**. Klik op de pagina **Licentievoorwaarden** op **Akkoord** om de licentie te accepteren.
 3. In **doelmap**, behouden of wijzigen van de standaardinstallatiemap > **volgende**. 
 4. In **installatieopties voor Agent**, selecteer **Azure Log Analytics** > **volgende**. 
 5. Klik op **toevoegen** een nieuwe werkruimte voor logboekanalyse toevoegen. In de werkruimte-ID en sleutel die u hebt gekopieerd uit de portal te plakken. Klik op **Volgende**.
@@ -49,13 +49,13 @@ De agent te installeren op een Linux-machine:
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
 
-### <a name="install-the-dependency-agent"></a>De afhankelijkheid-agent installeren
+### <a name="install-the-dependency-agent"></a>De afhankelijkheidsagent installeren
 1. De afhankelijkheid om agent te installeren op een Windows-machine, dubbelklik op het setup-bestand en volg de wizard.
 2. U installeert de agent voor afhankelijkheden op een Linux-machine te installeren als toegangspunt met de volgende opdracht:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-[Meer informatie](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) over besturingssystemen die worden ondersteund door de agent voor afhankelijkheden. 
+[Meer informatie](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) over besturingssystemen die worden ondersteund door de agent voor afhankelijkheden. 
 
 ## <a name="refine-the-group-based-on-dependency-visualization"></a>De groep op basis van afhankelijkheid visualisatie verfijnen
 Als u agents hebt geïnstalleerd op alle computers van de groep, kunt u de afhankelijkheden van de groep visualiseren en deze verfijnen door de onderstaande stappen te volgen.
@@ -69,7 +69,7 @@ Als u agents hebt geïnstalleerd op alle computers van de groep, kunt u de afhan
     - Processen die worden uitgevoerd op de machine, kunt u elk machine vak om weer te geven van de processen uitbreiden
     - Eigenschappen zoals het volledig gekwalificeerde domeinnaam, besturingssysteem, enzovoort voor MAC-adres van elke machine die u kunt klikken op elke machine vak om deze gegevens weer te geven
 
-     ![Afhankelijkheden van de groep weergeven](./media/how-to-create-group-dependencies/view-group-dependencies.png)
+     ![Groepsafhankelijkheden weergeven](./media/how-to-create-group-dependencies/view-group-dependencies.png)
 
 3. Als u wilt meer gedetailleerd afhankelijkheden weergeven, klikt u op het tijdsbereik om dit te wijzigen. Het bereik is standaard een uur. U kunt het tijdsbereik wijzigen of geef de begin- en einddatum en duur.
 4. Controleer of de afhankelijke machines het proces op elke machine en de machines die moeten worden toegevoegd of verwijderd uit de groep te identificeren.

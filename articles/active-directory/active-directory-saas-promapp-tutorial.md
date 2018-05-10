@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 4a0630bf015361833ed3a6949ea7b29450d53701
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8b8a15143d38b7d835f85b8d196af5f33f5de18b
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promapp"></a>Zelfstudie: Azure Active Directory-integratie met Promapp
 
@@ -113,23 +113,22 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     a. In de **id** textbox, typ een URL met het volgende patroon volgen:
     | |
     |--|
-    | `https://demo.promapp.com/TENANTNAME`|
-    | `https://go.promapp.com/TENANTNAME`|
-    | `https://demoau.promapp.com/TENANTNAME`|
-    | `https://au.promapp.com/TENANTNAME`|
-    | `https://demous.promapp.com/TENANTNAME`|
-    | `https://us.promapp.com/TENANTNAME`|
-    | `https://dev.promapp.com/TENANTNAME`|
-    | `https://test.promapp.com/TENANTNAME`|
-    | `https://staging.promapp.com/TENANTNAME`|
+    | `https://go.promapp.com/TENANTNAME/`|
+    | `https://au.promapp.com/TENANTNAME/`|
+    | `https://us.promapp.com/TENANTNAME/`|
+    | `https://eu.promapp.com/TENANTNAME/`|
+    | `https://ca.promapp.com/TENANTNAME/`|
     
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://DOMAINNAME.promapp.com/azuread/saml/authenticate.aspx`
+    > [!NOTE] 
+    > Momenteel is Azure AD-integratie met Promapp alleen geconfigureerd voor verificatie van de service geïnitieerd bijvoorbeeld een URL Promapp gaat het verificatieproces initieert. De antwoord-URL is echter een verplicht veld.
+    
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://DOMAINNAME.promapp.com/azuread/saml/authenticate.aspx`
 
 4. Controleer **weergeven geavanceerde instellingen voor URL** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-promapp-tutorial/tutorial_promapp_url1.png)
 
-    In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://DOMAINNAME.promapp.com/TENANTNAME/saml/authenticate`
+    In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://DOMAINNAME.promapp.com/TENANTNAME/saml/authenticate`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke aanmeldings-URL, -id en antwoord-URL. Neem contact op met [Promapp Client ondersteuningsteam](https://www.promapp.com/about-us/contact-us/) ophalen van deze waarden.
@@ -240,13 +239,9 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
     
 ### <a name="testing-single-sign-on"></a>Testen van eenmalige aanmelding
 
-Het doel van deze sectie is het testen van uw Azure AD SSO-configuratie met behulp van het toegangsvenster.
+Voor het testen van uw toepassing in **SP** geïnitieerd modus, moet u de verificatie van uw site Promapp initiëren. Dit kan worden gedaan door te klikken op de knop 'Aanmelding met eenmalige aanmelding' op de aanmeldingspagina wordt aangeroepen terwijl er **optioneel** modus is ingeschakeld.
 
-Voor het testen van uw toepassing in **IDP** geïnitieerd wanneer u op de tegel Promapp in het deelvenster toegang u moet ophalen automatisch aangemeld bij uw toepassing Promapp modus.
-
-Voor het testen van uw toepassing in **SP** geïnitieerd modus, moet u de verificatie van uw site Promapp initiëren. Dit kan worden gedaan door het wachtwoordveld niets bij het aanmelden wordt aangeroepen terwijl er **optioneel** modus is ingeschakeld.
-
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

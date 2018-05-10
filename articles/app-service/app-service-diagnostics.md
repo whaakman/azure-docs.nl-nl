@@ -3,10 +3,10 @@ title: Overzicht van de diagnostische gegevens van Azure App Service | Microsoft
 description: Meer informatie over hoe u problemen kunt oplossen met uw web-app met diagnostische gegevens van App Service.
 keywords: App service, azure app service, diagnostische gegevens, ondersteuning, web-app, het oplossen van problemen zelfhulp
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: jen7714
 manager: cfowler
-editor: 
+editor: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
-ms.openlocfilehash: 9526817ce7969edcd5e9c56ec153bb4e3ebaa501
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 50e0e9f5edc18aac42ee80e232f70e09736124bc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Overzicht van de diagnostische gegevens van Azure App Service 
 
@@ -26,11 +26,13 @@ Wanneer u een webtoepassing uitvoert, die u wilt worden voorbereid voor eventuel
  
 Hoewel deze ervaring handig is als je problemen met uw web-app in de afgelopen 24 uur hebt, wordt de diagnostische grafieken beschikbaar voor u te allen tijde analyseren zijn. Extra hulpprogramma's voor probleemoplossing en koppelingen naar nuttige documentatie en forums bevinden zich in de rechterkolom.
 
+Diagnostische gegevens van App Service werkt niet alleen uw app in Windows, maar ook apps op [Linux/containers](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-intro), [App Service-omgeving](https://docs.microsoft.com/en-us/azure/app-service/environment/intro), en [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview). 
+
 ## <a name="open-app-service-diagnostics"></a>Open diagnostische gegevens van App Service
 
-Als u diagnostische gegevens van App Service, gaat u naar uw App Service-web-app in de [Azure-portal](https://portal.azure.com). 
+Als u diagnostische gegevens van App Service, gaat u naar uw App Service-app of een App Service-omgeving in de [Azure-portal](https://portal.azure.com). Klik in het linkernavigatievenster op **diagnosticeren en oplossen van problemen**. 
 
-Klik in het linkernavigatievenster op **diagnosticeren en oplossen van problemen**.
+Voor Azure Functions, gaat u naar uw app functie en in de bovenste navigatiebalk, klikt u op **platformfuncties** en selecteer **diagnosticeren en oplossen van problemen** van de **bewaking**sectie. 
 
 ![Startpagina](./media/app-service-diagnostics/Homepage1.png)
 
@@ -46,13 +48,22 @@ Als er een probleem is gedetecteerd met een specifiek probleemcategorie in de af
 
 ## <a name="tile-shortcuts"></a>Tegel snelkoppelingen
 
-Als u precies wat voor soort informatie die u zoekt voor probleemoplossing, gaat de tegel snelkoppelingen u rechtstreeks naar de volledige diagnostisch rapport van de probleemcategorie dat u geïnteresseerd bent in. Vergeleken met de health-checkup, de tegel snelkoppelingen meer rechtstreekse zijn, maar kleiner manier van de toegang tot metrische gegevens over uw diagnostische geleid.  
+Als u precies wat voor soort informatie die u zoekt voor probleemoplossing, gaat de tegel snelkoppelingen u rechtstreeks naar de volledige diagnostisch rapport van de probleemcategorie dat u geïnteresseerd bent in. Vergeleken met de health-checkup, de tegel snelkoppelingen meer rechtstreekse zijn, maar kleiner manier van de toegang tot metrische gegevens over uw diagnostische geleid. Als onderdeel van de tegel snelkoppelingen, dit is ook waar vindt u **diagnostische hulpprogramma's voor** die zijn meer geavanceerde hulpmiddelen waarmee u problemen met betrekking tot problemen met toepassingen, traagheid en verbindingsreeksen onderzoeken. 
 
 ![Tegel snelkoppelingen](./media/app-service-diagnostics/TileShortcuts4.png)
 
 ## <a name="diagnostic-report"></a>Diagnostisch rapport
 
-Hiermee wordt aangegeven of u meer wilt weten nadat een [health checkup](#health-checkup) of u hebt geklikt op een van de [tegel snelkoppelingen](#tile-shortcuts), de volledige diagnostisch rapport leert u relevante grafische metrische gegevens van de afgelopen 24 uur. Als uw app-uitvaltijd ervaringen, wordt vertegenwoordigd door een oranje balk onder de tijdlijn. U kunt een van de downtime geanalyseerde opmerkingen over de uitvaltijd en de voorgestelde oplossingen ophalen. 
+Hiermee wordt aangegeven of u meer wilt weten nadat een [health checkup](#health-checkup) of u hebt geklikt op een van de [tegel snelkoppelingen](#tile-shortcuts), de volledige diagnostisch rapport leert u relevante grafische metrische gegevens van de afgelopen 24 uur. Als uw app-uitvaltijd ervaringen, wordt vertegenwoordigd door een oranje balk onder de tijdlijn. U kunt een van de oranje balken selecteren de uitvaltijd voor Zie Opmerkingen over deze uitvaltijd en de voorgestelde stappen voor probleemoplossing. 
 
 ![Diagnostisch rapport](./media/app-service-diagnostics/DiagnosticReport5.png)
+
+
+## <a name="investigating-application-code-issues"></a>Onderzoek van toepassingsproblemen code
+
+Omdat veel app zijn problemen met problemen in uw toepassingscode, diagnostische gegevens van App Service kan worden geïntegreerd met [Application Insights](https://azure.microsoft.com/services/application-insights/) markeren uitzonderingen en afhankelijkheidsproblemen met elkaar correleren met de geselecteerde uitvaltijd. Application Insights heeft afzonderlijk worden ingeschakeld. 
+
+Als u wilt weergeven in Application Insights-uitzonderingen en afhankelijkheden, selecteer de **Web-App niet actief** of **Web App trage** snelkoppelingen tegel. 
+
+![Application Insights](./media/app-service-diagnostics/AppInsights6.png)
 

@@ -4,9 +4,9 @@ description: Informatie over het verwerken van externe gebeurtenissen in de uitb
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 5ffbe6a7d74f0be2193d711d304f19e62ab08741
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 77087f04ea641c24a92edd2091432cbcb4329ecd
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Verwerken van externe gebeurtenissen in duurzame functies (Azure-functies)
 
@@ -27,6 +27,8 @@ Orchestrator-functies hebben de mogelijkheid om te wachten en het luisteren naar
 ## <a name="wait-for-events"></a>Wachten op gebeurtenissen
 
 De [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) methode biedt de mogelijkheid een orchestrator-functie asynchroon wachten en het luisteren naar een externe gebeurtenis. De luisterende orchestrator-functie verklaart de *naam* van de gebeurtenis en de *vorm van de gegevens* deze verwacht te ontvangen.
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("BudgetApproval")]
@@ -45,9 +47,26 @@ public static async Task Run(
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const approved = yield context.df.waitForExternalEvent("Approval");
+    if (approved) {
+        // approval granted - do the approved action
+    } else {
+        // approval denied - send a notification
+    }
+});
+```
+
 Het vorige voorbeeld luistert naar een specifieke enkelvoudige gebeurtenis en actie wordt uitgevoerd wanneer het ontvangen.
 
 U kunt luisteren naar meerdere gebeurtenissen gelijktijdig, zoals in het volgende voorbeeld wordt gewacht op een van drie mogelijke gebeurtenismeldingen.
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("Select")]
@@ -74,7 +93,30 @@ public static async Task Run(
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const event1 = context.df.waitForExternalEvent("Event1");
+    const event2 = context.df.waitForExternalEvent("Event2");
+    const event3 = context.df.waitForExternalEvent("Event3");
+
+    const winner = yield context.df.Task.any([event1, event2, event3]);
+    if (winner === event1) {
+        // ...
+    } else if (winner === event2) {
+        // ...
+    } else if (winner === event3) {
+        // ...
+    }
+});
+```
+
 Het vorige voorbeeld luistert naar *eventuele* van meerdere gebeurtenissen. Het is ook mogelijk om te wachten op *alle* gebeurtenissen.
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("NewBuildingPermit")]
@@ -94,12 +136,31 @@ public static async Task Run(
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const applicationId = context.df.getInput();
+
+    const gate1 = context.df.waitForExternalEvent("CityPlanningApproval");
+    const gate2 = context.df.waitForExternalEvent("FireDeptApproval");
+    const gate3 = context.df.waitForExternalEvent("BuildingDeptApproval");
+
+    // all three departments must grant approval before a permit can be issued
+    yield context.df.Task.all([gate1, gate2, gate3]);
+
+    yield context.df.callActivityAsync("IssueBuildingPermit", applicationId);
+});
+```
+
 [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) voor onbepaalde tijd gewacht op sommige invoer.  De functie-app kan worden veilig verwijderd tijdens het wachten. Als een gebeurtenis voor dit exemplaar orchestration binnenkomt, wordt automatisch geactiveerd en onmiddellijk de gebeurtenis wordt verwerkt.
 
 > [!NOTE]
 > Als de functie-app het verbruik van plan bent gebruikt, geen kosten verbonden zijn terwijl een orchestrator-functie in afwachting van een taak vanuit `WaitForExternalEvent`, ongeacht hoe lang deze wacht.
 
-Als de nettolading kan niet worden omgezet in het verwachte type `T`, er een uitzondering gegenereerd.
+In .NET, als de nettolading kan niet worden geconverteerd naar het verwachte type `T`, er een uitzondering gegenereerd.
 
 ## <a name="send-events"></a>Gebeurtenissen verzenden
 

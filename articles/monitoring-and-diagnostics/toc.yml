@@ -65,14 +65,20 @@
           href: insights-alerts-command-line-interface.md
         - name: Klassieke waarschuwingen configureren met Azure PowerShell
           href: insights-alerts-powershell.md
+        - name: Een klassieke metrische waarschuwing een webhook laten aanroepen
+          href: insights-webhooks-alerts.md
         - name: Webhookacties voor logboekwaarschuwingen
           href: monitor-alerts-unified-log-webhook.md
+        - name: Een waarschuwing voor een logboek maken met een Resource Manager-sjabloon
+          href: monitor-alerts-unified-log-template.md
         - name: Een nieuwere waarschuwing voor metrische gegevens maken met een Resource Manager-sjabloon
           href: monitoring-create-metric-alerts-with-templates.md
         - name: Een klassieke waarschuwing voor metrische gegevens maken met een Resource Manager-sjabloon
           href: monitoring-enable-alerts-using-template.md
         - name: Waarschuwingen van de OMS-portal kopiëren naar Azure Portal
           href: monitoring-alerts-extend-tool.md
+        - name: Waarschuwingen met dynamische drempelwaarden
+          href: monitoring-alerts-dynamic-thresholds.md
     - name: Actiegroepen met waarschuwingen gebruiken
       items:
         - name: Meer informatie over webhook-schema
@@ -83,6 +89,8 @@
           href: monitoring-alerts-rate-limiting.md
         - name: Actiegroepen maken met Resource Manager
           href: monitoring-create-action-group-with-resource-manager-template.md
+        - name: Een actie voor een Logische app implementeren
+          href: monitoring-action-groups-logic-app.md
     - name: Diagnostische logboeken gebruiken
       items:
         - name: Archiveren
@@ -123,6 +131,8 @@
           href: insights-powershell-samples.md
     - name: Azure Diagnostics-extensie gebruiken
       items:
+        - name: Verzenden naar Azure Storage
+          href: azure-diagnostics-storage.md
         - name: Verzenden naar Application Insights
           href: azure-diagnostics-configure-application-insights.md
         - name: Verzenden naar Event Hubs
@@ -173,6 +183,13 @@
       href: monitoring-activity-log-schema.md
     - name: Extensieschema voor Azure Diagnostics
       href: azure-diagnostics-schema.md
+      items:
+        - name: 1.3 en hoger
+          href: azure-diagnostics-schema-1dot3-and-later.md
+        - name: 1.2
+          href: azure-diagnostics-schema-1dot2.md
+        - name: 1
+          href: azure-diagnostics-schema-1dot0.md
 - name: Resources
   items:
     - name: Azure-roadmap

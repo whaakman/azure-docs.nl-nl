@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2018
 ms.author: liydu
-ms.openlocfilehash: ac0b82c4683f5a1b09d7e6102a7b70361e1fbce2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 20e5a5f4fb381dedc42d698464819a6098c3579b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-iot-devkit-az3166-with-azure-function-and-cognitive-services-to-make-a-language-translator"></a>IoT DevKit AZ3166 met Azure-functie en cognitieve Services gebruiken om te maken van een vertaler taal
 
@@ -140,4 +140,4 @@ Nu u de IoT DevKit als een vertaler met behulp van Azure-functie en cognitieve S
 Ga naar de andere zelfstudies voor meer informatie:
 
 > [!div class="nextstepaction"]
-> [Verbinding maken met IoT DevKit AZ3166 Azure IoT Suite voor externe controle](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring)
+> [Verbinding maken met IoT DevKit AZ3166 oplossingsverbetering Azure IoT externe controle](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring)

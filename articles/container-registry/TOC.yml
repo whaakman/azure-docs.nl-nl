@@ -17,7 +17,7 @@
   items:
     - name: Azure Container Instances
       href: ../container-instances/container-instances-tutorial-prepare-app.md
-    - name: Azure Container Service (AKS)
+    - name: Azure Kubernetes Service (AKS)
       href: ../aks/tutorial-kubernetes-prepare-app.md
     - name: Service Fabric
       href: ../service-fabric/service-fabric-tutorial-create-container-images.md
@@ -29,7 +29,7 @@
           href: container-registry-tutorial-build-task.md
         - name: 3 - Updates van basisinstallatiekopieën compileren
           href: container-registry-tutorial-base-image-update.md
-    - name: Geo-replicatie (preview)
+    - name: Geo-replicatie
       items:
         - name: 1 - Containerregister voorbereiden
           href: container-registry-tutorial-prepare-registry.md
@@ -45,7 +45,7 @@
       href: container-registry-storage.md
     - name: Maken en patchen met ACR Build
       href: container-registry-build-overview.md
-    - name: Geo-replicatie (preview)
+    - name: Geo-replicatie
       href: container-registry-geo-replication.md
     - name: Best practices voor het register
       href: container-registry-best-practices.md

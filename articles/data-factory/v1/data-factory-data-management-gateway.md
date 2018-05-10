@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 07d720db85a152f08cfeb278b91cce3b10d73800
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c1db81594f44f805cf50523b449af62d76099a08
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="data-management-gateway"></a>Gegevensbeheergateway
 > [!NOTE]
@@ -276,30 +276,30 @@ U kunt inschakelen/uitschakelen de functie voor automatisch bijwerken door de vo
 
 [Voor één knooppunt gateway]
 1. Start Windows PowerShell op de gateway-apparaat.
-2. Ga naar de map C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript.
+2. Ga naar de map C:\Program Files\Microsoft integratie Runtime\3.0\PowerShellScript\.
 3. Voer de volgende opdracht om de automatische updates inschakelen functie uit te schakelen.   
 
     ```PowerShell
-    .\GatewayAutoUpdateToggle.ps1  -off
+    .\IntegrationRuntimeAutoUpdateToggle.ps1  -off
     ```
 4. Aan deze weer inschakelen:
 
     ```PowerShell
-    .\GatewayAutoUpdateToggle.ps1  -on  
+    .\IntegrationRuntimeAutoUpdateToggle.ps1 -on  
     ```
 [Voor meerdere knooppunten maximaal beschikbare en schaalbare gateway (preview)](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Start Windows PowerShell op de gateway-apparaat.
-2. Ga naar de map C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript.
+2. Ga naar de map C:\Program Files\Microsoft integratie Runtime\3.0\PowerShellScript\.
 3. Voer de volgende opdracht om de automatische updates inschakelen functie uit te schakelen.   
 
     Een extra AuthKey param is vereist voor de gateway met hoge beschikbaarheid-functie (preview).
     ```PowerShell
-    .\GatewayAutoUpdateToggle.ps1  -off -AuthKey <your auth key>
+    .\IntegrationRuntimeAutoUpdateToggle.ps1  -off -AuthKey <your auth key>
     ```
 4. Aan deze weer inschakelen:
 
     ```PowerShell
-    .\GatewayAutoUpdateToggle.ps1  -on -AuthKey <your auth key> 
+    .\IntegrationRuntimeAutoUpdateToggle.ps1  -on -AuthKey <your auth key> 
     ```
 
 ## <a name="configuration-manager"></a>Configuratiebeheer

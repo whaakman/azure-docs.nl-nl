@@ -2,24 +2,22 @@
 title: Het gebruik van het controlelogboek in Azure AD Privileged Identity Management | Microsoft Docs
 description: Informatie over het gebruik van het controlelogboek in de extensie Azure Privileged Identity Management.
 services: active-directory
-documentationcenter: 
-author: billmath
+documentationcenter: ''
+author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 5d13a6dd-1fcb-4e76-82fb-cb2f4f0e4357
+editor: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: users-groups-roles
 ms.date: 02/14/2017
-ms.author: billmath
+ms.author: curtand
 ms.custom: pim
-ms.openlocfilehash: dd6cecf9211dada02025d93e4d63234ff0a73949
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 20fd9c5ee90947cc2d3816a0590d4780408baa2f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="using-the-audit-log-in-pim"></a>Met behulp van het controlelogboek in PIM
 U kunt het controlelogboek Privileged Identity Management (PIM) gebruiken om te zien van de toewijzingen van gebruikers en activeringen binnen een bepaalde periode. Als u zien van de volledige controlegeschiedenis van activiteit in uw tenant wilt, met inbegrip van de beheerder, eindgebruikers en synchronisatieactiviteiten, kunt u de [Azure Active Directory-toegang en gebruik rapporten.](active-directory-view-access-usage-reports.md)

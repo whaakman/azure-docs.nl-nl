@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: baea799dbab2625e64140a565064b3c41310b4ad
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 0e573b4973ea30b990043b54c5cdcf0805135a40
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>-Exemplaren in duurzame functies (Azure Functions) beheren
 
@@ -50,7 +50,7 @@ public static async Task Run(
 }
 ```
 
-Voor niet-.NET-talen, de functie binding uitvoer kan worden gebruikt voor nieuwe exemplaren ook starten. In dit geval kan een JSON-geserialiseerd object met de bovenstaande drie parameters als velden worden gebruikt. Neem bijvoorbeeld de volgende Node.js-functie:
+Voor niet-.NET-talen, de functie binding uitvoer kan worden gebruikt voor nieuwe exemplaren ook starten. In dit geval kan een JSON-geserialiseerd object met de bovenstaande drie parameters als velden worden gebruikt. Neem bijvoorbeeld de volgende JavaScript-functie:
 
 ```js
 module.exports = function (context, input) {
@@ -100,9 +100,6 @@ public static async Task Run(
 }
 ```
 
-> [!NOTE]
-> Instantie-query is momenteel alleen ondersteund voor C# orchestrator-functies.
-
 ## <a name="terminating-instances"></a>Afsluitende exemplaren
 
 Een actief exemplaar van de orchestration kan worden beëindigd met de [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) methode van de [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) klasse. De twee parameters zijn een `instanceId` en een `reason` tekenreeks, die in de logboeken en status van het exemplaar wordt geschreven. Een beëindigde exemplaar niet meer zodra het de volgende bereikt `await` punt, of het wordt onmiddellijk beëindigd als deze al ingeschakeld is een `await`. 
@@ -117,9 +114,6 @@ public static Task Run(
     return client.TerminateAsync(instanceId, reason);
 }
 ```
-
-> [!NOTE]
-> Instantie-beëindiging is momenteel alleen ondersteund voor C# orchestrator-functies.
 
 > [!NOTE]
 > Exemplaar beëindiging wordt momenteel niet doorgegeven. Activiteit-functies en onderdelen integraties wordt uitgevoerd voor voltooiing ongeacht of de orchestration-exemplaar dat ze aangeroepen is beëindigd.
@@ -146,9 +140,6 @@ public static Task Run(
     return client.RaiseEventAsync(instanceId, "MyEvent", eventData);
 }
 ```
-
-> [!NOTE]
-> Gebeurtenissen verhogen wordt momenteel alleen ondersteund voor C# orchestrator-functies.
 
 > [!WARNING]
 > Als er geen orchestration-exemplaar met de opgegeven is *instantie-ID* of als het exemplaar niet op de opgegeven wachten is *gebeurtenisnaam*, het gebeurtenisbericht is verwijderd. Zie voor meer informatie over dit gedrag, de [GitHub probleem](https://github.com/Azure/azure-functions-durable-extension/issues/29).

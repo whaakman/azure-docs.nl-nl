@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2018
 ms.author: kgremban
-ms.openlocfilehash: 032412c329e79ec671f59a049da7d8ddc0b9dd08
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 23dbd1f359f947b8e87ab4115887120dfd55907a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>Cloud-naar-apparaat-berichten verzenden met IoT Hub (iOS)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -47,7 +47,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 - Een actief Azure-account. (Als u geen account hebt, kunt u binnen een paar minuten een [gratis account][lnk-free-trial] maken.)
 - Een actieve iothub in Azure. 
 - De voorbeeldcode van [Azure-voorbeelden](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip) .
-- De nieuwste versie van [XCode](https://developer.apple.com/xcode/), de nieuwste versie van de iOS-SDK. Deze snelstartgids is getest met XCode 9.3 en iOS 11, lid 3.
+- De nieuwste versie van [XCode](https://developer.apple.com/xcode/), met de nieuwste versie van de iOS-SDK. Deze snelstart is getest met XCode 9.3 en iOS 11.3.
 - De nieuwste versie van [CocoaPods](https://guides.cocoapods.org/using/getting-started.html).
 
 
@@ -58,21 +58,21 @@ Dit is het voorbeeld voorbeeld apparaat die u in het artikel maakt [verzenden va
 
 ### <a name="install-cocoapods"></a>CocoaPods installeren
 
-CocoaPods beheren afhankelijkheden voor iOS-projecten die van derden bibliotheken gebruikmaken.
+CocoaPods beheren afhankelijkheden voor iOS-projecten die gebruikmaken van bibliotheken van derden.
 
-Navigeer naar de Azure-IoT-Samples-iOS-map die u hebt gedownload in de vereisten in een terminalvenster. Navigeer naar het voorbeeldproject:
+Navigeer in een terminalvenster naar de Azure-IoT-Samples-iOS-map die u hebt gedownload bij de vereisten. Navigeer vervolgens naar het voorbeeldproject:
 
 ```sh
 cd quickstart/sample-device
 ```
 
-Zorg ervoor dat de XCode is gesloten en voer vervolgens de volgende opdracht voor het installeren van de CocoaPods die zijn gedefinieerd in de **podfile** bestand:
+Zorg ervoor dat XCode is gesloten en voer vervolgens de volgende opdracht uit om de CocoaPods te installeren die worden gedeclareerd in het **podfile**-bestand:
 
 ```sh
 pod install
 ```
 
-De installatieopdracht samen met het installeren van het gehele product vereist is voor uw project, ook een XCode-werkruimte-bestand dat al is geconfigureerd voor gebruik van het gehele product voor afhankelijkheden gemaakt. 
+Naast het installeren van de pods die nodig zijn voor uw project, heeft de installatieopdracht ook een XCode-werkruimtebestand gemaakt dat al geconfigureerd is om de pods te gebruiken voor afhankelijkheden. 
 
 ### <a name="run-the-sample-device-application"></a>De voorbeeldtoepassing apparaat uitvoeren 
 
@@ -82,19 +82,19 @@ De installatieopdracht samen met het installeren van het gehele product vereist 
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id {YourDeviceID} --output table
     ```
 
-1. Hiermee opent u de voorbeeld-werkruimte in XCode.
+1. Open de voorbeeldwerkruimte in XCode.
 
    ```sh
    open "MQTT Client Sample.xcworkspace"
    ```
 
 2. Vouw de **MQTT clientvoorbeeld** project en vervolgens de map met dezelfde naam.  
-3. Open **ViewController.swift** bewerken in XCode. 
+3. Open **ViewController.swift** om het te bewerken in XCode. 
 4. Zoeken naar de **connectionString** variabele en werk de waarde met de verbinding van de tekenreeks die u in de eerste stap hebt gekopieerd.
 5. Sla uw wijzigingen op. 
-6. Voer het project in de apparaatemulator met de **bouwen en uitvoeren van** knop of de sleutel keuzelijst met invoervak **opdracht + r**. 
+6. Voer het project in de apparaatemulator uit met de knop **Build and run** of de toetscombinatie **command+r**. 
 
-   ![Voer het project](media/quickstart-send-telemetry-ios/run-sample.png)
+   ![Het project uitvoeren](media/quickstart-send-telemetry-ios/run-sample.png)
 
 
 ## <a name="simulate-a-service-device"></a>Een serviceapparaat te simuleren
@@ -103,7 +103,7 @@ In deze sectie maakt simuleren u een tweede iOS-apparaat met een Swift app dat c
 
 ### <a name="install-cocoapods"></a>CocoaPods installeren
 
-CocoaPods beheren afhankelijkheden voor iOS-projecten die van derden bibliotheken gebruikmaken.
+CocoaPods beheren afhankelijkheden voor iOS-projecten die gebruikmaken van bibliotheken van derden.
 
 Navigeer naar de Azure IoT iOS voorbeelden map die u hebt gedownload in de vereisten. Navigeer naar het voorbeeldproject service:
 
@@ -111,13 +111,13 @@ Navigeer naar de Azure IoT iOS voorbeelden map die u hebt gedownload in de verei
 cd quickstart/sample-service
 ```
 
-Zorg ervoor dat de XCode is gesloten en voer vervolgens de volgende opdracht voor het installeren van de CocoaPods die zijn gedefinieerd in de **podfile** bestand:
+Zorg ervoor dat XCode is gesloten en voer vervolgens de volgende opdracht uit om de CocoaPods te installeren die worden gedeclareerd in het **podfile**-bestand:
 
 ```sh
 pod install
 ```
 
-De installatieopdracht samen met het installeren van het gehele product vereist is voor uw project, ook een XCode-werkruimte-bestand dat al is geconfigureerd voor gebruik van het gehele product voor afhankelijkheden gemaakt.
+Naast het installeren van de pods die nodig zijn voor uw project, heeft de installatieopdracht ook een XCode-werkruimtebestand gemaakt dat al geconfigureerd is om de pods te gebruiken voor afhankelijkheden.
 
 ### <a name="run-the-sample-service-application"></a>De voorbeeldtoepassing voor de service uitgevoerd
 
@@ -127,14 +127,14 @@ De installatieopdracht samen met het installeren van het gehele product vereist 
     az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
     ```
 
-2. Hiermee opent u de voorbeeld-werkruimte in XCode.
+2. Open de voorbeeldwerkruimte in XCode.
 
    ```sh
    open AzureIoTServiceSample.xcworkspace
    ```
 
 3. Vouw de **AzureIoTServiceSample** project en vouw vervolgens de map met dezelfde naam.  
-4. Open **ViewController.swift** bewerken in XCode. 
+4. Open **ViewController.swift** om het te bewerken in XCode. 
 5. Zoeken naar de **connectionString** variabele en werk de waarde met de verbindingsreeks van de service die u eerder hebt gekopieerd.
 6. Sla uw wijzigingen op. 
 7. In Xcode, wijzigt u de emulator-instellingen op een andere iOS-apparaat dan u hebt gebruikt voor het uitvoeren van de IoT-apparaat. Meerdere emulators van hetzelfde type kan niet worden uitgevoerd in XCode. 
@@ -143,7 +143,7 @@ De installatieopdracht samen met het installeren van het gehele product vereist 
 
 8. Voer het project in de apparaatemulator met de **bouwen en uitvoeren van** knop of de sleutel keuzelijst met invoervak **opdracht + r**. 
 
-   ![Voer het project](media/iot-hub-ios-swift-c2d/run-app.png)
+   ![Het project uitvoeren](media/iot-hub-ios-swift-c2d/run-app.png)
 
 
 ## <a name="send-a-cloud-to-device-message"></a>Een cloud naar apparaat verzenden
@@ -166,7 +166,7 @@ Uw uitvoer moet eruitzien als in het volgende voorbeeld:
 ## <a name="next-steps"></a>Volgende stappen
 In deze zelfstudie hebt u geleerd hoe cloud-naar-apparaat-berichten verzenden en ontvangen. 
 
-Zie voor voorbeelden van volledige end-to-end-oplossingen die gebruikmaken van IoT Hub [Azure IoT Suite].
+Zie voor voorbeelden van volledige end-to-end-oplossingen die gebruikmaken van IoT Hub [oplossingsverbetering Azure IoT externe controle].
 
 Zie voor meer informatie over het ontwikkelen van oplossingen met IoT Hub, de [Ontwikkelaarshandleiding voor IoT Hub].
 
@@ -185,4 +185,4 @@ Zie voor meer informatie over het ontwikkelen van oplossingen met IoT Hub, de [O
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure portal]: https://portal.azure.com
-[Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
+[oplossingsverbetering Azure IoT externe controle]: https://azure.microsoft.com/documentation/suites/iot-suite/

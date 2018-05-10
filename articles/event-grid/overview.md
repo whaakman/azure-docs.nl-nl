@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 04/27/2018
 ms.author: babanisa
-ms.openlocfilehash: 335d6aba3a3d2098fa64aeda8c58c8dd7f4e6776
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 0be2952dc39064eaf2814806e81f16e882a6a6fe
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Een inleiding tot Azure gebeurtenis raster
 
@@ -23,12 +23,16 @@ U kunt filters gebruiken voor het doorsturen van specifieke gebeurtenissen naar 
 Op dit moment ondersteunt raster gebeurtenis de volgende gebieden:
 
 * Azië (zuidoost)
-* Asia East
+* Azië en Stille Oceaan Oost
+* Australië - oost
+* Australië - zuidoost
 * VS - midden
 *   VS - oost
 *   VS - oost 2
 * Europa (west)
 * Europa (noord)
+* Japan - oost
+* Japan - west
 *   West-centraal VS
 *   VS - west
 *   VS - west 2
@@ -45,10 +49,13 @@ Op dit moment ondersteunen de volgende Azure-services te gebeurtenis raster verz
 * Aangepaste-onderwerpen
 * Event Hubs
 * IoT Hub
+* Media Services
 * Resourcegroepen (beheerbewerkingen)
 * Service Bus
-* Storage Blob
+* Storage-Blob
 * Opslag voor algemene doeleinden v2 (GPv2)
+
+Zie voor koppelingen naar artikelen waarin wordt aangegeven hoe elke gebeurtenisbron [bronnen van gebeurtenissen in Azure gebeurtenis raster](event-sources.md).
 
 ## <a name="event-handlers"></a>Gebeurtenis-handlers
 
@@ -57,11 +64,15 @@ Op dit moment ondersteunen de volgende Azure-services verwerking van gebeurtenis
 * Azure Automation
 * Azure Functions
 * Event Hubs
+* Hybride verbindingen
 * Logic Apps
 * Microsoft Flow
+* Queue Storage
 * WebHooks
 
 Wanneer u Azure Functions als de handler, gebruikt u de trigger gebeurtenis raster in plaats van de algemene HTTP-triggers. Functie-triggers van Event Grid worden namelijk automatisch gevalideerd. Bij gebruik van algemene HTTP-triggers moet u een [validatie-antwoord](security-authentication.md#webhook-event-delivery) implementeren.
+
+Zie voor koppelingen naar artikelen waarin wordt aangegeven hoe elke gebeurtenis-handler [gebeurtenis-handlers in Azure gebeurtenis raster](event-handlers.md).
 
 ## <a name="concepts"></a>Concepten
 

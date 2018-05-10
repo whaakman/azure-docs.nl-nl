@@ -12,10 +12,6 @@
       href: dns-getstarted-powershell.md
     - name: Een DNS-zone en -record maken - CLI
       href: dns-getstarted-cli.md
-- name: Voorbeelden
-  items:
-    - name: Azure-CLI
-      href: cli-samples.md
 - name: Zelfstudies
   items:
     - name: Een persoonlijke DNS-zone en -record maken
@@ -24,6 +20,10 @@
       href: dns-delegate-domain-azure-dns.md
     - name: Aangepaste DNS-records voor een web-app maken
       href: dns-web-sites-custom-domain.md
+- name: Voorbeelden
+  items:
+    - name: Azure-CLI
+      href: cli-samples.md
 - name: Concepten
   items:
     - name: DNS-zones en -records
@@ -104,7 +104,7 @@
   items:
     - name: Application Gateway
       href: /azure/application-gateway/
-    - name: Virtueel netwerk
+    - name: Virtual Network
       href: /azure/virtual-network/
     - name: Virtuele machine
       href: /azure/virtual-machines/

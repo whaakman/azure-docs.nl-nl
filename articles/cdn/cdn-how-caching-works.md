@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2017
-ms.author: rli; v-deasim
-ms.openlocfilehash: 88c1b98a9dcaa1d22cdc1be3853b1fa7116c8a48
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 04/30/2018
+ms.author: v-deasim
+ms.openlocfilehash: bb0824995972b49febdb1695e41f45fbd0966cd1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-caching-works"></a>Hoe caching werkt
 
@@ -71,12 +71,13 @@ Azure CDN ondersteunt de volgende HTTP-instructie cache headers, waarin de Cache
 **Cache-Control:**
 - Geïntroduceerd in HTTP 1.1 zodat web uitgevers meer controle over hun inhoud en voor het oplossen van de beperkingen van de `Expires` header.
 - Onderdrukt de `Expires` koptekst als zowel het en `Cache-Control` zijn gedefinieerd.
-- Wanneer gebruikt in een HTTP-aanvraag `Cache-Control` wordt standaard door Azure CDN genegeerd.
-- **Azure CDN van Verizon** profielen ondersteunen alle `Cache-Control` richtlijnen, wanneer gebruikt in een HTTP-antwoord.
-- **Azure CDN van Akamai** profielen ondersteunen alleen de volgende richtlijnen wanneer gebruikt in een HTTP-antwoord; alle andere worden genegeerd:
-   - `max-age`: De inhoud voor het aantal seconden dat is opgegeven een cache kan worden opgeslagen. Bijvoorbeeld `Cache-Control: max-age=5`. Deze instructie geeft de maximale hoeveelheid tijd die de inhoud wordt beschouwd als nieuwe.
-   - `no-cache`: De inhoud in cache, maar de inhoud te valideren elke keer dat u deze voordat levert uit de cache. Equivalent zijn aan `Cache-Control: max-age=0`.
-   - `no-store`: Nooit cache de inhoud. Inhoud verwijderen als deze eerder is opgeslagen.
+- Wanneer gebruikt in een HTTP-aanvraag van de client naar de CDN-POP `Cache-Control` standaard door alle Azure CDN-profielen wordt genegeerd.
+- Wanneer gebruikt in een HTTP-antwoord van de client naar de CDN pop-server:
+     - **Azure CDN Standard/Premium van Verizon** en **Azure CDN Standard van Microsoft** ondersteunen alle `Cache-Control` richtlijnen.
+     - **Azure CDN Standard van Akamai** ondersteunt alleen de volgende `Cache-Control` richtlijnen; alle andere worden genegeerd:
+         - `max-age`: De inhoud voor het aantal seconden dat is opgegeven een cache kan worden opgeslagen. Bijvoorbeeld `Cache-Control: max-age=5`. Deze instructie geeft de maximale hoeveelheid tijd die de inhoud wordt beschouwd als nieuwe.
+         - `no-cache`: De inhoud in cache, maar de inhoud te valideren elke keer dat u deze voordat levert uit de cache. Equivalent zijn aan `Cache-Control: max-age=0`.
+         - `no-store`: Nooit cache de inhoud. Inhoud verwijderen als deze eerder is opgeslagen.
 
 **Verloopt:**
 - Verouderde header die is geïntroduceerd in HTTP 1.0; ondersteund voor achterwaartse compatibiliteit.
@@ -92,38 +93,40 @@ Azure CDN ondersteunt de volgende HTTP-instructie cache headers, waarin de Cache
 
 ## <a name="validators"></a>Validatiefuncties
 
-Als de cache verlopen is, wordt HTTP-cache validatiefuncties worden gebruikt voor het vergelijken van de versie van de cache van een bestand met de versie op de bronserver. **Azure CDN van Verizon** ondersteunt zowel `ETag` en `Last-Modified` validatiefuncties standaard terwijl **Azure CDN van Akamai** ondersteunt alleen `Last-Modified` standaard.
+Als de cache verlopen is, wordt HTTP-cache validatiefuncties worden gebruikt voor het vergelijken van de versie van de cache van een bestand met de versie op de bronserver. **Azure CDN Standard/Premium van Verizon** ondersteunt zowel `ETag` en `Last-Modified` validatiefuncties standaard terwijl **Azure CDN Standard van Microsoft** en **Azure CDN Standard van Akamai** ondersteunt alleen `Last-Modified` standaard.
 
 **ETag:**
-- **Azure CDN van Verizon** gebruikt `ETag` standaard terwijl **Azure CDN van Akamai** niet.
+- **Azure CDN Standard/Premium van Verizon** ondersteunt `ETag` standaard terwijl **Azure CDN Standard van Microsoft** en **Azure CDN Standard van Akamai** niet.
 - `ETag` Hiermee definieert u een tekenreeks die uniek is voor elk bestand en de versie van een bestand. Bijvoorbeeld `ETag: "17f0ddd99ed5bbe4edffdd6496d7131f"`.
 - Geïntroduceerd in HTTP 1.1 en recenter is dan `Last-Modified`. Dit is nuttig wanneer de datum van laatste wijziging moeilijk is te bepalen.
 - Ondersteunt validatie van sterke en zwakke validatie; Azure CDN ondersteunt echter alleen sterke verificatie. Voor sterke verificatie, de twee weergaven voor bytes moet identiek zijn. 
 - Een cache valideert een bestand met `ETag` door te sturen een `If-None-Match` koptekst met een of meer `ETag` Validators bestaat in de aanvraag. Bijvoorbeeld `If-None-Match: "17f0ddd99ed5bbe4edffdd6496d7131f"`. Als de versie van de server overeenkomt met een `ETag` validator in de lijst met deze statuscode 304 (niet gewijzigd) verzendt in zijn reactie. Als de versie verschilt, reageert de server met de statuscode 200 (OK) en de bijgewerkte resource.
 
 **Last-Modified:**
-- Voor **Azure CDN van Verizon** alleen `Last-Modified` wordt gebruikt als `ETag` maakt geen deel uit van de HTTP-antwoord. 
+- Voor **Azure CDN Standard/Premium van Verizon** alleen `Last-Modified` wordt gebruikt als `ETag` maakt geen deel uit van de HTTP-antwoord. 
 - Hiermee geeft u de datum en tijd waarop de oorspronkelijke server heeft vastgesteld met dat de bron voor het laatst is gewijzigd. Bijvoorbeeld `Last-Modified: Thu, 19 Oct 2017 09:28:00 GMT`.
 - Een cache valideert een bestand met `Last-Modified` door te sturen een `If-Modified-Since` -koptekst met een datum en tijd in de aanvraag. De oorspronkelijke server vergelijkt die datum met de `Last-Modified` koptekst van de meest recente resource. Als de bron is niet gewijzigd sinds de opgegeven tijd, retourneert de server statuscode 304 (niet gewijzigd) in zijn reactie. Als de bron zijn gewijzigd, wordt de server opgevraagd code 200 (OK) en de bijgewerkte resource.
 
 ## <a name="determining-which-files-can-be-cached"></a>Bepalen welke bestanden kunnen opslaan in de cache
 
-Kunnen niet alle resources in cache worden opgeslagen. De volgende tabel ziet welke bronnen kunnen worden in de cache, op basis van het type HTTP-antwoord. Resources die worden geleverd met HTTP-antwoorden die niet voldoen aan alle voorwaarden van deze toepassing kunnen niet worden opgeslagen. Voor **Azure CDN van Verizon Premium** alleen, kunt u de regelengine voor voor het aanpassen van sommige van deze voorwaarden.
+Kunnen niet alle resources in cache worden opgeslagen. De volgende tabel ziet welke bronnen kunnen worden in de cache, op basis van het type HTTP-antwoord. Resources die worden geleverd met HTTP-antwoorden die niet voldoen aan alle voorwaarden van deze toepassing kunnen niet worden opgeslagen. Voor **Azure CDN Premium van Verizon** alleen, kunt u de regelengine voor voor het aanpassen van sommige van deze voorwaarden.
 
-|                   | Azure CDN van Verizon | Azure CDN van Akamai            |
-|------------------ |------------------------|----------------------------------|
-| HTTP-statuscodes | 200                    | 200, 203, 300, 301, 302 en 401 |
-| HTTP-methode       | TOEVOEGEN                    | TOEVOEGEN                              |
-| Bestandsgrootte         | 300 GB                 | -Web algemeen leveringsoptimalisatie: 1,8 GB<br />-Mediastreaming optimalisaties: 1,8 GB<br />-Groot bestand optimalisatie: 150 GB |
+|                   | Azure CDN van Microsoft          | Azure CDN van Verizon | Azure CDN van Akamai        |
+|-------------------|-----------------------------------|------------------------|------------------------------|
+| HTTP-statuscodes | 200, 203, 206, 300, 301, 410, 416 | 200                    | 200, 203, 300, 301, 302, 401 |
+| HTTP-methoden      | GET, HEAD                         | GET                    | GET                          |
+| Maximale bestandsgrootte  | 300 GB                            | 300 GB                 | -Web algemeen leveringsoptimalisatie: 1,8 GB<br />-Mediastreaming optimalisaties: 1,8 GB<br />-Groot bestand optimalisatie: 150 GB |
+
+Voor **Azure CDN Standard van Microsoft** caching om te werken op een bron, de oorspronkelijke server moet de kop ondersteunen en ophalen van HTTP-aanvragen en de waarden voor de inhoudslengte moet hetzelfde zijn voor geen hoofd- en ophalen van HTTP-antwoorden voor de asset. De oorspronkelijke server moet ondersteuning bieden voor de HEAD-aanvraag en moet reageren met dezelfde kopteksten alsof deze had een GET-aanvraag ontvangen van een HEAD-aanvraag.
 
 ## <a name="default-caching-behavior"></a>Standaardgedrag voor opslaan in cache
 
 De volgende tabel beschrijft de standaard cachegedrag voor de Azure CDN-producten en hun optimalisatie.
 
-|                    | Verizon: levering algemene webtoepassingen | Verizon: DSA | Akamai: levering algemene webtoepassingen | Akamai: DSA | Akamai: groot bestand downloaden | Akamai: Algemeen of VOD streamen van media |
-|--------------------|--------|------|-----|----|-----|-----|
-| **Voldoen aan de oorsprong**   | Ja    | Nee   | Ja | Nee | Ja | Ja |
-| **Cacheduur CDN** | 7 dagen | Geen | 7 dagen | None | 1 dag | 1 jaar |
+|    | Microsoft: Algemene webtoepassingen levering | Verizon: Levering algemene webtoepassingen | Verizon: DSA | Akamai: Levering algemene webtoepassingen | Akamai: DSA | Akamai: Groot bestand downloaden | Akamai: Algemeen of VOD streamen van media |
+|------------------------|--------|-------|------|--------|------|-------|--------|
+| **Voldoen aan de oorsprong**       | Ja    | Ja   | Nee   | Ja    | Nee   | Ja   | Ja    |
+| **Cacheduur CDN** | 2 dagen |7 dagen | Geen | 7 dagen | Geen | 1 dag | 1 jaar |
 
 **Oorsprong inwilligen**: geeft aan of te voldoen aan de [instructie cache headers ondersteund](#http-cache-directive-headers) als ze in het HTTP-antwoord op de bronserver voorkomen.
 

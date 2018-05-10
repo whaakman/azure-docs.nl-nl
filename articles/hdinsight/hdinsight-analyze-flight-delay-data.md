@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0e91cf994306c115911d9dd9cf0018f7947502d8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: eec5d0eb3c9cb0ae6e3e7f4eadfc58c4ab039cfd
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Vertraging vluchtgegevens analyseren met behulp van Hive in HDInsight
 Hive biedt een methode voor Hadoop MapReduce-taken uitgevoerd via een SQL-achtige scripttaal genaamd  *[HiveQL][hadoop-hiveql]*, die naar samenvatten, opvragen en analyseren van grote hoeveelheden gegevens kunnen worden toegepast.
@@ -259,7 +259,8 @@ Uploaden van het gegevensbestand en de scriptbestanden HiveQL (Zie [bijlage B](#
     <tr><td>Periode filteren</td><td>januari</td></tr>
     <tr><td>Velden</td><td>*Jaar*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Oorsprong*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*,  *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*,  *LateAircraftDelay* (alle andere velden wissen)</td></tr>
     </table>
-3. Klik op **downloaden**.
+
+3. Klik op **Downloaden**.
 4. Pak het bestand naar de **C:\Tutorials\FlightDelay\2013Data** map. Elk bestand is van een CSV-bestand en ongeveer 60GB groot is.
 5. Naam van het bestand op de naam van de maand waarin het gegevens voor bevat. Bijvoorbeeld: het bestand met de gegevens januari naam *January.csv*.
 6. Herhaal stappen 2 en 5 een bestand te downloaden voor elk van de 12 maanden in 2013. U moet minimaal één bestand worden uitgevoerd van de zelfstudie.
@@ -273,6 +274,7 @@ Uploaden van het gegevensbestand en de scriptbestanden HiveQL (Zie [bijlage B](#
     <tr><td>$storageAccountName</td><td>Het Azure Storage-account waar u de gegevens te uploaden.</td></tr>
     <tr><td>$blobContainerName</td><td>De Blob-container waar u de gegevens te uploaden.</td></tr>
     </table>
+    
 2. Open Azure PowerShell ISE.
 3. Plak het volgende script in het scriptvenster:
 

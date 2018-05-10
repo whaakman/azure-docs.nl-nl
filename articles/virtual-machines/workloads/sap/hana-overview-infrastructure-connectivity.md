@@ -14,18 +14,18 @@ ms.workload: infrastructure
 ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 43debeb710e5ab5112f9f0a85a76761cde3051a7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 51089ffa05168d2309bd2a96ec44b2ce0fed75f9
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Infrastructuur voor SAP HANA (grote exemplaren) en de verbindingen van Azure 
 
 Sommige definities tevoren voordat u deze handleiding leest. In [SAP HANA (grote exemplaren) overzicht en architectuur op Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) er zijn twee verschillende soorten HANA grote exemplaar eenheden met geïntroduceerd:
 
 - S72, S72m S144, S144m, S192 en S192m die naar verwezen als 'Type ik klasse' van SKU's.
-- S384, S384m S384xm, S576, S768 en S960 die naar als de 'Type II class-instructie van SKU's verwezen.
+- S384, S384m S384xm, S576m, S768m en S960m die naar als de 'Type II class-instructie van SKU's verwezen.
 
 De klasse-specificaties gaat worden gebruikt in de documentatie van de grote exemplaar HANA uiteindelijk verwijzen naar verschillende mogelijkheden en vereisten op basis van HANA grote exemplaar SKU's.
 
@@ -213,7 +213,7 @@ New-AzureRmVirtualNetworkGateway -Name $myGWName -ResourceGroupName $myGroupName
 In dit voorbeeld is de HighPerformance gateway SKU gebruikt. Uw opties zijn HighPerformance of UltraPerformance als de enige gateway-SKU's die worden ondersteund voor SAP HANA in Azure (grote exemplaren).
 
 > [!IMPORTANT]
-> Voor grote HANA-exemplaren van de SKU van het type S384, S384m S384xm, S576, S768 en S960 (Type II klasse SKU's), het gebruik van de Gateway-SKU UltraPerformance is verplicht.
+> Voor grote HANA-exemplaren van de SKU van het type S384, S384m S384xm, S576m, S768m en S960m (Type II klasse SKU's), het gebruik van de Gateway-SKU UltraPerformance is verplicht.
 
 ### <a name="linking-vnets"></a>Vnet's koppelen
 

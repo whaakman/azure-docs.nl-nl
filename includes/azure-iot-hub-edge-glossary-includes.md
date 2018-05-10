@@ -1,3 +1,6 @@
+## <a name="automatic-device-management"></a>Automatische Apparaatbeheer
+Automatische Device Management in Azure IoT Hub automatiseert veel van de herhalende en complexe taken van het beheer van grote apparaat vloten via het geheel van hun levenscycli. Met automatische Device Management, kunt u gericht op een reeks apparaten op basis van hun eigenschappen, een gewenste configuratie definiëren en IoT-Hub apparaten bijwerken wanneer ze scope binnenkomen te laten.  Bestaat uit [automatische apparaatconfiguraties](/articles/iot-hub/iot-hub-auto-device-config.md) en [IoT rand automatische implementaties](/articles/iot-edge/how-to-deploy-monitor.md).
+
 ## <a name="iot-edge"></a>IoT Edge
 Azure IoT-rand kunt cloud gebaseerde implementatie van Azure-services en oplossings-specifieke code voor het on-premises apparaten. IoT Edge-apparaten aggregeert gegevens van andere apparaten uit te voeren computing en analytics voordat de gegevens worden verzonden naar de cloud. Zie voor meer informatie [Azure IoT rand](https://docs.microsoft.com/azure/iot-edge/).
 
@@ -7,8 +10,8 @@ Het gedeelte van de rand van de IoT-runtime verantwoordelijk voor het implemente
 ## <a name="iot-edge-device"></a>IoT Edge-apparaat
 IoT Edge-apparaten hebben de rand van de IoT-runtime is geïnstalleerd en zijn gemarkeerd als 'IoT rand apparaat' in de details van het apparaat. Meer informatie over hoe [Azure IoT rand implementeren op een gesimuleerd apparaat in Linux - voorbeeld](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-linux).
 
-## <a name="iot-edge-deployment"></a>Rand van de IoT-implementatie
-De implementatie van een IoT-rand configureert u een doelset IoT randapparaten modules voor een set van IoT rand uitvoeren. Elke implementatie is continu zorgt ervoor dat alle apparaten die de doelvoorwaarden overeenkomen met de opgegeven reeks modules, zelfs wanneer nieuwe apparaten worden gemaakt of zijn gewijzigd zodat deze overeenkomen met de doel-voorwaarde. Elke IoT randapparaat wordt alleen de hoogste prioriteit implementatie waarvan het voldoet aan doelvoorwaarden ontvangt. Meer informatie over [IoT rand implementatie](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
+## <a name="iot-edge-automatic-deployment"></a>IoT-rand automatische implementatie
+Een automatische implementatie van de rand van de IoT configureert u een doelset IoT randapparaten modules voor een set van IoT rand uitvoeren. Elke implementatie is continu zorgt ervoor dat alle apparaten die de doelvoorwaarden overeenkomen met de opgegeven reeks modules, zelfs wanneer nieuwe apparaten worden gemaakt of zijn gewijzigd zodat deze overeenkomen met de doel-voorwaarde. Elke IoT randapparaat wordt alleen de hoogste prioriteit implementatie waarvan het voldoet aan doelvoorwaarden ontvangt. Meer informatie over [IoT rand automatische implementatie](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
 
 ## <a name="iot-edge-deployment-manifest"></a>IoT-rand deployment manifest
 Een Json-document met de gegevens wilt kopiëren op een of meer IoT randapparaten van de module twin(s) voor het implementeren van een reeks modules, routes en bijbehorende module gewenste eigenschappen.

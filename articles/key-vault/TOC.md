@@ -54,6 +54,12 @@
 ### [Migreren naar .NET 2.0](key-vault-dotnet2api-release-notes.md)
 ### [Web-app-geheimen opslaan](vs-secure-secret-appsettings.md)
 ### [Serviceverificatie met behulp van .NET](service-to-service-authentication.md)
+### Werken met Visual Studio
+#### [De verbonden Sleutelkluis-service gebruiken](vs-key-vault-add-connected-service.md)
+#### [Aan de slag met ASP.NET-projecten](vs-key-vault-aspnet-get-started.md)
+#### [Wat is er gebeurd met mijn ASP.NET-project?](vs-key-vault-aspnet-what-happened.md)
+#### [Aan de slag met ASP.NET Core-projecten](vs-key-vault-aspnet-core-get-started.md)
+#### [Wat is er gebeurd met mijn ASP.NET Core-project?](vs-key-vault-aspnet-core-what-happened.md)
 
 # Resources
 ## [Overzicht van services](https://azure.microsoft.com/services/key-vault/)

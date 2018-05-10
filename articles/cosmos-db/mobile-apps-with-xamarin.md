@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: d81343ed894185cb60340f3eccdf2bff2d7ca1e2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 03a66dbfc1df33ba8a91ba133a732dbf38f59262
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Mobiele toepassingen met Xamarin en Azure Cosmos DB maken
 
@@ -32,7 +32,7 @@ Azure Cosmos DB biedt de volgende belangrijke mogelijkheden voor ontwikkelaars v
 
 * Uitgebreide query's over schemaloos gegevens. Azure Cosmos DB slaat gegevens als schemaloos JSON-documenten in heterogene verzamelingen. Dit biedt [snel en uitgebreide query's](sql-api-sql-query.md) zonder te hoeven maken over de schema's of indexen.
 * De doorvoer van snelle. Het duurt slechts enkele milliseconden te lezen en schrijven van documenten met Azure Cosmos DB. Ontwikkelaars kunnen de doorvoer die ze nodig hebben, geef en Azure Cosmos DB zich houdt aan deze met SLA van 99,99% beschikbaarheid voor alle één regio en alle meerdere landen/regio-accounts met beperkte consistentie en 99,999% lezen beschikbaarheid voor alle accounts voor meerdere landen/regio-database .
-* Oneindig schaal. Uw Azure Cosmos DB verzamelingen [groeien wanneer uw app groeit](partition-data.md). U kunt beginnen met kleine gegevenssets en de doorvoer van honderden aanvragen per seconde. Uw verzamelingen kunnen worden uitgebreid voor petabytes aan gegevens en willekeurig grote doorvoer met honderden miljoenen aanvragen per seconde.
+* Oneindig schaal. Uw Azure Cosmos DB verzamelingen [groeien wanneer uw app groeit](partition-data.md). U kunt beginnen met kleine gegevenssets en de doorvoer van honderden aanvragen per seconde. Uw verzamelingen of databases kunnen worden uitgebreid voor petabytes aan gegevens en willekeurig grote doorvoer met honderden miljoenen aanvragen per seconde.
 * Globaal gedistribueerd. Gebruikers van mobiele app zijn onderweg, vaak over de hele wereld. Azure Cosmos-database is een [globaal gedistribueerde database](distribute-data-globally.md). Klik op de kaart om uw gegevens toegankelijk is voor uw gebruikers.
 * Ingebouwde uitgebreide autorisatie. Met Azure Cosmos DB, kunt u eenvoudig populaire patronen zoals implementeren [gegevens per gebruiker](https://aka.ms/documentdb-xamarin-todouser) of gegevens, zonder complexe aangepaste autorisatie-code voor meerdere gebruikers worden gedeeld.
 * Georuimtelijke query's. Veel mobiele apps bieden vandaag geo-contextafhankelijke ervaringen. Met uitstekende ondersteuning voor [georuimtelijke typen](geospatial.md), Azure Cosmos DB maakt het creëren van deze ervaringen eenvoudig om uit te voeren.

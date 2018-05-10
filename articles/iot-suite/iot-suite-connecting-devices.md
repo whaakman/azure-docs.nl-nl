@@ -1,12 +1,12 @@
 ---
 title: Windows-apparaten voor externe controle in de C - Azure inrichten | Microsoft Docs
-description: Beschrijft hoe een apparaat aansluit op de Azure IoT Suite vooraf geconfigureerde oplossing voor externe controle met behulp van een toepassing die is geschreven in C met Windows.
-services: 
+description: Beschrijft hoe een apparaat aansluit op de externe controle oplossingsverbetering met behulp van een toepassing die is geschreven in C met Windows.
+services: iot-suite
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 34e39a58-2434-482c-b3fa-29438a0c05e8
 ms.service: iot-suite
 ms.devlang: na
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/14/2018
 ms.author: dobett
-ms.openlocfilehash: 83d0427a3ba8c634699608c38ab22efb1f275e52
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 4dafcb939aa59d163e7df7f49906979fb181587c
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-windows"></a>Verbind het apparaat met de vooraf geconfigureerde oplossing voor externe controle (Windows)
+# <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-windows"></a>Uw apparaat aansluit op de externe controle oplossingsverbetering (Windows)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Deze zelfstudie laat zien hoe een fysiek apparaat verbindt met de vooraf geconfigureerde oplossing voor externe controle.
+Deze zelfstudie laat zien hoe een fysiek apparaat verbindt met de externe controle oplossingsverbetering.
 
 ## <a name="create-a-c-client-solution-on-windows"></a>Een C client-oplossing maken in Windows
 
@@ -121,7 +121,7 @@ Voeg code aan te roepen de **externe\_bewaking\_uitvoeren** functioneren, en ver
 
 1. In **Solution Explorer**, met de rechtermuisknop op de **RMDevice** project, kies **Debug**, en kies vervolgens **nieuw exemplaar gestart** om uit te voeren van het voorbeeld . De console worden berichten weergegeven:
 
-    * De toepassing verzendt voorbeeld telemetrie naar de vooraf geconfigureerde oplossing.
+    * De toepassing verzendt voorbeeld telemetrie naar de oplossingsverbetering.
     * Gewenste eigenschapswaarden ingesteld in het dashboard van de oplossing ontvangt.
     * Methoden die worden aangeroepen vanuit het dashboard van oplossing reageert.
 

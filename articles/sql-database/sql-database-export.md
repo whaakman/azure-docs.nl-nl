@@ -9,11 +9,11 @@ ms.custom: load & move data
 ms.date: 04/01/2018
 ms.author: carlrab
 ms.topic: article
-ms.openlocfilehash: 7653f0953241fa0b4a1780075641fc3fe5570a23
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 30e89ea940b25e8db4a1203e966000981c47abc9
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Een Azure SQL database naar een Bacpac-bestand exporteren
 
@@ -97,3 +97,4 @@ $exportStatus
 * Zie voor meer informatie over het importeren van een BACPAC met een SQL Server-database, [een BACPCAC importeren in een SQL Server-database](https://msdn.microsoft.com/library/hh710052.aspx).
 * Zie voor meer informatie over het exporteren van een BACPAC van een SQL Server-database, [exporteren van een Gegevenslaagtoepassing](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) en [migreren van uw eerste database](sql-database-migrate-your-sql-server-database.md).
 * Als u vanuit SQL Server als een prelude voor de migratie naar Azure SQL Database exporteert, raadpleegt u [een SQL Server-database migreren naar Azure SQL Database](sql-database-cloud-migrate.md).
+* Voor informatie over het beheren en delen opslagsleutels en gedeelde toegang signitures veilig, Zie [Azure Storage-beveiligingshandleiding](https://docs.microsoft.com/azure/storage/common/storage-security-guide).

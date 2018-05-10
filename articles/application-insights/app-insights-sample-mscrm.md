@@ -3,7 +3,7 @@ title: Microsoft Dynamics CRM en Azure Application Insights | Microsoft Docs
 description: Telemetrie ophalen uit Microsoft Dynamics CRM Online met behulp van Application Insights. Overzicht van setup ophalen van gegevens, visualisatie en exporteren.
 services: application-insights
 documentationcenter: ''
-author: mazharmicrosoft
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 04c66338-687e-49e5-9975-be935f98f156
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
-ms.author: mbullwin
-ms.openlocfilehash: ced4f62b4f27ede28c61e8d2670432ddd7b76f9b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: mbullwin; mazhar
+ms.openlocfilehash: 0080217f718d8df9b62c7bc305fbc1365477cc4d
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Overzicht: Telemetrie voor Microsoft Dynamics CRM Online met behulp van Application Insights inschakelen
 Dit artikel ziet u het ophalen van telemetriegegevens van [Microsoft Dynamics CRM Online](https://www.dynamics.com/) met [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). We doorlopen het complete proces van het Application Insights-script toevoegen aan uw toepassing vastleggen van gegevens en gegevensvisualisatie.

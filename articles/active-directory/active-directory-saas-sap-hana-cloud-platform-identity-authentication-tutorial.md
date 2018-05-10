@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 05/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 0c7dd884eaadd1fba4fcbc19b6c9cf92c68a59ac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 69a8eba2e099e9333d19d139fb5af503fd582dda
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform-identity-authentication"></a>Zelfstudie: Azure Active Directory-integratie met SAP Cloud Platform identiteitsverificatie
 
@@ -126,21 +126,25 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
  
     ![Dialoogvenster voor eenmalige aanmelding](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_samlbase.png)
 
-3. Als u wilt configureren van de toepassing in **IDP** modus gestart in de **SAP Cloud Platform identiteit verificatiedomein en de URL's** sectie in het **id** vak Typ een URL met het volgende patroon volgen: `https://<entity-id>.accounts.ondemand.com`.  
+3. Als u wilt configureren van de toepassing in **IDP** modus gestart in de **SAP Cloud Platform identiteit verificatiedomein en de URL's** sectie, voert u de volgende stappen uit:  
 
     ![URL's en SAP Cloud Platform Identity verificatie Domain eenmalige aanmelding informatie](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_url.png)
 
-    > [!NOTE] 
-    > Deze waarde is niet echt. Deze waarde door de werkelijke ID bijwerken. Neem contact op met de [SAP Cloud Platform Identity-verificatieclient ondersteuningsteam](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) deze waarde op te halen. Als u deze waarde niet begrijpt, de SAP Cloud Platform identiteitsverificatie documentatie te lezen over [Tenant SAML 2.0 configuratie](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html).
+    a. In de **id** vak een URL met het volgende patroon volgen: `<IAS-tenant-id>.accounts.ondemand.com`
 
-4. Als u wilt configureren van de toepassing in **SP** geïnitieerd modus, selecteer **weergeven geavanceerde instellingen voor URL**. 
+    b. In de **antwoord-URL** vak een URL met het volgende patroon volgen: `https://<IAS-tenant-id>.accounts.ondemand.com/saml2/idp/acs/<IAS-tenant-id>.accounts.ondemand.com`
+
+    > [!NOTE]
+    > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke id en de antwoord-URL. Neem contact op met de [SAP Cloud Platform Identity-verificatieclient ondersteuningsteam](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) ophalen van deze waarden. Als u de id-waarde niet begrijpt, de SAP Cloud Platform identiteitsverificatie documentatie te lezen over [Tenant SAML 2.0 configuratie](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html).
+
+4. Als u wilt configureren van de toepassing in **SP** geïnitieerd modus, selecteer **weergeven geavanceerde instellingen voor URL**.
 
     ![URL's en SAP Cloud Platform Identity verificatie Domain eenmalige aanmelding informatie](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_url1.png)
 
-    In de **aanmelding op URL** vak een URL met het volgende patroon volgen: `https://<entity-id>.accounts.ondemand.com/admin`.
+    In de **aanmelding op URL** vak een URL met het volgende patroon volgen: `{YOUR BUSINESS APPLICATION URL}`.
 
-    > [!NOTE] 
-    > Deze waarde is niet echt. Deze waarde bijwerken met de werkelijke URL voor eenmalige aanmelding. Neem contact op met de [SAP Cloud Platform Identity-verificatieclient ondersteuningsteam](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) deze waarde op te halen.
+    > [!NOTE]
+    > Deze waarde is geen echte. Deze waarde bijwerken met de werkelijke URL voor eenmalige aanmelding. Gebruik uw specifieke zakelijke toepassing aanmeldings-URL. Neem contact op met de [SAP Cloud Platform Identity-verificatieclient ondersteuningsteam](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) als twijfel.
 
 5. In de **SAML-certificaat voor ondertekening van** sectie **Metadata XML**. Sla het metagegevensbestand op uw computer.
 
@@ -271,7 +275,7 @@ Wanneer u de tegel SAP Cloud Platform identiteitsverificatie in het deelvenster 
 
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
@@ -289,4 +293,3 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 [201]: ./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_203.png
-

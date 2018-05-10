@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: 8bcc1b2c76ff1e312d1435997ef6d677656510d8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 50ce34cb3289e346e7b637d917730dac8e8a097b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Schud, schud voor een Tweet--ophalen van een Twitter-bericht met Azure Functions!
 
@@ -188,6 +188,6 @@ Als u andere problemen ondervindt, raadpleegt u [Veelgestelde vragen over](https
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat u hebt geleerd hoe een DevKit apparaat aansluit op uw Azure IoT Suite en ophalen van een tweet, vindt hier u de voorgestelde volgende stappen uit:
+Nu dat u hebt geleerd hoe een DevKit apparaat aansluit op uw oplossingsverbetering Azure IoT externe controle en ophalen van een tweet, vindt hier u de voorgestelde volgende stappen uit:
 
-* [Overzicht van Azure IoT Suite](https://docs.microsoft.com/azure/iot-suite/)
+* [Overzicht van Azure accelerator voor externe controle IoT-oplossing](https://docs.microsoft.com/azure/iot-suite/)

@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: cephalin
-ms.openlocfilehash: ed87eab6250eea753bc3b0abd97182d1b869420c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c41cb3ef2939fe7271b1f8738fcf0cb95c4b1111
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="customize-authentication-and-authorization-in-azure-app-service"></a>Verificatie en autorisatie in Azure App Service aanpassen
 
@@ -25,7 +25,8 @@ Dit artikel laat zien hoe u kunt aanpassen [verificatie en autorisatie in App Se
 
 Om snel aan de slag, ziet u een van de volgende zelfstudies:
 
-* [Zelfstudie: Verifiëren en autoriseren van gebruikers end-to-end in Azure App Service](app-service-web-tutorial-auth-aad.md)
+* [Zelfstudie: Verifiëren en autoriseren van gebruikers end-to-end in Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)
+* [Zelfstudie: Verifiëren en autoriseren van gebruikers end-to-end in Azure App Service voor Linux](containers/tutorial-auth-aad.md)
 * [Uw app configureren voor aanmelding met Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md)
 * [Uw app configureren voor aanmelding met Facebook](app-service-mobile-how-to-configure-facebook-authentication.md)
 * [Uw app configureren voor aanmelding met Google](app-service-mobile-how-to-configure-google-authentication.md)
@@ -148,4 +149,5 @@ Klik op **bewerken**, de volgende eigenschap wijzigen en klik vervolgens op **pl
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Zelfstudie: Verifiëren en autoriseren van gebruikers end-to-end](app-service-web-tutorial-auth-aad.md)
+> [Zelfstudie: Verifiëren en autoriseren van gebruikers end-to-end (Windows)](app-service-web-tutorial-auth-aad.md)
+> [zelfstudie: verifiëren en autoriseren van gebruikers end-to-end (Linux)](containers/tutorial-auth-aad.md)

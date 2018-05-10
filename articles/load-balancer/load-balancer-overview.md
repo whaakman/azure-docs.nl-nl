@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/02/2018
+ms.date: 05/03/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 690bfa55166b6d5d4e418daa321fafad2f4b6293
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 8a3eedb5a3d96eedd1a64d85afdb58f8961df272
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="what-is-azure-load-balancer"></a>Wat is Azure Load Balancer?
 
@@ -74,8 +74,8 @@ Load Balancer biedt de volgende fundamentele mogelijkheden voor TCP en UDP-toepa
 * **Toepassing agnostisch en transparante**
 
     Load Balancer communiceert rechtstreeks niet met TCP of UDP of de toepassingslaag en eventuele TCP of UDP-toepassingsscenario kan worden ondersteund.  Load Balancer niet beëindigen of afkomstig zijn van stromen, communiceren met de nettolading van de stroom biedt geen application layer gateway-functie en protocol handshakes optreden altijd rechtstreeks tussen de client en de back-endpool-instantie.  Een reactie op een binnenkomende stroom is altijd een reactie van een virtuele machine.  Als de stroom is bereikt op de virtuele machine, wordt het oorspronkelijke IP-bronadres ook behouden.  Een aantal voorbeelden ter illustratie van verdere transparantie:
-    - Een TCP-handshake vindt altijd plaats tussen de client en de geselecteerde back-end-VM. Een reactie van een aanvraag naar een front-end heeft een indeling die is gegenereerd door de back-end-VM. Valideren van verbindingen voor dit scenario moet u TCP-ping.  Gebruik [psping om](https://docs.microsoft.com/en-us/sysinternals/downloads/psping) of [nmap](https://nmap.org) om te controleren of een handshake met een goede virtuele machine is geslaagd. Houd er rekening mee ICMP is van een ander IP-protocol dan UDP of TCP- en niet wordt ondersteund voor dit doel.
-    - Nettoladingen van toepassing zijn transparant voor de Load Balancer en eventuele UDP of TCP-gebaseerde toepassing kan worden ondersteund. Voor werkbelastingen waarvoor per verwerking van HTTP-aanvraag of manipuleren van application layer nettoladingen (bijvoorbeeld bij het parseren van HTTP-URL's), moet u een laag 7 load balancer zoals [Application Gateway](https://azure.microsoft.com/en-us/services/application-gateway).
+    - Elk eindpunt wordt alleen beantwoord door een virtuele machine.  Bijvoorbeeld, een TCP-handshake wordt altijd optreedt tussen de client en de geselecteerde back-end-VM.  Een reactie van een aanvraag naar een front-end heeft een indeling die is gegenereerd door de back-end-VM. Wanneer u verbinding met een front-is valideert, valideert u de end-to-end-connectiviteit met ten minste één back-end virtuele machine.
+    - Nettoladingen van toepassing zijn transparant voor de Load Balancer en eventuele UDP of TCP-toepassing kan worden ondersteund. Voor werkbelastingen waarvoor per verwerking van HTTP-aanvraag of manipuleren van application layer nettoladingen (bijvoorbeeld bij het parseren van HTTP-URL's), moet u een laag 7 load balancer zoals [Application Gateway](https://azure.microsoft.com/en-us/services/application-gateway).
     - Omdat de Load Balancer is agnostisch ten opzichte van de nettolading van de TCP- en TLS-offload ('SSL') is niet opgegeven, kunt u complete versleutelde scenario's met Load Balancer bouwen en grote scale-out voor TLS toepassingen krijgen door de TLS-verbinding op de virtuele machine zelf wordt beëindigd.  De TLS-sessie voor het versleutelen van capaciteit is bijvoorbeeld alleen beperkt door het type en aantal virtuele machines die u aan de groep back-end toevoegt.  Als u 'SSL-offloading', application layer behandeling of wenst te delegeren Certificaatbeheer naar Azure vereist, moet u Azure laag 7 load balancer [Application Gateway](https://azure.microsoft.com/en-us/services/application-gateway) in plaats daarvan.
         
 
@@ -93,14 +93,14 @@ Load Balancer biedt de volgende fundamentele mogelijkheden voor TCP en UDP-toepa
 
     - **Aangepaste test TCP**: deze test is afhankelijk van het tot stand brengen van een geslaagde TCP-sessie op een gedefinieerde testpoort. Als de opgegeven listener op de virtuele machine bestaat, wordt deze test slaagt. Als de verbinding is geweigerd, wordt de test mislukt. Deze test overschrijft de standaard guest agent-test.
 
-    - **Test van de Guest-agent (op platform als een service [PaaS] alleen virtuele machines)**: de guest-agent in de virtuele machine kan ook gebruikmaken van de load balancer. De gastagent luistert en reageert met een HTTP 200 OK antwoord wanneer het exemplaar in de status gereed. Als de agent niet reageert met een HTTP 200 OK, wordt de load balancer markeert de instantie als niet-reagerende en stopt verkeer kunnen verzenden naar dit exemplaar. De load balancer blijft probeert te krijgen tot het exemplaar. Als u de guest-agent reageert met een HTTP 200, verzendt de load balancer verkeer opnieuw naar dit exemplaar. Guest agent tests een laatste toevlucht zijn en mag niet worden gebruikt als HTTP- of TCP aangepaste test configuraties mogelijk zijn. 
+    - **Test van de Guest-agent (op platform als een service [PaaS] alleen virtuele machines)**: de guest-agent in de virtuele machine kan ook gebruikmaken van de load balancer. De gastagent luistert en reageert met een HTTP 200 OK antwoord wanneer het exemplaar in de status gereed. Als de agent niet reageert met een HTTP 200 OK, wordt de load balancer markeert de instantie als niet-reagerende en stopt verkeer kunnen verzenden naar dit exemplaar. De load balancer blijft probeert te krijgen tot het exemplaar. Als u de guest-agent reageert met een HTTP 200, verzendt de load balancer verkeer opnieuw naar dit exemplaar. Guest agent tests een laatste toevlucht zijn en niet aanbevolen als HTTP- of TCP aangepaste test configuraties mogelijk zijn. 
     
-* **Uitgaande verbindingen (bron NAT)**
+* **Uitgaande verbindingen (snat omzetten)**
 
-    Alle uitgaande stroomt van privé IP-adressen binnen het virtuele netwerk naar openbare IP-adressen op internet kunnen worden omgezet in een front-end-IP-adres van de load balancer. Wanneer een openbaar front-end is gekoppeld aan een back-end virtuele machine in een load-balancingregel, geeft Azure uitgaande verbindingen via worden automatisch omgezet naar het openbare IP-adres front-programma's. Dit wordt ook bron NAT (snat omzetten) genoemd. Snat omzetten biedt belangrijke voordelen:
+    Alle uitgaande stroomt van privé IP-adressen binnen het virtuele netwerk naar openbare IP-adressen op internet kunnen worden omgezet in een front-end-IP-adres van de load balancer. Wanneer een openbaar front-end is gekoppeld aan een back-end virtuele machine in een load-balancingregel, geeft Azure uitgaande verbindingen via worden automatisch omgezet naar het openbare IP-adres front-programma's.
 
-    * Hiermee kunt easy upgrade en herstel na noodgevallen van services, omdat de front-end kan dynamisch worden toegewezen aan een ander exemplaar van de service.
-    * Dit maakt het eenvoudiger toegangsbeheer toegangsbeheerlijst (ACL). ACL's die zijn uitgedrukt in termen van de front-end-IP-adressen niet wijzigen als services schaal omhoog of omlaag of ophalen opnieuw geïmplementeerd.
+    * Eenvoudig upgraden en herstel na noodgevallen van services, niet inschakelen omdat de front-end kan dynamisch worden toegewezen aan een ander exemplaar van de service.
+    * Eenvoudiger toegangsbeheerlijst (ACL) toegangsbeheer op. ACL's die zijn uitgedrukt in termen van de front-end-IP-adressen niet wijzigen als services schaal omhoog of omlaag of ophalen opnieuw geïmplementeerd.  Uitgaande verbindingen via een kleiner aantal IP-adressen vertalen dan machines de last van whitelisting kunnen verminderen.
 
     Zie voor meer informatie [uitgaande verbindingen](load-balancer-outbound-connections.md).
 
@@ -115,7 +115,7 @@ Echter, afhankelijk van welke SKU die u kiest, de configuratie van het volledige
 >[!NOTE]
 > Als u een nieuwere ontwerp scenario gebruikt, kunt u overwegen standaard Load Balancer. 
 
-Zelfstandige virtuele machines, beschikbaarheidssets en VM-schaalsets kunnen worden verbonden met slechts één SKU, niet beide. Wanneer u ze met openbare IP-adressen gebruikt, zowel Load Balancer en het openbare IP-adres SKU moet overeenkomen. Load Balancer en openbare IP-SKU's zijn niet veranderlijke.
+Zelfstandige virtuele machines, beschikbaarheidssets en virtuele-machineschaalsets kunnen worden verbonden met slechts één SKU, niet beide. Wanneer u ze met openbare IP-adressen gebruikt, zowel Load Balancer en het openbare IP-adres SKU moet overeenkomen. Load Balancer en openbare IP-SKU's zijn niet veranderlijke.
 
 _Het is een best practice om op te geven de SKU's expliciet, zelfs als deze nog niet verplicht._  Op dit moment zijn vereiste wijzigingen tot een minimum wordt beperkt. Als een SKU niet opgegeven is, wordt dit wordt geïnterpreteerd als een voornemen de 2017-08-01-API-versie van de basis-SKU te gebruiken.
 
@@ -125,7 +125,7 @@ _Het is een best practice om op te geven de SKU's expliciet, zelfs als deze nog 
 | | [Standaard SKU](load-balancer-standard-overview.md) | Basis-SKU |
 | --- | --- | --- |
 | Grootte van de back-end | Maximaal 1000 exemplaren. | Maximaal 100 exemplaren. |
-| Back-end-pool-eindpunten | Hiermee stelt u een virtuele machine in één virtueel netwerk, met inbegrip van een combinatie van virtuele machines, beschikbaarheidssets en VM-schaalset. | Virtuele machines in een enkel beschikbaarheidsset of VM-schaalset bevatten. |
+| Back-end-pool-eindpunten | Hiermee stelt u een virtuele machine in één virtueel netwerk, met inbegrip van een combinatie van virtuele machines, beschikbaarheidssets en virtuele-machineschaalset. | Virtuele machines in een enkel beschikbaarheid ingesteld of virtuele-machineschaalset ingesteld. |
 | Azure Beschikbaarheidszones | Zone-redundante en zonal front-ends voor inkomend en uitgaand, uitgaande stroomtoewijzingen zone storingen, taakverdeling cross-zone. | / |
 | Diagnostiek | Azure Monitor multidimensionale metrische gegevens inclusief byte en pakket tellers, health test status, verbindingspogingen (TCP SYN), status van de uitgaande verbinding (snat omzetten geslaagde en mislukte flows), actieve gegevens vlak metingen. | Azure Log Analytics voor openbare load balancer alleen, snat omzetten uitputting van de waarschuwing, back-end-pool health aantal. |
 | HA poorten | Interne load balancer. | / |
@@ -177,6 +177,11 @@ Basic Load Balancer wordt gratis aangeboden.
 ## <a name="sla"></a>SLA
 
 Voor informatie over de standaard Load Balancer SLA, gaat u naar de [Load Balancer SLA](https://aka.ms/lbsla) pagina. 
+
+## <a name="limitations"></a>Beperkingen
+
+- Load Balancer is een TCP- of UDP-product voor taakverdeling en het doorsturen van de poort voor deze specifieke IP-protocollen.  Taakverdelingsregels en binnenkomende NAT-regels worden ondersteund voor TCP en UDP en wordt niet ondersteund voor andere IP-protocollen met inbegrip van ICMP. Load Balancer niet beëindigt, reageren of anders communiceren met de nettolading van een UDP of TCP-stroom. Het is niet een proxy. Geslaagde validatie van de verbinding met een front-plaats in-band moet nemen met hetzelfde protocol gebruikt in een load balancing of inkomende NAT-regel (TCP of UDP) _en_ ten minste één van uw virtuele machines moet een antwoord genereren voor een client een reactie van een front-zien.  Geen een in-band-antwoord ontvangen van de Load Balancer-front-Hiermee geeft u dat geen virtuele machines kunnen reageren.  Het is niet mogelijk om te communiceren met een Load Balancer-front-zonder een virtuele machine kunnen reageren.  Dit geldt ook voor uitgaande verbindingen waar [poort maskerade snat omzetten](load-balancer-outbound-connections.md#snat) wordt alleen ondersteund voor TCP en UDP; andere IP-protocollen inclusief ICMP ook mislukken.  Een instantieniveau openbare IP-adres toewijzen te verhelpen.
+- In tegenstelling tot openbare Load Balancers die bieden [uitgaande verbindingen](load-balancer-outbound-connections.md) tijdens het veranderen van privé IP-adressen binnen het virtuele netwerk naar openbare IP-adressen, interne Load Balancers komen niet vertalen uitgaande afkomstig is verbindingen met de front-end van een interne Load Balancer als beide zijn in de privé IP-adresruimte.  Zo voorkomt u mogelijkheden voor bronuitputting snat omzetten in unieke interne IP-adresruimte waar de vertaling niet vereist is.  Een neveneffect is dat als een uitgaande stroom van een virtuele machine in de groep back-end probeert een stroom aan front-end van de interne Load Balancer in welke groep database _en_ is toegewezen naar zichzelf, beide zijden van de stroom komen niet overeen en de stroom mislukt .  Als de stroom niet terug naar dezelfde virtuele machine in de back-end-pool die de stroom voor de front-end gemaakt toegewezen is, slaagt de stroom.   Wanneer de stroom wordt toegewezen aan zichzelf de uitgaande stroom lijkt te zijn afkomstig uit de virtuele machine op de front- en de bijbehorende binnenkomende stroom lijkt te zijn afkomstig uit de virtuele machine naar zichzelf. Uit oogpunt van het Gastbesturingssysteem, niet overeenkomen met de binnenkomende en uitgaande delen van dezelfde stroom in de virtuele machine. De TCP-stack herkent deze helften van dezelfde stroom niet als deel van dezelfde stroom als de bron- en doelserver komen niet overeen.  Wanneer de stroom wordt toegewezen aan met eventuele andere virtuele machine in de back-end-pool, komt overeen met de helften van stroom en de virtuele machine met succes kan reageren op de stroom.  Het symptoom voor dit scenario is een onregelmatige verbinding time-outs. Er zijn enkele algemene oplossingen voor het op betrouwbare wijze bereiken van dit scenario (die afkomstig zijn stroomt van een back-end-pool naar de back-end voor groepen van respectieve interne Load Balancer front-end-) zoals beide invoegen van een derde partij proxy achter de interne Load Balancer of [met behulp van de stijlregels DSR](load-balancer-multivip-overview.md).  Terwijl u een openbare Load Balancer gebruiken kunt om te beperken, het resulterende scenario is de kans op [snat omzetten uitputting](load-balancer-outbound-connections.md#snat) en tenzij u zorgvuldig worden beheerd, moeten worden vermeden.
 
 ## <a name="next-steps"></a>Volgende stappen
 

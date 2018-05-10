@@ -2,8 +2,8 @@
 title: Exporteren met behulp van de Stream Analytics uit Azure Application Insights | Microsoft Docs
 description: Stream Analytics kunt continu transformeren, filteren en doorsturen van de gegevens die u uit de Application Insights exporteren.
 services: application-insights
-documentationcenter: 
-author: noamben
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 31594221-17bd-4e5e-9534-950f3b022209
 ms.service: application-insights
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2018
 ms.author: mbullwin
-ms.openlocfilehash: ddaf7bf12854aa5f80c1d292613c3049850ca3ff
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: c898e43cb1334bf7fb1836554fb92708033d3f7d
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Gebruik van Stream Analytics voor het verwerken van de geëxporteerde gegevens van Application Insights
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) is het ideaal hulpprogramma voor het verwerken van gegevens [geëxporteerd uit de Application Insights](app-insights-export-telemetry.md). Stream Analytics kunt ophalen van gegevens uit verschillende bronnen. U kunt transformeren en filter de gegevens en vervolgens doorsturen naar een groot aantal Put.
@@ -106,10 +106,10 @@ Het pad naar het voorvoegsel patroon geeft aan waar de invoerbestanden in Stream
 
 In dit voorbeeld:
 
-* `webapplication27`de naam van de Application Insights-resource **alle kleine letters**.
-* `1234...`de instrumentatiesleutel van de Application Insights-resource is **weglaten streepjes**. 
-* `PageViews`is het type gegevens dat u wilt analyseren. De beschikbare typen, is afhankelijk van het filter dat u in de continue Export instellen. De geëxporteerde gegevens om de beschikbare typen Zie en bekijk de [exporteren gegevensmodel](app-insights-export-data-model.md).
-* `/{date}/{time}`een patroon er wordt letterlijk geschreven.
+* `webapplication27` de naam van de Application Insights-resource **alle kleine letters**.
+* `1234...` de instrumentatiesleutel van de Application Insights-resource is **weglaten streepjes**. 
+* `PageViews` is het type gegevens dat u wilt analyseren. De beschikbare typen, is afhankelijk van het filter dat u in de continue Export instellen. De geëxporteerde gegevens om de beschikbare typen Zie en bekijk de [exporteren gegevensmodel](app-insights-export-data-model.md).
+* `/{date}/{time}` een patroon er wordt letterlijk geschreven.
 
 > [!NOTE]
 > Inspecteer de opslag om ervoor te zorgen dat u het pad naar rechts.

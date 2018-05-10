@@ -289,6 +289,7 @@
 ## Uw identiteiten beveiligen
 ### [Voorwaardelijke toegang](active-directory-conditional-access-azure-portal.md)
 #### [Voorwaarden](active-directory-conditional-access-conditions.md)
+#### [Locatievoorwaarden](active-directory-conditional-access-locations.md)
 #### [Besturingselementen](active-directory-conditional-access-controls.md)
 #### [Aan de slag](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Aanbevolen procedures](active-directory-conditional-access-best-practices.md)

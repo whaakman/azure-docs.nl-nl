@@ -2,10 +2,10 @@
 title: Optimalisatie van uw Active Directory-omgeving met Azure Log Analytics | Microsoft Docs
 description: U kunt de oplossing voor Active Directory-Serverstatus controleren gebruiken voor het evalueren van de risico's en de status van uw omgevingen op een vast interval.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
 ms.service: log-analytics
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f026c605b84c5f2b6420e975a06d7c02227efbd9
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
-ms.translationtype: MT
+ms.openlocfilehash: 016b5bafdf6543ad43e36a875e6aa68572b35f97
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Optimalisatie van uw Active Directory-omgeving met de oplossing voor Active Directory-Serverstatus controleren in Log Analytics
 
@@ -54,7 +54,7 @@ Als u wilt uitvoeren van de statuscontrole op basis van uw domeincontrollers die
 
 1. Installeer de [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) als de domeincontroller niet door System Center 2016 - Operations Manager of Operations Manager 2012 R2 bewaakt wordt.
 2. Als deze wordt bewaakt met System Center 2016 - Operations Manager of Operations Manager 2012 R2 en de beheergroep is niet geïntegreerd met de Log Analytics-service, de domeincontroller kan worden multihomed met logboekanalyse voor het verzamelen van gegevens en door te sturen naar de service- en nog steeds worden bewaakt door Operations Manager.  
-3. Anders, als uw Operations Manager-beheergroep is geïntegreerd met de service, moet u de domeincontrollers voor het verzamelen van gegevens toevoegen door de service die de stappen onder [toevoegen door agents beheerde computers](log-analytics-om-agents.md#connecting-operations-manager-to-oms) nadat u hebt ingeschakeld de oplossing in uw werkruimte.  
+3. Anders, als uw Operations Manager-beheergroep is geïntegreerd met de service, moet u de domeincontrollers voor het verzamelen van gegevens toevoegen door de service die de stappen onder [toevoegen door agents beheerde computers](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) nadat u hebt ingeschakeld de oplossing in uw werkruimte.  
 
 De agent op uw domeincontroller welke rapporten aan een beheergroep van Operations Manager verzamelt gegevens, worden doorgestuurd naar de toegewezen beheerserver en vervolgens rechtstreeks vanaf een beheerserver verzonden naar de Log Analytics-service.  De gegevens niet naar de Operations Manager-database geschreven.  
 
@@ -64,7 +64,7 @@ Active Directory-Serverstatus controleren verzamelt gegevens uit de volgende bro
 
 - Register
 - LDAP
-- .NET Framework
+- .NET framework
 - Gebeurtenislogboek
 - Active Directory Service interfaces (ADSI)
 - Windows Powershell

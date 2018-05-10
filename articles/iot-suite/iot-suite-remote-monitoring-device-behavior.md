@@ -1,7 +1,7 @@
 ---
 title: Gedrag van het apparaat in de oplossing voor externe controle - Azure gesimuleerde | Microsoft Docs
-description: "Dit artikel wordt beschreven hoe u JavaScript gebruikt voor het definiëren van het gedrag van een gesimuleerd apparaat in de oplossing voor externe controle."
-services: 
+description: Dit artikel wordt beschreven hoe u JavaScript gebruikt voor het definiëren van het gedrag van een gesimuleerd apparaat in de oplossing voor externe controle.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: e5846893166c3e65b75e84d02849c2b8ab78e079
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2a2cbe5379adbd2c4ad6534b621871ecc30bfc81
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="implement-the-device-model-behavior"></a>De model-gedrag van het apparaat implementeren
 
@@ -25,7 +25,7 @@ Het artikel [inzicht in het modelschema apparaat](iot-suite-remote-monitoring-de
 - **Status** JavaScript-bestanden die worden uitgevoerd met vaste intervallen bijwerken van de interne status van het apparaat.
 - **Methode** JavaScript-bestanden die worden uitgevoerd wanneer de oplossing wordt aangeroepen voor een methode op het apparaat.
 
-In dit artikel leert u hoe:
+In dit artikel leert u het volgende:
 
 >[!div class="checklist"]
 > * De status van een gesimuleerd apparaat beheren
@@ -36,8 +36,8 @@ In dit artikel leert u hoe:
 
 De [simulatie](iot-suite-remote-monitoring-device-schema.md#simulation) sectie van het modelschema apparaat definieert de interne status van een gesimuleerd apparaat:
 
-- `InitialState`initiële waarden voor alle eigenschappen van het apparaat statusobject definieert.
-- `Script`identificeert een JavaScript-bestand dat wordt uitgevoerd op een planning voor het bijwerken van de apparaatstatus.
+- `InitialState` initiële waarden voor alle eigenschappen van het apparaat statusobject definieert.
+- `Script` identificeert een JavaScript-bestand dat wordt uitgevoerd op een planning voor het bijwerken van de apparaatstatus.
 
 Het volgende voorbeeld toont de definitie van het apparaat statusobject voor een gesimuleerde Koelunit apparaat:
 
@@ -53,10 +53,10 @@ Het volgende voorbeeld toont de definitie van het apparaat statusobject voor een
     "pressure_unit": "psig",
     "simulation_state": "normal_pressure"
   },
-  "Script": {
+  "Interval": "00:00:05",
+  "Scripts": {
     "Type": "javascript",
-    "Path": "chiller-01-state.js",
-    "Interval": "00:00:05"
+    "Path": "chiller-01-state.js"
   }
 }
 ```
@@ -66,7 +66,7 @@ De status van het gesimuleerde apparaat, zoals gedefinieerd in de `InitialState`
 Hieronder vindt u de omtrek van een typische `main` functie:
 
 ```javascript
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
   // Use the previous device state to
   // generate the new device state
@@ -78,9 +78,9 @@ function main(context, previousState) {
 
 De `context` parameter heeft de volgende eigenschappen:
 
-- `currentTime`Als een tekenreeks met de indeling`yyyy-MM-dd'T'HH:mm:sszzz`
-- `deviceId`, bijvoorbeeld`Simulated.Chiller.123`
-- `deviceModel`, bijvoorbeeld`Chiller`
+- `currentTime` Als een tekenreeks met de indeling `yyyy-MM-dd'T'HH:mm:sszzz`
+- `deviceId`, bijvoorbeeld `Simulated.Chiller.123`
+- `deviceModel`, bijvoorbeeld `Chiller`
 
 De `state` parameter bevat de status van het apparaat beheerd door de simulatie-service van het apparaat. Deze waarde is de `state` object dat wordt geretourneerd door de vorige aanroep aan `main`.
 
@@ -108,7 +108,7 @@ function restoreState(previousState) {
   }
 }
 
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
   restoreState(previousState);
 
@@ -133,7 +133,7 @@ function vary(avg, percentage, min, max) {
 }
 
 
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
     restoreState(previousState);
 
@@ -192,28 +192,31 @@ De status van het gesimuleerde apparaat, zoals gedefinieerd in de `InitialState`
 Hieronder vindt u de omtrek van een typische `main` functie:
 
 ```javascript
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
 }
 ```
 
 De `context` parameter heeft de volgende eigenschappen:
 
-- `currentTime`Als een tekenreeks met de indeling`yyyy-MM-dd'T'HH:mm:sszzz`
-- `deviceId`, bijvoorbeeld`Simulated.Chiller.123`
-- `deviceModel`, bijvoorbeeld`Chiller`
+- `currentTime` Als een tekenreeks met de indeling `yyyy-MM-dd'T'HH:mm:sszzz`
+- `deviceId`, bijvoorbeeld `Simulated.Chiller.123`
+- `deviceModel`, bijvoorbeeld `Chiller`
 
 De `state` parameter bevat de status van het apparaat beheerd door de simulatie-service van het apparaat.
 
-Er zijn twee algemene functies die kunt u het gedrag van de methode implementeren:
+De `properties` parameter bevat de eigenschappen van het apparaat die geschreven als gemelde eigenschappen voor de IoT Hub apparaat-twin zijn.
 
-- `updateState`de status waarover de simulatie-service bijgewerkt.
-- `sleep`kan worden uitgevoerd om te simuleren een langlopende taak onderbreken.
+Er zijn drie algemene functies die kunt u het gedrag van de methode implementeren:
+
+- `updateState` de status waarover de simulatie-service bijgewerkt.
+- `updateProperty` bijwerken van één apparaateigenschap.
+- `sleep` kan worden uitgevoerd om te simuleren een langlopende taak onderbreken.
 
 Het volgende voorbeeld ziet u een verkorte versie van de **IncreasePressure method.js** script gebruikt door de Koelunit gesimuleerde apparaten:
 
 ```javascript
-function main(context, previousState) {
+function main(context, previousState, previousProperties) {
 
     log("Starting 'Increase Pressure' method simulation (5 seconds)");
 

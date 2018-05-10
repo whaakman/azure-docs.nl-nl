@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: 77729ad52f101f0d57fe24115525795c6b4f2db2
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 51ed7dbead7f9085de563d2fb20c4e4a08f90bb2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-use-azure-machine-learning-workbench-for-advanced-data-preparation-bike-share-data"></a>Zelfstudie: Geavanceerde gegevensvoorbereiding (BikeShare-gegevens) met Azure Machine Learning Workbench
 Azure Machine Learning (preview) is een geïntegreerde end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse voor professionele gegevenswetenschappers. Hiermee kunnen ze gegevens voorbereiden, experimenten ontwikkelen en modellen in de cloud implementeren.
@@ -35,7 +35,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 ## <a name="prerequisites"></a>Vereisten
 
 * Een lokale installatie van Azure Machine Learning Workbench. Volg voor meer informatie de [Quick Start voor installatie](../service/quickstart-installation.md).
-* Als u Azure CLI niet hebt geïnstalleerd, volgt u de instructies voor het [installeren van de nieuwste versie van Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Als u Azure CLI niet hebt geïnstalleerd, volgt u de instructies voor het [installeren van de nieuwste versie van Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * Een [HDInsight Spark-cluster](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal) dat is gemaakt in Azure.
 * Een Azure Storage-account.
 * Kennis van het maken van een nieuw project in Workbench.

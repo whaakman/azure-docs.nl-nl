@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: fe4345f45013359fd77e5ddae3dc754b94af2696
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: ff709d021c9d4201301edd9890f1e4a94f555313
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Overzicht van virtuele Windows-machines in Azure
 
@@ -62,7 +62,7 @@ In deze tabel staan enkele manieren om een lijst met beschikbare locaties te ver
 | Azure Portal |Selecteer een locatie in de lijst bij het maken van een VM. |
 | Azure PowerShell |Gebruik de opdracht [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation). |
 | REST-API |Gebruik de bewerking [Locaties vermelden](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations). |
-| Azure-CLI |Gebruik de bewerking [az account list-locations](https://docs.microsoft.com/en-us/cli/azure/account?view=azure-cli-latest#az_account_list_locations). |
+| Azure-CLI |Gebruik de bewerking [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_list_locations). |
 
 ### <a name="vm-size"></a>VM-grootte
 De [grootte](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) van de VM die u gebruikt, wordt bepaald door de workload die u wilt uitvoeren. De grootte die u vervolgens kiest, bepaalt factoren als processorsnelheid, geheugen en opslagcapaciteit. Azure biedt een groot aantal verschillende grootten voor verschillende manieren van gebruik.
@@ -84,7 +84,7 @@ In deze tabel ziet u een aantal manieren waarop u de gegevens voor een installat
 | Azure Portal |De waarden worden automatisch opgegeven wanneer u een installatiekopie selecteert om te gebruiken. |
 | Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher): locatie "location"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer): locatie "location", uitgever "publisherName"<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku): locatie "location", uitgever "publisherName", aanbieding: "offerName" |
 | REST-API’s |[Uitgevers van installatiekopieën weergeven](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[Aanbiedingen van installatiekopieën weergeven](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[Installatiekopie-SKU's weergeven](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
-| Azure-CLI |[az vm image list-publishers](https://docs.microsoft.com/en-us/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_publishers) --location "locatie"<BR>[az vm image list-offers](https://docs.microsoft.com/en-us/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_offers) --location "locatie" --publisher "naampublicatie"<BR>[az vm image list-skus](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az_vm_list_skus) --location "locatie" --publisher "publicatienaam" --offer "naamaanbieding"|
+| Azure-CLI |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_publishers) --location "locatie"<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_offers) --location "locatie" --publisher "naampublicatie"<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list_skus) --location "locatie" --publisher "publicatienaam" --offer "naamaanbieding"|
 
 U kunt ervoor kiezen om [uw eigen installatiekopie te uploaden en te gebruiken](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account). Wanneer u dit doet, worden de uitgeversnaam, aanbieding en SKU niet gebruikt.
 
@@ -121,7 +121,7 @@ Deze tabel bevat informatie om u te helpen uw VM te maken.
 | Azure PowerShell |[Een Windows-VM maken met behulp van PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Client-SDK 's |[Azure-bronnen implementeren met C#](csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | REST-API’s |[Een VM maken of bijwerken](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-create-or-update) |
-| Azure-CLI |[Een virtuele machine maken met de Azure CLI](https://docs.microsoft.com/en-us/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm) |
+| Azure-CLI |[Een virtuele machine maken met de Azure CLI](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm) |
 
 U hoopt natuurlijk dat alles goed gaat, maar soms gaat er iets fout. Als deze situatie u ooit overkomt, bekijkt u de informatie in [Problemen met Resource Manager-implementatie bij het maken van een virtuele Windows-machine in Azure oplossen](troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -137,7 +137,7 @@ In deze tabel ziet u enkele van de manieren waarop u informatie over een VM kunt
 | Azure PowerShell |Zie [Create and Manage Windows VMs with the Azure PowerShell module](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Virtuele Windows-machines maken en beheren met de Azure PowerShell-module) voor informatie over het gebruik van PowerShell voor het beheren van virtuele machines. |
 | REST-API |Gebruik de bewerking [VM-informatie ophalen](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get) voor het verkrijgen van informatie over een VM. |
 | Client-SDK 's |Zie voor meer informatie over het gebruik van C# voor het beheren van VM's [Virtuele machines van Azure beheren met behulp van Azure Resource Manager en C#](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
-| Azure-CLI |Zie [Referentie Azure CLI](https://docs.microsoft.com/en-us/cli/azure/vm) voor informatie over het gebruik van Azure CLI voor het beheren van virtuele machines. |
+| Azure-CLI |Zie [Referentie Azure CLI](https://docs.microsoft.com/cli/azure/vm) voor informatie over het gebruik van Azure CLI voor het beheren van virtuele machines. |
 
 ### <a name="log-on-to-the-vm"></a>Aanmelden bij de VM
 U gebruikt de knop [Verbinden](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) in de Azure Portal om een Extern bureaublad-sessie te starten. Soms kan er iets fout gaan wanneer u probeert om een externe verbinding te gebruiken. Als deze situatie u overkomt, raadpleegt u de help-informatie in [Problemen oplossen met Extern bureaublad-verbindingen met een virtuele Windows-machine in Azure](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

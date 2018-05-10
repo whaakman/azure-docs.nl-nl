@@ -1,6 +1,6 @@
 ---
-title: Gebruik een statisch IP-adres met de Azure Container Service (AKS) load balancer
-description: Gebruik een statisch IP-adres met de Azure Container Service (AKS) load balancer.
+title: Gebruik een statisch IP-adres met de Azure Kubernetes Service (AKS) load balancer
+description: Gebruik een statisch IP-adres met de Azure Kubernetes Service (AKS) load balancer.
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 2/12/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 623ba423d4f60fee0d18ad9455cc06effeff482a
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
-ms.translationtype: MT
+ms.openlocfilehash: da1fc4cd31a4b4f13da5b527e2a62e147799bfef
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="use-a-static-ip-address-with-the-azure-container-service-aks-load-balancer"></a>Gebruik een statisch IP-adres met de Azure Container Service (AKS) load balancer
+# <a name="use-a-static-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Gebruik een statisch IP-adres met de Azure Kubernetes Service (AKS) load balancer
 
-In sommige gevallen, zoals wanneer het Azure Container Service (AKS) load balancer opnieuw gemaakt wordt of Kubernetes services met een type Load Balancer opnieuw gemaakt worden, het openbare IP-adres van de service Kubernetes kan worden gewijzigd. Dit documentgegevens voor het configureren van een statisch IP-adres voor uw Kubernetes-services.
+In sommige gevallen, zoals wanneer het Azure Kubernetes Service (AKS) load balancer opnieuw gemaakt wordt of Kubernetes services met een type Load Balancer opnieuw gemaakt worden, het openbare IP-adres van de service Kubernetes kan worden gewijzigd. Dit documentgegevens voor het configureren van een statisch IP-adres voor uw Kubernetes-services.
 
 ## <a name="create-static-ip-address"></a>Statische IP-adres maken
 
@@ -116,7 +116,7 @@ Events:
 ```
 
 <!-- LINKS - External -->
-[kubectl-describe]: https://kubernetes-v1-4.github.io/docs/user-guide/kubectl/kubectl_describe/ 
+[kubectl-describe]: https://kubernetes-v1-4.github.io/docs/user-guide/kubectl/kubectl_describe/
 
 <!-- LINKS - Internal -->
 [aks-faq-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks

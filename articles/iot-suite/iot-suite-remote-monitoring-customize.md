@@ -1,7 +1,7 @@
 ---
-title: De oplossing voor externe controle - Azure aanpassen | Microsoft Docs
-description: In dit artikel bevat informatie over hoe u toegang hebt tot de broncode voor de vooraf geconfigureerde oplossing voor externe controle.
-services: 
+title: De externe controle oplossing aanpassen UI - Azure | Microsoft Docs
+description: In dit artikel bevat informatie over hoe u toegang tot de broncode voor externe controle oplossingsverbetering gebruikersinterface en een aantal aanpassingen doen.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -12,256 +12,457 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: f5d38091b59110859d4376a5cd16a19f24dad65b
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: be20d45b380f66208884f15f4644f36f2a403837
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="customize-the-remote-monitoring-preconfigured-solution"></a>De vooraf geconfigureerde oplossing voor externe controle aanpassen
+# <a name="customize-the-remote-monitoring-solution-accelerator"></a>De oplossing voor externe controle accelerator aanpassen
 
-Dit artikel bevat informatie over hoe u toegang tot de broncode en aanpassen van de externe controle vooraf geconfigureerde oplossing. Dit artikel wordt beschreven:
+In dit artikel bevat informatie over hoe u toegang tot de broncode en aanpassen van de externe controle oplossingsverbetering gebruikersinterface. Dit artikel wordt beschreven:
 
-* De GitHub-opslagplaatsen die de broncode en resources voor de microservices die gezamenlijk de vooraf geconfigureerde oplossing bevatten.
-* Algemene scenario's voor aanpassingen zoals het toevoegen van een nieuwe apparaattype.
+## <a name="prepare-a-local-development-environment-for-the-ui"></a>Een lokale ontwikkelingsomgeving voorbereiden voor de UI
 
-De volgende video biedt een overzicht van de opties voor het aanpassen van de vooraf geconfigureerde oplossing voor externe controle:
+Externe controle oplossingsverbetering UI-code is geïmplementeerd met behulp van het framework React.js. U vindt de broncode in de [azure-iot-pcs-remote-monitoring-webui](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) GitHub-opslagplaats.
 
->[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/How-to-customize-the-Remote-Monitoring-Preconfigured-Solution-for-Azure-IoT/Player]
+Als u wijzigingen aan de gebruikersinterface, kunt u een kopie van het lokaal uitvoeren. De lokale kopie verbindt met een geïmplementeerd exemplaar van de oplossing voor het uitvoeren van acties zoals het ophalen van telemetrie.
 
-## <a name="project-overview"></a>Overzicht van project
+De volgende stappen geven een overzicht van het proces voor het instellen van een lokale omgeving voor het ontwikkelen van de gebruikersinterface:
 
-### <a name="implementations"></a>Implementaties
+1. Implementeer een **basic** exemplaar van de oplossing accelerator met behulp van de **pc's** CLI. Noteer de naam van uw implementatie en de referenties die u hebt opgegeven voor de virtuele machine. Zie voor meer informatie [implementeren met behulp van de CLI](iot-suite-remote-monitoring-deploy-cli.md).
 
-De oplossing voor externe controle heeft zowel .NET en Java-implementaties. Beide implementaties bieden vergelijkbare functionaliteit en zijn afhankelijk van de dezelfde onderliggende Azure-services. U kunt de site op het hoogste GitHub-opslagplaatsen hier vinden:
+1. De Azure portal gebruiken of de [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) voor SSH-toegang tot de virtuele machine die als host fungeert voor de microservices in uw oplossing. Bijvoorbeeld:
 
-* [.NET-oplossing](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
-* [Java-oplossing](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
+    ```sh
+    az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
+    ```
 
-### <a name="microservices"></a>Microservices
+1. De Azure portal gebruiken of de [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) vinden van de naam en het openbare IP-adres van uw virtuele machine. Bijvoorbeeld:
 
-Als u geïnteresseerd in een specifieke functie van de oplossing bent, kunt u de GitHub-opslagplaatsen voor elke afzonderlijke microservice openen. Elke microservice implementeert een ander deel van de functionaliteit van de oplossing. Zie voor meer informatie over de algehele architectuur, [externe controle vooraf geconfigureerde oplossingsarchitectuur](iot-suite-remote-monitoring-sample-walkthrough.md).
+    ```sh
+    az resource list --resource-group {your solution name} -o table
+    az vm list-ip-addresses --name {your vm name from previous command} --resource-group {your solution name} -o table
+    ```
 
-Deze tabel bevat een overzicht van de huidige beschikbaarheid van elke microservice voor elke taal:
+1. SSH gebruiken voor verbinding met uw virtuele machine met behulp van de IP-adres uit de vorige stap, en geef de referenties die u hebt opgegeven toen u uitvoerde **pc's** voor het implementeren van de oplossing.
 
-<!-- please add links for each of the repos in the table, you can find them here https://github.com/Azure/azure-iot-pcs-team/wiki/Repositories-->
+1. Voer de volgende opdrachten op de bash-shell op de virtuele machine zodat de lokale UX verbinding maken:
 
-| Microservice      | Beschrijving | Java | .NET |
-| ----------------- | ----------- | ---- | ---- |
-| Web-UI            | Web-app voor de oplossing voor externe controle. Gebruikersinterface met behulp van React.js framework implementeert. | [N/A(React.js)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) | [N/A(React.js)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) |
-| IoT Hub Manager   | Communicatie met de IoT Hub worden verwerkt.        | [Beschikbaar](https://github.com/Azure/iothub-manager-java) | [Beschikbaar](https://github.com/Azure/iothub-manager-dotnet)   |
-| Verificatie    |  Azure Active Directory-integratie beheert.  | Nog niet beschikbaar | [Beschikbaar](https://github.com/Azure/pcs-auth-dotnet)   |
-| Apparaatsimulatie | Een pool van de gesimuleerde apparaten beheert. | Nog niet beschikbaar | [Beschikbaar](https://github.com/Azure/device-simulation-dotnet)   |
-| Telemetrie         | Maakt de apparaattelemetrie beschikbaar voor de gebruikersinterface. | [Beschikbaar](https://github.com/Azure/device-telemetry-java) | [Beschikbaar](https://github.com/Azure/device-telemetry-dotnet)   |
-| Telemetrie-Agent   | De telemetriestroom analyseert, slaat de berichten van Azure IoT Hub en genereert waarschuwingen volgens de gedefinieerde regels.  | [Beschikbaar](https://github.com/Azure/telemetry-agent-java) | [Beschikbaar](https://github.com/Azure/telemetry-agent-dotnet)   |
-| UI-configuratie         | Beheert de configuratiegegevens van de gebruikersinterface. | [Beschikbaar](https://github.com/azure/pcs-ui-config-java) | [Beschikbaar](https://github.com/azure/pcs-ui-config-dotnet)   |
-| Opslagadapter   |  Interactie met storage-service beheert.   | [Beschikbaar](https://github.com/azure/pcs-storage-adapter-java) | [Beschikbaar](https://github.com/azure/pcs-storage-adapter-dotnet)   |
-| Omgekeerde proxy     | Beschrijft de persoonlijke bronnen op een beheerde manier via een unieke eindpunt. | Nog niet beschikbaar | [Beschikbaar](https://github.com/Azure/reverse-proxy-dotnet)   |
+    ```sh
+    cd /app
+    sudo ./start.sh --unsafe
+    ```
 
-De Java-oplossing gebruikt momenteel de .NET-authenticatie, simulatie en microservices omgekeerde proxy. Deze microservices wordt vervangen door Java-versies, zodra deze beschikbaar komen.
+1. Nadat u ziet de opdracht is voltooid en de website wordt gestart, kunt u de verbinding verbreken van de virtuele machine.
 
-## <a name="presentation-and-visualization"></a>Presentatie en visualisatie
+1. In het lokale exemplaar van de [azure-iot-pcs-remote-monitoring-webui](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) -opslagplaats, bewerk de **.env** bestand naar de URL van uw geïmplementeerde oplossing toevoegen:
 
-De volgende secties worden de opties voor het aanpassen van de laag voor presentatie en visualisaties in de oplossing voor externe controle:
+    ```config
+    NODE_PATH = src/
+    REACT_APP_BASE_SERVICE_URL=https://{your solution name}.azurewebsites.net/
+    ```
 
-### <a name="change-the-logo-in-the-ui"></a>Het logo in de gebruikersinterface wijzigen
-
-De standaardimplementatie gebruikmaakt van de naam van het bedrijf Contoso en het logo in de gebruikersinterface. Wijzigen van deze UI-elementen als uw bedrijfsnaam en het logo wilt weergeven:
-
-1. Gebruik de volgende opdracht voor het klonen van de Web-UI-bibliotheek:
+1. Bij een opdrachtprompt in de lokale kopie van de `azure-iot-pcs-remote-monitoring-webui` map, voer de volgende opdrachten voor het installeren van de vereiste bibliotheken en lokaal uitvoeren van de gebruikersinterface:
 
     ```cmd/sh
-    git clone https://github.com/Azure/pcs-remote-monitoring-webui.git
+    npm install
+    npm start
     ```
 
-1. Als u wilt de bedrijfsnaam wijzigen, opent u de `src/common/lang.js` bestand in een teksteditor.
+1. De vorige opdracht uitvoert de gebruikersinterface lokaal op http://localhost:3000/dashboard. U kunt de code bewerken terwijl de site wordt uitgevoerd en deze dynamisch bijwerken wordt weergegeven.
 
-1. Zoek de volgende regel in het bestand:
+## <a name="customize-the-layout"></a>De indeling aanpassen
 
-    ```js
-    CONTOSO: 'Contoso',
+Elke pagina in de oplossing voor externe controle bestaat uit een set besturingselementen wordt aangeduid als *panelen* in de broncode. Bijvoorbeeld, de **Dashboard** pagina bestaat uit vijf panelen: overzicht, kaart, alarmen, Telemetrie en KPI's. U vindt de broncode dat elke pagina en de panelen op bepaalt de [pc's-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui) GitHub-opslagplaats. Bijvoorbeeld, de code die bepaalt de **Dashboard** pagina, de indeling en de panelen op de pagina bevindt zich in de [src/onderdelen/pagina's /-dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard) map.
+
+Omdat de panelen hun eigen lay-out en schaling beheren, kunt u eenvoudig de indeling van een pagina wijzigen. Bijvoorbeeld de volgende wijzigingen aan de **PageContent** -element in de `src/components/pages/dashboard/dashboard.js` bestand wisselen van de posities van de kaart en telemetrie panelen en wijzig de relatieve breedte van de kaart en panelen KPI:
+
+```nodejs
+<PageContent className="dashboard-container" key="page-content">
+  <Grid>
+    <Cell className="col-1 devices-overview-cell">
+      <OverviewPanel
+        openWarningCount={openWarningCount}
+        openCriticalCount={openCriticalCount}
+        onlineDeviceCount={onlineDeviceCount}
+        offlineDeviceCount={offlineDeviceCount}
+        isPending={kpisIsPending || devicesIsPending}
+        error={devicesError || kpisError}
+        t={t} />
+    </Cell>
+    <Cell className="col-5">
+      <TelemetryPanel
+        telemetry={telemetry}
+        isPending={telemetryIsPending}
+        error={telemetryError}
+        colors={chartColorObjects}
+        t={t} />
+    </Cell>
+    <Cell className="col-3">
+      <CustAlarmsPanel
+        alarms={currentActiveAlarmsWithName}
+        isPending={kpisIsPending || rulesIsPending}
+        error={rulesError || kpisError}
+        t={t} />
+    </Cell>
+    <Cell className="col-4">
+    <PanelErrorBoundary msg={t('dashboard.panels.map.runtimeError')}>
+        <MapPanel
+          azureMapsKey={azureMapsKey}
+          devices={devices}
+          devicesInAlarm={devicesInAlarm}
+          mapKeyIsPending={azureMapsKeyIsPending}
+          isPending={devicesIsPending || kpisIsPending}
+          error={azureMapsKeyError || devicesError || kpisError}
+          t={t} />
+      </PanelErrorBoundary>
+    </Cell>
+    <Cell className="col-6">
+      <KpisPanel
+        topAlarms={topAlarmsWithName}
+        alarmsPerDeviceId={alarmsPerDeviceType}
+        criticalAlarmsChange={criticalAlarmsChange}
+        warningAlarmsChange={warningAlarmsChange}
+        isPending={kpisIsPending || rulesIsPending || devicesIsPending}
+        error={devicesError || rulesError || kpisError}
+        colors={chartColorObjects}
+        t={t} />
+    </Cell>
+  </Grid>
+</PageContent>
+```
+
+![De indeling Configuratiescherm wijzigen](media/iot-suite-remote-monitoring-customize/layout.png)
+
+> [!NOTE]
+> De kaart is niet geconfigureerd in de lokale implementatie.
+
+U kunt ook toevoegen meerdere exemplaren van het paneel dezelfde of verschillende versies als u [dupliceren en aanpassen van een paneel](#duplicate-and-customize-an-existing-control). Het volgende voorbeeld laat zien hoe u twee exemplaren van het paneel telemetrie toevoegen door te bewerken de `src/components/pages/dashboard/dashboard.js` bestand:
+
+```nodejs
+<PageContent className="dashboard-container" key="page-content">
+  <Grid>
+    <Cell className="col-1 devices-overview-cell">
+      <OverviewPanel
+        openWarningCount={openWarningCount}
+        openCriticalCount={openCriticalCount}
+        onlineDeviceCount={onlineDeviceCount}
+        offlineDeviceCount={offlineDeviceCount}
+        isPending={kpisIsPending || devicesIsPending}
+        error={devicesError || kpisError}
+        t={t} />
+    </Cell>
+    <Cell className="col-3">
+      <TelemetryPanel
+        telemetry={telemetry}
+        isPending={telemetryIsPending}
+        error={telemetryError}
+        colors={chartColorObjects}
+        t={t} />
+    </Cell>
+    <Cell className="col-3">
+      <TelemetryPanel
+        telemetry={telemetry}
+        isPending={telemetryIsPending}
+        error={telemetryError}
+        colors={chartColorObjects}
+        t={t} />
+    </Cell>
+    <Cell className="col-2">
+      <CustAlarmsPanel
+        alarms={currentActiveAlarmsWithName}
+        isPending={kpisIsPending || rulesIsPending}
+        error={rulesError || kpisError}
+        t={t} />
+    </Cell>
+    <Cell className="col-4">
+    <PanelErrorBoundary msg={t('dashboard.panels.map.runtimeError')}>
+        <MapPanel
+          azureMapsKey={azureMapsKey}
+          devices={devices}
+          devicesInAlarm={devicesInAlarm}
+          mapKeyIsPending={azureMapsKeyIsPending}
+          isPending={devicesIsPending || kpisIsPending}
+          error={azureMapsKeyError || devicesError || kpisError}
+          t={t} />
+      </PanelErrorBoundary>
+    </Cell>
+    <Cell className="col-6">
+      <KpisPanel
+        topAlarms={topAlarmsWithName}
+        alarmsPerDeviceId={alarmsPerDeviceType}
+        criticalAlarmsChange={criticalAlarmsChange}
+        warningAlarmsChange={warningAlarmsChange}
+        isPending={kpisIsPending || rulesIsPending || devicesIsPending}
+        error={devicesError || rulesError || kpisError}
+        colors={chartColorObjects}
+        t={t} />
+    </Cell>
+  </Grid>
+</PageContent>
+```
+
+Vervolgens kunt u verschillende telemetrie in elk Configuratiescherm bekijken:
+
+![Meerdere telemetrie-panelen](media/iot-suite-remote-monitoring-customize/multiple-telemetry.png)
+
+> [!NOTE]
+> De kaart is niet geconfigureerd in de lokale implementatie.
+
+## <a name="duplicate-and-customize-an-existing-control"></a>Dubbele en aanpassen van een bestaand besturingselement
+
+De volgende stappen wordt uitgelegd hoe u de **alarmen** Configuratiescherm als een voorbeeld van het dupliceren van een bestaande Configuratiescherm, wijzigen en de gewijzigde versie gebruiken:
+
+1. In het lokale exemplaar van de opslagplaats, maakt u een kopie van de **alarmen** map in de `src/components/pages/dashboard/panels` map. Naam van de nieuwe kopie **cust_alarms**.
+
+1. In de **alarmsPanel.js** bestand de **cust_alarms** map, bewerkt u de naam van de klasse om te worden **CustAlarmsPanel**:
+
+    ```nodejs
+    export class CustAlarmsPanel extends Component {
     ```
 
-1. Vervang `Contoso` met de naam van uw bedrijf. Bijvoorbeeld:
+1. Voeg de volgende regel om de `src/components/pages/dashboard/panels/index.js` bestand:
 
-    ```js
-    CONTOSO: 'YourCo',
+    ```nodejs
+    export * from './cust_alarms';
     ```
 
-1. Sla het bestand op.
+1. Vervang `AlarmsPanel` met `CustAlarmsPanel` in de `src/components/pages/dashboard/dashboard.js` bestand:
 
-1. Voor het bijwerken van het logo, Voeg een nieuw SVG-bestand naar de `assets/icons` map. Het bestaande logo is de `assets/icons/Contoso.svg` bestand.
+    ```nodejs
+    import {
+      OverviewPanel,
+      CustAlarmsPanel,
+      TelemetryPanel,
+      KpisPanel,
+      MapPanel,
+      transformTelemetryResponse,
+      chartColors
+    } from './panels';
 
-1. Open de `src/components/layout/leftNav/leftNav.js` bestand in een teksteditor.
+    ...
 
-1. Zoek de volgende regel in het bestand:
-
-    ```js
-    import ContosoIcon from '../../../assets/icons/Contoso.svg';
+    <Cell className="col-3">
+      <CustAlarmsPanel
+        alarms={currentActiveAlarmsWithName}
+        isPending={kpisIsPending || rulesIsPending}
+        error={rulesError || kpisError}
+        t={t} />
+    </Cell>
     ```
 
-1. Vervang `Contoso.svg` met de naam van uw logobestand. Bijvoorbeeld:
+U hebt nu de oorspronkelijke vervangen **alarmen** deelvenster met een kopie aangeroepen **CustAlarms**. Dit exemplaar is identiek aan de oorspronkelijke. U kunt nu de kopie wijzigen. Om bijvoorbeeld te wijzigen van de kolom bestellen in de **alarmen** Configuratiescherm:
 
-    ```js
-    import ContosoIcon from '../../../assets/icons/YourCo.svg';
+1. Open het `src/components/pages/dashboard/panels/cust_alarms/alarmsPanel.js`-bestand.
+
+1. Wijzig de kolomdefinities zoals weergegeven in het volgende codefragment:
+
+    ```nodejs
+    this.columnDefs = [
+      rulesColumnDefs.severity,
+      {
+        headerName: 'rules.grid.count',
+        field: 'count'
+      },
+      {
+        ...rulesColumnDefs.ruleName,
+        minWidth: 200
+      },
+      rulesColumnDefs.explore
+    ];
     ```
 
-1. Zoek de volgende regel in het bestand:
+De volgende schermafbeelding ziet u de nieuwe versie van de **alarmen** Configuratiescherm:
 
-    ```js
-    alt="ContosoIcon"
+![Alarmen Configuratiescherm bijgewerkt](media/iot-suite-remote-monitoring-customize/reorder-columns.png)
+
+## <a name="customize-the-telemetry-chart"></a>De grafiek telemetrie aanpassen
+
+De grafiek telemetrie op de **Dashboard** pagina is gedefinieerd door de bestanden in de `src/components/pages/dashboard/panels/telemtry` map. De gebruikersinterface haalt de telemetrie van de back-end oplossing in de `src/services/telemetryService.js` bestand. De volgende stappen ziet u het wijzigen van de periode die wordt weergegeven in de grafiek telemetrie van 15 minuten 5 minuten:
+
+1. In de `src/services/telemetryService.js` bestand, zoek de aangeroepen functie **getTelemetryByDeviceIdP15M**. Maak een kopie van deze functie en de kopie als volgt wijzigen:
+
+    ```nodejs
+    static getTelemetryByDeviceIdP5M(devices = []) {
+      return TelemetryService.getTelemetryByMessages({
+        from: 'NOW-PT5M',
+        to: 'NOW',
+        order: 'desc',
+        devices
+      });
+    }
     ```
 
-1. Vervang `ContosoIcon` met uw `alt` tekst. Bijvoorbeeld:
+1. Voor het gebruik van deze nieuwe functie voor het vullen van de grafiek telemetrie, opent u de `src/components/pages/dashboard/dashboard.js` bestand. Zoek de regel die de telemetriestroom initialiseert en als volgt wijzigen:
 
-    ```js
-    alt="YourCoIcon"
+    ```node.js
+    const getTelemetryStream = ({ deviceIds = [] }) => TelemetryService.getTelemetryByDeviceIdP5M(deviceIds)
     ```
 
-1. Sla het bestand op.
+De telemetrie-grafiek ziet nu de vijf minuten van telemetriegegevens:
 
-1. Als u wilt testen of de wijzigingen, kunt u uitvoeren de bijgewerkte `webui` op uw lokale machine. Voor informatie over het bouwen en uitvoeren van de `webui` oplossing lokaal, Zie [samenstellen, uitvoeren en test lokaal](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/README.md#build-run-and-test-locally) in de `webui` GitHub-opslagplaats Leesmij-bestand.
+![Telemetrie-grafiek met van één dag](media/iot-suite-remote-monitoring-customize/telemetry-period.png)
 
-1. Zie voor het implementeren van de wijzigingen de [verwijzing ontwikkelaarshandleiding](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide).
+## <a name="add-a-new-kpi"></a>Een nieuwe KPI toevoegen
 
-<!--
+De **Dashboard** pagina wordt weergegeven voor KPI's in de **System KPI's** Configuratiescherm. Deze KPI's worden berekend in de `src/components/pages/dashboard/dashboard.js` bestand. De KPI's worden weergegeven door de `src/components/pages/dashboard/panels/kpis/kpisPanel.js` bestand. De volgende stappen beschrijven het berekenen en weergeven van een nieuwe KPI-waarde op de **Dashboard** pagina. Het voorbeeld is het toevoegen van een nieuwe Percentagewijziging in het waarschuwingsbericht KPI:
 
-### Add a new KPI to the Dashboard page
+1. Open het `src/components/pages/dashboard/dashboard.js`-bestand. Wijzig de **initialState** object wilt opnemen een **warningAlarmsChange** eigenschap als volgt:
 
-The following steps describe how to add a new KPI to display on the **Dashboard** page. The new KPI shows information about the number of alarms with specific status values as a pie chart:
+    ```nodejs
+    const initialState = {
+      ...
 
-1. Step 1
+      // Kpis data
+      currentActiveAlarms: [],
+      topAlarms: [],
+      alarmsPerDeviceId: {},
+      criticalAlarmsChange: 0,
+      warningAlarmsChange: 0,
+      kpisIsPending: true,
+      kpisError: null,
 
-1. Step 2
--->
+      ...
+    };
+    ```
 
-### <a name="customize-the-map"></a>De kaart aanpassen
+1. Wijzig de **currentAlarmsStats** object opnemen **totalWarningCount** als een eigenschap:
+
+    ```nodejs
+    return {
+      openWarningCount: (acc.openWarningCount || 0) + (isWarning && isOpen ? 1 : 0),
+      openCriticalCount: (acc.openCriticalCount || 0) + (isCritical && isOpen ? 1 : 0),
+      totalWarningCount: (acc.totalWarningCount || 0) + (isWarning ? 1 : 0),
+      totalCriticalCount: (acc.totalCriticalCount || 0) + (isCritical ? 1 : 0),
+      alarmsPerDeviceId: updatedAlarmsPerDeviceId
+    };
+    ```
+
+1. De nieuwe KPI berekenen. De berekening van het aantal kritieke alarmen vinden. De code dupliceren en de kopie als volgt wijzigen:
+
+    ```nodejs
+    // ================== Warning Alarms Count - START
+    const currentWarningAlarms = currentAlarmsStats.totalWarningCount;
+    const previousWarningAlarms = previousAlarms.reduce(
+      (cnt, { severity }) => severity === 'warning' ? cnt + 1 : cnt,
+      0
+    );
+    const warningAlarmsChange = ((currentWarningAlarms - previousWarningAlarms) / currentWarningAlarms * 100).toFixed(2);
+    // ================== Warning Alarms Count - END
+    ```
+
+1. Bevatten de nieuwe **warningAlarmsChange** KPI in de KPI-stroom:
+
+    ```nodejs
+    return ({
+      kpisIsPending: false,
+
+      // Kpis data
+      currentActiveAlarms,
+      topAlarms,
+      criticalAlarmsChange,
+      warningAlarmsChange,
+      alarmsPerDeviceId: currentAlarmsStats.alarmsPerDeviceId,
+
+      ...
+    });
+
+1. Include the new **warningAlarmsChange** KPI in the state data used to render the UI:
+
+    ```nodejs
+    const {
+      ...
+
+      currentActiveAlarms,
+      topAlarms,
+      alarmsPerDeviceId,
+      criticalAlarmsChange,
+      warningAlarmsChange,
+      kpisIsPending,
+      kpisError,
+
+      ...
+    } = this.state;
+    ```
+
+1. De gegevens doorgegeven aan het deelvenster KPI's bijwerken:
+
+    ```node.js
+    <KpisPanel
+      topAlarms={topAlarmsWithName}
+      alarmsPerDeviceId={alarmsPerDeviceType}
+      criticalAlarmsChange={criticalAlarmsChange}
+      warningAlarmsChange={warningAlarmsChange}
+      isPending={kpisIsPending || rulesIsPending || devicesIsPending}
+      error={devicesError || rulesError || kpisError}
+      colors={chartColorObjects}
+      t={t} />
+    ```
+
+U bent nu klaar met de wijzigingen in de `src/components/pages/dashboard/dashboard.js` bestand. De volgende stappen beschrijven de wijzigingen aanbrengen in de `src/components/pages/dashboard/panels/kpis/kpisPanel.js` bestand om de nieuwe KPI weer te geven:
+
+1. Wijzig de volgende regel code voor het ophalen van de nieuwe KPI-waarde als volgt:
+
+    ```nodejs
+    const { t, isPending, criticalAlarmsChange, warningAlarmsChange, error } = this.props;
+    ```
+
+1. Wijzig de opmaak om de nieuwe KPI-waarde als volgt weer te geven:
+
+    ```nodejs
+    <div className="kpi-cell">
+      <div className="kpi-header">{t('dashboard.panels.kpis.criticalAlarms')}</div>
+      <div className="critical-alarms">
+        {
+          criticalAlarmsChange !== 0 &&
+            <div className="kpi-percentage-container">
+              <div className="kpi-value">{ criticalAlarmsChange }</div>
+              <div className="kpi-percentage-sign">%</div>
+            </div>
+        }
+      </div>
+      <div className="kpi-header">{t('Warning alarms')}</div>
+      <div className="critical-alarms">
+        {
+          warningAlarmsChange !== 0 &&
+            <div className="kpi-percentage-container">
+              <div className="kpi-value">{ warningAlarmsChange }</div>
+              <div className="kpi-percentage-sign">%</div>
+            </div>
+        }
+      </div>
+    </div>
+    ```
+
+De **Dashboard** pagina wordt nu weergegeven voor de nieuwe KPI-waarde:
+
+![Waarschuwing KPI](media/iot-suite-remote-monitoring-customize/new-kpi.png)
+
+## <a name="customize-the-map"></a>De kaart aanpassen
 
 Zie de [aanpassen kaart](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map) pagina in GitHub voor meer informatie over de onderdelen van de kaart in de oplossing.
 
 <!--
-### Customize the telemetry chart
-
-See the [Customize telemetry chart](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub for details of the telemetry chart components in the solution.
-
 ### Connect an external visualization tool
 
 See the [Connect an external visualization tool](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub for details of how to connect an external visualization tool.
 
-### Duplicate an existing control
-
-To duplicate an existing UI element such as a chart or alert, see the [Duplicate a control](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub.
-
 -->
 
-### <a name="other-customization-options"></a>Andere aanpassingsopties
+## <a name="other-customization-options"></a>Andere aanpassingsopties
 
 Als u wilt de presentatie en visualisaties laag in de oplossing voor externe controle verder wijzigen, kunt u de code bewerken. De relevante GitHub-opslagplaatsen zijn:
 
-* [UIConfig (.NET)](https://github.com/Azure/pcs-ui-config-dotnet/)
-* [UIConfig (Java)](https://github.com/Azure/pcs-ui-config-java/)
-* [Azure-pc's externe controle WebUI](https://github.com/Azure/pcs-remote-monitoring-webui)
-
-## <a name="device-connectivity-and-streaming"></a>Connectiviteit van apparaten en streaming
-
-De volgende secties worden de opties voor het aanpassen van de connectiviteit van apparaten en streaming laag in de oplossing voor externe controle. [Apparaatmodellen](https://github.com/Azure/device-simulation-dotnet/wiki/Device-Models) beschrijven de apparaattypen en telemetrie in de oplossing. U apparaatmodellen voor gesimuleerde en fysieke apparaten gebruiken.
-
-Zie voor een voorbeeld van een implementatie van het fysieke apparaat, [Verbind het apparaat met de vooraf geconfigureerde oplossing voor externe controle](iot-suite-connecting-devices-node.md).
-
-Als u een _fysiek apparaat_, moet u de clienttoepassing met een model van het apparaat met de specificatie van metagegevens en telemetrie apparaat opgeven.
-
-De volgende secties worden besproken met behulp van apparaatmodellen met gesimuleerde apparaten:
-
-### <a name="add-a-telemetry-type"></a>Een type telemetrie toevoegen
-
-De typen apparaten in de Contoso-demo-oplossing geeft de telemetrie die elk apparaattype verzendt. Als u de aanvullende telemetrie-typen, kan een apparaat telemetrie definities als metagegevens verzenden naar de oplossing. Als u deze indeling gebruikt, het dashboard uw apparaattelemetrie en de beschikbare methoden dynamisch verbruikt en u hoeft niet te wijzigen van de gebruikersinterface. U kunt ook de typedefinitie van het apparaat in de oplossing wijzigen.
-
-Voor informatie over het toevoegen van aangepaste telemetrie in de _apparaatsimulator_ microservice, Zie [testen van uw oplossing met gesimuleerde apparaten](iot-suite-remote-monitoring-test.md).
-
-### <a name="add-a-device-type"></a>Een apparaattype toevoegen
-
-De Contoso-demo-oplossing definieert sommige apparaattypen voorbeeld. De oplossing kunt u aangepast apparaattypen om te voldoen aan de vereisten van uw specifieke toepassing definiëren. Uw bedrijf kan bijvoorbeeld een industriële gateway gebruiken als het primaire apparaat is verbonden met de oplossing.
-
-Voor het maken van een nauwkeurige weergave van uw apparaat, moet u de toepassing die wordt uitgevoerd op uw apparaat om te voldoen aan de apparaatvereisten wijzigen.
-
-Voor informatie over het toevoegen van een nieuw apparaattype in de _apparaatsimulator_ microservice, Zie [testen van uw oplossing met gesimuleerde apparaten](iot-suite-remote-monitoring-test.md).
-
-### <a name="define-custom-methods-for-simulated-devices"></a>Aangepaste methoden voor het gesimuleerde apparaten definiëren
-
-Zie voor meer informatie over het definiëren van aangepaste methoden voor het gesimuleerde apparaten in de oplossing voor externe controle, [Apparaatmodellen](https://github.com/Azure/device-simulation-dotnet/wiki/%5BAPI-Specifications%5D-Device-Models) in de GitHub-opslagplaats.
-
-<!--
-#### Using the simulator service
-
-TODO: add steps for the simulator microservice here
--->
-
-#### <a name="using-a-physical-device"></a>Met behulp van een fysiek apparaat
-
-Als u wilt implementeren methoden en taken op uw fysieke apparaten, Zie de volgende artikelen voor IoT Hub:
-
-* [Begrijpen en direct methoden uit IoT Hub aanroepen](../iot-hub/iot-hub-devguide-direct-methods.md).
-* [Plannen van taken op meerdere apparaten](../iot-hub/iot-hub-devguide-jobs.md).
-
-### <a name="other-customization-options"></a>Andere aanpassingsopties
-
-Als u wilt wijzigen verder de connectiviteit van apparaten en streaming laag in de oplossing voor externe controle, kunt u de code bewerken. De relevante GitHub-opslagplaatsen zijn:
-
-* [De Apparaattelemetrie (.NET)](https://github.com/Azure/device-telemetry-dotnet)
-* [De Apparaattelemetrie (Java)](https://github.com/Azure/device-telemetry-java)
-* [Telemetry Agent (.NET)](https://github.com/Azure/telemetry-agent-dotnet)
-* [Telemetry Agent (Java)](https://github.com/Azure/telemetry-agent-java)
-
-## <a name="data-processing-and-analytics"></a>Gegevensverwerking en -analyse
-
-<!--
-The following sections describe options to customize the data processing and analytics layer in the remote monitoring solution:
-
-### Rules and actions
-
-See the [Customize rules and actions](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub for details of how to customize the rules and actions in solution.
-
-
-### Other customization options
--->
-
-Voor het wijzigen van de gegevensverwerking en analytics laag in de oplossing voor externe controle, kunt u de code bewerken. De relevante GitHub-opslagplaatsen zijn:
-
-* [Telemetry Agent (.NET)](https://github.com/Azure/telemetry-agent-dotnet)
-* [Telemetry Agent (Java)](https://github.com/Azure/telemetry-agent-java)
-
-## <a name="infrastructure"></a>Infrastructuur
-
-<!--
-The following sections describe options for customizing the infrastructure services in the remote monitoring solution:
-
-### Change storage
-
-The default storage service for the remote monitoring solution is Cosmos DB. See the [Customize storage service](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub for details of how to change the storage service the solution uses.
-
-### Change log storage
-
-The default storage service for logs is Cosmos DB. See the [Customize log storage service](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) page in GitHub for details of how to change the storage service the solution uses for logging.
-
-### Other customization options
--->
-
-U kunt de code bewerken voor het wijzigen van de infrastructuur van de oplossing voor externe controle. De relevante GitHub-opslagplaatsen zijn:
-
-* [IoTHub Manager (.NET)](https://github.com/Azure/iothub-manager-dotnet)
-* [IoTHub Manager (Java)](https://github.com/Azure/iothub-manager-java)
-* [Opslagadapter (.NET)](https://github.com/Azure/pcs-storage-adapter-dotnet)
-* [Opslagadapter (Java)](https://github.com/Azure/pcs-storage-adapter-java)
+* [De configuratie microservice voor Azure IoT oplossingen (.NET)](https://github.com/Azure/pcs-ui-config-dotnet/)
+* [De configuratie microservice voor Azure IoT-oplossingen (Java)](https://github.com/Azure/pcs-ui-config-java/)
+* [Azure IoT-pc's van een Remote Monitoring webgebruikersinterface](https://github.com/Azure/pcs-remote-monitoring-webui)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u geleerd over de resources beschikbaar om te helpen u de vooraf geconfigureerde oplossing aanpassen.
+In dit artikel hebt u geleerd over de resources beschikbaar om te helpen u de webgebruikersinterface in Remote Monitoring solution accelerator aanpassen.
 
-Zie voor meer informatie over de vooraf geconfigureerde oplossing voor externe controle [voor externe controle van architectuur](iot-suite-remote-monitoring-sample-walkthrough.md)
+Zie voor meer informatie over de oplossing voor externe controle accelerator [externe controle-architectuur](iot-suite-remote-monitoring-sample-walkthrough.md)
 
-Zie voor meer informatie over het aanpassen van de oplossing voor externe controle:
-
-* [Snelzoekgids voor ontwikkelaars](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
-* [Ontwikkelaarsgids voor het oplossen van problemen](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
-
+Zie voor meer informatie over het aanpassen van de oplossing voor externe controle [aanpassen en opnieuw een microservice](iot-suite-microservices-example.md)
 <!-- Next tutorials in the sequence -->

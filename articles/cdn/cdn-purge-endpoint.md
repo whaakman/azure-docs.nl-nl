@@ -2,10 +2,10 @@
 title: Een Azure CDN-eindpunt leegmaken | Microsoft Docs
 description: Informatie over het wissen van alle inhoud in cache van een Azure CDN-eindpunt.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 0b50230b-fe82-4740-90aa-95d4dde8bd4f
 ms.service: cdn
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: b6157ddaf320f942a704d32f066b821425596308
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 262a8f7385ba5f74d21991772599540260a145fc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Een Azure CDN-eindpunt leegmaken
 ## <a name="overview"></a>Overzicht
@@ -51,14 +51,14 @@ Deze zelfstudie leert u het opschonen van de activa van alle knooppunten van de 
    > 
    > 
 4. Selecteer welke elementen die u wilt verwijderen uit de edge-knooppunten.  Als u wenst te wissen van alle activa, klikt u op de **Alles opschonen** selectievakje.  Anders, typ het pad van elke asset die u wissen wilt de **pad** textbox. Hieronder indelingen worden ondersteund in het pad.
-    1. **Opschonen van één URL**: individuele asset opschonen door te geven van de volledige URL met of zonder de bestandsextensie, bijvoorbeeld`/pictures/strasbourg.png`;`/pictures/strasbourg`
+    1. **Opschonen van één URL**: individuele asset opschonen door te geven van de volledige URL met of zonder de bestandsextensie, bijvoorbeeld`/pictures/strasbourg.png`; `/pictures/strasbourg`
     2. **Jokertekens opschonen**: sterretje (\*) kan worden gebruikt als een jokerteken. Opschonen van mappen, submappen en bestanden onder een eindpunt met `/*` in het pad of opschonen alle submappen en bestanden in een specifieke map die door het opgeven van de map gevolgd door `/*`, bijvoorbeeld`/pictures/*`.  Houd er rekening mee dat leegmaken met jokertekens wordt momenteel niet ondersteund door Azure CDN van Akamai. 
     3. **Opschonen van domein hoofdmap**: opschonen van de hoofdmap van het eindpunt met '/' in het pad.
    
    > [!TIP]
    > Paden moeten worden opgegeven voor opschonen en moet een relatieve URL die voldoen aan de volgende [reguliere expressie](https://msdn.microsoft.com/library/az24scfc.aspx). **Alles opschonen** en **jokertekens opschonen** niet wordt ondersteund door **Azure CDN van Akamai** momenteel.
-   > > Opschonen van één URL`@"^\/(?>(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/?)*)$";`  
-   > > Queryreeks`@"^(?:\?[-\@_a-zA-Z0-9\/%:;=!,.\+'&\(\)\u0020]*)?$";`  
+   > > Opschonen van één URL `@"^\/(?>(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/?)*)$";`  
+   > > Queryreeks `@"^(?:\?[-\@_a-zA-Z0-9\/%:;=!,.\+'&\(\)\u0020]*)?$";`  
    > > Jokertekens opschonen `@"^\/(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/)*\*$";`. 
    > 
    > Meer **pad** tekstvakken wordt weergegeven nadat u tekst zodat u kunt een lijst samenstellen van meerdere elementen.  U kunt activa verwijderen uit de lijst door te klikken op de knop met het weglatingsteken (...).
@@ -68,7 +68,7 @@ Deze zelfstudie leert u het opschonen van de activa van alle knooppunten van de 
     ![Knop verwijderen](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> Opschonen aanvragen minuten duren voordat ongeveer 2-3 verwerkt met **Azure CDN van Verizon** (standaard en Premium), en ongeveer 7 minuten met **Azure CDN van Akamai**.  Azure CDN heeft een limiet van 50 gelijktijdige aanvragen opschonen op elk moment op het niveau van het profiel. 
+> Opschonen aanvragen minuten duren voordat ongeveer 2-3 verwerkt met **Azure CDN van Verizon** (standard en premium), en ongeveer 7 minuten met **Azure CDN van Akamai**.  Azure CDN heeft een limiet van 50 gelijktijdige aanvragen opschonen op elk moment op het niveau van het profiel. 
 > 
 > 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 71aa0af2b3b47c1d9960e72aa36c2d5aae80f140
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ff059b27dc2bdcbfa8cecad1e46e9c2f268ef8c7
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Zelfstudie: Azure Active Directory-integratie met Adobe teken
 
@@ -103,7 +103,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     ![Eenmalige aanmelding configureren][4]
 
 2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
- 
+
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_samlbase.png)
 
 3. Op de **Adobe aanmelding domein en de URL's** sectie, voert u de volgende stappen uit:
@@ -115,8 +115,8 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     b. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<companyname>.echosign.com`
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [Adobe aanmelding Client ondersteuningsteam](https://helpx.adobe.com/in/contact/support.html) ophalen van deze waarden. 
- 
+    > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [Adobe aanmelding Client ondersteuningsteam](https://helpx.adobe.com/in/contact/support.html) ophalen van deze waarden.
+
 4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_certificate.png) 
@@ -127,15 +127,34 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 6. Op de **Adobe aanmelding configuratie** sectie, klikt u op **Adobe aanmelding configureren** openen **eenmalige aanmelding configureren** venster. Kopieer de **Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
 
-    ![Eenmalige aanmelding configureren](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_configure.png) 
+    ![Eenmalige aanmelding configureren](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_configure.png)
 
-7. In een ander browservenster, meld u aan bij uw bedrijf Adobe aanmelding site als beheerder.
+7. Voordat de configuratie moet u contact opnemen met [Adobe aanmelding Client ondersteuningsteam](https://helpx.adobe.com/in/contact/support.html) naar geaccepteerde uw domein in het Adobe-teken. Volg de onderstaande stappen voor het toevoegen van het domein:
 
-8. Klik in het menu SAML **Accountinstellingen**, en klik vervolgens op **SAML instellingen**.
+    a. [Adobe aanmelding Client ondersteuningsteam](https://helpx.adobe.com/in/contact/support.html) stuurt u een willekeurig gegenereerde token. Token is voor uw domein, zoals: **adobe aanmelding verifiëren xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx =**
+
+    b. U moet de verificatietoken publiceren in een DNS-record voor tekst en contactpersonen waarschuwen dat [Adobe aanmelding Client ondersteuningsteam](https://helpx.adobe.com/in/contact/support.html).
+    
+    > [!NOTE]
+    > U kunt verwachten dat dit slechts enkele dagen of misschien langer kan duren. Houd er rekening mee dat het vertragingen bij het doorgeven van de DNS-betekent dat een waarde in DNS gepubliceerd mogelijk niet zichtbaar is voor een uur of langer. We verwachten dat de IT-beheerder moet grondige kennis van hoe u dit token publiceert in een DNS-record voor tekst.
+    
+    c. Zodra u de hoogte stellen [Adobe aanmelding Client ondersteuningsteam](https://helpx.adobe.com/in/contact/support.html) via de ondersteuningsticket nadat het token is gepubliceerd, ze zullen valideren van het domein en toe te voegen aan uw account.
+    
+    d. Algemene stappen die u kunt nemen voor het publiceren van het token op een DNS-record-
+
+    * Aanmelden bij uw domeinaccount
+    * De pagina voor het bijwerken van de DNS-record vinden. Deze pagina kan worden aangeroepen voor DNS-beheer, de naam van Serverbeheer of geavanceerde instellingen.
+    * De TXT-records vinden voor uw domein.
+    * Een TXT-record met de opgegeven door Adobe volledige token waarde toevoegen
+    * Sla uw wijzigingen op.
+
+8. In een ander browservenster, meld u aan bij uw bedrijf Adobe aanmelding site als beheerder.
+
+9. Klik in het menu SAML **Accountinstellingen**, en klik vervolgens op **SAML instellingen**.
    
     ![Account](./media/active-directory-saas-adobe-echosign-tutorial/ic789520.png "Account")
 
-9. In de **SAML instellingen** sectie, voert u de volgende stappen uit:
+10. In de **SAML instellingen** sectie, voert u de volgende stappen uit:
   
     ![Instellingen voor SAML](./media/active-directory-saas-adobe-echosign-tutorial/ic789521.png "SAML-instellingen")
    
@@ -265,4 +284,3 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 [201]: ./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_203.png
-

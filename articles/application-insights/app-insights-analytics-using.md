@@ -2,8 +2,8 @@
 title: Met Analytics - een krachtige zoekprogramma van Azure Application Insights | Microsoft Docs
 description: 'Met behulp van de Analytics, het hulpprogramma krachtige diagnostische gegevens doorzoeken van de Application Insights. '
 services: application-insights
-documentationcenter: 
-author: danhadari
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: c3b34430-f592-4c32-b900-e9f50ca096b3
 ms.service: application-insights
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: danha; mbullwin
-ms.openlocfilehash: 0ca5c8b19f4699548a8551ec673e4a067d4e5fad
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5a49d38ddc9d2181f9b35ac948c44df70bad831b
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="using-analytics-in-application-insights"></a>Door middel van analyses in Application Insights
 [Analytics](app-insights-analytics.md) is de functie krachtige zoeken van [Application Insights](app-insights-overview.md). Deze pagina's worden de Log Analytics query language beschreven.
@@ -109,12 +109,12 @@ Als u denkt dat u niet de verwachte resultaten ziet, moet u er een aantal mogeli
 
   * [Top 100 volgens de timestamp](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/top-operator) 
   * [100 duren](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/take-operator)
-  * [samenvatten](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) 
+  * [Samenvatten ](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) 
   * [waar tijdstempel > ago(3d)](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator)
 
 (Meer dan 10 k rijen wilt? Overweeg het gebruik van [continue Export](app-insights-export-telemetry.md) in plaats daarvan. Analytics is ontworpen voor analyse, in plaats van onbewerkte gegevens op te halen.)
 
-## <a name="diagrams"></a>Diagrams
+## <a name="diagrams"></a>Diagrammen
 Selecteer het type diagram dat u wilt dat:
 
 ![Selecteer een diagramtype](./media/app-insights-analytics-using/230.png)
@@ -143,7 +143,7 @@ Dit betekent dat, wanneer u een dashboard om te controleren van de prestaties of
 Als er vier of minder kolommen, kunt u een tabel aan het dashboard vastmaken. Alleen de bovenste zeven rijen worden weergegeven.
 
 ### <a name="dashboard-refresh"></a>Dashboard vernieuwen
-De grafiek vastgemaakt aan het dashboard wordt automatisch vernieuwd door de query opnieuw ongeveer elk uur wordt uitgevoerd. U kunt ook klikken op de knop vernieuwen.
+De grafiek vastgemaakt aan het dashboard wordt automatisch vernieuwd door de query opnieuw ongeveer om het uur wordt uitgevoerd. U kunt ook klikken op de knop vernieuwen.
 
 ### <a name="automatic-simplifications"></a>Automatische vereenvoudigen
 
@@ -184,7 +184,7 @@ Een koppeling onder **uitvoer, koppeling van de Share** die u kunt zenden naar e
 (In de koppeling tekst van de query wordt weergegeven na '? q = ' gzip gecomprimeerd en base 64-codering. U kunt de code voor het genereren van dieptekoppelingen die u aan gebruikers biedt schrijven. De aanbevolen manier om het uitvoeren van analyses van code is echter met behulp van de [REST-API](https://dev.applicationinsights.io/).)
 
 
-## <a name="automation"></a>Automatisering
+## <a name="automation"></a>Automation
 
 Gebruik de [REST-API van Data Access](https://dev.applicationinsights.io/) Analytics query's uitvoeren. [Bijvoorbeeld](https://dev.applicationinsights.io/apiexplorer/query?appId=DEMO_APP&apiKey=DEMO_KEY&query=requests%0A%7C%20where%20timestamp%20%3E%3D%20ago%2824h%29%0A%7C%20count) (met PowerShell):
 
@@ -205,7 +205,7 @@ Als de geverifieerde gebruikers worden geïdentificeerd in uw telemetrie met een
 ### <a name="define-your-data-schema"></a>Het gegevensschema van uw definiëren
 
 1. Klik op **instellingen** (op linksboven) en vervolgens **gegevensbronnen**. 
-2. Toevoegen van een gegevensbron, de instructies te volgen. U wordt gevraagd om op te geven van een steekproef van de gegevens die moet ten minste tien rijen bevatten. U kunt het schema corrigeren.
+2. Toevoegen van een gegevensbron, de instructies te volgen. U wordt gevraagd om op te geven van een steekproef van de gegevens die moet ten minste 10 rijen bevatten. U kunt het schema corrigeren.
 
 Hiermee definieert u een gegevensbron, waarin u vervolgens kunt afzonderlijke tabellen importeren.
 

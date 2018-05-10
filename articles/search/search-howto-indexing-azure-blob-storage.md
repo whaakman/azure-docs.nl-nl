@@ -9,11 +9,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: 976b1c6b65036faeff3c4cc21e91ccf798eb0df3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b2660a98139068a8472c018de5cfbd29d6867c5a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Documenten in Azure Blob Storage met Azure Search indexeren
 Dit artikel laat zien hoe u met Azure Search index documenten (zoals PDF-bestanden, Microsoft Office-documenten en enkele andere algemene indelingen) opgeslagen in Azure Blob storage. Eerst wordt de basisprincipes van instellen en configureren van een blob-indexeerfunctie uitgelegd. Vervolgens biedt een meer gedetailleerde uitleg van problemen en scenario's bent u waarschijnlijk tegenkomen.
@@ -279,7 +279,7 @@ U kunt ook doorwerken indexeren als er fouten optreden op elk gewenst moment wor
     }
 
 ## <a name="incremental-indexing-and-deletion-detection"></a>Detectie van incrementele indexeren en verwijderen
-Bij het instellen van een blob-indexeerfunctie worden uitgevoerd op een planning, het opnieuw indexeren van alleen de gewijzigde blobs, zoals wordt bepaald door de blob `LastModified` timestamp.
+Bij het instellen van een blob-indexeerfunctie worden uitgevoerd op een planning wordt alleen de gewijzigde blobs, zoals wordt bepaald door de blob reindexes `LastModified` timestamp.
 
 > [!NOTE]
 > U hoeft niet te geven van een detectie wijzigingsbeleid – incrementele indexeren automatisch voor u is ingeschakeld.

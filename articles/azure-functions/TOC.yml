@@ -49,6 +49,8 @@
       href: functions-openapi-definition.md
     - name: Het formaat van afbeeldingen wijzigen met Event Grid
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Een webtoepassing zonder server maken met functies als de API
+      href: 'https://docs.microsoft.com/learn/build-serverless-app/index'
     - name: Functions in Linux
       items:
         - name: Aangepaste installatiekopie
@@ -83,6 +85,8 @@
           href: functions-reference-node.md
         - name: Java
           href: functions-reference-java.md
+    - name: Diagnostiek
+      href: ../app-service/app-service-diagnostics.md
     - name: Prestatieoverwegingen
       href: functions-best-practices.md
     - name: Functions-proxy's
@@ -187,6 +191,8 @@
           href: durable-functions-unit-testing.md
         - name: Gebeurtenispublicatie
           href: durable-functions-event-publishing.md
+        - name: De WebJobs-SDK gebruiken
+          href: durable-functions-webjobs-sdk.md
 - name: Naslaginformatie
   items:
     - name: Bindingen

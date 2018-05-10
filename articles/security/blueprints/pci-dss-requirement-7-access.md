@@ -3,7 +3,7 @@ title: Azure betaling verwerking blauwdruk - vereisten voor toegang
 description: PCI-DSS vereiste 7
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: ac3afee9-0471-465d-a115-67488a1635a6
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
-ms.openlocfilehash: 5a3c9eac552fb96309cfa791a2e72a7102662e60
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.author: jomolesk
+ms.openlocfilehash: fb16a7973022421525e13313f53f615120caa38a
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="access-requirements-for-pci-dss-compliant-environments"></a>Vereisten voor toegang voor PCI DSS-compatibele omgevingen 
 ## <a name="pci-dss-requirement-7"></a>PCI-DSS vereiste 7
@@ -41,7 +41,7 @@ Om ervoor te zorgen kritieke gegevens alleen toegankelijk zijn voor bevoegd pers
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Azure worden afgedwongen bestaande ISMS beleid met betrekking tot Azure medewerkers toegang tot Azure-systeemonderdelen, verificatie van de effectiviteit van besturingselement voor toegang, bieden Just-In-Time beheerderstoegang toegangsmachtigingen wanneer niet langer nodig hebt en ervoor zorgen dat personeel intrekken een bedrijf toegang tot de Azure-platform-omgeving hebt nodig. Azure toegang tot klantomgevingen is zeer beperkt en is alleen toegestaan bij de goedkeuring van de klant.<br /><br />Procedures zijn vastgesteld fysieke toegang tot het datacenter aan bevoegde werknemers, leveranciers, aannemers en bezoekers te beperken. Beveiligingsverificatie en controle zijn vereist voor personeel tijdelijk toegang krijgen tot de interior data center-faciliteit vereisen. Fysieke toegangslogboeken worden elk kwartaal beoordeeld door Azure teams. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het beperken van toegang tot de onderdelen van het systeem en gegevens van de kaarthouder om alleen de personen met een functie die toegang vereist. Dit omvat beperken en beperken van toegang tot de Azure-beheerportal en geven accounts of rollen met machtiging voor het maken, wijzigen of verwijderen PaaS-services.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het beperken van toegang tot de onderdelen van het systeem en gegevens van de kaarthouder om alleen de personen met een functie die toegang vereist. Dit omvat beperken en beperken van toegang tot de Azure-beheerportal en geven accounts of rollen met machtiging voor het maken, wijzigen of verwijderen PaaS-services.|
 
 
 
@@ -56,7 +56,7 @@ Om ervoor te zorgen kritieke gegevens alleen toegankelijk zijn voor bevoegd pers
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het definiëren en documenteren van een goedkeuringsproces gebruikers-ID, minimaal benodigde bevoegdheden definiëren, beperken van toegang tot gegevens van de kaarthouder, met behulp van de unieke id's, biedt scheiding van functies en gebruikerstoegang wanneer dit niet langer nodig intrekken.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het definiëren en documenteren van een goedkeuringsproces gebruikers-ID, minimaal benodigde bevoegdheden definiëren, beperken van toegang tot gegevens van de kaarthouder, met behulp van de unieke id's, biedt scheiding van functies en gebruikerstoegang wanneer dit niet langer nodig intrekken.|
 
 
 
@@ -69,7 +69,7 @@ Om ervoor te zorgen kritieke gegevens alleen toegankelijk zijn voor bevoegd pers
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure heeft goedgekeurd van toepassing bedrijven en organisaties beveiligingsbeleid, met inbegrip van een beleid voor beveiliging. De beleidsregels zijn goedgekeurd, gepubliceerd en wordt gecommuniceerd aan Windows Azure. Het beveiligingsbeleid van Microsoft Azure informatie vereist dat toegang tot Microsoft Azure activa verleend op basis van een zakelijke rechtvaardiging met de activumeigenaar toestemming en op basis van 'moet ter informatie' en 'minimale bevoegdheden' principes. Vereisten voor toegang levenscyclusbeheer van toegang tot het inrichten van de autorisatie, verificatie verwijderen van toegangsrechten, waaronder ook een oplossing voor het beleid en periodieke toegang beoordeelt. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt drie accounts tijdens de implementatie: admin, sqladmin, en erna (de standaardgebruiker aangemeld bij de web-app tijdens het uitvoeren van de demo). Gebruikersrollen zijn beperkt tot rechten op basis van het gedocumenteerde demo-scenario.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt drie accounts tijdens de implementatie: admin, sqladmin, en erna (de standaardgebruiker aangemeld bij de web-app tijdens het uitvoeren van de demo). Gebruikersrollen zijn beperkt tot rechten op basis van het gedocumenteerde demo-scenario.|
 
 
 
@@ -82,7 +82,7 @@ Om ervoor te zorgen kritieke gegevens alleen toegankelijk zijn voor bevoegd pers
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt drie accounts tijdens de implementatie: admin, sqladmin, en erna (de standaardgebruiker aangemeld bij de web-app tijdens het uitvoeren van de demo). Gebruikersrollen zijn beperkt tot rechten op basis van het gedocumenteerde demo-scenario.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt drie accounts tijdens de implementatie: admin, sqladmin, en erna (de standaardgebruiker aangemeld bij de web-app tijdens het uitvoeren van de demo). Gebruikersrollen zijn beperkt tot rechten op basis van het gedocumenteerde demo-scenario.|
 
 
 
@@ -95,7 +95,7 @@ Om ervoor te zorgen kritieke gegevens alleen toegankelijk zijn voor bevoegd pers
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het beperken van toegang tot de onderdelen van het systeem en gegevens van de kaarthouder om alleen de personen met een functie die toegang vereist. Dit omvat beperken en beperken van toegang tot de Azure-beheerportal en geven accounts of rollen met machtiging voor het maken, wijzigen of verwijderen PaaS-services.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | Klanten zijn verantwoordelijk voor het beperken van toegang tot de onderdelen van het systeem en gegevens van de kaarthouder om alleen de personen met een functie die toegang vereist. Dit omvat beperken en beperken van toegang tot de Azure-beheerportal en geven accounts of rollen met machtiging voor het maken, wijzigen of verwijderen PaaS-services.|
 
 
 
@@ -112,7 +112,7 @@ Dit Toegangscontrolesysteem moet het volgende omvatten:
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt gebruik van Azure Active Directory toegang te beperken tot alleen de aangewezen gebruikers. Zie voor meer informatie [richtlijnen PCI - identiteitsbeheer](payment-processing-blueprint.md#identity-management).|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De Contoso Webstore maakt gebruik van Azure Active Directory toegang te beperken tot alleen de aangewezen gebruikers. Zie voor meer informatie [richtlijnen PCI - identiteitsbeheer](payment-processing-blueprint.md#identity-management).|
 
 
 
@@ -125,7 +125,7 @@ Dit Toegangscontrolesysteem moet het volgende omvatten:
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Niet van toepassing. |
-| **Klant<br />(PCI &#8209; DSS&nbsp;blauwdruk)** | De documentatie van Contoso Webstore biedt een gebruiksvoorbeeld en een beschrijving met betrekking tot die CHD gebruikt en hoe CHD wordt gebruikt.|
+| **Klant<br />(PCI&#8209;DSS&nbsp;blauwdruk)** | De documentatie van Contoso Webstore biedt een gebruiksvoorbeeld en een beschrijving met betrekking tot die CHD gebruikt en hoe CHD wordt gebruikt.|
 
 
 

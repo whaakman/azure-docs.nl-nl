@@ -14,17 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 828489510cea16ebba1944c0e6d1fc88f9375fc7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: aae72618da42db53304075506b4969945ff0165f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Verklarende woordenlijst van IoT-Hub
 In dit artikel vindt u enkele van de algemene termen die in de artikelen IoT Hub.
 
 ## <a name="advanced-message-queueing-protocol"></a>Geavanceerde Message Queueing-Protocol
 [Geavanceerde Message Queueing-Protocol (AMQP)](https://www.amqp.org/) is een van de messaging-protocollen die [IoT Hub](#iot-hub) ondersteunt om te communiceren met apparaten. Zie voor meer informatie over de messaging-protocollen die IoT Hub ondersteunt [berichten verzenden en ontvangen met IoT Hub](iot-hub-devguide-messaging.md).
+
+## <a name="automatic-device-management"></a>Automatische Apparaatbeheer
+Automatische Device Management in Azure IoT Hub automatiseert veel van de herhalende en complexe taken van het beheer van grote apparaat vloten via het geheel van hun levenscycli. Met automatische Device Management, kunt u gericht op een reeks apparaten op basis van hun eigenschappen, een gewenste configuratie definiëren en IoT-Hub apparaten bijwerken wanneer ze scope binnenkomen te laten.  Bestaat uit [automatische apparaatconfiguraties](iot-hub-auto-device-config.md) en [IoT rand automatische implementaties](../iot-edge/how-to-deploy-monitor.md).
+
+## <a name="automatic-device-configuration"></a>Automatische apparaatconfiguratie
+De back-end van uw oplossing kunt [automatische apparaatconfiguraties](iot-hub-auto-device-config.md) gewenste eigenschappen toewijzen aan een set [apparaat horende](#device-twin) en status rapporteren met behulp van system metrische gegevens en aangepaste metrische gegevens. 
 
 ## <a name="azure-cli"></a>Azure-CLI
 De [Azure CLI](../cli-install-nodejs.md) is een hulpprogramma cross-platform, open-source, op basis van shell-opdracht voor het maken en beheren van resources in Microsoft Azure. Deze versie van de CLI is geïmplementeerd met behulp van Node.js.
@@ -65,6 +71,9 @@ Een cloudgateway maakt connectiviteit voor apparaten die rechtstreeks naar kan g
 
 ## <a name="cloud-to-device"></a>Cloud-naar-apparaat
 Verwijst naar berichten die naar een verbonden apparaat vanaf een iothub zijn verzonden. Deze berichten zijn vaak opdrachten die instrueren van het apparaat een actie te ondernemen. Zie voor meer informatie [berichten verzenden en ontvangen met IoT Hub](iot-hub-devguide-messaging.md).
+
+## <a name="configuration"></a>Configuratie
+In de context van [automatische apparaatconfiguratie](iot-hub-auto-device-config.md), een IoT Hub-configuratie definieert u de gewenste configuratie voor een reeks apparaten horende en een set van metrische gegevens aan het rapportstatus en voortgang biedt.
 
 ## <a name="connection-string"></a>Verbindingsreeks
 U kunt verbindingsreeksen in uw app-code bevatten de benodigde informatie om te verbinden met een eindpunt. Een verbindingsreeks bevat doorgaans het adres van het eindpunt en de beveiligingsinformatie, maar de verbindingsreeks indelingen verschillen voor verschillende services. Er zijn twee typen van de verbindingsreeks die is gekoppeld aan de service IoT Hub:
@@ -181,8 +190,8 @@ De [IoT Hub-querytaal](iot-hub-devguide-query-language.md) is een SQL-achtige ta
 ## <a name="iot-hub-resource-provider-rest-api"></a>Resourceprovider IoT-Hub REST-API
 U kunt de [IoT Hub Resource Provider REST-API](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest) voor het beheren van de IoT-hubs in uw [Azure-abonnement](#subscription) uitvoeren van bewerkingen zoals het maken, bijwerken en verwijderen van hubs.
 
-## <a name="iot-suite"></a>IoT Suite
-Azure IoT Suite-pakketten meerdere Azure-services met vooraf geconfigureerde oplossingen. Deze vooraf geconfigureerde oplossingen kunnen u snel aan de slag met end-to-end-implementaties van algemene IoT-scenario's. Zie voor meer informatie [wat is Azure IoT Suite?](../iot-suite/iot-suite-overview.md)
+## <a name="iot-solution-accelerators"></a>IoT-oplossing accelerators
+Azure IoT-oplossing accelerators pakket samen meerdere Azure-services in oplossingen. Deze oplossingen kunnen u snel aan de slag met end-to-end-implementaties van algemene IoT-scenario's. Zie voor meer informatie [wat Azure IoT-oplossing accelerators zijn?](../iot-suite/iot-suite-overview.md)
 
 ## <a name="the-iot-extension-for-azure-cli-20"></a>De IoT-extensie voor Azure CLI 2.0
 [De IoT-extensie voor Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) is een platformoverschrijdende, opdrachtregel-hulpprogramma. Het hulpprogramma kunt u uw apparaten beheren in de [identiteitsregister](#identity-registry), verzenden en ontvangen van berichten en bestanden van uw apparaten en uw IoT hub-bewerkingen te controleren.

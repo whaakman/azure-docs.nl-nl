@@ -2,24 +2,23 @@
 title: De aanmeldingspagina aanpassen voor uw Azure Active Directory-tenant | Microsoft Docs
 description: Informatie over het toevoegen van een huisstijl naar de Azure-aanmeldingspagina
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: curtand
 ms.reviewer: kexia
 custom: it-pro
-ms.openlocfilehash: 03a6b82f769ed9a36c5d3ff9934de75d1536e1ae
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: ac8562b77ba43dbb07e886dfa235586198027796
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>Snelstartgids: Huisstijl naar de aanmeldingspagina in Azure AD toevoegen
 Om verwarring te voorkomen, willen veel bedrijven een consistente look gebruiken voor alle websites en services die ze beheren. Azure Active Directory (Azure AD) biedt deze mogelijkheid. u kunt pas het uiterlijk van de aanmeldingspagina met uw bedrijfslogo en kleurenschema toepassen. De aanmeldingspagina wordt weergegeven wanneer u zich aanmeldt bij webgebaseerde toepassingen zoals Office 365 die gebruikmaken van Azure AD als id-provider. U communiceert met deze pagina uw referenties in te voeren.
@@ -33,7 +32,7 @@ Om verwarring te voorkomen, willen veel bedrijven een consistente look gebruiken
 
 <!--You can customize the following elements on the sign-in page: <attach image>-->
 
-Bedrijf huisstijl aanpassingen op de aanmeldingspagina van Azure AD worden weergegeven wanneer gebruikers toegang krijgen een tenantspecifieke URL zoals tot [ *https://outlook.com/contoso.com*](https://outlook.com/contoso.com).
+Bedrijf huisstijl aanpassingen op de aanmeldingspagina van Azure AD worden weergegeven wanneer gebruikers toegang krijgen een tenantspecifieke URL zoals tot [ *https://outlook.com/contoso.com* ](https://outlook.com/contoso.com).
 
 Wanneer gebruikers www.office.com bezoekt, wordt niet de aanmeldingspagina een huisstijl aanpassingen omdat de gebruiker nog geen referenties heeft ingevoerd weergegeven. Nadat een gebruiker krijgt de hun gebruikers-ID of een gebruikerstegel selecteert, wordt de huisstijl weergegeven.
 

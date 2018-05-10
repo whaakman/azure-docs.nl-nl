@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2018
 ms.author: raynew
-ms.openlocfilehash: c80b47dcf2477fda5406c2e6efe3ee87ad1188d6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: fc5fceb0105726cdd7fc45df25c8a3a21d270502
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matrix-ondersteuning voor VMware en fysieke server-replicatie naar Azure
 
@@ -147,6 +147,7 @@ Azure Virtual Network service-eindpunten<br/><br/> (Azure Storage firewalls en v
 Host NFS | Ja voor VMware<br/><br/> Er is geen voor fysieke servers
 Host-SAN (ISCSI) | Ja
 Host MPIO (Multipath I/O) | Ja, getest met Microsoft DSM, EMC PowerPath 5.7 SP4 EMC PowerPath DSM voor CLARiiON
+Virtuele Hostvolumes (VVols) | Ja voor VMware<br/><br/> Niet van toepassing op fysieke servers
 VMDK gast of de server | Ja
 Gastbesturingssysteem of de server EFI/UEFI| Gedeeltelijk (migratie naar Azure voor Windows Server 2012 en hoger virtuele VMware-machines alleen) </br></br> Zie de opmerking aan het einde van de tabel
 De gedeelde clusterschijf gast of de server | Nee

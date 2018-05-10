@@ -13,11 +13,11 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 03/08/2018
 ms.author: trinadhk, sogup
-ms.openlocfilehash: 224cd365e6b3ca4fd963b530dbaa289b763d53ee
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1e5515486afac5a6d84a35bca33f55ae98e287d3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="upgrade-to-the-azure-resource-manager-deployment-model-for-azure-vm-backup-stack"></a>Een upgrade uitvoert naar de Azure Resource Manager-implementatiemodel voor back-stack van virtuele machine in Azure
 Het implementatiemodel van Resource Manager voor de upgrade naar back-stack van virtuele machine (VM) biedt de volgende verbeteringen:
@@ -45,8 +45,6 @@ Momentopnamen zijn standaard voor zeven dagen bewaard. Deze functie kunt het ter
 
 ## <a name="considerations-before-upgrade"></a>Overwegingen voor de upgrade
 * De upgrade van de VM-back-stack is één richting. Zodat alle back-ups werken in deze stroom. Omdat deze is ingeschakeld op het abonnementsniveau, gaat alle VM's in deze stroom. Alle nieuwe functie toevoegingen zijn gebaseerd op de dezelfde stack. Mogelijkheid om te bepalen die dit beleid niveau in de toekomst wordt binnenkort versies.
-
-* Voor virtuele machines met premium-schijven, tijdens en tot de eerste back-up is voltooid, zorg ervoor dat er voldoende opslagruimte in de storage-account. Deze moet gelijk zijn aan de grootte van de virtuele machine.
 
 * Momentopnamen worden lokaal opgeslagen herstelpunten vergroten en sneller herstellen. Daarom ziet u de opslagkosten die met momentopnamen binnen de periode zeven dagen overeenkomen.
 

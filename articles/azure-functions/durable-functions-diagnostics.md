@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: f2fc1c87a0eee9e822ffc997f67320ed23dd5916
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 4829ea88e0b6507159c192c111acf8ec7e5088e2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="diagnostics-in-durable-functions-azure-functions"></a>Diagnostische gegevens in duurzame functies (Azure-functies)
 
@@ -68,7 +68,7 @@ De uitgebreidheid voor het bijhouden van gegevens naar Application Insights die 
 
 Standaard worden alle bijhouden gebeurtenissen verzonden. De hoeveelheid gegevens kan worden verkleind door het instellen van `Host.Triggers.DurableTask` naar `"Warning"` of `"Error"` in dat geval bijhouden van gebeurtenissen wordt alleen worden verzonden voor uitzonderlijke situaties.
 
-> [!WARNING]
+> [!NOTE]
 > Standaard is de Azure Functions-runtime om te voorkomen dat gegevens te vaak door Application Insights telemetrie actieve. Hierdoor kan bijhouden gegevens verloren gaan wanneer er veel lifecycle gebeurtenissen optreden in een korte periode. De [Azure Functions Monitoring artikel](functions-monitoring.md#configure-sampling) wordt uitgelegd hoe u dit wilt configureren.
 
 ### <a name="single-instance-query"></a>De query één exemplaar
@@ -124,6 +124,8 @@ Het resultaat is een lijst met exemplaar-id's en de huidige runtimestatus.
 
 Het is belangrijk rekening moet houden de orchestrator replay-gedrag bij het schrijven van Logboeken rechtstreeks vanaf een orchestrator-functie. Neem bijvoorbeeld de volgende orchestrator-functie:
 
+#### <a name="c"></a>C#
+
 ```cs
 public static async Task Run(
     DurableOrchestrationContext ctx,
@@ -137,6 +139,22 @@ public static async Task Run(
     await ctx.CallActivityAsync("F3");
     log.Info("Done!");
 }
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context){
+    context.log("Calling F1.");
+    yield context.df.callActivityAsync("F1");
+    context.log("Calling F2.");
+    yield context.df.callActivityAsync("F2");
+    context.log("Calling F3.");
+    yield context.df.callActivityAsync("F3");
+    context.log("Done!");
+});
 ```
 
 De resulterende logboekgegevens gaat er ongeveer als volgt uitzien:
@@ -181,6 +199,49 @@ Calling F2.
 Calling F3.
 Done!
 ```
+
+> [!NOTE]
+> De `IsReplaying` eigenschap is nog niet beschikbaar in JavaScript.
+
+## <a name="custom-status"></a>Aangepaste Status
+
+Aangepaste orchestration status kunt u een aangepaste statuswaarde instellen voor uw orchestrator-functie. Deze status wordt opgegeven via de API-HTTP-status query of de `DurableOrchestrationClient.GetStatusAsync` API. De status van de aangepaste orchestration kunt uitgebreidere bewaking voor de orchestrator-functies. Bijvoorbeeld, de functiecode orchestrator kunt opnemen `DurableOrchestrationContext.SetCustomStatus` aanroepen voor het bijwerken van de voortgang van een langdurige bewerking. Een client, zoals een webpagina of andere extern systeem, kan de HTTP-status query API's voor uitgebreidere voortgangsinformatie vervolgens regelmatig opvragen. Een voorbeeld met `DurableOrchestrationContext.SetCustomStatus` wordt hieronder:
+
+```csharp
+public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrationContext ctx)
+{
+    // ...do work...
+
+    // update the status of the orchestration with some arbitrary data
+    var customStatus = new { completionPercentage = 90.0, status = "Updating database records" };
+    ctx.SetCustomStatus(customStatus);
+
+    // ...do more work...
+}
+```
+
+Terwijl de orchestration wordt uitgevoerd, kunnen externe clients deze aangepaste status ophalen:
+
+```http
+GET /admin/extensions/DurableTaskExtension/instances/instance123
+
+```
+
+Clients krijgen het volgende antwoord: 
+
+```http
+{
+  "runtimeStatus": "Running",
+  "input": null,
+  "customStatus": { "completionPercentage": 90.0, "status": "Updating database records" },
+  "output": null,
+  "createdTime": "2017-10-06T18:30:24Z",
+  "lastUpdatedTime": "2017-10-06T19:40:30Z"
+}
+```
+
+> [!WARNING]
+>  De status van de aangepaste nettolading is beperkt tot 16 KB aan UTF-16 JSON-tekst omdat het moet een kolom met Azure Table Storage. U kunt externe opslag gebruiken als u grotere nettolading nodig.
 
 ## <a name="debugging"></a>Foutopsporing
 

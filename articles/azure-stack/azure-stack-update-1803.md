@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 26c77b706f17f49eff782e6d0d73087050739874
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 36d4cd910f841a323dfada49d65f7acb4bdf3138
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-stack-1803-update"></a>Azure-Stack 1803 update
 
@@ -40,8 +40,18 @@ Het buildnummer van Azure Stack 1803 update **20180329.1**.
 
 
 ### <a name="prerequisites"></a>Vereisten
-- Installeer de Azure-Stack [1802 bijwerken](azure-stack-update-1802.md) voordat u de Azure-Stack 1803 update toepassen.    
+- Installeer de Azure-Stack [1802 bijwerken](azure-stack-update-1802.md) voordat u de Azure-Stack 1803 update toepassen.   
 
+- Installeer **AzS Hotfix – 1.0.180312.1-bouwen 20180222.2** voordat u de Azure-Stack 1803 update toepassen. Deze hotfix Windows Defender-updates en is beschikbaar wanneer u updates voor Azure-Stack downloaden.
+
+  U kunt de hotfix installeren de normale procedures volgen voor [installeren van updates voor Azure-Stack](azure-stack-apply-updates.md). De naam van de update wordt weergegeven als **AzS Hotfix – 1.0.180312.1**, en bevat de volgende bestanden: 
+    - PUPackageHotFix_20180222.2-1.exe
+    - PUPackageHotFix_20180222.2-1.bin
+    - Metadata.xml
+
+  Na het uploaden van uitvoeren deze bestanden naar een opslagaccount en container, de installatie van de Update-tegel in het beheerportal. 
+  
+  In tegenstelling tot updates naar Azure Stack verandert u deze update installeert niet de versie van Azure-Stack. Bevestig deze update is geïnstalleerd door de lijst weergeven met **geïnstalleerde updates**.
 
 ### <a name="post-update-steps"></a>Stappen na het bijwerken
 - Na de installatie van 1803 toepasselijke Hotfixes te installeren. Raadpleeg voor meer informatie de volgende knowledge base-artikelen, evenals onze [beleid onderhoud](azure-stack-servicing-policy.md).

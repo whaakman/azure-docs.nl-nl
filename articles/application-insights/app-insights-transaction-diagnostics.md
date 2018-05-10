@@ -3,20 +3,20 @@ title: Azure Application Insights transactie Diagnostics | Microsoft Docs
 description: Application Insights-end-to-end-transactie diagnostische gegevens
 services: application-insights
 documentationcenter: .net
-author: SoubhagyaDash
-manager: victormu
+author: mrbullwinkle
+manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2018
-ms.author: sdash
-ms.openlocfilehash: 1c7eaafe99717324ad03287a1f1e0699d77cc74f
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.author: mbullwin;sdash
+ms.openlocfilehash: 7a4e4f74c02358fc117e0a66977ee3f0aef5b1dd
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Unified cross-onderdeel transactie diagnostische gegevens
 
@@ -80,9 +80,9 @@ Dit deelvenster geeft de details van de geselecteerde items uit de twee secties 
 
 [Application Insights profiler](app-insights-profiler.md) of [momentopname foutopsporingsprogramma](app-insights-snapshot-debugger.md) met een code-niveau diagnostische gegevens van problemen met prestaties en de fout. Met deze ervaring, ziet u profiler traceringen of momentopnamen van elk onderdeel met één klik.
 
-Als er kan geen Profiler werkt, contact op met**serviceprofilerhelp@microsoft.com**
+Als er kan geen Profiler werkt, contact op met **serviceprofilerhelp@microsoft.com**
 
-Als er kan geen momentopname foutopsporingsprogramma werkt, contact op met**snapshothelp@microsoft.com**
+Als er kan geen momentopname foutopsporingsprogramma werkt, contact op met **snapshothelp@microsoft.com**
 
 ![Foutopsporing-integratie](media/app-insights-e2eTxn-diagnostics/debugSnapshot.png)
 

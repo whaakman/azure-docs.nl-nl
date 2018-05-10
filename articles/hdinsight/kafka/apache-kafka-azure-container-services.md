@@ -1,6 +1,6 @@
 ---
-title: Gebruik Azure Containerservice met Kafka op HDInsight | Microsoft Docs
-description: Informatie over het Kafka op HDInsight van container afbeeldingen die worden gehost in Azure Container Service (AKS) gebruiken.
+title: Azure Kubernetes-Service gebruiken met Kafka op HDInsight | Microsoft Docs
+description: Informatie over het Kafka op HDInsight van container afbeeldingen die worden gehost in Azure Kubernetes Service (AKS) gebruiken.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/08/2018
+ms.date: 05/07/2018
 ms.author: larryfr
-ms.openlocfilehash: 16513cbd775e200a0821e8786ae823b82c67e437
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f54039a0e702aa3c789363969120e000760f6ef5
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
-# <a name="use-azure-container-services-with-kafka-on-hdinsight"></a>Azure-Containerservices gebruiken met Kafka in HDInsight
+# <a name="use-azure-kubernetes-service-with-kafka-on-hdinsight"></a>Azure Kubernetes-Service met Kafka in HDInsight gebruiken
 
-Informatie over het gebruik van Azure Container Services (AKS) met Kafka op HDInsight-cluster. De stappen in dit document gebruiken een Node.js-toepassing die wordt gehost in AKS om te controleren of de verbinding met Kafka. Deze toepassing gebruikt de [kafka-knooppunt](https://www.npmjs.com/package/kafka-node) pakket om te communiceren met Kafka. Hierbij [Socket.io](https://socket.io/) voor gebeurtenis gebaseerde uitwisseling van berichten tussen de browserclient en de back-end gehost in AKS.
+Informatie over het gebruik van Azure Kubernetes Service (AKS) met Kafka op HDInsight-cluster. De stappen in dit document gebruiken een Node.js-toepassing die wordt gehost in AKS om te controleren of de verbinding met Kafka. Deze toepassing gebruikt de [kafka-knooppunt](https://www.npmjs.com/package/kafka-node) pakket om te communiceren met Kafka. Hierbij [Socket.io](https://socket.io/) voor gebeurtenis gebaseerde uitwisseling van berichten tussen de browserclient en de back-end gehost in AKS.
 
-[Apache Kafka](https://kafka.apache.org) is een open-source gedistribueerd streamingplatform dat kan worden gebruikt voor het bouwen van pijplijnen en toepassingen voor realtime streaming van gegevens. Azure Container Service beheert uw gehoste Kubernetes-omgeving en kunt u snel en eenvoudig om beperkte toepassingen te implementeren. Met behulp van een Azure-netwerk, kunt u de twee services.
+[Apache Kafka](https://kafka.apache.org) is een open-source gedistribueerd streamingplatform dat kan worden gebruikt voor het bouwen van pijplijnen en toepassingen voor realtime streaming van gegevens. Azure Kubernetes Service beheert uw gehoste Kubernetes-omgeving en kunt u snel en eenvoudig om beperkte toepassingen te implementeren. Met behulp van een Azure-netwerk, kunt u de twee services.
 
 > [!NOTE]
-> De focus van dit document is op de stappen die zijn vereist voor het inschakelen van Azure Container Services om te communiceren met Kafka op HDInsight. Het voorbeeld zelf is alleen een eenvoudige Kafka client om aan te tonen dat de configuratie werkt.
+> De focus van dit document is op de stappen die nodig is voor Azure Kubernetes Service om te communiceren met Kafka op HDInsight. Het voorbeeld zelf is alleen een eenvoudige Kafka client om aan te tonen dat de configuratie werkt.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -37,10 +37,10 @@ Informatie over het gebruik van Azure Container Services (AKS) met Kafka op HDIn
 Dit document wordt ervan uitgegaan dat u bekend bent met het maken en gebruiken van de volgende Azure-services:
 
 * Kafka op HDInsight
-* Azure Container Service
+* Azure Kubernetes-Service
 * Virtuele netwerken van Azure
 
-Dit document wordt ervan uitgegaan dat u hebt doorlopen de [Azure Container Services zelfstudie](../../aks/tutorial-kubernetes-prepare-app.md). In deze zelfstudie maakt u een containerservice, maakt u een cluster Kubernetes, een register container en configureert u de `kubectl` hulpprogramma.
+Dit document wordt ervan uitgegaan dat u hebt doorlopen de [Azure Kubernetes Service zelfstudie](../../aks/tutorial-kubernetes-prepare-app.md). In deze zelfstudie maakt u een containerservice, maakt u een cluster Kubernetes, een register container en configureert u de `kubectl` hulpprogramma.
 
 ## <a name="architecture"></a>Architectuur
 
@@ -56,12 +56,12 @@ Het volgende diagram illustreert de netwerktopologie in dit document gebruikt:
 > [!IMPORTANT]
 > Naamomzetting is niet ingeschakeld tussen de peered netwerken, zodat het IP-adressering wordt gebruikt. Kafka op HDInsight is standaard geconfigureerd om terug te keren hostnamen in plaats van IP-adressen wanneer clients verbinding maken. De stappen in dit document Kafka voor het gebruik van IP wijzigen in plaats daarvan wordt geadverteerd.
 
-## <a name="create-an-azure-container-service-aks"></a>Maak een Azure Containerservice (AKS)
+## <a name="create-an-azure-kubernetes-service-aks"></a>Maak een Azure Kubernetes-Service (AKS)
 
 Als u nog geen een AKS-cluster, kunt u een van de volgende documenten voor meer informatie over het maken van een gebruiken:
 
-* [Een Azure Container Service (AKS)-cluster - Portal implementeren](../../aks/kubernetes-walkthrough-portal.md)
-* [Een Azure Container Service (AKS)-cluster - CLI implementeren](../../aks/kubernetes-walkthrough.md)
+* [Een Azure Kubernetes Service (AKS)-cluster - Portal implementeren](../../aks/kubernetes-walkthrough-portal.md)
+* [Een Azure Kubernetes Service (AKS)-cluster - CLI implementeren](../../aks/kubernetes-walkthrough.md)
 
 > [!NOTE]
 > Een virtueel netwerk maakt AKS tijdens de installatie. Dit netwerk is ingesteld als peer met de gemaakt voor HDInsight in de volgende sectie.
@@ -154,11 +154,11 @@ Gebruik de volgende stappen voor het configureren van Kafka voor het IP-adressen
 
 ## <a name="test-the-configuration"></a>Test de configuratie
 
-Op dit moment zijn Kafka en Azure Container Service in de communicatie via de peered virtuele netwerken. Deze om verbinding te testen, gebruikt u de volgende stappen uit:
+Op dit moment zijn Kafka en Azure Kubernetes Service in de communicatie via de peered virtuele netwerken. Deze om verbinding te testen, gebruikt u de volgende stappen uit:
 
 1. Maak een Kafka-onderwerp dat wordt gebruikt door de testtoepassing. Zie voor meer informatie over het maken van Kafka onderwerpen de [maken van een cluster Kafka](apache-kafka-get-started.md) document.
 
-2. Downloaden van de voorbeeldtoepassing uit [ https://github.com/Blackmist/Kafka-AKS-Test ](https://github.com/Blackmist/Kafka-AKS-Test). 
+2. Downloaden van de voorbeeldtoepassing uit [ https://github.com/Blackmist/Kafka-AKS-Test ](https://github.com/Blackmist/Kafka-AKS-Test).
 
 3. Bewerk de `index.js` -bestand en wijzig de volgende regels:
 
@@ -184,7 +184,7 @@ Op dit moment zijn Kafka en Azure Container Service in de communicatie via de pe
     ```
 
     > [!NOTE]
-    > Als u niet uw Azure-Container register naam zijn die geen ervaring hebt weet met de Azure CLI gebruiken om te werken met de Azure Container Service raadpleegt u de [AKS zelfstudies](../../aks/tutorial-kubernetes-prepare-app.md).
+    > Als u niet uw Azure Container register naam weet niet bekend weet met de Azure CLI gebruiken om te werken met de Azure-Kubernetes-Service, raadpleegt u de [AKS zelfstudies](../../aks/tutorial-kubernetes-prepare-app.md).
 
 6. Label van de lokale `kafka-aks-test` installatiekopie met de loginServer van uw ACR. Ook toevoegen `:v1` aan het einde om aan te geven van de installatiekopie-versie:
 

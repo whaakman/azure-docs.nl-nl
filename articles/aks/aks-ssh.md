@@ -1,6 +1,6 @@
 ---
-title: Voeg SSH toe aan de clusterknooppunten Azure Container Service (AKS)
-description: Een SSH-verbinding maken met een Azure Container Service (AKS)-cluster met knooppunten
+title: Voeg SSH toe aan de clusterknooppunten Azure Kubernetes Service (AKS)
+description: Een SSH-verbinding maken met een Azure Kubernetes Service (AKS)-cluster met knooppunten
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 04/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 085a2976443db8ece7a36dbfc133b173432ce4c8
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: MT
+ms.openlocfilehash: c2b77e558db0e323370c24b87a75357235677f7e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="ssh-into-azure-container-service-aks-cluster-nodes"></a>Voeg SSH toe aan de clusterknooppunten Azure Container Service (AKS)
+# <a name="ssh-into-azure-kubernetes-service-aks-cluster-nodes"></a>Voeg SSH toe aan de clusterknooppunten Azure Kubernetes Service (AKS)
 
-Soms moet u mogelijk toegang krijgen tot een Azure Container Service (AKS)-knooppunt voor onderhoud, logboekgegevens verzameld of andere bewerkingen voor het oplossen van problemen. Azure Container Service (AKS) knooppunten worden niet blootgesteld aan internet. Gebruik de stappen uiteengezet in dit document een SSH-verbinding maken met een AKS-knooppunt.
+Soms moet u mogelijk toegang krijgen tot een knooppunt Azure Kubernetes Service (AKS) voor onderhoud, logboekgegevens verzameld of andere bewerkingen voor het oplossen van problemen. Azure Kubernetes Service (AKS) knooppunten worden niet blootgesteld aan internet. Gebruik de stappen uiteengezet in dit document een SSH-verbinding maken met een AKS-knooppunt.
 
 ## <a name="get-aks-node-address"></a>AKS knooppuntadres ophalen
 

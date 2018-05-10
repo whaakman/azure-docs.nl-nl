@@ -1,6 +1,6 @@
 ---
 title: 'IoT DevKit naar cloud: IoT MXChip DevKit verbinding maken met Azure IoT Hub | Microsoft Docs'
-description: Informatie over het verzenden van status van sensoren op IoT DevKit AZ3166 naar Azure IoT Suite voor bewaking en visualisatie in deze zelfstudie.
+description: Informatie over het verzenden van status van sensoren op IoT DevKit AZ3166 naar Azure IoT Remote Monitoring solution accelerator in deze zelfstudie.
 services: iot-hub
 documentationcenter: ''
 author: liydu
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: 17b24244180436c2d1f97433e13a530dae565a10
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: d59a739e2222aca27993f6ae944a1d3bda567041
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="connect-mxchip-iot-devkit-to-azure-iot-suite-for-remote-monitoring"></a>Verbinding maken met MXChip IoT DevKit Azure IoT Suite voor externe controle
+# <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>Verbinding maken met MXChip IoT DevKit oplossingsverbetering Azure IoT externe controle
 
-In deze zelfstudie leert u het uitvoeren van een voorbeeld-app op uw DevKit sensorgegevens verzenden naar uw Azure IoT Suite.
+In deze zelfstudie leert u het uitvoeren van een voorbeeld-app op uw DevKit sensorgegevens verzenden naar uw oplossingsverbetering Azure IoT externe controle.
 
 De [MXChip IoT DevKit](https://aka.ms/iot-devkit) is een Arduino alles in één mededelingenbord compatibel is met de randapparaten uitgebreide en sensoren. U kunt ontwikkelen via [Visual Studio Code-uitbreiding voor Arduino](https://aka.ms/arduino). En beschikt u over een groeiende [projecten catalogus](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) om u te begeleiden prototype Internet der dingen (IoT) oplossingen die van Microsoft Azure-services gebruikmaken.
 
@@ -38,12 +38,12 @@ Een actief Azure-abonnement. Als u geen abonnement hebt, kunt u via een van deze
 * Activeren van een [gratis 30-daagse evaluatieversie Microsoft Azure-account](https://azure.microsoft.com/free/)
 * Claim uw [Azure-tegoeden](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) als u MSDN of Visual Studio-abonnee bent
 
-## <a name="create-an-azure-iot-suite"></a>Maken van een Azure IoT Suite
+## <a name="create-an-azure-iot-remote-monitoring-solution-accelerator"></a>Maken van een oplossing voor externe controle van Azure IoT accelerator
 
-1. Ga naar [Azure IoT Suite site](https://www.azureiotsuite.com/) en klik op **maken van een nieuwe oplossing**.
-  ![Azure IoT Suite-type selecteren](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-solution-types.png)
+1. Ga naar [Azure IoT-oplossing acclerators site](https://www.azureiotsuite.com/) en klik op **maken van een nieuwe oplossing**.
+  ![Azure IoT-oplossing accelerator type selecteren](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-solution-types.png)
   > [!WARNING]
-  > Dit voorbeeld maakt standaard een IoT-Hub S2 na het maken van een IoT-Suite. Als deze iothub niet met het grote aantal apparaten gebruikt is, raden we u het downgraden van S2 naar S1 en verwijderen van de IoT-Suite, zodat gerelateerde IoT Hub kan ook worden verwijderd, wanneer u deze niet meer nodig. 
+  > Dit voorbeeld maakt standaard een IoT-Hub S2 na het maken van een externe controle IoT oplossingsverbetering. Als deze iothub niet met het grote aantal apparaten gebruikt is, raden we u het downgraden van S2 naar S1 en verwijderen van de accelerator externe controle IoT-oplossing, zodat gerelateerde IoT Hub kan ook worden verwijderd, wanneer u deze niet meer nodig. 
 
 2. Selecteer **externe controle**.
 
@@ -100,13 +100,13 @@ De DevKit opnieuw wordt opgestart en de code wordt gestart.
 
 ## <a name="test-the-project"></a>Het project testen
 
-Wanneer de voorbeeld-app wordt uitgevoerd, verzendt DevKit sensorgegevens via Wi-Fi naar uw Azure IoT Suite. Het resultaat wilt weergeven, de volgende stappen uit:
+Wanneer de voorbeeld-app wordt uitgevoerd, verzendt DevKit sensorgegevens via Wi-Fi naar uw oplossingsverbetering Azure IoT externe controle. Het resultaat wilt weergeven, de volgende stappen uit:
 
-1. Ga naar uw Azure IoT Suite en klik **DASHBOARD**.
+1. Ga naar uw oplossingsverbetering Azure IoT externe controle en klik **DASHBOARD**.
 
-2. In de Azure IoT Suite-oplossing-console ziet u de status van de sensor DevKit.
+2. Op de oplossing voor externe controle console ziet u de status van de sensor DevKit.
 
-![Sensorgegevens in Azure IoT Suite](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/sensor-status.png)
+![Sensorgegevens in Azure IoT externe controle oplossingsverbetering](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/sensor-status.png)
 
 ## <a name="change-device-id"></a>Apparaat-ID wijzigen
 
@@ -121,7 +121,7 @@ Als u problemen ondervindt, raadpleegt u [Veelgestelde vragen over](https://micr
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt geleerd hoe u een DevKit apparaat aansluit op uw Azure IoT Suite en visualiseren van de sensorgegevens, vindt hier u de voorgestelde volgende stappen uit:
+U hebt geleerd hoe u een DevKit apparaat aansluit op uw oplossingsverbetering Azure IoT externe controle en de sensorgegevens visualiseren, vindt hier u de voorgestelde volgende stappen uit:
 
-* [Overzicht van Azure IoT Suite](https://docs.microsoft.com/azure/iot-suite/)
+* [Overzicht van Azure IoT-oplossing accelerators](https://docs.microsoft.com/azure/iot-suite/)
 * [Sluit een apparaat MXChip IoT DevKit aan uw toepassing Microsoft IoT centrale](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

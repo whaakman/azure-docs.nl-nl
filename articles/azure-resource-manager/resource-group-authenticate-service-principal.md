@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/12/2018
+ms.date: 05/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 70255ead4a556204689e9918b9c89e396f8122c0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: MT
+ms.openlocfilehash: 6ab1b2357e88525f4730b5ad550cfcf3acbb906e
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Azure PowerShell gebruiken voor het maken van een service-principal met een certificaat
 
@@ -31,6 +31,8 @@ Wanneer u een app of een script dat nodig heeft voor toegang tot resources hebt,
 > In plaats van een service-principal maken, kunt u overwegen Azure AD beheerde Service-identiteit voor de identiteit van uw toepassingen. Azure AD-MSI is een openbare preview-functie van Azure Active Directory die vereenvoudigt het maken van een identiteit voor de code. Als uw code wordt uitgevoerd op een service die ondersteuning biedt voor Azure AD MSI en toegang tot bronnen die ondersteuning bieden voor Azure Active Directory-verificatie, is Azure AD MSI een betere optie voor u. Zie voor meer informatie over Azure AD MSI, met inbegrip van welke services momenteel ondersteuning [Service-identiteit voor Azure-resources beheerd](../active-directory/managed-service-identity/overview.md).
 
 In dit artikel leest u hoe een service-principal die verifieert met een certificaat maken. Als u een service-principal met een wachtwoord instelt, Zie [een Azure-service-principal maken met Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
+
+U moet hebben de [meest recente versie](/powershell/azure/get-started-azureps) van PowerShell voor dit artikel.
 
 ## <a name="required-permissions"></a>Vereiste machtigingen
 
@@ -58,61 +60,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName 
 
 In het voorbeeld sluimert voor 20 seconden wacht u even voor de nieuwe service principal doorgeven in Azure Active Directory. Als uw script niet lang genoeg wachten, ziet u een foutbericht waarin wordt gemeld: "Principal {ID} bestaat niet in de map {DIR-ID}." U lost deze fout, wacht u even Voer vervolgens de **New AzureRmRoleAssignment** opdracht opnieuw.
 
-Het volgende voorbeeld is gecompliceerdere omdat Hiermee kunt u het bereik voor de roltoewijzing die anders is dan uw huidige Azure-abonnement. Geef de parameter ResourceGroup alleen als u wilt beperken welke van de roltoewijzing aan een resourcegroep. Als er een fout optreedt tijdens de roltoewijzing, het opnieuw probeert de toewijzing. U moet Azure PowerShell 2.0 op Windows 10 of Windows Server 2016 hebben.
-
-```powershell
-Param (
-
- # Use to set scope to resource group. If no value is provided, scope is set to subscription.
- [Parameter(Mandatory=$false)]
- [String] $ResourceGroup,
-
- # Use to set subscription. If no value is provided, default subscription is used. 
- [Parameter(Mandatory=$false)]
- [String] $SubscriptionId,
-
- [Parameter(Mandatory=$true)]
- [String] $ApplicationDisplayName
- )
-
- Connect-AzureRmAccount
- Import-Module AzureRM.Resources
-
- if ($SubscriptionId -eq "") 
- {
-    $SubscriptionId = (Get-AzureRmContext).Subscription.Id
- }
- else
- {
-    Set-AzureRmContext -Subscription $SubscriptionId
- }
-
- if ($ResourceGroup -eq "")
- {
-    $Scope = "/subscriptions/" + $SubscriptionId
- }
- else
- {
-    $Scope = (Get-AzureRmResourceGroup -Name $ResourceGroup -ErrorAction Stop).ResourceId
- }
-
- $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleappScriptCert" -KeySpec KeyExchange
- $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
-
- $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
- Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
-
- $NewRole = $null
- $Retries = 0;
- While ($NewRole -eq $null -and $Retries -le 6)
- {
-    # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
-    Sleep 15
-    New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
-    $NewRole = Get-AzureRMRoleAssignment -ObjectId $ServicePrincipal.Id -ErrorAction SilentlyContinue
-    $Retries++;
- }
-```
+U kunt het bereik van de roltoewijzing aan een specifieke resourcegroep met behulp van de **ResourceGroupName** parameter. U kunt het bereik op een specifieke bron via ook de **ResourceType** en **ResourceName** parameters. 
 
 Als u **hebben geen Windows 10 of Windows Server 2016**, moet u voor het downloaden van de [zelf-ondertekend certificaat generator](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) van Microsoft Script Center. Pak de inhoud en importeren van de cmdlet die u nodig hebt.
 
@@ -137,35 +85,14 @@ $cert = Get-ChildItem -path Cert:\CurrentUser\my | where {$PSitem.Subject -eq 'C
 Wanneer u zich aanmeldt als een service-principal, moet u voor de tenant-ID van de map voor uw AD-app. Een tenant is een exemplaar van Azure Active Directory.
 
 ```powershell
-Param (
- 
- [Parameter(Mandatory=$true)]
- [String] $CertSubject,
- 
- [Parameter(Mandatory=$true)]
- [String] $ApplicationId,
+$TenantId = (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
+$ApplicationId = (Get-AzureRmADApplication -DisplayNameStartWith exampleapp).ApplicationId
 
- [Parameter(Mandatory=$true)]
- [String] $TenantId
- )
-
- $Thumbprint = (Get-ChildItem cert:\CurrentUser\My\ | Where-Object {$_.Subject -match $CertSubject }).Thumbprint
+ $Thumbprint = (Get-ChildItem cert:\CurrentUser\My\ | Where-Object {$_.Subject -match "CN=exampleappScriptCert" }).Thumbprint
  Connect-AzureRmAccount -ServicePrincipal `
   -CertificateThumbprint $Thumbprint `
   -ApplicationId $ApplicationId `
   -TenantId $TenantId
-```
-
-De toepassings-ID en het tenant-ID zijn niet gevoelige, zodat u ze rechtstreeks in uw script insluiten kunt. Als u ophalen van de tenant-ID wilt, gebruiken:
-
-```powershell
-(Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
-```
-
-Als u de toepassings-ID ophalen wilt, gebruikt:
-
-```powershell
-(Get-AzureRmADApplication -DisplayNameStartWith {display-name}).ApplicationId
 ```
 
 ## <a name="create-service-principal-with-certificate-from-certificate-authority"></a>Service-principal maken met het certificaat van certificeringsinstantie
@@ -264,13 +191,13 @@ U kunt de referenties voor een AD-app, hetzij vanwege een beveiligingsinbreuk of
 Voor het verwijderen van de referenties voor een toepassing gebruiken:
 
 ```powershell
-Remove-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -All
+Get-AzureRmADApplication -DisplayName exampleapp | Remove-AzureRmADAppCredential
 ```
 
 Als u wilt toevoegen de waarde van een certificaat, een zelfondertekend certificaat te maken zoals in dit artikel. Vervolgens gebruikt:
 
 ```powershell
-New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 `
+Get-AzureRmADApplication -DisplayName exampleapp | New-AzureRmADAppCredential `
   -CertValue $keyValue `
   -EndDate $cert.NotAfter `
   -StartDate $cert.NotBefore

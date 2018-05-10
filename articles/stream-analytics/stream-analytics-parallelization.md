@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/27/2018
-ms.openlocfilehash: fd373093264122fda45697acc81929d3c723c957
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 05/07/2018
+ms.openlocfilehash: 44a7c0721d8a0683162d2219bff0e4a4ecb117e6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Gebruik de query garandeert in Azure Stream Analytics
 In dit artikel leest u hoe om te profiteren van garandeert in Azure Stream Analytics. U leert hoe Stream Analytics-taken schalen door invoer partities configureren en de definitie van de analytics query afstemmen.
@@ -35,7 +35,15 @@ Alle Azure Stream Analytics-invoer kan profiteren van het partitioneren van:
 
 ### <a name="outputs"></a>Uitvoer
 
-Wanneer u met Stream Analytics werkt, kunt u profiteren van het partitioneren van voor de meeste uitvoer Put. Meer informatie over het partitioneren van uitvoer is beschikbaar op de [sectie van de pagina uitvoer partitioneren](stream-analytics-define-outputs.md#partitioning).
+Wanneer u met Stream Analytics werkt, kunt u profiteren van het partitioneren van in de uitvoer:
+-   Azure Data Lake Storage
+-   Azure Functions
+-   Azure Table
+-   BLOB-opslag (kan de partitiesleutel expliciet ingesteld)
+-   CosmosDB (u moet de partitiesleutel expliciet instellen)
+-   EventHub (u moet de partitiesleutel expliciet instellen)
+-   IoT Hub (u moet de partitiesleutel expliciet instellen)
+-   Service Bus
 
 Power BI, SQL en SQL-datawarehouse uitvoer ondersteuning geen voor partitioneren. Maar u kunt nog steeds partitioneren de invoer zoals beschreven in [in deze sectie](#multi-step-query-with-different-partition-by-values) 
 
@@ -54,13 +62,13 @@ Een *perfect parallelle* taak is het meest schaalbare scenario dat we in Azure S
 
 3. De meeste van onze uitvoer kunt profiteren van partitioneren, maar als u een uitvoertype die biedt geen ondersteuning voor partitioneren uw taak niet volledig parallelle. Raadpleeg de [uitvoer sectie](#outputs) voor meer informatie.
 
-4. Het aantal invoer partities moet gelijk zijn aan het aantal partities van de uitvoer. BLOB storage uitvoer ondersteunt momenteel geen partities. Maar dat is geen probleem, omdat deze het partitieschema van de upstream-query. Hier volgen voorbeelden van waarden van partitie waarmee een volledig parallelle taak:  
+4. Het aantal invoer partities moet gelijk zijn aan het aantal partities van de uitvoer. BLOB storage uitvoer partities kan ondersteunen en neemt over van het partitieschema van de upstream-query. Wanneer een partitiesleutel voor Blob storage is opgegeven, gegevens per invoer partitie is gepartitioneerd waardoor is het resultaat nog steeds volledig parallelle. Hier volgen voorbeelden van waarden van partitie waarmee een volledig parallelle taak:
 
    * 8 event hub invoer partities en 8 event hub uitvoer partities
-   * 8 event hub invoer partities en uitvoer van blob-opslag  
-   * 8 Iot hub invoer partities en 8 uitvoer partities van de event hub
-   * 8 blob storage invoer partities en uitvoer van blob-opslag  
-   * 8 blob-opslag invoer partities en 8 uitvoer partities van de event hub  
+   * 8 event hub invoer partities en uitvoer van blob-opslag
+   * 8 event hub invoer partities en uitvoer van blob-opslag gepartitioneerd door een aangepast veld met een willekeurige kardinaliteit
+   * 8 blob storage invoer partities en uitvoer van blob-opslag
+   * 8 blob-opslag invoer partities en 8 uitvoer partities van de event hub
 
 De volgende secties worden enkele voorbeeldscenario's die perfect parallelle zijn besproken.
 

@@ -4,21 +4,19 @@ description: Legt uit hoe u een aangepast domein toevoegen in Azure Active Direc
 services: active-directory
 author: curtand
 manager: mtillman
-ms.assetid: 0a90c3c5-4e0e-43bd-a606-6ee00f163038
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: e7b85d5f4cd19c94fe904f16090e174d87ea120b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 37890ac856a6b6bd89acc17973327b239a583997
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="quickstart-add-a-custom-domain-name-to-azure-active-directory"></a>Snelstartgids: Een aangepaste domeinnaam toevoegen aan Azure Active Directory
 
@@ -67,7 +65,7 @@ Als u een aangepaste domeinnaam niet kan controleren, voert u de volgende proble
 1. **Wacht een uur**. DNS-records moeten doorgeven voordat u Azure AD kunt controleren of het domein. Dit proces kan een uur of langer duren.
 2. **Controleer of de DNS-record is opgegeven en of deze juist is**. Voer deze stap uit op de website van de domeinnaamregistrar voor het domein. Azure AD kan de domeinnaam niet controleren als 
   * De DNS-vermelding is niet aanwezig in het DNS-zonebestand
-  * Het is niet exact overeen met de DNS-vermelding die Azure AD u opgegeven. 
+  * Deze niet exact overeenkomt met de DNS-vermelding die Azure AD u heeft doorgegeven. 
   
   Als u geen toegang hebt tot de site van de domeinnaamregistrar om de DNS-records voor het domein bij te werken, deel de DNS-vermelding dan met de persoon die of het team dat in uw organisatie deze toegang heeft en vraag om de DNS-vermelding toe te voegen.
 3. **Verwijder de domeinnaam uit andere mappen in Azure AD**. Een domeinnaam kan maar in één map worden geverifieerd. Als u een domeinnaam is momenteel geverifieerd in een andere map, kan niet het worden geverifieerd in uw directory nieuwe totdat deze is verwijderd op de andere. Zie [Aangepaste domeinnamen beheren](active-directory-domains-manage-azure-portal.md) voor meer informatie over het verwijderen van domeinnamen.    

@@ -2,28 +2,28 @@
 title: Notification Hubs gebruiken met Java
 description: Informatie over het gebruik van Azure Notification Hubs vanuit een Java-back-end.
 services: notification-hubs
-documentationcenter: 
-author: ysxu
-manager: erikre
-editor: 
+documentationcenter: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 4c3f966d-0158-4a48-b949-9fa3666cb7e4
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: java
 ms.devlang: java
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: 41f978750ddef9f7e878c65b0017e909720154aa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 88e3ab3cc03cc1e760672120bc5c484af1ba4722
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Hoe Notification Hubs gebruiken vanuit Java
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-Dit onderwerp beschrijft de belangrijkste functies van de nieuwe volledig ondersteunde officiële Azure Notification Hub Java SDK. Dit is een open source-project en vindt u de volledige code SDK aan [Java SDK]. 
+Dit onderwerp beschrijft de belangrijkste functies van de nieuwe volledig ondersteunde officiële Azure Notification Hub Java SDK. Dit project is een open source-project en vindt u de volledige code SDK aan [Java SDK]. 
 
 In het algemeen kunt u alle functies van de Notification Hubs kunt openen vanaf een Java/PHP/Python/Ruby back-end met de Notification Hub REST-interface, zoals beschreven in de MSDN-onderwerp [Notification Hubs REST-API's](http://msdn.microsoft.com/library/dn223264.aspx). Deze SDK voor Java biedt een thin wrapper via deze interfaces REST in Java. 
 
@@ -102,9 +102,9 @@ U kunt ook registraties maken voor Android (GCM), Windows Phone (MPNS) en Kindle
     reg.getHeaders().put("X-WNS-Type", "wns/toast");
     hub.createRegistration(reg);
 
-**Registraties maken met behulp van maken registrationid + upsert patroon**
+**Registraties maken met behulp van maken registratie-ID + upsert patroon**
 
-Hiermee verwijdert u duplicaten vanwege geen antwoorden verloren als de registratie-id's worden opgeslagen op het apparaat:
+Hiermee verwijdert u duplicaten vanwege verloren antwoorden als registratie-id's worden opgeslagen op het apparaat:
 
     String id = hub.createRegistrationId();
     WindowsRegistration reg = new WindowsRegistration(id, new URI(CHANNELURI));
@@ -122,23 +122,27 @@ Hiermee verwijdert u duplicaten vanwege geen antwoorden verloren als de registra
 
 * **Afzonderlijke registratie ophalen:**
   
-    hub.getRegistration(regid);
+        hub.getRegistration(regid);
+
 * **Haal alle registraties in hub:**
   
-    hub.getRegistrations();
+        hub.getRegistrations();
+
 * **Registraties met code ophalen:**
   
-    hub.getRegistrationsByTag("myTag");
+        hub.getRegistrationsByTag("myTag");
+
 * **Haal registraties door kanaal:**
   
-    hub.getRegistrationsByChannel("devicetoken");
+        hub.getRegistrationsByChannel("devicetoken");
+
 
 Alle query's ondersteunen $top en voortzetting tokens.
 
 ### <a name="installation-api-usage"></a>Gebruik API-installatie
-API-installatie is een alternatief mechanisme voor het beheer van de registratie. In plaats van meerdere registraties die niet is heel eenvoudig en gemakkelijk kan worden gedaan ten onrechte of inefficiënt onderhouden, is het nu mogelijk om met een enkele installatie-object. Installatie bevat alles wat u nodig: push-kanaal (apparaattoken), tags, sjablonen, secundaire tegels (voor WNS en APNS). U hoeft niet de service voor meer-Id ophalen - NET GUID of een andere id genereren, op apparaat behouden en verzenden naar uw back-end samen met push-kanaal (apparaattoken) aanroepen. Op de back-end moet u slechts één aanroep doen: CreateOrUpdateInstallation, is het volledig idempotent, dus probeer zonodig opnieuw.
+API-installatie is een alternatief mechanisme voor het beheer van de registratie. In plaats van het onderhouden van meerdere inschrijvingen, die geen trivial en gemakkelijk kunnen worden gedaan ten onrechte of inefficiënt, is het nu mogelijk om met een enkele installatie-object. Installatie bevat alles wat u nodig: push-kanaal (apparaattoken), tags, sjablonen, secundaire tegels (voor WNS en APNS). U hoeft niet de service voor meer-ID ophalen - NET GUID of een andere id genereren, op apparaat behouden en verzenden naar uw back-end samen met push-kanaal (apparaattoken) aanroepen. Op de back-end, moet u alleen één aanroep doen: CreateOrUpdateInstallation, is het volledig idempotent, dus probeer zonodig opnieuw.
 
-Als voorbeeld voor Amazon Kindle Fire als volgt uitziet:
+Als voorbeeld voor Amazon Kindle Fire:
 
     Installation installation = new Installation("installation-id", NotificationPlatform.Adm, "adm-push-channel");
     hub.createOrUpdateInstallation(installation);
@@ -150,7 +154,7 @@ Als u bijwerken wilt:
     installation.addTemplate("template2", new InstallationTemplate("{\"data\":{\"key2\":\"$(value2)\"}}","tag-for-template2"));
     hub.createOrUpdateInstallation(installation);
 
-Voor geavanceerde scenario's hebben we gedeeltelijke updatefunctie zodat alleen bepaalde eigenschappen van het object installatie wijzigen. Gedeeltelijke update is in feite subset van JSON-Patch-bewerkingen die u met de installatie-object uitvoeren kunt.
+Gebruik de functie gedeeltelijk bijwerken, zodat alleen bepaalde eigenschappen van het object installatie wijzigen voor geavanceerde scenario's. Gedeeltelijke update is een subset van JSON-Patch-bewerkingen die u met de installatie-object uitvoeren kunt.
 
     PartialUpdateOperation addChannel = new PartialUpdateOperation(UpdateOperationType.Add, "/pushChannel", "adm-push-channel2");
     PartialUpdateOperation addTag = new PartialUpdateOperation(UpdateOperationType.Add, "/tags", "bar");
@@ -161,9 +165,9 @@ Verwijder de installatie:
 
     hub.deleteInstallation(installation.getInstallationId());
 
-CreateOrUpdate, Patch en Delete zijn uiteindelijk consistent is met Get. De aangevraagde bewerking wordt alleen overschakelt naar de wachtrij van het systeem tijdens de oproep en wordt uitgevoerd op de achtergrond. Houd er rekening mee dat Get is niet ontworpen voor belangrijkste runtime-scenario, maar alleen voor foutopsporing en het oplossen van problemen, het is nauw beperkt door de service.
+CreateOrUpdate, Patch en Delete zijn uiteindelijk consistent is met Get. De aangevraagde bewerking wordt alleen overschakelt naar de wachtrij van het systeem tijdens de oproep en wordt uitgevoerd op de achtergrond. Get is niet ontworpen voor belangrijkste runtime-scenario, maar alleen voor foutopsporing en het oplossen van problemen is nauw worden beperkt door de service.
 
-Verzenden stroom voor installaties is hetzelfde als voor registraties. Hebben zojuist wij een optie voor het doel van de melding aan de installatie van bepaalde: tag gebruiken ' de installatie-id: {desired-id} '. Voor de bovenstaande eruit deze als volgt:
+Verzenden stroom voor installaties is hetzelfde als voor registraties. Melding voor de installatie van bepaalde doel-tag gebruiken ' installatie-id: {desired-id} '. Voor deze aanvraag is de code:
 
     Notification n = Notification.createWindowsNotification("WNS body");
     hub.sendNotification(n, "InstallationId:{installation-id}");
@@ -186,7 +190,7 @@ Hetzelfde als reguliere verzenden, maar met één extra parameter - scheduledTim
     hub.scheduleNotification(n, c.getTime());
 
 ### <a name="importexport-available-for-standard-tier"></a>(Beschikbaar voor de prijscategorie STANDARD) voor importeren/exporteren
-Soms is het vereist bulksgewijze bewerking tegen registraties uit te voeren. Meestal is voor de integratie met een ander systeem of alleen een enorme fix om in te spreken bijwerken de labels. Het verdient sterk niet ophalen/bijwerken stroom gebruiken als we duizenden registraties bedoelen. Mogelijkheid voor importeren/exporteren is ontworpen voor het scenario. In feite bieden u een toegang tot een aantal blob-container onder uw storage-account als een bron van binnenkomende gegevens en de locatie voor de uitvoer.
+Soms is het vereist bulksgewijze bewerking tegen registraties uit te voeren. Meestal is voor de integratie met een ander systeem of alleen een enorme fix om in te spreken bijwerken de labels. Het is niet raadzaam Get of bij te werken stroom gebruiken als registraties duizenden betrokken zijn. Mogelijkheid voor importeren/exporteren is ontworpen voor het scenario. In feite bieden u een toegang tot een aantal blob-container onder uw storage-account als een bron van binnenkomende gegevens en de locatie voor de uitvoer.
 
 **Taak voor het exporteren verzenden:**
 
@@ -217,7 +221,7 @@ Soms is het vereist bulksgewijze bewerking tegen registraties uit te voeren. Mee
 
     List<NotificationHubJob> jobs = hub.getAllNotificationHubJobs();
 
-**URI met SAS-handtekening:** dit is de URL van een aantal blob-bestand of de blob-container plus set parameters zoals machtigingen en verlooptijd plus handtekening van deze dingen die zijn gemaakt met behulp van account-SAS-sleutel. Azure Storage Java SDK heeft geavanceerde mogelijkheden, waaronder het maken van dergelijke soort URI's. U kunt als alternatief voor eenvoudige kijken ImportExportE2E test klasse (van de github-locatie) met zeer basic en compact uitvoering van handtekeningalgoritme nemen.
+**URI met SAS-handtekening:** deze URL is de URL van een aantal blob-bestand of de blob-container plus set parameters zoals machtigingen en verlooptijd plus handtekening van deze dingen die zijn gemaakt met behulp van account-SAS-sleutel. Azure Storage Java SDK heeft geavanceerde mogelijkheden, waaronder het maken van dergelijke soort URI's. U kunt als alternatief voor eenvoudige kijken ImportExportE2E test klasse (van de github-locatie) met basic en compact uitvoering van handtekeningalgoritme nemen.
 
 ### <a name="send-notifications"></a>Meldingen verzenden
 Het object melding is gewoon een instantie met kopteksten, bepaalde hulpprogrammamethoden voor het helpen bij het bouwen van de sjabloon en systeemeigen meldingen-objecten.
@@ -271,8 +275,8 @@ Het object melding is gewoon een instantie met kopteksten, bepaalde hulpprogramm
 
 Uw Java-code wordt uitgevoerd, moet u een melding weergegeven op het doelapparaat nu produceren.
 
-## <a name="next-steps"></a>Volgende stappen
-In dit onderwerp we hebt u geleerd hoe u een eenvoudige Java REST-client voor Notification Hubs maakt. Hier kunt u het volgende doen:
+## <a name="next-steps"></a>De volgende stappen
+In dit onderwerp bleek het maken van een eenvoudige Java REST-client voor Notification Hubs. Hier kunt u het volgende doen:
 
 * Downloaden van de volledige [Java SDK], die de hele SDK-code bevat. 
 * Met de voorbeelden spelen:

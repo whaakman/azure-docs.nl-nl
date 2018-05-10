@@ -15,53 +15,55 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2018
 ms.author: jdial
-ms.openlocfilehash: 81f26dc72e7a1194cd7c0a5c4997e64b0f61d444
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: dd094f2b9cdb9b5eb164dda2925d094cafa7cd89
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Azure DDoS-bescherming standaard met de Azure portal beheren
 
 Informatie over het inschakelen en uitschakelen van gedistribueerde denial-of service (DDoS) beveiliging en telemetrie om het risico van een DDoS-aanval met Azure DDoS-bescherming Standard te gebruiken. DDoS-bescherming standaard beveiligt Azure-resources zoals virtuele machines en netwerktaakverdelers Toepassingsgateways waarvoor een Azure [openbaar IP-adres](virtual-network-public-ip-address.md) toegewezen. Zie voor meer informatie over DDoS-bescherming standaard en de mogelijkheden ervan, [DDoS-bescherming standaard overzicht](ddos-protection-overview.md).
 
-Voordat het voltooien van alle stappen in deze zelfstudie, meld u aan bij de Azure portal op https://portal.azure.com. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+Voordat het voltooien van alle stappen in deze zelfstudie, meld u aan bij de Azure portal op https://portal.azure.com met een account dat is toegewezen aan de [netwerk Inzender](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rol of naar een [aangepaste rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) die de juiste is toegewezen acties die worden vermeld in [machtigingen](#permissions).
+
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="create-a-ddos-protection-plan"></a>Maakt een beveiligingsplan DDoS
 
 Een beveiligingsplan DDoS definieert een set van virtuele netwerken die DDoS-beveiliging standaard ingeschakeld voor abonnementen hebben. U kunt een DDoS-beveiligingsplan voor uw organisatie en virtuele netwerken koppelen vanuit meerdere abonnementen bij hetzelfde abonnement. De DDoS-beveiligingsplan zelf is ook gekoppeld aan een abonnement dat u tijdens het maken van het plan selecteert. Het abonnement het abonnement is gekoppeld aan de maandelijkse terugkerende factuur voor het plannen, evenals de overschrijding kosten in rekening worden gebracht als het aantal beveiligde openbare IP-adressen groter zijn dan 100. Zie voor meer informatie over prijzen DDoS [prijsinformatie](https://azure.microsoft.com/pricing/details/ddos-protection/).
 
 Maken van meer dan één abonnement is niet vereist voor de meeste organisaties. Een plan kan niet worden verplaatst tussen abonnementen. Als u wijzigen van het abonnement een abonnement bevindt zich wilt in, hebt u [verwijderen van het bestaande plan](#work-with-ddos-protection-plans) en maak een nieuwe.
- 
+
 1. Selecteer **maken van een resource** in de linkerbovenhoek van de Azure portal.
 2. Zoeken naar *DDoS*. Wanneer **DDos-beveiligingsplan** wordt weergegeven in de zoekresultaten, selecteer deze.
 3. Selecteer **Maken**.
-4. Voer of uw eigen waarden selecteren of of selecteert u het volgende voorbeeldwaarden en selecteer vervolgens **maken**:
+4. Voer of uw eigen waarden selecteren of, of selecteert u het volgende voorbeeldwaarden en selecteer vervolgens **maken**:
 
-    |Instelling  |Waarde  |
-    |---------|---------|
-    |Naam     | myDdosProtectionPlan         |
-    |Abonnement     | Selecteer uw abonnement.        |
-    |Resourcegroep     | Selecteer **nieuw** en voer *myResourceGroup*        |
-    |Locatie     | VS - oost        |
+    |Instelling        |Waarde                                              |
+    |---------      |---------                                          |
+    |Naam           | myDdosProtectionPlan                              |
+    |Abonnement   | Selecteer uw abonnement.                         |
+    |Resourcegroep | Selecteer **nieuw** en voer *myResourceGroup* |
+    |Locatie       | VS - oost                                           |
 
 ## <a name="enable-ddos-for-a-new-virtual-network"></a>DDoS inschakelen voor een nieuw virtueel netwerk
 
 1. Selecteer **maken van een resource** in de linkerbovenhoek van de Azure portal.
 2. Selecteer **Netwerken** en selecteer vervolgens **Virtueel netwerk**.
 3. Voer of selecteert u uw eigen waarden, van enter of selecteert u het volgende voorbeeldwaarden, de overige standaardinstellingen accepteren en selecteer vervolgens **maken**:
- 
-    |Instelling  |Waarde  |
-    |---------|---------|
-    |Naam     | myVirtualNetwork         |
-    |Abonnement     | Selecteer uw abonnement.        |
-    |Resourcegroep     | Selecteer **gebruik bestaande**, en selecteer vervolgens **myResourceGroup**        |
-    |Locatie     | VS - oost        |
-    |DDos-bescherming| Selecteer **standaard** en klik vervolgens onder **DDoS-bescherming**, selecteer **myDdosProtectionPlan**. Het plan dat u selecteert in het abonnement op dezelfde of verschillende dan het virtuele netwerk kan worden, maar beide abonnementen moeten zijn gekoppeld aan dezelfde Azure Active Directory-tenant.|
+
+    | Instelling         | Waarde                                                        |
+    | ---------       | ---------                                                    |
+    | Naam            | myVirtualNetwork                                             |
+    | Abonnement    | Selecteer uw abonnement.                                    |
+    | Resourcegroep  | Selecteer **gebruik bestaande**, en selecteer vervolgens **myResourceGroup** |
+    | Locatie        | VS - oost                                                      |
+    | DDos-bescherming | Selecteer **standaard** en klik vervolgens onder **DDoS-bescherming**, selecteer **myDdosProtectionPlan**. Het plan dat u selecteert in het abonnement op dezelfde of verschillende dan het virtuele netwerk kan worden, maar beide abonnementen moeten zijn gekoppeld aan dezelfde Azure Active Directory-tenant.|
 
 U kunt een virtueel netwerk niet verplaatsen naar een andere resourcegroep of abonnement DDoS standaard is ingeschakeld voor het virtuele netwerk. Als u wilt verplaatsen een virtueel netwerk met DDoS standaard ingeschakeld, DDoS standaard eerst uitschakelen, verplaatsen van het virtuele netwerk en schakel vervolgens DDoS-standaard. De drempelwaarden automatisch zijn afgestemd beleid voor alle beveiligde openbare IP-adressen in het virtuele netwerk worden na de verplaatsing opnieuw ingesteld.
 
-## <a name="enable-ddos-for-an-existing-virtual-network"></a>DDoS inschakelen voor een bestaand virtueel netwerk 
+## <a name="enable-ddos-for-an-existing-virtual-network"></a>DDoS inschakelen voor een bestaand virtueel netwerk
 
 1. Maakt een beveiligingsplan op DDoS via de stappen in [maakt een beveiligingsplan DDoS](#create-a-ddos-protection-plan), als u een bestaand DDoS-bescherming-abonnement hebt.
 2. Selecteer **maken van een resource** in de linkerbovenhoek van de Azure portal.
@@ -87,22 +89,22 @@ U kunt een virtueel netwerk niet verplaatsen naar een andere resourcegroep of ab
 
 Kunt u een van de beschikbare DDoS-bescherming metrische gegevens om u te waarschuwen wanneer er een actieve risicobeperking tijdens een aanval met behulp van de configuratie van Azure-Monitor de waarschuwing. Wanneer de voorwaarden wordt voldaan, krijgt het opgegeven adres een e-mailwaarschuwingen:
 
-1. Selecteer **alle services** links op de bovenkant van de portal. 
+1. Selecteer **alle services** links op de bovenkant van de portal.
 2. Voer *Monitor* in de **Filter** vak. Wanneer **Monitor** wordt weergegeven in de resultaten, selecteer deze.
 3. Selecteer **metrische gegevens** onder **SHARED SERVICES**.
 4. Invoert, of uw eigen waarden selecteren of Voer de volgende voorbeeldwaarden, de overige standaardinstellingen accepteren en selecteer vervolgens **OK**:
 
-    |Instelling  |Waarde |
-    |---------|---------|
-    |Naam     | myDdosAlert        |
-    |Abonnement     | Selecteer het abonnement dat het openbare IP-adres dat u meldingen wilt ontvangen voor bevat.        |
-    |Resourcegroep     |  Selecteer de resourcegroep die het openbare IP-adres dat u meldingen wilt ontvangen voor bevat.       |
-    |Resource     |    Selecteer het openbare IP-adres met het openbare IP-adres dat u meldingen wilt ontvangen voor. DDoS bewaakt openbare IP-adressen toegewezen aan bronnen binnen een virtueel netwerk. Als er geen bronnen met openbare IP-adressen in het virtuele netwerk, moet u eerst een resource maken met een openbaar IP-adres. U kunt het openbare IP-adres van alle resources die zijn geïmplementeerd via Resource Manager (niet-klassieke) die worden vermeld in bewaken [virtueel netwerk voor Azure-services](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network), met uitzondering van Azure App Service-omgevingen en Azure VPN-Gateway. Als u wilt doorgaan met deze zelfstudie, kunt u snel maken een [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtuele machine.    |
-    |Gegevens     | Onder DDoS-aanvallen, of niet |
-    |Drempelwaarde     |1 - **1** betekent dat u bent bij een aanval. **0** betekent dat u bent geen aangevallen.     |
-    |Periode     | Selecteer welke waarde u kiest. |
-    |Melding via E-mail     |  Schakel het selectievakje in       |
-    |Aanvullende beheerder | Voer uw e-mailadres als u niet een e-mailadres eigenaar, bijdrager of lezer voor het abonnement.|
+    |Instelling                  |Waarde                                                                                               |
+    |---------                |---------                                                                                           |
+    |Naam                     | myDdosAlert                                                                                        |
+    |Abonnement             | Selecteer het abonnement dat het openbare IP-adres dat u meldingen wilt ontvangen voor bevat.        |
+    |Resourcegroep           | Selecteer de resourcegroep die het openbare IP-adres dat u meldingen wilt ontvangen voor bevat.      |
+    |Resource                 | Selecteer het openbare IP-adres met het openbare IP-adres dat u meldingen wilt ontvangen voor. DDoS bewaakt openbare IP-adressen toegewezen aan bronnen binnen een virtueel netwerk. Als er geen bronnen met openbare IP-adressen in het virtuele netwerk, moet u eerst een resource maken met een openbaar IP-adres. U kunt het openbare IP-adres van alle resources die zijn geïmplementeerd via Resource Manager (niet-klassieke) die worden vermeld in bewaken [virtueel netwerk voor Azure-services](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network), met uitzondering van Azure App Service-omgevingen en Azure VPN-Gateway. Als u wilt doorgaan met deze zelfstudie, kunt u snel maken een [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtuele machine.                   |
+    |Gegevens                   | Onder DDoS-aanvallen, of niet                                                                            |
+    |Drempelwaarde                | 1 - **1** betekent dat u bent bij een aanval. **0** betekent dat u bent geen aangevallen.                         |
+    |Periode                   | Selecteer welke waarde u kiest.                                                                   |
+    |Melding via E-mail         | Schakel het selectievakje in                                                                                  |
+    |Aanvullende beheerder | Voer uw e-mailadres als u niet een e-mailadres eigenaar, bijdrager of lezer voor het abonnement. |
 
     Binnen een paar minuten van aanvalsdetectie kunt u een e-mailbericht ontvangt van Azure Monitor metrische gegevens die op de volgende afbeelding lijkt:
 
@@ -163,3 +165,20 @@ Microsoft werkt samen met [BreakingPoint Cloud](https://www.ixiacom.com/products
 - Optimaliseren van uw proces voor respons op incidenten terwijl onder DDoS-aanval
 - Document DDoS naleving
 - Training van uw netwerk beveiliging teams
+
+## <a name="permissions"></a>Machtigingen
+
+Als u wilt werken met DDoS-beveiliging plannen, moet uw account worden toegewezen aan de [netwerk Inzender](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rol of naar een [aangepaste](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) rol die is toegewezen de nodige acties die worden vermeld in de volgende tabel:
+
+| Bewerking                                            | Naam                                     |
+| ---------                                         | -------------                            |
+| Microsoft.Network/ddosProtectionPlans/read        | Een beveiligingsplan DDoS lezen              |
+| Microsoft.Network/ddosProtectionPlans/write       | Maken of bijwerken van een beveiligingsplan DDoS  |
+| Microsoft.Network/ddosProtectionPlans/delete      | Een beveiligingsplan DDoS verwijderen            |
+| Microsoft.Network/ddosProtectionPlans/join/action | Deelnemen aan een plan DDoS-bescherming              |
+
+Om in te schakelen DDoS-bescherming voor een virtueel netwerk, uw account moet ook worden toegewezen aan de juiste [acties voor virtuele netwerken](manage-virtual-network.md#permissions).
+
+## <a name="next-steps"></a>Volgende stappen
+
+- Maken en toepassen van [Azure beleid](policy-samples.md) voor virtuele netwerken

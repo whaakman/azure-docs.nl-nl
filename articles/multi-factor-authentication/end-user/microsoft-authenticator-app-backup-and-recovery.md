@@ -14,11 +14,11 @@ ms.date: 03/28/2018
 ms.author: lizross
 ms.reviewer: olhaun
 ms.custom: end-user
-ms.openlocfilehash: 8fa9a24b5b402ebebb69bc69f7cda47092436642
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e25ccdad5285bfaa96f538aca415746942523d85
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Accountreferenties back-up en herstellen met de Microsoft Authenticator-app
 **Van toepassing op:**
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/28/2018
 De Microsoft Authenticator-app back-ups van uw accountreferenties en verwante appinstellingen, zoals de volgorde van uw accounts, naar de cloud. Na de back-up, kunt u ook de app gebruiken voor het herstellen van uw informatie op een nieuw apparaat mogelijk vermijden ophalen vergrendeld out- of accounts opnieuw hoeft te.
 
 >[!IMPORTANT]
-> Moet u een persoonlijk Microsoft-account en een iCloud-account voor elke back-upopslag locatie. Maar in dat opslaglocatie back-up van diverse accounts. U kunt bijvoorbeeld een persoonlijke account, een schoolaccount en een account van derden zoals Facebook, Google, enzovoort.<br><br>De referenties van uw account zijn opgeslagen, waaronder uw gebruikersnaam en de verificatiecode 8 cijfers account dat u nodig hebt om uw identiteit met de Microsoft Authenticator-app te bewijzen. Andere gegevens die zijn gekoppeld aan uw accounts, met inbegrip van bestanden of e-mailberichten niet worden opgeslagen. We niet ook koppelen of delen van uw accounts op elke manier of met een ander product of service. En ten slotte uw IT-beheerder geen informatie over elk van deze accounts komen.
+> Moet u een persoonlijk Microsoft-account en een iCloud-account voor elke back-upopslag locatie. Maar in dat opslaglocatie back-up van diverse accounts. U kunt bijvoorbeeld een persoonlijke account, een schoolaccount en een account van derden zoals Facebook, Google, enzovoort.<br><br>Alleen de referenties van uw persoonlijke en 3rd derden account zijn opgeslagen, waaronder uw gebruikersnaam en het account verificatiecode in die vereist zijn om uw identiteit te bewijzen. Andere gegevens die zijn gekoppeld aan uw accounts, met inbegrip van bestanden of e-mailberichten niet worden opgeslagen. We niet ook koppelen of delen van uw accounts op elke manier of met een ander product of service. En ten slotte uw IT-beheerder geen informatie over elk van deze accounts komen.
 
 ## <a name="back-up-your-account-credentials"></a>Back-up van referenties voor uw account
 Voordat u kunt back-up van uw referenties moet hebben beide:

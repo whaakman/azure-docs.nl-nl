@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 9c4908775ab9a471201cc4bb0c35ab863f5d6d50
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: cd9c5888724b634002d3029cccd42cfda4a433af
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Hulpprogramma voor gegevensmigratie
 
@@ -433,7 +433,7 @@ Als u wilt importeren naar één verzameling, voer de naam van de verzameling wa
 Wanneer de verzameling namen zijn opgegeven, kiest u de gewenste doorvoer van de verzameling(en) (400 RUs naar 250.000 RUs). Kies een hogere doorvoer voor de beste prestaties importeren. Zie voor meer informatie over prestatieniveaus [prestatieniveaus in Azure Cosmos DB](performance-levels.md). Invoer voor verzamelingen met doorvoer > 10.000 RUs vereisen een partitiesleutel. Als u ervoor kiest om meer dan 250.000 RUs, moet u het bestand is een aanvraag in de portal voor uw account wordt verhoogd.
 
 > [!NOTE]
-> De doorvoer-instelling is alleen van toepassing op het maken van de verzameling. Als de opgegeven verzameling al bestaat, wordt de doorvoer niet gewijzigd.
+> De doorvoer-instelling is alleen van toepassing op de verzameling of maken van de database. Als de opgegeven verzameling al bestaat, wordt de doorvoer niet gewijzigd.
 > 
 > 
 

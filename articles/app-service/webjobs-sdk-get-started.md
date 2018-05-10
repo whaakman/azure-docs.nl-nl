@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: 324b578a7736719eb953cab4eca4e9a3e9bfa35d
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: b1de898ec4f661c54b5227367ad416a5edec80ed
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="get-started-with-the-webjobs-sdk"></a>Aan de slag met de WebJobs SDK
 
@@ -293,7 +293,7 @@ In deze sectie u bouwen en lokaal uitvoeren van het project en de functie active
 
 ## <a name="add-application-insights-logging"></a>Logboekregistratie van Application Insights toevoegen
 
-Wanneer het project wordt uitgevoerd in Azure, kunt u een functie wordt uitgevoerd kan niet controleren door console-uitvoer weer te geven. Het is raadzaam de bewakingsoplossing [Application Insights](../application-insights/app-insights-overview.md). De procedures voor het weergeven van de telemetriegegevens zijn vergelijkbaar met [bewaken in Azure Functions](../azure-functions/functions-monitoring.md#view-telemetry-data).
+Wanneer het project wordt uitgevoerd in Azure, kunt u een functie wordt uitgevoerd kan niet controleren door console-uitvoer weer te geven. Het is raadzaam de bewakingsoplossing [Application Insights](../application-insights/app-insights-overview.md). Zie voor meer informatie [Monitor Azure Functions](../azure-functions/functions-monitoring.md).
 
 In deze sectie kunt u de volgende taken voor het instellen van Application Insights logboekregistratie voordat u naar Azure implementeert doen:
 

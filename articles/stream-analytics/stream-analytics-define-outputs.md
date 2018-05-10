@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/26/2018
-ms.openlocfilehash: 3bd87090df048f2b67de88f5202998af02d42491
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 05/07/2018
+ms.openlocfilehash: 54bf0cd80d1fcc6d761f977484a1a5539d581361
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Uitvoer van de Azure Stream Analytics begrijpen
 In dit artikel beschrijft de verschillende soorten uitvoer beschikbaar voor een Azure Stream Analytics-taak. Uitvoer kunnen u opslaan en sla de resultaten van de Stream Analytics-taak. Met de uitvoergegevens, kunt u doen verdere business analytics en datawarehousing van uw gegevens. 
@@ -86,7 +86,7 @@ De volgende tabel bevat de namen van eigenschappen en hun beschrijving voor het 
 | Opslagaccount | De naam van het opslagaccount waar u de uitvoer wilt verzenden. |
 | Opslagaccountsleutel | De geheime sleutel die is gekoppeld aan het opslagaccount. |
 | Storage-Container | Containers bieden een logische groepering van blobs die zijn opgeslagen in de Microsoft Azure Blob-service. Wanneer u een blob naar de Blob-service uploaden, moet u een blob-container opgeven. |
-| Padpatroon | Optioneel. Het pad naar bestandspatroon gebruikt voor het schrijven van uw BLOB's binnen de opgegeven container. </br> U kunt kiezen in het patroon pad naar een of meer exemplaren van de volgende 2 variabelen gebruiken om op te geven van de frequentie waarmee blobs worden geschreven: </br> {date} {time} </br> Voorbeeld 1: cluster1/logs / {date} / {time} </br> Voorbeeld 2: cluster1/logs / {date} <BR> <BR> Naamgeving van bestanden, volgt de volgende conventies: </br> {Pad voorvoegsel Pattern}/schemaHashcode_Guid_Number.extension </br></br> Voorbeeld van de uitvoerbestanden: </br>Myoutput/20170901/00/45434_gguid_1.csv </br> Myoutput/20170901/01/45434_gguid_1.csv |
+| Padpatroon | Optioneel. Het pad naar bestandspatroon gebruikt voor het schrijven van uw BLOB's binnen de opgegeven container. </br></br> U kunt kiezen in het patroon pad naar een of meer exemplaren van de datum-tijdvariabelen gebruiken om op te geven van de frequentie waarmee blobs worden geschreven: </br> {date} {time} </br> </br>U mogelijk ook opgeven één veldnaam {kolom} uit uw gegevens naar partitie blobs door, waar de veldnaam alfanumerieke is en kan spaties, afbreekstreepjes en onderstrepingstekens bevatten. Beperkingen op aangepaste velden omvatten het volgende: <ul><li>Case ongevoeligheid (kan verschillen tussen de kolom 'ID' en kolom 'id' niet)</li><li>Geneste velden zijn niet toegestaan (in plaats daarvan een alias gebruiken in de query voor de taak voor het veld 'plat')</li><li>Expressies kunnen niet als een veldnaam worden gebruikt</li></ul>Voorbeelden: <ul><li>Voorbeeld 1: cluster1/logs / {date} / {time}</li><li>Voorbeeld 2: cluster1/logs / {date}</li><li>Voorbeeld 3: cluster1 / {client_id} / {date} / {time}</li><li>Voorbeeld 4: cluster1 / {myField} waarbij de query is: Selecteer data.myField als myField van invoer;</li></ul><BR> Naamgeving van bestanden, volgt de volgende conventies: </br> {Pad voorvoegsel Pattern}/schemaHashcode_Guid_Number.extension </br></br> Voorbeeld van de uitvoerbestanden: </br><ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li><li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul><br/>
 | Datumnotatie | Optioneel. Als de datum-token in het pad van het voorvoegsel wordt gebruikt, kunt u de datumnotatie waarin de bestanden zijn ingedeeld. Voorbeeld: Jjjj/MM/DD |
 | Tijdnotatie | Optioneel. Als het token tijd in het pad van het voorvoegsel wordt gebruikt, geeft u de tijdnotatie waarin de bestanden zijn ingedeeld. De enige ondersteunde waarde is momenteel HH. |
 | Serialisatie-indeling voor gebeurtenissen | Serialisatie-indeling voor uitvoergegevens.  JSON, CSV en Avro worden ondersteund.
@@ -96,12 +96,14 @@ De volgende tabel bevat de namen van eigenschappen en hun beschrijving voor het 
 
 Wanneer u blobopslag gebruikt als uitvoer, wordt een nieuw bestand gemaakt in de blob in de volgende gevallen:
 
-* Als het bestand het maximum aantal toegestane blokken overschrijdt. Het maximale aantal toegestane blokken kan worden bereikt zonder de maximum toegestane blobgrootte is bereikt. Als de uitvoerpakketten hoog is, ziet u meer bytes per blok en de bestandsgrootte is groter. Als de uitvoerpakketten laag is, elk blok is minder gegevens en de bestandsgrootte kleiner is.
+* Als het bestand overschrijdt het maximum aantal toegestane blokken (momenteel 50.000). Het maximale aantal toegestane blokken kan worden bereikt zonder de maximum toegestane blobgrootte is bereikt. Als de uitvoerpakketten hoog is, ziet u meer bytes per blok en de bestandsgrootte is groter. Als de uitvoerpakketten laag is, elk blok is minder gegevens en de bestandsgrootte kleiner is.
 * Als u een schema is gewijzigd in de uitvoer en indeling van de uitvoer moet vaste schema (CSV en Avro).  
-* Als een taak opnieuw wordt opgestart een extern of interne opnieuw opstarten van een taak.  
+* Als een taak opnieuw wordt opgestart, extern door een gebruiker gestopt en worden gestart of intern voor onderhoud of fout bij het herstel.  
 * Als de query is volledig gepartitioneerd, wordt voor elke partitie uitvoer nieuw bestand gemaakt.  
 * Als een bestand of een container van het opslagaccount is verwijderd door de gebruiker.  
 * Als de uitvoer van de tijd die is gepartitioneerd met behulp van het pad voorvoegselpatroon is, wordt een nieuwe blob wordt gebruikt wanneer de query wordt verplaatst naar het volgende uur.
+* Als de uitvoer is gepartitioneerd door een aangepast veld, wordt een nieuwe blob per partitiesleutel gemaakt als deze niet bestaat.
+*   Als de uitvoer is gepartitioneerd door een aangepast veld waarin de kardinaliteit van de partitie 8000 overschrijdt, kan een nieuwe blob per partitiesleutel worden gemaakt.
 
 ## <a name="event-hub"></a>Event Hub
 De [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) -service is een uiterst schaalbare voor publiceren / abonneren event ingestor. Het kan miljoenen gebeurtenissen per seconde verzamelen. Een gebruik van een Event Hub als uitvoer is wanneer de uitvoer van een Stream Analytics-taak de invoer van een ander streaming-taak wordt.

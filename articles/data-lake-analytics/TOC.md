@@ -13,12 +13,14 @@
 
 ## Data Lake Analytics beheren
 ### [Azure Portal](data-lake-analytics-manage-use-portal.md)
-### [Azure-CLI](data-lake-analytics-manage-use-cli.md)
-### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-### [.NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
-### [Python SDK](data-lake-analytics-manage-use-python-sdk.md)
-### [Java SDK](data-lake-analytics-manage-use-java-sdk.md)
-### [Node.js](data-lake-analytics-manage-use-nodejs.md)
+### Opdrachtregel
+#### [Azure-CLI](data-lake-analytics-manage-use-cli.md)
+#### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
+### SDK's
+#### [.NET](data-lake-analytics-manage-use-dotnet-sdk.md)
+#### [Python](data-lake-analytics-manage-use-python-sdk.md)
+#### [Java](data-lake-analytics-manage-use-java-sdk.md)
+#### [Node.js](data-lake-analytics-manage-use-nodejs.md)
 ### [Beleidsregels](data-lake-analytics-policies.md)
 ### [Toegang tot diagnostische logboeken](data-lake-analytics-diagnostic-logs.md)
 ### [De quotalimieten aanpassen](data-lake-analytics-quota-limits.md)
@@ -36,6 +38,7 @@
 #### [Handleiding voor programmeren](data-lake-analytics-u-sql-programmability-guide.md)
 
 ### Visual Studio
+#### [Installeren](data-lake-analytics-data-lake-tools-install.md)
 #### [Taken doorzoeken en weergeven](data-lake-analytics-data-lake-tools-view-jobs.md)
 #### [Fouten opsporen in aangepaste C#-code](data-lake-analytics-debug-u-sql-jobs.md)
 #### [Problemen in terugkerende taken oplossen](data-lake-analytics-data-lake-tools-debug-recurring-job.md)

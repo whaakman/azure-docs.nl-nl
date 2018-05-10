@@ -1,27 +1,32 @@
 - name: Documentatie voor Azure HDInsight
   href: /azure/hdinsight
-- name: Spark in HDInsight
+- name: Overzicht
   items:
-    - name: Overzicht
+    - name: Over Spark in HDInsight
       href: apache-spark-overview.md
     - name: Hadoop-componenten op HDInsight
       href: ../hdinsight-component-versioning.md
       maintainContext: true
-- name: Aan de slag
+- name: Snelstartgidsen
   items:
-    - name: Een Spark-cluster maken
+    - name: Een Spark-cluster maken - Portal
+      href: apache-spark-jupyter-spark-sql-use-portal.md
+    - name: Een Spark-cluster maken - PowerShell
+      href: apache-spark-jupyter-spark-sql-use-powershell.md
+    - name: Een Spark-cluster maken - Template
       href: apache-spark-jupyter-spark-sql.md
+- name: Zelfstudies
+  items:
     - name: Query's uitvoeren op een Spark-cluster
       href: apache-spark-load-data-run-query.md
     - name: Gegevens analyseren met BI-tools
       href: apache-spark-use-bi-tools.md
-    - name: Clusterresources beheren
-      href: apache-spark-resource-manager.md
-    - name: Fouten in Spark-taken opsporen
-      href: apache-spark-job-debugging.md
-    - name: HDInsight-apps installeren
-      href: ../hdinsight-apps-install-applications.md
-      maintainContext: true
+    - name: Streamingtaak uitvoeren
+      href: apache-spark-eventhub-streaming.md
+    - name: Een Machine Learning-toepassing maken
+      href: apache-spark-ipython-notebook-machine-learning.md
+    - name: Een spark-toepassing maken met IntelliJ
+      href: apache-spark-create-standalone-application.md
 - name: Procedures
   items:
     - name: Clusteropslag gebruiken
@@ -34,8 +39,6 @@
           maintainContext: true
     - name: Ontwikkelen
       items:
-        - name: Een zelfstandige app maken
-          href: apache-spark-create-standalone-application.md
         - name: Een interactieve Spark-shell gebruiken
           href: apache-spark-shell.md
         - name: Externe taken met Livy
@@ -110,8 +113,6 @@
           href: apache-spark-streaming-exactly-once.md
     - name: Spark en Machine Learning
       items:
-        - name: HVAC-prestaties voorspellen
-          href: apache-spark-ipython-notebook-machine-learning.md
         - name: Resultaten van voedingsinspectie voorspellen
           href: apache-spark-machine-learning-mllib-ipython.md
         - name: Websitelogboeken analyseren
@@ -205,6 +206,8 @@
           maintainContext: true
     - name: Beheren
       items:
+        - name: Clusterresources beheren
+          href: apache-spark-resource-manager.md
         - name: Spark-instellingen configureren
           href: apache-spark-settings.md
         - name: Spark-taken optimaliseren
@@ -311,6 +314,8 @@
           maintainContext: true
     - name: Problemen oplossen
       items:
+        - name: Fouten in Spark-taken opsporen
+          href: apache-spark-job-debugging.md
         - name: Problemen met een traag of niet werkend HDInsight-cluster oplossen
           href: ../hdinsight-troubleshoot-failed-cluster.md
           maintainContext: true

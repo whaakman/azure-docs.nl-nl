@@ -4,14 +4,14 @@ description: Biedt een overzicht van het toestel Collector en configureert.
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/23/2017
+ms.date: 05/03/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 059f577c138847af04e92ce9ab12a8de88251c73
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 99f34bce942626cd931c9270192766cc76105f5b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="collector-appliance"></a>Collector toestel
 
@@ -89,7 +89,7 @@ De Collector moet worden gesynchroniseerd met de internetserver tijd om te contr
 
 De service Azure migreren Collector moet worden uitgevoerd op de machine. Deze service wordt automatisch gestart wanneer de computer wordt opgestart. Als de service niet wordt uitgevoerd, start u de *Azure migreren Collector* service via het Configuratiescherm. De Collector-service is verantwoordelijk voor het verbinding maken met de vCenter-server, gegevens van de machine metagegevens en prestaties verzamelen en naar de service te verzenden.
 
-### <a name="vmware-powercli-65"></a>VMware PowerCLI 6.5 
+### <a name="vmware-powercli-65"></a>VMware PowerCLI 6.5
 
 De VMware PowerCLI powershell-module moet worden geïnstalleerd zodat de Collector met de vCenter-server en de query voor de details van de machine en de prestatiegegevens communiceren kan. De powershell-module is automatisch gedownload en geïnstalleerd als onderdeel van de vereiste controle. Automatisch downloaden is vereist voor enkele URL-wilt plaatsen, mislukt die u moet ofwel bieden toegang tot door whitelisting ze of handmatig installeren van de module.
 
@@ -103,7 +103,7 @@ Installeer de module handmatig met de volgende stappen uit:
 
 De Collector moet verbinding met de vCenter-Server en kunnen opvragen voor de virtuele machines, de metagegevens en hun prestatiemeteritems. Deze gegevens worden gebruikt door het project een beoordeling te berekenen.
 
-1. Voor verbinding met de vCenter-Server, kan een alleen-lezen-account met machtigingen die is opgegeven in de volgende tabel worden gebruikt voor het uitvoeren van de detectie. 
+1. Voor verbinding met de vCenter-Server, kan een alleen-lezen-account met machtigingen die is opgegeven in de volgende tabel worden gebruikt voor het uitvoeren van de detectie.
 
     |Taak  |Vereiste rol/account  |Machtigingen  |
     |---------|---------|---------|
@@ -118,13 +118,13 @@ De Collector moet verbinding met de vCenter-Server en kunnen opvragen voor de vi
 > Alleen vCenter Server-versies 5.5, 6.0 en 6.5 worden officieel ondersteund.
 
 > [!IMPORTANT]
-> U wordt aangeraden dat u algemene optimale (3) voor het niveau van de statistieken zo instellen dat alle items correct zijn verzameld. Als u ingesteld op een lager niveau vCenter hebt, kunnen alleen enkele items volledig worden verkregen met de rest ingesteld op 0. De beoordeling mogelijk onvolledig gegevens vervolgens weer. 
+> U wordt aangeraden dat u algemene optimale (3) voor het niveau van de statistieken zo instellen dat alle items correct zijn verzameld. Als u ingesteld op een lager niveau vCenter hebt, kunnen alleen enkele items volledig worden verkregen met de rest ingesteld op 0. De beoordeling mogelijk onvolledig gegevens vervolgens weer.
 
 ### <a name="selecting-the-scope-for-discovery"></a>Het bereik voor detectie selecteren
 
 Wanneer een verbinding met de vCenter-, kunt u een scope om te detecteren. Als u een bereik selecteert, worden alle virtuele machines van het pad van de inventarisatie opgegeven vCenter gedetecteerd.
 
-1. Het bereik mag een datacenter, een map of een ESXi-host. 
+1. Het bereik mag een datacenter, een map of een ESXi-host.
 2. U kunt slechts één scope op een tijdstip selecteren. Als u wilt meer virtuele machines selecteren, kunt u één detectie voltooid en opnieuw opstarten van het detectieproces met een nieuwe scope.
 3. U kunt alleen een bereik dat is selecteren *minder dan 1500 virtuele machines*.
 
@@ -141,27 +141,28 @@ Zodra de detectie wordt gestart, de vCenter-virtuele machines worden gedetecteer
 
 ### <a name="what-data-is-collected"></a>Welke gegevens worden verzameld?
 
-De verzameling taak detecteert de volgende statische metagegevens over de geselecteerde virtuele machines. 
+De verzameling taak detecteert de volgende statische metagegevens over de geselecteerde virtuele machines.
 
 1. VM-weergavenaam (op vCenter)
 2. Pad van de inventarisatie van de virtuele machine (host of de map in vCenter)
 3. IP-adres
 4. MAC-adres
+5. Besturingssysteem
 5. Het aantal kernen, schijven, NIC 's
-6. RAM-geheugen, schijf-grootten
+6. Grootte van het systeemgeheugen, schijfgrootten
 7. En prestatiemeteritems van de VM, schijf en netwerk, zoals vermeld in de onderstaande tabel.
 
 De volgende tabel bevat de prestatiemeteritems die worden verzameld en ook vermeldt de resultaten van de beoordeling die worden beïnvloed als een bepaald item is niet verzameld.
 
 |Prestatiemeteritems                                  |Niveau    |Per apparaat niveau  |Evaluatie-impact                               |
 |-----------------------------------------|---------|------------------|------------------------------------------------|
-|cpu.usage.average                        | 1       |N.v.t.                |VM-grootte en de kosten van aanbevolen                    |
+|CPU.Usage.Average                        | 1       |N.v.t.                |VM-grootte en de kosten van aanbevolen                    |
 |Mem.Usage.Average                        | 1       |N.v.t.                |VM-grootte en de kosten van aanbevolen                    |
 |virtualDisk.read.average                 | 2       |2                 |Schijfgrootte opslagkosten en VM-grootte         |
 |virtualDisk.write.average                | 2       |2                 |Schijfgrootte opslagkosten en VM-grootte         |
 |virtualDisk.numberReadAveraged.average   | 1       |3                 |Schijfgrootte opslagkosten en VM-grootte         |
 |virtualDisk.numberWriteAveraged.average  | 1       |3                 |Schijfgrootte opslagkosten en VM-grootte         |
-|net.received.average                     | 2       |3                 |VM-grootte en het netwerk kosten                        |
+|NET.Received.Average                     | 2       |3                 |VM-grootte en het netwerk kosten                        |
 |NET.transmitted.Average                  | 2       |3                 |VM-grootte en het netwerk kosten                        |
 
 > [!WARNING]
@@ -190,8 +191,8 @@ U kunt de Collector upgraden naar de nieuwste versie zonder dat de eicellen nogm
 2. Om ervoor te zorgen dat de gedownloade hotfix beveiligd is, opent u het opdrachtvenster Administrator en voer de volgende opdracht voor het genereren van de hash van het ZIP-bestand. De gegenereerde hash moet overeenkomen met de hash op basis van de specifieke versie vermeld:
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    
-    (example usage C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.5.zip SHA256)
+
+    (voorbeeld van syntaxis C:\>CertUtil - HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.5.zip SHA256)
 3. Kopieer het zip-bestand naar de Azure-collector virtuele machine migreren (collector toestel).
 4. Met de rechtermuisknop op het zip-bestand en selecteer Alles uitpakken.
 5. Met de rechtermuisknop op Setup.ps1 en klikt u op uitvoeren met PowerShell en volg de instructies op het scherm om de update te installeren.

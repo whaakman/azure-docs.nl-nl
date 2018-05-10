@@ -1,12 +1,12 @@
 ---
-title: Configureren van de topologie verbonden factory | Microsoft Docs
-description: Het configureren van de topologie van een verbonden factory vooraf geconfigureerde oplossing.
-services: 
+title: Configureren van de topologie verbonden Factory | Microsoft Docs
+description: Klik hier voor meer informatie over het configureren van de topologie van een fabriek verbonden oplossingsverbetering.
+services: iot-suite
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 19e0f48ab817428a1f953c80296b2e23effe5a8a
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 4230914c6fb35201a8c162e2e7ecb31262d2bdca
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="configure-the-connected-factory-preconfigured-solution"></a>De verbonden factory vooraf geconfigureerde oplossing configureren
+# <a name="configure-the-connected-factory-solution-accelerator"></a>De Factory verbonden oplossingsverbetering configureren
 
-De verbonden factory vooraf geconfigureerde oplossing ziet u een gesimuleerde dashboard voor een fictief bedrijf Contoso. Dit bedrijf heeft fabrieken in talloze globale locaties wereldwijd.
+De Factory verbonden oplossingsverbetering ziet u een gesimuleerde dashboard voor een fictief bedrijf Contoso. Dit bedrijf heeft fabrieken in talloze globale locaties wereldwijd.
 
-In dit artikel maakt gebruik van Contoso als voorbeeld voor het beschrijven van het configureren van de topologie van een verbonden factory-oplossing.
+In dit artikel maakt gebruik van Contoso als voorbeeld voor het beschrijven van het configureren van de topologie van een verbonden Factory-oplossing.
 
 ## <a name="simulated-factories-configuration"></a>Gesimuleerde fabrieken configuratie
 
@@ -34,19 +34,19 @@ Elke Contoso-factory heeft een productie-regels die bestaan uit drie stations. E
 * Station testen
 * Verpakking station
 
-Deze servers OPC UA OPC UA knooppunten hebben en [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) verzendt de waarden van deze knooppunten naar verbonden factory. Dit omvat:
+Deze servers OPC UA OPC UA knooppunten hebben en [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) verzendt de waarden van deze knooppunten naar verbonden Factory. Dit omvat:
 
 * Huidige operationele status zoals huidige energieverbruik.
 * Productie-informatie zoals het aantal producten die wordt geproduceerd.
 
-Het dashboard kunt u inzoomen op de Contoso factory-topologie van een globale weergave omlaag naar de weergave van een station-niveau. Maakt gebruik van het dashboard verbonden factory:
+Het dashboard kunt u inzoomen op de Contoso factory-topologie van een globale weergave omlaag naar de weergave van een station-niveau. Maakt gebruik van het dashboard Factory verbonden:
 
 * De visualisatie van afbeeldingen OEE en KPI's voor elke laag in de topologie.
 * De visualisatie van huidige waarden van OPC UA-knooppunten in de stations.
 * De samenvoeging van de cijfers OEE en KPI's van het niveau van het station op globaal niveau.
 * De visualisatie van waarschuwingen en acties uit te voeren als de waarden voor specifieke reach-drempelwaarden.
 
-## <a name="connected-factory-topology"></a>Verbonden factory-topologie
+## <a name="connected-factory-topology"></a>Verbonden Factory-topologie
 
 De topologie van de fabrieken, de regels voor productie en de stations is hiërarchische:
 
@@ -66,7 +66,7 @@ Elk knooppunt in de topologie bevat een gemeenschappelijke set eigenschappen die
 
 ## <a name="topology-configuration-file"></a>Topologie-configuratiebestand
 
-Als u wilt de eigenschappen die worden vermeld in de vorige sectie hebt geconfigureerd de verbonden factory-oplossing maakt gebruik van een configuratiebestand aangeroepen [ContosoTopologyDescription.json](https://github.com/Azure/azure-iot-connected-factory/blob/master/WebApp/Contoso/Topology/ContosoTopologyDescription.json).
+Als u wilt de eigenschappen die worden vermeld in de vorige sectie hebt geconfigureerd de verbonden Factory-oplossing maakt gebruik van een configuratiebestand aangeroepen [ContosoTopologyDescription.json](https://github.com/Azure/azure-iot-connected-factory/blob/master/WebApp/Contoso/Topology/ContosoTopologyDescription.json).
 
 U kunt dit bestand vinden in de broncode van de oplossing in de `WebApp/Contoso/Topology` map.
 
@@ -114,13 +114,13 @@ De `<factory_configuration>` en `<production_line_configuration>` items hebben e
 
   Een unieke identificatie van het knooppunt topologie.
 
-`<factory_configuration>`heeft een eigenschap:
+`<factory_configuration>` heeft een eigenschap:
 
 * **Locatie** (type `<location_definition>`)
 
   Hiermee geeft u op waar de factory zich bevindt.
 
-`<station_configuration>`bevat de eigenschappen:
+`<station_configuration>` bevat de eigenschappen:
 
 * **OpcUri** (Typ tekenreeks)
 
@@ -129,7 +129,7 @@ De `<factory_configuration>` en `<production_line_configuration>` items hebben e
 
 * **OpcNodes**, die een matrix van OPC UA knooppunten zijn (type `<opc_node_description>`)
 
-`<location_definition>`bevat de eigenschappen:
+`<location_definition>` bevat de eigenschappen:
 
 * **Plaats** (Typ tekenreeks)
 
@@ -147,7 +147,7 @@ De `<factory_configuration>` en `<production_line_configuration>` items hebben e
 
   Lengtegraad van de locatie
 
-`<performance_definition>`bevat de eigenschappen:
+`<performance_definition>` bevat de eigenschappen:
 
 * **Minimale** (double-type)
 
@@ -193,7 +193,7 @@ De `<factory_configuration>` en `<production_line_configuration>` items hebben e
   * **CallOpcMethod**: het knooppunt informatie en de parameters van de OPC UA-methode aan te roepen in de notatie 'NodeId van bovenliggend knooppunt, NodeId van methode aan te roepen, URI van de OPC UA-server.'
   * **OpenWebPage**: de URL in het browservenster worden weergegeven.
 
-`<opc_node_description>`bevat informatie over OPC UA-knooppunten in een station (OPC UA-server). Knooppunten die geen bestaande OPC UA-knooppunten vertegenwoordigen, maar worden gebruikt als opslag in de berekening logica van verbonden factory zijn ook geldig. Deze heeft de volgende eigenschappen:
+`<opc_node_description>` bevat informatie over OPC UA-knooppunten in een station (OPC UA-server). Knooppunten die geen bestaande OPC UA-knooppunten vertegenwoordigen, maar worden gebruikt als opslag in de logica van de berekening van de fabriek verbonden zijn ook geldig. Deze heeft de volgende eigenschappen:
 
 * **NodeId** (Typ tekenreeks)
 
@@ -259,7 +259,7 @@ De `<factory_configuration>` en `<production_line_configuration>` items hebben e
 
   Definieert de set acties die kunnen worden genomen als reactie op een maximale waarschuwing.
 
-Op het niveau van het station, ziet u ook **simulatie** objecten. Deze objecten worden alleen gebruikt voor het configureren van de simulatie verbonden factory en mag niet worden gebruikt voor het configureren van een echte topologie.
+Op het niveau van het station, ziet u ook **simulatie** objecten. Deze objecten worden alleen gebruikt voor het configureren van de simulatie Factory verbonden en mag niet worden gebruikt voor het configureren van een echte topologie.
 
 ## <a name="how-the-configuration-data-is-used-at-runtime"></a>Hoe de configuratiegegevens wordt gebruikt tijdens runtime
 
@@ -267,7 +267,7 @@ Alle eigenschappen die in het configuratiebestand gebruikt kunnen worden gegroep
 
 ### <a name="visual-appearance"></a>Visuele weergave
 
-In deze categorie definiëren het uiterlijk van het dashboard verbonden factory. Voorbeelden zijn:
+In deze categorie definiëren het uiterlijk van het dashboard Factory verbonden. Voorbeelden zijn:
 
 * Naam
 * Beschrijving
@@ -282,18 +282,18 @@ De WebApp onderhoudt een interne gegevenswoordenboek met gegevens van alle knoop
 
 ### <a name="oeekpi-computation"></a>OEE/KPI berekening
 
-De cijfers OEE/KPI voor de simulatie verbonden factory zijn parameters gebruikt:
+De cijfers OEE/KPI voor de simulatie Factory verbonden zijn parameters gebruikt:
 
 * De OPC UA knooppuntwaarden moeten worden opgenomen in de berekening.
 * Hoe de afbeelding wordt berekend op basis van de telemetrie-waarden.
 
-De formules OEE verbonden factory gebruikt door de http://oeeindustrystandard.oeefoundation.org gepubliceerd.
+De formules OEE verbonden Factory gebruikt gepubliceerd door de http://oeeindustrystandard.oeefoundation.org.
 
 OPC UA knooppuntobjecten in stations inschakelen voor gebruik in de berekening OEE/KPI-tagging. De **relevantie** eigenschap wordt aangegeven voor welke afbeelding OEE/KPI de knooppuntwaarde OPC UA moet worden gebruikt. De **OpCode** eigenschap wordt gedefinieerd hoe de waarde in de berekening is opgenomen.
 
 ### <a name="alert-handling"></a>Afhandeling van waarschuwing
 
-Verbonden factory ondersteunt een mechanisme voor eenvoudige minimum/maximum voor op basis van een drempelwaarde voor het genereren van waarschuwingen. Er zijn een aantal vooraf gedefinieerde acties die u kunt in reactie op waarschuwingen configureren. De volgende eigenschappen beheren dit mechanisme:
+Verbonden Factory ondersteunt een mechanisme voor eenvoudige minimum/maximum voor op basis van een drempelwaarde voor het genereren van waarschuwingen. Er zijn een aantal vooraf gedefinieerde acties die u kunt in reactie op waarschuwingen configureren. De volgende eigenschappen beheren dit mechanisme:
 
 * Maximum
 * Minimum
@@ -302,23 +302,23 @@ Verbonden factory ondersteunt een mechanisme voor eenvoudige minimum/maximum voo
 
 ## <a name="correlating-to-telemetry-data"></a>Correleren van telemetriegegevens
 
-Voor bepaalde bewerkingen, zoals de laatste waarde te visualiseren of Time Series inzicht query's, maken de WebApp moet een adresschema gebruiken voor de telemetriegegevens opgenomen. De telemetrie die is verzonden naar verbonden factory moet ook worden opgeslagen in interne gegevensstructuur. De twee eigenschappen voor het inschakelen van deze bewerkingen zijn op station (OPC UA-server) en OPC UA knooppuntniveau:
+Voor bepaalde bewerkingen, zoals de laatste waarde te visualiseren of Time Series inzicht query's, maken de WebApp moet een adresschema gebruiken voor de telemetriegegevens opgenomen. De telemetrie die is verzonden naar verbonden Factory moet ook worden opgeslagen in interne gegevensstructuur. De twee eigenschappen voor het inschakelen van deze bewerkingen zijn op station (OPC UA-server) en OPC UA knooppuntniveau:
 
 * **OpcUri**
 
   Identificeert vandaan (globaal unieke) de OPC UA-server de telemetrie. Deze eigenschap wordt in de opgenomen berichten verzonden als **ApplicationUri**.
 
-* **NodeId**
+* **nodeId**
 
   Geeft de waarde van een knooppunt in de OPC UA-server. De indeling van de eigenschap moet zoals opgegeven in de OPC UA-specificatie. Deze eigenschap wordt in de opgenomen berichten verzonden als **NodeId**.
 
-Controleer [dit](https://github.com/Azure/iot-edge-opc-publisher) GitHub-pagina voor meer informatie over hoe de telemetriegegevens naar verbonden factory met de uitgever OPC wordt ingenomen.
+Controleer [dit](https://github.com/Azure/iot-edge-opc-publisher) GitHub-pagina voor meer informatie over hoe de telemetriegegevens naar verbonden Factory met de uitgever OPC wordt ingenomen.
 
 ## <a name="example-how-kpi1-is-calculated"></a>Voorbeeld: Hoe KPI1 wordt berekend
 
 De configuratie in de `ContosoTopologyDescription.json` bestand bepaalt hoe OEE/KPI cijfers worden berekend. Het volgende voorbeeld ziet hoe de eigenschappen in dit bestand de berekening van de KPI1 beheren.
 
-Verbonden geproduceerd factory die kpi1 wordt gebruikt voor het succes meten van het aantal producten in het afgelopen uur. Elk station (OPC UA-server) in de simulatie verbonden factory biedt een OPC UA-knooppunt (`NodeId: "ns=2;i=385"`), waarmee u de telemetrie deze KPI berekenen.
+In de fabriek KPI1 verbonden wordt gebruikt voor het meten van het aantal producten is in het afgelopen uur. Elk station (OPC UA-server) in de simulatie verbonden Factory biedt een OPC UA-knooppunt (`NodeId: "ns=2;i=385"`), waarmee u de telemetrie deze KPI berekenen.
 
 De configuratie voor dit knooppunt OPC UA eruit ziet het volgende fragment:
 
@@ -339,10 +339,10 @@ Deze configuratie kan opvragen van de waarden van de telemetrie van dit knooppun
 * Het gemiddelde van alle waarden.
 * De som van alle waarden voor alle unieke **OpcUri** (**ApplicationUri**), **NodeId** -paren in een bepaalde TimeSpan-waarde.
 
-Een kenmerk van de **NumberOfManufactureredProducts** knooppuntwaarde is dat alleen de bijbehorende waarde stijgt. Het aantal producten in de timespan berekenen verbonden factory gebruikt de **OpCode** **SubMaxMin**. De berekening haalt de minimale waarde aan het begin van de timespan en de maximumwaarde aan het einde van de timespan.
+Een kenmerk van de **NumberOfManufactureredProducts** knooppuntwaarde is dat alleen de bijbehorende waarde stijgt. Voor het berekenen van het aantal producten in de timespan verbonden Factory maakt gebruik van de **OpCode** **SubMaxMin**. De berekening haalt de minimale waarde aan het begin van de timespan en de maximumwaarde aan het einde van de timespan.
 
 De **OpCode** configureert u de berekening logica voor het berekenen van het resultaat van het verschil tussen de maximale en minimale waarde in de configuratie. De resultaten worden vervolgens onder naar het hoofdniveau (global) verzameld en weergegeven in het dashboard.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Een voorstel voor de volgende stap is te leren hoe u [Implementeer een gateway op Windows of Linux verbonden factory vooraf geconfigureerde oplossing voor](iot-suite-connected-factory-gateway-deployment.md).
+Een voorstel voor de volgende stap is te leren hoe u [Implementeer een gateway op Windows of Linux voor de verbonden Factory oplossingsverbetering](iot-suite-connected-factory-gateway-deployment.md).

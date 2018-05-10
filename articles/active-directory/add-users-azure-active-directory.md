@@ -2,24 +2,22 @@
 title: Toevoegen of verwijderen van gebruikers in Azure Active Directory | Microsoft Docs
 description: Wordt uitgelegd hoe u nieuwe gebruikers toevoegen of bestaande gebruikers in Azure Active Directory verwijderen
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: f0f18f377f194e78c05e63e9b6cbc31c1b945335
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 3e8b7061e57c1baf222e5f565a5b7efc6b997507
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="quickstart-add-new-users-to-azure-active-directory"></a>Snelstartgids: Nieuwe gebruikers toevoegen aan Azure Active Directory
 In dit artikel wordt uitgelegd hoe verwijderen of toevoegen van gebruikers in uw organisatie in uw orgnization Azure Active Directory (Azure AD)-tenant met de Azure portal of door het synchroniseren van uw on-premises Windows Server AD-gegevens voor account van gebruiker. 

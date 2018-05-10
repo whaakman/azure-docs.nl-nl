@@ -2,9 +2,9 @@
 title: Azure Notification Hubs beveiligde Push
 description: Informatie over het veilig pushmeldingen verzendt naar een iOS-app van Azure. Codevoorbeelden geschreven in Objective-C en C#.
 documentationcenter: ios
-author: ysxu
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 services: notification-hubs
 ms.assetid: 17d42b0a-2c80-4e35-a1ed-ed510d19f4b4
 ms.service: notification-hubs
@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: e5f09fb3716303bb21fe7442aa6fa8832174838e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.date: 04/25/2018
+ms.author: dimazaid
+ms.openlocfilehash: d3ba967a164a35af5bf66f7e74d5f95b5dc2a37f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Azure Notification Hubs beveiligde Push
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ Op een hoog niveau is de stroom als volgt uit:
    * Het apparaat neemt contact op met de back-end de nettolading van de beveiligde aanvragen.
    * De app kan de nettolading van de weergegeven als een melding op het apparaat.
 
-Het is belangrijk te weten dat in de voorgaande stroom (en in deze zelfstudie), gaan we ervan uit dat het apparaat geen verificatietoken in de lokale opslag opslaat nadat de gebruiker zich aanmeldt. Dit garandeert een volledig naadloze ervaring als het apparaat de melding van de beveiligde nettolading met dit token kan ophalen. Als uw toepassing geen verificatietokens opslaat op het apparaat, of als deze tokens kunnen verlopen, moet een algemene melding dat de gebruiker wordt gevraagd om de app te starten door de app apparaat bij ontvangst van de melding worden weergegeven. De app vervolgens verifieert de gebruiker en toont de nettolading van de meldingen.
+Het is belangrijk te weten dat in de voorgaande stroom (en in deze zelfstudie), gaan we ervan uit dat het apparaat geen verificatietoken in de lokale opslag opslaat nadat de gebruiker zich aanmeldt. Dit garandeert een naadloze ervaring als het apparaat de melding van de beveiligde nettolading met dit token kan ophalen. Als uw toepassing geen verificatietokens opslaat op het apparaat, of als deze tokens kunnen verlopen, moet een algemene melding dat de gebruiker wordt gevraagd om de app te starten door de app apparaat bij ontvangst van de melding worden weergegeven. De app vervolgens verifieert de gebruiker en toont de nettolading van de meldingen.
 
 Deze Secure Push-zelfstudie laat zien hoe veilig een pushmelding verzenden. De zelfstudie bouwt voort op de [gebruikers waarschuwen](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) zelfstudie, dus u moet eerst de stappen in deze zelfstudie voltooien.
 
@@ -54,11 +54,11 @@ Deze Secure Push-zelfstudie laat zien hoe veilig een pushmelding verzenden. De z
 [!INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## <a name="modify-the-ios-project"></a>Wijzigen van het iOS-project
-Nu dat u uw back-end app verzenden gewijzigd alleen de *id* van een melding die u moet wijzigen van uw iOS-app voor het verwerken van deze kennisgeving en terugbellen van uw back-end voor het ophalen van het beveiligde bericht moet worden weergegeven.
+Nu dat u uw back-end app verzenden gewijzigd alleen de *ID* van een melding die u moet wijzigen van uw iOS-app voor het verwerken van deze kennisgeving en terugbellen van uw back-end voor het ophalen van het beveiligde bericht moet worden weergegeven.
 
 Voor dit doel te bereiken, moeten we schrijven van de logica voor het ophalen van de beveiligde inhoud van de back-end van de app.
 
-1. In **AppDelegate.m**, zorg ervoor dat de app worden geregistreerd voor de achtergrond meldingen zodat de id van de melding verzonden vanaf de back-end worden verwerkt. Voeg de **UIRemoteNotificationTypeNewsstandContentAvailability** optie in didFinishLaunchingWithOptions:
+1. In **AppDelegate.m**, zorg ervoor dat de app registers voor stille meldingen zodat de verwerking van de ID van de melding is verzonden vanaf de back-end. Voeg de **UIRemoteNotificationTypeNewsstandContentAvailability** optie in didFinishLaunchingWithOptions:
    
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeNewsstandContentAvailability];
 2. In uw **AppDelegate.m** een Implementatiesectie toevoegen aan de bovenkant met de volgende declaratie:
@@ -144,7 +144,7 @@ Voor dit doel te bereiken, moeten we schrijven van de logica voor het ophalen va
    
         }
    
-    Houd er rekening mee dat is het raadzaam om het geval van een eigenschap van de header ontbreekt verificatie of afwijzing verwerkt door de back-end. De specifieke verwerking van deze gevallen afhankelijk zijn van voornamelijk op de doel-gebruikerservaring. Een mogelijkheid is om een melding met een algemene prompt voor de gebruiker te verifiëren voor het ophalen van de werkelijke melding weer te geven.
+    Houd er rekening mee dat is het raadzaam om het geval van een eigenschap van de header ontbreekt verificatie of afwijzing verwerkt door de back-end. De specifieke verwerking van deze gevallen is afhankelijk van voornamelijk op de doel-gebruikerservaring. Een mogelijkheid is om een melding met een algemene prompt voor de gebruiker te verifiëren voor het ophalen van de werkelijke melding weer te geven.
 
 ## <a name="run-the-application"></a>De toepassing uitvoeren
 Voor het uitvoeren van de toepassing, het volgende doen:

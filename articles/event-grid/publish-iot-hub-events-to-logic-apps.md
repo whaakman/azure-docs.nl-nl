@@ -2,21 +2,21 @@
 title: Gebeurtenissen van de IoT-Hub aan trigger Azure Logic Apps gebruiken | Microsoft Docs
 description: Maak met de gebeurtenis routing-service van Azure Event raster geautomatiseerde processen op basis van gebeurtenissen van de IoT Hub Azure Logic Apps-bewerkingen uit te voeren.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: f54db95b0dfe5dc39c8e2a85375e56a93d1562ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: MT
+ms.openlocfilehash: 4fed42a45f8d291bd3ba1e4fd5d636b7d0b0fbfc
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>Verzenden van e-mailmeldingen over gebeurtenissen van Azure IoT Hub met Logic Apps
 
@@ -51,7 +51,7 @@ Eerst een logische app maken en toevoegen van een trigger voor de gebeurtenis ra
 
 4. In de ontwerpfunctie voor Logic App onder **sjablonen**, kies **lege logische App** zodat u uw logische app helemaal kunt samenstellen.
 
-## <a name="select-a-trigger"></a>Een trigger selecteren
+## <a name="select-a-trigger"></a>Selecteer een trigger
 
 Een trigger is een specifieke gebeurtenis die uw logische app wordt gestart. Voor deze zelfstudie is de trigger die uit de werkstroom ingesteld ontvangst van een aanvraag via HTTP.  
 
@@ -156,7 +156,7 @@ Voordat u de ontwerpfunctie van Logic Apps laat, Kopieer de URL waarnaar uw logi
 In deze sectie configureert u uw IoT-Hub voor het publiceren van gebeurtenissen, als deze problemen optreden. 
 
 1. Navigeer naar uw IoT-hub in de Azure portal. 
-2. Selecteer **gebeurtenis raster**.
+2. Selecteer **gebeurtenissen**.
 
    ![De details van gebeurtenis raster openen](./media/publish-iot-hub-events-to-logic-apps/event-grid.png)
 

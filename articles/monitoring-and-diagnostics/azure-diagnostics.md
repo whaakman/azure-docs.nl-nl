@@ -1,5 +1,5 @@
 ---
-title: Overzicht van Azure Diagnostics | Microsoft Docs
+title: Overzicht van Azure Diagnostics uitbreiding | Microsoft Docs
 description: Gebruik van Azure diagnostics voor foutopsporing, meten van de prestaties, bewaking, analyse van het netwerkverkeer in cloudservices, virtuele machines en het service fabric
 services: multiple
 documentationcenter: .net
@@ -12,19 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/18/2017
+ms.date: 05/01/2018
 ms.author: robb
-ms.openlocfilehash: 0231a6c1d78818b948bb24d0c406fb2f2da17a0f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: daeaddefa461e71fcc62af4efc4fb7084b237cf9
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
-# <a name="what-is-azure-diagnostics"></a>Wat is Azure Diagnostics
-Azure Diagnostics is de functie binnen Azure waarmee het verzamelen van diagnostische gegevens op een geïmplementeerde toepassing. U kunt de extensie voor diagnostische gegevens van een aantal verschillende bronnen. Op dit moment ondersteund zijn Azure Cloud Service (klassiek) Web- en werkrollen, virtuele Machines, virtuele-Machineschaalset sets en Service Fabric. Andere Azure-services hebben diagnostische gegevens van andere methoden. Zie [overzicht van bewaken in Azure](monitoring-overview.md). 
+# <a name="what-is-azure-diagnostics-extension"></a>Wat is Azure Diagnostics-extensie
+De extensie Azure Diagnostics is een agent in Azure waarmee het verzamelen van diagnostische gegevens op een geïmplementeerde toepassing. U kunt de extensie voor diagnostische gegevens van een aantal verschillende bronnen. Op dit moment ondersteund zijn Azure Cloud Service (klassiek) Web- en werkrollen, virtuele Machines, virtuele-Machineschaalset sets en Service Fabric. Andere Azure-services hebben diagnostische gegevens van andere methoden. Zie [overzicht van bewaken in Azure](monitoring-overview.md). 
+
+## <a name="linux-agent"></a>Linux-Agent
+Een [Linux-versie van de extensie](../virtual-machines/linux/diagnostic-extension.md) is beschikbaar voor virtuele Machines met Linux. De statistieken die worden verzameld en het gedrag afwijken van de Windows-versie. 
 
 ## <a name="data-you-can-collect"></a>Gegevens die u kunt verzamelen
-Azure Diagnostics kan de volgende soorten gegevens verzamelen:
+De extensie Azure Diagnostics kan de volgende soorten gegevens verzamelen:
 
 | Gegevensbron | Beschrijving |
 | --- | --- |
@@ -38,10 +41,15 @@ Azure Diagnostics kan de volgende soorten gegevens verzamelen:
 | Aangepaste foutenlogboeken |Logboeken die zijn gemaakt door uw toepassing of service |
 | Logboeken met diagnostische Azure-infrastructuur |Informatie over diagnostische gegevens zelf |
 
-De extensie Azure diagnostics kan deze gegevens overdragen naar Azure storage-account of verzenden deze [Application Insights](../application-insights/app-insights-cloudservices.md). U kunt ook om te streamen [Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md), die vervolgens kunt u deze verzenden naar controleconfiguratie van niet-Azure-services. U kunt de gegevens gebruiken voor foutopsporing en het oplossen van problemen, meten van de prestaties, Resourcegebruik, analyse van het netwerkverkeer en capaciteitsplanning bewaking en controle.
+## <a name="data-storage"></a>Gegevensopslag
+De extensie slaat de gegevens op in een [Azure Storage-account](azure-diagnostics-storage.md) die u opgeeft. 
 
-## <a name="versioning"></a>Versiebeheer
-Zie [Azure Diagnostics Versioning geschiedenis](azure-diagnostics-versioning-history.md).
+U kunt ook verzenden naar [Application Insights](../application-insights/app-insights-cloudservices.md). Een andere optie is om te streamen naar [Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md), die vervolgens kunt u deze verzenden naar controleconfiguratie van niet-Azure-services. 
+
+
+## <a name="versioning-and-configuration-schema"></a>Versies en configuraties schema
+Zie [versiegeschiedenis van Azure Diagnostics- en Schema](azure-diagnostics-versioning-history.md).
+
 
 ## <a name="next-steps"></a>Volgende stappen
 Kies welke service die u probeert te verzamelen van diagnostische gegevens op en gebruik de volgende artikelen voor aan de slag. Gebruik de koppelingen algemene Azure diagnostics voor verwijzing voor specifieke taken.
@@ -57,7 +65,7 @@ Zie voor meer geavanceerde onderwerpen
 * [De stroom van een Cloud Services-toepassing met Azure Diagnostics traceren](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
 * [PowerShell gebruiken voor het instellen van diagnostische gegevens op Cloud-Services](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-## <a name="virtual-machines-using-azure-diagnostics"></a>Virtuele Machines met behulp van Azure Diagnostics
+## <a name="virtual-machines"></a>Virtuele machines
 * Als u Visual Studio, Zie [Gebruik Visual Studio te traceren Azure Virtual Machines](../vs-azure-tools-debug-cloud-services-virtual-machines.md) aan de slag. Raadpleeg anders
 * [Instellen van Azure Diagnostics op een virtuele Machine van Azure](../virtual-machines-dotnet-diagnostics.md)
 
@@ -66,12 +74,9 @@ Zie voor meer geavanceerde onderwerpen
 * [PowerShell gebruiken voor het instellen van diagnostische gegevens op Azure Virtual Machines](../virtual-machines/windows/ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Een Windows virtuele machine met de controle en diagnostische gegevens met Azure Resource Manager-sjabloon maken](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-## <a name="service-fabric-using-azure-diagnostics"></a>Service-infrastructuur met behulp van Azure Diagnostics
+## <a name="service-fabric"></a>Service Fabric
 Aan de slag op [bewaken van een Service Fabric-toepassing](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). Veel andere Service Fabric diagnostics artikelen zijn beschikbaar in de navigatiestructuur aan de linkerkant als u eenmaal naar dit artikel.
 
-## <a name="general-azure-diagnostics-articles"></a>Algemene Azure Diagnostics-artikelen
-* [Configuratie van Azure Diagnostics Schema](https://msdn.microsoft.com/library/azure/mt634524.aspx) -informatie over het wijzigen van het schemabestand om te verzamelen en doorsturen van de diagnostics-gegevens. Opmerking: u kunt ook Visual Studio gebruiken om de schemabestand te wijzigen.
-* [Hoe Azure Diagnostics-gegevens worden opgeslagen in Azure Storage](../cloud-services/cloud-services-dotnet-diagnostics-storage.md) -kennen van de namen van de tabellen en blobs waar de diagnostische gegevens worden geschreven.
+## <a name="general-articles"></a>Algemene artikelen
 * Informatie over het [prestatiemeteritems gebruiken in Azure Diagnostics](../cloud-services/diagnostics-performance-counters.md).
-* Informatie over het [Route Azure diagnostische gegevens naar Application Insights](azure-diagnostics-configure-application-insights.md)
-* Als u problemen met diagnostische gegevens starten ondervindt of uw gegevens zoeken in Azure Storage-tabellen, Zie [Azure Diagnostics probleemoplossing](azure-diagnostics-troubleshooting.md)
+* Als u problemen met diagnostische gegevens starten ondervindt of uw gegevens zoeken in Azure storage-tabellen, Zie [Azure Diagnostics probleemoplossing](azure-diagnostics-troubleshooting.md)

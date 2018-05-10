@@ -2,25 +2,23 @@
 title: Voorbeeld van de administratieve eenheden management in Azure Active Directory
 description: Administratieve eenheden gebruiken voor meer gedetailleerd overdracht van machtigingen in Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 8464cd6b-1d1a-470d-a4fb-ee29b8eab4c4
+editor: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.component: users-groups-roles
 ms.workload: identity
 ms.date: 08/17/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: d657eda25f3b26cb793a7ba1a4546f98c08b7e65
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 373983413ea83e5924b52fbbcbc666aa1a188d80
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="administrative-units-management-in-azure-ad---public-preview"></a>Beheer van beheereenheden in Azure AD - openbare preview
 In dit artikel beschrijft administratieve eenheden – een nieuwe Azure Active Directory-container van bronnen die kunnen worden gebruikt voor het overdragen van beheerdersmachtigingen via subsets van gebruikers en -beleid toepassen op een subset van gebruikers. In Azure Active Directory kunnen administratieve eenheden centrale beheerders overdragen van machtigingen voor de regionale beheerders of beleid instellen op een gedetailleerd niveau.
@@ -40,4 +38,4 @@ U kunt maken en beheren van administratieve eenheden met de Azure Active Directo
 Zie voor meer informatie over de softwarevereisten en de Azure AD-module installeren en voor informatie over de Azure AD-Module-cmdlets voor het beheren van administratieve eenheden, inclusief syntaxis, beschrijvingen van parameters en voorbeelden [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 
 ## <a name="next-steps"></a>Volgende stappen
-[Azure Active Directory editions](active-directory-editions.md)
+[Azure Active Directory-edities](active-directory-editions.md)

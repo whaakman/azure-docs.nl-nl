@@ -1,13 +1,13 @@
 ---
 title: Factory-oplossing FAQ - Azure verbonden | Microsoft Docs
-description: Veelgestelde vragen voor verbonden IoT Suite-factory
-services: 
+description: Veelgestelde vragen over de Factory verbonden oplossingsverbetering
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
@@ -15,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: ab72152fc937e3c4552147fce29c95ea0efcadf4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 12ebd8b8dfa90ab736190e842b35744dbf1c5b96
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="frequently-asked-questions-for-iot-suite-connected-factory-preconfigured-solution"></a>Veelgestelde vragen voor verbonden factory IoT Suite vooraf geconfigureerde oplossing
+# <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Veelgestelde vragen over verbonden Factory oplossingsverbetering
 
-Zie ook de algemene [Veelgestelde vragen over](iot-suite-faq.md) voor IoT Suite.
+Zie ook de algemene [Veelgestelde vragen over](iot-suite-faq.md) voor IoT-oplossing accelerators aan te schaffen.
 
-### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solution"></a>Waar vind ik de broncode voor de vooraf geconfigureerde oplossing
+### <a name="where-can-i-find-the-source-code-for-the-solution-accelerator"></a>Waar vind ik de broncode voor de oplossingsverbetering
 
 De broncode is opgeslagen in de volgende GitHub-opslagplaats:
 
-* [Verbonden factory vooraf geconfigureerde oplossing](https://github.com/Azure/azure-iot-connected-factory)
+* [Verbonden Factory oplossingsverbetering](https://github.com/Azure/azure-iot-connected-factory)
 
 ### <a name="what-is-opc-ua"></a>Wat is OPC UA?
 
@@ -40,7 +40,7 @@ OPC Unified architectuur (UA), uitgebracht in 2008, is een standaard platformona
 * Technologie
 * Processen
 
-### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-preconfigured-solution"></a>Waarom Microsoft OPC UA kiezen voor de verbonden factory vooraf geconfigureerde oplossing?
+### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-solution-accelerator"></a>Waarom Microsoft OPC UA kiezen voor de verbonden Factory oplossingsverbetering
 
 Microsoft heeft ervoor gekozen OPC UA omdat het een open, op niet-bedrijfseigen platform onafhankelijke bedrijfstak herkend en beproefde standaard. Het is een vereiste voor Industrie 4.0 (RAMI4.0) reference architecture oplossingen interoperabiliteit tussen een uitgebreide reeks productieprocessen en apparatuur. Microsoft ziet vraag van klanten Industrie 4.0 oplossingen bouwen. Ondersteuning voor OPC UA verlaagt u de blokkade voor klanten om hun doelstellingen te realiseren en biedt onmiddellijke bedrijfswaarde toe.
 
@@ -74,7 +74,7 @@ Als u de oplossing van www.azureiotsuite.com hebt geïmplementeerd, kunt u zich 
 1. De gebruikersnaam te gebruiken: `docker`.
 1. Het wachtwoord te gebruiken, is afhankelijk van de versie die u gebruikt om te implementeren:
     * Voor oplossingen die zijn geïmplementeerd met behulp van het script build.ps1 vóór 1 juni 2017, het wachtwoord is: `Passw0rd`.
-    * Voor oplossingen die zijn geïmplementeerd met behulp van het script build.ps1 na 1 juni 2017, vindt u het wachtwoord in de `<name of your deployment>.config.user` bestand. Het wachtwoord wordt opgeslagen in de **VmAdminPassword** instelling. Het wachtwoord willekeurig gegenereerd tijdens de implementatie tenzij u opgeeft met behulp van de `build.ps1` parameter script`-VmAdminPassword`
+    * Voor oplossingen die zijn geïmplementeerd met behulp van het script build.ps1 na 1 juni 2017, vindt u het wachtwoord in de `<name of your deployment>.config.user` bestand. Het wachtwoord wordt opgeslagen in de **VmAdminPassword** instelling. Het wachtwoord willekeurig gegenereerd tijdens de implementatie tenzij u opgeeft met behulp van de `build.ps1` parameter script `-VmAdminPassword`
 
 ### <a name="how-do-i-stop-and-start-all-docker-processes-in-the-simulation-vm"></a>Hoe ik stoppen en starten van alle docker-processen in de simulatie VM?
 
@@ -100,7 +100,7 @@ Als u uw oplossing met geïmplementeerd de `build.ps1` script in de [opslagplaat
 
 Ook vindt u de verbindingsreeks met de Azure portal. Zoek in de resource IoT-Hub in de resourcegroep van uw implementatie, instellingen voor de verbindingstekenreeks.
 
-### <a name="which-iot-hub-devices-does-the-connected-factory-simulation-use"></a>Welke apparaten IoT-Hub maakt gebruik van de simulatie verbonden factory?
+### <a name="which-iot-hub-devices-does-the-connected-factory-simulation-use"></a>Welke apparaten IoT-Hub maakt gebruik van de simulatie Factory verbonden?
 
 De simulatie zichzelf registreert de volgende apparaten:
 
@@ -144,15 +144,15 @@ Inspecteer de gegevens die worden verzonden door een van de uitgever van apparat
 
 Als er geen gegevens die worden verzonden naar IoT Hub, is er een probleem met de simulatie. Als eerste analyse stap moet u de logboekbestanden van de onderdelen van de simulatie analyseren. Zie [hoe krijg ik logboekgegevens uit de onderdelen van de simulatie?](#how-can-i-get-log-data-from-the-simulation-components) Probeer vervolgens om te stoppen en starten van de simulatie en als er nog geen gegevens verzonden zijn, werkt de simulatie volledig. Zie [hoe kan ik de simulatie in de virtuele machine bijwerken?](#how-do-i-update-the-simulation-in-the-vm)
 
-### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>Hoe schakel ik een interactieve hyperlinks in mijn verbonden factory-oplossing?
+### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>Hoe schakel ik een interactieve hyperlinks in mijn verbonden Factory-oplossing?
 
-Om een interactieve kaart in uw verbonden factory-oplossing, moet u een bestaande Bing kaarten-API voor Enterprise-abonnement hebben.
+Om een interactieve kaart in uw oplossing Factory verbonden, moet u een bestaande Bing kaarten-API voor Enterprise-abonnement hebben.
 
-Bij het implementeren van [www.azureiotsuite.com](http://www.azureiotsuite.com), het implementatieproces wordt gecontroleerd of uw abonnement een ingeschakelde Bing kaarten-API voor Enterprise-plan heeft en implementeert automatisch een interactieve hyperlinks in verbonden factory. Als dit niet het geval is, kunt u nog steeds inschakelen een interactieve hyperlinks in uw implementatie als volgt:
+Bij het implementeren van [www.azureiotsuite.com](http://www.azureiotsuite.com), het implementatieproces wordt gecontroleerd of uw abonnement een ingeschakelde Bing kaarten-API voor Enterprise-plan heeft en implementeert automatisch een interactieve hyperlinks in Factory verbonden. Als dit niet het geval is, kunt u nog steeds inschakelen een interactieve hyperlinks in uw implementatie als volgt:
 
-Wanneer u implementeert met behulp van de `build.ps1` script in de verbonden fabriek GitHub-opslagplaats en u een Bing kaarten-API voor Enterprise-abonnement hebt, stelt u de omgevingsvariabele `$env:MapApiQueryKey` in het venster build voor de querysleutel van uw abonnement. De interactieve kaart wordt automatisch ingeschakeld.
+Wanneer u implementeert met behulp van de `build.ps1` script in de fabriek verbonden GitHub-opslagplaats en u een Bing kaarten-API voor Enterprise-abonnement hebt, stelt u de omgevingsvariabele `$env:MapApiQueryKey` in het venster build voor de querysleutel van uw abonnement. De interactieve kaart wordt automatisch ingeschakeld.
 
-Als u geen Bing kaarten-API voor Enterprise-abonnement hebt, implementeert u de verbonden factory-oplossing van [www.azureiotsuite.com](http://www.azureiotsuite.com) of met behulp van de `build.ps1` script. Bing kaarten-API voor Enterprise-plan vervolgens toevoegen aan uw abonnement zoals toegelicht in [hoe maak ik een Bing kaarten-API voor Enterprise-account?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Opzoeken van de querysleutel van dit account, zoals wordt beschreven in [het verkrijgen van uw Bing kaarten-API voor Enterprise-querysleutel](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) en deze sleutel op te slaan. Navigeer naar de Azure-portal en toegang tot de App Service-bron in uw implementatie verbonden factory. Navigeer naar **toepassingsinstellingen**, waar u een sectie vinden **appinstellingen**. Stel de **MapApiQueryKey** aan de querysleutel die u hebt verkregen. Sla de instellingen en navigeer vervolgens naar **overzicht** en start de App-Service opnieuw.
+Als u geen Bing kaarten-API voor Enterprise-abonnement hebt, implementeert u de verbonden Factory-oplossing van [www.azureiotsuite.com](http://www.azureiotsuite.com) of met behulp van de `build.ps1` script. Bing kaarten-API voor Enterprise-plan vervolgens toevoegen aan uw abonnement zoals toegelicht in [hoe maak ik een Bing kaarten-API voor Enterprise-account?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Opzoeken van de querysleutel van dit account, zoals wordt beschreven in [het verkrijgen van uw Bing kaarten-API voor Enterprise-querysleutel](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) en deze sleutel op te slaan. Navigeer naar de Azure-portal en toegang tot de App Service-bron in uw implementatie Factory verbonden. Navigeer naar **toepassingsinstellingen**, waar u een sectie vinden **appinstellingen**. Stel de **MapApiQueryKey** aan de querysleutel die u hebt verkregen. Sla de instellingen en navigeer vervolgens naar **overzicht** en start de App-Service opnieuw.
 
 ### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Hoe maak ik een Bing kaarten-API voor Enterprise-account
 
@@ -162,7 +162,7 @@ U krijgt een gratis *interne transacties niveau 1 Bing-kaarten voor Enterprise* 
 
 ### <a name="how-to-obtain-your-bing-maps-api-for-enterprise-querykey"></a>Het verkrijgen van uw Bing kaarten-API voor Enterprise-querysleutel
 
-Nadat u uw Bing kaarten-API voor Enterprise-abonnement hebt gemaakt, moet u een Bing-kaarten voor Enterprise resource toevoegen aan de resourcegroep van uw oplossing verbonden factory in de Azure-portal.
+Nadat u uw Bing kaarten-API voor Enterprise-abonnement hebt gemaakt, moet u een Bing-kaarten voor Enterprise resource toevoegen aan de resourcegroep van uw oplossing Factory verbonden in de Azure-portal.
 
 1. Ga in de Azure-portal naar de resourcegroep die uw Bing kaarten-API voor Enterprise-plan bevat.
 
@@ -182,13 +182,13 @@ Om de interactieve kaart terwijl u lokaal fouten opspoort, stel de waarde van de
 
 De statische afbeelding weergegeven io wijzigen de startpagina van het dashboard, vervang de installatiekopie `WebApp\Content\img\world.jpg`. Vervolgens opnieuw maken en implementeren van de Web-App.
 
-### <a name="how-do-i-use-non-opc-ua-devices-with-connected-factory"></a>Hoe gebruik ik niet OPC UA-apparaten met verbonden factory
+### <a name="how-do-i-use-non-opc-ua-devices-with-connected-factory"></a>Hoe gebruik ik niet OPC UA-apparaten met verbonden Factory
 
-Telemetriegegevens te verzenden vanaf niet OPC UA apparaten tot verbonden factory:
+Telemetriegegevens te verzenden vanaf niet OPC UA apparaten tot Factory verbonden:
 
-1. [Een nieuw station configureren in de topologie verbonden factory](iot-suite-connected-factory-configure.md) in de `ContosoTopologyDescription.json` bestand.
+1. [Een nieuw station configureren in de topologie Factory verbonden](iot-suite-connected-factory-configure.md) in de `ContosoTopologyDescription.json` bestand.
 
-1. De telemetriegegevens verbonden factory compatibel JSON-indeling voor opnemen:
+1. De telemetriegegevens verbonden Factory compatibel JSON-indeling voor opnemen:
 
     ```json
     [
@@ -204,14 +204,14 @@ Telemetriegegevens te verzenden vanaf niet OPC UA apparaten tot verbonden factor
     ]
     ```
 
-1. De indeling van `<timestamp>` is:`2017-12-08T19:24:51.886753Z`
+1. De indeling van `<timestamp>` is: `2017-12-08T19:24:51.886753Z`
 
-1. Start opnieuw op de verbonden App Service-factory.
+1. De Factory verbonden App-Service opnieuw starten.
 
 ### <a name="next-steps"></a>Volgende stappen
 
-U kunt ook enkele van de andere functies en mogelijkheden van de vooraf geconfigureerde IoT Suite-oplossingen verkennen:
+U kunt ook een aantal andere functies en mogelijkheden van de IoT-oplossing accelerators verkennen:
 
-* [Overzicht van voorspeld onderhoud vooraf geconfigureerde oplossing](iot-suite-predictive-overview.md)
-* [Overzicht van de verbonden factory vooraf geconfigureerde oplossing](iot-suite-connected-factory-overview.md)
+* [Overzicht van voorspeld onderhoud oplossing accelerator](iot-suite-predictive-overview.md)
+* [Overzicht van verbonden Factory oplossing accelerator](iot-suite-connected-factory-overview.md)
 * [Beveiliging van een compleet nieuwe IoT](securing-iot-ground-up.md)

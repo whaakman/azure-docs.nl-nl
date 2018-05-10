@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ceeec6991aaac64211301313c1bb8dc5f5faa1c0
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bc446dfeee86fa1183892cba8068709f8fd277d5
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Overzicht van de SAP HANA (grote exemplaren) en architectuur op Azure
 
@@ -68,7 +68,7 @@ Verschillende gemeenschappelijke definities worden veel gebruikt in de architect
 - **Tenant**: een klant die is geïmplementeerd in grote exemplaar HANA stempel opgehaald geïsoleerd in een *tenant.* Een tenant is geïsoleerd van netwerken, opslag en berekeningslaag van andere tenants. Opslag en berekeningen eenheden die zijn toegewezen aan de verschillende tenants kunnen elkaar zien of op het niveau van de stempel HANA grote exemplaar met elkaar communiceren. Een klant kunt implementaties in verschillende tenants hebben. Er is zelfs dan geen communicatie tussen de tenants op het niveau van de stempel HANA grote exemplaar.
 - **SKU-categorie**: voor HANA grote exemplaar, de volgende twee categorieën van SKU's zijn beschikbaar:
     - **Type ik klasse**: S72, S72m S144, S144m, S192 en S192m
-    - **Typ II klasse**: S384, S384m S384xm, S576, S768 en S960
+    - **Typ II klasse**: S384, S384m S384xm, S576m, S768m en S960m
 
 
 Een aantal extra bronnen zijn beschikbaar op het implementeren van een SAP-workload in de cloud. Als u van plan bent om een SAP HANA-implementatie worden uitgevoerd in Azure, moet u ervaring hebt met en op de hoogte van de beginselen van Azure IaaS en de implementatie van SAP werkbelastingen op Azure IaaS. Voordat u doorgaat, Zie [gebruik SAP-oplossingen voor virtuele machines in Azure](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) voor meer informatie. 
@@ -135,18 +135,18 @@ SAP HANA in Azure (grote exemplaren) is vanaf juli 2017 beschikbaar in verschill
 
 | SAP-oplossing | CPU | Geheugen | Storage | Beschikbaarheid |
 | --- | --- | --- | --- | --- |
-| Geoptimaliseerd voor OLAP-: SAP BW, BW/4HANA<br /> of SAP HANA voor algemene OLAP-werkbelasting | SAP HANA op Azure S72<br /> – 2 x Intel® Xeon® Processor E7-8890 v3<br /> 36 CPU-kernen en 72 CPU threads |  768 GB |  3 TB | Beschikbaar |
-| --- | SAP HANA op Azure S144<br /> – 4 x Intel® Xeon® Processor E7-8890 v3<br /> 72 CPU-kernen en 144 CPU threads |  1,5 TB |  6 TB | Niet beschikbaar meer |
-| --- | SAP HANA op Azure S192<br /> – 4 x Intel® Xeon® Processor E7-8890 v4<br /> 96 CPU-kernen en 192 CPU threads |  2.0 TB |  8 TB | Beschikbaar |
+| Geoptimaliseerd voor OLAP-: SAP BW, BW/4HANA<br /> of SAP HANA voor algemene OLAP-werkbelasting | SAP HANA op Azure S72<br /> – 2 x Intel Xeon®-Processor E7 8890 v3<br /> 36 CPU-kernen en 72 CPU threads |  768 GB |  3 TB | Beschikbaar |
+| --- | SAP HANA op Azure S144<br /> – 4 x Intel Xeon®-Processor E7 8890 v3<br /> 72 CPU-kernen en 144 CPU threads |  1,5 TB |  6 TB | Niet beschikbaar meer |
+| --- | SAP HANA op Azure S192<br /> – 4 x Intel Xeon®-Processor E7 8890 v4<br /> 96 CPU-kernen en 192 CPU threads |  2.0 TB |  8 TB | Beschikbaar |
 | --- | SAP HANA op Azure S384<br /> – 8 x Intel Xeon®-Processor E7 8890 v4<br /> 192 CPU-kernen en 384 CPU threads |  4.0 TB |  16 TB | Beschikbaar |
-| Geoptimaliseerd voor OLTP: SAP Business Suite<br /> voor SAP HANA of S/4HANA (OLTP)<br /> algemene OLTP | SAP HANA op Azure S72m<br /> – 2 x Intel® Xeon® Processor E7-8890 v3<br /> 36 CPU-kernen en 72 CPU threads |  1,5 TB |  6 TB | Beschikbaar |
-|---| SAP HANA op Azure S144m<br /> – 4 x Intel® Xeon® Processor E7-8890 v3<br /> 72 CPU-kernen en 144 CPU threads |  3.0 TB |  12 TB | Niet beschikbaar meer |
-|---| SAP HANA op Azure S192m<br /> – 4 x Intel® Xeon® Processor E7-8890 v4<br /> 96 CPU-kernen en 192 CPU threads  |  4.0 TB |  16 TB | Beschikbaar |
+| Geoptimaliseerd voor OLTP: SAP Business Suite<br /> voor SAP HANA of S/4HANA (OLTP)<br /> algemene OLTP | SAP HANA op Azure S72m<br /> – 2 x Intel Xeon®-Processor E7 8890 v3<br /> 36 CPU-kernen en 72 CPU threads |  1,5 TB |  6 TB | Beschikbaar |
+|---| SAP HANA op Azure S144m<br /> – 4 x Intel Xeon®-Processor E7 8890 v3<br /> 72 CPU-kernen en 144 CPU threads |  3.0 TB |  12 TB | Niet beschikbaar meer |
+|---| SAP HANA op Azure S192m<br /> – 4 x Intel Xeon®-Processor E7 8890 v4<br /> 96 CPU-kernen en 192 CPU threads  |  4.0 TB |  16 TB | Beschikbaar |
 |---| SAP HANA op Azure S384m<br /> – 8 x Intel Xeon®-Processor E7 8890 v4<br /> 192 CPU-kernen en 384 CPU threads |  6.0 TB |  18 TB | Beschikbaar |
 |---| SAP HANA op Azure S384xm<br /> – 8 x Intel Xeon®-Processor E7 8890 v4<br /> 192 CPU-kernen en 384 CPU threads |  8.0 TB |  22 TB |  Beschikbaar |
-|---| SAP HANA op Azure S576<br /> – 12 x Intel Xeon®-Processor E7 8890 v4<br /> 288 CPU-kernen en 576 CPU threads |  12.0 TB |  28 TB | Beschikbaar |
-|---| SAP HANA op Azure S768<br /> – 16 x Intel® Xeon® Processor E7-8890 v4<br /> 384 CPU-kernen en 768 CPU threads |  16,0 TB |  36 TB | Beschikbaar |
-|---| SAP HANA op Azure S960<br /> – 20 x Intel® Xeon® Processor E7-8890 v4<br /> 480 CPU-kernen en 960 CPU threads |  20,0 TB |  46 TB | Beschikbaar |
+|---| SAP HANA op Azure S576m<br /> – 12 x Intel Xeon®-Processor E7 8890 v4<br /> 288 CPU-kernen en 576 CPU threads |  12.0 TB |  28 TB | Beschikbaar |
+|---| SAP HANA op Azure S768m<br /> – 16 x Intel Xeon®-Processor E7 8890 v4<br /> 384 CPU-kernen en 768 CPU threads |  16,0 TB |  36 TB | Beschikbaar |
+|---| SAP HANA op Azure S960m<br /> – 20 x Intel Xeon®-Processor E7 8890 v4<br /> 480 CPU-kernen en 960 CPU threads |  20,0 TB |  46 TB | Beschikbaar |
 
 - CPU-kernen = de som van de CPU-kernen niet-hyper-threaded van de som van de processors van de server-eenheid.
 - CPU-threads = de som van de compute-threads geleverd door hyper-threaded CPU-kernen van de som van de processors van de server-eenheid. Alle eenheden zijn standaard geconfigureerd voor gebruik van Hyper-Threading-technologie.
@@ -157,7 +157,7 @@ De specifieke configuraties gekozen zijn afhankelijk van de werkbelasting, CPU-b
 De hardware voor de aanbiedingen zijn SAP HANA TDI gecertificeerd. Twee verschillende soorten hardware deelt de SKU's in:
 
 - S72, S72m S144, S144m, S192 en S192m, die zijn aangeduid als 'Type ik klasse' van SKU's.
-- S384, S384m S384xm, S576, S768 en S960 die zijn aangeduid als de 'Typ II klasse' van SKU's.
+- S384, S384m S384xm, S576m, S768m en S960m die zijn aangeduid als de 'Typ II klasse' van SKU's.
 
 Een volledige HANA grote exemplaar stempel uitsluitend voor één klant is niet toegewezen&#39;s gebruik. Dit geldt voor rekken van berekenings- en bronnen die verbonden zijn via een netwerk fabric ook geïmplementeerd in Azure. Grote exemplaar HANA-infrastructuur, zoals Azure, implementeert u verschillende klanten &quot;tenants&quot; die zijn geïsoleerd van elkaar in de volgende drie niveaus:
 
@@ -335,7 +335,7 @@ Het HANA grote exemplaar van het Type ik klasse wordt geleverd met vier keer het
 
 Zie de volgende tabel in termen van de opslagtoewijzing van. De tabel bevat de ruwe capaciteit voor de verschillende volumes die zijn opgegeven met de verschillende HANA grote exemplaar eenheden.
 
-| HANA grote exemplaar SKU | hana/data | Hana/logboek | Hana/gedeeld | Hana/log/back-up |
+| HANA grote exemplaar SKU | Hana/gegevens | Hana/logboek | Hana/gedeeld | Hana/log/back-up |
 | --- | --- | --- | --- | --- |
 | S72 | 1,280 GB | 512 GB | 768 GB | 512 GB |
 | S72m | 3,328 GB | 768 GB |1,280 GB | 768 GB |
@@ -344,16 +344,16 @@ Zie de volgende tabel in termen van de opslagtoewijzing van. De tabel bevat de r
 | S384 | 11,520 GB | 1.536 GB | 1.792 GB | 1.536 GB |
 | S384m | 12.000 GB | 2.050 GB | 2.050 GB | 2,040 GB |
 | S384xm | 16.000 GB | 2.050 GB | 2.050 GB | 2,040 GB |
-| S576 | 20.000 GB | 3,100 GB | 2.050 GB | 3,100 GB |
-| S768 | 28.000 GB | 3,100 GB | 2.050 GB | 3,100 GB |
-| S960 | 36.000 GB | 4,100 GB | 2.050 GB | 4,100 GB |
+| S576m | 20.000 GB | 3,100 GB | 2.050 GB | 3,100 GB |
+| S768m | 28.000 GB | 3,100 GB | 2.050 GB | 3,100 GB |
+| S960m | 36.000 GB | 4,100 GB | 2.050 GB | 4,100 GB |
 
 
 Werkelijke geïmplementeerde volumes kunnen variëren, afhankelijk van de implementatie en het hulpprogramma dat wordt gebruikt voor het weergeven van de grootte van het volume.
 
 Als u een exemplaar van HANA groot SKU onderverdelen, een paar voorbeelden van mogelijke deling stukken als volgt uitzien:
 
-| Geheugenpartitie in GB | hana/data | Hana/logboek | Hana/gedeeld | Hana/log/back-up |
+| Geheugenpartitie in GB | Hana/gegevens | Hana/logboek | Hana/gedeeld | Hana/log/back-up |
 | --- | --- | --- | --- | --- |
 | 256 | 400 GB | 160 GB | 304 GB | 160 GB |
 | 512 | 768 GB | 384 GB | 512 GB | 384 GB |

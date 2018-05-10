@@ -1,3 +1,19 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 7d7cd8a197a89781a75f47bb4b4e2ec8fe7c3cb4
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 05/07/2018
+---
 # <a name="secure-your-iot-deployment"></a>Uw IoT-implementatie beveiligen
 
 In dit artikel biedt de volgende detailniveau voor het beveiligen van de infrastructuur op basis van Azure IoT-Internet der dingen (IoT). Deze koppelingen naar gedetailleerde gegevens van de implementatie voor het configureren en implementeren van elk onderdeel. Het bevat ook vergelijkingen en -keuzes tussen verschillende concurrerende methoden.
@@ -12,7 +28,7 @@ Beveiliging van de Azure IoT-implementatie kan worden onderverdeeld in de volgen
 
 ## <a name="secure-device-provisioning-and-authentication"></a>Beveiligen van mobiele apparaten inrichten en verificatie
 
-De Azure IoT Suite beveiligt IoT-apparaten door de volgende twee methoden:
+IoT-apparaten beveiligd de IoT-oplossing accelerators door de volgende twee methoden:
 
 * Dankzij een unieke id van de sleutel (beveiligingstokens) voor elk apparaat, die kan worden gebruikt door het apparaat om te communiceren met de IoT-Hub.
 * Met behulp van een apparaat op [X.509-certificaat] [ lnk-x509] en de persoonlijke sleutel als een manier om het apparaat met de IoT Hub te verifiëren. Deze verificatiemethode zorgt ervoor dat de persoonlijke sleutel op het apparaat niet bekend is buiten het apparaat op elk gewenst moment een hoger niveau van beveiliging bieden.

@@ -1,6 +1,6 @@
 ---
-title: Een Apache Spark-taak uitvoeren met Azure Container Service (AKS)
-description: Azure Container Service (AKS) gebruiken voor het uitvoeren van een Apache Spark-taak
+title: Een Apache Spark-taak uitvoeren met Azure Kubernetes Service (AKS)
+description: Azure Kubernetes Service (AKS) gebruiken voor het uitvoeren van een Apache Spark-taak
 services: container-service
 author: lenadroid
 manager: timlt
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: 627cb80a055fb4b66fcc428a1de87d754af6991e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: fbeddb60ce968ff0d32e2ddb6a4f62d2036d80aa
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Apache Spark taken uitgevoerd op AKS
 
-[Apache Spark] [ apache-spark] is een snelle engine voor grootschalige verwerking. Vanaf de [Spark 2.3.0 release][spark-latest-release], Apache Spark ondersteunt systeemeigen integratie met Kubernetes clusters. Azure Container Service (AKS) is een beheerde Kubernetes omgeving worden uitgevoerd in Azure. In dit document worden voorbereiden en Apache Spark taken uitgevoerd op een Azure Container Service (AKS)-cluster.
+[Apache Spark] [ apache-spark] is een snelle engine voor grootschalige verwerking. Vanaf de [Spark 2.3.0 release][spark-latest-release], Apache Spark ondersteunt systeemeigen integratie met Kubernetes clusters. Azure Kubernetes Service (AKS) is een beheerde Kubernetes omgeving worden uitgevoerd in Azure. In dit document worden voorbereiden en Apache Spark taken uitgevoerd op een Azure Kubernetes Service (AKS)-cluster.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -32,7 +32,7 @@ Om de stappen in dit artikel hebt voltooid, moet u het volgende.
 
 ## <a name="create-an-aks-cluster"></a>Een AKS-cluster maken
 
-Spark wordt gebruikt voor grootschalige gegevensverwerking en vereist dat Kubernetes knooppunten worden aangepast, zodat deze voldoen aan de vereisten van de resources Spark. We raden een minimale grootte van `Standard_D3_v2` voor uw Azure Container Service (AKS)-knooppunten.
+Spark wordt gebruikt voor grootschalige gegevensverwerking en vereist dat Kubernetes knooppunten worden aangepast, zodat deze voldoen aan de vereisten van de resources Spark. We raden een minimale grootte van `Standard_D3_v2` voor uw Azure Kubernetes Service (AKS)-knooppunten.
 
 Als u een cluster AKS die voldoet aan deze minimale aanbeveling, voer de volgende opdrachten.
 

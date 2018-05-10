@@ -2,24 +2,24 @@
 title: Implementeren, bewaken van modules voor Azure IoT rand | Microsoft Docs
 description: De modules die worden uitgevoerd op de edge-apparaten beheren
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 12/07/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: cc7d1e290465d9254cbd7fe9e8ba71cc740b0368
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 6d024dfdd661d6bebe7d163b96659d6e169cc5cc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>Implementeren en bewaken van de rand van de IoT-modules op grote schaal - voorbeeld
 
 Azure IoT-rand kunt u analytics verplaatsen naar de rand en biedt een interface voor de cloud zodat u kunt beheren en controleren van uw IoT-randapparaten zonder fysieke toegang tot elkaar. De mogelijkheid tot extern kunt beheren apparaten wordt steeds belangrijker naarmate Internet der dingen oplossingen grotere en complexere groeien. Azure IoT-rand is ontworpen ter ondersteuning van uw zakelijke doelstellingen, ongeacht hoeveel apparaten die u toevoegt.
 
-U kunt afzonderlijke apparaten beheren en implementeren van modules aan hen één tegelijk. Echter, als u wijzigingen aanbrengen voor apparaten op grote schaal wilt, kunt u een **IoT rand implementatie**. Implementaties zijn dynamische processen waarmee u meerdere modules in één keer in te implementeren op meerdere apparaten, de status en de status van de modules bijhouden en wijzig indien nodig. 
+U kunt afzonderlijke apparaten beheren en implementeren van modules aan hen één tegelijk. Echter, als u wijzigingen aanbrengen voor apparaten op grote schaal wilt, kunt u een **IoT rand automatische implementatie**, die deel uitmaakt van automatische Apparaatbeheer in IoT-Hub. Implementaties zijn dynamische processen waarmee u meerdere modules in één keer in te implementeren op meerdere apparaten, de status en de status van de modules bijhouden en wijzig indien nodig. 
 
 ## <a name="identify-devices-using-tags"></a>Identificatie van apparaten met tags
 
@@ -67,7 +67,7 @@ Als u wilt een module van Azure Stream Analytics toevoegt, de volgende stappen u
 1. Selecteer **opslaan** uw module toevoegen aan de implementatie. 
 
 Aangepaste code toevoegen als een module of een Azure-service-module handmatig toevoegen Volg deze stappen:
-1. Selecteer **toevoegen IoT rand module**.
+1. Select **Toevoegen aan IoT Edge-module**.
 1. Geef uw module een **naam**.
 1. Voor de **installatiekopie URI** veld, voert u de installatiekopie van het Docker-container voor uw module. 
 1. Geef een **Container maken opties** die moet worden doorgegeven aan de container. Zie voor meer informatie [docker maken][lnk-docker-create].

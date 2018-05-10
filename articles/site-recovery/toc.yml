@@ -177,8 +177,6 @@
               href: vmware-azure-set-up-process-server-scale.md
         - name: Herstel na noodgeval
           items:
-            - name: Herstel na noodgeval voor virtuele VMware-machines met ondersteuning voor meerdere tenants en CSP
-              href: vmware-azure-multi-tenant-csp-disaster-recovery.md
             - name: Virtuele VMware-machines naar Azure repliceren met behulp van PowerShell
               href: vmware-azure-disaster-recovery-powershell.md
             - name: Herstel na noodgeval voor fysieke servers naar Azure
@@ -199,12 +197,14 @@
               href: vmware-azure-exclude-disk.md
             - name: Replicatie van virtuele VMware-machines inschakelen
               href: vmware-azure-enable-replication.md
+            - name: Multitenancy met CSP voor virtuele VMWare-machines
+              href: vmware-azure-multi-tenant-csp-disaster-recovery.md
         - name: De Mobility-service implementeren
           items:
+            - name: Overzicht van de Mobility-service
+              href: vmware-azure-install-mobility-service.md
             - name: De Mobility-service implementeren met behulp van System Center Configuration Manager
               href: vmware-azure-mobility-install-configuration-mgr.md
-            - name: De Mobility-service implementeren met behulp van Azure Automation DSC
-              href: vmware-azure-mobility-deploy-automation-dsc.md
         - name: Failover en failback
           items:
             - name: Noodherstelanalyse uitvoeren in Azure

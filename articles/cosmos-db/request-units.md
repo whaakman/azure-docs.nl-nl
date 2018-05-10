@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 2b69b3b5fee0d1148a762f817d9c5a8bc67806e7
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 7290c12e7d96ac01c66d97103920793f98120b38
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Aanvraageenheden in Azure Cosmos DB
 
@@ -32,9 +32,9 @@ Om te bieden voorspelbare prestaties, die u wilt reserveren doorvoer in eenheden
 Na het lezen van dit artikel, hebt u mogelijk de volgende vragen beantwoorden:  
 
 * Wat zijn aanvraageenheden en kosten van de aanvraag in Azure Cosmos DB?
-* Hoe geef aanvraag eenheid capaciteit voor een container in Azure Cosmos DB?
+* Hoe geef aanvraag eenheid capaciteit voor een container of een set van containers in Azure Cosmos DB?
 * Hoe u schat dat mijn toepassing aanvraag heeft?
-* Wat gebeurt er als ik aanvraag eenheid capaciteit voor een container in Azure Cosmos DB overschrijdt?
+* Wat gebeurt er als ik aanvraag eenheid capaciteit voor een container of een set van containers in Azure Cosmos DB overschrijdt?
 
 Omdat Azure Cosmos DB een database met meerdere modellen. het is belangrijk te weten dat in dit artikel van toepassing op alle gegevensmodellen en in Azure DB die Cosmos-API's is. Dit artikel wordt de algemene voorwaarden zoals *container* en een *item* om te verwijzen algemeen naar een verzameling, grafiek, of een tabel en een document, een knooppunt of een entiteit, respectievelijk.
 
@@ -50,14 +50,19 @@ Het is raadzaam om aan de slag door het bekijken van de volgende video, waarbij 
 > 
 
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>Capaciteit van de aanvraag-eenheid opgeven in Azure Cosmos-DB
-Bij het starten van een nieuwe container u opgeven dat het aantal aanvraageenheden per seconde (ru/s per seconde) die u wilt gereserveerd. Op basis van de ingerichte doorvoer, Azure Cosmos DB toegewezen fysieke partities voor het hosten van de container en splitsingen/rebalances gegevens meerdere partities wanneer deze groeit.
 
-Azure DB Cosmos-containers kunnen worden gemaakt als vast of onbeperkt. Containers met vaste grootte hebben een maximale limiet van 10 GB en doorvoer van 10.000 RU/s. Een container voor onbeperkte maken moet u een minimale doorvoer van 1000 RU/s en een [partitiesleutel](partition-data.md). Aangezien uw gegevens hebben mogelijk om te worden verdeeld over meerdere partities, is het nodig om het kiezen van een partitiesleutel met een hoge kardinaliteit (100 tot miljoenen afzonderlijke waarden). Selecteren van een partitiesleutel met veel afzonderlijke waarden zorgt u ervoor dat uw tabel-container/grafiek en aanvragen kunnen worden geschaald op uniforme wijze door Azure Cosmos DB. 
+U kunt opgeven dat het aantal aanvraageenheden per seconde (ru/s per seconde) die u wilt gereserveerde zowel voor een afzonderlijke-container of voor een set van containers. Op basis van de ingerichte doorvoer, toewijzen Azure Cosmos DB fysieke partities voor het hosten van de container (s) en splitsingen/rebalances gegevens meerdere partities wanneer deze groeit.
+
+Bij het toewijzen van RU per seconde op het niveau van afzonderlijke container de containers kunnen worden gemaakt als *vaste* of *onbeperkte*. Containers met vaste grootte hebben een maximale limiet van 10 GB en doorvoer van 10.000 RU/s. Een onbeperkte om container te maken, moet u een minimale doorvoer van 1000 RU/s en een [partitiesleutel](partition-data.md). Aangezien uw gegevens hebben mogelijk om te worden verdeeld over meerdere partities, is het nodig om het kiezen van een partitiesleutel met een hoge kardinaliteit (100 tot miljoenen afzonderlijke waarden). Als u een partitiesleutel met veel afzonderlijke waarden selecteert, zorgt u ervoor dat uw tabel-container/grafiek en aanvragen kunnen worden geschaald op uniforme wijze door Azure Cosmos DB. 
+
+Bij het toewijzen van RU per seconde over een set van containers, de containers die horen bij deze set worden behandeld als *onbeperkte* containers en een partitiesleutel moet opgeven.
+
+![Inrichting aanvraageenheden voor afzonderlijke containers en set containers][6]
 
 > [!NOTE]
 > Een partitiesleutel is een grens van een logische en niet een fysieke. Daarom hoeft u niet wilt beperken het aantal afzonderlijke partitie sleutelwaarden. In feite is het beter om meer afzonderlijke partitie sleutelwaarden dan minder Azure Cosmos DB beschikt over meer opties voor taakverdeling.
 
-Hier volgt een codefragment voor het maken van een container met 3000 aanvraageenheden per tweede met de .NET SDK:
+Hier volgt een codefragment voor het maken van een container met 3000 aanvraageenheden per seconde voor een afzonderlijke-container met de SQL-API .NET SDK:
 
 ```csharp
 DocumentCollection myCollection = new DocumentCollection();
@@ -70,12 +75,41 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 3000 });
 ```
 
-Azure Cosmos-database is van invloed op een model reservering voor de doorvoer. Dat wil zeggen, u wordt gefactureerd voor de hoeveelheid doorvoer *gereserveerde*, ongeacht hoeveel waarop doorvoer is actief *gebruikt*. Als uw toepassing de belasting, gegevens en gebruiksgegevens patronen wijzigen kunt u eenvoudig de schaal omhoog en omlaag de hoeveelheid gereserveerd RUs via SDK's of met behulp van de [Azure Portal](https://portal.azure.com).
+Hier volgt een codefragment voor inrichting 100.000 aanvraageenheden per seconde over een set van containers met behulp van de SQL-API .NET SDK:
 
-Elke container is toegewezen aan een `Offer` resource in Azure Cosmos DB met metagegevens over de ingerichte doorvoer. U kunt de toegewezen doorvoer wijzigen door op de overeenkomende resource in de aanbieding voor een container te zoeken en vervolgens bijgewerkt met de nieuwe waarde voor de doorvoer. Hier volgt een codefragment voor het wijzigen van de doorvoer van een container in 5000 aanvraageenheden per tweede met de .NET SDK:
+```csharp
+// Provision 100,000 RU/sec at the database level. 
+// sharedCollection1 and sharedCollection2 will share the 100,000 RU/sec from the parent database
+// dedicatedCollection will have its own dedicated 4,000 RU/sec, independant of the 100,000 RU/sec provisioned from the parent database
+Database database = client.CreateDatabaseAsync(new Database { Id = "myDb" }, new RequestOptions { OfferThroughput = 100000 }).Result;
+
+DocumentCollection sharedCollection1 = new DocumentCollection();
+sharedCollection1.Id = "sharedCollection1";
+sharedCollection1.PartitionKey.Paths.Add("/deviceId");
+
+await client.CreateDocumentCollectionAsync(database.SelfLink, sharedCollection1, new RequestOptions())
+
+DocumentCollection sharedCollection2 = new DocumentCollection();
+sharedCollection2.Id = "sharedCollection2";
+sharedCollection2.PartitionKey.Paths.Add("/deviceId");
+
+await client.CreateDocumentCollectionAsync(database.SelfLink, sharedCollection2, new RequestOptions())
+
+DocumentCollection dedicatedCollection = new DocumentCollection();
+dedicatedCollection.Id = "dedicatedCollection";
+dedicatedCollection.PartitionKey.Paths.Add("/deviceId");
+
+await client.CreateDocumentCollectionAsync(database.SelfLink, dedicatedCollection, new RequestOptions { OfferThroughput = 4000 )
+```
+
+
+Azure Cosmos-database is van invloed op een model reservering voor de doorvoer. Dat wil zeggen, u wordt gefactureerd voor de hoeveelheid doorvoer *gereserveerde*, ongeacht hoeveel waarop doorvoer is actief *gebruikt*. Als uw toepassing de belasting, gegevens en gebruiksgegevens patronen wijzigen kunt u eenvoudig de schaal omhoog en omlaag op het aantal gereserveerde RUs via SDK's of met behulp van de [Azure Portal](https://portal.azure.com).
+
+Elke container of set van containers, is toegewezen aan een `Offer` resource in Azure Cosmos DB met metagegevens over de ingerichte doorvoer. U kunt de toegewezen doorvoer wijzigen door op de overeenkomende resource in de aanbieding voor een container te zoeken en vervolgens bijgewerkt met de nieuwe waarde voor de doorvoer. Hier volgt een codefragment voor het wijzigen van de doorvoer van een container in 5000 aanvraageenheden per tweede met de .NET SDK:
 
 ```csharp
 // Fetch the resource to be updated
+// For a updating throughput for a set of containers, replace the collection's self link with the database's self link
 Offer offer = client.CreateOfferQuery()
                 .Where(r => r.ResourceLink == collection.SelfLink)    
                 .AsEnumerable()
@@ -88,28 +122,28 @@ offer = new OfferV2(offer, 5000);
 await client.ReplaceOfferAsync(offer);
 ```
 
-Er zijn geen gevolgen voor de beschikbaarheid van de container wanneer u de doorvoer wijzigt. De nieuwe gereserveerde doorvoer is doorgaans effectieve binnen enkele seconden op de toepassing van de nieuwe doorvoer.
+Er zijn geen gevolgen voor de beschikbaarheid van de container of set van containers, wanneer u de doorvoer wijzigt. De nieuwe gereserveerde doorvoer is doorgaans effectieve binnen enkele seconden op de toepassing van de nieuwe doorvoer.
 
 ## <a name="throughput-isolation-in-globally-distributed-databases"></a>Isolatie van doorvoer in globaal gedistribueerde databases
 
-Wanneer de database hebt met meer dan één regio worden gerepliceerd, biedt Azure Cosmos DB doorvoer isolatie om ervoor te zorgen dat RU gebruik in één regio is geen invloed heeft RU gebruik in een andere regio. Bijvoorbeeld, als u gegevens naar één regio schrijven en gegevens uit een andere regio lezen, de RUs gebruikt voor de schrijfbewerking uitvoeren in regio *A* worden pas van kracht weg van de RUs gebruikt voor de leesbewerking in regio *B*. RUs zijn niet gesplitst in de regio's die u hebt geïmplementeerd. Elke regio waarin de database wordt gerepliceerd heeft de volledige hoeveelheid RUs ingericht. Zie voor meer informatie over globale replicatie [het distribueren van gegevens met Azure Cosmos DB globaal](distribute-data-globally.md).
+Wanneer de database hebt met meer dan één regio worden gerepliceerd, biedt Azure Cosmos DB doorvoer isolatie om ervoor te zorgen dat RU gebruik in één regio is geen invloed heeft RU gebruik in een andere regio. Bijvoorbeeld, als u gegevens naar één regio schrijven en gegevens uit een andere regio lezen, de RUs gebruikt voor de schrijfbewerking uitvoeren in regio *A* worden pas van kracht weg van de RUs gebruikt voor de leesbewerking in regio *B*. RUs zijn niet gesplitst in de regio's die u hebt geïmplementeerd. Elke regio waarin de database wordt gerepliceerd heeft het volledige nummer van RUs ingericht. Zie voor meer informatie over globale replicatie [het distribueren van gegevens met Azure Cosmos DB globaal](distribute-data-globally.md).
 
 ## <a name="request-unit-considerations"></a>Overwegingen voor aanvraag-eenheid
-Bij het bepalen van het aantal aanvraageenheden om in te richten voor uw Azure DB die Cosmos-container, is het belangrijk dat u rekening met de volgende variabelen:
+Bij het bepalen van het aantal aanvraageenheden om in te richten, is het belangrijk dat u rekening met de volgende variabelen:
 
 * **De grootte van item**. Als de grootte van het aantal toeneemt verhoogt ook aanvraageenheden gebruikt om te lezen of schrijven van de gegevens.
 * **Aantal eigenschappen item**. Ervan uitgaande dat standaard indexeren van alle eigenschappen, de eenheden verbruikt voor het schrijven van een verhoging van het knooppunt-document/entiteit als de eigenschap aantal toeneemt.
 * **Gegevensconsistentie**. Wanneer consistentie gegevensmodellen zoals sterke of gebonden veroudering wordt gebruikt, worden extra aanvraageenheden verbruikt voor het lezen van de items.
-* **Geïndexeerde eigenschappen**. Een index-beleid op elke container bepaalt welke eigenschappen standaard worden geïndexeerd. Door het aantal geïndexeerde eigenschappen te beperken of doordat de vertraagde indexeren, kunt u uw aanvraag eenheidsverbruik verminderen.
+* **Geïndexeerde eigenschappen**. Een index-beleid op elke container bepaalt welke eigenschappen standaard worden geïndexeerd. Door het aantal geïndexeerde eigenschappen te beperken of doordat de vertraagde indexeren, kunt u uw aanvraag eenheidsverbruik voor schrijfbewerkingen verminderen.
 * **Document indexeren**. Elk item wordt standaard automatisch geïndexeerd. U minder aanvraageenheden gebruiken als u wilt het aantal objecten niet te indexeren.
-* **Query uitvoeren op patronen**. De complexiteit van een query heeft gevolgen voor het aantal aanvraageenheden voor een bewerking worden verbruikt. Het aantal predicaten, aard van de predikaten, projecties, aantal UDF's en de grootte van de brongegevens - beïnvloeden alle de kosten van querybewerkingen.
+* **Query uitvoeren op patronen**. De complexiteit van een query heeft gevolgen voor het aantal aanvraageenheden voor een bewerking worden verbruikt. Het aantal queryresultaten, aantal predicaten, aard van de predikaten, projecties, aantal UDF's en de grootte van de brongegevens - beïnvloeden alle de kosten van querybewerkingen.
 * **Gebruik een script**.  Net als bij query's, opgeslagen procedures en triggers in beslag nemen aanvraageenheden op basis van de complexiteit van de bewerkingen die worden uitgevoerd. Inspecteer de aanvraagheader kosten om beter te begrijpen hoe elke bewerking aanvraag eenheid capaciteit is verbruikt tijdens het ontwikkelen van uw toepassing.
 
 ## <a name="estimating-throughput-needs"></a>Schatten van doorvoerbehoeften
 Een aanvraag-eenheid is een genormaliseerde meting van de kosten voor aanvraagverwerking. Een enkele aanvraag eenheid vertegenwoordigt de verwerkingscapaciteit vereist om te lezen (via self link- of -id) van een enkele 1 KB item dat bestaat uit 10 unieke eigenschapswaarden (met uitzondering van Systeemeigenschappen). Een aanvraag wilt maken (invoegen), vervangen of verwijderen van hetzelfde artikel verbruikt meer verwerken van de service en zodoende meer aanvraageenheden.   
 
 > [!NOTE]
-> De basislijn van 1 aanvraag eenheid voor een 1 KB item overeenkomt met een eenvoudige GET door self link of id van het item.
+> De basislijn van de eenheid voor een 1 KB-artikel 1 aanvraag komt overeen met een eenvoudige GET door self link of id van het item.
 > 
 > 
 
@@ -174,11 +208,11 @@ Het hulpprogramma biedt tevens ondersteuning voor het schatten van opslagbehoeft
 
 Met het hulpprogramma is eenvoudig:
 
-1. Upload een of meer representatieve items (bijv, een voorbeeld JSON-document).
+1. Upload een of meer representatieve items (bijvoorbeeld een voorbeeld JSON-document).
    
     ![Items uploaden naar de Rekenmachine-eenheid van aanvraag][2]
-2. Voor een schatting van de vereisten voor gegevensopslag, typ het totaal aantal items (bijv, documenten, tabellen en grafieken) u verwacht op te slaan.
-3. Voer het nummer van het maken, lezen, bijwerken en delete-bewerkingen die u nodig hebt (op basis van het per seconde). Upload een kopie van de voorbeeld-item uit stap 1 bovenstaande typische veld updates bevat voor een schatting van de kosten van de aanvraag-eenheid van item update-bewerkingen.  Bijvoorbeeld, als item updates doorgaans twee eigenschappen wijzigen met de naam *lastLogin* en *userVisits*, klikt u vervolgens gewoon een voorbeeld kopiëren, werk de waarden voor deze twee eigenschappen en upload het gekopieerde item.
+2. Voor een schatting van de vereisten voor gegevensopslag, typ het totaal aantal items (bijvoorbeeld documenten, rijen of hoekpunten) u verwacht op te slaan.
+3. Voer het nummer van het maken, lezen, bijwerken en delete-bewerkingen die u nodig hebt (op basis van het per seconde). Upload een kopie van de voorbeeld-item uit stap 1 bovenstaande typische veld updates bevat voor een schatting van de kosten van de aanvraag-eenheid van item update-bewerkingen.  Bijvoorbeeld, als item updates doorgaans twee eigenschappen wijzigen met de naam *lastLogin* en *userVisits*, klikt u vervolgens een voorbeeld kopiëren, werk de waarden voor deze twee eigenschappen en upload het gekopieerde item.
    
     ![Doorvoer vereisten invoeren in de aanvraag eenheid Rekenmachine][3]
 4. Klik op berekenen en bekijk de resultaten.
@@ -299,7 +333,7 @@ Met deze informatie kunt u schat de RU-vereisten voor deze toepassing gezien het
 | Selecteer door de Voedingsgroep |10 |700 |
 | Selecteer top 10 |15 |150 totaal |
 
-In dit geval verwacht u dat de vereiste van een gemiddelde doorvoersnelheid van 1,275 RU/s.  Afronden naar de dichtstbijzijnde 100, zou u 1.300 RU/s voor deze toepassing container inrichten.
+In dit geval verwacht u dat de vereiste van een gemiddelde doorvoersnelheid van 1,275 RU/s.  Afronden naar de dichtstbijzijnde 100, zou u inrichten 1.300 RU/s voor deze toepassing container (of reeks containers).
 
 ## <a id="RequestRateTooLarge"></a> Overschrijding van gereserveerde doorvoer grenzen in Azure Cosmos-DB
 Intrekken dat verzoek eenheidsverbruik met een snelheid per seconde wordt geëvalueerd. Voor toepassingen die groter is dan de ingerichte aanvraagsnelheid eenheid aanvragen snelheid beperkt worden pas de frequentie waarmee het niveau van de ingerichte doorvoer. Wanneer een aanvraag snelheid beperkt ontvangt, wordt de server de aanvraag met optie preventief beëindigd `RequestRateTooLargeException` (HTTP-statuscode 429) en retourneert de `x-ms-retry-after-ms` header die de hoeveelheid tijd in milliseconden, dat de gebruiker wachten moet voordat u probeert de aanvraag aangeeft.
@@ -310,7 +344,7 @@ Intrekken dat verzoek eenheidsverbruik met een snelheid per seconde wordt geëva
 
 Als u gebruikmaakt van de Client-SDK voor .NET en LINQ-query's en vervolgens de meeste van de tijd die u niet hoeft te gaan met deze uitzondering als de huidige versie van de Client-SDK voor .NET impliciet dit antwoord dat, respecteert de server opgegeven probeer het opnieuw nadat de header en probeert om opnieuw de automatisch aanvragen. Tenzij uw account wordt door meerdere clients tegelijkertijd geopend, wordt de volgende poging slaagt.
 
-Als er meer dan één client cumulatief werken boven het percentage aanvragen, het standaardgedrag voor opnieuw proberen niet toereikend zijn en de client genereert een `DocumentClientException` met de status code 429 tot de toepassing. U kunt in gevallen als volgt, kunt u de logica in routines voor foutafhandeling van uw toepassing en het gedrag voor het opnieuw of verhoog de ingerichte doorvoer voor de container.
+Als er meer dan één client cumulatief werken boven het percentage aanvragen, het standaardgedrag voor opnieuw proberen niet toereikend zijn en de client genereert een `DocumentClientException` met de status code 429 tot de toepassing. U kunt in gevallen als volgt, kunt u de logica in routines voor foutafhandeling van uw toepassing en het gedrag voor het opnieuw of verhoog de doorvoer die zijn ingericht voor de container (of de set van containers).
 
 ## <a name="next-steps"></a>Volgende stappen
 Lees deze informatiebronnen voor meer informatie over gereserveerde doorvoer met Azure Cosmos DB databases:
@@ -326,3 +360,4 @@ Als u wilt beginnen met de schaal en prestaties testen met Azure Cosmos DB, Zie 
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png
 [5]: ./media/request-units/RUCalculator2.png
+[6]: ./media/request-units/provisioning_set_containers.png

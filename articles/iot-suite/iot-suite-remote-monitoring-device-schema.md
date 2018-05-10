@@ -1,7 +1,7 @@
 ---
 title: Apparaat-schema in de oplossing voor externe controle - Azure | Microsoft Docs
 description: In dit artikel beschrijft de JSON-schema dat een gesimuleerd apparaat in de oplossing voor externe controle definieert.
-services: 
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 364698a529623958695f93a245bab28a89f6bd4c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 24aeb9c3f73d04a3d05f09ebd2ba0859a38e7ad8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="understand-the-device-model-schema"></a>Het modelschema apparaat begrijpen
 
@@ -29,7 +29,7 @@ De volgende artikelen hebben betrekking op het huidige artikel:
 * [De model-gedrag van het apparaat implementeren](iot-suite-remote-monitoring-device-behavior.md) beschrijft de JavaScript-bestanden die u gebruikt voor het implementeren van het gedrag van een gesimuleerd apparaat.
 * [Maak een nieuw gesimuleerd apparaat](iot-suite-remote-monitoring-test.md) helemaal plaatst en ziet u hoe u een nieuw gesimuleerd apparaattype implementeert in uw oplossing.
 
-In dit artikel leert u hoe:
+In dit artikel leert u het volgende:
 
 >[!div class="checklist"]
 > * Een JSON-bestand voor het definiëren van een model gesimuleerde apparaat gebruiken
@@ -85,8 +85,8 @@ In de `Simulation` sectie, definieert u de interne status van het gesimuleerde a
 
 De definitie van de apparaatstatus heeft twee elementen:
 
-* `InitialState`initiële waarden voor alle eigenschappen van het apparaat statusobject definieert.
-* `Script`identificeert een JavaScript-bestand dat wordt uitgevoerd op een planning voor het bijwerken van de apparaatstatus. U kunt dit scriptbestand willekeurige de telemetrie-waarden die door het apparaat verzonden.
+* `InitialState` initiële waarden voor alle eigenschappen van het apparaat statusobject definieert.
+* `Script` identificeert een JavaScript-bestand dat wordt uitgevoerd op een planning voor het bijwerken van de apparaatstatus. U kunt dit scriptbestand willekeurige de telemetrie-waarden die door het apparaat verzonden.
 
 Zie voor meer informatie over het JavaScript-bestand dat het apparaat statusobject wordt bijgewerkt, [inzicht in het gedrag van het apparaat model](iot-suite-remote-monitoring-device-behavior.md).
 
@@ -104,10 +104,10 @@ Het volgende voorbeeld toont de definitie van het apparaat statusobject voor een
     "pressure_unit": "psig",
     "simulation_state": "normal_pressure"
   },
-  "Script": {
+  "Interval": "00:00:10",
+  "Scripts": {
     "Type": "javascript",
-    "Path": "chiller-01-state.js",
-    "Interval": "00:00:05"
+    "Path": "chiller-01-state.js"
   }
 }
 ```
@@ -155,9 +155,9 @@ Het volgende voorbeeld wordt een JSON telemetrie-bericht verzonden om de tien se
 ]
 ```
 
-`MessageTemplate`Hiermee definieert u de structuur van de JSON-bericht verzonden door het gesimuleerde apparaat. De tijdelijke aanduidingen in `MessageTemplate` gebruikt u de syntaxis `${NAME}` waar `NAME` is een sleutel van de [status apparaatobject](#simulation). Tekenreeksen moeten worden aangehaald, getallen beter niet.
+`MessageTemplate` Hiermee definieert u de structuur van de JSON-bericht verzonden door het gesimuleerde apparaat. De tijdelijke aanduidingen in `MessageTemplate` gebruikt u de syntaxis `${NAME}` waar `NAME` is een sleutel van de [status apparaatobject](#simulation). Tekenreeksen moeten worden aangehaald, getallen beter niet.
 
-`MessageSchema`Hiermee definieert u het schema van het bericht is verzonden door het gesimuleerde apparaat. Het berichtschema is ook gepubliceerd naar IoT Hub voor back-end-toepassingen om de informatie voor het interpreteren van de binnenkomende telemetrie opnieuw te gebruiken.
+`MessageSchema` Hiermee definieert u het schema van het bericht is verzonden door het gesimuleerde apparaat. Het berichtschema is ook gepubliceerd naar IoT Hub voor back-end-toepassingen om de informatie voor het interpreteren van de binnenkomende telemetrie opnieuw te gebruiken.
 
 U kunt op dit moment alleen JSON bericht schema's gebruiken. De velden die worden vermeld in het schema kunnen zijn van de volgende typen:
 
@@ -167,7 +167,7 @@ U kunt op dit moment alleen JSON bericht schema's gebruiken. De velden die worde
 * Boole-waarde
 * Geheel getal
 * Double
-* Datum en tijd
+* DateTime
 
 Toevoegen voor het verzenden van telemetrieberichten met verschillende intervallen, meerdere telemetrie-typen voor de `Telemetry` matrix. Het volgende voorbeeld temperatuur en vochtigheid gegevens verzendt elke 10 seconden en de status van het lichte elke minuut:
 

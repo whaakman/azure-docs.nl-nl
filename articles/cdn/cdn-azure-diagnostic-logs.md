@@ -3,8 +3,8 @@ title: Azure diagnostische logboeken | Microsoft Docs
 description: De klant kunt logboekanalyse inschakelen voor Azure CDN.
 services: cdn
 documentationcenter: ''
-author: ''
-manager: ''
+author: dksimpson
+manager: akucer
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
-ms.author: v-deasim
-ms.openlocfilehash: c367cffa8f0453a0f7e230571d861d039122c291
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: rli
+ms.openlocfilehash: 73c19383b791438c2ae899b45e1b4635e9cd5802
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-diagnostic-logs"></a>Diagnostische logboeken in Azure
 
@@ -28,7 +28,7 @@ U kunt met Azure diagnoselogboeken basisanalyse bekijken en deze opslaan in een 
  - Azure Event Hubs
  - [Log Analytics-werkruimte](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
-Deze functie is beschikbaar voor alle CDN-eindpunten die behoren tot Verizon (standaard en Premium) en CDN-profielen van Akamai (standaard). 
+Deze functie is beschikbaar op de CDN-eindpunten voor alle Prijscategorieën. 
 
 Logboeken met diagnostische gegevens van Azure kunnen u basisgebruik metrische gegevens exporteren van uw CDN-eindpunt naar een groot aantal bronnen, zodat u ze in een aangepaste manier gebruiken kunt. U kunt bijvoorbeeld de volgende soorten gegevens exporteren doen:
 
@@ -156,10 +156,10 @@ Voordat u de core analytische gegevens vanaf de Azure Storage-Account openen kun
 
 **Beschrijving van velden:**
 
-|waarde|description|
+|Waarde|Beschrijving|
 |-------|---------|
 |Abonnements-id    |ID van het Azure-abonnement in Guid-indeling.|
-|Resource |Naam van de naam van de resourcegroep waartoe het CDN-resources behoren.|
+|De naam van resourcegroep |Naam van de resourcegroep waartoe het CDN-resources behoren.|
 |Profielnaam |Naam van het CDN-profiel|
 |Naam van het eindpunt |Naam van het CDN-eindpunt|
 |Jaar|  4-cijferige representatie van het jaar, bijvoorbeeld 2017|
@@ -276,47 +276,49 @@ U kunt slepen en neerzetten van de soorten grafieken en vult u de Gegevensdetail
     
 ## <a name="log-data-delays"></a>Logboek gegevens vertragingen
 
-Verizon logboek gegevens vertragingen | Akamai logboek gegevens vertragingen
---- | ---
-Logboekgegevens van Verizon is 1 uur vertraging en tot 2 uur duren om te starten na voltooiing van de endpoint-doorgifte verschijnen. | Logboekgegevens Akamai is vertraagd 24 uur; Als deze meer dan 24 uur geleden is gemaakt, duurt het tot 2 uur starten verschijnen. Als u onlangs is gemaakt, kan deze maximaal 25 uur voor de Logboeken starten verschijnen duren.
+De volgende tabel toont logboek gegevens vertragingen zijn voor **Azure CDN Standard van Microsoft**, **Azure CDN Standard van Akamai**, en **Azure CDN Standard/Premium van Verizon**.
+
+Microsoft logboek gegevens vertragingen | Verizon logboek gegevens vertragingen | Akamai logboek gegevens vertragingen
+--- | --- | ---
+Uitgesteld 1 uur. | 1 uur vertraging en kan maximaal twee uur om te starten na voltooiing van de endpoint-doorgifte verschijnen. | Vertraging 24 uur; Als deze meer dan 24 uur geleden is gemaakt, duurt het tot 2 uur starten verschijnen. Als u onlangs is gemaakt, kan deze maximaal 25 uur voor de Logboeken starten verschijnen duren.
 
 ## <a name="diagnostic-log-types-for-cdn-core-analytics"></a>Diagnostische logboeken typen voor CDN-basisanalyse
 
 Momenteel bieden we alleen core analytics logboeken weergegeven van HTTP-antwoord statistieken en uitgaande zoals gezien vanaf de CDN POP's / randen metrische gegevens bevatten.
 
 ### <a name="core-analytics-metrics-details"></a>Core analytics metrische gegevens
-De volgende tabel bevat een overzicht van metrische gegevens beschikbaar zijn in de logboeken van de core analytics. Niet alle metrische gegevens zijn beschikbaar in alle providers, hoewel deze verschillen minimaal zijn. De volgende tabel wordt ook weergegeven als een metriek beschikbaar via een provider is. Houd er rekening mee dat de metrische gegevens beschikbaar zijn voor de CDN-eindpunten die verkeer op deze hebben.
+De volgende tabel bevat een overzicht van metrische gegevens beschikbaar zijn in de kern van het analytics-logboeken voor **Azure CDN Standard van Microsoft**, **Azure CDN Standard van Akamai**, en **Azure CDN Standard/Premium van Verizon**. Niet alle metrische gegevens zijn beschikbaar in alle providers, hoewel deze verschillen minimaal zijn. De tabel ook geeft aan of een metriek beschikbaar via een provider is. Houd er rekening mee dat de metrische gegevens beschikbaar zijn voor de CDN-eindpunten die verkeer op deze hebben.
 
 
-|Gegevens                     | Beschrijving   | Verizon  | Akamai 
-|---------------------------|---------------|---|---|
-| RequestCountTotal         |Totaal aantal treffers aanvraag tijdens deze periode| Ja  |Ja   |
-| RequestCountHttpStatus2xx |Telling van alle aanvragen dat heeft geresulteerd in een 2xx HTTP-code (bijvoorbeeld, 200, 202)              | Ja  |Ja   |
-| RequestCountHttpStatus3xx | Telling van alle aanvragen dat heeft geresulteerd in een 3xx HTTP-code (bijvoorbeeld, 300, 302)              | Ja  |Ja   |
-| RequestCountHttpStatus4xx |Telling van alle aanvragen dat heeft geresulteerd in een 4xx HTTP-code (bijvoorbeeld, 400, 404)               | Ja   |Ja   |
-| RequestCountHttpStatus5xx | Telling van alle aanvragen dat heeft geresulteerd in een 5xx HTTP-code (bijvoorbeeld, 500, 504)              | Ja  |Ja   |
-| RequestCountHttpStatusOthers |  Telling van alle andere HTTP-codes (buiten 2xx-5xx) | Ja  |Ja   |
-| RequestCountHttpStatus200 | Telling van alle aanvragen dat heeft geresulteerd in een HTTP-antwoord voor 200 code              |Nee   |Ja   |
-| RequestCountHttpStatus206 | Telling van alle aanvragen dat heeft geresulteerd in een HTTP-antwoord voor 206 code              |Nee   |Ja   |
-| RequestCountHttpStatus302 | Telling van alle aanvragen dat heeft geresulteerd in een HTTP-antwoord voor 302 code              |Nee   |Ja   |
-| RequestCountHttpStatus304 |  Telling van alle aanvragen dat heeft geresulteerd in een HTTP-antwoord voor 304 code             |Nee   |Ja   |
-| RequestCountHttpStatus404 | Telling van alle aanvragen dat heeft geresulteerd in een 404 HTTP-code-antwoord              |Nee   |Ja   |
-| RequestCountCacheHit |Telling van alle aanvragen dat heeft geresulteerd in een treffers in de Cache. De asset is geleverd rechtstreeks vanuit de pop-server naar de client.               | Ja  |Nee   |
-| RequestCountCacheMiss | Telling van alle aanvragen dat heeft geresulteerd in een Cache ontbreekt. Dit betekent dat de asset is niet gevonden op de pop-server die het dichtst bij de client en daarom is opgehaald uit de oorsprong.              |Ja   | Nee  |
-| RequestCountCacheNoCache | Telling van alle aanvragen voor een asset die worden opgeslagen vanwege de Gebruikersconfiguratie van een op de rand worden voorkomen.              |Ja   | Nee  |
-| RequestCountCacheUncacheable | Telling van alle aanvragen voor de activa die niet worden opgeslagen door de asset Cache-Control en Expires-koppen die aangeven dat deze mag niet worden opgeslagen op een pop-server of door de HTTP-client                |Ja   |Nee   |
-| RequestCountCacheOthers | Telling van alle aanvragen met de status van de cache niet wordt gedekt door hierboven.              |Ja   | Nee  |
-| EgressTotal | Uitgaande gegevensoverdracht in GB              |Ja   |Ja   |
-| EgressHttpStatus2xx | Uitgaande gegevens overdracht * voor antwoorden met 2xx HTTP-statuscodes in GB            |Ja   |Nee   |
-| EgressHttpStatus3xx | Uitgaande gegevensoverdracht voor antwoorden met 3xx HTTP-statuscodes in GB              |Ja   |Nee   |
-| EgressHttpStatus4xx | Uitgaande gegevensoverdracht voor antwoorden met 4xx HTTP-statuscodes in GB               |Ja   | Nee  |
-| EgressHttpStatus5xx | Uitgaande gegevensoverdracht voor antwoorden met 5xx HTTP-statuscodes in GB               |Ja   |  Nee |
-| EgressHttpStatusOthers | Uitgaande gegevensoverdracht voor antwoorden met andere HTTP-statuscodes in GB                |Ja   |Nee   |
-| EgressCacheHit |  Uitgaande gegevensoverdracht voor antwoorden die rechtstreeks van de CDN-cache op de CDN POP's / randen zijn verzonden  |Ja   |  Nee |
-| EgressCacheMiss | Uitgaande gegevensoverdracht voor reacties waarbij zijn niet gevonden op de dichtstbijzijnde POP-server en opgehaald uit de oorspronkelijke server              |Ja   |  Nee |
-| EgressCacheNoCache | Uitgaande gegevensoverdracht voor bedrijfsmiddelen die niet worden opgeslagen vanwege de Gebruikersconfiguratie van een op de rand.                |Ja   |Nee   |
-| EgressCacheUncacheable | Uitgaande gegevensoverdracht voor bedrijfsmiddelen die niet worden opgeslagen door de asset Cache-Control en/of Expires-koppen. Hiermee wordt aangegeven dat deze mag niet worden opgeslagen op een pop-server of door de HTTP-client.                   |Ja   | Nee  |
-| EgressCacheOthers |  Uitgaande gegevensoverdracht voor andere scenario's met cache.             |Ja   | Nee  |
+|Gegevens                     | Beschrijving | Microsoft | Verizon | Akamai |
+|---------------------------|-------------|----------|---------|--------|
+| RequestCountTotal         | Totaal aantal treffers in de aanvraag tijdens deze periode. | Ja | Ja |Ja |
+| RequestCountHttpStatus2xx | Telling van alle aanvragen dat heeft geresulteerd in een 2xx HTTP-code (bijvoorbeeld, 200, 202). | Ja | Ja |Ja |
+| RequestCountHttpStatus3xx | Telling van alle aanvragen dat heeft geresulteerd in een 3xx HTTP-code (bijvoorbeeld, 300, 302). | Ja | Ja |Ja |
+| RequestCountHttpStatus4xx | Telling van alle aanvragen dat heeft geresulteerd in een 4xx HTTP-code (bijvoorbeeld, 400, 404). | Ja | Ja |Ja |
+| RequestCountHttpStatus5xx | Telling van alle aanvragen dat heeft geresulteerd in een 5xx HTTP-code (bijvoorbeeld, 500, 504). | Ja | Ja |Ja |
+| RequestCountHttpStatusOthers | Telling van alle andere HTTP-codes (buiten 2xx-5xx). | Ja | Ja |Ja |
+| RequestCountHttpStatus200 | Telling van alle aanvragen dat heeft geresulteerd in een HTTP-antwoord voor 200 code. | Ja | Nee  |Ja |
+| RequestCountHttpStatus206 | Telling van alle aanvragen dat heeft geresulteerd in een HTTP-antwoord voor 206 code. | Ja | Nee  |Ja |
+| RequestCountHttpStatus302 | Telling van alle aanvragen dat heeft geresulteerd in een HTTP-antwoord voor 302 code. | Ja | Nee  |Ja |
+| RequestCountHttpStatus304 | Telling van alle aanvragen dat heeft geresulteerd in een HTTP-antwoord voor 304 code. | Ja | Nee  |Ja |
+| RequestCountHttpStatus404 | Telling van alle aanvragen dat heeft geresulteerd in een 404 HTTP-code-antwoord. | Ja | Nee  |Ja |
+| RequestCountCacheHit | Telling van alle aanvragen dat heeft geresulteerd in een treffers in de Cache. De asset is geleverd rechtstreeks vanuit de pop-server naar de client. | Ja | Ja | Nee  |
+| RequestCountCacheMiss | Telling van alle aanvragen dat heeft geresulteerd in een Cache ontbreekt. Dit betekent dat de asset is niet gevonden op de pop-server die het dichtst bij de client en daarom is opgehaald uit de oorsprong. | Ja | Ja | Nee |
+| RequestCountCacheNoCache | Telling van alle aanvragen voor een asset die worden opgeslagen vanwege de Gebruikersconfiguratie van een op de rand worden voorkomen. | Ja | Ja | Nee |
+| RequestCountCacheUncacheable | Telling van alle aanvragen voor de activa die niet worden opgeslagen door de Cache-Control en Expires-koppen die aangeven dat deze mag niet worden opgeslagen op een pop-server of door de HTTP-client de asset. | Ja | Ja | Nee |
+| RequestCountCacheOthers | Telling van alle aanvragen met de status van de cache niet wordt gedekt door hierboven. | Nee | Ja | Nee  |
+| EgressTotal | Uitgaande gegevensoverdracht in GB | Ja |Ja |Ja |
+| EgressHttpStatus2xx | Uitgaande gegevens overdracht * voor antwoorden met 2xx HTTP-statuscodes in GB. | Ja | Ja | Nee  |
+| EgressHttpStatus3xx | Uitgaande gegevensoverdracht voor antwoorden met 3xx HTTP-statuscodes in GB. | Ja | Ja | Nee  |
+| EgressHttpStatus4xx | Uitgaande gegevensoverdracht voor antwoorden met 4xx HTTP-statuscodes in GB. | Ja | Ja | Nee  |
+| EgressHttpStatus5xx | Uitgaande gegevensoverdracht voor antwoorden met 5xx HTTP-statuscodes in GB. | Ja | Ja | Nee |
+| EgressHttpStatusOthers | Uitgaande gegevensoverdracht voor antwoorden met andere HTTP-statuscodes in GB. | Ja | Ja | Nee  |
+| EgressCacheHit | Uitgaande gegevensoverdracht voor antwoorden die zijn geleverd rechtstreeks vanaf de CDN-cache op de CDN POP's / randen. | Ja | Ja | Nee |
+| EgressCacheMiss. | Uitgaande gegevensoverdracht voor reacties waarbij zijn niet gevonden op de dichtstbijzijnde POP-server en opgehaald uit de bronserver. | Ja | Ja | Nee |
+| EgressCacheNoCache | Uitgaande gegevensoverdracht voor bedrijfsmiddelen die niet worden opgeslagen vanwege de Gebruikersconfiguratie van een op de rand. | Ja | Ja | Nee |
+| EgressCacheUncacheable | Uitgaande gegevensoverdracht voor bedrijfsmiddelen die niet worden opgeslagen door de asset Cache-Control en/of Expires-koppen. Hiermee wordt aangegeven dat deze mag niet worden opgeslagen op een pop-server of door de HTTP-client. | Ja | Ja | Nee |
+| EgressCacheOthers | Uitgaande gegevensoverdracht voor andere scenario's met cache. | Nee | Ja | Nee |
 
 * Uitgaande gegevensoverdracht verwijst naar verkeer van CDN POP-servers aan de client geleverd.
 
@@ -368,7 +370,7 @@ Alle logboeken worden opgeslagen in de JSON-indeling en elk item heeft tekenreek
 }
 ```
 
-De tijd' ' vertegenwoordigt waarop de starttijd van de uur-grens waarvoor de statistieken is gemeld. Wanneer een waarde wordt niet ondersteund door een CDN-provider, in plaats van een dubbel of integer-waarde is een null-waarde. Deze null-waarde geeft de afwezigheid van een metriek en verschilt van de waarde 0. Er is een set met deze metrische gegevens per domein geconfigureerd op het eindpunt.
+Waar *tijd* vertegenwoordigt de starttijd van de uur-grens waarvoor de statistieken is gemeld. Wanneer een waarde wordt niet ondersteund door een CDN-provider, in plaats van een dubbel of integer-waarde is een null-waarde. Deze null-waarde geeft de afwezigheid van een metriek en verschilt van de waarde 0. Er is een set met deze metrische gegevens per domein geconfigureerd op het eindpunt.
 
 Van de Voorbeeldeigenschappen:
 

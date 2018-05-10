@@ -3,24 +3,22 @@ title: PowerShell-voorbeelden voor het beheren van groepen in Azure Active Direc
 description: Deze pagina vindt u voorbeelden van PowerShell om u te helpen bij het beheren van uw groepen in Azure Active Directory
 keywords: Azure AD, Azure Active Directory PowerShell, groepen, groepsbeheer
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 7a5023dc-2727-4c25-8254-b531fc3244ac
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: rodejo
-ms.openlocfilehash: 3f57e1a0ded679325c8c739e73cc79f69c037191
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 312efd6233546ae32e498907e04fbf8aea73f7b7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Azure Active Directory-cmdlets van versie 2 voor groepsbeheer
 > [!div class="op_single_selector"]
@@ -162,7 +160,7 @@ Nu als we de groep opnieuw vinden, ziet u dat de eigenschap Description is bijge
     ProxyAddresses               : {}
     SecurityEnabled              : True
 
-## <a name="delete-groups"></a>Verwijderen van groepen
+## <a name="delete-groups"></a>Groepen verwijderen
 Als u wilt verwijderen van groepen van uw directory, gebruikt u de cmdlet Remove-AzureADGroup als volgt:
 
     PS C:\Windows\system32> Remove-AzureADGroup -ObjectId b11ca53e-07cc-455d-9a89-1fe3ab24566b
@@ -252,7 +250,7 @@ Als u een eigenaar verwijderen uit een groep wilt, gebruikt u de cmdlet Remove-A
 Wanneer een groep is gemaakt, bepaalde eindpunten toestaan dat de eindgebruiker een mailNickname of alias moet worden gebruikt als onderdeel van het e-mailadres van de groep opgeven. Groepen met de volgende bijzondere rechten e-aliassen kunnen alleen worden gemaakt door een globale beheerder van Azure AD. 
   
 * misbruik 
-* Beheerder 
+* beheerder 
 * Beheerder 
 * hostmaster 
 * majordomo 

@@ -1,6 +1,6 @@
 ---
 title: Aan de slag met de oplossing apparaat simulatie - Azure | Microsoft Docs
-description: De oplossing van de simulatie IoT Suite is een hulpprogramma dat kan worden gebruikt om te helpen bij het ontwikkelen en testen van een IoT-oplossing. De simulatie-service is een zelfstandige die kan worden gebruikt in combinatie met andere vooraf geconfigureerde oplossingen of gebruikt met uw eigen aangepaste oplossingen bieden.
+description: De IoT-oplossing accelerators simulatie-oplossing is een hulpprogramma dat kan worden gebruikt om te helpen bij het ontwikkelen en testen van een IoT-oplossing. De simulatie-service is een zelfstandige die kan worden gebruikt in combinatie met andere accelerators oplossing of gebruikt met uw eigen aangepaste oplossingen bieden.
 services: iot device simulation
 suite: iot-suite
 author: troyhopwood
@@ -12,15 +12,15 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 1452508822f08d4554f419a72f7e9e6018a52469
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7dfd56d06e180dd163fa84d4289e6daf4baefc51
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="device-simulation-walkthrough"></a>Apparaat simulatie scenario
 
-Simulatie van Azure IoT-apparaat is een hulpprogramma dat kan worden gebruikt om te helpen bij het ontwikkelen en testen van een IoT-oplossing. Apparaat simulatie is een zelfstandige aanbieding die u in combinatie met andere vooraf geconfigureerde oplossingen of met uw eigen aangepaste oplossingen gebruiken kunt.
+Simulatie van Azure IoT-apparaat is een hulpprogramma dat kan worden gebruikt om te helpen bij het ontwikkelen en testen van een IoT-oplossing. Apparaat simulatie is een zelfstandige bieden dat u in combinatie met andere accelerators oplossing of met uw eigen aangepaste oplossingen gebruiken kunt.
 
 Deze zelfstudie leert u enkele van de functies van de simulatie van het apparaat. Hier ziet u hoe het werkt en kunt u deze gebruiken voor het testen van uw eigen IoT-oplossingen.
 
@@ -39,7 +39,7 @@ Als u de simulatie van het apparaat nog niet hebt geïmplementeerd, maar u moet 
 
 ## <a name="configuring-device-simulation"></a>De simulatie apparaat configureren
 
-U kunt configureren en uitvoeren van de simulatie apparaat volledig uit in het dashboard. Open het dashboard van de IoT-Suite [ingerichte oplossingen](https://www.azureiotsuite.com/) pagina. Klik op **starten** onder uw nieuwe apparaat simulatie-implementatie.
+U kunt configureren en uitvoeren van de simulatie apparaat volledig uit in het dashboard. Open het dashboard van de IoT-oplossing accelerators [ingerichte oplossingen](https://www.azureiotsuite.com/) pagina. Klik op **starten** onder uw nieuwe apparaat simulatie-implementatie.
 
 ### <a name="target-iot-hub"></a>Doel IoT-Hub
 

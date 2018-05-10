@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2018
+ms.date: 05/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 0bc24fb0206455c723acf5e6f4b82d82002f727c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9ba48a9072a85e7d8e6e9fb17957efbf27711df8
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiëren van gegevens of naar Azure SQL Data Warehouse met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -103,7 +103,7 @@ Volg deze stappen voor het gebruik van de service principal gebaseerde AAD-toepa
     - Sleutel van toepassing
     - Tenant-id
 
-2. **[Inrichten van een Azure Active Directory-beheerder](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)**  voor uw Azure SQL-Server op Azure-portal als u dit nog niet hebt gedaan. De AAD-beheerder kan een AAD-gebruiker of AAD-groep zijn. Als u de groep met MSI een beheerdersrol verleent, stap 3 en 4 hieronder overslaan als de beheerder volledige toegang tot de database hebben zou.
+2. **[Inrichten van een Azure Active Directory-beheerder](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  voor uw Azure SQL-Server op Azure-portal als u dit nog niet hebt gedaan. De AAD-beheerder kan een AAD-gebruiker of AAD-groep zijn. Als u de groep met MSI een beheerdersrol verleent, stap 3 en 4 hieronder overslaan als de beheerder volledige toegang tot de database hebben zou.
 
 3. **Een ingesloten database-gebruiker maken voor de service-principal**, door verbinding te maken naar het datawarehouse van/naar die u wilt kopiëren van gegevens met behulp van hulpprogramma's zoals SSMS, met een AAD identiteit met ten minste ALTER machtigingen en het uitvoeren van de volgende T-SQL . Meer informatie op de ingesloten databasegebruiker [hier](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
     
@@ -114,7 +114,7 @@ Volg deze stappen voor het gebruik van de service principal gebaseerde AAD-toepa
 4. **De service-principal de vereiste machtigingen verlenen** zoals u gewend voor SQL-gebruikers, bijvoorbeeld bent door het uitvoeren van onderstaande:
 
     ```sql
-    EXEC sp_addrolemember '[your application name]', 'readonlyuser';
+    EXEC sp_addrolemember [role name], [your application name];
     ```
 
 5. In de ADF, configureert u een Azure SQL Data Warehouse gekoppelde service.
@@ -151,6 +151,9 @@ Volg deze stappen voor het gebruik van de service principal gebaseerde AAD-toepa
 
 Een gegevensfactory kan worden gekoppeld aan een [beheerde service-identiteit (MSI)](data-factory-service-identity.md), die staat voor deze specifieke gegevensfactory. U kunt deze service-identiteit gebruiken voor verificatie van Azure SQL Data Warehouse, waardoor deze aangewezen factory voor toegang en gegevens kopiëren van/naar uw datawarehouse.
 
+> [!IMPORTANT]
+> Houd er rekening mee dat polybase is momenteel niet ondersteund voor MSI-authentcation.
+
 Voor het gebruik van MSI op basis van tokenverificatie AAD-toepassing, als volgt te werk:
 
 1. **Een groep maken in Azure AD en maak de factory MSI lid van de groep**.
@@ -163,7 +166,7 @@ Voor het gebruik van MSI op basis van tokenverificatie AAD-toepassing, als volgt
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
     ```
 
-2. **[Inrichten van een Azure Active Directory-beheerder](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)**  voor uw Azure SQL-Server op Azure-portal als u dit nog niet hebt gedaan.
+2. **[Inrichten van een Azure Active Directory-beheerder](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  voor uw Azure SQL-Server op Azure-portal als u dit nog niet hebt gedaan.
 
 3. **Maak een ingesloten database-gebruiker voor de AAD-groep**, door verbinding te maken naar het datawarehouse van/naar die u wilt kopiëren van gegevens met behulp van hulpprogramma's zoals SSMS, met een AAD identiteit met ten minste ALTER machtigingen en het uitvoeren van de volgende T-SQL. Meer informatie op de ingesloten databasegebruiker [hier](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
     
@@ -174,7 +177,7 @@ Voor het gebruik van MSI op basis van tokenverificatie AAD-toepassing, als volgt
 4. **De AAD-groep nodig machtigingen verlenen** zoals u gewend voor SQL-gebruikers, bijvoorbeeld bent door het uitvoeren van onderstaande:
 
     ```sql
-    EXEC sp_addrolemember '[your AAD group name]', 'readonlyuser';
+    EXEC sp_addrolemember [role name], [your AAD group name];
     ```
 
 5. In de ADF, configureert u een Azure SQL Data Warehouse gekoppelde service.
@@ -381,7 +384,7 @@ Met behulp van **[PolyBase](https://docs.microsoft.com/sql/relational-databases/
 * Als uw brongegevensarchief en de indeling wordt oorspronkelijk niet ondersteund door PolyBase, kunt u de **[gefaseerde kopiëren met PolyBase](#staged-copy-using-polybase)** in plaats daarvan functie. Dit biedt u ook betere doorvoer door automatisch converteren van de gegevens naar de PolyBase-compatibele indeling en opslaan van gegevens in Azure Blob-opslag. Vervolgens worden gegevens geladen in SQL Data Warehouse.
 
 > [!IMPORTANT]
-> Houd er rekening mee PolyBase alleen ondersteuning voor Azure SQL Data Warehouse SQL authentcation maar niet voor Azure Active Directory-verificatie.
+> Voor beheerde Service identiteit (MSI) wordt momenteel niet ondersteund door PolyBase gebaseerde token authentcation AAD-toepassing.
 
 ### <a name="direct-copy-using-polybase"></a>Directe kopiëren met PolyBase
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: 3b908f1df9228505b2f3bce18bd42d9b502844c6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e4995146433d0090849fe17175b152a6e45809f4
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Prestaties en schaal testen met Azure Cosmos-DB
 
@@ -96,7 +96,7 @@ De snelste manier om te beginnen is compileren en uitvoeren van het .NET-voorbee
     Press any key to exit...
 
 
-**Stap 4 (indien nodig):** de doorvoer gerapporteerd (RU/s) uit het hulpprogramma moet gelijk zijn of hoger is dan de ingerichte doorvoer van de verzameling. Als dit niet het geval is, kan vergroot de DegreeOfParallelism in kleine stappen u helpen de limiet is bereikt. Als de doorvoer van uw clientapp plateaus, start u meerdere exemplaren van de app op extra computers. Als u hulp nodig hebt bij deze stap, e- askcosmosdb@microsoft.com of het bestand een ondersteuningsticket vanuit de [Azure-portal](https://portal.azure.com).
+**Stap 4 (indien nodig):** de doorvoer gerapporteerd (RU/s) uit het hulpprogramma moet gelijk zijn of hoger is dan de ingerichte doorvoer van de verzameling of een set van verzamelingen. Als dit niet het geval is, kan vergroot de DegreeOfParallelism in kleine stappen u helpen de limiet is bereikt. Als de doorvoer van uw clientapp plateaus, start u meerdere exemplaren van de app op extra computers. Als u hulp nodig hebt bij deze stap, e- askcosmosdb@microsoft.com of het bestand een ondersteuningsticket vanuit de [Azure-portal](https://portal.azure.com).
 
 Nadat u de app actief hebt, kunt u proberen andere [beleid indexeren](indexing-policies.md) en [consistentieniveaus](consistency-levels.md) om te begrijpen van de impact op de doorvoer en latentie. Ook kunt u de broncode controleren en soortgelijke configuraties voor uw eigen tests suites of productietoepassingen implementeren.
 

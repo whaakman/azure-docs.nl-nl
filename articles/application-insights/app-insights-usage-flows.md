@@ -2,8 +2,8 @@
 title: Gebruiker navigatiepatronen met een gebruiker in Azure Application Insights loopt analyseren | Microsoft docs
 description: Analyseren hoe gebruikers navigeren tussen de pagina's en functies van uw web-app.
 services: application-insights
-documentationcenter: 
-author: numberbycolors
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: mbullwin; daviste
-ms.openlocfilehash: 63139bfb190959284cb5d25df1a8dd91bd7d913f
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 5913039d3ab288c2fc8366073b340538989512ee
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="analyze-user-navigation-patterns-with-user-flows-in-application-insights"></a>Gebruiker navigatiepatronen met een gebruiker in Application Insights loopt analyseren
 

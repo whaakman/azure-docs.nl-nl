@@ -1,22 +1,22 @@
 ---
 title: Apparaten in de oplossing voor externe controle - Azure oplossen | Microsoft Docs
 description: Deze zelfstudie laat zien hoe u oplossen en het oplossen van problemen met apparaten in de oplossing voor externe controle.
-services: 
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/22/2018
+ms.date: 05/01/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: dd01246075a5c0db0ed49133ed51fb56d8fcf8e5
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: a959276ea61ec0e44ad45197019dfc80f26b768e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="troubleshoot-and-remediate-device-issues"></a>Problemen oplossen en het oplossen van problemen met apparaat
 
@@ -27,48 +27,48 @@ Contoso is het testen van een nieuwe **Prototype** apparaat in het veld. Als een
 In deze zelfstudie leert u het volgende:
 
 >[!div class="checklist"]
-> * Gebruik de **onderhoud** pagina voor het onderzoeken van het alarm
+> * Gebruik de **onderhoud** pagina voor het onderzoeken van de waarschuwing
 > * Een apparaat methode aanroepen om het probleem oplossen
 
 ## <a name="prerequisites"></a>Vereisten
 
 Volg deze zelfstudie, moet u een geïmplementeerd exemplaar van de oplossing voor externe controle in uw Azure-abonnement.
 
-Als u de oplossing voor externe controle nog niet hebt geïmplementeerd, maar u moet voltooien de [implementeren van de vooraf geconfigureerde oplossing voor externe controle](iot-suite-remote-monitoring-deploy.md) zelfstudie.
+Als u de oplossing voor externe controle nog niet hebt geïmplementeerd, maar u moet voltooien de [implementeren van de externe controle oplossingsverbetering](iot-suite-remote-monitoring-deploy.md) zelfstudie.
 
 ## <a name="use-the-maintenance-dashboard"></a>Gebruik het dashboard onderhoud
 
-Op de **Dashboard** pagina u er zijn onverwachte temperatuur alarmen afkomstig is van de regel die is gekoppeld ziet aan de **Prototype** apparaten:
+Op de **Dashboard** pagina u er zijn onverwachte temperatuur waarschuwingen afkomstig is van de regel die is gekoppeld ziet aan de **Prototype** apparaten:
 
-![Alarmen weergegeven op het dashboard](media/iot-suite-remote-monitoring-maintain/dashboardalarm.png)
+![Waarschuwingen op het dashboard wordt weergegeven](media/iot-suite-remote-monitoring-maintain/dashboardalarm.png)
 
-Voor het onderzoeken van het probleem verder kiest de **verkennen Alarm** optie naast het alarm:
+Voor het onderzoeken van het probleem verder kiest de **waarschuwing verkennen** optie naast de waarschuwing:
 
 ![Waarschuwing vanuit het dashboard verkennen](media/iot-suite-remote-monitoring-maintain/dashboardexplorealarm.png)
 
 De detailweergave van de waarschuwing wordt weergegeven:
 
 * Wanneer de waarschuwing is geactiveerd
-* Statusinformatie over de apparaten die zijn gekoppeld aan het alarm
-* Telemetrie van de apparaten die zijn gekoppeld aan het alarm
+* Statusinformatie over de apparaten die zijn gekoppeld aan de waarschuwing
+* Telemetrie van de apparaten die zijn gekoppeld aan de waarschuwing
 
-![Details van de waarschuwing](media/iot-suite-remote-monitoring-maintain/maintenancealarmdetail.png)
+![Waarschuwingsdetails](media/iot-suite-remote-monitoring-maintain/maintenancealarmdetail.png)
 
 Om te bevestigen op de waarschuwing, selecteer de **waarschuwing voorvallen** en kies **bevestigings**. Deze actie kan andere operators om te zien dat u al de waarschuwing gezien hebt en wordt gewerkt.
 
-![De alarmen bevestigen](media/iot-suite-remote-monitoring-maintain/maintenanceacknowledge.png)
+![Bevestig de waarschuwingen](media/iot-suite-remote-monitoring-maintain/maintenanceacknowledge.png)
 
-Wanneer u het alarm erkent, de status van de instantie moet worden gewijzigd in **bevestigd**.
+Als u de waarschuwing bevestigt, verandert de status van de instantie in **bevestigd**.
 
-In de lijst ziet u de **Prototype** verantwoordelijk voor het starten van het alarm temperatuur apparaat:
+In de lijst ziet u de **Prototype** verantwoordelijk voor het starten van de waarschuwing temperatuur apparaat:
 
-![Lijst van de apparaten waardoor het alarm](media/iot-suite-remote-monitoring-maintain/maintenanceresponsibledevice.png)
+![Lijst van de apparaten waardoor de waarschuwing](media/iot-suite-remote-monitoring-maintain/maintenanceresponsibledevice.png)
 
 ## <a name="remediate-the-issue"></a>Het probleem oplossen
 
 Oplossen van het probleem met de **Prototype** apparaat gebruikt, moet u aan te roepen de **DecreaseTemperature** methode op het apparaat.
 
-Als u wilt uitvoeren op een apparaat, selecteert u deze in de lijst met apparaten en kies vervolgens **planning**. De **Prototype** Apparaatmodel bevat vier verschillende manieren een apparaat moet ondersteunen:
+Als u wilt uitvoeren op een apparaat, selecteert u deze in de lijst met apparaten en kies vervolgens **taken**. De **Prototype** Apparaatmodel bevat zes methoden die een apparaat moet ondersteunen:
 
 ![Bekijk de methoden die ondersteuning biedt voor het apparaat](media/iot-suite-remote-monitoring-maintain/maintenancemethods.png)
 
@@ -90,7 +90,7 @@ In deze zelfstudie hebt u gezien hoe:
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]
-> * Gebruik de **onderhoud** pagina voor het onderzoeken van het alarm
+> * Gebruik de **onderhoud** pagina voor het onderzoeken van de waarschuwing
 > * Een apparaat methode aanroepen om het probleem oplossen
 
 Nu u hebt geleerd hoe problemen van apparaten te beheren, de voorgestelde volgende stap is te leren hoe u [testen van uw oplossing met gesimuleerde apparaten](iot-suite-remote-monitoring-test.md).

@@ -9,11 +9,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: asgang
-ms.openlocfilehash: 44f2016dacf1433cfe3a61058a167c42700e37d6
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 9bfe181b2271f4e8af6f43e1728167712dade8ee
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="troubleshoot-azure-site-recovery-extension-failures-issues-with-the-agent-or-extension"></a>Problemen met het Azure Site Recovery-extensie: problemen met de agent of de extensie
 
@@ -31,6 +31,13 @@ Foutcode: '151076'
 **2 oorzaak: [de agent is geïnstalleerd in de virtuele machine is verouderd (voor Linux VM's)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **3 oorzaak: [de Site Recovery-uitbreiding niet bijwerken of laden](#the-site-recovery-extension-fails-to-update-or-load)**  
 
+Foutbericht weergegeven: "vorige site recovery-extensie bewerking duurt langer dan verwacht."<br>
+Foutcode: '150066'<br>
+
+**1 oorzaak: [de agent is geïnstalleerd in de virtuele machine, maar het niet-reagerende (voor Windows-VM's)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**2 oorzaak: [de agent is geïnstalleerd in de virtuele machine is verouderd (voor Linux VM's)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**3 oorzaak: [de status van de Site Recovery-extensie is onjuist](#the-site-recovery-extension-fails-to-update-or-load)**  
+
 ## <a name="protection-fails-because-the-vm-agent-is-unresponsive"></a>Beveiliging is mislukt omdat de VM-agent reageert niet
 
 Foutbericht weergegeven: "uitvoering van de taak is een time-out tijdens het bijhouden van de extensie opnieuw worden gestart."<br>
@@ -43,7 +50,11 @@ U kunt de status van Azure guest-agent in controleren [Azure-portal](https://por
 **2 oorzaak: [de agent is geïnstalleerd in de virtuele machine is verouderd (voor Linux VM's)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 
 
+Foutbericht weergegeven: "uitvoering van de taak is een time-out tijdens het bijhouden van de extensie opnieuw worden gestart."<br>
+Foutcode: '151095'<br>
 
+Deze fout optreden wanneer de versie van de beveiligingsagent op de Linux-machine is oud. Voltooi de volgende procedure voor probleemoplossing.<br>
+  **1 oorzaak: [de agent is geïnstalleerd in de virtuele machine is verouderd (voor Linux VM's)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 ## <a name="causes-and-solutions"></a>Oorzaken en oplossingen
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>De agent op de virtuele machine is geïnstalleerd, maar het is niet-reagerende (voor Windows-VM's)

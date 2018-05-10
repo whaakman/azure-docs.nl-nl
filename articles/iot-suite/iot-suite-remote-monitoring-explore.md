@@ -1,24 +1,24 @@
 ---
 title: Aan de slag met de oplossing voor externe controle - Azure | Microsoft Docs
-description: Deze zelfstudie maakt gebruik van gesimuleerde scenario's in te voeren van de vooraf geconfigureerde oplossing voor externe controle. Deze scenario's worden gemaakt wanneer u de vooraf geconfigureerde oplossing voor externe controle voor de eerste keer implementeren.
-services: 
+description: In deze zelfstudie maakt gebruik van gesimuleerde scenario's voor externe controle oplossingsverbetering introduceren. Deze scenario's worden gemaakt wanneer u de externe controle oplossingsverbetering voor de eerste keer implementeren.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/22/2018
+ms.date: 05/01/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 96d701860abcc645b37d0420fe352da2adeb992f
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 720269ad22bfe4a7f5871c934be77b680627e2f7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Ontdek de mogelijkheden van de vooraf geconfigureerde oplossing voor externe controle
+# <a name="explore-the-capabilities-of-the-remote-monitoring-solution-accelerator"></a>De mogelijkheden van de externe controle oplossingsverbetering verkennen
 
 Deze zelfstudie ziet u de belangrijkste mogelijkheden van de oplossing voor externe controle. Ter introductie van het volgen van deze mogelijkheden worden in de zelfstudie algemene scenario's voor klanten met een gesimuleerde IoT-toepassing voor een bedrijf met de naam Contoso gepresenteerd.
 
@@ -28,7 +28,7 @@ In deze zelfstudie leert u het volgende:
 
 >[!div class="checklist"]
 > * Visualiseren en apparaten op het dashboard filteren
-> * Reageren op een waarschuwing wordt gegeven
+> * Reageren op een waarschuwing
 > * Werk de firmware in uw apparaten
 > * Uw assets ordenen
 > * Stoppen en starten van de gesimuleerde apparaten
@@ -41,14 +41,14 @@ De volgende video ziet u een overzicht van de oplossing voor externe controle:
 
 Voor deze zelfstudie hebt voltooid, moet u een geïmplementeerd exemplaar van de oplossing voor externe controle in uw Azure-abonnement.
 
-Als u de oplossing voor externe controle nog niet hebt geïmplementeerd, maar u moet voltooien de [implementeren van de vooraf geconfigureerde oplossing voor externe controle](iot-suite-remote-monitoring-deploy.md) zelfstudie.
+Als u de oplossing voor externe controle nog niet hebt geïmplementeerd, maar u moet voltooien de [implementeren van de externe controle oplossingsverbetering](iot-suite-remote-monitoring-deploy.md) zelfstudie.
 
 ## <a name="the-contoso-sample-iot-deployment"></a>De Contoso-voorbeeld IoT-implementatie
 
 U kunt de implementatie van Contoso voorbeeld IoT basisscenario's begrijpen de externe bewakingsoplossing biedt out-of-the-box. Deze scenario's zijn gebaseerd op de praktijk IoT-implementaties. Waarschijnlijk, kiest u voor het aanpassen van de oplossing voor externe controle om te voldoen aan uw specifieke vereisten, maar de Contoso-voorbeeld kunt u de basisprincipes uitgelegd.
 
 > [!NOTE]
-> Als u de CLI gebruikt voor het implementeren van de vooraf geconfigureerde oplossing voor het bestand `deployment-{your deployment name}-output.json` bevat informatie over de implementatie, zoals de URL om de geïmplementeerde voorbeeld te openen.
+> Als u de CLI gebruikt voor het implementeren van de oplossingsverbetering, het bestand `deployment-{your deployment name}-output.json` bevat informatie over de implementatie, zoals de URL om de geïmplementeerde voorbeeld te openen.
 
 Het Contoso-voorbeeld levert een set regels om te reageren op deze en gesimuleerde apparaten. Zodra u de standaardscenario begrijpt, kunt u blijven verkennen meer van de functies van de oplossing in [geavanceerde bewaking met behulp van de oplossing voor externe controle uitvoeren](iot-suite-remote-monitoring-monitor.md).
 
@@ -67,7 +67,7 @@ De volgende tabel bevat een overzicht van de ingerichte apparaattypen:
 | ------------------ | ------------------------------------------ | ------------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------- |
 | Koelunit            | Temperatuur, vochtigheid, druk            | Type, firmwareversie, Model               | Locatie, Floor, bereik | Opnieuw opstarten, Firmware-Update noodgevallen klep Release toename druk                          |
 | Maken van een prototype-apparaat | Temperatuur, belasting, geografische locatie        | Type, firmwareversie, Model               | Locatie, modus          | Computer opnieuw worden opgestart, Firmware-Update Move-apparaat, Stop-apparaat, temperatuur release, temperatuur toename |
-| Engine             | Vervangen brandstof niveau, koelvloeistof sensor, trillingen | Type, firmwareversie, Model               | Locatie, Floor, bereik | Opstarten, Firmware-Update leeg vervangen, opvulling vervangen                                              |
+| Engine             | Vervangen brandstof niveau, koelvloeistof sensor, trillingen | Type, firmwareversie, Model               | Locatie, Floor, bereik | Firmware-Update, leeg vervangen, opvulling vervangen                                              |
 | Vrachtwagen              | Geografische locatie, snelheid, lading temperatuur     | Type, firmwareversie, Model               | Locatie, laden          | Lagere lading temperatuur, toename lading temperatuur, Firmware-update                         |
 | Lift           | Floor, trillingen, temperatuur              | Type, firmwareversie Model, geografische locatie | Locatie, bereik        | Lift stoppen, starten lift, Firmware-update                                               |
 
@@ -80,51 +80,43 @@ Operators bij Contoso weten de drempelwaarden die bepalen of een apparaat goed w
 
 | Regelnaam | Beschrijving | Drempelwaarde | Ernst | Beïnvloede apparaten |
 | --------- | ----------- | --------- | -------- | ---------------- |
-| Koelunit druk te hoog | Waarschuwingen als chillers hoger dan de normale druk niveaus bereiken   |P>250 psi       | Kritiek | Chillers            |
+| Koelunit druk te hoog | Waarschuwingen als chillers hoger dan de normale druk niveaus bereiken   |P > 250 psi       | Kritiek | Chillers            |
 | Maken van een prototype apparaat temp te hoog  | Als het maken van een prototype-apparaten naar hoger dan de normale temperatuurniveaus van waarschuwingen  |T>80&deg; F |Kritiek | Maken van een prototype-apparaten |
 | Engine vervangen leeg  | Waarschuwingen als brandstoftank engine leeg gaat                     | F < 5 gallon | Info     | Engines             |
-| Hoger is dan de normale lading temperatuur | Als de vrachtwagen lading temperatuur hoger dan normaal is waarschuwingen                 | T<45&deg; F |Waarschuwing  | Vrachtwagens              |
+| Hoger is dan de normale lading temperatuur | Als de vrachtwagen lading temperatuur hoger dan normaal is waarschuwingen                 | T &LT; 45&deg; F |Waarschuwing  | Vrachtwagens              |
 | Lift-trillingen gestopt      | Waarschuwingen als lift volledig stopt (op basis van trillingen niveau)                     | V < 0,1 mm |Waarschuwing  | Liften           |
 
 ### <a name="operate-the-contoso-sample-deployment"></a>De implementatie van de steekproef Contoso werkt
 
-U hebt nu de eerste installatie in de Contoso-voorbeeld gezien. De volgende secties worden drie scenario's in de steekproef Contoso die aangeven hoe de vooraf geconfigureerde oplossing kunt gebruiken om een operator.
+U hebt nu de eerste installatie in de Contoso-voorbeeld gezien. De volgende secties worden drie scenario's in de steekproef Contoso die aangeven hoe een operator de oplossingsverbetering zou kunnen gebruiken.
 
-## <a name="respond-to-a-pressure-alarm"></a>Reageren op een zware belasting op het alarm
+## <a name="respond-to-a-pressure-alert"></a>Reageren op een zware belasting op waarschuwing
 
-Dit scenario laat zien hoe u te identificeren en te reageren op een waarschuwing die wordt geactiveerd door een apparaat Koelunit. De Koelunit bevindt zich in Redmond, bij het bouwen van 43 floor 2.
+Dit scenario laat zien hoe u te identificeren en te reageren op een waarschuwing die door een Koelunit-apparaat wordt geactiveerd. De Koelunit bevindt zich in Redmond, bij het bouwen van 43 floor 2.
 
 Als operator ziet u in het dashboard dat er een waarschuwing die betrekking hebben op de druk van een Koelunit. U kunt pannen en inzoomen op de kaart in meer detail te zien.
 
-1. Op de **Dashboard** pagina in de **System alarmen** raster, ziet u de **Koelunit druk te hoog** alarm. De Koelunit ook gemarkeerd op de kaart:
+1. Op de **Dashboard** pagina in de **waarschuwingen** raster, ziet u de **Koelunit druk te hoog** waarschuwing. De Koelunit ook gemarkeerd op de kaart:
 
-    ![Dashboard druk alarm en apparaat wordt weergegeven op de kaart](media/iot-suite-remote-monitoring-explore/dashboardalarm.png)
+    ![Dashboard druk waarschuwing en het apparaat wordt weergegeven op de kaart](media/iot-suite-remote-monitoring-explore/dashboardalarm.png)
 
-1. U de Apparaatdetails en de telemetrie weergeven, klikt u op de gemarkeerde Koelunit op de kaart. De telemetrie ziet u een zware belasting piek:
+1. Om te navigeren naar de **onderhoud** pagina **onderhoud** in het navigatiemenu. Op de **onderhoud** pagina vindt u de details van de regel die de Koelunit druk waarschuwing heeft geactiveerd.
 
-    ![Kies apparaat op de kaart om details weer te geven](media/iot-suite-remote-monitoring-explore/dashboarddetail.png)
-
-1. Sluit **apparaat detail**.
-
-1. Om te navigeren naar de **onderhoud** pagina **onderhoud** in het navigatiemenu.
-
-Op de **onderhoud** pagina vindt u de details van de regel die de Koelunit druk waarschuwing heeft geactiveerd.
-
-1. De lijst met meldingen toont het aantal keren dat de waarschuwing heeft geactiveerd, bevestigingen en open en gesloten alarmen:
+1. De lijst met waarschuwingen ziet u het aantal keren dat de waarschuwing heeft geactiveerd, bevestigingen en open en gesloten waarschuwingen:
 
     ![Onderhoudspagina bevat een overzicht van waarschuwingen die zijn geactiveerd](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
 
-1. De eerste waarschuwing in de lijst is de meest recente. Klik op de **Koelunit druk te hoog** alarm verbonden apparaten en telemetrie weergeven. De telemetrie ziet Druk pieken voor de Koelunit:
+1. De laatste melding in de lijst is de meest recente. Klik op de **Koelunit druk te hoog** waarschuwing om de bijbehorende apparaten en de telemetrie weer te geven. De telemetrie ziet Druk pieken voor de Koelunit:
 
-    ![Onderhoudspagina toont telemetrie voor de geselecteerde waarschuwing](media/iot-suite-remote-monitoring-explore/maintenancetelemetry.png)
+    ![Onderhoudspagina toont telemetrie voor geselecteerde waarschuwing](media/iot-suite-remote-monitoring-explore/maintenancetelemetry.png)
 
-U hebt het probleem dat de waarschuwing en het gekoppelde apparaat geactiveerd geïdentificeerd. Als operator zijn de volgende stappen uit om te bevestigen van het alarm en het probleem te verhelpen.
+U hebt het probleem dat de waarschuwing en het gekoppelde apparaat geactiveerd geïdentificeerd. Als operator zijn de volgende stappen uit om te bevestigen van de waarschuwing en het probleem te verhelpen.
 
 1. Om aan te geven dat u nu op de waarschuwing werkt, wijzig de **waarschuwing status** naar **bevestigd**:
 
-    ![Selecteer en Bevestig het alarm](media/iot-suite-remote-monitoring-explore/maintenanceacknowledge.png)
+    ![Selecteer en bevestigt u de waarschuwing](media/iot-suite-remote-monitoring-explore/maintenanceacknowledge.png)
 
-1. Om te fungeren voor de Koelunit, selecteert u deze en kies vervolgens **planning**. Selecteer **EmergencyValveRelease**, de taaknaam van een toevoegen **ChillerPressureRelease**, en kies **toepassen**. Deze instellingen maken van een taak die wordt uitgevoerd onmiddellijk:
+1. Om te fungeren voor de Koelunit, selecteert u deze en kies vervolgens **taken**. Selecteer **methode Run**, vervolgens **EmergencyValveRelease**, de taaknaam van een toevoegen **ChillerPressureRelease**, en kies **toepassen**. Deze instellingen maken van een taak die wordt uitgevoerd onmiddellijk:
 
     ![Selecteer het apparaat en het plannen van een actie](media/iot-suite-remote-monitoring-explore/maintenanceschedule.png)
 
@@ -134,13 +126,13 @@ U hebt het probleem dat de waarschuwing en het gekoppelde apparaat geactiveerd g
 
 Ten slotte Bevestig dat de telemetrie-waarden uit de Koelunit terug naar normaal.
 
-1. Als u wilt weergeven in het raster alarmen, gaat u naar de **Dashboard** pagina.
+1. Als u wilt het raster waarschuwingen weergeven, gaat u naar de **Dashboard** pagina.
 
 1. De apparaattelemetrie weergeven, selecteert u het apparaat voor de oorspronkelijke waarschuwing op de kaart en Bevestig dat is weer in de normale.
 
 1. Als u wilt het incident sluit, gaat u naar de **onderhoud** pagina, selecteer de waarschuwing en zet de status op **gesloten**:
 
-    ![Selecteer en sluit het alarm](media/iot-suite-remote-monitoring-explore/maintenanceclose.png)
+    ![Selecteer en sluit de waarschuwing](media/iot-suite-remote-monitoring-explore/maintenanceclose.png)
 
 ## <a name="update-device-firmware"></a>Apparaatfirmware bijwerken
 
@@ -159,7 +151,7 @@ Gebruik voor de benodigde apparaatstuurprogramma beheertaken uitvoeren, de **app
 
     ![Selecteer een apparaat op de pagina apparaten](media/iot-suite-remote-monitoring-explore/devicesselect.png)
 
-1. Klik op de **planning** knop en kies vervolgens **Firmware-update**. Voer waarden in voor **taaknaam**, **firmwareversie**, en **Firmware URI**. Kies **toepassen** plannen van de taak nu uitvoeren:
+1. Klik op de **taken** knop, kiest u **methode Run**, en kies vervolgens **Firmware-update**. Voer waarden in voor **taaknaam**, **firmwareversie**, en **Firmware URI**. Kies **toepassen** plannen van de taak nu uitvoeren:
 
     ![Planning firmware-update op apparaat](media/iot-suite-remote-monitoring-explore/devicesschedulefirmware.png)
 
@@ -176,17 +168,18 @@ U kunt de **onderhoud** pagina voor het bijhouden van de taak terwijl deze wordt
 
 1. Zoek de gebeurtenis met betrekking tot de taak die u hebt gemaakt. Controleer of dat het updateproces firmware correct is gestart.
 
-U kunt een filter om te controleren of de juiste wijze bijgewerkt firmwareversie maken.
+<!-- 05/01 broken 
+You can create a filter to verify the firmware version updated correctly.
 
-1. Een filter maken, gaat u naar de **apparaten** pagina en selecteer **filters beheren**:
+1. To create a filter, navigate to the **Devices** page and select **Manage device groups**:
 
-    ![Apparaatfilters beheren](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
+    ![Manage device groups](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
 
-1. Maak een filter dat alleen apparaten met de nieuwe firmwareversie bevat:
+1. Create a filter that includes only devices with the new firmware version:
 
-    ![Apparaatfilter maken](media/iot-suite-remote-monitoring-explore/devicescreatefilter.png)
+    ![Create device filter](media/iot-suite-remote-monitoring-explore/devicescreatefilter.png)
 
-1. Ga terug naar de **apparaten** pagina en controleer of het apparaat heeft de nieuwe firmwareversie.
+1. Return to the **Devices** page and verify that the device has the new firmware version. -->
 
 ## <a name="organize-your-assets"></a>Uw assets ordenen
 
@@ -203,7 +196,7 @@ U kunt labelnamen te gebruiken met apparaten kunt maken.
 
     ![Alle apparaten weergeven](media/iot-suite-remote-monitoring-explore/devicesalldevices.png)
 
-1. Selecteer de **vrachtwagens** en **maken van een prototype** apparaten. Kies vervolgens **Tag**:
+1. Selecteer de **vrachtwagens** en **maken van een prototype** apparaten. Kies vervolgens **taken**:
 
     ![Selecteer de apparaten prototype en vrachtwagen](media/iot-suite-remote-monitoring-explore/devicesmultiselect.png)
 
@@ -211,19 +204,19 @@ U kunt labelnamen te gebruiken met apparaten kunt maken.
 
     ![Label voor prototype en vrachtwagen apparaten toevoegen](media/iot-suite-remote-monitoring-explore/devicesaddtag.png)
 
-1. Selecteer de **Koelunit**, **lift**, en **Engine** apparaten. Kies vervolgens **Tag**:
+1. Selecteer de **Koelunit**, **lift**, en **Engine** apparaten. Kies vervolgens **taken**:
 
     ![Selecteer Koelunit-engine en lift-apparaten](media/iot-suite-remote-monitoring-explore/devicesmultiselect2.png)
 
-1. Kies **Tag** en maak vervolgens een nieuwe tekst tag aangeroepen **FieldService** met een waarde **SmartBuilding**. Kies een naam voor de taak. Klik vervolgens op **opslaan**:
+1. Kies **Tag** en maak vervolgens een nieuwe tekst tag aangeroepen **FieldService** met een waarde **SmartBuilding**. Kies een naam voor de taak. Klik vervolgens op **toepassen**:
 
     ![Label toevoegen aan Koelunit, -engine en lift-apparaten](media/iot-suite-remote-monitoring-explore/devicesaddtag2.png)
 
 U kunt de tagwaarden gebruiken om filters te maken.
 
-1. Op de **apparaten** pagina **filters beheren**:
+1. Op de **apparaten** pagina **beheren apparaatgroepen**:
 
-    ![Apparaatfilters beheren](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
+    ![Apparaatgroepen beheren](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
 
 1. Maak een nieuw filter die gebruikmaakt van de tagnaam **FieldService** en waarde **SmartBuilding**. Het filter opslaan als **smartcard gebouw**.
 
@@ -237,9 +230,17 @@ Stoppen van de gesimuleerde apparaten kunt u het menu instellingen. Dit helpt de
 
 1. Kies de **instellingen** pictogram.
 
-1. Klik in-of uitschakelen **met** in- of uitschakelen:
+1. Klik in-of uitschakelen **Flowing** in- of uitschakelen:
 
     ![Menu Instellingen](media/iot-suite-remote-monitoring-explore/settings.png)
+
+## <a name="customize-the-ui"></a>De gebruikersinterface aanpassen
+
+In het menu instellingen kunt u eenvoudige aanpassingen toepassen op de oplossingsverbetering externe controle. U kunt:
+
+- Schakelen tussen het lichte en donkere thema's.
+- Wijzig de naam van de oplossing.
+- Een aangepast logo te uploaden.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -247,7 +248,7 @@ In deze zelfstudie hebt u geleerd:
 
 >[!div class="checklist"]
 > * Visualiseren en apparaten op het dashboard filteren
-> * Reageren op een waarschuwing wordt gegeven
+> * Reageren op een waarschuwing
 > * Werk de firmware in uw apparaten
 > * Uw assets ordenen
 > * Stoppen en starten van de gesimuleerde apparaten

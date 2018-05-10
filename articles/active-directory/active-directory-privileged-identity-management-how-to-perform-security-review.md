@@ -2,24 +2,22 @@
 title: Het uitvoeren van een onderzoek toegang | Microsoft Docs
 description: Informatie over het uitvoeren van een overzicht met de Azure Privileged Identity Management-toepassing.
 services: active-directory
-documentationcenter: 
-author: billmath
+documentationcenter: ''
+author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 49ee2feb-7d2e-4acf-82c1-40ff23062862
+editor: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: users-groups-roles
 ms.date: 06/06/2017
-ms.author: billmath
+ms.author: curtand
 ms.custom: pim
-ms.openlocfilehash: d9885fc286e31100e14a5c8a1001df079829dcbe
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b3cc71fc11a567c0c5c62b220e25be4169bd8348
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-perform-an-access-review-in-azure-ad-privileged-identity-management"></a>Het uitvoeren van een onderzoek toegang in Azure AD Privileged Identity Management
 Azure Active Directory (AD) Privileged Identity Management vereenvoudigt de manier waarop bedrijven bevoorrechte toegang tot resources in Azure AD en andere Microsoft online services zoals Office 365 of Microsoft Intune beheert.  
@@ -33,7 +31,7 @@ U kunt de toepassing Azure AD Privileged Identity Management (PIM) in de [Azure-
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Selecteer uw gebruikersnaam in de rechterbovenhoek van het Azure-portal en selecteer de map waar u wilt dat u werkt.
-3. Selecteer **alle services** en het tekstvak Filter gebruiken om te zoeken naar **Azure AD Privileged Identity Management**.
+3. Selecteer **Alle services** en gebruik het tekstvak Filteren om te zoeken naar **Azure AD Privileged Identity Management**.
 4. Schakel **Vastmaken aan dashboard** in en klik op de knop **Maken**. De Privileged Identity Management-toepassing wordt geopend.
 
 ## <a name="approve-or-deny-access"></a>Goedkeuren of weigeren van toegang

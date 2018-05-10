@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: ed0718f2d9d5093442001005e43551e7e9749eef
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: d25948aeab4170e67133a8e7f538089fca28407d
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="door-monitor"></a>Klep van Monitor          
 
@@ -210,7 +210,7 @@ Als u problemen ondervindt, raadpleegt u [Veelgestelde vragen over](https://micr
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt geleerd hoe u een DevKit apparaat aansluit op uw Azure IoT Suite en de SendGrid-service gebruiken om een e-mail te verzenden. Hier volgen de mogelijke volgende stappen:
+U hebt geleerd hoe u een DevKit apparaat aansluit op uw oplossingsverbetering Azure IoT externe controle en de SendGrid-service gebruiken om een e-mail te verzenden. Hier volgen de mogelijke volgende stappen:
 
-* [Overzicht van Azure IoT Suite](https://docs.microsoft.com/azure/iot-suite/)
+* [Overzicht van Azure accelerator voor externe controle IoT-oplossing](https://docs.microsoft.com/azure/iot-suite/)
 * [Sluit een apparaat MXChip IoT DevKit aan uw toepassing Microsoft IoT centrale](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

@@ -3,24 +3,22 @@ title: Oplossen van licentieproblemen voor een groep in Azure Active Directory |
 description: Het identificeren en oplossen van toewijzing licentieproblemen wanneer u Azure Active Directory-groepen gebaseerde licentieverlening
 services: active-directory
 keywords: Azure AD-licentieverlening
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5bd28eeb8d67dc0dcb3303fdb0e3c20b32f7c431
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e91b0a79e7b45ce7e0de1b7cf4aa3123550692af
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Het identificeren en oplossen van problemen met licentie-toewijzing voor een groep in Azure Active Directory
 

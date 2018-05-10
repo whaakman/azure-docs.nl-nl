@@ -12,16 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 4/6/2018
+ms.date: 5/4/2018
 ms.author: raiye
-ms.openlocfilehash: df5844ff53d8196eb1143913b420d933ba43920f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ea7c01075d9f65ed262681c216f5770d19466507
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-guest-os"></a>Azure Gast OS
 De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates toegepast op de Azure-Gastbesturingssysteemreleases. Zoeken in dit artikel om na te gaan als een bepaalde update van toepassing op het Gastbesturingssysteem dat u gebruikt. Updates altijd transporteren voor de betreffende [familie] [ family-explain] ze werden geïntroduceerd in.
+
+## <a name="april-guest-os"></a>April gastbesturingssysteem
+| Productcategorie | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
+| --- | --- | --- | --- | --- |
+| Rel 18-04 | [4093119] |Windows 10-beveiliging |punt 5.18 |10 april 2018 |
+| Rel 18-04 | [4093108] |Windows-beveiliging |2,73 |10 april 2018 |
+| Rel 18-04 | [4093122] |Windows-beveiliging |3.60 |10 april 2018 |
+| Rel 18-04 | [4093115] |Windows-beveiliging |4,53 |10 april 2018 |
+| Rel 18-04 | [4092946] |Internet Explorer |2,73, 3.60, 4,53 |10 april 2018 |
+| Rel 18-04 | [4093110] |Flash |3.60, 4,53, punt 5.18 |10 april 2018 |
+| N/A | [4088875] |Totalisering van de niet-beveiliging maart |2,73 |13 maart 2018 |
+| N/A | [4099950] |Vereiste van maart totalisering van de niet-beveiliging|2,73 |13 maart 2018 |
+| N/A | [4088877] |Totalisering van de niet-beveiliging maart |3.60 |13 maart 2018 |
+| N/A | [4088876] |Totalisering van de niet-beveiliging maart |4,53 |13 maart 2018 |
 
 ## <a name="march-guest-os"></a>Gastbesturingssysteem maart
 | Productcategorie | Bovenliggende KB-artikel | Beschrijving van kwetsbaarheid | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
@@ -613,6 +627,18 @@ De volgende tabellen tonen de Microsoft Security Response Center (MSRC)-updates 
 | N/A |[3007054] |Pincode afdrukken optie altijd ziet wanneer u een document binnen een Windows Store-toepassing in Windows afdrukken |4.15, 3.22, 2.34 |Jan 13 2015 |
 | N/A |[2999802] |Ononderbroken lijnen in plaats van stippellijn worden afgedrukt in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | N/A |[2896881] |Lange aanmeldingstijd wanneer het gebruik van de opdracht AddPrinterConnection VBScript printers voor gebruikers worden toegewezen tijdens het aanmeldingsproces in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
+
+
+[4093119]: http://support.microsoft.com/kb/4093119
+[4093108]: http://support.microsoft.com/kb/4093108 
+[4093122]: http://support.microsoft.com/kb/4093122
+[4093115]: http://support.microsoft.com/kb/4093115
+[4092946]: http://support.microsoft.com/kb/4092946
+[4093110]: http://support.microsoft.com/kb/4093110
+[4088875]: http://support.microsoft.com/kb/4088875
+[4099950]: http://support.microsoft.com/kb/4099950
+[4088877]: http://support.microsoft.com/kb/4088877
+[4088876]: http://support.microsoft.com/kb/4088876
 
 [4088787]: http://support.microsoft.com/kb/4088787
 [4088776]: http://support.microsoft.com/kb/4088776 

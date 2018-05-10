@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 05/03/2018
 ms.author: bwren
-ms.openlocfilehash: a6f0aa58762966f8da76387f3da7a7895801fcb9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c4a1edc8e4ff129a8b073f008e1d20bb20941ae1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Meld u zoekopdrachten computergroepen in Log Analytics
 
@@ -56,14 +56,6 @@ Gebruik de volgende procedure een computergroep maken van een zoekopdracht logbo
 2. Open **logboek zoeken** en klik vervolgens op **opgeslagen zoekacties** aan de bovenkant van het scherm.
 3. Klik op **toevoegen** en geef waarden op voor elke eigenschap voor de computergroep.
 4. Selecteer **deze query opslaan als een computergroep** en klik op **OK**.
-
-
-Gebruik de volgende procedure een computergroep maken van een zoekopdracht logboek in de OMS-portal.
-
-1. Open **logboek zoeken** en maak de zoekopdracht logboek voor de computergroep.  
-2. Klik op de **opslaan** knop aan de bovenkant van het scherm.
-3. Selecteer **Ja** naar **deze query opslaan als een computergroep**.
-5. Geef waarden op voor elke eigenschap voor de computergroep. 
 
 
 

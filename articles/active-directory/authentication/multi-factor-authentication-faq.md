@@ -1,27 +1,23 @@
 ---
 title: Azure multi-factor Authentication Veelgestelde vragen | Microsoft Docs
-description: Veelgestelde vragen en antwoorden die betrekking hebben op de Azure multi-factor Authentication. Multi-factor Authentication is een methode voor het verifiëren van de identiteit van een gebruiker die meer dan een gebruikersnaam en wachtwoord vereist. Dit biedt een extra beveiligingslaag voor de gebruiker zich aanmelden en transacties.
+description: Veelgestelde vragen en antwoorden die betrekking hebben op de Azure multi-factor Authentication.
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: richagi
-ms.assetid: 50bb8ac3-5559-4d8b-a96a-799a74978b14
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: joflore
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7c6941f381c6c469001bab7a4ff9e742daa2d804
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: richagi
+ms.openlocfilehash: 226400c6da5db589db6ce2f1887c3e96cf9e1f14
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Veelgestelde vragen over Azure multi-factor Authentication
+
 Deze Veelgestelde vragen over de antwoorden op veelgestelde vragen over Azure multi-factor Authentication en het gebruik van de multi-factor Authentication-service. Het onderverdeeld in vragen over de service in het algemeen modellen, gebruikerservaringen, facturering en het oplossen van problemen.
 
 ## <a name="general"></a>Algemeen
@@ -62,7 +58,7 @@ Maakt gebruik van de volgende korte SMS-codes in Canada Microsoft:
 
 Microsoft garandeert geen consistente, SMS of multi-Factor-verificatie op basis van een stem vragen levering met hetzelfde getal. Met het oog op onze gebruikers kan Microsoft toevoegen of verwijderen van korte codes op elk gewenst moment terwijl we de route-aanpassingen voor het verbeteren van de SMS-deliverability aanbrengt. Microsoft biedt geen ondersteuning voor korte codes voor landen naast de Verenigde Staten en Canada
 
-## <a name="billing"></a>Facturering
+## <a name="billing"></a>Billing
 De meeste vragen over facturering kunnen worden beantwoord door te verwijzen naar een de [pagina met prijzen van multi-factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) of de documentatie over [het ophalen van Azure multi-factor Authentication](concept-mfa-licensing.md).
 
 **V: is mijn organisatie kosten in rekening gebracht voor de verzending van telefoongesprekken en SMS-berichten die worden gebruikt voor verificatie?**

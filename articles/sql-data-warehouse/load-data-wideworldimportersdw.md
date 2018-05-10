@@ -1,31 +1,24 @@
 ---
 title: 'Zelfstudie: gegevens laden in Azure SQL Data Warehouse | Microsoft Docs'
-description: In deze zelfstudie wordt gebruikgemaakt van Azure Portal en SQL Server Management Studio om het WideWorldImportersDW-datawarehouse vanuit Azure Blob Storage te laden naar Azure SQL Data Warehouse.
+description: In deze zelfstudie wordt gebruikgemaakt van Azure Portal en SQL Server Management Studio om het WideWorldImportersDW-datawarehouse vanuit een openbare Azure-blob naar Azure SQL Data Warehouse te laden.
 services: sql-data-warehouse
-documentationcenter: ''
 author: ckarst
-manager: jhubbard
-editor: ''
-tags: ''
-ms.assetid: ''
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.custom: mvc,develop data warehouses
-ms.devlang: na
-ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 03/06/2018
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
 ms.author: cakarst
-ms.reviewer: barbkess
-ms.openlocfilehash: 7e7d9a299e141ef8fd564e7f97077471264420ea
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-ms.translationtype: HT
+ms.reviewer: igorstan
+ms.openlocfilehash: 0b28bb07006ed58a82af80afe42fe472d4878971
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Zelfstudie: gegevens laden in Azure SQL Data Warehouse
 
-In deze zelfstudie wordt het WideWorldImportersDW-datawarehouse uit Azure Blob Storage naar Azure SQL Data Warehouse geladen. De zelfstudie gebruikt [Azure Portal](https://portal.azure.com) en [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) voor het volgende: 
+In deze zelfstudie wordt gebruikgemaakt van PolyBase om het WideWorldImportersDW-datawarehouse vanuit Azure Blob Storage naar Azure SQL Data Warehouse te laden. De zelfstudie gebruikt [Azure Portal](https://portal.azure.com) en [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) voor het volgende: 
 
 > [!div class="checklist"]
 > * Een datawarehouse maken in Azure Portal
@@ -42,7 +35,7 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-Download en installeer voordat u met deze zelfstudie begint de nieuwste versie van [SSMS](/sql/ssms/download-sql-server-management-studio-ssms.md) (SQL Server Management Studio).
+Download en installeer voordat u met deze zelfstudie begint de nieuwste versie van [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) (SQL Server Management Studio).
 
 
 ## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
@@ -51,7 +44,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>Een leeg SQL Data Warehouse maken
 
-Er wordt een Azure SQL-databasewarehouse gemaakt met een gedefinieerde set [compute-resources](performance-tiers.md). De database wordt gemaakt in een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) en in een [logische Azure SQL-server](../sql-database/sql-database-features.md). 
+Er wordt een Azure SQL-databasewarehouse gemaakt met een gedefinieerde set [compute-resources](memory-and-concurrency-limits.md). De database wordt gemaakt in een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) en in een [logische Azure SQL-server](../sql-database/sql-database-features.md). 
 
 Volg deze stappen om een leeg SQL Data Warehouse te maken. 
 
@@ -92,7 +85,7 @@ Volg deze stappen om een leeg SQL Data Warehouse te maken.
     ![prestaties configureren](media/load-data-wideworldimportersdw/configure-performance.png)
 
 8. Klik op **Toepassen**.
-9. Selecteer op de pagina SQL Data Warehouse een **sortering** voor de lege database. Gebruik voor deze zelfstudie de standaardwaarde. Zie [Collations](/sql/t-sql/statements/collations.md) (Sorteringen) voor meer informatie over sorteringen
+9. Selecteer op de pagina SQL Data Warehouse een **sortering** voor de lege database. Gebruik voor deze zelfstudie de standaardwaarde. Zie [Collations](/sql/t-sql/statements/collations) (Sorteringen) voor meer informatie over sorteringen
 
 11. Nu u het SQL Database-formulier hebt ingevuld, klikt u op **Maken** om de database in te richten. De inrichting duurt een paar minuten. 
 
@@ -147,7 +140,7 @@ Haal de volledig gekwalificeerde servernaam van uw SQL-server op uit Azure Porta
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Als serverbeheerder verbinding maken met de server
 
-In deze sectie wordt gebruikgemaakt van [SSMS](/sql/ssms/download-sql-server-management-studio-ssms.md) (SQL Server Management Studio) om een verbinding tot stand te brengen met de Azure SQL-server.
+In deze sectie wordt gebruikgemaakt van [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) (SQL Server Management Studio) om een verbinding tot stand te brengen met de Azure SQL-server.
 
 1. Open SQL Server Management Studio.
 
@@ -171,7 +164,7 @@ In deze sectie wordt gebruikgemaakt van [SSMS](/sql/ssms/download-sql-server-man
 
 ## <a name="create-a-user-for-loading-data"></a>Een gebruiker maken voor het laden van gegevens
 
-De serverbeheerdersaccount is bedoeld voor het uitvoeren van beheerbewerkingen en is niet geschikt voor het uitvoeren van query's op gebruikersgegevens. Het laden van gegevens is een geheugenintensieve bewerking. [Maximale geheugenwaarden](performance-tiers.md#memory-maximums) worden gedefinieerd volgens [prestatielaag](performance-tiers.md) en [bronklasse](resource-classes-for-workload-management.md). 
+De serverbeheerdersaccount is bedoeld voor het uitvoeren van beheerbewerkingen en is niet geschikt voor het uitvoeren van query's op gebruikersgegevens. Het laden van gegevens is een geheugenintensieve bewerking. De maximale hoeveelheid geheugen wordt bepaald aan de hand van de SQL Data Warehouse-generatie die u gebruikt, de [datawarehouse-eenheden](what-is-a-data-warehouse-unit-dwu-cdwu.md) en de [resourceklasse](resource-classes-for-workload-management.md). 
 
 Het is raadzaam een aanmelding en gebruiker te maken die speciaal wordt toegewezen voor het laden van gegevens. Voeg vervolgens de ladende gebruiker toe aan een [bronklasse](resource-classes-for-workload-management.md). Hiermee wordt een maximale hoeveelheid geheugen ingesteld.
 
@@ -238,7 +231,7 @@ Voer de volgende SQL-scripts uit om informatie op te geven over de gegevens die 
     CREATE MASTER KEY;
     ```
 
-4. Voer de volgende instructie [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql.md) uit om de locatie van de Azure-blob te definiëren. Dit is de locatie van de externe taxigegevens.  Als u een opdracht die u hebt toegevoegd aan het queryvenster wilt uitvoeren, markeert u de opdrachten die u wilt uitvoeren en klikt u op **Execute**.
+4. Voer de volgende instructie [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) uit om de locatie van de Azure-blob te definiëren. Dit is de locatie van de externe taxigegevens.  Als u een opdracht die u hebt toegevoegd aan het queryvenster wilt uitvoeren, markeert u de opdrachten die u wilt uitvoeren en klikt u op **Execute**.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE WWIStorage
@@ -249,7 +242,7 @@ Voer de volgende SQL-scripts uit om informatie op te geven over de gegevens die 
     );
     ```
 
-5. Voer de volgende T-SQL-instructie [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql.md) uit om de opmaakeigenschappen en -opties voor het externe gegevensbestand op te geven. Deze instructie geeft aan dat de externe gegevens zijn opgeslagen als tekst en de waarden worden gescheiden door het pipe-teken ('|').  
+5. Voer de volgende T-SQL-instructie [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql) uit om de opmaakeigenschappen en -opties voor het externe gegevensbestand op te geven. Deze instructie geeft aan dat de externe gegevens zijn opgeslagen als tekst en de waarden worden gescheiden door het pipe-teken ('|').  
 
     ```sql
     CREATE EXTERNAL FILE FORMAT TextFileFormat 
@@ -264,7 +257,7 @@ Voer de volgende SQL-scripts uit om informatie op te geven over de gegevens die 
     );
     ```
 
-6.  Voer de volgende [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql.md)-instructies uit om een schema te maken voor de externe bestandsindeling. Het ext-schema biedt een manier om de externe tabellen die u gaat maken te organiseren. Het wwi-schema organiseert de standaardtabellen die de gegevens bevatten. 
+6.  Voer de volgende [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql)-instructies uit om een schema te maken voor de externe bestandsindeling. Het ext-schema biedt een manier om de externe tabellen die u gaat maken te organiseren. Het wwi-schema organiseert de standaardtabellen die de gegevens bevatten. 
 
     ```sql
     CREATE SCHEMA ext;
@@ -559,7 +552,7 @@ In deze sectie worden de externe tabellen gebruikt die u zojuist hebt gedefiniee
 > In deze zelfstudie worden de gegevens rechtstreeks in de definitieve tabel geladen. In een productieomgeving gebruikt u meestal CREATE TABLE AS SELECT om naar een faseringstabel te laden. U kunt alle benodigde transformaties uitvoeren wanneer de gegevens zich in de faseringstabel bevinden. Als u de gegevens in de faseringstabel wilt toevoegen aan een productietabel, kunt u de instructie INSERT... SELECT gebruiken. Zie [Gegevens in een productietabel invoegen](guidance-for-loading-data.md#inserting-data-into-a-production-table) voor meer informatie.
 > 
 
-Het script gebruikt de T-SQL-instructie [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) om de gegevens uit Azure Storage Blob naar de nieuwe tabellen in het datawarehouse te laden. CTAS maakt een nieuwe tabel op basis van de resultaten van een SELECT-instructie. De nieuwe tabel heeft dezelfde gegevenstypen en kolommen als de resultaten van de selecteerinstructie. Wanneer de SELECT-instructie uit een externe tabel selecteert, importeert SQL Data Warehouse de gegevens in een relationele tabel in het datawarehouse. 
+Het script gebruikt de T-SQL-instructie [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) om de gegevens uit Azure Storage Blob naar de nieuwe tabellen in het datawarehouse te laden. CTAS maakt een nieuwe tabel op basis van de resultaten van een SELECT-instructie. De nieuwe tabel heeft dezelfde gegevenstypen en kolommen als de resultaten van de selecteerinstructie. Wanneer de SELECT-instructie uit een externe tabel selecteert, importeert SQL Data Warehouse de gegevens in een relationele tabel in het datawarehouse. 
 
 Door dit script worden geen gegevens geladen in de wwi.dimension_Date- en wwi.fact_Sales-tabellen. Deze tabellen worden gegenereerd in een latere stap om de tabellen te maken die een aanzienlijk aantal rijen bevatten.
 
@@ -953,12 +946,13 @@ In deze sectie worden de tabellen wwi.dimension_Date en wwi.fact_Sales gemaakt. 
         END;
 
     END;
+    ```
 
-## Generate millions of rows
-Use the stored procedures you created to generate millions of rows in the wwi.fact_Sales table, and corresponding data in the wwi.dimension_Date table. 
+## <a name="generate-millions-of-rows"></a>Miljoenen rijen genereren
+Gebruik de opgeslagen procedures die u hebt gemaakt, om miljoenen rijen in de tabel wwi.fact_Sales en bijbehorende gegevens in de tabel wwi.dimension_Date te genereren. 
 
 
-1. Run this procedure to seed the [wwi].[seed_Sale] with more rows.
+1. Voer deze procedure uit om [wwi].[seed_Sale] met meer rijen te seeden.
 
     ```sql    
     EXEC [wwi].[InitialSalesDataPopulation]

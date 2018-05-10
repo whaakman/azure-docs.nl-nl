@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 04/04/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 7065ec97e1e02dfb4ee873993caac584f6a63ba6
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: MT
+ms.openlocfilehash: 2cf4eecbc45e6d842b5a548c8f25ac49aa8fb216
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="automate-resources-in-your-data-center-or-cloud-with-hybrid-runbook-worker"></a>Automatiseren van bronnen in uw datacenter of de cloud met Hybrid Runbook Worker
 
@@ -147,7 +147,20 @@ U kunt een of meer Hybrid Runbook Workers verwijderen uit een groep of kunt u de
 
 1. Ga in de Azure-portal naar uw Automation-account.
 2. Van de **instellingen** blade Selecteer **sleutels** en noteer de waarden voor veld **URL** en **primaire toegangssleutel**. Deze informatie moet u voor de volgende stap.
-3. Open een PowerShell-sessie in de beheerdersmodus en voer de volgende opdracht - `Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>`. Gebruik de **-uitgebreide** overschakelen voor een gedetailleerd logboek van het verwijderingsproces.
+
+### <a name="windows"></a>Windows
+
+Open een PowerShell-sessie in de beheerdersmodus en voer de volgende opdracht. Gebruik de **-uitgebreide** overschakelen voor een gedetailleerd logboek van het verwijderingsproces.
+
+```powershell
+Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>
+```
+
+### <a name="linux"></a>Linux
+
+```bash
+sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessKey>" --groupname="Example" --workspaceid="<workspaceId>"
+```
 
 Als verlopen machines uit de Hybrid Worker-groep verwijderen, gebruik het optionele `machineName` parameter.
 

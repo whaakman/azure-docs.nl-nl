@@ -1,7 +1,7 @@
 - name: Azure voor containers
   href: index.yml
   items:
-    - name: Container Service (AKS)
+    - name: Kubernetes Service (AKS)
       href: 'https://docs.microsoft.com/azure/aks/'
       expanded: true
       items:
@@ -39,7 +39,7 @@
               href: 'https://docs.microsoft.com/azure/container-registry/container-registry-authentication'
             - name: ACR-webhooks gebruiken
               href: 'https://docs.microsoft.com/azure/container-registry/container-registry-webhook'
-    - name: Web Apps for Containers
+    - name: Web App for Containers
       href: 'https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro'
       items:
         - name: Een aangepaste Docker-installatiekopie gebruiken voor Azure Web Apps for Containers

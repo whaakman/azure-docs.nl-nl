@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: maquaran
-ms.openlocfilehash: 72eb329c03893f801e112ad33bca0c57c5ee46a0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7ed5772df4d8677fe878d7ced831dc15bbe8cac0
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET wijziging Feed Processor SDK: Downloaden en release-opmerkingen
 > [!div class="op_single_selector"]
@@ -31,6 +31,8 @@ ms.lasthandoff: 04/28/2018
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST-resourceprovider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
 |   |   |
 |---|---|
@@ -48,6 +50,7 @@ ms.lasthandoff: 04/28/2018
 
 ### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 * Verbeteringen in stabiliteit.
+  * Oplossing voor het verwerken van de geannuleerde taken probleem dat tot leiden kan observers is gestopt op een aantal partities.
 * Ondersteuning voor handmatige plaatsen van controlepunten.
 * Compatibel met [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.21 versies en hoger.
 
@@ -70,7 +73,14 @@ ms.lasthandoff: 04/28/2018
 
 ### <a name="pre-release-builds"></a>Voorlopige versie builds
 
+### <a name="a-name202-prerelease202-prerelease"></a><a name="2.0.2-prerelease"/>2.0.2-prerelease
+* Kleine wijzigingen in API:
+  * ChangeFeedProcessorOptions.IsAutoCheckpointEnabled die is gemarkeerd als verouderd verwijderd.
+
 ### <a name="a-name201-prerelease201-prerelease"></a><a name="2.0.1-prerelease"/>2.0.1-prerelease
+* Verbeteringen in stabiliteit:
+  * Betere verwerking van het initialiseren van de lease. Wanneer lease-archief leeg, is alleen kan worden geïnitialiseerd door één exemplaar van de processor, wacht de andere.
+  * Meer stabiel/efficiënt lease vernieuwing en release. Vernieuwen en het vrijgeven van een lease één partitie is onafhankelijk van het vernieuwen van anderen. In v1 die sequentieel is uitgevoerd voor alle partities.
 * Nieuwe v2 API:
   * Patroon van de opbouwfunctie voor flexibele constructie van de processor: de ChangeFeedProcessorBuilder-klasse.
     * Kan duren voordat een combinatie van parameters.
@@ -83,6 +93,7 @@ ms.lasthandoff: 04/28/2018
     * IPartitionProcessor - verwerking van aangepaste wijzigingen op een partitie.
 * Maakt gebruik van logboekregistratie - [LibLog](https://github.com/damianh/LibLog) bibliotheek.
 * 100% compatibel met v1 API.
+* Nieuwe codebasis.
 * Compatibel met [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.21.1 versies en hoger.
 
 ## <a name="release--retirement-dates"></a>Release & buiten gebruik stellen datums

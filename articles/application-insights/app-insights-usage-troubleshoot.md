@@ -2,8 +2,8 @@
 title: Gebruiksanalyse in Azure Application Insights oplossen
 description: Gids voor probleemoplossing - analyse van site- en app-gebruik met Application Insights.
 services: application-insights
-documentationcenter: 
-author: numberbycolors
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: mbullwin
-ms.openlocfilehash: cb5f3052301b23eb10cd6b84ab6fae98bcc7ea18
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.author: mbullwin;daviste
+ms.openlocfilehash: 654b99085c406f13fe95476457234761bf840422
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="troubleshoot-usage-analytics-in-application-insights"></a>Gebruiksanalyse in Application Insights oplossen
 Vragen hebt over de [gebruik analytics hulpprogramma's in Application Insights](app-insights-usage-overview.md): [gebruikers, sessies, gebeurtenissen](app-insights-usage-segmentation.md), [schoorstenen](usage-funnels.md), [gebruiker loopt](app-insights-usage-flows.md), [Bewaren](app-insights-usage-retention.md), of cohorten? Hier volgen enkele antwoorden.
@@ -37,7 +37,7 @@ De hulpprogramma's voor webanalyse gebruik ondersteund niet tellen gebruikers of
 ## <a name="naming-events"></a>Naamgeving van gebeurtenissen
 **Mijn app heeft duizenden verschillende paginaweergave en aangepaste gebeurtenisnamen. Het is moeilijk onderscheid maken tussen deze en de hulpprogramma's voor webanalyse gebruik vaak niet meer reageren. Hoe kan ik deze naming problemen oplossen?**
 
-Paginaweergave en aangepaste gebeurtenisnamen worden gebruikt in de hulpprogramma's voor webanalyse gebruik. Gebeurtenissen ook naamgeving is essentieel voor het ophalen van de waarde van deze hulpprogramma's. Het doel is een evenwicht tussen met te weinig, overmatig algemene namen ('knop geklikt') en met te veel, overmatig specifieke namen ('knop bewerken op http://www.contoso.com/index geklikt').
+Paginaweergave en aangepaste gebeurtenisnamen worden gebruikt in de hulpprogramma's voor webanalyse gebruik. Gebeurtenissen ook naamgeving is essentieel voor het ophalen van de waarde van deze hulpprogramma's. Het doel is een evenwicht tussen met te weinig, overmatig algemene namen ('knop geklikt') en met te veel, overmatig specifieke namen (' bewerken op geklikt http://www.contoso.com/index').
 
 Als u alle wijzigingen naar de paginaweergave en de namen van aangepaste gebeurtenis van uw app verzenden, die u wilt wijzigen van de broncode van uw app en de implementatie opnieuw uit. **Alle telemetrie in Application Insights gedurende 90 dagen wordt opgeslagen en kan niet worden verwijderd**, dus u wijzigt de gebeurtenisnamen van de is 90 dagen aan het licht volledig. De negentig dagen na het aanbrengen van naamswijzigingen van wordt zowel de gebeurtenisnamen van de oude en nieuwe weergegeven in uw telemetrie, dus past query's en communiceer deze binnen uw teams dienovereenkomstig.
 

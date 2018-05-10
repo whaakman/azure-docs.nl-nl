@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: rli; v-deasim
-ms.openlocfilehash: 3f475c5cc9b766ea9aa5bd39d4a378e8deed5e35
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 61fbe6e29df787048a9694138d3c9095f5cba76b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="analyze-azure-cdn-usage-patterns"></a>Gebruikspatronen van Azure CDN analyseren
 
@@ -26,7 +26,7 @@ Nadat u CDN voor uw toepassing inschakelt, kunt u gebruik van CDN controleren, C
 
 ## <a name="core-analytics-via-azure-diagnostic-logs"></a>Basisanalyse via Azure diagnostische logboeken
 
-Basisanalyse is beschikbaar voor alle CDN-eindpunten die horen bij Verizon (standaard en Premium) en (standaard) CDN van Akamai profielen. Azure diagnostics-logboeken toestaan basisanalyse worden geëxporteerd naar Azure storage, event hubs of logboekanalyse. Log Analytics biedt een oplossing met grafieken die gebruiker configureerbare en aanpasbare zijn. Zie voor meer informatie [Azure diagnostische logboeken](cdn-azure-diagnostic-logs.md).
+Basisanalyse is beschikbaar voor CDN-eindpunten voor alle Prijscategorieën. Azure diagnostics-logboeken toestaan basisanalyse worden geëxporteerd naar Azure storage, event hubs of Azure-logboekanalyse. Azure Log Analytics biedt een oplossing met grafieken die gebruiker configureerbare en aanpasbare zijn. Zie voor meer informatie over Azure diagnostische logboeken [Azure diagnostische logboeken](cdn-azure-diagnostic-logs.md).
 
 ## <a name="verizon-core-reports"></a>Rapporten van Verizon core
 
@@ -36,7 +36,7 @@ Als een Azure CDN-gebruiker met een **Azure CDN Standard van Verizon** of **Azur
 
 Als een Azure CDN-gebruiker met een **Azure CDN Standard van Verizon** of **Azure CDN Premium van Verizon** profiel, kunt u aangepaste rapporten van Verizon weergeven in de aanvullende portal Verizon. Aangepaste rapporten van Verizon is toegankelijk via de **beheren** optie uit de Azure-portal. Het Verizon aangepaste rapporten pagina bevat het aantal treffers of gegevens voor elk overgedragen van de rand CName die horen bij een Azure CDN-profiel. De gegevens kunnen worden gegroepeerd op http-code of cache antwoordstatus gedurende een bepaalde periode. Zie voor meer informatie [aangepaste rapporten van Verizon](cdn-verizon-custom-reports.md).
 
-## <a name="verizon-premium-reports"></a>Rapporten van Verizon premium
+## <a name="azure-cdn-premium-from-verizon-reports"></a>Azure CDN Premium van Verizon rapporten
 
 Met **Azure CDN Premium van Verizon**, u kunt ook toegang tot de volgende rapporten:
    * [Geavanceerde HTTP-rapporten](cdn-advanced-http-reports.md)

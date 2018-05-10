@@ -1,9 +1,9 @@
 ---
 title: Detectie - afwijkingen van smartcard | Microsoft Docs
-description: "Application Insights voert smart analyse van uw app Telemetrie en waarschuwt u potentiële problemen. Er zijn geen instellingen, moet deze functie."
+description: Application Insights voert smart analyse van uw app Telemetrie en waarschuwt u potentiële problemen. Er zijn geen instellingen, moet deze functie.
 services: application-insights
 documentationcenter: windows
-author: antonfrMSFT
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 6acd41b9-fbf0-45b8-b83b-117e19062dd2
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
-ms.author: mbullwin
-ms.openlocfilehash: 3310239b5569ca5b63bd39acb4d192a4e54780e4
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.author: mbullwin; antonfr
+ms.openlocfilehash: 59b88a940e83ed89e8638b62680a57ca1514f8b0
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="smart-detection---performance-anomalies"></a>Slimme detectie - afwijkingen
 
@@ -87,7 +87,7 @@ E-mailberichten over afwijkingen Smart detecties zijn beperkt tot één e per da
   * Nee.  We opslaan niet in elke die u kunt overwegen om abnormaal gedrag te detecteren.
 
 
-* *Als ik iets in antwoord op een melding niet doet, krijg een herinnering?*
+* *Als ik iets in reactie op een melding niet doet, krijg een herinnering?*
   * Nee, u krijgt een bericht over elk probleem slechts één keer. Als het probleem zich blijft voordoen, wordt deze in de Slimme detectie feed blade bijgewerkt.
 * *Ik het e-mailbericht is verbroken. Waar vind ik de meldingen in de portal*
   * In het overzicht van de Application Insights van uw app, klikt u op de **Slimme detectie** tegel. U hebt er alle meldingen van 90 dagen back vinden.
@@ -132,7 +132,7 @@ De melding antwoord tijd vermindering vertelt u:
 * Koppelingen naar informatie waarmee u het probleem te onderzoeken.
   * Profiler traceringen weer te geven waar bewerkingstijd besteed aan het (de koppeling is beschikbaar als Profiler trace voorbeelden voor deze bewerking tijdens de detectieperiode zijn verzameld). 
   * Prestatierapporten in metriek Explorer kunt u segmenteren en Tijdfilters bereik voor deze bewerking te analyseren.
-  * Zoeken naar deze aanroepen om specifieke aanroepen eigenschappen weer te geven.
+  * Zoeken naar deze aanroep om specifieke aanroep eigenschappen weer te geven.
   * Fout rapporteert - als tellen > 1 dit betekenen dat er fouten zijn opgetreden tijdens deze bewerking dat mogelijk hebben bijgedragen tot verminderde prestaties.
 
 ## <a name="dependency-duration-degradation"></a>Verslechtering van de duur van de afhankelijkheid
@@ -152,7 +152,7 @@ U ziet dat het vertelt u:
 * Koppelingen naar informatie waarmee u het probleem te onderzoeken
   * Prestatierapporten in Verkenner metrische gegevens voor deze afhankelijkheid
   * Zoek naar deze afhankelijkheidsaanroepen aanroepen eigenschappen weergeven
-  * Fout rapporteert - als tellen > 1 dit betekenen dat er waren afhankelijkheidsaanroepen mislukt tijdens de detectieperiode die mogelijk hebben bijgedragen tot verslechtering van de duur. 
+  * Rapporten voor fout - als count > 1 Dit betekent dat er mislukte afhankelijkheid tijdens de detectieperiode die mogelijk hebben bijgedragen tot verslechtering van de duur van aanroepen. 
   * Open Analytics met query's die deze afhankelijkheid duur en het aantal berekenen  
 
 ## <a name="smart-detection-of-slow-performing-patterns"></a>Slimme detectie van trage presterende patronen 

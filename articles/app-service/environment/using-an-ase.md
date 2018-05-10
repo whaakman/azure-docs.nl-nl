@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 64e1652ac4067a3f1639bf81cfcd0f79637ade9b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4aaef3fb6748eb974bc9d129b2bd8d42393e1cb8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-an-app-service-environment"></a>Gebruik van een App Service-omgeving #
 
@@ -58,19 +58,28 @@ Een web-app maken in een as-omgeving:
 
 4. Geef een naam voor een nieuwe resourcegroep of selecteer **gebruik bestaande** en selecteer een optie uit de vervolgkeuzelijst.
 
+5. Selecteer uw besturingssysteem. 
+
+    * Het is een nieuwe functie van de preview, die als host fungeert voor een Linux-app in een as-omgeving, zodat we raden aan dat u niet Linux apps toevoegen in een as-omgeving die productieworkloads momenteel wordt uitgevoerd. 
+    * Toevoegen van een Linux-app in een as-omgeving, betekent het as-omgeving worden ook in de voorbeeldmodus. 
+
 5. Selecteer een bestaand App Service-abonnement in uw as-omgeving of een nieuwe maken met de volgende stappen:
 
     a. Selecteer **maken van nieuwe**.
 
     b. Voer de naam van uw App Service-plan.
 
-    c. Selecteer uw as-omgeving in de **locatie** vervolgkeuzelijst.
+    c. Selecteer uw as-omgeving in de **locatie** vervolgkeuzelijst. Die als host fungeert voor een Linux-app in een as-omgeving is alleen ingeschakeld in 6 gebieden op het moment dat: **VS-West, VS-Oost, West-Europa, Noord-Europa, Australië-Oost, Zuidoost-Azië.** 
 
     d. Selecteer een **geïsoleerd** prijscategorie. Selecteer **Selecteer**.
 
     e. Selecteer **OK**.
     
     ![Geïsoleerde Prijscategorieën][2]
+
+    > [!NOTE]
+    > Linux-web-apps en web-apps voor Windows kunnen niet in de dezelfde App Service-Plan, maar kunnen zich in dezelfde App Service-omgeving. 
+    >
 
 6. Selecteer **Maken**.
 
@@ -109,8 +118,8 @@ De URL contoso.scm.external-ase.p.azurewebsites.net wordt gebruikt voor toegang 
 
 In een ILB as-omgeving bepaalt u het domein tijdens de implementatie. Zie voor meer informatie over het maken van een as-omgeving voor de ILB [maken en gebruiken een ILB-as-omgeving][MakeILBASE]. Als u de domeinnaam opgeven _ilb ase.info_, gebruiken de apps in die as-omgeving dat domein tijdens het maken van de app. Voor de app met de naam _contoso_, wordt de URL's zijn:
 
-- contoso.ilb-ase.info
-- contoso.scm.ilb-ase.info
+- Contoso.ILB ase.info
+- Contoso.SCM.ILB ase.info
 
 ## <a name="publishing"></a>Publiceren ##
 

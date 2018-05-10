@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: bwren
-ms.openlocfilehash: 1e22aab85976fcab8ec270bdea1b8988b4d3bfe7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: MT
+ms.openlocfilehash: 0df54d1758693bce5fb5fd74c3be9c4cfd7dccb6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="management-solutions-in-azure"></a>Oplossingen in Azure
 Beheeroplossingen gebruikmaken van services in Azure om meer inzicht in de werking van een bepaalde toepassing of service. Dit artikel bevat een kort overzicht van oplossingen in Azure en meer informatie over het gebruiken en ze installeren.
 
 Oplossingen voor het beheer wordt doorgaans gegevens verzamelen in Log Analytics en geef logboek zoekopdrachten en weergaven om verzamelde gegevens te analyseren. Ze kunnen ook gebruikmaken van andere services zoals Azure Automation voor het uitvoeren van acties met betrekking tot de toepassing of service.
 
-U kunt beheeroplossingen toevoegen aan uw Azure-abonnement voor alle toepassingen en services die u gebruikt. Ze zijn normaal gesproken op geen kosten maar verzamelen gegevens die gebruikskosten kan worden aangeroepen. Naast oplossingen geleverd door Microsoft, partners en klanten kunnen [beheeroplossingen maken](../operations-management-suite/operations-management-suite-solutions-creating.md) moet worden gebruikt in hun eigen omgeving of beschikbaar gesteld via de community aan klanten.
+U kunt beheeroplossingen toevoegen aan uw Azure-abonnement voor alle toepassingen en services die u gebruikt. Ze zijn normaal gesproken op geen kosten maar verzamelen gegevens die gebruikskosten kan worden aangeroepen. Naast oplossingen geleverd door Microsoft, partners en klanten kunnen [beheeroplossingen maken](../monitoring/monitoring-solutions-creating.md) moet worden gebruikt in hun eigen omgeving of beschikbaar gesteld via de community aan klanten.
 
 ## <a name="using-management-solutions"></a>Met behulp van oplossingen voor het beheer
 De **overzicht** pagina voor elke werkruimte voor logboekanalyse een tegel voor elke oplossing geïnstalleerd in de werkruimte wordt weergegeven. Klik op de tegel voor de oplossing voor de weergave waaronder meer gedetailleerde analyse opent de verzamelde gegevens.

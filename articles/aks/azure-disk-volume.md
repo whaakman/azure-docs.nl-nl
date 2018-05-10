@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a2f46aba80ad47335b7cd9b5e8d615c1d895cccb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-ms.translationtype: MT
+ms.openlocfilehash: 33d9a01f063ee8ad531a3f7e01dcfbf1c4ba8901
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="volumes-with-azure-disks"></a>Volumes met Azure-schijven
 
-Container gebaseerde toepassingen moeten vaak voor toegang tot en het behouden van gegevens in een externe gegevensbron-volume. Azure-schijven kunnen worden gebruikt als deze externe gegevensarchief. Dit artikel gegevens met een Azure-schijf als een volume Kubernetes in een Azure Container Service (AKS)-cluster.
+Container gebaseerde toepassingen moeten vaak voor toegang tot en het behouden van gegevens in een externe gegevensbron-volume. Azure-schijven kunnen worden gebruikt als deze externe gegevensarchief. Dit artikel gegevens met een Azure-schijf als een volume Kubernetes in een Azure Kubernetes Service (AKS)-cluster.
 
 Zie voor meer informatie over Kubernetes volumes [Kubernetes volumes][kubernetes-volumes].
 
@@ -38,7 +38,7 @@ MC_myAKSCluster_myAKSCluster_eastus  eastus      Succeeded
 myAKSCluster                         eastus      Succeeded
 ```
 
-Gebruik de [az schijf maken] [ az-disk-create] opdracht voor het maken van de schijf van Azure. 
+Gebruik de [az schijf maken] [ az-disk-create] opdracht voor het maken van de schijf van Azure.
 
 Het volgende voorbeeld bijwerken `--resource-group` met de naam van de resourcegroep en `--name` in een naam van uw keuze.
 
@@ -58,7 +58,7 @@ Als de schijf is gemaakt, ziet u uitvoer ziet er als volgt. Deze waarde is de sc
 
 ## <a name="mount-disk-as-volume"></a>Schijf als een volume koppelen
 
-Koppel de Azure-schijf in uw schil door het configureren van het volume in de container-specificaties. 
+Koppel de Azure-schijf in uw schil door het configureren van het volume in de container-specificaties.
 
 Maak een nieuw bestand met de naam `azure-disk-pod.yaml` met de volgende inhoud. Update `diskName` met de naam van de nieuwe schijf en `diskURI` met de id van de schijf. Let ook op de `mountPath`, dit is het pad waar de Azure-schijf is gekoppeld in de schil.
 

@@ -1,22 +1,22 @@
 ---
 title: Beheer van apparaten in de oplossing voor externe controle - Azure | Microsoft Docs
 description: Deze zelfstudie laat zien hoe u voor het beheren van apparaten die zijn verbonden met de oplossing voor externe controle.
-services: 
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/22/2018
+ms.date: 05/01/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 66005b78a368c15a463844b3f098eac9fd64f621
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: d05b7ca2ab1d5b2f3d3fd3973eefe1b3ec5a1c04
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="manage-and-configure-your-devices"></a>Uw apparaten beheren en configureren
 
@@ -24,7 +24,7 @@ Deze zelfstudie ziet het apparaat management mogelijkheden van de oplossing voor
 
 Contoso heeft besteld nieuwe machines uit te breiden een van de mogelijkheden om te verhogen van de uitvoer. Terwijl u op de nieuwe machine wacht moet worden geleverd, die u wilt uitvoeren van een simulatie om te controleren of het gedrag van uw oplossing. Als operator die u wilt beheren en configureren van de apparaten in de oplossing voor externe controle.
 
-Bieden een uitbreidbare manier om te beheren en configureren van apparaten, gebruikt de oplossing voor externe controle IoT Hub functies zoals [taken](../iot-hub/iot-hub-devguide-jobs.md) en [methoden directe](../iot-hub/iot-hub-devguide-direct-methods.md). Zie voor meer informatie over hoe een apparaat-ontwikkelaar de methoden op een fysiek apparaat implementeert, [aanpassen van de vooraf geconfigureerde oplossing voor externe controle](iot-suite-remote-monitoring-customize.md).
+Bieden een uitbreidbare manier om te beheren en configureren van apparaten, gebruikt de oplossing voor externe controle IoT Hub functies zoals [taken](../iot-hub/iot-hub-devguide-jobs.md) en [methoden directe](../iot-hub/iot-hub-devguide-direct-methods.md). Zie voor meer informatie over hoe een apparaat-ontwikkelaar de methoden op een fysiek apparaat implementeert, [aanpassen van de externe controle oplossingsverbetering](iot-suite-remote-monitoring-customize.md).
 
 In deze zelfstudie leert u het volgende:
 
@@ -38,7 +38,7 @@ In deze zelfstudie leert u het volgende:
 
 Volg deze zelfstudie, moet u een geïmplementeerd exemplaar van de oplossing voor externe controle in uw Azure-abonnement.
 
-Als u de oplossing voor externe controle nog niet hebt geïmplementeerd, maar u moet voltooien de [implementeren van de vooraf geconfigureerde oplossing voor externe controle](iot-suite-remote-monitoring-deploy.md) zelfstudie.
+Als u de oplossing voor externe controle nog niet hebt geïmplementeerd, maar u moet voltooien de [implementeren van de externe controle oplossingsverbetering](iot-suite-remote-monitoring-deploy.md) zelfstudie.
 
 ## <a name="add-a-simulated-device"></a>Een gesimuleerd apparaat toevoegen
 
@@ -50,7 +50,7 @@ Laat het aantal apparaten inrichten ingesteld op **1**. Kies de **defecte Engine
 
 ![Een engine voor het gesimuleerde apparaat inrichten](media/iot-suite-remote-monitoring-manage/devicesprovisionengine.png)
 
-Voor meer informatie over het inrichten van een *fysieke* apparaat, Zie [Verbind het apparaat met de vooraf geconfigureerde oplossing voor externe controle](iot-suite-connecting-devices-node.md).
+Voor meer informatie over het inrichten van een *fysieke* apparaat, Zie [uw apparaat aansluit op de externe controle oplossingsverbetering](iot-suite-connecting-devices-node.md).
 
 ## <a name="test-the-simulated-device"></a>Het gesimuleerde apparaat testen
 
@@ -68,11 +68,11 @@ Als u wilt weergeven van gedetailleerde diagnostische gegevens, bladert u omlaag
 
 ## <a name="act-on-a-device"></a>Reageren op een apparaat
 
-Als u wilt uitvoeren op een of meer apparaten, selecteert u deze in de lijst met apparaten en kies vervolgens **planning**. De **Engine** Apparaatmodel bevat vier verschillende manieren een apparaat moet ondersteunen:
+Als u wilt uitvoeren op een of meer apparaten, selecteert u deze in de lijst met apparaten en kies vervolgens **taken**. De **Engine** Apparaatmodel bevat drie methoden die een apparaat moet ondersteunen:
 
 ![Engine-methoden](media/iot-suite-remote-monitoring-manage/devicesmethods.png)
 
-Kies **opnieuw**, de taaknaam van de ingesteld op **RestartEngine**, en kies vervolgens **toepassen**:
+Kies **FillTank**, de taaknaam van de ingesteld op **FillEngineTank**, en kies vervolgens **toepassen**:
 
 ![Plannen van de methode opnieuw starten](media/iot-suite-remote-monitoring-manage/devicesrestartengine.png)
 
@@ -84,11 +84,11 @@ De status van de taak volgen op de **onderhoud** pagina **taken**:
 
 Als u de verschillende gesimuleerde apparaattypen verkennen, ziet u dat andere apparaattypen verschillende methoden ondersteunen. In een implementatie met fysieke apparaten geeft het model met de methoden die moet worden ondersteund door het apparaat. De ontwikkelaar van het apparaat is meestal verantwoordelijk voor het ontwikkelen van de code waarmee het apparaat die fungeren als reactie op een methodeaanroep.
 
-Als u een methode uit te voeren op meerdere apparaten plannen, kunt u meerdere apparaten in de lijst selecteert op de **apparaten** pagina. De **planning** deelvenster toont de typen van de methode voor de geselecteerde apparaten.
+Als u een methode uit te voeren op meerdere apparaten plannen, kunt u meerdere apparaten in de lijst selecteert op de **apparaten** pagina. De **taken** deelvenster toont de typen van de methode voor de geselecteerde apparaten.
 
 ## <a name="reconfigure-a-device"></a>Een apparaat configureren
 
-Als u de configuratie van een apparaat, selecteert u deze in de lijst met apparaten op de **apparaten** pagina en kies vervolgens **configureren**. Het paneel reconfigure ziet u de waarden van de eigenschappen voor het geselecteerde apparaat die u kunt wijzigen:
+Als u de configuratie van een apparaat, selecteert u deze in de lijst met apparaten op de **apparaten** pagina en kies vervolgens **taken**, en kies vervolgens **configureren**. Het deelvenster Taken ziet u de waarden van de eigenschappen voor het geselecteerde apparaat die u kunt wijzigen:
 
 ![Een apparaat configureren](media/iot-suite-remote-monitoring-manage/devicesreconfigure.png)
 
@@ -113,6 +113,6 @@ U hebt geleerd hoe u uw apparaten beheert, de voorgestelde volgende stappen zijn
 
 * [Problemen oplossen en het oplossen van problemen met apparaat](iot-suite-remote-monitoring-maintain.md).
 * [Testen van uw oplossing met gesimuleerde apparaten](iot-suite-remote-monitoring-test.md).
-* [Verbind het apparaat met de vooraf geconfigureerde oplossing voor externe controle](iot-suite-connecting-devices-node.md).
+* [Uw apparaat aansluit op de externe controle oplossingsverbetering](iot-suite-connecting-devices-node.md).
 
 <!-- Next tutorials in the sequence -->

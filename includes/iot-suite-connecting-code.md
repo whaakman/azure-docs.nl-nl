@@ -1,3 +1,19 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: c835b5594676edc39b85a1b10cc04afc7486731d
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 05/07/2018
+---
 ## <a name="specify-the-behavior-of-the-iot-device"></a>Het gedrag van het IoT-apparaat opgeven
 
 De clientbibliotheek van de IoT Hub-serialisatiefunctie maakt gebruik van een model om de opmaak op te geven van de berichten die het apparaat uitwisselt met IoT Hub.
@@ -78,7 +94,7 @@ De clientbibliotheek van de IoT Hub-serialisatiefunctie maakt gebruik van een mo
 
 Voeg nu code toe om het gedrag te implementeren dat in het model is gedefinieerd.
 
-1. Voeg de volgende callbackhandler toe die wordt uitgevoerd wanneer het apparaat nieuwe gerapporteerde eigenschapswaarden naar de vooraf geconfigureerde oplossing heeft verzonden:
+1. De volgende retouraanroep-handler die wordt uitgevoerd wanneer het apparaat nieuwe gemelde eigenschapswaarden naar de oplossingsverbetering verzonden heeft toevoegen:
 
     ```c
     /* Callback after sending reported properties */
@@ -221,7 +237,7 @@ Voeg nu code toe om het gedrag te implementeren dat in het model is gedefinieerd
     }
     ```
 
-1. Voeg de volgende functie die u een bericht met eigenschappen naar de vooraf geconfigureerde oplossing verzendt:
+1. De volgende functie die u een bericht met eigenschappen naar de oplossingsverbetering verzendt toevoegen:
 
     ```c
     static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size, char* schema)
@@ -260,7 +276,7 @@ Voeg nu code toe om het gedrag te implementeren dat in het model is gedefinieerd
     }
     ```
 
-1. Voeg de volgende functie toe om het apparaat te verbinden met de vooraf geconfigureerde oplossing in de cloud, en gegevens uit te wisselen. Deze functie voert de volgende stappen uit:
+1. Voeg de volgende functie voor het apparaat verbinding met de oplossingsverbetering in de cloud en uitwisselen van gegevens. Deze functie voert de volgende stappen uit:
 
     - Initialiseert het platform.
     - Registreert de Contoso-naamruimte bij de serialisatiebibliotheek.
@@ -396,7 +412,7 @@ Voeg nu code toe om het gedrag te implementeren dat in het model is gedefinieerd
     }
     ```
 
-    Ter referentie volgt hier een voorbeeld van een **telemetrie**bericht dat naar de vooraf geconfigureerde oplossing is verzonden:
+    Ter referentie: Hier volgt een voorbeeld **telemetrie** bericht verzonden naar de oplossingsverbetering:
 
     ```
     Device: [myCDevice],

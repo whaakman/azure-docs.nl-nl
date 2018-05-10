@@ -18,12 +18,12 @@
 ## Automatiseren
 ### [Overzicht van Azure Automation](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
-## Back-up maken
+## Backup
 ### [Overzicht van Backup](../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Overzicht van Site Recovery](../site-recovery/site-recovery-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 ## Beveiligen
-### [Resources bewaken](oms-security-monitoring-resources.md)
+### [Resources controleren](oms-security-monitoring-resources.md)
 ### [Reageren op beveiligingswaarschuwingen](oms-security-responding-alerts.md)
 ### [Basislijnevaluatie](oms-security-baseline.md)
 ### [Malware-evaluatie](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
@@ -32,8 +32,8 @@
 ### [Evaluatie van de webbasislijn](oms-security-web-baseline-assessment.md)
 
 ## Oplossingen gebruiken
-### [Beheeroplossingen](operations-management-suite-solutions.md)
-### [Doeloplossingen](operations-management-suite-solution-targeting.md)
+### [Beheeroplossingen](../monitoring/monitoring-solutions.md)
+### [Doeloplossingen](../monitoring/monitoring-solution-targeting.md)
 ### Inzicht en analyse
 #### [AD-evaluatie](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [AD-replicatiestatus](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
@@ -46,10 +46,10 @@
 #### [Office 365](oms-solution-office-365.md)
 #### [Service Fabric-analyse](../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### Serviceoverzicht
-##### [Kennismaking](operations-management-suite-walkthrough-servicemap.md)
-##### [Gebruiken](operations-management-suite-service-map.md)
-##### [Configureren](operations-management-suite-service-map-configure.md)
-##### [Integratie met Operations Manager](operations-management-suite-service-map-scom.md)
+##### [Kennismaking](../monitoring/monitoring-walkthrough-servicemap.md)
+##### [Gebruiken](../monitoring/monitoring-service-map.md)
+##### [Configureren](../monitoring/monitoring-service-map-configure.md)
+##### [Integratie met Operations Manager](../monitoring/monitoring-service-map-scom.md)
 #### [SQL-evaluatie](../log-analytics/log-analytics-sql-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Surface Hub](../log-analytics/log-analytics-surface-hubs.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Upgradeanalyse](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics?f=255&MSPPError=-2147217396)
@@ -62,12 +62,12 @@
 #### [Antimalware-evaluatie](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 ## Oplossingen maken
-### [Ontwerpen en bouwen](operations-management-suite-solutions-creating.md)
-### [Oplossingsbestand](operations-management-suite-solutions-solution-file.md)
-### [Automation-resources](operations-management-suite-solutions-resources-automation.md)
-### [Zoekopdrachten en waarschuwingen vastleggen](operations-management-suite-solutions-resources-searches-alerts.md)
-### [Weergaven](operations-management-suite-solutions-resources-views.md)
-### [Aanbevolen procedures](operations-management-suite-solutions-best-practices.md)
+### [Ontwerpen en bouwen](../monitoring/monitoring-solutions-creating.md)
+### [Oplossingsbestand](../monitoring/monitoring-solutions-solution-file.md)
+### [Automation-resources](../monitoring/monitoring-solutions-resources-automation.md)
+### [Zoekopdrachten en waarschuwingen vastleggen](../monitoring/monitoring-solutions-resources-searches-alerts.md)
+### [Weergaven](../monitoring/monitoring-solutions-resources-views.md)
+### [Aanbevolen procedures](../monitoring/monitoring-solutions-best-practices.md)
 
 ## Beheerscenario's
 ### [Analytische gegevens verzamelen van runbook](operations-management-suite-runbook-datacollect.md)

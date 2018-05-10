@@ -1,7 +1,7 @@
 ---
 title: De simulatie apparaat in de oplossing voor externe controle - Azure | Microsoft Docs
-description: Deze zelfstudie laat zien hoe de apparaatsimulator gebruiken met de vooraf geconfigureerde oplossing voor externe controle.
-services: 
+description: Deze zelfstudie laat zien hoe de apparaatsimulator gebruiken met de externe controle oplossingsverbetering.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -12,15 +12,19 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 563a5a1c177b1f18be18d9b3cc9f3f9a7ee8ae4a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
-ms.translationtype: MT
+ms.openlocfilehash: 5cbd1738bd53179cb9705a86886b6cf811e9988a
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="create-a-new-simulated-device"></a>Een nieuw gesimuleerd apparaat maken
 
-Deze zelfstudie ziet u het aanpassen van het apparaat simulator microservice in de vooraf geconfigureerde oplossing voor externe controle. Om weer te geven de mogelijkheden van de apparaatsimulator dat twee scenario's in de toepassing Contoso IoT maakt gebruik van deze zelfstudie.
+Deze zelfstudie laat zien hoe u het apparaat simulator microservice in de externe controle oplossingsverbetering aanpassen. Om weer te geven de mogelijkheden van de apparaatsimulator dat twee scenario's in de toepassing Contoso IoT maakt gebruik van deze zelfstudie.
+
+De volgende video biedt een overzicht van de opties voor het aanpassen van het apparaat simulator microservice:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/How-to-customize-the-Remote-Monitoring-Preconfigured-Solution-for-Azure-IoT/Player]
 
 In het eerste scenario wil Contoso voor het testen van een nieuw smart gloeilamp-apparaat. Als u wilt de tests uitvoert, kunt u een nieuw gesimuleerd apparaat maken met de volgende kenmerken:
 
@@ -40,7 +44,7 @@ De volgende tabel ziet u de gegevens dat de gloeilamp rapporten naar de cloud al
 | ------ | ----------- |
 | Status | 'on', 'off' |
 | Temperatuur | Graden F |
-| online | True, false |
+| Online | True, false |
 
 > [!NOTE]
 > De **online** telemetriewaarde is verplicht voor alle gesimuleerde typen.
@@ -68,7 +72,7 @@ De volgende tabel ziet u de oorspronkelijke status van het apparaat:
 
 In het tweede scenario, voegt u toe een nieuw type telemetrie naar Contoso de bestaande **Koelunit** apparaat.
 
-Deze zelfstudie laat zien hoe u de apparaatsimulator gebruiken met de vooraf geconfigureerde oplossing voor externe controle:
+Deze zelfstudie laat zien hoe u de apparaatsimulator gebruiken met de externe controle oplossingsverbetering:
 
 In deze zelfstudie leert u het volgende:
 
@@ -86,7 +90,7 @@ De volgende video ziet u een overzicht van het gesimuleerde en echte apparaten v
 
 Volg deze zelfstudie, hebt u het volgende nodig:
 
-* Een geïmplementeerd exemplaar van de oplossing voor externe controle in uw Azure-abonnement. Als u de oplossing voor externe controle nog niet hebt geïmplementeerd, maar u moet voltooien de [implementeren van de vooraf geconfigureerde oplossing voor externe controle](iot-suite-remote-monitoring-deploy.md) zelfstudie.
+* Een geïmplementeerd exemplaar van de oplossing voor externe controle in uw Azure-abonnement. Als u de oplossing voor externe controle nog niet hebt geïmplementeerd, maar u moet voltooien de [implementeren van de externe controle oplossingsverbetering](iot-suite-remote-monitoring-deploy.md) zelfstudie.
 
 * Visual Studio 2017. Als u Visual Studio 2017 geïnstalleerd hebt, kunt u downloaden de gratis [Visual Studio Community](https://www.visualstudio.com/free-developer-offers/) edition.
 
@@ -221,7 +225,7 @@ In deze zelfstudie werkt u met de **apparaat simulatie** en **opslagadapter** Vi
 1. Voor het klonen van de .NET-versie van de **opslagadapter** -opslagplaats, voer de volgende opdracht:
 
     ```cmd
-    git clone https://github.com/Azure/storage-adapter.git
+    git clone https://github.com/Azure/pcs-storage-adapter-dotnet.git
     ```
 
     De service van de simulatie apparaat gebruikt de opslagservice adapter verbinding maken met de service Cosmos-database in Azure. De oplossing voor externe controle slaat de configuratiegegevens van het gesimuleerde apparaat in een Cosmos-DB-database.
@@ -289,10 +293,10 @@ De **gloeilamp 01.json** -bestand definieert de kenmerken van het type, zoals de
         "temperature_unit": "F",
         "status": "on"
       },
-      "Script": {
+      "Interval": "00:00:20",
+      "Scripts": {
         "Type": "javascript",
-        "Path": "lightbulb-01-state.js",
-        "Interval": "00:00:20"
+        "Path": "lightbulb-01-state.js"
       }
     },
     ```
@@ -474,7 +478,7 @@ U bent nu klaar voor het testen van het type van uw nieuwe gesimuleerde gloeilam
 
     ![Aantal verbonden apparaten](media/iot-suite-remote-monitoring-test/connecteddevices.png)
 
-1. Navigeer in uw browser naar de **Dashboard** voor uw oplossing voor externe controle. In het deelvenster telemetrie op de **Dashboard**, selecteer **temperatuur**. De temperatuur voor uw twee gesimuleerde apparaten wordt weergegeven in de grafiek:
+1. Navigeer in uw browser naar de **Dashboard** voor uw oplossing voor externe controle. In het deelvenster telemetrie op de **Dashboard**, selecteer **temperatuur**. De temperatuur waarmee uw gesimuleerde apparaten wordt weergegeven in de grafiek:
 
     ![Temperatuur telemetrie](media/iot-suite-remote-monitoring-test/telemetry.png)
 
@@ -532,7 +536,7 @@ De volgende stappen wordt ervan uitgegaan dat u een opslagplaats aangeroepen heb
     publish.cmd
     ```
 
-1. Om te controleren of het uploaden, gaat u naar [https://hub.docker.com/](https://hub.docker.com/). Zoek uw **gloeilamp** opslagplaats en kies **Details**. Kies vervolgens **labels**:
+1. Om te controleren of het uploaden, gaat u naar [ https://hub.docker.com/ ](https://hub.docker.com/). Zoek uw **gloeilamp** opslagplaats en kies **Details**. Kies vervolgens **labels**:
 
     ![Docker-hub](media/iot-suite-remote-monitoring-test/dockerhub.png)
 
@@ -606,8 +610,8 @@ De volgende stappen ziet u hoe u de bestanden die definiëren van de ingebouwde 
 
 1. Elk apparaattype heeft een JSON-modelbestand en de bijbehorende scripts in de `data/devicemodels` map. De bestanden die de gesimuleerde definiëren **Koelunit** apparaattype zijn:
 
-    * **data/devicemodels/chiller-01.json**
-    * **data/devicemodels/scripts/chiller-01-state.js**
+    * **Data/devicemodels/chiller-01.JSON**
+    * **Data/devicemodels/scripts/chiller-01-State.js**
 
 ### <a name="specify-the-new-telemetry-type"></a>Geef het nieuwe telemetrie-type
 

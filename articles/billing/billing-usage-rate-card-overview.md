@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/9/2017
 ms.author: mobandyo
-ms.openlocfilehash: 7b573c906ee4ced803369606c3e318fd452a426a
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: d94536bd0ab10c3e380855b66bc10dc9af6195a3
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Azure Billing-API's gebruiken om u te programmatisch inzicht verkrijgen in uw Azure-gebruik
 Azure Billing-API's gebruikt om pull gebruiks- en gegevens bij uw voorkeur hulpprogramma's voor gegevensanalyse. Het gebruik van Azure-bronnen en RateCard APIs kunt u nauwkeurige voorspellen en beheren van uw kosten. De API's worden geïmplementeerd als een Resource Provider en een deel van de reeks API's beschikbaar gesteld door de Azure Resource Manager.  
@@ -73,5 +73,5 @@ Hier volgen enkele van de scenario's die zijn aangebracht met de combinatie van 
 
 * Zie voor meer informatie over de Azure Resource Manager, [overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). 
 
-* Voor meer informatie over de suite met hulpprogramma's die nodig is om u aan een goed begrip van de cloud te besteden, Zie het artikel Gartner [markt-handleiding voor IT financiële Management (ITFM)-hulpprogramma's voor](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb).
+
 

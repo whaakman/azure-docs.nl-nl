@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: c161b8fb70f20ef7d82834e6c61daff759726b93
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2b0f463c009d13440f6d3eb2bbbe2315ba7b13f2
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure virtuele-machineschaalsets Veelgestelde vragen
 
@@ -337,7 +337,7 @@ De documentatie van Azure Sleutelkluis wordt aangegeven dat de ophalen geheim RE
  
 Methode | URL
 --- | ---
-TOEVOEGEN | https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}
+GET | https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}
 
 Vervang {*geheim naam*} met de naam en vervang {*geheim versie*} met de versie van het geheim die u wilt ophalen. De geheime versie kan worden uitgesloten. In dat geval wordt wordt de huidige versie opgehaald.
   
@@ -450,9 +450,9 @@ Als de definitie van de extensie in de virtuele-machineschaalset ingesteld model
 
 Als een bestaande VM-service moeten worden hersteld, wordt deze weergegeven als de computer opnieuw is opgestart en de extensies worden niet opnieuw uitgevoerd. Als deze wordt teruggezet, is als de OS-schijf vervangen door de broninstallatiekopie. Alle specialisatie uit het laatste model, zoals-extensies worden uitgevoerd.
  
-### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-azure-ad-domain"></a>Hoe ik deelnemen aan een virtuele-machineschaalset ingesteld op een Azure AD-domein?
+### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-active-directory-domain"></a>Hoe ik deelnemen aan een virtuele-machineschaalset ingesteld op een Active Directory-domein?
 
-Als u wilt deelnemen aan een virtuele-machineschaalset ingesteld op een domein, Azure Active Directory (Azure AD), kunt u een uitbreiding definiëren. 
+Als u wilt deelnemen aan een virtuele-machineschaalset ingesteld op een domein met Active Directory (AD), kunt u een uitbreiding definiëren. 
 
 Gebruik de eigenschap JsonADDomainExtension definiëren van een uitbreiding:
 

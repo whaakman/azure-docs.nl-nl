@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: 66c07b757a034501eb66a4b23fc4c75bb94f8b10
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7b83b9de08d024b91ca7008a4f0bf970e8d00688
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Analytische gegevens weergeven voor de metrische gegevens over alle resources in uw Azure-Web-App
 
@@ -57,7 +57,7 @@ In tegenstelling tot de meeste andere Log Analytics-oplossingen, is niet gegeven
 Voer de volgende stappen uit voor het configureren van de Azure Web Apps Analytics-oplossing voor uw werkruimten.
 
 1. Inschakelen van de Azure Web Apps Analytics-oplossing van [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureWebAppsAnalyticsOMS?tab=Overview) of met behulp van de procedure beschreven in [toevoegen Log Analytics-oplossingen van de galerie met oplossingen](log-analytics-add-solutions.md).
-2. [Inschakelen van logboekregistratie van Azure-resource metrische gegevens met behulp van PowerShell OMS](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
+2. [Inschakelen van logboekregistratie van Azure-resource metrische gegevens met behulp van PowerShell-logboekanalyse](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
 
 De Azure Web Apps Analytics-oplossing worden verzameld van twee sets van metrische gegevens van Azure:
 
@@ -77,10 +77,6 @@ De Azure Web Apps Analytics-oplossing worden verzameld van twee sets van metrisc
   - Geheugenpercentage
 
 App Service Plan metrische gegevens worden alleen verzameld als u van een specifieke service-abonnement gebruikmaakt. Dit geldt niet voor beschikbare of gedeelde App Service-abonnementen.
-
-Als u de oplossing met behulp van de OMS-portal toevoegt, ziet u de volgende tegel. U moet [logboekregistratie Azure-resource metrische gegevens op OMS met behulp van PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
-
-![Melding van de Assessment uitvoeren](./media/log-analytics-azure-web-apps-analytics/performing-assessment.png)
 
 Nadat u de oplossing hebt geconfigureerd, moet gegevens eerst naar uw werkruimte stromende binnen 15 minuten.
 

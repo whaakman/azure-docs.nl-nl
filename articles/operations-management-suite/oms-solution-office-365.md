@@ -1,35 +1,35 @@
 ---
-title: Office 365-oplossing in de Operations Management Suite (OMS) | Microsoft Docs
-description: Dit artikel bevat informatie over configuratie en gebruik van de Office 365-oplossing in OMS.  Het bevat een gedetailleerde beschrijving van de Office 365-records gemaakt in logboekanalyse.
+title: Office 365-oplossing in Azure | Microsoft Docs
+description: Dit artikel bevat informatie over configuratie en gebruik van de Office 365-oplossing in Azure.  Het bevat een gedetailleerde beschrijving van de Office 365-records gemaakt in logboekanalyse.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 05/03/2018
 ms.author: bwren
-ms.openlocfilehash: 711071eaff7ab5e5199793663aa3cbb36a1e8d8a
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 8797e08ad942687b7d2defd765f4fe3f9765812f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="office-365-solution-in-operations-management-suite-oms"></a>Office 365-oplossing in de Operations Management Suite (OMS)
+# <a name="office-365-management-solution-in-azure-preview"></a>Office 365-oplossing in Azure (Preview)
 
 ![Office 365-logo](media/oms-solution-office-365/icon.png)
 
-De Office 365-oplossing voor Operations Management Suite (OMS) kunt u uw Office 365-omgeving in logboekanalyse bewaken.  
+De Office 365-oplossing kunt u uw Office 365-omgeving in logboekanalyse bewaken.
 
 - Controleren van gebruikersactiviteiten op uw Office 365-accounts te analyseren gebruikspatronen en trends voor gebruikersgedrag. U kunt bijvoorbeeld specifieke gebruiksscenario's, zoals bestanden die worden gedeeld buiten uw organisatie of de meest populaire SharePoint-sites ophalen.
 - Activiteiten bijhouden van wijzigingen in de configuratie of hoge bevoegdheid bewerkingen beheerder bewaken.
 - Detecteren en onderzoeken van ongewenste gebruikersgedrag die behoeften van uw organisatie kan worden aangepast.
 - Controle en naleving demonstreren. U kunt bijvoorbeeld toegang bestandsbewerkingen op vertrouwelijke bestanden, wat u bij de controle en naleving waarborgen helpen kunnen bewaken.
-- Uitvoeren van operationele problemen oplossen met behulp van OMS zoeken boven op Office 365-activiteitsgegevens van uw organisatie.
+- Uitvoeren van operationele problemen oplossen met behulp [Meld zoekopdrachten](../log-analytics/log-analytics-log-search.md) boven op Office 365-activiteitsgegevens van uw organisatie.
 
 ## <a name="prerequisites"></a>Vereisten
 Het volgende is vereist voordat u deze oplossing wordt geïnstalleerd en geconfigureerd.
@@ -47,7 +47,7 @@ Deze oplossing wordt niet geïnstalleerd voor alle management packs in de verbon
 ## <a name="configuration"></a>Configuratie
 Eenmaal u [de Office 365-oplossing aan uw abonnement toevoegt](../log-analytics/log-analytics-add-solutions.md), u verbinding maakt met uw Office 365-abonnement hebt.
 
-1. De oplossing voor beheer van waarschuwingen toevoegen aan uw OMS-werkruimte met behulp van de procedure beschreven in [oplossingen toevoegen](../log-analytics/log-analytics-add-solutions.md).
+1. De oplossing voor beheer van waarschuwingen toevoegen aan uw werkruimte voor logboekanalyse met behulp van de procedure beschreven in [oplossingen toevoegen](../log-analytics/log-analytics-add-solutions.md).
 2. Ga naar **instellingen** in de OMS-portal.
 3. Onder **verbonden bronnen**, selecteer **Office 365**.
 4. Klik op **verbinding maken met Office 365**.<br>![Processtappen verbinden Office 365](media/oms-solution-office-365/configure.png)
@@ -63,7 +63,7 @@ De Office 365-oplossing niet ophalen van gegevens uit een van de [OMS agents](..
 Office 365 verzendt een [webhook melding](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) met gedetailleerde gegevens met logboekanalyse telkens wanneer een record wordt gemaakt.
 
 ## <a name="using-the-solution"></a>De oplossing gebruiken
-Wanneer u de Office 365-oplossing aan de OMS-werkruimte toevoegt, de **Office 365** tegel wordt toegevoegd aan uw dashboard OMS. Deze tegel toont het aantal computers in uw omgeving, evenals een grafische voorstelling hiervan, en de bijbehorende updatenaleving.<br><br>
+Wanneer u de Office 365-oplossing aan uw werkruimte voor logboekanalyse toevoegt de **Office 365** tegel wordt toegevoegd aan uw dashboard. Deze tegel toont het aantal computers in uw omgeving, evenals een grafische voorstelling hiervan, en de bijbehorende updatenaleving.<br><br>
 ![Tegel samenvatting van Office 365](media/oms-solution-office-365/tile.png)  
 
 Klik op de **Office 365** tegel openen de **Office 365** dashboard.
@@ -92,7 +92,7 @@ De volgende eigenschappen gelden voor alle Office 365-records.
 | Eigenschap | Beschrijving |
 |:--- |:--- |
 | Type | *OfficeActivity* |
-| client-IP | Het IP-adres van het apparaat dat werd gebruikt toen de activiteit is geregistreerd. Het IP-adres wordt weergegeven in de notatie voor een IPv4- of IPv6-adres. |
+| ClientIP | Het IP-adres van het apparaat dat werd gebruikt toen de activiteit is geregistreerd. Het IP-adres wordt weergegeven in de notatie voor een IPv4- of IPv6-adres. |
 | OfficeWorkload | Office 365-service die de record verwijst.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
 | Bewerking | De naam van de activiteit van de gebruiker of beheerder.  |
 | OrganizationId | De GUID voor Office 365-tenant van uw organisatie. Deze waarde is altijd hetzelfde zijn voor uw organisatie, ongeacht de Office 365-service waarin dit zich voordoet. |
@@ -100,7 +100,7 @@ De volgende eigenschappen gelden voor alle Office 365-records.
 | ResultStatus | Hiermee wordt aangegeven of de actie (opgegeven in de eigenschap Operation) gelukt is. Mogelijke waarden zijn geslaagd, PartiallySucceded of mislukt. Voor Exchange-admin-activiteit is de waarde True of False. |
 | Gebruikers-id | De UPN (User Principal Name) van de gebruiker die de actie dat heeft geresulteerd in de record aan te melden; is uitgevoerd bijvoorbeeld: my_name@my_domain_name. Houd er rekening mee dat records voor de activiteit uitgevoerd door systeemaccounts (zoals SHAREPOINT\system of NTAUTHORITY\SYSTEM) ook opgenomen worden. | 
 | UserKey | Een alternatieve ID voor de gebruiker in de eigenschap UserId geïdentificeerd.  Deze eigenschap wordt bijvoorbeeld gevuld met de passport unieke ID (PUID) voor gebeurtenissen die worden uitgevoerd door gebruikers in SharePoint, OneDrive voor bedrijven en Exchange. Deze eigenschap kan ook Geef dezelfde waarde als de eigenschap UserID voor gebeurtenissen in andere services en de gebeurtenissen die worden uitgevoerd door systeemaccounts|
-| UserType | Het type van de gebruiker die de bewerking uitgevoerd.<br><br>Beheerder<br>Toepassing<br>DcAdmin<br>Reguliere<br>Gereserveerd<br>ServicePrincipal<br>Systeem |
+| UserType | Het type van de gebruiker die de bewerking uitgevoerd.<br><br>Beheer<br>Toepassing<br>DcAdmin<br>Reguliere<br>Gereserveerd<br>ServicePrincipal<br>Systeem |
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory-basis
@@ -280,9 +280,9 @@ De volgende tabel biedt voorbeeldzoekopdrachten in logboeken voor updaterecords 
 
 | Query’s uitvoeren | Beschrijving |
 | --- | --- |
-|Telling van alle bewerkingen voor uw Office 365-abonnement |Type = OfficeActivity &#124; meting count() per bewerking |
-|Informatie over het gebruik van SharePoint-sites|Type = OfficeActivity OfficeWorkload = sharepoint &#124; meten count() als tellen per SiteUrl &#124; Aantal asc sorteren|
-|Toegang bestandsbewerkingen door gebruikerstype|Type = OfficeActivity OfficeWorkload = sharepoint bewerking = FileAccessed &#124; meting count() door UserType|
+|Telling van alle bewerkingen voor uw Office 365-abonnement |Type = OfficeActivity &#124; count() door bewerking meten |
+|Informatie over het gebruik van SharePoint-sites|Type = OfficeActivity OfficeWorkload = sharepoint &#124; count() meten als tellen per SiteUrl &#124; aantal asc sorteren|
+|Toegang bestandsbewerkingen door gebruikerstype|Type = OfficeActivity OfficeWorkload sharepoint bewerking = FileAccessed = &#124; count() door UserType meten|
 |Zoeken met specifieke trefwoorden|Type = OfficeActivity OfficeWorkload = azureactivedirectory 'MyTest'|
 |Externe acties van de monitor op Exchange|Type = OfficeActivity OfficeWorkload = exchange ExternalAccess = true|
 
@@ -294,9 +294,9 @@ Als uw Office 365-oplossing is geen gegevens worden verzameld zoals verwacht, co
 
 | Status | Beschrijving |
 |:--|:--|
-| Actief | Het Office 365-abonnement actief is en de werkbelasting is verbonden met de OMS-werkruimte. |
-| In behandeling | Het Office 365-abonnement actief is, maar de werkbelasting is nog niet verbonden met de OMS-werkruimte is. De eerste keer dat u verbinding maken met de Office 365-abonnement zijn alle werkbelastingen op deze status totdat ze zijn verbonden. Wacht 24 uur voor alle werkbelastingen overschakelen naar de actieve. |
-| Inactieve | Het Office 365-abonnement is in een inactieve status heeft. Controleer op de pagina van uw Office 365-beheerder voor meer informatie. Nadat u uw Office 365-abonnement hebt geactiveerd, wordt het ontkoppelen van OMS-werkruimte en koppel deze opnieuw uit om te beginnen met het ontvangen van gegevens. |
+| Actief | Het Office 365-abonnement actief is en de werkbelasting is verbonden met uw werkruimte voor logboekanalyse. |
+| In behandeling | Het Office 365-abonnement actief is, maar de werkbelasting is nog niet verbonden met uw werkruimte voor logboekanalyse is. De eerste keer dat u verbinding maken met de Office 365-abonnement zijn alle werkbelastingen op deze status totdat ze zijn verbonden. Wacht 24 uur voor alle werkbelastingen overschakelen naar de actieve. |
+| Inactief | Het Office 365-abonnement is in een inactieve status heeft. Controleer op de pagina van uw Office 365-beheerder voor meer informatie. Nadat u uw Office 365-abonnement hebt geactiveerd, wordt het ontkoppelen van de werkruimte voor logboekanalyse en koppel deze opnieuw uit om te beginnen met het ontvangen van gegevens. |
 
 
 

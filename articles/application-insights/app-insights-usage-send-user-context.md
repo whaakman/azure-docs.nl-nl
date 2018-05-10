@@ -2,8 +2,8 @@
 title: Context-id's aan het inschakelen van informatie over het gebruik van de gebruiker optreedt in Azure Application Insights verzenden | Microsoft Docs
 description: Bijhouden hoe gebruikers via uw service verplaatsen door ze elk een unieke, permanente ID-reeks in Application Insights toe te wijzen.
 services: application-insights
-documentationcenter: 
-author: abgreg
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: csharp
 ms.topic: article
 ms.date: 08/02/2017
-ms.author: mbullwin
-ms.openlocfilehash: fe4481cf851fc021b3073a6d9d6254f546218785
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: mbullwin;abgreg
+ms.openlocfilehash: 196eeb7b5a817ff932f99c7db86ead5625b5f206
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/08/2018
 ---
 #  <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Context-id's aan het inschakelen van Azure Application Insights ervaringen voor informatie over het gebruik van de gebruiker te verzenden
 

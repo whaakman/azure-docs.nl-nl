@@ -1,9 +1,9 @@
 ---
 title: Functies in de werkstroom Definition Language - Azure Logic Apps | Microsoft Docs
-description: Meer informatie over de functies die u in logic app werkstroomdefinities gebruiken kunt
+description: Meer informatie over functies voor het maken van logische apps met de werkstroom Definition Language
 services: logic-apps
 author: ecfan
-manager: SyntaxC4
+manager: cfowler
 editor: ''
 documentationcenter: ''
 ms.assetid: ''
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 04/25/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: 0155e35641a0407fe48c4da07400fa188152b0af
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8240ddf8a93c6589f89f3ad680c1c99c594742c9
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="workflow-definition-language-functions-reference-for-azure-logic-apps"></a>Werkstroom definitie functies Naslaggids voor Azure Logic Apps
 
-In dit artikel beschrijft de functies die u gebruiken kunt bij het maken van werkstromen met [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Zie voor meer informatie over logic app-definities [werkstroom Definition Language voor Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md). 
+In dit artikel beschrijft de functies die u gebruiken kunt bij het maken van werkstromen met [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Zie voor meer informatie over functies in logic app-definities, [werkstroom Definition Language voor Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md#functions). 
 
 > [!NOTE]
 > De syntaxis voor parameterdefinities, zijn een vraagteken (?) die wordt weergegeven nadat een parameter betekent de parameter dat is optioneel. Zie bijvoorbeeld [getFutureTime()](#getFutureTime).

@@ -1,6 +1,6 @@
 ---
-title: OpenFaaS gebruiken met Azure Containerservice (AKS)
-description: Implementeren en gebruiken van OpenFaaS met Azure Container Service (AKS)
+title: OpenFaaS gebruiken met Azure Kubernetes-Service (AKS)
+description: Implementeren en gebruiken van OpenFaaS met Azure Kubernetes Service (AKS)
 services: container-service
 author: justindavies
 manager: timlt
@@ -9,22 +9,22 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: d531bb40421716bf9fb3c253a3e76207b2806912
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: MT
+ms.openlocfilehash: 778fa5ddcdf8006d28c092746e4ac17a497baa5f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="using-openfaas-on-aks"></a>Met behulp van OpenFaaS op AKS
 
-[OpenFaaS] [ open-faas] is een framework voor het bouwen van zonder Server functies boven op containers. Als een Open Source-project, heeft deze ervaring grootschalige acceptatie binnen de community. In dit document worden installeren en gebruiken van OpenFaas op een Azure Container Service (AKS)-cluster.
+[OpenFaaS] [ open-faas] is een framework voor het bouwen van zonder Server functies boven op containers. Als een Open Source-project, heeft deze ervaring grootschalige acceptatie binnen de community. In dit document worden installeren en gebruiken van OpenFaas op een Azure Kubernetes Service (AKS)-cluster.
 
 ## <a name="prerequisites"></a>Vereisten
 
 Om de stappen in dit artikel hebt voltooid, moet u het volgende.
 
 * Basiskennis van Kubernetes.
-* Een Azure Container Service (AKS)-cluster en AKS referenties die zijn geconfigureerd op uw ontwikkelsysteem.
+* Een Azure Kubernetes Service (AKS)-cluster en AKS referenties die zijn geconfigureerd op uw ontwikkelsysteem.
 * Azure CLI op uw ontwikkelsysteem geïnstalleerd.
 * GIT opdrachtregelprogramma's op uw systeem geïnstalleerd.
 
@@ -39,7 +39,7 @@ git clone https://github.com/openfaas/faas-netes
 Wijzigen in de map van de gekloonde opslagplaats.
 
 ```azurecli-interactive
-cd faas-netes 
+cd faas-netes
 ```
 
 ## <a name="deploy-openfaas"></a>OpenFaaS implementeren
@@ -54,7 +54,7 @@ kubectl create namespace openfaas
 
 Maak een tweede naamruimte voor OpenFaaS functies.
 
-```azurecli-interactive 
+```azurecli-interactive
 kubectl create namespace openfaas-fn
 ```
 
@@ -64,7 +64,7 @@ Een grafiek Helm voor OpenFaaS is opgenomen in de gekloonde opslagplaats. Dit di
 helm install --namespace openfaas -n openfaas \
   --set functionNamespace=openfaas-fn, \
   --set serviceType=LoadBalancer, \
-  --set rbac=false chart/openfaas/ 
+  --set rbac=false chart/openfaas/
 ```
 
 Uitvoer:
@@ -95,7 +95,7 @@ Een openbaar IP-adres wordt voor toegang tot de gateway OpenFaaS gemaakt. U kunt
 kubectl get service -l component=gateway --namespace openfaas
 ```
 
-Uitvoer. 
+Uitvoer.
 
 ```console
 NAME               TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)          AGE
@@ -105,7 +105,7 @@ gateway-external   LoadBalancer   10.0.28.18     52.186.64.52   8080:30800/TCP  
 
 Als u wilt testen van het systeem OpenFaaS, blader naar het externe IP-adres op poort 8080, `http://52.186.64.52:8080` in dit voorbeeld.
 
-![OpenFaaS UI](media/container-service-serverless/openfaas.png)
+![OpenFaaS gebruikersinterface](media/container-service-serverless/openfaas.png)
 
 Ten slotte OpenFaaS CLI installeren. In dit voorbeeld gebruikt brew, Zie de [OpenFaaS CLI documentatie] [ open-faas-cli] voor meer opties.
 
@@ -130,8 +130,8 @@ curl -X POST http://52.186.64.52:8080/function/figlet -d "Hello Azure"
 Uitvoer:
 
 ```console
- _   _      _ _            _                        
-| | | | ___| | | ___      / \    _____   _ _ __ ___ 
+ _   _      _ _            _
+| | | | ___| | | ___      / \    _____   _ _ __ ___
 | |_| |/ _ \ | |/ _ \    / _ \  |_  / | | | '__/ _ \
 |  _  |  __/ | | (_) |  / ___ \  / /| |_| | | |  __/
 |_| |_|\___|_|_|\___/  /_/   \_\/___|\__,_|_|  \___|
@@ -140,7 +140,7 @@ Uitvoer:
 
 ## <a name="create-second-function"></a>Tweede functie maken
 
-Maak nu een tweede functie. In dit voorbeeld wordt geïmplementeerd met behulp van de CLI OpenFaaS en bevat een installatiekopie van een aangepaste container en ophalen van gegevens uit een Cosmos-database. Meerdere items moeten worden geconfigureerd voordat u de functie maakt. 
+Maak nu een tweede functie. In dit voorbeeld wordt geïmplementeerd met behulp van de CLI OpenFaaS en bevat een installatiekopie van een aangepaste container en ophalen van gegevens uit een Cosmos-database. Meerdere items moeten worden geconfigureerd voordat u de functie maakt.
 
 Maak eerst een nieuwe resourcegroep voor de Cosmos-database.
 
@@ -148,13 +148,13 @@ Maak eerst een nieuwe resourcegroep voor de Cosmos-database.
 az group create --name serverless-backing --location eastus
 ```
 
-Implementeren van een CosmosDB exemplaar van het type `MongoDB`. Het exemplaar moet een unieke naam, bijwerken `openfaas-cosmos` in iets dat uniek is voor uw omgeving. 
+Implementeren van een CosmosDB exemplaar van het type `MongoDB`. Het exemplaar moet een unieke naam, bijwerken `openfaas-cosmos` in iets dat uniek is voor uw omgeving.
 
 ```azurecli-interactive
 az cosmosdb create --resource-group serverless-backing --name openfaas-cosmos --kind MongoDB
 ```
 
-De Cosmos-database-verbindingsreeks ophalen en opslaan in een variabele. 
+De Cosmos-database-verbindingsreeks ophalen en opslaan in een variabele.
 
 Werk de waarde voor de `--resource-group` argument voor de naam van de resourcegroep en de `--name` argument voor de naam van de Cosmos-database.
 
@@ -180,7 +180,7 @@ Nu de Cosmos-database met testgegevens vullen. Maak een bestand met de naam `pla
 }
 ```
 
-Gebruik de *mongoimport* hulpprogramma voor het exemplaar CosmosDB met gegevens te laden. 
+Gebruik de *mongoimport* hulpprogramma voor het exemplaar CosmosDB met gegevens te laden.
 
 Installeer zo nodig de MongoDB-hulpprogramma's. Het volgende voorbeeld installeert deze hulpprogramma's met behulp van brew, Zie de [MongoDB-documentatie] [ install-mongo] voor andere opties.
 
@@ -232,7 +232,7 @@ U kunt ook de functie binnen de OpenFaaS UI testen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-De standaardimplementatie van OpenFaas moet worden vergrendeld voor OpenFaaS-Gateway en functies. [De Alex Ellis blogbericht](https://blog.alexellis.io/lock-down-openfaas/) bevat meer informatie over veilige configuratie-opties. 
+De standaardimplementatie van OpenFaas moet worden vergrendeld voor OpenFaaS-Gateway en functies. [De Alex Ellis blogbericht](https://blog.alexellis.io/lock-down-openfaas/) bevat meer informatie over veilige configuratie-opties.
 
 <!-- LINKS - external -->
 [install-mongo]: https://docs.mongodb.com/manual/installation/

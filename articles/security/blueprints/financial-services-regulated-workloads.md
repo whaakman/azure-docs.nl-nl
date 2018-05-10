@@ -3,7 +3,7 @@ title: Azure-beveiliging en naleving blauwdruk - FFIEC financiële diensten gere
 description: Azure-beveiliging en naleving blauwdruk - FFIEC financiële diensten gereglementeerde werkbelastingen
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 17794288-9074-44b5-acc8-1dacceb3f56c
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
-ms.author: frasim
-ms.openlocfilehash: 497c5a987753cbbe577c1d042d6bf61be9d905ab
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jomolesk
+ms.openlocfilehash: f1339af22132d19f14ea8ebb72fe0e6bd45b7fad
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---ffiec-financial-services-regulated-workloads"></a>Azure-beveiliging en naleving blauwdruk - FFIEC financiële diensten gereglementeerde werkbelastingen
 
@@ -42,7 +42,7 @@ De architectuur bestaat uit de volgende onderdelen en de implementatiemogelijkhe
 - **Implementatiesjablonen**. In deze implementatie [Azure Resource Manager-sjablonen](/azure/azure-resource-manager/resource-group-overview#template-deployment) worden gebruikt voor de onderdelen van de architectuur automatisch implementeren in Microsoft Azure door te geven configuratieparameters tijdens de installatie.
 - **Geautomatiseerde implementatiescripts**. Deze scripts helpen bij het implementeren van de end-to-end-oplossing. De scripts bestaan uit:
     - Een installatie van de module en [hoofdbeheerder](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) installatiescript wordt gebruikt om te installeren en te controleren of vereiste PowerShell-modules en -rollen van de globale beheerder correct zijn geconfigureerd. 
-    - Installatie van een PowerShell-script wordt gebruikt voor het implementeren van de end-to-end-oplossing, die beschikbaar zijn via een ZIP-bestand en een Bacpac-bestand met een vooraf samengestelde demo-webtoepassing met [SQL-databasevoorbeeld](https://github.com/Microsoft/azure-sql-security-sample). inhoud. De broncode voor deze oplossing beschikbaar is voor controle is [betaling verwerken blauwdruk code opslagplaats][code-repo]. 
+    - Installatie van een PowerShell-script wordt gebruikt voor het implementeren van de end-to-end-oplossing, die beschikbaar zijn via een ZIP-bestand en een Bacpac-bestand met een vooraf samengestelde demo-webtoepassing met [SQL-databasevoorbeeld](https://github.com/Microsoft/azure-sql-security-sample). inhoud. De broncode voor deze oplossing is beschikbaar is voor controle [opslagplaats betaling verwerken blauwdruk code] [-code-opslagplaats]. 
 
 ## <a name="architectural-diagram"></a>Architectuurdiagram
 
@@ -305,7 +305,7 @@ Standaardimplementatie is bedoeld om een basislijn met Security Center aanbeveli
 
 ## <a name="deploy-the-solution"></a>De oplossing implementeren
 
-De onderdelen voor implementatie van deze oplossing zijn beschikbaar in de [blauwdruk code opslagplaats][code-repo]. De implementatie van de fundamentele architectuur moet verschillende stappen uitgevoerd via Microsoft PowerShell v5. Voor verbinding met de website, moet u een aangepaste domeinnaam (zoals contoso.com) opgeven. Hiermee wordt opgegeven met de `-customHostName` in stap 2-switch. Zie voor meer informatie [aanschaffen van een aangepaste domeinnaam voor Azure-Web-Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Een aangepaste domeinnaam is niet met succes implementeren en uitvoeren van de oplossing vereist, maar u zult geen verbinding maken met de website voor demonstratiedoeleinden.
+De onderdelen voor het implementeren van deze oplossing zijn beschikbaar in de [blauwdruk code opslagplaats] [-code-opslagplaats]. De implementatie van de fundamentele architectuur moet verschillende stappen uitgevoerd via Microsoft PowerShell v5. Voor verbinding met de website, moet u een aangepaste domeinnaam (zoals contoso.com) opgeven. Hiermee wordt opgegeven met de `-customHostName` in stap 2-switch. Zie voor meer informatie [aanschaffen van een aangepaste domeinnaam voor Azure-Web-Apps](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Een aangepaste domeinnaam is niet met succes implementeren en uitvoeren van de oplossing vereist, maar u zult geen verbinding maken met de website voor demonstratiedoeleinden.
 
 De scripts toevoegen domeingebruikers aan de Azure AD-tenant die u opgeeft. Microsoft adviseert het maken van een nieuwe Azure AD-tenant als een test wilt gebruiken.
 
@@ -388,8 +388,3 @@ Klanten zijn verantwoordelijk voor het bewaren van een kopie van de [verantwoord
 - Alle klantnamen van de, transactierecords en alle bijbehorende gegevens op deze pagina zijn fictief, gemaakt met het oog op deze fundamentele architectuur en slechts ter illustratie. Er is geen echte verwantschap of relatie is bedoeld en geen mag niet worden afgeleid.  
 - Deze oplossing is ontwikkeld door Microsoft en Avyan advies en is beschikbaar in de [MIT-licentie](https://opensource.org/licenses/MIT).
 
-### <a name="document-authors"></a>Auteurs van documenten
-
-* *Frank Simorjay (Microsoft)*  
-
-[code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "Code-opslagplaats"

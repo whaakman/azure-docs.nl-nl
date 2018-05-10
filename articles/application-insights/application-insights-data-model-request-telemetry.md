@@ -3,7 +3,7 @@ title: Azure Application Insights telemetrie Data Model - telemetrie aanvragen |
 description: Application Insights-gegevensmodel voor aanvraagtelemetrie
 services: application-insights
 documentationcenter: .net
-author: SergeyKanzhelev
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
-ms.author: mbullwin
-ms.openlocfilehash: 0073f38097ffbebd669754eac5f2d48a620941bf
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.author: mbullwin; sergkanz
+ms.openlocfilehash: e0bdaf132474d8e5eaac6a9c65093d27d673d343
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetrie aanvragen: Application Insights-gegevensmodel
 
@@ -62,7 +62,7 @@ Maximale lengte: 1024 tekens
 
 ## <a name="success"></a>Geslaagd
 
-De vermelding van geslaagde of mislukte aanroep. Dit veld is vereist. Wanneer niet ingesteld op expliciet `false` -aanvraag beschouwd als geslaagd. Deze waarde instelt op `false` als de bewerking is onderbroken door uitzondering of foutcode resultaat geretourneerd.
+De vermelding van geslaagde of mislukte aanroep. Dit veld is verplicht. Wanneer niet ingesteld op expliciet `false` -aanvraag beschouwd als geslaagd. Deze waarde instelt op `false` als de bewerking is onderbroken door uitzondering of foutcode resultaat geretourneerd.
 
 Voor de webtoepassingen Application Insights definiëren aanvraag is mislukt tijdens de antwoordcode ligt de `400` of gelijk zijn aan `401`. Er zijn echter gevallen wanneer deze standaardtoewijzing is niet overeenkomt met de semantische van de toepassing. Antwoordcode `404` kan duiden op 'geen records', die deel van de normale stroom uitmaken kunnen. Ook kan dit wijzen op een verbroken koppeling. U kunt zelfs meer geavanceerde logica implementeren voor de verbroken koppelingen. Alleen wanneer deze koppelingen zich op dezelfde site bevinden door de url verwijzende analyseren, kunt u verbroken koppelingen markeren als fouten. Of gemarkeerd als codefouten wanneer deze vanuit de mobiele toepassing van het bedrijf. Op dezelfde manier `301` en `302` geeft aan wanneer deze vanuit de client die biedt geen ondersteuning voor omleiding is mislukt.
 

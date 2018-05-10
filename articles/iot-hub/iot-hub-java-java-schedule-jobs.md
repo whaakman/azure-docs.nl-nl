@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: dobett
-ms.openlocfilehash: af853a378a36c97edd74ea99fc5dcce92a073fea
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b8b0742054b0348ded39b6357d00f6eac3449f99
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Planning en broadcast-taken (Java)
 
@@ -64,7 +64,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
-Als u liever de apparaat-id via een programma maken, leest u de bijbehorende sectie in het [uw apparaat aansluit op uw IoT-hub met Java](iot-hub-java-java-getstarted.md#create-a-device-identity) artikel. U kunt ook de [IoT-extensie voor Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) hulpprogramma naar een apparaat toevoegt aan uw IoT-hub.
+U kunt ook de [IoT-extensie voor Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) hulpprogramma naar een apparaat toevoegt aan uw IoT-hub.
 
 ## <a name="create-the-service-app"></a>De service-app maken
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: f3952ce87394270051bd37fae271162abc04a675
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 370e6e2c569aaf6d9289bddccde2174b4dd2ee97
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Bindingen voor duurzame functies (Azure-functies)
 
@@ -36,17 +36,12 @@ Bij het schrijven van orchestrator-functies in scripttalen (bijvoorbeeld in de A
 {
     "name": "<Name of input parameter in function signature>",
     "orchestration": "<Optional - name of the orchestration>",
-    "version": "<Optional - version label of this orchestrator function>",
     "type": "orchestrationTrigger",
     "direction": "in"
 }
 ```
 
 * `orchestration` de naam van de orchestration is. Dit is de waarde die clients gebruiken moeten wanneer ze willen nieuwe exemplaren van deze functie orchestrator te starten. Deze eigenschap is optioneel. Als niet wordt opgegeven, wordt de naam van de functie gebruikt.
-* `version` een label van de versie van de orchestration is. Clients die een nieuw exemplaar van een orchestration starten, moeten de overeenkomende versie label bevatten. Deze eigenschap is optioneel. Als niet wordt opgegeven, wordt de lege tekenreeks wordt gebruikt. Zie voor meer informatie over versiebeheer [Versioning](durable-functions-versioning.md).
-
-> [!NOTE]
-> Instellen van waarden voor `orchestration` of `version` eigenschappen wordt niet aanbevolen op dit moment.
 
 Deze binding trigger opgevraagd intern een reeks van wachtrijen in het standaardopslagaccount voor de functie-app. Deze wachtrijen zijn interne implementatiegegevens van de extensie, dat is waarom ze niet expliciet worden geconfigureerd in de bindingeigenschappen.
 
@@ -69,12 +64,11 @@ De orchestration-trigger binding ondersteunt zowel invoer en uitvoer. Hier volge
 * **invoer** -Orchestration-functies ondersteunen alleen [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) als een parametertype. Deserialisatie van invoer rechtstreeks in de functiehandtekening wordt niet ondersteund. Code moet gebruiken de [GetInput\<T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1) methode voor het ophalen van orchestrator-functie invoer. Deze invoer moet JSON-serialiseerbaar typen.
 * **levert** -Orchestration triggers ondersteunen zowel uitvoerwaarden als invoer. De retourwaarde van de functie wordt gebruikt voor het toewijzen van de uitvoerwaarde en moet een JSON-serialiseerbaar. Als een functie retourneert `Task` of `void`, een `null` waarde wordt opgeslagen als de uitvoer.
 
-> [!NOTE]
-> Orchestration-triggers worden alleen ondersteund in C# op dit moment.
-
 ### <a name="trigger-sample"></a>Voorbeeld van de trigger
 
-Hier volgt een voorbeeld van wat de meest eenvoudige 'Hallo wereld' C#-orchestrator-functie als volgt uitzien:
+Hier volgt een voorbeeld van wat de meest eenvoudige 'Hallo wereld' orchestrator-functie als volgt uitzien:
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("HelloWorld")]
@@ -85,7 +79,23 @@ public static string Run([OrchestrationTrigger] DurableOrchestrationContext cont
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const name = context.df.getInput();
+    return `Hello ${name}!`;
+});
+```
+
+> [!NOTE]
+> JavaScript orchestrators moeten gebruiken `return`. De `durable-functions` bibliotheek zorgt voor aanroepen de `context.done` methode.
+
 De meeste orchestrator-functies aanroepen activiteit functies, dus hier is een voorbeeld van een 'Hallo wereld' die laat zien hoe u een functie van de activiteit:
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("HelloWorld")]
@@ -96,6 +106,18 @@ public static async Task<string> Run(
     string result = await context.CallActivityAsync<string>("SayHello", name);
     return result;
 }
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const name = context.df.getInput();
+    const result = yield context.df.callActivityAsync("SayHello", name);
+    return result;
+});
 ```
 
 ## <a name="activity-triggers"></a>Activiteit-triggers
@@ -110,17 +132,12 @@ Als u de Azure-portal voor ontwikkeling, de activiteit trigger wordt gedefinieer
 {
     "name": "<Name of input parameter in function signature>",
     "activity": "<Optional - name of the activity>",
-    "version": "<Optional - version label of this activity function>",
     "type": "activityTrigger",
     "direction": "in"
 }
 ```
 
 * `activity` is de naam van de activiteit. Dit is de waarde die het orchestrator-functies gebruiken om aan deze activiteit functie aanroepen. Deze eigenschap is optioneel. Als niet wordt opgegeven, wordt de naam van de functie gebruikt.
-* `version` een label van de versie van de activiteit is. Orchestrator-functies die gebruikmaken van een activiteit moeten de overeenkomende versie label bevatten. Deze eigenschap is optioneel. Als niet wordt opgegeven, wordt de lege tekenreeks wordt gebruikt. Zie voor meer informatie [Versioning](durable-functions-versioning.md).
-
-> [!NOTE]
-> Instellen van waarden voor `activity` of `version` eigenschappen wordt niet aanbevolen op dit moment.
 
 Deze binding trigger opgevraagd intern een wachtrij in het standaardopslagaccount voor de functie-app. Deze wachtrij is een interne implementatie details van de extensie, dat is waarom deze niet expliciet is geconfigureerd in de bindingeigenschappen.
 
@@ -144,12 +161,11 @@ De activiteit trigger binding ondersteunt zowel invoer en uitvoer, net als de or
 * **levert** -activiteit werkt ondersteuning uitvoerwaarden als invoer. De retourwaarde van de functie wordt gebruikt voor het toewijzen van de uitvoerwaarde en moet een JSON-serialiseerbaar. Als een functie retourneert `Task` of `void`, een `null` waarde wordt opgeslagen als de uitvoer.
 * **metagegevens** -functies van de activiteit kunnen worden verbonden met een `string instanceId` -parameter voor de exemplaar-ID van de bovenliggende orchestration niet ophalen.
 
-> [!NOTE]
-> Activiteit triggers zijn momenteel niet ondersteund in Node.js-functies.
-
 ### <a name="trigger-sample"></a>Voorbeeld van de trigger
 
-Hier volgt een voorbeeld van wat een eenvoudige 'Hallo wereld' C#-activiteit functie als volgt uitzien:
+Hier volgt een voorbeeld van wat een eenvoudige 'Hallo wereld' activiteit functie als volgt uitzien:
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("SayHello")]
@@ -160,7 +176,17 @@ public static string SayHello([ActivityTrigger] DurableActivityContext helloCont
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+
+```javascript
+module.exports = function(context) {
+    context.done(null, `Hello ${context.bindings.name}!`);
+};
+```
+
 Het parametertype voor de `ActivityTriggerAttribute` -binding is `DurableActivityContext`. Echter, activiteit triggers ook ondersteuning voor het binden van rechtstreeks aan JSON serializeable typen (met inbegrip van primitieve typen), zodat dezelfde functie kan worden vereenvoudigd als volgt:
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("SayHello")]
@@ -168,6 +194,14 @@ public static string SayHello([ActivityTrigger] string name)
 {
     return $"Hello {name}!";
 }
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
+
+```javascript
+module.exports = function(context, name) {
+    context.done(null, `Hello ${name}!`);
+};
 ```
 
 ### <a name="passing-multiple-parameters"></a>Meerdere parameters doorgeven 
@@ -302,9 +336,9 @@ public static Task<string> Run(string input, DurableOrchestrationClient starter)
 }
 ```
 
-#### <a name="nodejs-sample"></a>Node.js-voorbeeld
+#### <a name="javascript-sample"></a>JavaScript-voorbeeld
 
-Het volgende voorbeeld laat zien hoe de duurzame orchestration client binden aan een nieuw exemplaar van de functie starten vanuit een Node.js-functie gebruiken:
+Het volgende voorbeeld laat zien hoe de duurzame orchestration client binden aan een nieuw exemplaar van de functie starten vanuit een JavaScript-functie gebruiken:
 
 ```js
 module.exports = function (context, input) {

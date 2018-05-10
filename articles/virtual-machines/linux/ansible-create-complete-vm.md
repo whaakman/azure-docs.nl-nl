@@ -7,7 +7,7 @@ author: iainfoulds
 manager: jeconnoc
 editor: na
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 5efb666652bf124160df836b5d12305903d907ba
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 22b580e74ec412763b9c34a7fa2fea97c8a277d0
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>Maken van een omgeving met volledige Linux virtuele machines in Azure met Ansible
 Ansible kunt u de implementatie en configuratie van resources in uw omgeving automatiseren. U kunt Ansible gebruiken voor het beheren van uw virtuele machines (VM's) in Azure, net als elke andere bron dezelfde. In dit artikel leest u hoe een volledige Linux-omgeving en de ondersteunende resources met Ansible maken. U kunt ook meer te weten hoe [maken van een basis-VM met Ansible](ansible-create-vm.md).
@@ -29,7 +29,7 @@ Ansible kunt u de implementatie en configuratie van resources in uw omgeving aut
 Voor het beheren van Azure-resources met Ansible, moet u het volgende:
 
 - Ansible en de Azure Python SDK-modules die op uw hostsysteem zijn geïnstalleerd.
-    - Installeer Ansible op [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), [CentOS 7.3](ansible-install-configure.md#centos-73), en [SLES 12 SP2](ansible-install-configure.md#sles-12-sp2)
+    - Installeer Ansible op [CentOS 7.4](ansible-install-configure.md#centos-74), [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), en [SLES 12 SP2](ansible-install-configure.md#sles-12-sp2)
 - Azure-referenties en Ansible geconfigureerd ze gebruiken.
     - [Azure-referenties maken en configureren van Ansible](ansible-install-configure.md#create-azure-credentials)
 - Azure CLI versie 2.0.4 of hoger. Voer `az --version` uit om de versie te bekijken. 

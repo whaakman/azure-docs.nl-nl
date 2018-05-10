@@ -1,3 +1,19 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 2c6f5cf2d89da0c2418ac58ca5d47a8aa05e732f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 05/07/2018
+---
 # <a name="internet-of-things-security-best-practices"></a>Aanbevolen beveiligingsprocedures voor Internet der dingen
 
 Beveiligen van een Internet der dingen (IoT)-infrastructuur vereist een strengere beveiliging-in-depth-strategie. Deze strategie moet u beveiliging van gegevens in de cloud, de integriteit van de gegevens onderweg te beschermen via het openbare internet en veilig apparaten inrichten. Elke laag groter beveiligingscontrole in de algehele infrastructuur is gebaseerd.
@@ -7,7 +23,7 @@ Beveiligen van een Internet der dingen (IoT)-infrastructuur vereist een strenger
 Deze strategie security-in-depth worden ontwikkeld en uitgevoerd met actieve deelname van verschillende spelers die betrokken zijn bij de productie, ontwikkeling en implementatie van IoT-apparaten en infrastructuur. Hier volgt een beschrijving van deze spelers.
 
 * **IoT hardware fabrikant/integrator**: deze spelers zijn meestal de fabrikanten van IoT-hardware wordt geïmplementeerd, SI's hardware montage van verschillende fabrikanten of leveranciers bieden hardware voor een IoT-implementatie gemaakte of geïntegreerd met andere leveranciers.
-* **IoT-oplossing developer**: de ontwikkeling van een IoT-oplossing gewoonlijk wordt uitgevoerd door de ontwikkelaar van een oplossing. Deze ontwikkelaar kan deel uitmaken van een intern team of een system integrator (SI) die zijn gespecialiseerd in deze activiteit. De ontwikkelaar van de IoT-oplossing kan verschillende onderdelen van de IoT-oplossing vanaf het begin te ontwikkelen, integreren van verschillende gebruiksklare of open source-onderdelen of vooraf geconfigureerde oplossingen met kleine aanpassing vast.
+* **IoT-oplossing developer**: de ontwikkeling van een IoT-oplossing gewoonlijk wordt uitgevoerd door de ontwikkelaar van een oplossing. Deze ontwikkelaar kan deel uitmaken van een intern team of een system integrator (SI) die zijn gespecialiseerd in deze activiteit. De ontwikkelaar van de IoT-oplossing kan verschillende onderdelen van de IoT-oplossing vanaf het begin te ontwikkelen, integreren van verschillende gebruiksklare of open source-onderdelen of oplossing accelerators met kleine aanpassing vast.
 * **IoT-oplossing deployer**: na een IoT-oplossing is ontwikkeld, moet deze worden geïmplementeerd in het veld. Dit proces omvat de implementatie van hardware, koppeling van apparaten en implementatie van oplossingen in hardwareapparaten of de cloud.
 * **IoT-oplossing operator**: nadat de IoT-oplossing is geïmplementeerd, langlopende bewerkingen, bewaking, upgrades en onderhoud is vereist. Deze taken kunnen worden uitgevoerd door een interne team dat bestaat uit gegevens technologiespecialisten, hardwarebewerkingen en onderhoud teams en domein specialisten die de juiste werking van algemene IoT-infrastructuur bewaken.
 

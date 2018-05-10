@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/10/2018
 ms.author: ryanwi
-ms.openlocfilehash: 0ce01b62fde690934d97fdefb7720e1be5512f4a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2ddb72f267fc46d7980007d41c5d512f50eaf47e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="connect-to-a-secure-cluster"></a>Verbinding maken met een beveiligd cluster
 
@@ -319,7 +319,7 @@ Bereiken [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) v
 
 De volledige URL is ook beschikbaar in het cluster essentials deelvenster van de Azure portal.
 
-U kunt het certificaat importeren voor het verbinden met een beveiligde cluster op Windows of OS X met een browser, en de browser wordt u gevraagd het certificaat moet worden gebruikt voor verbinding met het cluster.  Op Linux-machines moet het certificaat met geavanceerde browserinstellingen (elke browser heeft verschillende mechanismen) worden geïmporteerd en wijs de certificaatlocatie tehe op schijf.
+U kunt het certificaat importeren voor het verbinden met een beveiligde cluster op Windows of OS X met een browser, en de browser wordt u gevraagd het certificaat moet worden gebruikt voor verbinding met het cluster.  Op Linux-machines moet het certificaat met geavanceerde browserinstellingen (elke browser heeft verschillende mechanismen) worden geïmporteerd en wijs de certificaatlocatie op schijf.
 
 ### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>Verbinding maken met een beveiligde cluster met Azure Active Directory
 

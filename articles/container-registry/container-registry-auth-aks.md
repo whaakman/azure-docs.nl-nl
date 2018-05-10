@@ -1,6 +1,6 @@
 ---
-title: Verificatie met Azure Container register van Azure Containerservice
-description: Informatie over het bieden van toegang tot afbeeldingen in het register privé-container van Azure Container Service met behulp van een Azure Active Directory-service-principal.
+title: Verificatie met Azure Container register van Azure Kubernetes-Service
+description: Informatie over het bieden van toegang tot afbeeldingen in het register privé-container van Azure Kubernetes Service met behulp van een Azure Active Directory-service-principal.
 services: container-service
 author: neilpeterson
 manager: jeconnoc
@@ -8,19 +8,19 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/24/2018
 ms.author: nepeters
-ms.openlocfilehash: 6f2f035015445ee1fb2009b64d20d654484d7775
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0888afbb9087251e2c9219e2eb32fbf0d5600304
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="authenticate-with-azure-container-registry-from-azure-container-service"></a>Verificatie met Azure Container register van Azure Containerservice
+# <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Verificatie met Azure Container register van Azure Kubernetes-Service
 
-Wanneer u gebruikmaakt van Azure Container register (ACR) met Azure Container Service (AKS), moet een verificatiemethode tot stand worden gebracht. In dit document worden de aanbevolen configuraties voor authenticatie tussen deze twee Azure-services.
+Wanneer u gebruikmaakt van Azure Container register (ACR) met Azure Kubernetes Service (AKS), moet een verificatiemethode tot stand worden gebracht. In dit document worden de aanbevolen configuraties voor authenticatie tussen deze twee Azure-services.
 
 ## <a name="grant-aks-access-to-acr"></a>GRANT AKS toegang tot ACR
 
-Wanneer een AKS-cluster is gemaakt, wordt ook een service-principal gemaakt voor het cluster ervan met Azure-resources te beheren. Deze service-principal kan ook worden gebruikt voor verificatie met een ACR-register. Een roltoewijzing moet worden gemaakt voor de service principal leestoegang tot de resource ACR te verlenen om dit te doen. 
+Wanneer een AKS-cluster is gemaakt, wordt ook een service-principal gemaakt voor het cluster ervan met Azure-resources te beheren. Deze service-principal kan ook worden gebruikt voor verificatie met een ACR-register. Een roltoewijzing moet worden gemaakt voor de service principal leestoegang tot de resource ACR te verlenen om dit te doen.
 
 Het volgende voorbeeld kan worden gebruikt om deze bewerking te voltooien.
 
@@ -46,7 +46,7 @@ az role assignment create --assignee $CLIENT_ID --role Reader --scope $ACR_ID
 
 In sommige gevallen kan de service-principal wordt gebruikt door AKS bereik kan niet worden ingesteld in het register ACR. Voor dergelijke gevallen kunt u een unieke service-principal maken en kunt u het bereik met alleen het ACR-register.
 
-Het volgende script kan worden gebruikt voor de service-principal maken. 
+Het volgende script kan worden gebruikt voor de service-principal maken.
 
 ```bash
 #!/bin/bash
@@ -54,11 +54,11 @@ Het volgende script kan worden gebruikt voor de service-principal maken.
 ACR_NAME=myacrinstance
 SERVICE_PRINCIPAL_NAME=acr-service-principal
 
-# Populate the ACR login server and resource id. 
+# Populate the ACR login server and resource id.
 ACR_LOGIN_SERVER=$(az acr show --name $ACR_NAME --query loginServer --output tsv)
 ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
 
-# Create a contributor role assignment with a scope of the ACR resource. 
+# Create a contributor role assignment with a scope of the ACR resource.
 SP_PASSWD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME --role Reader --scopes $ACR_REGISTRY_ID --query password --output tsv)
 
 # Get the service principle client id.
@@ -69,7 +69,7 @@ echo "Service principal ID: $CLIENT_ID"
 echo "Service principal password: $SP_PASSWD"
 ```
 
-De referenties voor de service-principal kunnen nu worden opgeslagen in een Kubernetes [installatiekopie pull geheim] [ image-pull-secret] en waarnaar wordt verwezen als containers in een cluster AKS wordt uitgevoerd. 
+De referenties voor de service-principal kunnen nu worden opgeslagen in een Kubernetes [installatiekopie pull geheim] [ image-pull-secret] en waarnaar wordt verwezen als containers in een cluster AKS wordt uitgevoerd.
 
 De volgende opdracht maakt de Kubernetes geheim. De naam van de server met de server van de aanmelding ACR, de gebruikersnaam vervangen door de service-principal-id en het wachtwoord met het service-principal wachtwoord.
 
@@ -77,7 +77,7 @@ De volgende opdracht maakt de Kubernetes geheim. De naam van de server met de se
 kubectl create secret docker-registry acr-auth --docker-server <acr-login-server> --docker-username <service-principal-ID> --docker-password <service-principal-password> --docker-email <email-address>
 ```
 
-Het geheim Kubernetes kan worden gebruikt in een schil implementatie met de `ImagePullSecrets` parameter. 
+Het geheim Kubernetes kan worden gebruikt in een schil implementatie met de `ImagePullSecrets` parameter.
 
 ```yaml
 apiVersion: apps/v1beta1

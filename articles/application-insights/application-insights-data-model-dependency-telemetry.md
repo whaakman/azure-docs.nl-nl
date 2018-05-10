@@ -3,7 +3,7 @@ title: Azure Application Insights telemetrie gegevensmodel - Afhankelijkheidstel
 description: Application Insights-gegevensmodel voor afhankelijkheidstelemetrie
 services: application-insights
 documentationcenter: .net
-author: SergeyKanzhelev
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/17/2017
-ms.author: mbullwin
-ms.openlocfilehash: aa305c30dc358997420be6802d43fa69e45f4a5f
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.author: mbullwin; sergkanz
+ms.openlocfilehash: 019b24839c20e7f8f46eeccf4a7b9622d18b0ad6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Afhankelijkheidstelemetrie: Application Insights-gegevensmodel
 
@@ -38,7 +38,7 @@ Opdracht die door deze afhankelijkheidsaanroep gestart. Voorbeelden zijn SQL-ins
 
 Afhankelijkheid typenaam. De waarde van de lage kardinaliteit voor logische groepering van afhankelijkheden en de interpretatie van andere velden zoals commandName en resultCode. Voorbeelden zijn SQL Azure-tabel en HTTP.
 
-## <a name="target"></a>doel
+## <a name="target"></a>Doel
 
 Site van het doel van een afhankelijkheidsaanroep van. Voorbeelden zijn servernaam, hostadres. Zie voor meer informatie [correlatie](application-insights-correlation.md) pagina.
 

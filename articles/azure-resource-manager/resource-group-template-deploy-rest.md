@@ -12,22 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/10/2017
+ms.date: 05/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: b46b36805c2f33b1e066bbee2d0333113a26922a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bf2fc2aeb094a828fa1efe6904b897f3a4ab46d8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Resources implementeren met Resource Manager-sjablonen en Resource Manager REST API
-> [!div class="op_single_selector"]
-> * [PowerShell](resource-group-template-deploy.md)
-> * [Azure-CLI](resource-group-template-deploy-cli.md)
-> * [Portal](resource-group-template-deploy-portal.md)
-> * [REST API](resource-group-template-deploy-rest.md)
-> 
-> 
 
 In dit artikel wordt uitgelegd hoe de REST-API van Resource Manager gebruiken met Resource Manager-sjablonen voor het implementeren van uw resources in Azure.  
 
@@ -44,47 +37,79 @@ De sjabloon is een lokaal bestand of een extern bestand dat is beschikbaar via e
 [!INCLUDE [resource-manager-deployments](../../includes/resource-manager-deployments.md)]
 
 ## <a name="deploy-with-the-rest-api"></a>Met de REST-API implementeren
-1. Stel [algemene parameters en -koppen](https://docs.microsoft.com/rest/api/index), met inbegrip van verificatietokens.
-2. Als u een bestaande resourcegroep niet hebt, kunt u een resourcegroep maken. Geef uw abonnements-ID, de naam van de nieuwe resourcegroep en locatie die u nodig hebt voor uw oplossing. Zie voor meer informatie [een resourcegroep maken](https://docs.microsoft.com/rest/api/resources/resourcegroups#ResourceGroups_CreateOrUpdate).
-   
-        PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2015-01-01
-          <common headers>
-          {
-            "location": "West US",
-            "tags": {
-               "tagname1": "tagvalue1"
-            }
-          }
-3. Valideren van uw implementatie voordat deze wordt uitgevoerd door het uitvoeren van de [valideren van de sjabloonimplementatie van een](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_Validate) bewerking. Bij het testen van de implementatie, Geef parameters op exact dezelfde manier als bij het uitvoeren van de implementatie (weergegeven in de volgende stap).
+1. Stel [algemene parameters en -koppen](/rest/api/azure/), met inbegrip van verificatietokens.
+
+2. Als u een bestaande resourcegroep niet hebt, kunt u een resourcegroep maken. Geef uw abonnements-ID, de naam van de nieuwe resourcegroep en locatie die u nodig hebt voor uw oplossing. Zie voor meer informatie [een resourcegroep maken](/rest/api/resources/resourcegroups/createorupdate).
+
+  ```HTTP
+  PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2015-01-01
+  {
+    "location": "West US",
+    "tags": {
+      "tagname1": "tagvalue1"
+    }
+  }
+  ```
+
+3. Valideren van uw implementatie voordat deze wordt uitgevoerd door het uitvoeren van de [valideren van de sjabloonimplementatie van een](/rest/api/resources/deployments/validate) bewerking. Bij het testen van de implementatie, Geef parameters op exact dezelfde manier als bij het uitvoeren van de implementatie (weergegeven in de volgende stap).
+
 4. Maakt een implementatie. Geef uw abonnements-ID, de naam van de resourcegroep, de naam van de implementatie en een koppeling naar uw sjabloon. Zie voor meer informatie over het sjabloonbestand [parameterbestand](#parameter-file). Zie voor meer informatie over de REST-API om een resourcegroep te maken, [sjabloonimplementatie met een maakt](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_CreateOrUpdate). U ziet de **modus** is ingesteld op **incrementele**. Als u wilt uitvoeren van een volledige implementatie, **modus** naar **Complete**. Wees voorzichtig met behulp van de volledige modus kunt u de resources die zich niet in uw sjabloon per ongeluk verwijderen.
-   
-        PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
-          <common headers>
-          {
-            "properties": {
-              "templateLink": {
-                "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
-                "contentVersion": "1.0.0.0"
-              },
-              "mode": "Incremental",
-              "parametersLink": {
-                "uri": "http://mystorageaccount.blob.core.windows.net/templates/parameters.json",
-                "contentVersion": "1.0.0.0"
-              }
-            }
-          }
-   
-      Als u registreren antwoordinhoud, aanvraaginhoud of beide wilt, opnemen **debugSetting** in de aanvraag.
-   
-        "debugSetting": {
-          "detailLevel": "requestContent, responseContent"
-        }
-   
-      U kunt uw storage-account instellen om te gebruiken een shared access signature (SAS)-token. Zie voor meer informatie [toegang delegeren met Shared Access Signature](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature).
-5. De status van de sjabloonimplementatie niet ophalen. Zie voor meer informatie [informatie ophalen over de sjabloonimplementatie van een](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_Get).
-   
-          GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
-           <common headers>
+
+  ```HTTP
+  PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
+  {
+    "properties": {
+      "templateLink": {
+        "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
+        "contentVersion": "1.0.0.0"
+      },
+      "mode": "Incremental",
+      "parametersLink": {
+        "uri": "http://mystorageaccount.blob.core.windows.net/templates/parameters.json",
+        "contentVersion": "1.0.0.0"
+      }
+    }
+  }
+  ```
+
+    Als u registreren antwoordinhoud, aanvraaginhoud of beide wilt, opnemen **debugSetting** in de aanvraag.
+
+  ```HTTP
+  "debugSetting": {
+    "detailLevel": "requestContent, responseContent"
+  }
+  ```
+
+    U kunt uw storage-account instellen om te gebruiken een shared access signature (SAS)-token. Zie voor meer informatie [toegang delegeren met Shared Access Signature](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature).
+
+5. De status van de sjabloonimplementatie niet ophalen. Zie voor meer informatie [informatie ophalen over de sjabloonimplementatie van een](/rest/api/resources/deployments/get).
+
+  ```HTTP
+  GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
+  ```
+
+## <a name="redeploy-when-deployment-fails"></a>Implementeer opnieuw wanneer de implementatie mislukt
+
+Voor implementaties die niet voldoen, kunt u opgeven dat van de geschiedenis van uw implementatie van een eerdere implementatie automatisch opnieuw worden geïmplementeerd. Om deze optie gebruikt, moeten uw implementaties van unieke namen hebben zodat ze kunnen worden geïdentificeerd in de geschiedenis. Als u geen unieke namen, overschrijft de huidige mislukte implementatie mogelijk de eerder geslaagde implementatie in de geschiedenis. U kunt deze optie alleen gebruiken met niveau basis-implementaties. Implementaties van een geneste sjabloon niet beschikbaar voor opnieuw installeren.
+
+Als u wilt implementeren de laatste geslaagde implementatie als de huidige implementatie mislukt, gebruikt u:
+
+```HTTP
+"onErrorDeployment": {
+  "type": "LastSuccessful",
+},
+```
+
+Als u wilt implementeren een specifieke implementatie als de huidige implementatie mislukt, gebruikt u:
+
+```HTTP
+"onErrorDeployment": {
+  "type": "SpecificDeployment",
+  "deploymentName": "<deploymentname>"
+}
+```
+
+De opgegeven implementatie moet zijn geslaagd.
 
 ## <a name="parameter-file"></a>Parameterbestand
 

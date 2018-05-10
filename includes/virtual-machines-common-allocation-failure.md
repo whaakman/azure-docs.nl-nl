@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 04/14/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: 6377b79d986d32fba8f84c670d6b69d5eda98b8a
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 24d89b617c347bc9443b437c92cb034acb3e05cb
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/08/2018
 ---
 Wanneer u een virtuele machine (VM) maken, gestopt (toewijzing ongedaan gemaakt) virtuele machines opnieuw opstarten of het formaat van een virtuele machine, wijst Microsoft Azure compute-bronnen aan uw abonnement. We zijn voortdurend investeren in extra infrastructuur en functies om ervoor te zorgen dat er altijd alle VM-typen die beschikbaar zijn voor de ondersteuning van de vraag van klanten hebben. Echter kan van tijd tot tijd toewijzingsfouten resource optreden vanwege een ongekende groei van de vraag voor Azure-services in specifieke gebieden. Dit probleem kan optreden wanneer u probeert te maken of virtuele machines in een regio terwijl de virtuele machines worden de volgende foutcode en het bericht weergegeven:
 
@@ -80,7 +80,7 @@ Als we Azure-infrastructuur uitbreiden, implementeren we nieuwere generatie hard
 |----------------------|----------------------------|--------------------|
 |Av1-serie|[Av2-serie](../articles/virtual-machines/windows/sizes-general.md#av2-series)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
 |Dv1 of DSv1-serie (D1 naar D5)|[Dv3 of DSv3-serie](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-sup1sup)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
-|Dv1 of DSv1-serie (D11 naar D14)|[Ev3 of ESv3-serie](../articles/virtual-machines/windows/sizes-memory.md#esv3-series-sup1sup)|
+|Dv1 of DSv1-serie (D11 naar D14)|[Ev3 of ESv3-serie](../articles/virtual-machines/windows/sizes-memory.md#ev3-series)|
 |D15v2 of DS15v2|Als u theResource Manager-implementatiemodel gebruikt om te profiteren van de grotere VM-grootten, kunt u D16v3/DS16v3 of D32v3/DS32v3 te verplaatsen. Deze zijn ontworpen om uit te voeren op de meest recente generatie hardware. Als u het implementatiemodel van Resource Manager gebruikt om ervoor te zorgen dat uw VM-instantie is geïsoleerd, zodat de hardware die zijn toegewezen aan één klant, kunt u verplaatsen naar de nieuwe geïsoleerde VM-grootten, E64i_v3 of E64is_v3, die zijn ontworpen om uit te voeren op de meest recente generatie hardware. |https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/
 
 ## <a name="allocation-failures-for-large-deployments-more-than-500-cores"></a>Toewijzingsfouten voor grote implementaties (meer dan 500 kernen)

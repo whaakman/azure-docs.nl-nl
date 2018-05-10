@@ -1,6 +1,6 @@
 ---
-title: Externe controle Veelgestelde vragen over Azure IoT-Suite | Microsoft Docs
-description: Veelgestelde vragen over IoT Suite vooraf geconfigureerde oplossing voor externe controle
+title: Externe controle oplossingsverbetering Veelgestelde vragen | Microsoft Docs
+description: Veelgestelde vragen voor externe controle oplossingsverbetering
 services: iot-suite
 suite: iot-suite
 documentationcenter: ''
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: b0d6dbb567f66537c599d7ac3e4337988b3374c0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d1cc260710d025428a1ca77c41c104dc172447e6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="frequently-asked-questions-for-iot-suite-remote-monitoring-preconfigured-solution"></a>Veelgestelde vragen over IoT Suite vooraf geconfigureerde oplossing voor externe controle
+# <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>Veelgestelde vragen voor externe controle oplossingsverbetering
 
 Zie ook de algemene [Veelgestelde vragen over](iot-suite-faq.md).
 
 ### <a name="how-much-does-it-cost-to-provision-the-new-remote-monitoring-solution"></a>Hoeveel kost het inrichten van de nieuwe oplossing voor externe controle
 
-De nieuwe vooraf geconfigureerde oplossing biedt twee opties voor implementatie:
+De nieuwe oplossingsverbetering biedt twee opties voor implementatie:
 
 * Een *basic* optie ontworpen voor ontwikkelaars die op zoek naar de lagere kosten voor ontwikkeling of klanten die willen maken van een demo noch een bewijs van het concept.
 * Een *standaard* optie ontworpen voor ondernemingen willen implementeren van een infrastructuur gereed voor productie.
@@ -44,15 +44,11 @@ Elke Implementatieoptie reageert op verschillende behoeften. De eenvoudige imple
 
 Zie voor meer informatie [Upgrade kaart sleutel apparaten wilt bekijken op een dynamische kaart](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map).
 
-### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>Hoeveel gratis Bing Kaarten-API's kan ik inrichten met een abonnement?
-
-Twee. U kunt slechts twee interne transacties niveau 1 Bing-kaarten voor Enterprise plannen in een Azure-abonnement maken. De oplossing voor externe controle is standaard ingericht met het interne transacties niveau 1-plan. Als gevolg hiervan kunt u met een abonnement waaraan geen wijzigingen zijn aangebracht maximaal twee externe bewakingsoplossingen inrichten.
-
 ### <a name="next-steps"></a>Volgende stappen
 
-U kunt ook enkele van de andere functies en mogelijkheden van de vooraf geconfigureerde IoT Suite-oplossingen verkennen:
+U kunt ook een aantal andere functies en mogelijkheden van de IoT-oplossing accelerators verkennen:
 
-* [Ontdek de mogelijkheden van de vooraf geconfigureerde oplossing voor externe controle](iot-suite-remote-monitoring-explore.md)
-* [Overzicht van voorspeld onderhoud vooraf geconfigureerde oplossing](iot-suite-predictive-overview.md)
-* [Overzicht van de verbonden factory vooraf geconfigureerde oplossing](iot-suite-connected-factory-overview.md)
+* [De mogelijkheden van de externe controle oplossingsverbetering verkennen](iot-suite-remote-monitoring-explore.md)
+* [Overzicht van voorspeld onderhoud oplossing accelerator](iot-suite-predictive-overview.md)
+* [Overzicht van verbonden Factory oplossing accelerator](iot-suite-connected-factory-overview.md)
 * [Beveiliging van een compleet nieuwe IoT](securing-iot-ground-up.md)

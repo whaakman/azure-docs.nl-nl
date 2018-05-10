@@ -2,10 +2,10 @@
 title: Bestanden uploaden naar een Azure Media Services-account met behulp van REST | Microsoft Docs
 description: Informatie over het ophalen van media-inhoud in Media Services door het maken en uploaden van activa.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: juliako
 ms.openlocfilehash: 4ba6fdcec8d71326b02d71dbad429be8c2052171
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Bestanden uploaden naar een Media Services-account met behulp van REST
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ De volgende overwegingen wanneer u Media Services REST-API van toepassing:
 * Bij het openen van entiteiten met Media Services REST-API, moet u specifieke header-velden en waarden instellen in uw HTTP-aanvragen. Zie voor meer informatie [Setup voor het ontwikkelen van Media Services REST API](media-services-rest-how-to-use.md). <br/>De verzameling Postman is gebruikt in deze zelfstudie zorgt voor het instellen van de benodigde headers.
 * Media Services gebruikt de waarde van de eigenschap IAssetFile.Name tijdens het bouwen van URL's voor de streaming-inhoud (bijvoorbeeld http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Om deze reden is procent codering niet toegestaan. De waarde van de **naam** eigenschap kan niet een van de volgende hebben [procent-encoding-gereserveerde tekens](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? % # [] '. Bovendien kunnen alleen er een '.' voor de bestandsnaamextensie.
 * De lengte van de naam mag niet groter zijn dan 260 tekens zijn.
-* Er is een limiet voor de maximale bestandsgrootte die wordt ondersteund voor verwerking in Media Services. Zie [dit](media-services-quotas-and-limitations.md) voor meer informatie over de beperking voor de bestandsgrootte.
+* Er is een limiet voor de maximale bestandsgrootte die wordt ondersteund voor verwerking in Media Services. Raadpleeg [dit](media-services-quotas-and-limitations.md) artikel voor meer informatie over de maximale bestandsgrootte.
 
 ## <a name="set-up-postman"></a>Postman instellen
 
@@ -184,7 +184,7 @@ Als voorbeeld gebruiken we Postman een kleine MP4-bestand te uploaden. Mogelijk 
 De uploadaanvraag is niet deel uit van de **AzureMedia** verzameling. 
 
 Maken en een nieuwe aanvraag instellen:
-1. Druk op  **+** wilt maken van een nieuw tabblad in de aanvraag.
+1. Druk op **+** wilt maken van een nieuw tabblad in de aanvraag.
 2. Selecteer **plaatsen** bewerking en plakken **{{UploadURL}}** in de URL.
 2. Laat **autorisatie** tabblad is (niet ingesteld op de **Bearer-Token**).
 3. In de **Headers** tabblad: **sleutel**: 'x-ms-blob-type' en **waarde**: 'BlockBlob'.

@@ -3,43 +3,43 @@ title: Azure Notification Hubs verwijderd meldingen diagnose
 description: Informatie over het onderzoeken van veelvoorkomende problemen met verwijderde meldingen in Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: Mobile
-author: jwhitedev
+author: dimazaid
 manager: kpiteira
-editor: 
+editor: spelluru
 ms.assetid: b5c89a2a-63b8-46d2-bbed-924f5a4cce61
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: NA
 ms.devlang: multiple
 ms.topic: article
-ms.date: 12/22/2017
-ms.author: jawh
-ms.openlocfilehash: 3925208fe56bcd9513ec4c0f21aa1e2dd8fbf9c5
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: bc9ef70560f0485da81c1f54aa955cee76d280ab
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="diagnose-dropped-notifications-in-notification-hubs"></a>Diagnose van verwijderde meldingen in Notification Hubs
 
 Een van de meest voorkomende vragen van klanten met Azure Notification Hubs is oplossen bij meldingen die worden verzonden vanuit een toepassing worden niet op clientapparaten weergegeven. Ze willen weten waar en waarom meldingen zijn verwijderd, en hoe het probleem op te lossen. In dit artikel identificeert waarom meldingen mogelijk ophalen verwijderd of niet door apparaten worden ontvangen. Informatie over het analyseren en te bepalen van de hoofdoorzaak te achterhalen. 
 
-Het is essentieel voor het eerst te begrijpen hoe Notification Hubs meldingen verstuurd naar een apparaat.
+Het is essentieel voor het eerst te begrijpen hoe de service Notification Hubs meldingen verstuurd naar een apparaat.
 
 ![Notification Hubs-architectuur][0]
 
 In een typische send notification-stroom wordt het bericht uit de *toepassing back-end* met Notification Hubs. Notification Hubs biedt een aantal verwerking van de geregistreerde gegevens. De verwerking rekening gehouden met de geconfigureerde tags en code-expressies om te bepalen 'doelen'. Doelen worden de rapporten die nodig zijn voor het ontvangen van de pushmelding. Deze registraties kunnen een omspannen of onze ondersteunde platforms: iOS, Google, Windows, Windows Phone, Kindle en Baidu voor Android China.
 
-Met de doelen tot stand gebracht, pushes Notification Hubs meldingen naar de *push notification service* voor het apparaatplatform. Voorbeelden zijn de Apple Push Notification service (APNs) voor Apple en Firebase Cloud Messaging (FCM) voor Google. Notification Hubs pushes meldingen verdelen over meerdere batches van registraties. Notification Hubs geverifieerd met de respectieve push notification-service op basis van de referenties die u instelt in de Azure-portal onder **Notification Hub configureren**. De push-bericht service stuurt vervolgens de meldingen naar de respectieve *clientapparaten*. 
+Met de doelen tot stand gebracht, duwt de service Notification Hubs meldingen naar de *push notification service* voor het apparaatplatform. Voorbeelden zijn de Apple Push Notification service (APNs) voor Apple en Firebase Cloud Messaging (FCM) voor Google. Notification Hubs pushes meldingen verdelen over meerdere batches van registraties. Notification Hubs geverifieerd met de respectieve push notification-service op basis van de referenties die u instelt in de Azure-portal onder **Notification Hub configureren**. De push-bericht service stuurt vervolgens de meldingen naar de respectieve *clientapparaten*. 
 
-Houd er rekening mee dat de laatste fase van de levering van meldingen tussen de platform push notification-service en het apparaat plaatsvindt. Een van de vier belangrijke onderdelen in het push notification-proces (client, back-end van toepassing, Notification Hubs en de platform push notification service) kan ertoe leiden dat meldingen worden verwijderd. Zie voor meer informatie over de architectuur van Notification Hubs [Notification Hubs-overzicht].
+De laatste fase van de levering van meldingen vindt plaats tussen de platform push notification-service en het apparaat. Een van de vier belangrijke onderdelen in het push notification-proces (client, back-end van toepassing, Notification Hubs en de platform push notification service) kan ertoe leiden dat meldingen worden verwijderd. Zie voor meer informatie over de architectuur van Notification Hubs [Notification Hubs-overzicht].
 
 Meldingen leveren-fout kan optreden tijdens de eerste testfase fase. Verwijderde meldingen in dit stadium kunnen wijzen op een configuratieprobleem. Als de fout te leveren meldingen in de productieomgeving optreedt, kunnen sommige of alle van de meldingen worden verwijderd. In dit geval wordt een dieper toepassing of messaging-patroon probleem aangegeven. 
 
 De volgende sectie wordt bekeken scenario's waarin meldingen kunnen worden verwijderd, variërend van algemene tot meer zeldzame.
 
 ## <a name="notification-hubs-misconfiguration"></a>Onjuiste configuratie van Notification Hubs
-Notification Hubs moet zijn om meldingen te verzenden naar de respectieve push notification service, zichzelf te verifiëren in de context van de toepassing van de ontwikkelaar. Om dit te voorkomen, maakt de ontwikkelaar een ontwikkelaarsaccount met de desbetreffende platform (Google, Apple, Windows, enzovoort). De ontwikkelaar registreert vervolgens de toepassing met het platform waarop ze referenties ophalen. 
+De Notification Hubs-service moet worden geverifieerd in de context van de ontwikkelaar toepassing is om meldingen te verzenden naar de respectieve push notification service. Om dit te voorkomen, maakt de ontwikkelaar een ontwikkelaarsaccount met de desbetreffende platform (Google, Apple, Windows, enzovoort). De ontwikkelaar registreert vervolgens de toepassing met het platform waarop ze referenties ophalen. 
 
 U moet platform referenties toevoegen aan de Azure-portal. Als er geen meldingen worden het apparaat wordt bereikt, moet de eerste stap om ervoor te zorgen dat de juiste referenties zijn geconfigureerd in Notification Hubs. De referenties moeten overeenkomen met de toepassing die wordt gemaakt onder een platform-specifieke ontwikkelaarsaccount. 
 
@@ -88,7 +88,7 @@ Hier volgen enkele veelvoorkomende onvolkomenheden in om te controleren:
 
 * **Ongeldige registraties**
 
-    Als de notification hub correct is geconfigureerd en als deze tags of code-expressies correct gebruikt zijn, geldig doelen worden gevonden. Meldingen moeten worden verzonden voor deze doelen. Notification Hubs wordt vervolgens geactiveerd uit verschillende verwerken batches parallel. Elke batch verzendt berichten naar een set met geregistreerde items. 
+    Als de notification hub correct is geconfigureerd en als deze tags of code-expressies correct gebruikt zijn, geldig doelen worden gevonden. Meldingen moeten worden verzonden voor deze doelen. De Notification Hubs-service wordt vervolgens geactiveerd uit verschillende verwerken batches parallel. Elke batch verzendt berichten naar een set met geregistreerde items. 
 
     > [!NOTE]
     > Omdat de verwerking wordt parallel uitgevoerd, wordt de volgorde waarin de meldingen worden geleverd niet gegarandeerd. 
@@ -102,7 +102,7 @@ Hier volgen enkele veelvoorkomende onvolkomenheden in om te controleren:
     Als u meer foutinformatie over de mislukte bezorging poging tegen een registratie, kunt u de REST API's van Notification Hubs [Per bericht telemetrie: ophalen Notification Message telemetrie](https://msdn.microsoft.com/library/azure/mt608135.aspx) en [feedback van PNS](https://msdn.microsoft.com/library/azure/mt705560.aspx). Zie voor een voorbeeld van code, de [verzenden REST voorbeeld](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/SendRestExample).
 
 ## <a name="push-notification-service-issues"></a>Push notification service-problemen
-Nadat de melding is ontvangen door de platform push notification service, is de verantwoordelijkheid van de push notification service leveren de melding op het apparaat. Op dit moment Notification Hubs valt buiten de afbeelding en heeft geen controle wanneer of als de melding is geleverd aan het apparaat. 
+Nadat de melding is ontvangen door de platform push notification service, is de verantwoordelijkheid van de push notification service leveren de melding op het apparaat. Op dit moment de Notification Hubs-service is buiten de afbeelding en heeft geen controle wanneer of als de melding is geleverd aan het apparaat. 
 
 Omdat platform notification services robuuste, vaak meldingen tot aan de apparaten van de push notification service binnen een paar seconden. Als de push notification service is beperking, geldt Notification Hubs een strategie voor exponentiële back uitschakelen. Als de push notification service gedurende 30 minuten niet bereikbaar blijft, hebben we een beleid voor verlopen en deze berichten permanent verwijderen. 
 
@@ -226,7 +226,7 @@ Dit bericht geeft aan dat ongeldige referenties zijn geconfigureerd in Notificat
    
         ![Dashboard voor Notification Hubs-overzicht][5]
    
-    2. Op de **Monitor** tabblad kunt u veel andere platform-specifieke metrische gegevens voor uitvoerig stil toevoegen. U kunt zoeken specifiek op eventuele fouten met betrekking tot de push notification service die worden geretourneerd wanneer Notification Hubs probeert de melding te verzenden naar de push notification service. 
+    2. Op de **Monitor** tabblad kunt u veel andere platform-specifieke metrische gegevens voor uitvoerig stil toevoegen. U kunt zoeken specifiek op eventuele fouten met betrekking tot de push notification service die worden geretourneerd wanneer de Notification Hubs-service probeert de melding te verzenden naar de push notification service. 
    
         ![Activiteitenlogboek van Azure portal][6]
    

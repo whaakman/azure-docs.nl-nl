@@ -1,0 +1,55 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Maps-documentatie
+metadata:
+  document_id: 
+  title: Azure Maps-documentatie | Microsoft Docs
+  meta.description: Use Azure Maps to provide geospatial services to your web or mobile application.
+  services: azure-maps
+  author: philmea
+  manager: timlt
+  ms.service: azure-maps
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/07/2018
+  ms.author: philmea
+  ms.openlocfilehash: 5561f4720a396a90dbffe08e420d3b9ee66ec206
+  ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+  ms.translationtype: HT
+  ms.contentlocale: nl-NL
+  ms.lasthandoff: 05/07/2018
+abstract:
+  description: Azure Maps biedt ontwikkelaars uit alle branches krachtige georuimtelijke mogelijkheden, vol nieuwe kaartgegevens die nodig zijn om mobiele en webapplicaties te voorzien van geografische context. Deze service bestaat uit een Azure One API-compatibele set REST API's en een webgebaseerd JavaScript-besturingselement die ontwikkeltaken voor meerdere mediums gemakkelijk, flexibel en mobiel maken.
+sections:
+- title: QuickStarts van vijf minuten
+  items:
+  - type: paragraph
+    text: Een kaartzoek-app starten met behulp van Azure Maps.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: /azure/sql-database/media/index/portal.svg
+      text: Een demokaartenapplicatie starten
+      href: /azure/azure-maps/quick-demo-map-app
+- title: Zelfstudies met stapsgewijze instructies
+  items:
+  - type: paragraph
+    text: Bouw een georuimtelijke webapplicatie om naar bezienswaardigheden en een route naar die locaties te zoeken met Azure Maps.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/azure-maps/tutorial-search-location">Zoeken naar bezienswaardigheden</a>
+    - html: <a href="/azure/azure-maps/tutorial-route-location">Route naar bezienswaardigheden</a>
+    - html: <a href="/azure/azure-maps/tutorial-prioritized-routes">Routes per vervoersoptie</a>
+- title: Naslaginformatie
+  items:
+  - type: list
+    style: cards
+    className: cardsW
+    items:
+    - title: Talen
+      html: <p><a href="https://docs.microsoft.com/javascript/api/azure-maps-javascript/">Map Control-API - Javascript</a></p>
+    - title: REST
+      html: <p><a href="https://docs.microsoft.com/rest/api/maps/">Functie-API - REST</a></p><p><a href="https://docs.microsoft.com/rest/api/maps-management/">Beheer-API - REST</a></p>

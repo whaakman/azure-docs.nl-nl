@@ -3,7 +3,7 @@ title: Kaart van de toepassing in Azure Application Insights | Microsoft Docs
 description: Bewaken van complexe toepassingen topologieën met de toepassing-kaart
 services: application-insights
 documentationcenter: ''
-author: SoubhagyaDash
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 3bf37fe9-70d7-4229-98d6-4f624d256c36
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: mbullwin
-ms.openlocfilehash: 4b95cd947cd977208dee32d18fbc6a1fb099ff3b
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.author: mbullwin; Soubhagya.Dash
+ms.openlocfilehash: a02d345c0f624f2d1694b4b9622bf3c82c009429
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="application-map-triage-distributed-applications"></a>De toepassingstoewijzing: Sorteren gedistribueerde toepassingen
 De toepassingstoewijzing helpt u ter plaatse prestatieknelpunten of fout hotspots voor alle onderdelen van de gedistribueerde toepassing. Elk knooppunt op de kaart vertegenwoordigt een toepassingsonderdeel van de of de afhankelijkheden ervan; health KPI en heeft de status van waarschuwingen. U kunt via van elk onderdeel klikken om meer gedetailleerde diagnostische gegevens, zoals Application Insights-gebeurtenissen te. Als uw app gebruikmaakt van Azure-services, kunt u ook doorklikken naar Azure diagnostics, zoals SQL Database Advisor aanbevelingen.

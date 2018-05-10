@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: c3d6ed2c011cc6be1098ae5e693ee6d904efaa3b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: c12b52c6b8862d00d51b51a5a120292f89c3ac1f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="outbound-connections-in-azure"></a>Uitgaande verbindingen in Azure
 
@@ -40,11 +40,11 @@ Er zijn meerdere [uitgaande scenario's](#scenarios). U kunt deze scenario's kunt
 
 Azure Load Balancer en verwante resources expliciet worden gedefinieerd als u [Azure Resource Manager](#arm).  Azure biedt momenteel drie verschillende methoden om uitgaande verbinding voor Azure Resource Manager-bronnen te bereiken. 
 
-| Scenario | Methode | Beschrijving |
-| --- | --- | --- |
-| [1. Virtuele machine met een Instance Level Public IP-adres (met of zonder Load Balancer)](#ilpip) | Snat omzetten, poort zich voordoet niet gebruikt. |Azure maakt gebruik van het openbare IP-adres toegewezen aan de IP-configuratie van het exemplaar NIC. Het exemplaar heeft alle kortstondige poorten beschikbaar. |
-| [2. Openbare Load Balancer die zijn gekoppeld aan een virtuele machine (geen Instance Level Public IP-adres op het exemplaar)](#lb) | Snat omzetten met poort (PAT) zich voordoet met behulp van de Load Balancer-frontends |Het openbare IP-adres van de openbare Load Balancer frontends deelt Azure met meerdere particuliere IP-adressen. Kortstondige poorten van de frontends naar PAT maakt gebruik van Azure. |
-| [3. Standalone VM (Er is geen Load Balancer, geen Instance Level Public IP-adres)](#defaultsnat) | Snat omzetten met poort zich voordoet (PAT) | Azure automatisch een openbaar IP-adres aanwijst voor snat omzetten, dit openbare IP-adres deelt met meerdere particuliere IP-adressen van de beschikbaarheidsset en kortstondige poorten van dit openbare IP-adres gebruikt. Dit is een alternatieve scenario voor de bovenstaande scenario's. Wordt niet aanbevolen het als u nodig hebt zichtbaarheid en controle. |
+| Scenario | Methode | IP-protocollen | Beschrijving |
+| --- | --- | --- | --- |
+| [1. Virtuele machine met een Instance Level Public IP-adres (met of zonder Load Balancer)](#ilpip) | Snat omzetten, poort zich voordoet niet gebruikt. | TCP, UDP, ICMP, ESP | Azure maakt gebruik van het openbare IP-adres toegewezen aan de IP-configuratie van het exemplaar NIC. Het exemplaar heeft alle kortstondige poorten beschikbaar. |
+| [2. Openbare Load Balancer die zijn gekoppeld aan een virtuele machine (geen Instance Level Public IP-adres op het exemplaar)](#lb) | Snat omzetten met poort (PAT) zich voordoet met behulp van de Load Balancer-frontends | TCP, UDP |Het openbare IP-adres van de openbare Load Balancer frontends deelt Azure met meerdere particuliere IP-adressen. Kortstondige poorten van de frontends naar PAT maakt gebruik van Azure. |
+| [3. Standalone VM (Er is geen Load Balancer, geen Instance Level Public IP-adres)](#defaultsnat) | Snat omzetten met poort zich voordoet (PAT) | TCP, UDP | Azure automatisch een openbaar IP-adres aanwijst voor snat omzetten, dit openbare IP-adres deelt met meerdere particuliere IP-adressen van de beschikbaarheidsset en kortstondige poorten van dit openbare IP-adres gebruikt. Dit is een alternatieve scenario voor de bovenstaande scenario's. Wordt niet aanbevolen het als u nodig hebt zichtbaarheid en controle. |
 
 Als u niet dat een virtuele machine wilt te communiceren met eindpunten buiten Azure in openbare IP-adresruimte, kunt u netwerkbeveiligingsgroepen (nsg's) om de toegang zo nodig te blokkeren. De sectie [belemmeren de uitgaande verbinding](#preventoutbound) nsg's vindt u meer details. Hulp bij het ontwerpen, implementeren en beheren van een virtueel netwerk zonder eventuele uitgaande toegang valt buiten het bereik van dit artikel.
 
@@ -243,7 +243,7 @@ Als een NSG health test aanvragen van het label van de standaard AZURE_LOADBALAN
 
 ## <a name="limitations"></a>Beperkingen
 - DisableOutboundSnat is niet beschikbaar als een optie bij het configureren van een regel in de portal voor taakverdeling.  Gebruik in plaats daarvan REST, sjabloon of client hulpprogramma's.
-- Web-werkrollen buiten een VNet, kunnen worden geopend als alleen een als interne standaard Load Balancer wordt gebruikt als gevolg van een neveneffect van het pre-VNet-services-functie. U moet niet vertrouwen op deze als de desbetreffende service zelf of het onderliggende platform kan zonder kennisgeving worden gewijzigd. U moet altijd wordt ervan uitgegaan dat u moet expliciet uitgaande verbinding maken indien gewenst bij gebruik van een interne standaard Load Balancer alleen. 
+- Web-werkrollen zonder een VNet en andere Microsoft-platform-services kunnen worden geopend als alleen een als interne standaard Load Balancer wordt gebruikt als gevolg van een neveneffect van hoe het pre-VNet-services en andere platform functie services. U moet geen gebruik van dit neveneffect aangezien de betreffende service zelf of het onderliggende platform kan zonder kennisgeving worden gewijzigd. U moet altijd wordt ervan uitgegaan dat u moet expliciet uitgaande verbinding maken indien gewenst bij gebruik van een interne standaard Load Balancer alleen. De [snat omzetten standaard](#defaultsnat) scenario 3 wordt beschreven in dit artikel is niet beschikbaar.
 
 ## <a name="next-steps"></a>Volgende stappen
 

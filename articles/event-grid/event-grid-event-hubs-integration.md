@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 05/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: dba17a860dffd87b3784c53cf288b7a312c77e33
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: MT
+ms.openlocfilehash: 60857327685fca9a5f97588ab51909ce2537d68f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>Stroom big data in een datawarehouse
 
@@ -66,7 +66,7 @@ Gebeurtenis raster distribueert gebeurtenisgegevens naar de abonnees. Het volgen
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor deze zelfstudie hebt voltooid, moet u het volgende hebben:
+U hebt het volgende nodig om deze zelfstudie te voltooien:
 
 * Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 * [Visual studio 2017 versie 15.3.2 of hoger](https://www.visualstudio.com/vs/) met werkbelastingen voor: bureaublad .NET-ontwikkeling, ontwikkelen van Azure, ASP.NET en web ontwikkeling, Node.js-ontwikkeling en ontwikkeling van een Python.
@@ -118,71 +118,45 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
 1. Open de [EventHubsCaptureEventGridDemo voorbeeldproject](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) in Visual Studio 2017 (15.3.2 of hoger).
 
-2. Klik in Solution Explorer met de rechtermuisknop op **FunctionDWDumper**, en selecteer **publiceren**.
+1. Klik in Solution Explorer met de rechtermuisknop op **FunctionEGDWDumper**, en selecteer **publiceren**.
 
    ![Functie-app publiceren](media/event-grid-event-hubs-integration/publish-function-app.png)
 
-3. Selecteer **Azure functie-App** en **Selecteer een bestaande**. Selecteer **OK**.
+1. Selecteer **Azure functie-App** en **Selecteer een bestaande**. Selecteer **publiceren**.
 
    ![Doel-functie-app](media/event-grid-event-hubs-integration/pick-target.png)
 
-4. Selecteer de functie-app die u via de sjabloon hebt geïmplementeerd. Selecteer **OK**.
+1. Selecteer de functie-app die u via de sjabloon hebt geïmplementeerd. Selecteer **OK**.
 
    ![Functie-app selecteren](media/event-grid-event-hubs-integration/select-function-app.png)
 
-5. Wanneer Visual Studio kan het profiel is geconfigureerd, selecteer **publiceren**.
+1. Wanneer Visual Studio kan het profiel is geconfigureerd, selecteer **publiceren**.
 
    ![Selecteer publiceren](media/event-grid-event-hubs-integration/select-publish.png)
 
-6. Na het publiceren van de functie, gaat u naar de [Azure-portal](https://portal.azure.com/). Selecteer uw resource en de functie-app.
-
-   ![Functie-app weergeven](media/event-grid-event-hubs-integration/view-function-app.png)
-
-7. Selecteer de functie.
-
-   ![Selecteer een functie](media/event-grid-event-hubs-integration/select-function.png)
-
-8. De URL voor de functie niet ophalen. Deze URL moet u bij het maken van het gebeurtenisabonnement.
-
-   ![Functie-URL ophalen](media/event-grid-event-hubs-integration/get-function-url.png)
-
-9. De waarde kopiëren.
-
-   ![URL kopiëren](media/event-grid-event-hubs-integration/copy-url.png)
+Na het publiceren van de functie bent u klaar om u te abonneren op de gebeurtenis.
 
 ## <a name="subscribe-to-the-event"></a>Abonneren op de gebeurtenis
 
-U kunt Azure CLI of de portal gebruiken om u te abonneren op de gebeurtenis. Dit artikel ziet beide benaderingen.
+1. Ga naar de [Azure Portal](https://portal.azure.com/). Selecteer uw resource en de functie-app.
 
-### <a name="portal"></a>Portal
+   ![Functie-app weergeven](media/event-grid-event-hubs-integration/view-function-app.png)
 
-1. Selecteer in de naamruimte Event Hubs **gebeurtenis raster** aan de linkerkant.
+1. Selecteer de functie.
 
-   ![Selecteer gebeurtenis raster](media/event-grid-event-hubs-integration/select-event-grid.png)
+   ![Selecteer een functie](media/event-grid-event-hubs-integration/select-function.png)
 
-2. Een gebeurtenisabonnement toevoegen.
+1. Selecteer **toevoegen gebeurtenis raster abonnement**.
 
-   ![Gebeurtenisabonnement toevoegen](media/event-grid-event-hubs-integration/add-event-subscription.png)
+   ![Abonnement toevoegen](media/event-grid-event-hubs-integration/add-event-grid-subscription.png)
 
-3. Geef waarden op voor het gebeurtenisabonnement. Gebruik de Azure Functions-URL die u hebt gekopieerd. Selecteer **Maken**.
+9. Geef een naam op het raster voor een gebeurtenisabonnement. Gebruik **Event Hubs naamruimten** als het gebeurtenistype. Geef uw exemplaar van de Event Hubs-naamruimte wilt selecteren. Laat het eindpunt van de abonnee als de opgegeven waarde. Selecteer **Maken**.
 
-   ![Abonnement-waarden opgeven](media/event-grid-event-hubs-integration/provide-values.png)
-
-### <a name="azure-cli"></a>Azure-CLI
-
-Abonneren op de gebeurtenis, voer de volgende opdrachten (waarvoor versie 2.0.24 of hoger van Azure CLI):
-
-```azurecli-interactive
-namespaceid=$(az resource show --namespace Microsoft.EventHub --resource-type namespaces --name <your-EventHubs-namespace> --resource-group rgDataMigrationSample --query id --output tsv)
-az eventgrid event-subscription create \
-  --resource-id $namespaceid \
-  --name captureEventSub \
-  --endpoint <your-function-endpoint>
-```
+   ![Abonnement maken](media/event-grid-event-hubs-integration/set-subscription-values.png)
 
 ## <a name="run-the-app-to-generate-data"></a>Voer de app voor het genereren van gegevens
 
-U kunt instellen van uw event hub, SQL datawarehouse, Azure functie-app en voor een gebeurtenisabonnement hebt voltooid. De oplossing is gereed voor het migreren van gegevens van de event hub naar het datawarehouse. Voordat u een toepassing die gegevens voor event hub genereert, moet u enkele waarden configureren.
+U klaar bent met het instellen van uw event hub, SQL datawarehouse, Azure functie-app en voor een gebeurtenisabonnement. De oplossing is gereed voor het migreren van gegevens van de event hub naar het datawarehouse. Voordat u een toepassing die gegevens voor event hub genereert, moet u enkele waarden configureren.
 
 1. Selecteer in de portal voor uw event hub-naamruimte. Selecteer **verbindingsreeksen**.
 
@@ -198,14 +172,14 @@ U kunt instellen van uw event hub, SQL datawarehouse, Azure functie-app en voor 
 
 4. Ga terug naar Visual Studio-project. Open in het project WindTurbineDataGenerator **program.cs**.
 
-5. Vervang de twee constante waarden. Gebruik de gekopieerde waarde voor **EventHubConnectionString**. Gebruik de naam van de event hub voor **EventHubName**.
+5. Vervang de twee constante waarden. Gebruik de gekopieerde waarde voor **EventHubConnectionString**. Gebruik **hubdatamigration** de naam van de event hub.
 
    ```cs
-   private const string EventHubConnectionString = "Endpoint=sb://tfdatamigratens.servicebus.windows.net/...";
+   private const string EventHubConnectionString = "Endpoint=sb://demomigrationnamespace.servicebus.windows.net/...";
    private const string EventHubName = "hubdatamigration";
    ```
 
-6. De oplossing bouwen. Voer de toepassing WindTurbineGenerator.exe. Query uitvoeren op de tabel in het datawarehouse voor de gemigreerde gegevens na een paar minuten.
+6. Bouw de oplossing. Voer de toepassing WindTurbineGenerator.exe. Query uitvoeren op de tabel in het datawarehouse voor de gemigreerde gegevens na een paar minuten.
 
 ## <a name="next-steps"></a>Volgende stappen
 

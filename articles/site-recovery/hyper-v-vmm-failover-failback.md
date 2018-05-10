@@ -6,19 +6,19 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 05/02/2018
 ms.author: raynew
-ms.openlocfilehash: 3740ec9917499f6a1e87905befe86598a18f68e6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f4207b8def3a5cd240b7a3ecdffde34a27f2a833
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Failover en mislukken back-Hyper-V-machines die zijn gerepliceerd naar de locatie van uw secundaire on-premises
 
 De [Azure Site Recovery](site-recovery-overview.md) service beheert en regelt de replicatie, failover en failback van on-premises machines en virtuele Azure-machines (VM's).
 
-In dit artikel wordt beschreven hoe failover van een Hyper-V-virtuele machine in een cloud System Center Virtual Machine Manager (VMM) naar een secundaire site voor VMM worden beheerd. Nadat u hebt failover, schakelt u terug naar uw on-premises site wanneer deze beschikbaar is. In dit artikel leert u hoe:
+In dit artikel wordt beschreven hoe failover van een Hyper-V-virtuele machine in een cloud System Center Virtual Machine Manager (VMM) naar een secundaire site voor VMM worden beheerd. Nadat u een failover hebt uitgevoerd, valt u terug op uw on-premises site wanneer deze beschikbaar is. In dit artikel leert u het volgende:
 
 > [!div class="checklist"]
 > * Failover van een Hyper-V virtuele machine uit een primaire VMM-cloud naar een secundaire VMM-cloud
@@ -51,18 +51,18 @@ U kunt een reguliere of geplande failover uitvoeren voor Hyper-V-machines.
 Deze procedure wordt beschreven hoe een reguliere failover uit te voeren.
 
 
-1. In **instellingen** > **gerepliceerde items** klikt u op de virtuele machine > **Failover**.
-2. In **Failover** Selecteer een **herstelpunt** failover naar. U kunt een van de volgende opties gebruiken:
-    - **Meest recente** (standaard): deze optie verwerkt eerst alle gegevens die worden verzonden naar Site Recovery. Het biedt de laagste RPO (beoogd herstelpunt) omdat de replica-VM gemaakt nadat de failover is de gegevens die is gerepliceerd naar de Site Recovery wanneer de failover is geactiveerd.
-    - **Meest recente verwerkte**: deze optie is overgenomen van de virtuele machine naar het recentste herstelpunt dat is verwerkt door Site Recovery. Deze optie biedt een laag RTO (beoogde hersteltijd), omdat er geen tijd besteed aan het verwerken van niet-verwerkte gegevens.
-    - **Meest recente app-consistente**: deze optie is overgenomen van de virtuele machine naar de meest recente app-consistente herstelpunt verwerkt door Site Recovery. 
+1. Klik in **Instellingen** > **Gerepliceerde items** op de VM > **Failover**.
+2. Selecteer in **Failover** een **Herstelpunt** waarnaar u de failover wilt uitvoeren. U kunt een van de volgende opties gebruiken:
+    - **Laatste** (standaard): met deze optie worden eerst alle gegevens naar Site Recovery verzonden gegevens verwerkt. Het biedt de laagste RPO (beoogd herstelpunt) omdat de replica-VM gemaakt nadat de failover is de gegevens die is gerepliceerd naar de Site Recovery wanneer de failover is geactiveerd.
+    - **Laatst verwerkte punt**: met deze optie wordt een failover-overschakeling van de VM uitgevoerd naar het laatste door Site Recovery verwerkte herstelpunt. Deze optie heeft een lage RTO (Recovery Time Objective), omdat er geen tijd wordt besteed aan het verwerken van niet-verwerkte gegevens.
+    - **Laatste toepassingsconsistente punt**: met deze optie wordt er een failover-overschakeling uitgevoerd van de VM naar het laatste door Site Recovery verwerkte toepassingsconsistente herstelpunt. 
 3. De versleutelingssleutel is niet relevant is in dit scenario.
-4. Selecteer **machine afsluiten voordat u begint met failover** als u wilt dat Site Recovery voor probeert virtuele bronmachines afgesloten voordat de failover. Site Recovery wordt ook proberen te synchroniseren van on-premises gegevens die nog niet nog naar de secundaire site verzonden voordat de failover. Houd er rekening mee dat de failover wordt voortgezet zelfs als afsluiten is mislukt. U kunt de voortgang van de failover volgen op de **taken** pagina.
+4. Selecteer **machine afsluiten voordat u begint met failover** als u wilt dat Site Recovery voor probeert virtuele bronmachines afgesloten voordat de failover. Site Recovery wordt ook proberen te synchroniseren van on-premises gegevens die nog niet nog naar de secundaire site verzonden voordat de failover. Houd er rekening mee dat de failover wordt voortgezet zelfs als afsluiten is mislukt. U kunt de voortgang van de failover volgen op de pagina **Taken**.
 5. U moet nu mogelijk om te zien van de virtuele machine in de secundaire VMM-cloud.
-6. Nadat u hebt gecontroleerd dat de virtuele machine **doorvoeren** de failover. Hiermee verwijdert u de beschikbare herstelpunten.
+6. Nadat u hebt gecontroleerd dat de virtuele machine **doorvoeren** de failover. Hiermee verwijdert u alle beschikbare herstelpunten.
 
 > [!WARNING]
-> **Een failover uitgevoerd niet annuleren**: voordat failover wordt gestart, VM-replicatie is gestopt. Als u een failover uitgevoerd, stopt de failover, annuleren, maar de virtuele machine opnieuw won't repliceren.  
+> **Annuleer een failover die in voortgang is niet**: voordat de failover wordt gestart, wordt de VM-replicatie gestopt. Als u een failover die in voortgang is annuleert, wordt de failover gestopt, maar de VM wordt niet meer gerepliceerd.  
 
 
 ## <a name="reprotect-and-fail-back"></a>Beveiligt en een failback uit op

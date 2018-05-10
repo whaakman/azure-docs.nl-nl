@@ -1,12 +1,12 @@
 ---
-title: De gateway van uw verbonden factory - Azure implementeren | Microsoft Docs
-description: Het implementeren van een gateway op Windows of Linux voor verbindingen met de verbonden factory vooraf geconfigureerde oplossing.
-services: 
+title: De gateway van uw verbonden Factory - Azure implementeren | Microsoft Docs
+description: Klik hier voor meer informatie over het implementeren van een gateway op Windows of Linux voor verbindingen met de oplossingsverbetering Factory verbonden.
+services: iot-suite
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: 4606cb676c3ab7c8c8511579f43d251ff7d2ae8a
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 956da99a5d67d7a2225ab3ea64b4e5a9d41ee3a1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="deploy-an-edge-gateway-for-the-connected-factory-preconfigured-solution-on-windows-or-linux"></a>Een gateway aan de rand voor de verbonden factory vooraf geconfigureerde oplossing op Windows of Linux implementeren
+# <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>Een gateway aan de rand van de Factory verbonden oplossingsverbetering op Windows of Linux implementeren
 
-U moet twee softwareonderdelen voor het implementeren van een edge-gateway voor de *verbonden factory* vooraf geconfigureerde oplossing:
+U moet twee softwareonderdelen voor het implementeren van een edge-gateway voor de *Factory verbonden* oplossingsverbetering:
 
-- De *OPC Proxy* maakt een verbinding met verbonden factory. De Proxy OPC wordt er gewacht totdat de opdracht en controle berichten van de geïntegreerde OPC-Browser die wordt uitgevoerd in de oplossingsportal verbonden factory.
+- De *OPC Proxy* maakt een verbinding met de Factory is verbonden. De Proxy OPC wordt er gewacht totdat de opdracht en controle berichten van de geïntegreerde OPC-Browser die wordt uitgevoerd in de oplossingsportal Factory verbonden.
 
-- De *OPC Publisher* maakt verbinding met bestaande lokale OPC UA-servers en telemetrieberichten van ze doorstuurt naar verbonden factory. U kunt verbinding maken met een OPC klassieke apparaten met de [OPC klassieke adapter voor OPC UA](https://github.com/OPCFoundation/UA-.NETStandard/blob/master/ComIOP/README.md).
+- De *OPC Publisher* maakt verbinding met bestaande lokale OPC UA-servers en telemetrieberichten van ze doorstuurt naar verbonden Factory. U kunt verbinding maken met een OPC klassieke apparaten met de [OPC klassieke adapter voor OPC UA](https://github.com/OPCFoundation/UA-.NETStandard/blob/master/ComIOP/README.md).
 
 Beide onderdelen zijn open source en zijn beschikbaar als bron op GitHub, en als Docker-containers op DockerHub:
 
@@ -37,14 +37,14 @@ Beide onderdelen zijn open source en zijn beschikbaar als bron op GitHub, en als
 
 U hoeft niet een openbare IP-adres of open poorten voor inkomend verkeer in de firewall gateway voor beide onderdeel. De onderdelen OPC-Proxy en OPC Publisher gebruik alleen uitgaande poort 443.
 
-De stappen in dit artikel ziet u het implementeren van een gateway aan de rand met behulp van Docker op Windows of Linux. De gateway maakt verbinding met de verbonden factory vooraf geconfigureerde oplossing. U kunt ook de onderdelen zonder verbonden factory gebruiken.
+De stappen in dit artikel ziet u het implementeren van een gateway aan de rand met behulp van Docker op Windows of Linux. De gateway maakt verbinding met de Factory verbonden oplossingsverbetering. U kunt ook de onderdelen zonder verbonden Factory gebruiken.
 
 > [!NOTE]
 > Beide onderdelen kunnen worden gebruikt als modules in [Azure IoT rand](https://github.com/Azure/iot-edge).
 
 ## <a name="choose-a-gateway-device"></a>Kies een gateway-apparaat
 
-Als u een gateway-apparaat nog geen hebt, is het raadzaam om dat u een commerciële gateway koopt van een van de partners. Voor een lijst van de gatewayapparaten die compatibel zijn met de verbonden factory-oplossing, gaat u naar de [Azure IoT-apparaat catalogus](https://catalog.azureiotsuite.com/?q=opc). Volg de instructies die worden geleverd met het apparaat voor het instellen van de gateway.
+Als u een gateway-apparaat nog geen hebt, is het raadzaam om dat u een commerciële gateway koopt van een van de partners. Voor een lijst van de gatewayapparaten die compatibel zijn met de verbonden Factory-oplossing, gaat u naar de [Azure IoT-apparaat catalogus](https://catalog.azureiotsuite.com/?q=opc). Volg de instructies die worden geleverd met het apparaat voor het instellen van de gateway.
 
 Gebruik de volgende instructies ook handmatig configureren van een bestaande gateway-apparaat.
 
@@ -75,7 +75,7 @@ Zie voor meer informatie de [volumes gebruiken](https://docs.docker.com/engine/a
 
 Voordat u de OPC-onderdelen installeert, moet u de volgende stappen om uw omgeving voorbereiden uitvoeren:
 
-1. Als u de gateway-implementatie, moet u de **iothubowner** verbindingsreeks van de IoT-Hub in uw implementatie verbonden factory. In de [Azure-portal](http://portal.azure.com/), gaat u naar uw IoT-Hub in de resourcegroep gemaakt tijdens de implementatie van de verbonden factory-oplossing. Klik op **gedeeld toegangsbeleid** voor toegang tot de **iothubowner** verbindingsreeks:
+1. Als u de gateway-implementatie, moet u de **iothubowner** verbindingsreeks van de IoT-Hub in uw implementatie Factory verbonden. In de [Azure-portal](http://portal.azure.com/), gaat u naar uw IoT-Hub in de resourcegroep gemaakt tijdens de implementatie van de verbonden Factory-oplossing. Klik op **gedeeld toegangsbeleid** voor toegang tot de **iothubowner** verbindingsreeks:
 
     ![De verbindingsreeks IoT Hub vinden](./media/iot-suite-connected-factory-gateway-deployment/image2.png)
 
@@ -143,33 +143,33 @@ De verbindingsreeks OPC Proxy opgeslagen tijdens de installatie. Op latere uitvo
 
 ## <a name="enable-your-gateway"></a>Uw gateway inschakelen
 
-Voer de volgende stappen voor het inschakelen van uw gateway in de verbonden factory vooraf geconfigureerde oplossing:
+Voer de volgende stappen voor het inschakelen van uw gateway in de oplossingsverbetering Factory verbonden:
 
-1. Wanneer beide onderdelen worden uitgevoerd, bladert u naar de **verbinding maken met uw eigen OPC UA-Server** pagina in de oplossingsportal verbonden factory. Deze pagina is alleen beschikbaar voor beheerders in de oplossing. Voer de publisher eindpunt-URL (opc.tcp://publisher: 62222) en klik op **Connect**.
+1. Wanneer beide onderdelen worden uitgevoerd, bladert u naar de **verbinding maken met uw eigen OPC UA-Server** pagina in de oplossingsportal Factory verbonden. Deze pagina is alleen beschikbaar voor beheerders in de oplossing. Voer de publisher eindpunt-URL (opc.tcp://publisher: 62222) en klik op **Connect**.
 
-1. Een vertrouwensrelatie tussen de verbonden factory-portal en OPC Publisher maken. Wanneer er een certificaatwaarschuwing weergegeven, klikt u op **doorgaan**. Vervolgens ziet u dat de uitgever OPC de webclient UA niet vertrouwt. Los deze fout, kopieert u de **UA webclient** certificaat van de `<SharedFolder>/CertificateStores/rejected/certs` map voor de `<SharedFolder>/CertificateStores/trusted/certs` map op de gateway. U hoeft niet opnieuw starten van de gateway.
+1. Een vertrouwensrelatie tussen de verbonden Factory-portal en OPC Publisher maken. Wanneer er een certificaatwaarschuwing weergegeven, klikt u op **doorgaan**. Vervolgens ziet u dat de uitgever OPC de webclient UA niet vertrouwt. Los deze fout, kopieert u de **UA webclient** certificaat van de `<SharedFolder>/CertificateStores/rejected/certs` map voor de `<SharedFolder>/CertificateStores/trusted/certs` map op de gateway. U hoeft niet opnieuw starten van de gateway.
 
 U kunt nu verbinding met de gateway vanuit de cloud en u bent klaar OPC UA servers toevoegen aan de oplossing.
 
 ## <a name="add-your-own-opc-ua-servers"></a>Uw eigen OPC UA-servers toevoegen
 
-Vooraf geconfigureerde oplossing voor uw eigen OPC UA-servers toevoegen aan de verbonden factory:
+Uw eigen OPC UA-servers toevoegen aan de oplossingsverbetering Factory verbonden:
 
-1. Blader naar de **verbinding maken met uw eigen OPC UA-server** pagina in de oplossingsportal verbonden factory.
+1. Blader naar de **verbinding maken met uw eigen OPC UA-server** pagina in de oplossingsportal Factory verbonden.
 
     1. Start de OPC UA-server die verbinding wilt maken. Zorg ervoor dat uw OPC UA-server kan worden bereikt vanaf het OPC-uitgever en OPC Proxy uitgevoerd in de container (Zie de vorige opmerkingen over naamomzetting).
     1. Voer de eindpunt-URL van uw OPC UA-server (`opc.tcp://<host>:<port>`) en klik op **Connect**.
-    1. Als onderdeel van de installatie van de verbinding een vertrouwensrelatie tussen de verbonden factory-portal (OPC UA-client) en het OPC UA-server die u probeert verbinding tot stand is gebracht. In het dashboard verbonden factory krijgt u een **certificaat van de server die u wilt verbinden, kan niet worden geverifieerd** waarschuwing. Wanneer er een certificaatwaarschuwing weergegeven, klikt u op **doorgaan**.
-    1. Moeilijker te setup is van het OPC UA-server die u probeert verbinding maken met de configuratie van het certificaat. Voor PC OPC UA-servers gebaseerde, krijgt u mogelijk slechts een waarschuwingsdialoogvenster in het dashboard die u kunt bevestigen. Raadpleeg de documentatie van uw OPC UA-server om te zoeken hoe deze taak wordt uitgevoerd voor ingesloten OPC UA-server-systemen. Als u wilt deze taak uitvoeren, moet u het certificaat van de verbonden factory-portal OPC UA-client. Een beheerder kan dit certificaat downloaden op de **verbinding maken met uw eigen OPC UA-server** pagina:
+    1. Als onderdeel van de installatie van de verbinding een vertrouwensrelatie tussen de verbonden Factory-portal (OPC UA-client) en het OPC UA-server die u probeert verbinding tot stand is gebracht. In het dashboard verbonden Factory krijgt u een **certificaat van de server die u wilt verbinden, kan niet worden geverifieerd** waarschuwing. Wanneer er een certificaatwaarschuwing weergegeven, klikt u op **doorgaan**.
+    1. Moeilijker te setup is van het OPC UA-server die u probeert verbinding maken met de configuratie van het certificaat. Voor PC OPC UA-servers gebaseerde, krijgt u mogelijk slechts een waarschuwingsdialoogvenster in het dashboard die u kunt bevestigen. Raadpleeg de documentatie van uw OPC UA-server om te zoeken hoe deze taak wordt uitgevoerd voor ingesloten OPC UA-server-systemen. Als u wilt deze taak uitvoeren, moet u het certificaat van de verbonden Factory-portal OPC UA-client. Een beheerder kan dit certificaat downloaden op de **verbinding maken met uw eigen OPC UA-server** pagina:
 
         ![Oplossingsportal](./media/iot-suite-connected-factory-gateway-deployment/image4.png)
 
-1. Bladeren in de structuur van de knooppunten OPC UA van uw OPC UA-server, met de rechtermuisknop op de gewenste waarden verzenden naar verbonden factory en selecteer OPC-knooppunten **publiceren**.
+1. Bladeren in de structuur van de knooppunten OPC UA van uw OPC UA-server, met de rechtermuisknop op de gewenste waarden verzenden naar verbonden Factory en selecteer OPC-knooppunten **publiceren**.
 
-1. Telemetrie loopt nu van het gateway-apparaat. Vindt u de telemetrie in de **Factory locaties** weergave van de portal verbonden factory onder **New Factory**.
+1. Telemetrie loopt nu van het gateway-apparaat. Vindt u de telemetrie in de **Factory locaties** weergave van de Factory verbonden portal onder **New Factory**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de architectuur van de verbonden factory vooraf geconfigureerde oplossing, [verbonden factory oplossing walkthrough over vooraf geconfigureerde](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
+Zie voor meer informatie over de architectuur van de Factory verbonden oplossingsverbetering, [verbonden Factory oplossing accelerator scenario](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
 
 Meer informatie over de [OPC Publisher verwijzing implementatie](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-publisher).
