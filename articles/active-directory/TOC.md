@@ -174,10 +174,6 @@
 #### [Momentopnamerapporten maken](cloudappdiscovery-set-up-snapshots.md)
 #### [Continue rapportage configureren](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Een aangepaste logboekparser gebruiken](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
-#### Agentgebaseerde detectie instellen
-##### [Wat is Cloud App Discovery?](active-directory-cloudappdiscovery-whatis.md)
-##### [Registerinstellingen bijwerken](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
-##### [Meer informatie over beveiliging en privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
 
 ### [Toegang tot apps op afstand via App Proxy](active-directory-application-proxy-get-started.md)
@@ -328,7 +324,7 @@
 #### [Veelgestelde vragen](active-directory-identity-protection-faqs.md)
 #### [Woordenlijst](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
-### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
+### [Privileged Identity Management](active-directory-privileged-identity-management-configure.md)
 
 ## [Andere services integreren met Azure AD]()
 ### [LinkedIn-integratie inschakelen](linkedin-integration.md)
