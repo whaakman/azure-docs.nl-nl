@@ -63,7 +63,13 @@
 
 # Resources
 ## [Overzicht van services](https://azure.microsoft.com/services/key-vault/)
-## [Informatie over sleutels, geheimen en certificaten](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates)
+## [Informatie over sleutels, geheimen en certificaten](about-keys-secrets-and-certificates.md)
+### [Aan de slag met certificaten](certificate-scenarios.md)
+#### [Methoden voor het maken van certificaten](create-certificate.md)
+#### [Het maken van certificaten controleren en beheren](create-certificate-scenarios.md)
+## [Verificatie, vragen en antwoorden](authentication-requests-and-responses.md)
+## [Algemene parameters en headers](common-parameters-and-headers.md)
+## [Versies van Key Vault](key-vault-versions.md)
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Blog](http://blogs.technet.com/b/kv/)
 ## [Codevoorbeelden](https://www.microsoft.com/download/details.aspx?id=45343)

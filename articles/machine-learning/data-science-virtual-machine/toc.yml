@@ -32,6 +32,16 @@
       href: use-deep-learning-dsvm.md
     - name: Een Geo AI Data Science VM gebruiken
       href: use-geo-ai-dsvm.md
+- name: Richtlijnen voor bedrijven
+  items:
+    - name: Overzicht
+      href: dsvm-enterprise-overview.md
+    - name: Schalen
+      href: dsvm-pools.md
+    - name: Integratie in Active Directory
+      href: dsvm-common-identity.md
+    - name: Referenties voor resourcetoegang beveiligen
+      href: dsvm-secure-access-keys.md
 - name: Naslaginformatie
   expanded: true
   items:

@@ -51,6 +51,8 @@
       href: tutorial-mean-stack.md
     - name: 16 - Webserver beveiligen met SSL
       href: tutorial-secure-web-server.md
+    - name: Een Packer-installatiekopie en apps implementeren in een schaalset
+      href: 'https://docs.microsoft.com/learn/deploy-custom-vmss-app/index'
 - name: Voorbeelden
   items:
     - name: Azure-CLI

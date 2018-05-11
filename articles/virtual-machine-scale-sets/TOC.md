@@ -29,6 +29,8 @@
 ### [Azure CLI 2.0](tutorial-autoscale-cli.md)
 ### [Azure PowerShell](tutorial-autoscale-powershell.md)
 ### [Sjabloon](tutorial-autoscale-template.md)
+## Apps implementeren in een virtuele-machineschaalset van Azure met een aangepaste Packer-installatiekopie
+### [Azure CLI 2.0](https://docs.microsoft.com/learn/deploy-custom-vmss-app/index)
 
 # Voorbeelden
 ## [Azure CLI 2.0](cli-samples.md)

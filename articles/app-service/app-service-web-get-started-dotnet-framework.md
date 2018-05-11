@@ -15,17 +15,17 @@ ms.topic: quickstart
 ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: eb1d977dddce07b3deda7eeeeb3bc93d41339de1
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 125377b91514b1615cfbb488f7ddfe59fbc016f5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Een ASP.NET Framework-web-app maken in Azure
 
-[Azure Web Apps](app-service-web-overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie.  Deze Quickstart laat zien hoe uw eerste ASP.NET-web-app implementeert in Azure Web Apps. Als u klaar bent, hebt u een resourcegroep die bestaat uit een App Service-plan en een Azure-web-app met een geïmplementeerde webtoepassing.
+[Azure Web Apps](app-service-web-overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie.  Deze snelstart laat zien hoe uw eerste ASP.NET-web-app implementeert in Azure Web Apps. Als u klaar bent, hebt u een resourcegroep die bestaat uit een App Service-plan en een Azure-web-app met een geïmplementeerde webtoepassing.
 
-Bekijk de video om de inhoud van deze snelstartgids in actie te zien en doorloop de stappen daarna zelf om uw eerste .NET-app op Azure te publiceren.
+Bekijk de video om de inhoud van deze snelstart in actie te zien en doorloop de stappen daarna zelf om uw eerste .NET-app op Azure te publiceren.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-for-NET-Developers/Create-a-NET-app-in-Azure-Quickstart/player]
 
@@ -51,9 +51,9 @@ Selecteer **Visual C# > Web > ASP.NET-webtoepassing (.NET Framework)** in het di
 
 Geef de toepassing de naam _myFirstAzureWebApp_ en selecteer vervolgens **OK**.
    
-![Het dialoogvenster Nieuw project](./media/app-service-web-get-started-dotnet/new-project.png)
+![Het dialoogvenster Nieuw project](./media/app-service-web-get-started-dotnet-framework/new-project.png)
 
-U kunt elk type ASP.NET-web-app implementeren in Azure. Voor deze Quickstart selecteert u de sjabloon **MVC** en stelt u de verificatie in op **Geen verificatie**.
+U kunt elk type ASP.NET-web-app implementeren in Azure. Voor deze snelstart selecteert u de sjabloon **MVC** en stelt u de verificatie in op **Geen verificatie**.
       
 Selecteer **OK**.
 
