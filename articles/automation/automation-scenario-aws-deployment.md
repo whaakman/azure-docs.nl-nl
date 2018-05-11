@@ -3,16 +3,17 @@ title: Implementatie van een virtuele machine in Amazon Web Services automatiser
 description: In dit artikel laat zien hoe het gebruik van Azure Automation voor het automatiseren van het maken van een virtuele machine in Amazon Web Service
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 371510bf335bda2e2475e6ba3f5f74ee2117d9a5
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c2505bfdc664d52960b3e3a6c9b4646189e0b175
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Azure Automation-scenario: een AWS-virtuele machine inrichten
 In dit artikel leert u hoe u kunt gebruikmaken van Azure Automation om een virtuele machine inrichten in uw abonnement Amazon Web Service (AWS) en geef die VM een specifieke naam – AWS wordt naar verwezen als 'tagging' van de virtuele machine.
@@ -91,7 +92,7 @@ Voordat u doorgaat met het runbook testen, moet u een aantal zaken controleren. 
 * **Logboekregistratie van uitgebreide records** en optioneel **logboekregistratie van voortgangsrecords** onder de runbook-instelling **logboekregistratie en tracering** zijn ingesteld op **op**.<br><br> ![Runbook-logboekregistratie en tracering](./media/automation-scenario-aws-deployment/runbook-settings-logging-and-tracing.png)  
 
 1. U wilt het runbook wordt gestart, dus klik op **Start** en klik vervolgens op **OK** wanneer het deelvenster Runbook starten wordt geopend.
-2. Geef in het deelvenster Runbook starten een **VMname**. Accepteer de standaardwaarden voor de parameters die u eerder een vooraf in het script geconfigureerd. Klik op **OK** de runbooktaak starten.<br><br> ![Start New-AwsVM runbook](./media/automation-scenario-aws-deployment/runbook-start-job-parameters.png)
+2. Geef in het deelvenster Runbook starten een **VMname**. Accepteer de standaardwaarden voor de parameters die u eerder een vooraf in het script geconfigureerd. Klik op **OK** de runbooktaak starten.<br><br> ![Nieuw AwsVM runbook starten](./media/automation-scenario-aws-deployment/runbook-start-job-parameters.png)
 3. Een taakdeelvenster wordt geopend voor de runbooktaak die u hebt gemaakt. Sluit dit venster.
 4. U kunt de voortgang van de uitvoer van de taak en de weergave bekijken **Streams** door te selecteren de **alle logboeken** tegel van de pagina van de taak runbook.<br><br> ![Stroomuitvoer](./media/automation-scenario-aws-deployment/runbook-job-streams-output.png)
 5. Om te bevestigen op dat de virtuele machine wordt ingericht, meld u aan bij de AWS-beheerconsole als u momenteel niet is aangemeld.<br><br> ![AWS-console geïmplementeerd VM](./media/automation-scenario-aws-deployment/aws-instances-status.png)

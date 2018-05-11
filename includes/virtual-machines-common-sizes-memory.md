@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 75b89ad7f118d107f570b5e323d61bbc9b94bc40
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: fcbeb6bbd090fc31febb326d3cbef90187d3e7e3
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 Geoptimaliseerd voor geheugen aanbieding voor VM-grootten een hoge ratio van geheugen voor CPU die zijn ideaal voor relationele database-servers, middelgrote tot grote caches en in het geheugen analytics. In dit artikel bevat informatie over het aantal Vcpu, gegevensschijven en NIC's, evenals opslag doorvoer en bandbreedte voor elke grootte in deze groepering. 
 
@@ -25,6 +25,8 @@ Geoptimaliseerd voor geheugen aanbieding voor VM-grootten een hoge ratio van geh
 * De Dv2-serie, de opvolger van de oorspronkelijke D-serie, heeft een krachtigere CPU. De CPU van de Dv2-serie is ongeveer 35% sneller dan de CPU van de D-serie. Deze is gebaseerd op de nieuwste 2,4 GHz Intel Xeon® E5-2673 v3 2,4 GHz (Haswell) of E5 2673 v4 2.3 GHz (Broadwell) processors, en met de 2.0-technologie van Intel Turbo versterking tot 3.1 GHz kunt gaan. De Dv2-serie heeft dezelfde geheugen- en schijfconfiguraties als de D-serie.
 
 * De Ev3-serie functies de E5-2673 v4 2.3 GHz (Broadwell) processor in een hyper-threaded configuratie biedt een betere toegevoegde waarde voor de meest algemene doel werkbelastingen en de Ev3 uitgelijnd met de virtuele machines in het algemeen van de meeste andere clouds te brengen.  Geheugen is (van 7 GiB/vCPU naar 8 GiB/vCPU) uitgevouwen terwijl schijf en netwerk grenzen op basis van per core uitgelijnd met de overstap naar hyperthreading zijn aangepast.  De Ev3 is het volgen tot aan het hoge geheugen VM-grootten van de D/Dv2 families.
+
+* Azure Compute biedt virtuele machine groottes die zijn geïsoleerd op het type van de specifieke hardware en toegewezen aan één klant.  De grootte van deze virtuele machines zijn zeer geschikt voor werkbelastingen waarvoor een hoge mate van afzondering van andere klanten voor werkbelastingen met betrekking tot elementen zoals naleving en regelgeving.  Klanten kunnen ook kiezen voor verdere onderverdelen in de bronnen van deze geïsoleerde virtuele machines met behulp van [ondersteuning voor geneste virtuele machines van Azure](https://azure.microsoft.com/en-us/blog/nested-virtualization-in-azure/).  Zie de tabellen van families van de virtuele machine hieronder voor uw geïsoleerde VM-opties.
 
 ## <a name="esv3-series"></a>Esv3-serie 
 

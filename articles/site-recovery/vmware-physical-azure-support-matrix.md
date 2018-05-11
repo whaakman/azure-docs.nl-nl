@@ -8,8 +8,8 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: raynew
-ms.openlocfilehash: 2c6867b02fd88c4616647c8602906fbf786da414
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 8269b91ea3459fd9e391d46f0b3e78bc7e5b3b41
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/10/2018
@@ -29,7 +29,7 @@ Fysieke servers | Replicatie van de lokale Windows-/ Linux fysieke serversto Azu
 
 **Server** | **Vereisten** | **Details**
 --- | --- | ---
-VMware | vCenter Server 6.5 6.0, of 5.5 of vSphere 6.5, 6.0 of 5.5 | Het is raadzaam dat u een vCenter-server.<br/><br/> We raden aan dat vSphere-hosts en vCenter-servers bevinden zich in hetzelfde netwerk bevindt als de processerver. De server-onderdelen van het proces wordt standaard op de configuratieserver zodat dit is het netwerk waarin u van de configuratieserver instellen, tenzij u een speciale processerver ingesteld. 
+VMware | vCenter Server 6.5 6.0, of 5.5 of vSphere 6.5, 6.0 of 5.5 | Het is raadzaam dat u een vCenter-server.<br/><br/> We raden aan dat vSphere-hosts en vCenter-servers bevinden zich in hetzelfde netwerk bevindt als de processerver. De server-onderdelen van het proces wordt standaard op de configuratieserver zodat dit is het netwerk waarin u van de configuratieserver instellen, tenzij u een speciale processerver ingesteld.
 Fysiek | N/A
 
 ## <a name="site-recovery-configuration-server"></a>Configuratie van de siteserver-herstel
@@ -38,19 +38,19 @@ De configuratieserver is een lokale machine met Site Recovery-onderdelen, met in
 
 **Onderdeel** | **Vereisten**
 --- |---
-CPU-kernen | 8 
+CPU-kernen | 8
 RAM | 12 GB
 Aantal schijven | 3-schijven<br/><br/> Schijven bevatten de OS-schijf, proces server cache schijf en bewaarstation voor failback.
 Vrije schijfruimte | 600 GB ruimte nodig voor servercache proces.
 Vrije schijfruimte | Vereiste ruimte voor bewaarstation 600 GB.
-Besturingssysteem  | Windows Server 2012 R2 of WindowsServer 2016 | 
-Landinstelling van het besturingssysteem | Engels (en-us) 
+Besturingssysteem  | Windows Server 2012 R2 of WindowsServer 2016 |
+Landinstelling van het besturingssysteem | Engels (en-us)
 PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") moet worden geïnstalleerd.
 Windows Server-functies | Niet inschakelen: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V |
 Groepsbeleid| Niet inschakelen: <br> -Toegang tot de opdrachtprompt voorkomen. <br> -Toegang tot het register bewerkingsopties voorkomen. <br> -Logica voor bestandsbijlagen vertrouwen. <br> -Uitvoering van Script inschakelen. <br> [Meer informatie](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 IIS | Zorg ervoor dat u:<br/><br/> -Een bestaande standaardwebsite geen hebt <br> -Inschakelen [anonieme verificatie](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Inschakelen [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) instelling  <br> -Bestaande website /-app niet hebt geluisterd op poort 443<br>
-NIC-type | VMXNET3 (indien geïmplementeerd als een VMware-VM) 
-Type IP-adres | Statisch 
+NIC-type | VMXNET3 (indien geïmplementeerd als een VMware-VM)
+Type IP-adres | Statisch
 Poorten | 443 gebruikt voor het besturingselement kanaal orchestration)<br>9443 gebruikt voor het vervoer van gegevens
 
 ## <a name="replicated-machines"></a>Gerepliceerde machines
@@ -138,7 +138,8 @@ Multi-NIC | Ja
 Gereserveerde IP-adressen | Ja
 IPv4 | Ja
 IP-bronadres behouden | Ja
-Azure Virtual Network service-eindpunten<br/><br/> (Azure Storage firewalls en virtuele netwerken) | Nee
+Azure Virtual Network service-eindpunten<br/> (zonder Azure Storage firewalls) | Ja
+Versneld netwerken | Nee
 
 ## <a name="storage"></a>Storage
 **Onderdeel** | **Ondersteund**
@@ -184,7 +185,7 @@ Blok-blobs | Nee
 Codering in rust (Service-versleuteling van opslag)| Ja
 Premium Storage | Ja
 Service voor importeren/exporteren | Nee
-Virtueel netwerk service-eindpunten<br/><br/> Firewalls voor opslag en virtuele netwerken die zijn geconfigureerd op de doel-storage-account voor opslag/cache (gebruikt voor het opslaan van gegevens van replicatie) | Nee
+Azure Storage-firewalls voor virtuele netwerken die zijn geconfigureerd op de doel-storage-account voor opslag/cache (gebruikt voor het opslaan van gegevens van replicatie) | Nee
 V2 opslagaccounts voor algemeen gebruik (hot en cool lagen) | Nee
 
 ## <a name="azure-compute"></a>Azure compute
@@ -201,16 +202,16 @@ Lokale virtuele machines die u naar Azure repliceert moeten voldoen aan de virtu
 
 **Onderdeel** | **Vereisten** | **Details**
 --- | --- | ---
-Gastbesturingssysteem | Controleer of [ondersteunde besturingssystemen](#replicated machines). | Controle mislukt als een niet-ondersteund. 
-Architectuur van de Gast-besturingssysteem | 64-bits. | Controle mislukt als een niet-ondersteund. 
-Grootte van de besturingssysteemschijf | Maximaal 2048 GB. | Controle mislukt als een niet-ondersteund. 
+Gastbesturingssysteem | Controleer of [ondersteunde besturingssystemen](#replicated machines). | Controle mislukt als een niet-ondersteund.
+Architectuur van de Gast-besturingssysteem | 64-bits. | Controle mislukt als een niet-ondersteund.
+Grootte van de besturingssysteemschijf | Maximaal 2048 GB. | Controle mislukt als een niet-ondersteund.
 Het aantal schijven voor besturingssysteem | 1 | Controle mislukt als een niet-ondersteund.  
 Aantal gegevensschijven | 64 of minder. | Controle mislukt als een niet-ondersteund.  
-De grootte van gegevensschijf | 4095 GB | Controle mislukt als een niet-ondersteund. 
-Netwerkadapters | Meerdere netwerkadapters worden ondersteund. | 
-Gedeelde VHD | Wordt niet ondersteund. | Controle mislukt als een niet-ondersteund. 
-FC-schijf | Wordt niet ondersteund. | Controle mislukt als een niet-ondersteund. 
-BitLocker | Wordt niet ondersteund. | BitLocker moet worden uitgeschakeld voordat u replicatie voor een machine inschakelt. | 
+De grootte van gegevensschijf | 4095 GB | Controle mislukt als een niet-ondersteund.
+Netwerkadapters | Meerdere netwerkadapters worden ondersteund. |
+Gedeelde VHD | Wordt niet ondersteund. | Controle mislukt als een niet-ondersteund.
+FC-schijf | Wordt niet ondersteund. | Controle mislukt als een niet-ondersteund.
+BitLocker | Wordt niet ondersteund. | BitLocker moet worden uitgeschakeld voordat u replicatie voor een machine inschakelt. |
 VM-naam | Van 1 tot 63 tekens.<br/><br/> Alleen letters, cijfers en afbreekstreepjes.<br/><br/> Naam van de machine moet beginnen en eindigen met een letter of cijfer. |  Werk de waarde in de eigenschappen van de machine in Site Recovery.
 
 

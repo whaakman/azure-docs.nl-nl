@@ -9,11 +9,11 @@ ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: b3ff1991d76b3ab5b4b3c44f4fbe28fbb986d4bd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4bdd0ef182e0d18409ca608a645ff4011f00f9fa
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Ingebouwde updatebeheer, bijhouden en voorraad oplossingen
 
@@ -41,11 +41,17 @@ Selecteer **updatebeheer** onder **UPDATEBEHEER**. De geselecteerde Log analytic
 
 ![Ingebouwde update-oplossing](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
 
-## <a name="scope-configuration"></a>Configuratie van de scope
+## <a name="scope-configuration"></a>Scopeconfiguratie
 
 Elke oplossing gebruikt de configuratie van een Scope in de werkruimte toe te passen van de computers die de oplossing. De configuratie van het is een groep van een of meer opgeslagen zoekopdrachten die wordt gebruikt voor het bereik van de oplossing op bepaalde computers beperken. Voor toegang tot de Scope-configuraties in uw Automation-account onder **verwante RESOURCES**, selecteer **werkruimte**. Klik in de werkruimte **WERKRUIMTE GEGEVENSBRONNEN**, selecteer **bereik configuraties**.
 
-De twee configuraties voor de Scope standaard gemaakt **MicrosoftDefaultScopeConfig ChangeTracking** en **MicrosoftDefaultScopeConfig Updates**.
+Als de geselecteerde werkruimte beschikt niet over de oplossingen voor beheer van updates of wijzigingen bijhouden nog, de volgende configuraties voor de scope gemaakt:
+
+* **MicrosoftDefaultScopeConfig ChangeTracking**
+
+* **MicrosoftDefaultScopeConfig-Updates**
+
+Als het al is de oplossing voor de geselecteerde werkruimte. De oplossing niet opnieuw is geïmplementeerd en de configuratie van het niet is toegevoegd.
 
 ## <a name="saved-searches"></a>Opgeslagen zoekopdrachten
 
@@ -68,7 +74,7 @@ Van uw Automation-account selecteren **inventaris** of **bijhouden** onder **CON
 
 Klik op **+ Azure VM toevoegen**, selecteert u een virtuele machine uit de lijst. Op de **updatebeheer** pagina, klikt u op **inschakelen**. Hiermee wordt de huidige virtuele machine toegevoegd aan de computergroep opgeslagen zoekactie voor de oplossing.
 
-## <a name="onboard-a-non-azure-machine"></a>Ingebouwde een niet-Azure-machine
+## <a name="onboard-a-non-azure-machine"></a>Onboarding van een niet-Azure-machine
 
 Van uw Automation-account selecteren **inventaris** of **bijhouden** onder **CONFIGURATIEBEHEER**, of **updatebeheer** onder **UPDATEBEHEER**.
 

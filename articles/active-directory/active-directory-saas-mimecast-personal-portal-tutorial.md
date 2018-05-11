@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 04/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 4f2c5f7323d9d10b6a784da8f45577ccf774b78f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7d8a746df9bea22970da9dc47b5e436a94335f49
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>Zelfstudie: Azure Active Directory-integratie met Mimecast persoonlijke Portal
 
@@ -80,8 +80,6 @@ In deze sectie kunt u configureren en testen eenmalige aanmelding Azure AD met M
 
 Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in Mimecast persoonlijke Portal is voor een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de verwante Mimecast persoonlijke Portal-gebruiker worden gemaakt.
 
-Wijs in Mimecast persoonlijke Portal, de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
-
 Om te configureren en testen van Azure AD eenmalige aanmelding met Mimecast persoonlijke Portal, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
@@ -127,6 +125,16 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     | Zuid-Afrika    | `https://za-api.mimecast.com/sso/<accountcode>`|
     | Australië       | `https://au-api.mimecast.com/sso/<accountcode>`|
     | Drijvende        | `https://jer-api.mimecast.com/sso/<accountcode>`|
+
+    c. In de **antwoord-URL** textbox, typ een URL: 
+
+    | Regio  |  Waarde | 
+    | --------------- | --------------- | 
+    | Europa          | `https://eu-api.mimecast.com/login/saml`|
+    | Verenigde Staten   | `https://us-api.mimecast.com/login/saml`|
+    | Zuid-Afrika    | `https://za-api.mimecast.com/login/saml`|
+    | Australië       | `https://au-api.mimecast.com/login/saml`|
+    | Drijvende        | `https://jer-api.mimecast.com/login/saml`|
     
     > [!NOTE] 
     > De id-waarde is geen echte. Werk de waarde met de werkelijke identificatie. Neem contact op met [Mimecast persoonlijke Portal Client ondersteuningsteam](http://www.mimecast.com/customer-success/technical-support/) de waarde op te halen. 
@@ -177,11 +185,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     h. Selecteer **toestaan voor eenmalige op**.
    
-    ik. Klik op **Opslaan**.
-
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    i. Klik op **Opslaan**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 
@@ -241,7 +245,7 @@ U moet een domein registreren voordat u gebruikers kunt maken.
    
     ![Sla](./media/active-directory-saas-mimecast-personal-portal-tutorial/ic795006.png "opslaan")
    
-    a. In de **e-mailadres** textbox type **e-mailadres** van de gebruiker als  **BrittaSimon@contoso.com** .
+    a. In de **e-mailadres** textbox type **e-mailadres** van de gebruiker als **BrittaSimon@contoso.com**.
     
     b. In de **globale naam** textbox type de **gebruikersnaam** als **BrittaSimon**.
 
@@ -282,14 +286,14 @@ In deze sectie maakt inschakelen u Britta Simon Azure eenmalige aanmelding gebru
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
 Als u op de tegel Mimecast persoonlijke Portal in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Mimecast persoonlijke Portal.
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

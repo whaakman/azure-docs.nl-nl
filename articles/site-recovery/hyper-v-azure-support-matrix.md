@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: raynew
-ms.openlocfilehash: d2c637dc742ee854c7787cf7cd883930c4eaa8bc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f8149d2af5542fb311ff83160d674e4d525289dc
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>De ondersteuningsmatrix voor Hyper-V-replicatie naar Azure
 
@@ -23,9 +23,9 @@ In dit artikel bevat een overzicht van de ondersteunde onderdelen en -instelling
 ## <a name="supported-scenarios"></a>Ondersteunde scenario's
 
 **Scenario** | **Details**
---- | --- 
+--- | ---
 Hyper-V met Virtual Machine Manager | U kunt herstel na noodgevallen in Azure uitvoeren voor virtuele machines waarop Hyper-V-hosts die worden beheerd in de System Center Virtual Machine Manager-infrastructuur.<br/><br/> U kunt dit scenario in de Azure portal of met behulp van PowerShell implementeren.<br/><br/> Wanneer u Hyper-V-hosts worden beheerd door Virtual Machine Manager, kunt u ook herstel na noodgevallen aan een secundaire on-premises site uitvoeren. Lees meer informatie over dit scenario, [in deze zelfstudie](tutorial-vmm-to-vmm.md).
-Hyper-V zonder Virtual Machine Manager | U kunt herstel na noodgevallen in Azure uitvoeren voor virtuele machines waarop Hyper-V-hosts die niet door Virtual Machine Manager worden beheerd.<br/><br/> U kunt dit scenario in de Azure portal of met behulp van PowerShell implementeren. 
+Hyper-V zonder Virtual Machine Manager | U kunt herstel na noodgevallen in Azure uitvoeren voor virtuele machines waarop Hyper-V-hosts die niet door Virtual Machine Manager worden beheerd.<br/><br/> U kunt dit scenario in de Azure portal of met behulp van PowerShell implementeren.
 
 
 ## <a name="on-premises-servers"></a>On-premises servers
@@ -39,7 +39,7 @@ Hyper-V (uitgevoerd met Virtual Machine Manager) | Virtual Machine Manager 2016,
 ## <a name="replicated-vms"></a>Gerepliceerde virtuele machines
 
 
-De volgende tabel geeft een overzicht van de VM-ondersteuning. Site Recovery biedt ondersteuning voor alle werkbelastingen die worden uitgevoerd op een ondersteund besturingssysteem. 
+De volgende tabel geeft een overzicht van de VM-ondersteuning. Site Recovery biedt ondersteuning voor alle werkbelastingen die worden uitgevoerd op een ondersteund besturingssysteem.
 
  **Onderdeel** | **Details**
 --- | ---
@@ -78,7 +78,8 @@ Multi-NIC | Ja | Ja
 Reserved IP | Ja | Ja
 IPv4 | Ja | Ja
 IP-bronadres behouden | Ja | Ja
-Azure Virtual Network service-eindpunten<br/><br/> (Azure Storage firewalls en virtuele netwerken) | Nee | Nee
+Azure Virtual Network service-eindpunten<br/> (zonder Azure Storage firewalls) | Ja | Ja
+Versneld netwerken | Nee | Nee
 
 
 ## <a name="hyper-v-host-storage"></a>Opslag voor Hyper-V-host
@@ -125,7 +126,7 @@ Blok-blobs | Nee | Nee
 Codering in rust (SSE)| Ja | Ja
 Premium Storage | Ja | Ja
 Service voor importeren/exporteren | Nee | Nee
-Azure Virtual Network service-eindpunten (Azure Storage firewalls en virtuele netwerken) op het doel naar cache storage-account gebruikt voor van replicatiegegevens | Nee | Nee
+Azure Storage-firewalls voor virtuele netwerken die zijn geconfigureerd op de doel-storage-account voor opslag/cache (gebruikt voor het opslaan van gegevens van replicatie) | Nee | Nee
 
 
 ## <a name="azure-compute-features"></a>Azure compute-functies
@@ -159,9 +160,9 @@ VM-type | Generatie 1<br/><br/> Generatie 2--Windows | Generatie 2 virtuele mach
 ## <a name="recovery-services-vault-actions"></a>Recovery Services-kluis acties
 
 **Actie** |  **Hyper-V met Virtual Machine Manager** | **Hyper-V zonder Virtual Machine Manager**
---- | --- | --- 
-Kluis over brongroepen verplaatsen<br/><br/> Binnen en tussen abonnementen | Nee | Nee 
-Verplaats de opslag, netwerk, Azure VM's via resourcegroepen<br/><br/> Binnen en tussen abonnementen | Nee | Nee 
+--- | --- | ---
+Kluis over brongroepen verplaatsen<br/><br/> Binnen en tussen abonnementen | Nee | Nee
+Verplaats de opslag, netwerk, Azure VM's via resourcegroepen<br/><br/> Binnen en tussen abonnementen | Nee | Nee
 
 
 ## <a name="provider-and-agent"></a>Provider en agent
@@ -179,4 +180,4 @@ Microsoft Azure Recovery Services-agent | Coördineert de replicatie tussen Hype
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over hoe [voorbereiden Azure](tutorial-prepare-azure.md) voor herstel na noodgevallen van lokale Hyper-V-machines. 
+Meer informatie over hoe [voorbereiden Azure](tutorial-prepare-azure.md) voor herstel na noodgevallen van lokale Hyper-V-machines.

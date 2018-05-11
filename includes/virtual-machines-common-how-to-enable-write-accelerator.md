@@ -5,14 +5,14 @@ services: virtual-machines
 author: msraiye
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/30/2018
+ms.date: 5/9/2018
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: 4fe1f2ad4bad9d670094bbb4eed188baf28108ea
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 4db9fe907ab6625fcad74ceae59f17115458a3ea
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="write-accelerator"></a>Schrijven van de Accelerator
 Geschreven dat Accelerator is een schijf-functionaliteit voor M-serie virtuele Machines (VM's) op Premium-opslag met Azure beheerd schijven uitsluitend. Als de naam van de staat, is het doel van de functionaliteit voor het verbeteren van de i/o-latentie van schrijfbewerkingen op basis van Azure Premium-opslag. Schrijven dat Accelerator is ideaal wanneer log-bestandsupdates nodig zijn voor het persistent maken op schijf op een maximaal zodat manier voor moderne databases.
@@ -164,6 +164,21 @@ U kunt de Accelerator schrijven via de Portal waar u uw instellingen voor de sch
 
 ![Accelerator schrijven in de Azure Portal](./media/virtual-machines-common-how-to-enable-write-accelerator/wa_scrnsht.png)
 
+### <a name="enabling-through-azure-cli"></a>Inschakelen via Azure CLI
+U kunt de [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) schrijven Accelerator inschakelen. 
+
+Gebruik de opdracht onder vervangen door de diskName, VMName en ResourceGroup voor uw eigen zodat Accelerator schrijven op een bestaande schijf: 
+```
+az vm update -g group1 -n vm1 –write-accelerator 1=true
+```
+Het koppelen van een schijf met schrijven Accelerator ingeschakeld Neem gebruik de onderstaande opdracht met de waarden:
+```
+az vm disk attach -g group1 –vm-name vm1 –disk d1 --enable-write-accelerator
+```
+Als u wilt uitschakelen Accelerator schrijven, de eigenschap in te stellen op false: 
+```
+az vm update -g group1 -n vm1 –write-accelerator 0=false 1=false
+```
 
 ### <a name="enabling-through-rest-apis"></a>Inschakelen via de Rest-API 's
 Om te implementeren via Rest API van Azure, moet u de Azure armclient installeren

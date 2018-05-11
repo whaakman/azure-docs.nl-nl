@@ -15,15 +15,15 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: bb341c5700f573e61cdbbe992aa0b0eb99389b2f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: f480553e6a8ca09872cd638537bc6fb98e793d8b
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Verificatie op basis van een koptekst voor eenmalige aanmelding met toepassingsproxy en PingAccess
 
-Azure Active Directory-toepassingsproxy en PingAccess hebben hun samen Azure Active Directory om klanten te bieden met toegang tot zelfs meer toepassingen. PingAccess breidt de [bestaande toepassingsproxy aanbiedingen](active-directory-application-proxy-get-started.md) om op te nemen van één aanmelding toegang tot toepassingen die gebruikmaken van headers voor verificatie.
+Azure Active Directory-toepassingsproxy en PingAccess hebben hun samen Azure Active Directory om klanten te bieden met toegang tot zelfs meer toepassingen. PingAccess breidt de [bestaande toepassingsproxy aanbiedingen](manage-apps/application-proxy.md) om op te nemen van één aanmelding toegang tot toepassingen die gebruikmaken van headers voor verificatie.
 
 ## <a name="what-is-pingaccess-for-azure-ad"></a>Wat is PingAccess voor Azure AD?
 

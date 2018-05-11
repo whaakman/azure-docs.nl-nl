@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/09/2018
 ms.author: jejiang
-ms.openlocfilehash: fcd821c91a8c94792eeed83940abe1c72d0b2fb8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f35aa14286874d7c152509a69bd171b95b19e22b
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Azure Data Lake Tools voor Visual Studio Code gebruiken
 
@@ -449,6 +449,10 @@ Data Lake Tools voor VS Code ondersteunt de volgende functies:
 
     ![Data Lake Tools voor Visual Studio Code syntaxis highlights](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-syntax-highlights.png)
 
+   >[!NOTE]
+   >Voorbereiding voor de nieuwe algemene Data Protection regelgeving (GDPR) overgang naar effect op 25 mei 2018, wordt aanbevolen dat gebruikers van Azure Data Lake Tools voor Visual Studio Code naar versie 0.2.13 upgraden of hoger. Deze versie bevat wijzigingen die zijn gebaseerd op de beveiligingsvereisten van de meest recente gegevens. Vorige versies zijn niet beschikbaar voor download en zijn afgeschaft. 
+ 
+   
 ## <a name="next-steps"></a>Volgende stappen
 - [U-SQL met Python, R en CSharp voor Azure Data Lake Analytics in VSCode ontwikkelen](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 - [U-SQL lokaal uitvoeren en lokale foutopsporing met Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md)

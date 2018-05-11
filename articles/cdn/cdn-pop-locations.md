@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-deasim
-ms.openlocfilehash: 3538b80b8acc239eee518db482ab14bb6f559d12
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b3138c2c3136b4bfa6c1c96e5f278bbadef6a73d
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/10/2018
@@ -39,7 +39,7 @@ Dit artikel worden de huidige point-of-presence (POP)-locaties, gesorteerd op ba
 | --- | --- | --- | --- |
 | Noord-Amerika | Toronto, Canada<br />Querétaro, Mexico<br />San Juan, Portorico<br />Ashburn, VA, VS<br />Boston, MA, VS<br />Cheyenne, BC, VS<br />Chicago, IL, VS<br /> Dallas, TX, VS<br />Denver, CO, VS<br />Los Angeles, CA, VS<br />Miami, FL, VS<br />New York, NY, VS<br />Phoenix, AZ, VS<br />Quincy, WA, VS<br />San Antonio, TX, VS<br />Santa Clara, CA, VS<br />| Mexico stad, Mexico<br />Puebla, Mexico<br />Querétaro, Mexico<br />Atlanta, GA, VS<br />Boston, MA, VS<br />Chicago, IL, VS<br />Dallas, TX, VS<br />Denver, CO, VS<br />Los Angeles, CA, VS<br />Miami, FL, VS<br />New York, NY, VS<br />Philadelphia, PA, VS<br />San Jose, CA, VS<br />Seattle, WA, VS<br />Washington, DC, VS | Canada<br />Mexico<br />USA |
 | Zuid-Amerika | Campinas, Brazilië<br />Rio de Janeiro, Brazilië<br />Santiago, onderliggende | Buenos Aires, Argentinië<br />Rio de Janeiro, Brazilië<br />Sao Paulo, Brazilië<br />Valparaíso, onderliggende<br />Barranquilla, Colombia<br />Medellin, Colombia<br />Rights Reserved<br />Lima, Peru | Brazilië<br />Peru |
-| Europa | Wenen, Oostenrijk<br />Brussel, België<br />Praag, Tsjechië<br />Kopenhagen, Denemarken<br /> Helsinki, Finland<br />Marseille, Frankrijk<br />Parijs, Frankrijk<br />Frankfurt, Duitsland<br />Athene-Griekenland<br />Dublin, Ierland<br />Milaan, Italië<br />Amsterdam, Nederland<br />Madrid, Spanje<br />Stockholm, Zweden<br />Zürich, Zwitserland<br />Durham, UK<br />Londen, UK<br />Oldeberkoop, UK | Wenen, Oostenrijk<br />Kopenhagen, Denemarken<br />Helsinki, Finland<br />Marseille, Frankrijk<br />Parijs, Frankrijk<br />Frankfurt, Duitsland<br />Milaan, Italië<br />Riga, Letland<br />Amsterdam, Nederland<br />Warschau, Polen<br />Madrid, Spanje<br />Bromma, Zweden<br />Stockholm, Zweden<br />Londen, UK | Oostenrijk<br />Denemarken<br />Frankrijk<br />Duitsland<br />Ierland<br />Italië<br />Nederland<br />Polen<br />Spanje<br />Zweden<br />Zwitserland<br />Verenigd Koninkrijk |
+| Europa | Wenen, Oostenrijk<br />Brussel, België<br />Praag, Tsjechië<br />Kopenhagen, Denemarken<br /> Helsinki, Finland<br />Marseille, Frankrijk<br />Parijs, Frankrijk<br />Frankfurt, Duitsland<br />Athene-Griekenland<br />Dublin, Ierland<br />Milaan, Italië<br />Amsterdam, Nederland<br />Madrid, Spanje<br />Stockholm, Zweden<br />Zürich, Zwitserland<br />Durham, UK<br />Londen, UK<br />Oldeberkoop, UK | Wenen, Oostenrijk<br />Kopenhagen, Denemarken<br />Helsinki, Finland<br />Marseille, Frankrijk<br />Parijs, Frankrijk<br />Frankfurt, Duitsland<br />Milaan, Italië<br />Riga, Letland<br />Amsterdam, Nederland<br />Warschau, Polen<br />Madrid, Spanje<br />Stockholm, Zweden<br />Londen, UK | Oostenrijk<br />Denemarken<br />Frankrijk<br />Duitsland<br />Ierland<br />Italië<br />Nederland<br />Polen<br />Spanje<br />Zweden<br />Zwitserland<br />Verenigd Koninkrijk |
 | Afrika | Kaapstad, Zuid-Afrika<br />Johannesburg, Zuid-Afrika | Johannesburg, Zuid-Afrika | |
 | Midden-Oosten | | Muscat, Oman<br />Fujirah, VAE | Qatar |
 | India | Chennai, India<br />Mumbai, India | Bangalore, India<br />Chennai, India<br />Delhi, India<br />Mumbai, India<br />New Delhi, India<br /> | India |

@@ -3,16 +3,17 @@ title: Continue implementatie met Chocolatey Azure Automation DSC
 description: DevOps continue implementatie met Azure Automation DSC en Chocolatey Pakketbeheer.  Voorbeeld met volledige JSON ARM-sjabloon en de PowerShell-bron.
 services: automation
 ms.service: automation
+ms.component: dsc
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: bf535dfae4c5f710a423343bc3d76c81d83df2ae
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9c3cb5a00433a76e8cc444cc48c648cb2749a2ae
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-dsc-and-chocolatey"></a>Gebruik voorbeeld: Continue implementatie naar virtuele Machines met behulp van Automation DSC en Chocolatey
 In een wereld DevOps zijn er veel hulpprogramma's om u te helpen bij verschillende punten in de pijplijn voor continue integratie.  Azure Automation gewenst State Configuration (DSC) is een Welkom nieuwe aanvulling op de opties die u van DevOps-teams gebruikmaken kunnen.  In dit artikel wordt gedemonstreerd instelling van continue implementatie (CD) voor een Windows-computer.  U kunt eenvoudig de techniek en op te nemen als veel Windows-computers, indien nodig in de rol (bijvoorbeeld een website) van daaruit naar aanvullende functies ook uitbreiden.
@@ -166,7 +167,7 @@ Wanneer u een pakket op een virtuele machine die in gebruik is genomen bijwerkt,
 
 Volledige bron voor dit voorbeeld gebruik is in [deze Visual Studio-project](https://github.com/sebastus/ARM/tree/master/CDIaaSVM) op GitHub.
 
-## <a name="related-articles"></a>Gerelateerde artikelen
+## <a name="related-articles"></a>Verwante artikelen
 * [Overzicht van Azure Automation DSC](automation-dsc-overview.md)
 * [Azure Automation DSC-cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Computers voorbereiden voor beheer door Azure Automation DSC](automation-dsc-onboarding.md)

@@ -3,16 +3,17 @@ title: Computers voorbereiden voor beheer door Azure Automation DSC
 description: Het instellen van computers voor beheer met Azure Automation DSC
 services: automation
 ms.service: automation
+ms.component: dsc
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 12d3d2d4b0c35dc7d21cb78465225e3c029ca33e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c1090751db4df54e36e5263c4036d447c95d7b50
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Computers voorbereiden voor beheer door Azure Automation DSC
 
@@ -62,6 +63,7 @@ $AutomationAccountName = ""
 $AutomationAccountResourceGroup = ""
 
 # fill in the name of a Node Configuration in Azure Automation DSC, for this VM to conform to
+# NOTE: DSC Node Configuration names are case sensitive in the portal.
 $NodeConfigName = ""
 
 # get Azure Automation DSC registration info
@@ -111,6 +113,9 @@ $VM = Set-AzureVMExtension `
 
 $VM | Update-AzureVM
 ```
+
+> [!NOTE]
+> DSC-knooppuntconfiguratie zijn hoofdlettergevoelig in de portal. Als de aanvraag niet overeen komt wordt het knooppunt niet weergegeven onder DSC-knooppunten.
 
 ## <a name="azure-virtual-machines"></a>Virtuele machines van Azure
 
@@ -205,6 +210,9 @@ Om vrij te algemeen geven een aan Azure Automation DSC machine een [DSC-metaconf
 1. Open de PowerShell ISE als beheerder op een virtuele machine in uw lokale omgeving. De machine moet hebben tot de nieuwste versie van [WMF 5](http://aka.ms/wmf5latest) geïnstalleerd.
 2. Kopieer het volgende script lokaal. Dit script bevat een PowerShell DSC-configuratie voor het maken van metaconfigurations en een opdracht voor het maken van de metaconfiguratie starten.
 
+> [!NOTE]
+> DSC-knooppuntconfiguratie zijn hoofdlettergevoelig in de portal. Als de aanvraag niet overeen komt wordt het knooppunt niet weergegeven onder DSC-knooppunten.
+
     ```powershell
     # The DSC configuration that will generate metaconfigurations
     [DscLocalConfigurationManager()]
@@ -296,6 +304,7 @@ Om vrij te algemeen geven een aan Azure Automation DSC machine een [DSC-metaconf
     }
 
     # Create the metaconfigurations
+    # NOTE: DSC Node Configuration names are case sensitive in the portal.
     # TODO: edit the below as needed for your use case
     $Params = @{
         RegistrationUrl = '<fill me in>';
@@ -383,7 +392,7 @@ Na de registratie van een machine als een DSC-knooppunt in Azure Automation DSC 
 
 Servernaam kan worden uitgevoerd op dezelfde manier als die u geregistreerd het knooppunt in eerste instantie met een van de voorbereiding-methoden die in dit document worden beschreven. U hoeft niet de registratie van een knooppunt uit Azure Automation DSC voordat deze opnieuw te registreren.
 
-## <a name="related-articles"></a>Gerelateerde artikelen
+## <a name="related-articles"></a>Verwante artikelen
 
 * [Overzicht van Azure Automation DSC](automation-dsc-overview.md)
 * [Azure Automation DSC-cmdlets](/powershell/module/azurerm.automation/#automation)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: 4e3edc74350bb31e73e21455a221baf9c8b87015
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: cd54c4abeaa58c1b78f67c55eb5e8856dc5bb0c4
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Gebruik van Azure Toolkit voor Eclipse Spark-toepassingen voor een HDInsight-cluster maken
 
@@ -229,13 +229,15 @@ U lost deze fout, moet u [downloaden van het uitvoerbare bestand](http://public-
    ![Spark toepassing lokale resultaat van uitgevoerde](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run-result.png)
 
 ## <a name="known-problems"></a>Bekende problemen
-Als u een toepassing met Azure Data Lake Store, selecteer **interactief** modus tijdens het proces voor Azure aanmelden. Als u selecteert **automatisch** modus, krijgt u mogelijk een fout opgetreden.
+Wanneer verbinding een cluster, zou het is verstandig u om referenties van de opslag.
 
-![Interactief aanmelden](./media/apache-spark-eclipse-tool-plugin/interactive-authentication.png)
+![Interactief aanmelden](./media/apache-spark-eclipse-tool-plugin/link-cluster-with-storage-credential-eclipse.png)
 
-U kunt een Azure Data Lake-cluster verzenden van uw toepassing met een methode voor aanmelden.
+Er zijn twee manieren om de taken te verzenden. Als storage-referentie is opgegeven, wordt de taak verzenden batchmodus gebruikt. Anders wordt interactieve modus gebruikt. Als het cluster bezet is, kunt u de onderstaande fout kan ophalen.
 
-Op dit moment wordt bekijken Spark uitvoer rechtstreeks niet ondersteund.
+![Fout bij ophalen van eclipse wanneer cluster bezet](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-upload.png)
+
+![Fout bij ophalen van eclipse wanneer cluster bezet](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png)
 
 ## <a name="feedback"></a>Feedback
 Als u feedback hebt, of als u andere problemen die optreden bij het gebruik van dit hulpprogramma, stuur ons een e-mailbericht op hdivstool@microsoft.com.

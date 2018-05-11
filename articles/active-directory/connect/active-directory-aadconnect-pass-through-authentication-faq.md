@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Pass through-verificatie - Veelgestelde vragen | Micro
 description: Antwoorden op veelgestelde vragen over Azure Active Directory Pass-through-verificatie
 services: active-directory
 keywords: Azure AD Connect Pass through-verificatie, install Active Directory onderdelen vereist voor Azure AD, SSO, Single Sign-on
-documentationcenter: 
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2018
 ms.author: billmath
-ms.openlocfilehash: 077a60949b5eed24cb9a1c56008a0073693f121e
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 7a817092581ef0be0b6be063282f7484c46ff094
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory Pass-through-verificatie: Veelgestelde vragen
 
@@ -48,7 +48,7 @@ Ja. Pass through-verificatie ondersteunt `Alternate ID` als de gebruikersnaam wa
 
 Nee. Pass through-verificatie _heeft geen_ automatisch een failover naar de synchronisatie van wachtwoordhash. Het fungeert alleen als een opvang voor [scenario's voor Pass-through-verificatie biedt geen ondersteuning voor vandaag](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Gebruiker aanmelden om fouten te voorkomen, moet u configureren Pass through-verificatie voor [hoge beschikbaarheid](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
 
-## <a name="can-i-install-an-azure-ad-application-proxyactive-directory-application-proxy-get-startedmd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Kan ik installeren een [Azure AD-toepassingsproxy](../active-directory-application-proxy-get-started.md) connector op dezelfde server als een Pass through-verificatie-Agent?
+## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Kan ik installeren een [Azure AD-toepassingsproxy](../manage-apps/application-proxy.md) connector op dezelfde server als een Pass through-verificatie-Agent?
 
 Ja. De rebranded versies van de Pass through-verificatie-Agent, versie 1.5.193.0 of hoger, ondersteunt deze configuratie.
 

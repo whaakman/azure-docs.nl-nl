@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2018
+ms.date: 05/09/2018
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: e02c60d46fe709c8d418ea4743ba383147e9ddac
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 5140d25119729a391b21735ab9110c216afda669
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Uw toepassing weergeven in de Azure Active Directory-toepassingsgalerie
 
@@ -49,9 +49,27 @@ Als een toepassing in de galerie van Azure AD-app wilt weergeven, moet u eerst e
 
 *   **OpenID Connect**: de multitenant-toepassing in Azure AD maken en implementeren van de [Azure AD toestemming framework](active-directory-integrating-applications.md#overview-of-the-consent-framework) voor uw toepassing. Het aanmeldingsverzoek verzenden naar een gemeenschappelijk eindpunt zodat elke klant toestemming voor de toepassing kunt bieden. U kunt toegang van gebruikers op basis van de tenant-ID en de gebruiker UPN in het token wordt ontvangen. Voor het integreren van uw toepassing met Azure AD, volgt u de [instructies van de ontwikkelaar](active-directory-authentication-scenarios.md).
 
+    ![Tijdlijn van het OpenID Connect toepassing in de galerie opsommen](./media/active-directory-app-gallery-listing/openid.png)
+
+    * Als u wilt dat uw toepassing toevoegen aan lijst in de galerie met OpenID Connect, selecteer **OpenID Connect en OAuth 2.0** zoals hierboven.
+
+    * Als u problemen met betrekking tot toegang hebt, neem dan contact op met de [SSO van Azure AD-integratie Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
+
 *   **SAML 2.0** of **WS Fed**: uw toepassing moet de mogelijkheid om u te doen de WS-SAML-Fed SSO-integratie in de modus SP of IDP hebben. Als uw app SAML 2.0 ondersteunt, kunt u deze integreren rechtstreeks met een Azure AD-tenant met behulp van de [instructies voor het toevoegen van een aangepaste toepassing](../active-directory-saas-custom-apps.md).
 
+    ![Tijdlijn van het SAML 2.0 of de WS-Fed toepassing in de galerie opsommen](./media/active-directory-app-gallery-listing/saml.png)
+
+    * Als u wilt dat uw toepassing toevoegen aan lijst aan de galerie met **SAML 2.0** of **WS Fed**, selecteer **SAMl 2.0/WS-Fed** zoals hierboven.
+
+    * Als u problemen met betrekking tot toegang hebt, neem dan contact op met de [SSO van Azure AD-integratie Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
+
 *   **Wachtwoord SSO**: Maak een webtoepassing met een HTML-aanmeldingspagina configureren [op basis van wachtwoorden eenmalige aanmelding](../active-directory-appssoaccess-whatis.md). Op basis van wachtwoorden SSO, ook bekend als wachtwoord vaulting, kunt u voor het beheren van toegang voor gebruikers en wachtwoorden tot webtoepassingen die geen ondersteuning voor identiteitsfederatie. Het is ook nuttig voor scenario's waarin meerdere gebruikers moeten één account, zoals delen op uw organisatie sociale media app accounts.
+
+    ![Tijdlijn van het wachtwoord SSO-toepassing in de galerie opsommen](./media/active-directory-app-gallery-listing/passwordsso.png)
+
+    * Als u wilt dat uw toepassing toevoegen aan lijst in de galerie met wachtwoord SSO, selecteer **wachtwoord SSO** zoals hierboven.
+
+    * Als u problemen met betrekking tot toegang hebt, neem dan contact op met de [SSO van Azure AD-integratie Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ##  <a name="updateremove-existing-listing"></a>Bestaande aanbieding bijwerken/verwijderen
 
@@ -60,7 +78,7 @@ Als u wilt bijwerken of verwijderen van een bestaande toepassing in de galerie v
 * Selecteer relevante optie uit de onderstaande afbeelding
 
     ![Tijdlijn van het saml-toepassing in de galerie opsommen](./media/active-directory-app-gallery-listing/updateorremove.png)
-
+    
     * Als u bijwerken van een bestaande toepassing wilt, selecteert u **bijwerken van bestaande toepassing aanbieding**.
 
     * Als u verwijderen van een bestaande toepassing uit de galerie van Azure AD wilt, selecteert u **bestaande vermelding van de toepassing verwijderen**
@@ -86,6 +104,10 @@ De planning voor het proces van het opsommen van een SAML 2.0 of de WS-Fed toepa
 De planning voor het proces van het opsommen van een toepassing OpenID Connect in de galerie is 2-5 werkdagen.
 
    ![Tijdlijn van het saml-toepassing in de galerie opsommen](./media/active-directory-app-gallery-listing/timeline2.png)
+
+De planning voor het proces van het opsommen van de toepassing in de galerie met gebruikers inrichten ondersteuning is 40 45 dagen.
+
+   ![Tijdlijn van het saml-toepassing in de galerie opsommen](./media/active-directory-app-gallery-listing/provisioningtimeline.png)
 
 ## <a name="escalations"></a>Escalaties
 

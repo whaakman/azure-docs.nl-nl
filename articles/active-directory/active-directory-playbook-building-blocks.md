@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 48beb0d1c70b0f9c524ba91934a1a0a7b5e8505d
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 702fe812d4ff80c9f18a163af38f883ed3739f12
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory bewijs van concept playbook: bouwstenen
 
@@ -162,7 +162,7 @@ Geschatte tijd om te voltooien: 60 minuten
 
 ### <a name="considerations"></a>Overwegingen
 
-1. Hierboven [zelfstudie](active-directory-saas-servicenow-tutorial.md) verwijst naar de oude Azure AD-beheerervaring. Maar implementatiemodel is gebaseerd op [snel starten](active-directory-enterprise-apps-whats-new-azure-portal.md#quick-start-get-going-with-your-new-application-right-away) optreden.
+1. Hierboven [zelfstudie](active-directory-saas-servicenow-tutorial.md) verwijst naar de oude Azure AD-beheerervaring. Maar implementatiemodel is gebaseerd op [Quick Start](active-directory-enterprise-apps-whats-new-azure-portal.md#quickstart-get-going-with-your-new-application-right-away) optreden.
 2. Als de doeltoepassing niet aanwezig in de galerie is, kunt klikt u vervolgens u 'Bring your own app'. Meer informatie: [wat is er nieuw in Enterprise Toepassingsbeheer in Azure Active Directory: het toevoegen van aangepaste toepassingen vanaf één locatie](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
 
 ## <a name="saas-password-sso-configuration"></a>SaaS-wachtwoord SSO-configuratie

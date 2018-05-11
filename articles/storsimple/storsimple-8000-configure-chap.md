@@ -2,23 +2,23 @@
 title: CHAP configureren voor StorSimple 8000 series apparaat | Microsoft Docs
 description: Beschrijft hoe de Challenge Handshake Authentication Protocol (CHAP) configureren op een StorSimple-apparaat.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: TBD
-ms.date: 07/03/2017
+ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 61e0877187759d76b6f7efcef0a5ed8bec8500fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1a558769ffaa52ed2e996a2b537a5ea409101bd
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>CHAP configureren voor uw StorSimple-apparaat
 
@@ -77,8 +77,8 @@ In één richting verificatie verifieert het doel de initiator. Deze verificatie
 4. In de **geavanceerde instellingen** in het dialoogvenster:
    
    1. Selecteer de **inschakelen CHAP aanmelden** selectievakje.
-   2. In de **naam** veld, geef de gebruikersnaam die u hebt opgegeven voor de CHAP-Initiator in de klassieke portal.
-   3. In de **geheim van het doel** veld, het wachtwoord die u hebt opgegeven voor de CHAP-Initiator in de klassieke portal opgeven.
+   2. In de **naam** veld, geef de gebruikersnaam die u hebt opgegeven voor de CHAP-Initiator in de Azure portal.
+   3. In de **geheim van het doel** veld, het wachtwoord die u hebt opgegeven voor de CHAP-Initiator in de Azure portal opgeven.
    4. Klik op **OK**.
       
        ![Geavanceerde instellingen algemeen](./media/storsimple-configure-chap/IC740946.png)
@@ -131,8 +131,8 @@ Het doel verifieert de initiator in twee richtingen verificatie, en vervolgens d
 8. In de **geavanceerde eigenschappen** in het dialoogvenster:
    
    1. Selecteer de **inschakelen CHAP aanmelden** selectievakje.
-   2. In de **naam** veld, geef de gebruikersnaam die u hebt opgegeven voor de CHAP-Initiator in de klassieke portal.
-   3. In de **geheim van het doel** veld, het wachtwoord die u hebt opgegeven voor de CHAP-Initiator in de klassieke portal opgeven.
+   2. In de **naam** veld, geef de gebruikersnaam die u hebt opgegeven voor de CHAP-Initiator in de Azure portal.
+   3. In de **geheim van het doel** veld, het wachtwoord die u hebt opgegeven voor de CHAP-Initiator in de Azure portal opgeven.
    4. Selecteer de **wederzijdse verificatie uitvoeren** selectievakje.
       
        ![Geavanceerde instellingen voor wederzijdse verificatie](./media/storsimple-configure-chap/IC740950.png)

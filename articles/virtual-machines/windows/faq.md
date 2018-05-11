@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: cynthn
-ms.openlocfilehash: f427035f413dde304c2270006c6665120cb3e1e1
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c60b7df4d766ddf321ce2c807994f3b83046f1ef
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Veelgestelde vragen over virtuele Windows-Machines
 In dit artikel komen enkele veelgestelde vragen over Windows virtuele machines die in Azure met behulp van het Resource Manager-implementatiemodel zijn gemaakt. Zie voor de Linux-versie van dit onderwerp [Veelgestelde vragen over virtuele Linux-Machines](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -88,27 +88,27 @@ Gebruikersnamen mag maximaal 20 tekens lang zijn en mag niet eindigen op een pun
 De volgende gebruikersnamen zijn niet toegestaan:
 <table>
     <tr>
-        <td style="text-align:center">Beheerder </td><td style="text-align:center"> beheerder </td><td style="text-align:center"> Gebruiker </td><td style="text-align:center"> Gebruiker1</td>
+        <td style="text-align:center">1</td><td style="text-align:center">123</td><td style="text-align:center">a</td><td style="text-align:center">actuser</td>
     </tr>
     <tr>
-        <td style="text-align:center">test </td><td style="text-align:center"> Gebruiker2 </td><td style="text-align:center"> test1 </td><td style="text-align:center"> User3</td>
-    </tr>    <tr>
-        <td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> a</td>
+        <td style="text-align:center">adm</td><td style="text-align:center">Beheerder</td><td style="text-align:center">admin1</td><td style="text-align:center">admin2</td>
+    </tr>   <tr>
+        <td style="text-align:center">Beheerder</td><td style="text-align:center">ASPNET</td><td style="text-align:center">Back-up</td><td style="text-align:center">console</td>
     </tr>
     <tr>
-        <td style="text-align:center">actuser  </td><td style="text-align:center"> adm </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> aspnet</td>
+        <td style="text-align:center">David </td><td style="text-align:center">Gast</td><td style="text-align:center">John</td><td style="text-align:center">eigenaar</td>
     </tr>
     <tr>
-        <td style="text-align:center">Back-up </td><td style="text-align:center"> console </td><td style="text-align:center"> David </td><td style="text-align:center"> Gast</td>
+        <td style="text-align:center">hoofdmap</td><td style="text-align:center">server</td><td style="text-align:center">sql</td><td style="text-align:center">ondersteuning</td>
     </tr>
     <tr>
-        <td style="text-align:center">John </td><td style="text-align:center"> eigenaar </td><td style="text-align:center"> hoofdmap </td><td style="text-align:center"> server</td>
+        <td style="text-align:center">support_388945a0</td><td style="text-align:center">sys</td><td style="text-align:center">test</td><td style="text-align:center">test1</td>
     </tr>
     <tr>
-        <td style="text-align:center">sql </td><td style="text-align:center"> ondersteuning </td><td style="text-align:center"> support_388945a0 </td><td style="text-align:center"> sys</td>
+        <td style="text-align:center">test2</td><td style="text-align:center">test3</td><td style="text-align:center">Gebruiker</td><td style="text-align:center">Gebruiker1</td>
     </tr>
     <tr>
-        <td style="text-align:center">test2 </td><td style="text-align:center"> test3 </td><td style="text-align:center"> User4 </td><td style="text-align:center"> user5</td>
+        <td style="text-align:center">Gebruiker2</td><td style="text-align:center">User3</td><td style="text-align:center">User4</td><td style="text-align:center">user5</td>
     </tr>
 </table>
 
@@ -124,17 +124,17 @@ De volgende wachtwoorden zijn niet toegestaan:
 
 <table>
     <tr>
-        <td>abc@123 </td>
-        <td>P@$$w0rd </td>
-        <td>P@ssw0rd </td>
-        <td>P@ssword123 </td>
-        <td>Pa$ $word </td>
+        <td>abc@123</td>
+        <td>ILOVEYOU!</td>
+        <td>P@$$w0rd</td>
+        <td>P@ssw0rd</td>
+        <td>P@ssword123</td>
     </tr>
     <tr>
-        <td>pass@word1 </td>
-        <td>Wachtwoord! </td>
-        <td>Wachtwoord1 </td>
-        <td>Password22 </td>
-        <td>ILOVEYOU! </td>
+        <td>Pa$ $word</td>
+        <td>pass@word1</td>
+        <td>Wachtwoord!</td>
+        <td>Wachtwoord1</td>
+        <td>Password22</td>
     </tr>
 </table>

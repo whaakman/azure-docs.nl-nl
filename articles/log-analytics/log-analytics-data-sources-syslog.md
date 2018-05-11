@@ -2,7 +2,7 @@
 title: Verzamelen en analyseren van Syslog-berichten in OMS Log Analytics | Microsoft Docs
 description: Syslog is een gebeurtenis logboekregistratie-protocol die geldt voor Linux. In dit artikel wordt beschreven hoe verzameling van Syslog-berichten configureren voor logboekanalyse en details van de records die ze in de OMS-opslagplaats maken.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 061c32fe39530f8b67899b1b9e1104e7fe006380
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 011eaf1a4705f9078225b9b871f81b4333b05ee8
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Syslog-gegevensbronnen in Log Analytics
 Syslog is een gebeurtenis logboekregistratie-protocol die geldt voor Linux.  Toepassingen worden verzonden berichten die kunnen worden opgeslagen op de lokale computer of naar een Syslog-collector geleverd.  Wanneer de OMS-Agent voor Linux is geïnstalleerd, configureert het de lokale Syslog-daemon voor het doorsturen van berichten naar de agent.  De agent verzendt vervolgens het bericht met logboekanalyse waarop een record in de OMS-opslagplaats is gemaakt.  
@@ -31,12 +31,12 @@ Syslog is een gebeurtenis logboekregistratie-protocol die geldt voor Linux.  Toe
 ![Syslog-verzameling](media/log-analytics-data-sources-syslog/overview.png)
 
 ## <a name="configuring-syslog"></a>Syslog configureren
-De OMS-Agent voor Linux worden alleen verzameld van gebeurtenissen met de faciliteiten en de ernst die zijn opgegeven in de configuratie.  U kunt Syslog configureren via de OMS-portal of met het beheren van configuratiebestanden op uw Linux-agents.
+De OMS-Agent voor Linux worden alleen verzameld van gebeurtenissen met de faciliteiten en de ernst die zijn opgegeven in de configuratie.  U kunt Syslog configureren via de Azure-portal of door de configuratiebestanden op uw Linux-agents beheren.
 
-### <a name="configure-syslog-in-the-oms-portal"></a>Syslog configureren in de OMS-portal
-Configureer Syslog uit de [menu Data in logboekanalyse-instellingen](log-analytics-data-sources.md#configuring-data-sources).  Deze configuratie wordt doorgegeven naar het configuratiebestand op elke Linux-agent.
+### <a name="configure-syslog-in-the-azure-portal"></a>Syslog configureren in de Azure portal
+Configureer Syslog uit de [menu Data in geavanceerde instellingen voor Log Analytics](log-analytics-data-sources.md#configuring-data-sources).  Deze configuratie wordt doorgegeven naar het configuratiebestand op elke Linux-agent.
 
-U kunt een nieuwe opslagruimte toevoegen door in de naam te typen en op  **+** .  Voor elke faciliteit worden alleen berichten met de geselecteerde ernst verzameld.  Controleer de ernst voor de bepaalde opslagruimte die u wilt verzamelen.  U kunt aanvullende criteria om berichten te filteren kan niet opgeven.
+U kunt een nieuwe opslagruimte toevoegen door in de naam te typen en op **+**.  Voor elke faciliteit worden alleen berichten met de geselecteerde ernst verzameld.  Controleer de ernst voor de bepaalde opslagruimte die u wilt verzamelen.  U kunt aanvullende criteria om berichten te filteren kan niet opgeven.
 
 ![Syslog configureren](media/log-analytics-data-sources-syslog/configure.png)
 
@@ -138,8 +138,8 @@ U kunt een faciliteit verwijderen door het verwijderen van de sectie van het con
 ### <a name="collecting-data-from-additional-syslog-ports"></a>Verzamelen van gegevens van aanvullende Syslog-poorten
 De OMS-agent luistert naar de Syslog-berichten op de lokale client op poort 25224.  Wanneer de agent is geïnstalleerd, wordt een standaardconfiguratie syslog toegepast en gevonden in de volgende locatie:
 
-* Rsyslog:`/etc/rsyslog.d/95-omsagent.conf`
-* Syslog-ng:`/etc/syslog-ng/syslog-ng.conf`
+* Rsyslog: `/etc/rsyslog.d/95-omsagent.conf`
+* Syslog-ng: `/etc/syslog-ng/syslog-ng.conf`
 
 U kunt het poortnummer wijzigen door het maken van twee configuratiebestanden: een configuratiebestand FluentD en een bestand rsyslog of syslog-ng, afhankelijk van de Syslog-daemon die u hebt geïnstalleerd.  
 
@@ -201,8 +201,8 @@ De volgende tabel bevat voorbeelden van logboek-query's die Syslog-records ophal
 |:--- |:--- |
 | Syslog |Alle Syslogs. |
 | Syslog &#124; waar foutcode == "error" |Alle Syslog-records met de ernst van de fout. |
-| Syslog &#124; overzicht van AggregatedValue = count() door Computer |Telling van Syslog-records op de computer. |
-| Syslog &#124; overzicht van AggregatedValue count() door faciliteit = |Telling van Syslog-records door de faciliteit. |
+| Syslog &#124; AggregatedValue samenvatten = count() door Computer |Telling van Syslog-records op de computer. |
+| Syslog &#124; AggregatedValue samenvatten count() door faciliteit = |Telling van Syslog-records door de faciliteit. |
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over [Meld zoekopdrachten](log-analytics-log-searches.md) om de gegevens verzameld van gegevensbronnen en oplossingen te analyseren.

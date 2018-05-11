@@ -3,9 +3,9 @@ title: Node.js-toepassing met Socket.io - Azure
 description: Informatie over het gebruik van socket.io in een node.js-toepassing die wordt gehost op Azure.
 services: cloud-services
 documentationcenter: nodejs
-author: craigshoemaker
-manager: routlaw
-editor: 
+author: thraka
+manager: timlt
+editor: ''
 ms.assetid: 7f9435e0-7732-4aa1-a4df-ea0e894b847f
 ms.service: cloud-services
 ms.workload: tbd
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: cshoe
-ms.openlocfilehash: 186cf5e22468b7abf58d6366ca0dec616be23cc6
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.author: adegeo
+ms.openlocfilehash: 0139c42334b53364aee8cfd29cfa771d47e2ccc8
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Het bouwen van een Node.js-chattoepassing met Socket.IO op een Azure Cloud Service
 
@@ -61,7 +61,7 @@ Voor dit project, gebruiken we het voorbeeld chat uit de [Socket.IO GitHub-opsla
 
 1. Maken van een lokale kopie van de opslagplaats via de **kloon** knop. U kunt ook de **ZIP** knop voor het downloaden van het project.
    
-   ![Een browservenster https://github.com/LearnBoost/socket.io/tree/master/examples/chat, weergeven met het pictogram van het ZIP downloaden gemarkeerd][chat-example-view]
+   ![De weergave van een browser venster https://github.com/LearnBoost/socket.io/tree/master/examples/chat, met het pictogram van het ZIP downloaden gemarkeerd][chat-example-view]
 2. De mapstructuur van de lokale opslagplaats navigeren totdat u aankomt bij de **voorbeelden\\chat** directory. Kopieer de inhoud van deze map bij de **C:\\knooppunt\\chatapp\\WorkerRole1** directory eerder hebt gemaakt.
    
    ![Verkenner weergeven van de inhoud van de voorbeelden\\chat directory opgehaald uit het archief][chat-contents]

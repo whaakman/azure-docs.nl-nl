@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 447f9867649c7c3a44c8a0ba894e037040023f79
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a3d1ca210d490e7a8c634fbfb2a2e11f4e82fae4
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindingen voor Azure Functions
 
@@ -31,23 +31,42 @@ Dit artikel wordt uitgelegd hoe u werkt met Azure Blob storage bindingen in de A
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-> [!NOTE]
-> [Alleen-BLOB storage-accounts](../storage/common/storage-create-storage-account.md#blob-storage-accounts) worden niet ondersteund voor blob-triggers. BLOB storage triggers vereisen een algemeen opslagaccount. U kunt alleen blob storage-accounts gebruiken voor invoer en uitvoer bindingen.
-
 ## <a name="packages"></a>Pakketten
 
 De Blob-opslag-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-pakket. De broncode voor het pakket bevindt zich in de [sdk van azure webjobs](https://github.com/Azure/azure-webjobs-sdk/tree/master/src) GitHub-opslagplaats.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
+> [!NOTE]
+> De gebeurtenis raster trigger gebruiken in plaats van de Blob-opslag-trigger voor alleen-blob storage-accounts, voor grote schaal of om koude start vertragingen te voorkomen. Zie voor meer informatie de volgende **Trigger** sectie. 
+
 ## <a name="trigger"></a>Trigger
 
-Gebruik een Blob storage-trigger in een functie wordt gestart wanneer een nieuwe of bijgewerkte blob wordt gedetecteerd. De blobinhoud worden geleverd als invoer voor de functie.
+De Blob-opslag-trigger wordt een functie gestart wanneer een nieuwe of bijgewerkte blob wordt gedetecteerd. De blobinhoud worden geleverd als invoer voor de functie.
 
-> [!NOTE]
-> Wanneer u een blob-trigger op een plan verbruik, kunnen er maximaal 10 minuten vertraging bij de verwerking van nieuwe blobs nadat een functie-app niet actief is geworden. Nadat de functie-app wordt uitgevoerd, worden onmiddellijk blobs verwerkt. Overweeg om te voorkomen dat deze initiële vertraging, een van de volgende opties:
-> - Gebruik een App Service-abonnement met altijd op ingeschakeld.
-> - Gebruik een ander mechanisme voor het activeren van de blob verwerken, zoals een wachtrijbericht met de blob-naam. Zie voor een voorbeeld de [blob invoer bindingen voorbeeld verderop in dit artikel](#input---example).
+De [gebeurtenis raster trigger](functions-bindings-event-grid.md) ingebouwde ondersteuning voor [blob-gebeurtenissen](../storage/blobs/storage-blob-event-overview.md) en kan ook worden gebruikt een functie wordt gestart wanneer een nieuwe of bijgewerkte blob wordt gedetecteerd. Zie voor een voorbeeld de [afbeelding vergroten of verkleinen met gebeurtenis raster](../event-grid/resize-images-on-storage-blob-upload-event.md) zelfstudie.
+
+Gebeurtenis raster gebruiken in plaats van de Blob-opslag-trigger voor de volgende scenario's:
+
+* Alleen-BLOB storage-accounts
+* Grote schaal
+* Koude-startvertraging
+
+### <a name="blob-only-storage-accounts"></a>Alleen-BLOB storage-accounts
+
+[Alleen-BLOB storage-accounts](../storage/common/storage-create-storage-account.md#blob-storage-accounts) worden ondersteund voor blob-invoer en uitvoer bindingen maar niet voor blob-triggers. BLOB storage triggers vereisen een algemeen opslagaccount.
+
+### <a name="high-scale"></a>Grote schaal
+
+Grote schaal los worden gedefinieerd als containers die meer dan 100.000 blobs of opslagaccounts die beschikken over meer dan 100 blob updates per seconde.
+
+### <a name="cold-start-delay"></a>Koude-startvertraging
+
+Als uw app in de functie op het plan verbruik is, kunnen er maximaal 10 minuten duren in verwerking van nieuwe blobs als een functie-app niet actief is geworden. Om te voorkomen dat deze vertraging koude start, kunt u overschakelen naar een App Service-abonnement met altijd op ingeschakeld of gebruik een andere triggertype.
+
+### <a name="queue-storage-trigger"></a>Queue storage trigger
+
+Een ander alternatief voor het verwerken van BLOB's is de wachtrij opslag trigger naast gebeurtenis raster, maar heeft geen ingebouwde ondersteuning voor blob-gebeurtenissen. U zou moeten maken van berichten in wachtrij plaatsen bij het maken of bijwerken van blobs. Voor een voorbeeld wordt ervan uitgegaan u dat hebt gedaan, raadpleegt u de [blob invoer binding voorbeeld verderop in dit artikel](#input---example).
 
 ## <a name="trigger---example"></a>Trigger - voorbeeld
 
@@ -283,7 +302,7 @@ Accolades in bestandsnamen zoekt, escape voor de accolades met behulp van twee a
 "path": "images/{{20140101}}-{name}",
 ```
 
-Als de naam van de blob *{20140101}-soundfile.mp3*, wordt de `name` variabele waarde in de functiecode *soundfile.mp3*. 
+Als de naam van de blob  *{20140101}-soundfile.mp3*, wordt de `name` variabele waarde in de functiecode *soundfile.mp3*. 
 
 ## <a name="trigger---metadata"></a>Trigger - metagegevens
 

@@ -2,23 +2,23 @@
 title: De service Manager voor StorSimple-apparaat in Azure implementeren | Microsoft Docs
 description: Wordt uitgelegd hoe u maken en verwijderen van de service Manager voor StorSimple-apparaat in de Azure portal en wordt beschreven hoe u de serviceregistratiesleutel beheren.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2017
+ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 96dcda25cde2473387842fd01421b6bb619e4ece
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: d6010b7ff03689588251a9649eecb412bf9f3a8d
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>De service Manager voor StorSimple-apparaat voor StorSimple 8000 series apparaten implementeren
 
@@ -29,7 +29,9 @@ De StorSimple-apparaat Manager-service wordt uitgevoerd in Microsoft Azure en ve
 Deze zelfstudie worden de stappen beschreven voor het maken, verwijderen, migratie van de service en het beheer van de serviceregistratiesleutel nodig. De informatie in dit artikel is alleen van toepassing op StorSimple 8000 series apparaten. Voor meer informatie over virtuele StorSimple-matrices, gaat u naar [implementeren van een service Manager voor StorSimple-apparaat voor uw virtuele StorSimple-matrix](storsimple-virtual-array-manage-service.md).
 
 > [!NOTE]
-> Alle klassieke StorSimple-apparaat managers zijn automatisch verplaatst naar de nieuwe Azure portal. Als u vragen hebt, raadpleegt u [Veelgestelde vragen over: verplaatsen naar Azure-portal](storsimple-8000-move-azure-portal-faq.md). De Azure Service Management (ASM) PowerShell-cmdlets worden niet ondersteund na de overstap naar de nieuwe Azure portal. Bijwerken van de scripts voor het beheren van uw apparaten en gaat u naar de [scripts voor het beheren van StorSimple-apparaten op basis van gebruik Azure Resource Manager SDK](storsimple-8000-automation-azurerm-scripts.md) voor meer informatie. De nieuwe Azure portal ondersteunt apparaten met Update 5.0 of hoger. Als uw apparaat niet up-to-date te houden is, onmiddellijk te installeren Update 5. Ga voor meer informatie naar [installeren Update 5](storsimple-8000-install-update-5.md). Als u een StorSimple-Cloud-apparaat (8010/8020), kunt u een cloud-apparaat niet bijwerken. Gebruik de nieuwste versie van software voor het maken van een nieuwe cloud-apparaat met Update 5.0 en vervolgens een failover uitvoeren naar het nieuwe cloud toestel gemaakt. Alle apparaten met Update 4.0 of eerder merken [verminderd beheerfunctionaliteit](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0). 
+> -  De Azure-portal ondersteunt apparaten met Update 5.0 of hoger. Als uw apparaat niet up-to-date te houden is, onmiddellijk te installeren Update 5. Ga voor meer informatie naar [installeren Update 5](storsimple-8000-install-update-5.md). 
+> - Als u een StorSimple-Cloud-apparaat (8010/8020), kunt u een cloud-apparaat niet bijwerken. Gebruik de nieuwste versie van software voor het maken van een nieuwe cloud-apparaat met Update 5.0 en vervolgens een failover uitvoeren naar het nieuwe cloud toestel gemaakt. 
+> - Alle apparaten met Update 4.0 of eerder merken [verminderd beheerfunctionaliteit](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0). 
 
 ## <a name="create-a-service"></a>Een service maken
 Voor het maken van een StorSimple-apparaat Manager-service moet u beschikken over:
@@ -38,11 +40,7 @@ Voor het maken van een StorSimple-apparaat Manager-service moet u beschikken ove
 * Een actieve Microsoft Azure storage-account
 * De informatie die wordt gebruikt voor toegangsbeheer
 
-Alleen de abonnementen, met een Enterprise Agreement zijn toegestaan. Microsoft Sponsorship abonnementen die zijn toegestaan in de klassieke Azure portal worden niet ondersteund in de Azure portal. U ziet het volgende bericht weergegeven wanneer u een niet-ondersteunde abonnement:
-
-![Abonnement is niet geldig](./media/storsimple-8000-manage-service/subscription-not-valid.jpg)
-
-U kunt ook een standaardopslagaccount genereren bij het maken van de service.
+Alleen de abonnementen, met een Enterprise Agreement zijn toegestaan. U kunt ook een standaardopslagaccount genereren bij het maken van de service.
 
 Een enkele service kunt meerdere apparaten beheren. Een apparaat niet kan echter meerdere services omvatten. Een grote onderneming kan meerdere exemplaren van de service te werken met verschillende abonnementen behoren, organisaties of zelfs implementatie locaties hebben. 
 
@@ -78,7 +76,7 @@ Voer de volgende stappen uit om een service te verwijderen.
 
 2. Hiermee gaat u naar de blade van de service Manager voor StorSimple-apparaat. Klik op **Verwijderen**.
 
-    ![Verwijderen van de service](./media/storsimple-8000-manage-service/deletessdevman2.png)
+    ![Service verwijderen](./media/storsimple-8000-manage-service/deletessdevman2.png)
 
 3. Klik op **Ja** in het bevestigingsbericht weergegeven. Duurt enkele minuten duren voordat de service moet worden verwijderd.
 
@@ -149,8 +147,7 @@ Deze stap wordt uitgevoerd in de Windows PowerShell voor StorSimple-interface op
 
 > [!NOTE]
 > Er zijn geen bewerkingen kunnen in de Azure portal van uw StorSimple Manager-service worden uitgevoerd totdat de overschakeling van de sleutel is voltooid.
-> 
-> 
+
 
 Als u de seriële console van het apparaat verbinding maken met de Windows PowerShell-interface gebruikt, moet u de volgende stappen uitvoeren.
 
@@ -177,12 +174,12 @@ Voer de volgende stappen uit voor het bijwerken van de versleuteling van de serv
 
 #### <a name="to-update-the-service-data-encryption-key-on-physical-devices"></a>Bijwerken van de gegevensversleutelingssleutel van service op de fysieke apparaten
 1. Windows PowerShell voor StorSimple gebruiken voor het verbinding maken met de console. Selecteer optie 1 om aan te melden met volledige toegang.
-2. Typ het volgende achter de opdrachtprompt:`Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
+2. Typ het volgende achter de opdrachtprompt:  `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
 3. Geef de versleutelingssleutel van de service-gegevens die u hebt verkregen in [stap 2: gebruik Windows PowerShell voor StorSimple starten van de service gegevens versleuteling belangrijke wijziging](#to-initiate-the-service-data-encryption-key-change).
 
 #### <a name="to-update-the-service-data-encryption-key-on-all-the-80108020-cloud-appliances"></a>Bijwerken van de gegevensversleutelingssleutel van service op alle apparaten van de 8010/8020 cloud
 1. Downloaden en installeren [Update CloudApplianceServiceEncryptionKey.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Update-CloudApplianceServiceEncryptionKey.ps1) PowerShell-script. 
-2. Open PowerShell en typ het volgende achter de opdrachtprompt:`Update-CloudApplianceServiceEncryptionKey.ps1 -SubscriptionId [subscription] -TenantId [tenantid] -ResourceGroupName [resource group] -ManagerName [device manager]`
+2. Open PowerShell en typ het volgende achter de opdrachtprompt:  `Update-CloudApplianceServiceEncryptionKey.ps1 -SubscriptionId [subscription] -TenantId [tenantid] -ResourceGroupName [resource group] -ManagerName [device manager]`
 
 Dit script zorgt ervoor dat gegevensversleutelingssleutel van service is ingesteld op de 8010/8020 cloud toestellen onder Apparaatbeheer.
 

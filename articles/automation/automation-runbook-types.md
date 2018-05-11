@@ -3,16 +3,17 @@ title: Azure Automation-Runbooktypen
 description: 'Beschrijft de verschillende soorten runbooks die u in Azure Automation en overwegingen die u in aanmerking nemen gebruiken kunt moet bij het bepalen van welke type moet worden gebruikt. '
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: f3a6b15891a4a1564073d149a198f6789b407342
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 800380c68e1bb1314021ab60f92ccd3b392dbe32
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation-runbooktypen
 Azure Automation biedt ondersteuning voor verschillende soorten runbooks die worden kort beschreven in de volgende tabel.  De onderstaande secties bevatten meer informatie over elk met inbegrip van de overwegingen over het gebruik van elk type.
@@ -58,7 +59,7 @@ PowerShell-runbooks zijn gebaseerd op Windows PowerShell.  Rechtstreeks bewerkt 
 Hieronder vindt u huidige bekende problemen met de PowerShell-runbooks.
 
 * PowerShell-runbooks kunnen niet ophalen van een niet-versleutelde [variabelenactivum](automation-variables.md) met een null-waarde.
-* Kan de PowerShell-runbooks niet ophalen een [variabelenactivum](automation-variables.md) met  *~*  in de naam.
+* Kan de PowerShell-runbooks niet ophalen een [variabelenactivum](automation-variables.md) met *~* in de naam.
 * Get-Process in een lus in een PowerShell runbook vastlopen na ongeveer 80 iteraties. 
 * Een PowerShell-runbook kan mislukken als wordt geprobeerd een zeer grote hoeveelheid gegevens in één keer naar de uitvoerstroom schrijven.   U kunt gewoonlijk dit probleem omzeilen door het uitvoeren van alleen de informatie die u nodig hebt bij het werken met grote objecten.  Bijvoorbeeld, in plaats van het uitvoeren van ongeveer *Get-Process*, kunt u de vereiste velden met uitvoeren *Get-Process | Selecteer de procesnaam, CPU*.
 

@@ -4,19 +4,17 @@ description: Dit document bevat een overzicht en gedetailleerde voorbeelden van 
 services: machine-learning
 author: euangMS
 ms.author: euang
-manager: lanceo
-ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 02/01/2018
-ms.openlocfilehash: cc1aef7ed7c4a7d03a7fa63e71c8c27aca10095a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.date: 05/09/2018
+ms.openlocfilehash: 6363d39b2dfbd36ccebff6780e35caf58ca84dda
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Gegevensextensies voorbereidingen Python
 Als een manier invullen van functionaliteit onderbrekingen tussen de ingebouwde functies bevat Azure Machine Learning gegevens voorbereidingen uitbreidbaarheid op meerdere niveaus. In dit document, geven we een overzicht op de uitbreidingsmogelijkheden via door de Python-script. 
@@ -24,14 +22,10 @@ Als een manier invullen van functionaliteit onderbrekingen tussen de ingebouwde 
 ## <a name="custom-code-steps"></a>Aangepaste code stappen 
 Voorbereidingen voor gegevens heeft de volgende aangepaste stappen waarin gebruikers code kunnen schrijven:
 
-* Bestand lezer *
-* Schrijver *
 * Kolom toevoegen
 * Geavanceerd filter
 * Gegevensstroom transformeren
 * Partitie transformeren
-
-* Deze stappen zijn momenteel niet ondersteund in een Spark-uitvoering.
 
 ## <a name="code-block-types"></a>Code blok typen 
 Wij ondersteunen twee typen van de code blok voor elk van deze stappen. Eerst wordt een bare Python-expressie die wordt uitgevoerd, omdat wordt ondersteund. Wij ondersteunen tweede, een Python-Module waar noemen we een specifieke functie met een bekende handtekening in de code die u opgeeft.
@@ -158,74 +152,6 @@ Voorbeelden
     row.ColumnA + row.ColumnB  
     row["ColumnA"] + row["ColumnB"]
 ```
-
-## <a name="file-reader"></a>Bestand lezer 
-### <a name="purpose"></a>Doel 
-Het bestand lezer extensiepunt kunt u volledig beheer het proces voor het lezen van een bestand in een gegevensstroom. Het systeem uw code aangeroepen en wordt doorgegeven in de lijst met bestanden die moet worden verwerkt. Uw code moet maken en een dataframe Pandas terug. 
-
->[!NOTE]
->Deze extensiepunt werkt in Spark niet. 
-
-
-### <a name="how-to-use"></a>Gebruiksinstructies 
-U toegang tot dit uitbreidingspunt van de **gegevensbron openen** wizard. Kies **bestand** op de eerste pagina, en kies vervolgens de bestandslocatie. Op de **bestandsparameters kiezen** pagina in de **bestandstype** vervolgkeuzelijst Kies **(Script) bestand met aangepaste**. 
-
-Uw code krijgt een Pandas dataframe met de naam 'df' met informatie over de bestanden die u nodig hebt om te lezen. Als u kiest om een map met meerdere bestanden te openen, bevat de dataframe meer dan één rij.  
-
-Deze dataframe heeft de volgende kolommen:
-
-- Pad: Het bestand worden gelezen.
-- PathHint: Vertelt u waar het bestand zich bevindt. Waarden: Lokale AzureBlobStorage en AzureDataLakeStorage.
-- AuthenticationType: Het type verificatie gebruikt voor toegang tot het bestand. Waarden: None, SasToken en OAuthToken.
-- AuthenticationValue: Bevat geen of het token moet worden gebruikt.
-
-### <a name="syntax"></a>Syntaxis 
-Expressie 
-
-```python
-    paths = df['Path'].tolist()  
-    df = pd.read_csv(paths[0])
-```
-
-
-Module  
-```python
-PathHint = Local  
-def read(df):  
-    paths = df['Path'].tolist()  
-    filedf = pd.read_csv(paths[0])  
-    return filedf  
-```
- 
-
-## <a name="writer"></a>schrijver 
-### <a name="purpose"></a>Doel 
-De Writer extensiepunt kunt u volledig beheer het proces van het schrijven van gegevens van een gegevensstroom. Het systeem uw code aangeroepen en wordt doorgegeven in een dataframe. Uw code kunt de dataframe schrijven van gegevens, maar u wilt gebruiken. 
-
->[!NOTE]
->De Writer extensiepunt werkt in Spark niet.
-
-
-### <a name="how-to-use"></a>Gebruiksinstructies 
-U kunt deze extensiepunt toevoegen met behulp van de schrijven (Script) gegevensstroomblok. Deze beschikbaar is op het hoogste niveau **transformaties** menu.
-
-### <a name="syntax"></a>Syntaxis 
-Expressie
-
-```python
-    df.to_csv('c:\\temp\\output.csv')
-```
-
-Module
-
-```python
-def write(df):  
-    df.to_csv('c:\\temp\\output.csv')  
-    return df
-```
- 
- 
-Dit blok aangepaste schrijven kan bestaan in het midden van een lijst met stappen. Als u een Module hebt gebruikt, moet uw schrijffunctie de dataframe die de invoer voor de stap die volgt retourneren. 
 
 ## <a name="add-column"></a>Kolom toevoegen 
 ### <a name="purpose"></a>Doel

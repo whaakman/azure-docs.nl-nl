@@ -3,16 +3,17 @@ title: Een runbook starten in Azure Automation
 description: Geeft een overzicht van de verschillende methoden die kunnen worden gebruikt voor het starten van een runbook in Azure Automation en biedt details over het gebruik van de Azure-portal en de Windows PowerShell.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 064ba5f73b53681a824b1416243d10ab0e565c44
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 45ac19ad5011ae67e95281d1c9928c1db4bc7043
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="starting-a-runbook-in-azure-automation"></a>Een runbook starten in Azure Automation
 De volgende tabel kunt u bepalen welke methode voor het starten van een runbook in Azure Automation die het meest geschikt is voor uw specifieke scenario. Dit artikel bevat informatie over het starten van een runbook met de Azure-portal en met Windows PowerShell. Meer informatie over de andere methoden beschikbaar in andere documentatie die u vanaf de onderstaande koppelingen openen kunt.
@@ -22,7 +23,7 @@ De volgende tabel kunt u bepalen welke methode voor het starten van een runbook 
 | [Azure Portal](#starting-a-runbook-with-the-azure-portal) |<li>Eenvoudigste methode met interactieve gebruikersinterface.<br> <li>Formulier eenvoudige parameterwaarden opgeven.<br> <li>Taakstatus op eenvoudige wijze volgen.<br> <li>De toegang wordt geverifieerd met aanmelding bij Azure. |
 | [Windows PowerShell](https://msdn.microsoft.com/library/dn690259.aspx) |<li>Aanroepen vanuit de opdrachtregel met Windows PowerShell-cmdlets.<br> <li>Geautomatiseerde oplossing met meerdere stappen kunnen worden opgenomen.<br> <li>Aanvraag is geverifieerd met een certificaat of de OAuth-gebruiker principal / service principal.<br> <li>Eenvoudige en complexe parameterwaarden opgeven.<br> <li>Taakstatus bijhouden.<br> <li>De client vereist ter ondersteuning van PowerShell-cmdlets. |
 | [Azure Automation-API](https://msdn.microsoft.com/library/azure/mt662285.aspx) |<li>Meest flexibele methode, maar ook de meeste complex.<br> <li>Aanroepen vanuit elke gewenste aangepaste code die HTTP-aanvragen kan maken.<br> <li>Aanvraag geverifieerd met het certificaat of de Oauth-gebruiker principal / service principal.<br> <li>Eenvoudige en complexe parameterwaarden opgeven. *Als u een Python-runbook met behulp van de API aanroept, kan de JSON-nettolading moet worden geserialiseerd.*<br> <li>Taakstatus bijhouden. |
-| [Webhooks](automation-webhooks.md) |<li>Runbook starten vanuit één HTTP-aanvraag.<br> <li>Geverifieerd met beveiligingstoken in URL.<br> <li>Client overschrijven niet parameterwaarden die zijn opgegeven wanneer webhook is gemaakt. Runbook kunt definiëren één parameter die is gevuld met de details van de HTTP-aanvraag.<br> <li>Er is geen mogelijkheid om bij te houden taakstatus via webhook-URL. |
+| [Webhooks.](automation-webhooks.md) |<li>Runbook starten vanuit één HTTP-aanvraag.<br> <li>Geverifieerd met beveiligingstoken in URL.<br> <li>Client overschrijven niet parameterwaarden die zijn opgegeven wanneer webhook is gemaakt. Runbook kunt definiëren één parameter die is gevuld met de details van de HTTP-aanvraag.<br> <li>Er is geen mogelijkheid om bij te houden taakstatus via webhook-URL. |
 | [Reageren op Azure waarschuwing](../log-analytics/log-analytics-alerts.md) |<li>Een runbook starten in reactie op Azure waarschuwing.<br> <li>Webhook voor runbook en een koppeling naar een waarschuwing configureren.<br> <li>Geverifieerd met beveiligingstoken in URL. |
 | [Planning](automation-schedules.md) |<li>Start runbook automatisch op elk uur, dagelijks, wekelijks of maandelijks schema.<br> <li>Manipuleren planning via Azure portal, PowerShell-cmdlets of Azure-API.<br> <li>Parameterwaarden moet worden gebruikt met een planning opgeven. |
 | [Vanuit een ander Runbook](automation-child-runbooks.md) |<li>Een runbook gebruiken als een activiteit in een ander runbook.<br> <li>Dit is handig voor functionaliteit die wordt gebruikt door meerdere runbooks.<br> <li>Parameterwaarden voor onderliggend runbook opgeven en het gebruik van uitvoer in bovenliggende runbook. |

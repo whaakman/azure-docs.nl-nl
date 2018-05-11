@@ -6,14 +6,14 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 05/09/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: be5ecfdd4465d721dee49c4963cb2267b2b0a40a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1424ae2d9ffe7308fe85b7eb8ed6b0062d59ce31
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="vcore-based-purchasing-model-for-azure-sql-database-preview"></a>op basis van vCore aankoopmodel voor Azure SQL Database (preview)
 
@@ -58,7 +58,7 @@ In de vCore gebaseerde aankopen model (preview) klanten betalen voor:
 
 ## <a name="choosing-service-tier-compute-memory-storage-and-io-resources"></a>Servicelaag, compute, geheugen, opslag en i/o-resources te kiezen
 
-Converteren naar de vCore gebaseerde aankoopmodel (preview) kunt u onafhankelijk van elkaar schalen berekenings-en opslagbronnen, overeenkomen met de prestaties van de lokale en prijs optimaliseren. Als de database of de elastische groep meer dan 300 DTU conversie naar vCore verbruikt, kan uw kosten verminderen. U kunt met behulp van uw keuze-API of met behulp van de Azure-portal, zonder uitvaltijd converteren. Conversie is echter niet vereist. Als de aankoopmodel DTU voldoet aan uw prestatie- en bedrijfsvereisten, moet u blijven gebruiken. Als u besluit het DTU-model converteren naar vCore-model, moet u het prestatieniveau met behulp van de volgende vuistregel: elke 100 DTU in Standard-laag vereist ten minste 1 vCore en elke 125 DTU in de laag Premium vereist ten minste 1 vCore.
+Converteren naar de vCore gebaseerde aankoopmodel (preview) kunt u onafhankelijk van elkaar schalen berekenings-en opslagbronnen, overeenkomen met de prestaties van de lokale en prijs optimaliseren. Als de database of de elastische groep meer dan 300 DTU conversie naar vCore verbruikt, kan uw kosten verminderen. U kunt met behulp van uw keuze-API of met behulp van de Azure-portal, zonder uitvaltijd converteren. Conversie is echter niet vereist. Als de aankoopmodel DTU voldoet aan uw prestatie- en bedrijfsvereisten, moet u blijven gebruiken. Als u besluit het DTU-model converteren naar vCore-model, moet u het prestatieniveau met behulp van de volgende vuistregel: elke 100 DTU in Standard-laag moet ten minste 1 vCore in algemeen gebruik laag; elke 125 DTU in Premium-laag moet ten minste 1 vCore in kritieke zakelijke laag.
 
 De volgende tabel biedt meer inzicht in de verschillen tussen deze twee lagen:
 

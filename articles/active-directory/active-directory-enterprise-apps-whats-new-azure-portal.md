@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: asteen
 ms.reviewer: asteen
-ms.openlocfilehash: 8d1b24708380aeed6055912fcf3538f0e5319e2d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9a8b85539ac26629c31e49097fca5c3ce5c5abc2
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="whats-new-in-enterprise-application-management-in-azure-active-directory"></a>Wat is er nieuw in Enterprise Toepassingsbeheer in Azure Active Directory 
 
@@ -28,17 +28,17 @@ Azure Active Directory (Azure AD) is uitgebreid enterprise hulpprogramma's voor 
 Hieronder volgen enkele van de uitbreidingen voor Azure AD in de [Azure-portal](https://portal.azure.com).
 
 - Een verbeterde toepassingsgalerie ervaring, met een vereenvoudigde toepassingsmodel maken en ondersteuning voor alle soorten toepassingen waarmee u bent. 
-- Een ervaring gloednieuw snel starten waarmee u kunt aan de slag met een test van uw toepassing. 
+- Een gloednieuw Quick Start-ervaring waarmee u kunt aan de slag met een test van uw toepassing. 
 - Selfservice-beleid configureren met een paar klikken. 
 - Verbeteringen aan toepassingsproxy, eenmalige aanmelding configureren en breng uw eigen toepassingen mogelijk, zodat u meer gedaan dan voordat ophalen.
 
 ## <a name="improvements-to-the-azure-active-directory-application-gallery"></a>Verbeteringen in de Azure Active Directory-Toepassingsgalerie
 
-Toevoegen van uw favoriete toepassingen ongeacht of deze uit de [toepassingsgalerie](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), aangepaste toepassingen die u wilt uitbreiden naar de cloud of nieuwe toepassingen die u ontwikkelt.  U kunt aan de slag met deze nieuwe ervaring door te klikken op **toevoegen** op de **bedrijfstoepassingen** overzicht of **alle toepassingen** blades.
+Toevoegen van uw favoriete toepassingen ongeacht of deze uit de [toepassingsgalerie](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), aangepaste toepassingen die u wilt uitbreiden naar de cloud of nieuwe toepassingen die u ontwikkelt.  U kunt aan de slag met deze nieuwe ervaring door te klikken op **toevoegen** onder **bedrijfstoepassingen** of **alle toepassingen**.
  
   ![Een toepassing toevoegen](./media/active-directory-enterprise-apps-whats-new-azure-portal/01.png)
 
-Eenmaal in de galerie ziet u onze uitgelichte toepassingen die ondersteuning bieden voor gebruikers inrichten begin-en-midden weergegeven.  Kunt u allerlei verschillende categorieën om de toepassingen die u interesseren inzoomen bladeren of kunt u de zoekfunctie snel vinden de toepassingen die u wilt integreren.
+Eenmaal in de galerie ziet u de aanbevolen toepassingen die ondersteuning bieden voor gebruikers inrichten begin-en-midden weergegeven. Kunt u allerlei verschillende categorieën om de toepassingen die u interesseren inzoomen bladeren of kunt u de zoekfunctie snel vinden de toepassingen die u wilt integreren.
 
   ![De galerie met toepassingen](./media/active-directory-enterprise-apps-whats-new-azure-portal/02.png)
 
@@ -51,7 +51,7 @@ Naast het toevoegen van vooraf geïntegreerde toepassingen uit de galerie, zijn 
  
 **Uw eigen toepassing toe te voegen aan de slag**:
 
-1. Klik op de **uw eigen koppeling toevoegen** boven aan de galerie met toepassingen. 
+1. Klik op **uw eigen koppeling toevoegen** boven aan de galerie met toepassingen. 
 2. Ziet u twee opties voor u: **implementeren van een bestaande toepassing** of **ontwikkelen van een nieuwe toepassing**. Lees verder voor meer informatie over het verschil tussen de twee opties en hoe ze te gebruiken.
 
 ### <a name="deploying-existing-applications"></a>Bestaande toepassingen implementeren
@@ -64,9 +64,9 @@ Naast het toevoegen van vooraf geïntegreerde toepassingen uit de galerie, zijn 
 ### <a name="developing-new-applications"></a>Ontwikkelen van nieuwe toepassingen
 
 1. Als u een nieuwe toepassing ontwikkelt, is er een eenvoudige manier voor u direct aan het register van de toepassing uit de galerie:
-2. Klik op de **toevoegen aan uw eigen** optie uit de galerie met toepassingen, selecteer de **ontwikkelen van een bestaande toepassing** keuze en u ziet een snelle koppeling aan de toepassing toevoegen-ervaring.
+2. Klik op de **toevoegen aan uw eigen** optie uit de galerie met toepassingen, selecteer **ontwikkelen van een bestaande toepassing**, ziet u een snelle koppeling aan de toepassing toevoegen-ervaring.
 
-  ![Een toepassing recentelijk ontwikkelde toe te voegen in een paar klikken](./media/active-directory-enterprise-apps-whats-new-azure-portal/05.png)
+  ![Een nieuw ontwikkelde toepassing toe te voegen in een paar klikken](./media/active-directory-enterprise-apps-whats-new-azure-portal/05.png)
 
 
 >[!NOTE]
@@ -75,25 +75,25 @@ Naast het toevoegen van vooraf geïntegreerde toepassingen uit de galerie, zijn 
   ![Het beheren van toegang tot uw nieuwe toepassing onder bedrijfstoepassingen](./media/active-directory-enterprise-apps-whats-new-azure-portal/06.png)
 
 
-## <a name="quick-start-get-going-with-your-new-application-right-away"></a>Snel aan de slag: aan de slag met uw nieuwe toepassing meteen 
+## <a name="quickstart-get-going-with-your-new-application-right-away"></a>Snelstartgids: Aan de slag met uw nieuwe toepassing meteen 
 
 Nadat u een toepassing, of zijn de vooraf geïntegreerde of uw eigen app hebt toegevoegd, er een op maat gemaakte Snel starten-ervaring om u snel fundering in de nieuwe ervaring van toepassingen gemaakt. Als u elke optie systematischer volgt, we helpt u stapsgewijs door de gebruikersinterface en hoe u aan de slag met een test van uw nieuwe toepassing zo snel mogelijk. 
  
-  ![De nieuwe toepassingen die snelle start ervaring](./media/active-directory-enterprise-apps-whats-new-azure-portal/07.png)
+  ![De nieuwe toepassingen Quick Start-ervaring](./media/active-directory-enterprise-apps-whats-new-azure-portal/07.png)
 
- U kunt deze nieuwe ervaring voor snel starten op elk gewenst moment en voor elke toepassing, door te klikken op **snel starten** in het menu van de linkernavigatiebalk toepassing.
+ U kunt deze nieuwe Quick Start-ervaring op elk gewenst moment en voor elke toepassing, door te klikken op **Quick Start** in het menu van de linkernavigatiebalk toepassing.
 
 
 ## <a name="updated-application-proxy-configuration"></a>Bijgewerkte toepassing proxyconfiguratie
 Nu gaan we als een van de nieuwe toepassingen die u hebt toegevoegd in uw on-premises omgeving wordt uitgevoerd en u wilt integreren met Azure AD.  Een van de cool nieuwe dingen over de nieuwe ervaring voor de configuratie van toepassing in de nieuwe Azure AD portal is dat door het verdelen van de toepassing aanmelding-modus van de configuratie van de toepassing proxy kan nu eenvoudig worden blootgesteld wachtwoord SSO of federatieve toepassingen die worden uitgevoerd in uw bedrijfsnetwerk rechts in de cloud, zonder te hoeven maken van meerdere exemplaren van de toepassing.
 
-Naast dit, kunt u nu ook configureren van de nieuwe toepassingen die u hebt toegevoegd voor gebruik met Azure AD-toepassingsproxy rechts van de nieuwe portal, met inbegrip van toepassingen die ondersteuning bieden voor systeemeigen Windows-verificatie-ervaring.
+U kunt ook een van de nieuwe toepassingen die u hebt toegevoegd voor gebruik met Azure AD-toepassingsproxy rechts van de nieuwe portal, met inbegrip van toepassingen die ondersteuning bieden voor ervaringen van systeemeigen Windows-verificatie configureren.
 
   ![Configureren van een toepassing de optie van de aanmelding geïntegreerde Windows-verificatie te gebruiken](./media/active-directory-enterprise-apps-whats-new-azure-portal/08.png)
  
 
 Om te beginnen met een systeemeigen Windows-verificatie toepassing configureren met de toepassingsproxy:
-1. Klik op het één aanmelding navigatie-item en kies **geïntegreerde Windows-verificatie** op de instellingenblade voor eenmalige aanmelding en de instellingen naar wens configureren.
+1. Klik op het één aanmelding navigatie-item en kies **geïntegreerde Windows-verificatie** onder de instellingen voor eenmalige aanmelding en de instellingen naar wens configureren.
 2. Boven op deze nieuwe verificatiemodi ondersteunen, kunt u certificaten van aangepaste domeinen om toepassingen die worden uitgevoerd op de beveiligde eindpunten binnen uw organisatie te ondersteunen nu ook uploaden.  
  
    ![Uploaden van een certificaat moet worden gebruikt bij de toepassingsproxy](./media/active-directory-enterprise-apps-whats-new-azure-portal/09.png)
@@ -102,28 +102,28 @@ Om te beginnen met een systeemeigen Windows-verificatie toepassing configureren 
 
 ## <a name="advanced-federated-single-sign-on-configuration"></a>Geavanceerde federatieve eenmalige aanmelding-configuratie
 
-Voor de federatieve toepassingen vandaag gebruikt, moet u er veel nieuwe functies zijn in de aanmelding configuratie op basis van SAML-blade. Beginnen met, kunt nu u volledig aanpassen, toevoegen, verwijderen en toewijzen van de bestaande gebruikerskenmerken als claims in SAML-tokens uitgegeven.
+Voor de federatieve toepassingen vandaag gebruikt, moet u er veel nieuwe functies zijn in de configuratie op basis van SAML eenmalige aanmelding. Beginnen met, kunt nu u volledig aanpassen, toevoegen, verwijderen en toewijzen van de bestaande gebruikerskenmerken als claims in SAML-tokens uitgegeven.
  
   ![Aanpassen van de kenmerken van de SAML-token gebruiker doorgegeven aan een federatieve toepassing](./media/active-directory-enterprise-apps-whats-new-azure-portal/10.png)
 
 
 Om te controleren dat uit de nieuwe federatieve SSO-configuratie:
-1. Open een federatieve toepassing **eenmalige aanmelding** blade in het linkernavigatievenster menu en zorg ervoor dat de '*op basis van SAML aanmelding** modus is ingeschakeld. 
+1. Open een federatieve toepassing **eenmalige aanmelding** in het linkernavigatievenster menu en zorg ervoor dat de '*op basis van SAML aanmelding** modus is ingeschakeld. 
 2. Eenmaal er, schakel het selectievakje onder de **gebruikerskenmerken** kop wijzigen alle kenmerken die zijn opgenomen in het SAML-token wordt doorgegeven aan die toepassing.
 
-U kunt ook maakt, rollover, en het beheren van certificaten gebruikt voor federatieve eenmalige aanmelding, evenals bewerken die met deze eigenschap wordt een melding wanneer uw certificaat is verlopen. Ziet u deze nieuwe opties onder de **certificaten** kop op de dezelfde eenmalige aanmelding blade.
+U kunt ook maakt, rollover, en het beheren van certificaten gebruikt voor federatieve eenmalige aanmelding, evenals bewerken die met deze eigenschap wordt een melding wanneer uw certificaat is verlopen. Ziet u deze nieuwe opties onder de **certificaten** koptekst van het dezelfde eenmalige aanmelding deelvenster.
  
   ![Maken van een nieuw certificaat verlopen meldingse-mail en opties voor Certificaatondertekening aanpassen](./media/active-directory-enterprise-apps-whats-new-azure-portal/11.png)
 
-### <a name="relay-state-paramenter"></a>Status van de relay-parameter worden
-Ten slotte wordt ook de set parameters van SAML-URL wordt ondersteund als u wilt opnemen hebt uitgebreid de **parameter Relay State**, dit is de pagina die uw gebruikers terechtkomt op binnen een federatieve toepassing zodra de aanmeldingspagina is voltooid. Dit is zeer nuttig instelling configureren als u wilt uw gebruikers verzenden met een specifieke locatie binnen de toepassing snel gaan ophalen.
+### <a name="relay-state-parameter"></a>Status van de relay-parameter
+Ten slotte wordt ook de set parameters van SAML-URL wordt ondersteund als u wilt opnemen hebt uitgebreid de **parameter Relay State**, dit is de pagina die uw gebruikers terechtkomt op binnen een federatieve toepassing zodra de aanmeldingspagina is voltooid. Dit is een nuttig instelling configureren als u wilt uw gebruikers verzenden met een specifieke locatie binnen de toepassing snel gaan ophalen.
 
   ![Als u de status van SAML-Relay-parameter](./media/active-directory-enterprise-apps-whats-new-azure-portal/12.png)
  
 **Instellen van de relay-parameter state**:
 
-1. Inschakelen de **weergeven geavanceerde instellingen voor URL** selectievakje onder de **domein en de URL's** kop op eenmalige aanmelding op de blade configuratie. 
-2. Wanneer u dit doet, ziet u dat een set nieuwe URL invoer vakken weergegeven waarmee u kunt deze en andere, instellingen voor SAML-URL ingesteld.
+1. Schakel de **weergeven geavanceerde instellingen voor URL** selectievakje onder de **domein en de URL's** koptekst van de eenmalige aanmelding deelvenster configuratie. 
+2. Een set nieuwe URL invoer vakken weergegeven waarmee u kunt deze parameter en andere instellingen SAML-URL ingesteld.
 
 ## <a name="bring-your-own-password-sso-applications"></a>Breng uw eigen wachtwoord SSO-toepassingen
 
@@ -133,7 +133,8 @@ We weten dat niet elke toepassing federation klare ondersteunt. Zo mogelijk heef
 
 **De functie 'Brengt uw eigen toepassingen' uitchecken**:
 
-1. Na het instellen van de modus voor één aanmelding voor een nieuwe aangepaste toepassing die u hebt toegevoegd aan **op basis van wachtwoorden aanmelding**, voert u de URL waar de toepassing de aanmeldingsscherm renders en klikt u op **opslaan**.  
+1. Na het instellen van de modus voor één aanmelding voor een nieuwe aangepaste toepassing die u hebt toegevoegd aan **op basis van wachtwoorden aanmelding**, voert u de URL waar de toepassing de aanmeldingsscherm renders en 
+2. Klik op **Opslaan**.  
 2. Zodra u dat doet, wordt je automatisch scrape die URL voor een gebruikersnaam en wachtwoord invoervak en kunt u Azure AD gebruiken voor het veilig verzenden van wachtwoorden voor deze toepassing met behulp van de uitbreiding voor toegang tot Configuratiescherm browser.
 
 ## <a name="configure-self-service-application-access"></a>Toegang tot selfservice-toepassingen configureren
@@ -153,7 +154,7 @@ We hopen dat u u zoals het gebruik van het verbeterde ervaring voor Azure AD. Zo
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie [toepassingen beheren met Azure Active Directory](active-directory-enable-sso-scenario.md).
+Zie voor meer informatie [toepassingen beheren met Azure Active Directory](manage-apps/what-is-application-management.md).
 
 
 

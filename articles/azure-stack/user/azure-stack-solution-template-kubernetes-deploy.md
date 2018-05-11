@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 71d920ea1c143ed65510b77e1804e9c5e38cc180
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 7cf865f0ce75d8308d6d42306e8e05852f763cae
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/10/2018
@@ -24,7 +24,7 @@ ms.lasthandoff: 05/10/2018
 
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
-> [!note]  
+> [!Note]  
 > De Azure Container Services (ACS) Kubernetes op Azure-Stack is private preview. Uw Azure-Stack-operator moet de toegang tot het Kubernetes Marketplace-item die nodig zijn voor het uitvoeren van de instructies in dit artikel.
 
 Het volgende artikel kijkt met behulp van een Azure Resource Manager-oplossingssjabloon te implementeren en inrichten van de resources voor Kubernetes in een enkele, gecoördineerde bewerking. U moet de vereiste informatie verzamelen over uw Azure-Stack-installatie genereren van de sjabloon, en vervolgens implementeren op uw cloud.
@@ -121,7 +121,7 @@ De service principal toegang geven aan uw abonnement, zodat de principal resourc
 
 6. Voer de **master profiel DNS-voorvoegsel** die uniek is voor de regio. Dit moet een regio-unieke naam, zoals `k8s-12345`. Probeer te hebt gekozen deze gelijk zijn aan de resourcegroep een naam als best practice.
 
-    > [!note]  
+    > [!Note]  
     > Gebruik een nieuwe en unieke master profiel DNS-voorvoegsel voor elk cluster.
 
 7. Voer het aantal agents in het cluster. Deze waarde wordt aangeduid als de **aantal agents Pool-profiel**. Er kan tussen 1 en 32 liggen

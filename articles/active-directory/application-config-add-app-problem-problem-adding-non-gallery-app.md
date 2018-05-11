@@ -2,10 +2,10 @@
 title: Probleem met het toevoegen van een toepassing niet galerie | Microsoft Docs
 description: Inzicht in het algemene problemen mensen vlak bij het toevoegen van aangepaste toepassingen voor niet-galerie
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,27 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 9abc05dd835d2ec803e32351c75534ebe628a8d0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3d54a9bccdf3f940959c2cbe3f85bd5fddff68e1
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="problem-adding-a-non-gallery-application"></a>Probleem met een niet-galerie-toepassing toevoegen
 
-In dit artikel helpt u bij het begrijpen van de face voor mensen van algemene problemen bij het toevoegen van **aangepaste niet-galerie toepassingen** en wat u kunt doen om deze kunt oplossen. 
+In dit artikel vindt u informatie over de face voor mensen van algemene problemen bij het toevoegen van **aangepaste niet-galerie toepassingen** en wat u kunt doen om deze kunt oplossen. 
 
 ## <a name="i-clicked-the-add-button-and-my-application-took-a-long-time-to-appear"></a>Ik op de knop 'add' geklikt en mijn toepassing lang duurde om te worden weergegeven
 
-In sommige gevallen kan het 1-2 minuten duren voordat (en soms langer) voor een toepassing worden weergegeven nadat u deze toevoegt aan uw directory. Hoewel dit niet de verwachte normale prestaties, ziet u het toevoegen van de toepassing wordt uitgevoerd door te klikken op de **meldingen** pictogram (bel) in de rechterbovenhoek van de [Azure Portal](https://portal.azure.com/) en te zoeken voor een **In uitvoering** of **voltooid** melding met het label **-toepassing maken**.
+In sommige gevallen kan het 1-2 minuten duren voordat (en soms langer) voor een toepassing worden weergegeven nadat u deze toevoegt aan uw directory. Hoewel dit niet de verwachte normale prestaties, ziet u het toevoegen van de toepassing wordt uitgevoerd door te klikken op de **meldingen** pictogram (bel) in de rechterbovenhoek van de [Azure-portal](https://portal.azure.com/) en te zoeken voor een **In uitvoering** of **voltooid** melding met het label **-toepassing maken**.
 
-Als uw toepassing wordt nooit toegevoegd of er een fout optreedt wanneer u op de **toevoegen** knop, ziet u een **melding** in een **fout** status. Als u meer informatie over de fout naar meer informatie over het of delen met een engingeer ondersteuning wilt, kunt u meer informatie over de fout kunt zien door de stappen in de [hoe ziet u de details van een portal melding](#how-to-see-the-details-of-a-portal-notification) sectie.
+Als uw toepassing wordt nooit toegevoegd of er een fout optreedt wanneer u op de **toevoegen** knop, ziet u een **melding** in een **fout** status. Als u meer informatie over de fout voor meer informatie over het of bestandsshare met de ondersteuningstechnicus wilt, kunt u meer informatie over de fout kunt zien door de stappen in de [hoe ziet u de details van een portal melding](#how-to-see-the-details-of-a-portal-notification) sectie.
 
 ## <a name="i-clicked-the-add-button-and-my-application-didnt-appear"></a>Ik op de knop 'add' geklikt en de toepassing worden niet weergegeven
 
-Soms vanwege tijdelijke problemen toevoegen netwerkproblemen of een bug van een toepassing mislukt. Kunt u instellen dat dit gebeurt wanneer u klikt op de **meldingen** pictogram (bel) in de rechterbovenhoek van de Azure-Portal en u ziet een rood (!) naast uw **-toepassing maken** melding. Dit betekent dat er is een fout opgetreden bij het maken van de toepassing.
+Soms vanwege tijdelijke problemen toevoegen netwerkproblemen of een bug van een toepassing mislukt. Kunt u instellen dat dit gebeurt wanneer u klikt op de **meldingen** pictogram (bel) in de rechterbovenhoek van de Azure portal en u ziet een rood (!) naast uw **-toepassing maken** melding. Dit betekent dat er is een fout opgetreden bij het maken van de toepassing.
 
-Als er een fout optreden wanneer u op de **toevoegen** knop, ziet u een **melding** in een **fout** status. Als u meer informatie over de fout naar meer informatie over het of delen met een engingeer ondersteuning wilt, kunt u meer informatie over de fout kunt zien door de stappen in de [hoe ziet u de details van een portal melding](#how-to-see-the-details-of-a-portal-notification) sectie.
+Als er een fout optreden wanneer u op de **toevoegen** knop, ziet u een **melding** in een **fout** status. Als u meer informatie over de fout voor meer informatie over het of bestandsshare met de ondersteuningstechnicus wilt, kunt u meer informatie over de fout kunt zien door de stappen in de [hoe ziet u de details van een portal melding](#how-to-see-the-details-of-a-portal-notification) sectie.
 
 ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Ik weet mijn toepassing instellen wanneer ik het toegevoegde niet
 
@@ -43,7 +43,7 @@ Als u meer informatie over aangepaste toepassingen hulp nodig de [Azure AD-toepa
 
 De details van de bedrijfsportal meldingen kunt u zien door de onderstaande stappen te volgen:
 
-1.  Klik op de **meldingen** pictogram (bel) in de rechterbovenhoek van de Azure Portal
+1.  Klik op de **meldingen** pictogram (bel) in de rechterbovenhoek van de Azure-portal
 
 2.  Selecteer een melding in een **fout** status (die met een rode (!) naast deze).
 
@@ -52,9 +52,7 @@ De details van de bedrijfsportal meldingen kunt u zien door de onderstaande stap
    >
    >
 
-3.  Deze open de **Meldingsdetails** blade.
-
-4.  Gebruik deze informatie zelf meer details over het probleem te begrijpen.
+4.  Gebruik de informatie onder **Meldingsdetails** voor meer informatie over het probleem te begrijpen.
 
 5.  Als u nog hulp nodig hebt, kunt u ook deze informatie delen met een ondersteuningstechnicus of de productgroep voor hulp bij het probleem.
 
@@ -66,7 +64,7 @@ Het is heel belangrijk dat u delen **alle onderstaande details** met de onderste
 
 ## <a name="notification-details-explained"></a>Details van de melding uitgelegd
 
-De hieronder wordt uitgelegd meer wat elke van de melding betekent dat items en worden voorbeelden gegeven van elk van deze servers.
+Zie de volgende beschrijvingen voor meer informatie over de meldingen.
 
 ### <a name="essential-notification-items"></a>Melding van essentiële Items
 
@@ -77,11 +75,11 @@ De hieronder wordt uitgelegd meer wat elke van de melding betekent dat items en 
 
    *  Voorbeeld: **interne url ingevoerd wordt al gebruikt door een andere toepassing**
 
--   **Id van de melding** – de unieke id van de melding
+-   **ID van de melding** – de unieke ID van de melding
 
    *  Voorbeeld: **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
 
--   **Aanvraag-Id van client** – specifieke aanvraag-id gemaakt door uw browser
+-   **Aanvraag-ID van client** – specifieke aanvraag-ID gemaakt door uw browser
 
    *  Voorbeeld: **302fd775-3329-4670-a9f3-bea37004f0bc**
 
@@ -89,19 +87,19 @@ De hieronder wordt uitgelegd meer wat elke van de melding betekent dat items en 
 
    *  Voorbeeld: **2017-03-23T19:50:43.7583681Z**
 
--   **Interne transactie-Id** – de interne ID we de fout opzoeken in onze systemen kunnen gebruiken
+-   **Interne transactie-ID** – de interne ID we de fout opzoeken in onze systemen kunnen gebruiken
 
    *  Voorbeeld: **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
 -   **UPN** – de gebruiker die de bewerking uitgevoerd
 
-   *  Voorbeeld:**tperkins@f128.info**
+   *  Voorbeeld: **tperkins@f128.info**
 
--   **Tenant-Id** – de unieke ID van de tenant die de gebruiker die de bewerking uitgevoerd lid van was
+-   **Tenant-ID** – de unieke ID van de tenant die de gebruiker die de bewerking uitgevoerd lid van was
 
    *  Voorbeeld: **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
--   **Gebruikersobject-Id** – de unieke ID van de gebruiker die de bewerking uitgevoerd
+-   **Object-ID van gebruiker** – de unieke ID van de gebruiker die de bewerking uitgevoerd
 
  *  Voorbeeld: **17f84be4-51f8-483a-b533-383791227a99**
 
@@ -115,7 +113,7 @@ De hieronder wordt uitgelegd meer wat elke van de melding betekent dat items en 
 
    *  Voorbeeld: **is mislukt**
 
--   **Object-Id** – **(kan niet leeg zijn)** de object-ID op basis waarvan de bewerking is uitgevoerd
+-   **Object-ID** – **(kan niet leeg zijn)** de object-ID op basis waarvan de bewerking is uitgevoerd
 
    *  Voorbeeld: **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
 
@@ -123,12 +121,13 @@ De hieronder wordt uitgelegd meer wat elke van de melding betekent dat items en 
 
    *  Voorbeeld: **interne url 'http://bing.com/' is ongeldig omdat het zich al in gebruik**
 
--   **Fout kopiëren** : klik op de **pictogram kopiëren** rechts van de **Kopieerfout** tekstvak voor het kopiëren van de Meldingsdetails te delen met een groep engineer van ondersteuning of productupdates
+-   **Fout kopiëren** : klik op de **pictogram kopiëren** rechts van de **Kopieerfout** tekstvak voor het kopiëren van de Meldingsdetails te delen met een ondersteunings- of -groep 
+-   engineering
 
-   *  Voorbeeld```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'http://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'http://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
+   *  Voorbeeld ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'http://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'http://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
 ## <a name="next-steps"></a>Volgende stappen
-[Toepassingen beheren met Azure Active Directory](active-directory-enable-sso-scenario.md)
+[Toepassingen beheren met Azure Active Directory](manage-apps/what-is-application-management.md)
 
 
 

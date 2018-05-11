@@ -7,14 +7,14 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.date: 05/09/2018
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a8d91714e6864ff0a9816f5ec518878334f6ba84
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2922a859f741c6b6420f49d34b982b7ec4968a8c
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>U maakt, werkt de statistieken voor tabellen in Azure SQL Data Warehouse
 Aanbevelingen en voorbeelden voor het maken en bijwerken van statistieken op tabellen in Azure SQL Data Warehouse-queryoptimalisatie.
@@ -22,24 +22,46 @@ Aanbevelingen en voorbeelden voor het maken en bijwerken van statistieken op tab
 ## <a name="why-use-statistics"></a>Waarom statistieken gebruiken?
 Hoe meer Azure SQL Data Warehouse weet over uw gegevens, hoe sneller een query uitgevoerd op deze kan worden uitgevoerd. Verzamelen van gegevens over uw gegevens en klik vervolgens in SQL Data Warehouse te laden is een van de belangrijkste dingen die u doen kunt om uw query's optimaliseren. Dit komt omdat SQL Data Warehouse queryoptimalisatie optimalisatie kosten op basis van een. Het vergelijkt de kosten van verschillende queryplannen en kiest vervolgens het plan met de laagste kosten die in de meeste gevallen het plan dat de snelste uitvoert. Bijvoorbeeld, als het optimalisatieprogramma maakt een schatting van de datum die u hebt gefilterd in uw query retourneert één rij, kunt het een ander schema dan als u deze maakt een schatting van die de geselecteerde datum worden 1 miljoen rijen geretourneerd.
 
-Het proces van het maken en bijwerken van statistieken is op dit moment een handmatig proces, maar het is heel eenvoudig doen.  U wordt binnenkort automatisch maken en bijwerken van statistieken op één kolommen en indexen.  U kunt het beheer van de statistieken aanzienlijk voor uw gegevens automatiseren met behulp van de volgende informatie. 
+## <a name="automatic-creation-of-statistics"></a>Automatische aanmaak van statistieken
+Wanneer de automatische maakt statistieken optie is ingeschakeld, AUTO_CREATE_STATISTICS, SQL Data Warehouse analyseert binnenkomende gebruikersquery waarin statistieken voor één kolom worden gemaakt voor kolommen die statistieken ontbreken. De queryoptimizer maakt statistieken op afzonderlijke kolommen in de query predikaat of join-voorwaarde voor het verbeteren van kardinaliteit schattingen voor het queryplan. Automatische aanmaak van statistieken is momenteel standaard ingeschakeld.
 
-## <a name="scenarios"></a>Scenario's
-Steekproef statistieken maken voor elke kolom is een eenvoudige manier om te beginnen. Verouderde statistieken leiden tot suboptimale queryprestaties. Echter, het bijwerken van statistieken voor alle kolommen wanneer uw gegevens groeit geheugen verbruiken. 
+U kunt controleren of uw datawarehouse dit niet is geconfigureerd heeft met de volgende opdracht:
 
-Hier volgen de aanbevelingen voor verschillende scenario's:
-| **Scenario** | Aanbeveling |
-|:--- |:--- |
-| **Aan de slag** | Bijwerken van alle kolommen na de migratie naar SQL Data Warehouse |
-| **Belangrijkste kolom voor statistieken** | Hash-distributiesleutel |
-| **Tweede belangrijkste kolom voor statistieken** | Partitiesleutel |
-| **Andere belangrijke kolommen voor statistieken** | Datum frequente JOINs, GROUP BY, HAVING, en waar |
-| **Frequentie van statistieken updates**  | Conservatief: per dag <br></br> Na het laden van of uw gegevens transformeren |
-| **Steekproeven** |  Minder dan 1 miljard rijen, gebruiken de standaard steekproeven (20 procent) <br></br> Met meer dan 1 miljard rijen is statistieken voor een bereik 2 procent goed |
+```sql
+SELECT name, is_auto_create_stats_on 
+FROM sys.databases
+```
+Als uw datawarehouse geen AUTO_CREATE_STATISTICS geconfigureerd, raden we u deze eigenschap inschakelen met de volgende opdracht:
+
+```sql
+ALTER DATABASE <yourdatawarehousename> 
+SET AUTO_CREATE_STATISTICS ON
+```
+De volgende instructies wordt het automatisch maken van statistieken geactiveerd: selecteren, invoegen selecteert, CTAS, UPDATE, DELETE en uitleg bij met een join of de aanwezigheid van een predikaat wordt gedetecteerd. 
+
+> [!NOTE]
+> Automatische aanmaak van statistieken zijn niet gemaakt voor tijdelijke of externe tabellen.
+> 
+
+Automatische aanmaak van statistieken wordt synchroon gegenereerd zodat u een lichte slechtere queryprestaties kosten mogelijk als uw kolommen nog geen statistieken worden gemaakt. Maken van statistieken, kan een paar seconden duren op één kolom afhankelijk van de grootte van de tabel. Om te voorkomen dat meten verslechtering van de prestaties, met name in benchmarks voor prestaties, moet u ervoor zorgen dat statistieken zijn gemaakt eerst door het uitvoeren van de werkbelasting benchmark voordat profileren van het systeem.
+
+> [!NOTE]
+> Het maken van statistieken wordt ook vastgelegd in [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016) in de context van een andere gebruiker.
+> 
+
+Wanneer automatische statistieken worden gemaakt, nemen ze de vorm: _WA_Sys_< 8 cijfers kolom-id in Hex > _ < 8 cijfers tabel-id in Hex >. U kunt bekijken statistieken die al zijn gemaakt met de volgende opdracht:
+
+```sql
+DBCC SHOW_STATISTICS (<tablename>, <targetname>)
+```
 
 ## <a name="updating-statistics"></a>Bijwerken van statistieken
 
 Een aanbevolen procedure is het bijwerken van statistieken over datumkolommen elke dag als nieuwe datums worden toegevoegd. Elke keer nieuwe rijen in het datawarehouse zijn geladen, worden nieuwe load datums of transactiedatums toegevoegd. Deze de verdeling van de gegevens wijzigen en de statistieken niet actueel te maken. Als u daarentegen statistieken over een land-kolom in een tabel van de klant mogelijk nooit moeten worden bijgewerkt, omdat de verdeling van waarden in het algemeen niet wijzigen. Ervan uitgaande dat de distributie constant tussen klanten, eens toevoegen van nieuwe rijen aan de tabel variatie niet te wijzigen van de gegevensdistributie. Echter als uw datawarehouse alleen een bepaald land bevat en u Importeer gegevens vanuit een nieuw land, moet wat resulteert in gegevens uit meerdere landen worden opgeslagen, u statistieken voor de kolom land moeten worden bijgewerkt.
+
+De volgende zijn aanbevelingen voor het bijwerken van statistieken:
+
+| **Frequentie van statistieken updates** | Conservatief: per dag <br></br> Na het laden van of uw gegevens transformeren || **Steekproeven** |  Minder dan 1 miljard rijen, gebruiken de standaard steekproeven (20 procent) <br></br> Met meer dan 1 miljard rijen, statistieken voor een bereik 2 procent is goed |
 
 Een van de eerste vragen te stellen vragen wanneer u een query wilt oplossen is, **'Zijn de statistieken bijgewerkt?'**
 

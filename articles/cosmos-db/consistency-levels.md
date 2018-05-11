@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 512f9e22d01e3bdb90210402aaf123ac6326759a
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 0f38d05dc720dd596c81a51abf7040ac062e8158
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Gegevens instelbare consistentieniveaus in Azure Cosmos-DB
 Azure Cosmos DB is compleet met globale verdeling in gedachten voor elke gegevensmodel ontworpen. Het is ontworpen om voorspelbare lage latentie garanties en meerdere goed gedefinieerde beperkte consistentie modellen bieden. Op dit moment Azure Cosmos DB bevat vijf consistentieniveaus: sterk, gebonden-verouderd, sessie, consistente voorvoegsel en uiteindelijk. Gebonden-verouderd, sessie, consistente voorvoegsel en uiteindelijke worden aangeduid als 'beperkte consistentie modellen' als ze bieden minder consistentie dan sterk, die de meeste maximaal consistent model beschikbaar is. 
 
-Naast de **sterk** en **uiteindelijke consistentie** modellen vaak die worden aangeboden door gedistribueerde databases Azure Cosmos DB biedt drie meer zorgvuldig gecodeerd en geoperationaliseerd consistentie modellen: ** gebonden veroudering**, **sessie**, en **consistent voorvoegsel**. Het nut van elk van deze consistentieniveaus is gevalideerd tegen werkelijkheid gebruiksvoorbeelden. Gezamenlijk kunnen deze vijf consistentieniveaus u afweging goed gemotiveerd tussen de consistentie, beschikbaarheid en latentie. 
+Naast de **sterk** en **uiteindelijke consistentie** modellen vaak die worden aangeboden door gedistribueerde databases Azure Cosmos DB biedt drie meer zorgvuldig gecodeerd en geoperationaliseerd consistentie modellen:  **gebonden veroudering**, **sessie**, en **consistent voorvoegsel**. Het nut van elk van deze consistentieniveaus is gevalideerd tegen werkelijkheid gebruiksvoorbeelden. Gezamenlijk kunnen deze vijf consistentieniveaus u afweging goed gemotiveerd tussen de consistentie, beschikbaarheid en latentie. 
 
 In de volgende video toont Azure Cosmos DB Program Manager Andrew Liu de klare algemene distributie-functies.
 
@@ -44,7 +44,7 @@ In de volgende tabel ziet u de specifieke garanties die horen bij elk consistent
 | Consistentieniveau | Garanties |
 | --- | --- |
 | Sterk | Linearizability. Retourneren van de meest recente versie van een item worden leesbewerkingen gegarandeerd.|
-| Gebonden veroudering | Consistent prefix. Leesbewerkingen volgen op schrijfbewerkingen met k prefixen of t interval |
+| Gebonden veroudering | Consistent prefix. Leesbewerkingen achterblijven bij schrijfbewerkingen door maximaal k voorvoegsels of t interval |
 | Sessie   | Consistent prefix. Monotone leesbewerkingen, monotone schrijfbewerkingen, read-your-writes, write-follows-reads |
 | Consistent prefix | Geretourneerde updates zijn een prefix van alle updates, zonder hiaten |
 | Mogelijk  | Leesbewerkingen vinden niet op volgorde plaats |
@@ -64,7 +64,7 @@ De granulatie van de consistentie is afgestemd op een aanvraag voor één gebrui
 U kunt een standaardniveau voor consistentiecontrole configureren op uw databaseaccount die voor alle verzamelingen (en databases geldt) onder uw account Cosmos DB. Standaard gebruiken alle leesbewerkingen en query's die zijn uitgegeven voor de gebruiker gedefinieerde resources het standaardniveau van de consistentie opgegeven op het account van de database. U kunt het consistentieniveau van een specifieke lezen/query aanvraag met in elk van de ondersteunde API's versoepelen. Er zijn vijf typen ondersteund door het protocol van de replicatie Azure Cosmos DB consistentieniveaus die een duidelijke compromis tussen specifieke consistentie wordt gegarandeerd en prestaties bieden, zoals beschreven in deze sectie.
 
 <a id="strong"></a>
-**Strong**: 
+**Sterke**: 
 
 * Sterke consistentie biedt een [linearizability](https://aphyr.com/posts/313-strong-consistency-models) garanderen met gelezen gegevens gegarandeerd dat de meest recente versie van een item geretourneerd. 
 * Sterke consistentie wordt gegarandeerd dat een schrijfbewerking is alleen zichtbaar nadat deze definitief is vastgelegd door het quorum meerderheid van replica's. Een schrijfbewerking ofwel synchroon definitief is vastgelegd door zowel de primaire als het quorum van secundaire replica's of deze is afgebroken. Lees altijd wordt bevestigd door de meerderheid quorum lezen, een client nooit het terugschrijven van een niet-doorgevoerde of gedeeltelijke kan zien en altijd de meest recente bevestigde schrijven lezen kan worden gegarandeerd. 

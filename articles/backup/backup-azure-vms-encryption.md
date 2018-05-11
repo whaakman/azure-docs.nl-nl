@@ -2,10 +2,10 @@
 title: Back-up en herstel virtuele machines versleuteld met behulp van Azure Backup
 description: In dit artikel wordt gesproken over de ervaring van de back-up en herstel voor virtuele machines die zijn versleuteld met behulp van Azure Disk Encryption.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: JPallavi
 manager: vijayts
-editor: 
+editor: ''
 ms.assetid: 8387f186-7d7b-400a-8fc3-88a85403ea63
 ms.service: backup
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 10/13/2017
 ms.author: pajosh;markgal;trinadhk; sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4a1a3c5eb5550967e0a0e045ec508a86cd80ee03
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c788720e046c2efef954ef77f7b52854439b7515
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Back-up en herstel van versleutelde virtuele machines met Azure Backup
 In dit artikel wordt gesproken over de stappen voor de back-up en herstellen van virtuele machines (VM's) met behulp van Azure Backup. Het bevat ook informatie over ondersteunde scenario's, vereisten en stappen voor probleemoplossing voor foutgevallen.
@@ -42,7 +42,7 @@ In dit artikel wordt gesproken over de stappen voor de back-up en herstellen van
 
 * Een Recovery Services-kluis is gemaakt en storage-replicatie is ingesteld door de stappen in [uw omgeving voorbereiden voor back-up](backup-azure-arm-vms-prepare.md).
 
-* Back-up is opgegeven [machtigingen voor toegang tot een sleutelkluis](#provide-permissions-to-azure-backup) met sleutels en geheimen voor virtuele machines versleuteld.
+* Back-up is opgegeven [machtigingen voor toegang tot een sleutelkluis](#provide-permissions-to-backup) met sleutels en geheimen voor virtuele machines versleuteld.
 
 ## <a name="backup-encrypted-vm"></a>Back-up versleuteld VM
 Gebruik de volgende stappen voor instellen van een back-updoel, beleid, items configureren en activeren van een back-up.
@@ -138,10 +138,10 @@ Voor het herstellen van een versleutelde VM eerst herstellen schijven volgens de
 * Volg de stappen in de PowerShell [een virtuele machine maken van herstelde schijven](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) voor het maken van een volledige virtuele machine van herstelde schijven.
 * Of, [sjablonen gebruiken voor het aanpassen van een herstelde virtuele machine](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm) voor het maken van virtuele machines van herstelde schijven. Sjablonen kunnen alleen worden gebruikt voor herstelpunten die zijn gemaakt na 26 April 2017.
 
-## <a name="troubleshooting-errors"></a>Het oplossen van problemen
+## <a name="troubleshooting-errors"></a>Fouten oplossen
 | Bewerking | Foutdetails | Oplossing |
 | --- | --- | --- |
-|Back-up maken | Back-up niet voldoende machtigingen hebben voor de sleutelkluis voor back-up van versleutelde virtuele machines. | Back-up moet deze machtigingen worden opgegeven door de volgende de [stappen in de vorige sectie](#provide-permissions-to-azure-backup). Of u kunt de PowerShell-stappen in de sectie 'Beveiliging inschakelen' van de PowerShell-documentatie op volgen [gebruik AzureRM.RecoveryServices.Backup-cmdlets voor back-up van virtuele machines](backup-azure-vms-automation.md#back-up-azure-vms). |  
+|Backup | Back-up niet voldoende machtigingen hebben voor de sleutelkluis voor back-up van versleutelde virtuele machines. | Back-up moet deze machtigingen worden opgegeven door de volgende de [stappen in de vorige sectie](#provide-permissions-to-azure-backup). Of u kunt de PowerShell-stappen in de sectie 'Beveiliging inschakelen' van de PowerShell-documentatie op volgen [gebruik AzureRM.RecoveryServices.Backup-cmdlets voor back-up van virtuele machines](backup-azure-vms-automation.md#back-up-azure-vms). |  
 | Herstellen |U kunt deze versleutelde virtuele machine niet herstellen omdat de sleutelkluis die zijn gekoppeld aan deze virtuele machine bestaat niet. |Een sleutelkluis maken met behulp van [aan de slag met Azure Key Vault](../key-vault/key-vault-get-started.md). Zie [een sleutelkluis-sleutel en een geheim herstellen met behulp van Azure Backup](backup-azure-restore-key-secret.md) voor het herstellen van een sleutel en een geheim als ze niet aanwezig is. |
 | Herstellen |U kunt deze versleutelde virtuele machine niet herstellen omdat de sleutel en het geheim die is gekoppeld aan deze virtuele machine niet bestaat. |Zie [een sleutelkluis-sleutel en een geheim herstellen met behulp van Azure Backup](backup-azure-restore-key-secret.md) voor het herstellen van een sleutel en een geheim als ze niet aanwezig is. |
 | Herstellen |Back-up beschikt niet over de autorisatie voor toegang tot resources in uw abonnement. |Zoals eerder vermeld, schijven eerst herstellen door de stappen in de sectie 'Een back-up schijven herstellen' in [kiest u de configuratie van een virtuele machine herstellen](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Daarna gebruikt u PowerShell om te [een virtuele machine maken van herstelde schijven](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). |

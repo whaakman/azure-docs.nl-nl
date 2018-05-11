@@ -3,9 +3,9 @@ title: Bouwen en implementeren van een Node.js Express-app met Azure Cloud-Servi
 description: Bouwen en implementeren van een toepassing Express.js in Node.js voor Azure Cloud Services
 services: cloud-services
 documentationcenter: nodejs
-author: craigshoemaker
-manager: routlaw
-editor: 
+author: thraka
+manager: timlt
+editor: ''
 ms.assetid: 24f8e7ef-e90d-4554-9b1e-a9b31d5824e5
 ms.service: cloud-services
 ms.workload: tbd
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: cshoe
-ms.openlocfilehash: befca8d95880936e96d1b3618c172f87499627ed
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.author: adegeo
+ms.openlocfilehash: 8bb78330591b0557b036a161eb83e47b41a8fd43
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Bouw en implementeer een Node.js-webtoepassing met een snelle op een Azure-Cloud-Services
 
@@ -97,7 +97,7 @@ Wijzig nu de weergave om het bericht 'Welkom naar Express in Azure' weer te geve
    
    ![De inhoud van het bestand index.jade.](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
    
-   Jade is de standaard weergave-engine wordt gebruikt door toepassingen van Express. Zie voor meer informatie over Jade weergave-engine [http://jade-lang.com][http://jade-lang.com].
+   Jade is de standaard weergave-engine wordt gebruikt door toepassingen van Express. Zie voor meer informatie over Jade weergave-engine [ http://jade-lang.com ] [ http://jade-lang.com].
 2. De laatste regel van tekst wijzigen door toe te voegen **in Azure**.
    
    ![Het bestand index.jade de laatste regel leest: p Welkom bij de \#{title} in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node31.png)

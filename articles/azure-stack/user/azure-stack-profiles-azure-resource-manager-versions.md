@@ -10,14 +10,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 54de948597a5eddfcc808371c61e36d45089abc4
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: ee4321b905396f78e7dad9248b9e377dad250a13
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Resource provider API-versies ondersteund door de profielen in Azure-Stack
 
@@ -30,7 +30,7 @@ De API-profiel maakt gebruik van drie naamgevingsregels:
 
 Zie voor een uitleg van de API-profielen en versie release uitgebracht voor Azure-Stack [versie-profielen API beheren in Azure-Stack](azure-stack-version-profiles.md).
 
-> [!note]  
+> [!Note]  
 > De **nieuwste** API profiel bevat de nieuwste versie van de resource-serviceprovider-API-versie en niet wordt vermeld in dit artikel.
 
 ## <a name="overview-of-2018--03-01-hybrid"></a>Overzicht van 2018: 03-01-hybride
@@ -120,7 +120,7 @@ De Azure Compute-API's bieden u programmatische toegang tot virtuele machines en
 | Bewerkingen | 2016-03-30 |
 | Virtuele machines | 2016-03-30 |
 | Virtuele Machines/extensies | 2016-03-30 |
-| Schaalsets voor virtuele machines | 2016-03-30 |
+| Virtual Machine Scale Sets | 2016-03-30 |
 | Virtuele-Machineschaalset Sets/extensies | 2016-03-30 |
 | Sets/netwerkinterfaces van virtuele-Machineschaalset | 2016-03-30 |
 | Virtuele Machine Scale Sets/virtuele Machines | 2016-03-30 |
@@ -255,7 +255,7 @@ Storage Resource Provider (SRP) kunt u uw opslagaccount en sleutels programmatis
 | Bewerkingen | 2016-03-30 |
 | Virtuele machines | 2016-03-30 |
 | Virtuele Machines/extensies | 2016-03-30 |
-| Schaalsets voor virtuele machines | 2016-03-30 |
+| Virtual Machine Scale Sets | 2016-03-30 |
 | Virtuele-Machineschaalset Sets/extensies | 2016-03-30 |
 | Sets/netwerkinterfaces van virtuele-Machineschaalset | 2016-03-30 |
 | Virtuele Machine Scale Sets/virtuele Machines | 2016-03-30 |

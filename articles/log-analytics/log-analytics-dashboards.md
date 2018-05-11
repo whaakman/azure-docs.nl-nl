@@ -2,10 +2,10 @@
 title: Een aangepaste dashboard maken in Azure Log Analytics | Microsoft Docs
 description: Deze handleiding helpt u begrijpen hoe logboekanalyse dashboards Visualiseer al uw zoekopdrachten opgeslagen logboek zodat u een identiteitsonderdelen om weer te geven van uw omgeving.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
 ms.service: log-analytics
 ms.workload: na
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 08/08/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 22cc516c15353e39c73e762d2b8fa0d787a05ef4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 7eaa74655b009e3154e2cc4f09d5599040ec4589
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Maken van een aangepast dashboard voor gebruik in Log Analytics
 
 Deze handleiding helpt u begrijpen hoe logboekanalyse dashboards Visualiseer al uw zoekopdrachten opgeslagen logboek zodat u een identiteitsonderdelen om weer te geven van uw omgeving.
 
 >[!NOTE]
-> Als uw werkruimte is bijgewerkt naar de [querytaal van nieuwe logboekanalyse](log-analytics-log-search-upgrade.md), en u kunt uw bestaande niet bewerken **mijn Dashboard**. Als uw werkruimte is geen **mijn Dashboard** tegels die zijn toegevoegd, ziet u niet **mijn Dashboard** in uw bijgewerkte werkruimte. 
+> U kunt niet meer bewerken voor uw bestaande **mijn Dashboard**. Deze functie is momenteel wordt afgeschaft.
 
 ![Voorbeeld van Dashboard](./media/log-analytics-dashboards/oms-dashboards-example-dash.png)
 
@@ -70,7 +70,7 @@ Er zijn drie soorten tegel visualisaties kunt kiezen uit:
 | grafiektype | wat het programma doet |
 | --- | --- |
 | ![Staafdiagram](./media/log-analytics-dashboards/oms-dashboards-bar-chart.png) |Geeft een tijdlijn met uw opgeslagen logboek zoekresultaten weer als een staafdiagram of een lijst met resultaten in een veld afhankelijk van als uw zoekopdracht logboek resultaten door een veld of niet aggregeert. |
-| ![Metrische gegevens](./media/log-analytics-dashboards/oms-dashboards-metric.png) |Worden uw totale logboek zoeken resultaat treffers weergegeven als een getal in een tegel. Metrische tegels kunnen u een drempelwaarde die de tegel wordt gemarkeerd als de drempelwaarde is bereikt. |
+| ![metrische waarde](./media/log-analytics-dashboards/oms-dashboards-metric.png) |Worden uw totale logboek zoeken resultaat treffers weergegeven als een getal in een tegel. Metrische tegels kunnen u een drempelwaarde die de tegel wordt gemarkeerd als de drempelwaarde is bereikt. |
 | ![regel](./media/log-analytics-dashboards/oms-dashboards-line.png) |Hiermee geeft u een tijdlijn van uw opgeslagen logboek resultaat gevonden in de zoekopdracht met waarden weer als een lijndiagram. |
 
 ### <a name="threshold"></a>Drempelwaarde

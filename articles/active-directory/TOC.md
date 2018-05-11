@@ -167,16 +167,16 @@
 #### [Hybride, in Azure AD gekoppelde oudere Windows-apparaten](device-management-troubleshoot-hybrid-join-windows-legacy.md)
 
 ## Apps beheren
-### [Overzicht](active-directory-enable-sso-scenario.md)
-### [Aan de slag](active-directory-integrating-applications-getting-started.md)
+### [Overzicht](manage-apps/what-is-application-management.md)
+### [Aan de slag](manage-apps/plan-an-application-integration.md)
 ### [Zelfstudies voor SaaS-app-integratie](active-directory-saas-tutorial-list.md)
-### [Cloud App Discovery](cloudappdiscovery-get-started.md)
-#### [Momentopnamerapporten maken](cloudappdiscovery-set-up-snapshots.md)
+### [Cloud App Discovery](manage-apps/cloud-app-discovery.md)
+#### [Momentopnamerapporten maken](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
 #### [Continue rapportage configureren](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Een aangepaste logboekparser gebruiken](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
 
 
-### [Toegang tot apps op afstand via App Proxy](active-directory-application-proxy-get-started.md)
+### [Toegang tot apps op afstand via App Proxy](manage-apps/application-proxy.md)
 #### Aan de slag
 ##### [App-Proxy inschakelen](active-directory-application-proxy-enable.md)
 ##### [Apps publiceren](application-proxy-publish-azure-portal.md)

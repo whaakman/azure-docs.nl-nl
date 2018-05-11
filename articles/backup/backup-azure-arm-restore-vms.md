@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: d3e088841bcf291363ec7c042b0fa160fc7d25ca
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9a25a2f40e93c291d4c69ee726c732468005d2cd
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>De Azure portal gebruiken voor virtuele machines herstellen
 Uw gegevens beschermen door het maken van momentopnamen van uw gegevens op de gedefinieerde intervallen. Deze momentopnamen worden aangeduid als herstelpunten en ze zijn opgeslagen in de Recovery Services-kluizen. Als het nodig zijn om te herstellen of opnieuw opbouwen van een virtuele machine (VM), kunt u de virtuele machine herstellen uit een van de opgeslagen herstelpunten. Wanneer u een herstelpunt herstelt, kunt u het volgende doen:
@@ -90,12 +90,12 @@ Herstellen van een virtuele machine of alle schijven van virtuele machine back-u
 
     De **herstellen** blade ziet u dat het herstelpunt is ingesteld.
 
-9. Als u bent niet al er, gaat u naar de **herstellen** blade. Zorg ervoor dat een [herstelpunt is geselecteerd](#select-restore-point-for-restore), en selecteer **configuratie terugzetten**. De **configuratie terugzetten** blade wordt geopend.
+9. Als u bent niet al er, gaat u naar de **herstellen** blade. Zorg ervoor dat een [herstelpunt is geselecteerd](#select-a-restore-point-for-restore), en selecteer **configuratie terugzetten**. De **configuratie terugzetten** blade wordt geopend.
 
 ## <a name="choose-a-vm-restore-configuration"></a>Kies een configuratie van de virtuele machine herstellen
 Nadat u het herstelpunt selecteert, kiest u de configuratie van een virtuele machine herstellen. U kunt de Azure-portal of PowerShell gebruiken voor het configureren van de herstelde virtuele machine.
 
-1. Als u bent niet al er, gaat u naar de **herstellen** blade. Zorg ervoor dat een [herstelpunt is geselecteerd](#select-restore-point-for-restore), en selecteer **configuratie terugzetten**. De **configuratie terugzetten** blade wordt geopend.
+1. Als u bent niet al er, gaat u naar de **herstellen** blade. Zorg ervoor dat een [herstelpunt is geselecteerd](#select-a-restore-point-for-restore), en selecteer **configuratie terugzetten**. De **configuratie terugzetten** blade wordt geopend.
 
     ![Herstellen van de configuratiewizard](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard-recovery-type.png)
 2. Op de **configuratie terugzetten** blade hebt u twee mogelijkheden:

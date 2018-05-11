@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: c66b0d7ea5ade90c6bb8f88006f2a09bd407deaa
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: f74d378359ec66b76fd53b95ab898f1cec9b07f7
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/10/2018
@@ -77,6 +77,9 @@ De volgende afbeelding van Ubuntu Server toevoegen aan de Marketplace:
     - **SKU**: 16.04 TNS
     - **Versie**: 16.04.201802220
 
+    > [!Note]  
+    > Meer dan één versie van Ubuntu Server 16.04 TNS kan worden vermeld. U moet de versie die overeenkomt met toevoegen. Het Kubernetes Cluster vereist de exacte versie van het item.
+
 6. Selecteer **downloaden.**
 
 ## <a name="add-a-custom-script-for-linux"></a>Een aangepast script toevoegen voor Linux
@@ -95,6 +98,9 @@ Voeg het Cluster Kubernetes vanuit de Marketplace:
     - **Bieden**: aangepast Script voor Linux 2.0
     - **Versie**: 2.0.3
     - **Publisher**: Microsoft Corp
+
+    > [!Note]  
+    > Er kan meer dan één versie van een aangepast Script voor Linux worden vermeld. U moet de versie die overeenkomt met toevoegen. Het Kubernetes Cluster vereist de exacte versie van het item.
 
 6. Selecteer **downloaden.**
 
@@ -138,6 +144,8 @@ Het item Kubernetes Cluster verwijderen:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Een Cluster Kubernetes implementeren naar Azure Stack](/user/azure-stack-solution-template-kubernetes-deploy.md)
+[Een Cluster Kubernetes implementeren naar Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
+
+
 
 [Overzicht van services in Azure-Stack van aanbieding](azure-stack-offer-services-overview.md)

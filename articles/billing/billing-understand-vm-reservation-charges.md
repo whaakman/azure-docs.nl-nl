@@ -3,8 +3,8 @@ title: De gereserveerde virtuele Machine-exemplaren Azure korting toepassing beg
 description: Meer informatie over hoe Azure gereserveerde VM-instantie korting wordt toegepast op de VM's worden uitgevoerd.
 services: billing
 documentationcenter: ''
-author: vikramdesai01
-manager: vikdesai
+author: yashesvi
+manager: yashar
 editor: ''
 ms.service: billing
 ms.devlang: na
@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
-ms.author: vikdesai
-ms.openlocfilehash: 6e551fddfc5ba8924cd8c71a1775307e7569b847
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.author: yashar
+ms.openlocfilehash: ddf6e6a869fb2961db6b626878f9433fdc00a55f
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="understand-how-the-reserved-virtual-machine-instance-discount-is-applied"></a>Begrijpen hoe de korting exemplaar van de gereserveerde virtuele Machine wordt toegepast
 Nadat u een gereserveerde VM-instantie hebt gekocht, wordt de reservering korting automatisch toegepast op virtuele machines die overeenkomt met de kenmerken en de hoeveelheid van de reservering. Een reservering bevat informatie over de kosten van de infrastructuur van uw virtuele machines. De volgende tabel ziet u de kosten voor uw virtuele machine na de aankoop van een reservering. In alle gevallen moet u in rekening worden gebracht voor opslag en netwerken op de normale tarieven.
 
 | Type van de virtuele Machine  | Kosten met-reservering |    
-|-----------------------|--------------------------------------------| 
+|-----------------------|--------------------------------------------|
 |Virtuele Linux-machines zonder extra software | Reservering bevat informatie over de kosten van uw VM-infrastructuur.|
 |Virtuele Linux-machines met de software-kosten (bijvoorbeeld Red Hat) | Reservering bevat informatie over de kosten van de infrastructuur. Worden in rekening gebracht voor andere software.|
 |VM's van Windows zonder extra software |Reservering bevat informatie over de kosten van de infrastructuur. Worden in rekening gebracht voor Windows-software.|
@@ -53,7 +53,9 @@ Zie de volgende artikelen voor meer informatie over gereserveerde virtuele Machi
 - [Geld besparen op virtuele machines met een gereserveerde virtuele Machine-exemplaren](billing-save-compute-costs-reservations.md)
 - [Gebruik van de gereserveerde exemplaar voor uw abonnement op gebruiksbasis begrijpen](billing-understand-reserved-instance-usage.md)
 - [Gereserveerde exemplaar gebruiksgegevens voor uw Enterprise enrollment begrijpen](billing-understand-reserved-instance-usage-ea.md)
+- [Gebruik voor abonnementen van de CSP gereserveerde exemplaar begrijpen](https://docs.microsoft.com/partner-center/azure-reservations)
 - [Kosten voor Windows-software niet zijn opgenomen in de gereserveerde exemplaren](billing-reserved-instance-windows-software-costs.md)
+
 
 ## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
 

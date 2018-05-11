@@ -9,11 +9,11 @@ ms.topic: article
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: f8c9cb33eb90232f5eb241add284f7ea7b64bc05
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 39febc947f4ab6dc406290273e5e1fc1c58a59e2
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Ingebouwde updatebeheer, bijhouden en voorraad oplossingen van een virtuele Machine van Azure
 
@@ -38,11 +38,17 @@ Navigeer naar de andere oplossingen en klikt u op **inschakelen**, wordt de logb
 > [!NOTE]
 > **Bijhouden van wijzigingen** en **inventaris** dezelfde oplossing gebruiken wanneer een is ingeschakeld de andere ook is ingeschakeld.
 
-## <a name="scope-configuration"></a>Configuratie van de scope
+## <a name="scope-configuration"></a>Scopeconfiguratie
 
 Elke oplossing gebruikt de configuratie van een Scope in de werkruimte toe te passen van de computers die de oplossing. De configuratie van het is een groep van een of meer opgeslagen zoekopdrachten die wordt gebruikt voor het bereik van de oplossing op bepaalde computers beperken. Voor toegang tot de Scope-configuraties in uw Automation-account onder **verwante RESOURCES**, selecteer **werkruimte** vervolgens in de werkruimte **WERKRUIMTE GEGEVENSBRONNEN**, Selecteer **bereik configuraties**.
 
-De twee bereik configuraties standaard gemaakt zijn **MicrosoftDefaultScopeConfig ChangeTracking** en **MicrosoftDefaultScopeConfig Updates**.
+Als de geselecteerde werkruimte beschikt niet over de oplossingen voor beheer van updates of wijzigingen bijhouden nog, de volgende configuraties voor de scope gemaakt:
+
+* **MicrosoftDefaultScopeConfig ChangeTracking**
+
+* **MicrosoftDefaultScopeConfig-Updates**
+
+Als het al is de oplossing voor de geselecteerde werkruimte. De oplossing niet opnieuw is geïmplementeerd en de configuratie van het niet is toegevoegd.
 
 Klik op de weglatingstekens (...) op een van de configuraties en selecteer **bewerken**. Op de **bewerken scopeconfiguratie** pagina **computergroepen Selecteer** openen de **computergroepen** pagina. Deze pagina bevat de opgeslagen zoekopdrachten die worden gebruikt voor het maken van de configuratie van de Scope.
 

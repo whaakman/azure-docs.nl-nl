@@ -5,16 +5,18 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/09/2018
+ms.date: 05/09/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 100e0457627a04414ad2f0780a346933b11f4376
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 842083f0f69552fb9076423386353dbb4dae73b5
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/10/2018
 ---
-1. Als u op **Verbinden** klikt, wordt een Remote Desktop Protocol-bestand (.rdp) gemaakt en gedownload. Klik op **Openen** om dit bestand te gebruiken.
+1. Klik op de **Connect** knop op de eigenschappenpagina van de virtuele machine. 
+2. In de **verbinding maken met virtuele machine** pagina, houden selecteert de gewenste opties en klik op **downloaden RDP-bestand**.
+2. Open het gedownloade RDP-bestand en klik op **Connect** wanneer u wordt gevraagd. 
 2. U ontvangt een waarschuwing dat het `.rdp`-bestand van een onbekende uitgever is. Dit is normaal. Klik in het venster Extern bureaublad op **Verbinden** om door te gaan.
    
     ![Schermafbeelding met waarschuwing over een onbekende uitgever](./media/virtual-machines-log-on-win-server/rdp-warn.png)

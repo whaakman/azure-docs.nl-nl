@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: 3a4277d2106078136cee09dfe6aefc87a73c4e08
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 8bf534177e8236a7d72d6dfdd4612b5f6f492b17
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="log-alerts-in-azure-monitor---alerts"></a>Logboek waarschuwingen in Azure Monitor - waarschuwingen 
 Dit artikel vindt u details van logboek-waarschuwingen zijn een van de typen waarschuwingen die worden ondersteund in de nieuwe [Azure waarschuwingen](monitoring-overview-unified-alerts.md) en toestaan dat gebruikers van Azure analytics platform gebruiken als basis voor het waarschuwen... Raadpleeg voor meer informatie van metriek waarschuwingen met Logboeken [bijna realtime metriek waarschuwingen](monitoring-near-real-time-metric-alerts.md)
@@ -92,7 +92,7 @@ Overweeg een scenario waarin het gewenste een waarschuwing als een computer proc
 - **Periode:** 30 minuten<br>
 - **Waarschuwing frequentie:** vijf minuten<br>
 - **Cumulatieve waarde:** geweldige dan 90<br>
-- **Waarschuwing activeren op basis van:** totaal kiezen oplossingen groter is dan 5<br>
+- **Waarschuwing activeren op basis van:** totaal kiezen oplossingen groter is dan 2<br>
 
 De query maakt een gemiddelde waarde voor elke computer met een interval van 5 minuten.  Deze query worden uitgevoerd om de 5 minuten voor gegevens die worden verzameld in de vorige 30 minuten.  Voorbeeldgegevens worden hieronder weergegeven voor de drie computers.
 

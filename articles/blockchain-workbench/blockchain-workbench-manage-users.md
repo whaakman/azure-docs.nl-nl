@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: c17a406a0fd6f1172599ac0379c6afc139403148
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a426f7f424bc1941890c80a83997d8e08b368884
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>Gebruikers in Azure Blockchain Workbench beheren
 
@@ -68,20 +68,18 @@ Gebruikers toevoegen aan de **beheerders** groep in de Azure AD-map:
 
 De toepassing Blockchain Workbench gebruiken voor het beheren van gebruikers en organisaties die deel van uw consortium uitmaken. U kunt toevoegen of verwijderen van gebruikers tot toepassingen en functies.
 
-[Open de Blockchain Workbench](blockchain-workbench-deploy.md#blockchain-workbench-web-url) in uw browser en meld u aan als beheerder.
+1. [Open de Blockchain Workbench](blockchain-workbench-deploy.md#blockchain-workbench-web-url) in uw browser en meld u aan als beheerder.
 
-![Blockchain Workbench](media/blockchain-workbench-manage-users/blockchain-workbench-applications.png)
+    ![Blockchain Workbench](media/blockchain-workbench-manage-users/blockchain-workbench-applications.png)
 
-### <a name="managing-members-in-applications"></a>Leden in toepassingen beheren
+    Leden worden toegevoegd aan elke toepassing. Leden kunnen een of meer toepassingsrollen te initiëren opdrachten of acties ondernemen hebben.
 
-Leden worden toegevoegd aan elke toepassing. Leden kunnen een of meer toepassingsrollen te initiëren opdrachten of acties ondernemen hebben.
+2. Voor het beheren van leden voor een toepassing, selecteer de tegel van een toepassing in de **toepassingen** deelvenster.
 
-U kunt leden toevoegen aan een toepassing, selecteer de tegel van een toepassing in de **toepassingen** deelvenster.
+    Het aantal leden die zijn gekoppeld aan de geselecteerde toepassing wordt weergegeven in de tegel leden.
 
-![Toepassing selecteren](media/blockchain-workbench-manage-users/blockchain-workbench-select-application.png)
+    ![Toepassing selecteren](media/blockchain-workbench-manage-users/blockchain-workbench-select-application.png)
 
-> [!NOTE]
-> Het aantal leden die zijn gekoppeld aan de geselecteerde toepassing wordt weergegeven in de tegel leden.
 
 #### <a name="add-member-to-application"></a>Lid toevoegen aan de toepassing
 

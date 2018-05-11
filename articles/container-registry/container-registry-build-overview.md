@@ -8,11 +8,11 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: marsma
-ms.openlocfilehash: 7506351c0d65fb167136478d2dc383cdabd81835
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 3ef91270bceb5865bdbdf9c436e4519595a3dc09
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="automate-os-and-framework-patching-with-acr-build"></a>OS- en framework patchen met ACR bouwen automatiseren
 
@@ -20,8 +20,7 @@ Containers bieden nieuwe niveaus van virtualisatie, toepassing en ontwikkelaars 
 
 **ACR bouwen**, een reeks functies in Azure Container register, biedt niet alleen systeemeigen container image build mogelijkheid, maar ook automatiseert [OS en framework patchen](#automate-os-and-framework-patching) voor uw Docker-containers.
 
-> [!IMPORTANT]
-> ACR bouwen momenteel preview en wordt alleen ondersteund door Azure container registers in de **VS-Oost** en **West-Europa** regio's. Voorbeelden voor u beschikbaar zijn aangebracht op voorwaarde dat u akkoord met gaat de [aanvullende gebruiksvoorwaarden][terms-of-use]. Sommige aspecten van deze functionaliteit kunnen wijzigen voordat deze functionaliteit algemeen beschikbaar wordt.
+[!INCLUDE [container-registry-build-preview-note](../../includes/container-registry-build-preview-note.md)]
 
 ## <a name="what-is-acr-build"></a>Wat is ACR bouwen?
 
@@ -73,7 +72,6 @@ Wanneer u klaar bent om OS en framework patchen door het maken van installatieko
 [base-node]: https://hub.docker.com/_/node/
 [base-windows]: https://hub.docker.com/r/microsoft/nanoserver/
 [sample-archive]: https://github.com/Azure-Samples/acr-build-helloworld-node/archive/master.zip
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli

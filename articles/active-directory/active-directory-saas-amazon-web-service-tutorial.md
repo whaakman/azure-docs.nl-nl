@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 3f553b9ea3629a38ab9dea0e93b16c62aebe301f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b59e3dae685c4994c44582d569875637b335bf87
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Zelfstudie: Azure Active Directory-integratie met Amazon Web Services (AWS)
 
@@ -190,7 +190,7 @@ In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure por
   
     d. Klik op **volgende: machtigingen**.
 
-16. Op de **koppelen machtigingsbeleid** dialoogvenster, klikt u op **volgende: Bekijk**.  
+16. Op de **koppelen machtigingsbeleid** dialoogvenster, u hoeft niet te koppelen van een beleid. Klik op **volgende: Bekijk**.  
     
     ![Beleid voor één aanmelding configureren][33]
 
@@ -404,7 +404,7 @@ In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding toegang verlee
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 

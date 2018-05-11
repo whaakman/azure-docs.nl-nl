@@ -1,6 +1,6 @@
 ---
 title: Maken van een Service-Principal voor Azure Stack | Microsoft Docs
-description: Beschrijft hoe u maakt een nieuwe service-principal die kan worden gebruikt met de op rollen gebaseerde toegangsbeheer in Azure Resource Manager voor het beheren van toegang tot bronnen.
+description: Beschrijft het maken van een service-principal die kan worden gebruikt met de op rollen gebaseerde toegangsbeheer in Azure Resource Manager voor het beheren van toegang tot bronnen.
 services: azure-resource-manager
 documentationcenter: na
 author: mattbriggs
@@ -11,121 +11,155 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/28/2018
+ms.date: 04/27/2018
 ms.author: mabrigg
-ms.openlocfilehash: 0517c85c62aaffd1055206120281c7b7de31ad82
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: de5712fd7b48a759b366f5b9808bbbefc6e305cd
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="provide-applications-access-to-azure-stack"></a>Toepassingen toegang bieden tot Azure-Stack
+# <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Toepassingen toegang geven tot bronnen van de Azure-Stack door het service-principals maken
 
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
-Wanneer een toepassing toegang moet tot het implementeren of via Azure Resource Manager-resources in Azure-Stack configureren, maakt u een service principal, een referentie voor uw toepassing is.  Vervolgens kunt u alleen de vereiste machtigingen om deze service-principal delegeren.  
+U kunt een toepassing toegang geven tot Azure-Stack bronnen door het maken van een service principal die gebruikmaakt van Azure Resource Manager. Een service-principal kunt u de specifieke machtigingen delegeren met behulp van [toegangsbeheer op basis van rollen](azure-stack-manage-permissions.md).
 
-Als u bijvoorbeeld mogelijk hebt u een configuration management-hulpprogramma dat gebruikmaakt van Azure Resource Manager voor het inventariseren van Azure-resources.  In dit scenario kunt u een service-principal maken, de lezersrol verlenen aan deze service-principal en beperken van het hulpprogramma configuration management naar alleen-lezen toegang. 
+Als een best practice moet u de service-principals gebruiken voor uw toepassingen. Service-principals zijn beter voor het uitvoeren van een app met uw eigen referenties voor de volgende redenen:
 
-Service-principals zijn beter voor het uitvoeren van de app met uw eigen referenties, omdat:
+* U kunt machtigingen toewijzen aan de service-principal die anders zijn dan de accountmachtigingen van uw eigen. Een service-principal machtigingen zijn meestal beperkt tot precies wat de app moet doen.
+* U hoeft niet te wijzigen van de app referenties als uw rol of verantwoordelijkheden wijzigt.
+* U kunt een certificaat gebruiken voor het automatiseren van verificatie bij het uitvoeren van een onbewaakt script.
 
-* U kunt machtigingen toewijzen aan de service-principal die anders zijn dan de accountmachtigingen van uw eigen. Deze machtigingen zijn meestal beperkt tot precies wat de app moet doen.
-* U hoeft niet te wijzigen van de app referenties als uw verantwoordelijkheden wijzigt.
-* U kunt een certificaat gebruiken voor het automatiseren van verificatie bij het uitvoeren van een onbewaakt script.  
+## <a name="example-scenario"></a>Voorbeeldscenario
+
+U hebt een configuration management-app die nodig voor het inventariseren van Azure-resources met Azure Resource Manager. U kunt een service-principal maken en toewijzen aan de rol Lezer toe. Deze rol geeft de app alleen-lezen toegang tot Azure-resources.
 
 ## <a name="getting-started"></a>Aan de slag
 
-Afhankelijk van hoe u Azure-Stack hebt geïmplementeerd, begint u met het maken van een service principal.  Dit document begeleidt u bij het maken van een service-principal voor beide [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad) en [Active Directory Federation Services(AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).  Als u de service-principal hebt gemaakt, een reeks stappen algemene op AD FS en Azure Active Directory worden gebruikt om [machtigingen delegeren](azure-stack-create-service-principals.md#assign-role-to-service-principal) aan de rol.     
+De stappen in dit artikel als richtlijn te gebruiken:
 
-## <a name="create-service-principal-for-azure-ad"></a>Service-principal maken voor Azure AD
+* Maken van een service-principal voor uw app.
+* Uw app registreren en een verificatiesleutel maken.
+* Uw app aan een rol toewijzen.
 
-Als u Azure-Stack gebruikmaken van Azure AD als identiteit archief hebt geïmplementeerd, kunt u de service-principals, net zoals u zou voor Azure doen maken.  Deze sectie wordt beschreven hoe u de stappen uitvoert via de portal.  Controleer of u hebt de [Azure AD-machtigingen vereist](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) voordat u begint.
+De manier waarop u Active Directory hebt geconfigureerd voor Azure-Stack bepaalt hoe u een service-principal maken. Kies een van de volgende opties:
+
+* Maken van een service principal voor [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad).
+* Maken van een service principal voor [Active Directory Federation Services (AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
+
+De stappen voor het toewijzen van een service-principal aan een rol dezelfde voor Azure AD en AD FS. Nadat u de service-principal gemaakt, kunt u [machtigingen delegeren](azure-stack-create-service-principals.md#assign-role-to-service-principal) toewijzen aan een rol.
+
+## <a name="create-a-service-principal-for-azure-ad"></a>Een service-principal maken voor Azure AD
+
+Als uw Azure-Stack Azure AD als de identity-store gebruikt, kunt u een service principal met dezelfde stappen als in Azure met behulp van de Azure portal maken.
+
+>[!NOTE]
+Controleer dat u hebt de [Azure AD-machtigingen vereist](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) voordat u een service-principal maken.
 
 ### <a name="create-service-principal"></a>Een service-principal maken
-In deze sectie maakt maakt u een toepassing (service-principal) in Azure AD waarmee uw toepassing.
+
+Maken van een service-principal voor uw toepassing:
 
 1. Aanmelden bij uw Azure-Account via de [Azure-portal](https://portal.azure.com).
-2. Selecteer **Azure Active Directory** > **App registraties** > **toevoegen**   
+2. Selecteer **Azure Active Directory** > **App registraties** > **toevoegen**.
 3. Geef een naam en URL voor de toepassing op. Selecteer een **Web-app / API** of **systeemeigen** voor het type van de toepassing die u wilt maken. Na het instellen van de waarden, selecteer **maken**.
 
-U hebt een service-principal gemaakt voor uw toepassing.
-
 ### <a name="get-credentials"></a>Referenties ophalen
-Wanneer u programmatisch zich aanmeldt, kunt u de ID gebruiken voor uw toepassing en een verificatiesleutel. U kunt deze waarden als volgt ophalen:
+
+Wanneer u zich aanmeldt via een programma, kunt u de ID gebruiken voor uw toepassing en een verificatiesleutel. Deze waarden ophalen:
 
 1. Van **App registraties** in Active Directory, selecteer uw toepassing.
 
-2. Kopieer de **Toepassings-id** en sla deze op in uw toepassingscode. De toepassingen in de [voorbeeldtoepassingen](#sample-applications) sectie verwijzen naar deze waarde als de client-id.
+2. Kopieer de **Toepassings-id** en sla deze op in uw toepassingscode. De toepassingen in de [voorbeeldtoepassingen](#sample-applications) gebruiken **client-id** met betrekking tot de **toepassings-ID**.
 
-     ![client-id](./media/azure-stack-create-service-principal/image12.png)
+     ![Toepassings-ID voor de toepassing](./media/azure-stack-create-service-principal/image12.png)
 3. Selecteer **Sleutels** om een verificatiesleutel te genereren.
 
 4. Geef een beschrijving van de sleutel en geef de duur van de sleutel op. Selecteer **Opslaan** wanneer u klaar bent.
 
-Na het opslaan van de sleutel wordt de waarde van de sleutel weergegeven. Kopieer deze waarde, want u kunt de sleutel later niet meer ophalen. U kunt de sleutelwaarde opgeven met de toepassings-ID aan te melden als de toepassing. Sla de sleutelwaarde op waar uw toepassing deze kan ophalen.
+>[!IMPORTANT]
+Nadat u de sleutel opslaan **waarde** wordt weergegeven. Noteer deze waarde omdat u de sleutel later niet ophalen. Sla de sleutelwaarde op waar uw toepassing deze kan ophalen.
 
-![opgeslagen sleutel](./media/azure-stack-create-service-principal/image15.png)
+![Waarschuwing: sleutelwaarde voor opgeslagen sleutel.](./media/azure-stack-create-service-principal/image15.png)
 
-
-Als u klaar is, gaat u verder met [uw toepassing een rol toewijst](azure-stack-create-service-principals.md#assign-role-to-service-principal).
+De laatste stap is [uw toepassing een rol toewijst](azure-stack-create-service-principals.md#assign-role-to-service-principal).
 
 ## <a name="create-service-principal-for-ad-fs"></a>Service-principal maken voor AD FS
-Als u Azure-Stack met AD FS hebt geïmplementeerd, kunt u PowerShell naar een service-principal maken, een rol voor toegang toe te wijzen en aan te melden met die identiteit PowerShell.
+
+Als u Azure-Stack AD FS gebruikt als de identity-archief hebt geïmplementeerd, kunt u PowerShell gebruiken voor de volgende taken:
+
+* Een service-principal maken.
+* Service-principal toewijzen aan een rol.
+* Meld u met de service-principal-identiteit.
 
 ### <a name="before-you-begin"></a>Voordat u begint
 
-[Download de hulpprogramma's voor het werken met Azure-Stack op uw lokale computer.](azure-stack-powershell-download.md)
+[Download de vereiste Azure Stack-hulpprogramma's op uw lokale computer.](azure-stack-powershell-download.md)
 
 ### <a name="import-the-identity-powershell-module"></a>De identiteit van PowerShell-module importeren
-Nadat u de hulpprogramma's hebt gedownload, navigeer naar de map voor gedownloade en de identiteit van PowerShell-module importeren met behulp van de volgende opdracht:
+
+Navigeer naar de downloadmap voor de Azure-Stack-hulpprogramma's en de identiteit van PowerShell-module importeren met behulp van de volgende opdracht:
 
 ```PowerShell
 Import-Module .\Identity\AzureStack.Identity.psm1
 ```
 
-Wanneer u de module importeren, wordt een foutbericht 'AzureStack.Connect.psm1 niet digitaal is ondertekend. Het script wordt niet uitgevoerd op het systeem'. U lost dit probleem, kunt u instellen-uitvoeringsbeleid om toe te staan bij het uitvoeren van het script met de volgende opdracht in een PowerShell-sessie met verhoogde bevoegdheid:
+Als u de Identity-module importeren, krijgt u mogelijk dit foutbericht wordt weergegeven: 'AzureStack.Connect.psm1 niet digitaal is ondertekend. Het script wordt niet uitgevoerd op het systeem'.
+
+U kunt dit probleem oplossen, moet u het uitvoeringsbeleid zodat het uitvoeren van het script configureren. Als u wilt het uitvoeringsbeleid instellen, voer de volgende opdracht in een PowerShell-sessie met verhoogde bevoegdheid:
 
 ```PowerShell
 Set-ExecutionPolicy Unrestricted
 ```
 
 ### <a name="create-the-service-principal"></a>De service-principal maken
-U kunt een Service-Principal maken met het uitvoeren van de volgende opdracht om ervoor te zorgen om bij te werken de *DisplayName* parameter:
+
+U kunt een service-principal maken met de volgende opdracht om ervoor te zorgen voor het bijwerken van de **DisplayName** parameter:
+
 ```powershell
 $servicePrincipal = New-AzSADGraphServicePrincipal `
  -DisplayName "<YourServicePrincipalName>" `
  -AdminCredential $(Get-Credential) `
  -AdfsMachineName "AZS-ADFS01" `
  -Verbose
-```
-### <a name="assign-a-role"></a>Een rol toewijzen
-Zodra de Service-Principal is gemaakt, moet u [aan een rol toewijzen](azure-stack-create-service-principals.md#assign-role-to-service-principal)
 
-### <a name="sign-in-through-powershell"></a>Meld u aan via PowerShell
-Wanneer u hebt een rol is toegewezen, kunt u zich aanmeldt bij Azure Stack met behulp van de service-principal met de volgende opdracht:
+```
+
+### <a name="assign-a-role"></a>Een rol toewijzen
+
+Nadat u de service-principal gemaakt, moet u [toewijzen aan een rol](azure-stack-create-service-principals.md#assign-role-to-service-principal).
+
+### <a name="sign-in-using-powershell"></a>Meld u aan met behulp van PowerShell
+
+U kunt zich aanmelden naar Azure-Stack door de volgende opdracht uit te voeren, om ervoor te zorgen om bij te werken de **EnvironmentName** parameter met de naam van uw app:
 
 ```powershell
 Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
  -ServicePrincipal `
  -CertificateThumbprint $servicePrincipal.Thumbprint `
- -ApplicationId $servicePrincipal.ApplicationId ` 
+ -ApplicationId $servicePrincipal.ApplicationId `
  -TenantId $directoryTenantId
 ```
 
-## <a name="assign-role-to-service-principal"></a>De rol toewijzen aan de service-principal
+## <a name="assign-the-service-principal-to-a-role"></a>De service-principal toewijzen aan een rol
+
 Voor toegang tot resources in uw abonnement, moet u de toepassing aan een rol toewijzen. Bepaal welke rol vertegenwoordigt de juiste machtigingen voor de toepassing. Zie voor meer informatie over de beschikbare rollen, [RBAC: ingebouwde rollen](../../role-based-access-control/built-in-roles.md).
 
-U kunt het bereik instellen op het niveau van het abonnement, resourcegroep of resource. Machtigingen worden overgenomen op lagere niveaus van het bereik. Bijvoorbeeld, een toepassing met de rol Lezer voor een resourcegroep toe te voegen dat kan de resourcegroep en alle resources die deze bevat gelezen.
+>[!NOTE]
+Op het niveau van een abonnement, resourcegroep of een bron, kunt u een rol bereik instellen. Machtigingen worden overgenomen op lagere niveaus van het bereik. Een app met de rol Lezer voor een resourcegroep betekent bijvoorbeeld dat de app de bronnen in de resourcegroep kan lezen.
 
-1. Ga naar het niveau van het bereik dat u wilt de toepassing toewijzen aan in de Stack van Azure-portal. Selecteer bijvoorbeeld als een rol bij het abonnementsbereik wilt toewijzen, **abonnementen**. U kunt in plaats daarvan een resourcegroep of resource selecteren.
+Gebruik de volgende stappen uit als richtlijn voor een rol toewijzen aan een service-principal.
 
-2. Selecteer het bepaald abonnement (resourcegroep of resource) de toepassing toewijzen aan.
+1. Ga naar het niveau van het bereik dat u wilt dat de toepassing toewijzen aan in de Stack van Azure-portal. Selecteer bijvoorbeeld als een rol bij het abonnementsbereik wilt toewijzen, **abonnementen**.
 
-     ![Selecteer het abonnement voor de toewijzing](./media/azure-stack-create-service-principal/image16.png)
+2. Selecteer het abonnement de toepassing toewijzen aan. In dit voorbeeld is het abonnement Visual Studio Enterprise.
 
-3. Selecteer **toegangsbeheer (IAM)**.
+     ![Selecteer Visual Studio Enterprise-abonnement voor toewijzing](./media/azure-stack-create-service-principal/image16.png)
 
-     ![Selecteer toegang](./media/azure-stack-create-service-principal/image17.png)
+3. Selecteer **Access Control (IAM)** voor het abonnement.
+
+     ![Selecteer toegangsbeheer](./media/azure-stack-create-service-principal/image17.png)
 
 4. Selecteer **Toevoegen**.
 
@@ -133,9 +167,9 @@ U kunt het bereik instellen op het niveau van het abonnement, resourcegroep of r
 
 6. Zoeken naar uw toepassing en selecteer deze.
 
-7. Selecteer **OK** voltooid de rol toe te wijzen. Ziet u uw toepassing in de lijst met gebruikers die zijn toegewezen aan een rol voor deze scope.
+7. Selecteer **OK** voltooid de rol toe te wijzen. U kunt uw toepassing in de lijst met gebruikers die zijn toegewezen aan een rol voor deze scope zien.
 
-Nu dat u hebt een service-principal gemaakt en een rol is toegewezen, kunt u beginnen met het gebruik van deze in uw toepassing te krijgen tot bronnen van de Azure-Stack.  
+Nu dat u hebt een service-principal gemaakt en een rol is toegewezen, kan uw toepassing toegang krijgen tot bronnen van de Azure-Stack.
 
 ## <a name="next-steps"></a>Volgende stappen
 

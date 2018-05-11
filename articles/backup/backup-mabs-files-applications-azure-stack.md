@@ -13,16 +13,21 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 5/9/2018
 ms.author: adigan,markgal
-ms.openlocfilehash: 905f6b13928d11243202059af0ad255971102da8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a907335ace1f6ea9ec427327d28ca9be5ce02fcc
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Back-up van bestanden en toepassingen op Azure-Stack
 U kunt Azure back-up beveiligen (of back-up) bestanden en toepassingen op Azure-Stack. Als u wilt back-up van bestanden en toepassingen, Microsoft Azure Backup-Server te installeren als een virtuele machine uitgevoerd op Azure-Stack. Eenmaal u Azure Backup-Server hebt geïnstalleerd, voegt Azure-schijven voor een verhoging van de lokale opslag beschikbaar voor back-upgegevens op korte termijn. Azure Backup-Server gebruikmaakt van Azure-opslag op lange termijn.
+
+> [!NOTE]
+> Hoewel Azure Backup-Server en System Center Data Protection Manager (DPM) zijn vergelijkbaar, wordt DPM wordt niet ondersteund voor gebruik met Azure-Stack.
+>
+
 
 ## <a name="azure-backup-server-protection-matrix"></a>Beveiligingsmatrix voor Azure Backup Server
 Azure Backup-Server beveiligt de volgende Stack Azure VM-werkbelastingen.
@@ -49,7 +54,7 @@ Zie het artikel Azure Backup-Server installeren op een virtuele machine van Azur
 Azure Backup-Server op een virtuele machine van Azure-Stack uitgevoerd, gebruikt u de grootte A2 of hoger. Download voor hulp bij het kiezen van de grootte van een virtuele machine, de [Azure Stack VM-grootte Rekenmachine](https://www.microsoft.com/download/details.aspx?id=56832).
 
 ### <a name="virtual-networks-on-azure-stack-virtual-machines"></a>Virtuele netwerken op de Stack Azure virtuele machines
-Alle virtuele machines die worden gebruikt in een Azure-Stack-werkbelasting moet behoren tot de dezelfde Azure-netwerk en Azure-abonnement. 
+Alle virtuele machines die worden gebruikt in een Azure-Stack-werkbelasting moet behoren tot de dezelfde Azure-netwerk en Azure-abonnement.
 
 ### <a name="storing-backup-data-on-local-disk-and-in-azure"></a>Opslaan van back-upgegevens op lokale schijf en in Azure
 Azure Backup-Server slaat de back-upgegevens op Azure schijven zijn gekoppeld aan de virtuele machine voor operationeel herstel. Zodra de schijven en de opslagruimte die zijn gekoppeld aan de virtuele machine, beheert back-upserver van Azure storage voor u. De hoeveelheid back-upgegevens opslag is afhankelijk van het aantal en grootte van de schijven die zijn gekoppeld aan elk [Stack Azure virtuele machine](../azure-stack/user/azure-stack-storage-overview.md). Elke grootte van de Stack van virtuele machine in Azure heeft het maximale aantal schijven dat kan worden gekoppeld aan de virtuele machine. A2 is bijvoorbeeld vier schijven. A3 is acht schijven. A4 is 16 schijven. Bepaalt het totale aantal back-upopslag opnieuw, de grootte en het aantal schijven.
@@ -82,9 +87,9 @@ Als u schalen van uw implementatie wilt, hebt u de volgende opties:
 
 ## <a name="bare-metal-recovery-for-azure-stack-vm"></a>Bare Metal Recovery voor Azure Stack VM
 
-Een bare-metal recovery (BMR) back-up beveiligt besturingssysteembestanden en alle essentiële volumegegevens, behalve gebruikersgegevens. Een BMR back-up bevat een systeemstatusback-up. De volgende procedures wordt uitgelegd hoe de BMR-gegevens herstellen. 
+Een bare-metal recovery (BMR) back-up beveiligt besturingssysteembestanden en alle essentiële volumegegevens, behalve gebruikersgegevens. Een BMR back-up bevat een systeemstatusback-up. De volgende procedures wordt uitgelegd hoe de BMR-gegevens herstellen.
 
-### <a name="run-recovery-on-the-azure-backup-server"></a>Herstel uitvoeren op de Azure Backup-Server 
+### <a name="run-recovery-on-the-azure-backup-server"></a>Herstel uitvoeren op de Azure Backup-Server
 
 Open de console van de Azure Backup-Server.
 
@@ -102,9 +107,9 @@ In de console Azure Backup-Server:
 
 ### <a name="restore-the-machine"></a>De machine herstellen
 
-1. Op de virtuele machine waar u BMR herstellen, open een verhoogde opdrachtprompt en typ de volgende opdrachten. **/bootore** geeft aan dat Windows HERSTELOMGEVING wordt automatisch zodra het opstarten van het systeem gestart.
+1. Op de virtuele machine waar u BMR herstellen, open een verhoogde opdrachtprompt en typ de volgende opdrachten. **/boottore** geeft aan dat Windows HERSTELOMGEVING wordt automatisch zodra het opstarten van het systeem gestart.
 ```
-Reagent /boottore
+Reagentc /boottore
 shutdown /r /t 0
 ```
 

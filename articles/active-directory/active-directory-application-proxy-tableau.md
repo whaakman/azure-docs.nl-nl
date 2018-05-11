@@ -15,11 +15,11 @@ ms.date: 05/02/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: c79689ae7527a715266bad62ec50fddaab90129d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: cd27bab470b7037087421fac1e9eeabe10957831
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Azure Active Directory-toepassingsproxy en Tableau 
 
@@ -92,5 +92,5 @@ Uw toepassing is nu gereed om te testen. Toegang tot de externe URL die u gebrui
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over Azure AD-toepassingsproxy [het verstrekken van veilige externe toegang tot on-premises toepassingen](active-directory-application-proxy-get-started.md).
+Zie voor meer informatie over Azure AD-toepassingsproxy [het verstrekken van veilige externe toegang tot on-premises toepassingen](manage-apps/application-proxy.md).
 

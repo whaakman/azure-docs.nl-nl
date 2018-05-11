@@ -3,17 +3,18 @@ title: Het bijhouden van wijzigingen met Azure Automation
 description: De oplossing voor wijzigingen bijhouden kunt u identificeren van software- en Windows-Service-wijzigingen die in uw omgeving plaatsvinden.
 services: automation
 ms.service: automation
+ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4abf8ae491c9992dd3d21a0d657ba9cd214b740
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a0716466eab69ef2a2439a533cd51e92307bd056
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Het bijhouden van wijzigingen in uw omgeving met de oplossing voor wijzigingen bijhouden
 
@@ -185,7 +186,7 @@ De gedetailleerde informatie over deze wijziging wordt te klikken op een wijzigi
 
 Naast de informatie die beschikbaar zijn in de portal kunnen zoekopdrachten worden gedaan op basis van de logboeken. Met de **bijhouden** pagina openen, klikt u op **logboekanalyse**, Hiermee opent u de **logboek zoeken** pagina.
 
-### <a name="sample-queries"></a>Voorbeeldquery 's
+### <a name="sample-queries"></a>Voorbeeldquery's
 
 De volgende tabel bevat de voorbeeld-logboek zoekt records verzameld door deze oplossing zijn gewijzigd:
 

@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: mihauss
-ms.openlocfilehash: 649838af1d4c753ac1d82a66c855ef313f14e85b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0e728f9f9754d76d893b12309bb52201d772efbf
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="soft-delete-for-azure-storage-blobs-preview"></a>Voorlopig verwijderen voor Azure Storage-blobs (Preview)
 
@@ -292,7 +292,7 @@ Ja, voorlopig verwijderen is geconfigureerd voor bestaande en nieuwe storage-acc
 
 **Als ik een hele account of een container met voorlopig verwijderen ingeschakeld verwijdert, worden alle bijbehorende blobs worden opgeslagen?**
 
-Nee, als u een hele account of de container verwijdert, alle bijbehorende blobs definitief verwijderd. Als u wilt weten hoe u een opslagaccount beveiligen tegen onopzettelijk verwijderen, Zie het artikel Azure Resource Manager [Resources vergrendelen om te voorkomen dat onverwachte wijzigingen](/azure-resource-manager/resource-group-lock-resources.md).
+Nee, als u een hele account of de container verwijdert, alle bijbehorende blobs definitief verwijderd. Als u wilt weten hoe u een opslagaccount beveiligen tegen onopzettelijk verwijderen, Zie het artikel Azure Resource Manager [Resources vergrendelen om te voorkomen dat onverwachte wijzigingen](../../azure-resource-manager/resource-group-lock-resources.md).
 
 **Kan ik capaciteitsmetrieken voor verwijderde gegevens bekijken?**
 
@@ -322,7 +322,7 @@ Het is mogelijk om te profiteren van de voorlopige verwijderingen ongeacht de AP
 
 * [Voorbeeldcode voor .NET](https://github.com/Azure-Samples/storage-dotnet-blob-soft-delete)
 
-* [Blob Service REST API](/rest/api/storageservices/fileservices/blob-service-rest-api)
+* [BLOB-Service REST-API](/rest/api/storageservices/fileservices/blob-service-rest-api)
 
 * [Azure Storage-replicatie](../common/storage-redundancy.md)
 

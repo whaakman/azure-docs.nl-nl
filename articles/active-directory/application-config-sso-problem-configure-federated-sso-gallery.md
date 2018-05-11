@@ -2,10 +2,10 @@
 title: Probleem federatieve eenmalige aanmelding voor een toepassing-galerie van Azure AD configureren | Microsoft Docs
 description: Adres van een aantal veelvoorkomende problemen optreden kunnen bij het configureren van federatieve eenmalige aanmelding via SAML voor toepassingen die worden vermeld in de Azure AD-Toepassingsgalerie
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 86ddb91ae16da797e32c6e1a8a8b2cd8fca989a8
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 581b3c4ff7cc7b25f238602560f30280efa34edd
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Probleem federatieve eenmalige aanmelding voor een toepassing-galerie van Azure AD configureren
 
@@ -108,4 +108,4 @@ Azure AD biedt een URL als u de metagegevens niet. De metagegevens kan alleen wo
 Zie voor meer informatie over het aanpassen van de SAML-kenmerk claims verzonden naar uw toepassing, [toewijzen in Azure Active Directory-Claims](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Toepassingen beheren met Azure Active Directory](active-directory-enable-sso-scenario.md)
+[Toepassingen beheren met Azure Active Directory](manage-apps/what-is-application-management.md)

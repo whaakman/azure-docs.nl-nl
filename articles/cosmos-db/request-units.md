@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 7290c12e7d96ac01c66d97103920793f98120b38
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0aa87aeaf852d7309c29c1298e326c101a944904
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Aanvraageenheden in Azure Cosmos DB
 
@@ -48,81 +48,6 @@ Het is raadzaam om aan de slag door het bekijken van de volgende video, waarbij 
 > [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]
 > 
 > 
-
-## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>Capaciteit van de aanvraag-eenheid opgeven in Azure Cosmos-DB
-
-U kunt opgeven dat het aantal aanvraageenheden per seconde (ru/s per seconde) die u wilt gereserveerde zowel voor een afzonderlijke-container of voor een set van containers. Op basis van de ingerichte doorvoer, toewijzen Azure Cosmos DB fysieke partities voor het hosten van de container (s) en splitsingen/rebalances gegevens meerdere partities wanneer deze groeit.
-
-Bij het toewijzen van RU per seconde op het niveau van afzonderlijke container de containers kunnen worden gemaakt als *vaste* of *onbeperkte*. Containers met vaste grootte hebben een maximale limiet van 10 GB en doorvoer van 10.000 RU/s. Een onbeperkte om container te maken, moet u een minimale doorvoer van 1000 RU/s en een [partitiesleutel](partition-data.md). Aangezien uw gegevens hebben mogelijk om te worden verdeeld over meerdere partities, is het nodig om het kiezen van een partitiesleutel met een hoge kardinaliteit (100 tot miljoenen afzonderlijke waarden). Als u een partitiesleutel met veel afzonderlijke waarden selecteert, zorgt u ervoor dat uw tabel-container/grafiek en aanvragen kunnen worden geschaald op uniforme wijze door Azure Cosmos DB. 
-
-Bij het toewijzen van RU per seconde over een set van containers, de containers die horen bij deze set worden behandeld als *onbeperkte* containers en een partitiesleutel moet opgeven.
-
-![Inrichting aanvraageenheden voor afzonderlijke containers en set containers][6]
-
-> [!NOTE]
-> Een partitiesleutel is een grens van een logische en niet een fysieke. Daarom hoeft u niet wilt beperken het aantal afzonderlijke partitie sleutelwaarden. In feite is het beter om meer afzonderlijke partitie sleutelwaarden dan minder Azure Cosmos DB beschikt over meer opties voor taakverdeling.
-
-Hier volgt een codefragment voor het maken van een container met 3000 aanvraageenheden per seconde voor een afzonderlijke-container met de SQL-API .NET SDK:
-
-```csharp
-DocumentCollection myCollection = new DocumentCollection();
-myCollection.Id = "coll";
-myCollection.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(
-    UriFactory.CreateDatabaseUri("db"),
-    myCollection,
-    new RequestOptions { OfferThroughput = 3000 });
-```
-
-Hier volgt een codefragment voor inrichting 100.000 aanvraageenheden per seconde over een set van containers met behulp van de SQL-API .NET SDK:
-
-```csharp
-// Provision 100,000 RU/sec at the database level. 
-// sharedCollection1 and sharedCollection2 will share the 100,000 RU/sec from the parent database
-// dedicatedCollection will have its own dedicated 4,000 RU/sec, independant of the 100,000 RU/sec provisioned from the parent database
-Database database = client.CreateDatabaseAsync(new Database { Id = "myDb" }, new RequestOptions { OfferThroughput = 100000 }).Result;
-
-DocumentCollection sharedCollection1 = new DocumentCollection();
-sharedCollection1.Id = "sharedCollection1";
-sharedCollection1.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(database.SelfLink, sharedCollection1, new RequestOptions())
-
-DocumentCollection sharedCollection2 = new DocumentCollection();
-sharedCollection2.Id = "sharedCollection2";
-sharedCollection2.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(database.SelfLink, sharedCollection2, new RequestOptions())
-
-DocumentCollection dedicatedCollection = new DocumentCollection();
-dedicatedCollection.Id = "dedicatedCollection";
-dedicatedCollection.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(database.SelfLink, dedicatedCollection, new RequestOptions { OfferThroughput = 4000 )
-```
-
-
-Azure Cosmos-database is van invloed op een model reservering voor de doorvoer. Dat wil zeggen, u wordt gefactureerd voor de hoeveelheid doorvoer *gereserveerde*, ongeacht hoeveel waarop doorvoer is actief *gebruikt*. Als uw toepassing de belasting, gegevens en gebruiksgegevens patronen wijzigen kunt u eenvoudig de schaal omhoog en omlaag op het aantal gereserveerde RUs via SDK's of met behulp van de [Azure Portal](https://portal.azure.com).
-
-Elke container of set van containers, is toegewezen aan een `Offer` resource in Azure Cosmos DB met metagegevens over de ingerichte doorvoer. U kunt de toegewezen doorvoer wijzigen door op de overeenkomende resource in de aanbieding voor een container te zoeken en vervolgens bijgewerkt met de nieuwe waarde voor de doorvoer. Hier volgt een codefragment voor het wijzigen van de doorvoer van een container in 5000 aanvraageenheden per tweede met de .NET SDK:
-
-```csharp
-// Fetch the resource to be updated
-// For a updating throughput for a set of containers, replace the collection's self link with the database's self link
-Offer offer = client.CreateOfferQuery()
-                .Where(r => r.ResourceLink == collection.SelfLink)    
-                .AsEnumerable()
-                .SingleOrDefault();
-
-// Set the throughput to 5000 request units per second
-offer = new OfferV2(offer, 5000);
-
-// Now persist these changes to the database by replacing the original resource
-await client.ReplaceOfferAsync(offer);
-```
-
-Er zijn geen gevolgen voor de beschikbaarheid van de container of set van containers, wanneer u de doorvoer wijzigt. De nieuwe gereserveerde doorvoer is doorgaans effectieve binnen enkele seconden op de toepassing van de nieuwe doorvoer.
 
 ## <a name="throughput-isolation-in-globally-distributed-databases"></a>Isolatie van doorvoer in globaal gedistribueerde databases
 
@@ -305,7 +230,7 @@ De volgende tabel bevat de geschatte aanvraag eenheid kosten voor normale bewerk
 
 | Bewerking | Aanvraag eenheid kosten |
 | --- | --- |
-| -Item maken |~15 RU |
+| Item maken |~15 RU |
 | Item lezen |~1 RU |
 | Query-item met id |~2.5 RU |
 
@@ -327,7 +252,7 @@ Met deze informatie kunt u schat de RU-vereisten voor deze toepassing gezien het
 
 | Bewerking/Query | Het geschatte aantal per seconde | Vereiste RUs |
 | --- | --- | --- |
-| -Item maken |10 |150 |
+| Item maken |10 |150 |
 | Item lezen |100 |100 |
 | Selecteer levensmiddelen op fabrikant |25 |175 |
 | Selecteer door de Voedingsgroep |10 |700 |
@@ -347,6 +272,11 @@ Als u gebruikmaakt van de Client-SDK voor .NET en LINQ-query's en vervolgens de 
 Als er meer dan één client cumulatief werken boven het percentage aanvragen, het standaardgedrag voor opnieuw proberen niet toereikend zijn en de client genereert een `DocumentClientException` met de status code 429 tot de toepassing. U kunt in gevallen als volgt, kunt u de logica in routines voor foutafhandeling van uw toepassing en het gedrag voor het opnieuw of verhoog de doorvoer die zijn ingericht voor de container (of de set van containers).
 
 ## <a name="next-steps"></a>Volgende stappen
+ 
+Zie voor meer informatie over het instellen en doorvoer ophalen met behulp van Azure-portal en SDK de:
+
+* [Stel en doorvoer in Azure Cosmos DB ophalen](set-throughput.md)
+
 Lees deze informatiebronnen voor meer informatie over gereserveerde doorvoer met Azure Cosmos DB databases:
 
 * [Prijzen van Azure DB Cosmos](https://azure.microsoft.com/pricing/details/cosmos-db/)
@@ -360,4 +290,4 @@ Als u wilt beginnen met de schaal en prestaties testen met Azure Cosmos DB, Zie 
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png
 [5]: ./media/request-units/RUCalculator2.png
-[6]: ./media/request-units/provisioning_set_containers.png
+

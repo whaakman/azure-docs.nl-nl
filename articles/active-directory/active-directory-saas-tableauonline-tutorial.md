@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 05/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 47ae9dbde509726065da7eaee2c7aec491389f45
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9e7de7946769eb2aeeac1c8b21448efa142728bb
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>Zelfstudie: Azure Active Directory-integratie met Tableau Online
 
@@ -110,9 +110,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_url.png)
     
-    a. In de **aanmeldings-URL** textbox, typ de URL:`https://sso.online.tableau.com`
+    a. In de **aanmeldings-URL** textbox, typ de URL: `https://sso.online.tableau.com`
 
-    b. In de **id** textbox, typ de URL:`https://sso.online.tableau.com/public/sp/<instancename>`
+    b. In de **id** textbox, typ de URL: `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid> `
 
 4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
@@ -161,10 +161,6 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
    
    ![Eenmalige aanmelding configureren](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_14.png)
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
 ### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
 
@@ -203,7 +199,7 @@ In deze sectie maakt maken u een gebruiker die is aangeroepen terwijl Britta Sim
 1. Op **Tableau Online**, klikt u op **instellingen** en vervolgens **verificatie** sectie. Schuif omlaag naar **gebruikers selecteren** sectie. Klik op **gebruikers toevoegen** en vervolgens **Voer e-mailadressen**.
    
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_15.png)
-2. Selecteer **toevoegen van gebruikers voor eenmalige aanmelding (SSO) verificatie**. In de **e-mailadressen opgeven** textbox toevoegenbritta.simon@contoso.com
+2. Selecteer **toevoegen van gebruikers voor eenmalige aanmelding (SSO) verificatie**. In de **e-mailadressen opgeven** textbox toevoegen britta.simon@contoso.com
    
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_11.png)
 3. Klik op **Create**.
@@ -244,7 +240,7 @@ Het doel van deze sectie is het testen van uw Azure AD SSO-configuratie met behu
 
 Als u op de tegel Tableau Online in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw Tableau Online-toepassing.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
@@ -262,4 +258,3 @@ Als u op de tegel Tableau Online in het deelvenster toegang, u moet ophalen auto
 [201]: ./media/active-directory-saas-tableauonline-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-tableauonline-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-tableauonline-tutorial/tutorial_general_203.png
-

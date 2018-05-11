@@ -3,16 +3,17 @@ title: Bron van de integratie van broncodebeheer in Azure Automation
 description: Integratie van broncodebeheer met GitHub in Azure Automation beschreven.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 96b4f38ea990edcb23ae792d40651672a921a7c7
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 29ec32c933f3dbe07a844bd99a1f5aa3fa57d61b
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integratie van broncodebeheer in Azure Automation
 Integratie van broncodebeheer kunt u runbooks in uw Automation-account aan een GitHub-resourcebeheerbibliotheek koppelen. Broncodebeheer kunt u eenvoudig samenwerken met uw team, het bijhouden van wijzigingen en terugkeren naar eerdere versies van uw runbooks. Broncodebeheer kunt u verschillende filialen in besturingselement voor de ontwikkeling, testen of productie Automation-accounts, zodat u eenvoudig ter bevordering van de code die in uw ontwikkelomgeving, zodat uw productie Automation-account is getest synchroniseren.
@@ -40,7 +41,7 @@ Als u al een GitHub-account en een locatie die u wilt koppelen aan Azure Automat
    | Autorisatie |Klik op de **autoriseren** knop Azure Automation toegang geven tot uw GitHub-opslagplaats. Als u bent al aangemeld bij uw GitHub-account in een ander venster, wordt de referenties van het account gebruikt. Wanneer autorisatie voltooid is, ziet de pagina uw GitHub-gebruikersnaam onder **autorisatie eigenschap**. |
    | Kies de opslagplaats |Selecteer een GitHub-opslagplaats in de lijst met beschikbare opslagplaatsen. |
    | Kies vertakking |Selecteer een vertakking uit de lijst met beschikbare vertakkingen. Alleen de **master** vertakking wordt weergegeven als u eventuele vertakkingen dat nog niet hebt gemaakt. |
-   | Pad naar de Runbookmap |Het pad naar de runbookmap geeft het pad in de GitHub-opslagplaats van waaruit u wilt push of pull uw code. Dit moet worden ingevoerd in de indeling **/mapnaam/submapnaam**. Alleen runbooks in het pad naar de runbookmap worden met uw Automation-account gesynchroniseerd. Runbooks in submappen van het pad naar de runbookmap wordt **niet** worden gesynchroniseerd. Gebruik  **/**  om alle runbooks in de opslagplaats te synchroniseren. |
+   | Pad naar de Runbookmap |Het pad naar de runbookmap geeft het pad in de GitHub-opslagplaats van waaruit u wilt push of pull uw code. Dit moet worden ingevoerd in de indeling **/mapnaam/submapnaam**. Alleen runbooks in het pad naar de runbookmap worden met uw Automation-account gesynchroniseerd. Runbooks in submappen van het pad naar de runbookmap wordt **niet** worden gesynchroniseerd. Gebruik **/** om alle runbooks in de opslagplaats te synchroniseren. |
 3. Bijvoorbeeld, als er een opslagplaats met de naam **PowerShellScripts** die een map met de naam bevat **RootFolder**, die een map met de naam bevat **submap**. U kunt de volgende tekenreeksen elke mapniveau synchroniseren:
    
    1. Voor synchronisatie runbooks van **opslagplaats**, pad naar de runbookmap is */*
@@ -92,7 +93,7 @@ Runbook inchecken kunt u de wijzigingen die u hebt aangebracht in een runbook in
 
 1. Wanneer u klikt op **inchecken**, wordt u gevraagd een bevestigingsbericht, klik op **Ja** om door te gaan.  
    
-    ![Inchecken bericht](media/automation-source-control-integration/automation_07_CheckinMessage.png)
+    ![Check-inbericht](media/automation-source-control-integration/automation_07_CheckinMessage.png)
 2. Controle begint het besturingselement bron runbook: **Sync MicrosoftAzureAutomationAccountToGitHubV1**. Dit runbook maakt verbinding met GitHub en wijzigingen van Azure Automation verstuurd naar uw opslagplaats. Als u wilt de ingeschakelde in Taakgeschiedenis weergeven, gaat u terug naar de **integratie van broncodebeheer** tabblad en klik op om de synchronisatie van de opslagplaats pagina te openen. Deze pagina geeft alle uw resourcebeheertaken.  Selecteer de taak die u wilt weergeven en klikt u op om de details weer te geven.  
    
     ![Inchecken Runbook](media/automation-source-control-integration/automation_08_CheckinRunbook.png)

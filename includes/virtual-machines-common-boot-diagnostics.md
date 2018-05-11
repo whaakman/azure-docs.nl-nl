@@ -1,16 +1,16 @@
-Ondersteuning voor twee foutopsporingsfuncties is nu beschikbaar in Azure: ondersteuning voor Console-uitvoer en Schermafbeelding voor het Azure Virtual Machines Resource Manager-implementatiemodel. 
+Ondersteuning voor twee foutopsporing functies is nu beschikbaar in Azure: ondersteuning voor Console-uitvoer, en Schermafbeeldingsfunctionaliteit voor virtuele machines van Azure Resource Manager-implementatiemodel. 
 
-Wanneer u uw eigen installatiekopie importeert in Azure of een van de installatiekopieën van het platform opstart, kan een VM vanwege verschillende redenen in een status belanden waarin deze niet kan worden opgestart. Met deze functies kunt u uw virtuele machines eenvoudig analyseren en herstellen na fouten bij het opstarten.
+Wanneer u uw eigen installatiekopie brengt naar Azure of een van de platform-installatiekopieën zelfs wordt opgestart, kunnen er diverse redenen waarom een virtuele machine in een niet-opstartbare status opgehaald. Deze functies kunnen u gemakkelijk te analyseren en herstellen van uw virtuele machines fouten.
 
-Bij virtuele Linux-machines kunt u eenvoudig de uitvoer van uw consolelogboek bekijken via de portal:
+Voor virtuele Linux-machines, kunt u eenvoudig de uitvoer van de console-aanmelding via de Portal bekijken:
 
 ![Azure Portal](./media/virtual-machines-common-boot-diagnostics/screenshot1.png)
  
-U kunt echter bij zowel virtuele Windows- als Linux-machines een schermopname van de virtuele machine bekijken via de hypervisor van Azure:
+Echter, voor Windows- en Linux virtuele machines Azure kunt u ook een schermopname van de virtuele machine van de hypervisor Zie:
 
 ![Fout](./media/virtual-machines-common-boot-diagnostics/screenshot2.png)
 
-Beide functies worden ondersteund voor virtuele Azure-machines in alle regio's. Houd er rekening mee dat het tot 10 minuten kan duren voordat de schermafbeeldingen en uitvoer worden weergegeven in uw opslagaccount.
+Beide van deze functies worden ondersteund voor virtuele machines in alle regio's in Azure. Houd er rekening mee dat het tot 10 minuten kan duren voordat de schermafbeeldingen en uitvoer worden weergegeven in uw opslagaccount.
 
 ## <a name="common-boot-errors"></a>Veelvoorkomende opstartfouten
 
@@ -29,15 +29,20 @@ Beide functies worden ondersteund voor virtuele Azure-machines in alle regio's. 
 - [Opstartfout of OPSTARTAPPARAAT_NIET_TOEGANKELIJK](https://support.microsoft.com/help/4010143)
 
 ## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>Diagnostische gegevens op een nieuwe virtuele machine inschakelen
-1. Wanneer u een nieuwe virtuele machine maakt in de Preview Portal, selecteert u de **Azure Resource Manager** uit de vervolgkeuzelijst van het implementatiemodel:
+1. Wanneer u een nieuwe virtuele machine maakt vanuit de Azure Portal, selecteer de **Azure Resource Manager** uit de vervolgkeuzelijst van implementatie model:
  
     ![Resource Manager](./media/virtual-machines-common-boot-diagnostics/screenshot3.jpg)
 
-2. Configureer de optie Bewaking om het opslagaccount te selecteren waarin u wilt deze diagnostische bestanden wilt plaatsen.
+2. In **instellingen**, inschakelen de **opstarten diagnostics**, en selecteer vervolgens een opslagaccount dat u wilt deze diagnostische bestanden moeten worden geplaatst.
  
-    ![VM maken](./media/virtual-machines-common-boot-diagnostics/screenshot4.jpg)
+    ![VM maken](./media/virtual-machines-common-boot-diagnostics/create-storage-account.png)
 
-3. Als u met een Azure Resource Manager-sjabloon implementeert, gaat u naar de resource van de virtuele machine en voegt u de sectie diagnostisch profiel toe. Vergeet niet de API-versieheader '2015-06-15' te gebruiken.
+    > [!NOTE]
+    > De functie voor Boot diagnostics ondersteunt geen premium-opslagaccount. Als u de premium-opslagaccount voor diagnostische gegevens over opstarten gebruikt, ontvangt u mogelijk de StorageAccountTypeNotSupported-fout bij het starten van de virtuele machine.
+    >
+    > 
+
+3. Als u met een Azure Resource Manager-sjabloon implementeert, gaat u naar de bron van de virtuele machine en de sectie diagnostics-profiel toevoegen. Vergeet niet de API-versieheader '2015-06-15' te gebruiken.
 
     ```json
     {
@@ -59,11 +64,18 @@ Beide functies worden ondersteund voor virtuele Azure-machines in alle regio's. 
         }
     ```
 
-Bekijk hier onze opslagplaats om een voorbeeld-VM te implementeren waarop met diagnostische gegevens over het opstarten zijn ingeschakeld.
+Bekijk onze opslagplaats hier voor het implementeren van een steekproef virtuele machine met diagnostische gegevens over opstarten is ingeschakeld.
 
-## <a name="update-an-existing-virtual-machine"></a>Een bestaande virtuele machine bijwerken ##
+## <a name="enable-boot-diagnostics-on-existing-virtual-machine"></a>Diagnostische gegevens over opstarten op bestaande virtuele machine inschakelen 
 
-U kunt ook een bestaande virtuele machine bijwerken via de portal zodat de diagnostische gegevens over het opstarten via de portal zijn ingeschakeld. Selecteer de optie Diagnostische gegevens over het opstarten en selecteer vervolgens Opslaan. Start de VM opnieuw op om de wijzigingen door te voeren.
+Schakel diagnostische gegevens over opstarten op een bestaande virtuele machine door de volgende stappen uit:
 
-![Bestaande VM bijwerken](./media/virtual-machines-common-boot-diagnostics/screenshot5.png)
+1. Meld u aan bij de [Azure-portal](https://portal.azure.com), en selecteer vervolgens de virtuele machine.
+2. In **ondersteuning + probleemoplossing**, selecteer **diagnostics opstarten** > **instellingen**, de status wijzigen in **op**, en vervolgens Selecteer een opslagaccount. 
+4. Zorg ervoor dat de optie opstarten diagnostics is geselecteerd en sla de wijziging.
+
+    ![Bestaande VM bijwerken](./media/virtual-machines-common-boot-diagnostics/enable-for-existing-vm.png)
+
+3. Start de VM opnieuw op om de wijzigingen door te voeren.
+
 

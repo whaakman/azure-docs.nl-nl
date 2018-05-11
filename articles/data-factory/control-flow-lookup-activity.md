@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/10/2018
 ms.author: shlo
-ms.openlocfilehash: 18748aafa2b70d349f9914e2a8afc1c7477ca26e
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b6c2e2b685855455550612abb58ada6a694bbdff
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/10/2018
@@ -31,11 +31,9 @@ Lookup-activiteit kunt lezen en de inhoud van een configuratiebestand, een confi
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
-De volgende gegevensbronnen worden momenteel ondersteund voor het opzoeken van:
+De volgende gegevensbronnen worden ondersteund voor het opzoeken van. Het maximale aantal rijen kan worden geretourneerd door het opzoeken van de activiteit is **5000**, tot aan **2MB** in grootte. En de maximumduur voor de activiteit opzoeken voordat de time-out is momenteel een uur.
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
-
-Het maximum aantal rijen dat wordt geretourneerd door de activiteit opzoeken is **5000**, tot aan **2MB** in grootte.
 
 ## <a name="syntax"></a>Syntaxis
 
@@ -64,10 +62,11 @@ Gegevensset | Biedt de dataset-verwijzing voor de zoekopdracht. Details van de s
 source | Bevat Broneigenschappen van gegevensset-specifieke, hetzelfde zijn als de bron voor kopiëren-activiteit. Details van de sectie 'activiteitseigenschappen kopiëren' in elke bijbehorende connector artikel ophalen. | Sleutel-waardepaar | Ja
 firstRowOnly | Geeft aan of alleen de eerste rij of alle rijen retourneren. | Boole-waarde | Nee. De standaardwaarde is `true`.
 
-Houd rekening met de volgende punten:
+**Houd rekening met de volgende punten:**
 
 1. De bronkolom met ByteArray type wordt niet ondersteund.
 2. Structuur wordt niet ondersteund in de gegevenssetdefinitie van de. Voor tekst format-bestanden in het bijzonder kunt u de rij met kolomkoppen de kolomnaam op te geven.
+3. Als bron voor het opzoeken een JSON-bestanden is, de `jsonPathDefinition` instellen voor opnieuw vormgeven van de JSON-object wordt niet ondersteund, het gehele objecten wordt opgehaald.
 
 ## <a name="use-the-lookup-activity-result-in-a-subsequent-activity"></a>Gebruik het resultaat van de activiteit opzoeken in een volgende activiteit
 

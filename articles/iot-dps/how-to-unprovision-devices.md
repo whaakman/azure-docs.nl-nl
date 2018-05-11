@@ -5,18 +5,18 @@ services: iot-dps
 keywords: ''
 author: bryanla
 ms.author: v-jamebr;bryanla
-ms.date: 04/06/2018
+ms.date: 05/11/2018
 ms.topic: article
 ms.service: iot-dps
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 439d4ffa8eec12481f52bd15f0060800411f316e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 87932c1ae1676d36ea0eb1ba7885f2ac455949ae
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Hoe apparaten die zijn eerder automatisch ingerichte inrichting ervan ongedaan 
 
@@ -29,7 +29,7 @@ In het algemeen een apparaat opheffen van inrichting bestaat uit twee stappen:
    - Zie voor meer informatie over hoe u een apparaat disenroll, [hoe een apparaat uit Azure IoT Hub apparaat-inrichtingsservice disenroll](how-to-revoke-device-access-portal.md).
    - Zie voor meer informatie over hoe u een apparaat programmatisch met behulp van een van de inrichting service-SDK's disenroll, [apparaatinschrijvingen met service-SDK's beheren](how-to-manage-enrollments-sdks.md).
 
-2. Het apparaat uit uw IoT-Hub, om te voorkomen dat toekomstige communicatie en gegevensoverdracht opgeheven. U kunt opnieuw tijdelijk uitschakelen of permanent verwijderen van het apparaat vermelding in het identiteitenregister voor de IoT-Hub waar het inrichten. Zie [apparaten uitschakelen](/azure/iot-hub/iot-hub-devguide-identity-registry.md#disable-devices) voor meer informatie over deactivering. Zie 'Device Management / IoT apparaten' voor uw resource IoT-Hub in de [Azure-portal](https://portal.azure.com).
+2. Het apparaat uit uw IoT-Hub, om te voorkomen dat toekomstige communicatie en gegevensoverdracht opgeheven. U kunt opnieuw tijdelijk uitschakelen of permanent verwijderen van het apparaat vermelding in het identiteitenregister voor de IoT-Hub waar het inrichten. Zie [apparaten uitschakelen](/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices) voor meer informatie over deactivering. Zie 'Device Management / IoT apparaten' voor uw resource IoT-Hub in de [Azure-portal](https://portal.azure.com).
 
 De exacte stappen waarmee u naar de inrichting ervan ongedaan maakt een apparaat, is afhankelijk van de attestation-mechanisme en de toepasselijke inschrijving vermelding met uw provisioning-service. De volgende secties geven een overzicht van het proces, op basis van de inschrijving en de attestation-type.
 

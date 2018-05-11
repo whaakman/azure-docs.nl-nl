@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: cb85971d6d3d4dade69b9dc04e070c67341533a5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: cd4313efb5d08842ba12ec00e6e5160214800d56
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Het specifieke velden voor een toepassing ontwikkelde aangepaste invullen
 
-In dit artikel kunt u een korte beschrijving van de beschikbare velden in het registratieformulier toepassing in de [Azure-portal](https://portal.azure.com).
+Dit artikel bevat een korte beschrijving van de beschikbare velden in het registratieformulier toepassing in de [Azure-portal](https://portal.azure.com).
 
 ## <a name="register-a-new-application"></a>Een nieuwe toepassing registreren
 
@@ -43,7 +43,7 @@ In dit artikel kunt u een korte beschrijving van de beschikbare velden in het re
 | |**Systeemeigen**: een toepassing die op het apparaat of de computer van een gebruiker kan worden geïnstalleerd           |
 | Aanmeldings-URL      | De URL waar gebruikers zich aanmelden kunnen bij uw toepassing gebruiken                                  |
 
-Zodra u de bovenstaande velden hebt ingevuld, de toepassing worden geregistreerd in de Azure portal en u omgeleid naar de toepassingspagina. De **instellingen** knop in het Toepassingsdeelvenster opent u de pagina instellingen, waarvoor meer velden die u kunt uw toepassing aanpassen. De volgende tabel bevat alle velden in de pagina instellingen. Houd er rekening mee dat u alleen een subset van deze velden ziet, afhankelijk van of u een webtoepassing of een systeemeigen toepassing gemaakt.
+Zodra u de bovenstaande velden hebt ingevuld, de toepassing is geregistreerd in de Azure portal en wordt u omgeleid naar de pagina voor toepassingen. De **instellingen** knop in het Toepassingsdeelvenster opent u de pagina instellingen, waarvoor meer velden die u kunt uw toepassing aanpassen. De volgende tabel bevat alle velden in de pagina instellingen. Houd er rekening mee dat u alleen een subset van deze velden ziet, afhankelijk van of u een webtoepassing of een systeemeigen toepassing gemaakt.
 
 | Veld           | Beschrijving                                                                                                                                                                                                                                                                                                     |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -53,9 +53,9 @@ Zodra u de bovenstaande velden hebt ingevuld, de toepassing worden geregistreerd
 | URL van startpagina   | Dit is de aanmeldings-URL opgegeven tijdens de toepassingsregistratie.                                                                                                                                                                                                                                              |
 | URL voor afmelden      | Deze de URL van één afmelden afmelden. Azure AD nu een afmeldingsaanvraag verzonden naar deze URL als de gebruiker de sessie met Azure AD wist met behulp van andere geregistreerde toepassing.                                                                                                                                       |
 | Met meerdere tenants  | Deze schakeloptie geeft aan of de toepassing kan worden gebruikt door meerdere tenants. Dit betekent doorgaans dat uw toepassing in externe organisaties kunnen worden gebruikt door het registreren van deze in de tenant en het verlenen van toegang tot gegevens van hun organisatie.                                                                   |
-| Antwoord-URL's      | Het antwoord-URL's zijn de eindpunten waarop Azure AD tokens retourneert die door uw toepassing worden aangevraagd.                                                                                                                                                                                                          |
-| Omleidings-URI's   | Voor systeemeigen toepassingen is dit waar de gebruiker worden verzonden naar de volgende geslaagde autorisatie. Azure AD-Controleer of de omleidings-URI van uw toepassing wordt verstrekt in de OAuth 2.0-aanvraag komt overeen met een van de geregistreerde waarden in de portal.                                                            |
+| Antwoord-URL's      | Het antwoord-URL's zijn de eindpunten waarop Azure AD retourneert alle tokens die uw toepassing worden aangevraagd.                                                                                                                                                                                                          |
+| Omleidings-URI's   | Voor systeemeigen toepassingen is dit waarbij de gebruiker na een geslaagde autorisatie wordt verzonden. Azure AD-Controleer of de omleidings-URI van uw toepassing wordt verstrekt in de OAuth 2.0-aanvraag komt overeen met een van de geregistreerde waarden in de portal.                                                            |
 | Sleutels            | U kunt sleutels om programmatisch toegang tot web-API's die zijn beveiligd door Azure AD zonder tussenkomst van de gebruiker te maken. Van de \* \*sleutels\* \* pagina, Geef een beschrijving van de sleutel en de vervaldatum en opslaan om de sleutel te genereren. Zorg ervoor dat het op te slaan ergens veilig, omdat het niet mogelijk later gebruiken.             |
 
 ## <a name="next-steps"></a>Volgende stappen
-[Toepassingen beheren met Azure Active Directory](active-directory-enable-sso-scenario.md)
+[Toepassingen beheren met Azure Active Directory](manage-apps/what-is-application-management.md)

@@ -11,12 +11,15 @@ Op de eerste start vraagt Cloud-Shell u om te koppelen van een nieuwe of bestaan
 
 Wanneer u basisinstellingen en alleen een abonnement selecteren, maakt Cloud Shell drie bronnen in de ondersteunde regio die het dichtst bij u namens jou:
 * Resourcegroep: `cloud-shell-storage-<region>`
-* Storage-account:`cs<uniqueGuid>`
-* Bestandsshare:`cs-<user>-<domain>-com-<uniqueGuid>`
+* Storage-account: `cs<uniqueGuid>`
+* Bestandsshare: `cs-<user>-<domain>-com-<uniqueGuid>`
 
 ![De instelling voor Cloudabonnement](../articles/cloud-shell/media/persisting-shell-storage/basic-storage.png)
 
 De bestandsshare koppelt als `clouddrive` in uw `$Home` directory. Dit is een eenmalige bewerking en de bestandsshare koppelt automatisch in de volgende sessies. 
+
+> [!NOTE]
+> Voor beveiliging, moet elke gebruiker hun eigen opslagruimte inrichten.  Voor op rollen gebaseerde toegangsbeheer (RBAC), moeten gebruikers Inzender toegang hebben of hoger.
 
 In Bash, bevat de bestandsshare ook een afbeelding 5 GB automatisch voor u die gemaakt wordt zich blijft voordoen gegevens in uw `$Home` directory. 
 
@@ -37,7 +40,7 @@ Gekoppelde accounts moeten zich bevinden in dezelfde regio bevinden als de Cloud
 U kunt uw toegewezen regio vinden:
 * De opmerking in het dialoogvenster 'Geavanceerde Opslaginstellingen' weergeven
 * Raadpleeg de naam van het opslagaccount voor u gemaakt (ex: `cloud-shell-storage-westus`)
-* Voer `env` en zoek de variabele`ACC_LOCATION`
+* Voer `env` en zoek de variabele `ACC_LOCATION`
 
 Cloud-Shell bestaat in de volgende gebieden:
 |Onderwerp|Regio|

@@ -10,11 +10,11 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: cefb5b7157f2fc8672ed419961cd3a90314b95e0
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c58e731f6b8c86a0b7d6f2500d81077904b2f5ef
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/11/2018
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Hoe worden verwerkt en gegevens ophalen van afbeeldingen in scenario's cognitieve zoeken
 
@@ -32,10 +32,12 @@ U uitschakelen installatiekopie normalisatie niet. Vaardigheden die afbeeldingen
 
 | Configuratieparameter | Beschrijving |
 |--------------------|-------------|
-| imageAction   | Ingesteld op 'geen' als geen actie moet worden ondernomen wanneer ingesloten afbeeldingen of afbeeldingsbestanden zijn opgetreden. <br/>Ingesteld op beide 'generateNormalizedImages' voor het genereren van een matrix van genormaliseerde afbeeldingen als onderdeel van het document kraken. Deze installatiekopieën worden weergegeven in de *normalized_images* veld. <br/>De standaardwaarde is 'geen'. Deze configuratie is alleen relevant zijn voor blob-gegevensbronnen, als 'dataToExtract' is ingesteld op 'contentAndMetadata'. |
+| imageAction   | Ingesteld op 'geen' als geen actie moet worden ondernomen wanneer ingesloten afbeeldingen of afbeeldingsbestanden zijn opgetreden. <br/>Ingesteld op 'generateNormalizedImages' voor het genereren van een matrix van genormaliseerde afbeeldingen als onderdeel van het document kraken. Deze installatiekopieën worden weergegeven in de *normalized_images* veld. <br/>De standaardwaarde is 'geen'. Deze configuratie is alleen relevant zijn voor blob-gegevensbronnen, als 'dataToExtract' is ingesteld op 'contentAndMetadata'. |
 |  normalizedImageMaxWidth | De maximale breedte (in pixels) voor genormaliseerde afbeeldingen die zijn gegenereerd. De standaardwaarde is 2000.|
 |  normalizedImageMaxHeight | De maximumhoogte (in pixels) voor genormaliseerde afbeeldingen die zijn gegenereerd. De standaardwaarde is 2000.|
 
+> [!NOTE]
+> Als u de *imageAction* eigenschap in op iets anders dan 'none', u zich niet in te stellen de *parsingMode* eigenschap in op iets anders dan 'standaard'.  U mag een van deze twee eigenschappen alleen instellen op een niet-standaard-waarde in de configuratie van de indexeerfunctie.
 
 De standaardwaarde van 2000 pixels voor de installatiekopieën van genormaliseerde maximale breedte en hoogte is gebaseerd op de maximale grootte wordt ondersteund door de [OCR kwalificatie](cognitive-search-skill-ocr.md) en de [analysis kwalificatie installatiekopie](cognitive-search-skill-image-analysis.md). Als u de maximale limieten verhogen, kan verwerking op de grotere afbeeldingen mislukken.
 

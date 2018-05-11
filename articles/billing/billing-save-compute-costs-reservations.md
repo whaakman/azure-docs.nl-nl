@@ -3,8 +3,8 @@ title: Geld besparen door virtuele machines in Azure vooraf betalen - Azure | Mi
 description: Meer informatie over Azure gereserveerde virtuele Machine-exemplaar op te slaan op de kosten van uw virtuele machines.
 services: billing
 documentationcenter: ''
-author: vikramdesai01
-manager: vikramdesai01
+author: yashesvi
+manager: yashesvi
 editor: ''
 ms.service: billing
 ms.devlang: na
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2017
-ms.author: vikdesai
-ms.openlocfilehash: 7d85d3500014962a90ae596598332a95f4aa557e
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: yashar
+ms.openlocfilehash: 9c73102f09e252b449f78603debaf707b3c89c3b
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="save-money-on-virtual-machines-with-reserved-virtual-machine-instances"></a>Geld besparen op virtuele machines met een gereserveerde virtuele Machine-exemplaren 
 Gereserveerde virtuele Machine-exemplaren kunt u vooraf betalen voor één jaar of drie jaar rekencapaciteit korting te krijgen op de virtuele machines die u gebruikt. De kosten van de virtuele machine op de aanzienlijk wordt gereduceerd — tot 72 procent op betalen naar gebruik prijzen – met vooraf inzet van één jaar of drie jaar. Gereserveerde virtuele Machine-exemplaren is een korting van facturering en heeft geen invloed op de runtimestatus van virtuele machines.
@@ -35,6 +35,7 @@ Azure-klanten met deze typen abonnementen kunnen aanschaffen van een exemplaar v
 -   Enterprise agreement type abonnementsaanbod (MS-AZR - 0017P).
 -   [Betalen naar gebruik](https://azure.microsoft.com/offers/ms-azr-0003p/) type abonnementsaanbod (MS-AZR - 003 P).
 U moet zich in de 'Eigenaar'-rol op het abonnement op een gereserveerde exemplaar kopen. Op de aanschaf van reserveringen in een enterprise-inschrijving moet de ondernemingsbeheerder reservering aankopen in de portal EA inschakelen standaard die de instelling is ingeschakeld.
+-   Cloud Solution Provider (CSP) partners Azure Management Portal kunnen gebruiken of [Partnercentrum](https://docs.microsoft.com/partner-center/azure-reservations) om aan te schaffen reserveringen.
 
 ## <a name="how-is-a-reserved-virtual-machine-instances-purchase-billed"></a>Hoe wordt de aankoop van een gereserveerde virtuele Machine-exemplaren in rekening gebracht?
 De reservering aankoop wordt verrekend met de betalingsmethode die is gekoppeld aan het abonnement. Als u een Enterprise-abonnement hebt, wordt de reservering kosten van het saldo van uw bedrag afgetrokken. Als uw saldo bedrag dekt de kosten van de reservering niet, bent u gefactureerd de overschrijding.
@@ -69,5 +70,7 @@ Zie de volgende artikelen voor meer informatie over gereserveerde virtuele Machi
 - [Gebruik van de gereserveerde exemplaar voor uw abonnement op gebruiksbasis begrijpen](billing-understand-reserved-instance-usage.md)
 - [Gereserveerde exemplaar gebruiksgegevens voor uw Enterprise enrollment begrijpen](billing-understand-reserved-instance-usage-ea.md)
 - [Kosten voor Windows-software niet zijn opgenomen in de gereserveerde exemplaren](billing-reserved-instance-windows-software-costs.md)
+- [Gereserveerde exemplaren in programma Partner Center Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-reservations)
 
+## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
 Als u hulp nodig hebt, moet [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ophalen van uw probleem snel worden opgelost.

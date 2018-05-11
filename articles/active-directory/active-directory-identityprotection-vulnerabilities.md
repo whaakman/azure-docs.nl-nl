@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 90fb659abfcff09eb715fcc29bbfb7e4facd3a6b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 0cb37a29847e69dae4a0e0682591bae092b38360
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Beveiligingsproblemen die worden gedetecteerd door Azure Active Directory: Identity Protection
 Zwakke plekken zijn zwakke punten in uw omgeving die door een aanvaller kan worden misbruikt. U wordt aangeraden dat u deze beveiligingslekken ter verbetering van de beveiligingsstatus van uw organisatie, en voorkomen dat aanvallers deze nu aanvalt.
@@ -47,7 +47,7 @@ In moderne ondernemingen zijn IT-afdelingen vaak niet op de hoogte van alle clou
 
 We raden aan uw organisatie te implementeren Cloud App Discovery voor het detecteren van niet-beheerde cloud-toepassingen en voor het beheren van deze toepassingen met Azure Active Directory.
 
-Zie voor meer informatie [zoeken naar niet-beheerde cloud-toepassingen met Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
+Zie voor meer informatie [zoeken naar niet-beheerde cloud-toepassingen met Cloud App Discovery](manage-apps/cloud-app-discovery.md).
 
 ## <a name="security-alerts-from-privileged-identity-management"></a>Beveiligingswaarschuwingen van Privileged Identity Management
 Deze kwetsbaarheid helpt u bij het opsporen en oplossen van waarschuwingen over bevoegde identiteiten in uw organisatie.  

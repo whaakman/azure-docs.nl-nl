@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a4c43477a28efe01fd197a0c09afadb338638036
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3b4bf8d8ca43110dcfa4aeaed279a8e340e5d529
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions schalen en die als host fungeert
 
@@ -95,9 +95,7 @@ In het plan verbruik schaalt de controller schaal automatisch CPU en geheugenbro
 Wanneer u het verbruik die als host fungeert voor plan gebruikt, wordt de functie codebestanden worden opgeslagen op Azure-bestandsshares op de belangrijkste storage-account van de functie. Wanneer u de belangrijkste storage-account van de functie-app verwijdert, wordt de functie code-bestanden worden verwijderd en kunnen niet worden hersteld.
 
 > [!NOTE]
-> Wanneer u een blob-trigger op een plan verbruik, kunnen er maximaal 10 minuten vertraging bij de verwerking van nieuwe blobs als een functie-app niet actief is geworden. Nadat de functie-app wordt uitgevoerd, worden onmiddellijk blobs verwerkt. Overweeg om te voorkomen dat deze initiële vertraging, een van de volgende opties:
-> - Host functie-app op een App Service-abonnement met altijd op ingeschakeld.
-> - Gebruik een ander mechanisme voor het activeren van de blob verwerken, zoals een gebeurtenis raster-abonnement of een wachtrijbericht met de blob-naam. Zie voor een voorbeeld de [voorbeelden voor de blob invoer binding](functions-bindings-storage-blob.md#input---example).
+> Wanneer u een blob-trigger op een plan verbruik, kunnen er maximaal 10 minuten vertraging bij de verwerking van nieuwe blobs als een functie-app niet actief is geworden. Nadat de functie-app wordt uitgevoerd, worden onmiddellijk blobs verwerkt. Gebruik van een App Service-abonnement met altijd op ingeschakeld om te voorkomen dat deze vertraging koude start, of de gebeurtenis raster trigger te gebruiken. Zie voor meer informatie [het blob trigger binding verwijzingsartikel](functions-bindings-storage-blob.md#trigger).
 
 ### <a name="runtime-scaling"></a>Runtime-schaling
 

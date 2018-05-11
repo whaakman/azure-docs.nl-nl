@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/24/2018
-ms.openlocfilehash: 444803eeb77e79a8bfe3271ddf27bd428042c875
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 81649277c0cb2f4b00ce856be5efcce6121b1be4
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="enable-ssl-on-an-azure-machine-learning-compute-mlc-cluster"></a>SSL inschakelen op een Azure Machine Learning berekenen (MLC)-cluster 
 
@@ -47,7 +47,15 @@ az ml env create -c -g <resource group name> -n <cluster name> --cert-cname <CNA
 
 ## <a name="set-up-an-ssl-certificate-on-an-existing-acs-cluster"></a>Een SSL-certificaat op een bestaand ACS-cluster instellen
 
-Als u voor een cluster dat is gemaakt zonder SSL ontwikkelt, kunt u een certificaat met behulp van Azure PowerShell-cmdlets kunt toevoegen: 
+Als u voor een cluster dat is gemaakt zonder SSL ontwikkelt, kunt u een certificaat met behulp van Azure PowerShell-cmdlets kunt toevoegen.
+
+U moet de sleutel en het certificaat in een onbewerkte PEM-indeling opgeven. Deze kunnen worden gelezen in PowerShell variabelen:
+
+```
+$keyValueInPemFormat = [IO.File]::ReadAllText('<path to key.pem file>')
+$certValueInPemFormat = [IO.File]::ReadAllText('<path to cert.pem file>')
+```
+Het certificaat toevoegen aan het cluster: 
 
 ```
 Set-AzureRmMlOpCluster -ResourceGroupName my-rg -Name my-cluster -SslStatus Enabled -SslCertificate $certValueInPemFormat -SslKey $keyValueInPemFormat -SslCName foo.mycompany.com

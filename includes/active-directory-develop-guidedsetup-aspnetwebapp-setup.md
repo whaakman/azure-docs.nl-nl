@@ -2,24 +2,17 @@
 title: bestand opnemen
 description: bestand opnemen
 services: active-directory
-documentationcenter: dev-center-name
 author: andretms
-manager: mtillman
-editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.devlang: na
 ms.topic: include
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 05/04/2018
+ms.date: 05/08/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 1c51d70a3747da6a8f51c5fc6341c1975cebbdb7
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: 5d3af1800e18e3686e69d4a25131c68d3bdc805b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 ## <a name="set-up-your-project"></a>Instellen van uw project
 
@@ -29,7 +22,7 @@ Deze sectie bevat de stappen voor het installeren en configureren van de verific
 
 ### <a name="create-your-aspnet-project"></a>Uw ASP.NET-project maken
 
-1. In Visual Studio: `File` > `New` > `Project`<br/>
+1. In Visual Studio: `File` > `New` > `Project`
 2. Onder *Visual C# \Web*, selecteer `ASP.NET Web Application (.NET Framework)`.
 3. Naam van uw toepassing en klik op *OK*
 4. Selecteer `Empty` en schakel het selectievakje om toe te voegen `MVC` verwijzingen
@@ -40,11 +33,11 @@ Deze sectie bevat de stappen voor het installeren en configureren van de verific
 2. Voeg *OWIN middleware NuGet-pakketten* door het volgende te typen in het venster Package Manager-Console:
 
     ```powershell
-    Install-Package Microsoft.Owin.Security.OpenIdConnect -Version 3.1.0
-    Install-Package Microsoft.Owin.Security.Cookies -Version 3.1.0
-    Install-Package Microsoft.Owin.Host.SystemWeb -Version 3.1.0
+    Install-Package Microsoft.Owin.Security.OpenIdConnect
+    Install-Package Microsoft.Owin.Security.Cookies
+    Install-Package Microsoft.Owin.Host.SystemWeb
     ```
-    
+
 <!--start-collapse-->
 > ### <a name="about-these-libraries"></a>Over deze bibliotheken
 >De bovenstaande bibliotheken Schakel eenmalige aanmelding (SSO) met OpenID Connect via authenticatie op basis van een cookie. Nadat de verificatie is voltooid en het token voor de gebruiker wordt verzonden naar uw toepassing, maakt OWIN middleware een sessiecookie. De browser gebruikt deze cookie vervolgens bij volgende aanvragen, zodat de gebruiker hoeft niet nogmaals het wachtwoord en geen aanvullende verificatie nodig is.
@@ -54,20 +47,19 @@ Deze sectie bevat de stappen voor het installeren en configureren van de verific
 De onderstaande stappen worden gebruikt voor het maken van een middleware OWIN-Opstartklasse OpenID Connect verificatie configureren. Deze klasse wordt automatisch uitgevoerd wanneer uw IIS-proces wordt gestart.
 
 > [!TIP]
-> Als uw project beschikt niet over een `Startup.cs` bestand in de hoofdmap:<br/>
-> 1. Met de rechtermuisknop op de hoofdmap van het project: >    `Add` > `New Item...` > `OWIN Startup class`<br/>
-> 2. Geef deze de naam `Startup.cs`<br/>
+> Als uw project beschikt niet over een `Startup.cs` bestand in de hoofdmap:
+> 1. Met de rechtermuisknop op de hoofdmap van het project: > `Add` > `New Item...` > `OWIN Startup class`<br/>
+> 2. Geef deze de naam `Startup.cs`
 >
 >> Zorg ervoor dat de geselecteerde klasse is een OWIN-Opstartklasse en niet een standaard C#-klasse. Dit controleren door te controleren of er `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` boven de naamruimte.
 
-1. Voeg *OWIN* en *Microsoft.IdentityModel* verwijzingen naar `Startup.cs` zodat het gebruik van declaraties komen de volgende:
+1. Voeg *OWIN* en *Microsoft.IdentityModel* verwijzingen naar `Startup.cs`:
 
     ```csharp
-    using System;
-    using System.Threading.Tasks;
     using Microsoft.Owin;
     using Owin;
-    using Microsoft.IdentityModel.Protocols;
+    using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+    using Microsoft.IdentityModel.Tokens;
     using Microsoft.Owin.Security;
     using Microsoft.Owin.Security.Cookies;
     using Microsoft.Owin.Security.OpenIdConnect;
@@ -100,7 +92,7 @@ De onderstaande stappen worden gebruikt voor het maken van een middleware OWIN-O
             app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
 
             app.UseCookieAuthentication(new CookieAuthenticationOptions());
-                app.UseOpenIdConnectAuthentication(
+            app.UseOpenIdConnectAuthentication(
                 new OpenIdConnectAuthenticationOptions
                 {
                     // Sets the ClientId, authority, RedirectUri as obtained from web.config
@@ -109,13 +101,16 @@ De onderstaande stappen worden gebruikt voor het maken van een middleware OWIN-O
                     RedirectUri = redirectUri,
                     // PostLogoutRedirectUri is the page that users will be redirected to after sign-out. In this case, it is using the home page
                     PostLogoutRedirectUri = redirectUri,
-                    Scope = OpenIdConnectScopes.OpenIdProfile,
+                    Scope = OpenIdConnectScope.OpenIdProfile,
                     // ResponseType is set to request the id_token - which contains basic information about the signed-in user
-                    ResponseType = OpenIdConnectResponseTypes.IdToken,
+                    ResponseType = OpenIdConnectResponseType.IdToken,
                     // ValidateIssuer set to false to allow personal and work accounts from any organization to sign in to your application
                     // To only allow users from a single organizations, set ValidateIssuer to true and 'tenant' setting in web.config to the tenant name
                     // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter 
-                    TokenValidationParameters = new System.IdentityModel.Tokens.TokenValidationParameters() { ValidateIssuer = false },
+                    TokenValidationParameters = new TokenValidationParameters()
+                    {
+                        ValidateIssuer = false
+                    },
                     // OpenIdConnectAuthenticationNotifications configures OWIN to send notification of failed authentications to OnAuthenticationFailed method
                     Notifications = new OpenIdConnectAuthenticationNotifications
                     {
@@ -137,9 +132,7 @@ De onderstaande stappen worden gebruikt voor het maken van een middleware OWIN-O
             return Task.FromResult(0);
         }
     }
-
     ```
-
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Meer informatie

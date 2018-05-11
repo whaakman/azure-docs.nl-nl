@@ -1,11 +1,11 @@
 ---
 title: Problemen met aanmelden bij een on-premises toepassing met behulp van de Azure AD-toepassingsproxy | Microsoft Docs
-description: "Het oplossen van veelvoorkomende problemen als u niet aanmelden bij een on-premises toepassing geïntegreerd met Azure AD met behulp van de Azure AD-toepassingsproxy"
+description: Het oplossen van veelvoorkomende problemen als u niet aanmelden bij een on-premises toepassing geïntegreerd met Azure AD met behulp van de Azure AD-toepassingsproxy
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: e3db08e5615385cbbbc77972f3cc560e9de9957b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: afd5460ef3e286cd3d8b550e7d7e54b3e09f2990
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problemen met aanmelden bij een on-premises toepassing met behulp van de Azure AD-toepassingsproxy
 
@@ -56,4 +56,4 @@ De volgende documenten kunnen u helpen een aantal van de meest voorkomende probl
   * [Ik ondervind problemen bij het installeren van de connector voor de toepassingsproxyagent](https://docs.microsoft.com/azure/active-directory/application-proxy-connector-installation-problem/)
 
 ## <a name="next-steps"></a>Volgende stappen
-[Het verstrekken van veilige externe toegang tot on-premises toepassingen](active-directory-application-proxy-get-started.md)
+[Het verstrekken van veilige externe toegang tot on-premises toepassingen](manage-apps/application-proxy.md)

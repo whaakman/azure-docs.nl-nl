@@ -9,11 +9,11 @@ ms.date: 05/07/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: ''
-ms.openlocfilehash: 3750bc409753868566c91c01cf6093f439c599f9
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a56fa61c6d77ab50dc1342c5a7feeaf1c579697d
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Structuur van Azure-beleidsdefinities
 
@@ -256,120 +256,61 @@ Zie voor een voorbeeld van het controle-wanneer de extensie van een virtuele mac
 
 U eigenschap aliassen gebruiken voor toegang tot specifieke eigenschappen voor een resourcetype. Aliassen kunnen u beperken welke waarden of de voorwaarden zijn toegestaan voor een eigenschap van een resource. Elke alias wordt toegewezen aan paden in verschillende API-versies voor een bepaald brontype. Tijdens de evaluatie van het beleid haalt de beleidsengine het eigenschapspad voor die API-versie.
 
-**Microsoft.Cache/Redis**
+De lijst met aliassen groeit altijd. Om te detecteren welke aliassen worden momenteel ondersteund door Azure-beleid, moet u een van de volgende methoden gebruiken:
 
-| Alias | Beschrijving |
-| ----- | ----------- |
-| Microsoft.Cache/Redis/enableNonSslPort | Instellen is of de Redis-server niet-ssl-poort (6379) ingeschakeld. |
-| Microsoft.Cache/Redis/shardCount | Stel het aantal shards op een Cluster Premium Cache moeten worden gemaakt.  |
-| Microsoft.Cache/Redis/sku.capacity | Stel de grootte van de Redis-cache te implementeren.  |
-| Microsoft.Cache/Redis/sku.family | Stel de SKU-serie te gebruiken. |
-| Microsoft.Cache/Redis/sku.name | Instellen van het type van Redis-Cache te implementeren. |
+- Azure PowerShell
 
-**Microsoft.Cdn/profiles**
+  ```azurepowershell-interactive
+  # Login first with Connect-AzureRmAccount if not using Cloud Shell
 
-| Alias | Beschrijving |
-| ----- | ----------- |
-| Microsoft.CDN/profiles/sku.name | De naam van de prijscategorie instellen. |
+  $azContext = Get-AzureRmContext
+  $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
+  $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
+  $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
+  $authHeader = @{
+      'Content-Type'='application/json'
+      'Authorization'='Bearer ' + $token.AccessToken
+  }
 
-**Microsoft.Compute/disks**
+  # Invoke the REST API
+  $response = Invoke-RestMethod -Uri 'https://management.azure.com/providers/?api-version=2017-08-01&$expand=resourceTypes/aliases' -Method Get -Headers $authHeader
 
-| Alias | Beschrijving |
-| ----- | ----------- |
-| Microsoft.Compute/imageOffer | Stel de aanbieding van de platforminstallatiekopie van het of de marketplace-installatiekopie gebruikt voor het maken van de virtuele machine. |
-| Microsoft.Compute/imagePublisher | Stel de uitgever van de platforminstallatiekopie van het of de marketplace-installatiekopie gebruikt voor het maken van de virtuele machine. |
-| Microsoft.Compute/imageSku | Stel de SKU van de platforminstallatiekopie van het of de marketplace-installatiekopie gebruikt voor het maken van de virtuele machine. |
-| Microsoft.Compute/imageVersion | Stel de versie van de platforminstallatiekopie van het of de marketplace-installatiekopie gebruikt voor het maken van de virtuele machine. |
+  # Create an Array List to hold discovered aliases
+  $aliases = New-Object System.Collections.ArrayList
 
+  foreach ($ns in $response.value) {
+      foreach ($rT in $ns.resourceTypes) {
+          if ($rT.aliases) {
+              foreach ($obj in $rT.aliases) {
+                  $alias = [PSCustomObject]@{
+                      Namespace       = $ns.namespace
+                      resourceType    = $rT.resourceType
+                      alias           = $obj.name
+                  }
+                  $aliases.Add($alias) | Out-Null
+              }
+          }
+      }
+  }
 
-**Microsoft.Compute/virtualMachines**
+  # Output the list, sort, and format. You can customize with Where-Object to limit as desired.
+  $aliases | Sort-Object -Property Namespace, resourceType, alias | Format-Table
+  ```
 
-| Alias | Beschrijving |
-| ----- | ----------- |
-| Microsoft.Compute/imageId | De id van de afbeelding die wordt gebruikt voor het maken van de virtuele machine instellen. |
-| Microsoft.Compute/imageOffer | Stel de aanbieding van de platforminstallatiekopie van het of de marketplace-installatiekopie gebruikt voor het maken van de virtuele machine. |
-| Microsoft.Compute/imagePublisher | Stel de uitgever van de platforminstallatiekopie van het of de marketplace-installatiekopie gebruikt voor het maken van de virtuele machine. |
-| Microsoft.Compute/imageSku | Stel de SKU van de platforminstallatiekopie van het of de marketplace-installatiekopie gebruikt voor het maken van de virtuele machine. |
-| Microsoft.Compute/imageVersion | Stel de versie van de platforminstallatiekopie van het of de marketplace-installatiekopie gebruikt voor het maken van de virtuele machine. |
-| Microsoft.Compute/licenseType | Instellen dat de installatiekopie of schijf gelicentieerde lokaal is. Deze waarde wordt alleen gebruikt voor afbeeldingen die het besturingssysteem Windows Server bevatten.  |
-| Microsoft.Compute/virtualMachines/imageOffer | Stel de aanbieding van de platforminstallatiekopie van het of de marketplace-installatiekopie gebruikt voor het maken van de virtuele machine. |
-| Microsoft.Compute/virtualMachines/imagePublisher | Stel de uitgever van de platforminstallatiekopie van het of de marketplace-installatiekopie gebruikt voor het maken van de virtuele machine. |
-| Microsoft.Compute/virtualMachines/imageSku | Stel de SKU van de platforminstallatiekopie van het of de marketplace-installatiekopie gebruikt voor het maken van de virtuele machine. |
-| Microsoft.Compute/virtualMachines/imageVersion | Stel de versie van de platforminstallatiekopie van het of de marketplace-installatiekopie gebruikt voor het maken van de virtuele machine. |
-| Microsoft.Compute/virtualMachines/osDisk.Uri | Stel de vhd-URI. |
-| Microsoft.Compute/virtualMachines/sku.name | Stel de grootte van de virtuele machine. |
-| Microsoft.Compute/virtualMachines/availabilitySet.id | Stelt de beschikbaarheidsset-id voor de virtuele machine. |
+- Azure-CLI
 
-**Microsoft.Compute/virtualMachines/extensions**
+  ```azurecli-interactive
+  # Login first with az login if not using Cloud Shell
 
-| Alias | Beschrijving |
-| ----- | ----------- |
-| Microsoft.Compute/virtualMachines/extensions/publisher | De naam van de uitgever de extensie instellen. |
-| Microsoft.Compute/virtualMachines/extensions/type | Het type van extensie instellen. |
-| Microsoft.Compute/virtualMachines/extensions/typeHandlerVersion | Stel de versie van de uitbreiding. |
+  # Get Azure Policy aliases for a specific Namespace
+  az provider show --namespace Microsoft.Automation --expand "resourceTypes/aliases" --query "resourceTypes[].aliases[].name"
+  ```
 
-**Microsoft.Compute/virtualMachineScaleSets**
+- REST-API / ARMClient
 
-| Alias | Beschrijving |
-| ----- | ----------- |
-| Microsoft.Compute/imageId | De id van de afbeelding die wordt gebruikt voor het maken van de virtuele machine instellen. |
-| Microsoft.Compute/imageOffer | Stel de aanbieding van de platforminstallatiekopie van het of de marketplace-installatiekopie gebruikt voor het maken van de virtuele machine. |
-| Microsoft.Compute/imagePublisher | Stel de uitgever van de platforminstallatiekopie van het of de marketplace-installatiekopie gebruikt voor het maken van de virtuele machine. |
-| Microsoft.Compute/imageSku | Stel de SKU van de platforminstallatiekopie van het of de marketplace-installatiekopie gebruikt voor het maken van de virtuele machine. |
-| Microsoft.Compute/imageVersion | Stel de versie van de platforminstallatiekopie van het of de marketplace-installatiekopie gebruikt voor het maken van de virtuele machine. |
-| Microsoft.Compute/licenseType | Instellen dat de installatiekopie of schijf gelicentieerde lokaal is. Deze waarde wordt alleen gebruikt voor afbeeldingen die het besturingssysteem Windows Server bevatten. |
-| Microsoft.Compute/VirtualMachineScaleSets/computerNamePrefix | Het voorvoegsel van de computer voor de virtuele machines in de schaalset instellen. |
-| Microsoft.Compute/VirtualMachineScaleSets/osdisk.imageUrl | Stel de blob-URI voor de gebruikersinstallatiekopie van de. |
-| Microsoft.Compute/VirtualMachineScaleSets/osdisk.vhdContainers | De container-URL's die worden gebruikt voor het opslaan van besturingssysteem schijven voor de schaalaanpassingsset ingesteld. |
-| Microsoft.Compute/VirtualMachineScaleSets/sku.name | De grootte van virtuele machines in een scale-set instellen. |
-| Microsoft.Compute/VirtualMachineScaleSets/sku.tier | De laag van virtuele machines in een scale-set instellen. |
-
-**Microsoft.Network/applicationGateways**
-
-| Alias | Beschrijving |
-| ----- | ----------- |
-| Microsoft.Network/applicationGateways/sku.name | De grootte van de gateway instellen. |
-
-**Microsoft.Network/virtualNetworkGateways**
-
-| Alias | Beschrijving |
-| ----- | ----------- |
-| Microsoft.Network/virtualNetworkGateways/gatewayType | Het type van deze virtuele netwerkgateway instellen. |
-| Microsoft.Network/virtualNetworkGateways/sku.name | De naam van de gateway-SKU ingesteld. |
-
-**Microsoft.Sql/servers**
-
-| Alias | Beschrijving |
-| ----- | ----------- |
-| Microsoft.Sql/servers/version | Stel de versie van de server. |
-
-**Microsoft.Sql/databases**
-
-| Alias | Beschrijving |
-| ----- | ----------- |
-| Microsoft.Sql/servers/databases/edition | Stel de versie van de database. |
-| Microsoft.Sql/servers/databases/elasticPoolName | De naam van de elastische groep die de database is ingesteld. |
-| Microsoft.Sql/servers/databases/requestedServiceObjectiveId | Stel de geconfigureerde service level objective-ID van de database. |
-| Microsoft.Sql/servers/databases/requestedServiceObjectiveName | De naam van de geconfigureerde serviceniveaudoelstelling van de database instellen.  |
-
-**Microsoft.Sql/elasticpools**
-
-| Alias | Beschrijving |
-| ----- | ----------- |
-| servers/elasticpools | Microsoft.Sql/servers/elasticPools/dtu | Stel de totale gedeelde DTU voor een elastische pool in de database. |
-| servers/elasticpools | Microsoft.Sql/servers/elasticPools/edition | Stel de versie van de elastische groep. |
-
-**Microsoft.Storage/storageAccounts**
-
-| Alias | Beschrijving |
-| ----- | ----------- |
-| Microsoft.Storage/storageAccounts/accessTier | Stel de toegangslaag gebruikt voor facturering. |
-| Microsoft.Storage/storageAccounts/accountType | De SKU-naam instellen. |
-| Microsoft.Storage/storageAccounts/enableBlobEncryption | Instellen of de service de gegevens versleutelt die wordt opgeslagen in de blob storage-service. |
-| Microsoft.Storage/storageAccounts/enableFileEncryption | Instellen of de service de gegevens versleutelt die in de storage-service van het bestand wordt opgeslagen. |
-| Microsoft.Storage/storageAccounts/sku.name | De SKU-naam instellen. |
-| Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Stel in dat alleen https-verkeer met storage-service. |
-| Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].id | Controleer of het virtuele netwerk Service-eindpunt is ingeschakeld. |
+  ```http
+  GET https://management.azure.com/providers/?api-version=2017-08-01&$expand=resourceTypes/aliases
+  ```
 
 ## <a name="initiatives"></a>Initiatieven
 

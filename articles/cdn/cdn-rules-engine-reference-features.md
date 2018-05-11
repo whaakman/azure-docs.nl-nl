@@ -4,7 +4,7 @@ description: Documentatie bij Azure CDN regels engine functies.
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
@@ -12,10 +12,10 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2018
+ms.date: 05/09/2018
 ms.author: v-deasim
-ms.openlocfilehash: fe1f61c7242cf4213b19e9496d557ae7a2253fe8
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e1e002b51aa5a93e7fcc800f5cf48ac401c5cb2d
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/10/2018
@@ -1240,25 +1240,25 @@ Het is raadzaam een absolute URL gebruiken. Het gebruik van een relatieve URL ka
 
 **Voorbeeldscenario**
 
-In dit voorbeeld wordt getoond hoe een edge CNAME-URL die wordt omgezet naar dit basis-URL in CDN omleiden: http://marketing.azureedge.net/brochures
+In dit voorbeeld laat zien hoe een edge CNAME-URL die wordt omgezet naar dit basis-URL in CDN omleiden: http:\//marketing.azureedge.net/brochures
 
-In aanmerking komende aanvragen worden omgeleid naar deze base rand CNAME-URL: http://cdn.mydomain.com/resources
+In aanmerking komende aanvragen worden omgeleid naar deze base rand CNAME-URL: http:\//cdn.mydomain.com/resources
 
-Deze URL-omleiding kan worden bereikt via de volgende configuratie: ![](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
+Deze URL-omleiding kan worden bereikt via de volgende configuratie: ![URL omleiden](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
 
 **Belangrijke punten:**
 
 - De functie Omleidings-URL van de aanvraag definieert URL's die wordt omgeleid. Als gevolg hiervan zijn aanvullende overeenkomst voorwaarden niet vereist. Hoewel de voorwaarde van de overeenkomst is gedefinieerd als "Always", worden alleen aanvragen die naar de map 'brochures' op de 'marketing' oorsprong van de klant verwijzen wordt omgeleid. 
 - Alle overeenkomende aanvragen wordt omgeleid naar de rand CNAME-URL die is gedefinieerd in de doel-optie. 
     - Voorbeeldscenario voor #1: 
-        - Voorbeeld van een aanvraag (CDN URL): http://marketing.azureedge.net/brochures/widgets.pdf 
-        - Aanvraag-URL (na omleiding): http://cdn.mydomain.com/resources/widgets.pdf  
+        - Voorbeeld van een aanvraag (CDN URL): http:\//marketing.azureedge.net/brochures/widgets.pdf 
+        - Aanvraag-URL (na omleiding): http:\//cdn.mydomain.com/resources/widgets.pdf  
     - Voorbeeldscenario voor #2: 
-        - Voorbeeld van een aanvraag (Edge CNAME URL): http://marketing.mydomain.com/brochures/widgets.pdf 
-        - Aanvraag-URL (na omleiding): http://cdn.mydomain.com/resources/widgets.pdf voorbeeldscenario
+        - Voorbeeld van een aanvraag (Edge CNAME URL): http:\//marketing.mydomain.com/brochures/widgets.pdf 
+        - Aanvraag-URL (na omleiding): http:\//cdn.mydomain.com/resources/widgets.pdf voorbeeldscenario
     - Voorbeeldscenario voor #3: 
-        - Voorbeeld van een aanvraag (Edge CNAME URL): http://brochures.mydomain.com/campaignA/final/productC.ppt 
-        - Aanvraag-URL (na omleiding): http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
+        - Voorbeeld van een aanvraag (Edge CNAME URL): http:\//brochures.mydomain.com/campaignA/final/productC.ppt 
+        - Aanvraag-URL (na omleiding): http:\//cdn.mydomain.com/resources/campaignA/final/productC.ppt  
 - De variabele aanvraag schema (% {schema}) wordt gebruikt in de doel-optie, die zorgt ervoor dat het schema van de aanvraag ongewijzigd na omleiding blijft.
 - De URL-segmenten die zijn opgenomen in de aanvraag worden toegevoegd aan de nieuwe URL via "$1."
 
@@ -1282,17 +1282,17 @@ Optie|Beschrijving
 
 **Voorbeeldscenario 1**
 
-In dit voorbeeld wordt getoond hoe een edge CNAME-URL die wordt omgezet naar dit basis-URL in CDN omleiden: http://marketing.azureedge.net/brochures/
+In dit voorbeeld laat zien hoe een edge CNAME-URL die wordt omgezet naar dit basis-URL in CDN omleiden: http:\//marketing.azureedge.net/brochures/
 
-In aanmerking komende aanvragen worden omgeleid naar deze base rand CNAME-URL: http://MyOrigin.azureedge.net/resources/
+In aanmerking komende aanvragen worden omgeleid naar deze base rand CNAME-URL: http:\//MyOrigin.azureedge.net/resources/
 
-Deze URL-omleiding kan worden bereikt via de volgende configuratie: ![](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
+Deze URL-omleiding kan worden bereikt via de volgende configuratie: ![URL omleiden](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
 
 **Voorbeeldscenario 2**
 
 Dit voorbeeld wordt het omleiden van een edge CNAME URL uit hoofdletters in kleine letters reguliere expressies gebruiken.
 
-Deze URL-omleiding kan worden bereikt via de volgende configuratie: ![](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
+Deze URL-omleiding kan worden bereikt via de volgende configuratie: ![URL omleiden](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
 
 
 **Belangrijke punten:**

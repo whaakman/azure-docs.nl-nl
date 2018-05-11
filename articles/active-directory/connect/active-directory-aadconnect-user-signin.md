@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 05/08/2018
 ms.author: billmath
-ms.openlocfilehash: 6a6e83ad73f561cd8aa4fc629fb9b48449af6d0a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c8b972978743fee33c7b7080cdf9d290bdbb619e
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect gebruiker aanmeldingsopties
 Verbinden met Azure Active Directory (Azure AD) kan uw gebruikers zich aanmelden bij zowel cloud als on-premises resources met dezelfde wachtwoorden. In dit artikel beschrijft de belangrijkste concepten voor elk identiteitsmodel bij het kiezen van de identiteit die u gebruiken wilt voor aanmelding bij Azure AD.
@@ -28,6 +28,7 @@ Als u al bekend met het Azure AD identity-model bent en voor meer informatie ove
 * [Synchronisatie van wachtwoordhash](#password-hash-synchronization) met [naadloze eenmalige aanmelding (SSO)](active-directory-aadconnect-sso.md)
 * [Pass through-verificatie](active-directory-aadconnect-pass-through-authentication.md) met [naadloze eenmalige aanmelding (SSO)](active-directory-aadconnect-sso.md)
 * [Federatieve eenmalige aanmelding (met Active Directory Federation Services (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
+* [Federatie met PingFederate](#federation-with-pingfederate)
 
 > [!NOTE] 
 > Het is belangrijk te weten dat door de Federatie voor Azure AD configureren, u vertrouwensrelatie tussen uw Azure AD-tenant en uw federatieve domeinen een. Met deze federatieve vertrouwensrelatie-domein hebben gebruikers toegang tot Azure AD cloudbronnen binnen de tenant.  
@@ -88,6 +89,13 @@ Als u een nieuwe farm implementeert of via een bestaande farm, u moet:
 * De computer waarop u de wizard uitvoeren op kunnen verbinding maken met andere computers die u wilt installeren van AD FS of Web Application Proxy op met behulp van Windows Remote Management.
 
 Zie voor meer informatie [eenmalige aanmelding met AD FS configureren](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs).
+
+### <a name="federation-with-pingfederate"></a>Federatie met PingFederate
+Met federatieve aanmelden, zich uw gebruikers aanmelden bij Azure AD gebaseerde services met hun on-premises wachtwoorden. Terwijl ze op het bedrijfsnetwerk, zijn ze zelfs om hun wachtwoord invoeren.
+
+Zie voor meer informatie over het configureren van PingFederate voor gebruik met Azure Active Directory [PingFederate integratie met Azure Active Directory en Office 365](https://www.pingidentity.com/AzureADConnect)
+
+Zie voor meer informatie over het instellen van Azure AD Connect met PingFederate [aangepaste installatie van Azure AD Connect](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-pingfederate)
 
 #### <a name="sign-in-by-using-an-earlier-version-of-ad-fs-or-a-third-party-solution"></a>Aanmelden met een eerdere versie van AD FS of een oplossing van derden
 Als u al cloud aanmelden met behulp van een eerdere versie van AD FS (zoals AD FS 2.0) of een derde partij federatieprovider hebt geconfigureerd, kunt u overslaan van de gebruiker aanmelden configuratie met Azure AD Connect. Hierdoor kunt u de laatste synchronisatie en andere mogelijkheden van Azure AD Connect downloaden terwijl u ook uw bestaande oplossing voor aanmelden.

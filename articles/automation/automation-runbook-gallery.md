@@ -3,16 +3,17 @@ title: Runbook- en galerieën voor Azure Automation
 description: Runbooks en modules van Microsoft en de community zijn beschikbaar voor u installeren en gebruiken in uw Azure Automation-omgeving.  Dit artikel wordt beschreven hoe u toegang hebt tot deze bronnen en bij te dragen van uw runbooks aan de galerie.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: fe0e38e384f9f3d40bc6f7556cdb5e6dee9b4395
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a33bc9ea1750d9db34c0fad678118dc81f294c61
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Runbook- en galerieën voor Azure Automation
 In plaats van uw eigen runbooks en modules in Azure Automation, kunt u toegang tot allerlei scenario's die al zijn gebouwd door Microsoft en de community.  U kunt deze scenario's zonder aanpassingen gebruiken of u kunt ze als uitgangspunt gebruiken en ze bewerken voor uw specifieke vereisten.
@@ -52,7 +53,7 @@ Microsoft raadt u runbooks toevoegen aan de Runbook-galerie die u denkt dat hand
 * De samenvatting voor het uploaden wordt weergegeven in de resultaten Runbookgalerie zodat u moet bieden gedetailleerde informatie waarmee een gebruiker die de functionaliteit van het runbook te identificeren.
 * U moet één tot drie van de volgende codes toewijzen aan het uploaden.  Het runbook wordt vermeld in de wizard onder de categorieën die overeenkomen met de labels.  Alle tags niet op deze lijst worden genegeerd door de wizard. Als u overeenkomende labels niet opgeeft, wordt het runbook wordt vermeld onder de andere categorie.
   
-  * Back-up maken
+  * Backup
   * Capaciteitsbeheer
   * Wijzigingsbeheer
   * Naleving

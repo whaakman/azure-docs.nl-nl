@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: bcbebc216dbd63acfb33cf72ba774d088149a3a7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 87ecc65d2d4802ae826f3260b66b26e0bbe414e6
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="log-on-to-a-windows-virtual-machine-using-the-azure-portal"></a>Aanmelden bij een virtuele Windows-machine via de Azure-portal
 In de Azure-portal, gebruikt u de **Connect** om te beginnen een extern bureaublad-sessie en meld u aan bij een virtuele machine van Windows.
@@ -42,28 +42,30 @@ Learn how to [perform these steps using new Azure portal](../connect-logon.md?to
 
     ![Virtuele-machine-locaties](./media/connect-logon/azureportaldashboard.png)
 
-3. Klik op **Connect** op de opdrachtbalk op het dashboard van de virtuele machine.
-
-    ![Pictogram voor de virtuele machine verbinding maken](./media/connect-logon/virtualmachine_dashboard_connect.png)
-
-<!-- Don't know if this still applies
-     I think we can zap this.
-> [!TIP]
-> If the **Connect** button isn't available, see the troubleshooting tips at the end of this article.
->
->
--->
-
-## <a name="log-on-to-the-virtual-machine"></a>Aanmelden bij de virtuele machine
-[!INCLUDE [virtual-machines-log-on-win-server](../../../../includes/virtual-machines-log-on-win-server.md)]
+1. Klik op de **Connect** knop op de eigenschappenpagina van de virtuele machine. 
+2. In de **verbinding maken met virtuele machine** pagina, houden selecteert de gewenste opties en klik op **downloaden RDP-bestand**.
+2. Open het gedownloade RDP-bestand en klik op **Connect** wanneer u wordt gevraagd. 
+2. U ontvangt een waarschuwing dat het `.rdp`-bestand van een onbekende uitgever is. Dit is normaal. Klik in het venster Extern bureaublad op **Verbinden** om door te gaan.
+   
+    ![Schermafbeelding met waarschuwing over een onbekende uitgever](./media/connect-logon/rdp-warn.png)
+3. Selecteer in het venster **Windows-beveiliging** **Meer opties** en vervolgens **Een ander account gebruiken**. Typ de referenties voor een account op de virtuele machine en klik vervolgens op **OK**.
+   
+     **Lokaal account** - Dit is meestal de gebruikersnaam en het wachtwoord van het lokaal account dat u hebt opgegeven toen u de virtuele machine hebt gemaakt. In dit geval is het domein de naam van de virtuele machine en het is ingevoerd als *vmname*&#92;*gebruikersnaam*.  
+   
+    **In het domein opgenomen VM** - Als de virtuele machine deel uitmaakt van een domein, voert u de gebruikersnaam in met de volgende indeling: *Domein*&#92;*Gebruikersnaam*. Het account moet bovendien in de groep Administrators staan of er moet een machtiging voor externe toegang zijn verleend aan de VM.
+   
+    **Domeincontroller** - Als de VM een domeincontroller is, gebruikt u de gebruikersnaam en het wachtwoord van een domeinbeheerdersaccount voor het domein.
+4. Klik op **Ja** om de identiteit van de virtuele machine te controleren en het aanmelden te voltooien.
+   
+   ![Schermafbeelding met een bericht over het verifiëren van de identiteit van de virtuele machine](./media/connect-logon/cert-warning.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 * Als de **Connect** knop is niet actief of er andere problemen met de extern bureaublad-verbinding, probeert u de configuratie opnieuw ingesteld. Klik op **externe toegang opnieuw instellen** vanuit het dashboard van de virtuele machine.
 
-    ![Reset-remote-access](./media/connect-logon/virtualmachine_dashboard_reset_remote_access.png)
+    ![Opnieuw instellen van externe toegang](./media/connect-logon/virtualmachine_dashboard_reset_remote_access.png)
 
 * Probeer de fabrieksinstellingen voor problemen met het wachtwoord. Klik op **wachtwoord opnieuw instellen** aan de linkerkant van de virtuele machine dashboard onder **ondersteuning + probleemoplossing**.
 
-    ![Reset-password](./media/connect-logon/virtualmachine_dashboard_reset_password.png)
+    ![Wachtwoord opnieuw instellen](./media/connect-logon/virtualmachine_dashboard_reset_password.png)
 
 Als deze tips werken niet of niet wat u nodig hebt, gaat u naar [problemen met extern bureaublad-verbindingen naar een op basis van Windows Azure virtuele Machine](../troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Dit artikel leidt u door het opsporen en oplossen van veelvoorkomende problemen.

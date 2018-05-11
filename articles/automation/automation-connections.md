@@ -3,16 +3,17 @@ title: Verbindingsassets in Azure Automation
 description: Verbindingsassets in Azure Automation bevatten de benodigde informatie om te verbinden met een externe service of toepassing vanuit een runbook of de DSC-configuratie. Dit artikel wordt uitgelegd dat de details van verbindingen en hoe u ermee in tekstvorm en grafisch ontwerpen.
 services: automation
 ms.service: automation
+ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: d2c2cc2964b8223a564d45359f332597a1ca1f87
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 548748843443fe28d801912ae37de9b584096ffa
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="connection-assets-in-azure-automation"></a>Verbindingsassets in Azure Automation
 

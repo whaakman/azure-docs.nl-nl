@@ -2,7 +2,7 @@
 title: Problemen met Azure File-synchronisatie (preview) | Microsoft Docs
 description: Algemene problemen met het synchroniseren van Azure-bestand.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
 manager: klaasl
 editor: jgerend
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 4f022bf227c8d460d014ea9bbc5dc426f0ada511
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7f3d9672e9fc152580f49cf06b431ced890d9f08
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Problemen met Azure File-synchronisatie (preview)
 Gebruik Azure bestand Sync (preview) te centraliseren bestandsshares van uw organisatie in Azure-bestanden, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestand-server. Azure File-synchronisatie transformeert Windows Server in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB en NFS FTPS gebruiken. U kunt zoveel caches als u over de hele wereld nodig hebben.
@@ -28,12 +28,20 @@ In dit artikel is ontworpen om u te helpen u problemen op te lossen die met uw A
 1. Het gedeelte met opmerkingen van dit artikel.
 2. [Azure Storage-Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. [Azure bestanden UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
-4. Microsoft ondersteuning. Maken van een nieuw ondersteuningsverzoek in de Azure-portal op de **Help** tabblad de **Help + ondersteuning** knop en selecteer vervolgens **nieuw ondersteuningsverzoek**.
+4. Microsoft Ondersteuning. Maken van een nieuw ondersteuningsverzoek in de Azure-portal op de **Help** tabblad de **Help + ondersteuning** knop en selecteer vervolgens **nieuw ondersteuningsverzoek**.
 
 ## <a name="storage-sync-service-object-management"></a>Opslagbeheer Sync-Service-object
 Als u een resource verplaatsen van een abonnement aan een ander abonnement doet, is bestand sync (opslag Sync-Service) geblokkeerd kunnen worden verplaatst. 
 
 ## <a name="agent-installation-and-server-registration"></a>Agent-installatie en server-registratie
+### <a name="during-server-registration-get-the-error-the-term-find-azurermresource-is-not-recognized-as-the-name"></a>Tijdens de serverregistratie, wordt het foutbericht "de term 'zoeken AzureRMResource' wordt niet herkend als de naam..."
+Het probleem is dat de cmdlet find-AzureRMResource in AzureRM v6 is gewijzigd.  De volgende versie van de synchronisatie-agent wordt vastgesteld voor de ondersteuning van AzureRM v6.  Tot die tijd kunt u dit probleem door omzeilen:
+1. De huidige ServerRegistration.exe via taskmgr stoppen
+2. Online zetten van een PowerShell-opdrachtprompt als beheerder
+3. PS C:\> AzureRM verwijderen-Module
+4. PS C:\> install-module-AzureRM - RequiredVersion 5.7.0 naam
+5. C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe starten.
+
 <a id="agent-installation-failures"></a>**Oplossen van problemen met mislukte agentinstallaties**  
 Voer de volgende opdracht in te schakelen logboekregistratie tijdens de installatie van de agent als de installatie van de Azure-bestand Sync-agent bij een opdrachtprompt met verhoogde bevoegdheid mislukt:
 

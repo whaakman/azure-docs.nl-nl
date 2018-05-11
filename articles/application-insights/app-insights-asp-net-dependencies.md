@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 060f1c9d2c74ed45e8077ec99503a1d7b885d325
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 99d9ad04ac39d6d0072b13c81e74605e48de175b
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Application Insights instellen: afhankelijkheid bijhouden
 Een *afhankelijkheid* is een externe component die wordt aangeroepen door uw app. Dit is doorgaans een service die is aangeroepen met behulp van HTTP, of een database of een bestandssysteem. [Application Insights](app-insights-overview.md) maatregelen hoe lang de toepassing moet wachten voor afhankelijkheden en hoe vaak een afhankelijkheidsaanroep is mislukt. U kunt specifieke aanroepen te onderzoeken en koppelen aan aanvragen en uitzonderingen.
@@ -43,9 +43,9 @@ Gedeeltelijke afhankelijkheidsgegevens worden verzameld, automatisch door de [Ap
 
 | Platform | Installeren |
 | --- | --- |
-| IIS Server |Beide [Status Monitor installeren op uw server](app-insights-monitor-performance-live-website-now.md) of [Upgrade van uw toepassing naar .NET framework 4.6 of hoger](http://go.microsoft.com/fwlink/?LinkId=528259) en installeer de [Application Insights-SDK](app-insights-asp-net.md) in uw app. |
+| IIS-Server |Beide [Status Monitor installeren op uw server](app-insights-monitor-performance-live-website-now.md) of [Upgrade van uw toepassing naar .NET framework 4.6 of hoger](http://go.microsoft.com/fwlink/?LinkId=528259) en installeer de [Application Insights-SDK](app-insights-asp-net.md) in uw app. |
 | Azure Web App |In het Configuratiescherm voor web-app [de Application Insights-blade geopend in het Configuratiescherm van de web-app](app-insights-azure-web-apps.md) en kies installeren als u wordt gevraagd. |
-| Azure Cloud Service |[Gebruik opstarttaak](app-insights-cloudservices.md) of [installeren .NET framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
+| Azure-Cloudservice |[Gebruik opstarttaak](app-insights-cloudservices.md) of [installeren .NET framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 
 ## <a name="where-to-find-dependency-data"></a>Waar vind ik afhankelijkheidsgegevens
 * [De toepassingstoewijzing](#application-map) visualiseren van afhankelijkheden tussen uw app en de aangrenzende onderdelen.
@@ -83,7 +83,7 @@ Klik in de samenvatting grafieken of de tabelitems om te zoeken onbewerkte insta
 ## <a name="ajax-calls"></a>AJAX-aanroepen
 De blade Browsers toont de duur en mislukt de frequentie van AJAX-aanroepen vanuit [JavaScript in uw webpagina's](app-insights-javascript.md). Deze worden weergegeven als afhankelijkheden.
 
-## <a name="diagnosis"></a>Diagnose van trage aanvragen
+## <a name="diagnosis"></a> Diagnose van trage aanvragen
 Elke gebeurtenis van de aanvraag is gekoppeld aan het aanroepen van afhankelijkheden, uitzonderingen en andere gebeurtenissen die worden bijgehouden, terwijl de aanvraag is verwerkt door uw app. Dus als bepaalde aanvragen onjuist uitvoert, kunt u vinden of deze is als gevolg van trage reacties van een afhankelijkheid.
 
 We gaan een voorbeeld van die doorlopen.
@@ -131,7 +131,7 @@ Klik verder naar een exemplaar van een mislukte aanvraag en bekijk de bijbehoren
 
 ![Klik op een aanvraag met het type, het exemplaar voor ophalen naar een andere weergave van hetzelfde exemplaar, klikt u erop om details van uitzondering.](./media/app-insights-asp-net-dependencies/07-faildetail.png)
 
-## <a name="analytics"></a>Analytische gegevens
+## <a name="analytics"></a>Analyse
 U kunt volgen afhankelijkheden in de [querytaal van logboekanalyse](https://docs.loganalytics.io/). Hier volgen enkele voorbeelden.
 
 * Alle mislukte afhankelijkheidsaanroepen vinden:
@@ -200,9 +200,12 @@ Als u de standaard afhankelijkheid bijhouden module uitschakelen wilt, verwijder
 
 *SQL-query is niet volledig worden weergegeven.*
 
-* Voer een upgrade naar de nieuwste versie van de SDK. Als uw versie van .NET minder dan 4.6 is:
-  * IIS-host: installeren [Application Insights-Agent](app-insights-monitor-performance-live-website-now.md) op de host-servers.
-  * Azure-web-app: Open Application Insights tabblad in het Configuratiescherm van de web-app en installeer Application Insights.
+* Upgrade uitvoeren naar de nieuwste stabiele versie van de Application Insights-SDK.
+
+ Als uw versie van .NET minder dan 4.6 is:
+
+* IIS-host: installeren [Application Insights-Agent](app-insights-monitor-performance-live-website-now.md) op de host-servers.
+* Azure-web-app: Open Application Insights tabblad in het Configuratiescherm van de web-app en installeer Application Insights.
 
 ## <a name="video"></a>Video
 

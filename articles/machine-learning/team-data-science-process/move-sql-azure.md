@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 5/04/2018
 ms.author: deguhath
-ms.openlocfilehash: 03104b497034ef92ddb2c6216d6e9200e65168b0
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: ce349aedc6b733d34ab61eb2e23b378727e01800
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Gegevens voor Azure Machine Learning verplaatsen naar een Azure SQL-database
 In dit onderwerp bevat een overzicht van de opties voor het verplaatsen van gegevens uit platte bestanden (TSV- of CSV-indeling) of van de gegevens die zijn opgeslagen in een lokale SQL Server naar een Azure SQL-database. Deze taken voor het verplaatsen van gegevens naar de cloud maken deel uit van het Team gegevens wetenschap proces.
@@ -33,8 +33,8 @@ De volgende tabel geeft een overzicht van de opties voor het verplaatsen van geg
 
 | <b>BRON</b> | <b>BESTEMMING: Azure SQL Database</b> |
 | --- | --- |
-| <b>Plat bestand (CSV- of geformatteerd TSV)</b> |<a href="#bulk-insert-sql-query">Bulksgewijs invoegen SQL-Query |
-| <b>On-premises SQL Server</b> |1. <a href="#export-flat-file">Exporteren naar platte bestanden<br> 2. <a href="#insert-tables-bcp">Wizard voor migratie van SQL-Database<br> 3. <a href="#db-migration">Back-up van database maken en terugzetten<br> 4. <a href="#adf">Azure Data Factory |
+| <b>Plat bestand (CSV- of geformatteerd TSV)</b> |[Bulksgewijs invoegen SQL-Query](#bulk-insert-sql-query) |
+| <b>On-premises SQL Server</b> |1.[exporteren naar platte bestanden](#export-flat-file)<br> 2. [Wizard voor migratie van SQL-Database](#insert-tables-bcp)<br> 3. [Back-up van database maken en terugzetten](#db-migration)<br> 4. [Azure Data Factory](#adf) |
 
 ## <a name="prereqs"></a>Vereisten
 De procedures die hier wordt beschreven, vereisen dat u hebt:

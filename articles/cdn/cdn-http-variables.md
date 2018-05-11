@@ -12,10 +12,10 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/09/2018
 ms.author: v-deasim
-ms.openlocfilehash: ea7469b1d1c3d1c20beca9b1fb3bef0d4dac9492
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 36c1b20219fabd1b7c02247d9a93bb7b7cfc898d
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/10/2018
@@ -61,8 +61,8 @@ De volgende tabel beschrijft de ondersteunde HTTP-variabelen. Een lege waarde wo
 | Aanvraag-schema | % {schema} | Hiermee geeft u het schema van de aanvraag. |http |
 | Aanvraag-URI (relatieve) | % {request_uri} | Hiermee geeft u het relatieve pad, met inbegrip van de querytekenreeks is gedefinieerd in de aanvraag-URI. | /Marketing/foo.js?loggedin=True |
 | Aanvraag-URI (relatieve zonder query-tekenreeks) | % {uri} | Hiermee geeft u het relatieve pad naar de aangevraagde inhoud. <br /><br/>Belangrijke informatie:<br />-Deze relatieve pad worden uitgesloten van de queryreeks.<br />-Deze relatieve pad weerspiegelt URL regeneraties. Een URL herschreven onder de volgende voorwaarden:<br />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-Functie voor het herschrijven van URL: Deze functie herschrijft het relatieve pad dat is gedefinieerd in de aanvraag-URI.<br />    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-URL van de CNAME edge: Dit type aanvraag wordt herschreven voor de bijbehorende CDN-URL. |/800001/corigin/rewrittendir/foo.js |
-| Aanvraag-URI | % {aanvraag} | Hierin wordt beschreven in de aanvraag. <br />Syntaxis: `HTTPMethod RelativePath Protocol` | /Marketing/foo.js?loggedin=true HTTP/1.1 ophalen |
-| Antwoord headerwaarde | % {resp_&lt;ResponseHeader&gt;} | Retourneert de waarde die overeenkomt met de antwoordheader geïdentificeerd door de &lt;ResponseHeader&rt; term. <br /><br />Als de naam van de antwoordheader bevat een streepje (bijvoorbeeld gebruiker-Agent), kunt u deze met een onderstrepingsteken (bijvoorbeeld User_Agent) vervangen. | Voorbeeldgebruik: % {resp_Content_Length}<br /><br />Voorbeeld van de waarde: 100 |
+| Aanvraag-URI | % {aanvraag} | Hierin wordt beschreven in de aanvraag. <br />Syntaxis: &lt;HTTP-methode&gt; &lt;relatief pad&gt; &lt;HTTP-protocol&gt; | /Marketing/foo.js?loggedin=true HTTP/1.1 ophalen |
+| Antwoord headerwaarde | % {resp_&lt;ResponseHeader&gt;} | Retourneert de waarde die overeenkomt met de antwoordheader geïdentificeerd door de &lt;ResponseHeader&gt; term. <br /><br />Als de naam van de antwoordheader bevat een streepje (bijvoorbeeld gebruiker-Agent), kunt u deze met een onderstrepingsteken (bijvoorbeeld User_Agent) vervangen. | Voorbeeldgebruik: % {resp_Content_Length}<br /><br />Voorbeeld van de waarde: 100 |
 
 ## <a name="usage"></a>Gebruik
 De volgende tabel beschrijft de juiste syntaxis voor het opgeven van een HTTP-variabele.
@@ -155,19 +155,19 @@ Belangrijke informatie:
      - Positief: Bepaalt de lengte van de subtekenreeks in het eerste teken naar rechts.
      - Negatieve: Bepaalt de lengte van de subtekenreeks in het eerste teken aan de linkerkant.
 
-#### <a name="examples"></a>Voorbeelden:
+#### <a name="example"></a>Voorbeeld:
 
 Het volgende voorbeeld is afhankelijk van de volgende voorbeeldquery aanvraag-URL:
 
-`https://cdn.mydomain.com/folder/marketing/myconsultant/proposal.html`
+https:\//cdn.mydomain.com/folder/marketing/myconsultant/proposal.html
 
 De volgende tekenreeks wordt getoond hoe verschillende methoden voor het manipuleren van variabelen:
 
-`https://www%{http_host:3}/mobile/%{request_uri:7:10}/%{request_uri:-5:-8}.htm`
+https:\//www%{http_host:3}/mobile/%{request_uri:7:10}/%{request_uri:-5:-8}.htm
 
 Op basis van de voorbeeld-aanvraag-URL, produceren de bovenstaande variabele manipulatie de volgende waarde:
 
-`https://www.mydomain.com/mobile/marketing/proposal.htm`
+https:\//www.mydomain.com/mobile/marketing/proposal.htm
 
 
 ### <a name="pattern-removal"></a>Verwijderen van het patroon
@@ -180,7 +180,7 @@ Tekst die overeenkomt met een specifiek patroon kan vanaf het begin of het einde
 
 #### <a name="example"></a>Voorbeeld:
 
-In dit voorbeeldscenario wordt de variabele request_uri ingesteld op:
+In dit voorbeeldscenario de *request_uri* variabele is ingesteld op:
 
 `/800001/myorigin/marketing/product.html?language=en-US`
 

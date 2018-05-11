@@ -10,14 +10,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 84ca616856f363e4d3d68ab1cc45b97f7c589185
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: dd2d0c46c0829a73d32c96b506b9f2111eda3c84
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>API-versie profielen met gaat u in Azure-Stack gebruiken
 
@@ -61,7 +61,8 @@ De SDK gaan, is afhankelijk van de modules Azure Ga-AutoRest REST aanvragen verz
 Een voorbeeld van code gaat uitvoeren op Azure-Stack:
   1. Azure SDK voor gaan en de bijbehorende afhankelijkheden installeren. Zie voor instructies voor de vorige sectie, [Azure SDK installeren voor Ga](#install-azure-sdk-for-go).
   2. Informatie over de metagegevens ophalen van het Resource Manager-eindpunt. Het eindpunt retourneert een JSON-bestand met de informatie die is vereist voor het uitvoeren van uw code gaat.
-  > [!note]  
+
+  > [!Note]  
   > De **ResourceManagerUrl** in Azure Stack Development Kit (ASDK) is: `https://management.local.azurestack.external/`  
   > De **ResourceManagerUrl** in geïntegreerde systemen is: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
   > Voor het ophalen van de metagegevens die vereist zijn: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
@@ -176,7 +177,8 @@ Deze sectie geeft een veelgebruikte manier voor het verkrijgen van authorizer to
 ## <a name="example"></a>Voorbeeld
 
 Deze sectie toont een voorbeeld van code Ga virtueel netwerk maken op Azure-Stack. Voor volledige voorbeelden van SDK gaat Zie [Ga-SDk van Azure-voorbeelden opslagplaats](https://github.com/Azure-Samples/azure-sdk-for-go-samples). Azure Stack-voorbeelden zijn beschikbaar onder hybride / pad in servicemappen van de opslagplaats.
-> [!note]  
+
+> [!Note]  
 > Controleer of het abonnement dat u gebruikt is om de code in dit voorbeeld uitvoert, **netwerk** resourceprovider vermeld als **geregistreerde**. Om deze te verifiëren, zoekt u het abonnement in de Stack van Azure-portal en klik op **resourceproviders.**
 
 1. Importeer de vereiste pakketten in uw code. U moet het meest recente profiel op Azure-Stack gebruiken de netwerk-module te importeren. 
@@ -194,7 +196,7 @@ Deze sectie toont een voorbeeld van code Ga virtueel netwerk maken op Azure-Stac
   )
   ````
 
-2. Definieer de omgevingsvariabelen. Houd er rekening mee dat voor het maken van een virtueel netwerk moet u een resourcegroep hebt. 
+2. Definieer de omgevingsvariabelen. Een virtueel netwerk, die moet u beschikken over een resourcegroep maken. 
 
   ````go
   var (

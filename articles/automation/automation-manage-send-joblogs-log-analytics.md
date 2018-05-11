@@ -3,16 +3,17 @@ title: Azure Automation-taakgegevens doorsturen naar Log Analytics
 description: In dit artikel laat zien hoe u met het verzenden van taakstatus en runbook-taak stromen met Azure Log Analytics om meer inzicht en beheer te leveren.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 116096fb27af299545a0f9a6adf57d794bbb2f6e
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: f96419ea1e6cb8a6f15ba67948b2a139f647dd6c
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Taakstatus en taak streams doorsturen van automatisering met Log Analytics
 Automation kan runbook taak status en taak streams verzenden naar de werkruimte voor logboekanalyse. Taak registreert en taak streams zichtbaar zijn in de Azure-portal of PowerShell zijn voor afzonderlijke taken en Hiermee kunt u eenvoudige onderzoeken uitvoeren. Met Log Analytics kunt u nu:
@@ -102,7 +103,7 @@ Diagnostische gegevens van Azure Automation maakt u twee soorten records in Log 
 | ResourceType | AUTOMATIONACCOUNTS |
 
 
-### <a name="job-streams"></a>Job Streams
+### <a name="job-streams"></a>Taak stromen
 | Eigenschap | Beschrijving |
 | --- | --- |
 | TimeGenerated |Datum en tijd van uitvoering van de runbooktaak. |

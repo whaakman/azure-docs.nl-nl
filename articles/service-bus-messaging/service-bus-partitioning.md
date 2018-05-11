@@ -6,13 +6,13 @@ author: sethmanheim
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 05/08/2016
+ms.date: 05/10/2016
 ms.author: sethm
-ms.openlocfilehash: 0759decec9d80f1f836110a8907049213ca1eed6
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 387801d971a349562c8a6aefc2f8d615edfd2f3a
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="partitioned-queues-and-topics"></a>Gepartitioneerde wachtrijen en onderwerpen
 
@@ -21,7 +21,7 @@ Azure Service Bus maakt gebruik van meerdere bericht beleggingsmakelaars om beri
 Zie voor meer informatie over de interne werking van Service Bus de [Service Bus-architectuur] [ Service Bus architecture] artikel.
 
 > [!NOTE]
-> Partitioneren is beschikbaar bij het maken van de entiteit voor alle wachtrijen en onderwerpen in de basis of standaard SKU's. Het is niet beschikbaar voor de bericht-SKU Premium, maar eventuele bestaande gepartitioneerde entiteiten in Premium werkt zoals verwacht.
+> Partitioneren is beschikbaar bij het maken van de entiteit voor alle wachtrijen en onderwerpen in de basis of standaard SKU's. Het is niet beschikbaar voor de bericht-SKU Premium, maar eventuele bestaande gepartitioneerde entiteiten in Premium-naamruimten werkt zoals verwacht.
  
 Het is niet mogelijk om te wijzigen van de partitionering optie op een bestaande wachtrij of onderwerp; u kunt de optie alleen instellen bij het maken van de entiteit.
 
@@ -43,9 +43,7 @@ In de Standard messaging laag, kunt u Service Bus-wachtrijen en onderwerpen in 1
 
 ### <a name="premium"></a>Premium
 
-In een naamruimte van de laag Premium kunt u Service Bus-wachtrijen en onderwerpen in 1, 2, 3, 4, 5, 10, 20, 40 of 80 GB-grootten (de standaardwaarde is 1 GB). Service Bus maakt twee partities per entiteit met het partitioneren van de standaard ingeschakeld. U kunt de maximale grootte van uw gepartitioneerde wachtrij of onderwerp zien door te kijken op de vermelding ervan op de [Azure-portal][Azure portal], in de **overzicht** blade voor die entiteit.
-
-Zie voor meer informatie over partitioneren in de laag Premium messaging uit [Service Bus Premium en Standard Messaging](service-bus-premium-messaging.md). 
+In een naamruimte van de laag Premium wordt partitioneren niet ondersteund. U kunt echter de Service Bus-wachtrijen en onderwerpen maken in 1, 2, 3, 4, 5, 10, 20, 40 of 80 GB-grootten (de standaardwaarde is 1 GB). U kunt de grootte van uw wachtrij of onderwerp zien door te kijken op de vermelding ervan op de [Azure-portal][Azure portal], in de **overzicht** blade voor die entiteit.
 
 ### <a name="create-a-partitioned-entity"></a>Maak een gepartitioneerde entiteit
 
@@ -59,7 +57,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-U kunt ook maken een gepartitioneerde wachtrij of onderwerp in de [Azure-portal] [ Azure portal] of in Visual Studio. Wanneer u een wachtrij of onderwerp in de portal maakt de **inschakelen partitioneren** optie in de wachtrij of onderwerp **maken** in het dialoogvenster is standaard ingeschakeld. U kunt deze optie in een entiteit standaardcategorie; alleen uitschakelen in de laag Premium is partitioneren altijd ingeschakeld. Klik in Visual Studio de **inschakelen partitioneren** selectievakje in de **nieuwe wachtrij** of **nieuw onderwerp** in het dialoogvenster.
+U kunt ook maken een gepartitioneerde wachtrij of onderwerp in de [Azure-portal][Azure portal]. Wanneer u een wachtrij of onderwerp in de portal maakt de **inschakelen partitioneren** optie in de wachtrij of onderwerp **maken** in het dialoogvenster is standaard ingeschakeld. U kunt deze optie in een entiteit standaardcategorie; alleen uitschakelen in de laag Premium partitioneren wordt niet ondersteund en het selectievakje heeft geen effect. 
 
 ## <a name="use-of-partition-keys"></a>Gebruik van partitiesleutels
 Wanneer een bericht in de wachtrij in een gepartitioneerde wachtrij of onderwerp is, controleert de aanwezigheid van een partitiesleutel op Service Bus. Als er een is gevonden, selecteert u het fragment op basis van die sleutel. Als een partitiesleutel niet wordt gevonden, wordt het fragment op basis van een interne algoritme geselecteerd.

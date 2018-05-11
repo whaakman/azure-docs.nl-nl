@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 05/04/2018
 ms.author: jeedes
-ms.openlocfilehash: ad3428c659e7f950d08b34d82b99930db92c0996
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5f3c3bbb23b9d4439188286342d80eb1cc1d0833
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Zelfstudie: Azure Active Directory-integratie met Workday
 
@@ -174,19 +174,17 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![SAML-id-Providers](./media/active-directory-saas-workday-tutorial/IC7829272.png "SAML-id-Providers")
    
-    c. Selecteer **inschakelen idp geïnitieerd afmelding**.
-   
-    d. In de Azure-portal op de **eenmalige aanmelding configureren** venster, Kopieer de **Sign-Out URL** waarde en plak deze in de **URL voor afmelden** textbox.
+    c. In de Azure-portal op de **eenmalige aanmelding configureren** venster, Kopieer de **Sign-Out URL** waarde en plak deze in de **URL voor afmelden** textbox.
 
-    e. In de Azure-portal op de **eenmalige aanmelding configureren** venster, Kopieer de **SAML Single Sign-On Service-URL** waarde en plak deze in de **IdP SSO Service URL** textbox.
+    d. In de Azure-portal op de **eenmalige aanmelding configureren** venster, Kopieer de **SAML Single Sign-On Service-URL** waarde en plak deze in de **IdP SSO Service URL** textbox.
 
-    f. In **gebruikt voor omgevingen** textbox, selecteert u de omgevingsnaam.
+    e. In **gebruikt voor omgevingen** textbox, selecteert u de omgevingsnaam.
 
-    g. Klik op **openbare sleutel identiteitscertificaat-Provider**, en klik vervolgens op **maken**. 
+    f. Klik op **openbare sleutel identiteitscertificaat-Provider**, en klik vervolgens op **maken**. 
 
     ![Maak](./media/active-directory-saas-workday-tutorial/IC782928.png "maken")
 
-    h. Klik op **x509 maken openbare sleutel**. 
+    g. Klik op **x509 maken openbare sleutel**. 
 
     ![Maak](./media/active-directory-saas-workday-tutorial/IC782929.png "maken")
 
@@ -293,7 +291,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruikt Azure eenmalige aanmeld
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 

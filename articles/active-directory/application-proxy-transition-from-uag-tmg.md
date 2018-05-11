@@ -15,11 +15,11 @@ ms.date: 07/27/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: a433c18be29416992304b2cb8cfa9acabe895ea6
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e6764a0eeb27b8bff24140ff2c12e9e66b06b48b
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="compare-remote-access-solutions"></a>Oplossingen voor externe toegang vergelijken
 
@@ -62,5 +62,5 @@ Azure AD-toepassingsproxy biedt unieke voordelen ten opzichte van vergelijkbare 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Azure AD-toepassing gebruiken voor veilige externe toegang tot on-premises toepassingen](active-directory-application-proxy-get-started.md)
+- [Azure AD-toepassing gebruiken voor veilige externe toegang tot on-premises toepassingen](manage-apps/application-proxy.md)
 - [Overgang van Forefront TMG en UAG naar de toepassingsproxy](https://blogs.technet.microsoft.com/isablog/2015/06/30/modernizing-microsoft-application-access-with-web-application-proxy-and-azure-active-directory-application-proxy/).

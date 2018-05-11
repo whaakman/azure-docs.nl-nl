@@ -9,11 +9,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: sujayt
-ms.openlocfilehash: 215874020395faebd70b6dd15a29f1bf23638a84
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d7bfbbe834ac8506b7d12d5748406460df0fe3bc
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>De ondersteuningsmatrix voor het repliceren van een Azure-regio naar een andere
 
@@ -175,7 +175,7 @@ GRS | Ondersteund |
 RA-GRS | Ondersteund |
 ZRS | Niet ondersteund |  
 Cool en Hot Storage | Niet ondersteund | Schijven voor virtuele machine worden niet ondersteund op cool en hot storage
-Virtueel netwerk Service-eindpunten (Azure Storage firewalls en virtuele netwerken)  | Nee | Waardoor de toegang tot specifieke Azure virtuele netwerken van cache storage-accounts gebruikt voor het opslaan van de gerepliceerde gegevens wordt niet ondersteund.
+Azure Storage-firewalls voor virtuele netwerken  | Nee | Waardoor de toegang tot specifieke Azure virtuele netwerken van cache storage-accounts gebruikt voor het opslaan van de gerepliceerde gegevens wordt niet ondersteund.
 V2 opslagaccounts voor algemeen gebruik (zowel Hot en Cool laag) | Nee | Transactie kosten toename vergeleken aanzienlijk met algemeen V1 storage-accounts
 
 >[!IMPORTANT]
@@ -200,6 +200,8 @@ Niet-geverifieerde Proxy | Ondersteund | Raadpleeg [leidraad voor netwerken.](si
 Geverifieerde proxyserver | Niet ondersteund | Als de virtuele machine van een geverifieerde proxyserver voor uitgaande verbinding gebruikmaakt, kan niet worden gerepliceerd met Azure Site Recovery.    
 Site naar Site VPN met on-premises (met of zonder ExpressRoute)| Ondersteund | Zorg ervoor dat de udr's en het nsg's zodanig dat de Site recovery-verkeer niet kan worden doorgestuurd naar on-premises zijn geconfigureerd. Raadpleeg [leidraad voor netwerken.](site-recovery-azure-to-azure-networking-guidance.md)  
 VNET-naar-VNET-verbinding | Ondersteund | Raadpleeg [leidraad voor netwerken.](site-recovery-azure-to-azure-networking-guidance.md)  
+Service-eindpunten voor virtueel netwerk | Ondersteund | Azure Storage-firewalls voor virtuele netwerken worden niet ondersteund. Waardoor de toegang tot specifieke Azure virtuele netwerken van cache storage-accounts gebruikt voor het opslaan van de gerepliceerde gegevens wordt niet ondersteund.
+Versneld netwerken | Niet ondersteund | Een virtuele machine met versnelde toegang ingeschakeld kan worden gerepliceerd, maar de failover VM geen versnelde netwerken ingeschakeld. Versnelde netwerken wordt ook uitgeschakeld voor de bron-VM voor failback.
 
 
 ## <a name="next-steps"></a>Volgende stappen

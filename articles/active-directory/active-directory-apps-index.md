@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 2180c0da4dc77e854a9b73eb31472feae7c7c3ad
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: efedbf89a6d15a13db5bc86fef9f270e0c84e13b
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Article Index for Application Management in Azure Active Directory (Engelstalig)
 Deze pagina bevat een uitgebreide lijst met elk document dat is geschreven over de verschillende functies van de toepassing-gerelateerde in Azure Active Directory (Azure AD).
@@ -30,9 +30,9 @@ De onderstaande artikelen zijn goede beginpunt voor gebruikers die alleen een ko
 
 | Artikel handleiding |  |
 |:---:| --- |
-| Een inleiding tot het beheer van toepassingsproblemen Azure AD is opgelost |[Toepassingen beheren met Azure Active Directory (AD)](active-directory-enable-sso-scenario.md) |
+| Een inleiding tot het beheer van toepassingsproblemen Azure AD is opgelost |[Toepassingen beheren met Azure Active Directory (AD)](manage-apps/what-is-application-management.md) |
 | Een overzicht van de verschillende functies in Azure AD betrekking hebben op het inschakelen van eenmalige aanmelding definiëren wie toegang heeft tot apps en hoe gebruikers apps openen |[Toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md) |
-| Bekijk de verschillende stappen die betrokken zijn bij het integreren van apps in uw Azure AD |[Integratie van Azure Active Directory met toepassingen](active-directory-integrating-applications-getting-started.md)<br /><br />[Inschakelen van eenmalige aanmelding voor SaaS-Apps](active-directory-enterprise-apps-manage-sso.md)<br /><br />[Toegang tot Apps beheren](active-directory-managing-access-to-apps.md) |
+| Bekijk de verschillende stappen die betrokken zijn bij het integreren van apps in uw Azure AD |[Integratie van Azure Active Directory met toepassingen](manage-apps/plan-an-application-integration.md)<br /><br />[Inschakelen van eenmalige aanmelding voor SaaS-Apps](active-directory-enterprise-apps-manage-sso.md)<br /><br />[Toegang tot Apps beheren](active-directory-managing-access-to-apps.md) |
 | Een technische uitleg van hoe apps worden weergegeven in Azure AD |[Hoe en waarom toepassingen worden toegevoegd aan Azure AD](active-directory-how-applications-are-added.md) |
 
 ## <a name="troubleshooting-articles"></a>Het oplossen van artikelen
@@ -78,8 +78,8 @@ Als u toepassingen in uw particuliere netwerk die moeten worden geopend door geb
 
 | Artikel handleiding |  |
 |:---:| --- |
-| Overzicht van Azure AD-toepassingsproxy en hoe het werkt |[Een beveiligde externe toegang tot on-premises toepassingen](active-directory-application-proxy-get-started.md) |
-| Zelfstudies over het configureren van Application Proxy en hoe u uw eerste app publiceert |[Het instellen van Azure AD-toepassingsproxy](active-directory-application-proxy-enable.md)<br /><br />[Het installeren van de Connector voor toepassingsproxy van achtergrond](active-directory-application-proxy-silent-installation.md)<br /><br />[Het publiceren van toepassingen via App-Proxy](active-directory-application-proxy-publish.md)<br /><br />[Het gebruik van uw eigen domeinnaam](active-directory-application-proxy-custom-domains.md) |
+| Overzicht van Azure AD-toepassingsproxy en hoe het werkt |[Een beveiligde externe toegang tot on-premises toepassingen](manage-apps/application-proxy.md) |
+| Zelfstudies over het configureren van Application Proxy en hoe u uw eerste app publiceert |[Het instellen van Azure AD-toepassingsproxy](active-directory-application-proxy-enable.md)<br /><br />[Het installeren van de Connector voor toepassingsproxy van achtergrond](active-directory-application-proxy-silent-installation.md)<br /><br />[Het publiceren van toepassingen via App-Proxy](application-proxy-publish-azure-portal.md)<br /><br />[Het gebruik van uw eigen domeinnaam](active-directory-application-proxy-custom-domains.md) |
 | Het inschakelen van eenmalige aanmelding en voorwaardelijke toegang voor apps die zijn gepubliceerd met toepassingsproxy |[Single-sign-on met toepassingsproxy](active-directory-application-proxy-sso-using-kcd.md)<br /><br />[Voorwaardelijke toegang en toepassingsproxy](application-proxy-enable-remote-access-sharepoint.md) |
 | Hulp bij het gebruik van Application Proxy voor de volgende scenario 's |[Hoe ter ondersteuning van Native Client-toepassingen](active-directory-application-proxy-native-client.md)<br /><br />[Het ondersteunen van Claims-compatibele toepassingen](active-directory-application-proxy-claims-aware-apps.md)<br /><br />[Hoe om toepassingen te ondersteunen die is gepubliceerd op afzonderlijke netwerken en locaties](active-directory-application-proxy-connectors-azure-portal.md) |
 | Gids voor probleemoplossing voor toepassingsproxy |[Toepassingsproxy-handleiding voor probleemoplossing](active-directory-application-proxy-troubleshoot.md) |
@@ -121,7 +121,7 @@ Cloud App Discovery helpt IT-afdelingen meer informatie over welke SaaS-apps wor
 
 | Artikel handleiding |  |
 |:---:| --- |
-| Een algemeen overzicht van hoe het werkt |[Zoeken naar niet-toegestane cloud-toepassingen met Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md) |
+| Een algemeen overzicht van hoe het werkt |[Zoeken naar niet-toegestane cloud-toepassingen met Cloud App Discovery](manage-apps/cloud-app-discovery.md) |
 | Zie voor meer informatie in hoe het werkt, met de antwoorden op vragen over privacy |[Beveiliging en Privacy-overwegingen](active-directory-cloudappdiscovery-security-and-privacy-considerations.md) |
 | Veelgestelde vragen |[Veelgestelde vragen voor Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx) |
 | Zelfstudies voor het implementeren van Cloud App Discovery |[Group Policy Deployment Guide](http://social.technet.microsoft.com/wiki/contents/articles/30965.cloud-app-discovery-group-policy-deployment-guide.aspx)<br /><br />[Implementatiehandleiding van System Center](http://social.technet.microsoft.com/wiki/contents/articles/30968.cloud-app-discovery-system-center-deployment-guide.aspx)<br /><br />[Installeren op proxyservers met aangepaste poorten](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md) |

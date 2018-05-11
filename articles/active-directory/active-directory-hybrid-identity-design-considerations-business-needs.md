@@ -1,11 +1,11 @@
 ---
 title: Identiteitsvereisten voor hybride voor een cloud identity Azure | Microsoft Docs
-description: "Identificeer de bedrijfsbehoeften van die u voor het definiëren van de vereisten voor het ontwerp van hybride identiteit leiden."
-documentationcenter: 
+description: Identificeer de bedrijfsbehoeften van die u voor het definiëren van de vereisten voor het ontwerp van hybride identiteit leiden.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: de690978-84ef-41ad-9dfe-785722d343a1
 ms.service: active-directory
 ms.devlang: na
@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 90c65ca22ff384bd22819eb589b3f781f8992a4e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 5741a5024b5f5105a71d9404191601b951a301e4
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Identiteitsvereisten bepalen voor uw oplossing voor hybride identiteit
 De eerste stap bij het ontwerpen van een hybride identiteitsoplossing is het vaststellen van de vereisten voor de organisatie van de bedrijven die zal worden gebruik van deze oplossing.  Hybride identiteit wordt gestart als een ondersteunende rol (ondersteund alle cloudoplossingen aan de hand van verificatie) en wordt op om te zorgen dat er nieuwe en interessante mogelijkheden die nieuwe werkbelastingen voor gebruikers ontgrendelen.  Deze werkbelastingen of services die u wilt vaststellen voor uw gebruikers worden de vereisten voor het ontwerp van hybride identiteit bepaald.  Deze werkbelastingen en services moeten gebruikmaken van hybride identiteit zowel on-premises en in de cloud.  
 
 U moet deze belangrijke aspecten van het bedrijf te begrijpen wat gaan nu een vereiste is en wat het bedrijf de toekomstplannen. Als u de zichtbaarheid van de lange termijnstrategie voor het ontwerp van hybride identiteit niet hebt, wordt er waarschijnlijk hebben dat uw oplossing zal niet worden geschaald behoeften groei en veranderingen van het bedrijf.   T hij diagram hieronder bevat een voorbeeld van een architectuur van hybride identiteit en de werkbelastingen die zijn voor gebruikers wordt ontgrendeld. Dit is slechts een voorbeeld van de nieuwe mogelijkheden die kunnen worden ontgrendeld en geleverd met een strategie voor een solide hybride identiteit. 
 
-Sommige onderdelen die deel van de architectuur van hybride identiteit uitmaken![](./media/hybrid-id-design-considerations/hybrid-identity-architechture.png)
+Sommige onderdelen die deel van de architectuur van hybride identiteit uitmaken ![](./media/hybrid-id-design-considerations/hybrid-identity-architechture.png)
 
 ## <a name="determine-business-needs"></a>Bedrijfsbehoeften vaststellen
 Elk bedrijf kent verschillende behoeften, zelfs als deze bedrijven deel uitmaken van dezelfde bedrijfstak, de echte zakelijke behoeften verschillen. U kunt nog steeds gebruikmaken van best practices uit de industrie, maar is uiteindelijk de bedrijfsbehoeften van die u voor het definiëren van de vereisten voor het ontwerp van hybride identiteit leiden. 
@@ -56,7 +56,7 @@ U moet ook rekening houden met de cloudservices die uw bedrijf kan hebben. Uitvo
 * Deze integratie momenteel is in productie of is het een test?
 
 > [!NOTE]
-> Als u geen een nauwkeurige toewijzing van al uw apps hebben en cloud services, kunt u het hulpprogramma voor Cloud App Discovery. Dit hulpprogramma kunt u uw IT-afdeling met zichtbaarheid van het bedrijf van uw organisatie en consumenten cloud-apps opgeven. Daardoor is het eenvoudiger dan ooit om niet-officiële IT binnen uw organisatie te ontdekken, en gegevens te zien zoals onder andere over gebruikspatronen en over welke gebruikers toegang hebben gehad tot uw cloudtoepassingen. Gestarte Zie ophalen [Cloud app discovery](active-directory-cloudappdiscovery-whatis.md).
+> Als u geen een nauwkeurige toewijzing van al uw apps hebben en cloud services, kunt u het hulpprogramma voor Cloud App Discovery. Dit hulpprogramma kunt u uw IT-afdeling met zichtbaarheid van het bedrijf van uw organisatie en consumenten cloud-apps opgeven. Daardoor is het eenvoudiger dan ooit om niet-officiële IT binnen uw organisatie te ontdekken, en gegevens te zien zoals onder andere over gebruikspatronen en over welke gebruikers toegang hebben gehad tot uw cloudtoepassingen. Gestarte Zie ophalen [Cloud app discovery](manage-apps/cloud-app-discovery.md).
 > 
 > 
 

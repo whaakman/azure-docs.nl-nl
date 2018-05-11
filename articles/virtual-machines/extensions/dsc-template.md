@@ -16,8 +16,8 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: dacoulte
-ms.openlocfilehash: 7657f27e25af62f13371a9216596f142dc2491dd
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d19d33d7d8d19923e814b8685c3e56553f85850d
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/10/2018
@@ -394,6 +394,6 @@ Volg de indeling die is opgegeven in het voorgaande voorbeeld. Bekijk voor aanha
 ## <a name="next-steps"></a>Volgende stappen
 
 - Meer informatie over [met behulp van de virtuele-machineschaalset ingesteld met de extensie Azure DSC](../../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md).
-- Meer informatie vinden over [van DSC beveiligde Referentiebeheer](extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-- Ophalen van een [Inleiding tot de Azure DSC-uitbreiding handler](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Meer informatie vinden over [van DSC beveiligde Referentiebeheer](dsc-credentials.md).
+- Ophalen van een [Inleiding tot de Azure DSC-uitbreiding handler](dsc-overview.md).
 - Voor meer informatie over PowerShell DSC, gaat u naar de [PowerShell-documentatiecentrum](/powershell/dsc/overview).

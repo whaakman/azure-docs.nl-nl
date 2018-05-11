@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 353762f33da8e5d48f6b70df3b790287eeab7ff9
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 6f01c2938462f3912928e183fcec215a52a3ee48
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolatie van opslagprestaties in de openbare Azure-Cloud
 ##  <a name="introduction"></a>Inleiding
@@ -124,6 +124,20 @@ Als een schijf die wordt gebruikt voor de opslag van een hardware storing, is he
 
 ## <a name="compute-isolation"></a>COMPUTE isolatie
 Microsoft Azure biedt verschillende cloud-gebaseerde computers onder meer services als een groot aantal compute-exemplaren en services die kunnen worden geschaald omhoog en omlaag automatisch om te voldoen aan de behoeften van uw toepassing of enterprise. Deze compute-exemplaar en de service bieden isolatie op meerdere niveaus om gegevens te beveiligen zonder verlies van de flexibiliteit in de configuratie die vraag van klanten.
+
+### <a name="isolated-virtual-machine-sizes"></a>De grootte van virtuele machines zijn geïsoleerd
+Azure Compute biedt virtuele machine groottes die zijn geïsoleerd op het type van de specifieke hardware en toegewezen aan één klant.  De grootte van deze virtuele machines zijn zeer geschikt voor werkbelastingen waarvoor een hoge mate van afzondering van andere klanten voor werkbelastingen met betrekking tot elementen zoals naleving en regelgeving.  Klanten kunnen ook kiezen voor verdere onderverdelen in de bronnen van deze geïsoleerde virtuele machines met behulp van [ondersteuning voor geneste virtuele machines van Azure](https://azure.microsoft.com/en-us/blog/nested-virtualization-in-azure/).
+
+Met behulp van de grootte van een geïsoleerde zorgt ervoor dat de virtuele machine worden slechts één uitgevoerd voor die specifieke server-exemplaar.  De huidige aanbiedingen met geïsoleerde virtuele machine zijn onder andere:
+* Standard_E64is_v3
+* Standard_E64i_v3
+* Standard_M128ms
+* Standard_GS5
+* Standard_G5
+* Standard_DS15_v2
+* Standard_D15_v2
+
+U kunt meer informatie over elke geïsoleerde grootte [hier](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-memory).
 
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>Hyper-V & hoofdmap OS-isolatie tussen & hoofdmap VM-Gast-VM 's
 Azure rekenplatform is gebaseerd op de machine virtualisatie: wil zeggen dat alle code van de klant in een Hyper-V virtuele machine wordt uitgevoerd. Voor elke Azure-knooppunt (of netwerkeindpunt) is er een Hypervisor die rechtstreeks via de hardware uitgevoerd en verdeelt van een knooppunt in het nummer van een variabele van de gast (virtuele Machines).

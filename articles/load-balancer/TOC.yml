@@ -76,7 +76,6 @@
         - name: Een openbare load balancer maken met IPv6 (sjabloon)
           href: load-balancer-ipv6-internet-template.md
     - name: Een interne load balancer configureren
-      href: load-balancer-get-started-ilb-arm-portal.md
       items:
         - name: Een interne load balancer configureren (PowerShell)
           href: load-balancer-get-started-ilb-arm-ps.md

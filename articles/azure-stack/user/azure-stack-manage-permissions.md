@@ -2,41 +2,82 @@
 title: Machtigingen beheren voor bronnen per gebruiker in Azure-Stack | Microsoft Docs
 description: Informatie over het beheren van RBAC machtigingen als een servicebeheerder of tenant.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 05/10/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: dfec5648ff383fd98965c1918cdab6472bb3c17f
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.reviewer: ''
+ms.openlocfilehash: 9944f51c080da6edd89927bfd26398024c5d4de2
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="manage-role-based-access-control"></a>Toegangsbeheer op basis van rollen beheren
+# <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Toegang tot bronnen met toegangsbeheer Azure Stack Role-Based beheren
 
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
-Een gebruiker in Azure-Stack kan een lezer, de eigenaar of bijdrager voor elk exemplaar van een abonnement, resourcegroep of service zijn. Gebruiker A mogelijk bijvoorbeeld lezer gemachtigd met abonnement 1, maar de eigenaar gemachtigd tot en met 7 van de virtuele Machine.
+Azure-Stack biedt ondersteuning voor op rollen gebaseerde toegangsbeheer (RBAC), dezelfde [beveiligingsmodel voor access management](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) die gebruikmaakt van Microsoft Azure. U kunt gebruikmaken van RBAC voor het beheren van gebruikers, groepen of toegang tot de toepassing aan abonnementen, resources en services.
 
-* Lezer: Gebruiker kan alles weergeven, maar geen wijzigingen kunt aanbrengen.
-* Inzender: Gebruikers kan alles beheren behalve toegang tot bronnen.
-* Eigenaar: Gebruiker kan alles beheren, inclusief toegang tot bronnen.
+## <a name="basics-of-access-management"></a>Basisprincipes van beheer van toegang
+
+Toegangsbeheer op basis van rollen biedt verfijnd toegangsbeheer die u gebruiken kunt voor het beveiligen van uw omgeving. Geeft u gebruikers de exacte machtigingen die ze nodig hebben door toe te wijzen een RBAC-rol op een bepaald bereik. Het bereik van de roltoewijzing is een abonnement, resourcegroep of één resource. Lees de [toegangsbeheer op basis van rollen in Azure portal](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) artikel voor meer gedetailleerde informatie over het toegangsbeheer van.
+
+### <a name="built-in-roles"></a>Ingebouwde rollen
+
+Azure Stack heeft drie elementaire functies die u op alle brontypen toepassen kunt:
+
+* **Eigenaar** kunnen alles beheren, inclusief toegang tot bronnen.
+* **Inzender** kunnen alles beheren behalve toegang tot bronnen.
+* **Lezer** kunnen alles weergeven, maar u kunt geen wijzigingen aanbrengen.
+
+### <a name="resource-hierarchy-and-inheritance"></a>Resource-hiërarchie en overname
+
+Azure Stack heeft de volgende bron-hiërarchie:
+
+* Elk abonnement behoort tot één map op.
+* Elke resourcegroep behoort tot één abonnement.
+* Elke resource behoort tot één resourcegroep.
+
+Toegang waarmee u op een bovenliggend bereik wordt verleend wordt op een onderliggend bereik overgenomen. Bijvoorbeeld:
+
+* U toewijzen de **lezer** rol bij het abonnementsbereik Azure AD-groep. De leden van die groep kunnen elk van de resourcegroep en bron weergeven in het abonnement.
+* U toewijzen de **Inzender** role in een toepassing op het groepsbereik resource. De toepassing kunt bronnen van alle typen in die resourcegroep, maar geen andere resourcegroepen in het abonnement te beheren.
+
+### <a name="assigning-roles"></a>rollen toewijzen
+
+U kunt meer dan één rol toewijzen aan een gebruiker en elke rol kan worden gekoppeld aan een ander bereik. Bijvoorbeeld:
+
+* U de rol van de lezer TestUser-A toewijzen met abonnement 1.
+* U toewijzen de eigenaar van TestUser-A rol aan TestVM-1.
+
+De Azure [roltoewijzingen](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) artikel vindt u gedetailleerde informatie over het weergeven en verwijderen van rollen toewijzen.
 
 ## <a name="set-access-permissions-for-a-user"></a>Stel toegangsmachtigingen voor een gebruiker
+
+De volgende stappen beschrijven het configureren van machtigingen voor een gebruiker.
+
 1. Aanmelden met een account met de van eigenaarsmachtigingen voor de resource die u wilt beheren.
-2. Klik in de blade voor de resource op de **toegang** pictogram ![](media/azure-stack-manage-permissions/image1.png).
-3. In de **gebruikers** blade, klikt u op **rollen**.
-4. In de **rollen** blade, klikt u op **toevoegen** machtigingen voor de gebruiker toevoegen.
+2. Kies in het navigatiedeelvenster links **resourcegroepen**.
+3. Kies de naam van de resourcegroep die u machtigingen instellen wilt op.
+4. Kies in het navigatiedeelvenster resource groep **toegangsbeheer (IAM)**. De **toegangsbeheer** weergave bevat de Items die toegang tot de resourcegroep hebben. U kunt deze resultaten filteren, en een menubalk toevoegen of verwijderen van machtigingen.
+5. Op de **toegangsbeheer** menu balk, kiest u **+ toevoegen**.
+6. Op **machtigingen toevoegen**:
+
+   * Selecteer de rol die u toewijzen wilt uit de **rol** vervolgkeuzelijst.
+   * Kies de resource die u toewijzen wilt uit de **toewijzen van toegang tot** vervolgkeuzelijst.
+   * Selecteer de gebruiker, groep of toepassing in de directory aan wie/waaraan u toegang wilt verlenen. U kunt zoeken in de directory met weergavenamen, e-mailadressen en object-id's.
+
+7. Selecteer **Opslaan**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-
+[Service-principals maken](azure-stack-create-service-principals.md)

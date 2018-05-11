@@ -5,4 +5,4 @@ MS.service: azure-policy ms.topic: omvatten ms.date: 24/04/2018 ms.author: lizro
 ---
 
 >[!Note] 
-> Dit artikel bevat verschillende stappen voor het verwijderen van persoonlijke gegevens van het apparaat en kan worden gebruikt ter ondersteuning van uw verplichtingen onder de GDPR. Als u algemene informatie over GDPR zoekt, raadpleegt u de [GDPR sectie van de portal Service vertrouwen](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
+> Dit artikel bevat verschillende stappen voor het verwijderen van persoonlijke gegevens op het apparaat of de service en kan worden gebruikt ter ondersteuning van uw verplichtingen onder de GDPR. Als u algemene informatie over GDPR zoekt, raadpleegt u de [GDPR sectie van de portal Service vertrouwen](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).

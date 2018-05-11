@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: cynthn
-ms.openlocfilehash: 7b1a145040297debe2c348d61f204fc82d2e7d4d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: be7933b038fb5a648249e9b0c73415bff778930b
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/10/2018
@@ -367,5 +367,5 @@ $vmList.Name
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Als u wilt aanmelden bij uw nieuwe virtuele machine, blader naar de virtuele machine in de [portal](https://portal.azure.com), klikt u op **Connect**, en open het RDP-Remote Desktop-bestand. Gebruik de referenties van het account van uw oorspronkelijke virtuele machine aan te melden bij uw nieuwe virtuele machine. Zie voor meer informatie [verbinding maken met en meld u aan een virtuele machine van Azure waarop Windows wordt uitgevoerd bij](connect-logon.md).
+Meld u aan de nieuwe virtuele machine. Zie voor meer informatie [verbinding maken met en meld u aan een virtuele machine van Azure waarop Windows wordt uitgevoerd bij](connect-logon.md).
 
