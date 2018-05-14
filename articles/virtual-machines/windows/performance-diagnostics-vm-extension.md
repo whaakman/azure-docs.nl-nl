@@ -2,23 +2,23 @@
 title: Prestaties van Azure Diagnostics VM-extensie voor Windows | Microsoft Docs
 description: Introduceert VM-extensie voor prestaties van Azure Diagnostics voor Windows.
 services: virtual-machines-windows'
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
 editor: na
-tags: 
+tags: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/29/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 3e2f8be0f77e220da483dcfb18d6b324d3f203ed
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 9ea7f4652aff07282c9c106f3894db807f341210
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Prestaties van Azure Diagnostics VM-extensie voor Windows
 
@@ -28,7 +28,7 @@ Azure Diagnostics VM-extensie van prestaties kunt verzamelen van diagnostische g
 
 Deze uitbreiding kan worden geïnstalleerd op Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 en Windows Server 2016. Het kan ook worden geïnstalleerd op Windows 8.1 en Windows 10.
 
-## <a name="extension-schema"></a>Uitbreidingsschema
+## <a name="extension-schema"></a>Extensieschema
 De volgende JSON vindt u het schema voor VM-extensie voor Azure prestaties diagnostische gegevens. Deze uitbreiding is vereist voor de naam en de sleutel voor een opslagaccount voor het opslaan van de uitvoer van de diagnostische gegevens en het rapport. Deze waarden zijn gevoelige. De opslagaccountsleutel moet worden opgeslagen in de configuratie van een beveiligde instelling. Azure VM-extensie beveiligde instellingsgegevens worden versleuteld en wordt dit alleen ontsleuteld op de virtuele doelmachine. Houd er rekening mee dat **storageAccountName** en **storageAccountKey** zijn hoofdlettergevoelig. Andere vereiste parameters zijn vermeld in de volgende sectie.
 
 ```JSON
@@ -65,7 +65,7 @@ De volgende JSON vindt u het schema voor VM-extensie voor Azure prestaties diagn
 |   **Naam**   |**Waarde / voorbeeld**|       **Beschrijving**      |
 |--------------|-------------------|----------------------------|
 |apiVersion|2015-06-15|De versie van de API.
-|publisher|Microsoft.Azure.Performance.Diagnostics|De naamruimte van de uitgever voor de extensie.
+|Uitgever|Microsoft.Azure.Performance.Diagnostics|De naamruimte van de uitgever voor de extensie.
 |type|AzurePerformanceDiagnostics|Het type van de VM-extensie.
 |typeHandlerVersion|1.0|De versie van de extensie-handler.
 |performanceScenario|standaard|Het scenario prestaties waarvoor u wilt vastleggen van gegevens. Geldige waarden zijn: **basic**, **vmslow**, **azurefiles**, en **aangepaste**.

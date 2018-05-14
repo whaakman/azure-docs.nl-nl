@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/1/2018
 ms.author: rithorn
-ms.openlocfilehash: 31249584891a1bb07628fde56e445fda9b2bb467
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 1592e47509f2537bef9cbcefd3cf49618561edcc
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Beheergroepen voor bronorganisatie en -beheer maken
 Beheergroepen zijn containers waarmee u toegang, beleid en naleving in meerdere abonnementen beheren. Maken van deze containers voor het bouwen van een effectiever en efficiënter-hiërarchie die kan worden gebruikt met [Azure beleid](../azure-policy/azure-policy-introduction.md) en [toegangsbeheer voor op basis van Azure-functie](../role-based-access-control/overview.md). Zie voor meer informatie over beheergroepen [ordenen van uw resources met Azure-beheergroepen ](management-groups-overview.md). 
@@ -34,7 +34,7 @@ Met behulp van de portal, PowerShell of Azure CLI kunt u de beheergroep.
 2. Selecteer **alle services** > **beheergroepen**.
 3. Selecteer op de hoofdpagina **nieuwe beheergroep.** 
 
-    ![Groep maken](media/management-groups/create_main.png) 
+    ![Hoofdgroep](media/management-groups/main.png) 
 4.  Vul in het veld management groep-ID. 
     - De **beheergroep-ID** is de directory unieke id die wordt gebruikt voor het indienen van opdrachten in deze beheergroep. Deze id kan niet worden bewerkt nadat het maken, zoals het in het hele systeem Azure wordt gebruikt om deze groep te identificeren. 
     - Veld met de weergavenaam is de naam die wordt weergegeven in de Azure-portal. Een afzonderlijke weergavenaam is een optioneel veld bij het maken van de management groep en op elk gewenst moment kan worden gewijzigd.  

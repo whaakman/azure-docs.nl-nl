@@ -2,10 +2,10 @@
 title: Implementatie-Veelgestelde vragen over Azure-web-apps | Microsoft Docs
 description: Vind antwoorden op veelgestelde vragen over de implementatie voor de functie Web Apps van Azure App Service.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
@@ -13,13 +13,13 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 318a236652229c4e093ca33886ac1831686aed73
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 54c99cc9dde6a9706c75401dd75b98f8f5de7cec
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Veelgestelde vragen implementatie voor Web-Apps in Azure
 
@@ -91,7 +91,7 @@ U hebt twee opties voor het gebruik van continue implementatie met Visual Studio
 *   Gebruik een Git-project. Verbinding maken via App Service met behulp van de implementatie-opties voor deze opslagplaats.
 *   Een project Team Foundation versie besturingselement (TFVC) gebruiken. Implementeren met behulp van de build-agent voor App Service.
 
-Code continue implementatie voor deze beide opties zijn afhankelijk van bestaande developer-werkstromen en in-procedures. Zie voor meer informatie in deze artikelen: 
+Code continue implementatie voor deze beide opties zijn afhankelijk van bestaande developer-werkstromen en in-procedures. Raadpleeg voor meer informatie de volgende artikelen: 
 
 *   [Continue implementatie van uw app naar een Azure-website](https://www.visualstudio.com/docs/release/examples/azure/azure-web-apps-from-build-and-release-hubs)
 *   [Een Visual Studio Team Services-account instellen zodat deze op een web-app implementeren kunt](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)

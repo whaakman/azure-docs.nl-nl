@@ -2,10 +2,10 @@
 title: Problemen met aanmelden bij een toepassing in het deelvenster toegang | Microsoft Docs
 description: Het oplossen van problemen met toegang tot een toepassing van de Microsoft Azure AD-Toegangsvenster op myapps.microsoft.com
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: f73b7929aea35382f7ca684c866b65e070668d5b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5765d64fccba69edd0ebe91a6c34694763e6c539
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Problemen met aanmelden bij een toepassing van het toegangsvenster
 
@@ -525,5 +525,5 @@ een ondersteuningsticket opent met de volgende informatie, indien beschikbaar:
 -   Fiddler traceringen
 
 ## <a name="next-steps"></a>Volgende stappen
-[Geef één aanmelding bij uw apps met toepassingsproxy](active-directory-application-proxy-sso-using-kcd.md)
+[Geef één aanmelding bij uw apps met toepassingsproxy](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 

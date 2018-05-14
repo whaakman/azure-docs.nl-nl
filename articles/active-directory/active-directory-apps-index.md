@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: efedbf89a6d15a13db5bc86fef9f270e0c84e13b
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 4f899e3f45174aef8274810e184cc374bcca2c50
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/11/2018
@@ -79,8 +79,8 @@ Als u toepassingen in uw particuliere netwerk die moeten worden geopend door geb
 | Artikel handleiding |  |
 |:---:| --- |
 | Overzicht van Azure AD-toepassingsproxy en hoe het werkt |[Een beveiligde externe toegang tot on-premises toepassingen](manage-apps/application-proxy.md) |
-| Zelfstudies over het configureren van Application Proxy en hoe u uw eerste app publiceert |[Het instellen van Azure AD-toepassingsproxy](active-directory-application-proxy-enable.md)<br /><br />[Het installeren van de Connector voor toepassingsproxy van achtergrond](active-directory-application-proxy-silent-installation.md)<br /><br />[Het publiceren van toepassingen via App-Proxy](application-proxy-publish-azure-portal.md)<br /><br />[Het gebruik van uw eigen domeinnaam](active-directory-application-proxy-custom-domains.md) |
-| Het inschakelen van eenmalige aanmelding en voorwaardelijke toegang voor apps die zijn gepubliceerd met toepassingsproxy |[Single-sign-on met toepassingsproxy](active-directory-application-proxy-sso-using-kcd.md)<br /><br />[Voorwaardelijke toegang en toepassingsproxy](application-proxy-enable-remote-access-sharepoint.md) |
+| Zelfstudies over het configureren van Application Proxy en hoe u uw eerste app publiceert |[Het instellen van Azure AD-toepassingsproxy](manage-apps/application-proxy-enable.md)<br /><br />[Het installeren van de Connector voor toepassingsproxy van achtergrond](active-directory-application-proxy-silent-installation.md)<br /><br />[Het publiceren van toepassingen via App-Proxy](manage-apps/application-proxy-publish-azure-portal.md)<br /><br />[Het gebruik van uw eigen domeinnaam](manage-apps/application-proxy-configure-custom-domain.md) |
+| Het inschakelen van eenmalige aanmelding en voorwaardelijke toegang voor apps die zijn gepubliceerd met toepassingsproxy |[Single-sign-on met toepassingsproxy](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)<br /><br />[Voorwaardelijke toegang en toepassingsproxy](application-proxy-enable-remote-access-sharepoint.md) |
 | Hulp bij het gebruik van Application Proxy voor de volgende scenario 's |[Hoe ter ondersteuning van Native Client-toepassingen](active-directory-application-proxy-native-client.md)<br /><br />[Het ondersteunen van Claims-compatibele toepassingen](active-directory-application-proxy-claims-aware-apps.md)<br /><br />[Hoe om toepassingen te ondersteunen die is gepubliceerd op afzonderlijke netwerken en locaties](active-directory-application-proxy-connectors-azure-portal.md) |
 | Gids voor probleemoplossing voor toepassingsproxy |[Toepassingsproxy-handleiding voor probleemoplossing](active-directory-application-proxy-troubleshoot.md) |
 

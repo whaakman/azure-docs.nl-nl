@@ -15,8 +15,8 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: a925f8be619d0a4606205eeba5f78b2e8ba8a188
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 79ee3aca783d7c29959c2730696a313bf821b3bc
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/11/2018
@@ -34,7 +34,7 @@ Gebruik de Azure AD-Verificatiebibliotheek, die zorgt voor verificatie en biedt 
 Dit artikel begeleidt u bij de vier stappen voor het publiceren van een systeemeigen toepassing met toepassingsproxy en de Azure AD-Verificatiebibliotheek. 
 
 ## <a name="step-1-publish-your-application"></a>Stap 1: Uw toepassing publiceren
-Uw proxy-toepassing te publiceren, net als alle andere toepassingen en gebruikers toegang krijgen tot uw toepassing toe te wijzen. Zie voor meer informatie [publiceren van toepassingen met toepassingsproxy](application-proxy-publish-azure-portal.md).
+Uw proxy-toepassing te publiceren, net als alle andere toepassingen en gebruikers toegang krijgen tot uw toepassing toe te wijzen. Zie voor meer informatie [publiceren van toepassingen met toepassingsproxy](manage-apps/application-proxy-publish-azure-portal.md).
 
 ## <a name="step-2-configure-your-application"></a>Stap 2: Uw toepassing configureren
 Uw eigen toepassing als volgt configureren:
@@ -47,7 +47,7 @@ Uw eigen toepassing als volgt configureren:
    ![Maak een nieuwe app-registratie](./media/active-directory-application-proxy-native-client/create.png)
 5. Selecteer **Maken**.
 
-Zie voor meer informatie over het maken van een nieuwe app-registratie, [toepassingen integreren met Azure Active Directory](.//develop/active-directory-integrating-applications.md).
+Zie voor meer informatie over het maken van een nieuwe app-registratie, [toepassingen integreren met Azure Active Directory](./develop/active-directory-integrating-applications.md).
 
 
 ## <a name="step-3-grant-access-to-other-applications"></a>Stap 3: Verleen toegang tot andere toepassingen
@@ -97,4 +97,4 @@ Nadat de ADAL is bewerkt met deze parameters, is uw gebruikers moet kunnen worde
 
 Zie voor meer informatie over de stroom systeemeigen toepassing [systeemeigen toepassing aan web-API](develop/active-directory-authentication-scenarios.md#native-application-to-web-api)
 
-Meer informatie over het instellen van [eenmalige aanmelding voor toepassingsproxy](application-proxy-sso-overview.md)
+Meer informatie over het instellen van [eenmalige aanmelding voor toepassingsproxy](manage-apps/application-proxy-single-sign-on.md)

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 79161d0be407a5b5692e1ad0ee25c609aefb2fb5
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: f5812e071046935b0a1a3ee3f14525ede336954a
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-items beschikbaar voor Azure-Stack
 
@@ -220,5 +220,6 @@ Microsoft Azure-Stack ondersteunt de volgende Azure Marketplace virtuele machine
 | ![NooBaa hybride AWS S3 compatibele - Community Edition](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa hybride AWS S3 compatibe - Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | S3-compatibele storage-service die openbare omvat en on-premises resources van de capaciteit. | NooBaa |
 | ![PT Application Firewall](media/azure-stack-marketplace-azure-items/pt.png) | [PT Application Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT Application Firewall detecteert bekende & onbekende beveiligingsproblemen en worden aanvallen voorkomen op web-apps. <b>Download beide PT Marketplace-items.</b> | Positieve technologieën |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise kunt u de hele levenscyclus van uw Azure-Stack-infrastructuur te automatiseren. <b>Download beide Puppet Marketplace-items.</b> | Puppet |
+| ![Aanvraag voor certificaatvernieuwing snel herstel](media/azure-stack-marketplace-azure-items/quest.png) | [Aanvraag voor certificaatvernieuwing snel herstel Core](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | Snel herstel geavanceerde gegevensbeveiliging verenigt de back-up, replicatie en herstel in een softwareoplossing van eenvoudig te gebruiken. | Aanvraag voor certificaatvernieuwing Software |
 | ![SUSE Manager 3.0 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.0 Proxy (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | Beheer van de beste in klasse open source-infrastructuur. | SUSE |
 | ![Hulpprogramma voor ZeroDown Software](media/azure-stack-marketplace-azure-items/zerodown.png) | [Hulpprogramma voor ZeroDown Software ](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | ZeroDown Software hulpprogramma v7.1 - migreren + HA. | ZeroDown Software |

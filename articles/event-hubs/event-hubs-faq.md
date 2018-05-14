@@ -5,7 +5,7 @@ services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bfa10984-eb22-4671-861a-f377a90d9372
 ms.service: event-hubs
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 6bdcbbe37613d5384017409f3be2772085e276ae
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8a30b8cb92b98606ca3d859ada329b8301806b10
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Veelgestelde vragen over Event Hubs
 
@@ -30,7 +30,7 @@ De prijscategorie Standard van Azure Event Hubs biedt functies afgezien van wat 
 * Langere bewaartermijn van gebeurtenis
 * Extra brokered verbindingen met een overschrijding kosten voor meer dan het aantal opgenomen
 * Meer dan één groep Consumer
-* [Vastleggen](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)
+* [vastleggen](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)
 
 Zie voor meer informatie over prijzen voor lagen, waaronder Event Hubs is toegewezen, de [Event Hubs prijsinformatie](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -112,7 +112,7 @@ Zie voor een lijst van mogelijke Event Hubs uitzonderingen [uitzonderingen overz
 Event Hubs ondersteunt twee typen [diagnostische logboeken](event-hubs-diagnostic-logs.md) -foutenlogboeken en operationele logboeken - die beide worden weergegeven in json en kunnen worden ingeschakeld via de Azure portal vastleggen.
 
 ### <a name="support-and-sla"></a>Ondersteuning en SLA
-Technische ondersteuning voor Event Hubs is beschikbaar via de [communityforums](https://social.msdn.microsoft.com/forums/azure/home). Ondersteuning bij facturering en abonnementsbeheer is gratis.
+Technische ondersteuning voor Event Hubs is beschikbaar via de [communityforums](https://social.msdn.microsoft.com/forums/azure/home?forum=servbus). Ondersteuning bij facturering en abonnementsbeheer is gratis.
 
 Zie voor meer informatie over onze SLA, de [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/) pagina.
 

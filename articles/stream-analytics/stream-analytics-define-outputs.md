@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/07/2018
-ms.openlocfilehash: 54bf0cd80d1fcc6d761f977484a1a5539d581361
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 05/11/2018
+ms.openlocfilehash: 030af72951e226d3484706e627bc8b74d5469670
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Uitvoer van de Azure Stream Analytics begrijpen
 In dit artikel beschrijft de verschillende soorten uitvoer beschikbaar voor een Azure Stream Analytics-taak. Uitvoer kunnen u opslaan en sla de resultaten van de Stream Analytics-taak. Met de uitvoergegevens, kunt u doen verdere business analytics en datawarehousing van uw gegevens. 
@@ -40,7 +40,7 @@ Stream Analytics ondersteunt [Azure Data Lake Store](https://azure.microsoft.com
 
    ![Data Lake Store toestaan](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
 
-| De naam van eigenschap | Beschrijving | 
+| Naam van eigenschap | Beschrijving | 
 | --- | --- |
 | Uitvoeralias | Een beschrijvende naam die wordt gebruikt in query's om de queryuitvoer naar Data Lake Store. | 
 | Accountnaam | De naam van het Data Lake Storage-account waarin u de uitvoer wilt verzenden. Krijgt u een vervolgkeuzelijst met Data Lake Store-accounts die beschikbaar in uw abonnement zijn. |
@@ -62,7 +62,7 @@ Vernieuwen van de autorisatie, **stoppen** uw taak > Ga naar de uitvoer van uw D
 ## <a name="sql-database"></a>SQL Database
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) kan worden gebruikt als uitvoer voor gegevens die relationele gegevens of voor toepassingen die afhankelijk zijn van de inhoud wordt gehost in een relationele database. Stream Analytics-taken schrijven naar een bestaande tabel in een Azure SQL Database.  Het tabelschema moet exact overeenkomen met de velden en hun typen wordt de uitvoer van de taak. Een [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) kan ook worden opgegeven als uitvoer via de evenals SQL-Database output-optie. De volgende tabel bevat de namen van eigenschappen en hun beschrijving voor het maken van de uitvoer van een SQL-Database.
 
-| De naam van eigenschap | Beschrijving |
+| Naam van eigenschap | Beschrijving |
 | --- | --- |
 | Uitvoeralias |Een beschrijvende naam die wordt gebruikt in query's om de uitvoer van de query met deze database. |
 | Database | De naam van de database waar u de uitvoer wilt verzenden. |
@@ -80,13 +80,13 @@ BLOB storage vormt een rendabele en schaalbare oplossing voor het opslaan van gr
 
 De volgende tabel bevat de namen van eigenschappen en hun beschrijving voor het maken van een blob-uitvoer.
 
-| De naam van eigenschap | Beschrijving | 
+| Naam van eigenschap | Beschrijving | 
 | --- | --- |
 | Uitvoeraliassen | Een beschrijvende naam die wordt gebruikt in query's om de query-uitvoer naar deze blob-opslag. |
 | Opslagaccount | De naam van het opslagaccount waar u de uitvoer wilt verzenden. |
 | Opslagaccountsleutel | De geheime sleutel die is gekoppeld aan het opslagaccount. |
 | Storage-Container | Containers bieden een logische groepering van blobs die zijn opgeslagen in de Microsoft Azure Blob-service. Wanneer u een blob naar de Blob-service uploaden, moet u een blob-container opgeven. |
-| Padpatroon | Optioneel. Het pad naar bestandspatroon gebruikt voor het schrijven van uw BLOB's binnen de opgegeven container. </br></br> U kunt kiezen in het patroon pad naar een of meer exemplaren van de datum-tijdvariabelen gebruiken om op te geven van de frequentie waarmee blobs worden geschreven: </br> {date} {time} </br> </br>U mogelijk ook opgeven één veldnaam {kolom} uit uw gegevens naar partitie blobs door, waar de veldnaam alfanumerieke is en kan spaties, afbreekstreepjes en onderstrepingstekens bevatten. Beperkingen op aangepaste velden omvatten het volgende: <ul><li>Case ongevoeligheid (kan verschillen tussen de kolom 'ID' en kolom 'id' niet)</li><li>Geneste velden zijn niet toegestaan (in plaats daarvan een alias gebruiken in de query voor de taak voor het veld 'plat')</li><li>Expressies kunnen niet als een veldnaam worden gebruikt</li></ul>Voorbeelden: <ul><li>Voorbeeld 1: cluster1/logs / {date} / {time}</li><li>Voorbeeld 2: cluster1/logs / {date}</li><li>Voorbeeld 3: cluster1 / {client_id} / {date} / {time}</li><li>Voorbeeld 4: cluster1 / {myField} waarbij de query is: Selecteer data.myField als myField van invoer;</li></ul><BR> Naamgeving van bestanden, volgt de volgende conventies: </br> {Pad voorvoegsel Pattern}/schemaHashcode_Guid_Number.extension </br></br> Voorbeeld van de uitvoerbestanden: </br><ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li><li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul><br/>
+| Padpatroon | Optioneel. Het pad naar bestandspatroon gebruikt voor het schrijven van uw BLOB's binnen de opgegeven container. </br></br> U kunt kiezen in het patroon pad naar een of meer exemplaren van de datum-tijdvariabelen gebruiken om op te geven van de frequentie waarmee blobs worden geschreven: </br> {date} {time} </br> </br>U kunt ook een aangepaste {veld} naam opgeven van de gegevens van gebeurtenissen voor het partitioneren van blobs, waarbij de naam van het alfanumerieke en kan spaties, afbreekstreepjes en onderstrepingstekens bevatten. Beperkingen op aangepaste velden omvatten het volgende: <ul><li>Case ongevoeligheid (kan verschillen tussen de kolom 'ID' en kolom 'id' niet)</li><li>Geneste velden zijn niet toegestaan (in plaats daarvan een alias gebruiken in de query voor de taak voor het veld 'plat')</li><li>Expressies kunnen niet als een veldnaam worden gebruikt</li></ul>Voorbeelden: <ul><li>Voorbeeld 1: cluster1/logs / {date} / {time}</li><li>Voorbeeld 2: cluster1/logs / {date}</li><li>Voorbeeld 3: cluster1 / {client_id} / {date} / {time}</li><li>Voorbeeld 4: cluster1 / {myField} waarbij de query is: Selecteer data.myField als myField van invoer;</li></ul><BR> Naamgeving van bestanden, volgt de volgende conventies: </br> {Pad voorvoegsel Pattern}/schemaHashcode_Guid_Number.extension </br></br> Voorbeeld van de uitvoerbestanden: </br><ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li><li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul><br/>
 | Datumnotatie | Optioneel. Als de datum-token in het pad van het voorvoegsel wordt gebruikt, kunt u de datumnotatie waarin de bestanden zijn ingedeeld. Voorbeeld: Jjjj/MM/DD |
 | Tijdnotatie | Optioneel. Als het token tijd in het pad van het voorvoegsel wordt gebruikt, geeft u de tijdnotatie waarin de bestanden zijn ingedeeld. De enige ondersteunde waarde is momenteel HH. |
 | Serialisatie-indeling voor gebeurtenissen | Serialisatie-indeling voor uitvoergegevens.  JSON, CSV en Avro worden ondersteund.
@@ -110,7 +110,7 @@ De [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) -service
 
 Er zijn een aantal parameters die nodig zijn voor het configureren van de Event Hub-gegevensstromen als uitvoer.
 
-| De naam van eigenschap | Beschrijving |
+| Naam van eigenschap | Beschrijving |
 | --- | --- |
 | Uitvoeralias | Een beschrijvende naam die wordt gebruikt in query's om de query-uitvoer naar deze Event Hub. |
 | Event Hub-naamruimte |Een Event Hub-naamruimte is een container voor een set berichtentiteiten. Wanneer u een nieuwe Event Hub hebt gemaakt, hebt u ook een Event Hub-naamruimte gemaakt. |
@@ -140,7 +140,7 @@ Er zijn een aantal parameters die nodig zijn voor het configureren van de Event 
 ### <a name="configure-the-power-bi-output-properties"></a>Configureer de eigenschappen van Power BI-uitvoer
 Zodra u de geverifieerde Power BI-account hebt, kunt u de eigenschappen configureren voor uw Power BI-uitvoer. De onderstaande tabel wordt de lijst met namen van eigenschappen en hun beschrijving voor het configureren van uw Power BI-uitvoer.
 
-| De naam van eigenschap | description |
+| Naam van eigenschap | description |
 | --- | --- |
 | Uitvoeralias |Een beschrijvende naam die wordt gebruikt in query's om de queryuitvoer naar deze Power BI-uitvoer. |
 | Groepswerkruimte |U kunt groepen binnen uw Power BI-account selecteren of kies 'Mijn werkruimte' als u niet wilt schrijven naar een groep zodat delen van gegevens met andere Power BI-gebruikers.  Bijwerken van een bestaande groep is vereist voor het vernieuwen van de Power BI-verificatie. |
@@ -164,9 +164,9 @@ Deze tabel bevat informatie over de conversie van het gegevenstype van [Stream A
 Vanuit Stream Analytics | Met Power BI
 -----|-----|------------
 bigint | Int64
-nvarchar(max) | Tekenreeks
+nvarchar(max) | Reeks
 datum/tijd | Datum en tijd
-Float | Double
+drijvend | dubbele
 Record matrix | String-type, constante waarde 'Irecords' of 'IArray'
 
 ### <a name="schema-update"></a>Schema-Update
@@ -175,12 +175,12 @@ Stream Analytics infereert het modelschema van gegevens op basis van de eerste r
 De `SELECT *` query om te voorkomen dat dynamische schema-update in rijen moet worden vermeden. Naast de mogelijke gevolgen voor prestaties, kan dit ook leiden tot onzekerheid van de tijd die voor de resultaten. De exacte velden die moeten worden weergegeven in Power BI-dashboard moeten worden geselecteerd. Daarnaast moet de gegevenswaarden compatibel zijn met het gekozen gegevenstype.
 
 
-Vorige/huidige | Int64 | Tekenreeks | Datum en tijd | Double
+Vorige/huidige | Int64 | Reeks | Datum en tijd | dubbele
 -----------------|-------|--------|----------|-------
-Int64 | Int64 | Tekenreeks | Tekenreeks | Double
-Double | Double | Tekenreeks | Tekenreeks | Double
-Tekenreeks | Tekenreeks | Tekenreeks | Tekenreeks |  | Tekenreeks | 
-Datum en tijd | Tekenreeks | Tekenreeks |  Datum en tijd | Tekenreeks
+Int64 | Int64 | Reeks | Reeks | dubbele
+dubbele | dubbele | Reeks | Reeks | dubbele
+Reeks | Reeks | Reeks | Reeks |  | Reeks | 
+Datum en tijd | Reeks | Reeks |  Datum en tijd | Reeks
 
 
 ### <a name="renew-power-bi-authorization"></a>Vernieuwen van Power BI-autorisatie
@@ -212,7 +212,7 @@ De volgende tabel bevat de namen van eigenschappen en hun beschrijving voor het 
 
 De volgende tabel bevat de namen van eigenschappen en hun beschrijving voor het maken van de uitvoer van een wachtrij.
 
-| De naam van eigenschap | description |
+| Naam van eigenschap | description |
 | --- | --- |
 | Uitvoeralias |Een beschrijvende naam die wordt gebruikt in query's om de query-uitvoer naar deze Service Bus-wachtrij. |
 | Service Bus-naamruimte |Een Service Bus-naamruimte is een container voor een set berichtentiteiten. |
@@ -231,7 +231,7 @@ Terwijl Service Bus-wachtrijen een communicatiemethode één van afzender naar o
 
 De volgende tabel bevat de namen van eigenschappen en hun beschrijving voor het maken van de tabeluitvoer van een.
 
-| De naam van eigenschap | Beschrijving |
+| Naam van eigenschap | Beschrijving |
 | --- | --- |
 | Uitvoeralias |Een beschrijvende naam die wordt gebruikt in query's om de query-uitvoer naar deze Service Bus-onderwerp. |
 | Service Bus-naamruimte |Een Service Bus-naamruimte is een container voor een set berichtentiteiten. Wanneer u een nieuwe Event Hub hebt gemaakt, hebt u ook een Service Bus-naamruimte gemaakt |
@@ -252,7 +252,7 @@ Het aantal partities is [op basis van de Service Bus-SKU en grootte](../service-
 > Andere Azure Cosmos DB-API's zijn nog niet ondersteund. Als u punt Azure Stream Analytics aan de Azure DB die Cosmos-accounts die worden gemaakt met andere API's, zijn de gegevens mogelijk niet juist opgeslagen. 
 
 De volgende tabel beschrijft de eigenschappen voor het maken van een Azure DB die Cosmos-uitvoer.
-| De naam van eigenschap | description |
+| Naam van eigenschap | description |
 | --- | --- |
 | Uitvoeralias | Een alias aan dit uitvoer in de Stream Analytics query verwijzen. |
 | Sink | Cosmos DB |
@@ -262,14 +262,14 @@ De volgende tabel beschrijft de eigenschappen voor het maken van een Azure DB di
 | Database | De naam van de Cosmos-DB-database. |
 | Patroon voor de collectienaam | Naam van de verzameling of het patroon voor de verzamelingen moet worden gebruikt. <br/>Indeling van de Collectienaam kan worden samengesteld met behulp van de optionele {partition}-token, waarbij partities beginnen bij 0. Twee voorbeelden:  <br/>1. _MyCollection_ : een verzameling met de naam 'MyCollection' moet aanwezig zijn.  <br/>2. _MyCollection {partition}_ – op basis van de partitioneringskolom. <br/>De partitionerende kolom verzamelingen moeten aanwezig zijn: 'MyCollection0', 'MyCollection1', 'MyCollection2', enzovoort. |
 | Partitiesleutel | Optioneel. Dit is alleen nodig als u een token {partition} in het patroon van de naam van verzameling.<br/> De partitiesleutel is de naam van het veld in uitvoergebeurtenissen dat wordt gebruikt voor het opgeven van de sleutel voor het partitioneren van uitvoer in collecties.<br/> Voor één verzameling uitvoer, kan een willekeurige uitvoer van de kolommen worden gebruikt. Bijvoorbeeld: PartitionId. |
-| Document-ID |Optioneel. De naam van het veld in uitvoergebeurtenissen dat wordt gebruikt voor de primaire sleutel opgeven in welke invoegen of updatebewerkingen zijn gebaseerd.  
+| Document-id |Optioneel. De naam van het veld in uitvoergebeurtenissen dat wordt gebruikt voor de primaire sleutel opgeven in welke invoegen of updatebewerkingen zijn gebaseerd.  
 
 ## <a name="azure-functions"></a>Azure Functions
 Azure Functions is een serverloze compute-service waarmee u code op aanvraag kunt uitvoeren zonder expliciet een infrastructuur in te richten of te beheren. Hiermee kunt u code die wordt geactiveerd door gebeurtenissen in Azure of services van derden implementeren.  Deze mogelijkheid van Azure Functions om te reageren op triggers maakt het een natuurlijke uitvoer voor een Azure Stream Analytics. Deze uitvoeradapter kan gebruikers verbinding van Stream Analytics met Azure Functions, en voer een script of een stuk code in reactie op tal van gebeurtenissen.
 
 Azure Stream Analytics roept Azure Functions via HTTP-triggers. De nieuwe uitvoer van de functie Azure-adapter is beschikbaar met de volgende eigenschappen kunnen worden geconfigureerd:
 
-| De naam van eigenschap | description |
+| Naam van eigenschap | description |
 | --- | --- |
 | Functie-app |Naam van uw App in Azure Functions |
 | Functie |Naam van de functie in uw App in Azure-functies |
@@ -289,7 +289,7 @@ De volgende tabel geeft een overzicht van de partitie ondersteuning en het aanta
 | --- | --- | --- | --- |
 | Azure Data Lake Store | Ja | Gebruik {date} en {time} tokens in het pad voorvoegsel-patroon. Kies de notatie van datum, zoals jjjj/MM/DD, MM-DD-JJJJ, MM-DD-JJJJ. HH wordt gebruikt voor de tijdnotatie. | De invoer partitionering voor volgt [volledig worden query's](stream-analytics-scale-jobs.md). | 
 | Azure SQL Database | Nee | Geen | Niet van toepassing. | 
-| Azure Blob Storage | Ja | Gebruik {date} en {time} tokens in het pad-patroon. Kies de notatie van datum, zoals jjjj/MM/DD, MM-DD-JJJJ, MM-DD-JJJJ. HH wordt gebruikt voor de tijdnotatie. | De invoer partitionering voor volgt [volledig worden query's](stream-analytics-scale-jobs.md). | 
+| Azure Blob Storage | Ja | Gebruik {date} en {time} tokens of een enkel {fieldname} van de gebeurtenis velden in het pad-patroon. Kies de notatie van datum, zoals jjjj/MM/DD, MM-DD-JJJJ, MM-DD-JJJJ. HH wordt gebruikt voor de tijdnotatie. | De invoer partitionering voor volgt [volledig worden query's](stream-analytics-scale-jobs.md). | 
 | Azure Event Hub | Ja | Ja | Varieert afhankelijk van de uitlijning van de partitie.</br> Bij de uitvoer van de Event Hub-partitiesleutel gelijkmatig wordt uitgelijnd met upstream (vorige) query stap is het aantal schrijvers hetzelfde aantal het aantal is partities van de Event Hub uitvoer. Elke writer maakt gebruik van de EventHub [EventHubSender klasse](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) gebeurtenissen verzenden naar de specifieke partitie. </br> Wanneer de uitvoer van de Event Hub-partitiesleutel is niet uitgelijnd met upstream (vorige) query stap, het aantal schrijvers is hetzelfde als het aantal partities in die de vorige stap. Elke writer gebruikt EventHubClient [SendBatchAsync klasse](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) gebeurtenissen verzenden naar alle partities van de uitvoer. |
 | Power BI | Nee | Geen | Niet van toepassing. | 
 | Azure Table Storage | Ja | De uitvoer kolom.  | De invoer partitionering voor volgt [volledig geparallelliseerde query's](stream-analytics-scale-jobs.md). | 

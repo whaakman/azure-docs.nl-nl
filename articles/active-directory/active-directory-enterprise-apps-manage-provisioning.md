@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: b57c6841566f3fd75ca0c48e055f54513247cb30
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: ebc4de2b3a01138a8b48cc637dcab5fc67a68841
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Het beheer van gebruikersaccount inrichten voor zakelijke apps in Azure portal
 In dit artikel wordt beschreven hoe u de [Azure-portal](https://portal.azure.com) voor het beheren van automatische account gebruikersaanvragen en verwijderen van gegevens voor toepassingen die ondersteuning bieden voor deze, met name lijsten die zijn toegevoegd in de categorie 'aanbevolen' van de [Azure Active Directory-toepassingsgalerie](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Zie voor meer informatie over automatische account gebruikersaanvragen en hoe het werkt, [gebruikersaanvragen automatiseren en Deprovisioning voor SaaS-toepassingen met Azure Active Directory](active-directory-saas-app-provisioning.md).
@@ -27,13 +27,13 @@ In dit artikel wordt beschreven hoe u de [Azure-portal](https://portal.azure.com
 ## <a name="finding-your-apps-in-the-portal"></a>Uw apps te zoeken in de portal
 Alle toepassingen die zijn geconfigureerd voor eenmalige aanmelding in een map met een directory-beheerder met behulp van de [Azure Active Directory-toepassingsgalerie](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), kan worden bekeken en beheerd in de [Azure-portal](https://portal.azure.com). De toepassingen vindt u in de **alle Services** &gt; **bedrijfstoepassingen** sectie van de portal. Zakelijke apps zijn apps die zijn geïmplementeerd en worden gebruikt binnen uw organisatie.
 
-![Deelvenster bedrijfstoepassingen][0]
+![Deelvenster bedrijfstoepassingen](./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-pane.png)
 
 Als u de **alle toepassingen** koppeling aan de linkerkant geeft een lijst met alle apps die zijn geconfigureerd, met inbegrip van apps die waren toegevoegd uit de galerie. Selecteren van een app, laadt het resource-deelvenster voor die app, waarbij de rapporten kunnen worden weergegeven voor die app en een aantal instellingen kan worden beheerd.
 
 Instellingen voor het inrichten gebruikersaccount kan worden beheerd door te selecteren **inrichten** aan de linkerkant.
 
-![Toepassing resource deelvenster][1]
+![Toepassing resource deelvenster](./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning.png)
 
 ## <a name="provisioning-modes"></a>Inrichting modi
 De **inrichten** deelvenster begint met een **modus** menu ziet u welke inrichting modi worden ondersteund voor een zakelijke toepassing en kan ze worden geconfigureerd. De beschikbare opties zijn onder andere:
@@ -54,7 +54,7 @@ Deze sectie is waar beheerders kunnen weergeven en bewerken welke kenmerken gebr
 
 Er is een vooraf geconfigureerde verzameling toewijzingen tussen Azure AD-gebruikersobjecten en gebruikersobjecten van elke SaaS-app. Sommige apps beheren andere soorten objecten, zoals groepen of contactpersonen. Selecteer een van de toewijzingen in de tabel ziet u de editor voor kolomtoewijzing aan de rechterkant, waar ze kunnen worden bekeken en aangepast.
 
-![Toepassing resource deelvenster][2]
+![Toepassing resource deelvenster](./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning-mapping.png)
 
 Ondersteunde aanpassingen zijn onder andere:
 
@@ -80,7 +80,3 @@ Vindt u koppelingen naar de **inrichting activiteitenrapport** die voorziet in e
 
 Zorg ervoor dat uw feedback! Plaats uw feedback en ideeën voor verbetering van de **beheerportal** sectie van onze [Feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Het technische team is enthousiast over het bouwen van cool nieuw elke dag en het gebruik van de richtlijnen voor vorm en definieert u wat hierna bouwen.
 
-
-[0]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-pane.PNG
-[1]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning.PNG
-[2]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning-mapping.PNG

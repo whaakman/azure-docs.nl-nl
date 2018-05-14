@@ -2,10 +2,10 @@
 title: Gebruikers en groepen toewijzen aan een toepassing | Microsoft Docs
 description: Gebruikers toewijzen aan de toepassing om toegang te verlenen
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: d670b2400fc1ac50afdcc8b809a1d482c3219686
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 19303237e7e2c3c3a7f373102465875c34a571d1
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-assign-users-and-groups-to-an-application"></a>Gebruikers en groepen toewijzen aan een toepassing
 
@@ -163,4 +163,4 @@ Nadat u de configuratie van Self-Service toepassing hebt voltooid, gebruikers ku
 Deze goedkeuringen ondersteuning voor één goedkeuringswerkstromen, wat betekent dat als u meerdere goedkeurders opgeeft, kan een enkele fiatteur goedkeurder toegang tot de toepassing.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Geef één aanmelding bij uw apps met toepassingsproxy](active-directory-application-proxy-sso-using-kcd.md)
+[Geef één aanmelding bij uw apps met toepassingsproxy](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)

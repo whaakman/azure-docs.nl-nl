@@ -12,11 +12,11 @@ ms.date: 04/03/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e10fefdd3bd46aeb90fd2cfc82d4fee3b17d867b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 7e4731e150c2d6428fa8c752765780f827c33741
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Toepassingsproxy en Qlik verstand 
 Azure Active Directory-toepassingsproxy en Qlik zin hebben hun samen zodat u zich eenvoudig kunt toepassingsproxy gebruiken voor externe toegang voor uw implementatie Qlik zin.  
@@ -25,13 +25,13 @@ Azure Active Directory-toepassingsproxy en Qlik zin hebben hun samen zodat u zic
 De rest van dit scenario wordt ervan uitgegaan dat u het volgende gedaan:
  
 - Geconfigureerd [Qlik zin](https://community.qlik.com/docs/DOC-19822). 
-- [Een connector voor toepassingsproxy geïnstalleerd](active-directory-application-proxy-enable.md#install-and-register-a-connector) 
+- [Een connector voor toepassingsproxy geïnstalleerd](manage-apps/application-proxy-enable.md#install-and-register-a-connector) 
  
 ## <a name="publish-your-applications-in-azure"></a>Uw toepassingen publiceren in Azure 
 Als u wilt publiceren QlikSense, moet u twee toepassingen publiceren in Azure.  
 
 ### <a name="application-1"></a>#1-toepassing: 
-Volg deze stappen voor het publiceren van uw app. Voor een meer overzicht van de stappen 1-8, Zie gedetailleerde [toepassingen publiceren met Azure AD-toepassingsproxy](application-proxy-publish-azure-portal.md). 
+Volg deze stappen voor het publiceren van uw app. Voor een meer overzicht van de stappen 1-8, Zie gedetailleerde [toepassingen publiceren met Azure AD-toepassingsproxy](manage-apps/application-proxy-publish-azure-portal.md). 
 
 
 1. Meld u aan bij de Azure portal als globale beheerder. 
@@ -58,5 +58,5 @@ Uw toepassing is nu gereed om te testen. Toegang tot de externe URL die u hebt g
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Publiceren van toepassingen met toepassingsproxy](application-proxy-publish-azure-portal.md)
+- [Publiceren van toepassingen met toepassingsproxy](manage-apps/application-proxy-publish-azure-portal.md)
 - [Werken met toepassingsproxy connectors](active-directory-application-proxy-connectors-azure-portal.md).

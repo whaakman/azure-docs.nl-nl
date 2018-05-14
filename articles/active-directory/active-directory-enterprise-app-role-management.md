@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 94b451f66d286426f6dd2cc556e8c6785c3f743e
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 43a4db9114cd47da5bef98ed634847b547589b47
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="configuring-role-claim-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Rol claim uitgegeven in het SAML-token voor bedrijfstoepassingen in Azure Active Directory configureren
 
@@ -54,7 +54,7 @@ Als uw toepassing aangepaste rollen in SAML-reactie die moet worden doorgegeven 
 
 5. Wanneer de toepassing is toegevoegd, gaat u naar **eigenschappen** pagina en kopieer de **Object-ID**.
 
-    ![Eigenschappenpagina](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.PNG)
+<!-- ![Properties Page](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png) Note: Image is missing. -->
 
 6. Open [Explorer van Azure AD Graph](https://developer.microsoft.com/graph/graph-explorer) in een ander venster.
 

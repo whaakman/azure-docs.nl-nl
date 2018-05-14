@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: maheshu
-ms.openlocfilehash: 13141549b5b1b77f45dd6fa1c7560b9f9d0e9b72
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: eee20271c27f596ee6aefd0b7280c7862c53b289
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/11/2018
@@ -95,7 +95,7 @@ U hebt de Azure AD-toepassingsproxy instellen en deze geïntegreerd met uw Azure
 
 * **Uw toepassingen met Azure virtuele machines migreren:** kunt u lift-en-shift uw toepassingen van lokale servers en virtuele machines in Azure die is gekoppeld aan uw beheerde domein. In dat geval kunt u de kosten van de infrastructuur van het uitvoeren van servers lokale weghalen.
 
-* **Toepassingen publiceren met Azure AD-toepassingsproxy:** publiceren van toepassingen die worden uitgevoerd op uw virtuele machines in Azure met behulp van de Azure AD-toepassingsproxy. Zie voor meer informatie [toepassingen publiceren met Azure AD-toepassingsproxy](../active-directory/application-proxy-publish-azure-portal.md)
+* **Toepassingen publiceren met Azure AD-toepassingsproxy:** publiceren van toepassingen die worden uitgevoerd op uw virtuele machines in Azure met behulp van de Azure AD-toepassingsproxy. Zie voor meer informatie [toepassingen publiceren met Azure AD-toepassingsproxy](../active-directory/manage-apps/application-proxy-publish-azure-portal.md)
 
 
 ## <a name="deployment-note---publish-iwa-integrated-windows-authentication-applications-using-azure-ad-application-proxy"></a>Opmerking van de implementatie - publiceren IWA (geïntegreerde Windows-verificatie)-toepassingen die gebruikmaken van Azure AD-toepassingsproxy

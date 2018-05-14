@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 05/1/2018
 ms.author: billmath
-ms.openlocfilehash: 54ae18b9a802fe078d307f4d36400adf806b233f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a28a377ec3872fad0121636070b6604eaa415b30
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Problemen met object-synchronisatie met Azure AD Connect-synchronisatie
 Dit document bevat stappen voor het oplossen van problemen met synchronisatie van object met de taak voor het oplossen van problemen.
@@ -34,6 +34,7 @@ Als u wilt de taak voor het oplossen van problemen in de wizard uitvoert, moet u
 4.  Navigeer naar de pagina aanvullende taken, selecteer oplossen en klik op volgende.
 5.  Klik op starten om de probleemoplossing menu start in PowerShell op de pagina probleemoplossing.
 6.  Selecteer in het hoofdmenu Object synchronisatie oplossen.
+![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch11.png)
 
 ### <a name="troubleshooting-input-parameters"></a>Invoerparameters probleemoplossing
 De volgende invoerparameters nodig door de taak voor het oplossen van problemen:
@@ -47,6 +48,8 @@ De taak voor het oplossen van problemen worden de volgende controles uitgevoerd:
 1.  UPN verschil detecteren als het object is gesynchroniseerd met Azure Active Directory
 2.  Controleer als object wordt gefilterd door het filteren van domein
 3.  Controleer als object vanwege wordt gefilterd op de OE-filters
+4.  Controleer als object synchronisatie is geblokkeerd vanwege een gekoppeld postvak
+5. Controleer of de object dynamische distributie-groep die niet moet worden gesynchroniseerd
 
 De rest van deze sectie beschrijft specifieke resultaten die zijn geretourneerd door de taak. In elk geval biedt de taak een analyse gevolgd door de aanbevolen acties om het probleem te verhelpen.
 
@@ -76,9 +79,17 @@ Er is een object buiten het bereik van vanwege domein niet geconfigureerd. In he
 Object is buiten het bereik als het domein ontbreekt profielen/uitvoeren stappen uitvoeren. Het object is niet synchroon bereik in het onderstaande voorbeeld, zoals het domein dat hoort bij uitgevoerde stappen voor de volledige Import profiel uitvoert ontbreekt.
 ![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch6.png)
 
-### <a name="object-is-filtered-due-to-ou-filtering"></a>Object is gefilterd vanwege op OE-filters
-Het object is niet gesynchroniseerd bereik vanwege OE filteren configuratie. Het object in het onderstaande voorbeeld behoort OE = NoSync, DC = bvtadwbackdc, DC = com.  Deze organisatie-eenheid is niet opgenomen in het bereik van de synchronisatie.
-![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch7.png)
+## <a name="object-is-filtered-due-to-ou-filtering"></a>Object is gefilterd vanwege op OE-filters
+Het object is niet gesynchroniseerd bereik vanwege OE filteren configuratie. Het object in het onderstaande voorbeeld behoort OE = NoSync, DC = bvtadwbackdc, DC = com.  Deze organisatie-eenheid is niet opgenomen in het bereik van de synchronisatie.</br>
+
+![ORGANISATIE-EENHEID](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch7.png)
+
+## <a name="linked-mailbox-issue"></a>Gekoppelde Postvak probleem
+Een gekoppeld postvak moet worden gekoppeld aan een externe hoofdaccount in een andere vertrouwde accountforest. Als er geen dergelijke externe hoofdaccount, wordt Azure AD Connect zal de gebruiker niet synchroniseren account komt overeen met het gekoppelde postvak in het Exchange-forest met de Azure AD-tenant.</br>
+![Gekoppeld postvak](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch12.png)
+
+## <a name="dynamic-distribution-group-issue"></a>Dynamische distributiegroep probleem
+Vanwege diverse verschillen tussen on-premises Active Directory en Azure Active Directory, Azure AD Connect niet wordt gesynchroniseerd dynamische distributiegroepen met de Azure AD-tenant.
 
 ## <a name="html-report"></a>HTML-rapport
 Naast het analyseren van het object, genereert de taak voor het oplossen van problemen ook een HTML-rapport dat alles wat u bekend zijn voor het object is. Dit rapport HTML kan worden gedeeld met het ondersteuningsteam doen verder het oplossen van problemen, indien nodig.

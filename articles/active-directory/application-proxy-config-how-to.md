@@ -2,10 +2,10 @@
 title: Het configureren van een toepassing toepassingsproxy | Microsoft Docs
 description: Informatie over het maken van een configureren een toepassingsproxy-toepassing in een paar eenvoudige stappen
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: fafd7c03141f67f4fc9ffbedb7a27632754b8d59
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 816f2c10631de3809c6679c1e2715174f072f56d
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-configure-an-application-proxy-application"></a>Het configureren van een toepassing toepassingsproxy
 
@@ -25,15 +25,15 @@ In dit artikel helpt u bij het begrijpen van het configureren van een toepassing
 
 ## <a name="recommended-documents"></a>Aanbevolen documenten 
 
-Voor meer informatie over de eerste configuraties en het maken van een toepassing toepassingsproxy via de beheerportal, volgt u de [toepassingen publiceren met Azure AD-toepassingsproxy](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal).
+Voor meer informatie over de eerste configuraties en het maken van een toepassing toepassingsproxy via de beheerportal, volgt u de [toepassingen publiceren met Azure AD-toepassingsproxy](manage-apps/application-proxy-publish-azure-portal.md).
 
-Zie voor meer informatie over het configureren van Connectors [toepassingsproxy inschakelen in de Azure portal](active-directory-application-proxy-enable.md).
+Zie voor meer informatie over het configureren van Connectors [toepassingsproxy inschakelen in de Azure portal](manage-apps/application-proxy-enable.md).
 
-Zie voor meer informatie over het uploaden van certificaten en gebruiken van aangepaste domeinen [werken met aangepaste domeinen in Azure AD-toepassingsproxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains).
+Zie voor meer informatie over het uploaden van certificaten en gebruiken van aangepaste domeinen [werken met aangepaste domeinen in Azure AD-toepassingsproxy](manage-apps/application-proxy-configure-custom-domain.md).
 
 ## <a name="create-the-applicationsetting-the-urls"></a>De URL's voor de toepassingsinstelling maken
 
-Als u volgt de stappen in de [toepassingen publiceren met Azure AD-toepassingsproxy](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal) documentatie en zijn voor het ophalen van een fout bij het maken van de toepassing, Zie de foutdetails voor informatie en suggesties voor het oplossen van de toepassing. De meeste foutberichten bevatten een voorgestelde oplossing. Controleer of algemene fouten te voorkomen:
+Als u volgt de stappen in de [toepassingen publiceren met Azure AD-toepassingsproxy](manage-apps/application-proxy-publish-azure-portal.md) documentatie en zijn voor het ophalen van een fout bij het maken van de toepassing, Zie de foutdetails voor informatie en suggesties voor het oplossen van de toepassing. De meeste foutberichten bevatten een voorgestelde oplossing. Controleer of algemene fouten te voorkomen:
 
 -   U bent een beheerder met een machtiging voor het maken van een toepassing toepassingsproxy
 
@@ -51,13 +51,13 @@ Het foutbericht moet worden weergegeven in de rechterbovenhoek bij het maken van
 
 ## <a name="configure-connectorsconnector-groups"></a>Connectors/connector groepen configureren
 
-Als u problemen bij het configureren van uw toepassing vanwege een waarschuwing over connectors en connector groepen ondervindt, raadpleegt u de instructies op de toepassingsproxy inschakelen voor meer informatie over het downloaden van connectors. Als u weten over connectors wilt, raadpleegt u de [connectors documentatie](https://docs.microsoft.com/azure/active-directory/application-proxy-understand-connectors).
+Als u problemen bij het configureren van uw toepassing vanwege een waarschuwing over connectors en connector groepen ondervindt, raadpleegt u de instructies op de toepassingsproxy inschakelen voor meer informatie over het downloaden van connectors. Als u weten over connectors wilt, raadpleegt u de [connectors documentatie](application-proxy-understand-connectors.md).
 
 Als uw connectors niet actief zijn, betekent dit dat ze niet bereiken van de service zijn. Dit is vaak omdat niet de vereiste poorten geopend zijn. Een lijst met vereiste poorten, Zie de sectie vereisten van de documentatie van de toepassingsproxy inschakelen.
 
 ## <a name="upload-certificates-for-custom-domains"></a>Certificaten voor aangepaste domeinen uploaden
 
-Aangepaste domeinen kunnen u het domein van de externe URL's opgeven. Voor het gebruik van aangepaste domeinen, moet u het certificaat voor dat domein uploaden. Zie voor meer informatie over het gebruik van aangepaste domeinen en certificaten [werken met aangepaste domeinen in Azure AD-toepassingsproxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains). 
+Aangepaste domeinen kunnen u het domein van de externe URL's opgeven. Voor het gebruik van aangepaste domeinen, moet u het certificaat voor dat domein uploaden. Zie voor meer informatie over het gebruik van aangepaste domeinen en certificaten [werken met aangepaste domeinen in Azure AD-toepassingsproxy](manage-apps/application-proxy-configure-custom-domain.md). 
 
 Als er problemen zijn uw certificaat uploaden, zoekt u de foutberichten in de portal voor meer informatie over het probleem met het certificaat. Algemene problemen met de certificaten zijn onder andere:
 
@@ -72,4 +72,4 @@ Het foutbericht wordt weergegeven in de rechterbovenhoek als u probeert om het c
    ![Prompt voor melding](./media/application-proxy-config-how-to/error-message2.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-[Toepassingen publiceren met Azure AD-toepassingsproxy](application-proxy-publish-azure-portal.md)
+[Toepassingen publiceren met Azure AD-toepassingsproxy](manage-apps/application-proxy-publish-azure-portal.md)

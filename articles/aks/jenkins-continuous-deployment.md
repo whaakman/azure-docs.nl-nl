@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 757cf69e85885f5a17111410f1dae1ba1c04d167
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 376d3b916c4e01ea6111e6c1db63e976dd1ea320
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="continuous-deployment-with-jenkins-and-azure-kubernetes-service"></a>Continue implementatie met Jenkins en Azure Kubernetes Service
 
@@ -112,10 +112,10 @@ containers:
   image: microsoft/azure-vote-front:v1
 ```
 
-Gebruik vervolgens de [kubectl maken] [ kubectl-create] opdracht de toepassing uit te voeren. Deze opdracht parseert het manifestbestand en maakt de gedefinieerde Kubernetes-objecten.
+Gebruik vervolgens de [kubectl toepassen] [ kubectl-apply] opdracht de toepassing uit te voeren. Deze opdracht parseert het manifestbestand en maakt de gedefinieerde Kubernetes-objecten.
 
 ```bash
-kubectl create -f azure-vote-all-in-one-redis.yaml
+kubectl apply -f azure-vote-all-in-one-redis.yaml
 ```
 
 Een [Kubernetes service] [ kubernetes-service] wordt gemaakt om de toepassing met het internet zichtbaar te maken. Dit proces kan enkele minuten duren.
@@ -297,7 +297,7 @@ Op dit moment is een eenvoudige doorlopende implementatie voltooid. De stappen e
 [docker-images]: https://docs.docker.com/engine/reference/commandline/images/
 [docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
 [git-access-token]: https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 

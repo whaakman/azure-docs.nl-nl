@@ -14,16 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: fauhse
-ms.openlocfilehash: 81425c6ac4e463bd4242328206bd43ce78a1105a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 979897e3cb703b36a46e96848a9176d6d4c6cc6a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure File synchronisatie proxy- en firewall-instellingen
+# <a name="azure-file-sync-proxy-and-firewall-settings"></a>Proxy- en firewallinstellingen van Azure File Sync
 Uw on-premises servers verbindt Azure bestand synchronisatie met Azure-bestanden, synchronisatie voor meerdere locaties en cloud tiering functies inschakelen. Als zodanig moet een on-premises server worden verbonden met internet. IT-beheerder nodig heeft om te bepalen het beste pad voor de server te bereiken in de Azure-cloudservices.
 
 In dit artikel biedt inzicht in de specifieke vereisten en opties die beschikbaar is en veilige wijze verbinden van uw server om te synchroniseren van Azure-bestand.
+
+> [!Important]
+> Azure File-synchronisatie ondersteunt nog geen firewalls en virtuele netwerken voor een opslagaccount. 
 
 ## <a name="overview"></a>Overzicht
 Azure File-synchronisatie fungeert als een service orchestration tussen uw Windows-Server, uw Azure-bestandsshare en verschillende andere Azure-services voor het synchroniseren van gegevens, zoals beschreven in de groep voor synchronisatie. Voor Azure bestand Sync correct te laten werken, moet u uw servers om te communiceren met de volgende Azure-services configureren:

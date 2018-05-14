@@ -1,18 +1,24 @@
 ---
-ms.assetid: 
-title: Azure Sleutelkluis richtlijnen beperking | Microsoft Docs
-ms.service: key-vault
+title: Azure Key Vault-beperkingsrichtlijnen
+description: Beperking van de Sleutelkluis beperkt het aantal gelijktijdige aanroepen om te voorkomen dat overmatig gebruik van bronnen.
+services: key-vault
+documentationcenter: ''
 author: lleonard-msft
-ms.author: alleonar
 manager: mbaldwin
-ms.date: 06/21/2017
-ms.openlocfilehash: cc39a5ee466d2e1661281a32010c3d3201c4a0af
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+tags: ''
+ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
+ms.service: key-vault
+ms.workload: identity
+ms.topic: article
+ms.date: 05/10/2018
+ms.author: alleonar
+ms.openlocfilehash: 59968f2bccbe2828ebe5fb33c57ed28d4f8509b6
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="azure-key-vault-throttling-guidance"></a>Azure Sleutelkluis richtlijnen beperking
+# <a name="azure-key-vault-throttling-guidance"></a>Azure Key Vault-beperkingsrichtlijnen
 
 Beperking is een proces dat u starten die het aantal gelijktijdige aanroepen naar de Azure-service beperkt om te voorkomen dat overmatig gebruik van bronnen. Azure-kluis (Azure sleutel Sleutelkluis) is ontworpen voor het verwerken van een groot aantal aanvragen. Als er een groot aantal aanvragen optreedt, kunt beperking van de client aanvragen onderhouden voor optimale prestaties en betrouwbaarheid van de Azure Sleutelkluis-service.
 

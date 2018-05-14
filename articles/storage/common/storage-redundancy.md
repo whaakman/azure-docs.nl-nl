@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 2b105cd05ace9be6ad24d092f2b12c7ad092188e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6c2c6979d56eb19ff2ba4fb647c7c51e52e51ac6
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="azure-storage-replication"></a>Azure Storage-replicatie
 
@@ -31,14 +31,14 @@ Wanneer u een opslagaccount maakt, kunt u een van de volgende replicatieopties s
 
 De volgende tabel bevat een kort overzicht van het bereik van duurzaamheid en beschikbaarheid dat elke replicatiestrategie u voor een bepaald type gebeurtenis (of vergelijkbaar effect).
 
-| Scenario | LRS | ZRS | GRS | RA-GRS |
-|:--- |:--- |:--- |:--- |:--- |
-| Knooppunt niet beschikbaar zijn binnen een datacentrum |Ja |Ja |Ja |Ja
-| Een heel datacentrum (zonal of niet-zonal) niet beschikbaar |Nee |Ja |Ja |Ja |
-| Een onderbreking van de hele regio |Nee |Nee |Ja |Ja |
-| Leestoegang tot uw gegevens (in een regio externe, geogerepliceerde) in geval van een hele regio niet beschikbaar zijn |Nee |Nee |Nee |Ja |
-| Ontworpen voor op ___ duurzaamheid van objecten gedurende een bepaald jaar |ten minste 99.999999999% (11 van 9)|ten minste 99.9999999999% (12 van 9)|ten minste 99.99999999999999% (16 van 9)|ten minste 99.99999999999999% (16 van 9)|
-| Beschikbaar in opslagaccounttypen ___ |GPv1, GPv2, Blob |GPv2 |GPv1, GPv2, Blob |GPv1, GPv2, Blob
+| Scenario                                                                                                 | LRS                             | ZRS                              | GRS                                  | RA-GRS                               |
+| :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
+| Knooppunt niet beschikbaar zijn binnen een datacentrum                                                                 | Ja                             | Ja                              | Ja                                  | Ja                                  |
+| Een heel datacentrum (zonal of niet-zonal) niet beschikbaar                                           | Nee                              | Ja                              | Ja                                  | Ja                                  |
+| Een onderbreking van de hele regio                                                                                     | Nee                              | Nee                               | Ja                                  | Ja                                  |
+| Leestoegang tot uw gegevens (in een regio externe, geogerepliceerde) in geval van een hele regio niet beschikbaar zijn | Nee                              | Nee                               | Nee                                   | Ja                                  |
+| Ontworpen voor op ___ duurzaamheid van objecten gedurende een bepaald jaar                                          | ten minste 99.999999999% (11 van 9) | ten minste 99.9999999999% (12 van 9) | ten minste 99.99999999999999% (16 van 9) | ten minste 99.99999999999999% (16 van 9) |
+| Ondersteunde opslagaccounttypen                                                                   | GPv1, GPv2, Blob                | GPv2                             | GPv1, GPv2, Blob                     | GPv1, GPv2, Blob                     |
 
 Zie [prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/storage/) voor informatie over de redundantieopties voor verschillende over prijzen.
 
@@ -49,7 +49,7 @@ Zie [prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/sto
 We kunt u uw opslagaccount replicatiestrategie wijzigen met behulp van de [Azure-portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), of een van de vele [ Azure-clientbibliotheken](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). Het wijzigen van het type van de replicatie van uw opslagaccount resulteert niet in uitvaltijd.
 
    > [!NOTE]
-   > Op dit moment kunt u niet de Portal of de API gebruiken uw account converteren naar ZRS. We zullen echter ondersteuning voor migratie naar ZRS van LRS, GRS en RA-GRS nadat ZRS algemeen beschikbaar is. Zie [Zone-redundante opslag (ZRS)](storage-redundancy-zrs.md) voor meer informatie.
+   > Op dit moment kunt u niet de Portal of de API gebruiken uw account converteren naar ZRS. Als u wilt converteren van uw account replicatie naar ZRS, Zie [Zone-redundante opslag (ZRS)](storage-redundancy-zrs.md) voor meer informatie.
     
 ### <a name="are-there-any-costs-to-changing-my-accounts-replication-strategy"></a>Zijn er kosten op replicatiestrategie Mijn account wijzigen?
 Dit is afhankelijk van het pad voor de conversie. Ordening van goedkoopste op de meest dure redundantie aanbieding hebben we LRS, ZRS GRS en RA-GRS. Bijvoorbeeld, gaan *van* LRS op een andere waarde wordt aanvullende worden kosten in rekening omdat u een meer geavanceerde redundantie-niveau gaat. Gaat *naar* GRS of RA-GRS, een uitgaande bandbreedte kosten worden omdat de gegevens (in de primaire regio) wordt gerepliceerd naar de externe secundaire regio. Dit is een eenmalige kosten op de eerste installatie. Nadat de gegevens worden gekopieerd, zijn er geen verdere kosten voor de conversie. U wordt alleen in rekening gebracht voor het repliceren van een nieuwe of bestaande gegevens bijwerken. Zie voor informatie over de kosten van bandbreedte, [prijzen van Azure-opslag-pagina](https://azure.microsoft.com/pricing/details/storage/blobs/).

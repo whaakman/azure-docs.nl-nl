@@ -7,13 +7,13 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/11/2018
 ms.author: manayar
-ms.openlocfilehash: 8b4c7bb561d311796f59b94a6e2fbcd9b571d2cd
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 44ecbcc51cb53f4d7b68f5c5e24e7d81c5a4208c
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="using-expressroute-with-azure-virtual-machine-disaster-recovery"></a>Hiervoor wordt ExpressRoute gebruikt met virtuele machine van Azure-noodherstel
 
@@ -79,7 +79,7 @@ Standaard laat het replicatieverkeer niet de grens van Azure. Normaal gesproken 
 
 Wanneer virtuele machines in Azure wordt een failover uitgevoerd in een andere regio, is de bestaande ExpressRoute-verbinding met het virtuele netwerk van de bron niet automatisch overgebracht naar het virtuele doelnetwerk van de regio van het herstel. Een nieuwe verbinding is vereist voor ExpressRoute verbinding met het virtuele netwerk.
 
-U kunt Azure virtuele machines repliceren naar een Azure-regio in hetzelfde geografische cluster zoals beschreven [hier](azure-to-azure-support-matrix.md#region-support). Als het gekozen doel-Azure-regio niet binnen dezelfde geopolitieke regio als de bron is, moet u ExpressRoute Premium inschakelen als u één ExpressRoute-circuit regio connectiviteit van de bron en doel. Raadpleeg voor meer details [ExpressRoute-locaties](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) en [ExpressRoute prijzen](https://azure.microsoft.com/en-us/pricing/details/expressroute/).
+U kunt Azure virtuele machines repliceren naar een Azure-regio in hetzelfde geografische cluster zoals beschreven [hier](azure-to-azure-support-matrix.md#region-support). Als het gekozen doel-Azure-regio niet binnen dezelfde geopolitieke regio als de bron is, moet u ExpressRoute Premium inschakelen als u één ExpressRoute-circuit regio connectiviteit van de bron en doel. Raadpleeg voor meer details [ExpressRoute-locaties](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) en [ExpressRoute prijzen](https://azure.microsoft.com/pricing/details/expressroute/).
 
 ### <a name="two-expressroute-circuits-in-two-different-expressroute-peering-locations"></a>Twee ExpressRoute-circuits in twee verschillende ExpressRoute-peeringlocaties
 -   Dit is handig als u wilt zorgen dat tegen uitval van het primaire ExpressRoute-circuit en grootschalige regionale noodsituaties, die ook kunnen ExpressRoute-peeringlocaties invloed en uw primaire ExpressRoute-circuit verstoren.

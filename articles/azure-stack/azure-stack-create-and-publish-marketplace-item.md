@@ -2,24 +2,23 @@
 title: Maken en publiceren van een Marketplace-item in Azure-Stack | Microsoft Docs
 description: Maken en publiceren van een Marketplace-item in Azure-Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 77e5f60c-a86e-4d54-aa8d-288e9a889386
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 05/10/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 5ac91dac3cb446abaf07492d8b6ec8aa0c120ef4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5e0349d6bae9295e7a0ba9f366f84753ebd838c2
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Een Marketplace-item maken en publiceren
 
@@ -103,18 +102,18 @@ ms.lasthandoff: 02/21/2018
 ### <a name="identity-information"></a>Gegevens van identiteit
 | Naam | Vereist | Type | Beperkingen | Beschrijving |
 | --- | --- | --- | --- | --- |
-| Naam |X |Tekenreeks |[A-Za-z0-9]+ | |
-| Uitgever |X |Tekenreeks |[A-Za-z0-9]+ | |
-| Versie |X |Tekenreeks |[SemVer v2](http://semver.org/) | |
+| Naam |X |Reeks |[A-Za-z0-9]+ | |
+| Uitgever |X |Reeks |[A-Za-z0-9]+ | |
+| Versie |X |Reeks |[SemVer v2](http://semver.org/) | |
 
 ### <a name="metadata"></a>Metagegevens
 | Naam | Vereist | Type | Beperkingen | Beschrijving |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |Tekenreeks |Aanbeveling 80 tekens |De portal mogelijk de itemnaam van uw niet probleemloos weergegeven als het is langer dan 80 tekens. |
-| PublisherDisplayName |X |Tekenreeks |Aanbeveling 30 tekens |De portal mogelijk de naam van de uitgever niet probleemloos weergegeven als het is langer dan 30 tekens. |
-| PublisherLegalName |X |Tekenreeks |Maximaal 256 tekens | |
-| Samenvatting |X |Tekenreeks |60 en 100 tekens | |
-| LongSummary |X |Tekenreeks |140 tot 256 tekens |Niet nog van toepassing in Azure-Stack. |
+| Weergavenaam |X |Reeks |Aanbeveling 80 tekens |De portal mogelijk de itemnaam van uw niet probleemloos weergegeven als het is langer dan 80 tekens. |
+| PublisherDisplayName |X |Reeks |Aanbeveling 30 tekens |De portal mogelijk de naam van de uitgever niet probleemloos weergegeven als het is langer dan 30 tekens. |
+| PublisherLegalName |X |Reeks |Maximaal 256 tekens | |
+| Samenvatting |X |Reeks |60 en 100 tekens | |
+| LongSummary |X |Reeks |140 tot 256 tekens |Niet nog van toepassing in Azure-Stack. |
 | Beschrijving |X |[HTML](https://auxdocs.azurewebsites.net/en-us/documentation/articles/gallery-metadata#html-sanitization) |500 tot en met 5000 tekens | |
 
 ### <a name="images"></a>Installatiekopieën
@@ -136,7 +135,7 @@ Elk item Marketplace kan verschillende koppelingen naar aanvullende inhoud bevat
 
 | Naam | Vereist | Type | Beperkingen | Beschrijving |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |Tekenreeks |Maximaal 64 tekens | |
+| Weergavenaam |X |Reeks |Maximaal 64 tekens | |
 | URI |X |URI | | |
 
 ### <a name="additional-properties"></a>Aanvullende eigenschappen
@@ -144,8 +143,8 @@ Naast de voorgaande metagegevens kunnen Marketplace schrijvers aangepaste sleute
 
 | Naam | Vereist | Type | Beperkingen | Beschrijving |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |Tekenreeks |Maximaal 25 tekens | |
-| Waarde |X |Tekenreeks |Maximaal 30 tekens | |
+| Weergavenaam |X |Reeks |Maximaal 25 tekens | |
+| Waarde |X |Reeks |Maximaal 30 tekens | |
 
 ### <a name="html-sanitization"></a>HTML-opschoning
 Voor elk veld waarmee HTML, mogen de volgende elementen en kenmerken:

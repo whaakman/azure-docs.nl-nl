@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/19/2017
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: ee8f30bc81d3c3bd0bf4659359a6ca3a9280f734
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: baf437294dbbca7f63f9d4cdc80ac1cb33a67e42
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Eenmalige aanmelding voor zakelijke apps beheren
 
@@ -28,13 +28,13 @@ In dit artikel wordt beschreven hoe u de [Azure-portal](https://portal.azure.com
 ## <a name="finding-your-apps-in-the-portal"></a>Uw apps te zoeken in de portal
 Alle zakelijke apps die zijn ingesteld voor eenmalige aanmelding kunnen worden weergegeven en beheerd in de Azure portal. De toepassingen vindt u in de **alle Services** &gt; **bedrijfstoepassingen** sectie van de portal. 
 
-![Blade bedrijfstoepassingen][1]
+![Blade bedrijfstoepassingen](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade.png)
 
 Selecteer **alle toepassingen** om weer te geven een lijst met alle apps die zijn geconfigureerd. Als u een app, wordt de bronnen voor die app, waarbij de rapporten kunnen worden weergegeven voor die app en een aantal instellingen kan worden beheerd weergegeven.
 
 Selecteer voor het beheren van instellingen voor eenmalige aanmelding **eenmalige aanmelding**.
 
-![De resource-blade toepassing][2]
+![De resource-blade toepassing](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-sso-blade.png)
 
 ## <a name="single-sign-on-modes"></a>Modi voor eenmalige aanmelding
 **Eenmalige aanmelding** begint met een **modus** menu, waardoor de modus voor één aanmelding moet worden geconfigureerd. De beschikbare opties zijn onder andere:
@@ -76,24 +76,19 @@ De **toepassing configureren** vervolgmenu biedt nieuwe beknopte, ingesloten ins
 > 
 > 
 
-![Ingesloten docs][3]
+![Ingesloten docs](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-embedded-docs.png)
 
 ## <a name="password-based-sign-on"></a>Op basis van wachtwoorden eenmalige aanmelding
 Als voor de toepassing wordt ondersteund, de eenmalige aanmelding op basis van wachtwoorden modus selecteren en te selecteren **opslaan** onmiddellijk configureert u eenmalige aanmelding op basis van wachtwoorden. Zie voor meer informatie over het implementeren van eenmalige aanmelding op basis van wachtwoorden [hoe eenmalige aanmelding met Azure Active Directory work](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
-![Op basis van wachtwoorden eenmalige aanmelding][4]
+![Op basis van wachtwoorden eenmalige aanmelding](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-password-sso.png)
 
 ## <a name="linked-sign-on"></a>Gekoppelde aanmelding
 Als voor de toepassing wordt ondersteund, kunt de gekoppelde SSO-modus u de URL die u wilt de Azure AD-Toegangsvenster of Office 365 waarnaar wordt doorverwezen wanneer gebruikers op deze app klikt, invoeren. Zie voor meer informatie over gekoppelde eenmalige aanmelding (voorheen bekend als 'bestaande SSO'), [hoe eenmalige aanmelding met Azure Active Directory work](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
-![Gekoppelde aanmelding][5]
+![Gekoppelde aanmelding](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-linked-sso.png)
 
 ## <a name="feedback"></a>Feedback
 
 We hopen dat u u zoals het gebruik van het verbeterde ervaring voor Azure AD. Zorg ervoor dat uw feedback! Plaats uw feedback en ideeën voor verbetering van de **beheerportal** sectie van onze [Feedbackforum](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  We enthousiast bent over het bouwen van cool nieuw per dag uit, en gebruik de richtlijnen voor vorm en definiëren wat we hierna bouwen.
 
-[1]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade.PNG
-[2]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-sso-blade.PNG
-[3]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-embedded-docs.PNG
-[4]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-password-sso.PNG
-[5]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-linked-sso.PNG

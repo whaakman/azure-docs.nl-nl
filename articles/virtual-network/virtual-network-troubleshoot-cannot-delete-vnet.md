@@ -5,20 +5,20 @@ services: virtual-network
 documentationcenter: na
 author: chadmath
 manager: cshepard
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 60e4a0dbbc15b0414bf1b81e1fd7885e47aa962d
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: d3ffcd9981ff0c57f6d625efcede3e930acd17b5
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Voor probleemoplossing: Kan niet verwijderen van een virtueel netwerk in Azure
 
@@ -35,7 +35,7 @@ Fouten kan worden weergegeven wanneer u probeert te verwijderen van een virtueel
 5. [Controleer of een virtuele machine nog steeds actief is in het virtuele netwerk](#check-whether-a-virtual-machine-is-still-running-in-the-virtual-network).
 6. [Controleer of het virtuele netwerk is vastgelopen bij migratie](#check-whether-the-virtual-network-is-stuck-in-migration).
 
-## <a name="troubleshooting-steps"></a>Stappen voor het oplossen van problemen
+## <a name="troubleshooting-steps"></a>Stappen voor probleemoplossing
 
 ### <a name="check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network"></a>Controleer of een virtuele netwerkgateway actief is in het virtuele netwerk
 

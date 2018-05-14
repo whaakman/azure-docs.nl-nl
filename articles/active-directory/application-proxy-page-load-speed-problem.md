@@ -2,10 +2,10 @@
 title: Een toepassing toepassingsproxy duurt te lang laden | Microsoft Docs
 description: Pagina load prestatieproblemen met de Azure AD-toepassingsproxy oplossen
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,27 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: d02c29fa6239cb36cb5fb95da4d325cca57952aa
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 517f78f811d57e06b4c6e6f0fad24d3b0f96b6e3
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="an-application-proxy-application-takes-too-long-to-load"></a>Een toepassing toepassingsproxy duurt te lang om te laden
 
-In dit artikel helpt u bij het begrijpen waarom een Azure AD-toepassingsproxy-toepassing kan lang duren om te laden en wat u kunt doen om dit probleem te verhelpen.
+In dit artikel helpt u om te begrijpen waarom een Azure AD-toepassingsproxy-toepassing kan lang duren om te laden. Ook wordt uitgelegd wat u kunt doen om dit probleem te verhelpen.
 
 ## <a name="overview"></a>Overzicht
-Als uw toepassingen werken, maar u een lange latentie ziet, mogelijk zijn er enkele kleine trucs in uw netwerktopologie die u overwegen kunt de snelheid verhogen. Zie voor een evaluatie van verschillende topologieën, de [netwerk overwegingen document](https://docs.microsoft.com/azure/active-directory/application-proxy-network-topology-considerations).
+Hoewel u uw toepassingen werkt, kunnen ze hebben een lange latentie. Er is mogelijk netwerk topologie trucs die u kunt snelheid verhogen. Zie voor een evaluatie van verschillende topologieën, de [netwerk overwegingen document](application-proxy-network-topology-considerations.md).
 
-Als deze overwegingen niet helpt, er zijn momenteel hebben helaas momenteel geen verdere aanbevelingen voor prestaties afstemmen. Als de service voor toepassingsproxy wordt uitgebreid naar meer datacenters die mogelijk dichter bij u, kunt u gaan Zie verbeterde latentie rechtstreeks. De volledige lijst van Azure-datacenters wilt bekijken, ziet u de [latentie testpagina](http://www.azurespeed.com/Azure/Latency). 
+Naast de netwerktopologie zijn er momenteel geen aanbevelingen meer voor prestaties afstemmen. Als de toepassingsproxy service breidt deze mogelijk geleverd aan een datacenter die zich fysiek dichter. De dichter bij de kan u helpen met een latentie. Zie voor een overzicht van Azure-datacenters, de [latentie testpagina](http://www.azurespeed.com/Azure/Latency). 
 
 De datacenters met de service voor toepassingsproxy kunnen gevonden met de [Connectorhulpprogramma poorten Test](https://aadap-portcheck.connectorporttest.msappproxy.net/). 
 
 ## <a name="feedback-on-application-proxy-data-center-locations"></a>Feedback over toepassingsproxy data center-locaties 
-Mogelijk zijn er Azure-datacenters die toepassingsproxy nog niet zijn maar zou leiden tot een verbetering geweldige latentie voor u. De locatie van het datacentrum <aadapfeedback@microsoft.com> zodat we uw feedback als we vouw plannen kunt gebruiken.
+Mogelijk zijn er Azure-datacenters die niet nog toepassingsproxy omvatten, maar zou leiden tot een verbetering geweldige latentie voor u. Locatie voor de data center verzenden aadapfeedback@microsoft.com. Microsoft gebruikt uw feedback voor uitbreidingsplannen.
 
-We werken aan enkele aanvullende mogelijkheden die de latentie verbeteren voor tenants die momenteel Zie lang latenties en zorg ervoor dat voor het delen van documentatie zodra deze beschikbaar is.
+Microsoft werkt op de aanvullende mogelijkheden voor het verbeteren van de latentie. Zodra deze verbeteringen beschikbaar zijn, kunt u de documentatie worden bijgewerkt.
 
 ## <a name="next-steps"></a>Volgende stappen
 [Werken met bestaande lokale proxyservers](application-proxy-working-with-proxy-servers.md)

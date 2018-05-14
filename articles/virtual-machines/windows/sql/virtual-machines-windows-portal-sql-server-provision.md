@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 02/15/2018
+ms.date: 05/04/2018
 ms.author: jroth
-ms.openlocfilehash: 33b7c82f08f63199cd128055bc497f61cb30fc4a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d2bcabf845a2178abbebe8f2998d58b462e37c78
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Het inrichten van een virtuele machine van Windows SQL Server in de Azure portal
 
@@ -114,7 +114,7 @@ In de stap **Grootte** kiest u de grootte van uw virtuele machine. Dit doet u in
 
 ![Opties voor de grootte van uw virtuele SQL-machine](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-vm-choose-a-size.png)
 
-Zie [Performance best practices for SQL Server in Azure Virtual Machines (Best practices voor optimale prestaties van SQL Server in Azure Virtual Machines)](virtual-machines-windows-sql-performance.md) voor de aanbevolen machinegrootten en configuratie voor productieworkloads. Als u een machinegrootte nodig hebt die niet wordt vermeld, klikt u op de knop **Alles weergeven**.
+Zie [Performance best practices for SQL Server in Azure Virtual Machines (Best practices voor optimale prestaties van SQL Server in Azure Virtual Machines)](virtual-machines-windows-sql-performance.md) voor de aanbevolen machinegrootten en configuratie voor productieworkloads.
 
 > [!NOTE]
 > Zie [Grootten van virtuele machines](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) voor meer informatie over de grootten van virtuele machines.
@@ -130,7 +130,14 @@ Configureer in het venster **Instellingen** de Azure-opslag, -netwerken en -bewa
    > [!NOTE]
    > Microsoft raadt Managed Disks aan voor SQL Server. Managed Disks verwerken de opslag achter de schermen. Bovendien distribueert Azure de opslagresources zodat voldoende redundantie wordt geboden wanneer virtuele machines met Managed Disks zich in dezelfde beschikbaarheidsset bevinden. Voor meer informatie Zie [Azure beheerd schijven Overview] [... -beheerde schijven overview.md.). Zie [Managed Disks gebruiken schijven voor virtuele machines in een beschikbaarheidsset](../manage-availability.md) voor meer informatie over Managed Disks in een beschikbaarheidsset.
 
-* Onder **Netwerk** kunt u de automatisch ingevulde waarden accepteren. U kunt ook op elke functie klikken om het **Virtuele netwerk**, het **Subnet**, het **Openbaar IP-adres** en de **Netwerkbeveiligingsgroep** handmatig te configureren. Behoud de standaardwaarden voor de doeleinden van deze rondleiding.
+* Onder **netwerk**, selecteer alle binnenkomende poorten die in de **openbare poorten voor inkomend verkeer selecteren** lijst. Bijvoorbeeld, als u extern bureaublad in de virtuele machine wilt, schakelt u de **RDP (3389)** poort.
+
+   ![Poorten voor inkomend verkeer](./media/quickstart-sql-vm-create-portal/inbound-ports.png)
+
+   > [!NOTE]
+   > U kunt selecteren de **MS SQL (1433)** extern toegang tot SQL Server-poort. Dit is echter niet nodig, omdat de **SQL Server-instellingen** stap voorziet deze optie ook. Als u poort 1433 bij deze stap selecteert, wordt het geopend irregardless of uw selecties in de **SQL Server-instellingen** stap.
+
+   U kunt andere wijzigingen aanbrengen in de instellingen voor netwerken, of behoud de standaardwaarden.
 
 * In Azure wordt **Bewaking** standaard ingeschakeld met hetzelfde opslagaccount als dat van de virtuele machine. U kunt deze instellingen hier wijzigen.
 

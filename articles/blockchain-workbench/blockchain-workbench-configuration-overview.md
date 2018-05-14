@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 5569a7608a61b4e79a03264e0ccf62682782264b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6318b6aafda972242239ce91abb0f67a15721e1e
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Naslaginformatie over Azure Blockchain Workbench configuratie
 
@@ -41,7 +41,7 @@ Een toepassing blockchain bevat configuratie metagegevens, werkstromen en gebrui
 | Veld | Beschrijving | Vereist |
 |-------|-------------|:--------:|
 | ApplicationName | Unieke toepassingsnaam in. Het bijbehorende smart contract moet gebruikmaken van dezelfde **ApplicationName** voor de contractklasse die van toepassing zijn.  | Ja |
-| DisplayName | Beschrijvende weergavenaam van de toepassing. | Ja |
+| Weergavenaam | Beschrijvende weergavenaam van de toepassing. | Ja |
 | Beschrijving | Beschrijving van de toepassing. | Nee |
 | ApplicationRoles | Verzameling van [ApplicationRoles](#application-roles). Gebruikersrollen die kunnen optreden of nemen in de toepassing.  | Ja |
 | Werkstromen | Verzameling van [werkstromen](#workflows). Elke werkstroom fungeert als een statusmachine om te bepalen van de stroom van de zakelijke logica. | Ja |
@@ -55,7 +55,7 @@ De bedrijfslogica voor een toepassing kan worden gezien als een statusmachine wa
 | Veld | Beschrijving | Vereist |
 |-------|-------------|:--------:|
 | Naam | Unieke Werkstroomnaam. Het bijbehorende smart contract moet gebruikmaken van dezelfde **naam** voor de contractklasse die van toepassing zijn. | Ja |
-| DisplayName | Beschrijvende weergavenaam van de werkstroom. | Ja |
+| Weergavenaam | Beschrijvende weergavenaam van de werkstroom. | Ja |
 | Beschrijving | Beschrijving van de werkstroom. | Nee |
 | Initiators | Verzameling van [ApplicationRoles](#application-roles). Rollen die zijn toegewezen aan gebruikers die zijn gemachtigd voor het maken van de contracten in de werkstroom. | Ja |
 | StartState | Naam van de beginstatus van de werkstroom. | Ja |
@@ -124,7 +124,7 @@ Hiermee definieert u de functies die kunnen worden uitgevoerd in de werkstroom.
 | Veld | Beschrijving | Vereist |
 |-------|-------------|:--------:|
 | Naam | De unieke naam van de functie. Het bijbehorende smart contract moet gebruikmaken van dezelfde **naam** voor de desbetreffende functie. | Ja |
-| DisplayName | Beschrijvende weergavenaam van de functie. | Ja |
+| Weergavenaam | Beschrijvende weergavenaam van de functie. | Ja |
 | Beschrijving | Beschrijving van de functie | Nee |
 | Parameters | Verzameling van [id's](#identifiers) overeenkomt met de parameters van de functie. | Ja |
 
@@ -172,7 +172,7 @@ Een verzameling van unieke statussen binnen een werkstroom. Elke status bevat ee
 | Veld | Beschrijving | Vereist |
 |-------|-------------|:--------:|
 | Naam | De unieke naam van de status. Het bijbehorende smart contract moet gebruikmaken van dezelfde **naam** voor de status van de van toepassing. | Ja |
-| DisplayName | Beschrijvende weergavenaam van de status. | Ja |
+| Weergavenaam | Beschrijvende weergavenaam van de status. | Ja |
 | Beschrijving | Beschrijving van de status. | Nee |
 | PercentComplete | Een geheel getal in de gebruikersinterface Blockchain Workbench om de voortgang binnen de Controlestroom voor zakelijke logica weergegeven. | Ja |
 | Stijl | Visual-hint die aangeeft of de status een status geslaagd of mislukt vertegenwoordigt. Er zijn twee geldige waarden: `Success` of `Failure`. | Ja |
@@ -242,7 +242,7 @@ Beschikbare acties op de volgende status. Een of meer gebruikersrollen, kunnen e
 |-------|-------------|:--------:|
 | AllowedRoles | Lijst met rollen van toepassingen toegestaan voor het initiëren van de overgang. Alle gebruikers van de opgegeven rol mogelijk de actie uit te voeren. | Nee |
 | AllowedInstanceRoles | Lijst met gebruikersrollen deelnemende of opgegeven in de smartcard contract mag initiëren van de overgang. Rolinstanties zijn gedefinieerd in **eigenschappen** in werkstromen. Deze gebruikers vertegenwoordigen de deelname van een gebruiker of opgegeven in het smart contract in plaats van alle gebruikers van het type van een rol. | Nee |
-| DisplayName | Beschrijvende weergavenaam van de overgang. | Ja |
+| Weergavenaam | Beschrijvende weergavenaam van de overgang. | Ja |
 | Beschrijving | Beschrijving van de overgang. | Nee |
 | Functie | De naam van de functie voor het initiëren van de overgang. | Ja |
 | NextStates | Een verzameling van mogelijke volgende statussen na een geslaagde overgang. | Ja |
@@ -309,7 +309,7 @@ Id's vertegenwoordigt een verzameling gegevens die worden gebruikt om te beschri
 | Veld | Beschrijving | Vereist |
 |-------|-------------|:--------:|
 | Naam | De unieke naam van de eigenschap of parameter. Het bijbehorende smart contract moet gebruikmaken van dezelfde **naam** voor de toepasselijke eigenschap of parameter. | Ja |
-| DisplayName | Beschrijvende weergavenaam voor de eigenschap of parameter. | Ja |
+| Weergavenaam | Beschrijvende weergavenaam voor de eigenschap of parameter. | Ja |
 | Beschrijving | Beschrijving van de eigenschap of parameter. | Nee |
 
 ### <a name="identifiers-example"></a>Voorbeeld van id 's
@@ -491,5 +491,6 @@ Het volgende voorbeeld definieert een basic aanvragen en antwoorden toepassing w
 ```
 ## <a name="next-steps"></a>Volgende stappen
 
-[Azure Blockchain Workbench implementeren](blockchain-workbench-deploy.md)
+> [!div class="nextstepaction"]
+> [Azure Blockchain Workbench implementeren](blockchain-workbench-deploy.md)
 

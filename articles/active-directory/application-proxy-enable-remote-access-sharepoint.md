@@ -15,11 +15,11 @@ ms.date: 09/06/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 5d61ad93ad5e3ab7fdf83c1cef2fe6770089112f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 74c99351656a685077bf4ea7714e6804274d396c
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Externe toegang voor SharePoint met Azure AD-toepassingsproxy inschakelen
 
@@ -162,7 +162,7 @@ Herhaal de volgende stappen uit voor elke connector-machine voor het configurere
 
 Nu u SharePoint hebt ingeschakeld voor Kerberos en geconfigureerde KCD, bent u klaar voor het publiceren van de SharePoint-farm voor externe toegang via Azure AD-toepassingsproxy.
 
-1. Publiceer de SharePoint-site met de volgende instellingen. Zie voor stapsgewijze instructies [publiceren van toepassingen met behulp van Azure AD-toepassingsproxy](application-proxy-publish-azure-portal.md). 
+1. Publiceer de SharePoint-site met de volgende instellingen. Zie voor stapsgewijze instructies [publiceren van toepassingen met behulp van Azure AD-toepassingsproxy](manage-apps/application-proxy-publish-azure-portal.md). 
    - **Interne URL**: de URL van de SharePoint-site intern, zoals **https://SharePoint/**. Controleer of u in dit voorbeeld **https**
    - **Methode voor verificatie vooraf**: Azure Active Directory
    - **URL in de Headers vertalen**: Nee
@@ -204,6 +204,6 @@ U kunt nu toegang tot de SharePoint-site extern via Azure AD-toepassingsproxy.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Werken met aangepaste domeinen in Azure AD-toepassingsproxy](active-directory-application-proxy-custom-domains.md)
+- [Werken met aangepaste domeinen in Azure AD-toepassingsproxy](manage-apps/application-proxy-configure-custom-domain.md)
 - [Azure AD-toepassingsproxy connectors begrijpen](application-proxy-understand-connectors.md)
 

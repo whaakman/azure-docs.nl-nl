@@ -10,17 +10,17 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: ffc8be29cecac05fda440eaf72b51ffc6f024424
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 485f761e22871396dace71333868ba7712e41f67
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="create-a-blockchain-application-in-azure-blockchain-workbench"></a>Een toepassing blockchain maken in Azure Blockchain Workbench
 
 U kunt Azure Blockchain Workbench blockchain toepassingen maken die meerdere partijen werkstromen die zijn gedefinieerd door de configuratie en slimme Contractcode vertegenwoordigen.
 
-U leert hoe:
+In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
 > * Een toepassing blockchain configureren
@@ -35,6 +35,8 @@ U leert hoe:
 * Een beheerdersaccount Blockchain Workbench. Zie voor meer informatie toevoegen [Blockchain Workbench beheerders in Azure Blockchain Workbench](blockchain-workbench-manage-users.md#manage-blockchain-workbench-administrators).
 
 We gaan een eenvoudige toepassing waarin een aanvrager verzendt een aanvraag en een responder een antwoord op de aanvraag verzenden bouwen. Bijvoorbeeld, een aanvraag kan zijn, 'Hallo, hoe weet u?', en de antwoord-kunnen zijn, 'Ik ben geweldig!'. Zowel de aanvraag en het antwoord worden op de onderliggende blockchain geregistreerd. 
+
+Volg de stappen voor het maken van bestanden voor de toepassing of kunt u [het voorbeeld downloaden vanuit GitHub](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/hello-blockchain). 
 
 ## <a name="configuration-file"></a>Configuratiebestand
 
@@ -398,4 +400,7 @@ Zie voor meer informatie over het beheren van gebruikers in de Blockchain Workbe
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu u een toepassing hebt gemaakt, proberen [met behulp van een toepassing blockchain](blockchain-workbench-use.md).
+In dit artikel instructies als u een eenvoudige aanvraag en antwoord-toepassing hebt gemaakt. Voor informatie over het gebruik van de toepassing, blijven de volgende procedures voor artikel.
+
+> [!div class="nextstepaction"]
+> [Met behulp van een toepassing blockchain](blockchain-workbench-use.md)

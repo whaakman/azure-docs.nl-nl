@@ -3,7 +3,7 @@ title: Hybride Azure-voordeel voor WindowsServer | Microsoft Docs
 description: Meer informatie over het maximaliseren van uw Windows Software Assurance voordelen voor het maken van lokale licenties naar Azure
 services: virtual-machines-windows
 documentationcenter: ''
-author: kmouss
+author: xujing
 manager: jeconnoc
 editor: ''
 ms.assetid: 332583b6-15a3-4efb-80c3-9082587828b0
@@ -12,25 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/22/2017
-ms.author: kmouss
-ms.openlocfilehash: bfad3ff71be07026cf4a7dd6ad75df399349f844
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 4/22/2018
+ms.author: xujing-ms
+ms.openlocfilehash: a4b0baefc8c3c839a06d6540e57b34657138c8ff
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Azure Hybrid Benefit voor Windows Server
-Voor klanten met Software Assurance kunt Azure hybride voordeel voor Windows Server u uw lokale Windows Server-licenties en voer Windows virtuele machines in Azure tegen lagere kosten. U kunt Azure hybride voordeel voor Windows Server gebruiken voor het implementeren van nieuwe virtuele machines vanaf elke Azure ondersteund platforminstallatiekopie voor Windows Server of Windows aangepaste installatiekopieën. In dit artikel gaat over de stappen voor het implementeren van nieuwe virtuele machines met Azure hybride voordeel voor Windows Server en hoe u kunt bijwerken bestaande VM's worden uitgevoerd. Zie voor meer informatie over Azure hybride voordeel voor Windows Server licentieverlening en kosten besparingen, de [Azure hybride voordeel voor Windows Server-licentieverlening pagina](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
+Voor klanten met Software Assurance kunt Azure hybride voordeel voor Windows Server u uw lokale Windows Server-licenties en voer Windows virtuele machines in Azure tegen lagere kosten. U kunt Azure hybride voordeel voor Windows Server gebruiken voor het implementeren van nieuwe virtuele machines met het Windows-besturingssysteem. In dit artikel gaat over de stappen voor het implementeren van nieuwe virtuele machines met Azure hybride voordeel voor Windows Server en hoe u kunt bijwerken bestaande VM's worden uitgevoerd. Zie voor meer informatie over Azure hybride voordeel voor Windows Server licentieverlening en kosten besparingen, de [Azure hybride voordeel voor Windows Server-licentieverlening pagina](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
-> [!IMPORTANT]
-> De oude [HUB] Windows Server-installatiekopieën die zijn gepubliceerd voor klanten met Enterprise Agreement op Azure Marketplace is buiten gebruik gesteld vanaf 11-9/2017, gebruikt u de standaard Windows-Server met de optie 'Geld opslaan' op de portal voor Azure hybride Benefit voor WindowsServer. Voor meer informatie raadpleegt u dit [artikel.](https://support.microsoft.com/en-us/help/4036360/retirement-azure-hybrid-use-benefit-images-for-ea-subscriptions)
+> [!Important]
+> Elke licentie voor twee processors of elke set licenties voor 16 kerngeheugens geeft recht op twee exemplaren met maximaal 8 kerngeheugens of één exemplaar met maximaal 16 kerngeheugens. Het licentierecht voor de Standard Edition van Azure Hybrid Benefit kan slechts één keer worden gebruikt (on-premises of in Azure). Dankzij de voordelen van de Datacenter Edition kan het systeem gelijktijdig on-premises en in Azure worden gebruikt.
 >
 
-> [!NOTE]
-> Met behulp van Azure hybride voordeel voor Windows Server met virtuele machines die worden in rekening gebracht voor aanvullende software zoals SQL Server of een van de derde partij marketplace-installatiekopieën is uit teruggedraaid. Als u, zoals een 409 fout krijgt: het wijzigen van de eigenschap 'LicenseType' is niet toegestaan; u probeert vervolgens te converteren of implementeren van een nieuwe versie van Windows Server VM met aanvullende software kosten, die mogelijk niet ondersteund in deze regio. Hetzelfde als u probeert te zoeken voor de configuratie van de portal optie om de conversie en u niet zien voor die VM.
+> [!Important]
+> Met behulp van Azure hybride voordeel voor Windows Server met alle virtuele machines met Windows Server-besturingssysteem worden nu ondersteund in alle regio's, met inbegrip van virtuele machines met aanvullende software zoals SQL Server of van derden marketplace-software. 
 >
-
 
 > [!NOTE]
 > Voor klassieke VM's wordt alleen implementeren van nieuwe virtuele machine van de aangepaste installatiekopieën on-premises ondersteund. Om te profiteren van de mogelijkheden die in dit artikel wordt ondersteund, moet u eerst klassieke virtuele machines migreren naar Resource Manager-model.
@@ -41,72 +40,38 @@ Voor klanten met Software Assurance kunt Azure hybride voordeel voor Windows Ser
 Er zijn enkele manieren voor gebruik van virtuele machines van Windows met het voordeel van de hybride Azure:
 
 1. U kunt virtuele machines van een van de opgegeven implementeren [installatiekopieën van Windows Server op Azure Marketplace](#https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WindowsServer?tab=Overview)
-2. U kunt [uploaden van een aangepaste VM](#upload-a-windows-vhd) en [implementeren met behulp van een Resource Manager-sjabloon](#deploy-a-vm-via-resource-manager) of [Azure PowerShell](#detailed-powershell-deployment-walkthrough)
+2. U kunt een aangepaste VM uploaden en implementeren met behulp van een Resource Manager-sjabloon of Azure PowerShell
 3. U kunt in-of uitschakelen en een bestaande VM tussen uitgevoerd met Azure hybride voordeel converteren of op aanvraag kosten betalen voor Windows Server
-4. U kunt ook een nieuwe virtuele-machineschaalset ingesteld met Azure hybride voordeel voor Windows Server implementeren
+4. U kunt ook Azure hybride voordeel voor Windows Server toepassen op virtuele-machineschaalset ook instellen
 
-> [!NOTE]
-> Converteren van een bestaande virtuele-machineschaalset ingesteld voor gebruik van Azure hybride voordeel voor Windows Server wordt niet ondersteund
->
 
-## <a name="deploy-a-vm-from-a-windows-server-marketplace-image"></a>Een virtuele machine vanuit een Marketplace-installatiekopie van Windows Server implementeren
-Alle installatiekopieën van Windows Server die beschikbaar vanuit Azure Marketplace zijn zijn ingeschakeld met Azure hybride voordeel voor Windows Server. Bijvoorbeeld, Windows Server 2016, Windows Server 2012R2, Windows Server 2012 en Windows Server 2008SP1 en meer. U kunt deze installatiekopieën gebruiken voor het implementeren van virtuele machines rechtstreeks vanuit de Azure-portal, Resource Manager-sjablonen, Azure PowerShell of andere SDK.
+## <a name="create-a-vm-with-azure-hybrid-benefit-for-windows-server"></a>Een virtuele machine maken met Azure hybride-voordeel voor WindowsServer
+Alle Windows Server-besturingssysteem op basis van installatiekopieën worden ondersteund voor Azure hybride voordeel voor Windows Server. U kunt installatiekopieën voor ondersteuning van Azure-platform gebruiken of uw eigen aangepaste installatiekopieën van Windows Server uploaden. 
 
-U kunt deze installatiekopieën rechtstreeks vanuit de Azure portal kunt implementeren. Voor gebruik in het Resource Manager-sjablonen en met Azure PowerShell, moet u de lijst met afbeeldingen als volgt bekijken:
+### <a name="portal"></a>Portal
+Als een virtuele machine maken met Azure hybride voordeel voor Windows Server, gebruikt u de wisselknop onder de sectie 'Geld besparen'.
 
 ### <a name="powershell"></a>PowerShell
 ```powershell
-Get-AzureRmVMImagesku -Location westus -PublisherName MicrosoftWindowsServer -Offer WindowsServer
-```
-U kunt de stappen te volgen [virtuele Windows-machine maken met PowerShell](#https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) en LicenseType doorgeven = 'Windows_Server'. Deze optie kunt u uw bestaande Windows Server-licentie gebruiken in Azure.
-
-### <a name="portal"></a>Portal
-U kunt de stappen te volgen [virtuele Windows-machine maken met de Azure portal](#https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) en selecteer de optie voor het gebruik van uw bestaande Windows Server-licentie.
-
-## <a name="convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server"></a>Converteren van een bestaande virtuele machine met behulp van Azure hybride voordeel voor Windows Server
-Als u een bestaande virtuele machine die u converteren wilt om te profiteren van Azure hybride voordeel voor Windows Server hebt, kunt u uw VM licentietype als volgt bijwerken:
-
-### <a name="convert-to-using-azure-hybrid-benefit-for-windows-server"></a>Converteren naar het gebruik van Azure hybride voordeel voor Windows Server
-```powershell
-$vm = Get-AzureRmVM -ResourceGroup "rg-name" -Name "vm-name"
-$vm.LicenseType = "Windows_Server"
-Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
+New-AzureRmVm `
+    -ResourceGroupName "myResourceGroup" `
+    -Name "myVM" `
+    -Location "East US" `
+    -ImageName "Win2016Datacenter" `
+    -LicenseType "Windows_Server"
 ```
 
-### <a name="convert-back-to-pay-as-you-go"></a>Converteren naar vorige omslagstelsel
-```powershell
-$vm = Get-AzureRmVM -ResourceGroup "rg-name" -Name "vm-name"
-$vm.LicenseType = "None"
-Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
+### <a name="cli"></a>CLI
+```azurecli
+az vm create \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --location eastus \
+    --license-type Windows_Server
 ```
 
-### <a name="portal"></a>Portal
-Vanuit de portal VM-blade kunt u bijwerken van de virtuele machine voor het gebruik van Azure hybride profiteren door "Configuratie" optie te selecteren en de optie 'hybride Azure profiteren' in-of uitschakelen
-
-> [!NOTE]
-> Als u de optie voor het uitschakelen van 'Azure hybride voordeel' onder 'Configuratie' niet ziet, is het omdat de conversie wordt nog niet ondersteund voor het geselecteerde VM-type (bijvoorbeeld een virtuele machine van de aangepaste installatiekopie of van een afbeelding met extra betaald software, zoals SQL Server ingebouwd of Azure Marketplace software van derden).
->
-
-## <a name="upload-a-windows-server-vhd"></a>Een WindowsServer-VHD uploaden
-Voor het implementeren van een Windows Server-VM in Azure, moet u eerst een VHD met uw Windows-build base maken. Deze VHD moet op de juiste wijze worden voorbereid met Sysprep voordat u de gegevens naar Azure uploaden. U kunt [voor meer informatie over de vereisten van de VHD en de Sysprep-proces](upload-generalized-managed.md) en [Sysprep-ondersteuning voor serverrollen](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Back-up van de virtuele machine voordat Sysprep wordt uitgevoerd. 
-
-Eenmaal u uw VHD hebt voorbereid, de harde schijf geüpload naar uw Azure-opslagaccount als volgt:
-
-```powershell
-Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.vhd" `
-    -Destination "https://mystorageaccount.blob.core.windows.net/vhds/myvhd.vhd"
-```
-
-> [!NOTE]
-> Microsoft SQL Server, SharePoint Server en Dynamics kan ook gebruikmaken van uw Software Assurance-licentieverlening. U moet wordt de installatiekopie van het Windows Server voorbereiden door het installeren van onderdelen van uw toepassing en licentiesleutels dienovereenkomstig bieden, en vervolgens de schijfimage uploaden naar Azure. Bekijk de relevante documentatie voor het uitvoeren van Sysprep met uw toepassing, zoals [overwegingen voor SQL Server installeren met behulp van Sysprep](https://msdn.microsoft.com/library/ee210754.aspx) of [bouwen van een SharePoint-Server 2016 referentie-installatiekopie (Sysprep)](http://social.technet.microsoft.com/wiki/contents/articles/33789.build-a-sharepoint-server-2016-reference-image-sysprep.aspx).
->
->
-
-U kunt ook meer informatie over [uploaden van de VHD naar Azure proces](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account)
-
-## <a name="deploy-a-vm-via-resource-manager-template"></a>Een virtuele machine via Resource Manager-sjabloon implementeren
-In de Resource Manager-sjablonen, een extra parameter `licenseType` moet worden opgegeven. U kunt meer lezen over [Azure Resource Manager-sjablonen ontwerpen](../../resource-group-authoring-templates.md). Zodra u uw VHD die is geüpload naar Azure hebt, bewerkt u Resource Manager-sjabloon voor het licentietype opnemen als onderdeel van de compute-provider en de sjabloon als normale implementeren:
-
+### <a name="template"></a>Template
+In de Resource Manager-sjablonen, een extra parameter `licenseType` moet worden opgegeven. U kunt meer lezen over [Azure Resource Manager-sjablonen ontwerpen](../../resource-group-authoring-templates.md)
 ```json
 "properties": {  
    "licenseType": "Windows_Server",
@@ -115,25 +80,49 @@ In de Resource Manager-sjablonen, een extra parameter `licenseType` moet worden 
    }
 ```
 
-## <a name="deploy-a-vm-via-powershell-quickstart"></a>Een virtuele machine via PowerShell Quick Start implementeren
-Wanneer u uw Windows Server-VM via PowerShell implementeert, hebt u een extra parameter `-LicenseType`. Zodra u uw VHD die is geüpload naar Azure hebt, maakt u een VM met `New-AzureRmVM` en geef het type van de licentieverlening als volgt:
+## <a name="convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server"></a>Converteren van een bestaande virtuele machine met behulp van Azure hybride voordeel voor Windows Server
+Als u een bestaande virtuele machine die u converteren wilt om te profiteren van Azure hybride voordeel voor Windows Server hebt, kunt u uw VM licentietype als volgt bijwerken:
 
-Voor WindowsServer:
-```powershell
-New-AzureRmVM -ResourceGroupName "myResourceGroup" -Location "West US" -VM $vm -LicenseType "Windows_Server"
-```
+### <a name="portal"></a>Portal
+Vanuit de portal VM-blade kunt u bijwerken van de virtuele machine voor het gebruik van Azure hybride profiteren door "Configuratie" optie te selecteren en de optie 'hybride Azure profiteren' in-of uitschakelen
 
-U kunt een meer beschrijvende gids op de verschillende stappen voor het lezen [maken van een Windows-VM met Resource Manager en PowerShell](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+### <a name="powershell"></a>PowerShell
+- Bestaande Windows Server-VM's converteren naar Azure hybride voordeel voor Windows Server
 
-## <a name="verify-your-vm-is-utilizing-the-licensing-benefit"></a>Controleer of uw virtuele machine wordt gebruikt door de licentiegegevens benefit
-Zodra u hebt geïmplementeerd uw virtuele machine via de PowerShell, Resource Manager-sjabloon of -portal, kunt u controleren of het licentietype met `Get-AzureRmVM` als volgt:
+    ```powershell
+    $vm = Get-AzureRmVM -ResourceGroup "rg-name" -Name "vm-name"
+    $vm.LicenseType = "Windows_Server"
+    Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
+    ```
+    
+- Converteren van Windows Server-VM's met voordeel terug naar betalen per gebruik
 
+    ```powershell
+    $vm = Get-AzureRmVM -ResourceGroup "rg-name" -Name "vm-name"
+    $vm.LicenseType = "None"
+    Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
+    ```
+    
+### <a name="cli"></a>CLI
+- Bestaande Windows Server-VM's converteren naar Azure hybride voordeel voor Windows Server
+
+    ```azurecli
+    az vm update --resource-group myResourceGroup --name myVM --set licenseType=Windows_Server
+    ```
+    
+### <a name="how-to-verify-your-vm-is-utilizing-the-licensing-benefit"></a>Het controleren van uw virtuele machine wordt gebruikt door de licentiegegevens benefit
+Nadat u uw virtuele machine via de PowerShell, Resource Manager-sjabloon of -portal hebt geïmplementeerd, kunt u de instelling in de volgende methoden kunt controleren.
+
+### <a name="portal"></a>Portal
+U kunt vanuit de portal VM blade de wisselknop weergeven voor Azure hybride voordeel voor Windows Server door "Configuratie" tabblad te selecteren.
+
+### <a name="powershell"></a>PowerShell
+Het volgende voorbeeld ziet het licentietype voor een enkele VM
 ```powershell
 Get-AzureRmVM -ResourceGroup "myResourceGroup" -Name "myVM"
 ```
 
-De uitvoer is vergelijkbaar met het volgende voorbeeld voor Windows Server:
-
+Uitvoer:
 ```powershell
 Type                     : Microsoft.Compute/virtualMachines
 Location                 : westus
@@ -141,26 +130,38 @@ LicenseType              : Windows_Server
 ```
 
 Dit is anders dan uitvoer met de volgende virtuele machine geïmplementeerd zonder Azure hybride voordeel voor Windows Server-licentieverlening:
-
 ```powershell
 Type                     : Microsoft.Compute/virtualMachines
 Location                 : westus
 LicenseType              :
 ```
 
-## <a name="list-all-azure-hybrid-benefit-for-windows-server-vms-in-a-subscription"></a>Lijst van alle Azure hybride voordeel voor Windows Server-VM's in een abonnement
-
-Als u wilt zien en tellen van alle virtuele machines die zijn geïmplementeerd met Azure hybride voordeel voor Windows Server, kunt u de volgende opdracht uitvoeren uit uw abonnement:
-
-```powershell
-$vms = Get-AzureRMVM 
-foreach ($vm in $vms) {"VM Name: " + $vm.Name, "   Azure Hybrid Benefit for Windows Server: "+ $vm.LicenseType}
+### <a name="cli"></a>CLI
+```azurecli
+az vm get-instance-view -g MyResourceGroup -n MyVM --query '[?licenseType==Windows_Server]' -o table
 ```
 
-## <a name="deploy-a-virtual-machine-scale-set-with-azure-hybrid-benefit-for-windows-server"></a>Een virtuele-machineschaalset ingesteld met Azure hybride voordeel voor Windows Server implementeren
-Binnen uw virtuele machine schaalset Resource Manager-sjablonen, een extra parameter `licenseType` moet worden opgegeven. U kunt meer lezen over [Azure Resource Manager-sjablonen ontwerpen](../../resource-group-authoring-templates.md). De Resource Manager-sjabloon voor de eigenschap licenseType opnemen als onderdeel van de schaalaanpassingsset virtualMachineProfile en implementeren van uw sjabloon als normale - Zie het volgende voorbeeld met behulp van de installatiekopie van Windows Server 2016 bewerken:
+## <a name="list-all-vms-with-azure-hybrid-benefit-for-windows-server-in-a-subscription"></a>Lijst van alle virtuele machines in Azure hybride voordeel voor Windows Server in een abonnement
+Als u wilt zien en tellen van alle virtuele machines die zijn geïmplementeerd met Azure hybride voordeel voor Windows Server, kunt u de volgende opdracht uitvoeren uit uw abonnement:
 
+### <a name="portal"></a>Portal
+Vanaf de virtuele Machine of virtuele machine scale sets, kunt u een lijst met alle VM('s) en type licentieverlening weergeven door het configureren van de tabelkolom zodanig 'Azure hybride voordeel'. De VM-instelling kan zijn in 'Enabled', 'Niet is ingeschakeld' of 'Wordt niet ondersteund' vermelden.
 
+### <a name="powershell"></a>PowerShell
+```powershell
+$vms = Get-AzureRMVM 
+$vms | ?{$_.LicenseType -like "Windows_Server"} | select ResourceGroupName, Name, LicenseType
+```
+
+### <a name="cli"></a>CLI
+```azurecli
+az vm list --query '[?licenseType==Windows_Server]' -o table
+```
+
+## <a name="deploy-a-virtual-machine-scale-set-with-azure-hybrid-benefit-for-windows-server"></a>Een virtuele-Machineschaalset die u met Azure hybride-voordeel voor WindowsServer implementeren
+Binnen uw virtuele machine schaalset Resource Manager-sjablonen, een extra parameter `licenseType` binnen uw VirtualMachineProfile-eigenschap moet worden opgegeven. U kunt dit doen tijdens het maken of bijwerken voor uw scale ingesteld via de ARM-sjabloon, Powershell, Azure CLI of REST.
+
+Het volgende voorbeeld wordt de ARM-sjabloon met een installatiekopie van het Windows Server 2016 Datacenter:
 ```json
 "virtualMachineProfile": {
     "storageProfile": {
@@ -181,17 +182,12 @@ Binnen uw virtuele machine schaalset Resource Manager-sjablonen, een extra param
             "adminPassword": "[parameters('adminPassword')]"
     }
 ```
-U kunt ook [maken en implementeren van een virtuele-machineschaalset](#https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create) en stel de eigenschap LicenseType
+U kunt ook meer informatie over het [wijzigen van een virtuele-machineschaalset](../../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md) voor meer manieren om bij te werken van uw scale ingesteld.
 
 ## <a name="next-steps"></a>Volgende stappen
-Lees meer over [hoe u geld besparen en de schaalvoordelen van Azure hybride](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
-
-Meer informatie over [Azure hybride voordeel voor Windows Server-licentieverlening gedetailleerde richtlijnen](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)
-
-Meer informatie over [met behulp van Resource Manager-sjablonen](../../azure-resource-manager/resource-group-overview.md)
-
-Meer informatie over [Azure hybride voordeel voor Windows Server en Azure Site Recovery toepassingen maken voor migratie naar Azure nog meer rendabele](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)
-
-Meer informatie over [Windows 10 in Azure met Multitenant Hosting-rechts](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
-
-Lees meer over [Veelgestelde vragen](#https://azure.microsoft.com/pricing/hybrid-use-benefit/faq/)
+- Lees meer over [hoe u geld besparen en de schaalvoordelen van Azure hybride](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
+- Lees meer over [Veelgestelde vragen over Azure hybride Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/faq/)
+- Meer informatie over [Azure hybride voordeel voor Windows Server-licentieverlening gedetailleerde richtlijnen](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)
+- Meer informatie over [Azure hybride voordeel voor Windows Server en Azure Site Recovery toepassingen maken voor migratie naar Azure nog meer rendabele](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)
+- Meer informatie over [Windows 10 in Azure met Multitenant Hosting-rechts](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
+- Meer informatie over [met behulp van Resource Manager-sjablonen](../../azure-resource-manager/resource-group-overview.md)

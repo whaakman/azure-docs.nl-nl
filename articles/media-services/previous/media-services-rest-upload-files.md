@@ -11,13 +11,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 05/10/2018
 ms.author: juliako
-ms.openlocfilehash: 4ba6fdcec8d71326b02d71dbad429be8c2052171
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1e51439ec0a6c6658b28ae0f02ff3eaeb4c551e4
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Bestanden uploaden naar een Media Services-account met behulp van REST
 > [!div class="op_single_selector"]
@@ -87,11 +87,11 @@ Zie voor stapsgewijze instructies voor het instellen van Postman voor deze zelfs
     ```
 4. Aan de linkerkant van de **Postman** venster, klik op **1. Verificatie van de AAD-token ophalen** -> **ophalen van Azure AD-Token voor de Service-Principal**.
 
-    Het gedeelte van de URL wordt gevuld met de **AzureADSTSEndpoint** omgevingsvariabele (de waarde die u stelt eerder in deze zelfstudie).
-    
-5. Druk op **Verzenden**.
+    Het gedeelte van de URL wordt gevuld met de **AzureADSTSEndpoint** omgevingsvariabele (eerder in de zelfstudie, stelt u de waarden van [omgevingsvariabelen](#configure-the-environment) die ondersteuning bieden voor de [verzameling](#configure-the-collection)).
 
     ![Bestand uploaden](./media/media-services-rest-upload-files/postment-get-token.png)
+
+5. Druk op **Verzenden**.
 
     Hier ziet u het antwoord dat 'access_token' bevat. Het script 'test' neemt deze waarde en stelt de **AccessToken** omgevingsvariabele (zoals hierboven beschreven). Als u de omgevingsvariabelen bekijkt, ziet u deze variabele bevat nu de access token (bearer-token)-waarde die wordt gebruikt in de rest van de bewerkingen. 
 

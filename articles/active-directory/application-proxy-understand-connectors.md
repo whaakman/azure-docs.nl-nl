@@ -15,11 +15,11 @@ ms.date: 10/12/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 14e2b82b5c32e1b36bf730b7b834c9b8ad124629
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: c7f27d3fd8a5785017d580df02007abaac503c39
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD-toepassingsproxy connectors begrijpen
 
@@ -33,7 +33,7 @@ Verbindingslijnen zijn lichtgewicht agents die zich bevinden op lokale en het fa
 
 Als u wilt implementeren toepassingsproxy is, moet u ten minste één connector, maar we raden twee of meer voor groter tolerantie. De connector installeren op een Windows Server 2012 R2 of 2016 machine. De connector moet communiceren met de service voor toepassingsproxy, evenals de on-premises toepassingen die u publiceert. 
 
-Zie voor meer informatie over de netwerkvereisten voor de server-connector, [aan de slag met Application Proxy en het installeren van een connector](active-directory-application-proxy-enable.md).
+Zie voor meer informatie over de netwerkvereisten voor de server-connector, [aan de slag met Application Proxy en het installeren van een connector](manage-apps/application-proxy-enable.md).
 
 ## <a name="maintenance"></a>Onderhoud
 De connectors en de service zorgt voor alle taken voor hoge beschikbaarheid. Ze kunnen worden toegevoegd of verwijderd dynamisch. Telkens wanneer die een nieuwe aanvraag ontvangt wordt het doorgestuurd naar een van de connectors die momenteel beschikbaar is. Als u een connector tijdelijk niet beschikbaar is, deze reageert niet op dit verkeer.
@@ -50,7 +50,7 @@ U hoeft niet te handmatig verwijderen van connectors die niet gebruikt worden. W
 
 ## <a name="automatic-updates"></a>Automatische updates
 
-Azure AD levert de automatische updates voor alle connectors die u implementeert. Als de service Application Proxy Connector Updater wordt uitgevoerd, wordt uw connectors automatisch bijgewerkt. Als de Connector Updater-service niet wordt weergegeven op uw server, moet u [de connector opnieuw installeren](active-directory-application-proxy-enable.md) om eventuele updates te downloaden. 
+Azure AD levert de automatische updates voor alle connectors die u implementeert. Als de service Application Proxy Connector Updater wordt uitgevoerd, wordt uw connectors automatisch bijgewerkt. Als de Connector Updater-service niet wordt weergegeven op uw server, moet u [de connector opnieuw installeren](manage-apps/application-proxy-enable.md) om eventuele updates te downloaden. 
 
 Als u niet wilt wachten tot een automatische update te komen met de connector, kunt u een handmatige upgrade kunt uitvoeren. Ga naar de [connector downloadpagina](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) op de server waarop de connector zich bevindt en selecteer **downloaden**. Dit proces is serversysteemstatus van een upgrade voor de lokale connector. 
 
@@ -123,7 +123,7 @@ Connectors kunnen ook worden gekoppeld, domeinen of forests die u een gedeelteli
 
 Normaal gesproken implementatie van de connector is eenvoudig en is geen speciale configuratie vereist. Er zijn echter een aantal unieke voorwaarden die u moeten overwegen:
 
-* Organisaties die het uitgaande verkeer beperkt moeten [vereiste poorten openen](active-directory-application-proxy-enable.md#open-your-ports).
+* Organisaties die het uitgaande verkeer beperkt moeten [vereiste poorten openen](manage-apps/application-proxy-enable.md#open-your-ports).
 * FIPS-compatibele computers kunnen worden verplicht om hun configuratie zodat de connector-processen voor het genereren en opslaan van een certificaat te wijzigen.
 * Organisaties die hun omgeving op basis van de processen die de netwerkaanvragen verlenen vergrendelen hebben om ervoor te zorgen dat beide connectorservices voor toegang tot alle vereiste poorten en IP-adressen zijn ingeschakeld.
 * In sommige gevallen uitgaande forward proxy's de wederzijdse certificaatverificatie opsplitsen en ervoor zorgen dat de communicatie mislukt.

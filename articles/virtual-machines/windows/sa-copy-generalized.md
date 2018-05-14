@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3737ea08e593ae1018489633e23e80e1099296ae
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b416acd9a2a3b03502b7eca11eade9dbd56f3afe
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Het maken van een niet-beheerde VM-installatiekopie van een Azure VM
 
@@ -78,6 +78,11 @@ U kunt ook een Linux-VM met generalize `sudo waagent -deprovision+user` en gebru
     ```
 
 ## <a name="deallocate-the-vm-and-set-the-state-to-generalized"></a>Toewijzing van de virtuele machine en de status in gegeneraliseerd instellen
+
+> [!IMPORTANT] 
+> U kunt geen toevoegen, bewerken of verwijderen van labels van een virtuele machine nadat deze is gemarkeerd als gegeneraliseerd. Als u een label toevoegen aan de virtuele machine wilt, zorg er dan voor dat u de labels toevoegen voordat u gemarkeerd als gegeneraliseerd.
+> 
+
 1. Toewijzing van de VM-netwerkbronnen.
    
     ```powershell

@@ -15,8 +15,8 @@ ms.date: 02/06/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: a5466a0b5027fa8fe0edec3c9663e6cd1aafc9a3
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 61426d992e279cf88ae9750f0047b0cd81a797e3
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/11/2018
@@ -48,14 +48,14 @@ Bijvoorbeeld: `http(s)://*.adventure-works.com`. De interne en externe URL's kun
 
 Als u aanvullende toepassingen met andere configuratie-instellingen hebt, moet u deze uitzonderingen publiceren als afzonderlijke toepassingen om te overschrijven de standaardinstellingen voor het jokerteken. Toepassingen zonder een jokerteken altijd voorrang op toepassingen van jokertekens. Dit zijn 'net' reguliere toepassingen vanuit het perspectief configuratie.
 
-Maken van een toepassing jokerteken is gebaseerd op dezelfde [toepassing publiceren stroom](application-proxy-publish-azure-portal.md) die beschikbaar is voor alle andere toepassingen. Het enige verschil is dat u een jokerteken in de URL's en mogelijk de SSO-configuratie opnemen.
+Maken van een toepassing jokerteken is gebaseerd op dezelfde [toepassing publiceren stroom](manage-apps/application-proxy-publish-azure-portal.md) die beschikbaar is voor alle andere toepassingen. Het enige verschil is dat u een jokerteken in de URL's en mogelijk de SSO-configuratie opnemen.
 
 
 ## <a name="prerequisites"></a>Vereisten
 
 ### <a name="custom-domains"></a>Aangepaste domeinen
 
-Terwijl [aangepaste domeinen](active-directory-application-proxy-custom-domains.md) zijn optioneel voor alle andere toepassingen, ze zijn vereist voor de jokerteken-toepassingen. Maken van aangepaste domeinen, moet u:
+Terwijl [aangepaste domeinen](manage-apps/application-proxy-configure-custom-domain.md) zijn optioneel voor alle andere toepassingen, ze zijn vereist voor de jokerteken-toepassingen. Maken van aangepaste domeinen, moet u:
 
 1. Maken van een geverifieerde domeinnaam in Azure 
 2. Een SSL-certificaat in PFX-indeling uploaden naar de toepassingsproxy.
@@ -117,7 +117,7 @@ De jokerteken-toepassing wordt weergegeven met slechts één tegel in de [MyApps
 
 ### <a name="kerberos-constrained-delegation"></a>Kerberos-beperkte overdracht
 
-Voor toepassingen met [kerberos-beperkte delegatie (KCD) als de methode eenmalige aanmelding](active-directory-application-proxy-sso-using-kcd.md), de SPN voor de methode eenmalige aanmelding een jokerteken ook moet mogelijk vermeld. De SPN-naam kan bijvoorbeeld: `HTTP/*.adventure-works.com`. U moet nog steeds de afzonderlijke SPN's geconfigureerd op uw back-endservers hebben (bijvoorbeeld `http://expenses.adventure-works.com and HTTP/travel.adventure-works.com`).
+Voor toepassingen met [kerberos-beperkte delegatie (KCD) als de methode eenmalige aanmelding](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md), de SPN voor de methode eenmalige aanmelding een jokerteken ook moet mogelijk vermeld. De SPN-naam kan bijvoorbeeld: `HTTP/*.adventure-works.com`. U moet nog steeds de afzonderlijke SPN's geconfigureerd op uw back-endservers hebben (bijvoorbeeld `http://expenses.adventure-works.com and HTTP/travel.adventure-works.com`).
 
 
 
@@ -136,7 +136,7 @@ Alle drie de toepassingen:
 - Dezelfde eigenschappen
 
 
-U kunt het jokerteken toepassingen publiceren met de stappen in [toepassingen publiceren met Azure AD-toepassingsproxy](application-proxy-publish-azure-portal.md). Dit scenario wordt ervan uitgegaan dat:
+U kunt het jokerteken toepassingen publiceren met de stappen in [toepassingen publiceren met Azure AD-toepassingsproxy](manage-apps/application-proxy-publish-azure-portal.md). Dit scenario wordt ervan uitgegaan dat:
 
 - Een tenant met de volgende ID: `000aa000-11b1-2ccc-d333-4444eee4444e` 
 
@@ -144,7 +144,7 @@ U kunt het jokerteken toepassingen publiceren met de stappen in [toepassingen pu
 
 - Een **CNAME** vermelding die wijst `*.adventure-works.com` naar `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net` is gemaakt.
 
-Na de [beschreven stappen](application-proxy-publish-azure-portal.md), u een nieuwe toepassing proxy-toepassing maken in uw tenant. In dit voorbeeld is het jokerteken in de volgende velden:
+Na de [beschreven stappen](manage-apps/application-proxy-publish-azure-portal.md), u een nieuwe toepassing proxy-toepassing maken in uw tenant. In dit voorbeeld is het jokerteken in de volgende velden:
 
 - Interne URL:
 
@@ -183,7 +183,7 @@ In dit scenario hebt u bovendien voor de drie algemene toepassingen een andere t
 
 U moet ervoor zorgen dat een CNAME-records bestaan die verwijst `finance.adventure-works.com` aan de specifieke eindpunt van de toepassing, op de pagina Application Proxy voor de toepassing opgegeven. In dit scenario `finance.adventure-works.com` verwijst naar `https://finance-awcycles.msappproxy.net/`. 
 
-Na de [beschreven stappen](application-proxy-publish-azure-portal.md), in dit scenario moeten de volgende instellingen:
+Na de [beschreven stappen](manage-apps/application-proxy-publish-azure-portal.md), in dit scenario moeten de volgende instellingen:
 
 
 - In de **interne URL**, u stelt **financiën** in plaats van een jokerteken. 
@@ -212,8 +212,8 @@ Als u meerdere toepassingen die worden gepubliceerd voor Financiën hebt en u he
 
 Voor meer informatie over:
 
-- **Aangepaste domeinen**, Zie [werken met aangepaste domeinen in Azure AD-toepassingsproxy](active-directory-application-proxy-custom-domains.md).
+- **Aangepaste domeinen**, Zie [werken met aangepaste domeinen in Azure AD-toepassingsproxy](manage-apps/application-proxy-configure-custom-domain.md).
 
-- **Toepassingen publiceren**, Zie [toepassingen publiceren met Azure AD-toepassingsproxy](application-proxy-publish-azure-portal.md)
+- **Toepassingen publiceren**, Zie [toepassingen publiceren met Azure AD-toepassingsproxy](manage-apps/application-proxy-publish-azure-portal.md)
 
 

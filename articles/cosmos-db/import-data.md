@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: cd9c5888724b634002d3029cccd42cfda4a433af
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a14dbaffe6bfa68e7606d117823195144250c230
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Hulpprogramma voor gegevensmigratie
 
@@ -43,6 +43,8 @@ Deze zelfstudie bestaat uit de volgende taken:
 Voordat u de instructies in dit artikel uitvoert, zorg ervoor dat u het volgende zijn geïnstalleerd hebt:
 
 * [Microsoft .NET Framework 4,51](https://www.microsoft.com/download/developer-tools.aspx) of hoger.
+
+* Verhoogt de doorvoer: de duur van de migratie is afhankelijk van de hoeveelheid doorvoer die u voor een afzonderlijke verzameling instelt of een set van verzamelingen. Zorg ervoor dat de doorvoer voor grotere gegevens migraties verhogen. Nadat u de migratie hebt voltooid, verlaagt u de doorvoer voor het opslaan van kosten. Zie voor meer informatie over de doorvoer in de Azure portal te verbeteren, prestatieniveaus en prijscategorieën in Azure Cosmos DB.
 
 ## <a id="Overviewl"></a>Overzicht
 Het hulpprogramma voor migratie van gegevens is een open-source-oplossing waarmee gegevens worden geïmporteerd met Azure Cosmos DB uit diverse bronnen, met inbegrip van:

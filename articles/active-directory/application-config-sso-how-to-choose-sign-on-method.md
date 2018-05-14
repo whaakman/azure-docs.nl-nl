@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 4363f308f9bfa685b0f4e946cdd97d34b6ece197
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 52f4045ebb30bf32989e9f7b946fd03d468a9de2
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-determine-what-single-sign-on-method-to-use"></a>Bepalen welke eenmalige aanmelding te gebruiken methode
 
@@ -80,5 +80,5 @@ Instellen van een toepassing **eenmalige aanmelding** modus, volgt u deze instru
 7.  Nadat de toepassing wordt geladen, klikt u op **eenmalige aanmelding** in de toepassing linkermenubalk menu.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Geef één aanmelding bij uw apps met toepassingsproxy](active-directory-application-proxy-sso-using-kcd.md)
+[Geef één aanmelding bij uw apps met toepassingsproxy](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 

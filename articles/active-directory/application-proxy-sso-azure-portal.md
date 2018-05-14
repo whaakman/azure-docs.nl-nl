@@ -15,19 +15,19 @@ ms.date: 07/20/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 3c69450601d84f62d05ca6cc8930fd8e9a8e4203
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 77e7288060abd2577867023a777eb3bdd4331e88
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Wachtwoord voor eenmalige aanmelding met toepassingsproxy vaulting
 
 Azure Active Directory-toepassingsproxy helpt u bij de productiviteit door on-premises toepassingen publiceren zodat externe werknemers veilig toegang deze te tot verbeteren. In de Azure-portal kunt u ook instellen van eenmalige aanmelding (SSO) op deze apps. Uw gebruikers alleen vereist voor verificatie met Azure AD en toegang te krijgen tot uw zakelijke toepassing zonder opnieuw aanmelden.
 
-Toepassingsproxy ondersteunt verschillende [eenmalige aanmelding modi](application-proxy-sso-overview.md). Op basis van wachtwoorden eenmalige aanmelding is bedoeld voor toepassingen die gebruikmaken van een combinatie van gebruikersnaam en wachtwoord voor verificatie. Wanneer u op basis van wachtwoorden eenmalige aanmelding voor uw toepassing configureert, wordt uw gebruikers aan te melden bij de on-premises toepassing eenmaal hebben. Hierna is Azure Active Directory de gegevens worden opgeslagen en automatisch aan de toepassing te biedt wanneer uw gebruikers toegang op afstand. 
+Toepassingsproxy ondersteunt verschillende [eenmalige aanmelding modi](manage-apps/application-proxy-single-sign-on.md). Op basis van wachtwoorden eenmalige aanmelding is bedoeld voor toepassingen die gebruikmaken van een combinatie van gebruikersnaam en wachtwoord voor verificatie. Wanneer u op basis van wachtwoorden eenmalige aanmelding voor uw toepassing configureert, wordt uw gebruikers aan te melden bij de on-premises toepassing eenmaal hebben. Hierna is Azure Active Directory de gegevens worden opgeslagen en automatisch aan de toepassing te biedt wanneer uw gebruikers toegang op afstand. 
 
-U moet al hebt gepubliceerd en uw app met toepassingsproxy getest. Als dit niet het geval is, volg de stappen in [toepassingen publiceren met Azure AD-toepassingsproxy](application-proxy-publish-azure-portal.md) vervolgens kun je hier. 
+U moet al hebt gepubliceerd en uw app met toepassingsproxy getest. Als dit niet het geval is, volg de stappen in [toepassingen publiceren met Azure AD-toepassingsproxy](manage-apps/application-proxy-publish-azure-portal.md) vervolgens kun je hier. 
 
 ## <a name="set-up-password-vaulting-for-your-application"></a>Wachtwoord voor uw toepassing vaulting instellen
 
@@ -55,5 +55,5 @@ Ga naar de externe URL die u hebt geconfigureerd voor externe toegang tot uw toe
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over andere manieren om te implementeren [eenmalige aanmelding met toepassingsproxy](application-proxy-sso-overview.md)
+- Meer informatie over andere manieren om te implementeren [eenmalige aanmelding met toepassingsproxy](manage-apps/application-proxy-single-sign-on.md)
 - Meer informatie over [beveiligingsoverwegingen voor toegang tot apps op afstand met Azure AD-toepassingsproxy](application-proxy-security-considerations.md)

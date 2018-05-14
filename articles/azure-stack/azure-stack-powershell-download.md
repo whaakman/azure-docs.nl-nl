@@ -2,23 +2,23 @@
 title: Azure-Stack-hulpprogramma's downloaden vanuit GitHub | Microsoft Docs
 description: Informatie over het downloaden van de hulpprogramma's die vereist zijn voor het werken met Azure-Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
-ms.assetid: E4DF77FA-F468-42B5-B44F-F10ED8049171
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 219fd8e4e164df8c3002044719a90a7be56a9edf
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.reviewer: thoroet
+ms.openlocfilehash: a116b7a048ff95ca601a65633cdc63f98fefee9d
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="download-azure-stack-tools-from-github"></a>Azure-Stack-hulpprogramma's vanuit GitHub downloaden
 
@@ -53,13 +53,10 @@ De **AzureStack-Tools** opslagplaats bevat PowerShell-modules die ondersteuning 
 | Functionaliteit | Beschrijving | wie deze module kunt gebruiken? |
 | --- | --- | --- |
 | [Cloud-mogelijkheden](user/azure-stack-validate-templates.md) | Gebruik deze module om op te halen van de cloud-mogelijkheden van een cloud. U kunt bijvoorbeeld de cloud-mogelijkheden, zoals API-versie en Azure Resource Manager-resources ophalen met behulp van deze module. U kunt ook de VM-extensies voor Azure-Stack en Azure-clouds ophalen met behulp van deze module. | Cloudoperators en gebruikers |
-| [Azure Stack compute-beheer](azure-stack-add-vm-image.md) | Gebruik deze module toevoegen of verwijderen van een VM-installatiekopie uit de Stack van Azure marketplace. | Cloudoperators |
-| [Beheer van Azure Stack-infrastructuur](https://github.com/Azure/AzureStack-Tools/blob/master/Infrastructure/README.md) | Gebruik deze module voor het beheren van virtuele machines van Azure-Stack-infrastructuur, waarschuwingen, updates, enzovoort. |  Cloudoperators|
 | [Resource Manager-beleid voor Azure-Stack](user/azure-stack-policy-module.md) | Gebruik deze module voor het configureren van een Azure-abonnement of een Azure-resourcegroep met de dezelfde versiebeheer en service-beschikbaarheid als Azure-Stack. | Cloudoperators en gebruikers |
 | [Registreren bij Azure](azure-stack-register.md) | Gebruik deze module uw development kit exemplaar registreren bij Azure. U kunt na de registratie, downloaden de marketplace-items van Azure en ze in Azure-Stack gebruiken. | Cloudoperators |
 | [Azure Stack-implementatie](azure-stack-run-powershell-script.md) | Gebruik deze module voor het voorbereiden van de Azure-Stack-hostcomputer implementeren en te implementeren met behulp van de installatiekopie van de virtuele harde schijf (VHD) Azure-Stack. | Cloudoperators|
-| [Verbinding maken met Azure Stack](azure-stack-connect-powershell.md) | Gebruik deze module verbinding maken met een exemplaar netwerkstack Azure via PowerShell en het configureren van VPN-verbinding met Azure-Stack. | Cloudoperators en gebruikers |
-| [Beheer van de service Azure Stack](azure-stack-create-offer.md) | Gebruik deze module te maken van een aanbieding van de tenant standaard met onbeperkte quota's voor compute-, Azure Storage-, netwerk- en Sleutelkluis-services.   | Cloudoperators|
+| [Verbinding maken met Azure Stack](azure-stack-connect-powershell.md) | Gebruik deze module voor het configureren van VPN-verbinding met Azure-Stack. | Cloudoperators en gebruikers |
 | [Validatie van de sjabloon](user/azure-stack-validate-templates.md) | Gebruik deze module om te controleren of als een bestaande of een nieuwe sjabloon kan worden toegepast op Azure-Stack. | Cloudoperators en gebruikers|
 
 

@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2018
+ms.date: 05/10/2018
 ms.author: brenduns
-ms.openlocfilehash: 8c9fd7d5824e5d315a7dd30e5052fe10802d197e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 83a0b8ff040425ac30cff96936f2f639fd1b5643
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
-# <a name="considerations-for-virtual-machines-in-azure-stack"></a>Overwegingen voor virtuele Machines in Azure Stack
+# <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Overwegingen voor het gebruik van virtuele machines in Azure-Stack
 
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
-Virtuele machines zijn op aanvraag, schaalbare computerbronnen die worden aangeboden door de Azure-Stack. Wanneer u virtuele Machines gebruikt, moet u begrijpen dat er verschillen zijn tussen de functies die beschikbaar in Azure zijn en Azure-Stack. Dit artikel bevat een overzicht van de unieke overwegingen voor virtuele Machines en de bijbehorende functies in Azure-Stack. Zie voor meer informatie over belangrijke verschillen tussen Azure-Stack en Azure, de [belangrijke overwegingen](azure-stack-considerations.md) artikel.
+Stack van virtuele machines van Azure bieden op aanvraag, schaalbare computerbronnen. Voordat u virtuele machines (VM's) implementeert, moet u het verschil tussen de functies van de virtuele machine beschikbaar zijn in Azure-Stack en Microsoft Azure. Dit artikel beschrijft deze verschillen en identificeert belangrijke aandachtspunten voor het plannen van implementaties van virtuele machines. Zie voor meer informatie over belangrijke verschillen tussen Azure-Stack en Azure, de [belangrijke overwegingen](azure-stack-considerations.md) artikel.
 
 ## <a name="cheat-sheet-virtual-machine-differences"></a>Blad cheats: verschillen van de virtuele machine
 
@@ -41,10 +41,12 @@ Virtuele machines zijn op aanvraag, schaalbare computerbronnen die worden aangeb
 |Virtuele-machineschaalsets|Automatisch geschaald ondersteund|Automatisch geschaald niet ondersteund.<br>Meer exemplaren toevoegen aan een schaal ingesteld met de portal, Resource Manager-sjablonen of PowerShell.
 
 ## <a name="virtual-machine-sizes"></a>Grootten van virtuele machines
-Azure legt limieten op verschillende manieren om te voorkomen dat overmatig van resources (lokale en serviceniveau-server). De ervaring voor de tenant kunt celinhoud sommige limieten van een verbruik tenants van resource afnemen wanneer een ruis neighbor overconsumes resources. 
-- Voor netwerken uitgaande van de virtuele machine zijn er bandbreedte caps aanwezig. Hoofdletters in Azure-Stack overeen met de caps in Azure.  
-- Voor opslagbronnen implementeert Azure Stack IOPs opslaglimieten om te voorkomen dat basic overmatig van bronnen door tenants voor toegang tot opslag. 
-- Voor virtuele machines met meerdere schijven van de bijgesloten gegevens is de maximale doorvoer van elke afzonderlijke gegevensschijf 500 IOPS aan voor HHDs en 2300 IOPS voor SSD's.
+
+Azure Stack legt limieten om te voorkomen dat via het verbruik van bronnen (server lokale en serviceniveau.) Deze limieten voor de tenant-ervaring te verbeteren doordat de gevolgen van het brongebruik van andere tenants.
+
+- Voor netwerken uitgaande van de virtuele machine zijn er bandbreedte caps aanwezig. Hoofdletters in Azure-Stack zijn hetzelfde als de caps in Azure.
+- Voor opslagbronnen implementeert Azure Stack IOPS opslaglimieten om te voorkomen dat basic overmatig van bronnen door tenants voor toegang tot opslag.
+- Voor virtuele machines met meerdere schijven van de bijgesloten gegevens is de maximale doorvoer van elke gegevensschijf 500 IOPS aan voor HHDs en 2300 IOPS voor SSD's.
 
 De volgende tabel bevat de virtuele machines die worden ondersteund op Azure-Stack samen met hun configuratie:
 
@@ -61,11 +63,11 @@ De volgende tabel bevat de virtuele machines die worden ondersteund op Azure-Sta
 |Geoptimaliseerd geheugen|Dv2-serie     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
 |Geoptimaliseerd geheugen|DSv2-serie-  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
 
-Grootte van virtuele machines en hun bijbehorende resource hoeveelheden zijn consistent met de Azure-Stack en Azure. Deze consistentie bevat de hoeveelheid geheugen, het aantal kernen en nummer of grootte van gegevensschijven dat kan worden gemaakt. Prestaties van de hetzelfde VM-grootte in Azure-Stack is afhankelijk van de onderliggende kenmerken van een bepaalde Azure Stack-omgeving.
+Grootte van virtuele machines en hun bijbehorende resource hoeveelheden zijn consistent met de Azure-Stack en Azure. Dit omvat de hoeveelheid geheugen, het aantal kernen en het nummer of de grootte van gegevensschijven dat kan worden gemaakt. Prestaties van virtuele machines met dezelfde grootte is afhankelijk van de onderliggende kenmerken van een bepaalde Azure Stack-omgeving.
 
 ## <a name="virtual-machine-extensions"></a>Extensies van de virtuele machine
 
- De Azure-Stack bevat een kleine set van extensies. Updates en aanvullende extensies en zijn beschikbaar via de Marketplace-syndicatiefeed.
+ Azure Stack bevat een kleine set van extensies. Updates en de aanvullende extensies zijn beschikbaar via de Marketplace-syndicatiefeed.
 
 Gebruik de volgende PowerShell-script om de lijst met extensies van virtuele machine die beschikbaar in uw Azure-Stack-omgeving zijn:
 
@@ -92,18 +94,17 @@ Get-AzureRmResourceProvider | `
   Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} | `
   where-Object {$_.ProviderNamespace -like “Microsoft.compute”}
 ```
+
 De lijst met ondersteunde resourcetypen en API-versies kan verschillen als de operator cloud uw Azure-Stack-omgeving naar een nieuwere versie bijwerkt.
 
 ## <a name="windows-activation"></a>Windows-activering
 
-Windows-producten moeten worden gebruikt in overeenstemming met de Product Use Rights en de licentievoorwaarden voor Microsoft. Maakt gebruik van Azure Stack [automatische activering van virtuele machine](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (AVMA) voor het activeren van virtuele machines (VM's) voor Windows Server. 
- - Omdat de Stack van Azure-host is geactiveerd met AVMA-sleutels voor Windows Server 2016, alle virtuele machines die uitvoeren van Windows Server 2012 of later automatisch geactiveerd.
- - Virtuele machines die bij het uitvoeren van Windows Server 2008 R2 niet automatisch worden geactiveerd en moet worden geactiveerd met behulp van [MAK-activering](https://technet.microsoft.com/library/ff793438.aspx). 
+Windows-producten moeten worden gebruikt in overeenstemming met de Product Use Rights en de licentievoorwaarden voor Microsoft. Maakt gebruik van Azure Stack [automatische activering van virtuele machine](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (AVMA) voor het activeren van virtuele machines (VM's) voor Windows Server.
+
+- Azure-Stack host Windows kan worden geactiveerd met AVMA-sleutels voor Windows Server 2016. Alle virtuele machines die bij het uitvoeren van Windows Server 2012 of later worden automatisch geactiveerd.
+- Virtuele machines die bij het uitvoeren van Windows Server 2008 R2 niet automatisch worden geactiveerd en moet worden geactiveerd met behulp van [MAK-activering](https://technet.microsoft.com/library/ff793438.aspx).
 
 Microsoft Azure maakt gebruik van KMS-activering voor het activeren van VM's van Windows. Als u een virtuele machine uit Azure Stack naar Azure en optreden activeren problemen verplaatst, Zie [oplossen Azure Windows virtuele machine activeringsproblemen](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems). Als u meer informatie vindt u op de [probleemoplossing Windows activation-fouten op Azure Virtual machines](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/) Azure Support-teamblog post.
-
-
-
 
 ## <a name="next-steps"></a>Volgende stappen
 

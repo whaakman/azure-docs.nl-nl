@@ -10,13 +10,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/03/2018
+ms.date: 05/11/2018
 ms.author: jgao
-ms.openlocfilehash: c28c48b5842deec9d9c3898c5742c3d4d473094e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 56b2b5ae9d3e4a0e682ec3dd47cd5cc30ebf6d58
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Instellen van de replicatie van de HBase-cluster in virtuele netwerken in Azure
 
@@ -52,51 +52,18 @@ Hebt u drie opties:
 - Twee HBase-clusters in twee verschillende virtuele netwerken in dezelfde regio.
 - Twee HBase-clusters in twee verschillende virtuele netwerken in twee verschillende regio's (geo-replicatie).
 
+In dit artikel bevat informatie over het scenario geo-replicatie.
+
 Instellen om u te helpen de omgevingen, wij hebben enkele gemaakt [Azure Resource Manager-sjablonen](../../azure-resource-manager/resource-group-overview.md). Als u liever voor het instellen van de omgevingen met behulp van andere methoden, Zie:
 
 - [Hadoop-clusters maken in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
 - [HBase-clusters maken in Azure Virtual Network](apache-hbase-provision-vnet.md)
 
-### <a name="set-up-one-virtual-network"></a>Een virtueel netwerk instellen
-
-Twee HBase om clusters te maken in hetzelfde virtuele netwerk, selecteert u de volgende afbeelding. De sjabloon wordt opgeslagen op [Azure-snelstartsjablonen](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-one-vnet/).
-
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-one-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
-
-### <a name="set-up-two-virtual-networks-in-the-same-region"></a>Twee virtuele netwerken in dezelfde regio instellen
-
-Maakt twee virtuele netwerken met peering van virtueel netwerk en twee HBase-clusters in dezelfde regio, selecteert u de volgende afbeelding. De sjabloon wordt opgeslagen op [Azure-snelstartsjablonen](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-two-vnets-same-region/).
-
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-two-vnets-same-region%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
-
-
-
-In dit scenario moeten [virtueel netwerk peering](../../virtual-network/virtual-network-peering-overview.md). De sjabloon kunt virtuele netwerk peering.   
-
-HBase-replicatie maakt gebruik van IP-adressen van de ZooKeeper virtuele machines. U moet instellen statische IP-adressen voor de bestemming HBase ZooKeeper knooppunten.
-
-**Statische IP-adressen configureren**
-
-1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Selecteer op het menu links **resourcegroepen**.
-3. Selecteer de resourcegroep die het doel HBase-cluster is. Dit is de resourcegroep die u hebt opgegeven wanneer u de Resource Manager-sjabloon gebruikt om de omgeving te maken. U kunt het filter gebruiken om de lijst. Hier ziet u een lijst met bronnen die de twee virtuele netwerken bevatten.
-4. Selecteer het virtuele netwerk waarin het doel HBase-cluster. Selecteer bijvoorbeeld **xxxx vnet2**. Drie apparaten met namen die met beginnen **nic-zookeepermode -** worden vermeld. Deze apparaten zijn de drie ZooKeeper virtuele machines.
-5. Selecteer een van de ZooKeeper virtuele machines.
-6. Selecteer **IP-configuraties**.
-7. Selecteer in de lijst **ipConfig1**.
-8. Selecteer **statische**, kopiëren en noteer de werkelijke IP-adres. Tijdens het uitvoeren van de scriptactie replicatie in te schakelen moet u het IP-adres.
-
-  ![HDInsight-HBase-replicatie ZooKeeper statisch IP-adres](./media/apache-hbase-replication/hdinsight-hbase-replication-zookeeper-static-ip.png)
-
-9. Herhaal stap 6 instellen van het statische IP-adres voor de andere twee ZooKeeper-knooppunten.
-
-Voor het scenario met meerdere virtuele netwerk, moet u de **- IP-** switch bij het aanroepen van de `hdi_enable_replication.sh` script in te grijpen.
-
 ### <a name="set-up-two-virtual-networks-in-two-different-regions"></a>Instellen van twee virtuele netwerken in twee verschillende regio 's
 
-Klik op de volgende afbeelding om twee virtuele netwerken in twee verschillende regio's en de VPN-verbinding tussen de VNets. De sjabloon wordt opgeslagen in [Azure-Snelstartsjablonen](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/).
+Selecteer de volgende afbeelding maken om twee virtuele netwerken maken in twee verschillende regio's en de VPN-verbinding tussen de VNets, de. De sjabloon wordt opgeslagen in een [openbare blob-opslag]] (https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json).
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-geo%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 Sommige van de vastgelegde waarden in de sjabloon:
 
@@ -116,11 +83,6 @@ Sommige van de vastgelegde waarden in de sjabloon:
 | Type van de VPN-gateway | RouteBased |
 | Gateway-SKU | Basic |
 | gateway-IP | vnet1gwip |
-| Clusternaam | &lt;ClusterNamePrefix > 1 |
-| Clusterversie | 3.6 |
-| Cluster-type | hbase |
-| Aantal cluster worker-knooppunten | 2 |
-
 
 **VNet 2**
 
@@ -138,14 +100,176 @@ Sommige van de vastgelegde waarden in de sjabloon:
 | Type van de VPN-gateway | RouteBased |
 | Gateway-SKU | Basic |
 | gateway-IP | vnet1gwip |
-| Clusternaam | &lt;ClusterNamePrefix > 2 |
-| Clusterversie | 3.6 |
-| Cluster-type | hbase |
-| Aantal cluster worker-knooppunten | 2 |
 
-HBase-replicatie maakt gebruik van de IP-adressen van de ZooKeeper virtuele machines. U moet instellen statische IP-adressen voor de bestemming HBase ZooKeeper knooppunten. Als u vaste IP-adres instelt, Zie [instellen twee virtuele netwerken in dezelfde regio](#set-up-two-virtual-networks-in-the-same-region) in dit artikel.
+## <a name="setup-dns"></a>DNS instellen
 
-Voor het scenario met meerdere virtuele netwerk, moet u de **- IP-** switch bij het aanroepen van de `hdi_enable_replication.sh` script in te grijpen.
+In de laatste sectie maakt de sjabloon u een virtuele Ubuntu-machine in elk van de twee virtuele netwerken.  Bind installeren op de twee DNS-virtuele machines in deze sectie en configureer vervolgens het doorsturen van DNS voor de twee virtuele machines.
+
+Voor het installeren van Bind moet yon vinden van het openbare IP-adres van de twee DNS-virtuele machines.
+
+1. Open de [Azure Portal](https://portal.azure.com).
+2. De DNS-virtuele machine openen door te selecteren **resourcegroepen > [Resourcegroepnaam] > [vnet1DNS]**.  Naam van de resourcegroep is degene die u in de laatste procedure maakt. De namen van de standaard DNS-virtuele machine zijn *vnet1DNS* en *vnet2NDS*.
+3. Selecteer **eigenschappen** om de eigenschappenpagina van het virtuele netwerk te openen.
+4. Noteer de **openbaar IP-adres**, en Controleer ook of de **particuliere IP-adres**.  De privé IP-adres worden **10.1.0.4** voor vnet1DNS en **10.2.0.4** voor vnet2DNS.  
+
+Gebruik de volgende procedure voor het installeren van Bind:
+
+1. SSH gebruiken voor verbinding met de __openbaar IP-adres__ van de DNS-virtuele machine. Het volgende voorbeeld maakt verbinding met een virtuele machine op 40.68.254.142:
+
+    ```bash
+    ssh sshuser@40.68.254.142
+    ```
+
+    Vervang `sshuser` met het SSH-gebruikersaccount dat u hebt opgegeven bij het maken van de DNS-virtuele machine.
+
+    > [!NOTE]
+    > Er zijn tal van manieren verkrijgen van de `ssh` hulpprogramma. Op Linux, Unix- en Mac OS, wordt dit geleverd als onderdeel van het besturingssysteem. Als u van Windows gebruikmaakt, overweeg een van de volgende opties:
+    >
+    > * [Azure-Cloud-Shell](../../cloud-shell/quickstart.md)
+    > * [Bash op Ubuntu op Windows 10](https://msdn.microsoft.com/commandline/wsl/about)
+    > * [GIT (https://git-scm.com/)](https://git-scm.com/)
+    > * [OpenSSH)https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)
+
+2. Gebruik de volgende opdrachten bij de SSH-sessie voor het installeren van Bind:
+
+    ```bash
+    sudo apt-get update -y
+    sudo apt-get install bind9 -y
+    ```
+
+3. Gebruik voor het configureren van de binding voor het doorsturen van aanvragen voor naamomzetting naar uw on-premises DNS-server de volgende tekst als de inhoud van de `/etc/bind/named.conf.options` bestand:
+
+    ```
+    acl goodclients {
+        10.1.0.0/16; # Replace with the IP address range of the virtual network 1
+        10.2.0.0/16; # Replace with the IP address range of the virtual network 2
+        localhost;
+        localhost;
+    };
+    
+    options {
+        directory "/var/cache/bind";
+        recursion yes;
+        allow-query { goodclients; };
+
+        forwarders {
+            168.63.129.16 #This is the Azure DNS server
+        };
+
+        dnssec-validation auto;
+
+        auth-nxdomain no;    # conform to RFC1035
+        listen-on-v6 { any; };
+    };
+    ```
+    
+    > [!IMPORTANT]
+    > Vervang de waarden in de `goodclients` sectie met de IP-adresbereik van de twee virtuele netwerken. Deze sectie worden de adressen die deze DNS-server aanvragen van accepteert gedefinieerd.
+
+    Dit bestand bewerken, moet u de volgende opdracht gebruiken:
+
+    ```bash
+    sudo nano /etc/bind/named.conf.options
+    ```
+
+    Gebruiken om het bestand opslaat, __Ctrl + X__, __Y__, en vervolgens __Enter__.
+
+4. Gebruik de volgende opdracht in de SSH-sessie:
+
+    ```bash
+    hostname -f
+    ```
+
+    Met deze opdracht retourneert een waarde die vergelijkbaar is met de volgende tekst:
+
+        vnet1DNS.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
+
+    De `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` tekst is de __DNS-achtervoegsel__ voor dit virtuele netwerk. Deze waarde niet opslaan omdat het wordt later gebruikt.
+
+    U moet ook de DNS-achtervoegsel van de DNS-server weten. U moet deze in de volgende stap.
+
+5. Gebruik voor het configureren van DNS-namen omzetten voor resources binnen het virtuele netwerk is afhankelijk van de volgende tekst als de inhoud van de `/etc/bind/named.conf.local` bestand:
+
+    ```
+    // Replace the following with the DNS suffix for your virtual network
+    zone "v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net" {
+            type forward;
+            forwarders {10.2.0.4;}; # The Azure recursive resolver
+    };
+    ```
+
+    > [!IMPORTANT]
+    > Vervang de `v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net` met de DNS-achtervoegsel van het virtuele netwerk. En de doorstuurserver IP-adres is het privé IP-adres van de DNS-server in het virtuele netwerk.
+
+    Dit bestand bewerken, moet u de volgende opdracht gebruiken:
+
+    ```bash
+    sudo nano /etc/bind/named.conf.local
+    ```
+
+    Gebruiken om het bestand opslaat, __Ctrl + X__, __Y__, en vervolgens __Enter__.
+
+6. Gebruik de volgende opdracht voor het starten van Bind:
+
+    ```bash
+    sudo service bind9 restart
+    ```
+
+7. Om te controleren die afhankelijk van de namen van bronnen in het virtuele netwerk kunt oplossen, gebruikt u de volgende opdrachten:
+
+    ```bash
+    sudo apt install dnsutils
+    nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net 10.2.0.4
+    ```
+
+    > [!IMPORTANT]
+    > Vervang `vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net` met de volledig gekwalificeerde domeinnaam (FQDN) van de DNS-virtuele machine in het andere netwerk.
+    >
+    > Vervang `10.2.0.4` met de __interne IP-adres__ van uw aangepaste DNS-server in het virtuele netwerk.
+
+    Het antwoord ziet er ongeveer de volgende tekst:
+
+    ```
+    Server:         10.2.0.4
+    Address:        10.2.0.4#53
+    
+    Non-authoritative answer:
+    Name:   vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net
+    Address: 10.2.0.4
+    ```
+
+    Tot nu toe door het IP-adres van het andere netwerk zonder opgegeven IP-adres van de DNS-server kan niet zoeken.
+
+### <a name="configure-the-virtual-network-to-use-the-custom-dns-server"></a>Het virtuele netwerk voor het gebruik van de aangepaste DNS-server configureren
+
+Gebruik de volgende stappen voor het configureren van het virtuele netwerk voor het gebruik van de aangepaste DNS-server in plaats van de Azure recursieve resolver:
+
+1. In de [Azure-portal](https://portal.azure.com), selecteer het virtuele netwerk en selecteer vervolgens __DNS-Servers__.
+
+2. Selecteer __aangepaste__, en voer de __interne IP-adres__ van de aangepaste DNS-server. Tot slot selecteert __opslaan__.
+
+6. Open de virtuele machine van de DNS-server in vnet1 en klikt u op **opnieuw**.  U moet alle virtuele machines opnieuw opstarten in het virtuele netwerk waarmee de DNS-configuratie te laten treden.
+7. Herhaal stap de aangepaste DNS-server configureren voor vnet2.
+
+Voor het testen van de DNS-configuratie, kunt u verbinding maken met de twee DNS-virtuele machines met behulp van SSH en de DNS-server van het virtuele netwerk met behulp van de hostnaam ping. Als dit niet werkt, gebruikt u de volgende opdracht om DNS-status te controleren:
+
+```bash
+sudo service bind9 status
+```
+
+## <a name="create-hbase-clusters"></a>HBase-clusters maken
+
+Maak een HBase-cluster in elk van de twee virtuele netwerken met de volgende configuratie:
+
+- **De naam van resourcegroep**: naam van de dezelfde resourcegroep gebruiken als u de virtuele netwerken hebt gemaakt.
+- **Type cluster**: HBase
+- **Versie**: HBase 1.1.2 (HDI 3.6)
+- **Locatie**: gebruik van dezelfde locatie als het virtuele netwerk.  Is standaard vnet1 *VS-West*, en vnet2 *VS-Oost*.
+- **Opslag**: Maak een nieuw opslagaccount voor het cluster.
+- **Virtueel netwerk** (van de geavanceerde instellingen op de portal): u hebt gemaakt in de laatste procedure vnet1 selecteren.
+- **Subnet**: de standaardnaam die wordt gebruikt in de sjabloon is **subnet1**.
+
+Om te controleren of dat de omgeving correct is geconfigureerd, moet u het volgende kunt pingen FQDN van de headnode tussen twee clusters.
 
 ## <a name="load-test-data"></a>Testgegevens laden
 
@@ -195,7 +319,6 @@ Optionele argumenten:
 |-du,--zomertijd-ambari-gebruiker | Hiermee geeft u de gebruikersnaam van de beheerder voor Ambari op de doelcluster HBase. De standaardwaarde is **admin**. |
 |-t,--lijst van de tabel | Hiermee geeft u de tabellen worden gerepliceerd. Bijvoorbeeld:--tabel lijst = 'Tabel1; tabel2; Tabel3'. Als u geen tabellen opgeeft, worden alle bestaande HBase-tabellen gerepliceerd.|
 |-m,--machine | Hiermee geeft u het hoofdknooppunt waarop de scriptactie wordt uitgevoerd. De waarde is **hn1** of **hn0**. Omdat de **hn0** hoofdknooppunt is meestal veelgebruikte, wordt u aangeraden **hn1**. Gebruik deze optie als u het script $0 als de scriptactie van een van de HDInsight-portal of Azure PowerShell.|
-|-ip | Wanneer u bij het inschakelen van replicatie tussen twee virtuele netwerken vereist. Dit argument fungeert als een overschakelen naar de statische IP-adressen van ZooKeeper-knooppunten uit replica clusters gebruiken in plaats van FQDN-namen. Voordat u replicatie inschakelt, moet u de statische IP-adressen vooraf configureren. |
 |-cp - copydata | Hiermee schakelt u de migratie van bestaande gegevens op de tabellen waarvoor replicatie is ingeschakeld. |
 |-rpm, -repliceren-phoenix-metagegevens | Hiermee schakelt u replicatie voor Phoenix systeemtabellen. <br><br>*Gebruik deze optie voorzichtig.* U wordt aangeraden Phoenix tabellen op de replica-clusters opnieuw te maken voordat u dit script gebruiken. |
 |-h,--help | Geeft informatie over het gebruik. |

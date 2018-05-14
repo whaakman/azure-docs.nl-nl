@@ -1,10 +1,10 @@
 ---
 ms.topic: include
-ms.openlocfilehash: b41b93db63038645257bc348d5a027fbc4f7fdc9
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 31b0d0018129ee65bb124c8008759cc6c7c8510e
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="prepay-for-virtual-machines-with-reserved-vm-instances"></a>Vooruitbetalen voor virtuele Machines met een gereserveerde VM-exemplaren
 
@@ -13,6 +13,7 @@ Vooruitbetalen voor virtuele machines en geld besparen met gereserveerde virtuel
 U kunt gereserveerde virtuele Machine-exemplaren kopen de [Azure-portal](https://portal.azure.com). Een instantie van de gereserveerde virtuele Machine aanschaffen:
 -   U moet zich in een rol van eigenaar voor ten minste één onderneming of abonnement op gebruiksbasis.
 -   Voor Enterprise-abonnementen reservering aankopen moeten zijn ingeschakeld in de [EA portal](https://ea.azure.com).
+-   Voor het programma Cloud Solution Provider (CSP) aanschaffen alleen de beheerder of agenten verkopers de reserveringen.
 
 ## <a name="buy-a-reserved-virtual-machine-instance"></a>Een exemplaar van de gereserveerde virtuele Machine kopen
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
@@ -50,3 +51,4 @@ Zie de volgende artikelen voor meer informatie over gereserveerde virtuele Machi
 - [Gebruik van de gereserveerde exemplaar voor uw abonnement op gebruiksbasis begrijpen](../articles/billing/billing-understand-reserved-instance-usage.md)
 - [Gereserveerde exemplaar gebruiksgegevens voor uw Enterprise enrollment begrijpen](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
 - [Kosten voor Windows-software niet zijn opgenomen in de gereserveerde exemplaren](../articles/billing/billing-reserved-instance-windows-software-costs.md)
+- [Gereserveerde exemplaren in programma Partner Center Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-reservations)

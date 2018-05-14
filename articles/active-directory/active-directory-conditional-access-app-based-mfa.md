@@ -12,25 +12,25 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/10/2018
+ms.date: 05/11/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: b451ede984d3baa8331ec87575557f845686c01f
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: d675236f36840858f0f011484392186d355ac6df
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Snelstartgids: MFA vereisen voor specifieke apps met voorwaardelijke toegang van Azure Active Directory 
 
-Om te vereenvoudigen de aanmeldingservaring van uw gebruikers, is het raadzaam zodat ze aan te melden bij uw cloud-apps met een gebruikersnaam en een wachtwoord. Veel omgevingen hebben echter ten minste enkele apps waarvoor u wordt aangeraden om te vereisen een sterkere vorm van accountverificatie,, zoals multi-factor authentication-server. Dit kan zijn, voor de voorbeeld-waar, voor toegang tot e-mailsysteem van uw organisatie of uw HR-apps. In Azure Active Directory, u kunt dit te bereiken met een beleid voor voorwaardelijke toegang.    
+Om te vereenvoudigen de aanmeldingservaring van uw gebruikers, is het raadzaam zodat ze aan te melden bij uw cloud-apps met een gebruikersnaam en een wachtwoord. Veel omgevingen hebben echter ten minste enkele apps waarvoor u wordt aangeraden om te vereisen een sterkere vorm van accountverificatie,, zoals multi-factor authentication (MFA). Dit kan zijn, voor de voorbeeld-waar, voor toegang tot e-mailsysteem van uw organisatie of uw HR-apps. In Azure Active Directory (Azure AD), u kunt dit te bereiken met een beleid voor voorwaardelijke toegang.    
 
-Deze snelstartgids toont hoe u configureert een [beleid voor voorwaardelijke toegang van Azure AD](active-directory-conditional-access-azure-portal.md) meervoudige authenticatie vereisen voor een reeks geselecteerde cloud-apps in uw omgeving.
+Deze snelstartgids toont hoe u configureert een [beleid voor voorwaardelijke toegang van Azure AD](active-directory-conditional-access-azure-portal.md) waarvoor multi-factor authentication-server is vereist voor een set met geselecteerde cloud-apps in uw omgeving.
 
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
 
-Het scenario in dit artikel wordt de Azure-portal als tijdelijke aanduiding voor een cloud-app waarvoor multi-factor authentication-server is vereist voor een specifieke gebruiker. Isabella Simonsen is een gebruiker in uw organisatie. Wanneer zij zich heeft aangemeld bij uw Azure-portal, wilt u haar verder haar account verifiëren met multi-factor authentication-server.
+Het scenario in dit artikel wordt de Azure-portal als tijdelijke aanduiding voor een cloud-app die MFA is vereist voor een specifieke gebruiker. Isabella Simonsen is een gebruiker in uw organisatie. Wanneer zij zich heeft aangemeld bij uw Azure-portal, wilt u haar verder haar account verifiëren met MFA.
 
 ![Multi-Factor Authentication](./media/active-directory-conditional-access-app-based-mfa/22.png)
 
@@ -58,7 +58,7 @@ U instellen in uw beleid:
 |Verlenen | Meervoudige verificatie vereisen |
  
 
-![Beleid maken](./media/active-directory-conditional-access-app-based-mfa/21.png)
+![Beleid maken](./media/active-directory-conditional-access-app-based-mfa/31.png)
 
 
 

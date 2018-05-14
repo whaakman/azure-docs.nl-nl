@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: dbd1b171185bf49ed5e633153938d3e7ba81387d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 21245688076cf0a21164b549eb68bc6f55d6ec6c
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="persistent-volumes-with-azure-files"></a>Permanente volumes met Azure-bestanden
 
@@ -66,10 +66,10 @@ parameters:
   storageAccount: mystorageaccount
 ```
 
-Maken van de opslagklasse met de [kubectl maken] [ kubectl-create] opdracht.
+Maken van de opslagklasse met de [kubectl toepassen] [ kubectl-apply] opdracht.
 
 ```azurecli-interactive
-kubectl create -f azure-file-sc.yaml
+kubectl apply -f azure-file-sc.yaml
 ```
 
 ## <a name="create-persistent-volume-claim"></a>Permanente volume claim maken
@@ -94,10 +94,10 @@ spec:
       storage: 5Gi
 ```
 
-Maken van de claim permanente volume met de [kubectl maken] [ kubectl-create] opdracht.
+Maken van de claim permanente volume met de [kubectl toepassen] [ kubectl-apply] opdracht.
 
 ```azurecli-interactive
-kubectl create -f azure-file-pvc.yaml
+kubectl apply -f azure-file-pvc.yaml
 ```
 
 Zodra de voltooid, kunt u de bestandsshare wordt gemaakt. Een geheim Kubernetes wordt ook gemaakt waarin de verbindingsgegevens en referenties.
@@ -126,10 +126,10 @@ spec:
         claimName: azurefile
 ```
 
-Maken van de schil met de [kubectl maken] [ kubectl-create] opdracht.
+Maken van de schil met de [kubectl toepassen] [ kubectl-apply] opdracht.
 
 ```azurecli-interactive
-kubectl create -f azure-pvc-files.yaml
+kubectl apply -f azure-pvc-files.yaml
 ```
 
 U hebt nu een actieve schil met uw Azure-schijf gekoppeld in de `/mnt/azure` directory. Deze configuratie kan worden weergegeven bij de inspectie van uw schil via `kubectl describe pod mypod`.
@@ -174,7 +174,7 @@ Meer informatie over Kubernetes permanente volumes met behulp van Azure-bestande
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
-[kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-describe]: https://kubernetes-v1-4.github.io/docs/user-guide/kubectl/kubectl_describe/
 [kubernetes-files]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_file/README.md
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/

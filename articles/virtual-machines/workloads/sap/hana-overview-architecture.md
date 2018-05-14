@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bc446dfeee86fa1183892cba8068709f8fd277d5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e3342f3057917202d81359a27accf47ba288b128
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Overzicht van de SAP HANA (grote exemplaren) en architectuur op Azure
 
@@ -256,7 +256,7 @@ De onderliggende infrastructuur van grote exemplaar HANA biedt functionaliteit v
 
 Zie de [SLA voor SAP HANA in Azure (grote exemplaren)](https://azure.microsoft.com/support/legal/sla/sap-hana-large/v1_0/).
 
-## <a name="sizing"></a>Schaling
+## <a name="sizing"></a>Grootte aanpassen
 
 Sizing voor HANA grote exemplaar gaat niet anders dan in het algemeen voor HANA formaat. Voor bestaande en systemen die u verplaatsen van andere RDBMS naar HANA wilt, SAP biedt een aantal rapporten die worden uitgevoerd op uw bestaande SAP-systemen geïmplementeerd. Als de database is verplaatst naar HANA, worden deze rapporten Controleer de gegevens en geheugenvereisten voor het exemplaar HANA berekenen. Lees de volgende SAP-opmerkingen voor meer informatie over het uitvoeren van deze rapporten en krijgen hun meest recente patches of versies:
 
@@ -303,6 +303,8 @@ Deze lijst samengevoegd naast de vereisten voor SAP HANA uitgevoerd op Azure (gr
    - Voor Red Hat Linux moet u het juiste abonnement toegangsniveaus die zijn ondersteuning en service-updates voor de besturingssystemen van grote HANA-exemplaar. Red Hat Red Hat Enterprise Linux aanbeveelt voor [SAP-oplossingen] (https://access.redhat.com/solutions/3082481 abonnement. 
 
 Zie voor de ondersteuningsmatrix van de verschillende SAP HANA-versies met de verschillende versies van Linux [SAP-notitie #2235581](https://launchpad.support.sap.com/#/notes/2235581).
+
+Raadpleeg voor de compatibiliteit matrix van het besturingssysteem en HLI firmware en stuurprogramma versies, [bijwerken van het besturingssysteem voor HLI](os-upgrade-hana-large-instance.md).
 
 
 **Database**

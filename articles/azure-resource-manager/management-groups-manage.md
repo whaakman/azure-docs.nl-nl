@@ -7,16 +7,16 @@ editor: ''
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/1/2018
+ms.date: 5/10/2018
 ms.author: rithorn
-ms.openlocfilehash: ba51c2f8eb8db1f74c4501b045234c222b00da5c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: b68223830ca6c4e178447074bfbebd1322cb9477
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Uw resources beheren met beheergroepen 
 Beheergroepen zijn containers waarmee u toegang, beleid en naleving in meerdere abonnementen beheren. U kunt wijzigen, verwijderen en beheren van deze containers om hiërarchieën die kunnen worden gebruikt met [Azure beleid](../azure-policy/azure-policy-introduction.md) en [Azure Access besturingselementen RBAC (Role Based)](../role-based-access-control/overview.md). Zie voor meer informatie over beheergroepen, [ordenen van uw resources met Azure-beheergroepen ](management-groups-overview.md).
@@ -35,10 +35,10 @@ U kunt de naam van de beheergroep wijzigen met behulp van de portal, PowerShell 
 3. Selecteer de beheergroep die u wilt wijzigen. 
 4. Selecteer de **naam van groep** optie boven aan de pagina. 
 
-    ![Naam van groep](media/management-groups/detail_action_small.png)
+    ![Naam van groep wijzigen](media/management-groups/detail_action_small.png)
 5. Wanneer het menu wordt geopend, typt u de nieuwe naam die u wilt weergeven.
 
-    ![Naam van groep](media/management-groups/rename_context.png) 
+    ![Naam van groep wijzigen](media/management-groups/rename_context.png) 
 4. Selecteer **Opslaan**. 
 
 ### <a name="change-the-name-in-powershell"></a>Wijzig de naam in PowerShell
@@ -103,9 +103,9 @@ U kunt een beheergroep die u hebt een directe of overgenomen RBAC-rol op weergev
 ### <a name="view-in-the-portal"></a>Weergeven in de portal
 1. Meld u aan bij de [Azure-portal](https://portal.azure.com)
 2. Selecteer **alle services** > **beheergroepen** 
-3. De beheergroep hiërarchie pagina wordt geladen waar alle groepen dat u toegang tot hebben worden weergegeven. 
+3. De hiërarchie beheergroep pagina laadt waar u de beheergroepen en abonnementen die u toegang tot hebt kunt verkennen. Naam van de groep selecteren gaat u een lager in de hiërarchie. De navigatie werkt op dezelfde manier als een Windows Verkenner. 
     ![Main](media/management-groups/main.png)
-4. Selecteer een afzonderlijke beheergroep voor meer informatie  
+4. Voor de details van de beheergroep, selecteert u de **(details)** koppeling naast de titel van de beheergroep. Als u deze koppeling niet beschikbaar is, er geen machtigingen voor het weergeven van de beheergroep.  
 
 ### <a name="view-in-powershell"></a>Weergeven in PowerShell
 U kunt de opdracht Get-AzureRmManagementGroup gebruiken voor het ophalen van alle groepen.  
@@ -151,7 +151,7 @@ Om te zien welke machtigingen u hebt, selecteert u de beheergroep en selecteer v
 6. Selecteer in het menu dat geopend, de **brontype** van het item dat u probeert te verplaatsen dat **abonnement**.
 7. Selecteer het abonnement in de lijst met de juiste ID. 
 
-    ![Onderliggende elementen](media/management-groups/add_context_2.png)
+    ![Onderliggende items](media/management-groups/add_context_2.png)
 8. 'Opslaan' selecteren
 
 **Een abonnement verwijderen uit een beheergroep**

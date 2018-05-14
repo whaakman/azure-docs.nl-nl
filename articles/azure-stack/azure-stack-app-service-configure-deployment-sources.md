@@ -2,11 +2,11 @@
 title: Implementatie-bronnen configureren voor App-Services op Azure Stack | Microsoft Docs
 description: Hoe een servicebeheerder implementatie bronnen (Git, GitHub, BitBucket, DropBox en OneDrive) kunt configureren voor App-Service op Azure-Stack
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: 277ed277b14886d386e097e0ce4bef8add5d4ba1
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 46242fd7ab9e05cfc2edde119afdc6053f129e40
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="configure-deployment-sources"></a>Implementatiebronnen configureren
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
@@ -36,24 +36,24 @@ Naast lokale Git, worden de volgende Resourcebeheerproviders ondersteund:
 
 ## <a name="view-deployment-sources-in-app-service-administration"></a>Weergave implementatie bronnen in App Service-beheer
 
-1. Meld u aan bij de beheerportal van de Azure-Stack (https://adminportal.local.azurestack.external) als de servicebeheerder.
+1. Aanmelden bij de beheerportal van de Azure-Stack (https://adminportal.local.azurestack.external) als de servicebeheerder.
 2. Blader naar **Resourceproviders** en selecteer de **beheer-App Service Resource Provider**.  ![App Service Resource Provider Admin][1]
 3. Klik op **bron configuratie**.  Hier ziet u de lijst met alle implementatie bronnen die zijn geconfigureerd.
     ![App Service Resource Provider Admin bron configuratie][2]
 
-## <a name="configure-github"></a>Configure GitHub
+## <a name="configure-github"></a>GitHub configureren
 
 Er moet een GitHub-account om deze taak te voltooien. Mogelijk wilt een account gebruiken voor uw organisatie in plaats van een persoonlijk account.
 
-1. Aanmelden bij GitHub, blader naar https://www.github.com/settings/developers en klikt u op **registreren van een nieuwe toepassing**.
+1. Aanmelden bij GitHub, blader naar https://www.github.com/settings/developers en klik op **registreren van een nieuwe toepassing**.
     ![GitHub - een nieuwe toepassing registreren][3]
 2. Voer een **toepassingsnaam** voorbeeld - App Service op Azure-Stack.
-3. Voer de **startpagina URL**. De startpagina-URL moet een adres van de Stack-Azure-Portal. Bijvoorbeeld: https://portal.local.azurestack.external.
+3. Voer de **startpagina URL**. De startpagina-URL moet een adres van de Stack-Azure-Portal. Bijvoorbeeld https://portal.local.azurestack.external.
 4. Voer een **Toepassingsbeschrijving**.
-5. Voer de **retouraanroep-autorisatie-URL**.  In een implementatie van de Azure-Stack standaard de Url is in de https://portal.local.azurestack.external/tokenauthorize formulier als u werkt met onder een ander domein substitute uw domein voor local.azurestack.external ![GitHub - Registreer een nieuw toepassing met waarden ingevuld][4]
+5. Voer de **retouraanroep-autorisatie-URL**.  In een implementatie van de Azure-Stack standaard de Url in het formulier is https://portal.local.azurestack.external/TokenAuthorize, als u werkt met om uw domein voor local.azurestack.external onder een ander domein substitute
 6. Klik op **toepassing registreren**.  Nu worden weergegeven met een aanbieding pagina de **Client-ID** en **Clientgeheim** voor de toepassing.
     ![GitHub - registratie van de voltooide toepassing][5]
-7.  In een nieuw browsertabblad of venster aanmelden bij de Azure-Stack-beheerportal (https://adminportal.local.azurestack.external) als de servicebeheerder.
+7.  In een nieuw browsertabblad of venster aanmelden bij de beheerportal van de Azure-Stack (https://adminportal.local.azurestack.external) als de servicebeheerder.
 8.  Blader naar **Resourceproviders** en selecteer de **beheer-App Service Resource Provider**.
 9. Klik op **bron configuratie**.
 10. Kopieer en plak de **Client-ID** en **Clientgeheim** dialoogvensters in de bijbehorende invoer voor GitHub.
@@ -69,14 +69,14 @@ Er moet een BitBucket-account om deze taak te voltooien. Mogelijk wilt een accou
     ![BitBucket OAuth Consumer toevoegen][8]
 3. Voer een **naam** de consument moet de voorbeeld-App Service op Azure-Stack.
 4. Voer een **beschrijving** voor de toepassing.
-5. Voer de **retouraanroep URL**.  De Callback-Url is in een Azure-Stack standaardimplementatie in de https://portal.local.azurestack.external/TokenAuthorize formulier als u werkt met om uw domein voor azurestack.local onder een ander domein substitute.  De Url moet het hoofdlettergebruik volgen, zoals hier vermeld voor de BitBucket-integratie te kunnen uitvoeren.
-6. Voer de **URL** -deze Url moet de Azure-Stack-URL, bijvoorbeeld https://portal.local.azurestack.external.
+5. Voer de **retouraanroep URL**.  In een implementatie van de Azure-Stack standaard de Callback-Url is in het formulier https://portal.local.azurestack.external/TokenAuthorize, als u werkt met om uw domein voor azurestack.local onder een ander domein substitute.  De Url moet het hoofdlettergebruik volgen, zoals hier vermeld voor de BitBucket-integratie te kunnen uitvoeren.
+6. Voer de **URL** -deze Url moet de URL van de Portal in de Azure-Stack, bijvoorbeeld https://portal.local.azurestack.external.
 7. Selecteer de **machtigingen** vereist:
     - **Opslagplaatsen**: *lezen*
     - **Webhooks**: *lezen en schrijven*
 8. Klik op **Opslaan**.  U ziet nu deze nieuwe toepassing, samen met de **sleutel** en **geheim** onder **OAuth consumenten**.
     ![BitBucket toepassing aanbieding][9]
-9.  In een nieuw browsertabblad of venster aanmelden bij de Azure-Stack-beheerportal (https://adminportal.local.azurestack.external) als de servicebeheerder.
+9.  In een nieuw browsertabblad of venster aanmelden bij de beheerportal van de Azure-Stack (https://adminportal.local.azurestack.external) als de servicebeheerder.
 10.  Blader naar **Resourceproviders** en selecteer de **beheer-App Service Resource Provider**.
 11. Klik op **bron configuratie**.
 12. Kopieer en plak de **sleutel** in de **Client-ID** invoervak en **geheim** in de **Clientgeheim** invoervak voor BitBucket.
@@ -90,7 +90,7 @@ U moet Microsoft-Account hebt gekoppeld aan een OneDrive-account om deze taak te
 > [!NOTE]
 > OneDrive voor bedrijven-Accounts worden momenteel niet ondersteund.
 
-1. Blader naar https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm en meld aan met uw Microsoft-Account.
+1. Blader naar https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm en meld u aan met uw Microsoft-Account.
 2. Onder **mijn toepassingen**, klikt u op **een app toevoegen**.
 ![OneDrive-toepassingen][10]
 3. Voer een **naam** voor de nieuwe registratie van de toepassing invoeren **App-Service op Azure-Stack**, en klik op **toepassing maken**
@@ -98,13 +98,13 @@ U moet Microsoft-Account hebt gekoppeld aan een OneDrive-account om deze taak te
 ![Toepassingseigenschappen OneDrive][11]
 5. Onder **toepassing geheimen**, klikt u op **nieuw wachtwoord genereren**. Maak een notitie van **nieuw wachtwoord gegenereerd**. Dit is uw toepassingsgeheim en kan niet worden opgehaald nadat u op **OK** in deze fase.
 6. Onder **Platforms** klikt u op **toevoegen Platform** en selecteer **Web**.
-7. Voer de **omleidings-URI**.  In een implementatie van de Azure-Stack standaard de omleidings-URI is in de https://portal.local.azurestack.external/tokenauthorize formulier als u werkt met onder een ander domein substitute uw domein voor azurestack.local ![OneDrive-toepassing - toevoegen Webplatform][12]
+7. Voer de **omleidings-URI**.  In een implementatie van de Azure-Stack standaard de omleidings-URI is in het formulier https://portal.local.azurestack.external/TokenAuthorize, als u werkt met onder een ander domein substitute uw domein voor azurestack.local ![OneDrive-toepassing - webplatform toevoegen][12]
 8. Voeg de **machtigingen voor Microsoft Graph** - **overgedragen machtigingen**
     - **Files.ReadWrite.AppFolder**
     - **User.Read**  
       ![OneDrive-toepassing - machtigingen van de grafiek][13]
 9. Klik op **Opslaan**.
-10.  In een nieuw browsertabblad of venster aanmelden bij de Azure-Stack-beheerportal (https://adminportal.local.azurestack.external) als de servicebeheerder.
+10.  In een nieuw browsertabblad of venster aanmelden bij de beheerportal van de Azure-Stack (https://adminportal.local.azurestack.external) als de servicebeheerder.
 11.  Blader naar **Resourceproviders** en selecteer de **beheer-App Service Resource Provider**.
 12. Klik op **bron configuratie**.
 13. Kopieer en plak de **toepassings-ID** in de **Client-ID** invoervak en **wachtwoord** in de **Clientgeheim** invoervak voor OneDrive.
@@ -115,7 +115,7 @@ U moet Microsoft-Account hebt gekoppeld aan een OneDrive-account om deze taak te
 > [!NOTE]
 > U moet een DropBox-account om deze taak te voltooien.  U kunt desgewenst een account gebruiken voor uw organisatie in plaats van een persoonlijk account.
 
-1. Blader naar https://www.dropbox.com/developers/apps en meld aan met uw DropBox-Account.
+1. Blader naar https://www.dropbox.com/developers/apps en meld u aan met uw DropBox-Account.
 2. Klik op **-app maken**.
 
     ![Dropbox-toepassingen][14]
@@ -126,9 +126,9 @@ U moet Microsoft-Account hebt gekoppeld aan een OneDrive-account om deze taak te
 ![Dropbox-toepassing registreren][15]
 6. Klik op **-App maken**.  Nu worden weergegeven met een pagina met de instellingen voor de App, waaronder **App-sleutel** en **App geheim**.
 7. Controleer de **App mapnaam** is ingesteld op **App-Service op Azure-Stack**.
-8. Stel de **OAuth 2 omleidings-URI** en klik op **toevoegen**.  De omleidings-URI is in een Azure-Stack standaardimplementatie in de https://portal.local.azurestack.external/tokenauthorize formulier als u werkt met om uw domein voor azurestack.local onder een ander domein substitute.
+8. Stel de **OAuth 2 omleidings-URI** en klik op **toevoegen**.  In een implementatie van de Azure-Stack standaard de omleidings-URI is in het formulier https://portal.local.azurestack.external/TokenAuthorize, als u werkt met om uw domein voor azurestack.local onder een ander domein substitute.
 ![De configuratie van de toepassing dropbox][16]
-9.  In een nieuw browsertabblad of venster aanmelden bij de Azure-Stack-beheerportal (https://adminportal.local.azurestack.external) als de servicebeheerder.
+9.  In een nieuw browsertabblad of venster aanmelden bij de beheerportal van de Azure-Stack (https://adminportal.local.azurestack.external) als de servicebeheerder.
 10.  Blader naar **Resourceproviders** en selecteer de **beheer-App Service Resource Provider**.
 11. Klik op **bron configuratie**.
 12. Kopieer en plak de **Toepassingssleutel** in de **Client-ID** invoervak en **App geheim** in de **Clientgeheim** invoervak voor DropBox.

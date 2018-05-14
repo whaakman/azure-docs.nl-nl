@@ -2,23 +2,24 @@
 title: Herstellen van onherstelbaar gegevensverlies in met behulp van de infrastructuur Backup-Service van Azure-Stack | Microsoft Docs
 description: Wanneer een onherstelbare fout zorgt dat Azure Stack mislukt, kunt uw infrastructuur-gegevens herstellen bij het hervatten van de implementatie van uw Azure-Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 2ECE8580-0BDE-4D4A-9120-1F6771F2E815
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2017
+ms.date: 4/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 141641b01b338e3426861dad7424a1de1bd2c63c
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.reviewer: hectorl
+ms.openlocfilehash: 7ca3945dd3768ac71e0a962417f0a621aa83be1e
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Herstellen van onherstelbaar gegevensverlies
 
@@ -44,7 +45,7 @@ In slechtste case scenario's waarin alle gegevens gaan verloren, met de Azure-St
 
 ![Azure Stack implementeren](media\azure-stack-backup\azure-stack-backup-workflow2.png)
 
-## <a name="restore"></a>Terugzetten
+## <a name="restore"></a>Herstellen
 
 Als onherstelbaar gegevensverlies maar de hardware kan nog steeds gebruikt worden, is opnieuw distribueren van Azure-Stack is vereist. Tijdens het opnieuw implementeren, kunt u de locatie voor de opslag en de referenties die zijn vereist voor toegang tot de back-ups. In deze modus zijn is er niet nodig om op te geven van de services die moeten worden teruggezet. Back-up infrastructuurbeheerder injects vlak status als onderdeel van de werkstroom voor de implementatie.
 

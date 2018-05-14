@@ -9,11 +9,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: nisoneji
-ms.openlocfilehash: 986f36cccc9755e5b5a7fc2f81d7e6dff2bf1ccf
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a18bc242d10c9eb287d0f3645490acb9ca9fec2a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="install-a-linux-master-target-server"></a>Een Linux-hoofddoel-server installeren
 Nadat u uw virtuele machines in Azure een failover, u kunt een failback uit op de virtuele machines naar de lokale site. Als u wilt een failback uit, moet u beveiligt u de virtuele machine van Azure naar de lokale site opnieuw. Voor dit proces moet u de doelserver van een lokale voor het ontvangen van het verkeer. 
@@ -330,9 +330,9 @@ Nadat de installatie is voltooid, moet u de configuratieserver registreren met b
      Wacht totdat het script is voltooid. Als het hoofddoel met succes is geregistreerd, het hoofddoel wordt weergegeven op de **Site Recovery-infrastructuur** pagina van de portal.
 
 
-### <a name="install-vmware-tools-on-the-master-target-server"></a>Installeer VMware tools op de hoofddoelserver
+### <a name="install-vmware-tools--open-vm-tools-on-the-master-target-server"></a>Installeer VMware tools / open-vm-tools op de hoofddoelserver
 
-U moet VMware tools installeren op het hoofddoel zodat deze de gegevensarchieven kan detecteren. Als de hulpprogramma's zijn niet geïnstalleerd, wordt het scherm beveiligt niet vermeld in de gegevensarchieven. Na installatie van de VMware-hulpprogramma's moet u opnieuw opstarten.
+U moet VMware tools of open-vm-hulpprogramma's op het hoofddoel installeren, zodat deze de gegevensarchieven kan detecteren. Als de hulpprogramma's zijn niet geïnstalleerd, wordt het scherm beveiligt niet vermeld in de gegevensarchieven. Na installatie van de VMware-hulpprogramma's moet u opnieuw opstarten.
 
 ### <a name="upgrade-the-master-target-server"></a>Upgrade de hoofddoelserver
 

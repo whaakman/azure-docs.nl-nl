@@ -15,8 +15,8 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: bb71bd0bcaae8d7f9cb3ae357e726ea1f1c00b07
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 0ab788494f56364d4a46d632e34e4a1334564836
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/11/2018
@@ -51,7 +51,7 @@ Azure AD-toepassingsproxy is:
 ## <a name="what-kind-of-applications-work-with-application-proxy"></a>Wat voor soort toepassingen werken met toepassingsproxy?
 Met Azure AD-toepassingsproxy hebt u toegang tot verschillende soorten interne toepassingen:
 
-* Webtoepassingen die gebruikmaken van [geïntegreerde Windows-verificatie](../active-directory-application-proxy-sso-using-kcd.md) voor verificatie  
+* Webtoepassingen die gebruikmaken van [geïntegreerde Windows-verificatie](application-proxy-configure-single-sign-on-with-kcd.md) voor verificatie  
 * Webtoepassingen die gebruikmaken van op basis van formulieren of [op basis van een koptekst](../application-proxy-ping-access.md) toegang  
 * Web-API's die u wilt weergeven voor de uitgebreide toepassingen op verschillende apparaten  
 * Toepassingen die worden gehost achter een [extern bureaublad-Gateway](../application-proxy-publish-remote-desktop.md)  
@@ -87,14 +87,14 @@ Voordat u Application Proxy configureert, controleert u of er een ondersteunde [
 
 Aan de slag met toepassingsproxy in twee stappen:
 
-1. [Toepassingsproxy inschakelen en configureren van de connector](../active-directory-application-proxy-enable.md).    
-2. [Toepassingen publiceren](../application-proxy-publish-azure-portal.md) -gebruik de wizard snel en eenvoudig om uw apps lokale gepubliceerde en toegankelijk is op afstand.
+1. [Toepassingsproxy inschakelen en configureren van de connector](application-proxy-enable.md).    
+2. [Toepassingen publiceren](application-proxy-publish-azure-portal.md) -gebruik de wizard snel en eenvoudig om uw apps lokale gepubliceerde en toegankelijk is op afstand.
 
 ## <a name="whats-next"></a>Volgende stappen
 Nadat u uw eerste app publiceert, vindt u veel meer u met toepassingsproxy doen kunt.
 
-* [Eenmalige aanmelding inschakelen](../active-directory-application-proxy-sso-using-kcd.md)
-* [Toepassingen publiceren met uw eigen domeinnaam](../active-directory-application-proxy-custom-domains.md)
+* [Eenmalige aanmelding inschakelen](application-proxy-configure-single-sign-on-with-kcd.md)
+* [Toepassingen publiceren met uw eigen domeinnaam](application-proxy-configure-custom-domain.md)
 * [Meer informatie over Azure AD-toepassingsproxy connectors](../application-proxy-understand-connectors.md)
 * [Werken met bestaande lokale proxyservers](../application-proxy-working-with-proxy-servers.md) 
 * [Een aangepaste startpagina ingesteld](../application-proxy-office365-app-launcher.md)

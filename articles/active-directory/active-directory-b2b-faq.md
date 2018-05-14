@@ -5,16 +5,16 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 05/11/2018
 ms.author: twooley
 author: twooley
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 6160e3e6f23bf4eabb33295fa19323c71c7ed18d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 77dc239385261c9544b00cf2cf2e450136dce0ae
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B-samenwerking Veelgestelde vragen
 
@@ -31,9 +31,6 @@ Ja. Zie voor meer informatie over het gebruik van de CSV-bestand uploaden functi
 
 ### <a name="how-can-i-customize-my-invitation-emails"></a>Hoe kan ik mijn e-mailberichten voor de uitnodiging aanpassen?
 U kunt bijna alles over het proces uitnodiging antwoorden aanpassen met behulp van de [B2B uitnodiging API's](active-directory-b2b-api.md).
-
-### <a name="can-an-invited-external-user-leave-the-organization-after-being-invited"></a>Kan een uitgenodigde externe gebruiker de organisatie na worden uitgenodigd verlaten?
-De uitnodiging beheerder van de organisatie een gastgebruiker B2B-samenwerking van hun adreslijst kunt verwijderen, maar de gastgebruiker de uitnodiging organisatiemap zelf kan niet worden achtergelaten. 
 
 ### <a name="can-guest-users-reset-their-multi-factor-authentication-method"></a>Gastgebruikers kunnen opnieuw hun methode multi-factor authentication-server instellen?
 Ja. Gastgebruikers kunnen hun multi-factor authentication-server de methode reset dezelfde manier als normale gebruikers doen.
@@ -99,9 +96,7 @@ We zijn voortdurend luisteren naar uw feedback B2B-samenwerking verbeteren. We n
 We nodigen ook u uw ideeën en stem voor toekomstige functies op verzenden [B2B-samenwerking ideeën](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas).
 
 ### <a name="can-we-send-an-invitation-that-is-automatically-redeemed-so-that-the-user-is-just-ready-to-go-or-does-the-user-always-have-to-click-through-to-the-redemption-url"></a>We een uitnodiging kunt verzenden die automatisch wordt ingewisseld, zodat de gebruiker zojuist 'nu klaar is voor'? Of de gebruiker altijd heeft door te klikken naar de URL inwisseling?
-Uitnodigingen die zijn verzonden door de gebruiker in de uitnodiging organisatie die ook lid zijn van de partnerorganisatie vereisen geen inwisseling door de gebruiker B2B.
-
-Het is raadzaam dat u één gebruiker van de partnerorganisatie lid worden van de uitnodiging organisatie uitnodigen. [Voeg deze gebruiker toe aan de rol van Gast uitnodiging antwoorden in de bronorganisatie](active-directory-b2b-add-guest-to-role.md). Deze gebruiker andere gebruikers in de organisatie van de accountpartner met behulp van de aanmeldingspagina-gebruikersinterface, PowerShell-scripts kunt uitnodigen of API's. Vervolgens zijn niet B2B-samenwerking gebruikers van die organisatie vereist om in te wisselen hun uitnodigingen.
+Een uitnodiging antwoorden kan andere gebruikers in de andere organisatie uitnodigen via de gebruikersinterface, PowerShell-scripts of API's. Vervolgens kan de uitnodiging antwoorden verzenden de gastgebruiker een directe koppeling naar een gedeelde app. In de meeste gevallen bestaat niet meer nodig is de uitnodiging e-mailbericht openen en een inwisseling-URL op. Zie voor meer informatie [Azure Active Directory B2B-samenwerking uitnodiging inwisseling](active-directory-b2b-redemption-experience.md).
 
 ### <a name="how-does-b2b-collaboration-work-when-the-invited-partner-is-using-federation-to-add-their-own-on-premises-authentication"></a>Hoe werkt B2B-samenwerking wanneer de uitgenodigde partner van Federatie gebruikmaakt hun eigen lokale verificatie toevoegen?
 Als de partner een Azure AD-tenant die aan de on-premises verificatie-infrastructuur is gefedereerd heeft, lokale eenmalige aanmelding (SSO) automatisch bereikt. Als de partner geen Azure AD-tenant, wordt een Azure AD-account gemaakt voor nieuwe gebruikers. 

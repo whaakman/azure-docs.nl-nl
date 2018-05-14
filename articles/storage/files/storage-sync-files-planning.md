@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 9af1a82530d6e2d694f56322b7107796df73a2d5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ebfa7da32859f8d2d0ff3778af3b5cca99bdf1f4
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planning voor de implementatie van een Azure-bestand Sync (preview)
 Gebruik Azure bestand Sync (preview) te centraliseren bestandsshares van uw organisatie in Azure-bestanden, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestand-server. Azure File-synchronisatie transformeert Windows Server in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB en NFS FTPS gebruiken. U kunt zoveel caches als u over de hele wereld nodig hebben.
@@ -46,7 +46,14 @@ De Azure-bestand Sync-agent is een downloadbare pakket waarmee Windows-Server mo
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### <a name="server-endpoint"></a>Servereindpunt
-Een servereindpunt vertegenwoordigt een specifieke locatie op een geregistreerde server, zoals een map op een volume van de server. Meerdere server-eindpunten kunnen bestaan op hetzelfde volume als hun naamruimten elkaar niet overlappen (bijvoorbeeld `F:\sync1` en `F:\sync2`). U kunt de lagen beleid cloud afzonderlijk voor elk servereindpunt kunt configureren. Het is momenteel niet mogelijk om een servereindpunt voor de hoofdmap van een volume te maken (bijvoorbeeld `F:\` of `C:\myvolume`, als een volume is gekoppeld als een koppelpunt).
+Een servereindpunt vertegenwoordigt een specifieke locatie op een geregistreerde server, zoals een map op een volume van de server. Meerdere server-eindpunten kunnen bestaan op hetzelfde volume als hun naamruimten elkaar niet overlappen (bijvoorbeeld `F:\sync1` en `F:\sync2`). U kunt de lagen beleid cloud afzonderlijk voor elk servereindpunt kunt configureren. 
+
+U kunt een servereindpunt via een koppelpunt maken. Opmerking: Stel de volgende parameter binnen het servereindpunt worden overgeslagen.  
+
+U kunt een servereindpunt maken op het systeemvolume, maar er zijn twee beperkingen als u doet dit:
+* Cloud tiering kan niet worden ingeschakeld.
+* Snelle naamruimte terugzetten (waarbij het systeem snel brengt u de gehele naamruimte en wordt gestart om terug te halen van inhoud) wordt niet uitgevoerd.
+
 
 > [!Note]  
 > Alleen niet-verwisselbaar volumes worden ondersteund.  Vanaf een externe share toegewezen stations worden niet ondersteund voor een pad naar het eindpunt van de server.  Bovendien een servereindpunt bevindt zich mogelijk Windows systeemvolume echter cloud tiering wordt niet ondersteund op het systeemvolume.
@@ -103,9 +110,9 @@ Toekomstige versies van Windows Server worden toegevoegd zodra ze worden vrijgeg
 | Desktop.ini | Bestand die specifiek zijn voor het systeem |
 | ethumbs.DB$ | Tijdelijk bestand voor miniatuurweergaven |
 | ~$\*.\* | Tijdelijke Office-bestand |
-| \*.tmp | Tijdelijk bestand |
+| \*tmp | Tijdelijk bestand |
 | \*.laccdb | Het vergrendelingsbestand toegang DB|
-| 635D02A9D91C401B97884B82B3BCDAEA.* ||
+| 635D02A9D91C401B97884B82B3BCDAEA.* | Bestand met interne synchroniseren|
 | \\System Volume Information | Map specifieke naar volume |
 | $RECYCLE. OPSLAGLOCATIE| Map |
 | \\SyncShareState | Map voor synchronisatie |

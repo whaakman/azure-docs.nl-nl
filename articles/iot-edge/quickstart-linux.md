@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 750f09c91a086b22df5e7557e4b6fc6a763499e2
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a9cb627c4d8eff2226717dd675d24349730e90d5
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-or-mac-device---preview"></a>Snelstartgids: Uw eerste rand van de IoT-module naar een Linux- of Mac-apparaat implementeren - voorbeeld
 
@@ -27,6 +27,15 @@ Deze snelstartgids maakt gebruik van uw computer of virtuele machine, zoals een 
 
 * Python pip voor het installeren van de rand van de IoT-runtime.
    * Linux: `sudo apt-get install python-pip`.
+      
+      > [!Note]
+      > Op bepaalde distributies (zoals Raspbian) mogelijk ook moet u bepaalde pakketten pip upgraden en installeren van extra afhankelijkheden:
+      
+        ```
+        sudo pip install --upgrade setuptools pip
+        sudo apt-get install python2.7-dev libffi-dev libssl-dev
+        ```
+        
    * MacOS: `sudo easy_install pip`.
 * Docker om uit te voeren van de rand IoT modules
    * [Docker voor Linux installeren] [ lnk-docker-ubuntu] en zorg ervoor dat deze wordt uitgevoerd. 
@@ -95,7 +104,7 @@ sudo docker ps
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
 
-## <a name="view-generated-data"></a>Gegevens weergeven die zijn gegenereerd
+## <a name="view-generated-data"></a>Gegenereerde gegevens weergeven
 
 In deze snelstartgids gemaakt van een nieuwe IoT Edge-apparaat en de rand van de IoT-runtime is geïnstalleerd. Vervolgens gebruikt u de Azure-portal voor de push-een IoT-Edge-module worden uitgevoerd op het apparaat zonder dat wijzigingen aanbrengen in het apparaat zelf. In dit geval wordt maakt de module die u gepusht milieu gegevens die u voor de zelfstudies gebruiken kunt. 
 

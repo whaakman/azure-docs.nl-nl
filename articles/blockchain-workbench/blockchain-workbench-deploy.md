@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: a16d65e9c462bfcacc5ae9f29889667efd9ddb84
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 6ee60d05897de7bb5408a226202623fd5955a88a
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Azure Blockchain Workbench implementeren
 
@@ -254,4 +254,7 @@ Zodra de Blockchain Azure Workbench is geïmplementeerd, wordt de volgende stap 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat u Azure Blockchain Workbench is geïmplementeerd hebt, wordt de volgende stap is het [beheren van gebruikers in Azure Blockchain Workbench](blockchain-workbench-manage-users.md).
+In dit artikel instructies als u Azure Blockchain Workbench hebt geïmplementeerd. Meer informatie over het maken van een toepassing blockchain, blijven de volgende procedures voor artikel.
+
+> [!div class="nextstepaction"]
+> [Een toepassing blockchain maken in Azure Blockchain Workbench](blockchain-workbench-create-app.md)

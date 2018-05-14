@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 702fe812d4ff80c9f18a163af38f883ed3739f12
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 09f3bf3726a4a359d8c54d45843b08871d82f159
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/11/2018
@@ -244,7 +244,7 @@ Geschatte tijd om te voltooien: 20 minuten
 | Een Microsoft Azure AD basic of premium-abonnement en een Azure AD-directory waarvoor u een globale beheerder bent | [Azure Active Directory-edities](active-directory-editions.md) |
 | Een webtoepassing gehost on-premises die u wilt configureren voor externe toegang |  |
 | Een server met Windows Server 2012 R2 of Windows 8.1 of hoger, waarop u de Connector voor toepassingsproxy kunt installeren | [Azure AD-toepassingsproxy connectors begrijpen](application-proxy-understand-connectors.md) |
-| Als er een firewall in het pad, zorg ervoor dat deze geopend is zodat de Connector HTTPS (TCP) aanvragen naar de toepassingsproxy kunt maken | [Toepassingsproxy inschakelen in de Azure-portal: vereisten voor toepassingsproxy](active-directory-application-proxy-enable.md#application-proxy-prerequisites) |
+| Als er een firewall in het pad, zorg ervoor dat deze geopend is zodat de Connector HTTPS (TCP) aanvragen naar de toepassingsproxy kunt maken | [Toepassingsproxy inschakelen in de Azure-portal: vereisten voor toepassingsproxy](manage-apps/application-proxy-enable.md#application-proxy-prerequisites) |
 | Als uw organisatie gebruikmaakt van proxy-servers verbinding maken met internet, nemen de blog kijken werken met bestaande lokale proxyservers voor meer informatie over het configureren ervan boeken | [Werken met bestaande lokale proxyservers](application-proxy-working-with-proxy-servers.md) |
 
 
@@ -252,9 +252,9 @@ Geschatte tijd om te voltooien: 20 minuten
 
 | Stap | Resources |
 | --- | --- |
-| Een connector op de server installeren | [Toepassingsproxy inschakelen in de Azure-portal: Installeer en registreer de Connector](active-directory-application-proxy-enable.md#install-and-register-a-connector) |
-| De on-premises toepassing publiceren in Azure AD als een toepassing toepassingsproxy | [Toepassingen publiceren met Azure AD-toepassingsproxy](application-proxy-publish-azure-portal.md) |
-| Testgebruikers toewijzen | [Toepassingen publiceren met Azure AD-toepassingsproxy: een testgebruiker toevoegen](application-proxy-publish-azure-portal.md#add-a-test-user) |
+| Een connector op de server installeren | [Toepassingsproxy inschakelen in de Azure-portal: Installeer en registreer de Connector](manage-apps/application-proxy-enable.md#install-and-register-a-connector) |
+| De on-premises toepassing publiceren in Azure AD als een toepassing toepassingsproxy | [Toepassingen publiceren met Azure AD-toepassingsproxy](manage-apps/application-proxy-publish-azure-portal.md) |
+| Testgebruikers toewijzen | [Toepassingen publiceren met Azure AD-toepassingsproxy: een testgebruiker toevoegen](manage-apps/application-proxy-publish-azure-portal.md#add-a-test-user) |
 | Configureer desgewenst een ervaring voor eenmalige aanmelding voor uw gebruikers | [Geef eenmalige aanmelding met Azure AD-toepassingsproxy](application-proxy-sso-azure-portal.md) |
 | App testen door het aanmelden bij de portal MyApps als toegewezen gebruiker | https://myapps.microsoft.com |
 

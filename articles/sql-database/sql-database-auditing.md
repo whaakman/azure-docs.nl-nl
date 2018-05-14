@@ -9,11 +9,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: giladm
-ms.openlocfilehash: 3824e4ae72c469ac183a5386d08d2d7f141e27bc
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 95c5793bec228e2da8c98ea9263475f55de739d9
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Aan de slag met SQL Database Auditing
 Azure SQL database auditing houdt databasegebeurtenissen en schrijft die deze naar een auditlogboek Meld u bij uw Azure storage-account. Ook controleren:
@@ -73,11 +73,11 @@ De volgende sectie beschrijft de configuratie van controlebeleid met de Azure po
 
     ![Navigatievenster][3]
 5. Openen van de **Audit logboeken opslag** blade, selecteer **opslaggroep**. Selecteer de Azure-opslagaccount waarin de logboeken worden opgeslagen en selecteer vervolgens de bewaarperiode. De oude logboeken worden verwijderd. Klik vervolgens op **OK**.
-   >[!TIP]
-   >Als u de meest buiten de controle rapporten sjablonen, gebruikt u hetzelfde opslagaccount voor alle gecontroleerde databases.
+    >[!TIP]
+    >Als u de meest buiten de controle rapporten sjablonen, gebruikt u hetzelfde opslagaccount voor alle gecontroleerde databases.
 
     <a id="storage-screenshot"></a> ![Navigatiedeelvenster][4]
-6. Als u aanpassen van de gecontroleerde gebeurtenissen wilt, kunt u dit doen via PowerShell of de REST-API.
+6. Als u aanpassen van de gecontroleerde gebeurtenissen wilt, u kunt dit doen via [PowerShell-cmdlets](#subheading-7) of de [REST-API](#subheading-9).
 7. Nadat u de controle-instellingen hebt geconfigureerd, kunt u de mogelijkheid voor het detecteren van nieuwe threat inschakelen en configureren van e-mailberichten voor het ontvangen van beveiligingsberichten. Wanneer u detectie van dreigingen gebruikt, ontvangt u proactieve waarschuwingen voor afwijkende databaseactiviteiten die kunnen duiden op beveiligingsdreigingen. Zie voor meer informatie [aan de slag met detectie van dreigingen](sql-database-threat-detection-get-started.md).
 8. Klik op **Opslaan**.
 
@@ -149,8 +149,8 @@ Met geogerepliceerde databases, wanneer u controle in te schakelen op de primair
    * Controle van de BLOB moet worden ingeschakeld op de *primaire database zelf*, niet op de server.
    * Nadat de blob-controle is ingeschakeld op de primaire database, wordt deze ook ingeschakeld op de secundaire database.
 
-     >[!IMPORTANT]
-     >Als databaseniveau controle, zal de opslaginstellingen voor de secundaire database zijn identiek aan die van de primaire database waardoor cross-regionale verkeer. U wordt aangeraden alleen serverniveau controle in te schakelen en laat de databaseniveau controle uitgeschakeld voor alle databases.
+    >[!IMPORTANT]
+    >Als databaseniveau controle, zal de opslaginstellingen voor de secundaire database zijn identiek aan die van de primaire database waardoor cross-regionale verkeer. U wordt aangeraden alleen serverniveau controle in te schakelen en laat de databaseniveau controle uitgeschakeld voor alle databases.
 <br>
 
 ### <a id="subheading-6">Opslag van sessiesleutels</a>
@@ -165,37 +165,45 @@ In productie bent u waarschijnlijk uw opslagsleutels periodiek te vernieuwen. Bi
 3. Ga terug naar de blade controle configuratie schakelt de toegangssleutel voor opslag van secundaire op primaire en klik vervolgens op **OK**. Klik vervolgens op **opslaan** aan de bovenkant van de controlemogelijkheden configuratie-blade.
 4. Ga terug naar de blade van de configuratie van opslag en opnieuw genereren van de secundaire toegangssleutel (in voorbereiding op de volgende sleutel vernieuwingscyclus).
 
-## <a name="additional-information"></a>Aanvullende informatie
+## <a name="additional-information"></a>Aanvullende gegevens
 
 * Voor meer informatie over het log-indeling, hiërarchie van de opslagmap en naamconventies, Zie de [Blobverwijzing Audit Log indeling](https://go.microsoft.com/fwlink/?linkid=829599).
 
-   > [!IMPORTANT]
-   > Azure SQL Database Audit worden 4000 tekens van gegevens voor teken velden in een controlerecord opgeslagen. Wanneer de **instructie** of de **data_sensitivity_information** waarden geretourneerd van een controleerbare actie meer dan 4000 tekens bevatten, kunnen alle gegevens na de eerste 4000 tekens,  **afgekapt en niet gecontroleerd**.
+    > [!IMPORTANT]
+    > Azure SQL Database Audit worden 4000 tekens van gegevens voor teken velden in een controlerecord opgeslagen. Wanneer de **instructie** of de **data_sensitivity_information** waarden geretourneerd van een controleerbare actie meer dan 4000 tekens bevatten, kunnen alle gegevens na de eerste 4000 tekens,  **afgekapt en niet gecontroleerd**.
 
-* Controlelogboeken worden geschreven naar **toevoeg-Blobs** in een Azure Blob-opslag voor uw Azure-abonnement.
-   * **Premium-opslag** is momenteel **niet ondersteund** door toevoeg-Blobs.
-   * **Opslag in VNet** is momenteel **niet ondersteund**.
+* Controlelogboeken worden geschreven naar **toevoeg-Blobs** in een Azure Blob-opslag voor uw Azure-abonnement:
+    * **Premium-opslag** is momenteel **niet ondersteund** door toevoeg-Blobs.
+    * **Opslag in VNet** is momenteel **niet ondersteund**.
 
-## <a name="manage-sql-database-auditing-using-azure-powershell"></a>Controle van SQL-database met Azure PowerShell beheren
+* Het standaard beveiligingsbeleid bevat alle acties en de volgende set van actiegroepen, die alle query's en opgeslagen procedures die worden uitgevoerd met de database, evenals de geslaagde en mislukte aanmeldingen kan worden gecontroleerd:
 
-* **PowerShell-cmdlets**:
+    BATCH_COMPLETED_GROUP<br>
+    SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP<br>
+    FAILED_DATABASE_AUTHENTICATION_GROUP
 
-   * [Get-AzureRMSqlDatabaseAuditing][101]
-   * [Get-AzureRMSqlServerAuditing][102]
-   * [Set-AzureRMSqlDatabaseAuditing][105]
-   * [Set-AzureRMSqlServerAuditing][106]
+    U kunt configureren voor verschillende soorten acties en actiegroepen met behulp van PowerShell, controle, zoals beschreven in de [beheren SQL database auditing met Azure PowerShell](#subheading-7) sectie.
 
-   Zie voor een scriptvoorbeeld van een, [configureren van controle en detectie van bedreigingen met behulp van PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
+## <a id="subheading-7"></a>Controle van SQL-database met Azure PowerShell beheren
 
-## <a name="manage-sql-database-auditing-using-rest-api"></a>SQL database auditing met REST API beheren
+**PowerShell-cmdlets**:
 
-* **REST-API - Auditingfunctie voor blobs**:
+* [Maken of bijwerken van de Database Blob controlebeleid (Set-AzureRMSqlDatabaseAuditing)][105]
+* [Maken of bijwerken van de Server Blob controlebeleid (Set-AzureRMSqlServerAuditing)][106]
+* [Database controlebeleid ophalen (Get-AzureRMSqlDatabaseAuditing)][101]
+* [Server Blob controlebeleid ophalen (Get-AzureRMSqlServerAuditing)][102]
 
-   * [Maken of bijwerken van de Database Blob controlebeleid](https://msdn.microsoft.com/library/azure/mt695939.aspx)
-   * [Maken of bijwerken van de Server Blob controlebeleid](https://msdn.microsoft.com/library/azure/mt771861.aspx)
-   * [Database-Blob controlebeleid ophalen](https://msdn.microsoft.com/library/azure/mt695938.aspx)
-   * [Ophalen van Server Blob controlebeleid](https://msdn.microsoft.com/library/azure/mt771860.aspx)
-   * [Ophalen van Server Blob die het resultaat van controle](https://msdn.microsoft.com/library/azure/mt771862.aspx)
+Zie voor een scriptvoorbeeld van een, [configureren van controle en detectie van bedreigingen met behulp van PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
+
+## <a id="subheading-9"></a>SQL database auditing met REST API beheren
+
+**REST-API - Auditingfunctie voor blobs**:
+
+* [Maken of bijwerken van de Database Blob controlebeleid](https://msdn.microsoft.com/library/azure/mt695939.aspx)
+* [Maken of bijwerken van de Server Blob controlebeleid](https://msdn.microsoft.com/library/azure/mt771861.aspx)
+* [Database-Blob controlebeleid ophalen](https://msdn.microsoft.com/library/azure/mt695938.aspx)
+* [Ophalen van Server Blob controlebeleid](https://msdn.microsoft.com/library/azure/mt771860.aspx)
+* [Ophalen van Server Blob die het resultaat van controle](https://msdn.microsoft.com/library/azure/mt771862.aspx)
 
 
 <!--Anchors-->
@@ -204,8 +212,9 @@ In productie bent u waarschijnlijk uw opslagsleutels periodiek te vernieuwen. Bi
 [Analyze audit logs and reports]: #subheading-3
 [Practices for usage in production]: #subheading-5
 [Storage Key Regeneration]: #subheading-6
-[Automation (PowerShell / REST API)]: #subheading-7
+[Manage SQL database auditing using Azure PowerShell]: #subheading-7
 [Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)
+[Manage SQL database auditing using REST API]: #subheading-9
 
 <!--Image references-->
 [1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png

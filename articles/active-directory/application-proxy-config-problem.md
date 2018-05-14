@@ -2,10 +2,10 @@
 title: Probleem bij het maken van een toepassing toepassingsproxy | Microsoft Docs
 description: Het oplossen van problemen met het maken van toepassingen voor toepassingsproxy in de Azure AD-beheerportal
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 5b8346ee2e02ea62b7a11b88a790cff56a7d13f4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 376925715e954904cfdadccb060d0ca242bbec4a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="problem-creating-an-application-proxy-application"></a>Probleem bij het maken van een toepassing toepassingsproxy 
 
@@ -25,7 +25,7 @@ Hieronder ziet u enkele veelvoorkomende problemen face mensen bij het maken van 
 
 ## <a name="recommended-documents"></a>Aanbevolen documenten 
 
-Zie voor meer informatie over het maken van een toepassing toepassingsproxy via de beheerportal, [toepassingen publiceren met Azure AD-toepassingsproxy](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal).
+Zie voor meer informatie over het maken van een toepassing toepassingsproxy via de beheerportal, [toepassingen publiceren met Azure AD-toepassingsproxy](manage-apps/application-proxy-publish-azure-portal.md).
 
 Als u de stappen in dit document volgt en een fout bij het maken van de toepassing krijgt, Zie de foutdetails voor informatie en suggesties voor het oplossen van de toepassing. De meeste foutberichten bevatten een voorgestelde oplossing. 
 
@@ -48,4 +48,4 @@ Het foutbericht moet worden weergegeven in de rechterbovenhoek bij het maken van
    ![Prompt voor melding](./media/application-proxy-config-problem/error-message.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-[Toepassingsproxy inschakelen in de Azure-portal](active-directory-application-proxy-enable.md)
+[Toepassingsproxy inschakelen in de Azure-portal](manage-apps/application-proxy-enable.md)

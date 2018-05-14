@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 95a78df20f5bed07213dfa3cc2c9b35e283f54e7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7372a0c49f6e41ef4d336188ceb5cf4393f4c982
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 De B-serie VM-familie kunt u kiezen welke VM-grootte biedt u de prestaties van de vereiste base-niveau voor uw workload met de mogelijkheid om het CPU-prestaties tot wel 100% van een Intel® Broadwell E5-2673 v4 burst 2.3 GHz of een Intel® Haswell 2,4 GHz E5-2673 v3-processor vCPU.
 
@@ -58,7 +58,8 @@ Als ik de 120 tegoed die ik behaald buiten piektijden nemen en het 96 tegoed die
 ### <a name="q-does-the-b-series-support-premium-storage-data-disks"></a>V: de B-serie ondersteunt gegevensschijven Premium-opslag?
 **Een**: Ja, alle B-serie grootten gegevensschijven Premium-opslag ondersteund.   
     
-
+### <a name="q-my-remaining-credit-are-set-to-0-after-a-redepoy-or-a-stopstart"></a>V: Mijn resterende tegoed zijn ingesteld op 0 na een redepoy of een stoppen/starten.
+**Een** : wanneer een virtuele machine is 'REDPLOYED', dat wil zeggen, de virtuele machine wordt verplaatst naar een ander knooppunt en de totale tegoed verloren. Als de virtuele machine gestopt/gestart is, maar op hetzelfde knooppunt blijft, behoudt de virtuele machine het samengevoegde krediet. Als de virtuele machine wordt gestart op een knooppunt van nieuwe, het ophalen van een initiële tegoed, voor Standard_B8ms is 240 minuten.
 
     
 

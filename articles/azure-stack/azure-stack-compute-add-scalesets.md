@@ -5,18 +5,16 @@ services: azure-stack
 author: brenduns
 manager: femila
 editor: ''
-ms.assetid: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/08/2018
 ms.author: brenduns
-ms.reviewer: anajod
-keywords: ''
-ms.openlocfilehash: cdabd2a9d336cdd8ac83d27460fe129c45b7e1c6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.reviewer: kivenkat
+ms.openlocfilehash: 12425ab53ca16bb985a0a8658b5058998565b01a
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Virtuele-machineschaalsets beschikbaar maken in Azure-Stack
 
@@ -38,14 +36,15 @@ Op Azure-Stack ondersteuning virtuele-machineschaalsets geen voor automatisch sc
    Installeren en geconfigureerde PowerShell voor Azure-Stack en de Azure-Stack-hulpprogramma's. Zie [leren werken met PowerShell in Azure Stack](azure-stack-powershell-configure-quickstart.md).
 
    Nadat u de Azure-Stack-hulpprogramma's geïnstalleerd, zorg ervoor dat u de volgende PowerShell-module importeren (pad relatief de. \ComputeAdmin map in de map AzureStack-hulpprogramma's-master):
-
+  ````PowerShell
         Import-Module .\AzureStack.ComputeAdmin.psm1
+  ````
 
 * **Installatiekopie van besturingssysteem**
 
    Als u hebt een besturingssysteemkopie toegevoegd aan uw Azure-Stack Marketplace, Zie [de Windows Server 2016 VM-installatiekopie toevoegen aan de Stack van Azure marketplace](azure-stack-add-default-image.md).
 
-   Voor Linux-ondersteuning, Ubuntu Server 16.04 downloaden en toe te voegen met behulp van ```Add-AzsVMImage``` met de volgende parameters: ```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```.
+   Voor Linux-ondersteuning, Ubuntu Server 16.04 downloaden en toe te voegen met behulp van ```Add-AzsPlatformImage``` met de volgende parameters: ```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```.
 
 
 ## <a name="add-the-virtual-machine-scale-set"></a>Toevoegen van de virtuele-machineschaalset
@@ -54,7 +53,7 @@ De volgende PowerShell-script voor uw omgeving bewerken en voer vervolgens het t
 
 ``$User`` is het account waarmee u verbinding maken met de beheerdersportal. Bijvoorbeeld serviceadmin@contoso.onmicrosoft.com.
 
-```
+````PowerShell  
 $Arm = "https://adminmanagement.local.azurestack.external"
 $Location = "local"
 
@@ -72,7 +71,7 @@ $AzsEnvContext = Add-AzureRmAccount -Environment $AzsEnv -Credential $Creds
 Select-AzureRmSubscription -SubscriptionName "Default Provider Subscription"
 
 Add-AzsVMSSGalleryItem -Location $Location
-```
+````
 
 ## <a name="update-images-in-a-virtual-machine-scale-set"></a>Afbeeldingen in een virtuele-machineschaalset bijwerken 
 Nadat u een virtuele-machineschaalset gemaakt, kunnen gebruikers afbeeldingen in de schaal zonder de schaal instelt opnieuw worden gemaakt met bijwerken. Het proces voor het bijwerken van een installatiekopie, is afhankelijk van de volgende scenario's:
@@ -83,12 +82,14 @@ Nadat u een virtuele-machineschaalset gemaakt, kunnen gebruikers afbeeldingen in
 
    Hieronder volgt een voorbeeld van het opgeven van *nieuwste*:  
 
-          "imageReference": {
-             "publisher": "[parameters('osImagePublisher')]",
-             "offer": "[parameters('osImageOffer')]",
-             "sku": "[parameters('osImageSku')]",
-             "version": "latest"
-             }
+    ```Json  
+    "imageReference": {
+        "publisher": "[parameters('osImagePublisher')]",
+        "offer": "[parameters('osImageOffer')]",
+        "sku": "[parameters('osImageSku')]",
+        "version": "latest"
+        }
+    ```
 
    Voordat de schaal van een nieuwe installatiekopie kunt gebruiken, moet u die nieuwe installatiekopie te downloaden:  
 
@@ -110,12 +111,12 @@ Zie voor meer informatie [besturingssysteem schijven en installatiekopieën](.\u
 
 Als u wilt verwijderen van een virtuele machine schalen set galerij-item, voer de volgende PowerShell-opdracht:
 
+```PowerShell  
     Remove-AzsVMSSGalleryItem
+````
 
 > [!NOTE]
 > Het galerie-item kan niet direct worden verwijderd. Moet u nachttoeslagen de portal verschillende keren vernieuwen voordat het item wordt verwijderd uit de Marketplace.
 
-
 ## <a name="next-steps"></a>Volgende stappen
 [Veelgestelde vragen over Azure-Stack](azure-stack-faq.md)
-

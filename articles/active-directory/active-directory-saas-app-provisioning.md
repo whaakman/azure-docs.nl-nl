@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/15/2017
 ms.author: asmalser
-ms.openlocfilehash: 5a2a818b6a36fd4dbaf3a18c1ef98d2a13596240
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 72f796f0a4522b66feb55b827b02a83dcfdd3a01
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Gebruiker inrichting en het opheffen van inrichting voor SaaS-toepassingen met Azure Active Directory automatiseren
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>Wat is geautomatiseerde gebruikersinrichting voor SaaS-apps?
@@ -80,7 +80,7 @@ Neem contact op met de Azure AD technisch team om aan te vragen van de inrichtin
 
 Configuratie van de Azure AD-service inricht voor een geselecteerde toepassing wordt gestart in de  **[Azure-portal](https://portal.azure.com)**. In de **Azure Active Directory > bedrijfstoepassingen** sectie **toevoegen**, klikt u vervolgens **alle**, en voeg vervolgens een van de volgende, afhankelijk van uw scenario:
 
-* Alle toepassingen in de **toepassingen aanbevolen** sectie ondersteuning automatische inrichting. Zie de [lijst met zelfstudies bij de toepassing voor gebruikers inrichten] active-directory-saas-zelfstudie-list.md) voor aanvullende waarden.
+* Alle toepassingen in de **toepassingen aanbevolen** sectie ondersteuning automatische inrichting. Zie de [lijst met zelfstudies bij de toepassing voor gebruikers inrichten](active-directory-saas-tutorial-list.md) voor andere toevoegen.
 
 * De optie 'niet galerie application' gebruiken voor aangepaste ontwikkelde SCIM integraties
 

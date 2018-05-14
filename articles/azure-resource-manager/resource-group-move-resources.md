@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5548ced4f81cf52d6aec4ce5ab2a3262eb347bd3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6691ba1e89b7558302c869d3246fc69acd5dcd84
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar de nieuwe resourcegroep of abonnement
 
@@ -114,6 +114,7 @@ De services waarmee verplaatsen naar een nieuwe resourcegroep en een abonnement 
 * Application Insights
 * Automation
 * Azure Cosmos DB
+* Azure Relay
 * Batch
 * Bing Maps
 * CDN
@@ -130,6 +131,7 @@ De services waarmee verplaatsen naar een nieuwe resourcegroep en een abonnement 
 * IoT Hubs
 * Key Vault
 * Load Balancers - Zie [Load Balancer-beperkingen](#lb-limitations)
+* Log Analytics
 * Logic Apps
 * Machine Learning - Machine Learning Studio web-services kunnen worden verplaatst naar een resourcegroep in hetzelfde abonnement, maar niet in een ander abonnement. Andere Machine Learning-bronnen worden verplaatst tussen abonnementen.
 * Media Services
@@ -137,7 +139,7 @@ De services waarmee verplaatsen naar een nieuwe resourcegroep en een abonnement 
 * Notification Hubs
 * Operational Insights
 * Operations Management
-* Power BI
+* Power BI - zowel Power BI Embedded en Power BI-Werkruimteverzameling
 * Openbare IP - Zie [openbare IP-beperkingen](#pip-limitations)
 * Redis Cache
 * Scheduler
@@ -148,7 +150,7 @@ De services waarmee verplaatsen naar een nieuwe resourcegroep en een abonnement 
 * Storage
 * Opslag (klassiek) - Zie [klassieke implementatie beperkingen](#classic-deployment-limitations)
 * Stream Analytics - Stream Analytics-taken kunnen niet worden verplaatst, bij uitvoering in status.
-* SQL Database-server - database en de server moet zich bevinden in dezelfde resourcegroep. Wanneer u een SQL-server hebt verplaatst, worden ook alle databases die zijn verplaatst. Dit omvat de Azure SQL Database en Azure SQL Data Warehouse-databases. 
+* SQL Database-server - database en de server moet zich bevinden in dezelfde resourcegroep. Wanneer u een SQL-server hebt verplaatst, worden ook alle databases die zijn verplaatst. Dit gedrag is van toepassing op Azure SQL Database en Azure SQL Data Warehouse-databases. 
 * Traffic Manager
 * Virtuele Machines - beheerde schijven kunnen niet worden verplaatst. Zie [beperkingen van de virtuele Machines](#virtual-machines-limitations)
 * Virtuele Machines (klassiek) - Zie [klassieke implementatie beperkingen](#classic-deployment-limitations)
@@ -164,6 +166,8 @@ De services die op dit moment niet inschakelen voor het verplaatsen van een reso
 * Hybride AD Health-Service
 * Application Gateway
 * Azure Database for MySQL
+* Azure Database for PostgreSQL
+* Azure Migrate
 * BizTalk Services
 * Certificaten - App Service-certificaten kunnen worden verplaatst, maar geüploade certificaten hebben [beperkingen](#app-service-limitations).
 * Kubernetes-Service
@@ -176,7 +180,7 @@ De services die op dit moment niet inschakelen voor het verplaatsen van een reso
 * Openbare IP - Zie [openbare IP-beperkingen](#pip-limitations)
 * Recovery Services-kluis - ook komen niet verplaatsen van de Compute, Network en Storage-resources die zijn gekoppeld aan de Recovery Services-kluis, Zie [Recovery Services-beperkingen](#recovery-services-limitations).
 * Beveiliging
-* StorSimple-apparaatbeheerfunctie
+* StorSimple-Apparaatbeheer
 * Virtuele netwerken (klassiek) - Zie [klassieke implementatie beperkingen](#classic-deployment-limitations)
 
 ## <a name="virtual-machines-limitations"></a>Beperkingen van de virtuele Machines
@@ -188,6 +192,11 @@ Beheerde schijven bieden geen ondersteuning voor verplaatsen. Deze beperking bet
 * Installatiekopieën die zijn gemaakt op basis van beheerde schijven
 * Momentopnamen die zijn gemaakt van beheerde schijven
 * Beschikbaarheidssets met virtuele machines met beheerde schijven
+
+Hoewel een beheerde schijf kan niet worden verplaatst, kunt u een kopie maken en maak vervolgens een nieuwe virtuele machine van de bestaande beheerde schijf. Zie voor meer informatie:
+
+* Beheerde schijven kopiëren in het hetzelfde abonnement of een ander abonnement met [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md) of [Azure CLI](../virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md)
+* Maak een virtuele machine met behulp van een bestaande beheerde besturingssysteemschijf met [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md) of [Azure CLI](../virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md).
 
 Virtuele machines die zijn gemaakt op basis van de Marketplace-resources met plannen gekoppeld kan niet worden verplaatst tussen resourcegroepen of abonnementen. De virtuele machine in het huidige abonnement inrichting ervan ongedaan en implementeer opnieuw in het nieuwe abonnement.
 

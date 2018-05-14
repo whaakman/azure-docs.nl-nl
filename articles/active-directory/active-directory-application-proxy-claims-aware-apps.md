@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: barbkess
 ms.reviewer: harshja
-ms.openlocfilehash: 7783d08283c2ff3fd277e9c8604c9d4cff242510
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 74af858c433db2a178d5fa346315e3f8a2dbd4f2
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Werken met claimbewuste toepassingen in de toepassingsproxy
 [Claims-compatibele apps](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) een omleiding naar de Security Token Service (STS) uitvoeren. De STS vraagt om de referenties van de gebruiker voor een token en stuurt vervolgens door de gebruiker naar de toepassing. Er zijn een aantal manieren Application Proxy voor gebruik met deze omleidingen in te schakelen. Gebruik dit artikel voor het configureren van uw implementatie van claims-compatibele apps. 
@@ -28,7 +28,7 @@ Zorg ervoor dat de STS die de claimbewuste app wordt omgeleid naar uw on-premise
 
 ## <a name="publish-your-application"></a>Uw toepassing publiceren
 
-1. Uw toepassing volgens de instructies die worden beschreven publiceren [publiceren van toepassingen met toepassingsproxy](application-proxy-publish-azure-portal.md).
+1. Uw toepassing volgens de instructies die worden beschreven publiceren [publiceren van toepassingen met toepassingsproxy](manage-apps/application-proxy-publish-azure-portal.md).
 2. Navigeer naar de toepassingspagina in de portal en selecteer **eenmalige aanmelding**.
 3. Als u hebt gekozen **Azure Active Directory** als uw **pre-authenticatie methode**, selecteer **Azure AD eenmalige aanmelding uitgeschakeld** als uw **intern Verificatiemethode**. Als u hebt gekozen **Passthrough** als uw **pre-authenticatie methode**, u hoeft niet te wijzigen.
 
@@ -38,7 +38,7 @@ U kunt AD FS voor claims-compatibele apps op twee manieren configureren. De eers
 
 ### <a name="option-1-custom-domains"></a>Optie 1: Aangepaste domeinen
 
-Als alle de interne URL's voor uw toepassingen volledig zijn gekwalificeerde domeinnamen (FQDN's), dan kunt u configureren [aangepaste domeinen](active-directory-application-proxy-custom-domains.md) voor uw toepassingen. Gebruik de aangepaste domeinen te maken van de externe URL's die hetzelfde als de interne URL's zijn. Als de externe URL's die overeenkomen met uw interne URL's, werken de STS-omleidingen of uw gebruikers on-premises of extern zijn. 
+Als alle de interne URL's voor uw toepassingen volledig zijn gekwalificeerde domeinnamen (FQDN's), dan kunt u configureren [aangepaste domeinen](manage-apps/application-proxy-configure-custom-domain.md) voor uw toepassingen. Gebruik de aangepaste domeinen te maken van de externe URL's die hetzelfde als de interne URL's zijn. Als de externe URL's die overeenkomen met uw interne URL's, werken de STS-omleidingen of uw gebruikers on-premises of extern zijn. 
 
 ### <a name="option-2-ws-federation"></a>Optie 2: WS-Federation
 
@@ -53,7 +53,7 @@ Als alle de interne URL's voor uw toepassingen volledig zijn gekwalificeerde dom
    ![Toevoegen van een eindpunt - waarde vertrouwde URL - schermafbeelding](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)  
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Schakel eenmalige aanmelding op](application-proxy-sso-overview.md) voor toepassingen die niet claimbewuste
+* [Schakel eenmalige aanmelding op](manage-apps/application-proxy-single-sign-on.md) voor toepassingen die niet claimbewuste
 * [Native ClientApps om te communiceren met de proxy-toepassingen inschakelen](active-directory-application-proxy-native-client.md)
 
 

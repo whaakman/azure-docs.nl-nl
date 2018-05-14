@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 05/11/2018
 ms.author: jeffgilb
 ms.reviewer: avishwan
-ms.openlocfilehash: 0d8c1ebe9688f32c460ef689119313b0682a0a68
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f34c4697439685ce6ea0ce3f2c7e954ee81b5079
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack registreren bij Azure
 Registreren van [Azure Stack](azure-stack-poc.md) met Azure kunt u voor het downloaden van marketplace-items van Azure en voor het instellen van rapportage terug naar Microsoft commerce-gegevens. Nadat u Azure-Stack geregistreerd, gebruik is gerapporteerd aan Azure commerce en kunt u deze bekijken in het abonnement dat u gebruikt voor registratie. 
 
 > [!IMPORTANT]
-> Registratie is verplicht als u ervoor het facturering model pay-as-gebruik kiest. Anders kunt u zich in een overschrijding van de licentievoorwaarden van de implementatie van Azure-Stack zoals gebruik wordt niet gerapporteerd.
+> Registratie is vereist voor volledige functionaliteit van de Azure-Stack, met inbegrip van marketplace syndication ondersteuning. Bovendien kunt u zich in een overschrijding van de Azure-Stack licentievoorwaarden als u niet registreert bij gebruik van het facturering model pay-as-gebruik. Raadpleeg voor meer informatie over Azure-Stack licentieverlening van modellen, de [aanschaffen pagina](https://azure.microsoft.com/overview/azure-stack/how-to-buy/).
 
 ## <a name="prerequisites"></a>Vereisten
 Voordat u registreert Stack van Azure met Azure, moet u het volgende hebben:

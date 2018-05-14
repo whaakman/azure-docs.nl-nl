@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 8963dfb3c2d8b81309f44fcdcaab7ddc0b403e7e
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 5fa52099f5cf55b78fd2fea407c34f29237939d3
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/11/2018
@@ -24,14 +24,14 @@ ms.lasthandoff: 05/11/2018
 
 In dit artikel bevat antwoorden op veelgestelde vragen over Azure Active Directory (Azure AD) rapportage. Zie [Azure Active Directory-rapportage](active-directory-reporting-azure-portal.md) voor meer informatie. 
 
-**V: ik de https://graph.windows.net/ &lt;tenantnaam&gt;/reports/ eindpunt API's voor het pull-Azure AD-controle en gebruik van de geïntegreerde toepassing programmatisch in ons systeem reporting-rapporten. Wat moet ik overschakelen naar**
+**V: ik de https://graph.windows.net/&lt; tenant-naam&gt;/reports/ eindpunt API's voor het pull-Azure AD-controle en gebruik van de geïntegreerde toepassing programmatisch in ons systeem reporting-rapporten. Wat moet ik overschakelen naar**
 
 **A:** opzoeken van de [API-naslagdocumentatie](https://developer.microsoft.com/graph/) om te zien hoe u de nieuwe API's kunt gebruiken voor toegang tot [activiteitsrapporten](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal). Dit eindpunt heeft twee rapporten (Audit en aanmeldingen) waarmee alle gegevens die u hebt verkregen in de oude API-eindpunt. Dit nieuwe eindpunt heeft ook een rapport aanmeldingen met de Azure AD Premium-licentie die u gebruiken kunt om op te halen van app-gebruik, gebruik van het apparaat en aanmelden gebruikersgegevens.
 
 
 --- 
 
-**V: ik de https://graph.windows.net/ &lt;tenantnaam&gt;/reports/ eindpunt API's voor het ophalen van Azure AD-beveiligingsrapporten (specifieke typen detecties, zoals gelekte aanmeldingsreferenties of aanmeldingen vanaf anonieme IP-adressen) in ons systeem reporting programmatisch. Wat moet ik overschakelen naar**
+**V: ik de https://graph.windows.net/&lt; tenant-naam&gt;/reports/ eindpunt API's voor het ophalen van Azure AD-beveiligingsrapporten (specifieke typen detecties, zoals gelekte aanmeldingsreferenties of aanmeldingen vanaf anonieme IP-adressen) in ons systeem reporting programmatisch. Wat moet ik overschakelen naar**
 
 **A:** kunt u de [risicogebeurtenissen Identity Protection API](active-directory-identityprotection-graph-getting-started.md) op access security detecties via Microsoft Graph. Deze nieuwe indeling biedt meer flexibiliteit bij het opvragen van gegevens, met de geavanceerde filters, Veldselectie en meer, en risicogebeurtenissen standaardiseert in één type voor gemakkelijker integratie met siem's en andere hulpmiddelen voor het verzamelen van gegevens. Omdat de gegevens in een andere indeling is, kunt u een nieuwe query niet vervangen voor uw oude query's. Echter, [Microsoft Graph maakt gebruik van de nieuwe API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), dit is de standaard van Microsoft voor deze API's als O365 of Azure AD. U begint de overgang naar deze nieuwe standaard platform zodat het werk vereist kunt uitbreiden ofwel de huidige MS Graph-investeringen of help.
 
@@ -39,7 +39,7 @@ In dit artikel bevat antwoorden op veelgestelde vragen over Azure Active Directo
 
 **V: Wat is het bewaren van gegevens om activiteitenlogboeken (Audit en aanmeldingen) in de Azure portal?** 
 
-**A:** Zie [voor hoe lang de verzamelde gegevens worden opgeslagen?} (Bewaarbeleid voor azure Active Directory-rapport](active-directory-reporting-retention.md#q-for-how-long-is-the-collected-data-stored) voor een deze vraag te beantwoorden.
+**A:** Zie [voor hoe lang de verzamelde gegevens worden opgeslagen?](active-directory-reporting-retention.md#q-for-how-long-is-the-collected-data-stored) voor een deze vraag te beantwoorden.
 
 --- 
 

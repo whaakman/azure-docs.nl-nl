@@ -15,8 +15,8 @@ ms.date: 02/14/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 96e7361ce66caaa653706d22f767e1a109fdacf7
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 2584af94be5f36d07278d1e3d70d7d3f1403203c
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/11/2018
@@ -50,7 +50,7 @@ Zodra u de Connector-fout in het gebeurtenislogboek vindt, gebruikt u deze tabel
 
 | Fout | Aanbevolen stappen |
 | ----- | ----------------- |
-| Registratie van de connector is mislukt: Zorg ervoor dat u toepassingsproxy in de Azure-beheerportal en dat u uw Active Directory-gebruikersnaam en wachtwoord correct ingevoerd ingeschakeld. Fout: 'een of meer fouten opgetreden." | Als u het registratie-venster gesloten zonder het aanmelden bij Azure AD, de Connector-wizard opnieuw uitvoeren en registreert u de Connector. <br><br> Als het registratie-venster wordt geopend en wordt onmiddellijk afgesloten zonder dat u aan te melden, wordt u waarschijnlijk deze fout. Deze fout treedt op wanneer er een netwerkfout op uw systeem. Zorg ervoor dat het mogelijk om vanuit een browser met een openbare website is en dat de poorten zijn geopend zoals opgegeven in [toepassingsproxy vereisten](active-directory-application-proxy-enable.md). |
+| Registratie van de connector is mislukt: Zorg ervoor dat u toepassingsproxy in de Azure-beheerportal en dat u uw Active Directory-gebruikersnaam en wachtwoord correct ingevoerd ingeschakeld. Fout: 'een of meer fouten opgetreden." | Als u het registratie-venster gesloten zonder het aanmelden bij Azure AD, de Connector-wizard opnieuw uitvoeren en registreert u de Connector. <br><br> Als het registratie-venster wordt geopend en wordt onmiddellijk afgesloten zonder dat u aan te melden, wordt u waarschijnlijk deze fout. Deze fout treedt op wanneer er een netwerkfout op uw systeem. Zorg ervoor dat het mogelijk om vanuit een browser met een openbare website is en dat de poorten zijn geopend zoals opgegeven in [toepassingsproxy vereisten](manage-apps/application-proxy-enable.md). |
 | Schakel fout wordt weergegeven in het venster van de registratie. Kan niet worden voortgezet | Als u deze fout te zien en vervolgens het venster sluit, u de onjuiste gebruikersnaam of het wachtwoord ingevoerd. Probeer het opnieuw. |
 | Registratie van de connector is mislukt: Zorg ervoor dat u toepassingsproxy in de Azure-beheerportal en dat u uw Active Directory-gebruikersnaam en wachtwoord correct ingevoerd ingeschakeld. Fout: ' AADSTS50059: Er is geen tenant-identificatiegegevens gevonden in een van de aanvraag of impliciet door een opgegeven referenties en zoeken door de service principal URI is mislukt. | U probeert aan te melden met een Microsoft-Account en niet van een domein dat deel uitmaakt van de organisatie-ID van de map die u probeert te openen. Zorg ervoor dat de beheerder maakt deel uit van dezelfde domeinnaam als het domein van de tenant, bijvoorbeeld als de Azure AD-domein contoso.com is, de beheerder moet admin@contoso.com. |
 | Kan niet ophalen van het huidige uitvoeringsbeleid voor het uitvoeren van PowerShell-scripts. | Als de installatie van de Connector is mislukt, controleert u om ervoor te zorgen dat er geen PowerShell-uitvoeringsbeleid is uitgeschakeld. <br><br>1. Open de Editor voor Groepsbeleid.<br>2. Ga naar **Computerconfiguratie** > **Beheersjablonen** > **Windows-onderdelen** > **Windows PowerShell** en dubbelklikt u op **uitvoering van Script inschakelen**.<br>3. Het uitvoeringsbeleid kan worden ingesteld op **niet geconfigureerd** of **ingeschakeld**. Indien ingesteld op **ingeschakeld**, zorg ervoor dat onder Opties, het uitvoeringsbeleid is ingesteld op **scripts lokale en externe ondertekende scripts toestaan** of **alle scripts toestaan**. |
@@ -87,9 +87,9 @@ Deze lijst bevat informatie over fouten die uw eindgebruikers tegenkomen kunt wa
 Als er een fout of een probleem met Azure AD-toepassingsproxy die niet is vermeld in deze handleiding voor probleemoplossing optreden, willen we het gehoord. Een e-mail sturen naar onze [feedback team](mailto:aadapfeedback@microsoft.com) met de details van de fout.
 
 ## <a name="see-also"></a>Zie ook
-* [Toepassingsproxy voor Azure Active Directory inschakelen](active-directory-application-proxy-enable.md)
-* [Publiceren van toepassingen met toepassingsproxy](application-proxy-publish-azure-portal.md)
-* [Eenmalige aanmelding inschakelen](active-directory-application-proxy-sso-using-kcd.md)
+* [Toepassingsproxy voor Azure Active Directory inschakelen](manage-apps/application-proxy-enable.md)
+* [Publiceren van toepassingen met toepassingsproxy](manage-apps/application-proxy-publish-azure-portal.md)
+* [Eenmalige aanmelding inschakelen](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 * [Voorwaardelijke toegang inschakelen](application-proxy-enable-remote-access-sharepoint.md)
 
 

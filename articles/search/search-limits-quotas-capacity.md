@@ -7,13 +7,13 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 05/10/2018
 ms.author: heidist
-ms.openlocfilehash: 59b6efd8459f675bc44891d7b04251260fdd38e9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9fd046efd01281de6d5b46cca37d22a48671b1b2
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="service-limits-in-azure-search"></a>Servicelimieten in Azure Search
 Maximum beperkt op opslag, workloads en aantallen van indexen, documenten en andere objecten afhankelijk zijn van of u [inrichten van Azure Search](search-create-service-portal.md) op **vrije**, **Basic**, of **Standaard** Prijscategorieën.
@@ -87,12 +87,13 @@ Vergeet niet uitsluiten van niet-waarop gegevens van de aanvraag om de documentg
 
 ## <a name="indexer-limits"></a>Indexeerfunctie limieten
 
-Basic services die zijn gemaakt na laat 2017 hebben een hogere limiet van 15 indexen, gegevensbronnen en indexeerfuncties.
+Basic services die zijn gemaakt na laat 2017 hebben een hogere limiet van 15 indexen, gegevensbronnen, vaardigheden en indexeerfuncties.
 
 | Resource | Gratis&nbsp;<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- |
 | Maximale aantal indexeerfuncties |3 |5 of 15|50 |200 |200 |N/A |
 | Maximale aantal gegevensbronnen |3 |5 of 15 |50 |200 |200 |N/A |
+| Maximale vaardigheden |3 |5 of 15 |50 |200 |200 |N/A |
 | Maximale indexering belasting per aanroep |10.000 documenten |Alleen beperkt door het maximum aantal documenten |Alleen beperkt door het maximum aantal documenten |Alleen beperkt door het maximum aantal documenten |Alleen beperkt door het maximum aantal documenten |N/A |
 | Maximale uitvoeringstijd | 1-3 minuten |24 uur |24 uur |24 uur |24 uur |N/A  |
 | BLOB-indexeerfunctie: maximale blobgrootte, MB |16 |16 |128 |256 |256 |N/A  |

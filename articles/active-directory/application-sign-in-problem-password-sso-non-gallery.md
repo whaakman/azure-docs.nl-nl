@@ -2,10 +2,10 @@
 title: Problemen met aanmelden bij een galerie van Azure AD-toepassing die is geconfigureerd voor wachtwoordherstel eenmalige aanmelding | Microsoft Docs
 description: Probleemgebieden die richtlijnen bieden voor het oplossen van problemen met aanmelden bij de galerie van Azure AD-toepassingen die zijn geconfigureerd voor eenmalige aanmelding wachtwoord wordt beschreven
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: c01bf353c9617811e14a3d60f91584b57ac0b5e7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f13f9fa54af13dbbe435a846be35c9e06fe65455
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problemen met aanmelden bij een galerie van Azure AD-toepassing die is geconfigureerd voor eenmalige aanmelding wachtwoord
 
@@ -195,5 +195,5 @@ een ondersteuningsticket opent met de volgende informatie, indien beschikbaar:
 -   Fiddler traceringen
 
 ## <a name="next-steps"></a>Volgende stappen
-[Geef één aanmelding bij uw apps met toepassingsproxy](active-directory-application-proxy-sso-using-kcd.md)
+[Geef één aanmelding bij uw apps met toepassingsproxy](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 

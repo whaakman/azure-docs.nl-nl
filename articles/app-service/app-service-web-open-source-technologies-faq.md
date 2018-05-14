@@ -13,13 +13,13 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 4fb443691e216169dd1322b96d77139ffde752d4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 747ee61d2620e7f79353207c0e44bcea36df30ee
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Open source-technologieën Veelgestelde vragen voor Web-Apps in Azure
 
@@ -140,7 +140,7 @@ Voor Azure Marketplace en aangepaste implementaties:
     * catalina.*yyyy-mm-dd*.log
     * host-manager.*yyyy-mm-dd*.log
     * localhost. *jjjj-mm-dd*.log
-    * manager.*yyyy-mm-dd*.log
+    * Manager. *jjjj-mm-dd*.log
     * site_access_log.*yyyy-mm-dd*.log
 
 
@@ -151,7 +151,7 @@ Voor portal **appinstellingen** implementaties:
     * catalina.*yyyy-mm-dd*.log
     * host-manager.*yyyy-mm-dd*.log
     * localhost. *jjjj-mm-dd*.log
-    * manager.*yyyy-mm-dd*.log
+    * Manager. *jjjj-mm-dd*.log
     * site_access_log.*yyyy-mm-dd*.log
 
 ## <a name="how-do-i-troubleshoot-jdbc-driver-connection-errors"></a>Hoe kan ik JDBC-stuurprogramma verbindingsfouten oplossen?

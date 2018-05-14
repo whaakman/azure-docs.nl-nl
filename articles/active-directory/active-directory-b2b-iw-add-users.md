@@ -5,20 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 05/11/2018
 ms.author: twooley
 author: twooley
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: a758fe4d9cb00af56f7b8ba6b894f0e87ee8c0d3
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 3ab78d6530bb792ad01a04c6774fe680579251db
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="how-do-information-workers-add-b2b-collaboration-users-to-azure-active-directory"></a>Hoe voeg informatiemedewerkers B2B-samenwerking gebruikers toe aan Azure Active Directory
 
 Informatiemedewerkers kunnen gebruiken de [toepassing Toegangsvenster](http://myapps.microsoft.com) B2B-samenwerking gebruikers toevoegen aan groepen en toepassingen die ze beheren.
+
+Nadat een gastgebruiker is toegevoegd aan de directory, de Informatiemedewerker kan ofwel de gastgebruiker een directe koppeling naar een gedeelde app verzenden of de gastgebruiker kunt klikken op de URL van de inwisselcode in de e-mail uitnodiging. Zie voor meer informatie over het proces inwisseling [B2B-samenwerking uitnodiging inwisseling](active-directory-b2b-redemption-experience.md).
 
 ## <a name="information-workers-adding-b2b-collaboration-users-to-an-application"></a>IT-medewerkers B2B-samenwerking gebruikers toevoegen aan een toepassing
 B2B-samenwerking gebruikers toewijzen aan een app als een Informatiemedewerker in een partnerorganisatie, zoals wordt weergegeven in de volgende video:

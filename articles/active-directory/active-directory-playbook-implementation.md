@@ -3,10 +3,10 @@ title: Implementatie van Azure Active Directory-implementatiemodel Playbook | Mi
 description: Verkennen en snel implementeren scenario's voor Identity and Access Management
 services: active-directory
 keywords: Azure active directory, playbook, Proof-of-Concept, implementatiemodel
-documentationcenter: 
+documentationcenter: ''
 author: dstefanMSFT
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: dstefan
-ms.openlocfilehash: e26dfe4aaa374f5587038a0de66c0bd8703c9a41
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2f01bdee5ffcc9e2f48278c7209da40ef64cc030
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-implementation"></a>Azure Active Directory-bewijs van Concept Playbook: uitvoering
 
@@ -87,7 +87,7 @@ Een hybride identiteit vormt de basis voor het merendeel van de enterprise-klant
 
 ### <a name="secure-remote-access-to-on-premises-applications"></a>Veilige externe toegang tot On-Premises toepassingen
 
-1. Bob, de Azure AD-hoofdbeheerder, is verbeterd talrijke verzoeken om werknemers toegang tot verschillende nuttig lokale resources, zoals de toepassing kosten tijdens het op afstand werken. Hij volgt de [toepassingsproxy documentatie](active-directory-application-proxy-enable.md) voor het installeren van een connector en onkosten publiceren als een toepassingsproxy-toepassing. 
+1. Bob, de Azure AD-hoofdbeheerder, is verbeterd talrijke verzoeken om werknemers toegang tot verschillende nuttig lokale resources, zoals de toepassing kosten tijdens het op afstand werken. Hij volgt de [toepassingsproxy documentatie](manage-apps/application-proxy-enable.md) voor het installeren van een connector en onkosten publiceren als een toepassingsproxy-toepassing. 
 2. De URL van de externe uitgaven delen Bob met Susie, een van de werknemers die extern toegang nodig heeft. Ze toegang heeft tot de koppeling en na verificatie op basis van AAD, ze kan toegang tot de app uitgaven en doorgaan om productief te zijn terwijl deze extern is. 
 3. Bob blijft vervolgens extra on-premises toepassingen hetzelfde proces gebruikt en die toegang geeft tot gebruikers naar behoefte publiceren. Hij voegt voorwaardelijke toegang en multi-factor authentication voor de gevoeliger toepassingen die hij publiceert, om ervoor te zorgen extra beveiliging.
 
@@ -155,7 +155,7 @@ Een hybride identiteit vormt de basis voor het merendeel van de enterprise-klant
 | [Selfservice voor wachtwoordherstel](#self-service-password-reset) | [Selfservice voor wachtwoordherstel](active-directory-playbook-building-blocks.md#self-service-password-reset) |
 | [Selfservice voor toegang tot toepassingen](#self-service-access-to-applications) | [Selfservice voor toegang tot toepassingen](active-directory-playbook-building-blocks.md#self-service-access-to-application-management) |
 
-### <a name="self-service-password-reset"></a>Selfservice voor wachtwoordherstel 
+### <a name="self-service-password-reset"></a>Selfservice voor wachtwoord opnieuw instellen 
 
 1. Bob is van de globale beheerder van Azure AD en wachtwoordbeheer voor Self Service maakt op een subset van gebruikers, met inbegrip van Susie. 
 2. Susie Logboeken in myapps portal en zien een bericht te registreren haar beveiligingsinformatie voor toekomstige wachtwoord opnieuw instellen voor gebeurtenissen.

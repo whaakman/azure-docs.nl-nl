@@ -7,13 +7,13 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/11/2018
 ms.author: manayar
-ms.openlocfilehash: ffdceeba829cc77d506236274ec1d1cc160eb525
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 7cc4c84ebae7ade4169f8d85a2d5cc11f1df6f87
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure ExpressRoute met Azure Site Recovery
 
@@ -46,11 +46,11 @@ De gecombineerde scenario wordt weergegeven in het volgende diagram: ![op lokale
 
 Azure Site Recovery kunt herstel na noodgevallen van [virtuele Azure-machines](azure-to-azure-architecture.md). Afhankelijk van of uw Azure virtual machines gebruik [Azure beheerd schijven](../virtual-machines/windows/managed-disks-overview.md), gegevens van replicatie wordt verzonden naar een Azure Storage-account of replica beheerd schijf op de doel-Azure-regio. Hoewel de replicatie-eindpunten openbaar zijn, wordt in replicatieverkeer voor replicatie van de virtuele machine in Azure, standaard Internet, ongeacht welke Azure-regio het virtuele netwerk van de bron bestaat in niet passeren. U kunt Azure standaardroute systeem voor het adresvoorvoegsel 0.0.0.0/0 met onderdrukken een [aangepaste route](../virtual-network/virtual-networks-udr-overview.md#custom-routes) en het omleiden van verkeer van de virtuele machine naar een virtueel apparaat voor lokale netwerk (NVA), maar deze configuratie wordt niet aanbevolen voor de Site Recovery replicatie. Als u aangepaste routes gebruikt, moet u [maken van een service-eindpunt van het virtuele netwerk](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) in uw virtuele netwerk voor 'Opslag' zodat het replicatieverkeer de grens van Azure niet laat.
 
-Voor noodherstel van de virtuele machine in Azure, zolang de gegevens van replicatie laat de grens Azure is ExpressRoute niet vereist voor replicatie. Nadat de virtuele machines, failover met de doel-Azure-regio, kunt u deze kunt openen met behulp van [privépeering](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
+Voor noodherstel van de virtuele machine in Azure is standaard ExpressRoute niet vereist voor replicatie. Nadat de virtuele machines, failover met de doel-Azure-regio, kunt u deze kunt openen met behulp van [privépeering](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
 
 Als u al van ExpressRoute gebruikmaakt vanaf uw on-premises datacentrum verbinding maken met de Azure VM's op de bron-regio, kunt u plannen voor het herstellen van ExpressRoute-verbinding op de doelregio failover. U kunt hetzelfde ExpressRoute-circuit gebruiken verbinding voor de doelregio via een nieuwe virtuele netwerkverbinding maken met of gebruikmaken van een afzonderlijke ExpressRoute-circuit en de verbinding voor herstel na noodgevallen. De verschillende mogelijke scenario's worden beschreven [hier](azure-vm-disaster-recovery-with-expressroute.md#failover-models-with-expressroute).
 
-U kunt Azure virtuele machines repliceren naar een Azure-regio in hetzelfde geografische cluster zoals beschreven [hier](../site-recovery/azure-to-azure-support-matrix.md#region-support). Als het gekozen doel-Azure-regio niet binnen dezelfde geopolitieke regio als de bron is, moet u mogelijk ExpressRoute Premium inschakelen. Raadpleeg voor meer details [ExpressRoute-locaties](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) en [ExpressRoute prijzen](https://azure.microsoft.com/en-us/pricing/details/expressroute/).
+U kunt Azure virtuele machines repliceren naar een Azure-regio in hetzelfde geografische cluster zoals beschreven [hier](../site-recovery/azure-to-azure-support-matrix.md#region-support). Als het gekozen doel-Azure-regio niet binnen dezelfde geopolitieke regio als de bron is, moet u mogelijk ExpressRoute Premium inschakelen. Raadpleeg voor meer details [ExpressRoute-locaties](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) en [ExpressRoute prijzen](https://azure.microsoft.com/pricing/details/expressroute/).
 
 ## <a name="next-steps"></a>Volgende stappen
 - Meer informatie over [ExpressRoute-circuits](../expressroute/expressroute-circuit-peerings.md).

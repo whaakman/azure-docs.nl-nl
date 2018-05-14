@@ -3,7 +3,7 @@ title: Toegang instellen voor een Azure Linux VM | Microsoft Docs
 description: Het beheren van gebruikers met beheerdersrechten en -toegang op de virtuele Linux-machines met behulp van de VMAccess-extensie en de Azure CLI 2.0 opnieuw instellen
 services: virtual-machines-linux
 documentationcenter: ''
-author: dlepow
+author: danielsollondon
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,19 +13,39 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 08/04/2017
-ms.author: danlep
-ms.openlocfilehash: a364d3c8c0297d988bc6a31b31921b49e70394bf
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.date: 05/10/2018
+ms.author: danis
+ms.openlocfilehash: b90b7948d10ff91f3c63b772bc302b1def416f2b
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Beheren van gebruikers met beheerdersrechten, SSH en controleer of het herstellen van schijven op virtuele Linux-machines met behulp van de VMAccess-extensie met de Azure CLI 2.0
+
+## <a name="overview"></a>Overzicht
+
 De schijf op uw Linux-VM worden fouten weergegeven. U enigszins het root-wachtwoord opnieuw instellen voor uw Linux-VM of uw persoonlijke SSH-sleutel per ongeluk worden verwijderd. Als dat is gebeurd terug in de dagen van het datacenter, zou u moet er station en open vervolgens de KVM ophalen via de serverconsole. De Azure-VMAccess-extensie beschouwen als die KVM-switch waarmee u toegang tot de console opnieuw instellen naar Linux of voer schijfonderhoud niveau.
 
-In dit artikel laat zien hoe de VMAccess-extensie van Azure gebruiken om te controleren of herstellen van een schijf, gebruikerstoegang opnieuw instellen, beheren van accounts voor gebruikers met beheerdersrechten of bijwerken van de SSH-configuratie op Linux. U kunt deze stappen ook uitvoeren met de [Azure CLI 1.0](../linux/using-vmaccess-extension-nodejs.md).
+In dit artikel laat zien hoe de VMAccess-extensie van Azure gebruiken om te controleren of herstellen van een schijf, gebruikerstoegang opnieuw instellen, beheren van accounts voor gebruikers met beheerdersrechten of bijwerken van de SSH-configuratie op Linux wanneer ze worden uitgevoerd als virtuele machines van Azure Resource Manager. Als u nodig hebt voor het beheren van klassieke virtuele machines - kunt u de instructies in de [klassieke VM documentatie](../linux/classic/reset-access-classic.md). 
 
+## <a name="prerequisites"></a>Vereisten
+
+### <a name="operating-system"></a>Besturingssysteem
+
+De toegang van de VM-extensie kan worden uitgevoerd op basis van deze Linux-distributies:
+
+
+| Distributie | Versie |
+|---|---|
+| Ubuntu | 16.04 TNS, 14.04 TNS en 12.04 TNS |
+| Debian | Debian 7,9 +, 8.2 + |
+| RedHat | RHEL 6.7 +, 7.1 + |
+| Oracle Linux | 6.4+, 7.0+ |
+| SUSE | 11 en 12 |
+| OpenSuse | openSUSE Leap 42,2 + |
+| CentOS | CentOS 6.3+, 7.0+ |
+| CoreOS | 494.4.0+ |
 
 ## <a name="ways-to-use-the-vmaccess-extension"></a>Manieren om te gebruiken de VMAccess-extensie
 Er zijn twee manieren waarop u de VMAccess-extensie op uw virtuele Linux-machines kan gebruiken:

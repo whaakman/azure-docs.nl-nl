@@ -2,10 +2,10 @@
 title: Problemen met aanmelden bij een toepassing met een deeplink | Microsoft Docs
 description: Het oplossen van problemen met toegang tot een toepassing van een gebruikmaken van Azure AD-deeplink-URL
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: f4c67961316c4b78b691a46b35bd0c19bb409fd8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3bf357fef2aad85c45abb1fa8e06ff4420a6f14a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="problems-signing-in-to-an-application-using-a-deeplink"></a>Problemen met aanmelden bij een toepassing met een deeplink
 
@@ -274,4 +274,4 @@ een ondersteuningsticket opent met de volgende informatie, indien beschikbaar:
 -   Fiddler traceringen
 
 ## <a name="next-steps"></a>Volgende stappen
-[Geef één aanmelding bij uw apps met toepassingsproxy](active-directory-application-proxy-sso-using-kcd.md)
+[Geef één aanmelding bij uw apps met toepassingsproxy](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)

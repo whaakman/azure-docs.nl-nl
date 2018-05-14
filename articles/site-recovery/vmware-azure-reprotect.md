@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: rajanaki
-ms.openlocfilehash: aec87625cd00b11b41c248eecf7af650ae57036f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0946d5234292cfb69a7e9b5bc7846e6acf94dff4
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>Machines van Azure naar een on-premises site opnieuw beveiligen
 
@@ -79,7 +79,7 @@ Nadat u een hoofddoelserver hebt gemaakt, het volgende doen:
     - Het bewaarvolume standaard voor Windows is het R-volume.
     - Het standaard bewaarvolume voor Linux is /mnt/retention.
 - U moet een nieuwe schijf toevoegen als u een bestaande proces server of configuratieserver server-machine of een schaal of een proces op het server-master server doelmachine. Het nieuwe station moet voldoen aan deze vereisten. Als het bewaarstation niet aanwezig is, wordt het niet weergegeven in de selectielijst van de vervolgkeuzelijst op de portal. Nadat u een station hebt toegevoegd aan het hoofddoel lokale, duurt het 15 minuten duren voordat het station moet worden weergegeven in de selectie op de portal. U kunt ook de configuratieserver vernieuwen als het station niet wordt weergegeven na 15 minuten.
-- Installeer VMware tools op de hoofddoelserver. Zonder de VMware-hulpprogramma's kan niet de datastores op het hoofddoel ESXi-host worden gedetecteerd.
+- VMware-hulpprogramma's of open-vm-hulpprogramma's installeren op de hoofddoelserver. Zonder de hulpprogramma's, kan niet de datastores op het hoofddoel ESXi-host worden gedetecteerd.
 - Stel de `disk.EnableUUID=true` instellen in de configuratieparameters van het hoofddoel virtuele machine in VMware. Als deze rij niet bestaat, moet u deze toevoegen. Deze instelling is vereist voor een consistente UUID naar de schijf van de virtuele machine (VMDK) bieden, zodat deze correct koppelt.
 - De ESX-host waarop het hoofddoel wordt gemaakt, moet ten minste één VMFS datastore gekoppeld hebben. Als er geen, de **Datastore** invoer op de pagina opnieuw beveiligen wordt niet leeg zijn en kan niet worden voortgezet.
 - De hoofddoelserver kan geen momentopnamen op de schijven hebben. Als er momentopnamen, beveiligingspoging en failback is mislukt.

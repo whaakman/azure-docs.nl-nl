@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 9fa0d74b2c07d3e460abc54ea6ef9733f07a64d1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8d9b9c74ead54280d82bf2b0f9a2232723b2af63
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="azure-blockchain-workbench-messages-overview"></a>Overzicht van Azure Blockchain Workbench berichten
 
@@ -75,7 +75,7 @@ Hiermee wordt aangegeven dat een nieuw account moet worden toegevoegd aan de opg
 
 | Naam    | Beschrijving  |
 |----------|--------------|
-| Gebruikers-id  | ID van de gebruiker die is gemaakt |
+| UserId  | ID van de gebruiker die is gemaakt |
 | ChainIdentifier | Adres van de gebruiker die is gemaakt op het netwerk blockchain. In Ethereum, zou dit adres 'in de keten' van de gebruiker. |
 
 ``` csharp
@@ -166,7 +166,7 @@ Hiermee wordt aangegeven dat een aanvraag is gemaakt met het saldo van de gebrui
 | Naam    | Beschrijving                              |
 |---------|------------------------------------------|
 | Adres | Het adres van de gebruiker die is basis. |
-| Saldo | Het saldo van het saldo van de gebruiker.         |
+| Verdeling | Het saldo van het saldo van de gebruiker.         |
 | ChainID | De unieke id voor de keten.     |
 
 
@@ -246,4 +246,5 @@ public class AssignContractChainIdentifierRequest : MessageModelBase
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Azure Blockchain Workbench-architectuur](blockchain-workbench-architecture.md)
+> [!div class="nextstepaction"]
+> [Azure Blockchain Workbench-architectuur](blockchain-workbench-architecture.md)

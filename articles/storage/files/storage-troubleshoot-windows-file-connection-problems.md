@@ -2,7 +2,7 @@
 title: Oplossen van problemen in Windows Azure-bestanden | Microsoft Docs
 description: Het oplossen van problemen in Windows Azure-bestanden
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: willchen
 editor: na
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 073d163e139c9fd400e4b3177c26d4ddb6228ed0
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 78170df99e9ced304bebd9112d79b5c7e402f218
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Oplossen van problemen in Windows Azure-bestanden
 
@@ -51,15 +51,15 @@ Verbinding maken vanaf een client die een van de volgende biedt:
 
 Systeemfout 53 of Systeemfout 67 kan zich voordoen als de poort 445 uitgaande communicatie naar een datacenter Azure Files is geblokkeerd. De samenvatting van internetproviders die toestaan of weigeren van toegang via poort 445, Ga naar [TechNet](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
-Om te begrijpen of dit de reden achter het bericht 'Systeemfout 53' is, kunt u Portqry query uitvoeren op het eindpunt TCP:445. Als het eindpunt TCP:445 wordt weergegeven als gefilterd, is de TCP-poort geblokkeerd. Hier volgt een voorbeeldquery:
+Om te begrijpen of dit de reden achter het bericht 'Systeemfout 53' is, kunt u Portqry query uitvoeren op het eindpunt TCP:445. Als het eindpunt TCP:445 wordt weergegeven als gefilterd, is de TCP-poort geblokkeerd. Hier volgt een voorbeeld van een query:
 
   `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.windows.net -p TCP -e 445`
 
-Als TCP-poort 445 wordt geblokkeerd door een regel op het netwerkpad, ziet u de volgende uitvoer:
+Als de TCP-poort 445 wordt geblokkeerd door een regel op het netwerkpad, ziet u de volgende uitvoer:
 
   `TCP port 445 (microsoft-ds service): FILTERED`
 
-Zie voor meer informatie over het gebruik van Portqry [beschrijving van het opdrachtregelprogramma Portqry.exe](https://support.microsoft.com/help/310099).
+Zie [Description of the Portqry.exe command-line utility](https://support.microsoft.com/help/310099) (Beschrijving van het opdrachtregelhulpprogramma Portqry.exe) voor meer informatie over het gebruik van Portqry.
 
 ### <a name="solution-for-cause-2"></a>Oplossing voor oorzaak 2
 
@@ -188,7 +188,7 @@ Als u wilt een bestand via het netwerk kopieert, moet u het eerst ontsleutelen. 
 - Stel de volgende registersleutel:
   - Path = HKLM\Software\Policies\Microsoft\Windows\System
   - Waarde type DWORD =
-  - Name = CopyFileAllowDecryptedRemoteDestination
+  - Naam CopyFileAllowDecryptedRemoteDestination =
   - Waarde = 1
 
 Let erop dat voor het instellen van de registersleutel is van invloed op alle kopieerbewerkingen die zijn aangebracht aan netwerkshares.

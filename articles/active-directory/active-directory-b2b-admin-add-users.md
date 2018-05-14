@@ -5,20 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 05/11/2018
 ms.author: twooley
 author: twooley
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 842446ec0db96b9234fe0c578481ab06e9f0c896
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9d0565468d953c83ca5fee864b3079fbfee9bbf1
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Azure Active Directory B2B-samenwerking gebruikers toevoegen in de Azure portal
 
 Als een globale beheerder of een gebruiker die is toegewezen voor de functies van de directory beperkt beheerder, kunt u de Azure-portal om uit te nodigen B2B-samenwerking gebruikers. U kunt uitnodigen gastgebruikers naar de map, een groep of een toepassing. Nadat u een gebruiker via een van deze methoden uitnodigen, de uitgenodigde gebruikersaccount is toegevoegd aan Azure Active Directory (Azure AD), met een gebruikerstype *Gast*. Deze gebruiker moet vervolgens de uitnodiging voor toegang tot bronnen inwisselen.
+
+Nadat u een gastgebruiker naar de map toevoegt, u kunt ofwel verzenden de gastgebruiker een directe koppeling naar een gedeelde app of de gastgebruiker kunt klikken op de URL van de inwisselcode in de e-mail uitnodiging. Zie voor meer informatie over het proces inwisseling [B2B-samenwerking uitnodiging inwisseling](active-directory-b2b-redemption-experience.md).
+
+> [!IMPORTANT]
+> U moet de stappen in [instructies: het toevoegen van privacy-informatie van uw organisatie in Azure Active Directory](https://aka.ms/adprivacystatement) om toe te voegen van de URL van privacyverklaring van uw organisatie. Als onderdeel van de eerste keer uitnodiging inwisseling proces, moet een uitgenodigde gebruikers toestemming geven met de voorwaarden van uw privacy om door te gaan. 
 
 ## <a name="add-guest-users-to-the-directory"></a>Gastgebruikers toevoegen aan de directory
 
@@ -86,7 +91,7 @@ Als u wilt B2B-samenwerking gebruikers toevoegen aan een toepassing als beheerde
  
 ## <a name="resend-invitations-to-guest-users"></a>Uitnodigingen voor gastgebruikers verzenden
 
-Als een gastgebruiker nog niet hun uitnodiging gebruikt is, kunt u de uitnodiging opnieuw verzenden.
+Als een gastgebruiker nog niet voor de uitnodiging gebruikt is, kunt u de uitnodiging via e-mail opnieuw verzenden.
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) als beheerder van de Azure AD.
 2. Selecteer in het navigatiedeelvenster **Azure Active Directory**.
@@ -105,6 +110,4 @@ Als een gastgebruiker nog niet hun uitnodiging gebruikt is, kunt u de uitnodigin
 
 - Zie voor meer informatie over hoe beheerders van niet-Azure AD B2B-gastgebruikers kunt toevoegen, [hoe IT-medewerkers Voeg B2B-samenwerking gebruikers?](active-directory-b2b-iw-add-users.md)
 - Zie voor meer informatie over de uitnodigingsmail [de elementen van de uitnodigingsmail voor B2B-samenwerking](active-directory-b2b-invitation-email.md).
-- Zie voor meer informatie over de uitnodiging inwisseling proces [B2B-samenwerking uitnodiging inwisseling](active-directory-b2b-redemption-experience.md).
-
 

@@ -15,17 +15,17 @@ ms.date: 05/04/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e2057241065ecefbbcd398ddf482961359f51de7
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a96296e8918c658f1dc3ebeadf01bd064e80716a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Koppelingen voor apps die zijn gepubliceerd met Azure AD-toepassingsproxy hardcoded omleiden
 
 Azure AD-toepassingsproxy stelt uw lokale apps beschikbaar voor gebruikers die extern zijn of op hun eigen apparaten. Sommige apps echter zijn ontwikkeld met lokale koppelingen ingesloten in de HTML-code. Deze koppelingen werken niet goed wanneer de app op afstand wordt gebruikt. Wanneer er meerdere on-premises toepassingen naar elkaar verwijzen, geeft uw gebruikers verwachten dat de koppelingen blijven werken wanneer ze dat niet op kantoor zijn. 
 
-De beste manier om ervoor te zorgen dat koppelingen werken op dezelfde manier zowel binnen als buiten uw bedrijfsnetwerk noodzakelijk is voor het configureren van de externe URL's van uw apps voor dezelfde zijn als de interne URL's. Gebruik [aangepaste domeinen](active-directory-application-proxy-custom-domains.md) voor het configureren van de externe URL's om uw zakelijke domeinnaam in plaats van de proxy van het standaardtoepassingsdomein.
+De beste manier om ervoor te zorgen dat koppelingen werken op dezelfde manier zowel binnen als buiten uw bedrijfsnetwerk noodzakelijk is voor het configureren van de externe URL's van uw apps voor dezelfde zijn als de interne URL's. Gebruik [aangepaste domeinen](manage-apps/application-proxy-configure-custom-domain.md) voor het configureren van de externe URL's om uw zakelijke domeinnaam in plaats van de proxy van het standaardtoepassingsdomein.
 
 
 Als u aangepaste domeinen niet in uw tenant gebruiken, zijn er verschillende opties voor het ontwikkelen van deze functionaliteit. Al deze waarden zijn ook compatibel met aangepaste domeinen en elkaar, zodat u aangepaste domeinen en andere oplossingen indien nodig kunt configureren. 
@@ -40,7 +40,7 @@ Deze drie functies houdt uw koppelingen werken ongeacht waar uw gebruikers zijn.
 
  
 > [!NOTE]
-> De laatste optie is alleen voor tenants die voor welke reden dan ook niet met aangepaste domeinen hebben de dezelfde interne en externe URL's voor hun apps. Voordat u deze functie inschakelt, zien als [aangepaste domeinen in Azure AD-toepassingsproxy](active-directory-application-proxy-custom-domains.md) voor u kan doen. 
+> De laatste optie is alleen voor tenants die voor welke reden dan ook niet met aangepaste domeinen hebben de dezelfde interne en externe URL's voor hun apps. Voordat u deze functie inschakelt, zien als [aangepaste domeinen in Azure AD-toepassingsproxy](manage-apps/application-proxy-configure-custom-domain.md) voor u kan doen. 
 
 >Of, als de toepassing die u wilt configureren met een koppeling vertaling SharePoint is, raadpleegt u [alternatieve toegangstoewijzingen voor SharePoint 2013 configureren](https://technet.microsoft.com/library/cc263208.aspx) voor een andere methode om de toewijzing van koppelingen. 
 
@@ -118,6 +118,6 @@ Nu wanneer uw gebruikers toegang krijgen deze toepassing tot, scant de proxy aut
 We willen uw waarmee u deze functie werkt voor al uw apps. We zoeken op meer dan 30 labels in HTML en CSS. Hebt u een voorbeeld van de gegenereerde koppelingen die niet zijn wordt vertaald, verzendt een codefragment aan [Application Proxy Feedback](mailto:aadapfeedback@microsoft.com). 
 
 ## <a name="next-steps"></a>Volgende stappen
-[Aangepaste domeinen gebruiken met Azure AD-toepassingsproxy](active-directory-application-proxy-custom-domains.md) in dezelfde interne en externe URL
+[Aangepaste domeinen gebruiken met Azure AD-toepassingsproxy](manage-apps/application-proxy-configure-custom-domain.md) in dezelfde interne en externe URL
 
 [Alternatieve toegangstoewijzingen voor SharePoint 2013 configureren](https://technet.microsoft.com/library/cc263208.aspx)

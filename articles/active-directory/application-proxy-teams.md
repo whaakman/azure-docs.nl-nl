@@ -15,11 +15,11 @@ ms.date: 09/05/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 66fdc03d2945b84615ee39dcbcc9bc71ddb06711
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: f31b5be80ae56ffe4d0f570cb8d25da8cc098009
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Toegang tot uw on-premises toepassingen via Microsoft-Teams
 
@@ -30,7 +30,7 @@ Uw gebruikers cloud-apps kunnen toevoegen aan hun kanalen Teams [tabbladen](http
 
 ## <a name="install-the-application-proxy-connector-and-publish-your-app"></a>De Application Proxy connector installeert en uw app publiceren
 
-Als u dat nog niet gedaan hebt, [Application Proxy configureren voor uw tenant en de connector installeert](active-directory-application-proxy-enable.md). Vervolgens [publiceren van uw on-premises toepassing](application-proxy-publish-azure-portal.md) voor externe toegang. Wanneer u de app publiceren wilt: Noteer de externe URL omdat deze wordt gebruikt om de app toevoegen aan Teams.
+Als u dat nog niet gedaan hebt, [Application Proxy configureren voor uw tenant en de connector installeert](manage-apps/application-proxy-enable.md). Vervolgens [publiceren van uw on-premises toepassing](manage-apps/application-proxy-publish-azure-portal.md) voor externe toegang. Wanneer u de app publiceren wilt: Noteer de externe URL omdat deze wordt gebruikt om de app toevoegen aan Teams.
 
 Als u al uw Apps die zijn gepubliceerd, maar niet meer de externe URL's weet, opzoeken ze de [Azure-portal](https://portal.azure.com). Meld u aan en navigeert u naar **Azure Active Directory** > **bedrijfstoepassingen** > **alle toepassingen** > uw app selecteren >  **Toepassingsproxy**.
 
@@ -55,4 +55,4 @@ Zodra de tabblad van een lid van een team wordt toegevoegd, wordt deze weergegev
 ## <a name="next-steps"></a>Volgende stappen
 
 - Meer informatie over hoe [lokale SharePoint-sites publiceren](application-proxy-enable-remote-access-sharepoint.md) met toepassingsproxy.
-- Configureren van uw apps te gebruiken [aangepaste domeinen](active-directory-application-proxy-custom-domains.md) voor de externe URL. 
+- Configureren van uw apps te gebruiken [aangepaste domeinen](manage-apps/application-proxy-configure-custom-domain.md) voor de externe URL. 

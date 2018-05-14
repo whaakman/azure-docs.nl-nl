@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 01e2fa997876444fa52c419eb46d2b2d87b74fa8
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 11726b274d72f263ff3defeb7eb7b80594681e15
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Maken, wijzigen of een virtueel netwerk-peering verwijderen
 
@@ -125,7 +125,7 @@ Als u wilt dat virtuele netwerken om te communiceren soms, maar niet altijd, in 
   Er is geen peering tussen VirtualNetwork1 en VirtualNetwork3 via VirtualNetwork2. Als u maken van een virtueel netwerk peering tussen VirtualNetwork1 en VirtualNetwork3 wilt, hebt u een peering tussen VirtualNetwork1 en VirtualNetwork3 maken.
 - Namen in virtuele netwerken peer is ingesteld met standaard Azure-naamomzetting kan niet worden omgezet. Voor het omzetten van namen in andere virtuele netwerken, moet u [Azure DNS voor persoonlijke domeinen](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of een aangepaste DNS-server. Zie voor meer informatie over het instellen van uw eigen DNS-server, [naamomzetting met uw eigen DNS-server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 - Resources in virtuele netwerken peer is ingesteld in dezelfde regio kunnen met elkaar communiceren met de bandbreedte en de latentie alsof ze zich in hetzelfde virtuele netwerk. De grootte van elke virtuele machine heeft echter een eigen maximale netwerkbandbreedte. Zie voor meer informatie over maximale netwerkbandbreedte voor andere virtuele machine grootten, [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) grootten van virtuele machines.
-- De abonnementen die beide virtuele netwerken in de peering, moet zijn gekoppeld aan dezelfde Azure Active Directory-tenant. Als u nog een AD-tenant hebt, kunt u snel [maken van een](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). U kunt een [VPN-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) twee virtuele netwerken die bestaan uit verschillende abonnementen die zijn gekoppeld aan verschillende Active Directory-tenants verbinding maken.
+- De virtuele netwerken kunnen zich in dezelfde of verschillende abonnementen. Wanneer de virtuele netwerken in verschillende abonnementen behoren, is beide abonnementen gekoppeld aan dezelfde Azure Active Directory-tenant. Als u nog een AD-tenant hebt, kunt u snel [maken van een](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). U kunt een [VPN-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) twee virtuele netwerken die bestaan uit verschillende abonnementen die gekoppeld aan verschillende Active Directory-tenants zijn verbinding maken.
 - Een virtueel netwerk kan worden ingesteld als peer met een ander virtueel netwerk en ook worden verbonden met een ander virtueel netwerk met een virtueel netwerk van Azure-gateway. Wanneer u virtuele netwerken zijn verbonden via peering en een gateway, wordt verkeer tussen virtuele netwerken loopt via de peeringconfiguratie in plaats van de gateway.
 - Er wordt een nominaal bedrag in rekening gebracht voor inkomend en uitgaand verkeer dat gebruikmaakt van een virtueel netwerk-peering. Zie de pagina [prijzen](https://azure.microsoft.com/pricing/details/virtual-network) voor meer informatie.
 * <a name="cross-region"></a>U kunt virtuele netwerken in de dezelfde regio, of verschillende regio's op hetzelfde niveau. De volgende beperkingen zijn niet van toepassing wanneer beide virtuele netwerken zich in de *dezelfde* regio, maar zijn van toepassing wanneer de virtuele netwerken globaal brengen: 

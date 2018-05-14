@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 04/30/2018
 ms.author: cynthn
-ms.openlocfilehash: c36498d2f4fef506dc7047fe91666aceec73c13d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 3984c94770290ad29394a06b20f2dc64a980c4a8
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-reset-a-linux-vm-password-or-ssh-key-fix-the-ssh-configuration-and-check-disk-consistency-using-the-vmaccess-extension"></a>Het opnieuw instellen van een Linux-VM wachtwoord of SSH-sleutel, los van de SSH-configuratie en consistentie van de schijf met behulp van de VMAccess-extensie controleren
 Als u geen verbinding met een virtuele Linux-machine in Azure vanwege een vergeten wachtwoord, een onjuiste Secure Shell (SSH)-sleutel, of een probleem met de SSH-configuratie gebruiken de VMAccessForLinux-extensie met de Azure CLI opnieuw instellen van het wachtwoord of SSH-sleutel, los van de SSH-configuratie en controleren van de consistentie van de schijf. 

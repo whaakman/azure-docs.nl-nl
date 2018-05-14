@@ -5,18 +5,18 @@ services: key-vault
 documentationcenter: ''
 author: barclayn
 manager: mbaldwin
-ms.assetid: ''
+ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: identity
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 4a765b314b9879877bb6ff926e4a6584456b7823
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b4e317a82b93513c6161d9da0c55883e99580cbb
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Zelfstudie: Een Azure-web-toepassing om te lezen van een geheim van de Sleutelkluis configureren
 
@@ -61,8 +61,8 @@ Vervolgens maakt u een Sleutelkluis in de resourcegroep in de vorige stap hebt g
 > Hoewel 'ContosoKeyVault' als naam voor onze Sleutelkluis in deze zelfstudie wordt gebruikt, moet u een unieke naam op.
 
 * De kluisnaam van de **ContosoKeyVault**.
-* De naam van resourcegroep **ContosoResourceGroup**.
-* De locatie **VS-Oost**.
+* Naam van resourcegroep **ContosoResourceGroup**.
+* De locatie **VS - oost**.
 
 ```azurecli
 az keyvault create --name '<YourKeyVaultName>' --resource-group ContosoResourceGroup --location eastus
@@ -74,9 +74,9 @@ De uitvoer van deze opdracht worden de eigenschappen van de nieuwe Sleutelkluis.
 * **Vault URI**: In het voorbeeld is dit https://<YourKeyVaultName>.vault.azure.net/. Toepassingen die via de REST API gebruikmaken van uw kluis, moeten deze URI gebruiken.
 
 >[!IMPORTANT]
-> Als u de fout Parameter 'vault_name krijgt' aan het volgende patroon volgen voldoen moet: ' ^ [een-zA-Z0 - 9-] {3,24} $'-naam param waarde is niet uniek of voldoet niet aan voor een tekenreeks die bestaat uit alfanumerieke tekens van 3 tot 24 lang.
+> Als u de fout Parameter 'vault_name krijgt' aan het volgende patroon volgen voldoen moet: ' ^ [een-zA-Z0 - 9-]{3,24}$'-naam param waarde is niet uniek of voldoet niet aan voor een tekenreeks die bestaat uit alfanumerieke tekens van 3 tot 24 lang.
 
-Op dit moment is uw Azure-account de enige mogen bewerkingen uitvoeren op deze nieuwe kluis.
+Vanaf dit punt is uw Azure-account nu als enige gemachtigd om bewerkingen op deze nieuwe kluis uit te voeren.
 
 ## <a name="add-a-secret-to-key-vault"></a>Een geheim toevoegen aan sleutelkluis
 

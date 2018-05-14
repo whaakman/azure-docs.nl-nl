@@ -10,11 +10,11 @@ ms.author: twooley
 author: twooley
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 1c13da977021538651084ec4462cf8bd32f131d7
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 028bbb28c7091db3c3ebea321ca2e167b999949d
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Gebruikers in Azure AD GRANT B2B toegang tot uw on-premises toepassingen
 
@@ -27,7 +27,7 @@ Als uw lokale app gebruikmaakt van verificatie op basis van SAML, kunt u deze ap
 U moet het volgende doen:
 
 - De SAML-app integreren met behulp van de toepassingssjabloon niet galerie, zoals beschreven in [configureren van eenmalige aanmelding tot toepassingen die zich niet in de Azure Active Directory-toepassingsgalerie](active-directory-saas-custom-apps.md). Zorg ervoor dat u gebruiken voor de **aanmeldings-URL** waarde.
--  Azure AD-toepassingsproxy gebruiken voor het publiceren van de app lokaal met **Azure Active Directory** geconfigureerd als de verificatiebron. Zie voor instructies [toepassingen publiceren met Azure AD-toepassingsproxy](application-proxy-publish-azure-portal.md). 
+-  Azure AD-toepassingsproxy gebruiken voor het publiceren van de app lokaal met **Azure Active Directory** geconfigureerd als de verificatiebron. Zie voor instructies [toepassingen publiceren met Azure AD-toepassingsproxy](manage-apps/application-proxy-publish-azure-portal.md). 
 
    Wanneer u configureert de **interne Url** instellen, de aanmeldings-URL die u hebt opgegeven in de niet gallery-toepassingssjabloon gebruiken. Op deze manier kunnen gebruikers toegang tot de app vanuit buiten de grens van de organisatie. Toepassingsproxy voert het SAML eenmalige aanmelding voor de lokale app.
  
@@ -37,8 +37,8 @@ U moet het volgende doen:
 
 U kunt B2B gebruikers toegang tot on-premises toepassingen die zijn beveiligd met geïntegreerde Windows-verificatie en Kerberos-beperkte overdracht, moet u de volgende onderdelen:
 
-- **Verificatie via Azure AD-toepassingsproxy**. B2B-gebruikers moeten toegang hebben tot de on-premises toepassing. Om dit te doen, moet u de app lokaal via de Azure AD-toepassingsproxy publiceren. Zie voor meer informatie [aan de slag met Application Proxy en installeer de connector](active-directory-application-proxy-enable.md) en [toepassingen publiceren met Azure AD-toepassingsproxy](application-proxy-publish-azure-portal.md).
-- **Autorisatie via een B2B-gebruikersobject in de on-premises directory**. De toepassing moet kunnen verlenen toegang tot de juiste resources en gebruiker toegangscontroles uitvoeren. IWA en KCD moet een gebruikersobject in de lokale Windows Server Active Directory om deze autorisatie te voltooien. Zoals beschreven in [hoe eenmalige aanmelding met KCD works](active-directory-application-proxy-sso-using-kcd.md#how-single-sign-on-with-kcd-works), Application Proxy moet dit gebruikersobject voor de gebruiker imiteren en het verkrijgen van een Kerberos-token naar de app. 
+- **Verificatie via Azure AD-toepassingsproxy**. B2B-gebruikers moeten toegang hebben tot de on-premises toepassing. Om dit te doen, moet u de app lokaal via de Azure AD-toepassingsproxy publiceren. Zie voor meer informatie [aan de slag met Application Proxy en installeer de connector](manage-apps/application-proxy-enable.md) en [toepassingen publiceren met Azure AD-toepassingsproxy](manage-apps/application-proxy-publish-azure-portal.md).
+- **Autorisatie via een B2B-gebruikersobject in de on-premises directory**. De toepassing moet kunnen verlenen toegang tot de juiste resources en gebruiker toegangscontroles uitvoeren. IWA en KCD moet een gebruikersobject in de lokale Windows Server Active Directory om deze autorisatie te voltooien. Zoals beschreven in [hoe eenmalige aanmelding met KCD works](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), Application Proxy moet dit gebruikersobject voor de gebruiker imiteren en het verkrijgen van een Kerberos-token naar de app. 
 
    Er zijn twee methoden beschikbaar waarmee u kunt de Gast gebruikersobjecten die vereist voor autorisatie in de on-premises directory zijn maken voor het scenario B2B-gebruiker:
 

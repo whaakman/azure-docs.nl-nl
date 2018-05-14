@@ -13,16 +13,16 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/9/2018
+ms.date: 5/11/2018
 ms.author: adigan,markgal
-ms.openlocfilehash: a907335ace1f6ea9ec427327d28ca9be5ce02fcc
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 99ac43efa5d3211bbe2d790f28532e682058313c
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Back-up van bestanden en toepassingen op Azure-Stack
-U kunt Azure back-up beveiligen (of back-up) bestanden en toepassingen op Azure-Stack. Als u wilt back-up van bestanden en toepassingen, Microsoft Azure Backup-Server te installeren als een virtuele machine uitgevoerd op Azure-Stack. Eenmaal u Azure Backup-Server hebt geïnstalleerd, voegt Azure-schijven voor een verhoging van de lokale opslag beschikbaar voor back-upgegevens op korte termijn. Azure Backup-Server gebruikmaakt van Azure-opslag op lange termijn.
+U kunt Azure back-up beveiligen (of back-up) bestanden en toepassingen op Azure-Stack. Als u wilt back-up van bestanden en toepassingen, Microsoft Azure Backup-Server te installeren als een virtuele machine uitgevoerd op Azure-Stack. U kunt alle toepassingen, die op elke server Azure-Stack in hetzelfde virtuele netwerk kunt beveiligen. Eenmaal u Azure Backup-Server hebt geïnstalleerd, voegt Azure-schijven voor een verhoging van de lokale opslag beschikbaar voor back-upgegevens op korte termijn. Azure Backup-Server gebruikmaakt van Azure-opslag op lange termijn.
 
 > [!NOTE]
 > Hoewel Azure Backup-Server en System Center Data Protection Manager (DPM) zijn vergelijkbaar, wordt DPM wordt niet ondersteund voor gebruik met Azure-Stack.
@@ -44,8 +44,7 @@ Azure Backup-Server beveiligt de volgende Stack Azure VM-werkbelastingen.
 | SQL Server 2012 SP1 | Database |
 | SharePoint 2013 | Farm, database, frontend, webserver |
 | SharePoint 2010 | Farm, database, frontend, webserver |
-| Systeemstatus | Systeemstatus |
-| Bare-metal recovery (BMR) | BMR, systeemstatus, bestanden en mappen | 
+
 
 ## <a name="install-azure-backup-server"></a>Azure Backup-Server installeren
 Zie het artikel Azure Backup-Server installeren op een virtuele machine van Azure-Stack [voorbereiden van de back-up van werkbelastingen met Azure Backup-Server](backup-azure-microsoft-azure-backup.md). Voordat u installeren en configureren van Azure Backup-Server, worden rekening met het volgende:
@@ -76,47 +75,13 @@ Als gedeeld met andere virtuele machines, kunnen de grootte van de opslagruimte 
     - gegevens die worden hersteld vanuit de cloud (lokaal faseringsgebied)
   
 ### <a name="configuring-azure-backup-temporary-disk-storage"></a>Azure Backup tijdelijke schijfopslag configureren
-Elke virtuele machine van Azure-Stack wordt geleverd met tijdelijke schijfruimte die beschikbaar is voor de gebruiker als volume D:`\`. Het lokale faseringsgebied dat Azure Backup nodig kan worden geconfigureerd dat het zich in D:`\`, en de cachelocatie kan worden geplaatst op C:`\`. Er is geen opslag moet verzinken weg van de gegevensschijven gekoppeld aan de virtuele machine van Azure Backup-Server op deze manier.
+Elke virtuele machine van Azure-Stack wordt geleverd met tijdelijke schijfruimte die beschikbaar is voor de gebruiker als volume `D:\`. Het lokale faseringsgebied dat Azure Backup nodig kan worden geconfigureerd dat het zich in `D:\`, en de cachelocatie kan worden geplaatst op `C:\`. Er is geen opslag moet verzinken weg van de gegevensschijven gekoppeld aan de virtuele machine van Azure Backup-Server op deze manier.
 
 ### <a name="scaling-deployment"></a>Implementatie schalen
 Als u schalen van uw implementatie wilt, hebt u de volgende opties:
   - Opschalen: verhoog de grootte van de virtuele machine Azure Backup-Server op D-reeks uit een reeks en verhogen van de lokale opslag [per de instructies van de virtuele machine Azure Stack](../azure-stack/user/azure-stack-manage-vm-disks.md).
   - Gegevens overdragen: verzend oudere gegevens naar Azure Backup-Server en bewaar alleen de nieuwste gegevens op de opslag die is gekoppeld aan de Azure Backup-Server.
   - Uitschalen - toevoegen van meer back-up van Azure-Servers om de werkbelastingen te beveiligen.
-
-
-## <a name="bare-metal-recovery-for-azure-stack-vm"></a>Bare Metal Recovery voor Azure Stack VM
-
-Een bare-metal recovery (BMR) back-up beveiligt besturingssysteembestanden en alle essentiële volumegegevens, behalve gebruikersgegevens. Een BMR back-up bevat een systeemstatusback-up. De volgende procedures wordt uitgelegd hoe de BMR-gegevens herstellen.
-
-### <a name="run-recovery-on-the-azure-backup-server"></a>Herstel uitvoeren op de Azure Backup-Server
-
-Open de console van de Azure Backup-Server.
-
-1. Klik in de console **herstel**, de computer die u wilt herstellen en klik op Zoeken **Bare Metal Recovery**.
-2. Beschikbare herstelpunten worden weergegeven in vet weergegeven in de kalender. Selecteer de datum en tijd voor het herstelpunt dat u wilt gebruiken.
-3. In **Type herstelbewerking selecteren**, selecteer **kopiëren naar een netwerkmap**.
-4. In **bestemming opgeven**, selecteer waar u wilt kopiëren van de gegevens. Vergeet niet dat de geselecteerde bestemming voldoende ruimte voor het herstelpunt moet hebben. Het wordt aangeraden dat u een nieuwe map maken.
-5. In **herstelopties opgeven**, selecteer de beveiligingsinstellingen wilt toepassen en kies of u hardwaremomentopnamen op basis van SAN te gebruiken voor sneller herstel.     Momentopnamen van hardware op basis van SAN zijn een optie alleen als u een SAN met deze functionaliteit ingeschakeld en de mogelijkheid om te maken en een kloon hebt om deze beschrijfbaar te splitsen. Ook voor hardwaremomentopnamen van op basis van SAN te werken, moet de beveiligde computer en de Azure Backup-Server worden verbonden met hetzelfde netwerk.
-6. Meldingsopties instellen en klik op **herstellen** op de **samenvatting** pagina.
-
-### <a name="set-up-the-share-location"></a>De sharelocatie instellen
-In de console Azure Backup-Server:
-1. Navigeer naar de map met de back-up op de locatie herstellen.
-2. Deel de map boven WindowsImageBackup, zodat de hoofdmap van de gedeelde map de map WindowsImageBackup is. Als de map WindowsImageBackup wordt niet gedeeld, kan het terugzetten van de back-up niet gevonden. Als u wilt verbinding maken met behulp van WinRE, moet u een WinRE toegankelijke share en de juiste IP-adres en referenties.
-
-### <a name="restore-the-machine"></a>De machine herstellen
-
-1. Op de virtuele machine waar u BMR herstellen, open een verhoogde opdrachtprompt en typ de volgende opdrachten. **/boottore** geeft aan dat Windows HERSTELOMGEVING wordt automatisch zodra het opstarten van het systeem gestart.
-```
-Reagentc /boottore
-shutdown /r /t 0
-```
-
-2. Selecteer de taal en landinstellingen-instellingen in het dialoogvenster openen. Op de **installeren** Schakel in het scherm **uw computer herstellen**.
-3. Op de **opties voor Systeemherstel** pagina **herstellen van de computer met de systeeminstallatiekopie van een dat u eerder hebt gemaakt**.
-4. Op de **Selecteer een systeemkopieback-up** pagina **een systeemkopie selecteren** > **Geavanceerd** > **een systeemkopie zoeken op het netwerk**. Als u een waarschuwing wordt weergegeven, selecteert u **Ja**. Om de installatiekopie te selecteren, gaat u naar de netwerkshare, voer de referenties in en selecteer het herstelpunt. Hiermee wordt er gescand voor beschikbaar is in dat herstelpunt specifieke back-ups. Selecteer het herstelpunt.
-5. In **kiezen hoe de back-up terugzetten**, selecteer **schijven formatteren en opnieuw partitioneren**. Controleer de instellingen in het volgende scherm en klikt u op **voltooien** om te beginnen met de hersteltaak. Opnieuw opstarten als vereist.
 
 ## <a name="see-also"></a>Zie ook
 Zie voor informatie over andere werkbelastingen beveiligen met behulp van Azure Backup-Server een van de volgende artikelen:

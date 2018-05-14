@@ -15,11 +15,11 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: f7fcd6e9746984b79ba83d0d9157b356bf315dfe
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 3ffc453c98f8d21f1cd6f7025387031bdacf073a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publiceren van toepassingen op afzonderlijke netwerken en locaties met groepen van de connector
 
@@ -33,7 +33,7 @@ Alle toepassingen zijn toegewezen aan de groep van een connector. Als u geen gro
 >Als u een grote Application Proxy-implementatie hebt, niet alle toepassingen aan de standaardgroep connector toewijzen. Op die manier nieuwe connectors niet live verkeer niet ontvangen totdat u ze aan een groep active-connector toewijzen. Deze configuratie kunt u connectors plaatsen in een niet-actieve modus door te terug verplaatsen naar de standaardgroep, zodat voor het uitvoeren van onderhoud zonder enige impact op uw gebruikers.
 
 ## <a name="prerequisites"></a>Vereisten
-Als u wilt groeperen uw connectors, die u hebt om te controleren of u [geïnstalleerd meerdere connectors](active-directory-application-proxy-enable.md). Wanneer u een nieuwe connector installeert, wordt automatisch lid wordt van de **standaard** connector groep.
+Als u wilt groeperen uw connectors, die u hebt om te controleren of u [geïnstalleerd meerdere connectors](manage-apps/application-proxy-enable.md). Wanneer u een nieuwe connector installeert, wordt automatisch lid wordt van de **standaard** connector groep.
 
 ## <a name="create-connector-groups"></a>Connector-groepen maken
 Volg deze stappen om net zoveel connector groepen als u wilt maken. 
@@ -126,6 +126,6 @@ In het onderstaande voorbeeld van heeft het bedrijf twee datacentra, A en B, met
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Azure AD-toepassingsproxy connectors begrijpen](application-proxy-understand-connectors.md)
-* [Eenmalige aanmelding inschakelen](application-proxy-sso-overview.md)
+* [Eenmalige aanmelding inschakelen](manage-apps/application-proxy-single-sign-on.md)
 
 

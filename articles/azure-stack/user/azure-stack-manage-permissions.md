@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 9944f51c080da6edd89927bfd26398024c5d4de2
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 4f9354426ba584b26213f8a104c14122a831a453
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Toegang tot bronnen met toegangsbeheer Azure Stack Role-Based beheren
 
@@ -38,6 +38,28 @@ Azure Stack heeft drie elementaire functies die u op alle brontypen toepassen ku
 * **Eigenaar** kunnen alles beheren, inclusief toegang tot bronnen.
 * **Inzender** kunnen alles beheren behalve toegang tot bronnen.
 * **Lezer** kunnen alles weergeven, maar u kunt geen wijzigingen aanbrengen.
+
+### <a name="resource-hierarchy-and-inheritance"></a>Resource-hiërarchie en overname
+
+Azure Stack heeft de volgende bron-hiërarchie:
+
+* Elk abonnement behoort tot één map op.
+* Elke resourcegroep behoort tot één abonnement.
+* Elke resource behoort tot één resourcegroep.
+
+Toegang waarmee u op een bovenliggend bereik wordt verleend wordt op een onderliggend bereik overgenomen. Bijvoorbeeld:
+
+* U toewijzen de rol lezer aan een Azure AD-groep in het abonnementsbereik. De leden van die groep kunnen elk van de resourcegroep en bron weergeven in het abonnement.
+* U toewijzen de rol van Inzender aan een toepassing op het groepsbereik resource. De toepassing kunt bronnen van alle typen in die resourcegroep, maar geen andere resourcegroepen in het abonnement te beheren.
+
+### <a name="assigning-roles"></a>rollen toewijzen
+
+U kunt meer dan één rol toewijzen aan een gebruiker en elke rol kan worden gekoppeld aan een ander bereik. Bijvoorbeeld:
+
+* U de rol van de lezer TestUser-A toewijzen met abonnement 1.
+* U toewijzen de eigenaar van TestUser-A rol aan TestVM-1.
+
+De Azure [roltoewijzingen](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) artikel vindt u gedetailleerde informatie over het weergeven en verwijderen van rollen toewijzen.
 
 ### <a name="resource-hierarchy-and-inheritance"></a>Resource-hiërarchie en overname
 

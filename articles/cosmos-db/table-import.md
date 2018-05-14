@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: sngun
-ms.openlocfilehash: 7a8eaaaaa8bbfa8cf9397ce52dfa93d71b0df30c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b6e912d450e1a2fed98fab5b18ba835396257ac9
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="import-data-for-use-with-the-azure-cosmos-db-table-api"></a>Gegevens importeren voor gebruik met de Azure-API voor tabel Cosmos DB
 
@@ -29,6 +29,10 @@ Deze zelfstudie bestaat uit de volgende taken:
 > * Het importeren van gegevens met het hulpprogramma voor migratie van gegevens
 > * Gegevens importeren met AzCopy
 > * Migreren van de tabel-API (preview) naar tabel-API 
+
+## <a name="prerequisites"></a>Vereisten
+
+* Verhoogt de doorvoer: de duur van de migratie is afhankelijk van de hoeveelheid doorvoer die u voor een afzonderlijke verzameling instelt of een set van verzamelingen. Zorg ervoor dat de doorvoer voor grotere gegevens migraties verhogen. Nadat u de migratie hebt voltooid, verlaagt u de doorvoer voor het opslaan van kosten. Zie voor meer informatie over de doorvoer in de Azure portal te verbeteren, prestatieniveaus en prijscategorieën in Azure Cosmos DB.
 
 ## <a name="data-migration-tool"></a>Hulpprogramma voor migratie van gegevens
 

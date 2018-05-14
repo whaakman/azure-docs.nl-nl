@@ -2,10 +2,10 @@
 title: Problemen met Kerberos-beperkte overdracht configuraties voor toepassingsproxy | Microsoft Docs
 description: Problemen met Kerberos-beperkte overdracht configuraties voor toepassingsproxy.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/09/2018
 ms.author: markvi
 ms.reviewer: harshja
-ms.openlocfilehash: a580b0afbd34623986ea8a3f60147a937c423e5e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 3ba089123198631c443a759ad62cb0ae5ca40ad3
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Problemen met Kerberos-beperkte overdracht configuraties voor toepassingsproxy
 
@@ -30,7 +30,7 @@ Als zodanig probeert in dit artikel toegang te bieden een potentieel verwijzing 
 
 In dit artikel maakt de volgende veronderstellingen:
 
--   De implementatie van Azure-toepassingsproxy per [documentatie](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable) en algemene toegang tot toepassingen niet KCD werkt zoals verwacht.
+-   De implementatie van Azure-toepassingsproxy per [documentatie](manage-apps/application-proxy-enable.md) en algemene toegang tot toepassingen niet KCD werkt zoals verwacht.
 
 -   De gepubliceerde doeltoepassing is gebaseerd op IIS en Microsoft implementatie van Kerberos.
 
@@ -42,7 +42,7 @@ In dit artikel maakt de volgende veronderstellingen:
 
 Azure Application Proxy kan worden geïmplementeerd in veel soorten infrastructuren of omgevingen en de architecturen geen twijfel bestaat organisatie variëren. Een van de meest voorkomende oorzaken van problemen met KCD zijn niet de omgevingen zelf, maar in plaats daarvan eenvoudige onjuiste configuraties of algemene toezicht.
 
-Daarom moet het is verstandig om te starten door ervoor te zorgen dat aan alle lay-out in vereisten wordt voldaan [KCD eenmalige aanmelding met de toepassingsproxy artikel met behulp van](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd) starten voor het oplossen van problemen.
+Daarom moet het is verstandig om te starten door ervoor te zorgen dat aan alle lay-out in vereisten wordt voldaan [KCD eenmalige aanmelding met de toepassingsproxy artikel met behulp van](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md) starten voor het oplossen van problemen.
 
 Met name de sectie over het configureren van KCD op 2012R2, omdat dit een fundamenteel andere benadering voor de configuratie van KCD in eerdere versies van Windows, maar houd ook rekening met verschillende andere overwegingen terwijl de veiligheidsmaatregelen:
 
@@ -68,13 +68,13 @@ alle voorzien zijn van de dezelfde symptoom van een failover naar SSO worden uit
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-Hoe u vervolgens oplossen, afhankelijk van het probleem en symptomen waargenomen. Bekijk voordat u doorgaat een, de volgende koppelingen als ze nuttige informatie die u niet nog afkomstig bevatten via zijn mogelijk:
+Hoe u oplossen, is afhankelijk van het probleem en waargenomen symptomen. Bekijk voordat u doorgaat een, de volgende koppelingen als ze nuttige informatie die u niet nog afkomstig bevatten via zijn mogelijk:
 
--   [Oplossen van problemen met toepassingsproxy en foutberichten](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot)
+-   [Oplossen van problemen met toepassingsproxy en foutberichten](active-directory-application-proxy-troubleshoot.md)
 
--   [Kerberos-fouten en problemen](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#kerberos-errors)
+-   [Kerberos-fouten en problemen](active-directory-application-proxy-troubleshoot.md#kerberos-errors)
 
--   [Werken met eenmalige aanmelding bij het on-premises en cloud identiteiten zijn niet identiek](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd#working-with-sso-when-on-premises-and-cloud-identities-are-not-identical)
+-   [Werken met eenmalige aanmelding bij het on-premises en cloud identiteiten zijn niet identiek](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities)
 
 Als u deze helemaal, vervolgens het belangrijkste probleem zeker hebt bestaat. Start het scheiden van de stroom in drie verschillende fasen die u kunt oplossen.
 
@@ -98,7 +98,7 @@ En de overeenkomende vermeldingen gezien dat het gebeurtenislogboek zou worden g
 
 -   Een A-record gebruiken in uw interne DNS voor de toepassing adres en niet een CName
 
--   Bevestig dat de host van de connector de rechten voor het delegeren aan de aangewezen doelaccount van SPN en dat is verleend **elk verificatieprotocol voor gebruiken** is geselecteerd. Zie voor meer informatie over dit onderwerp [SSO configuratie artikel](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd)
+-   Bevestig dat de host van de connector de rechten voor het delegeren aan de aangewezen doelaccount van SPN en dat is verleend **elk verificatieprotocol voor gebruiken** is geselecteerd. Zie voor meer informatie over dit onderwerp [SSO configuratie artikel](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 
 -   Controleer of er slechts één exemplaar van de SPN-naam bestaat in AD door uitgifte van een `setspn -x` vanaf een opdrachtprompt op de host van een domein lid
 
@@ -179,4 +179,4 @@ Als u nog steeds niet de voortgang van uw probleem, kan ondersteuning zou zijn m
 -   Dubbele hop verificatie - meestal gebruikt in scenario's waarbij lagen van een toepassing, met een back-end als front-end, beide verificatie te vereisen, zoals SQL Reporting Services.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Kerberos-beperkte delegatie (KCD) configureren op een beheerd domein](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-enable-kcd)
+[Kerberos-beperkte delegatie (KCD) configureren op een beheerd domein](../active-directory-domain-services/active-directory-ds-enable-kcd.md)

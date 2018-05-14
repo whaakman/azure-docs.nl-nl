@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/27/2018
+ms.date: 05/11/2018
 ms.author: manayar
-ms.openlocfilehash: 8f347827c640729112e2e8f4c11288b6bcb176ea
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 9294940785deb0834a419de8320286783635d68e
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="map-virtual-networks-in-different-azure-regions"></a>Virtuele netwerken in verschillende Azure-regio's toewijzen
 
@@ -37,7 +37,7 @@ Als u wilt toewijzen in een Azure-netwerk dat zich bevindt in een Azure-regio (B
 
 In het volgende voorbeeld wordt wordt de virtuele machine uitgevoerd in de regio Oost-Azië. De virtuele machine wordt gerepliceerd naar de regio Zuidoost-Azië.
 
-Als u wilt maken een netwerktoewijzing van de Oost-Azië regio voor de regio Zuidoost-Azië, selecteer de locatie van het bron-netwerk en de locatie van het doelnetwerk. Selecteer **OK**.
+Als u wilt maken een netwerktoewijzing van de Oost-Azië regio voor de regio Zuidoost-Azië, selecteer de locatie van het bron-netwerk en de locatie van het doelnetwerk. Selecteer vervolgens **OK**.
 
 ![Toevoegen van venster van de toewijzing van netwerk - bron- en doellocaties voor het Bronnetwerk selecteren](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
 
