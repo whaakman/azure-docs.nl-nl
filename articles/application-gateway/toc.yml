@@ -91,6 +91,8 @@
       href: tutorial-url-route-powershell.md
     - name: Webverkeer omleiden met Azure PowerShell
       href: tutorial-url-redirect-powershell.md
+    - name: Een zoneredundante toepassingsgateway maken
+      href: create-zone-redundant.md
 - name: Naslaginformatie
   items:
     - name: Azure-CLI

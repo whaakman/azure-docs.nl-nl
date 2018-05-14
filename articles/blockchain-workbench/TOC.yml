@@ -24,23 +24,27 @@
       href: blockchain-workbench-use-API.md
     - name: Problemen oplossen met apps
       href: blockchain-workbench-troubleshooting.md
-    - name: Gegevens van Workbench DB ophalen
-      href: blockchain-workbench-getdb-details.md
-    - name: Workbench SQL DB firewall configureren
-      href: blockchain-workbench-database-firewall.md
-    - name: Workbench-gegevens in Excel gebruiken
-      href: blockchain-workbench-data-excel.md
-    - name: Workbench-gegevens in Power BI gebruiken
-      href: blockchain-workbench-data-powerbi.md
-    - name: Workbench-gegevens in SQL Management Studio gebruiken
-      href: blockchain-workbench-data-sql-management-studio.md
+    - name: Workbench-gegevens gebruiken
+      items:
+        - name: DB-firewall configureren
+          href: blockchain-workbench-database-firewall.md
+        - name: DB-gegevens ophalen
+          href: blockchain-workbench-getdb-details.md
+        - name: Gegevens in Excel gebruiken
+          href: blockchain-workbench-data-excel.md
+        - name: Gegevens in Power BI gebruiken
+          href: blockchain-workbench-data-powerbi.md
+        - name: Gegevens in SQL Management Studio gebruiken
+          href: blockchain-workbench-data-sql-management-studio.md
 - name: Naslaginformatie
   items:
+    - name: Codevoorbeelden
+      href: 'https://github.com/Azure-Samples/blockchain'
     - name: Configuratie
       href: blockchain-workbench-configuration-overview.md
     - name: Databaseweergaven
       href: blockchain-workbench-database-views.md
-    - name: REST-API
-      href: 'https://docs.microsoft.com/rest/api/azure-blockchain-workbench'
     - name: Berichten-API
       href: blockchain-workbench-messages-overview.md
+    - name: REST-API
+      href: 'https://docs.microsoft.com/rest/api/azure-blockchain-workbench'

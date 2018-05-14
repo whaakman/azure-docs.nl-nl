@@ -62,34 +62,36 @@
               href: 'https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop'
             - name: Xamarin
               href: 'https://github.com/Azure-Samples/active-directory-b2c-xamarin-native'
-        - name: Web-apps
-          items:
-            - name: Overzicht
-              href: active-directory-b2c-reference-oidc.md
-            - name: ASP.NET
-              href: active-directory-b2c-devquickstarts-web-dotnet-susi.md
-            - name: ASP.NET Core
-              href: 'https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp'
-            - name: Node.js
-              href: active-directory-b2c-devquickstarts-web-node.md
-        - name: Apps met één pagina
-          items:
-            - name: Overzicht
-              href: active-directory-b2c-reference-spa.md
-            - name: JavaScript met MSAL
-              href: 'https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp'
-            - name: JavaScript met Hello
-              href: 'https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi'
-        - name: Web-API's
-          items:
-            - name: ASP.NET
-              href: active-directory-b2c-devquickstarts-api-dotnet.md
-            - name: ASP.NET Core
-              href: 'https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi'
-            - name: Node.js
-              href: 'https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi'
-            - name: Een .NET-web-API aanroepen
-              href: active-directory-b2c-devquickstarts-web-api-dotnet.md
+        - name: Referenties voor wachtwoord van resource-eigenaar
+          href: configure-ropc.md
+    - name: Web-apps
+      items:
+        - name: Overzicht
+          href: active-directory-b2c-reference-oidc.md
+        - name: ASP.NET
+          href: active-directory-b2c-devquickstarts-web-dotnet-susi.md
+        - name: ASP.NET Core
+          href: 'https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp'
+        - name: Node.js
+          href: active-directory-b2c-devquickstarts-web-node.md
+    - name: Apps met één pagina
+      items:
+        - name: Overzicht
+          href: active-directory-b2c-reference-spa.md
+        - name: JavaScript met MSAL
+          href: 'https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp'
+        - name: JavaScript met Hello
+          href: 'https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi'
+    - name: Web-API's
+      items:
+        - name: ASP.NET
+          href: active-directory-b2c-devquickstarts-api-dotnet.md
+        - name: ASP.NET Core
+          href: 'https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi'
+        - name: Node.js
+          href: 'https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi'
+        - name: Een .NET-web-API aanroepen
+          href: active-directory-b2c-devquickstarts-web-api-dotnet.md
     - name: Handleidingen
       items:
         - name: Id-providers configureren
@@ -102,7 +104,7 @@
               href: active-directory-b2c-setup-goog-app.md
             - name: Amazon
               href: active-directory-b2c-setup-amzn-app.md
-            - name: LinkdIn
+            - name: LinkedIn
               href: active-directory-b2c-setup-li-app.md
             - name: Twitter
               href: active-directory-b2c-setup-twitter-app.md
@@ -143,8 +145,12 @@
           href: active-directory-b2c-reference-usage-reporting-api.md
         - name: Auditlogboeken inzien
           href: active-directory-b2c-reference-audit-logs.md
+        - name: Gebruikersgegevens beheren
+          href: manage-user-data.md
         - name: Gebruikers migreren
           href: active-directory-b2c-user-migration.md
+        - name: Gebruikers met sociale identiteiten migreren
+          href: active-directory-b2c-social-migration.md
         - name: Met b2clogin.com
           href: b2clogin.md
         - name: Met leeftijd beperken
@@ -207,6 +213,8 @@
                   href: active-directory-b2c-reference-password-change-custom.md
                 - name: Aangemeld blijven inschakelen
                   href: active-directory-b2c-reference-kmsi-custom.md
+            - name: Gebruikerstoegang beheert
+              href: manage-user-access.md
             - name: Problemen oplossen
               items:
                 - name: Logboeken verzamelen met Application Insights

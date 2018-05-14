@@ -30,6 +30,8 @@
       href: render-coverage.md
     - name: Dekking voor routering
       href: routing-coverage.md
+    - name: Zoekcategorieën
+      href: search-categories.md
     - name: Ondersteunde talen
       href: supported-languages.md
 - name: Handleidingen

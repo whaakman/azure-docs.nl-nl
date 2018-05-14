@@ -7,10 +7,13 @@
     - name: Meer informatie over Time Series Insights
       href: time-series-insights-overview.md
 - name: Snelstartgidsen
-  expanded: true
   items:
     - name: Time Series Insights verkennen
       href: time-series-quickstart.md
+- name: Zelfstudies
+  items:
+    - name: TSI van JavaScript-clientbibliotheek verkennen
+      href: tutorial-explore-js-client-lib.md
 - name: Concepten
   items:
     - name: Uw omgeving plannen

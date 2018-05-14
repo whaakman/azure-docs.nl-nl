@@ -28,6 +28,11 @@
 ### [Beschikbaarheid en consistentie](event-hubs-availability-and-consistency.md)
 ### [Doorvoereenheden automatisch schalen](event-hubs-auto-inflate.md)
 ### [Apache Spark integreren met Event Hubs](event-hubs-spark-connector.md)
+## Event Hubs voor Kafka
+### [Event Hubs voor Kafka-ecosystemen](event-hubs-for-kafka-ecosystem-overview.md)
+### [Event-hubs maken waarvoor Kafka is ingeschakeld](event-hubs-create-kafka-enabled.md) 
+### [Streamen naar Azure Event Hubs voor Kafka-ecosystemen](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+### [Kafka MirrorMaker gebruiken met Azure Event Hubs voor Kafka-ecosystemen](event-hubs-kafka-mirror-maker-tutorial.md)
 ## Ontwikkelen
 ### [Gebeurtenissen verzenden met behulp van .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
 ### [Gebeurtenissen ontvangen met behulp van .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
