@@ -53,6 +53,8 @@
           href: app-insights-asp-net-core.md
         - name: Console
           href: application-insights-console.md
+        - name: Toepassingsdashboard
+          href: app-insights-overview-dashboard.md
     - name: Java-apps bewaken
       items:
         - name: Web-apps
@@ -208,7 +210,7 @@
               href: app-insights-usage-flows.md
             - name: Werkmappen
               href: app-insights-usage-workbooks.md
-        - name: Analytische gegevens
+        - name: Analyse
           items:
             - name: Overzicht
               href: app-insights-analytics.md
@@ -228,6 +230,8 @@
           href: app-insights-automate-with-flow.md
         - name: Automatiseren met een logische app van Azure
           href: automate-with-logic-apps.md
+        - name: Aangepaste e-mail-rapporten
+          href: automate-custom-reports.md
     - name: Ontwikkelen
       items:
         - name: API voor aangepaste gebeurtenissen en metrische gegevens
@@ -276,7 +280,7 @@
           href: app-insights-asp-net-troubleshoot-no-data.md
         - name: Snapshot Debugger
           href: app-insights-troubleshoot-snapshot-debugger.md
-        - name: Analytische gegevens
+        - name: Analyse
           href: app-insights-analytics-troubleshooting.md
         - name: Java
           href: app-insights-java-troubleshoot.md

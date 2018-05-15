@@ -45,6 +45,8 @@
       href: ssl-overview.md
     - name: URL-omleiding
       href: redirect-overview.md
+    - name: Statuscontrole
+      href: application-gateway-probe-overview.md
 - name: Handleidingen
   items:
     - name: Een toepassingsgateway maken
@@ -93,6 +95,20 @@
       href: tutorial-url-redirect-powershell.md
     - name: Een zoneredundante toepassingsgateway maken
       href: create-zone-redundant.md
+    - name: Aangepaste tests
+      items:
+        - name: Portal
+          href: application-gateway-create-probe-portal.md
+        - name: Klassieke PowerShell
+          href: application-gateway-create-probe-classic-ps.md
+        - name: Resource Manager PowerShell
+          href: application-gateway-create-probe-ps.md
+    - name: Problemen oplossen
+      items:
+        - name: Fouten van het type Ongeldige Gateway (502) oplossen
+          href: application-gateway-troubleshooting-502.md
+        - name: Diagnostiek
+          href: application-gateway-diagnostics.md
 - name: Naslaginformatie
   items:
     - name: Azure-CLI

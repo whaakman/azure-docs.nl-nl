@@ -34,6 +34,8 @@
       href: search-categories.md
     - name: Ondersteunde talen
       href: supported-languages.md
+    - name: Verbruiksmodel
+      href: consumption-model.md
 - name: Handleidingen
   items:
     - name: Maps-accounts beheren
@@ -115,7 +117,7 @@
     - name: Service-updates
       href: 'https://azure.microsoft.com/updates'
     - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-location-based-services'
+      href: 'http://stackoverflow.com/questions/tagged/azure-maps'
     - name: Technische casestudy's
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
     - name: Video's

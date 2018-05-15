@@ -25,7 +25,7 @@
       href: role-assignments-external-users.md
     - name: Activiteitenlogboeken
       href: change-history-report.md
-    - name: Verhoogde bevoegdheden voor tenantbeheerders
+    - name: Toegangsrechten voor de globale beheerder uitbreiden
       href: elevate-access-global-admin.md
     - name: Problemen oplossen
       href: troubleshooting.md

@@ -39,8 +39,8 @@
       href: network-watcher-nsg-flow-logging-overview.md
     - name: Netwerkbeveiligingsgroep weergeven
       href: network-watcher-security-group-view-overview.md
-    - name: Topologie van netwerk weergeven
-      href: network-watcher-topology-overview.md
+    - name: Op rollen gebaseerde toegangsmachtigingen
+      href: required-rbac-permissions.md
 - name: Handleidingen
   items:
     - name: Network Watcher configureren
@@ -150,16 +150,8 @@
           href: network-watcher-monitor-with-azure-automation.md
         - name: Problemen met on-premises connectiviteit via een VPN-gateway vaststellen
           href: network-watcher-diagnose-on-premises-connectivity.md
-    - name: Topologie van uw netwerk weergeven
-      items:
-        - name: Azure PowerShell
-          href: network-watcher-topology-powershell.md
-        - name: Azure-CLI
-          href: network-watcher-topology-cli.md
-        - name: Azure CLI 1.0
-          href: network-watcher-topology-cli-nodejs.md
-        - name: REST
-          href: network-watcher-topology-rest.md
+    - name: Topologie van netwerk weergeven
+      href: view-network-topology.md
     - name: De relatieve latentie tussen een locatie en een Azure-regio bepalen
       href: view-relative-latencies.md
 - name: Naslaginformatie

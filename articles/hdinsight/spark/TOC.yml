@@ -19,6 +19,10 @@
   items:
     - name: Query's uitvoeren op een Spark-cluster
       href: apache-spark-load-data-run-query.md
+    - name: VSCode gebruiken om Spark-query's uit te voeren
+      href: ../hdinsight-for-vscode.md
+    - name: IntelliJ gebruiken om Spark-query's uit te voeren
+      href: apache-spark-intellij-tool-plugin.md
     - name: Gegevens analyseren met BI-tools
       href: apache-spark-use-bi-tools.md
     - name: Streamingtaak uitvoeren
@@ -47,10 +51,10 @@
           href: apache-spark-eclipse-tool-plugin.md
         - name: Apps maken met IntelliJ
           href: apache-spark-intellij-tool-plugin.md
-        - name: Externe foutenopsporing voor Spark-taken met IntelliJ via VPN
-          href: apache-spark-intellij-tool-plugin-debug-jobs-remotely.md
         - name: Externe foutenopsporing voor Spark-taken met IntelliJ via SSH
           href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
+        - name: Externe foutenopsporing voor Spark-taken met IntelliJ via VPN
+          href: apache-spark-intellij-tool-plugin-debug-jobs-remotely.md
         - name: Toepassingen zonder interactieve verificatie voor .NET HDInsight maken
           href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
           maintainContext: true
@@ -316,6 +320,8 @@
       items:
         - name: Fouten in Spark-taken opsporen
           href: apache-spark-job-debugging.md
+        - name: IntelliJ gebruiken om fouten in een Spark-taak op te sporen
+          href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
         - name: Problemen met een traag of niet werkend HDInsight-cluster oplossen
           href: ../hdinsight-troubleshoot-failed-cluster.md
           maintainContext: true

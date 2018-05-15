@@ -10,6 +10,7 @@
 ## Procedures
 ### [HA met STONITH instellen](ha-setup-with-stonith.md)
 ### [Back-up van het besturingssysteem voor SKU's type II](os-backup-type-ii-skus.md)
+### [Bijwerken van het besturingssysteem voor grote HANA-exemplaren](os-upgrade-hana-large-instance.md)
 # SAP HANA in virtuele machines op Azure
 ## [SAP HANA-installatie met enkel exemplaar](hana-get-started.md)
 ## [Implementatiehandleiding voor S/4 HANA of BW/4 HANA SAP CAL](cal-s4h.md)

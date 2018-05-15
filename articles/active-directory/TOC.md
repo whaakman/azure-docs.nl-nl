@@ -16,6 +16,7 @@
 ## [Gebruikers toevoegen aan Azure AD](add-users-azure-active-directory.md)
 ## [Licenties toewijzen aan een gebruikers](license-users-groups.md)
 ## [Self-service voor wachtwoord opnieuw instellen configureren](authentication/quickstart-sspr.md)
+## [Privacy-informatie van uw organisatie toevoegen in Azure AD](active-directory-properties-area.md)
 
 
 # Procedures
@@ -58,6 +59,7 @@
 #### [Beleid voor B2B-deling](active-directory-b2b-delegate-invitations.md)
 #### [Een B2B-gebruiker toevoegen aan een rol](active-directory-b2b-add-guest-to-role.md)
 #### [Dynamische groepen en B2B-gebruikers](active-directory-b2b-dynamic-groups.md)
+#### [Een organisatie verlaten](active-directory-b2b-leave-the-organization.md)
 #### [Controle en rapportage](active-directory-b2b-auditing-and-reporting.md)
 #### [B2B voor hybride organisaties](active-directory-b2b-hybrid-organizations.md)
 ##### [B2B-gebruikers toegang geven tot lokale apps](active-directory-b2b-hybrid-cloud-to-on-premises.md)
@@ -178,11 +180,11 @@
 
 ### [Toegang tot apps op afstand via App Proxy](manage-apps/application-proxy.md)
 #### Aan de slag
-##### [App-Proxy inschakelen](active-directory-application-proxy-enable.md)
-##### [Apps publiceren](application-proxy-publish-azure-portal.md)
-##### [Aangepaste domeinen](active-directory-application-proxy-custom-domains.md)
-#### [Eenmalige aanmelding](application-proxy-sso-overview.md)
-##### [Eenmalige aanmelding met KCD](active-directory-application-proxy-sso-using-kcd.md)
+##### [App-Proxy inschakelen](manage-apps/application-proxy-enable.md)
+##### [Apps publiceren](manage-apps/application-proxy-publish-azure-portal.md)
+##### [Aangepaste domeinen](manage-apps/application-proxy-configure-custom-domain.md)
+#### [Eenmalige aanmelding](manage-apps/application-proxy-single-sign-on.md)
+##### [Eenmalige aanmelding met KCD](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 ##### [Eenmalige aanmelding met koppen](application-proxy-ping-access.md)
 ##### [Eenmalige aanmelding met wachtwoordkluis](application-proxy-sso-azure-portal.md)
 #### Concepten

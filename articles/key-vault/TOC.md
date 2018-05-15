@@ -1,7 +1,7 @@
 # [Documentatie voor Key Vault](index.yml)
 
 # Overzicht
-## [Overzicht van Key Vault](key-vault-overview.md)
+## [Informatie over Key Vault](key-vault-overview.md)
 
 # Snelstartgidsen
 ## [Een sleutelkluis maken - CLI](quick-create-cli.md)
@@ -65,8 +65,8 @@
 ## [Overzicht van services](https://azure.microsoft.com/services/key-vault/)
 ## [Informatie over sleutels, geheimen en certificaten](about-keys-secrets-and-certificates.md)
 ### [Aan de slag met certificaten](certificate-scenarios.md)
-#### [Methoden voor het maken van certificaten](create-certificate.md)
-#### [Het maken van certificaten controleren en beheren](create-certificate-scenarios.md)
+### [Methoden voor het maken van certificaten](create-certificate.md)
+### [Het maken van certificaten controleren en beheren](create-certificate-scenarios.md)
 ## [Verificatie, vragen en antwoorden](authentication-requests-and-responses.md)
 ## [Algemene parameters en headers](common-parameters-and-headers.md)
 ## [Versies van Key Vault](key-vault-versions.md)

@@ -1,10 +1,10 @@
 - name: Documentatie voor CDN
-  href: index.md
+  href: index.yml
 - name: Overzicht
   items:
     - name: Wat is Azure CDN?
       href: cdn-overview.md
-    - name: Azure CDN-producteigenschappen
+    - name: Productfuncties vergelijken
       href: cdn-features.md
 - name: Snelstartgidsen
   items:
@@ -137,13 +137,13 @@
           href: cdn-rules-engine-reference-match-conditions.md
         - name: Functies van de regelengine
           href: cdn-rules-engine-reference-features.md
+        - name: HTTP-variabelen
+          href: cdn-http-variables.md
     - name: Verizon-specifieke HTTP-headers
       href: cdn-verizon-http-headers.md
       items:
         - name: X-EC-Debug-headers
           href: cdn-http-debug-headers.md
-    - name: HTTP-variabelen
-      href: cdn-http-variables.md
     - name: Azure PowerShell
       href: /powershell/module/azurerm.cdn
     - name: .NET

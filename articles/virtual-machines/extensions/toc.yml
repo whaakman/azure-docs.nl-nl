@@ -22,7 +22,7 @@
       href: features-windows.md
 - name: Handleidingen
   items:
-    - name: Aangepaste scriptextensie
+    - name: Aangepast script
       items:
         - name: Linux - versie 2
           href: custom-script-linux.md
@@ -30,13 +30,13 @@
           href: custom-script-linuxOstc.md
         - name: Windows
           href: custom-script-windows.md
-    - name: OMS-extensie
+    - name: Operations Management Suite
       items:
         - name: Linux
           href: oms-linux.md
         - name: Windows
           href: oms-windows.md
-    - name: Diagnostics-extensie
+    - name: Diagnostiek
       items:
         - name: Linux
           href: diagnostics-linux.md
@@ -50,7 +50,7 @@
           href: network-watcher-linux.md
         - name: Windows
           href: network-watcher-windows.md
-    - name: PowerShell DSC-extensie
+    - name: PowerShell DSC
       href: dsc-overview.md
       items:
         - name: DSC en Windows
@@ -61,9 +61,9 @@
           href: dsc-template.md
     - name: IaaS-antimalware voor Windows
       href: iaas-antimalware-windows.md
-    - name: Key Vault-extensie
+    - name: Key Vault
       href: key-vault-windows.md
-    - name: Extensie van VM-momentopname
+    - name: VM-momentopname
       items:
         - name: Linux
           href: vmsnapshot-linux.md
@@ -77,7 +77,7 @@
           href: symantec.md
     - name: Afgeschafte extensies
       items:
-        - name: Extensie voor logboekverzamelaar
+        - name: Logboekverzamelaar
           href: log-collector.md
         - name: Deep Security van Trend Micro
           href: trend.md

@@ -49,6 +49,10 @@
         - name: Hive met Hadoop
           href: hdinsight-use-hive.md
           items:
+            - name: HDInsight-hulpprogramma's voor VSCode gebruiken
+              href: ../hdinsight-for-vscode.md
+            - name: HDInsight-hulpprogramma’s voor Visual Studio gebruiken
+              href: apache-hadoop-use-hive-visual-studio.md
             - name: De Hive-weergave gebruiken
               href: apache-hadoop-use-hive-ambari-view.md
             - name: Beeline gebruiken
@@ -59,8 +63,6 @@
               href: apache-hadoop-use-hive-powershell.md
             - name: .NET SDK gebruiken
               href: apache-hadoop-use-hive-dotnet-sdk.md
-            - name: HDInsight-hulpprogramma’s voor Visual Studio gebruiken
-              href: apache-hadoop-use-hive-visual-studio.md
             - name: Extern bureaublad gebruiken
               href: apache-hadoop-use-hive-remote-desktop.md
             - name: De queryconsole gebruiken
