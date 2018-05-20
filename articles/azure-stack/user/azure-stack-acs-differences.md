@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/21/2017
+ms.date: 05/14/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 165a899dbad0893b3a2bddcfc68c9b5d737e9d3d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5a4d3312d6574f761da9a28bfb01a34acf11c9cc
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Storage Stack: Verschillen en overwegingen
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/28/2018
 
 Azure Storage van de Stack is de set van opslag cloudservices in Microsoft Azure-Stack. Stack aan Azure Storage biedt blob, table, wachtrij en functionaliteit voor Gebruikersaccountbeheer met Azure consistent semantiek.
 
-In dit artikel bevat een overzicht van de bekende Azure Stack Storage verschillen van Azure Storage. Ook ziet u u andere overwegingen rekening moet houden bij het implementeren van Azure-Stack. Zie voor meer informatie over belangrijke verschillen tussen Azure-Stack en Azure, de [belangrijke overwegingen](azure-stack-considerations.md) onderwerp.
+In dit artikel bevat een overzicht van de bekende Azure Stack Storage verschillen van Azure Storage-services. Het bevat ook overwegingen bij het implementeren van Azure-Stack. Zie voor meer informatie over belangrijke verschillen tussen Azure-Stack en Azure, de [belangrijke overwegingen](azure-stack-considerations.md) onderwerp.
 
 ## <a name="cheat-sheet-storage-differences"></a>Blad cheats: opslag verschillen
 
@@ -49,26 +49,28 @@ Voorlopig verwijderen voor blob-opslag|Preview|Nog niet ondersteund.
 |De partitiesleutel tabel- en rijkoppen sleutelgrootte|1024 tekens (2048 bytes)|400 tekens (800 bytes)
 |BLOB-momentopname|Het maximum aantal momentopnamen van een blob is niet beperkt.|Het maximum aantal momentopnamen van een blob is 1000.|
 
-### <a name="metrics"></a>Metrische gegevens
-Er zijn ook enkele verschillen met opslag metrische gegevens:
+Er zijn ook verschillen met opslag metrische gegevens:
+
 * De transactiegegevens in de metrische gegevens storage geen onderscheid tussen interne of externe netwerkbandbreedte.
 * De transactiegegevens in de metrische gegevens storage bevat geen virtuele machine toegang tot de gekoppelde schijven.
 
 ## <a name="api-version"></a>API-versie
+
 De volgende versies worden ondersteund met Azure Stack Storage:
 
 Azure Storage-services API's:
 
 1802 bijwerken of hoger:
+
  - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
  - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
  - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
- - [2015-07-08 ](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
+ - [07-2015-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
  - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 Vorige versies:
- - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
+ - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 Azure Storage services management API's:
 
@@ -78,7 +80,7 @@ Azure Storage services management API's:
 
 ## <a name="sdk-versions"></a>SDK-versies
 
-De volgende clientbibliotheken worden ondersteund met Azure Stack Storage:
+Stack aan Azure Storage ondersteunt de volgende clientbibliotheken:
 
 | Clientbibliotheek | Ondersteunde versie van Azure Stack | Koppeling                                                                                                                                                                                                                                                                                                                                     | Specificatie van het eindpunt       |
 |----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
@@ -94,4 +96,3 @@ De volgende clientbibliotheken worden ondersteund met Azure Stack Storage:
 
 * [Aan de slag met Azure Stack Storage ontwikkelingsprogramma 's](azure-stack-storage-dev.md)
 * [Inleiding tot Azure Stack Storage](azure-stack-storage-overview.md)
-

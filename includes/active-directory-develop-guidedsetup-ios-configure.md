@@ -1,12 +1,14 @@
+## <a name="register-your-application"></a>Uw toepassing registreren
+U kunt uw toepassing op twee manieren registreren, zoals beschreven in de volgende twee secties.
 
-## <a name="create-an-application-express"></a>Maken van een toepassing (snelle)
+### <a name="option-1-express-mode"></a>Optie 1: Snelle modus
 Nu gaat u naar het registreren van uw toepassing in de *Portal voor registratie van Microsoft-toepassing*:
 1. Registreren van uw toepassingen via de [Portal voor registratie van Microsoft-toepassing](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=ios&step=configure)
 2.  Voer een naam voor uw toepassing en uw e-mailadres
 3.  Zorg ervoor dat de optie voor begeleide Setup is ingeschakeld
 4.  Volg de instructies voor het verkrijgen van de toepassings-ID en plak deze in uw code
 
-### <a name="add-your-application-registration-information-to-your-solution-advanced"></a>De registratiegegevens van uw toepassing toevoegen aan uw oplossing (Geavanceerd)
+### <a name="option-2-advanced-mode"></a>Optie 2: Geavanceerde modus
 
 1.  Ga naar [Portal voor registratie van Microsoft-toepassing](https://apps.dev.microsoft.com/portal/register-app)
 2.  Voer een naam voor uw toepassing en uw e-mailadres

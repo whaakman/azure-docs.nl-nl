@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/07/2018
 ms.author: genli
-ms.openlocfilehash: 818e4ca5c4985d1740c477bf4a5aa198e64b506d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: db6a2279347b5746da706e7ad3629b141afd205b
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Een virtuele machine van Windows oplossen door de OS-schijf koppelen aan een herstel-VM met de Azure portal
 Als uw Windows-machine (VM) in Azure een opstart- of -fout optreedt, moet u wellicht de stappen voor probleemoplossing uitvoeren op de virtuele harde schijf zelf. Een veelvoorkomend voorbeeld is een mislukte toepassingsupdate die verhindert dat de virtuele machine kunnen opstarten is. Dit artikel wordt uitgelegd hoe u met de Azure-portal verbinding van de virtuele harde schijf met een andere virtuele machine van Windows op eventuele fouten te corrigeren en vervolgens opnieuw maken van de oorspronkelijke VM.
@@ -31,6 +31,7 @@ Het probleemoplossingsproces is als volgt:
 4. Koppel de virtuele harde schijf van de VM voor probleemoplossing los.
 5. Een virtuele machine maken met de oorspronkelijke virtuele harde schijf.
 
+Voor de virtuele machine die gebruikmaakt van beheerde schijven, Zie [een schijf beheerd VM oplossen door het koppelen van een nieuwe besturingssysteemschijf](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk).
 
 ## <a name="determine-boot-issues"></a>Opstartproblemen bepalen
 Om te bepalen waarom de virtuele machine kan niet correct worden opgestart, controleert u de diagnostische gegevens over opstarten schermopname VM. Een veelvoorkomend voorbeeld zou worden het bijwerken van een mislukte toepassing of een onderliggende virtuele harde schijf wordt verwijderd of verplaatst.
@@ -144,6 +145,13 @@ De sjabloon is geladen in de Azure-portal voor implementatie. Geef de naam op vo
 Wanneer u uw virtuele machine van de bestaande virtuele harde schijf maakt, kan boot diagnostics niet automatisch worden ingeschakeld. Controleer de status van diagnostische gegevens over opstarten en schakel indien nodig, selecteert u de virtuele machine in de portal. Onder **bewaking**, klikt u op **diagnostische instellingen**. Zorg ervoor dat de status **op**, en het selectievakje naast **opstarten diagnostics** is geselecteerd. Als u geen wijzigingen aanbrengen, klikt u op **opslaan**:
 
 ![Bijwerken van diagnostische gegevens van de instellingen voor opstarten](./media/troubleshoot-recovery-disks-portal/reenable-boot-diagnostics.png)
+
+## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>Een schijf beheerd VM oplossen door het koppelen van een nieuwe OS-schijf
+1. Stop de betroffen beheerd schijf Windows virtuele machine.
+2. [Momentopname maken van een beheerde schijf](snapshot-copy-managed-disk.md) van de Besturingssysteemschijf van de virtuele schijf beheerd.
+3. [Maak een beheerde schijf van de momentopname](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
+4. [Koppel de beheerde schijf als een gegevensschijf van de virtuele machine](attach-disk-ps.md).
+5. [Wijzigen van de gegevensschijf van stap 4 in besturingssysteemschijf](os-disk-swap.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 Als u verbinding maakt met uw virtuele machine problemen ondervindt, raadpleegt u [problemen met RDP-verbindingen naar een Azure-virtuele machine](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Zie voor problemen met de toegang tot toepassingen die worden uitgevoerd op de virtuele machine [oplossen verbindingsproblemen van toepassing op een Windows VM](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

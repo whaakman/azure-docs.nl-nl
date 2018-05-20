@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 720269ad22bfe4a7f5871c934be77b680627e2f7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6a38098dc2bbcfc6ff59b9f8c96d1e947c637ab1
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-solution-accelerator"></a>De mogelijkheden van de externe controle oplossingsverbetering verkennen
 
@@ -41,7 +41,7 @@ De volgende video ziet u een overzicht van de oplossing voor externe controle:
 
 Voor deze zelfstudie hebt voltooid, moet u een geïmplementeerd exemplaar van de oplossing voor externe controle in uw Azure-abonnement.
 
-Als u de oplossing voor externe controle nog niet hebt geïmplementeerd, maar u moet voltooien de [implementeren van de externe controle oplossingsverbetering](iot-suite-remote-monitoring-deploy.md) zelfstudie.
+Als u de oplossing voor externe controle nog niet hebt geïmplementeerd, maar u moet voltooien de [implementeren van de externe controle oplossingsverbetering](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md) zelfstudie.
 
 ## <a name="the-contoso-sample-iot-deployment"></a>De Contoso-voorbeeld IoT-implementatie
 
@@ -55,7 +55,7 @@ Het Contoso-voorbeeld levert een set regels om te reageren op deze en gesimuleer
 Contoso is een bedrijf dat tal van activa in verschillende omgevingen beheert. Contoso wil gebruik van de kracht van cloud-gebaseerde IoT-toepassingen op afstand controleren en beheren van meerdere assets vanuit een centrale toepassing. De volgende secties bevatten een overzicht van de eerste configuratie van de Contoso-voorbeeld:
 
 > [!NOTE]
-> De Contoso-demo is slechts één manier om de gesimuleerde apparaten inrichten en regels te maken. Andere inrichting opties zijn onder meer het maken van uw eigen aangepaste apparaten. Zie voor meer informatie over het maken van uw eigen regels en apparaten, [beheren en configureren van uw apparaten](iot-suite-remote-monitoring-manage.md) en [detecteer problemen met regels op basis van drempelwaarden](iot-suite-remote-monitoring-automate.md).
+> De Contoso-demo is slechts één manier om de gesimuleerde apparaten inrichten en regels te maken. Andere inrichting opties zijn onder meer het maken van uw eigen aangepaste apparaten. Zie voor meer informatie over het maken van uw eigen regels en apparaten, [beheren en configureren van uw apparaten](iot-suite-remote-monitoring-manage.md) en [detecteer problemen met regels op basis van drempelwaarden](../iot-accelerators/iot-accelerators-remote-monitoring-automate.md).
 
 ### <a name="contoso-devices"></a>Contoso-apparaten
 
@@ -257,5 +257,5 @@ Nu dat u hebt de oplossing voor externe controle verkend, zijn de voorgestelde v
 
 * [Controleer uw apparaten](./iot-suite-remote-monitoring-monitor.md).
 * [Beheren van uw apparaten](./iot-suite-remote-monitoring-manage.md).
-* [Uw oplossing met regels automatiseren](./iot-suite-remote-monitoring-automate.md).
+* [Uw oplossing met regels automatiseren](./../iot-accelerators/iot-accelerators-remote-monitoring-automate.md).
 * [Onderhouden van uw oplossing](./iot-suite-remote-monitoring-maintain.md).

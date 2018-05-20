@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: d2523502c20a7cdc4fb4ec388f167f1640919717
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9b4f7f9a9c501204d48b738089dc3cbd015a744c
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="create-a-new-simulated-device"></a>Een nieuw gesimuleerd apparaat maken
 
@@ -90,7 +90,7 @@ De volgende video ziet u een overzicht van het gesimuleerde en echte apparaten v
 
 Volg deze zelfstudie, hebt u het volgende nodig:
 
-* Een geïmplementeerd exemplaar van de oplossing voor externe controle in uw Azure-abonnement. Als u de oplossing voor externe controle nog niet hebt geïmplementeerd, maar u moet voltooien de [implementeren van de externe controle oplossingsverbetering](iot-suite-remote-monitoring-deploy.md) zelfstudie.
+* Een geïmplementeerd exemplaar van de oplossing voor externe controle in uw Azure-abonnement. Als u de oplossing voor externe controle nog niet hebt geïmplementeerd, maar u moet voltooien de [implementeren van de externe controle oplossingsverbetering](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md) zelfstudie.
 
 * Visual Studio 2017. Als u Visual Studio 2017 geïnstalleerd hebt, kunt u downloaden de gratis [Visual Studio Community](https://www.visualstudio.com/free-developer-offers/) edition.
 

@@ -9,16 +9,16 @@ editor: vturecek
 ms.assetid: 9f72373d-31dd-41e3-8504-6e0320a11f0e
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: 84111b37f5cdecf377442bca0b15af2092d57414
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c5aaf9869326f2de86d3bff33f36e8f967f3e6fa
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configure-stateful-reliable-services"></a>Stateful betrouwbare services configureren
 Er zijn twee sets van configuratie-instellingen voor betrouwbare services. Er is één set globale voor alle betrouwbare services in het cluster terwijl de andere set specifiek voor een bepaalde betrouwbare service is.
@@ -29,8 +29,8 @@ Configuratie van de globale betrouwbare service is opgegeven in het clustermanif
 ### <a name="configuration-names"></a>Configuratienamen
 | Naam | Eenheid | Standaardwaarde | Opmerkingen |
 | --- | --- | --- | --- |
-| WriteBufferMemoryPoolMinimumInKB |KB |8388608 |Minimum aantal KB in de kernelmodus voor het logboek schrijven buffergroep geheugen toewijzen. Deze geheugengroep wordt gebruikt voor het opslaan van informatie over de status voor het schrijven naar de schijf. |
-| WriteBufferMemoryPoolMaximumInKB |KB |Geen limiet |Maximale grootte waarnaar het logboek schrijven buffergroep geheugen kan worden uitgebreid. |
+| WriteBufferMemoryPoolMinimumInKB |Kilobytes |8388608 |Minimum aantal KB in de kernelmodus voor het logboek schrijven buffergroep geheugen toewijzen. Deze geheugengroep wordt gebruikt voor het opslaan van informatie over de status voor het schrijven naar de schijf. |
+| WriteBufferMemoryPoolMaximumInKB |Kilobytes |Geen limiet |Maximale grootte waarnaar het logboek schrijven buffergroep geheugen kan worden uitgebreid. |
 | SharedLogId |GUID |"" |Hiermee geeft u een unieke GUID moet worden gebruikt voor het identificeren van de gedeelde standaardlogboekbestand gebruikt door alle betrouwbare services op alle knooppunten in het cluster die de SharedLogId in hun specifieke configuratie van de service geen opgeven. Als SharedLogId is opgegeven, moet klikt u vervolgens SharedLogPath ook worden opgegeven. |
 | SharedLogPath |Naam van het volledig gekwalificeerde pad |"" |Hiermee geeft u de volledig gekwalificeerde pad waar het gedeelde logboekbestand wordt gebruikt door alle betrouwbare services op alle knooppunten in het cluster die de SharedLogPath in hun specifieke configuratie van de service geen opgeven. Echter, als SharedLogPath is opgegeven, klikt u vervolgens SharedLogId moet ook worden opgegeven. |
 | SharedLogSizeInMB |Megabytes |8192 |Hiermee geeft u het aantal MB aan schijfruimte voor het statisch toewijzen voor de gedeelde logboek. De waarde moet 2048 aan of groter zijn. |
@@ -106,7 +106,7 @@ ReplicatorConfig
 | Naam | Eenheid | Standaardwaarde | Opmerkingen |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Seconden |0.015 |Periode waarvoor de replicatie op de secundaire Wacht na de ontvangst van een bewerking voor het verzenden van back-een bevestiging naar de primaire. Alle andere bevestigingen voor bewerkingen binnen dit interval verwerkt worden verzonden, worden verzonden als een reactie. |
-| ReplicatorEndpoint |N.v.t. |Er is geen standaard--vereiste parameter |IP-adres en poort op die de primaire en secundaire replicatie wordt gebruikt om te communiceren met andere replicaties in de replica is ingesteld. Dit moet verwijzen naar een resource TCP-eindpunt in het servicemanifest. Raadpleeg [Service manifest resources](service-fabric-service-manifest-resources.md) voor meer informatie over het definiëren van endpoint-resources in een servicemanifest van de. |
+| ReplicatorEndpoint |N/A |Er is geen standaard--vereiste parameter |IP-adres en poort op die de primaire en secundaire replicatie wordt gebruikt om te communiceren met andere replicaties in de replica is ingesteld. Dit moet verwijzen naar een resource TCP-eindpunt in het servicemanifest. Raadpleeg [Service manifest resources](service-fabric-service-manifest-resources.md) voor meer informatie over het definiëren van endpoint-resources in een servicemanifest van de. |
 | MaxPrimaryReplicationQueueSize |Aantal bewerkingen |8192 |Maximum aantal bewerkingen in de primaire wachtrij. Een bewerking wordt vrijgemaakt nadat de primaire replicatie een bevestiging van de secundaire replicaties ontvangt. Deze waarde moet groter zijn dan 64 en een macht van 2 zijn. |
 | MaxSecondaryReplicationQueueSize |Aantal bewerkingen |16384 |Maximum aantal bewerkingen in de secundaire wachtrij. Een bewerking wordt vrijgemaakt nadat u de status maximaal beschikbaar is via persistentie. Deze waarde moet groter zijn dan 64 en een macht van 2 zijn. |
 | CheckpointThresholdInMB |MB |50 |De hoeveelheid ruimte in logboekbestand waarna de status gecontroleerd wordt. |

@@ -3,29 +3,31 @@ title: Meer informatie over de autorisatie protocollen die worden ondersteund do
 description: Een handleiding voor protocollen die worden ondersteund door het Azure AD v2.0-eindpunt.
 services: active-directory
 documentationcenter: ''
-author: hpsin
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 5fb4fa1b-8fc4-438e-b3b0-258d8c145f22
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/22/2018
-ms.author: hirsin
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 29d9e2d9ee05b755ef40179e0e75fb0c8a6b010b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7c6031bb135c48a8d58f61c3c96bf18e817809ba
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="v20-protocols---oauth-20--openid-connect"></a>v2.0-protocollen - OAuth 2.0 & OpenID Connect
-Het v2.0-eindpunt kunt Azure AD voor identity-as-a-service met de protocollen volgens de industrienorm, OpenID Connect en OAuth 2.0 gebruiken.  De service is compatibel met de standaarden, kunnen er subtiele verschillen tussen de twee implementaties van deze protocollen.  Hier de informatie is nuttig als u ervoor kiest uw code te schrijven door rechtstreeks verzenden & verwerking van HTTP-aanvragen of gebruik een 3e partij open-source-bibliotheek in plaats van met een van onze [open-source bibliotheken](active-directory-v2-libraries.md).
+Het v2.0-eindpunt kunt Azure AD voor identity-as-a-service met de protocollen volgens de industrienorm, OpenID Connect en OAuth 2.0 gebruiken. De service is compatibel met de standaarden, kunnen er subtiele verschillen tussen de twee implementaties van deze protocollen. Hier de informatie is nuttig als u ervoor kiest uw code te schrijven door rechtstreeks verzenden & verwerking van HTTP-aanvragen of gebruik een 3e partij open-source-bibliotheek in plaats van met een van onze [open-source bibliotheken](active-directory-v2-libraries.md).
 
 > [!NOTE]
-> Niet alle Azure Active Directory-scenario's en functies worden ondersteund door het v2.0-eindpunt.  Meer informatie over om te bepalen of moet u het v2.0-eindpunt, [v2.0 beperkingen](active-directory-v2-limitations.md).
+> Niet alle Azure Active Directory-scenario's en functies worden ondersteund door het v2.0-eindpunt. Meer informatie over om te bepalen of moet u het v2.0-eindpunt, [v2.0 beperkingen](active-directory-v2-limitations.md).
 >
 >
 
@@ -34,13 +36,13 @@ In bijna alle OAuth & OpenID Connect stromen zijn er vier partijen die zijn betr
 
 ![OAuth 2.0-functies](../../media/active-directory-v2-flows/protocols_roles.png)
 
-* De **autorisatie Server** is het v2.0-eindpunt.  Het is verantwoordelijk voor de identiteit van de gebruiker waarborgen, verlenen en intrekken van toegang tot bronnen en uitgeven van tokens.  Het is ook bekend als de id-provider - niets te maken met gegevens van de gebruiker, de toegang en de vertrouwensrelaties tussen partijen in een stroom veilig worden verwerkt.
-* De **Resource-eigenaar** is meestal de eindgebruiker.  Het is de partij die eigenaar is van de gegevens en de bevoegdheid om toe te staan van derden voor toegang tot die gegevens of de resource heeft.
-* De **OAuth Client** wordt uw app, geïdentificeerd door de toepassings-id.  Meestal is dit de partij die de eindgebruiker met communiceert en het tokens aanvraagt van de autorisatie-server.  De client moet worden gemachtigd voor toegang tot de bron van de resource-eigenaar.
-* De **bronserver** is waar de resource of de gegevens zich bevindt.  Deze vertrouwt de autorisatie-Server veilig verifiëren en autoriseren van de OAuth-Client en Bearer-access_tokens gebruikt om ervoor te zorgen dat toegang tot een bron kan worden toegekend.
+* De **autorisatie Server** is het v2.0-eindpunt. Het is verantwoordelijk voor de identiteit van de gebruiker waarborgen, verlenen en intrekken van toegang tot bronnen en uitgeven van tokens. Het is ook bekend als de id-provider - niets te maken met gegevens van de gebruiker, de toegang en de vertrouwensrelaties tussen partijen in een stroom veilig worden verwerkt.
+* De **Resource-eigenaar** is meestal de eindgebruiker. Het is de partij die eigenaar is van de gegevens en de bevoegdheid om toe te staan van derden voor toegang tot die gegevens of de resource heeft.
+* De **OAuth Client** wordt uw app, geïdentificeerd door de toepassings-id. Meestal is dit de partij die de eindgebruiker met communiceert en het tokens aanvraagt van de autorisatie-server. De client moet worden gemachtigd voor toegang tot de bron van de resource-eigenaar.
+* De **bronserver** is waar de resource of de gegevens zich bevindt. Deze vertrouwt de autorisatie-Server veilig verifiëren en autoriseren van de OAuth-Client en Bearer-access_tokens gebruikt om ervoor te zorgen dat toegang tot een bron kan worden toegekend.
 
 ## <a name="app-registration"></a>App-registratie
-Elke app die gebruikmaakt van het v2.0-eindpunt moet worden geregistreerd bij [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) voordat deze kan communiceren met OAuth of OpenID Connect.  Het registratieproces van de app wordt verzamelen & enkele waarden toewijzen aan uw app:
+Elke app die gebruikmaakt van het v2.0-eindpunt moet worden geregistreerd bij [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) voordat deze kan communiceren met OAuth of OpenID Connect. Het registratieproces van de app wordt verzamelen & enkele waarden toewijzen aan uw app:
 
 * Een **toepassings-Id** die wordt aangeduid uw app
 * Een **omleidings-URI** of **-pakket-id** die kunnen worden gebruikt om een directe antwoorden terug naar uw app
@@ -63,7 +65,7 @@ Waar de `{tenant}` kan duren voordat een van de vier verschillende waarden:
 | `common` |Kunnen de gebruikers met persoonlijke Microsoft-accounts en werk/schoolaccounts in Azure Active Directory voor aanmelding bij de toepassing. |
 | `organizations` |Hiermee kunt u alleen gebruikers met werk/schoolaccounts van Azure Active Directory voor aanmelding bij de toepassing. |
 | `consumers` |Hiermee kunnen alleen gebruikers met persoonlijke Microsoft-accounts (MSA) als u zich aanmeldt bij de toepassing. |
-| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` of `contoso.onmicrosoft.com` |Hiermee kunt u alleen gebruikers met een werk/school-account van een bepaald Azure Active Directory-tenant voor aanmelding bij de toepassing.  Ofwel de aangepaste domeinnaam van de Azure AD-tenant of guid-id van de tenant kan worden gebruikt. |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` of `contoso.onmicrosoft.com` |Hiermee kunt u alleen gebruikers met een werk/school-account van een bepaald Azure Active Directory-tenant voor aanmelding bij de toepassing. Ofwel de aangepaste domeinnaam van de Azure AD-tenant of guid-id van de tenant kan worden gebruikt. |
 
 Kies een bepaalde app-type hieronder voor meer informatie over hoe u met deze eindpunten te werken.
 
@@ -73,7 +75,7 @@ De implementatie v2.0 van OAuth 2.0 en OpenID Connect maken intensief gebruik va
 Meer informatie over de verschillende typen tokens die worden gebruikt in het v2.0-eindpunt is beschikbaar in [het v2.0-eindpunt-tokenverwijzing](active-directory-v2-tokens.md).
 
 ## <a name="protocols"></a>Protocollen
-Als u klaar bent om te zien van bepaalde voorbeeld-aanvragen, aan de slag met een van de onderstaande zelfstudies.  Elke komt overeen met een bepaalde verificatiescenario.  Als u hulp bij het bepalen dat de juiste stroom voor u nodig hebt, kijk dan eens [de typen apps kunt u met het v2.0](active-directory-v2-flows.md).
+Als u klaar bent om te zien van bepaalde voorbeeld-aanvragen, aan de slag met een van de onderstaande zelfstudies. Elke komt overeen met een bepaalde verificatiescenario. Als u hulp bij het bepalen dat de juiste stroom voor u nodig hebt, kijk dan eens [de typen apps kunt u met het v2.0](active-directory-v2-flows.md).
 
 * [Mobiele en systeemeigen toepassing met OAuth 2.0 bouwen](active-directory-v2-protocols-oauth-code.md)
 * [Maken van Web Apps met Open ID Connect](active-directory-v2-protocols-oidc.md)

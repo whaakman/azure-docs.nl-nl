@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: iainfou
-ms.openlocfilehash: e96f31b3e91066bfc04af62c2bf82db200f35002
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: bff31dafdf3263ec189f67da7de8fea6eb3d2662
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli-20"></a>Problemen oplossen van een Linux-VM met de OS-schijf koppelen aan een herstel-VM met de Azure CLI 2.0
 Als uw virtuele Linux-machine (VM) een opstart- of -fout optreedt, moet u wellicht de stappen voor probleemoplossing uitvoeren op de virtuele harde schijf zelf. Een veelvoorkomend voorbeeld is een ongeldige waarde in `/etc/fstab` die verhindert dat de virtuele machine kunnen opstarten is. Dit artikel wordt uitgelegd hoe u met de Azure CLI 2.0 verbinding maken met de virtuele harde schijf aan een andere Linux VM eventuele fouten te corrigeren en vervolgens opnieuw maken van de oorspronkelijke VM. U kunt deze stappen ook uitvoeren met de [Azure CLI 1.0](troubleshoot-recovery-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -31,6 +31,8 @@ Het probleemoplossingsproces is als volgt:
 3. Maak verbinding met de VM voor probleemoplossing. Bewerken van bestanden of alle hulpmiddelen voor het oplossen van problemen op de oorspronkelijke virtuele harde schijf worden uitgevoerd.
 4. Koppel de virtuele harde schijf van de VM voor probleemoplossing los.
 5. Een virtuele machine maken met de oorspronkelijke virtuele harde schijf.
+
+Voor de virtuele machine die gebruikmaakt van beheerde schijven, Zie [een schijf beheerd VM oplossen door het koppelen van een nieuwe besturingssysteemschijf](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk).
 
 Voor deze stappen voor probleemoplossing, moet u de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en geregistreerd in het gebruik van een Azure-account [az aanmelding](/cli/azure/reference-index#az_login).
 
@@ -183,6 +185,13 @@ Wanneer u uw virtuele machine van de bestaande virtuele harde schijf maakt, kan 
 ```azurecli
 az vm boot-diagnostics enable --resource-group myResourceGroup --name myDeployedVM
 ```
+
+## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>Een schijf beheerd VM oplossen door het koppelen van een nieuwe OS-schijf
+1. Stop de betroffen beheerd schijf Windows virtuele machine.
+2. [Momentopname maken van een beheerde schijf](../windows/snapshot-copy-managed-disk.md) van de Besturingssysteemschijf van de virtuele schijf beheerd.
+3. [Maak een beheerde schijf van de momentopname](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
+4. [Koppel de beheerde schijf als een gegevensschijf van de virtuele machine](../windows/attach-disk-ps.md).
+5. [Wijzigen van de gegevensschijf van stap 4 in besturingssysteemschijf](../windows/os-disk-swap.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 Als u verbinding maakt met uw virtuele machine problemen ondervindt, raadpleegt u [oplossen SSH-verbindingen met een Azure VM](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Zie voor problemen met de toegang tot toepassingen die worden uitgevoerd op de virtuele machine [oplossen verbindingsproblemen van toepassing op een Linux-VM](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

@@ -1,36 +1,46 @@
 ---
-title: Aan de slag met Azure Notification Hubs voor Kindle-apps | Microsoft Docs
+title: Pushmeldingen verzenden naar Kindle-apps met Azure Notification Hubs | Microsoft Docs
 description: In deze zelfstudie leert u hoe u met Azure Notification Hubs pushmeldingen verstuurt naar een Kindle-toepassing.
 services: notification-hubs
-documentationcenter: 
-author: ysxu
-manager: erikre
-editor: 
+documentationcenter: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 346fc8e5-294b-4e4f-9f27-7a82d9626e93
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-kindle
 ms.devlang: Java
-ms.topic: hero-article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: 7206f152ed7270abc62536a9ee164f7227833bcc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: tutorial
+ms.custom: mvc
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: af2619a403046bd4f064b958df225e4d42a205f4
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="get-started-with-notification-hubs-for-kindle-apps"></a>Aan de slag met Azure Notification Hubs voor Kindle-apps
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## <a name="overview"></a>Overzicht
-In deze zelfstudie ziet u hoe u met Azure Notification Hubs pushmeldingen verstuurt naar een Kindle-toepassing.
-U maakt een lege Kindle-app die pushmeldingen ontvangt via Amazon Device Messaging (ADM).
+In deze zelfstudie ziet u hoe u met Azure Notification Hubs pushmeldingen verstuurt naar een Kindle-toepassing. U maakt een lege Kindle-app die pushmeldingen ontvangt via Amazon Device Messaging (ADM).
+
+In deze zelfstudie gaat u code maken of bijwerken om de volgende taken uit te voeren: 
+
+> [!div class="checklist"]
+> * Een nieuwe app toevoegen aan de portal voor ontwikkelaars
+> * Maak een API-sleutel.
+> * Referenties aan de hub toevoegen
+> * Uw toepassing instellen
+> * De ADM-berichtenhandler maken
+> * Uw API-sleutel aan uw app toevoegen
+> * De app uitvoeren
+> * Een testmelding verzenden 
 
 ## <a name="prerequisites"></a>Vereisten
-Voor deze zelfstudie hebt u het volgende nodig:
 
-* Download de Android-SDK (aannemende dat u Eclipse gebruikt) van de <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android-site</a>.
+* Download de Android-SDK (als u Eclipse gebruikt) van de <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android-site</a>.
 * Volg de stappen in <a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">Uw ontwikkelingsomgeving instellen</a> om uw ontwikkelingsomgeving voor Kindle in te stellen.
 
 ## <a name="add-a-new-app-to-the-developer-portal"></a>Een nieuwe app toevoegen aan de portal voor ontwikkelaars
@@ -46,7 +56,7 @@ Voor deze zelfstudie hebt u het volgende nodig:
 4. Klik op **Een nieuw beveiligingsprofiel maken** en maak vervolgens een nieuw beveiligingsprofiel (bijvoorbeeld **TestAdm-beveiligingsprofiel**). Klik vervolgens op **Opslaan**.
    
     ![][3]
-5. Klik op **Beveiligingsprofielen** om het beveiligingsprofiel weer te geven dat u zojuist hebt gemaakt. Kopieer de waarden voor **Client-id** en **Clientgeheim** voor later gebruik.
+5. Klik op **Beveiligingsprofielen** om het beveiligingsprofiel weer te geven dat u hebt gemaakt. Kopieer de waarden voor **Client-id** en **Clientgeheim** voor later gebruik.
    
     ![][4]
 
@@ -68,8 +78,6 @@ Voeg in de portal het clientgeheim en de client-id in op het tabblad **Configure
 ## <a name="set-up-your-application"></a>Uw toepassing instellen
 > [!NOTE]
 > Wanneer u een toepassing maakt, gebruikt u ten minste API-niveau 17.
-> 
-> 
 
 De ADM-bibliotheken aan uw Eclipse-project toevoegen:
 
@@ -82,10 +90,13 @@ Uw app-manifest bewerken voor ondersteuning van ADM:
 
 1. De Amazon-naamruimte in het basismanifestelement toevoegen:
 
+    ```xml
         xmlns:amazon="http://schemas.amazon.com/apk/res/android"
+    ```
 
-1. Voeg machtigingen toe als het eerste element onder het manifestelement. Vervang **[NAAM VAN UW PAKKET]**door de naam het pakket dat u hebt gebruikt om uw app te maken.
+1. Voeg machtigingen toe als het eerste element onder het manifestelement. Vervang **[NAAM VAN UW PAKKET]** door de naam het pakket dat u hebt gebruikt om uw app te maken.
    
+    ```xml
         <permission
          android:name="[YOUR PACKAGE NAME].permission.RECEIVE_ADM_MESSAGE"
          android:protectionLevel="signature" />
@@ -100,8 +111,10 @@ Uw app-manifest bewerken voor ondersteuning van ADM:
    
         <!-- ADM uses WAKE_LOCK to keep the processor from sleeping when a message is received. -->
         <uses-permission android:name="android.permission.WAKE_LOCK" />
+    ```
 2. Voeg het volgende element in als het eerste onderliggende item van het toepassingselement. Vervang **[NAAM VAN UW SERVICE]** door de ADM-berichtenhandler die u maakt in het volgende gedeelte (inclusief het pakket) en wijzig **[NAAM VAN UW PAKKET]** in de pakketnaam waarmee u uw app hebt gemaakt.
    
+    ```xml
         <amazon:enable-feature
               android:name="com.amazon.device.messaging"
                      android:required="true"/>
@@ -124,6 +137,7 @@ Uw app-manifest bewerken voor ondersteuning van ADM:
           <category android:name="[YOUR PACKAGE NAME]" />
             </intent-filter>
         </receiver>
+    ```
 
 ## <a name="create-your-adm-message-handler"></a>De ADM-berichtenhandler maken
 1. Maak een nieuwe klasse die eigenschappen overneemt van `com.amazon.device.messaging.ADMMessageHandlerBase` en geef deze de naam `MyADMMessageHandler`, zoals wordt weergegeven in de volgende afbeelding:
@@ -131,6 +145,7 @@ Uw app-manifest bewerken voor ondersteuning van ADM:
     ![][6]
 2. Voeg de volgende `import` instructies toe:
    
+    ```java
         import android.app.NotificationManager;
         import android.app.PendingIntent;
         import android.content.Context;
@@ -138,8 +153,10 @@ Uw app-manifest bewerken voor ondersteuning van ADM:
         import android.support.v4.app.NotificationCompat;
         import com.amazon.device.messaging.ADMMessageReceiver;
         import com.microsoft.windowsazure.messaging.NotificationHub
+    ```
 3. Voeg de volgende code toe aan de klasse die u hebt gemaakt. Vervang de hubnaam en de verbindingsreeks (luisteren):
    
+    ```java
         public static final int NOTIFICATION_ID = 1;
         private NotificationManager mNotificationManager;
         NotificationCompat.Builder builder;
@@ -184,29 +201,39 @@ Uw app-manifest bewerken voor ondersteuning van ADM:
              mBuilder.setContentIntent(contentIntent);
              mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
         }
+    ```
 4. Voeg de volgende code toe aan de methode `OnMessage()`:
    
+    ```java
         String nhMessage = intent.getExtras().getString("msg");
         sendNotification(nhMessage);
+    ```
 5. Voeg de volgende code toe aan de methode `OnRegistered`:
    
-            try {
-        getNotificationHub(getApplicationContext()).register(registrationId);
-            } catch (Exception e) {
-        Log.e("[your package name]", "Fail onRegister: " + e.getMessage(), e);
-            }
+    ```java
+        try {
+            getNotificationHub(getApplicationContext()).register(registrationId);
+        } catch (Exception e) {
+            Log.e("[your package name]", "Fail onRegister: " + e.getMessage(), e);
+        }
+    ```
 6. Voeg de volgende code toe aan de methode `OnUnregistered`:
    
+    ```java
          try {
              getNotificationHub(getApplicationContext()).unregister();
          } catch (Exception e) {
              Log.e("[your package name]", "Fail onUnregister: " + e.getMessage(), e);
          }
+    ```
 7. Voeg in de methode `MainActivity` de volgende importinstructie toe:
    
+    ```java
         import com.amazon.device.messaging.ADM;
+    ```
 8. Voeg de volgende code toe aan het einde van de methode `OnCreate`:
    
+    ```java
         final ADM adm = new ADM(this);
         if (adm.getRegistrationId() == null)
         {
@@ -224,7 +251,8 @@ Uw app-manifest bewerken voor ondersteuning van ADM:
                  }
                }.execute(null, null, null);
         }
-
+    ```
+    
 ## <a name="add-your-api-key-to-your-app"></a>Uw API-sleutel aan uw app toevoegen
 1. Maak in Eclipse een nieuw bestand met de naam **api_key.txt** in de map van uw project.
 2. Open het bestand en kopieer de API-sleutel die u in de Amazon-portal voor ontwikkelaars hebt gegenereerd.
@@ -237,21 +265,31 @@ Uw app-manifest bewerken voor ondersteuning van ADM:
 > [!NOTE]
 > Als er een probleem optreedt, controleert u het tijdstip van de emulator (of het apparaat). De tijdswaarde moet juist zijn. Voer de volgende opdracht uit de map Android SDK platform-hulpprogramma's uit als u de tijd van de Kindle-emulator wilt wijzigen:
 > 
-> 
 
-        adb shell  date -s "yyyymmdd.hhmmss"
+```
+adb shell  date -s "yyyymmdd.hhmmss"
+```
 
-## <a name="send-a-message"></a>Een bericht verzenden
+## <a name="send-a-notification-message"></a>Een testmelding verzenden
+
 Een bericht verzenden met .NET:
 
-        static void Main(string[] args)
-        {
-            NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("[conn string]", "[hub name]");
+```csharp
+static void Main(string[] args)
+{
+    NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("[conn string]", "[hub name]");
 
-            hub.SendAdmNativeNotificationAsync("{\"data\":{\"msg\" : \"Hello from .NET!\"}}").Wait();
-        }
+    hub.SendAdmNativeNotificationAsync("{\"data\":{\"msg\" : \"Hello from .NET!\"}}").Wait();
+}
+```
 
 ![][7]
+
+## <a name="next-steps"></a>Volgende stappen
+In deze zelfstudie hebt u meldingen uitgezonden naar al uw Kindle-apparaten die zijn geregistreerd bij de back-end. Als u wilt weten hoe u pushmeldingen naar specifieke Kindle-apparaten verstuurt, gaat u verder met de volgende zelfstudie. In deze zelfstudie wordt uitgelegd hoe u pushmeldingen naar specifieke Android-apparaten verstuurt, maar deze logica kan ook worden gebruikt voor het versturen van pushmeldingen naar specifieke Kindle-apparaten. 
+
+> [!div class="nextstepaction"]
+>[Pushmeldingen verzenden naar specifieke apparaten](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
 
 <!-- URLs. -->
 [Amazon-portal voor ontwikkelaars]: https://developer.amazon.com/home.html

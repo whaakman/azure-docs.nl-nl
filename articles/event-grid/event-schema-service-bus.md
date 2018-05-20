@@ -5,14 +5,14 @@ services: event-grid
 author: banisadr
 manager: darosa
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 02/21/2018
 ms.author: babanisa
-ms.openlocfilehash: 72780bff3807534efb456a9a7998f7d4de3c6f12
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 991679eeb0f7c98606133750b193a5895f39178f
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-event-grid-event-schema-for-service-bus"></a>Azure Event raster gebeurtenis-schema voor Service Bus
 
@@ -81,12 +81,12 @@ Een gebeurtenis heeft de volgende gegevens op het hoogste niveau:
 | -------- | ---- | ----------- |
 | Onderwerp | tekenreeks | Volledige resource-pad naar de gegevensbron. Dit veld is niet beschrijfbaar. Gebeurtenis raster bevat deze waarde. |
 | Onderwerp | tekenreeks | Publisher gedefinieerde pad naar het onderwerp van de gebeurtenis. |
-| eventType | tekenreeks | Een van de typen van de geregistreerde gebeurtenis van de bron van deze gebeurtenis. |
+| EventType | tekenreeks | Een van de typen van de geregistreerde gebeurtenis van de bron van deze gebeurtenis. |
 | eventTime | tekenreeks | De tijd dat de gebeurtenis wordt gegenereerd, gebaseerd op de UTC-tijd van de provider. |
 | id | tekenreeks | De unieke id voor de gebeurtenis. |
 | gegevens | object | BLOB storage-gebeurtenisgegevens. |
-| dataVersion | tekenreeks | De versie van het schema van het gegevensobject. De uitgever definieert de schemaversie. |
-| metadataVersion | tekenreeks | De versie van het schema van de metagegevens van de gebeurtenis. Gebeurtenis raster definieert het schema van de eigenschappen op het hoogste niveau. Gebeurtenis raster bevat deze waarde. |
+| dataVersion | tekenreeks | De schemaversie van het gegevensobject. De uitgever definieert de schemaversie. |
+| metadataVersion | tekenreeks | De schemaversie van de metagegevens van de gebeurtenis. Gebeurtenis raster definieert het schema van de eigenschappen op het hoogste niveau. Gebeurtenis raster bevat deze waarde. |
 
 Het gegevensobject heeft de volgende eigenschappen:
 
@@ -94,9 +94,9 @@ Het gegevensobject heeft de volgende eigenschappen:
 | -------- | ---- | ----------- |
 | nameSpaceName | tekenreeks | De Service Bus-naamruimte de resource bestaat in. |
 | requestUri | tekenreeks | De URI naar de specifieke wachtrij of een abonnement dat de gebeurtenis. |
-| entityType | tekenreeks | Het type van Service Bus-entiteit die gebeurtenissen (wachtrij of abonnement). |
+| EntityType | tekenreeks | Het type van Service Bus-entiteit die gebeurtenissen (wachtrij of abonnement). |
 | queueName | tekenreeks | De wachtrij met de actieve berichten als u zich abonneert op een wachtrij. Waarde van null als onderwerpen over het gebruik / abonnementen. |
-| topicName | tekenreeks | Het onderwerp de Service Bus-abonnement met actieve berichten behoort. De waarde null zijn als u gebruikmaakt van een wachtrij. |
+| TopicName | tekenreeks | Het onderwerp de Service Bus-abonnement met actieve berichten behoort. De waarde null zijn als u gebruikmaakt van een wachtrij. |
 | SubscriptionName | tekenreeks | De Service Bus-abonnement met actieve berichten. De waarde null zijn als u gebruikmaakt van een wachtrij. |
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: curtand
 ms.custom: pim
-ms.openlocfilehash: b8df65c969a37eb22589c297ecb9b0d0b840a52c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4bc41727c30d4dd213baca1d7c56cdfdf741692d
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Wat is Azure AD Privileged Identity Management?
 
@@ -32,7 +32,7 @@ Met Azure Active Directory (AD) Privileged Identity Management kunt u toegang bi
 >- Toegewezen aan de rol van een Azure-resource met NET in tijd of Direct toewijzingen van (tijd is gebaseerd)  
 >- Toegewezen aan een toegang controleren
 >
->Zie [Azure Active Directory-edities](active-directory-editions.md) voor meer informatie.
+>Zie [Azure Active Directory-edities](active-directory-whatis.md) voor meer informatie.
 
 Beperk het aantal gebruikers die toegang hebben tot beveiligde gegevens of bronnen, omdat die vermindert de kans op een kwaadwillende gebruiker die toegang verkrijgen of een geautoriseerde gebruiker per ongeluk die invloed hebben op een gevoelige resource dat organisaties willen.  Gebruikers moeten echter nog steeds bevoorrechte bewerkingen uitvoeren in Azure AD, Azure, Office 365 of SaaS-apps. Organisaties kunnen gebruikers bevoorrechte toegang geven tot Azure-resources zoals abonnementen en Azure AD. Er is een toezicht voor wat gebruikers met hun beheerdersbevoegdheden doen nodig. Azure AD Privileged Identity Management vermindert het risico van overmatige, overbodige of foutieve toegangsrechten.
 

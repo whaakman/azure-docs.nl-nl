@@ -2,7 +2,7 @@
 title: Afbeeldingsgegevens uploaden in de cloud met Azure Storage | Microsoft Docs
 description: Azure Blob Storage gebruiken me een web-app om toepassingsgegevens op te slaan
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: jeconnoc
 ms.service: storage
@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: e3c40d0f3db1a33a405a341a714a7ce199908ca4
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 29accb3394e9a2f6939a657172c1a5c2e411706a
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Afbeeldingsgegevens uploaden in de cloud met Azure Storage
 
@@ -27,7 +27,7 @@ Deze zelfstudie is deel één van een serie. In deze zelfstudie leert u hoe u ee
 In deel 1 van de reeks leert u het volgende:
 
 > [!div class="checklist"]
-> * Een opslagaccount maken
+> * Create a storage account
 > * Een container maken en machtigingen instellen
 > * Een toegangssleutel ophalen
 > * Toepassingsinstellingen configureren
@@ -48,7 +48,7 @@ In het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` 
 az group create --name myResourceGroup --location westcentralus 
 ``` 
 
-## <a name="create-a-storage-account"></a>Een opslagaccount maken
+## <a name="create-a-storage-account"></a>Create a storage account
  
 Met het voorbeeld worden afbeeldingen geüpload naar een blobcontainer in een Azure Storage-account. Een opslagaccount biedt een unieke naamruimte voor het opslaan en openen van uw Azure Storage-gegevensobjecten. Maak een opslagaccount in de resourcegroep die u hebt gemaakt met behulp van de opdracht [az storage account create](/cli/azure/storage/account#az_storage_account_create). 
 
@@ -72,7 +72,7 @@ Haal de opslagaccountsleutel op met behulp van de opdracht [az storage account k
 In dit geval is `<blob_storage_account>` de naam van het Blob Storage-account dat u hebt gemaakt. De openbare toegang tot de _images_-containers wordt ingesteld op `off`, die tot de _thumbnails_-containers op `container`. Dankzij de instelling voor de openbare toegang tot de `container` zijn de miniaturen zichtbaar voor personen die de webpagina bezoeken.
  
 ```azurecli-interactive 
-blobStorageAccount=<blob_storage_account>
+$blobStorageAccount="<blob_storage_account>"
 
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 -n $blobStorageAccount --query [0].value --output tsv) 
@@ -211,7 +211,7 @@ CDN kan worden ingeschakeld om inhoud vanuit uw Azure Storage-account in de cach
 In deel 1 van de reeks hebt u geleerd hoe u een web-app configureert die interactie aangaat met opslag, bijvoorbeeld:
 
 > [!div class="checklist"]
-> * Een opslagaccount maken
+> * Create a storage account
 > * Een container maken en machtigingen instellen
 > * Een toegangssleutel ophalen
 > * Toepassingsinstellingen configureren

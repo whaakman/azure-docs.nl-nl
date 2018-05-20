@@ -7,13 +7,13 @@ ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 29ec32c933f3dbe07a844bd99a1f5aa3fa57d61b
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: a75167b6973d5cce8497c07e21d17ad071290f1d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integratie van broncodebeheer in Azure Automation
 Integratie van broncodebeheer kunt u runbooks in uw Automation-account aan een GitHub-resourcebeheerbibliotheek koppelen. Broncodebeheer kunt u eenvoudig samenwerken met uw team, het bijhouden van wijzigingen en terugkeren naar eerdere versies van uw runbooks. Broncodebeheer kunt u verschillende filialen in besturingselement voor de ontwikkeling, testen of productie Automation-accounts, zodat u eenvoudig ter bevordering van de code die in uw ontwikkelomgeving, zodat uw productie Automation-account is getest synchroniseren.
@@ -61,7 +61,7 @@ Als u al een GitHub-account en een locatie die u wilt koppelen aan Azure Automat
      | **Parameter** | **Waarde** |
      |:--- |:--- |
      | Naam |Microsoft.Azure.Automation.SourceControl.Connection |
-     | Type |Tekenreeks |
+     | Type |Reeks |
      | Waarde |{{'Vertakking':\<*de naam van uw vertakking*>, 'RunbookFolderPath':\<*pad naar de Runbookmap*>, 'ProviderType':\<*heeft de waarde 1 voor GitHub*>, 'Opslagplaats':\<*naam van uw opslagplaats*>, 'Gebruikersnaam':\<*uw GitHub-gebruikersnaam*>} |
 
     * De variabele **Microsoft.Azure.Automation.SourceControl.OAuthToken**, bevat de veilig versleutelde waarde van uw OAuthToken.  

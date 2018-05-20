@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a3181a7a-9ab1-4216-b07a-05b79bd826a4
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 3388257399ce8d2e0ac84b9bff746e1acf153312
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0a94dc91308f21d9e2b440f9638829ee03a8b903
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Service Fabric-toepassing upgraden zelfstudie met Visual Studio
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Selecteren **publiceren** opstart, wordt een pop-up en u kunt de **profiel als d
 
 ![Een Service Fabric-toepassing publiceren][image2]
 
-Nu kunt u **publiceren** in het dialoogvenster. U kunt [Service Fabric Explorer om het cluster en de toepassing weer te geven](service-fabric-visualizing-your-cluster.md). De visuele objecten-toepassing heeft een webservice die u naar door te typen gaat [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/) in de adresbalk van uw browser.  Hier ziet u 10 zwevende visual objecten verplaatsen op het scherm.
+Nu kunt u **publiceren** in het dialoogvenster. U kunt [Service Fabric Explorer om het cluster en de toepassing weer te geven](service-fabric-visualizing-your-cluster.md). De visuele objecten-toepassing heeft een webservice die u naar door te typen gaat [ http://localhost:8081/visualobjects/ ](http://localhost:8081/visualobjects/) in de adresbalk van uw browser.  Hier ziet u 10 zwevende visual objecten verplaatsen op het scherm.
 
 **Opmerking:** als implementeert voor `Cloud.xml` profiel (Azure Service Fabric) moet beschikbaar zijn op de toepassing vervolgens **http://{ServiceFabricName}. { Region}.cloudapp.Azure.com:8081/visualobjects/**. Zorg ervoor dat u hebt `8081/TCP` geconfigureerd in de Load Balancer (zoeken de Load Balancer in dezelfde resourcegroep bevinden als de Service Fabric-instantie).
 

@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 05/17/2018
 ms.author: mabrigg
-ms.openlocfilehash: 9ee54827ae9e8a803a5e3d7464559aec62c67119
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 59b0f8e4c7234b246d4fb54d065ff318939e2662
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="enable-multi-tenancy-in-azure-stack"></a>Multi-tenancymodus in Azure-Stack inschakelen
 
@@ -75,7 +75,7 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
 Nadat u de stappen in de map Azure Stack hebt voltooid, moet koos toestemming verlenen aan Azure-Stack toegang tot de Gast-directory en Azure Stack registreren bij de directory van de Gast. 
 
 ### <a name="registering-azure-stack-with-the-guest-directory"></a>Azure-Stack registreren door de Gast-directory
-Nadat de Gast directory-beheerder hebt gekregen toestemming voor Azure-Stack voor toegang tot de map van Fabrikam, moeten deze Azure-Stack registreren bij Fabrikam van directory-tenant.
+Nadat de Gast directory-beheerder hebt gekregen toestemming voor Azure-Stack voor toegang tot de map van Fabrikam, moet koos Azure Stack registreren bij Fabrikam van directory-tenant.
 
 ````PowerShell
 $tenantARMEndpoint = "https://management.local.azurestack.external"

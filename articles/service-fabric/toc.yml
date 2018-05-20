@@ -73,6 +73,16 @@
           href: service-fabric-tutorial-upgrade-cluster.md
         - name: '4: API Management met Service Fabric implementeren'
           href: service-fabric-tutorial-deploy-api-management.md
+    - name: Een zelfstandige cluster maken in AWS
+      items:
+        - name: 1 - De infrastructuur maken in AWS
+          href: service-fabric-tutorial-standalone-create-infrastructure.md
+        - name: 2 - Service Fabric instellen
+          href: service-fabric-tutorial-standalone-create-service-fabric-cluster.md
+        - name: 3 - Een toepassing implementeren in het cluster
+          href: service-fabric-tutorial-standalone-install-an-application.md
+        - name: 4 - Uw cluster opschonen en de infrastructuur verwijderen
+          href: service-fabric-tutorial-standalone-clean-up.md
 - name: Voorbeelden
   items:
     - name: Codevoorbeelden

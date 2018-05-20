@@ -4,13 +4,13 @@ description: Beschrijft hoe vast te stellen van grote aantallen lokale machines 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 01/08/2018
+ms.date: 05/15/2018
 ms.author: raynew
-ms.openlocfilehash: 934f32228d2c37db58c52cf4820ccc331fccd1d3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: e0bd62710c47cfdf81535470ef96bad2ab675bb0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Een grote VMware-omgeving ontdekken en beoordelen
 
@@ -88,7 +88,7 @@ Controleer dat het bestand eicellen beveiligd is voordat u deze implementeert:
 
 3. Zorg ervoor dat de gegenereerde hash overeenkomt met de volgende instellingen.
 
-    Voor eicellen versie 1.0.9.7
+    Voor OVA-versie 1.0.9.7
 
     **Algoritme** | **Hash-waarde**
     --- | ---
@@ -167,15 +167,15 @@ U wordt aangeraden dat u algemene optimale (3) voor het niveau van de statistiek
 
 De volgende tabel bevat ook de resultaten van de beoordeling die worden beïnvloed als een bepaald item is niet verzameld.
 
-| Prestatiemeteritems                                 | Niveau | Per apparaat niveau | Evaluatie-impact                    |
+| Teller                                 | Niveau | Per apparaat niveau | Evaluatie-impact                    |
 | --------------------------------------- | ----- | ---------------- | ------------------------------------ |
-| cpu.usage.average                       | 1     | N.v.t.               | VM-grootte en de kosten van aanbevolen         |
+| CPU.Usage.Average                       | 1     | N.v.t.               | VM-grootte en de kosten van aanbevolen         |
 | Mem.Usage.Average                       | 1     | N.v.t.               | VM-grootte en de kosten van aanbevolen         |
 | virtualDisk.read.average                | 2     | 2                | Schijfgrootte opslagkosten en VM-grootte |
 | virtualDisk.write.average               | 2     | 2                | Schijfgrootte opslagkosten en VM-grootte |
 | virtualDisk.numberReadAveraged.average  | 1     | 3                | Schijfgrootte opslagkosten en VM-grootte |
 | virtualDisk.numberWriteAveraged.average | 1     | 3                | Schijfgrootte opslagkosten en VM-grootte |
-| net.received.average                    | 2     | 3                | VM-grootte en het netwerk kosten             |
+| NET.Received.Average                    | 2     | 3                | VM-grootte en het netwerk kosten             |
 | NET.transmitted.Average                 | 2     | 3                | VM-grootte en het netwerk kosten             |
 
 > [!WARNING]
@@ -203,7 +203,7 @@ Voor elke detectie dat u wilt uitvoeren, moet u de collector voor het detecteren
 5.  Doe het volgende in **vCenter Server-details opgeven**:
     - Geef de FQDN-naam of IP-adres van de vCenter-Server.
     - In **gebruikersnaam** en **wachtwoord**, geef de alleen-lezen accountreferenties die door de collector wordt gebruikt voor het detecteren van virtuele machines in de vCenter-Server.
-    - In **Selecteer bereik**, selecteert u een bereik voor detectie van de virtuele machine. De collector kan alleen virtuele machines binnen het opgegeven bereik worden gedetecteerd. U kunt het bereik instellen op een specifieke map, een datacenter of een cluster. Deze mag niet meer dan 1000 virtuele machines bevatten. 
+    - Selecteer in **Select scope** een bereik voor VM-detectie. De collector kan alleen virtuele machines binnen het opgegeven bereik worden gedetecteerd. U kunt het bereik instellen op een specifieke map, een datacenter of een cluster. Deze mag niet meer dan 1000 virtuele machines bevatten. 
 
 6.  In **Geef migratieproject**, geeft u de ID en sleutel voor het project. Als u deze niet kopiëren, opent u de Azure-portal van de collector VM. Op het project **overzicht** pagina **Machines detecteren** en kopieer de waarden.  
 7.  In **verzameling voortgang**, het detectieproces bewaken en controleren van metagegevens verzameld van de virtuele machines zijn binnen het bereik. De collector geeft aan hoe lang de detectie ongeveer zal duren.

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 36d4cd910f841a323dfada49d65f7acb4bdf3138
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: MT
+ms.openlocfilehash: 095356e76dc72c3e549c23ab3855962e9c2f1d26
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-stack-1803-update"></a>Azure-Stack 1803 update
 
@@ -118,8 +118,6 @@ Hieronder vindt u na de installatie bekende problemen voor de build **20180323.2
 - Het is niet mogelijk om compute of opslag resources in de beheerdersportal weer te geven. De oorzaak van dit probleem is een fout opgetreden tijdens de installatie van de update zorgt ervoor dat de update niet correct worden gerapporteerd als geslaagd. Als dit probleem optreedt, moet u contact op met Microsoft Customer Support Services voor ondersteuning.
 
 - U ziet een lege dashboard in de portal. Als u wilt herstellen het dashboard, selecteert u het pictogram tandwielpictogram in de rechterbovenhoek van de portal en selecteer vervolgens **standaardinstellingen herstellen**.
-
-- Wanneer u de eigenschappen van een resource of resourcegroep bekijkt de **verplaatsen** knop is uitgeschakeld. Dit is verwacht gedrag. Verplaatsen van resources of resourcegroepen tussen resourcegroepen of abonnementen is momenteel niet ondersteund.
 
 - Gebruiker abonnementen resulteert in een zwevende resources te verwijderen. Als tijdelijke oplossing Gebruikersbronnen of de hele resourcegroep eerst te verwijderen en verwijder vervolgens de gebruikersabonnementen.
 
@@ -244,6 +242,7 @@ Hieronder vindt u na de installatie bekende problemen voor de build **20180323.2
 
 - Alleen de resourceprovider wordt voor het maken van items op servers die SQL-host of MySQL ondersteund. Items die worden gemaakt op een hostserver die niet zijn gemaakt door de resourceprovider kunnen leiden tot een niet-overeenkomende staat.  
 
+- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers.
 
 > [!NOTE]  
 > Nadat u naar Azure Stack 1803 bijwerkt, kunt u blijven gebruiken van de SQL- en MySQL resourceproviders die u eerder hebt geïmplementeerd.  U wordt aangeraden dat u SQL en MySQL bijwerken wanneer er een nieuwe versie beschikbaar. Als Azure-Stack updates toepassen op SQL- en MySQL resourceproviders sequentieel worden verwerkt.  Als u versie 1711, versie 1712 vervolgens 1802 eerst toe te passen en vervolgens bijwerken naar 1803.      

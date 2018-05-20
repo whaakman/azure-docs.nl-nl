@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 2201fa48c84aec2c291d8df7e16293a41720ce3e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 408429d0f8697b8b807e386dbcf2eade29938249
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Een virtuele machine van Windows oplossen door de OS-schijf koppelen aan een herstel-VM met Azure PowerShell
 Als uw Windows-machine (VM) in Azure een opstart- of -fout optreedt, moet u wellicht de stappen voor probleemoplossing uitvoeren op de virtuele harde schijf zelf. Een veelvoorkomend voorbeeld is een mislukte toepassingsupdate die verhindert dat de virtuele machine kunnen opstarten is. Dit artikel wordt uitgelegd hoe u Azure PowerShell gebruiken voor verbinding van de virtuele harde schijf met een andere virtuele machine van Windows op eventuele fouten te corrigeren en vervolgens opnieuw maken van de oorspronkelijke VM.
@@ -31,6 +31,9 @@ Het probleemoplossingsproces is als volgt:
 3. Maak verbinding met de VM voor probleemoplossing. Bewerken van bestanden of alle hulpmiddelen voor het oplossen van problemen op de oorspronkelijke virtuele harde schijf worden uitgevoerd.
 4. Koppel de virtuele harde schijf van de VM voor probleemoplossing los.
 5. Een virtuele machine maken met de oorspronkelijke virtuele harde schijf.
+
+Voor de virtuele machine die gebruikmaakt van beheerde schijven, Zie [een schijf beheerd VM oplossen door het koppelen van een nieuwe besturingssysteemschijf](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk).
+
 
 Zorg ervoor dat u hebt [de meest recente Azure PowerShell](/powershell/azure/overview) geïnstalleerd en aangemeld bij uw abonnement:
 
@@ -200,6 +203,13 @@ $myVM = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVMDeployed"
 Set-AzureRmVMBootDiagnostics -ResourceGroupName myResourceGroup -VM $myVM -enable
 Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
 ```
+
+## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>Een schijf beheerd VM oplossen door het koppelen van een nieuwe OS-schijf
+1. Stop de betroffen beheerd schijf Windows virtuele machine.
+2. [Momentopname maken van een beheerde schijf](snapshot-copy-managed-disk.md) van de Besturingssysteemschijf van de virtuele schijf beheerd.
+3. [Maak een beheerde schijf van de momentopname](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
+4. [Koppel de beheerde schijf als een gegevensschijf van de virtuele machine](attach-disk-ps.md).
+5. [Wijzigen van de gegevensschijf van stap 4 in besturingssysteemschijf](os-disk-swap.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 Als u verbinding maakt met uw virtuele machine problemen ondervindt, raadpleegt u [problemen met RDP-verbindingen naar een Azure-virtuele machine](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Zie voor problemen met de toegang tot toepassingen die worden uitgevoerd op de virtuele machine [oplossen verbindingsproblemen van toepassing op een Windows VM](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

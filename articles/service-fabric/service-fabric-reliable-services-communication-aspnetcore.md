@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 8aa4668d-cbb6-4225-bd2d-ab5925a868f2
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 4f5bc49bf58773a1510b552ce6fc20aa61076348
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7786e08e04d2ebce757b4c47b8ed599036c95958
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core in Service Fabric Reliable Services
 
@@ -132,7 +132,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 
 ### <a name="httpsys-in-a-stateful-service"></a>HttpSys in een stateful service
 
-`HttpSysCommunicationListener`op dit moment niet is ontworpen voor gebruik in stateful services vanwege problemen met de onderliggende *http.sys* poort functie voor het delen. Zie voor meer informatie de volgende sectie op dynamische poorttoewijzing met HttpSys. Kestrel is de aanbevolen webserver voor stateful services.
+`HttpSysCommunicationListener` op dit moment niet is ontworpen voor gebruik in stateful services vanwege problemen met de onderliggende *http.sys* poort functie voor het delen. Zie voor meer informatie de volgende sectie op dynamische poorttoewijzing met HttpSys. Kestrel is de aanbevolen webserver voor stateful services.
 
 ### <a name="endpoint-configuration"></a>Endpoint-configuratie
 
@@ -306,7 +306,7 @@ Kestrel is de aanbevolen webserver voor front-end-services die externe, internet
  
 Wanneer blootgesteld aan Internet, moet een stateless service een bekende en stabiele eindpunt dat bereikbaar is via een load balancer gebruiken. Dit is de URL die u aan gebruikers van uw toepassing biedt. De volgende configuratie wordt aanbevolen:
 
-|  |  | **Opmerkingen bij de** |
+|  |  | **Opmerkingen** |
 | --- | --- | --- |
 | Webserver | kestrel | Kestrel is de voorkeur webserver omdat dit wordt ondersteund in Windows en Linux. |
 | Poortconfiguratie | statisch | Een bekende statische poort moet worden geconfigureerd in de `Endpoints` configuratie van ServiceManifest.xml, zoals 80 voor HTTP en 443 voor HTTPS. |
@@ -331,7 +331,7 @@ Als meerdere extern blootgestelde services dezelfde set knooppunten delen, kan H
 ### <a name="internal-only-stateless-aspnet-core-service"></a>Alleen intern staatloze ASP.NET Core-service
 Stateless services die alleen worden aangeroepen vanuit binnen het cluster moeten unieke URL's gebruiken en dynamisch toegewezen poorten om ervoor te zorgen samenwerking tussen meerdere services. De volgende configuratie wordt aanbevolen:
 
-|  |  | **Opmerkingen bij de** |
+|  |  | **Opmerkingen** |
 | --- | --- | --- |
 | Webserver | kestrel | Hoewel HttpSys kan worden gebruikt voor interne stateless services, is Kestrel de aanbevolen server zodat meerdere exemplaren van de service voor het delen van een host.  |
 | Poortconfiguratie | dynamisch toegewezen | Meerdere replica's van een stateful service kunnen een hostproces of hostbesturingssysteem delen en moeten dus unieke poorten. |
@@ -341,7 +341,7 @@ Stateless services die alleen worden aangeroepen vanuit binnen het cluster moete
 ### <a name="internal-only-stateful-aspnet-core-service"></a>Alleen intern stateful ASP.NET Core-service
 Stateful services die alleen worden aangeroepen vanuit binnen het cluster moeten dynamisch toegewezen poorten gebruiken om ervoor te zorgen samenwerking tussen meerdere services. De volgende configuratie wordt aanbevolen:
 
-|  |  | **Opmerkingen bij de** |
+|  |  | **Opmerkingen** |
 | --- | --- | --- |
 | Webserver | kestrel | De `HttpSysCommunicationListener` is niet ontworpen voor gebruik door stateful services waarin de replica's een hostproces delen. |
 | Poortconfiguratie | dynamisch toegewezen | Meerdere replica's van een stateful service kunnen een hostproces of hostbesturingssysteem delen en moeten dus unieke poorten. |

@@ -1,51 +1,53 @@
 ---
-title: "Azure AD v2.0 NodeJS AngularJS één pagina app aan de slag | Microsoft Docs"
-description: "Het bouwen van een hoek JS één pagina app die gebruikers met beide persoonlijke Microsoft-accounts en werk-of schoolaccounts aanmeldt."
+title: Azure AD v2.0 NodeJS AngularJS één pagina app aan de slag | Microsoft Docs
+description: Het bouwen van een hoek JS één pagina app die gebruikers met beide persoonlijke Microsoft-accounts en werk-of schoolaccounts aanmeldt.
 services: active-directory
-documentationcenter: 
-author: navyasric
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: d286aa33-8a94-452f-beb7-ddc6c6daa5c8
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: nacanuma
+ms.author: celested
+ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 10f797ad97ac3253984896c6cadb66b6b948ff8a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c6f617c43cc5b4d471f3effb6f4a633604b8dde0
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="add-sign-in-to-an-angularjs-single-page-app---nodejs"></a>Aanmelden toevoegen aan een app met één pagina AngularJS - NodeJS
 In dit artikel gaan we Meld u aan met ingeschakeld Microsoft-accounts toevoegen aan een AngularJS-app met behulp van het Azure Active Directory v2.0-eindpunt. het v2.0-eindpunt kunt u een één-integratie in uw app uitvoeren en gebruikers met een persoonlijke en zakelijke/school-account te verifiëren.
 
-Dit voorbeeld is een eenvoudige takenlijst één pagina app waarmee taken worden opgeslagen in een back-end REST API, geschreven in NodeJS en beveiligd met OAuth bearer-tokens van Azure AD.  De AngularJS-app gebruikt onze JavaScript-verificatiebibliotheek voor open-source [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js) te verwerken van het hele proces aanmelden en tokens voor het aanroepen van de REST-API te verkrijgen.  Hetzelfde patroon kan worden toegepast om te verifiëren bij andere REST-API's, zoals de [Microsoft Graph](https://graph.microsoft.com) of de Azure Resource Manager-API's.
+Dit voorbeeld is een eenvoudige takenlijst één pagina app waarmee taken worden opgeslagen in een back-end REST API, geschreven in NodeJS en beveiligd met OAuth bearer-tokens van Azure AD. De AngularJS-app gebruikt onze JavaScript-verificatiebibliotheek voor open-source [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js) te verwerken van het hele proces aanmelden en tokens voor het aanroepen van de REST-API te verkrijgen. Hetzelfde patroon kan worden toegepast om te verifiëren bij andere REST-API's, zoals de [Microsoft Graph](https://graph.microsoft.com) of de Azure Resource Manager-API's.
 
 > [!NOTE]
-> Niet alle Azure Active Directory-scenario's en functies worden ondersteund door het v2.0-eindpunt.  Meer informatie over om te bepalen of moet u het v2.0-eindpunt, [v2.0 beperkingen](active-directory-v2-limitations.md).
+> Niet alle Azure Active Directory-scenario's en functies worden ondersteund door het v2.0-eindpunt. Meer informatie over om te bepalen of moet u het v2.0-eindpunt, [v2.0 beperkingen](active-directory-v2-limitations.md).
 > 
 > 
 
 ## <a name="download"></a>Downloaden
-Om te beginnen, moet u downloaden en installeren [node.js](https://nodejs.org).  Vervolgens kunt u een kloon of [downloaden](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-NodeJS/archive/skeleton.zip) een geraamte app:
+Om te beginnen, moet u downloaden en installeren [node.js](https://nodejs.org). Vervolgens kunt u een kloon of [downloaden](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-NodeJS/archive/skeleton.zip) een geraamte app:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-NodeJS.git
 ```
 
-De geraamte app bevat alle standaardcode voor een eenvoudige AngularJS-app, maar alle benodigde onderdelen identiteitsgerelateerde ontbreekt.  Als u niet volgen wilt, kunt u in plaats daarvan klonen of [downloaden](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-NodeJS/archive/complete.zip) voltooide voorbeeld.
+De geraamte app bevat alle standaardcode voor een eenvoudige AngularJS-app, maar alle benodigde onderdelen identiteitsgerelateerde ontbreekt. Als u niet volgen wilt, kunt u in plaats daarvan klonen of [downloaden](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-NodeJS/archive/complete.zip) voltooide voorbeeld.
 
 ```
 git clone https://github.com/AzureADSamples/SinglePageApp-AngularJS-NodeJS.git
 ```
 
 ## <a name="register-an-app"></a>Een app registreren
-Maak eerst een app in de [App-Portal voor Wachtwoordregistratie](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), of als volgt [gedetailleerde stappen](active-directory-v2-app-registration.md).  Zorg ervoor dat:
+Maak eerst een app in de [App-Portal voor Wachtwoordregistratie](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), of als volgt [gedetailleerde stappen](active-directory-v2-app-registration.md). Zorg ervoor dat:
 
 * Voeg de **Web** platform voor uw app.
 * Voer de juiste **omleidings-URI**. De standaardwaarde voor dit voorbeeld is `http://localhost:8080`.
@@ -54,13 +56,13 @@ Maak eerst een app in de [App-Portal voor Wachtwoordregistratie](https://apps.de
 Noteer de **toepassings-ID** die is toegewezen aan uw app, moet u deze binnenkort. 
 
 ## <a name="install-adaljs"></a>Adal.js installeren
-Als u wilt starten, navigeert u gedownload projecteren en adal.js installeren.  Als u hebt [bower](http://bower.io/) geïnstalleerd, kunt u alleen deze opdracht uitvoeren.  Voor afhankelijkheid versie verschillen worden ontdekt, kiest u de hogere versie.
+Als u wilt starten, navigeert u gedownload projecteren en adal.js installeren. Als u hebt [bower](http://bower.io/) geïnstalleerd, kunt u alleen deze opdracht uitvoeren. Voor afhankelijkheid versie verschillen worden ontdekt, kiest u de hogere versie.
 
 ```
 bower install adal-angular#experimental
 ```
 
-U kunt ook kunt u handmatig downloaden [adal.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/experimental/dist/adal.min.js) en [adal angular.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/experimental/dist/adal-angular.min.js).  Beide bestanden toevoegt aan de `app/lib/adal-angular-experimental/dist` directory.
+U kunt ook kunt u handmatig downloaden [adal.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/experimental/dist/adal.min.js) en [adal angular.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/experimental/dist/adal-angular.min.js). Beide bestanden toevoegt aan de `app/lib/adal-angular-experimental/dist` directory.
 
 Open het project in uw favoriete teksteditor nu en adal.js aan het einde van de Paginahoofdtekst van de te laden:
 
@@ -76,7 +78,7 @@ Open het project in uw favoriete teksteditor nu en adal.js aan het einde van de 
 ```
 
 ## <a name="set-up-the-rest-api"></a>Instellen van de REST-API
-Terwijl we alles wordt ingesteld, kunt de back-end REST-API kunnen gebruiken.  In een opdrachtprompt, installeert u de vereiste pakketten door te voeren (Zorg ervoor dat u zich in de map op het hoogste niveau van het project):
+Terwijl we alles wordt ingesteld, kunt de back-end REST-API kunnen gebruiken. In een opdrachtprompt, installeert u de vereiste pakketten door te voeren (Zorg ervoor dat u zich in de map op het hoogste niveau van het project):
 
 ```
 npm install
@@ -94,12 +96,12 @@ exports.creds = {
 }
 ```
 
-De REST-API gebruikt deze waarde om tokens die worden ontvangen van de hoek app op AJAX-aanvragen te valideren.  Opmerking waarop deze eenvoudige REST-API worden opgeslagen gegevens in het geheugen - dus elke tijd voor het stoppen van de server, verliest u alle eerder gemaakte taken.
+De REST-API gebruikt deze waarde om tokens die worden ontvangen van de hoek app op AJAX-aanvragen te valideren. Opmerking waarop deze eenvoudige REST-API worden opgeslagen gegevens in het geheugen - dus elke tijd voor het stoppen van de server, verliest u alle eerder gemaakte taken.
 
-Dat is de tijd die we willen besteden bespreking van de werking van de REST-API.  Maak rond in de code, maar als u meer informatie wilt over het beveiligen van web-API's in Azure AD, Bekijk gerust [in dit artikel](active-directory-v2-devquickstarts-node-api.md). 
+Dat is de tijd die we willen besteden bespreking van de werking van de REST-API. Maak rond in de code, maar als u meer informatie wilt over het beveiligen van web-API's in Azure AD, Bekijk gerust [in dit artikel](active-directory-v2-devquickstarts-node-api.md). 
 
 ## <a name="sign-users-in"></a>Gebruikers aanmelden
-Tijd voor de identiteitscode schrijven.  Hebt misschien u al opgemerkt dat adal.js bevat een AngularJS-provider, waarmee mooi met Hoekvormige routering mechanismen speelt.  Door de adal-module toe te voegen aan de app start:
+Tijd voor de identiteitscode schrijven. Hebt misschien u al opgemerkt dat adal.js bevat een AngularJS-provider, waarmee mooi met Hoekvormige routering mechanismen speelt. Door de adal-module toe te voegen aan de app start:
 
 ```js
 // app/scripts/app.js
@@ -135,7 +137,7 @@ adalProvider.init({
     }, $httpProvider);
 ```
 
-Goede, adal.js heeft nu alle informatie die nodig is voor het beveiligen van uw app en meld u aan gebruikers.  Als u wilt afdwingen voor een bepaalde route in de app aanmelden, is een kwestie van één regel code:
+Goede, adal.js heeft nu alle informatie die nodig is voor het beveiligen van uw app en meld u aan gebruikers. Als u wilt afdwingen voor een bepaalde route in de app aanmelden, is een kwestie van één regel code:
 
 ```js
 // app/scripts/app.js
@@ -151,7 +153,7 @@ Goede, adal.js heeft nu alle informatie die nodig is voor het beveiligen van uw 
 ...
 ```
 
-Nu wanneer een gebruiker klikt op de `TodoList` koppeling adal.js worden automatisch omgeleid naar Azure AD voor aanmelden indien nodig.  U kunt ook expliciet aanmelden en afmeldingsaanvragen te verzenden door aan te roepen adal.js in uw domeincontrollers verzenden:
+Nu wanneer een gebruiker klikt op de `TodoList` koppeling adal.js worden automatisch omgeleid naar Azure AD voor aanmelden indien nodig. U kunt ook expliciet aanmelden en afmeldingsaanvragen te verzenden door aan te roepen adal.js in uw domeincontrollers verzenden:
 
 ```js
 // app/scripts/homeCtrl.js
@@ -175,7 +177,7 @@ angular.module('todoApp')
 ```
 
 ## <a name="display-user-info"></a>Gebruikersgegevens weergeven
-Nu dat de gebruiker is aangemeld, moet u waarschijnlijk voor toegang tot gegevens van de aangemelde gebruiker de verificatie in uw toepassing.  Adal.js beschrijft deze informatie voor u in de `userInfo` object.  Voor toegang tot dit object in een weergave, moet u eerst adal.js toevoegen aan het bereik van de hoofdmap van de bijbehorende controller:
+Nu dat de gebruiker is aangemeld, moet u waarschijnlijk voor toegang tot gegevens van de aangemelde gebruiker de verificatie in uw toepassing. Adal.js beschrijft deze informatie voor u in de `userInfo` object. Voor toegang tot dit object in een weergave, moet u eerst adal.js toevoegen aan het bereik van de hoofdmap van de bijbehorende controller:
 
 ```js
 // app/scripts/userDataCtrl.js
@@ -216,9 +218,9 @@ U kunt ook de `userInfo` object om te bepalen of aan de gebruiker is aangemeld o
 ```
 
 ## <a name="call-the-rest-api"></a>De REST-API aanroepen
-Ten slotte is het tijd om sommige tokens verkrijgen en roept u de REST-API als u wilt maken, lezen, bijwerken en verwijderen van taken.  Ook goed nieuws!  U hoeft te doen *een ding*.  Adal.js zorgt automatisch voor het ophalen, opslaan in cache en vernieuwen van tokens.  Deze ook zorgt voor het koppelen van deze tokens aan uitgaande AJAX-aanvragen die u naar de REST-API verzendt.  
+Ten slotte is het tijd om sommige tokens verkrijgen en roept u de REST-API als u wilt maken, lezen, bijwerken en verwijderen van taken. Ook goed nieuws!  U hoeft te doen *een ding*. Adal.js zorgt automatisch voor het ophalen, opslaan in cache en vernieuwen van tokens. Deze ook zorgt voor het koppelen van deze tokens aan uitgaande AJAX-aanvragen die u naar de REST-API verzendt. 
 
-Hoe werkt dit? Het is alle dankzij de magie van [AngularJS interceptors](https://docs.angularjs.org/api/ng/service/$http), waardoor adal.js voor het transformeren van uitgaande en binnenkomende HTTP-berichten.  Bovendien adal.js wordt ervan uitgegaan dat alle aanvragen tot hetzelfde domein verzenden als tokens die zijn bedoeld voor dezelfde toepassings-ID als de AngularJS-app moet worden gebruikt in het venster.  Daarom hebben we gebruikt dezelfde toepassings-ID in de hoek app en in de NodeJS REST-API.  Natuurlijk kunt u dit gedrag negeren en vertel adal.js ophalen van tokens van andere REST-API's zo nodig - maar doet voor dit eenvoudige scenario de standaardwaarden.
+Hoe werkt dit? Het is alle dankzij de magie van [AngularJS interceptors](https://docs.angularjs.org/api/ng/service/$http), waardoor adal.js voor het transformeren van uitgaande en binnenkomende HTTP-berichten. Bovendien adal.js wordt ervan uitgegaan dat alle aanvragen tot hetzelfde domein verzenden als tokens die zijn bedoeld voor dezelfde toepassings-ID als de AngularJS-app moet worden gebruikt in het venster. Daarom hebben we gebruikt dezelfde toepassings-ID in de hoek app en in de NodeJS REST-API. Natuurlijk kunt u dit gedrag negeren en vertel adal.js ophalen van tokens van andere REST-API's zo nodig - maar doet voor dit eenvoudige scenario de standaardwaarden.
 
 Hier volgt een codefragment die laat hoe eenvoudig het is zien voor het verzenden van aanvragen met bearer-tokens van Azure AD:
 
@@ -230,15 +232,15 @@ return $http.get('/api/tasks');
 ...
 ```
 
-Gefeliciteerd.  Uw Azure AD-geïntegreerde één pagina app is nu voltooid.  Opwekken op. een boeg.  U kunt verificatie van gebruikers, veilig aanroepen van de back-end REST-API met OpenID Connect en basisinformatie over de gebruiker ophalen.  Buiten het vak biedt ondersteuning voor elke gebruiker met een persoonlijk Microsoft-Account of een werk schoolaccount van Azure AD.  Probeer de app door te voeren:
+Gefeliciteerd!  Uw Azure AD-geïntegreerde één pagina app is nu voltooid. Opwekken op. een boeg. U kunt verificatie van gebruikers, veilig aanroepen van de back-end REST-API met OpenID Connect en basisinformatie over de gebruiker ophalen. Buiten het vak biedt ondersteuning voor elke gebruiker met een persoonlijk Microsoft-Account of een werk schoolaccount van Azure AD. Probeer de app door te voeren:
 
 ```
 node server.js
 ```
 
-Navigeer in een browser naar `http://localhost:8080`.  Meld u aan met een persoonlijk Microsoft-account of een werk/school-account.  Taken toevoegen aan de takenlijst van de gebruiker en meld u af.  Probeer aanmelden met het andere type account. Als u een Azure AD-tenant maken werk/school gebruikers, moet [Lees hoe u een hier](active-directory-howto-tenant.md) (het is gratis).
+Navigeer in een browser naar `http://localhost:8080`. Meld u aan met een persoonlijk Microsoft-account of een werk/school-account. Taken toevoegen aan de takenlijst van de gebruiker en meld u af. Probeer aanmelden met het andere type account. Als u een Azure AD-tenant maken werk/school gebruikers, moet [Lees hoe u een hier](active-directory-howto-tenant.md) (het is gratis).
 
-Om door te gaan leren over de het v2.0-eindpunt, head terug naar onze [v2.0 ontwikkelaarshandleiding](active-directory-appmodel-v2-overview.md).  Voor aanvullende bronnen voor uitchecken:
+Om door te gaan leren over de het v2.0-eindpunt, head terug naar onze [v2.0 ontwikkelaarshandleiding](active-directory-appmodel-v2-overview.md). Voor aanvullende bronnen voor uitchecken:
 
 * [Azure-voorbeelden op GitHub >>](https://github.com/Azure-Samples)
 * [Azure AD op de Stack-overloop >>](http://stackoverflow.com/questions/tagged/azure-active-directory)

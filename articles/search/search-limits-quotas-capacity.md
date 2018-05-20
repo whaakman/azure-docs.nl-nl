@@ -9,11 +9,11 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: heidist
-ms.openlocfilehash: 9fd046efd01281de6d5b46cca37d22a48671b1b2
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: b964f5c127d627ede6d3ff671ac695e1b33e4558
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-limits-in-azure-search"></a>Servicelimieten in Azure Search
 Maximum beperkt op opslag, workloads en aantallen van indexen, documenten en andere objecten afhankelijk zijn van of u [inrichten van Azure Search](search-create-service-portal.md) op **vrije**, **Basic**, of **Standaard** Prijscategorieën.
@@ -44,10 +44,13 @@ Maximum beperkt op opslag, workloads en aantallen van indexen, documenten en and
 | -------- | ---- | ------------------- | --- | --- | --- | --- |
 | Maximale aantal indexen |3 |5 of 15 |50 |200 |200 |1000 per partitie of 3000 per service |
 | Maximum aantal velden per index |1000 |100 |1000 |1000 |1000 |1000 |
-| Maximale scoreprofiel profielen per index |100 |100 |100 |100 |100 |100 |
+| Maximale [suggestiefunctie](https://docs.microsoft.com/rest/api/searchservice/suggesters) per index |1 |1 |1 |1 |1 |1 |
+| Maximale [score berekenen voor profielen](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per index |100 |100 |100 |100 |100 |100 |
 | Maximale functies per profiel |8 |8 |8 |8 |8 |8 |
 
 <sup>1</sup> basisservices nadat 2017 laat een hogere limiet van 15 indexen, gegevensbronnen en indexeerfuncties hebt gemaakt. Services die eerder hebt gemaakt hebben 5. Basic-lagen is de enige SKU met een lagere limiet van 100 velden per index.
+
+<a name="document-limits"></a>
 
 ## <a name="document-limits"></a>Document limieten 
 
@@ -93,7 +96,7 @@ Basic services die zijn gemaakt na laat 2017 hebben een hogere limiet van 15 ind
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- |
 | Maximale aantal indexeerfuncties |3 |5 of 15|50 |200 |200 |N/A |
 | Maximale aantal gegevensbronnen |3 |5 of 15 |50 |200 |200 |N/A |
-| Maximale vaardigheden |3 |5 of 15 |50 |200 |200 |N/A |
+| Maximale vaardigheden <sup>4</sup> |3 |5 of 15 |50 |200 |200 |N/A |
 | Maximale indexering belasting per aanroep |10.000 documenten |Alleen beperkt door het maximum aantal documenten |Alleen beperkt door het maximum aantal documenten |Alleen beperkt door het maximum aantal documenten |Alleen beperkt door het maximum aantal documenten |N/A |
 | Maximale uitvoeringstijd | 1-3 minuten |24 uur |24 uur |24 uur |24 uur |N/A  |
 | BLOB-indexeerfunctie: maximale blobgrootte, MB |16 |16 |128 |256 |256 |N/A  |
@@ -104,6 +107,8 @@ Basic services die zijn gemaakt na laat 2017 hebben een hogere limiet van 15 ind
 <sup>2</sup> basisservices nadat 2017 laat een hogere limiet van 15 indexen, gegevensbronnen en indexeerfuncties hebt gemaakt. Services die eerder hebt gemaakt hebben 5.
 
 <sup>3</sup> S3 HD services omvatten geen indexeerfunctie ondersteuning.
+
+<sup>4</sup> maximaal 30 vaardigheden per vaardigheden.
 
 ## <a name="queries-per-second-qps"></a>Query's per seconde (QPS)
 

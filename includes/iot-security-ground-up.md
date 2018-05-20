@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 103cdd24ca5f47ee12196cd153d528f19bb35b20
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c1ba6cb5b01c86c64fd6134c592829050bbb226d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="internet-of-things-security-from-the-ground-up"></a>Beveiliging van Internet der dingen van een compleet nieuwe
 
@@ -44,11 +44,11 @@ Microsoft systemen bieden continue inbraakdetectie en preventie, service-aanval 
 
 De oplossing accelerators profiteren van de beveiliging en privacy die zijn ingebouwd in de Azure-platform samen met de SDL en OSA processen voor veilige ontwikkeling en het gebruik van alle Microsoft-software. Deze procedures bieden bescherming van de infrastructuur, netwerkbeveiliging en identiteits- en functies fundamentele voor de beveiliging van een oplossing.
 
-De [Azure IoT Hub](../articles/iot-hub/iot-hub-what-is-iot-hub.md) binnen de [IoT-oplossing accelerators](../articles/iot-suite/iot-suite-what-is-azure-iot.md) biedt een volledig beheerde service die stabiele en veilige tweerichtingscommunicatie tussen IoT-apparaten en Azure-services zoals [Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) en [Azure Stream Analytics](../articles/stream-analytics/stream-analytics-introduction.md) met behulp van beveiligingsreferenties per apparaat- en toegangsbeheer.
+De [Azure IoT Hub](../articles/iot-hub/iot-hub-what-is-iot-hub.md) binnen de [IoT-oplossing accelerators](../articles/iot-accelerators/iot-accelerators-what-is-azure-iot.md) biedt een volledig beheerde service die stabiele en veilige tweerichtingscommunicatie tussen IoT-apparaten en Azure-services zoals [Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) en [Azure Stream Analytics](../articles/stream-analytics/stream-analytics-introduction.md) met behulp van beveiligingsreferenties per apparaat- en toegangsbeheer.
 
 Beste communiceren beveiliging en privacy-functies die zijn ingebouwd in de Azure IoT-oplossing accelerators, is dit artikel uitsplitsing van de suite in de drie beveiligingsgebieden van de primaire.
 
-![Accelerators voor Azure IoT-oplossing](media/iot-security-ground-up/securing-iot-ground-up-fig3.png)
+![Azure IoT-oplossingsversnellers](media/iot-security-ground-up/securing-iot-ground-up-fig3.png)
 
 ### <a name="secure-device-provisioning-and-authentication"></a>Beveiligen van mobiele apparaten inrichten en verificatie
 

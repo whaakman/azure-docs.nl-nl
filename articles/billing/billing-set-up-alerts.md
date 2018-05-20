@@ -4,8 +4,8 @@ description: Hierin wordt beschreven hoe u kunt waarschuwingen instellen op uw A
 keywords: tegoed waarschuwing facturering waarschuwing
 services: ''
 documentationcenter: ''
-author: vikdesai
-manager: tonguyen
+author: adpick
+manager: adpick
 editor: ''
 tags: billing
 ms.assetid: 9b7b3eeb-cd9d-4690-86a3-51b1e2a8974f
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/9/2017
-ms.author: vikdesai
+ms.author: adpick
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8606efc4e0d3050ddd72b6bf8ec87f6ddd84fa2e
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 9f20de2c8a8870568ac624846f6a8a4f8d72b5c0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="set-up-billing-or-credit-alerts-for-your-microsoft-azure-subscriptions"></a>Facturerings- of waarschuwingen instellen voor uw Microsoft Azure-abonnementen
 Als u de accountbeheerder voor een Azure-abonnement bent, kunt u de Azure Billing waarschuwingsservice voor het maken van aangepaste factureringsmeldingen die u helpen controleren en beheren van facturerings activiteit voor uw Azure-accounts.
@@ -49,7 +49,7 @@ Azure biedt ondersteuning voor elk e-mailadres, maar niet verifiëren dat de e-m
 Na het instellen van waarschuwingen, wordt het Account Center vermeldt ze en toont hoe veel meer kunt u instellen. Voor elke waarschuwing ziet u de datum en tijdstip van verzending, of een waarschuwing voor totale facturering of financieel tegoed is en de limiet die u instelt. De datum en tijd-indeling is coördineren 24-uurs-Universal Time (UTC) en de datum is jjjj-mm-dd-indeling. Klik op het plusteken voor een waarschuwing in de lijst om het te bewerken, of klik op de Prullenbak om het te verwijderen.
 
 ## <a name="billing-alerts-for-enterprise-agreement-ea-customers"></a>Waarschuwingen voor facturering voor klanten met Enterprise Agreement (EA)
-EA klanten kunnen waarschuwingen krijgen voor elke afdeling onder een inschrijving door de instelling uitgaven quota's. Zie [afdeling uitgaven quota](https://ea.azure.com/helpdocs/departmentSpendingQuotas) in de portal EA aan de slag.
+EA abonnementen worden niet ondersteund door deze service, in plaats daarvan EA klanten waarschuwingen kunnen krijgen voor elke afdeling onder een inschrijving door het instellen van quota uitgaven. Zie [afdeling uitgaven quota](https://ea.azure.com/helpdocs/departmentSpendingQuotas) in de portal EA aan de slag.
 
 ## <a name="learn-more-about-azure-cost-management"></a>Meer informatie over het kostenbeheer van Azure
 - Geschatte kosten met behulp van de [prijscategorie Rekenmachine](https://azure.microsoft.com/pricing/calculator/), [totale kosten van eigendom Rekenmachine](https://aka.ms/azure-tco-calculator), en wanneer u een service toevoegen.

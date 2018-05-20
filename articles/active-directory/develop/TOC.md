@@ -41,7 +41,7 @@
 ### [OAuth 2.0-verificatiecode verlenen](active-directory-protocols-oauth-code.md)
 ### [Impliciete goedkeuring voor OAuth 2.0](active-directory-dev-understanding-oauth2-implicit-grant.md)
 ## [SAML 2.0](active-directory-saml-protocol-reference.md)
-### [Rolclaims configureren](active-directory-enterprise-app-role-management.md)
+### [Rolclaims configureren](../active-directory-enterprise-app-role-management.md)
 ### [Claims aanpassen](active-directory-saml-claims-customization.md)
 ### [Fouten opsporen van op SAML gebaseerde SSO](active-directory-saml-debugging.md)
 ### [SAML-protocol voor eenmalige aanmelding](active-directory-single-sign-on-protocol-reference.md)

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2018
+ms.date: 05/14/2018
 ms.author: terrylan
-ms.openlocfilehash: 7bbe0945981370c15fd10e93498fcc3ee0bf1a39
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e46c2ad30b578b0642ee7b541ea003ed67c6a7f5
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Veelgestelde vragen over Azure Security Center
 Deze Veelgestelde vragen over de antwoorden op vragen over Azure Security Center, een service waarmee u detecteren, voorkomen van en reageren op bedreigingen dankzij een verhoogde zichtbaarheid van en controle over de beveiliging van uw Microsoft Azure-resources.
@@ -35,7 +35,7 @@ Azure Security Center helpt u bij het detecteren, voorkomen van en reageren op b
 ### <a name="how-do-i-get-azure-security-center"></a>Hoe krijg ik Azure Security Center?
 Azure Security Center is met uw Microsoft Azure-abonnement ingeschakeld en is toegankelijk vanuit de [Azure-portal](https://azure.microsoft.com/features/azure-portal/). ([Aanmelden bij de portal](https://portal.azure.com), selecteer **Bladeren**, en schuif naar **Security Center**).  
 
-## <a name="billing"></a>Facturering
+## <a name="billing"></a>Billing
 ### <a name="how-does-billing-work-for-azure-security-center"></a>Hoe werkt facturering voor Azure Security Center?
 Security Center wordt aangeboden in twee lagen:
 
@@ -51,16 +51,18 @@ Security Center beoordeelt de configuratie van uw resources om beveiligingsprobl
 Zie [machtigingen in Azure Security Center](security-center-permissions.md) voor meer informatie over de functies en de toegestane acties in Security Center.
 
 ## <a name="data-collection"></a>Gegevensverzameling
-Security Center verzamelt gegevens van uw virtuele machines naar hun beveiligingsstatus beoordelen, aanbevelingen voor beveiliging bieden en een melding op bedreigingen. Wanneer u Security Center voor het eerst opent, worden gegevensverzameling is ingeschakeld op alle virtuele machines in uw abonnement. U kunt ook het verzamelen van gegevens in het beleid Security Center inschakelen.
+Security Center verzamelt gegevens van uw virtuele Azure-machines (VM's) en niet-Azure-computers om te controleren op beveiligingsproblemen en bedreigingen. De gegevens worden verzameld met behulp van de MMA, die verschillende configuraties en gebeurtenislogboeken met betrekking tot beveiliging van de machine leest en de gegevens kopieert naar uw werkruimte voor analyse.
 
 ### <a name="how-do-i-disable-data-collection"></a>Hoe kan ik gegevens verzamelen uitschakelen?
-Als u van het Azure Security Center gratis laag gebruikmaakt, kunt u het verzamelen van gegevens van virtuele machines op elk gewenst moment uitschakelen. Verzamelen van gegevens is vereist voor abonnementen op de prijscategorie Standard. U kunt het verzamelen van gegevens voor een abonnement in het beveiligingsbeleid uitschakelen. ([Aanmelden bij de Azure-portal](https://portal.azure.com), selecteer **Bladeren**, selecteer **Security Center**, en selecteer **beleid**.)  Wanneer u een abonnement selecteren, een nieuwe blade geopend en biedt u de mogelijkheid om uit te schakelen **gegevensverzameling**.
+Automatische inrichting is standaard uitgeschakeld. U kunt uitschakelen om automatische inrichting van bronnen op elk gewenst moment door het uitschakelen van deze instelling in het beveiligingsbeleid. Automatische inrichting wordt sterk aanbevolen om op te halen beveiligingswaarschuwingen en aanbevelingen over systeemupdates, OS beveiligingsproblemen en endpoint protection.
+
+Gegevens verzamelen uitschakelen [aanmelden bij de Azure-portal](https://portal.azure.com), selecteer **Bladeren**, selecteer **Security Center**, en selecteer **beleid selecteert**. Selecteer het abonnement waarvoor u automatisch inrichten wilt uitschakelen. Wanneer u een abonnement selecteren **beveiligingsbeleid - gegevensverzameling** wordt geopend. Onder **automatische inrichting**, selecteer **uit**.
 
 ### <a name="how-do-i-enable-data-collection"></a>Hoe kan ik gegevensverzameling inschakelen?
-U kunt de gegevensverzameling inschakelen voor uw Azure-abonnement in het beveiligingsbeleid. Gegevensverzameling inschakelen. [Meld u aan bij de Azure portal](https://portal.azure.com), selecteer **Bladeren**, selecteer **Security Center**, en selecteer **beleid**. Stel **gegevensverzameling** naar **op**.
+U kunt de gegevensverzameling inschakelen voor uw Azure-abonnement in het beveiligingsbeleid. Gegevensverzameling inschakelen. [Meld u aan bij de Azure portal](https://portal.azure.com), selecteer **Bladeren**, selecteer **Security Center**, en selecteer **beveiligingsbeleid**. Selecteer het abonnement dat u wilt inschakelen automatische inrichting. Wanneer u een abonnement selecteren **beveiligingsbeleid - gegevensverzameling** wordt geopend. Onder **automatische inrichting**, selecteer **op**.
 
 ### <a name="what-happens-when-data-collection-is-enabled"></a>Wat gebeurt er wanneer gegevensverzameling is ingeschakeld?
-Wanneer gegevensverzameling is ingeschakeld, wordt Microsoft Monitoring Agent automatisch geconfigureerd zijn op alle bestaande en nieuw ondersteunde virtuele machines die zijn geïmplementeerd in het abonnement.
+Wanneer automatische inrichting is ingeschakeld, wordt Security Center voorziet in de Microsoft Monitoring Agent op alle ondersteunde virtuele Azure-machines en nieuwe bestanden die zijn gemaakt. Automatische inrichting is het raadzaam maar handmatige agentinstallatie is ook beschikbaar. [Informatie over het installeren van de uitbreiding voor Microsoft Monitoring Agent](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension).
 
 De agent kan de gebeurtenis proces maken 4688 en de *CommandLine* veld binnen 4688-gebeurtenis. Nieuwe processen die zijn gemaakt op de virtuele machine zijn vastgelegd door EventLog en bewaakt door Security Center van detectie van services. Zie voor informatie over de details voor elke nieuwe proces vastgelegd [beschrijving velden in 4688](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields). De agent verzamelt de 4688 gebeurtenissen die zijn gemaakt op de virtuele machine ook en slaat ze op in de zoekopdracht.
 

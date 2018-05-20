@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d9b44d75-e905-468e-b867-2190ce97379a
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: dbd8508a7f55b8b5fdf53912d2189a18ef504193
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6977fa0a62767cebbd1000335c6c3a33a5991c2c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="get-started-with-reliable-services"></a>Aan de slag met Reliable Services
 > [!div class="op_single_selector"]
@@ -222,7 +222,7 @@ Nadat de services zijn gestart, kunt u weergeven met de gegenereerde Event Traci
 
 [Meer informatie over betrouwbare verzamelingen](service-fabric-reliable-services-reliable-collections.md)
 
-[Een toepassing implementeren](service-fabric-deploy-remove-applications.md)
+[Een app implementeren](service-fabric-deploy-remove-applications.md)
 
 [Toepassingsupgrade](service-fabric-application-upgrade.md)
 

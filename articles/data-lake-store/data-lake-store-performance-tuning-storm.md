@@ -2,7 +2,7 @@
 title: Azure Data Lake Store Storm prestaties afstemmen richtlijnen | Microsoft Docs
 description: Azure Data Lake Store Storm prestaties afstemmen richtlijnen
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: stewu
 manager: amitkul
 editor: stewu
@@ -10,15 +10,13 @@ ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: c872bfe36673af1292b5af9cf40374de39a5c159
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 5ebca90ffd679de1c30d1bc324bf4f1c3b9f6f70
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-store"></a>Prestaties afstemmen richtlijnen voor Storm op HDInsight en Azure Data Lake Store
 
@@ -27,7 +25,7 @@ Begrijpen factoren die u overwegen moeten bij het afstemmen van de prestaties va
 ## <a name="prerequisites"></a>Vereisten
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
-* **Een Azure Data Lake Store-account**. Zie voor instructies over het maken van een [aan de slag met Azure Data Lake Store](data-lake-store-get-started-portal.md).
+* **Een Azure Data Lake Store-account**. Zie [Aan de slag met Azure Data Lake Store](data-lake-store-get-started-portal.md) voor instructies over hoe u zo’n account maakt.
 * **Een Azure HDInsight-cluster** met toegang tot een Data Lake Store-account. Zie [een HDInsight-cluster maken met Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Zorg ervoor dat u extern bureaublad inschakelen voor het cluster.
 * **Een Storm-cluster op Data Lake Store met**. Zie voor meer informatie [Storm op HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
 * **Prestaties afstemmen richtlijnen voor het Data Lake Store**.  Raadpleeg voor algemene prestaties concepten, [Data Lake Store prestaties afstemmen richtlijnen](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance).  
@@ -133,7 +131,7 @@ Als u op de ondergrenzen van de bandbreedte die worden geleverd door de Data Lak
 
 Om te zien als u zijn ophalen beperkt, schakelt u de logboekregistratie aan de clientzijde voor foutopsporing:
 
-1. In **Ambari** > **Storm** > **Config** > **geavanceerde storm-worker-log4j**, wijzigen  **&lt;root niveau = 'info'&gt;**  naar  **&lt;root niveau = 'debug'&gt;**. Alle knooppunten/start de service opnieuw voor de configuratie van kracht te laten worden.
+1. In **Ambari** > **Storm** > **Config** > **geavanceerde storm-worker-log4j**, wijzigen **&lt;root niveau = 'info'&gt;** naar  **&lt;root niveau = 'debug'&gt;**. Alle knooppunten/start de service opnieuw voor de configuratie van kracht te laten worden.
 2. Monitor voor de Storm-topologie op de worker-knooppunten Logboeken (onder /var/log/storm/worker-artifacts /&lt;TopologyName&gt;/&lt;poort&gt;/worker.log) voor Data Lake Store uitzonderingen beperking.
 
 ## <a name="next-steps"></a>Volgende stappen

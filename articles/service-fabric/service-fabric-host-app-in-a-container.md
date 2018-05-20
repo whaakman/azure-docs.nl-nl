@@ -1,9 +1,9 @@
 ---
 title: Een .NET-toepassing in een container implementeren in Azure Service Fabric | Microsoft Docs
-description: Leert u hoe u een .NET-app in Visual Studio in een Docker-container moet inpakken. Deze nieuwe 'container'-app wordt vervolgens geïmplementeerd op een Service Fabric-cluster.
+description: Informatie over hoe u een bestaande .NET-toepassing in een container plaatst met behulp van Visual Studio en lokaal fouten opspoort in containers in Service Fabric. De in een container geplaatste toepassing wordt naar een Azure-containerregister gepusht en geïmplementeerd in een Service Fabric-cluster. Wanneer de toepassing is geïmplementeerd in Azure, gebruikt deze Azure SQL DB voor het persistent maken van gegevens.
 services: service-fabric
 documentationcenter: .net
-author: mikkelhegn
+author: rwike77
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,225 +12,243 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/23/2018
-ms.author: mikhegn
-ms.openlocfilehash: 04a6fbc56d3c65cfb53339c4178dfa36e2aeb4ea
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 05/07/2018
+ms.author: ryanwi,mikhegn
+ms.openlocfilehash: 20600eda935d15b0554f6184b41caa45ee42fd14
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Een .NET-toepassing in een Windows-container implementeren in Azure Service Fabric
+# <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Zelfstudie: Een .NET-toepassing in een Windows-container implementeren in Azure Service Fabric
 
-Deze zelfstudie laat zien hoe u een bestaande ASP.NET-toepassing in een Windows-container in Azure kunt implementeren.
+Deze zelfstudie laat u zien hoe u een bestaande ASP.NET-toepassing in een container plaatst en verpakt als een Service Fabric-toepassing.  Voer de containers lokaal uit in het Service Fabric-ontwikkelingscluster en implementeer de toepassing vervolgens in Azure.  De toepassing maakt gegevens persistent in [Azure SQL Database](/azure/sql-database/sql-database-technical-overview). 
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Een Docker-project in Visual Studio maken
-> * Een bestaande toepassing in een container plaatsen
-> * Doorlopende integratie met Visual Studio en VSTS instellen
+> * Een bestaande toepassing in een container plaatsen met behulp van Visual Studio
+> * Een Azure SQL-database maken
+> * Een Azure Container Registry maken
+> * Een Service Fabric-toepassing implementeren in Azure
 
 ## <a name="prerequisites"></a>Vereisten
 
-1. Installeer [Docker CE voor Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) zodat u containers op Windows 10 kunt uitvoeren.
-2. Maak uzelf vertrouwd met de [Windows 10 Containers-quickstart][link-container-quickstart].
-3. Download de voorbeeldtoepassing [Fabrikam Fiber CallCenter][link-fabrikam-github].
-4. Installeer [Azure PowerShell][link-azure-powershell-install]
-5. Installeer de [extensie Continuous Delivery Tools voor Visual Studio 2017][link-visualstudio-cd-extension]
-6. Maak een [Azure-abonnement][link-azure-subscription] en een [Visual Studio Team Services-account][link-vsts-account]. 
-7. [Een cluster maken in Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+1. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+2. Installeer [Docker CE voor Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) zodat u containers op Windows 10 kunt uitvoeren.
+3. Installeer [Service Fabric-runtime versie 6.2 of hoger](service-fabric-get-started.md) en de [Service Fabric SDK versie 3.1](service-fabric-get-started.md) of hoger.
+4. [Installeer Visual Studio 2017 versie 15.7](https://www.visualstudio.com/) of hoger met de **Azure-ontwikkelworkload** en de **ASP.NET- en webontwikkelworkloads**.
+5. Installeer [Azure PowerShell][link-azure-powershell-install]
+ 
 
-## <a name="create-a-cluster-on-azure"></a>Een cluster maken op Azure
-Service Fabric-toepassingen worden uitgevoerd op een cluster, een set virtuele of fysieke machines die verbonden zijn over een netwerk. [Stel een Azure Service Fabric-cluster in dat wordt uitgevoerd op Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md) voordat u uw toepassing maakt en implementeert. Wanneer u het cluster maakt, kiest u een SKU die ondersteuning biedt voor actieve containers (zoals Windows Server 2016 Datacenter met Containers).
+## <a name="download-and-run-fabrikam-fiber-callcenter"></a>Fabrikam Fiber CallCenter downloaden en uitvoeren
+Download de voorbeeldtoepassing [Fabrikam Fiber CallCenter][link-fabrikam-github].  Klik op de koppeling **Archief downloaden**.  Extraheer vanuit de map *sourceCode* in het bestand *fabrikam.zip* het bestand *sourceCode.zip* en extraheer de map *VS2015* vervolgens op uw computer.
+
+Controleer of de toepassing Fabrikam Fiber CallCenter wordt opgebouwd en zonder fouten wordt uitgevoerd.  Start Visual Studio als een **beheerder** en open het bestand [FabrikamFiber.CallCenter.sln][link-fabrikam-github].  Druk op F5 om fouten op te sporen in de toepassing en de toepassing uit te voeren.
+
+![Fabrikam-webvoorbeeld][fabrikam-web-page]
 
 ## <a name="containerize-the-application"></a>De toepassing in een container plaatsen
+Klik met de rechtermuisknop op het project **FabrikamFiber.Web** > **Add**  > **Container Orchestrator Support**.  Selecteer **Service Fabric** als de containerorchestrator en klik op **OK**.
 
-Nu u een Service Fabric-cluster in Azure uitvoert, bent u klaar om een beperkte toepassing te maken en implementeren. Om onze toepassing in een container te starten, moeten we **Docker Support** toevoegen aan het project in Visual Studio. Bij het toevoegen van **Docker Support** aan de toepassing gebeuren er twee dingen. Eerst wordt een _Dockerfile_ toegevoegd aan het project. Dit nieuwe bestand beschrijft hoe de containerinstallatiekopie moet worden opgebouwd. Als tweede wordt een nieuw _docker-compose_-project toegevoegd aan de oplossing. Het nieuwe project bevat enkele docker-compose-bestanden. Docker-compose-bestanden kunnen worden gebruikt om te beschrijven hoe de container wordt uitgevoerd.
-
-Meer informatie over het werken met [Visual Studio Container Tools][link-visualstudio-container-tools].
-
-### <a name="add-docker-support"></a>Docker-ondersteuning toevoegen
-
-Open het bestand [FabrikamFiber.CallCenter.sln][link-fabrikam-github] in Visual Studio.
-
-Klik met de rechtermuisknop op het project **FabrikamFiber.Web** > **Toevoegen van**  > **Docker ondersteuning**.
-
-### <a name="add-support-for-sql"></a>Ondersteuning voor SQL toevoegen
-
-Deze toepassing gebruikt SQL als de gegevensprovider zodat een SQL-server vereist is voor het uitvoeren van de toepassing. Verwijs naar een SQL Server-containerinstallatiekopie in ons docker-compose.override.yml-bestand.
-
-Open in Visual Studio **Solution Explorer**, zoek **docker-compose**, en open het bestand **docker-compose.override.yml**.
-
-Navigeer naar het knooppunt `services:`, voeg een knooppunt toe met de naam `db:` die de SQL Server-vermelding voor de container definieert.
-
-```yml
-  db:
-    image: microsoft/mssql-server-windows-developer
-    environment:
-      sa_password: "Password1"
-      ACCEPT_EULA: "Y"
-    ports:
-      - "1433"
-    healthcheck:
-      test: [ "CMD", "sqlcmd", "-U", "sa", "-P", "Password1", "-Q", "select 1" ]
-      interval: 1s
-      retries: 20
-```
-
->[!NOTE]
->U een SQL Server naar keuze gebruiken voor lokale foutopsporing, zolang deze bereikbaar is vanaf de host. **localdb** biedt echter geen ondersteuning voor `container -> host`-communicatie.
-
->[!WARNING]
->Het uitvoeren van SQL Server in een container biedt geen ondersteuning voor het vastleggen van gegevens. Wanneer de container wordt gestopt, worden uw gegevens gewist. Gebruik deze configuratie niet voor productie.
-
-Navigeer naar het knooppunt `fabrikamfiber.web:` en voeg een onderliggend knooppunt toe met de naam `depends_on:`. Dit zorgt ervoor dat de service `db` (de SQL Server-container) voor onze webtoepassing (fabrikamfiber.web) wordt gestart.
-
-```yml
-  fabrikamfiber.web:
-    depends_on:
-      - db
-```
-
-### <a name="update-the-web-config"></a>De webconfiguratie bijwerken
-
-Werk in het project **FabrikamFiber.Web** de verbindingsreeks in het bestand **web.config** bij om te verwijzen naar de SQL Server in de container.
-
-```xml
-<add name="FabrikamFiber-Express" connectionString="Data Source=db,1433;Database=FabrikamFiber;User Id=sa;Password=Password1;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />
-
-<add name="FabrikamFiber-DataWarehouse" connectionString="Data Source=db,1433;Database=FabrikamFiber;User Id=sa;Password=Password1;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />
-```
-
->[!NOTE]
->Als u een andere SQL Server wilt gebruiken tijdens het bouwen van een release-build van uw webtoepassing, voeg dan nog een verbindingsreeks toe aan uw web.release.config-bestand.
-
-### <a name="test-your-container"></a>Uw container testen
-
-Druk op **F5** om de toepassing in de container uit te voeren en fouten op te sporen.
-
-Edge opent de gedefinieerde startpagina van uw toepassing met het IP-adres van de container op het interne NAT-netwerk (meestal 172.x.x.x). Zie [dit artikel][link-debug-container] voor meer informatie over foutopsporing in toepassingen in containers met behulp van Visual Studio 2017.
-
-![Voorbeeld van fabrikam in een container][image-web-preview]
+Het nieuwe Service Fabric-toepassingsproject **FabrikamFiber.CallCenterApplication** wordt in de oplossing gemaakt.  Er wordt een Dockerfile toegevoegd aan het bestaande **FabrikamFiber.Web**-project.  Ook wordt de map **PackageRoot** toegevoegd aan het project **FabrikamFiber.Web**, dat het servicemanifest en de instellingen voor de nieuwe FabrikamFiber.Web-service bevat. 
 
 De container is nu klaar om te worden gebouwd en verpakt in een Service Fabric-toepassing. Zodra u de installatiekopie van de container hebt gebouwd op uw computer, kunt u deze naar een containerregister pushen en naar elke host ophalen om te worden uitgevoerd.
 
-## <a name="get-the-application-ready-for-the-cloud"></a>De toepassing voorbereiden op de cloud
+## <a name="create-an-azure-sql-db"></a>Een Azure SQL DB maken
+Wanneer de toepassing Fabrikam Fiber CallCenter in productie wordt uitgevoerd, moeten de gegevens persistent worden gemaakt in een database. Er is momenteel geen manier om behoud van gegevens in een container te waarborgen, daarom kunt u productiegegevens niet opslaan in SQL Server in een container.
 
-Om de toepassing voor te bereiden op het uitvoeren in Service Fabric in Azure, moeten we twee stappen voltooien:
+Wij raden [Azure SQL Database](/azure/sql-database/sql-database-get-started-powershell) aan. Als u een beheerde SQL Server-database in Azure wilt instellen en uitvoeren, voert u het volgende script uit.  Wijzig de scriptvariabelen indien nodig. *client-IP* is het IP-adres van uw ontwikkelcomputer.  Als u zich achter een bedrijfsfirewall bevindt, is het IP-adres van uw ontwikkelcomputer mogelijk geen IP-adres dat beschikbaar is voor internet.  U kunt de serverfirewallregel voor de SQL-database ook instellen via [Azure Portal](https://portal.azure.com), waarin het IP-adres van uw computer wordt vermeld.
 
-1. Maak de poort beschikbaar waarop we onze webtoepassing in de Service Fabric-cluster moeten kunnen bereiken.
-2. Geef voor de toepassing een SQL-database die gereed is voor productie.
+```powershell
+$subscriptionID="<subscription ID>"
 
-### <a name="expose-the-port-for-the-app"></a>De poort voor de app beschikbaar maken
-Het Service Fabric-cluster dat we hebben geconfigureerd, heeft standaard poort *80* geopend in de Azure Load Balancer, die binnenkomend verkeer naar het cluster balanceert. We kunnen onze container op deze poort beschikbaar maken via ons docker-compose.yml-bestand.
+# Sign in to your Azure account and select your subscription.
+Login-AzureRmAccount -SubscriptionId $subscriptionID 
 
-Open in Visual Studio **Solution Explorer**, zoek **docker-compose**, en open het bestand **docker-compose.yml**.
+# The data center and resource name for your resources.
+$dbresourcegroupname = "fabrikam-fiber-db-group"
+$location = "southcentralus"
 
-Wijzig het knooppunt `fabrikamfiber.web:`, voeg een onderliggend knooppunt toe met de naam `ports:`.
+# The logical server name: Use a random value or replace with your own value (do not capitalize).
+$servername = "fab-fiber-$(Get-Random)"
 
-Voeg een tekenreeksvermelding `- "80:80"` toe. Zo moet uw docker-compose.yml-bestand eruitzien:
+# Set an admin login and password for your database.
+# The login information for the server.
+$adminlogin = "ServerAdmin"
+$password = "Password@123"
 
-```yml
-  version: '3'
+# The IP address of your development computer that accesses the SQL DB.
+$clientIP = "24.18.117.76"
 
-  services:
-    fabrikamfiber.web:
-      image: fabrikamfiber.web
-      build:
-        context: .\FabrikamFiber.Web
-        dockerfile: Dockerfile
-      ports:
-        - "80:80"
+# The database name.
+$databasename = "call-center-db"
+
+# Create a new resource group for your deployment and give it a name and a location.
+New-AzureRmResourceGroup -Name $dbresourcegroupname -Location $location
+
+# Create the SQL server.
+New-AzureRmSqlServer -ResourceGroupName $dbresourcegroupname `
+    -ServerName $servername `
+    -Location $location `
+    -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
+
+# Create the firewall rule to allow your development computer to access the server.
+New-AzureRmSqlServerFirewallRule -ResourceGroupName $dbresourcegroupname `
+    -ServerName $servername `
+    -FirewallRuleName "AllowClient" -StartIpAddress $clientIP -EndIpAddress $clientIP
+
+# Creeate the database in the server.
+New-AzureRmSqlDatabase  -ResourceGroupName $dbresourcegroupname `
+    -ServerName $servername `
+    -DatabaseName $databasename `
+    -RequestedServiceObjectiveName "S0"
+
+Write-Host "Server name is $servername"
 ```
 
-### <a name="use-a-production-sql-database"></a>Een SQL-productiedatabase gebruiken
-Wanneer deze in productie worden uitgevoerd, moeten we onze gegevens behouden in de database. Er is momenteel geen manier om behoud van gegevens in een container te waarborgen, daarom kunt u productiegegevens niet opslaan in SQL Server in een container.
+## <a name="update-the-web-config"></a>De webconfiguratie bijwerken
+Werk in het project **FabrikamFiber.Web** de verbindingsreeks in het bestand **web.config** bij om te verwijzen naar de SQL Server in de container.  Update het *Server*-gedeelte van de verbindingsreeks voor de server die door het vorige script is gemaakt. 
 
-U wordt aangeraden gebruik te maken van een Azure SQL Database. Als u een beheerde SQL Server in Azure wilt instellen en uitvoeren, gaat u naar het artikel [Azure SQL Database-quickstarts][link-azure-sql].
-
+```xml
+<add name="FabrikamFiber-Express" connectionString="Server=tcp:fab-fiber-1300282665.database.windows.net,1433;Initial Catalog=call-center-db;Persist Security Info=False;User ID=ServerAdmin;Password=Password@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" providerName="System.Data.SqlClient" />
+<add name="FabrikamFiber-DataWarehouse" connectionString="Server=tcp:fab-fiber-1300282665.database.windows.net,1433;Initial Catalog=call-center-db;Persist Security Info=False;User ID=ServerAdmin;Password=Password@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" providerName="System.Data.SqlClient" />
+  
+```
 >[!NOTE]
->Denk eraan de verbindingsreeksen te wijzigen naar de SQL-server in het bestand **web.release.config** in het project **FabrikamFiber.Web**.
->
->Deze toepassing mislukt probleemloos als geen SQL database bereikbaar is. U kunt ervoor kiezen om door te gaan en de toepassing te implementeren zonder SQL-server.
+>U een SQL Server naar keuze gebruiken voor lokale foutopsporing, zolang deze bereikbaar is vanaf de host. **localdb** biedt echter geen ondersteuning voor `container -> host`-communicatie. Als u een andere SQL-database wilt gebruiken tijdens het bouwen van een release-build van uw webtoepassing, voeg dan nog een verbindingsreeks toe aan uw *web.release.config*-bestand.
 
-## <a name="deploy-with-visual-studio-team-services"></a>Implementeren met Visual Studio Team Services
+## <a name="run-the-containerized-application-locally"></a>De in een container geplaatste toepassing lokaal uitvoeren
+Druk op **F5** om de toepassing in een container uit te voeren en er fouten in op te sporen in het Service Fabric-ontwikkelingscluster.
 
-Als u een implementatie met behulp van Visual Studio Team Services instelt, moet u de [extensie Continuous Delivery Tools voor Visual Studio 2017][link-visualstudio-cd-extension] installeren. Met deze extensie kunt u eenvoudig implementeren in Azure door Visual Studio Team Services te configureren en uw app te implementeren naar uw Service Fabric-cluster.
+## <a name="create-a-container-registry"></a>Een containerregister maken
+Nu de toepassing lokaal wordt uitgevoerd, begint u met de voorbereidingen voor implementatie in Azure.  Containerinstallatiekopieën moeten worden opgeslagen in een containerregister.  Maak een [Azure Container Registry](/azure/container-registry/container-registry-intro) met behulp van het volgende script.  Voordat u de toepassing in Azure implementeert, pusht u de containerinstallatiekopie naar dit register.  Wanneer de toepassing in het cluster in Azure is geïmplementeerd, wordt de installatiekopie van de container opgehaald uit dit register.
 
-Om te beginnen, moet uw code worden gehost in broncodebeheer. De rest van deze sectie gaat ervan uit dat **git** wordt gebruikt.
+```powershell
+# Variables
+$acrresourcegroupname = "fabrikam-acr-group"
+$location = "southcentralus"
+$registryname="fabrikamregistry"
 
-### <a name="set-up-a-vsts-repo"></a>Een VSTS-opslagplaats instellen
-Klik op de rechterbenedenhoek van Visual Studio op **Toevoegen aan broncodebeheer** > **Git** (of op de optie die u voorkeur heeft).
+New-AzureRmResourceGroup -Name $acrresourcegroupname -Location $location
 
-![druk op de knop Broncodebeheer][image-source-control]
+$registry = New-AzureRMContainerRegistry -ResourceGroupName $acrresourcegroupname -Name $registryname -EnableAdminUser -Sku Basic
+```
 
-In het deelvenster _Team Explorer_ drukt u op **Git-opslagplaats publiceren**.
+## <a name="create-a-service-fabric-cluster-on-azure"></a>Een Service Fabric-cluster maken in Azure
+Service Fabric-toepassingen worden uitgevoerd op een cluster, een set virtuele of fysieke machines die verbonden zijn over een netwerk.  Voordat u de toepassing in Azure kunt implementeren, moet u eerst een Service Fabric-cluster maken in Azure.
 
-Selecteer de naam van de VSTS-opslagplaats en druk op **Opslagplaats**.
+U kunt:
+- Een testcluster maken vanuit Visual Studio. Met deze optie kunt u een beveiligd cluster rechtstreeks vanuit Visual Studio met de configuraties van uw voorkeur maken. 
+- [Een beveiligd cluster maken op basis van een sjabloon](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 
-![opslagplaats naar VSTS publiceren][image-publish-repo]
+Wanneer u het cluster maakt, kiest u een SKU die ondersteuning biedt voor actieve containers (zoals Windows Server 2016 Datacenter met Containers). In deze zelfstudie wordt een cluster gemaakt vanuit Visual Studio, wat ideaal is voor testscenario's. Als u op een andere manier een cluster hebt gemaakt of een bestaand cluster gebruikt, kunt u uw verbindingseindpunt kopiëren en plakken, of kunt u het kiezen vanuit uw abonnement. 
 
-Nu uw code wordt gesynchroniseerd met een VSTS-bronopslagplaats, kunt u continue integratie en continue levering configureren.
+1. Klik met de rechtermuisknop op het toepassingsproject **FabrikamFiber.CallCenterApplication** in Solution Explorer en kies **Publiceren**.
 
-### <a name="setup-continuous-delivery"></a>Continue levering instellen
+2. Meld u aan met behulp van uw Azure-account, zodat u toegang hebt tot uw abonnement(en). 
 
-Klik in _Solution Explorer_, met de rechtermuisknop op de **oplossing** > **Continue levering configureren**.
+3. Selecteer de vervolgkeuzelijst voor het **verbindingseindpunt** en selecteer de optie **Nieuw cluster maken...**.    
+        
+4. Wijzig de volgende instellingen in het dialoogvenster **Cluster maken**:
 
-Selecteer het Azure-Abonnement.
+    1. Geef de naam van het cluster op in het veld **Clusternaam**, evenals het abonnement en de locatie die u wilt gebruiken.
+    2. Optioneel: u kunt het aantal knooppunten wijzigen. Standaard beschikt u over drie knooppunten, het minimale aantal dat is vereist om Service Fabric-scenario's te kunnen testen.
+    3. Selecteer het tabblad **Certificaat**. Typ op dit tabblad een wachtwoord dat u wilt gebruiken om het certificaat van uw cluster te beschermen. Met dit certificaat is uw cluster beter beveiligd. U kunt ook het pad wijzigen waar u het certificaat wilt opslaan. Visual Studio kan het certificaat voor u importeren, aangezien dit een vereiste stap is om de toepassing naar het cluster te kunnen publiceren.
+    4. Selecteer het tabblad **VM-details**. Geef het wachtwoord op dat u wilt gebruiken voor de virtuele machines (VM's) die het cluster vormen. De gebruikersnaam en het wachtwoord kunnen worden gebruikt om een externe verbinding met de virtuele machines tot stand te brengen. U moet ook een VM-machinegrootte selecteren, en u kunt indien nodig de VM-installatiekopie wijzigen.
+    5. Geef op het tabblad **Geavanceerd** de toepassingspoort aan die moet worden geopend in de load balancer wanneer het cluster wordt geïmplementeerd. Open in Solution Explorer FabrikamFiber.Web->PackageRoot->ServiceManifest.xml.  De poort voor de webfront-end wordt vermeld in **Eindpunt**.  U kunt ook een bestaande Application Insights-sleutel toevoegen die moet worden gebruikt om logboekbestanden naar door te sturen.
+    6. Wanneer u klaar bent met het wijzigen van de instellingen, selecteert u de knop **Maken**. 
+5. Het maken duurt enkele minuten; in het uitvoervenster wordt aangegeven wanneer het cluster helemaal klaar is.
+    
 
-Stel **Type Host** in op **Service Fabric Cluster**.
+## <a name="allow-your-application-running-in-azure-to-access-the-sql-db"></a>Toestaan dat uw toepassing die in Azure wordt uitgevoerd toegang heeft tot de SQL-database
+Eerder hebt u een SQL-firewallregel gemaakt om toegang te verlenen aan uw toepassing die lokaal wordt uitgevoerd.  Nu moet u voor de toepassing die in Azure wordt uitgevoerd toegang inschakelen voor de SQL-database.  Maak een [virtueel netwerkservice-eindpunt](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) voor het Service Fabric-cluster en maak vervolgens een regel om dat eindpunt toegang tot de SQL-database toe te staan.
 
-Stel **Doelhost** in op de service fabric-cluster die u in de vorige sectie hebt gemaakt.
+```powershell
+# Create a virtual network service endpoint
+$clusterresourcegroup = "fabrikamfiber.callcenterapplication_RG"
+$resource = Get-AzureRmResource -ResourceGroupName $clusterresourcegroup -ResourceType Microsoft.Network/virtualNetworks | Select-Object -first 1
+$vnetName = $resource.Name
 
-Kies een **Containerregister** voor het publiceren van de container.
+Write-Host 'Virtual network name: ' $vnetName 
 
->[!TIP]
->Gebruik de knop **Bewerken** om een containerregister te maken.
+# Get the virtual network by name.
+$vnet = Get-AzureRmVirtualNetwork `
+  -ResourceGroupName $clusterresourcegroup `
+  -Name              $vnetName
 
-Druk op **OK**.
+Write-Host "Get the subnet in the virtual network:"
 
-![Continue integratie voor Service Fabric instellen][image-setup-ci]
-   
-   Zodra de configuratie is voltooid, wordt de container geïmplementeerd naar Service Fabric. Wanneer u updates naar de opslagplaats pusht, worden een nieuwe build en versie uitgevoerd.
-   
-   >[!NOTE]
-   >Het bouwen van de containerinstallatiekopieën duurt ongeveer 15 minuten.
-   >De eerste implementatie in het Service Fabric-cluster zorgt ervoor dat de basis Windows Server Core-container afbeeldingen worden gedownload. Het downloaden duurt 5-10 minuten extra.
+# Get the subnet, assume the first subnet contains the Service Fabric cluster.
+$subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet | Select-Object -first 1
 
-Ga via de URL van uw cluster naar de toepassing Fabrikam Call Center: bijvoorbeeld *http://mycluster.westeurope.cloudapp.azure.com*
+$subnetName = $subnet.Name
+$subnetID = $subnet.Id
+$addressPrefix = $subnet.AddressPrefix
 
-Nu u de Fabrikam Call Center-app in een container hebt geïmplementeerd, kunt u de [Azure-portal][link-azure-portal] openen en de toepassing zien die wordt uitgevoerd in Service Fabric. Open om de toepassing uit te proberen een webbrowser en ga naar de URL van uw Service Fabric-cluster.
+Write-Host "Subnet name: " $subnetName " Address prefix: " $addressPrefix " ID: " $subnetID
+
+# Assign a Virtual Service endpoint 'Microsoft.Sql' to the subnet.
+$vnet = Set-AzureRmVirtualNetworkSubnetConfig `
+  -Name            $subnetName `
+  -AddressPrefix   $addressPrefix `
+  -VirtualNetwork  $vnet `
+  -ServiceEndpoint Microsoft.Sql | Set-AzureRmVirtualNetwork
+
+$vnet.Subnets[0].ServiceEndpoints;  # Display the first endpoint.
+
+# Add a SQL DB firewall rule for the virtual network service endpoint
+$subnet = Get-AzureRmVirtualNetworkSubnetConfig `
+  -Name           $subnetName `
+  -VirtualNetwork $vnet;
+
+$VNetRuleName="ServiceFabricClusterVNetRule"
+$vnetRuleObject1 = New-AzureRmSqlServerVirtualNetworkRule `
+  -ResourceGroupName      $dbresourcegroupname `
+  -ServerName             $servername `
+  -VirtualNetworkRuleName $VNetRuleName `
+  -VirtualNetworkSubnetId $subnetID;
+```
+## <a name="deploy-the-application-to-azure"></a>De toepassing implementeren in Azure
+Nu de toepassing klaar is, kunt u deze rechtstreeks vanuit Visual Studio implementeren naar het cluster in Azure.  Klik in Solution Explorer met de rechtermuisknop op het toepassingsproject **FabrikamFiber.CallCenterApplication** in Solution Explorer en selecteer **Publiceren**.  Selecteer in **Verbindingseindpunt** het eindpunt van het cluster dat u eerder hebt gemaakt.  Selecteer in **Azure Container Registry** het containerregister dat u eerder hebt gemaakt.  Klik op **Publiceren** om de toepassing naar het cluster in Azure te publiceren.
+
+![Uw toepassing publiceren][publish-app]
+
+Volg de voortgang van de implementatie in het uitvoervenster.  Wanneer de toepassing is geïmplementeerd, opent u een browser en typt u het clusteradres en de toepassingspoort. Bijvoorbeeld http://http://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/.
+
+![Fabrikam-webvoorbeeld][fabrikam-web-page-deployed]
+
+## <a name="clean-up-resources"></a>Resources opschonen
+Vergeet als u klaar bent niet om alle resources die u hebt gemaakt te verwijderen.  De eenvoudigste manier hiervoor is om de resourcegroepen te verwijderen die het Service Fabric-cluster, Azure SQL DB en Azure Container Registry bevatten.
+
+```powershell
+$dbresourcegroupname = "fabrikam-fiber-db-group"
+$acrresourcegroupname = "fabrikam-acr-group"
+$clusterresourcegroupname="fabrikamcallcentergroup"
+
+# Remove the Azure SQL DB
+Remove-AzureRmResourceGroup -Name $dbresourcegroupname
+
+# Remove the container registry
+Remove-AzureRmResourceGroup -Name $acrresourcegroupname
+
+# Remove the Service Fabric cluster
+Remove-AzureRmResourceGroup -Name $clusterresourcegroupname
+```
 
 ## <a name="next-steps"></a>Volgende stappen
-
 In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
-> * Een Docker-project in Visual Studio maken
-> * Een bestaande toepassing in een container plaatsen
-> * Doorlopende integratie met Visual Studio en VSTS instellen
+> * Een bestaande toepassing in een container plaatsen met behulp van Visual Studio
+> * Een Azure SQL-database maken
+> * Een Azure Container Registry maken
+> * Een Service Fabric-toepassing implementeren in Azure
 
 In het volgende gedeelte van de zelfstudie krijgt u informatie over het instellen van [bewaking voor de container](service-fabric-tutorial-monitoring-wincontainers.md).
 
-<!--   NOTE SURE WHAT WE SHOULD DO YET HERE
 
-Advance to the next tutorial to learn how to bind a custom SSL certificate to it.
-
-> [!div class="nextstepaction"]
-> [Bind an existing custom SSL certificate to Azure Web Apps](app-service-web-tutorial-custom-ssl.md)
-
-## Next steps
-
-- [Container Tooling in Visual Studio][link-visualstudio-container-tools]
-- [Get started with containers in Service Fabric][link-servicefabric-containers]
-- [Creating Service Fabric applications][link-servicefabric-createapp]
--->
-
-[link-debug-container]: /dotnet/articles/core/docker/visual-studio-tools-for-docker
 [link-fabrikam-github]: https://aka.ms/fabrikamcontainer
-[link-container-quickstart]: /virtualization/windowscontainers/quick-start/quick-start-windows-10
-[link-visualstudio-container-tools]: /dotnet/articles/core/docker/visual-studio-tools-for-docker
 [link-azure-powershell-install]: /powershell/azure/install-azurerm-ps
 [link-servicefabric-create-secure-clusters]: service-fabric-cluster-creation-via-arm.md
 [link-visualstudio-cd-extension]: https://aka.ms/cd4vs
@@ -243,7 +261,6 @@ Advance to the next tutorial to learn how to bind a custom SSL certificate to it
 [link-vsts-account]: https://www.visualstudio.com/team-services/pricing/
 [link-azure-sql]: /azure/sql-database/
 
-[image-web-preview]: media/service-fabric-host-app-in-a-container/fabrikam-web-sample.png
-[image-source-control]: media/service-fabric-host-app-in-a-container/add-to-source-control.png
-[image-publish-repo]: media/service-fabric-host-app-in-a-container/publish-repo.png
-[image-setup-ci]: media/service-fabric-host-app-in-a-container/configure-continuous-integration.png
+[fabrikam-web-page]: media/service-fabric-host-app-in-a-container/fabrikam-web-page.png
+[fabrikam-web-page-deployed]: media/service-fabric-host-app-in-a-container/fabrikam-web-page-deployed.png
+[publish-app]: media/service-fabric-host-app-in-a-container/publish-app.png

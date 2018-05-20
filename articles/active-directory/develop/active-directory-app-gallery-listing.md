@@ -1,25 +1,26 @@
 ---
-title: Uw toepassing in de Azure Active Directory-toepassingsgalerie aanbieding | Microsoft Docs
-description: Hoe u een toepassing die ondersteuning biedt voor eenmalige aanmelding in de app-galerie van Azure Active Directory
+title: Uw toepassing vermelden in de Azure Active Directory-toepassingsgalerie | Microsoft Docs
+description: Meer informatie over hoe u een toepassing die ondersteuning biedt voor eenmalige aanmelding in de app-galerie van Azure Active Directory
 services: active-directory
 documentationcenter: dev-center-name
-author: bryanla
-manager: mbaldwin
+author: CelesteDG
+manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2018
-ms.author: bryanla
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 5140d25119729a391b21735ab9110c216afda669
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: fe2133e321b90f8ada91f95ecc2c556631a8b41b
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Uw toepassing weergeven in de Azure Active Directory-toepassingsgalerie
 

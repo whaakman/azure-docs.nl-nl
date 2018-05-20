@@ -2,24 +2,26 @@
 title: Uitgegeven claims in het SAML-token voor bedrijfstoepassingen in Azure Active Directory aanpassen | Microsoft Docs
 description: Informatie over het aanpassen van de uitgegeven claims in het SAML-token voor bedrijfstoepassingen in Azure Active Directory
 services: active-directory
-documentationcenter: 
-author: jeevansd
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: f1daad62-ac8a-44cd-ac76-e97455e47803
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: jeedes
+ms.author: celested
+ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 7394857f55493b072e6ea549c8eeec54a808f5e5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 485e4c52751b390ebd440718e7a55de7b5b5ffd7
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="customizing-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Uitgegeven claims in het SAML-token voor bedrijfstoepassingen in Azure Active Directory aanpassen
 Vandaag de dag ondersteunt Azure Active Directory voor eenmalige op met de meeste zakelijke toepassingen, met inbegrip van beide toepassingen die vooraf zijn geïntegreerd in de galerie van Azure AD-app, evenals aangepaste toepassingen. Wanneer een gebruiker wordt geverifieerd op een toepassing via Azure AD dat gebruikmaakt van het SAML 2.0-protocol, verzendt Azure AD een token naar de toepassing (via een HTTP POST). En vervolgens de toepassing valideert en gebruikt het token aan te melden van de gebruiker in in plaats van naar een gebruikersnaam en wachtwoord wordt gevraagd. Deze tokens SAML bevatten stukjes informatie over de gebruiker bekend als 'claims'.
@@ -40,7 +42,7 @@ U kunt een van de standaardwaarden van de claim te bewerken. Selecteer de rij cl
 
 ![Gebruikerskenmerk bewerken][2]
 
-U kunt ook verwijderen claims (met uitzondering van NameIdentifier) op basis van het snelmenu dat wordt geopend door te klikken op de **...**  pictogram.  U kunt ook toevoegen nieuwe claims op basis van de **toevoegen kenmerk** knop.
+U kunt ook verwijderen claims (met uitzondering van NameIdentifier) op basis van het snelmenu dat wordt geopend door te klikken op de **...**  pictogram. U kunt ook toevoegen nieuwe claims op basis van de **toevoegen kenmerk** knop.
 
 ![Gebruikerskenmerk bewerken][3]
 
@@ -78,52 +80,52 @@ Er zijn enkele beperkte claims in SAML. Als u deze claims toevoegt, klikt u verv
 
     | Claimtype (URI) |
     | ------------------- |
-    | http://schemas.Microsoft.com/ws/2008/06/Identity/claims/Expiration |
-    | http://schemas.Microsoft.com/ws/2008/06/Identity/claims/EXPIRED |
-    | http://schemas.Microsoft.com/Identity/claims/accesstoken |
-    | http://schemas.Microsoft.com/Identity/claims/openid2_id |
-    | http://schemas.Microsoft.com/Identity/claims/identityprovider |
-    | http://schemas.Microsoft.com/Identity/claims/objectidentifier |
-    | http://schemas.Microsoft.com/Identity/claims/PUID |
-    | http://schemas.xmlsoap.org/ws/2005/05/Identity/claims/NameIdentifier [MR1] |
-    | http://schemas.Microsoft.com/Identity/claims/tenantid |
-    | http://schemas.Microsoft.com/ws/2008/06/Identity/claims/AuthenticationInstant |
-    | http://schemas.Microsoft.com/ws/2008/06/Identity/claims/AuthenticationMethod |
-    | http://schemas.Microsoft.com/AccessControlService/2010/07/claims/identityprovider |
-    | http://schemas.Microsoft.com/ws/2008/06/Identity/claims/Groups |
-    | http://schemas.Microsoft.com/claims/groups.Link |
-    | http://schemas.Microsoft.com/ws/2008/06/Identity/claims/Role |
-    | http://schemas.Microsoft.com/ws/2008/06/Identity/claims/wids |
-    | http://schemas.Microsoft.com/2014/09/devicecontext/claims/iscompliant |
-    | http://schemas.Microsoft.com/2014/02/devicecontext/claims/isknown |
-    | http://schemas.Microsoft.com/2012/01/devicecontext/claims/ismanaged |
-    | http://schemas.Microsoft.com/2014/03/psso |
-    | http://schemas.Microsoft.com/claims/authnmethodsreferences |
-    | http://schemas.xmlsoap.org/ws/2009/09/Identity/claims/actor |
-    | http://schemas.Microsoft.com/ws/2008/06/Identity/claims/samlissuername |
-    | http://schemas.Microsoft.com/ws/2008/06/Identity/claims/confirmationkey |
-    | http://schemas.Microsoft.com/ws/2008/06/Identity/claims/windowsaccountname |
-    | http://schemas.Microsoft.com/ws/2008/06/Identity/claims/primarygroupsid |
-    | http://schemas.Microsoft.com/ws/2008/06/Identity/claims/primarysid |
-    | http://schemas.xmlsoap.org/ws/2005/05/Identity/claims/authorizationdecision |
-    | http://schemas.xmlsoap.org/ws/2005/05/Identity/claims/Authentication |
-    | http://schemas.xmlsoap.org/ws/2005/05/Identity/claims/SID |
-    | http://schemas.Microsoft.com/ws/2008/06/Identity/claims/denyonlyprimarygroupsid |
-    | http://schemas.Microsoft.com/ws/2008/06/Identity/claims/denyonlyprimarysid |
-    | http://schemas.xmlsoap.org/ws/2005/05/Identity/claims/denyonlysid |
-    | http://schemas.Microsoft.com/ws/2008/06/Identity/claims/denyonlywindowsdevicegroup |
-    | http://schemas.Microsoft.com/ws/2008/06/Identity/claims/windowsdeviceclaim |
-    | http://schemas.Microsoft.com/ws/2008/06/Identity/claims/windowsdevicegroup |
-    | http://schemas.Microsoft.com/ws/2008/06/Identity/claims/windowsfqbnversion |
-    | http://schemas.Microsoft.com/ws/2008/06/Identity/claims/windowssubauthority |
-    | http://schemas.Microsoft.com/ws/2008/06/Identity/claims/windowsuserclaim |
-    | http://schemas.xmlsoap.org/ws/2005/05/Identity/claims/x500distinguishedname |
-    | http://schemas.xmlsoap.org/ws/2005/05/Identity/claims/UPN |
-    | http://schemas.Microsoft.com/ws/2008/06/Identity/claims/GroupSID |
-    | http://schemas.xmlsoap.org/ws/2005/05/Identity/claims/SPN |
-    | http://schemas.Microsoft.com/ws/2008/06/Identity/claims/ispersistent |
-    | http://schemas.xmlsoap.org/ws/2005/05/Identity/claims/privatepersonalidentifier |
-    | http://schemas.Microsoft.com/Identity/claims/scope |
+    | http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration |
+    | http://schemas.microsoft.com/ws/2008/06/identity/claims/expired |
+    | http://schemas.microsoft.com/identity/claims/accesstoken |
+    | http://schemas.microsoft.com/identity/claims/openid2_id |
+    | http://schemas.microsoft.com/identity/claims/identityprovider |
+    | http://schemas.microsoft.com/identity/claims/objectidentifier |
+    | http://schemas.microsoft.com/identity/claims/puid |
+    | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier[MR1] |
+    | http://schemas.microsoft.com/identity/claims/tenantid |
+    | http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant |
+    | http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod |
+    | http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider |
+    | http://schemas.microsoft.com/ws/2008/06/identity/claims/groups |
+    | http://schemas.microsoft.com/claims/groups.link |
+    | http://schemas.microsoft.com/ws/2008/06/identity/claims/role |
+    | http://schemas.microsoft.com/ws/2008/06/identity/claims/wids |
+    | http://schemas.microsoft.com/2014/09/devicecontext/claims/iscompliant |
+    | http://schemas.microsoft.com/2014/02/devicecontext/claims/isknown |
+    | http://schemas.microsoft.com/2012/01/devicecontext/claims/ismanaged |
+    | http://schemas.microsoft.com/2014/03/psso |
+    | http://schemas.microsoft.com/claims/authnmethodsreferences |
+    | http://schemas.xmlsoap.org/ws/2009/09/identity/claims/actor |
+    | http://schemas.microsoft.com/ws/2008/06/identity/claims/samlissuername |
+    | http://schemas.microsoft.com/ws/2008/06/identity/claims/confirmationkey |
+    | http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname |
+    | http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid |
+    | http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid |
+    | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authorizationdecision |
+    | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authentication |
+    | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid |
+    | http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarygroupsid |
+    | http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarysid |
+    | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/denyonlysid |
+    | http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlywindowsdevicegroup |
+    | http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdeviceclaim |
+    | http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup |
+    | http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsfqbnversion |
+    | http://schemas.microsoft.com/ws/2008/06/identity/claims/windowssubauthority |
+    | http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsuserclaim |
+    | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/x500distinguishedname |
+    | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn |
+    | http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid |
+    | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn |
+    | http://schemas.microsoft.com/ws/2008/06/identity/claims/ispersistent |
+    | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier |
+    | http://schemas.microsoft.com/identity/claims/scope |
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md) (Artikelindex voor toepassingsbeheer in Azure Active Directory)

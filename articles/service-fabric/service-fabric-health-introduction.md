@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: 1d979210-b1eb-4022-be24-799fd9d8e003
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: c5ce0a765451171f7cbd6d875d4302d1e406b4f6
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ed1a307cb2a2613fc7701392cd7b408715f10910
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Inleiding tot de statuscontrole Service Fabric
 Azure Service Fabric introduceert een statusmodel waarmee de uitgebreide, flexibele en uitbreidbare statusevaluatie en rapportage. Het model kunt near-realtime bewaking van de status van het cluster en de services die erin worden uitgevoerd. Kunt u eenvoudig verkrijgen van informatie en corrigeer eventuele problemen voordat ze trapsgewijs en grote storingen veroorzaken. In het typische model services verzenden rapporten op basis van hun lokale weergaven en dat er gegevens worden samengevoegd om op te geven van een algemene-clusterniveau weergeven.
@@ -200,9 +200,9 @@ De [statusrapporten](https://docs.microsoft.com/dotnet/api/system.fabric.health.
 * **Entiteit-id**. Identificeert de entiteit waarop het rapport wordt toegepast. Het verschil op basis van de [entiteitstype](service-fabric-health-introduction.md#health-entities-and-hierarchy):
   
   * Het cluster. Geen.
-  * Node. Naam van knooppunt (tekenreeks).
+  * Knooppunt. Naam van knooppunt (tekenreeks).
   * de toepassing. Toepassingsnaam (URI). Vertegenwoordigt de naam van het toepassingsexemplaar geïmplementeerd in het cluster.
-  * Service. Service-naam (URI). Vertegenwoordigt de naam van het service-exemplaar dat is geïmplementeerd in het cluster.
+  * De service. Service-naam (URI). Vertegenwoordigt de naam van het service-exemplaar dat is geïmplementeerd in het cluster.
   * Partitie. Partitie-ID (GUID). Hiermee geeft u de unieke id van partitie.
   * De replica. De stateful-replica-ID of de staatloze service-exemplaar-ID (INT64).
   * DeployedApplication. Toepassingsnaam (URI) en de naam van het knooppunt (tekenreeks).

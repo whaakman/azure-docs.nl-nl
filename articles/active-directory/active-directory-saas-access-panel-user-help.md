@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 681831dcc65fa74d8d2e26f58849140498843c49
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: f0604007255d829cab0502e93895ca541da3b93a
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-my-apps-portal"></a>Problemen oplossen met toegang tot en met behulp van de portal mijn Apps
 
@@ -57,10 +57,11 @@ Controleren om ervoor te zorgen dat u voldoet aan de volgende browservereisten:
 - **Firefox 26,0 of hoger**: Windows XP SP2 of hoger, en op Mac OS X 10.6 of hoger.
 - **Internet Explorer 11**: op Windows 7 of hoger (beperkte ondersteuning).
 
-U kunt ook de uitbreiding downloaden voor Chrome en rand rechtstreeks vanuit de volgende sites:
+U kunt ook de uitbreiding downloaden rechtstreeks vanuit de volgende sites:
 
-- [Chrome-uitbreiding](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-- [Edge-uitbreiding](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+- [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
+- [Rand](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 Als u de uitbreiding hebt geïnstalleerd en nog steeds problemen ondervindt, probeert u het volgende:
 
@@ -77,14 +78,14 @@ Als u de uitbreiding hebt geïnstalleerd en nog steeds problemen ondervindt, pro
    4. Selecteer het pictogram extensie.
    5. Als u wilt aanmelden bij de extensie, selecteer **melden aan de slag**.
 
-* Om aan te melden rechtstreeks naar een app van de browser, het volgende doen:
+* Om aan te melden rechtstreeks in een app van de browser, het volgende doen:
    1. Nadat u de uitbreiding hebt geïnstalleerd, zich aanmelden bij het selecteren van **melden aan de slag**.
    2. Aanmelden bij de app met de aanmeldings-URL.  
        De aanmeldings-URL is meestal de URL van de app die het formulier aanmeldingspagina wordt weergegeven.
       De extensie moet een statuswijziging en laat u weten dat een wachtwoord beschikbaar is.
    3. Als u wilt aanmelden, selecteer het extensie-pictogram.
 
-* Voor het starten van een app van de extensie, het volgende doen:
+* Als u wilt een app van de extensie openen, het volgende doen:
    1. Nadat u de uitbreiding hebt geïnstalleerd, zich aanmelden bij het selecteren van **melden aan de slag**.
    2. Selecteer het pictogram extensie om het menu te openen.
    3. Zoeken naar een app die beschikbaar is in de portal voor mijn Apps.

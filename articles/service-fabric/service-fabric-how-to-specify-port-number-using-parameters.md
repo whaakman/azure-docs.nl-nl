@@ -4,19 +4,19 @@ description: Ziet u hoe u parameters gebruiken om op te geven van de poort voor 
 documentationcenter: .net
 author: mikkelhegn
 manager: markfuss
-editor: 
+editor: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: mikhegn
-ms.openlocfilehash: aca5b6a476e9526498a5e4834aaa28eb73750562
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 06cfb375c6c18082a0d0316cfcb742a7779fc8a8
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="how-to-specify-the-port-number-of-a-service-using-parameters-in-service-fabric"></a>Het poortnummer van een service met behulp van de parameters in Service Fabric opgeven
 
@@ -30,7 +30,7 @@ In dit voorbeeld stelt u het poortnummer voor uw web-API met behulp van een para
 1. Kies een sjabloon voor de staatloze ASP.NET Core.
 1. Kies de Web-API.
 1. Open het bestand ServiceManifest.xml.
-1. Noteer de naam van het eindpunt dat is opgegeven voor uw service. Standaard is `ServiceEndpoint`.
+1. Noteer de naam van het eindpunt dat is opgegeven voor uw service. De standaardwaarde is `ServiceEndpoint`.
 1. Open het bestand ApplicationManifest.xml
 1. In de `ServiceManifestImport` element, Voeg een nieuwe `RessourceOverrides` element met een verwijzing naar het eindpunt in uw bestand ServiceManifest.xml.
 
@@ -46,7 +46,7 @@ In dit voorbeeld stelt u het poortnummer voor uw web-API met behulp van een para
       </ServiceManifestImport>
     ```
 
-1. In de `Endpoint` element, kunt u nu een kenmerk met een parameter overschrijven. In dit voorbeeld u `Port` en wordt ingesteld op een parameternaam met vierkante haken - bijvoorbeeld`[MyWebAPI_PortNumber]`
+1. In de `Endpoint` element, kunt u nu een kenmerk met een parameter overschrijven. In dit voorbeeld u `Port` en wordt ingesteld op een parameternaam met vierkante haken - bijvoorbeeld `[MyWebAPI_PortNumber]`
 
     ```xml
       <ServiceManifestImport>
@@ -68,7 +68,7 @@ In dit voorbeeld stelt u het poortnummer voor uw web-API met behulp van een para
       </Parameters>
     ```
 
-1. En definieer een`DefaultValue`
+1. En definieer een `DefaultValue`
 
     ```xml
       <Parameters>

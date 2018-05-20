@@ -1,24 +1,24 @@
 ---
 title: Implementeren van een bestaand uitvoerbaar bestand op Azure Service Fabric | Microsoft Docs
-description: "Meer informatie over het verpakken van een bestaande toepassing als gast uitvoerbare, zodat het kan worden geïmplementeerd naar een Service Fabric-cluster."
+description: Meer informatie over het verpakken van een bestaande toepassing als gast uitvoerbare, zodat het kan worden geïmplementeerd naar een Service Fabric-cluster.
 services: service-fabric
 documentationcenter: .net
 author: msfussell
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/15/2018
-ms.author: mfussell;mikhegn
-ms.openlocfilehash: 328c00697a3c81f5af8488d4303feb7618d81301
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: mfussell
+ms.openlocfilehash: cdaf3dae12c2c9da1f6bcbebbff560b98e62bade
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>Implementeren van een bestaand uitvoerbaar bestand voor Service Fabric
 Als een service kunt u verschillende typen code, zoals Node.js, Java of C++ uitvoeren in Azure Service Fabric. Service Fabric verwijst naar deze soorten services als gast uitvoerbare bestanden.

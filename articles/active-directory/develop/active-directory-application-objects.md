@@ -2,24 +2,25 @@
 title: Azure Active Directory-toepassing en Service-Principal-objecten
 description: Een bespreking van de relatie tussen de toepassing en service-principal objecten in Azure Active Directory
 documentationcenter: dev-center-name
-author: bryanla
+author: CelesteDG
 manager: mtillman
 services: active-directory
-editor: 
+editor: ''
 ms.assetid: adfc0569-dc91-48fe-92c3-b5b4833703de
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/19/2017
-ms.author: bryanla
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 85731afd18304e848f8577d8a6665dca3f9ee5d8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e8e693355fb9b30e1a69b49f20d5044c531e2fcd
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory-azure-ad"></a>Toepassing en service-principal objecten in Azure Active Directory (Azure AD)
 Soms kan de betekenis van de term 'application' verkeerd worden begrepen wanneer gebruikt in de context van Azure AD. Het doel van dit artikel is om te verduidelijken conceptuele en concrete aspecten van de integratie van Azure AD-toepassingen, met een afbeelding van de registratie en toestemming voor op een [multitenant toepassing](active-directory-dev-glossary.md#multi-tenant-application).
@@ -27,7 +28,7 @@ Soms kan de betekenis van de term 'application' verkeerd worden begrepen wanneer
 ## <a name="overview"></a>Overzicht
 Een toepassing die is geïntegreerd met Azure AD heeft gevolgen die verdergaan dan het aspect van software. 'Application' wordt vaak gebruikt als een algemene term verwijst naar het niet alleen de toepassingssoftware, maar ook de Azure AD-registratie en rol in verificatie/autorisatie 'conversaties' tijdens runtime. Per definitie een toepassing kan worden gebruikt een [client](active-directory-dev-glossary.md#client-application) rol (verbruikt een resource), een [bronserver](active-directory-dev-glossary.md#resource-server) functie blootstellen van API's (clients) of zelfs beide. Het conversatie-protocol wordt gedefinieerd door een [OAuth 2.0 Authorization Grant stroom](active-directory-dev-glossary.md#authorization-grant), zodat de client of de resource toegang/van de bron om gegevens te beveiligen respectievelijk. Nu gaan we een dieper niveau en Zie hoe een toepassing op het moment van ontwerp en runtime-Hiermee geeft u het model van Azure AD-toepassing. 
 
-## <a name="application-registration"></a>Toepassing registreren
+## <a name="application-registration"></a>Toepassingsregistratie
 Wanneer het registreren van een Azure AD-toepassing in de [Azure-portal][AZURE-Portal], twee objecten worden gemaakt in uw Azure AD-tenant: een object voor de toepassing en een service-principal-object.
 
 #### <a name="application-object"></a>Object voor de toepassing
@@ -36,12 +37,12 @@ Een Azure AD-toepassing wordt gedefinieerd door de één en slechts application-
 #### <a name="service-principal-object"></a>Service-principal-object
 Toegang tot resources die zijn beveiligd met een Azure AD-tenant wordt wordt de entiteit waarvoor toegang voorgesteld door een beveiligings-principal. Dit geldt voor gebruikers (user principal) en toepassingen (service-principal). De beveiligings-principal definieert het beleid voor toegang en machtigingen voor de gebruikerstoepassing in deze tenant. Hiermee kunt u core functies zoals verificatie van de gebruikerstoepassing tijdens het aanmelden en verificatie tijdens toegang tot bedrijfsbronnen.
 
-Wanneer een toepassing een machtiging verleend voor toegang tot bronnen in een tenant (bij de registratie of [toestemming](active-directory-dev-glossary.md#consent)), een service-principal-object is gemaakt. De Azure AD Graph [ServicePrincipal entiteit] [ AAD-Graph-Sp-Entity] definieert het schema voor de eigenschappen van een service principal-object.  
+Wanneer een toepassing een machtiging verleend voor toegang tot bronnen in een tenant (bij de registratie of [toestemming](active-directory-dev-glossary.md#consent)), een service-principal-object is gemaakt. De Azure AD Graph [ServicePrincipal entiteit] [ AAD-Graph-Sp-Entity] definieert het schema voor de eigenschappen van een service principal-object. 
 
 #### <a name="application-and-service-principal-relationship"></a>Toepassing en service-principal relatie
 Houd rekening met het toepassingsobject als de *globale* weergave van de toepassing voor gebruik voor alle tenants en de service-principal als de *lokale* weergave voor gebruik in een specifieke tenant. De toepassing-object fungeert als de sjabloon van welke algemene en de standaardeigenschappen zijn *afgeleid* voor gebruik bij het maken van de bijbehorende service-principals. Een application-object heeft daarom een 1:1-relatie met de toepassing en een 1:many relaties met de bijbehorende objecten van de service-principal.
 
-Een service-principal moet worden gemaakt in elke tenant waar de toepassing wordt gebruikt, waardoor het tot stand brengen van een identiteit voor het aanmelden en/of toegang tot bronnen worden beveiligd door de tenant. Een toepassing voor één tenant heeft slechts één service-principal (in de thuis-tenant), gemaakt en ingestemd voor gebruik tijdens de toepassingsregistratie. Een multitenant webtoepassing/API heeft ook een service-principal in elke tenant wordt gemaakt wanneer een gebruiker van deze tenant heeft ingestemd met het gebruik ervan.  
+Een service-principal moet worden gemaakt in elke tenant waar de toepassing wordt gebruikt, waardoor het tot stand brengen van een identiteit voor het aanmelden en/of toegang tot bronnen worden beveiligd door de tenant. Een toepassing voor één tenant heeft slechts één service-principal (in de thuis-tenant), gemaakt en ingestemd voor gebruik tijdens de toepassingsregistratie. Een multitenant webtoepassing/API heeft ook een service-principal in elke tenant wordt gemaakt wanneer een gebruiker van deze tenant heeft ingestemd met het gebruik ervan. 
 
 > [!NOTE]
 > U alle wijzigingen naar uw application-object worden ook weergegeven in de service-principal-object in de toepassing thuis-tenant alleen (de tenant waarvoor deze is geregistreerd). Voor multitenant-toepassingen, wijzigingen in het toepassingsobject worden niet doorgevoerd in elke consumer tenants service-principals, totdat de toegang wordt verwijderd de [toepassing Toegangsvenster](https://myapps.microsoft.com) en opnieuw worden toegekend.

@@ -4,9 +4,9 @@ description: Documentatie voor de app-instellingen van Azure Functions of omgevi
 services: functions
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/26/2017
 ms.author: tdykstra
-ms.openlocfilehash: ce7bf2cf650b0df7e8998766b2d3f5a37c4a1b72
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bd5603b8f0e15eeae9dd3799d4e10952e115680f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>App-naslaginformatie voor Azure Functions
 
@@ -44,11 +44,11 @@ Optioneel storage-account-verbindingsreeks voor het opslaan van Logboeken en wee
 
 ## <a name="azurewebjobsdisablehomepage"></a>AzureWebJobsDisableHomepage
 
-`true`betekent dat de standaard landingspagina die wordt weergegeven voor de basis-URL van een functie-app niet uitschakelen. Standaard is `false`.
+`true` betekent dat de standaard landingspagina die wordt weergegeven voor de basis-URL van een functie-app niet uitschakelen. De standaardwaarde is `false`.
 
 |Sleutel|Voorbeeldwaarde|
 |---|------------|
-|AzureWebJobsDisableHomepage|De waarde True|
+|AzureWebJobsDisableHomepage|true|
 
 Wanneer deze appinstelling is weggelaten of ingesteld op `false`, een pagina zoals in het volgende voorbeeld wordt weergegeven in het antwoord naar de URL `<functionappname>.azurewebsites.net`.
 
@@ -56,11 +56,11 @@ Wanneer deze appinstelling is weggelaten of ingesteld op `false`, een pagina zoa
 
 ## <a name="azurewebjobsdotnetreleasecompilation"></a>AzureWebJobsDotNetReleaseCompilation
 
-`true`betekent releasemodus gebruiken bij het compileren van .NET-code; `false` betekent foutopsporingsmodus gebruiken. Standaard is `true`.
+`true` betekent releasemodus gebruiken bij het compileren van .NET-code; `false` betekent foutopsporingsmodus gebruiken. De standaardwaarde is `true`.
 
 |Sleutel|Voorbeeldwaarde|
 |---|------------|
-|AzureWebJobsDotNetReleaseCompilation|De waarde True|
+|AzureWebJobsDotNetReleaseCompilation|true|
 
 ## <a name="azurewebjobsfeatureflags"></a>AzureWebJobsFeatureFlags
 
@@ -84,7 +84,7 @@ Hiermee geeft u de opslagplaats of de provider moet worden gebruikt voor opslag 
 
 |Sleutel|Voorbeeldwaarde|
 |---|------------|
-|AzureWebJobsSecretStorageType|Uitgeschakeld|
+|AzureWebJobsSecretStorageType|uitgeschakeld|
 
 ## <a name="azurewebjobsstorage"></a>AzureWebJobsStorage
 
@@ -155,8 +155,8 @@ De standaardwaarde is '6.5.0'.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-> [!div class="nextstepaction"]
-> [Informatie over het bijwerken van app-instellingen](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
+[Informatie over het bijwerken van app-instellingen](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
 
-> [!div class="nextstepaction"]
-> [Zie globale instellingen in het bestand host.json](functions-host-json.md)
+[Zie globale instellingen in het bestand host.json](functions-host-json.md)
+
+[Zie andere appinstellingen voor App Service-apps](https://github.com/projectkudu/kudu/wiki/Configurable-settings)

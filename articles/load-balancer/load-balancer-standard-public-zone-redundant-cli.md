@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: kumud
-ms.openlocfilehash: 29dcfaad840b5498dd859082ce11655a4f1fe8af
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e469311609909e3453015702fca7d015a4e72398
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/17/2018
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Taakverdeling van VM's via alle beschikbaarheid zones met Azure CLI
 
@@ -61,13 +61,13 @@ az network public-ip create \
 ```
 
 ## <a name="create-azure-load-balancer-standard"></a>Azure Load Balancer standaard maken
-Deze sectie beschrijft hoe u kunt maken en configureren van de volgende onderdelen van de load balancer:
-- een frontend IP-adresgroep die het inkomende netwerkverkeer op de load balancer ontvangt.
-- een back-end-IP-adresgroep waar de frontend-groep de belasting verzendt in evenwicht netwerkverkeer.
-- een health-test die bepaalt de status van de back-end-VM-exemplaren.
-- een load balancer-regel waarmee wordt gedefinieerd hoe verkeer wordt gedistribueerd naar de virtuele machines.
+In deze sectie wordt beschreven hoe u de volgende onderdelen van de load balancer kunt maken en configureren:
+- een front-end IP-pool die het binnenkomende netwerkverkeer op de load balancer ontvangt.
+- een back-end IP-pool waar de front-endpool het netwerkverkeer op de load balancer heen stuurt.
+- een statustest die de status van de back-end-VM-exemplaren vaststelt.
+- een load balancer-regel die bepaalt hoe het verkeer over de VM's wordt verdeeld.
 
-### <a name="create-the-load-balancer"></a>De load balancer maken
+### <a name="create-the-load-balancer"></a>Load balancer maken
 Maken van een standaard load balancer met [az network Load Balancer maken](/cli/azure/network/lb#az_network_lb_create). Het volgende voorbeeld wordt een load balancer met de naam *myLoadBalancer* en wijst de *myPublicIP* adres aan de front-end-IP-configuratie.
 
 ```azurecli-interactive
@@ -94,7 +94,7 @@ az network lb probe create \
 ```
 
 ## <a name="create-load-balancer-rule-for-port-80"></a>Maken van de load balancer-regel voor poort 80
-Een load balancer-regel definieert de front-end-IP-configuratie voor het binnenkomende verkeer en de back-end-IP-adresgroep voor het ontvangen van het verkeer, samen met de vereiste poort van de bron- en doelserver. Maken van een load balancer-regel *myLoadBalancerRuleWeb* met [az network Load Balancer-regel maken](/cli/azure/network/lb/rule#az_network_lb_rule_create) om te luisteren op poort 80 in de groep frontend *myFrontEndPool* en verzenden taakverdeling van netwerkverkeer naar de back-end-adresgroep *myBackEndPool* ook met behulp van poort 80.
+Een load balancer-regel definieert de front-end-IP-configuratie voor het binnenkomende verkeer en de back-end-IP-pool om het verkeer te ontvangen, samen met de gewenste bron- en doelpoort. Maak met [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create) de regel *myLoadBalancerRuleWeb* voor het luisteren naar poort 80 in de front-endpool *myFrontEndPool* en het verzenden van netwerkverkeer met evenredige taakverdeling naar de back-endadresgroep *myBackEndPool* waarbij ook van poort 80 gebruik wordt gemaakt.
 
 ```azurecli-interactive
 az network lb rule create \
@@ -110,7 +110,7 @@ az network lb rule create \
 ```
 
 ## <a name="configure-virtual-network"></a>Virtueel netwerk configureren
-Voordat u een aantal virtuele machines implementeren en de load balancer kunt testen, moet u de resources van de ondersteunende virtueel netwerk maken.
+Voordat u enkele VM's implementeert en uw load balancer test, maakt u de ondersteunende virtuele-netwerkbronnen.
 
 ### <a name="create-a-virtual-network"></a>Een virtueel netwerk maken
 
@@ -166,12 +166,12 @@ for i in `seq 1 3`; do
         --lb-address-pools myBackEndPool
 done
 ```
-## <a name="create-backend-servers"></a>Maken van back-endservers
+## <a name="create-backend-servers"></a>Back-endservers maken
 In dit voorbeeld maakt u drie virtuele machines zich in de zone 1, zone 2 en 3 om te worden gebruikt als back-endservers voor de load balancer-zone. U kunt ook NGINX installeren op de virtuele machines om te controleren of de load balancer is gemaakt.
 
 ### <a name="create-cloud-init-config"></a>Een cloud-init-configuratiebestand maken
 
-U kunt een cloud-init-configuratiebestand NGINX installeren en uitvoeren van een 'Hello World' Node.js-app op een virtuele Linux-machine. In uw huidige shell, maakt u een bestand met de naam cloud init.txt en kopieer en plak de volgende configuratie in de shell. Zorg ervoor dat u de volledige kopieert cloud init bestand correct, met name de eerste regel:
+U kunt een cloud-init-configuratiebestand maken om NGINX te installeren en een 'Hallo wereld' Node.js-app uit te voeren op een virtuele Linux-machine. Maak in uw huidige shell een bestand met de naam cloud-init.txt en plak de volgende configuratie in de shell. Zorg ervoor dat u het hele cloud-init-bestand correct kopieert, met name de eerste regel:
 
 ```yaml
 #cloud-config
@@ -218,19 +218,21 @@ runcmd:
 ### <a name="create-the-zonal-virtual-machines"></a>De zonal virtuele machines maken
 Maken van het VMs met een [az vm maken](/cli/azure/vm#az_vm_create) in zone 1, zone 2 en 3 zone. Het volgende voorbeeld maakt een virtuele machine in elke zone en SSH-sleutels genereert als deze niet al bestaan:
 
-Maken van virtuele machines in de zone 1
+Een virtuele machine maken in elke zone (zone 1, zone2 en zone 3) van de *westeurope* locatie.
 
 ```azurecli-interactive
- az vm create \
---resource-group myResourceGroupSLB \
---name myVM$i \
---nics myNic$i \
---image UbuntuLTS \
---generate-ssh-keys \
---zone $i \
---custom-data cloud-init.txt
+for i in `seq 1 3`; do
+  az vm create \
+    --resource-group myResourceGroupSLB \
+    --name myVM$i \
+    --nics myNic$i \
+    --image UbuntuLTS \
+    --generate-ssh-keys \
+    --zone $i \
+    --custom-data cloud-init.txt
+done
 ```
-## <a name="test-the-load-balancer"></a>De load balancer testen
+## <a name="test-the-load-balancer"></a>Load balancer testen
 
 Ophalen van het openbare IP-adres van de load balancer met behulp van [az netwerk openbare ip-weergeven](/cli/azure/network/public-ip#az_network_public_ip_show). 
 
@@ -248,7 +250,7 @@ Vervolgens kunt u het openbare IP-adres invoeren in een webbrowser. Het duurt en
 Overzicht van de load balancer verkeer verdelen over virtuele machines in alle drie beschikbaarheid zones waarop uw app wordt uitgevoerd, kunt u stoppen van een virtuele machine in een bepaalde zone en vernieuw de browser.
 
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over [standaard Load Balancer](./load-balancer-standard-overview.md)
+- Meer informatie over [Standard Load Balancer](./load-balancer-standard-overview.md)
 
 
 

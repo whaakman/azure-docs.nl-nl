@@ -3,23 +3,25 @@ title: Azure AD-Xamarin aan de slag | Microsoft Docs
 description: Xamarin-toepassingen die integreren met Azure AD voor aanmelden en roept u Azure AD-beveiligde API's met OAuth bouwen.
 services: active-directory
 documentationcenter: xamarin
-author: jmprieur
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 198cd2c3-f7c8-4ec2-b59d-dfdea9fe7d95
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 77ac6a7cfe089fa934592c412c75a9f33efde5e8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ac04cddc00bf76bb366a249a5a2ec4c56d5212c
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-ad-xamarin-getting-started"></a>Azure AD-Xamarin aan de slag
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -57,8 +59,7 @@ Als u wilt inschakelen voor de app tokens krijgen, moet u eerst registreren in u
   * **Omleidings-URI** is een combinatie schema en de tekenreeks die gebruikmaakt van Azure AD token antwoorden retourneren. Voer een waarde (bijvoorbeeld http://DirectorySearcher).
 6. Nadat u de registratie hebt voltooid, wijst Azure AD de app een unieke toepassings-ID. Kopieer de waarde van de **toepassing** tabblad omdat u hebt deze later nodig.
 7. Op de **instellingen** pagina **Required Permissions**, en selecteer vervolgens **toevoegen**.
-8. Selecteer **Microsoft Graph** als de API. Onder **gedelegeerde machtigingen**, voeg de **Directory-gegevens lezen** machtiging.  
-Deze actie kan de app om op te vragen de Graph-API voor gebruikers.
+8. Selecteer **Microsoft Graph** als de API. Onder **gedelegeerde machtigingen**, voeg de **Directory-gegevens lezen** machtiging. Deze actie kan de app om op te vragen de Graph-API voor gebruikers.
 
 ## <a name="step-3-install-and-configure-adal"></a>Stap 3: Installeren en configureren van ADAL
 Nu dat u een app in Azure AD hebt, kunt u ADAL installeert en uw identiteitsgerelateerde code schrijven. Om in te schakelen ADAL om te communiceren met Azure AD, geef deze de enige informatie over de registratie van de app.
@@ -91,7 +92,7 @@ Nu dat u een app in Azure AD hebt, kunt u ADAL installeert en uw identiteitsgere
 
   * De *tenant* is het domein van uw Azure AD-tenant (bijvoorbeeld: contoso.onmicrosoft.com).
   * De *clientId* is de client-ID van de app, die u hebt gekopieerd uit de portal.
-  * De *returnUri* is de omleidings-URI die u hebt ingevoerd in de portal (bijvoorbeeld http://DirectorySearcher).
+  * De *returnUri* de omleidings-URI die u hebt ingevoerd in de portal is (bijvoorbeeld http://DirectorySearcher).
 
 ## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>Stap 4: Gebruik ADAL tokens ophalen uit Azure AD
 Bijna alle van de app verificatielogica ligt in `DirectorySearcher.SearchByAlias(...)`. In de platform-specifieke projecten nodig is om door te geven van een contextuele parameter voor de `DirectorySearcher` PCL.
@@ -103,8 +104,7 @@ Bijna alle van de app verificatielogica ligt in `DirectorySearcher.SearchByAlias
     {
     ```
 
-2. Initialiseren `AuthenticationContext`, dit is de primaire klasse van ADAL.  
-Deze actie geeft ADAL de coördinaten die kan communiceren met Azure AD.
+2. Initialiseren `AuthenticationContext`, dit is de primaire klasse van ADAL. Deze actie geeft ADAL de coördinaten die kan communiceren met Azure AD.
 3. Roep `AcquireTokenAsync(...)`, die accepteert de `IPlatformParameters` object en roept de authenticatiestroom dat nodig is om een token terug naar de app.
 
     ```csharp

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: f4b0758ed6f1a0d11aeb1061cac34f1e9084ef53
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b426fd253b436c71235f006cc41881f0c0c67703
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
 ---
 #   <a name="image-analysis-cognitive-skill"></a>Afbeelding Analysis cognitieve kwalificatie
 
@@ -39,9 +39,9 @@ Parameters zijn hoofdlettergevoelig.
 
 ## <a name="skill-inputs"></a>Kwalificatie invoer
 
-| Invoer     | Beschrijving |
-|--------------------|-------------|
-| url | Unieke locator voor de installatiekopie. Het is mogelijk een web-URL of de locatie van de blob-opslag.|
+| Voer een naam      | Beschrijving                                          |
+|---------------|------------------------------------------------------|
+| Afbeelding         | Complex Type. Momenteel wordt alleen werkt met '/ document/normalized_images' veld, die wordt geproduceerd door de Azure Blob-indexeerfunctie wanneer ```imageAction``` is ingesteld op ```generateNormalizedImages```. Zie de [voorbeeld](#sample-output) voor meer informatie.|
 
 
 
@@ -62,8 +62,8 @@ Parameters zijn hoofdlettergevoelig.
     "defaultLanguageCode": "en",
     "inputs": [
         {
-            "name": "url",
-            "source": "/document/metadata_storage_path"
+            "name": "image",
+            "source": "/document/normalized_images/*"
         }
     ],
     "outputs": [

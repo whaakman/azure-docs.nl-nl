@@ -2,23 +2,21 @@
 title: Gegevens van de Stream Analytics stream in Data Lake Store | Microsoft Docs
 description: Azure Stream Analytics gebruikt om gegevens van de stream naar het Azure Data Lake Store
 services: data-lake-store,stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: edb58e0b-311f-44b0-a499-04d7e6c07a90
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 8ced5aff33ed23aee3f3399d876c1ed62d2b5707
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7ff59957cf7700af79425aa005444a135b7ee098
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>Gegevens streamen van Azure Storage Blob naar Data Lake Store met behulp van Azure Stream Analytics
 In dit artikel leert u hoe u Azure Data Lake Store als uitvoer voor een Azure Stream Analytics-taak. In dit artikel wordt een eenvoudig scenario voor die gegevens van een Azure Storage-blob (invoer) leest en schrijft de gegevens naar Data Lake Store (uitvoer).
@@ -96,7 +94,7 @@ U begint met het maken van een Stream Analytics-taak die bestaat uit een invoerb
     
     Klik op **Create**. De portal wordt nu voegt de uitvoer en test de verbinding met het.
     
-## <a name="run-the-stream-analytics-job"></a>De Stream Analytics-taak uitvoeren
+## <a name="run-the-stream-analytics-job"></a>Voer de Stream Analytics-taak uit
 
 1. U moet een query uit een Stream Analytics-taak uit te voeren de **Query** tabblad. Voor deze zelfstudie kunt u de voorbeeldquery uitvoeren door te vervangen de tijdelijke aanduidingen door de taak invoer en uitvoer aliassen, zoals wordt weergegeven in onderstaande schermafbeelding.
 

@@ -8,6 +8,7 @@ manager: mtillman
 editor: mbaldwin
 ms.assetid: 5471ad74-20b3-44df-a2b5-43cde2c0a045
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,11 +16,11 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: mtillman
 ms.custom: aaddev
-ms.openlocfilehash: c817964ebab358f8e31e7435b7067fc60e9516fa
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 4b4f698042f6688e3db484f7d96ccfb06c5cdd4f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory Graph API
 > [!IMPORTANT]
@@ -58,7 +59,7 @@ Azure AD Graph API biedt de volgende functies:
 Azure AD Graph API kunt veel toepassingsscenario's. De volgende scenario's zijn de meest voorkomende:
 
 * **Line-of-Business (één Tenant)-toepassing**: In dit scenario wordt een enterprise-ontwikkelaar werkt voor een organisatie met Office 365-abonnement. De ontwikkelaar is bezig met een webtoepassing die communiceert met Azure AD taken uit te voeren die een licentie toewijzen aan een gebruiker. Deze taak vereist toegang tot Azure AD Graph API, zodat de ontwikkelaar, registreert u de toepassing voor één tenant in Azure AD en configureert u lees- en schrijfmachtigingen heeft voor Azure AD Graph API. Vervolgens is de toepassing geconfigureerd voor gebruik van zijn eigen referenties zijn of die van de gebruiker momenteel aanmeldingspagina te verkrijgen van een token voor het aanroepen van Azure AD Graph API.
-* **Software als een Service-toepassing (Multitenant)**: In dit scenario is een onafhankelijke softwareleverancier (ISV) ontwikkelen gehoste multitenant-webtoepassing waarmee de beheerfuncties van de gebruiker voor andere organisaties die gebruikmaken van Azure AD. Deze functies vereisen toegang tot de directory-objecten en dus de toepassing moet Azure AD Graph API aan te roepen. De ontwikkelaar registreert u de toepassing in Azure AD, configureert om te vereisen lees- en schrijfmachtigingen heeft voor Azure AD Graph API en hebt u externe toegang zodat andere organisaties kunnen toestemming voor het gebruik van de toepassing in de directory. Wanneer een gebruiker in een andere organisatie geverifieerd bij de toepassing voor de eerste keer, worden ze een dialoogvenster instemming met de machtigingen van de toepassing aanvragen weergegeven.  Verlenen toestemming geeft vervolgens de toepassing die machtigingen voor Azure AD Graph API in de map van de gebruiker heeft aangevraagd. Zie voor meer informatie over het framework toestemming [overzicht van het Framework toestemming](active-directory-integrating-applications.md).
+* **Software als een Service-toepassing (Multitenant)**: In dit scenario is een onafhankelijke softwareleverancier (ISV) ontwikkelen gehoste multitenant-webtoepassing waarmee de beheerfuncties van de gebruiker voor andere organisaties die gebruikmaken van Azure AD. Deze functies vereisen toegang tot de directory-objecten en dus de toepassing moet Azure AD Graph API aan te roepen. De ontwikkelaar registreert u de toepassing in Azure AD, configureert om te vereisen lees- en schrijfmachtigingen heeft voor Azure AD Graph API en hebt u externe toegang zodat andere organisaties kunnen toestemming voor het gebruik van de toepassing in de directory. Wanneer een gebruiker in een andere organisatie geverifieerd bij de toepassing voor de eerste keer, worden ze een dialoogvenster instemming met de machtigingen van de toepassing aanvragen weergegeven. Verlenen toestemming geeft vervolgens de toepassing die machtigingen voor Azure AD Graph API in de map van de gebruiker heeft aangevraagd. Zie voor meer informatie over het framework toestemming [overzicht van het Framework toestemming](active-directory-integrating-applications.md).
 
 ## <a name="see-also"></a>Zie ook
 [Snelstartgids voor Azure AD Graph API](active-directory-graph-api-quickstart.md)

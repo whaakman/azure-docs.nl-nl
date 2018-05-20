@@ -1,25 +1,27 @@
 ---
 title: Azure AD .NET Web API aan de slag | Microsoft Docs
-description: "Het bouwen van een .NET MVC-web-API die kan worden geïntegreerd met Azure AD voor verificatie en autorisatie."
+description: Het bouwen van een .NET MVC-web-API die kan worden geïntegreerd met Azure AD voor verificatie en autorisatie.
 services: active-directory
 documentationcenter: .net
-author: dstrockis
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 67e74774-1748-43ea-8130-55275a18320f
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 4c4cf11b26402747ef58e4fa3fbbe2154876dfae
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: aa527f66035ce8ea95ecdf405ef307c1202a92a6
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-ad-net-web-api-getting-started"></a>Azure AD .NET Web API aan de slag
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -125,8 +127,8 @@ Voor het valideren van binnenkomende aanvragen en tokens, moet u voor het instel
     ```
 
 7. Open de `web.config` bestand in de hoofdmap van het project TodoListService en voer de configuratiewaarden van uw in de `<appSettings>` sectie.
-  * `ida:Tenant`is de naam van uw Azure AD-tenant bijvoorbeeld: contoso.onmicrosoft.com.
-  * `ida:Audience`is de URI van de App-ID van de toepassing die u hebt ingevoerd in de Azure-portal.
+  * `ida:Tenant` is de naam van uw Azure AD-tenant bijvoorbeeld: contoso.onmicrosoft.com.
+  * `ida:Audience` is de URI van de App-ID van de toepassing die u hebt ingevoerd in de Azure-portal.
 
 ## <a name="step-3-configure-a-client-application-and-run-the-service"></a>Stap 3: Een clienttoepassing configureren en uitvoeren van de service
 Voordat u de te doen List-Service in actie zien kunt, moet u de client To Do List configureren zodat het kan tokens van Azure AD verkrijgen en naar de service aanroepen.
@@ -143,9 +145,9 @@ Voordat u de te doen List-Service in actie zien kunt, moet u de client To Do Lis
 
 5. Open in Visual Studio `App.config` in de TodoListClient project en voer vervolgens de configuratiewaarden van uw in de `<appSettings>` sectie.
 
-  * `ida:Tenant`is de naam van uw Azure AD-tenant bijvoorbeeld: contoso.onmicrosoft.com.
-  * `ida:ClientId`is de app-ID die u hebt gekopieerd uit de Azure-portal.
-  * `todo:TodoListResourceId`is de URI van de App-ID van de toepassing om te doen List-Service die u hebt ingevoerd in de Azure portal.
+  * `ida:Tenant` is de naam van uw Azure AD-tenant bijvoorbeeld: contoso.onmicrosoft.com.
+  * `ida:ClientId` is de app-ID die u hebt gekopieerd uit de Azure-portal.
+  * `todo:TodoListResourceId` is de URI van de App-ID van de toepassing om te doen List-Service die u hebt ingevoerd in de Azure portal.
 
 ## <a name="next-steps"></a>Volgende stappen
 Ten slotte wilt opschonen, bouwen en uitvoeren van elk project. Als u nog niet gedaan hebt, is nu tijd om aan te maken van een nieuwe gebruiker in de tenant met een *. onmicrosoft.com-domein. Aanmelden bij de client To Do List bij die gebruiker en een aantal taken toevoegen aan de takenlijst van de gebruiker.

@@ -9,16 +9,16 @@ editor: vturecek
 ms.assetid: 75516e1e-ee57-4bc7-95fe-71ec42d452b2
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/07/2017
 ms.author: bharatn
-ms.openlocfilehash: 7037620ebdc26a9f18531064bf45d058f5060e39
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5ca579b446e5d3608d53cea73fa9392cd00db06
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="wcf-based-communication-stack-for-reliable-services"></a>WCF-communicatiestack voor Reliable Services
 Het framework Reliable Services kan auteurs in service kiezen van de communicatiestack die ze willen gebruiken voor hun service. Ze kunnen plug-in de communicatiestack van hun keuze via de **ICommunicationListener** geretourneerd door de [CreateServiceReplicaListeners of CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) methoden. Het framework biedt een implementatie van de communicatiestack gebaseerd op Windows Communication Foundation (WCF) voor service-auteurs die u wilt gebruiken, WCF-communicatie.
@@ -26,7 +26,7 @@ Het framework Reliable Services kan auteurs in service kiezen van de communicati
 ## <a name="wcf-communication-listener"></a>Listener voor WCF-communicatie
 De WCF-specifieke implementatie van **ICommunicationListener** wordt geleverd door de **Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener** klasse.
 
-Lest spreek we een servicecontract van het type hebben`ICalculator`
+Lest spreek we een servicecontract van het type hebben `ICalculator`
 
 ```csharp
 [ServiceContract]

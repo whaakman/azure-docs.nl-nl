@@ -1,9 +1,9 @@
 ---
-title: Aan de slag met Notification Hubs voor Xamarin.Android-apps | Microsoft Docs
+title: Pushmeldingen verzenden naar Xamarin.Android-apps met Azure Notification Hubs | Microsoft Docs
 description: In deze zelfstudie leert u hoe u met Azure Notification Hubs pushmeldingen verzendt naar een Xamarin.Android-toepassing.
-author: jwhitedev
+author: dimazaid
 manager: kpiteira
-editor: ''
+editor: spelluru
 services: notification-hubs
 documentationcenter: xamarin
 ms.assetid: 0be600fe-d5f3-43a5-9e5e-3135c9743e54
@@ -11,88 +11,76 @@ ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
-ms.topic: hero-article
-ms.date: 12/22/2017
-ms.author: jawh
-ms.openlocfilehash: 7fee7813bbdcf902d5f5ae2d0af7540c8899ad25
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.topic: tutorial
+ms.custom: mvc
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: f75671e2e5511054f3db550a8c24e62d031492c3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="get-started-with-notification-hubs-for-xamarinandroid-apps"></a>Aan de slag met Notification Hubs voor Xamarin.Android-apps
+# <a name="tutorial-push-notifications-to-xamarinandroid-apps-using-azure-notification-hubs"></a>Zelfstudie: Pushmeldingen verzenden naar Xamarin.Android-apps met Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## <a name="overview"></a>Overzicht
-In deze zelfstudie wordt gedemonstreerd hoe u met Azure Notification Hubs pushmeldingen verzendt naar een Xamarin.Android-toepassing. U maakt een lege Xamarin.Android-app die pushmeldingen ontvangt via Firebase Cloud Messaging (FCM). Als u klaar bent, kunt u de Notification Hub gebruiken om pushmeldingen uit te zenden naar alle apparaten waarop uw app wordt uitgevoerd. De voltooide code is beschikbaar in het [NotificationHubs-app][GitHub]-voorbeeld.
+In deze zelfstudie wordt gedemonstreerd hoe u met Azure Notification Hubs pushmeldingen verzendt naar een Xamarin.Android-toepassing. U maakt een lege Xamarin.Android-app die pushmeldingen ontvangt via Firebase Cloud Messaging (FCM). U gebruikt u de Notification Hub om pushmeldingen uit te zenden naar alle apparaten waarop uw app wordt uitgevoerd. De voltooide code is beschikbaar in het [NotificationHubs-app][GitHub]-voorbeeld.
 
-In deze zelfstudie wordt een eenvoudig scenario voor het uitzenden met Notification Hubs beschreven.
+In deze zelfstudie voert u de volgende stappen uit:
 
-## <a name="before-you-begin"></a>Voordat u begint
-[!INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
-
-De volledige code voor deze zelfstudie vindt u [hier][GitHub] op GitHub.
+> [!div class="checklist"]
+> * Een Firebase-project maken en Firebase Cloud Messaging inschakelen
+> * Een Notification Hub maken
+> * Een Xamarin.Android-app maken en deze verbinden met de Notification Hub
+> * Testmeldingen verzenden vanuit Azure Portal
 
 ## <a name="prerequisites"></a>Vereisten
-Voor deze zelfstudie hebt u het volgende nodig:
 
-* [Visual Studio met Xamarin] onder Windows of [Visual Studio voor Mac] onder OS X.
-* Actief Google-account
+- **Azure-abonnement**. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
+- [Visual Studio met Xamarin] onder Windows of [Visual Studio voor Mac] onder OS X.
+- Actief Google-account
 
-Het voltooien van deze zelfstudie is een vereiste voor alle andere Notification Hubs-zelfstudies voor Xamarin.Android-apps.
-
-> [!IMPORTANT]
-> U hebt een actief Azure-account nodig om deze zelfstudie te voltooien. Als u geen account hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-android-get-started%2F) voor meer informatie.
-> 
-> 
-
-## <a name="enable-firebase-cloud-messaging"></a>Firebase Cloud-berichten inschakelen
+## <a name="create-a-firebase-project-and-enable-firebase-cloud-messaging"></a>Een Firebase-project maken en Firebase Cloud Messaging inschakelen
 [!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
-## <a name="configure-your-notification-hub"></a>Uw Notification Hub configureren
+## <a name="create-a-notification-hub"></a>Een Notification Hub maken
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-<ol start="6">
+### <a name="configure-gcm-settings-for-the-notification-hub"></a>GCM-instellingen configureren voor de Notification Hub
 
-<li><p>Kies bovenaan het tabblad <b>Configureren</b>, voer de waarde voor <b>API-sleutel</b> in die u in de vorige sectie hebt verkregen en selecteer <b>Opslaan</b>.</p>
-</li>
-</ol>
-&emsp;&emsp;![](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
+1. Selecteer **Google (GCM)** in de sectie **MELDINGSINSTELLINGEN**. 
+2. Voer de sleutel voor de oude server in die u eerder hebt genoteerd in de Google Firebase Console. 
+3. Selecteer **Opslaan** op de werkbalk. 
+
+    ![](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
 
 De Notification Hub is geconfigureerd om te werken met FCM en u hebt de verbindingsreeksen om uw app te registreren voor het ontvangen van meldingen en voor het verzenden van pushmeldingen.
 
-## <a name="connect-your-app-to-the-notification-hub"></a>Uw app verbinden met de Notification Hub
-Eerst maakt u een nieuw project. 
+## <a name="create-xamainandroid-app-and-connect-it-to-notification-hub"></a>Een Xamarin.Android-app maken en deze verbinden met de Notification Hub
 
-1. Kies in Visual Studio **Nieuwe oplossing** > **Android-app** en selecteer **Volgende**.
+### <a name="create-visual-studio-project-and-add-nuget-packages"></a>Visual Studio-project maken en NuGet-pakketten toevoegen
+1. Wijs in Visual Studio naar **File**, selecteer **New** en selecteer vervolgens **Project**. 
    
-      ![Visual Studio - Een nieuw Android-project maken][22]
+      ![Visual Studio - Een nieuw Android-project maken](./media/partner-xamarin-notification-hubs-android-get-started/new-project-dialog.png)
+2. Vouw in het venster **Solution Explorer** het item **Properties** uit en klik op **AndroidManifest.xml**. Wijzig de naam van het pakket zodat deze overeenkomt met de pakketnaam die u hebt ingevoerd tijdens het toevoegen van Firebase Cloud Messaging aan uw project in Google Firebase Console. 
 
-2. Voer uw **appnaam** en **id** in. Kies de **doelplatforms** die u wilt ondersteunen en kies **Volgende** en **Maken**.
-   
-      ![Visual Studio - Android app configureren][23]
+      ![Pakketnaam in GCM](./media/partner-xamarin-notification-hubs-android-get-started/package-name-gcm.png)
+3. Klik met de rechtermuisknop op het project en selecteer **Manage NuGet Packages...**. 
+4. Selecteer het tabblad **Browse**. Zoek naar **Xamarin.GooglePlayServices.Base**. Selecteer **Xamarin.GooglePlayServices.Base** in de lijst met resultaten. Selecteer vervolgens **Install**. 
 
-    Hierop wordt een nieuw Android-project gemaakt.
+      ![Google Play Services NuGet](./media/partner-xamarin-notification-hubs-android-get-started/google-play-services-nuget.png)
+5. Zoek in het venster **NuGet Package Manager** naar **Xamarin.Firebase.Messaging**. Selecteer **Xamarin.Firebase.Messaging** in de lijst met resultaten. Selecteer vervolgens **Install**. 
+6. Zoek nu naar **Xamarin.Azure.NotificationHubs.Android**. Selecteer **Xamarin.Azure.NotificationHubs.Android** in de lijst met resultaten. Selecteer vervolgens **Install**. 
 
-3. Open de projecteigenschappen door met de rechtermuisknop op het nieuwe project in de weergave Oplossing te klikken en **Opties** te kiezen. Selecteer **Android-toepassing** in de sectie **Opbouwen**.
-   
-    Zorg ervoor dat de eerste letter van de **pakketnaam** een kleine letter is.
-   
-   > [!IMPORTANT]
-   > De eerste letter van de pakketnaam moet een kleine letter zijn. Als dat niet zo is, worden er toepassingsmanifestfouten weergegeven wanneer u hieronder uw app voor pushmeldingen registreert.
-   > 
-   > 
-   
-      ![Visual Studio - Opties voor Android-project][24]
-4. U kunt **Minimumversie van Android** desgewenst instellen op een ander API-niveau.
-5. Ook kunt u **Doelversie van Android** instellen op een andere API-versie waarvoor u wilt ontwikkelen (dit moet API-niveau 8 of hoger zijn).
-6. Kies **OK** en sluit het dialoogvenster Projectopties.
+### <a name="add-the-google-services-json-file"></a>Voeg het JSON-bestand van Google Services toe
 
-### <a name="add-the-required-packages-to-your-project"></a>Voeg de vereiste pakketten toe aan het project
+1. Kopieer het bestand **google-services.json** dat u hebt gedownload uit Google Firebase Console naar de projectmap.
+2. Voeg **google-services.json** toe aan het project.
+3. Selecteer **google-services.json** in het venster **Solution Explorer**.
+4. Stel in het deelvenster **Properties** de optie Build Action in op **GoogleServicesJson**. Als u **GoogleServicesJson** niet ziet, sluit u Visual Studio, opent u het programma opnieuw, opent u het project opnieuw en probeert u het nog een keer. 
 
-1. Klik met de rechtermuisknop op het project en selecteer **Toevoegen** > **NuGet-pakketten toevoegen**
-2. Zoek naar **Xamarin.Azure.NotificationHubs.Android** en voeg dat toe aan het project.
-3. Zoek naar **Xamarin.Firebase.Messaging** en voeg dat toe aan het project.
+      ![Build Action van GoogleServicesJson](./media/partner-xamarin-notification-hubs-android-get-started/google-services-json-build-action.png)
 
 ### <a name="set-up-notification-hubs-in-your-project"></a>Notification Hubs in uw project instellen
 
@@ -112,9 +100,10 @@ Open het bestand **AndroidManifest.xml** en voeg de volgende `<receiver>`-elemen
 1. Verzamel de volgende informatie voor uw Android-app en Notification Hub:
    
    * **Verbindingsreeks voor luisteren**: kies op het dashboard in [Azure Portal] de optie **Verbindingsreeksen weergeven**. Kopieer de *DefaultListenSharedAccessSignature*-verbindingsreeks voor deze waarde.
-   * **Hubnaam**: dit is de naam van uw hub in [Azure Portal]. Bijvoorbeeld *mynotificationhub2*.
+   * **Hubnaam**: de naam van uw hub in [Azure Portal]. Bijvoorbeeld *mynotificationhub2*.
      
-2. Maak een klasse **Constants.cs** voor uw Xamarin-project en definieer de volgende constantewaarden in de klasse. Vervang de tijdelijke aanduidingen door de waarden.
+2. Klik in het venster **Solution Explorer** met de rechtermuisknop op uw **project**, wijs naar **Add** en selecteer **Class**. 
+4. Maak een klasse **Constants.cs** voor uw Xamarin-project en definieer de volgende constantewaarden in de klasse. Vervang de tijdelijke aanduidingen door de waarden.
     
     ```csharp
         public static class Constants
@@ -123,19 +112,16 @@ Open het bestand **AndroidManifest.xml** en voeg de volgende `<receiver>`-elemen
            public const string NotificationHubName = "<hub name>";
         }
     ```
-
 3. Voeg de volgende using-instructies toe aan **MainActivity.cs**:
    
     ```csharp
         using Android.Util;
     ```
-
 4. Voeg een exemplaarvariabele toe aan **MainActivity.cs** die wordt gebruikt voor het weergeven van een waarschuwingsvenster wanneer de app wordt uitgevoerd:
    
     ```csharp
         public const string TAG = "MainActivity";
     ```
-
 5. Voeg de volgende code toe aan `OnCreate` in **MainActivity.cs** na `base.OnCreate(savedInstanceState)`:
 
     ```csharp   
@@ -151,32 +137,22 @@ Open het bestand **AndroidManifest.xml** en voeg de volgende `<receiver>`-elemen
             }
         }
     ```
-
-6. Klik met de rechtermuisknop op uw project en voeg de `google-services.json` toe die u eerder uit uw Firebase-project hebt gedownload. Klik met de rechtermuisknop op het toegevoegde bestand en stel de build-actie in op `GoogleServicesJson`
-
-    ![Visual Studio - google-services.json configureren][25]
-
-7. Maak een nieuwe klasse, **MyFirebaseIIDService**.
-
+7. Maak een nieuwe klasse, **MyFirebaseIIDService**, op de manier waarop u de klasse **Constants** hebt gemaakt. 
 8. Voeg de volgende using-instructies toe aan **MainActivity.cs**:
    
     ```csharp
-        using System;
-        using Android.App;
-        using Firebase.Iid;
-        using Android.Util;
-        using WindowsAzure.Messaging;
-        using System.Collections.Generic;
+    using Android.Util;
+    using WindowsAzure.Messaging;
+    using Firebase.Iid;
     ```
 
-9. Voeg in **MyFirebaseIIDService.cs** het volgende toe boven de **class**-declaratie en laat uw klasse gegevens overnemen uit **FirebaseInstanceIdService**:
+9. Voeg in **MyFirebaseIIDService.cs** de volgende **class**-declaratie toe en laat uw klasse gegevens overnemen uit **FirebaseInstanceIdService**:
    
     ```csharp
         [Service]
         [IntentFilter(new[] { "com.google.firebase.INSTANCE_ID_EVENT" })]
         public class MyFirebaseIIDService : FirebaseInstanceIdService
     ```
-
 10. Voeg in **MyFirebaseIIDService.cs** de volgende code toe:
    
     ```csharp
@@ -202,29 +178,20 @@ Open het bestand **AndroidManifest.xml** en voeg de volgende `<receiver>`-elemen
             Log.Debug(TAG, $"Successful registration of ID {regID}");
         }
     ```
-
 11. Maak een andere nieuwe klasse voor uw project en geef deze de naam **MyFirebaseMessagingService**.
-
 12. Voeg de volgende using-instructies toe aan **MyFirebaseMessagingService.cs**.
     
     ```csharp
-        using System;
-        using System.Linq;
-        using Android;
-        using Android.App;
-        using Android.Content;
         using Android.Util;
         using Firebase.Messaging;
     ```
-
 13. Voeg het volgende toe boven de klassendeclaratie en laat uw klasse gegevens overnemen uit **FirebaseMessagingService**:
     
     ```csharp
         [Service]
         [IntentFilter(new[] { "com.google.firebase.MESSAGING_EVENT" })]
         public class MyFirebaseMessagingService : FirebaseMessagingService
-    ```
-    
+    ```    
 14. Voeg de volgende code toe aan **MyFirebaseMessagingService.cs**:
     
     ```csharp
@@ -265,24 +232,22 @@ Open het bestand **AndroidManifest.xml** en voeg de volgende `<receiver>`-elemen
             notificationManager.Notify(0, notificationBuilder.Build());
         }
     ```
+15. **Compileer** het nieuwe project. 
+16. **Voer uw app uit** op uw apparaat of in een geladen emulator.
 
-15. Uw app uitvoeren op uw apparaat of geladen emulator
+## <a name="send-test-notification-from-the-azure-portal"></a>Testmeldingen verzenden vanuit Azure Portal
+U kunt ontvangst van meldingen in uw app testen met de optie *Test verzenden* in [Azure Portal]. Er wordt dan een pushmelding als test naar uw apparaat verzonden.
 
-## <a name="send-notifications-from-the-portal"></a>Meldingen verzenden vanuit de portal
-U kunt ontvangst van meldingen in uw app testen met de optie *Test verzenden* in [Azure Portal]. Hiermee wordt een pushmelding als test naar uw apparaat verzonden.
-
-![Azure Portal - Test verzenden][30]
+![Azure Portal - Test verzenden](media/partner-xamarin-notification-hubs-android-get-started/send-test-notification.png)
 
 Pushmeldingen worden gewoonlijk in een back-endservice zoals Mobile Services of ASP.NET verzonden via een compatibele bibliotheek. U kunt de REST API ook rechtstreeks gebruiken om meldingsberichten te verzenden als er geen bibliotheek beschikbaar is voor uw back-end.
 
-Hier volgt een lijst met andere zelfstudies die u kunt bekijken voor het verzenden van meldingen:
-
-* ASP.NET: zie [Notification Hubs gebruiken om pushmeldingen naar gebruikers te verzenden].
-* Azure Notification Hubs Java SDK: zie [How to use Notification Hubs from Java](notification-hubs-java-push-notification-tutorial.md) (Notification Hubs gebruiken vanuit Java) voor het verzenden van meldingen vanuit Java. Dit is getest in Eclipse voor Android-ontwikkeling.
-* PHP: zie [How to use Notification Hubs from PHP](notification-hubs-php-push-notification-tutorial.md) (Notification Hubs gebruiken vanuit PHP).
-
 ## <a name="next-steps"></a>Volgende stappen
-In dit eenvoudige voorbeeld hebt u meldingen uitgezonden naar al uw Android-apparaten. Als u zich op specifieke gebruikers wilt richten, raadpleegt u de zelfstudie [Notification Hubs gebruiken om pushmeldingen naar gebruikers te verzenden]. Als u gebruikers wilt indelen op belangengroepen, raadpleegt u [Notification Hubs gebruiken om belangrijk nieuws te verzenden]. Lees meer over het gebruik van Notification Hubs in [Richtlijnen voor Notification Hubs] en in [Notification Hubs-procedure voor Android].
+In deze zelfstudie hebt u meldingen uitgezonden naar al uw Android-apparaten die zijn geregistreerd bij de back-end. Als u wilt weten hoe u pushmeldingen kunt verzenden naar specifieke Android-apparaten, gaat u verder met de volgende zelfstudie: 
+
+> [!div class="nextstepaction"]
+>[Pushmeldingen verzenden naar specifieke apparaten](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
+
 
 <!-- Anchors. -->
 [Enable Google Cloud Messaging]: #register
@@ -323,9 +288,9 @@ In dit eenvoudige voorbeeld hebt u meldingen uitgezonden naar al uw Android-appa
 
 [Azure Portal]: https://portal.azure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Richtlijnen voor Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
-[Notification Hubs-procedure voor Android]: http://msdn.microsoft.com/library/dn282661.aspx
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs How-To for Android]: http://msdn.microsoft.com/library/dn282661.aspx
 
-[Notification Hubs gebruiken om pushmeldingen naar gebruikers te verzenden]: /manage/services/notification-hubs/notify-users-aspnet
-[Notification Hubs gebruiken om belangrijk nieuws te verzenden]: /manage/services/notification-hubs/breaking-news-dotnet
+[Use Notification Hubs to push notifications to users]: /manage/services/notification-hubs/notify-users-aspnet
+[Use Notification Hubs to send breaking news]: /manage/services/notification-hubs/breaking-news-dotnet
 [GitHub]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/Xamarin/GetStartedXamarinAndroid

@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: 7ced36bf-bd3f-474f-a03a-6ebdbc9677e2
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: aljo
-ms.openlocfilehash: d2454b09e69c26317499d17ea89b6829f52dedd2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 29afb683b579d6b59d9a8002351a57dc6e42fad0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Instellingen voor Service Fabric-cluster en het beleid voor Fabric-Upgrade aanpassen
 Dit document wordt uitgelegd hoe de verschillende fabric-instellingen aanpassen en de fabric-upgrade beleid voor uw Service Fabric-cluster. U kunt aanpassen via de [Azure-portal](https://portal.azure.com) of met een Azure Resource Manager-sjabloon.
@@ -130,13 +130,13 @@ Hieronder volgt een lijst van Fabric instellingen die u kunt aanpassen, geordend
 |AppDiagnosticStoreAccessRequiresImpersonation |BOOL, de standaardwaarde is true | Dynamisch |Imitatie wel of niet is vereist wanneer toegang tot diagnostische voor de toepassing is opslaat. |
 |AppEtwTraceDeletionAgeInDays |Int, de standaardwaarde is 3 | Dynamisch |Aantal dagen waarna we oude ETL-bestanden met ETW toepassingstraceringen verwijderen. |
 |ApplicationLogsFormatVersion |Int, de standaardwaarde is 0 | Dynamisch |Versie voor de toepassing Logboeken indeling. Ondersteunde waarden zijn 0 en 1. Versie 1 bevat meer velden uit de record ETW-gebeurtenis dan versie 0. |
-|ClusterId |Tekenreeks | Dynamisch |De unieke id van het cluster. Dit wordt gegenereerd wanneer het cluster is gemaakt. |
-|ConsumerInstances |Tekenreeks | Dynamisch |De lijst van DCA consumer exemplaren. |
+|ClusterId |Reeks | Dynamisch |De unieke id van het cluster. Dit wordt gegenereerd wanneer het cluster is gemaakt. |
+|ConsumerInstances |Reeks | Dynamisch |De lijst van DCA consumer exemplaren. |
 |DiskFullSafetySpaceInMB |Int, standaard is 1024 | Dynamisch |Resterende schijfruimte in MB te beschermen tegen door DCA worden gebruikt. |
 |EnableCircularTraceSession |BOOL, de standaardwaarde is ONWAAR | Statisch |Vlag geeft aan of cirkelvormige traceersessies moeten worden gebruikt. |
 |EnableTelemetry |BOOL, de standaardwaarde is true | Dynamisch |Dit zal in- of uitschakelen van telemetrie. |
 |MaxDiskQuotaInMB |Int, de standaardwaarde is 65536 | Dynamisch |Schijfquota in MB voor Windows Fabric-logboekbestanden. |
-|ProducerInstances |Tekenreeks | Dynamisch |De lijst van DCA producent exemplaren. |
+|ProducerInstances |Reeks | Dynamisch |De lijst van DCA producent exemplaren. |
 
 ## <a name="dnsservice"></a>DnsService
 | **Parameter** | **Toegestane waarden** |**Beleid voor upgrade**| **Hulp of korte beschrijving** |
@@ -435,7 +435,7 @@ Hieronder volgt een lijst van Fabric instellingen die u kunt aanpassen, geordend
 ## <a name="performancecounterlocalstore"></a>PerformanceCounterLocalStore
 | **Parameter** | **Toegestane waarden** | **Beleid voor upgrade** | **Hulp of korte beschrijving** |
 | --- | --- | --- | --- |
-|Prestatiemeteritems |Tekenreeks | Dynamisch |Door komma's gescheiden lijst met te verzamelen prestatiemeteritems. |
+|Prestatiemeteritems |Reeks | Dynamisch |Door komma's gescheiden lijst met te verzamelen prestatiemeteritems. |
 |IsEnabled |BOOL, de standaardwaarde is true | Dynamisch |Vlag wordt aangegeven of het verzamelen van prestatiemeteritems op het lokale knooppunt is ingeschakeld. |
 |MaxCounterBinaryFileSizeInMB |Int, de standaardwaarde is 1 | Dynamisch |Maximale grootte (in MB) voor elk prestaties prestatiemeteritems binaire bestand. |
 |NewCounterBinaryFileCreationIntervalInMinutes |Int, de standaardwaarde is 10 | Dynamisch |Maximale interval (in seconden) waarna een nieuw prestaties prestatiemeteritems binaire bestand is gemaakt. |
@@ -721,10 +721,10 @@ Hieronder volgt een lijst van Fabric instellingen die u kunt aanpassen, geordend
 | --- | --- | --- | --- |
 |ContainerNetworkName|tekenreeks, default is L""| Statisch |De netwerknaam moet worden gebruikt bij het instellen van een container-netwerk.|
 |ContainerNetworkSetup|BOOL, standaard is ONWAAR| Statisch |Hiermee geeft u op of u voor het instellen van een container-netwerk.|
-|FabricDataRoot |Tekenreeks | Niet toegestaan |Hoofdmap voor service Fabric-gegevens. Standaard voor Azure d:\svcfab is |
-|FabricLogRoot |Tekenreeks | Niet toegestaan |Hoofdmap voor service fabric-logboek. Dit is waar SF-logboeken en traceringen worden geplaatst. |
+|FabricDataRoot |Reeks | Niet toegestaan |Hoofdmap voor service Fabric-gegevens. Standaard voor Azure d:\svcfab is |
+|FabricLogRoot |Reeks | Niet toegestaan |Hoofdmap voor service fabric-logboek. Dit is waar SF-logboeken en traceringen worden geplaatst. |
 |NodesToBeRemoved|tekenreeks, standaardwaarde is ""| Dynamisch |De knooppunten die moeten worden verwijderd als onderdeel van de upgrade van de configuratie. (Alleen voor zelfstandige implementaties)|
-|ServiceRunAsAccountName |Tekenreeks | Niet toegestaan |De accountnaam waaronder fabric host-service uit te voeren. |
+|ServiceRunAsAccountName |Reeks | Niet toegestaan |De accountnaam waaronder fabric host-service uit te voeren. |
 |SkipFirewallConfiguration |BOOL, de standaardwaarde is ONWAAR | Niet toegestaan |Hiermee geeft u aan als firewall-instellingen worden ingesteld door het systeem moeten of niet. Dit geldt alleen als u windows firewall gebruikt. Als u firewalls van derden gebruikt, moet vervolgens u de poorten openen voor het systeem en -toepassingen gebruiken |
 
 ## <a name="tokenvalidationservice"></a>TokenValidationService
@@ -757,8 +757,8 @@ Hieronder volgt een lijst van Fabric instellingen die u kunt aanpassen, geordend
 |MinLogSizeInMB |Int, de standaardwaarde is 0 |Statisch|De minimumgrootte van de transactionele logboek. Het logboek niet mag worden afgekapt tot een grootte dan deze instelling. 0 geeft aan dat de replicator de minimale logboekgrootte volgens andere instellingen bepaalt. Deze waarde verhoogt, wordt de mogelijkheid van de handeling gedeeltelijke kopie en incrementele back-ups sinds de kans op relevante logboekrecords worden afgekapt wordt verlaagd. |
 |ReplicatorAddress |tekenreeks, default is 'localhost:0' | Statisch | Het eindpunt in de vorm van een tekenreeks-'IP: poort' die met de Windows Fabric-replicatie wordt gebruikt voor het tot stand brengen van verbindingen met andere replica's kunnen bewerkingen verzenden/ontvangen. |
 |SecondaryClearAcknowledgedOperations |BOOL, de standaardwaarde is ONWAAR | Statisch |BOOL die bepaalt of de bewerkingen op de secundaire replicator gewist zodra ze zijn bevestigd naar de primaire (leeggemaakt op de schijf). Instellingen voor dit in op TRUE, kan leiden tot extra leesbewerkingen op de nieuwe primaire tijdens het afvangen van replica's na een failover. |
-|SharedLogId |Tekenreeks |Niet toegestaan|Gedeelde logboek-id. Dit is een guid en moet uniek zijn voor elke gedeelde logboek. |
-|SharedLogPath |Tekenreeks |Niet toegestaan|Pad naar het gedeelde logboek. Het standaard gedeelde logboek wordt gebruikt als deze waarde leeg is. |
+|SharedLogId |Reeks |Niet toegestaan|Gedeelde logboek-id. Dit is een guid en moet uniek zijn voor elke gedeelde logboek. |
+|SharedLogPath |Reeks |Niet toegestaan|Pad naar het gedeelde logboek. Het standaard gedeelde logboek wordt gebruikt als deze waarde leeg is. |
 |SlowApiMonitoringDuration |Tijd in seconden, is standaard 300 |Statisch| Duur voor api opgeven voordat de waarschuwing health gebeurtenis wordt geactiveerd.|
 
 ## <a name="transport"></a>Transport
@@ -767,7 +767,7 @@ Hieronder volgt een lijst van Fabric instellingen die u kunt aanpassen, geordend
 |ConnectionOpenTimeout|TimeSpan, de standaardwaarde is Common::TimeSpan::FromSeconds(60)|Statisch|Geef de interval in seconden. Time-out voor verbinding instellen voor zowel inkomende als overnemende zijde (inclusief beveiligingsonderhandeling in veilige modus) |
 |ResolveOption|tekenreeks is de standaardwaarde is L "niet-opgegeven"|Statisch|Hiermee wordt bepaald hoe de FQDN-naam is opgelost.  Geldige waarden zijn 'niet opgegeven/ipv4/ipv6'. |
 
-## <a name="upgradeorchestrationservice"></a>Orchestration-service upgraden
+## <a name="upgradeorchestrationservice"></a>UpgradeOrchestrationService
 | **Parameter** | **Toegestane waarden** | **Beleid voor upgrade** | **Hulp of korte beschrijving** |
 | --- | --- | --- | --- |
 |AutoupgradeEnabled | BOOL, de standaardwaarde is true |Statisch| Automatische polling en upgrade-actie op basis van een doel-toestandbestand. |

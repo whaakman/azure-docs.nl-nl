@@ -83,7 +83,8 @@
 
 
 ## Problemen oplossen
-### [Connectiviteit](active-directory-aadconnect-troubleshoot-connectivity.md)
+### [Azure AD-connectiviteit met Azure AD Connect](active-directory-aadconnect-troubleshoot-connectivity.md)
+### [SQL-connectiviteit](active-directory-aadconnect-tshoot-sql-connectivity.md)
 ### [Fouten tijdens synchronisatie](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [Object is niet gesynchroniseerd](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 ### [Synchronisatie van object met behulp van de taak voor het oplossen van problemen](active-directory-aadconnect-troubleshoot-objectsync.md)

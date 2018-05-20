@@ -3,27 +3,29 @@ title: Azure Active Directory-verificatiebibliotheken voor v2.0 | Microsoft Docs
 description: Compatibel clientbibliotheken en server middleware bibliotheken en -gerelateerde bibliotheek, bron en voorbeelden koppelingen, voor het Azure Active Directory v2.0-eindpunt.
 services: active-directory
 documentationcenter: ''
-author: SaeedAkhter-MSFT
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 19cec615-e51f-4141-9f8c-aaf38ff9f746
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/13/2018
-ms.author: saeeda
+ms.author: celested
+ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 4bcf4854198e7c5f3861a39484a047adcbc1d797
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 8fe3db09acbdec606f25d0bc81300bc4f5e87411
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Azure Active Directory-verificatiebibliotheken voor v2.0
 
-De [v2.0-eindpunt voor Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare) ondersteunt de industriestandaard-protocollen voor OAuth 2.0 en OpenID Connect 1.0. De Microsoft Authentication Library (MSAL) is ontworpen voor gebruik met de Azure AD v2.0-eindpunt.  Het is ook mogelijk om te gebruiken, open source-bibliotheken die ondersteuning bieden voor OAuth 2.0 en OpenID Connect 1.0.
+De [v2.0-eindpunt voor Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare) ondersteunt de industriestandaard-protocollen voor OAuth 2.0 en OpenID Connect 1.0. De Microsoft Authentication Library (MSAL) is ontworpen voor gebruik met de Azure AD v2.0-eindpunt. Het is ook mogelijk om te gebruiken, open source-bibliotheken die ondersteuning bieden voor OAuth 2.0 en OpenID Connect 1.0.
 
 Het verdient aanbeveling dat u bibliotheken geschreven door protocol domein experts die een methodologie Security Development Lifecycle (SDL) zoals volgen [de gevolgd door Microsoft][Microsoft-SDL]. Als u aan de hand-code-ondersteuning voor de protocollen besluit, volgt u een methodologie zoals Microsoft SDL en betalen aandacht voor zowel de beveiligingsoverwegingen in de specificaties standaarden voor elk protocol sluiten.
 

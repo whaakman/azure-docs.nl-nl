@@ -1,6 +1,6 @@
 ---
-title: Maken van een toepassingsgateway met SSL-beëindiging - Azure-portal | Microsoft Docs
-description: Informatie over het maken van een toepassingsgateway en toevoegen van een certificaat voor SSL-beëindiging met de Azure portal.
+title: Een toepassingsgateway met SSL-beëindiging - Azure-portal configureren | Microsoft Docs
+description: Informatie over het configureren van een application gateway en het toevoegen van een certificaat voor SSL-beëindiging met de Azure portal.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -8,18 +8,17 @@ editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 01/26/2018
+ms.date: 5/15/2018
 ms.author: victorh
-ms.openlocfilehash: a24cec5dfa8034cf43ce7cfe26308587cf20dc44
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: c64754595ef67b7c083ee8d47da5b412467c191b
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Een toepassingsgateway met SSL-beëindiging met de Azure portal maken
+# <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Een toepassingsgateway met SSL-beëindiging met de Azure portal configureren
 
-U kunt de Azure portal maken een [toepassingsgateway](overview.md) met een certificaat voor SSL-beëindiging die virtuele machines worden gebruikt voor back-endservers.
+U kunt de Azure portal gebruiken voor het configureren van een [toepassingsgateway](overview.md) met een certificaat voor SSL-beëindiging die virtuele machines worden gebruikt voor back-endservers.
 
 In dit artikel leert u het volgende:
 

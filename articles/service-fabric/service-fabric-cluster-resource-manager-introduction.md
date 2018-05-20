@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cfab735b-923d-4246-a2a8-220d4f4e0c64
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 3e8cd4dc8e960e38ba0e4a9a195b2f61d9ec1924
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f25a422385abfcdb7020eb7477c0ae2ee55cd8fb
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Inleiding tot de Service Fabric-cluster resourcemanager
 Traditioneel beheren van IT-systemen of onlineservices bedoeld specifieke fysieke of virtuele machines dat die specifieke services of systemen. Services zijn ontworpen als lagen. Zou er een laag met 'web' of 'data' of 'opslag'. Toepassingen heeft een messaging-laag waar aanvragen gestroomd en afmelden, evenals een aantal machines toegewezen aan de cache. Elke fase of type werkbelasting specifieke machines toegewezen aan deze had: de database hebt u een aantal machines die zijn toegewezen, de webservers van een enkele. Als een bepaald type werkbelasting de machines was veroorzaakt bij uitvoeren te hot, en u meer machines met dezelfde configuratie toegevoegd aan die laag. Echter niet alle werkbelastingen kunnen heel eenvoudig worden uitgebreid - met name met de gegevenslaag zou u meestal machines met een grotere machines vervangen. Eenvoudig. Als een machine is mislukt, is dat deel van de algemene toepassing werd uitgevoerd op een lagere capaciteit totdat de computer kan worden hersteld. Nog steeds redelijk eenvoudig (indien niet per se leuk).
@@ -43,7 +43,7 @@ De Cluster Resource Manager is het onderdeel dat zorgt voor orchestration in Ser
 2. Uw omgeving te optimaliseren
 3. Helpt met andere processen
 
-Als u wilt zien hoe de Cluster Resource Manager werkt, moet u de volgende Microsoft Virtual Academy-video bekijken:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=d4tka66yC_5706218965">
+Als u wilt zien hoe de Cluster Resource Manager werkt, moet u de volgende Microsoft Virtual Academy-video bekijken: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=d4tka66yC_5706218965">
 <img src="./media/service-fabric-cluster-resource-manager-introduction/ConceptsAndDemoVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 
@@ -57,7 +57,7 @@ Hoewel sommige van deze strategieën interessante, is Service Fabric Cluster Res
 Omdat de Cluster Resource Manager verantwoordelijk is voor het verplaatsen van services rond, bevat deze een andere functieset ten opzichte van wat u in een network load balancer vinden wilt. Dit komt doordat de netwerktaakverdelers netwerk netwerkverkeer leveren waar services al zijn, zelfs als deze locatie niet ideaal is voor het uitvoeren van de service zelf. De Service Fabric Cluster Resource Manager veiligheidsmaatregelen fundamenteel verschillende strategieën om ervoor te zorgen dat de bronnen in het cluster efficiënt worden gebruikt.
 
 ## <a name="next-steps"></a>Volgende stappen
-- Bekijk voor meer informatie over de architectuur en de informatiestroom binnen het Cluster Resource Manager, [in dit artikel](service-fabric-cluster-resource-manager-architecture.md)
+- Bekijk voor meer informatie over de architectuur en de informatiestroom binnen het Cluster Resource Manager, [in dit artikel ](service-fabric-cluster-resource-manager-architecture.md)
 - De Cluster Resource Manager bevat veel opties voor het beschrijven van het cluster. Meer informatie over metrische gegevens, Bekijk dit artikel op [met een beschrijving van een Service Fabric-cluster](service-fabric-cluster-resource-manager-cluster-description.md)
 - Voor meer informatie over het configureren van services, [informatie over het configureren van Services](service-fabric-cluster-resource-manager-configure-services.md)(service-fabric-cluster-resource-manager-configure-services.md)
 - Metrische gegevens zijn hoe de Service Fabric-Cluster Resource Manager beheert gebruiks- en capaciteit in het cluster. Voor meer informatie over metrische gegevens en het configureren van uitchecken [in dit artikel](service-fabric-cluster-resource-manager-metrics.md)

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: sngun
-ms.openlocfilehash: fadbe5d2777bc5c8551558be80e77dd2785044a2
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 925167c6b4a7f173726ec094c2847a16ca3d0ef4
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Stel en doorvoer ophalen voor Azure DB die Cosmos-containers en -database
 
@@ -45,7 +45,7 @@ Dit artikel begeleidt u bij de stappen die nodig zijn voor het configureren van 
 
    |**Instelling**  |**Beschrijving**  |
    |---------|---------|
-   |Database-id  |  Geef een unieke naam voor uw database. De database is een logische container voor een of meer verzamelingen. Databasenamen moeten tussen 1 en 255 tekens bevatten en mogen bevatten /, \, #,?, of een spatie. |
+   |Database-id  |  Geef een unieke naam voor uw database. De database is een logische container voor een of meer verzamelingen. Databasenamen moeten tussen de 1 en 255 tekens zijn en mogen geen /, \\, # of ? bevatten en mogen niet eindigen met een spatie. |
    |Verzamelings-id  | Geef een unieke naam voor uw verzameling. Voor id’s van verzamelingen gelden dezelfde tekenvereisten als voor databasenamen. |
    |Opslagcapaciteit   | Deze waarde vertegenwoordigt de capaciteit van de database. Bij het inrichten van doorvoer voor een verzameling afzonderlijke opslagcapaciteit kan worden **vast (10 GB)** of **onbeperkt**. Onbeperkte opslagcapaciteit moet worden ingesteld van een partitiesleutel voor uw gegevens.  |
    |Doorvoer   | Elke verzameling en de database zijn doorvoer in aanvraageenheden per seconde.  Voor vaste opslagcapaciteit, minimale doorvoer is 400 aanvraageenheden per seconde (RU/s), voor onbeperkte opslag capaciteit, minimale doorvoer is ingesteld op 1000 RU/s.|

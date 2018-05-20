@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: bbda406633f97d9a6c90bc49374268df28b68f2a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e5d93963dddb4acb1147042ae338b32cb5d7646f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Portal gebruiken voor het maken van een Azure Active Directory-toepassing en service-principal die toegang bronnen tot
 
@@ -83,7 +83,7 @@ Uw abonnement om machtigingen te controleren:
 
    ![toepassing toevoegen](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-1. Geef een naam en URL voor de toepassing op. Selecteer **Web-app/API** voor het type toepassing dat u wilt maken. U kunt geen referenties voor maken een [systeemeigen toepassing](../active-directory/active-directory-application-proxy-native-client.md); daarom type werkt niet voor een geautomatiseerde toepassing. Na het instellen van de waarden, selecteer **maken**.
+1. Geef een naam en URL voor de toepassing op. Selecteer **Web-app/API** voor het type toepassing dat u wilt maken. U kunt geen referenties voor maken een [systeemeigen toepassing](../active-directory/manage-apps/application-proxy-configure-native-client-application.md); daarom type werkt niet voor een geautomatiseerde toepassing. Na het instellen van de waarden, selecteer **maken**.
 
    ![toepassing een naam geven](./media/resource-group-create-service-principal-portal/create-app.png)
 

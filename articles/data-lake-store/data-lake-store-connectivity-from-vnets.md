@@ -2,7 +2,7 @@
 title: Verbinding maken met Azure Data Lake Store vanaf VNETs | Microsoft Docs
 description: Verbinding maken met Azure Data Lake Store vanaf Azure VNETs
 services: data-lake-store,data-catalog
-documentationcenter: 
+documentationcenter: ''
 author: esung22
 manager: jhubbard
 editor: cgronlun
@@ -10,15 +10,13 @@ ms.assetid: 683fcfdc-cf93-46c3-b2d2-5cb79f5e9ea5
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/31/2018
 ms.author: elsung
-ms.openlocfilehash: 483406c6929844a8355dffcb86c1e3a3dabda061
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 489e7eb35352e2e8fd3d159381c2177098a90399
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="access-azure-data-lake-store-from-vms-within-an-azure-vnet"></a>Toegang tot Azure Data Lake Store van VM's binnen een Azure VNET
 Azure Data Lake Store is een PaaS-service die wordt uitgevoerd op het openbare Internet IP-adressen. Een server die verbinding met het openbare Internet maken kan kunt maken doorgaans verbinding met Azure Data Lake Store-eindpunten ook. Standaard alle VM's die in Azure VNETs kunnen toegang tot het Internet en daarmee toegang tot Azure Data Lake Store. Het is echter mogelijk voor het configureren van virtuele machines in een VNET-naar-geen toegang tot het Internet. Voor deze VM's is toegang tot Azure Data Lake Store beperkt ook. Openbare toegang tot Internet blokkeren voor virtuele machines in Azure VNETs kan worden gedaan met behulp van een van de volgende methoden:

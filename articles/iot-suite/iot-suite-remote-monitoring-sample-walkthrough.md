@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 3eaaa1ec09e9bd593a2d14e4a3bc751c431869d0
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 71b0405975d88e69d3ecea6090983bc3c779395d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="remote-monitoring-solution-accelerator-architecture"></a>Externe controle accelerator oplossingsarchitectuur
 
-Externe controle [oplossingsverbetering](iot-suite-what-are-solution-accelerators.md) implementeert u een oplossing voor de end-to-end-controle voor meerdere machines op externe locaties. De oplossing combineert belangrijke Azure-services voor een algemene implementatie van het bedrijfsscenario. U kunt de oplossing gebruiken als een beginpunt voor uw eigen implementatie en [aanpassen](iot-suite-remote-monitoring-customize.md) om te voldoen aan uw eigen specifieke zakelijke vereisten.
+Externe controle [oplossingsverbetering](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md) implementeert u een oplossing voor de end-to-end-controle voor meerdere machines op externe locaties. De oplossing combineert belangrijke Azure-services voor een algemene implementatie van het bedrijfsscenario. U kunt de oplossing gebruiken als een beginpunt voor uw eigen implementatie en [aanpassen](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md) om te voldoen aan uw eigen specifieke zakelijke vereisten.
 
 In dit artikel wordt stapsgewijs een aantal belangrijke elementen van externe controle beschreven, zodat u beter begrijpt hoe dit werkt. Deze kennis helpt u bij:
 
@@ -33,7 +33,7 @@ In dit artikel wordt stapsgewijs een aantal belangrijke elementen van externe co
 
 ## <a name="logical-architecture"></a>Logische architectuur
 
-Het volgende diagram geeft een overzicht van de logische onderdelen van de externe controle oplossingsverbetering heen worden weergegeven op de [IoT-architectuur](iot-suite-what-is-azure-iot.md):
+Het volgende diagram geeft een overzicht van de logische onderdelen van de externe controle oplossingsverbetering heen worden weergegeven op de [IoT-architectuur](../iot-accelerators/iot-accelerators-what-is-azure-iot.md):
 
 ![Logische architectuur](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
@@ -143,4 +143,4 @@ Als u de bron-documentatie voor code- en developer verkennen wilt, beginnen met 
 * [Oplossingsverbetering voor externe controle met Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
 * [Oplossingsverbetering voor externe controle architectuur)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
 
-Zie voor meer informatie over de externe controle oplossingsverbetering [aanpassen van de oplossingsverbetering](iot-suite-remote-monitoring-customize.md).
+Zie voor meer informatie over de externe controle oplossingsverbetering [aanpassen van de oplossingsverbetering](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md).

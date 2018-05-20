@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
-ms.date: 10/14/2016
+ms.date: 05/14/2018
 ms.author: danlep
-ms.openlocfilehash: 263946c1a1bd792b2f23a55388b73a82ddad0000
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 025ff3dea365ab75af55f107da1fb7331861eb06
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>HPC-taken vanaf een on-premises computer verzenden naar een HPC Pack-cluster die in Azure is geïmplementeerd
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -29,9 +29,9 @@ Verzenden van taken naar een client op de lokale computer configureren voor een 
 ![Verzenden van een taak aan een cluster in Azure][jobsubmit]
 
 ## <a name="prerequisites"></a>Vereisten
-* **HPC Pack hoofdknooppunt geïmplementeerd in een Azure VM** -het is raadzaam dat u hulpprogramma's, zoals een [snelstartsjabloon met de Azure](https://azure.microsoft.com/documentation/templates/) of een [Azure PowerShell-script](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) het hoofdknooppunt en cluster implementeren . U moet de DNS-naam van het hoofdknooppunt en de referenties van de Clusterbeheerder van een om de stappen in dit artikel te voltooien.
+* **HPC Pack hoofdknooppunt geïmplementeerd in een Azure VM** -het is raadzaam dat u hulpprogramma's, zoals een [snelstartsjabloon met de Azure](https://azure.microsoft.com/documentation/templates/) het hoofdknooppunt en cluster implementeren. U moet de DNS-naam van het hoofdknooppunt en de referenties van de Clusterbeheerder van een om de stappen in dit artikel te voltooien.
 * **Clientcomputer** -moet u een Windows- of Windows Server-clientcomputer die HPC Pack client-hulpprogramma's kan worden uitgevoerd (Zie [systeemvereisten](https://technet.microsoft.com/library/dn535781.aspx)). Als u alleen de HPC Pack web-portal of REST-API gebruiken om taken te verzenden wilt, kunt u elke clientcomputer van uw keuze.
-* **HPC Pack installatiemedia** - installeren van het installatiepakket voor de gratis hulpprogramma's client HPC Pack voor de nieuwste versie van HPC Pack (HPC Pack 2012 R2) beschikbaar via is de [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=328024). Zorg ervoor dat u dezelfde versie van HPC Pack die is geïnstalleerd op het hoofdknooppunt VM downloaden.
+* **HPC Pack installatiemedia** - installeren van het installatiepakket voor de gratis hulpprogramma's client HPC Pack voor de nieuwste versie van HPC Pack beschikbaar via is de [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=56360). Zorg ervoor dat u dezelfde versie van HPC Pack die is geïnstalleerd op het hoofdknooppunt VM downloaden.
 
 ## <a name="step-1-install-and-configure-the-web-components-on-the-head-node"></a>Stap 1: Installeren en configureren van de webonderdelen op het hoofdknooppunt
 Zorg ervoor dat de webonderdelen HPC Pack zijn geconfigureerd op het hoofdknooppunt HPC Pack zodat een REST-interface om taken te verzenden naar het cluster via HTTPS. Als ze niet zijn geïnstalleerd, moet u eerst de webonderdelen installeren door het uitvoeren van het installatiebestand HpcWebComponents.msi. Configureer vervolgens de onderdelen in de HPC PowerShell-script uit te voeren **Set HPCWebComponents.ps1**.
@@ -39,7 +39,7 @@ Zorg ervoor dat de webonderdelen HPC Pack zijn geconfigureerd op het hoofdknoopp
 Zie voor gedetailleerde procedures [installeren van de webonderdelen van Microsoft HPC Pack](http://technet.microsoft.com/library/hh314627.aspx).
 
 > [!TIP]
-> Bepaalde Azure-snelstartsjablonen voor HPC Pack installeren en configureren van de webonderdelen automatisch. Als u de [HPC Pack IaaS-implementatiescript](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) voor het maken van het cluster, kunt u optioneel installeren en configureren van de webonderdelen als onderdeel van de implementatie.
+> Bepaalde Azure-snelstartsjablonen voor clusters HPC Pack installeren en configureren van de webonderdelen automatisch.
 > 
 > 
 
@@ -81,7 +81,7 @@ Zie voor gedetailleerde procedures [installeren van de webonderdelen van Microso
     ```
 
 ## <a name="step-2-install-the-hpc-pack-client-utilities-on-an-on-premises-computer"></a>Stap 2: De hulpprogramma's voor HPC Pack client installeren op een on-premises computer
-Als u de hulpprogramma's voor HPC Pack client installeren op uw computer wilt, de HPC Pack setup-bestanden (volledige installatie) downloaden van de [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=328024). Wanneer u de installatie begint, selecteer de installatieoptie voor de **HPC Pack client utilities**.
+Als u de hulpprogramma's voor HPC Pack client installeren op uw computer wilt, de HPC Pack setup-bestanden (volledige installatie) downloaden van de [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=56360). Wanneer u de installatie begint, selecteer de installatieoptie voor de **HPC Pack client utilities**.
 
 Als u de hulpprogramma's voor HPC Pack wilt verzenden van taken naar het hoofdknooppunt VM, moet u ook een certificaat exporteren van het hoofdknooppunt en installeer deze op de clientcomputer. Het certificaat moet zich in. CER-indeling.
 

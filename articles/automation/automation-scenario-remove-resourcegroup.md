@@ -7,13 +7,13 @@ ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/19/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c8fcb7abbc28aef06c43b6ece89eb7bd6916694e
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: f0ec42a1e62c4aa35bb6bdffce0acf00a971cb7d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Azure Automation-scenario: de verwijdering van resourcegroepen automatiseren
 Veel klanten maken meer dan één resourcegroep. Sommige worden dan bijvoorbeeld gebruikt voor het beheer van productietoepassingen en andere als ontwikkelings-, test- en faseringsomgeving. Het automatiseren van de implementatie van deze resources is één ding, maar om een resourcegroep buiten gebruik te stellen met een enkele muisklik is heel wat anders. U kunt deze algemene beheertaak stroomlijnen met behulp van Azure Automation. Dit is handig als u werkt met een Azure-abonnement met een bestedingslimiet via een ledenaanbieding zoals MSDN of het programma Microsoft Partner Network Cloud Essentials.

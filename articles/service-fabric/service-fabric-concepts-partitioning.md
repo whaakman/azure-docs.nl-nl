@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: msfussell
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3b7248c8-ea92-4964-85e7-6f1291b5cc7b
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: 3c1e80305cb65f41a6981b99f69e8b87f89599ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bc6f25c7a8a779d949fbd09f9a9a9a37ec83f56a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Betrouwbare partitie Service Fabric-services
 Dit artikel bevat een inleiding tot de basisconcepten van Azure Service Fabric betrouwbare services partitioneren. De broncode gebruikt in het artikel is ook beschikbaar op [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -238,7 +238,7 @@ Als we letterlijk één partitie per letter hebben willen, kunt we gebruiken 0 a
     }
     ```
    
-    `ProcessInternalRequest`de waarden van de querytekenreeksparameter gebruikt voor het aanroepen van de partitie en aanroepen leest `AddUserAsync` achternaam toevoegen aan de woordenlijst voor betrouwbare `dictionary`.
+    `ProcessInternalRequest` de waarden van de querytekenreeksparameter gebruikt voor het aanroepen van de partitie en aanroepen leest `AddUserAsync` achternaam toevoegen aan de woordenlijst voor betrouwbare `dictionary`.
 10. We gaan een stateless service toevoegen aan het project om te zien hoe u een bepaalde partitie kunt aanroepen.
     
     Deze service fungeert als een eenvoudige webinterface die de achternaam als een queryreeksparameter accepteert, bepaalt de partitiesleutel en verzendt het naar de service Alphabet.Processing voor verwerking.
@@ -321,7 +321,7 @@ Als we letterlijk één partitie per letter hebben willen, kunt we gebruiken 0 a
     ```
     
     Vergeet niet dat voor dit voorbeeld gebruiken we 26 partities met één partitiesleutel per partitie.
-    Vervolgens verkrijgen van de partitie service `partition` voor deze sleutel met behulp van de `ResolveAsync` methode op de `servicePartitionResolver` object. `servicePartitionResolver`is gedefinieerd als
+    Vervolgens verkrijgen van de partitie service `partition` voor deze sleutel met behulp van de `ResolveAsync` methode op de `servicePartitionResolver` object. `servicePartitionResolver` is gedefinieerd als
     
     ```CSharp
     private readonly ServicePartitionResolver servicePartitionResolver = ServicePartitionResolver.GetDefault();

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/28/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 9246fccb1713f69d2c6c655b09f0daf51055596f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b999792876f82de9500dccf9e6263f85e3e3105e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="https-ingress-on-azure-kubernetes-service-aks"></a>HTTPS-inkomend voor Azure Kubernetes-Service (AKS)
 
@@ -38,7 +38,7 @@ helm repo update
 De NGINX inkomend controller installeren. Dit voorbeeld installeert de controller in de `kube-system` naamruimte, dit kan worden gewijzigd met een naamruimte van uw keuze.
 
 ```
-helm install stable/nginx-ingress --namespace kube-system
+helm install stable/nginx-ingress --namespace kube-system --set rbac.create=false --set rbac.createRole=false --set rbac.createClusterRole=false
 ```
 
 Tijdens de installatie wordt een Azure openbare IP-adres voor de controller inkomend gemaakt. Als u het openbare IP-adres, gebruikt u de opdracht kubectl get-service. Het kan even duren voor het IP-adres moet worden toegewezen aan de service.

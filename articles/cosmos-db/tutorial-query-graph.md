@@ -16,11 +16,11 @@ ms.workload: ''
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: efeee797a537a16b1b44174ed2d6f7ea3348a25a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 449821d6121f8fec40b151ae06f687586133c3d1
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="tutorial-query-azure-cosmos-db-graph-api-by-using-gremlin"></a>Zelfstudie: Azure Cosmos DB Graph API opvragen met Gremlin
 
@@ -85,4 +85,4 @@ In deze zelfstudie hebt u het volgende gedaan:
 U kunt nu doorgaan met de volgende zelfstudie, waarin u leert hoe u uw gegevens globaal distribueert.
 
 > [!div class="nextstepaction"]
-> [Uw gegevens globaal distribueren](tutorial-global-distribution-sql-api.md)
+> [Uw gegevens globaal distribueren](tutorial-global-distribution-graph.md)

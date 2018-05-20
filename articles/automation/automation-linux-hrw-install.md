@@ -9,11 +9,11 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 95f34e5d4fd966c41a30cc68c005237ae5405592
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
-ms.translationtype: MT
+ms.openlocfilehash: e95f5d585fa97a62b709e73b6ed6eacafe69a2b3
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-deploy-a-linux-hybrid-runbook-worker"></a>Het implementeren van een Linux hybride Runbook Worker
 
@@ -34,6 +34,22 @@ Hier volgt een lijst met Linux-distributies die worden ondersteund:
 ## <a name="installing-linux-hybrid-runbook-worker"></a>Linux hybride Runbook Worker installeren
 
 Als u wilt installeren en configureren van een hybride Runbook Worker op uw Linux-computer, moet u een rechte doorsturen-proces voor het handmatig installeren en configureren van de rol volgen. Het inschakelen van vereist de **Automation Hybrid Worker** oplossing in de werkruimte voor logboekanalyse en voert u een reeks opdrachten voor het registreren van de computer als een werknemer en toe te voegen aan een nieuwe of bestaande groep.
+
+Hier volgen de minimale vereisten voor een Linux hybride Runbook Worker:
+
+* Minimaal twee kernen
+* Een minimum van 4 GB RAM-geheugen
+* Poort 443 (uitgaand)
+
+### <a name="package-requirements"></a>Pakketvereisten
+
+| **Vereist pakket** | **Beschrijving** | **Minimale versie**|
+|--------------------- | --------------------- | -------------------|
+|Glibc |GNU C-bibliotheek| 2.5-12 |
+|Openssl| OpenSSL-bibliotheken | 0.9.8e of 1.0|
+|CURL | WebClient cURL | 7.15.5|
+|Python-ctypes | |
+|PAM | Pluggable Authentication Modules|
 
 Voordat u doorgaat, moet u de werkruimte voor logboekanalyse die uw Automation-account is gekoppeld aan, en ook de primaire sleutel voor uw Automation-account. U kunt zowel vanuit de portal vinden door uw Automation-account selecteren en het selecteren van **werkruimte** voor de werkruimte-ID en het selecteren van **sleutels** voor de primaire sleutel. Zie voor informatie over de poorten en adressen die nodig zijn voor de hybride Runbook Worker, [configureren van uw netwerk](automation-hybrid-runbook-worker.md#network-planning).
 
@@ -82,6 +98,40 @@ De volgende runbooktypen werken niet op een Linux hybride Worker:
 * PowerShell-werkstroom
 * Grafische
 * Grafische PowerShell Workflow
+
+## <a name="troubleshooting"></a>Problemen oplossen
+
+De Linux hybride Runbook Worker is afhankelijk van de OMS-Agent voor Linux om te communiceren met uw Automation-account voor het registreren van de werknemer, ontvangen van runbooktaken en status rapporteren. Als de registratie van de werknemer is mislukt, volgen hier enkele mogelijke oorzaken voor de fout:
+
+### <a name="the-oms-agent-for-linux-is-not-running"></a>De OMS-Agent voor Linux wordt niet uitgevoerd.
+
+Als de OMS-Agent voor Linux wordt niet uitgevoerd, dit voorkomt dat de Linux hybride Runbook Worker communicatie met Azure Automation. Controleer of de agent wordt uitgevoerd met de volgende opdracht: `ps -ef | grep python`. Ziet u uitvoer ziet er als volgt, de python-processen met **nxautomation** gebruikersaccount. Als de oplossingen updatebeheer of Azure Automation niet zijn ingeschakeld, wordt geen van de volgende processen worden uitgevoerd.
+
+```bash
+nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
+nxautom+   8593      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/state/automationworker/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
+nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/<workspaceId>/state/automationworker/diy/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
+```
+
+De volgende lijst bevat de processen die worden gestart voor een Linux hybride Runbook Worker. Ze bevinden de `/var/opt/microsoft/omsagent/state/automationworker/` directory.
+
+* **OMS.conf** -dit is het werkproces manager kunt u dit rechtstreeks vanaf DSC is gestart.
+
+* **worker.conf** -dit proces is het werkproces automatisch geregistreerd hybride, het is gestart door de manager van de werknemer. Dit proces wordt gebruikt door updatebeheer en is transparant voor de gebruiker. Dit proces is niet aanwezig als de oplossing voor beheer van de Update niet is ingeschakeld op de machine zijn.
+
+* **diy/worker.conf** -dit proces is het werkproces ZELFOPLOSSING hybride. Het werkproces ZELFOPLOSSING hybride wordt gebruikt voor het uitvoeren van runbooks van de gebruiker op de hybride Runbook Worker. Deze alleen verschilt van de automatische hybride werkproces geregistreerd in de belangrijkste details die is gebruikt een andere configuratie. Dit proces is niet aanwezig zijn als de Azure Automation oplossing is niet ingeschakeld en de ZELFOPLOSSING Linux Hybrid Worker niet geregistreerd.
+
+Als de OMS-Agent voor Linux niet actief is, voer de volgende opdracht om de service te starten: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
+
+### <a name="the-specified-class-does-not-exist"></a>De opgegeven klasse bestaat niet
+
+Als u de fout ziet **de opgegeven klasse bestaat niet...** in de `/var/opt/microsoft/omsconfig/omsconfig.log` en vervolgens de OMS-Agent voor Linux moet worden bijgewerkt. Voer de volgende opdracht om de OMS-Agent opnieuw te installeren:
+
+```bash
+wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
+```
+
+Zie voor aanvullende stappen over het oplossen van problemen met updatebeheer [updatebeheer - probleemoplossing](automation-update-management.md#troubleshooting)
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -3,23 +3,25 @@ title: Azure Active Directory-v2.0 tokens verwijzing | Microsoft Docs
 description: De typen tokens en claims die door het Azure AD v2.0-eindpunt
 services: active-directory
 documentationcenter: ''
-author: hpsin
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: dc58c282-9684-4b38-b151-f3e079f034fd
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/22/2018
-ms.author: hirsin
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4a408fb40c976c6e06f00d074504de6a3ec29bd1
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d7b9ad5c76b0e20a3c58bddcc4947482b237fb8f
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Overzicht van Azure Active Directory v2.0-tokens
 Het v2.0-eindpunt voor Azure Active Directory (Azure AD) verzendt verschillende typen beveiligingstokens in elk [authenticatiestroom](active-directory-v2-flows.md). Deze verwijzing beschrijft de indeling, de beveiligingskenmerken en de inhoud van elk type token.
@@ -67,10 +69,10 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | token hash toegang |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |De toegang token hash is opgenomen in de ID tokens alleen wanneer het token ID uitgegeven met een OAuth 2.0-toegangstoken. Het kan worden gebruikt om de echtheid van een toegangstoken te valideren. Zie voor meer informatie over het uitvoeren van deze validatie de [specificatie van het OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html). |
 | nonce |`nonce` |`12345` |De nonce is een strategie voor beperkende token replay-aanvallen. Uw app een nonce kunt opgeven in een aanvraag voor verificatie met behulp van de `nonce` queryparameter. De waarde die u in de aanvraag opgeeft is verzonden in het ID-token `nonce` claim, ongewijzigd. Uw app kunt controleren of de waarde met de waarde die het opgegeven op de aanvraag die sessie van de app aan een specifieke ID-token koppelt. Uw app moet deze validatie tijdens de validatie van token ID uitvoeren. |
 | naam |`name` |`Babe Ruth` |De van naamclaim biedt een leesbare waarde die aangeeft van het onderwerp van het token. De waarde kan niet worden gegarandeerd uniek zijn en veranderlijke is ontworpen om te worden gebruikt alleen ter informatie weergegeven. De `profile` bereik is vereist voor deze claim wordt ontvangen. |
-| e-mail |`email` |`thegreatbambino@nyy.onmicrosoft.com` |Het primaire e-mailadres dat is gekoppeld aan het gebruikersaccount, indien aanwezig. De waarde ervan is veranderlijke en na verloop van tijd kan wijzigen. De `email` bereik is vereist voor deze claim wordt ontvangen. |
+| e-mailen |`email` |`thegreatbambino@nyy.onmicrosoft.com` |Het primaire e-mailadres dat is gekoppeld aan het gebruikersaccount, indien aanwezig. De waarde ervan is veranderlijke en na verloop van tijd kan wijzigen. De `email` bereik is vereist voor deze claim wordt ontvangen. |
 | voorkeur gebruikersnaam |`preferred_username` |`thegreatbambino@nyy.onmicrosoft.com` |De primaire gebruikersnaam die de gebruiker in het v2.0-eindpunt vertegenwoordigt. Het is mogelijk een e-mailadres, telefoonnummer of een algemene gebruikersnaam zonder een specifieke indeling. De waarde ervan is veranderlijke en na verloop van tijd kan wijzigen. Aangezien het veranderlijke, moet deze waarde niet worden gebruikt om autorisatiebeslissingen te nemen. De `profile` bereik is vereist voor deze claim wordt ontvangen. |
-| Onderwerp |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | De principal waarover het token asserts informatie, zoals de gebruiker van een app. Deze waarde is onveranderbaar en kan niet worden toegewezen of opnieuw gebruikt. Deze controles uit te voeren autorisatie veilig, zoals wanneer het token wordt gebruikt voor toegang tot een bron kan worden gebruikt en kan worden gebruikt als een sleutel in databasetabellen. Omdat het onderwerp altijd aanwezig zijn op de tokens dat problemen met Azure AD, wordt u aangeraden deze waarde in een algemeen autorisatiesysteem. Het onderwerp is echter een pairwise id - deze uniek is voor een bepaalde toepassing-ID.  Daarom als één gebruiker zich bij twee verschillende apps met behulp van twee andere client-ID aanmeldt, ontvangt deze apps twee verschillende waarden voor de claim onderwerp.  Dit kan of kan niet worden gewenst afhankelijk van uw architectuur en privacy-vereisten. |
-| object-ID |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | De onveranderbare id voor een object in de Microsoft identity-systeem, in dit geval een gebruikersaccount.  Het kan ook worden gebruikt voor het uitvoeren van autorisatie controles veilig en als een sleutel in databasetabellen. Deze ID is uniek voor de gebruiker alle toepassingen - twee verschillende toepassingen dezelfde gebruiker aanmelden ontvangt dezelfde waarde in de `oid` claim.  Dit betekent dat deze kan worden gebruikt bij het maken van query's bij Microsoft online services, zoals Microsoft Graph.  Microsoft Graph retourneert deze ID als de `id` eigenschap voor een bepaald gebruikersaccount.  Omdat de `oid` meerdere apps met elkaar correleren gebruikers, kan de `profile` bereik is vereist voor deze claim wordt ontvangen. Houd er rekening mee dat als een enkele gebruiker in meerdere tenants bestaat, de gebruiker een ander object-ID in elke tenant bevat-deze worden beschouwd als andere accounts, zelfs als de gebruiker zich bij elk account met dezelfde aanmeldingsgegevens aanmeldt. |
+| Onderwerp |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | De principal waarover het token asserts informatie, zoals de gebruiker van een app. Deze waarde is onveranderbaar en kan niet worden toegewezen of opnieuw gebruikt. Deze controles uit te voeren autorisatie veilig, zoals wanneer het token wordt gebruikt voor toegang tot een bron kan worden gebruikt en kan worden gebruikt als een sleutel in databasetabellen. Omdat het onderwerp altijd aanwezig zijn op de tokens dat problemen met Azure AD, wordt u aangeraden deze waarde in een algemeen autorisatiesysteem. Het onderwerp is echter een pairwise id - deze uniek is voor een bepaalde toepassing-ID. Daarom als één gebruiker zich bij twee verschillende apps met behulp van twee andere client-ID aanmeldt, ontvangt deze apps twee verschillende waarden voor de claim onderwerp. Dit kan of kan niet worden gewenst afhankelijk van uw architectuur en privacy-vereisten. |
+| object-ID |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | De onveranderbare id voor een object in de Microsoft identity-systeem, in dit geval een gebruikersaccount. Het kan ook worden gebruikt voor het uitvoeren van autorisatie controles veilig en als een sleutel in databasetabellen. Deze ID is uniek voor de gebruiker alle toepassingen - twee verschillende toepassingen dezelfde gebruiker aanmelden ontvangt dezelfde waarde in de `oid` claim. Dit betekent dat deze kan worden gebruikt bij het maken van query's bij Microsoft online services, zoals Microsoft Graph. Microsoft Graph retourneert deze ID als de `id` eigenschap voor een bepaald gebruikersaccount. Omdat de `oid` meerdere apps met elkaar correleren gebruikers, kan de `profile` bereik is vereist voor deze claim wordt ontvangen. Houd er rekening mee dat als een enkele gebruiker in meerdere tenants bestaat, de gebruiker een ander object-ID in elke tenant bevat-deze worden beschouwd als andere accounts, zelfs als de gebruiker zich bij elk account met dezelfde aanmeldingsgegevens aanmeldt. |
 
 ### <a name="access-tokens"></a>Toegangstokens
 
@@ -83,7 +85,7 @@ Vernieuwen van tokens zijn beveiligingstokens die uw app gebruiken kunt om nieuw
 
 Vernieuwen van tokens zijn meerdere resource. Een vernieuwingstoken dat is ontvangen tijdens een tokenaanvraag voor één resource kan worden ingewisseld voor toegangstokens tot een andere resource.
 
-Als u wilt vernieuwen in een token antwoord ontvangen, uw app moet aanvragen en worden verleend de `offline_acesss` bereik. Voor meer informatie over de `offline_access` bereik, raadpleegt u de [toestemming en scopes](active-directory-v2-scopes.md) artikel.
+Als u wilt vernieuwen in een token antwoord ontvangen, uw app moet aanvragen en worden verleend de `offline_access` bereik. Voor meer informatie over de `offline_access` bereik, raadpleegt u de [toestemming en scopes](active-directory-v2-scopes.md) artikel.
 
 Vernieuwen van tokens, en altijd zullen zijn, mat aan uw app. Ze kunnen zijn uitgegeven door het Azure AD v2.0-eindpunt en alleen worden gecontroleerd en geïnterpreteerd door het v2.0-eindpunt. Ze zijn lange levensduur hebben, maar niet uw app kunt verwachten dat een vernieuwingstoken voor een periode duurt worden geschreven. Vernieuwen van tokens kunnen ongeldig zijn op elk moment om verschillende redenen - voor meer informatie Zie [token intrekken](active-directory-token-and-claims.md#token-revocation). De enige manier om uw app weten of een vernieuwingstoken geldig is, is als u wilt gebruikmaken van het door het maken van een tokenaanvraag door naar het v2.0-eindpunt.
 
@@ -123,7 +125,7 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 >
 >
 
-Dit metagegevensdocument is een JSON-object dat nuttig stukjes informatie, zoals de locatie van de verschillende eindpunten vereist voor OpenID Connect-verificatie is.  Het document bevat ook een *jwks_uri*, waardoor de locatie van de set van openbare sleutels die worden gebruikt voor het ondertekenen van tokens. Het JSON-document vinden op de jwks_uri heeft alle de openbare sleutelinformatie die momenteel in gebruik is. Uw app kunt gebruiken de `kid` claim in de header JWT te selecteren welke openbare sleutel in dit document is gebruikt voor het ondertekenen van een token. Vervolgens wordt er handtekeningvalidatie uitgevoerd met behulp van de juiste openbare sleutel en het algoritme aangegeven.
+Dit metagegevensdocument is een JSON-object dat nuttig stukjes informatie, zoals de locatie van de verschillende eindpunten vereist voor OpenID Connect-verificatie is. Het document bevat ook een *jwks_uri*, waardoor de locatie van de set van openbare sleutels die worden gebruikt voor het ondertekenen van tokens. Het JSON-document vinden op de jwks_uri heeft alle de openbare sleutelinformatie die momenteel in gebruik is. Uw app kunt gebruiken de `kid` claim in de header JWT te selecteren welke openbare sleutel in dit document is gebruikt voor het ondertekenen van een token. Vervolgens wordt er handtekeningvalidatie uitgevoerd met behulp van de juiste openbare sleutel en het algoritme aangegeven.
 
 Het valideren van de handtekening is buiten het bereik van dit document. Veel open source-bibliotheken zijn beschikbaar voor u hierbij helpen.
 

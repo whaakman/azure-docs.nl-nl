@@ -4,7 +4,7 @@ description: Maken, koppelen, verplaatsen en verwijderen van integratieaccounts 
 services: logic-apps
 documentationcenter: ''
 author: ecfan
-manager: SyntaxC4
+manager: cfowler
 editor: ''
 ms.assetid: d3ad9e99-a9ee-477b-81bf-0881e11e632f
 ms.service: logic-apps
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: ecfan; LADocs
-ms.openlocfilehash: 8e31a84d4508075dcb7a1d7ad8a64fa8e142681d
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.author: estfan
+ms.openlocfilehash: e661920974c2b0d28200d4c3d82bd644a7a55395
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-solutions-with-logic-apps"></a>Integratie van rekeningen voor B2B-oplossingen met logic apps maken en beheren
 
@@ -56,7 +56,7 @@ Gebruik de referenties van uw Azure-account om u aan melden bij het <a href="htt
    | Naam | Ja | Test-integratie-account | De naam voor uw account integratie. Gebruik de opgegeven naam voor dit voorbeeld. | 
    | Abonnement | Ja | <*Naam van een Azure-abonnement*> | De naam voor het Azure-abonnement gebruiken | 
    | Resourcegroep | Ja | Test-integratie-account-rg | De naam voor de [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) gebruikt om verwante resources te organiseren. Bijvoorbeeld, een nieuwe resourcegroep te maken met de opgegeven naam. | 
-   | Prijscategorie | Ja | Gratis | De prijscategorie die u wilt gebruiken. Selecteer voor dit voorbeeld **vrije**. | 
+   | Prijscategorie | Ja | Gratis | De prijscategorie die u wilt gebruiken. Selecteer voor dit voorbeeld **vrije**, maar voor meer informatie, Zie [Logic Apps en configuratie](../logic-apps/logic-apps-limits-and-config.md) en [Logic Apps prijzen](https://azure.microsoft.com/pricing/details/logic-apps/). | 
    | Locatie | Ja | VS - west | De regio waar uw integratieaccountgegevens wordt opgeslagen. Selecteer dezelfde locatie als uw logische app, of een logische app maken in dezelfde locatie als uw integratie-account. In dit voorbeeld | 
    | Log Analytics | Nee | Uit | Behoud de instelling **Uit** voor het vastleggen van diagnostische gegevens. | 
    ||||| 

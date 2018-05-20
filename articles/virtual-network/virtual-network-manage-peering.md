@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 11726b274d72f263ff3defeb7eb7b80594681e15
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: d47a1099a8b57c450aa48e086cc1c391faf91aa7
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Maken, wijzigen of een virtueel netwerk-peering verwijderen
 
@@ -111,6 +111,11 @@ Als u wilt dat virtuele netwerken om te communiceren soms, maar niet altijd, in 
 
 ## <a name="requirements-and-constraints"></a>Vereisten en beperkingen 
 
+- <a name="cross-region"></a>U kunt virtuele netwerken in de dezelfde regio, of verschillende regio's op hetzelfde niveau. De volgende beperkingen zijn niet van toepassing wanneer beide virtuele netwerken zich in de *dezelfde* regio, maar zijn van toepassing wanneer de virtuele netwerken globaal brengen: 
+    - De virtuele netwerken kunnen bestaan in een openbare Azure-cloud-regio, maar niet in Azure nationale clouds.
+    - Resources in een virtueel netwerk kunnen niet communiceren met het IP-adres van een Azure interne load balancer in peered virtuele netwerk. De load balancer en de resources die met het communiceren moeten zich in hetzelfde virtuele netwerk.
+    - Externe gateways gebruiken of niet toestaan van gateway-doorvoer. Als u externe gateways gebruiken of gateway onderweg toestaan, moeten beide virtuele netwerken in de peering in dezelfde regio hebben. 
+- De virtuele netwerken kunnen zich in dezelfde of verschillende abonnementen. Wanneer de virtuele netwerken in verschillende abonnementen behoren, is beide abonnementen gekoppeld aan dezelfde Azure Active Directory-tenant. Als u nog een AD-tenant hebt, kunt u snel [maken van een](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). U kunt een [VPN-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) twee virtuele netwerken die bestaan uit verschillende abonnementen die gekoppeld aan verschillende Active Directory-tenants zijn verbinding maken.
 - De virtuele netwerken die u peer moeten niet-overlappende IP-adresruimtes hebben.
 - U kan niet toevoegen-adresbereiken aan of te verwijderen-adresbereiken in de adresruimte van een virtueel netwerk van zodra een virtueel netwerk is gekoppeld aan een ander virtueel netwerk. Als u wilt toevoegen of verwijderen-adresbereiken, verwijderen van de peering, toevoegen of verwijderen van de adresbereiken, maakt u opnieuw de peering. Als u wilt toevoegen-adresbereiken aan of verwijderen van adresbereiken van virtuele netwerken, Zie [virtuele netwerken beheren](manage-virtual-network.md).
 - U kunt twee virtuele netwerken te implementeren via Resource Manager of een virtueel netwerk is geïmplementeerd via Resource Manager met een virtueel netwerk te implementeren via het klassieke implementatiemodel peer. U kunt geen peer twee virtuele netwerken die zijn gemaakt met behulp van het klassieke implementatiemodel. Als u niet bekend met Azure-implementatiemodellen bent, leest u de [begrijpen Azure-implementatiemodellen](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artikel. U kunt [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) gebruiken om twee virtuele netwerken te koppelen die zijn gemaakt via het klassieke implementatiemodel.
@@ -125,13 +130,8 @@ Als u wilt dat virtuele netwerken om te communiceren soms, maar niet altijd, in 
   Er is geen peering tussen VirtualNetwork1 en VirtualNetwork3 via VirtualNetwork2. Als u maken van een virtueel netwerk peering tussen VirtualNetwork1 en VirtualNetwork3 wilt, hebt u een peering tussen VirtualNetwork1 en VirtualNetwork3 maken.
 - Namen in virtuele netwerken peer is ingesteld met standaard Azure-naamomzetting kan niet worden omgezet. Voor het omzetten van namen in andere virtuele netwerken, moet u [Azure DNS voor persoonlijke domeinen](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of een aangepaste DNS-server. Zie voor meer informatie over het instellen van uw eigen DNS-server, [naamomzetting met uw eigen DNS-server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 - Resources in virtuele netwerken peer is ingesteld in dezelfde regio kunnen met elkaar communiceren met de bandbreedte en de latentie alsof ze zich in hetzelfde virtuele netwerk. De grootte van elke virtuele machine heeft echter een eigen maximale netwerkbandbreedte. Zie voor meer informatie over maximale netwerkbandbreedte voor andere virtuele machine grootten, [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) grootten van virtuele machines.
-- De virtuele netwerken kunnen zich in dezelfde of verschillende abonnementen. Wanneer de virtuele netwerken in verschillende abonnementen behoren, is beide abonnementen gekoppeld aan dezelfde Azure Active Directory-tenant. Als u nog een AD-tenant hebt, kunt u snel [maken van een](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). U kunt een [VPN-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) twee virtuele netwerken die bestaan uit verschillende abonnementen die gekoppeld aan verschillende Active Directory-tenants zijn verbinding maken.
 - Een virtueel netwerk kan worden ingesteld als peer met een ander virtueel netwerk en ook worden verbonden met een ander virtueel netwerk met een virtueel netwerk van Azure-gateway. Wanneer u virtuele netwerken zijn verbonden via peering en een gateway, wordt verkeer tussen virtuele netwerken loopt via de peeringconfiguratie in plaats van de gateway.
 - Er wordt een nominaal bedrag in rekening gebracht voor inkomend en uitgaand verkeer dat gebruikmaakt van een virtueel netwerk-peering. Zie de pagina [prijzen](https://azure.microsoft.com/pricing/details/virtual-network) voor meer informatie.
-* <a name="cross-region"></a>U kunt virtuele netwerken in de dezelfde regio, of verschillende regio's op hetzelfde niveau. De volgende beperkingen zijn niet van toepassing wanneer beide virtuele netwerken zich in de *dezelfde* regio, maar zijn van toepassing wanneer de virtuele netwerken globaal brengen: 
-    - De virtuele netwerken kunnen bestaan in een openbare Azure-cloud-regio, maar niet in Azure nationale clouds.
-    - Resources in een virtueel netwerk kunnen niet communiceren met het IP-adres van een Azure interne load balancer in peered virtuele netwerk. De load balancer en de resources die met het communiceren moeten zich in hetzelfde virtuele netwerk.
-    - Externe gateways gebruiken of niet toestaan van gateway-doorvoer. Als u externe gateways gebruiken of gateway onderweg toestaan, moeten beide virtuele netwerken in de peering in dezelfde regio hebben. 
 
 ## <a name="permissions"></a>Machtigingen
 

@@ -11,11 +11,11 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: d256d87548d54951cb77beffb88bba26a1a3de49
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b755e0573098d3dbed1bea18a40af634be609f76
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="transforms-and-jobs"></a>Transformaties en taken
 
@@ -23,9 +23,43 @@ ms.lasthandoff: 05/07/2018
 
 De nieuwste versie van de Azure Media Services REST-API (v3) introduceert een nieuwe resource sjablonen werkstroom voor codering en/of het analyseren van video's, aangeroepen een **transformeren**. **Transformeert** kan worden gebruikt voor het configureren van algemene taken voor codering of analying video's. Elke **transformeren** wordt een eenvoudige taken voor het verwerken van uw bestanden video of audio-werkstroom beschreven. 
 
-De **transformeren** object is het recept en een **taak** is de werkelijke aanvraag met Azure Media Services om toe te passen die **transformeren** naar een opgegeven invoer video of audio-inhoud. De **taak** bevat informatie zoals de locatie van de video invoer en de locatie voor de uitvoer. U kunt de locatie van uw video met opgeven: http (s) URL's, SAS-URL's of een pad naar bestanden lokaal of in Azure Blob-opslag. U kunt maximaal 100 transformaties in uw Azure Media Services-account en verzenden van taken onder deze transformaties. U kunt vervolgens zich abonneren op gebeurtenissen zoals wijzigingen in de taak de status, met behulp van meldingen, die rechtstreeks te met het raster voor Azure Event notification system integreren. 
+De **transformeren** object is het recept en een **taak** is de werkelijke aanvraag met Azure Media Services om toe te passen die **transformeren** naar een opgegeven invoer video of audio-inhoud. De **taak** bevat informatie zoals de locatie van de invoervideo en de locatie voor de uitvoer. U kunt de locatie van uw video met opgeven: http (s) URL's, SAS-URL's of een pad naar bestanden lokaal of in Azure Blob-opslag. U kunt maximaal 100 transformaties in uw Azure Media Services-account en verzenden van taken onder deze transformaties. U kunt vervolgens zich abonneren op gebeurtenissen zoals wijzigingen in de taak de status, met behulp van meldingen, die rechtstreeks te met het raster voor Azure Event notification system integreren. 
 
 Aangezien deze API wordt aangedreven door Azure Resource Manager, kunt u de Resource Manager-sjablonen maken en implementeren van transformaties in uw Media Services-account gebruiken. Toegangsbeheer op basis van rollen kan ook worden ingesteld op het niveau van de resource in deze API, zodat u toegang tot specifieke bronnen zoals transformaties vergrendelen.
+
+## <a name="transform-definition"></a>Definitie van transformatie
+
+De volgende tabel ziet u de eigenschappen van de transformatie en geeft de definities.
+
+|Naam|Type|Beschrijving|
+|---|---|---|
+|Id|tekenreeks|Volledig gekwalificeerde resource-ID voor de resource.|
+|naam|tekenreeks|De naam van de resource.|
+|Properties.created |tekenreeks|De UTC-datum en tijd waarop de transformatie is gemaakt, in ' jjjj-MM-ssZ ' indeling.|
+|Properties.Description |tekenreeks|Een optionele uitgebreide beschrijving van de transformatie.|
+|properties.lastModified |tekenreeks|De UTC-datum en tijd waarop de transformatie laatst is bijgewerkt, in ' jjjj-MM-ssZ ' indeling.|
+|Properties.outputs |TransformOutput]|Een matrix met een of meer TransformOutputs die moet worden gegenereerd door de transformatie.|
+|type|tekenreeks|Het type van de resource.|
+
+Zie voor de volledige definitie [transformeert](https://docs.microsoft.com/rest/api/media/transforms).
+
+## <a name="job-definition"></a>Taakdefinitie
+
+De volgende tabel ziet u de eigenschappen van taak en geeft de definities.
+
+|Naam|Type|Beschrijving|
+|---|---|---|
+|Id|tekenreeks|Volledig gekwalificeerde resource-ID voor de resource.|
+|naam|tekenreeks|De naam van de resource.|
+|Properties.created |tekenreeks|De UTC-datum en tijd waarop de transformatie is gemaakt, in ' jjjj-MM-ssZ ' indeling.|
+|Properties.Description |tekenreeks|Een optionele uitgebreide beschrijving van de taak.|
+|properties.lastModified |tekenreeks|De UTC-datum en tijd waarop de transformatie laatst is bijgewerkt, in ' jjjj-MM-ssZ ' indeling.|
+|Properties.outputs |JobOutput []: [] JobOutputAsset |De uitvoer voor de taak.|
+|Properties.Priority |Prioriteit |Prioriteit waarmee de taak moet worden verwerkt. Taken met een hogere prioriteit worden verwerkt voordat taken met lagere prioriteit. Als dat niet is ingesteld, de standaardwaarde is normaal.
+|Properties.state |JobState |De huidige status van de taak.
+|type|tekenreeks|Het type van de resource.|
+
+Zie voor de volledige definitie [taken](https://docs.microsoft.com/rest/api/media/jobs).
 
 ## <a name="typical-workflow-and-example"></a>Voorbeeld van en gangbare werkstroom
 

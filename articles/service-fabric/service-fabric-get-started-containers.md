@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 4/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 679fb066441fd75d5e12f9374d012f50c6f65966
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: fd706737491a4644b0730ea197f6a2a9ed5480e5
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Uw eerste Service Fabric-containertoepassing maken in Windows
 > [!div class="op_single_selector"]
@@ -132,6 +132,11 @@ Bij *naam* kunt de actieve container een naam geven (in plaats van de container-
 Zodra de container is gestart, zoekt u het bijbehorende IP-adres zodat u vanuit een browser verbinding kunt maken met de actieve container:
 ```
 docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
+```
+
+Als deze opdracht niets retourneert, voert u de volgende opdracht uit en controleert u het element **NetworkSettings**->**Networks** voor het IP-adres:
+```
+docker inspect my-web-site
 ```
 
 Maak verbinding met de actieve container. Open een webbrowser en verwijs naar het IP-adres dat is geretourneerd, bijvoorbeeld http://172.31.194.61. Als het goed is, ziet u de koptekst Hallo wereld! weergegeven in de browser.

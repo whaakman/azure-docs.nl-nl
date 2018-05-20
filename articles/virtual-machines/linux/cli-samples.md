@@ -1,6 +1,6 @@
 ---
 title: Voorbeelden van Azure CLI | Microsoft Docs
-description: Voorbeelden van Azure CLI
+description: Azure CLI-voorbeelden
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 03/08/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 938e61a7ab831b6f0632d0426afe4d0f947af223
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5df71f1b662defa9103df4b10a86f67bf5ee6e4b
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-cli-samples-for-linux-virtual-machines"></a>Azure CLI-voorbeelden voor virtuele Linux-machines
 
@@ -32,13 +32,12 @@ De volgende tabel bevat koppelingen naar bash-scripts die zijn gebouwd met behul
 | [Een virtuele machine maken](./../scripts/virtual-machines-linux-cli-sample-create-vm-quick-create.md?toc=%2fcli%2fazure%2ftoc.json) | Maakt een virtuele Linux-machine met een minimale configuratie. |
 | [Een volledig geconfigureerde virtuele machine maken](./../scripts/virtual-machines-linux-cli-sample-create-vm.md?toc=%2fcli%2fazure%2ftoc.json) | Een resourcegroep, virtuele machine en alle gerelateerde resources gemaakt.|
 | [Maximaal beschikbare virtuele machines maken](./../scripts/virtual-machines-linux-cli-sample-nlb.md?toc=%2fcli%2fazure%2ftoc.json) | Maakt verschillende virtuele machines in een maximaal beschikbare en configuratie van taakverdeling. |
-| [Een virtuele machine maken met Docker ingeschakeld](./../scripts/virtual-machines-linux-cli-sample-create-docker-host.md?toc=%2fcli%2fazure%2ftoc.json) | Een virtuele machine maakt, configureert deze virtuele machine als een Docker-host en een NGINX-container wordt uitgevoerd. |
 | [Een virtuele machine maken en voer het script voor configuratie](./../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fcli%2fazure%2ftoc.json) | Een virtuele machine maakt en wordt de extensie Azure aangepast Script gebruikt voor het installeren van NGINX. |
 | [Een virtuele machine maken met WordPress geïnstalleerd](./../scripts/virtual-machines-linux-cli-sample-create-vm-wordpress.md?toc=%2fcli%2fazure%2ftoc.json) | Een virtuele machine maakt en wordt de extensie Azure aangepast Script gebruikt voor het installeren van WordPress. |
 | [Een virtuele machine maken van een beheerde OS-schijf](./../scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fcli%2fmodule%2ftoc.json) | Maakt een virtuele machine door het koppelen van een bestaande schijf beheerd als besturingssysteemschijf. |
 | [Een virtuele machine maken vanuit een momentopname](./../scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fcli%2fmodule%2ftoc.json) | Een virtuele machine maakt vanuit een momentopname eerst een beheerde schijven maken vanuit een momentopname en vervolgens de nieuwe beheerde schijf als besturingssysteemschijf te koppelen. |
 |**Opslag beheren**||
-| [Beheerde schijf vanaf een VHD maken](../scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-vhd.md?toc=%2fcli%2fmodule%2ftoc.json) | Een beheerde schijf maakt vanaf een speciale VHD als een besturingssysteemschijf of van een gegevensschijf VHD-gegevens.  |
+| [Beheerde schijf vanaf een VHD maken](../scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-vhd.md?toc=%2fcli%2fmodule%2ftoc.json) | Hiermee maakt u een beheerde schijf op basis van een gespecialiseerde VHD als een besturingssysteemschijf of op basis van een gegevens-VHD als een gegevensschijf.  |
 | [Een beheerde schijf maken vanuit een momentopname](../scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-snapshot.md?toc=%2fcli%2fmodule%2ftoc.json) | Maakt een beheerde schijf van een momentopname. |
 | [Beheerde schijf kopiëren naar hetzelfde of een ander abonnement](../scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json) | Exemplaren beheerd van schijf naar hetzelfde of een ander abonnement maar beheerd in dezelfde regio bevinden als de bovenliggende schijf. 
 | [Een momentopname exporteren als VHD naar een opslagaccount](../scripts/virtual-machines-linux-cli-sample-copy-snapshot-to-storage-account.md?toc=%2fcli%2fmodule%2ftoc.json) | Exporteert een momentopname van een beheerde als VHD naar een opslagaccount in andere regio. |

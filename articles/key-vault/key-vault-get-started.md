@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/20/2017
+ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: d082241ee5151b199376a0c2c9baccc242ece12e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 58a283f1ce5bd2fd78c4fa2038c3998aea1598c9
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="get-started-with-azure-key-vault"></a>Aan de slag met Azure Sleutelkluis
 Dit artikel helpt u aan de slag te gaan met Azure Key Vault met behulp van PowerShell en leidt u stapsgewijs door de volgende activiteiten:
@@ -114,7 +114,7 @@ New-AzureRmKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoReso
 De uitvoer van deze cmdlet toont u de eigenschappen van de sleutelkluis die u hebt gemaakt. De twee belangrijkste eigenschappen zijn:
 
 * **Vault Name**: in het voorbeeld is dit **ContosoKeyVault**. U gebruikt deze naam voor andere Sleutelkluis-cmdlets.
-* **Vault URI**: In het voorbeeld is dit https://contosokeyvault.vault.azure.net/. Toepassingen die via de REST API gebruikmaken van uw kluis, moeten deze URI gebruiken.
+* **Kluis-URI**: in het voorbeeld is dat https://contosokeyvault.vault.azure.net/. Toepassingen die via de REST API gebruikmaken van uw kluis, moeten deze URI gebruiken.
 
 Uw Azure-account is nu gemachtigd om alle bewerkingen op deze sleutelkluis uit te voeren. Tot dusver is er nog niemand anders gemachtigd.
 

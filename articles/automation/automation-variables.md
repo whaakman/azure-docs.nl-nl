@@ -7,13 +7,13 @@ ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2cae2746df5c9262fc0cb0071d20c04172bd5635
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: ea6aae349bfbec0d1b6538010df42e7a0fb22d8e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="variable-assets-in-azure-automation"></a>Variabele assets in Azure Automation
 
@@ -40,7 +40,7 @@ U kunt meerdere waarden in een enkele variabele opslaan door het maken van een m
 
 Hier volgen een lijst met variabelen die beschikbaar zijn in Automation:
 
-* Tekenreeks
+* Reeks
 * Geheel getal
 * DateTime
 * Boole-waarde

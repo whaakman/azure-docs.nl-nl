@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 02/23/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 94d34df771334319db36009053a7264f0aeacf46
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 19878b7fa023ecf0d9c2a62001a5ea93ca3eb6db
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Voorwaardelijke toegang in Azure Active Directory
 
@@ -121,3 +121,5 @@ Voorwaardelijke toegang, is een Azure AD Premium-licentie vereist. Zie informati
 - Als u wilt ophalen enige ervaring met het beleid voor voorwaardelijke toegang configureren, Zie [aan de slag met voorwaardelijke toegang in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 
 - Als u klaar om te configureren van beleidsregels voor voorwaardelijke toegang voor uw omgeving bent, Zie de [best practices voor voorwaardelijke toegang in Azure Active Directory](active-directory-conditional-access-best-practices.md). 
+
+- Als u een stapsgewijze implementatieplan met aanbevolen beleid wilt, raadpleegt u de [plan de implementatie van voorwaardelijke toegang](http://aka.ms/conditionalaccessdeploymentplan)

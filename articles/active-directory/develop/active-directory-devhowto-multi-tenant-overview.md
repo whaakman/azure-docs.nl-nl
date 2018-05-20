@@ -3,26 +3,28 @@ title: Het bouwen van een app die u met een Azure AD-gebruiker aanmelden kunt
 description: Toont het bouwen van een multitenant-toepassing die een gebruiker van een Azure Active Directory-tenant kunt aanmelden.
 services: active-directory
 documentationcenter: ''
-author: celestedg
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2018
 ms.author: celested
+ms.reviewer: elisol
 ms.custom: aaddev
-ms.openlocfilehash: f31ef7285e07467fe233d5e10534340bc912ed1c
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: fd02cde6327cb929d1b4c0c2e3d430d64645ca26
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Aanmelden met een Azure Active Directory-gebruiker met behulp van het patroon toepassing met meerdere tenants
-Als u een Software als een servicetoepassing voor veel organisaties te bieden, kunt u uw toepassing te accepteren, aanmeldingen vanaf een tenant van Azure Active Directory (AD) configureren. Deze configuratie wordt aangeroepen met het maken van uw toepassing meerdere tenants. Gebruikers in een Azure AD-tenant zich aan te melden bij uw toepassing na ermee akkoord dat hun account gebruiken met uw toepassing.  
+Als u een Software als een servicetoepassing voor veel organisaties te bieden, kunt u uw toepassing te accepteren, aanmeldingen vanaf een tenant van Azure Active Directory (AD) configureren. Deze configuratie wordt aangeroepen met het maken van uw toepassing meerdere tenants. Gebruikers in een Azure AD-tenant zich aan te melden bij uw toepassing na ermee akkoord dat hun account gebruiken met uw toepassing. 
 
 Als u een bestaande toepassing die heeft een eigen accountsysteem of biedt ondersteuning voor andere soorten aanmeldingen vanaf andere cloudproviders hebt, is toe te voegen Azure AD aanmelden van een tenant eenvoudig. Alleen uw app registreren, aanmelden code via OAuth2, OpenID Connect of SAML toevoegen en plaatsen een ['Aanmelding In met Microsoft' knop] [ AAD-App-Branding] in uw toepassing.
 
@@ -39,19 +41,19 @@ Er zijn vier eenvoudige stappen om te converteren van uw toepassing naar een Azu
 Bekijk elke stap in detail. U kunt ook meteen naar gaan [deze lijst met voorbeelden van meerdere tenants][AAD-Samples-MT].
 
 ## <a name="update-registration-to-be-multi-tenant"></a>Registratie voor multitenant bijwerken
-Web-app/API registraties in Azure AD zijn standaard één tenant.  U kunt uw inschrijving multitenant maken door het vinden van de **meerdere verpachte** overschakelen op de **eigenschappen** deelvenster van de registratie van uw toepassing in de [Azure-portal] [ AZURE-portal] en instellen op **Ja**.
+Web-app/API registraties in Azure AD zijn standaard één tenant. U kunt uw inschrijving multitenant maken door het vinden van de **meerdere verpachte** overschakelen op de **eigenschappen** deelvenster van de registratie van uw toepassing in de [Azure-portal] [ AZURE-portal] en instellen op **Ja**.
 
 Voordat een toepassing kan meerdere tenants worden gemaakt, moet Azure AD-App-ID-URI van de toepassing globaal uniek zijn. De App ID URI is een van de manieren waarop die een toepassing in protocolberichten wordt geïdentificeerd. Voor een toepassing voor één tenant is het voldoende voor de URI van de App-ID moet uniek zijn binnen deze tenant. Voor een toepassing met meerdere tenants moet het wereldwijd uniek zodat Azure AD de toepassing op alle huurders kan vinden. Globale uniekheid wordt afgedwongen door de App ID URI in een hostnaam die overeenkomt met een geverifieerde domein voor de Azure AD-tenant. Standaard apps die zijn gemaakt via de Azure-portal hebben een globaal unieke App ID URI ingesteld voor het maken van de app, maar u kunt deze waarde wijzigen.
 
-Bijvoorbeeld, als de naam van uw tenant contoso.onmicrosoft.com een geldige App ID URI zou worden `https://contoso.onmicrosoft.com/myapp`.  Als uw tenant had een geverifieerde domein voor `contoso.com`, moet een geldige App ID URI zou ook `https://contoso.com/myapp`. Als de App ID URI niet dit patroon volgen, instellen van een toepassing als multitenant is mislukt.
+Bijvoorbeeld, als de naam van uw tenant contoso.onmicrosoft.com een geldige App ID URI zou worden `https://contoso.onmicrosoft.com/myapp`. Als uw tenant had een geverifieerde domein voor `contoso.com`, moet een geldige App ID URI zou ook `https://contoso.com/myapp`. Als de App ID URI niet dit patroon volgen, instellen van een toepassing als multitenant is mislukt.
 
 > [!NOTE] 
-> Native clientregistraties, evenals [v2 toepassingen](./active-directory-appmodel-v2-overview.md) multitenant standaard zijn.  U hoeft niet te doen om deze toepassing registraties meerdere tenants.
+> Native clientregistraties, evenals [v2 toepassingen](./active-directory-appmodel-v2-overview.md) multitenant standaard zijn. U hoeft niet te doen om deze toepassing registraties meerdere tenants.
 
 ## <a name="update-your-code-to-send-requests-to-common"></a>Werk uw code voor het verzenden van aanvragen naar/Common
 In een toepassing één tenant worden aanmeldingsaanvragen verzonden naar de tenant-aanmelden-eindpunt. Voor contoso.onmicrosoft.com kan het eindpunt zou zijn: `https://login.microsoftonline.com/contoso.onmicrosoft.com`
 
-Aanvragen die worden verzonden naar een tenant-eindpunt kunnen aanmelden gebruikers (of gasten) in deze tenant naar toepassingen in deze tenant. Met een multitenant-toepassing weet de toepassing niet vooraf welke tenant de gebruiker is, zodat u aanvragen naar een tenant-eindpunt kan niet verzenden.  In plaats daarvan worden aanvragen verzonden naar een eindpunt dat multiplexes over alle Azure AD-tenants: `https://login.microsoftonline.com/common`
+Aanvragen die worden verzonden naar een tenant-eindpunt kunnen aanmelden gebruikers (of gasten) in deze tenant naar toepassingen in deze tenant. Met een multitenant-toepassing weet de toepassing niet vooraf welke tenant de gebruiker is, zodat u aanvragen naar een tenant-eindpunt kan niet verzenden. In plaats daarvan worden aanvragen verzonden naar een eindpunt dat multiplexes over alle Azure AD-tenants: `https://login.microsoftonline.com/common`
 
 Azure AD ontvangt wanneer een aanvraag op de/Common eindpunt, wordt de gebruiker zich aanmeldt en, als gevolg hiervan detecteert welke tenant afkomstig van de gebruiker is. De/gemeenschappelijk eindpunt werkt met alle van de verificatieprotocollen die wordt ondersteund door Azure AD: OpenID Connect, OAuth 2.0 SAML 2.0 en WS-Federation.
 
@@ -61,12 +63,12 @@ Het antwoord aanmelden op de toepassing wordt vervolgens bevat een token dat de 
 > De/gemeenschappelijk eindpunt is niet een tenant en is niet een verlener, is alleen een multiplexer. Wanneer u/Common gebruikt, wordt de logica in uw toepassing om tokens te valideren moet worden bijgewerkt om rekening. 
 
 ## <a name="update-your-code-to-handle-multiple-issuer-values"></a>Werk uw code voor het afhandelen van meerdere waarden van de certificaatverlener
-Webtoepassingen en web-API's ontvangen en valideren van tokens van Azure AD.  
+Webtoepassingen en web-API's ontvangen en valideren van tokens van Azure AD. 
 
 > [!NOTE]
-> Terwijl systeemeigen clienttoepassingen aanvragen en ontvangen van tokens van Azure AD, ze dit doen voor het verzenden van deze API's, waar ze worden gevalideerd.  Systeemeigen toepassingen tokens wordt niet gevalideerd en moeten ze behandelen als ondoorzichtige.
+> Terwijl systeemeigen clienttoepassingen aanvragen en ontvangen van tokens van Azure AD, ze dit doen voor het verzenden van deze API's, waar ze worden gevalideerd. Systeemeigen toepassingen tokens wordt niet gevalideerd en moeten ze behandelen als ondoorzichtige.
 
-We bekijken op hoe een toepassing tokens valideert het ontvangt van Azure AD.  Een toepassing voor één tenant duurt gewoonlijk een endpoint-waarde, zoals:
+We bekijken op hoe een toepassing tokens valideert het ontvangt van Azure AD. Een toepassing voor één tenant duurt gewoonlijk een endpoint-waarde, zoals:
 
     https://login.microsoftonline.com/contoso.onmicrosoft.com
 
@@ -86,7 +88,7 @@ Omdat de/gemeenschappelijk eindpunt komt niet overeen met een tenant en is een v
 
     https://sts.windows.net/{tenantid}/
 
-Daarom een multitenant-toepassing kan niet worden gevalideerd tokens door die overeenkomt met de waarde van de verlener in de metagegevens met de `issuer` waarde in het token. Een multitenant-toepassing moet logica om te bepalen welke verlener waarden geldig zijn en die niet zijn gebaseerd op de tenant-id-gedeelte van de waarde van de verlener.  
+Daarom een multitenant-toepassing kan niet worden gevalideerd tokens door die overeenkomt met de waarde van de verlener in de metagegevens met de `issuer` waarde in het token. Een multitenant-toepassing moet logica om te bepalen welke verlener waarden geldig zijn en die niet zijn gebaseerd op de tenant-id-gedeelte van de waarde van de verlener. 
 
 Bijvoorbeeld als een multitenant-toepassing alleen kunt aanmelden van specifieke tenants die zich hebben geregistreerd voor de service, deze moet controleert de verlener waarde of de `tid` claimwaarde in het token om ervoor te zorgen dat de tenant is in de lijst van abonnees. Als een multitenant-toepassing alleen omgaat met personen niet beslissingen eventuele toegang op basis van tenants, vervolgens kan worden genegeerd de verlener-waarde kan worden overgeslagen.
 
@@ -137,7 +139,7 @@ Dit wordt geïllustreerd in een meerlaagse systeemeigen client voorbeeld-web-API
 
 **Meerdere lagen in meerdere tenants**
 
-Een vergelijkbaar aanvraag gebeurt er als de verschillende lagen van een toepassing in verschillende tenants zijn geregistreerd. Neem bijvoorbeeld het geval van het bouwen van een systeemeigen clienttoepassing die de Office 365 Exchange Online-API aanroept. Het ontwikkelen van de systeemeigen toepassing en hoger voor de systeemeigen toepassing voor uitvoering in een klant-tenant en moet de Exchange Online service-principal aanwezig zijn. In dit geval moeten de ontwikkelaar en de klant aanschaffen Exchange Online voor de service-principal gemaakt in hun tenants.  
+Een vergelijkbaar aanvraag gebeurt er als de verschillende lagen van een toepassing in verschillende tenants zijn geregistreerd. Neem bijvoorbeeld het geval van het bouwen van een systeemeigen clienttoepassing die de Office 365 Exchange Online-API aanroept. Het ontwikkelen van de systeemeigen toepassing en hoger voor de systeemeigen toepassing voor uitvoering in een klant-tenant en moet de Exchange Online service-principal aanwezig zijn. In dit geval moeten de ontwikkelaar en de klant aanschaffen Exchange Online voor de service-principal gemaakt in hun tenants. 
 
 In het geval van een API gebouwd door een organisatie dan Microsoft, moet de ontwikkelaar van de API bieden een manier voor klanten om toestemming van de toepassing in hun klanten tenants. Er is het aanbevolen ontwerp voor ontwikkelaars van derden voor het bouwen van de API zodat deze kan ook worden gebruikt als een webclient voor het implementeren van aanmelding. Om dit te doen:
 

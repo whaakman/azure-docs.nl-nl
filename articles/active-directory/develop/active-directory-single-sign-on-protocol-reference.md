@@ -5,9 +5,10 @@ services: active-directory
 documentationcenter: .net
 author: priyamohanram
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,11 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: priyamo
 ms.custom: aaddev
-ms.openlocfilehash: 096a250685bf023f789f98e16d2bea13bf448e3b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ddd5fa6f2ed0878afd8bbd6399471e92dfa30385
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="single-sign-on-saml-protocol"></a>Single Sign-On SAML-protocol
 In dit artikel bevat informatie over het SAML 2.0-verificatieaanvragen en -antwoorden die ondersteuning biedt voor eenmalige aanmelding voor Azure Active Directory (Azure AD).
@@ -44,9 +45,9 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 
 | Parameter |  | Beschrijving |
 | --- | --- | --- |
-| Id |Vereist |Azure AD maakt gebruik van dit kenmerk voor het vullen van de `InResponseTo` kenmerk van het geretourneerde antwoord. ID moet niet beginnen met een getal, zodat een gemeenschappelijke strategie is een tekenreeks, zoals 'id' naar de tekenreeksweergave van een GUID toevoegen aan het begin. Bijvoorbeeld: `id6c1c178c166d486687be4aaf5e482730` is een geldige ID. |
-| Versie |Vereist |Dit moet **2.0**. |
-| IssueInstant |Vereist |Dit is een datum/tijd-tekenreeks met een UTC-waarde en [round trip-indeling ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD een DateTime-waarde van dit type verwacht maar niet evalueren of gebruik de waarde. |
+| Id |vereist |Azure AD maakt gebruik van dit kenmerk voor het vullen van de `InResponseTo` kenmerk van het geretourneerde antwoord. ID moet niet beginnen met een getal, zodat een gemeenschappelijke strategie is een tekenreeks, zoals 'id' naar de tekenreeksweergave van een GUID toevoegen aan het begin. Bijvoorbeeld: `id6c1c178c166d486687be4aaf5e482730` is een geldige ID. |
+| Versie |vereist |Dit moet **2.0**. |
+| IssueInstant |vereist |Dit is een datum/tijd-tekenreeks met een UTC-waarde en [round trip-indeling ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD een DateTime-waarde van dit type verwacht maar niet evalueren of gebruik de waarde. |
 | AssertionConsumerServiceUrl |optioneel |Indien opgegeven, moet dit overeen met de `RedirectUri` van de cloudservice in Azure AD. |
 | ForceAuthn |optioneel | Dit is een Booleaanse waarde. Indien waar, betekent dit dat de gebruiker wordt geforceerd opnieuw worden geverifieerd, zelfs als ze een geldige sessie met Azure AD hebben. |
 | IsPassive |optioneel |Dit is een Booleaanse waarde die aangeeft of Azure AD moet worden geverifieerd achtergrond, zonder tussenkomst van de gebruiker met behulp van de sessiecookie als er een bestaat. Als dit waar is, probeert Azure AD te verifiëren van de gebruiker met behulp van de sessie-cookie. |
@@ -255,7 +256,7 @@ Hierin worden claims over de onderwerpnaam of de gebruiker. Het volgende fragmen
 ```        
 
 * **Naam van Claim** : de waarde van de `Name` kenmerk (`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`) is de UPN van de geverifieerde gebruiker, zoals `testuser@managedtenant.com`.
-* **ObjectIdentifier Claim** : de waarde van de `ObjectIdentifier` kenmerk (`http://schemas.microsoft.com/identity/claims/objectidentifier`) is de `ObjectId` van de directoryobject dat de geverifieerde gebruiker in Azure AD vertegenwoordigt. `ObjectId`is een niet-wijzigbaar, globaal unieke en veilige id van de geverifieerde gebruiker opnieuw te gebruiken.
+* **ObjectIdentifier Claim** : de waarde van de `ObjectIdentifier` kenmerk (`http://schemas.microsoft.com/identity/claims/objectidentifier`) is de `ObjectId` van de directoryobject dat de geverifieerde gebruiker in Azure AD vertegenwoordigt. `ObjectId` is een niet-wijzigbaar, globaal unieke en veilige id van de geverifieerde gebruiker opnieuw te gebruiken.
 
 #### <a name="authnstatement"></a>AuthnStatement
 Dit element wordt gesteld dat het onderwerp verklaring is geverifieerd door een bepaalde manier op een bepaald moment.

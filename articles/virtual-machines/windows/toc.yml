@@ -102,14 +102,6 @@
           href: disk-scalability-targets.md
         - name: Back-up en herstel na noodgeval voor schijven
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-        - name: Informatie over hoe u Write Accelerator inschakelt
-          href: how-to-enable-write-accelerator.md
-        - name: Problemen met gekoppelde VHD's oplossen
-          items:
-            - name: Fouten bij het verwijderen van een Storage-resource
-              href: storage-resource-deletion-errors.md
-            - name: Onverwacht opnieuw opstarten van VM's met gekoppelde VHD's
-              href: unexpected-reboots-attached-vhds.md
     - name: Netwerken
       href: network-overview.md
     - name: Toepassingen automatisch schalen
@@ -306,6 +298,8 @@
           href: mount-azure-file-storage.md
         - name: Schijven implementeren met sjabloon
           href: using-managed-disks-template-deployments.md
+        - name: Write Accelerator inschakelen
+          href: how-to-enable-write-accelerator.md
         - name: Migreren naar Managed Disks
           href: migrate-to-managed-disks.md
           items:
@@ -449,6 +443,12 @@
           href: troubleshoot-vm-by-use-nested-virtualization.md
         - name: De VM-agent installeren in de offlinemodus
           href: install-vm-agent-offline.md
+        - name: Problemen met gekoppelde VHD's oplossen
+          items:
+            - name: Fouten bij het verwijderen van een Storage-resource
+              href: storage-resource-deletion-errors.md
+            - name: Onverwacht opnieuw opstarten van VM's met gekoppelde VHD's
+              href: unexpected-reboots-attached-vhds.md
 - name: Naslaginformatie
   items:
     - name: Azure-CLI

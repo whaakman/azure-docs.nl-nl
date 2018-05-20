@@ -2,23 +2,25 @@
 title: Meer informatie over het optionele autorisatiebeslissingen aan uw Azure AD-toepassing | Microsoft Docs
 description: Een handleiding voor het toevoegen van aangepaste of extra claims naar de door Azure Active Directory wordt uitgegeven tokens van SAML 2.0 en JSON Web Tokens (JWT).
 documentationcenter: na
-author: hpsin
+author: CelesteDG
 services: active-directory
 manager: mtillman
 editor: ''
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/24/2018
-ms.author: hirsin
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: f87487c4ee56ae90eb5825b0e77610fac73bd3fa
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c4670a7e957970acea54ff69d56edcd45092c8fe
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Optionele claims in Azure AD (preview)
 
@@ -90,7 +92,7 @@ Sommige optionele claims kunnen worden geconfigureerd om te wijzigen van de mani
 
 **Tabel 4: Waarden voor het configureren van standaard optionele claims**
 
-| De naam van eigenschap                                     | Aanvullende eigenschapsnaam                                                                                                             | Beschrijving |
+| Naam van eigenschap                                     | Aanvullende eigenschapsnaam                                                                                                             | Beschrijving |
 |---------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-------------|
 | `upn`                                                 |                                                                                                                                      |             |
 | | `include_externally_authenticated_upn`              | Bevat de Gast UPN die is opgeslagen in de resource-tenant.  Bijvoorbeeld: `foo_hometenant.com#EXT#@resourcetenant.com`                            |             

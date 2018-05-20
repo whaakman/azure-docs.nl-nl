@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: 18549a8606285238f26d2c8cec54793e26e3e8d1
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: d53305aae3b12c0de983dced85a9626cf98c6309
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>Een Linux RDMA-cluster instellen voor het uitvoeren van MPI-toepassingen
 Meer informatie over het instellen van een Linux RDMA-cluster in Azure met [hoge prestaties compute-VM-grootten](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) parallelle Message Passing Interface (MPI)-toepassingen uit te voeren. Dit artikel bevat stappen voor het voorbereiden van een installatiekopie Linux HPC Intel MPI uitvoeren op een cluster. Nadat de voorbereiding, moet u een cluster van virtuele machines met behulp van deze installatiekopie en een van de RDMA-compatibele Azure VM-grootten (H16mr momenteel H16r A8 of A9) implementeert. De cluster gebruiken voor het uitvoeren van MPI-toepassingen die efficiënt via een lage latentie, een hoge gegevensdoorvoer netwerk op basis van remote direct memory access (RDMA)-technologie communiceren.
@@ -210,7 +210,7 @@ Op een op basis van CentOS HPC-cluster, er zijn twee methoden voor het instellen
 
 Een voorbeeld van een script van de community bijgedragen is beschikbaar op [GitHub](https://github.com/tanewill/utils/blob/master/user_authentication.sh) eenvoudig verificatie op een op basis van CentOS HPC-cluster in te schakelen. Download en gebruik dit script met behulp van de volgende stappen uit. U kunt ook dit script wijzigen of een andere methode gebruiken om passwordless SSH-verificatie tussen de clusterknooppunten compute stand te brengen.
 
-    wget https://raw.githubusercontent.com/tanewill/utils/master/ user_authentication.sh
+    wget https://raw.githubusercontent.com/tanewill/utils/master/user_authentication.sh
 
 Het script wordt uitgevoerd, moet u weten van het voorvoegsel voor uw subnet IP-adressen. Haal het voorvoegsel door de volgende opdracht in een van de clusterknooppunten worden uitgevoerd. De uitvoer ziet er ongeveer als 10.1.3.5 en het voorvoegsel zijn de/m 10.1.3 gedeelte.
 

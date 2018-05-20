@@ -5,20 +5,20 @@ services: key-vault
 author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
-ms.assetid: ''
+ms.assetid: 1126f665-2e6c-4cca-897e-7d61842e8334
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/18/2018
+ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: e980eafc5bd70a15de11239c7543a7f1dde4ef64
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e7aa675e849fb8c4dac0bfb5a1ae44dd16ca25e3
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="quickstart-create-an-azure-key-vault-using-powershell"></a>Snelstart: Een Azure-sleutelkluis maken met behulp van PowerShell
 
@@ -91,7 +91,7 @@ U hebt nu een sleutelkluis gemaakt, een geheim opgeslagen en dat vervolgens opge
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
- Andere snelstarts en zelfstudies in deze verzameling zijn gebaseerd op deze snelstart. Als u van plan bent om verder te gaan met andere snelstarts en zelfstudies, kunt u deze resources intact laten.
+ Andere snelstartgidsen en zelfstudies in deze verzameling zijn gebaseerd op deze snelstartgids. Als u van plan bent om verder te gaan met andere snelstarts en zelfstudies, kunt u deze resources intact laten.
 
 U kunt de opdracht [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) gebruiken om de resourcegroep, sleutelkluis en alle gerelateerde resources te verwijderen wanneer u deze niet meer nodig hebt.
 
@@ -104,4 +104,4 @@ Remove-AzureRmResourceGroup -Name ContosoResourceGroup
 In deze snelstart hebt u een sleutelkluis gemaakt en daarin een softwaresleutel opgeslagen. Meer informatie over Key Vault en hoe u dat kunt gebruiken samen met uw toepassingen is te vinden in de zelfstudie voor webtoepassingen die geschikt zijn voor Key Vault.
 
 > [!div class="nextstepaction"]
-> [Azure Key Vault gebruiken vanuit een webtoepassing](key-vault-use-from-web-application.md)
+> Ga door met de volgende zelfstudie [Een Azure-webtoepassing configureren om een Key Vault-geheim te lezen](tutorial-web-application-keyvault.md) voor informatie over het lezen van een Key Vault-geheim van een webtoepassing met behulp van beheerde service-id’s.

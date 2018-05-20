@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 2d501419dde633f89a5760af9f82604006de6b6f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4ef1387e3c8573a2bfa64c166f08bf47723eca62
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="troubleshoot-routes-using-azure-powershell"></a>Problemen oplossen met Azure PowerShell routes
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ Overzicht van de cumulatieve routes die worden toegepast op een virtuele machine
 ### <a name="view-effective-routes-for-a-network-interface"></a>De effectieve routes weergeven voor een netwerkinterface
 Overzicht van de cumulatieve routes die worden toegepast op een netwerkinterface, de volgende stappen uitvoeren:
 
-1. Start een Azure PowerShell-sessie en meld u aan bij Azure. Als u niet bekend met Azure PowerShell bent, leest u de [installeren en configureren van Azure PowerShell](/powershell/azure/overview) artikel. Uw account moet worden toegewezen aan de *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* bewerking voor de netwerkinterface. Zie voor meer bewerkingen toewijzen aan accounts [aangepaste rollen maken voor op rollen gebaseerd toegangsbeheer](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
+1. Start een Azure PowerShell-sessie en meld u aan bij Azure. Als u niet bekend met Azure PowerShell bent, leest u de [installeren en configureren van Azure PowerShell](/powershell/azure/overview) artikel. Uw account moet worden toegewezen aan de *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* bewerking voor de netwerkinterface. Zie voor meer bewerkingen toewijzen aan accounts [aangepaste rollen maken voor op rollen gebaseerd toegangsbeheer](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. De volgende opdracht retourneert alle routes die worden toegepast op een netwerkinterface met de naam *VM1 NIC1* in de resourcegroep *RG1*.
    
        Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1

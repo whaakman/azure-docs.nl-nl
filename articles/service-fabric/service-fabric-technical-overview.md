@@ -9,16 +9,16 @@ editor: chackdan;subramar
 ms.assetid: 3a970679-e19e-43b3-9be8-71773f307c57
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/26/2018
 ms.author: ryanwi
-ms.openlocfilehash: bd57b6344baef3bdf97c850564ae2d3afa9c811e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e3da081f9b327031d6d1e0afd2f2fb52383bf933
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-terminology-overview"></a>Overzicht van service Fabric-terminologie
 Azure Service Fabric is een gedistribueerde systemen platform waarmee u gemakkelijk pakket, implementeren en beheren van schaalbare en betrouwbare microservices. In dit artikel wordt de terminologie die wordt gebruikt door de Service Fabric om te begrijpen van de termen die worden gebruikt in de documentatie.

@@ -1,6 +1,6 @@
 ---
-title: Azure reserveren VM-exemplaren Windows softwarekosten | Microsoft Docs
-description: Meer informatie over welke Windows-software meter niet zijn opgenomen in de kosten van het exemplaar van de gereserveerde virtuele Machine.
+title: Azure reserveren exemplaren Windows kosten voor software - Azure-facturering | Microsoft Docs
+description: Meer informatie over welke Windows-software meter worden niet opgenomen in de gereserveerde VM-instantie Azure kosten.
 services: billing
 documentationcenter: ''
 author: manish-shukla01
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/03/2017
+ms.date: 05/09/2018
 ms.author: manshuk
-ms.openlocfilehash: 20fd3c6c118b33ca91d717d30d77bb9c7843f4e6
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: b526ca578a72d7d35fb4198affeb02db4d308b20
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/17/2018
 ---
-# <a name="windows-software-costs-not-included-with-reserved-instances"></a>Kosten voor Windows-software niet zijn opgenomen in de gereserveerde exemplaren
+# <a name="windows-software-costs-not-included-with-azure-reserved-instances"></a>Kosten voor Windows-software niet zijn opgenomen in de gereserveerde exemplaren van Azure
 
 Als er geen een voordeel gebruik van Azure hybride op uw exemplaar van de gereserveerde virtuele machines, klikt u in rekening worden gebracht voor de Windows-software meters die worden vermeld in de volgende sectie.
 
@@ -52,11 +52,18 @@ Als er geen een voordeel gebruik van Azure hybride op uw exemplaar van de gerese
 U kunt de kosten van elk van deze meter ophalen via Azure RateCard API. Zie voor meer informatie over het verkrijgen van de tarieven voor een azure meter [prijs en de metagegevens voor resources die worden gebruikt in een Azure-abonnement ophalen](https://msdn.microsoft.com/library/azure/mt219004).
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie de volgende artikelen voor meer informatie over gereserveerde virtuele Machine-exemplaren.
+Zie voor meer informatie over gereserveerde exemplaren van Azure, de volgende artikelen:
 
-- [Vooruitbetalen voor virtuele Machines met een gereserveerde VM-exemplaren](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Exemplaren van de gereserveerde virtuele Machine beheren](billing-manage-reserved-vm-instance.md)
-- [Geld besparen op virtuele machines met een gereserveerde virtuele Machine-exemplaren](billing-save-compute-costs-reservations.md)
-- [Begrijpen hoe de korting exemplaar van de gereserveerde virtuele Machine wordt toegepast](billing-understand-vm-reservation-charges.md)
+- [Geld besparen op virtuele machines met gereserveerde exemplaren van Azure](billing-save-compute-costs-reservations.md)
+- [Vooruitbetalen voor virtuele Machines met gereserveerde exemplaren](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Gereserveerde exemplaren beheren](billing-manage-reserved-vm-instance.md)
+- [Begrijpen hoe de gereserveerde exemplaar korting wordt toegepast](billing-understand-vm-reservation-charges.md)
 - [Gebruik van de gereserveerde exemplaar voor uw abonnement op gebruiksbasis begrijpen](billing-understand-reserved-instance-usage.md)
 - [Gereserveerde exemplaar gebruiksgegevens voor uw Enterprise enrollment begrijpen](billing-understand-reserved-instance-usage-ea.md)
+
+## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
+
+Als u nog steeds meer vragen hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ophalen van uw probleem snel worden opgelost.
+
+
+

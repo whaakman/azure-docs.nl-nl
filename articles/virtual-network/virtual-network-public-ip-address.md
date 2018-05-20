@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 8c052b45a0db42e2220c052b03f53f538de107ab
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c28d409bbdb7a4100f2bb9f00ff6f58a13855ea4
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Maken, wijzigen of verwijderen van een openbaar IP-adres
 
-Meer informatie over een openbaar IP-adres en het maken, wijzigen en verwijderen. Een openbaar IP-adres is een resource met een eigen configureerbare instellingen. Een openbaar IP-adres toewijzen aan andere Azure-resources kunt:
-- Verbinding met Internet tot bronnen, zoals virtuele Machines van Azure, Azure virtuele Machine-Schaalsets, Azure VPN-Gateway, Toepassingsgateways en internetgerichte Azure Load Balancers voor binnenkomend verkeer. Azure-resources kunnen niet ontvangen van binnenkomende communicatie van Internet, zonder een toegewezen openbare IP-adres. Hoewel sommige Azure-resources inherent toegankelijk zijn via openbare IP-adressen, moeten de andere bronnen openbare IP-adressen toegewezen aan deze toegankelijk is vanaf het Internet hebben.
-- Uitgaande verbinding met Internet via een voorspelbare IP-adres. Een virtuele machine kan bijvoorbeeld communiceren uitgaande met Internet, zonder een openbaar IP-adres toegewezen, maar het adres is vertaald door Azure op een onvoorspelbare openbaar adres netwerkadres. Een openbaar IP-adres toewijzen aan een resource, kunt u weten welk IP-adres wordt gebruikt voor de uitgaande verbinding. Hoewel voorspelbare, kunt het adres wijzigen, afhankelijk van de gekozen toewijzingsmethode. Zie voor meer informatie [maken van een openbaar IP-adres](#create-a-public-ip-address). Voor meer informatie over uitgaande verbindingen van Azure-resources, lees de [begrijpen uitgaande verbindingen](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artikel.
+Meer informatie over een openbaar IP-adres en het maken, wijzigen en verwijderen. Een openbaar IP-adres is een resource met een eigen configureerbare instellingen. Een openbaar IP-adres toewijzen aan een Azure-resource die ondersteuning biedt voor openbare IP-adressen maakt:
+- Inkomende communicatie via Internet tot de resource, zoals Azure virtuele Machines (VM), Toepassingsgateways Azure, Azure Load Balancers, Azure VPN-Gateways en anderen. U kunt nog steeds communiceren met een aantal bronnen, zoals virtuele machines, vanaf het Internet als een virtuele machine geen een openbaar IP-adres is toegewezen, zolang de virtuele machine deel van een load balancer back-end-pool uitmaakt en de load balancer een openbaar IP-adres is toegewezen. Om te bepalen of een resource voor een specifieke Azure-service kan worden toegewezen een openbaar IP-adres, of of het kan worden gecommuniceerd met via het openbare IP-adres van een andere Azure-resource, Zie de documentatie voor de service. 
+- Uitgaande verbinding met Internet via een voorspelbare IP-adres. Een virtuele machine kan bijvoorbeeld communiceren uitgaande met Internet, zonder een openbaar IP-adres toegewezen, maar het adres is vertaald door Azure op een onvoorspelbare openbaar adres standaard netwerkadres. Een openbaar IP-adres toewijzen aan een resource, kunt u weten welk IP-adres wordt gebruikt voor de uitgaande verbinding. Hoewel voorspelbare, kunt het adres wijzigen, afhankelijk van de gekozen toewijzingsmethode. Zie voor meer informatie [maken van een openbaar IP-adres](#create-a-public-ip-address). Zie voor meer informatie over uitgaande verbindingen van Azure-resources, [begrijpen uitgaande verbindingen](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="before-you-begin"></a>Voordat u begint
 

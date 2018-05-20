@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/11/2018
 ms.author: adigan,markgal
-ms.openlocfilehash: 99ac43efa5d3211bbe2d790f28532e682058313c
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 19067b40e8e87c160515d13bb490e7c1604788b6
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Back-up van bestanden en toepassingen op Azure-Stack
 U kunt Azure back-up beveiligen (of back-up) bestanden en toepassingen op Azure-Stack. Als u wilt back-up van bestanden en toepassingen, Microsoft Azure Backup-Server te installeren als een virtuele machine uitgevoerd op Azure-Stack. U kunt alle toepassingen, die op elke server Azure-Stack in hetzelfde virtuele netwerk kunt beveiligen. Eenmaal u Azure Backup-Server hebt geïnstalleerd, voegt Azure-schijven voor een verhoging van de lokale opslag beschikbaar voor back-upgegevens op korte termijn. Azure Backup-Server gebruikmaakt van Azure-opslag op lange termijn.
@@ -64,7 +64,7 @@ Azure Backup-Server slaat de back-upgegevens op Azure schijven zijn gekoppeld aa
 
 Back-upgegevens opslaan in Azure, vermindert back-upinfrastructuur op Azure-Stack. Als gegevens niet meer dan vijf dagen, moet worden opgeslagen in Azure.
 
-Als u wilt back-gegevens opslaat in Azure, maken of gebruiken van een Recovery Services-kluis. Bij de voorbereiding op de back-up van de werkbelasting van de Azure Backup-Server, wordt u [configureren van de Recovery Services-kluis](backup-azure-microsoft-azure-backup.md#recovery-services-vault). Na de configuratie, elke keer die een back-uptaak wordt uitgevoerd, wordt er een herstelpunt gemaakt in de kluis. Elke Recovery Services-kluis bevat tot 9999 herstelpunten. Afhankelijk van het aantal herstelpunten die zijn gemaakt en hoe lang ze blijven behouden, kunt u back-upgegevens jaren behouden. U kan bijvoorbeeld maandelijks herstelpunten maken en deze gedurende vijf jaar te handhaven.
+Als u wilt back-gegevens opslaat in Azure, maken of gebruiken van een Recovery Services-kluis. Bij het voorbereiden van de back-up van de werkbelasting van de Azure Backup-Server, u [configureren van de Recovery Services-kluis](backup-azure-microsoft-azure-backup.md#create-a-recovery-services-vault). Na de configuratie, elke keer die een back-uptaak wordt uitgevoerd, wordt er een herstelpunt gemaakt in de kluis. Elke Recovery Services-kluis bevat tot 9999 herstelpunten. Afhankelijk van het aantal herstelpunten die zijn gemaakt en hoe lang ze blijven behouden, kunt u back-upgegevens jaren behouden. U kan bijvoorbeeld maandelijks herstelpunten maken en deze gedurende vijf jaar te handhaven.
  
 ### <a name="using-sql-server"></a>Met behulp van SQL Server
 Als u een externe SQL Server gebruikt voor de Azure Backup-Server-database wilt, selecteert u alleen een Stack van virtuele machine van Azure met SQL Server.

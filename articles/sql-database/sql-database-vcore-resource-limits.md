@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 05/15/2018
 ms.author: carlrab
-ms.openlocfilehash: fc32ba4858e7be901d2cd4d773491247e9e0e672
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d225af55a705d56a94bb0e8dcfcc938b64f3633a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-preview"></a>Azure SQL Database vCore gebaseerde aanschaffen van een model limieten (preview)
 
@@ -174,7 +174,7 @@ De volgende tabellen geven voor de elastische pools SQL-Database, de beschikbare
 |||
 
 #### <a name="generation-5-compute-platform"></a>Rekenplatform generatie 5
-|Prestatieniveau|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_48|BC_Gen5_80|
+|Prestatieniveau|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_48|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |Generatie H/W|5|5|5|5|5|5|5|5|
 |vCores|2|4|8|16|24|32|48|80|
@@ -226,7 +226,7 @@ De volgende tabellen geven voor de elastische pools SQL-Database, de beschikbare
 |Prestatieniveau|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_48|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |Generatie H/W|5|5|5|5|5|5|5|5|
-|vCores|2|4|8|16|24|48|64|80|
+|vCores|2|4|8|16|24|32|48|80|
 |Geheugen (GB)|11|22|44|88|132|176|264|440|
 |Columnstore-ondersteuning|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |In het geheugen OLTP-opslag (GB)|1.571|3,142|6.284|15.768|25.252|37.936|68.104|131.64|

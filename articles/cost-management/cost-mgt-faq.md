@@ -10,11 +10,11 @@ ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: af6e15a86107aeb74a20c3e78a8f91f07d6d377a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 01d880a668140b5a7ffcff8947ccc6083bca7ea0
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Veelgestelde vragen over Azure kosten Management
 
@@ -148,4 +148,4 @@ Nee. Agents worden niet gebruikt. Metrische gegevens van de virtuele machine van
 
 ## <a name="do-cloudyn-reports-show-more-than-one-ad-tenant-per-report"></a>Kunnen Cloudyn rapporten meer dan één AD-tenant per rapport weergeven?
 
-Ja. U kunt [een overeenkomstige entiteit voor de cloud-account maken](tutorial-user-access.md#create-entities) voor elk AD-tenant die u hebt. U kunt vervolgens alle van de gegevens van uw Azure AD-tenant en andere platform cloudproviders zoals Amazon Web Services en Google Cloud Platform weergeven.
+Ja. U kunt [een overeenkomstige entiteit voor de cloud-account maken](tutorial-user-access.md#create-and-manage-entities) voor elk AD-tenant die u hebt. U kunt vervolgens alle van de gegevens van uw Azure AD-tenant en andere platform cloudproviders zoals Amazon Web Services en Google Cloud Platform weergeven.

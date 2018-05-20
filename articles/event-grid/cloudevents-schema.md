@@ -5,14 +5,14 @@ services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: babanisa
-ms.openlocfilehash: 31af59fd7057bef6e427f08cef695688dc2111d1
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 23187fbc230e384984085d330bfbfbc90cc9f945
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Gebruik CloudEvents schema met gebeurtenis raster
 
@@ -59,14 +59,14 @@ CloudEvents v0.1 heeft de volgende eigenschappen beschikbaar:
 
 | CloudEvents        | Type     | Voorbeeld van de JSON-waarde             | Beschrijving                                                        | Gebeurtenis raster toewijzing
 |--------------------|----------|--------------------------------|--------------------------------------------------------------------|-------------------------
-| EventType          | Tekenreeks   | 'com.example.someevent'          | Type gebeurtenis die hebben plaatsgevonden                                   | EventType
-| eventTypeVersion   | Tekenreeks   | "1.0"                            | De versie van de eventType (optioneel)                            | dataVersion
-| cloudEventsVersion | Tekenreeks   | '0,1'                            | De versie van de CloudEvents-specificatie die gebruikmaakt van de gebeurtenis        | *doorgegeven*
+| EventType          | Reeks   | 'com.example.someevent'          | Type gebeurtenis die hebben plaatsgevonden                                   | EventType
+| eventTypeVersion   | Reeks   | "1.0"                            | De versie van de eventType (optioneel)                            | dataVersion
+| cloudEventsVersion | Reeks   | '0,1'                            | De versie van de CloudEvents-specificatie die gebruikmaakt van de gebeurtenis        | *doorgegeven*
 | source             | URI      | ' / mycontext '                     | Beschrijft de producent gebeurtenis                                       | onderwerp #subject
-| Gebeurtenis-id            | Tekenreeks   | '1234-1234-1234'                 | ID van de gebeurtenis                                                    | id
+| Gebeurtenis-id            | Reeks   | '1234-1234-1234'                 | ID van de gebeurtenis                                                    | id
 | eventTime          | Timestamp| ' 2018-04-05T17:31:00Z '           | Tijdstempel van wanneer de gebeurtenis heeft plaatsgevonden (optioneel)                    | eventTime
 | schemaURL          | URI      | "https://myschema.com"           | Een koppeling naar het schema dat het kenmerk overeenstemming is met (optioneel) | *niet gebruikt*
-| ContentType        | Tekenreeks   | 'application/json'               | Beschrijf de coderingsindeling van de gegevens (optioneel)                       | *niet gebruikt*
+| ContentType        | Reeks   | 'application/json'               | Beschrijf de coderingsindeling van de gegevens (optioneel)                       | *niet gebruikt*
 | Uitbreidingen         | Kaart      | {{'extA': 'vA', 'extB', "vB"}  | Alle aanvullende metagegevens (optioneel)                                 | *niet gebruikt*
 | gegevens               | Object   | {{'objA': 'vA', 'objB', "vB"}  | De nettolading (optioneel)                                       | gegevens
 

@@ -39,7 +39,7 @@
           href: search-fiddler.md
 - name: Zelfstudies
   items:
-    - name: Indexeren met Cognitief zoeken
+    - name: Ontwikkeling van Cognitief zoeken
       href: cognitive-search-tutorial-blob.md
     - name: Azure SQL Database indexeren
       href: search-indexer-tutorial.md
@@ -73,11 +73,11 @@
   items:
     - name: Plannen en ontwerpen
       items:
-        - name: Een SKU kiezen
+        - name: Een laag kiezen
           href: search-sku-tier.md
         - name: Servicelimieten
           href: search-limits-quotas-capacity.md
-        - name: Schaalbaarheid van service
+        - name: Partities en replica's toewijzen
           href: search-capacity-planning.md
         - name: Patronen voor multitenancy ontwerpen
           href: search-modeling-multitenant-saas-applications.md

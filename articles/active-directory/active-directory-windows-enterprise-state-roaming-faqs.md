@@ -3,7 +3,7 @@ title: Instellingen en veelgestelde vragen voor dataroaming | Microsoft Docs
 description: Biedt antwoorden op enkele vragen IT-beheerders wellicht over de instellingen en synchroniseren van app-gegevens.
 services: active-directory
 keywords: Enterprise state roaming instellingen windows cloud, veelgestelde vragen op enterprise state roaming
-documentationcenter: 
+documentationcenter: ''
 author: tanning
 manager: mtillman
 editor: curtand
@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 05/14/2018
 ms.author: markvi
-ms.openlocfilehash: 0aac3a9d3595ea0e761ba14070bf7cff4d4b264c
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f33376d5f68d64495a7a90e62870f3ec14f73246
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="settings-and-data-roaming-faq"></a>Veelgestelde vragen over instellingen en gegevensroaming
-In dit onderwerp worden enkele vragen beantwoord IT-beheerders over de instellingen en synchroniseren van app-gegevens hebben kunnen.
+Dit artikel worden enkele vragen die IT-beheerders over de instellingen en synchroniseren van app-gegevens hebben kunnen.
 
 ## <a name="what-data-roams"></a>Welke gegevens roamt?
 **Windows-instellingen**: de PC-instellingen die zijn ingebouwd in de Windows-besturingssysteem. Over het algemeen dit zijn instellingen die uw PC aanpassen, en bestaan uit de volgende categorieën:
@@ -70,12 +70,12 @@ Als u geen persoonlijke gegevens op uw zakelijke apparaat opgeslagen, moet u zic
 In de versies November 2015 of hoger van Windows 10 wordt Enterprise State Roaming alleen ondersteund voor één account op een tijdstip. Als u zich aanmeldt bij Windows met een werk- of Azure AD-account schoolaccount, worden alle gegevens worden gesynchroniseerd via Azure AD. Als u zich aanmeldt bij Windows met behulp van een persoonlijk Microsoft-account, worden alle gegevens worden gesynchroniseerd via het Microsoft-account. Universele appdata wordt roamen met alleen het primaire-in-account op het apparaat en wordt deze alleen als de app-licentie is eigendom van het hoofdaccount roamen. Universele appdata voor de apps die eigendom zijn van een secundaire accounts worden niet gesynchroniseerd.
 
 ## <a name="do-settings-sync-for-azure-ad-accounts-from-multiple-tenants"></a>Synchroniseer instellingen voor Azure AD-accounts van meerdere tenants?
-Wanneer meerdere Azure AD-accounts van verschillende Azure AD-tenants, zijn op hetzelfde apparaat, moet u de registersleutel van het apparaat om te communiceren met Azure Rights Management (Azure RMS) voor elke Azure AD-tenant bijwerken.  
+Wanneer meerdere Azure AD-accounts van verschillende Azure AD-tenants, zijn op hetzelfde apparaat, moet u de registersleutel van het apparaat om te communiceren met de Azure Rights Management-service voor elke Azure AD-tenant bijwerken.  
 
-1. De GUID voor elke Azure AD-tenant niet vinden. De Azure portal openen en selecteer een Azure AD-tenant. De GUID voor de tenant is op de pagina Eigenschappen voor de geselecteerde tenant (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties) met het label **map-ID**. 
+1. De GUID voor elke Azure AD-tenant niet vinden. De Azure portal openen en selecteer een Azure AD-tenant. De GUID voor de tenant is op de pagina Eigenschappen voor de geselecteerde tenant (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties), gelabelde **map-ID**. 
 2. Nadat u de GUID hebt, moet u de registersleutel toevoegen **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<tenant-ID GUID >**.
    Van de **tenant-ID GUID** sleutel, maakt u een nieuwe waarde met meerdere tekenreeksen (REG-MULTI-SZ) te gebruiken met de naam **AllowedRMSServerUrls**. Geef de licentieverlening distribution point URL's van de andere Azure-tenants die het apparaat toegang heeft tot voor de gegevens.
-3. U vindt de distribution point URL's voor licentieverlening door het uitvoeren van de **Get-AadrmConfiguration** cmdlet. Als de waarden voor de **LicensingIntranetDistributionPointUrl** en **LicensingExtranetDistributionPointUrl** verschillend zijn, beide waarden opgeven. Als de waarden hetzelfde zijn, maar één keer de waarde opgeven.
+3. U vindt de distribution point URL's voor licentieverlening door het uitvoeren van de **Get-AadrmConfiguration** cmdlet uit de module AADRM. Als de waarden voor de **LicensingIntranetDistributionPointUrl** en **LicensingExtranetDistributionPointUrl** verschillend zijn, beide waarden opgeven. Als de waarden hetzelfde zijn, maar één keer de waarde opgeven.
 
 ## <a name="what-are-the-roaming-settings-options-for-existing-windows-desktop-applications"></a>Wat zijn de opties voor roaming voor een bestaande Windows-bureaubladtoepassingen?
 Roaming werkt alleen voor universele Windows-apps. Er zijn twee opties beschikbaar voor het inschakelen van roaming op een bestaande Windows desktop-toepassing:
@@ -95,9 +95,9 @@ Microsoft kan in de toekomst manieren UE-V is nauw geïntegreerd in Windows make
 Enterprise State Roaming, worden alle gesynchroniseerde gegevens opgeslagen in de Azure-cloud. UE-V biedt een on-premises oplossing roaming.
 
 ## <a name="who-owns-the-data-thats-being-roamed"></a>Wie is eigenaar van de gegevens die wordt wordt zwerven?
-De eigen ondernemingen de gegevens zwerven via Enterprise State Roaming. Gegevens worden opgeslagen in een Azure-datacenter. Alle gebruikersgegevens worden versleuteld onderweg zowel in rust in de cloud met Azure RMS. Dit is een verbetering ten opzichte van Microsoft-account gebaseerde instellingen sync, waarmee alleen bepaalde gevoelige gegevens, zoals de gebruikersreferenties worden versleuteld voordat deze het apparaat zal verlaten.
+De eigen ondernemingen de gegevens zwerven via Enterprise State Roaming. Gegevens worden opgeslagen in een Azure-datacenter. Alle gebruikersgegevens worden versleuteld onderweg zowel in rust in de cloud met behulp van de Azure Rights Management-service van Azure Information Protection. Dit is een verbetering ten opzichte van Microsoft-account gebaseerde instellingen sync, waarmee alleen bepaalde gevoelige gegevens, zoals de gebruikersreferenties worden versleuteld voordat deze het apparaat zal verlaten.
 
-Microsoft hecht veel belang aan het beveiligen van gegevens van de klant. Een enterprise-gebruiker instellingsgegevens worden automatisch versleuteld door Azure RMS voordat u het Windows 10-apparaat, zodat er geen andere gebruiker deze gegevens kan lezen. Als uw organisatie beschikt over een betaald abonnement voor Azure RMS, u kunt gebruiken van andere Azure RMS-functies, zoals bijhouden en intrekken van documenten, automatisch e-mailberichten met gevoelige informatie te beveiligen en uw eigen sleutels beheren (de 'bring your own key'-oplossing ook ook wel BYOK). Zie voor meer informatie over deze functies en hoe Azure RMS werkt [wat is Azure Rights Management](https://technet.microsoft.com/jj585026.aspx).
+Microsoft hecht veel belang aan het beveiligen van gegevens van de klant. Een enterprise-gebruiker instellingsgegevens worden automatisch versleuteld door de Azure Rights Management-service voordat u het Windows 10-apparaat, zodat er geen andere gebruiker deze gegevens kan lezen. Als uw organisatie beschikt over een betaald abonnement voor Azure Rights Management-service, u kunt gebruiken van andere onderdelen van de beveiliging, zoals bijhouden en intrekken van documenten, automatisch e-mailberichten met gevoelige informatie te beveiligen en uw eigen sleutels beheren (de 'bring Your own key' oplossing, ook wel BYOK). Zie voor meer informatie over deze functies en hoe deze beveiligingsservice werkt [wat is Azure Rights Management](https://docs.microsoft.com/azure/information-protection/understand-explore/what-is-information-protection).
 
 ## <a name="can-i-manage-sync-for-a-specific-app-or-setting"></a>Kan ik synchronisatie voor een specifieke app of -instellingen beheren?
 In Windows 10 is er geen MDM of Groepsbeleid-instelling uitschakelen roaming voor een afzonderlijke toepassing. Tenantbeheerders kunnen uitschakelen appdata synchronisatie voor alle apps op een beheerd apparaat, maar er is geen mate van controle op een per-app of in-app-niveau.
@@ -116,8 +116,8 @@ Wanneer u Enterprise State Roaming en UE-V, gelden de volgende regels:
 ## <a name="how-does-enterprise-state-roaming-support-virtual-desktop-infrastructure-vdi"></a>Hoe Enterprise State Roaming ondersteunt virtuele desktopinfrastructuur (VDI)?
 Enterprise State Roaming wordt ondersteund op SKU's voor Windows 10-client, maar niet op server SKU's. Als een client virtuele machine wordt gehost op een hypervisor-machine en u extern bij de virtuele machine aanmelden, wordt uw gegevens kunnen roamen. Als gebruikers zich extern aanmelden bij een server voor een volledige Bureaubladervaring meerdere gebruikers delen de dezelfde OS roaming werkt mogelijk niet. Het tweede scenario op basis van een sessie wordt niet officieel ondersteund.
 
-## <a name="what-happens-when-my-organization-purchases-azure-rms-after-using-roaming"></a>Wat gebeurt er als mijn organisatie Azure RMS koopt na gebruik van zwervende?
-Als uw organisatie al wordt gebruikt in Windows 10 met het Azure RMS beperkt gebruik gratis abonnement, zwervende aanschaf van een betaald abonnement voor Azure RMS heeft geen invloed op de functionaliteit van de functie voor zwervende en geen configuratiewijzigingen vereist zijn door uw IT-beheerder.
+## <a name="what-happens-when-my-organization-purchases-a-subscription-that-includes-azure-rights-management-after-using-roaming"></a>Wat gebeurt er als mijn organisatie een abonnement koopt inclusief Azure Rights Management na gebruik van zwervende?
+Als uw organisatie al wordt gebruikt in Windows 10 met het gratis abonnement voor Azure Rights Management-beperkt gebruik roaming, aanschaffen van een [betaald abonnement](https://azure.microsoft.com/pricing/details/information-protection/) die de Azure Rights Management protection-service geen heeft bevat invloed op de functionaliteit van de functie voor zwervende en er zijn geen configuratiewijzigingen moet door uw IT-beheerder.
 
 ## <a name="known-issues"></a>Bekende problemen
 Zie de documentatie in de [probleemoplossing](active-directory-windows-enterprise-state-roaming-troubleshooting.md) sectie voor een lijst met bekende problemen. 

@@ -15,11 +15,11 @@ ms.date: 02/06/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 61426d992e279cf88ae9750f0047b0cd81a797e3
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: ea6817f80925c1989db13488472457e44801e7a8
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Toepassingen van jokertekens in de Azure Active Directory-toepassingsproxy 
 
@@ -112,7 +112,7 @@ Als u deze optie gebruikt, moet u ook een andere CNAME-vermelding voor de waarde
 
 De jokerteken-toepassing wordt weergegeven met slechts één tegel in de [MyApps Configuratiescherm](https://myapps.microsoft.com). Deze tegel is standaard verborgen. De tegel weergeven en hebben gebruikers land op een bepaalde pagina:
 
-1. Volg de richtlijnen voor [instellen van een URL startpagina](application-proxy-office365-app-launcher.md).
+1. Volg de richtlijnen voor [instellen van een URL startpagina](manage-apps/application-proxy-configure-custom-home-page.md).
 2. Stel **toepassing weergeven** naar **waar** op de eigenschappenpagina van de toepassing.
 
 ### <a name="kerberos-constrained-delegation"></a>Kerberos-beperkte overdracht

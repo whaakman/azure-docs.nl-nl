@@ -15,11 +15,11 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 227792bcf5776b4fd13c263e02aa462b4d2d104f
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 58bcb3cbdf389393beb58a9f50b3e77aa2b3aae8
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>Aan de slag met Application Proxy en installeer de connector
 Dit artikel beschrijft de stappen die nodig zijn om Microsoft Azure AD-toepassingsproxy in te schakelen voor uw clouddirectory in Azure AD.
@@ -33,7 +33,7 @@ Voordat u de services voor toepassingsproxy kunt inschakelen en gebruiken, moet 
 * Een server met Windows Server 2012 R2 of 2016, waarop u de Connector voor toepassingsproxy kunt installeren. De server moet verbinding maken met de services voor toepassingsproxy in de cloud en de on-premises toepassingen die u wilt publiceren.
   * Voor eenmalige aanmelding voor uw gepubliceerde toepassingen met behulp van Kerberos-beperkte overdracht, moet deze machine worden domein in hetzelfde AD-domein als de toepassingen die u wilt publiceren. Zie voor informatie [KCD voor eenmalige aanmelding met toepassingsproxy](application-proxy-configure-single-sign-on-with-kcd.md).
 
-Als uw organisatie gebruikmaakt van proxy-servers verbinding maken met internet, leest u [werken met bestaande lokale proxyservers](../application-proxy-working-with-proxy-servers.md) voor meer informatie over het configureren voordat u aan de slag met Application Proxy.
+Als uw organisatie gebruikmaakt van proxy-servers verbinding maken met internet, leest u [werken met bestaande lokale proxyservers](application-proxy-configure-connectors-with-proxy-servers.md) voor meer informatie over het configureren voordat u aan de slag met Application Proxy.
 
 ## <a name="open-your-ports"></a>De poorten openen
 
@@ -51,7 +51,7 @@ Als u uw omgeving voorbereiden voor Azure AD-toepassingsproxy, moet u eerst de c
    > [!IMPORTANT]
    > De tabel geeft de Poortvereisten voor de connector versies 1.5.132.0 en nieuwer. Als u nog steeds een oudere versie van de connector hebt, moet u ook de volgende poorten 80 en 443: 5671 8080, naast het inschakelen 9090-9091 9350, 9352, 10100 – 10120.
    >
-   >Zie voor meer informatie over het bijwerken van uw connectors naar de nieuwste versie [inzicht in Azure AD-toepassingsproxy connectors](../application-proxy-understand-connectors.md#automatic-updates).
+   >Zie voor meer informatie over het bijwerken van uw connectors naar de nieuwste versie [inzicht in Azure AD-toepassingsproxy connectors](application-proxy-connectors.md#automatic-updates).
 
 2. Als uw firewall of proxyserver kunt DNS-whitelisting, kunt u geaccepteerde verbindingen met msappproxy.net en servicebus.windows.net. Als u niet het geval is, moet u toegang tot de [Azure DataCenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), dat elke week worden bijgewerkt.
 
@@ -99,10 +99,10 @@ Controleer de lijst met actieve services voor de connector en de connector updat
 
    ![Connectorservices voor toepassingsproxy - schermafbeelding](./media/application-proxy-enable/app_proxy_services.png)
 
-Zie voor meer informatie over connectors en hoe deze actueel blijven [inzicht in Azure AD-toepassingsproxy connectors](../application-proxy-understand-connectors.md).
+Zie voor meer informatie over connectors en hoe deze actueel blijven [inzicht in Azure AD-toepassingsproxy connectors](application-proxy-connectors.md).
 
 
 ## <a name="next-steps"></a>Volgende stappen
 U bent nu klaar om [toepassingen te publiceren met toepassingsproxy](application-proxy-publish-azure-portal.md).
 
-Als u toepassingen die op afzonderlijke netwerken of verschillende locaties hebt, kunt u de connector groepen gebruiken voor de verschillende connectors delen in logische eenheden. Meer informatie over [Working with Application Proxy connectors](../active-directory-application-proxy-connectors-azure-portal.md) (Werken met connectoren voor toepassingsproxy).
+Als u toepassingen die op afzonderlijke netwerken of verschillende locaties hebt, kunt u de connector groepen gebruiken voor de verschillende connectors delen in logische eenheden. Meer informatie over [Working with Application Proxy connectors](application-proxy-connector-groups.md) (Werken met connectoren voor toepassingsproxy).

@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: e9d0691876a417fe8665bed2d712d643a4364120
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1c3ea5b041cf2a961ef57bc168ae86b83412e044
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Daarom wilt u meer informatie over Service Fabric?
 Azure Service Fabric is een gedistribueerde systemen platform waarmee u gemakkelijk pakket, implementeren en beheren van schaalbare en betrouwbare microservices.  Service Fabric is een grote oppervlak echter en is er veel voor meer informatie.  In dit artikel biedt een overzicht van Service Fabric en beschrijft de belangrijkste concepten, programmeren van de levenscyclus van de toepassing, testen, clusters en statuscontrole-modellen. Lees de [overzicht](service-fabric-overview.md) en [wat zijn microservices?](service-fabric-overview-microservices.md) voor een inleiding en hoe Service Fabric kunnen worden gebruikt voor het maken van microservices. In dit artikel bevat een uitgebreide lijst van de inhoud niet, maar koppelen aan het overzicht en ophalen van gestarte artikelen voor elk gebied van Service Fabric. 
@@ -97,7 +97,7 @@ Service Fabric kan worden geïntegreerd met [ASP.NET Core](service-fabric-reliab
 - Als het uitvoerbare bestand van een gastbesturingssysteem wordt gehost. Dit is vooral op bestaande ASP.NET Core toepassingen uitvoeren op Service Fabric zonder wijzigingen code gebruikt.
 - Binnen een betrouwbare Service uitgevoerd. Dit kunt betere integratie met de Service Fabric-runtime en stateful ASP.NET Core services.
 
-### <a name="guest-executables"></a>Gast uitvoerbare bestanden
+### <a name="guest-executables"></a>Uitvoerbare gastbestanden
 Een [Gast uitvoerbaar bestand](service-fabric-guest-executables-introduction.md) is een bestaande, willekeurige uitvoerbaar bestand (geschreven in een andere taal) die worden gehost op een Service Fabric-cluster goed samen met andere services. Uitvoerbare bestanden Gast kan niet rechtstreeks te integreren met Service Fabric-API's. Maar ze nog steeds profiteren van het platform, zoals aangepaste health biedt functies laden reporting en zichtbaarheid service door het aanroepen van REST-API's. Ze hebben ook de volledige toepassing lifecycle ondersteuning. 
 
 ## <a name="application-lifecycle"></a>Toepassingslevenscyclus
@@ -155,7 +155,7 @@ Clusters moeten worden beveiligd om te voorkomen dat onbevoegde gebruikers verbi
 De cluster security scenario's:
 * Knooppunt naar beveiliging
 * Beveiliging van de client-naar-knooppunt
-* Op rollen gebaseerde toegangsbeheer (RBAC)
+* Toegangsbeheer op basis van rollen (RBAC)
 
 Lees voor meer informatie [beveiligen van een cluster](service-fabric-cluster-security.md).
 

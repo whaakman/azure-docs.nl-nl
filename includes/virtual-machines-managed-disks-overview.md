@@ -47,7 +47,7 @@ We gaan deze nader bekijken.
 **Opslagtype:** beheerde schijven biedt 2 prestatielagen: [Premium](../articles/virtual-machines/windows/premium-storage.md) (SSD-gebaseerde) en [standaard](../articles/virtual-machines/windows/standard-storage.md) (gebaseerd op harde schijf). De facturering van een beheerde schijf is afhankelijk van welk type opslagruimte die u hebt geselecteerd voor de schijf.
 
 
-**Schijfgrootte**: facturering voor beheerde schijven, is afhankelijk van de ingerichte grootte van de schijf. De grootte van de ingerichte (naar boven afronden) Azure toegewezen aan de dichtstbijzijnde schijven beheerd optie zoals opgegeven in de onderstaande tabellen. Elke beheerde schijf toegewezen aan een van de ondersteunde ingerichte grootten en dienovereenkomstig wordt gefactureerd. Bijvoorbeeld, als u een standard-beheerde schijven maken en geef een ingerichte grootte van 200 GB, u worden kosten in rekening gebracht volgens de prijzen van het type S20 schijf.
+**Schijfgrootte**: facturering voor beheerde schijven, is afhankelijk van de ingerichte grootte van de schijf. De grootte van de ingerichte (naar boven afronden) Azure toegewezen aan de dichtstbijzijnde schijven beheerd optie zoals opgegeven in de onderstaande tabellen. Elke beheerde schijf toegewezen aan een van de ondersteunde ingerichte grootten en dienovereenkomstig wordt gefactureerd. Bijvoorbeeld, als u een standard-beheerde schijven maken en geef een ingerichte grootte van 200 GB, u worden kosten in rekening gebracht volgens de prijzen van het type S15 schijf.
 
 Hier volgen de schijfgrootte beschikbaar voor premium-beheerde schijven:
 
@@ -58,9 +58,9 @@ Hier volgen de schijfgrootte beschikbaar voor premium-beheerde schijven:
 
 Hier volgen de schijfgrootte beschikbaar voor een standard-beheerde schijven:
 
-| **Standaard beheerde <br>schijftype** | **S4** | **S6** | **S10** | **S20** | **S30** | **S40** | **S50** |
-|------------------|---------|---------|--------|--------|----------------|----------------|----------------| 
-| Schijfgrootte        | 32 GiB   | 64 GiB   | 128 GiB | 512 GiB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
+| **Standaard beheerde <br>schijftype** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** |
+|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------| 
+| Schijfgrootte        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
 
 
 **Het aantal transacties**: U wordt gefactureerd voor het aantal transacties die u op een standard-beheerde schijven uitvoert. Er is geen kosten voor transacties voor een premium-beheerde schijven.

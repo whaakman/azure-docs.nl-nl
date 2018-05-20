@@ -2,10 +2,10 @@
 title: Problemen bij het installeren van de Agent Connector voor toepassingsproxy | Microsoft Docs
 description: Het oplossen van problemen die u mee te maken mogelijk bij het installeren van de Connector voor toepassingsproxy-Agent
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 8fbd707b6708661ab0d655afadff2b18694a981e
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 70d2f159c5485009e36aa80dfa8b73f9b3cf4ec1
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problemen bij het installeren van de Connector voor toepassingsproxy-Agent
 
@@ -69,4 +69,4 @@ Verbinding maken met <https://login.microsoftonline.com> en dezelfde referenties
 Selecteer uw gebruikersaccount, klikt u vervolgens 'Directory rol' in het resulterende menu. Controleer of de geselecteerde rol 'Globale beheerder'. Als u geen toegang tot alle pagina's langs deze stappen zijn, bent u niet een globale beheerder.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Azure AD-toepassingsproxy connectors begrijpen](application-proxy-understand-connectors.md)
+[Azure AD-toepassingsproxy connectors begrijpen](manage-apps/application-proxy-connectors.md)

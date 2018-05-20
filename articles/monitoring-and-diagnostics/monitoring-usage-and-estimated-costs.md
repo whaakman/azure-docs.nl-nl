@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: 08991565d56ffbf7d798944f108a1b86e4463c58
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6cc35697573ae2997f289f67c7867d9c522149be
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Bewaking en de geschatte kosten
 
@@ -92,7 +92,7 @@ Het nieuwe prijsmodel vereenvoudigt Log Analytics en Application Insights prijze
 De schatting van de kosten worden de effecten van deze wijzigingen.
 
 > [!WARNING]
-> Belangrijke opmerking als u Azure Resource Manager of PowerShell gebruiken voor het implementeren van hier [logboekanalyse](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration) of [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-powershell) prijzen in een abonnement dat u hebt verplaatst naar het nieuwe model. Als u een laag/prijsstelling dan de 'pergb2018' voor logboekanalyse of 'Basic' voor Application Insights opgeeft, plaats mislukt de implementatie vanwege een ongeldige prijzen laag/plan, geven deze slaagt **maar alleen het geldige wordt gebruikt laag/plan prijzen**. 
+> Belangrijke opmerking als u Azure Resource Manager of PowerShell gebruiken voor het implementeren van hier [logboekanalyse](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration) of [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-powershell) prijzen in een abonnement dat u hebt verplaatst naar het nieuwe model. Als u een laag/prijsstelling dan de 'pergb2018' voor logboekanalyse of 'Basic' voor Application Insights opgeeft, plaats mislukt de implementatie vanwege een ongeldige prijzen laag/plan, geven deze slaagt **maar alleen het geldige wordt gebruikt laag/plan prijzen** (dit geldt niet voor de Log Analytics gratis laag waar een ongeldig prijscategorie laag bericht wordt gegenereerd).
 >
 
 ## <a name="moving-to-the-new-pricing-model"></a>Verplaatsen naar het nieuwe prijsmodel

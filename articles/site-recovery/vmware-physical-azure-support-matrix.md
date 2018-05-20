@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: raynew
-ms.openlocfilehash: 8269b91ea3459fd9e391d46f0b3e78bc7e5b3b41
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: a7e0455d92635b7767227685b622bdae303f9621
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matrix-ondersteuning voor VMware en fysieke server-replicatie naar Azure
 
@@ -145,7 +145,8 @@ Versneld netwerken | Nee
 **Onderdeel** | **Ondersteund**
 --- | ---
 Host NFS | Ja voor VMware<br/><br/> Er is geen voor fysieke servers
-Host-SAN (ISCSI) | Ja
+Host (iSCSI/FC) SAN | Ja
+Host virtueel SAN | Ja voor VMware<br/><br/> Niet van toepassing op fysieke servers
 Host MPIO (Multipath I/O) | Ja, getest met Microsoft DSM, EMC PowerPath 5.7 SP4 EMC PowerPath DSM voor CLARiiON
 Virtuele Hostvolumes (VVols) | Ja voor VMware<br/><br/> Niet van toepassing op fysieke servers
 VMDK gast of de server | Ja

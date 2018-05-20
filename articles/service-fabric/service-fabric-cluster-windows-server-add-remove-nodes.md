@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bc6b8fc0-d2af-42f8-a164-58538be38d02
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 252dcdf0ff9e1fecd6665808bfe7978a4417018b
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: b1ffe3510cf4f5e73b05572a482f49d529fca60d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Toevoegen of verwijderen van knooppunten naar een zelfstandige Service Fabric-cluster met Windows Server
 Nadat u hebt [uw zelfstandige Service Fabric-cluster gemaakt op Windows Server-machines](service-fabric-cluster-creation-for-windows-server.md), uw (bedrijfsbehoeften) kunnen worden gewijzigd en moet u toevoegen of verwijderen van knooppunten aan het cluster. In dit artikel biedt gedetailleerde stappen om dit te bereiken. Houd er rekening mee toevoegen of verwijderen knooppunt functionaliteit wordt niet ondersteund in lokale ontwikkeling clusters.
@@ -57,7 +57,7 @@ Nadat u hebt [uw zelfstandige Service Fabric-cluster gemaakt op Windows Server-m
     U kunt de voortgang van de upgrade in Service Fabric Explorer. U kunt ook uitvoeren [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
 
 ### <a name="add-nodes-to-clusters-configured-with-windows-security-using-gmsa"></a>Knooppunten toevoegen aan clusters die zijn geconfigureerd met behulp van gMSA Windows-beveiliging
-Clusters die zijn geconfigureerd met een groep beheerde Service Account(gMSA) (https://technet.microsoft.com/library/hh831782.aspx), worden een nieuw knooppunt toegevoegd met behulp van een upgrade van een configuratie:
+Voor clusters die zijn geconfigureerd met een groep beheerde Service Account(gMSA) (https://technet.microsoft.com/library/hh831782.aspx), een nieuw knooppunt kan worden toegevoegd met de upgrade van een configuratie:
 1. Voer [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) op een van de bestaande knooppunten ophalen van de meest recente bestand in de configuratie en het toevoegen van meer informatie over het nieuwe knooppunt dat u wilt toevoegen in de sectie 'Knooppunten'. Zorg ervoor dat het nieuwe knooppunt maakt deel uit van dezelfde beheerd groepsaccount. Deze account moet een beheerder zijn op alle machines.
 
     ```

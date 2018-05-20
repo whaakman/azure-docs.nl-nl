@@ -2,24 +2,26 @@
 title: Azure Active Directory v2.0 scopes, machtigingen en toestemming | Microsoft Docs
 description: Een beschrijving van de autorisatie in de Azure AD v2.0-eindpunt, met inbegrip van bereiken, machtigingen en toestemming.
 services: active-directory
-documentationcenter: 
-author: dstrockis
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8f98cbf0-a71d-4e34-babf-e644ad9ff423
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: b35e4a7619c23660d93d91219a92be7e93a35139
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f001751c9401b88d9bfaf35444882d3d5ccbfef3
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Scopes, machtigingen en toestemming in de Azure Active Directory v2.0-eindpunt
 Apps die zijn geïntegreerd met Azure Active Directory (Azure AD) voert u een autorisatie-model waarmee gebruikers controle over hoe een app toegang krijgen hun gegevens tot. Het v2.0-implementatie van het model van de autorisatie is bijgewerkt en verandert hoe een app moet communiceren met Azure AD. In dit artikel bevat informatie over de basisconcepten van deze autorisatie-model, inclusief scopes, machtigingen en toestemming.
@@ -40,7 +42,7 @@ Hetzelfde geldt voor alle resources van derden die zijn geïntegreerd met Azure 
 
 * Lezen van een gebruiker kalender
 * Schrijven naar een gebruiker kalender
-* E-mail verzenden als een gebruiker
+* E-mail met een gebruiker als afzender verzenden
 
 De resource heeft met het definiëren van deze typen machtigingen, fijnmazig controle over de gegevens en hoe de gegevens wordt weergegeven. Een app van derden kunt u deze machtigingen aanvragen bij een app-gebruiker. De app-gebruiker moet de machtigingen goedkeuren voordat de app kan namens de gebruiker. Door de verdeling in segmenten van de resource-functionaliteit in kleinere machtigingensets, kunnen apps van derden worden gebouwd om aan te vragen van alleen de specifieke machtigingen die ze nodig hebben om uit te voeren hun werking. App-gebruikers kunnen weet precies wijze waarop een app gebruikmaakt van hun gegevens en ze kunnen worden meer zeker weet dat de app werkt anders met kwade bedoelingen.
 
@@ -58,7 +60,7 @@ Het v2.0-implementatie van OpenID Connect, is enkele goed gedefinieerde bereiken
 ### <a name="openid"></a>openid
 Als een app aanmelden met behulp van uitvoert [OpenID Connect](active-directory-v2-protocols.md), verzoekt zij de `openid` bereik. De `openid` bereik ziet op de pagina werken account toestemming als de machtiging 'Aanmelden' en op persoonlijke Microsoft-account toestemming pagina als de machtiging 'Uw profiel weergeven en verbinding maken met apps en services met behulp van uw Microsoft-account'. Met deze machtiging een app een unieke id voor de gebruiker kan ontvangen in de vorm van de `sub` claim. Het biedt ook de apptoegang naar het eindpunt van gebruikersgegevens. De `openid` bereik kan worden gebruikt bij het v2.0-eindpunt voor het token ID-tokens kunnen worden gebruikt voor het beveiligen van HTTP-aanroepen tussen de verschillende onderdelen van een app te verkrijgen.
 
-### <a name="email"></a>e-mail
+### <a name="email"></a>e-mailen
 De `email` bereik kan worden gebruikt met de `openid` bereik en alle andere. Dit geeft de apptoegang tot de primaire e-mailadres van de gebruiker in de vorm van de `email` claim. De `email` claim is opgenomen in een token alleen als een e-mailadres gekoppeld aan het gebruikersaccount is, is het niet altijd het geval is. Als deze gebruikmaakt van de `email` bereik, uw app moet worden voorbereid voor het afhandelen van een aanvraag waarin de `email` claim bestaat niet in het token.
 
 ### <a name="profile"></a>profiel
@@ -199,6 +201,6 @@ Content-Type: application/json
 }
 ```
 
-U kunt het resulterende toegangstoken in HTTP-aanvragen naar de resource. Deze geeft betrouwbaar u aan de resource dat uw app in de juiste machtigingen voor het uitvoeren van een specifieke taak heeft.  
+U kunt het resulterende toegangstoken in HTTP-aanvragen naar de resource. Deze geeft betrouwbaar u aan de resource dat uw app in de juiste machtigingen voor het uitvoeren van een specifieke taak heeft. 
 
 Zie voor meer informatie over het OAuth 2.0-protocol en het ophalen van de toegangstokens de [v2.0 protocol eindpuntreferentie](active-directory-v2-protocols.md).

@@ -1,52 +1,69 @@
 ---
 title: VM-schijven in Azure-Stack beheren | Microsoft Docs
-description: Schijven voor virtuele machines inrichten voor Azure-Stack.
+description: Schijven voor virtuele machines in Azure-Stack inrichten.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 4e5833cf-4790-4146-82d6-737975fb06ba
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/14/2017
+ms.date: 05/11/2018
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: 0c36e2eaaf2d266842b2b7de0b0c8dc0ed1e0145
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
-ms.translationtype: MT
+ms.openlocfilehash: 314c5b51608192719c77ce143b3530f0bb310bc2
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/12/2018
 ---
-# <a name="virtual-machine-disk-storage-for-azure-stack"></a>Virtuele Machine schijfopslag voor Azure-Stack
+# <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>De schijfopslag virtuele machine in Azure-Stack inrichten
 
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
-Ondersteunt het gebruik van Azure Stack [zonder begeleiding schijven](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks) in een virtuele Machine als de schijf van een besturingssysteem (OS) en een gegevensschijf. Voor het gebruik van niet-beheerde schijven die u maakt een [opslagaccount](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) en de schijven op te slaan als pagina-blobs in containers in het opslagaccount. Deze schijven worden vervolgens VM-schijven genoemd.
+In dit artikel wordt beschreven hoe om in te richten schijfopslag van de virtuele machine met behulp van de Stack van Azure-portal of met behulp van PowerShell.
 
-Om de prestaties verbeteren, en verlagen de beheerkosten van het Azure-Stack-systeem, wordt u aangeraden dat u elke schijf VM plaatsen in een afzonderlijke container. Een container moet een besturingssysteemschijf of een gegevensschijf maar niet beide op hetzelfde moment bevatten. Er is echter geen beperking waarmee wordt voorkomen dat beide in dezelfde container te plaatsen.
+## <a name="overview"></a>Overzicht
 
-Als u een of meer gegevensschijven aan een virtuele machine toevoegt, moet u extra containers gebruiken als locatie voor het opslaan van deze schijven. Zoals gegevensschijven, dient de besturingssysteemschijf voor extra virtuele machines zich in hun eigen afzonderlijke containers.
+Ondersteunt het gebruik van Azure Stack [zonder begeleiding schijven](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks) op virtuele machines, als een besturingssysteem (OS) en een gegevensschijf.
 
-Wanneer u meerdere virtuele machines maakt, kunt u hetzelfde opslagaccount opnieuw gebruiken voor elke nieuwe virtuele machine. Alleen de containers die u maakt moet uniek zijn.  
+Voor het gebruik van niet-beheerde schijven die u maakt een [opslagaccount](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) voor het opslaan van de schijven. De schijven die u maakt, VM-schijven genoemd en worden opgeslagen in containers in het opslagaccount.
 
-U schijven toevoegen aan een virtuele machine door de gebruikersportal of PowerShell te gebruiken.
+### <a name="best-practice-guidelines"></a>Richtlijnen voor aanbevolen procedures
+
+Om de prestaties verbeteren en de algehele kosten te verlagen, wordt u aangeraden dat u elke schijf VM plaatsen in een afzonderlijke container. Een container moet een besturingssysteemschijf of een gegevensschijf maar niet beide op hetzelfde moment bevatten. (Maar er is niets om te voorkomen dat u beide soorten schijf plaatsen in dezelfde container.)
+
+Als u een of meer gegevensschijven aan een VM toevoegt, extra containers gebruiken als locatie voor het opslaan van deze schijven. De besturingssysteemschijf voor extra virtuele machines moet zich in hun eigen containers.
+
+Wanneer u meerdere virtuele machines maakt, kunt u hetzelfde opslagaccount voor elke nieuwe virtuele machine opnieuw gebruiken. Alleen de containers die u maakt moet uniek zijn.
+
+### <a name="adding-new-disks"></a>Toevoegen van nieuwe schijven
+
+De volgende tabel geeft een overzicht van het toevoegen van schijven met behulp van de portal en met behulp van PowerShell.
 
 | Methode | Opties
 |-|-|
-|[Gebruikersportal](#use-the-portal-to-add-additional-disks-to-a-vm)|-Nieuwe gegevensschijven toevoegen aan een virtuele machine die eerder zijn ingericht. Nieuwe schijven worden gemaakt door de Azure-Stack. </br> </br>-Een bestaand VHD-bestand als een schijf toevoegen aan een virtuele machine die eerder zijn ingericht. Hiervoor moet u eerst voorbereiden en het VHD-bestand uploaden naar Azure-Stack. |
+|[Gebruikersportal](#use-the-portal-to-add-additional-disks-to-a-vm)|-Nieuwe gegevensschijven toevoegen aan een bestaande virtuele machine. Nieuwe schijven worden gemaakt door de Azure-Stack. </br> </br>-Een bestaand bestand van de schijf (VHD) toevoegen aan een eerder ingerichte virtuele machine. Om dit te doen, moet u de VHD voorbereiden en vervolgens het bestand te uploaden naar Azure-Stack. |
 |[PowerShell](#use-powershell-to-add-multiple-unmanaged-disks-to-a-vm) | -Maak een nieuwe virtuele machine met een besturingssysteemschijf en op hetzelfde moment voegt u een of meer gegevensschijven aan die VM. |
 
+## <a name="use-the-portal-to-add-disks-to-a-vm"></a>Gebruik de portal schijven toevoegen aan een virtuele machine
 
-## <a name="use-the-portal-to-add-additional-disks-to-a-vm"></a>Gebruik de portal extra schijven toevoegen aan een virtuele machine
-Standaard wordt alleen een besturingssysteemschijf gemaakt wanneer u een virtuele machine voor de meeste marketplace-items maken met de portal. Schijven die zijn gemaakt door Azure worden beheerde schijven genoemd.
+Wanneer u de portal gebruiken voor het maken van een virtuele machine voor de meeste marketplace-items, wordt standaard alleen de OS-schijf gemaakt.
 
-Nadat u een virtuele machine inricht, kunt u de portal een nieuwe gegevensschijf of een bestaande gegevensschijf toevoegen aan die VM. Elke extra schijf moet worden geplaatst in een afzonderlijke container. De schijven die u aan een virtuele machine toevoegt worden niet-beheerde schijven genoemd.
+Nadat u een virtuele machine maakt, kunt u de portal om te gebruiken:
+* Een nieuwe gegevensschijf maken en deze te koppelen aan de virtuele machine.
+* Een bestaande gegevensschijf uploaden en deze te koppelen aan de virtuele machine.
 
-### <a name="use-the-portal-to-attach-a-new-data-disk-to-a-vm"></a>De portal gebruiken voor een nieuwe gegevensschijf koppelen aan een virtuele machine
+Elke niet-beheerde schijf die u toevoegt, moet in een afzonderlijke container worden geplaatst.
+
+>[!NOTE]
+>Schijven gemaakt en beheerd door Azure worden genoemd [schijven die worden beheerd](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview).
+
+### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>Met de portal kunt maken en een nieuwe gegevensschijf koppelen
 
 1.  Klik in de portal op **virtuele machines**.    
     ![Voorbeeld: VM-dashboard](media/azure-stack-manage-vm-disks/vm-dashboard.png)
@@ -71,6 +88,7 @@ Nadat u een virtuele machine inricht, kunt u de portal een nieuwe gegevensschijf
 
 
 ### <a name="attach-an-existing-data-disk-to-a-vm"></a>Een bestaande gegevensschijf koppelen aan een virtuele machine
+
 1.  [Voorbereiden van een .vhd-bestand](https://docs.microsoft.com/azure/virtual-machines/windows/classic/createupload-vhd) voor gebruik als gegevensschijf voor een virtuele machine. Die VHD-bestand naar een opslagaccount die u gebruikt met de virtuele machine die u wilt koppelen van het VHD-bestand te uploaden.
 
   Wilt u een andere container gebruiken voor het opslaan van het VHD-bestand dan de container met de besturingssysteemschijf.   

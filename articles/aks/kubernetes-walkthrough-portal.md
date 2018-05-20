@@ -3,19 +3,19 @@ title: quickstart - portal-quickstart voor Azure Kubernetes-cluster
 description: Leer snel hoe u een Kubernetes-cluster voor Linux-containers in AKS maakt met behulp van Azure CLI.
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 02/24/2018
+ms.date: 04/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5bb758637d7b23f206f78d1604f985c2985d4410
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: cd17d2732bf44e3f4b46878d6a416579b9e2f970
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="quickstart-deploy-an-azure-container-service-aks-cluster"></a>Snelstart: een AKS-cluster (Azure Container Service) implementeren
+# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Snelstart: Een AKS-cluster (Azure Kubernetes Service) implementeren
 
 In deze quickstart implementeert u een AKS-cluster met behulp van Azure Portal. Vervolgens wordt een toepassing met meerdere containers op het cluster uitgevoerd die bestaat uit een web-front-end en een Redis-exemplaar. Zodra de toepassing is voltooid, is deze toegankelijk via internet.
 
@@ -27,53 +27,43 @@ In deze quickstart wordt ervan uitgegaan dat u een basisbegrip hebt van Kubernet
 
 Meld u aan bij Azure Portal op http://portal.azure.com.
 
-## <a name="create-service-principal"></a>Een service-principal maken
 
-Voordat u het AKS-cluster maakt in Azure Portal, moet u een service-principal maken. Deze service-principal wordt gebruikt in Azure om de infrastructuur te beheren die is gekoppeld aan het AKS-cluster.
-
-Selecteer achtereenvolgens **Azure Active Directory** > **App-registraties** > **Registratie van nieuwe toepassing**.
-
-Voer een naam in voor de toepassing. Dit kan elke gewenste waarde zijn. Selecteer **Web-app / API** als toepassingstype. Voer een waarde in bij **Aanmeldings-URL**. Dit kan elke willekeurige waarde in een geldige URL-indeling zijn, maar hoeft geen echt eindpunt te zijn.
-
-Selecteer **Maken** nadat dit is voltooid.
-
-![De eerste service-principal maken](media/container-service-walkthrough-portal/create-sp-one.png)
-
-Selecteer de nieuwe toepassingsregistratie en noteer de toepassings-id. Deze waarde is nodig bij het maken van het AKS-cluster.
-
-![De tweede service-principal maken](media/container-service-walkthrough-portal/create-sp-two.png)
-
-Vervolgens moet u een wachtwoord voor de service-principal maken. Selecteer **Alle instellingen** > **Sleutels** en voer een waarde in bij de sleutelbeschrijving. Selecteer een tijdsduur. Dit is de periode gedurende welke de service-principal geldig is.
-
-Klik op **Opslaan** en noteer het wachtwoord. Dit wachtwoord is nodig bij het maken van het AKS-cluster.
-
-![De derde service-principal maken](media/container-service-walkthrough-portal/create-sp-three.png)
 
 ## <a name="create-aks-cluster"></a>AKS-cluster maken
 
-Selecteer **Een resource maken** > **Containers** > **Azure Container Service - AKS (preview)**.
+Kies **Een resource maken** > zoek naar **Kubernetes** > selecteer **Azure Kubernetes Service (preview)** > **Maken**.
 
-Geef de volgende informatie op voor het cluster: naam, DNS-voorvoegsel, naam van resourcegroep, locatie en Kubernetes-versie. Noteer de namen van het cluster en de resourcegroep. Deze zijn nodig wanneer er verbinding wordt gemaakt met het cluster.
+Voer de volgende stappen uit onder elke kop van het formulier AKS-cluster maken.
 
-Selecteer **OK** wanneer dit is voltooid.
+- **PROJECTDETAILS**: selecteer een Azure-abonnement en een nieuwe of bestaande Azure-resourcegroep.
+- **CLUSTERDETAILS**: voer een naam, regio, versie en DNS-voorvoegsel voor het AKS-cluster in.
+- **VERIFICATIE**: maak een nieuwe service-principal of gebruik een bestaande service-principal. Wanneer u een bestaande service-principal gebruikt, moet u de SPN-client-ID en het geheim opgeven.
+- **SCHAAL**: selecteer een VM-grootte voor de AKS-knooppunten. De VM-grootte kan **niet** meer worden gewijzigd als een AKS-cluster eenmaal is geïmplementeerd. Selecteer ook het aantal knooppunten dat u in het cluster wilt implementeren. Het aantal knooppunten kan nog **wel** worden gewijzigd als het cluster is geïmplementeerd.
 
-![Het eerste AKS-cluster maken](media/container-service-walkthrough-portal/create-aks-portal-one.png)
+Selecteer **Volgende: Netwerk** wanneer u klaar bent.
 
-Voer in het configuratieformulier de volgende informatie in:
+![Het eerste AKS-cluster maken](media/container-service-walkthrough-portal/aks-portal-1.png)
 
-- Gebruikersnaam: de naam voor de beheeraccounts op de clusterknooppunten.
-- Openbare SSH-sleutel: gekoppeld aan de sleutel die wordt gebruikt voor toegang tot de clusterknooppunten.
-- Client-id voor de service-principal: de toepassings-id van de service-principal die u eerder in dit document hebt gemaakt.
-- Clientgeheim voor de service-principal: het wachtwoord voor de service-principal die u eerder in dit document hebt gemaakt.
-- Aantal knooppunten: aantal AKS-knooppunten dat moet worden gemaakt.
-- VM-grootte van knooppunt: de grootte van de virtuele machine voor de AKS-knooppunten.
-- Grootte van de OS-schijf: grootte van de besturingssysteemschijf voor de AKS-knooppunten.
+Configureer de volgende netwerkopties:
 
-Selecteer **OK** wanneer dit is voltooid. Selecteer vervolgens opnieuw **OK** nadat de validatie is voltooid.
+- **Routering van HTTP-toepassing**: hiermee configureert u een geïntegreerde ingangscontroller met functionaliteit voor het automatisch maken van openbare DNS-namen. Zie [HTTP-routering en DNS voor AKS][http-routing] voor meer informatie over HTTP-routering.
+- **Netwerkconfiguratie**: kies of u de basisnetwerkconfiguratie met de Kubernetes-invoegtoepassing [kubenet][kubenet] wilt gebruiken, of geavanceerde netwerkconfiguratie met [Azure CNI][azure-cni]. Zie het [AKS-netwerkoverzicht][aks-network] voor meer informatie over netwerkopties.
 
-![Het tweede AKS-cluster maken](media/container-service-walkthrough-portal/create-aks-portal-two.png)
+Selecteer **Volgende: Controle** wanneer u klaar bent.
 
-Na enkele ogenblikken is het AKS-cluster geïmplementeerd en klaar voor gebruik.
+![Het eerste AKS-cluster maken](media/container-service-walkthrough-portal/aks-portal-2.png)
+
+Bij het implementeren van een AKS-cluster kan Azure Container Insights worden geconfigureerd voor het controleren van de status van het AKS-cluster en schillen die in het cluster worden uitgevoerd. Zie [Status van Azure Kubernetes Service controleren][aks-monitor] voor meer informatie over het controleren van de status van de container.
+
+Selecteer **Ja** als u statuscontrole van de container wilt inschakelen en selecteer een bestaande Log Analytics-werkruimte of maak een nieuwe.
+
+Selecteer **Controleren + maken** en vervolgens **Maken** wanneer u klaar bent.
+
+![Het eerste AKS-cluster maken](media/container-service-walkthrough-portal/aks-portal-3.png)
+
+Na enkele ogenblikken is het AKS-cluster geïmplementeerd en klaar voor gebruik. Blader naar de AKS-clusterresourcegroep en selecteer de AKS-resource. Als het goed is, wordt nu het AKS-clusterdashboard weergegeven.
+
+![Het eerste AKS-cluster maken](media/container-service-walkthrough-portal/aks-portal-5.png)
 
 ## <a name="connect-to-the-cluster"></a>Verbinding maken met het cluster
 
@@ -82,11 +72,6 @@ Als u een Kubernetes-cluster wilt beheren, gebruikt u [kubectl][kubectl], de Kub
 Open Cloud Shell met behulp van de knop in de rechterbovenhoek van Azure Portal.
 
 ![Cloud Shell](media/container-service-walkthrough-portal/kubectl-cs.png)
-
-Abonnement opgeven (indien u dat nog niet hebt gedaan)
-```azurecli-interactive
-az account set -s SUBSCRIPTION_NAME
-```
 
 Gebruik de opdracht [az aks get-credentials][az-aks-get-credentials] om kubectl zo te configureren dat deze verbinding maakt met het Kubernetes-cluster.
 
@@ -106,14 +91,14 @@ Uitvoer:
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION
-aks-agentpool-14693408-0   Ready     agent     6m        v1.8.1
-aks-agentpool-14693408-1   Ready     agent     6m        v1.8.1
-aks-agentpool-14693408-2   Ready     agent     7m        v1.8.1
+aks-agentpool-11482510-0   Ready     agent     9m        v1.9.6
+aks-agentpool-11482510-1   Ready     agent     8m        v1.9.6
+aks-agentpool-11482510-2   Ready     agent     9m        v1.9.6
 ```
 
 ## <a name="run-the-application"></a>De toepassing uitvoeren
 
-In een Kubernetes-manifestbestand wordt een gewenste status voor het cluster gedefinieerd, inclusief zaken zoals welke containerinstallatiekopieën moeten worden uitgevoerd. In dit voorbeeld wordt een manifest gebruikt om alle objecten te maken die nodig zijn om de Azure Vote-toepassing uit te voeren.
+In een Kubernetes-manifestbestand wordt een gewenste status voor een cluster gedefinieerd, inclusief zaken zoals welke containerinstallatiekopieën moeten worden uitgevoerd. In dit voorbeeld worden met behulp van een manifest alle objecten gemaakt die nodig zijn om de Azure Vote-toepassing uit te voeren. Dit behelst twee [Kubernetes-implementaties][kubernetes-deployment], een voor de Azure Vote-front-end en een voor een Redis-exemplaar. Er worden ook twee [Kubernetes-services][kubernetes-service] gemaakt: een interne service voor het Redis-exemplaar en een externe service voor toegang tot de Azure Vote-toepassing vanaf internet.
 
 Maak een bestand met de naam `azure-vote.yaml` en kopieer de volgende YAML-code naar het bestand. Als u werkt in Azure Cloud Shell, maakt u het bestand met behulp van vi of Nano, zoals bij een virtueel of fysiek systeem.
 
@@ -195,7 +180,7 @@ service "azure-vote-front" created
 
 ## <a name="test-the-application"></a>De toepassing testen
 
-Terwijl de toepassing wordt uitgevoerd, wordt er een [Kubernetes-service][kubernetes-service] gemaakt die de front-end van de toepassing beschikbaar maakt op internet. Dit proces kan enkele minuten duren.
+Terwijl de toepassing wordt uitgevoerd, wordt er een [Kubernetes-service][kubernetes-service] gemaakt die de toepassing beschikbaar maakt op internet. Dit proces kan enkele minuten duren.
 
 Gebruik de opdracht [kubectl get service][kubectl-get] met het argument `--watch` om de voortgang te controleren.
 
@@ -220,12 +205,24 @@ Blader nu naar het externe IP-adres voor een overzicht van de Azure Vote-app.
 
 ![Afbeelding van browsen naar Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
+## <a name="monitor-health-and-logs"></a>Status en logboeken controleren
+
+Als Container Insights-controle is ingeschakeld, zijn er in het AKS-clusterdashboard zowel metrische statusgegevens beschikbaar voor het AKS-cluster als voor de schillen die in het cluster wordt uitgevoerd. Zie [Status van Azure Kubernetes Service controleren][aks-monitor] voor meer informatie over het controleren van de status van de container.
+
+Als u de huidige status, bedrijfstijd en het resourcegebruik van de Azure Vote-schillen wilt bekijken, bladert u terug naar de AKS-resource en selecteer achtereenvolgens **Status van container controleren**, de **standaard**naamruimte en **Containers**. Het kan enkele minuten duren voordat deze gegevens in Azure Portal worden ingevuld.
+
+![Het eerste AKS-cluster maken](media/container-service-walkthrough-portal/aks-portal-6.png)
+
+Als u de logboeken voor de `azure-vote-front`-schil wilt weergeven, selecteert u de koppeling **Logboeken weergeven**. Deze logboeken bevatten de stromen stdout en stderr van de container.
+
+![Het eerste AKS-cluster maken](media/container-service-walkthrough-portal/aks-portal-7.png)
+
 ## <a name="delete-cluster"></a>Cluster verwijderen
 
-Wanneer het cluster niet meer nodig is, verwijdert u de clusterresourcegroep. Hierdoor worden ook alle bijbehorende resources verwijderd. Dit kan worden voltooid in Azure Portal door de resourcegroep te selecteren en op de knop Verwijderen te klikken. U kunt ook de opdracht [az group delete][az-group-delete] gebruiken in Cloud Shell.
+Wanneer het cluster niet meer nodig is, verwijdert u de clusterresource. Hierdoor worden ook alle bijbehorende resources verwijderd. Deze bewerking kan worden voltooid in Azure Portal door in het AKS-clusterdashboard de knop Verwijderen te selecteren. U kunt ook de opdracht [az aks delete][az-aks-delete] gebruiken in Cloud Shell.
 
 ```azurecli-interactive
-az group delete --name myAKSCluster --no-wait
+az aks delete --resource-group myAKSCluster --name myAKSCluster --no-wait
 ```
 
 ## <a name="get-the-code"></a>Code ophalen
@@ -236,7 +233,7 @@ In deze quickstart zijn vooraf gemaakte containerinstallatiekopieën gebruikt om
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids hebt u een Kubernetes-cluster geïmplementeerd en vervolgens een toepassing met meerdere containers naar het cluster geïmplementeerd.
+In deze snelstart hebt u een Kubernetes-cluster geïmplementeerd en vervolgens een toepassing met meerdere containers geïmplementeerd.
 
 Voor meer informatie over AKS en een volledig stapsgewijs voorbeeld van code tot implementatie gaat u naar de zelfstudie over Kubernetes-clusters.
 
@@ -245,15 +242,19 @@ Voor meer informatie over AKS en een volledig stapsgewijs voorbeeld van code tot
 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
+[azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
+[kubernetes-deployment]: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 [kubernetes-documentation]: https://kubernetes.io/docs/home/
 [kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 
 <!-- LINKS - internal -->
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
-[az-group-delete]: /cli/azure/group#delete
+[az-aks-delete]: /cli/azure/aks#az-aks-delete
+[aks-monitor]: ../log-analytics/log-analytics-containers.md
+[aks-network]: ./networking-overview.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
-
-
+[http-routing]: ./http-application-routing.md

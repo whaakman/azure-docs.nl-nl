@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4a44678b-a5aa-4d30-958f-dc4332ebfb63
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 22223923f6783f11178b44c3c3087f17eb8dc41b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e9db1070066a2a02b72b5cc051e59d8b04dc9928
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="throttling-the-service-fabric-cluster-resource-manager"></a>Beperking van de Service Fabric Cluster Resource Manager
 Zelfs als u de Cluster Resource Manager correct hebt geconfigureerd, kan het cluster ophalen verstoord. Bijvoorbeeld, kan er gelijktijdige knooppunt en fouttolerantie domein fouten - wat er zou gebeuren als die is opgetreden tijdens een upgrade? De Cluster Resource Manager probeert altijd om op te lossen alles, de clusterbronnen opnieuw indelen en los van het cluster wilt gebruiken. Vertragingen zorgt voor een backstop zodat het cluster resources gebruiken kan stabiel - knooppunten terugkeren, de netwerkpartities retoucheren, gecorrigeerde bits geïmplementeerd.

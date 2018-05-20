@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/21/2018
 ms.author: mfussell
-ms.openlocfilehash: 65f47d238d4e591ddde8937d0eb3c55931c01c3f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f9de8d213d11a8ccb3ffff484a67560d9e2abe77
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>Toewijzen van een beveiligingsbeleid voor toegang voor HTTP en HTTPS-eindpunten
 Als u een run as-beleid toepassen en de servicemanifest HTTP-eindpunt bronnen declareert, moet u een **SecurityAccessPolicy**.  **SecurityAccessPolicy** zorgt ervoor dat de poorten die zijn toegewezen aan deze eindpunten correct zijn beperkt tot het gebruikersaccount dat de service wordt uitgevoerd als. Anders **http.sys** geen toegang tot de service en ophalen van fouten met aanroepen van de client. Het volgende voorbeeld wordt het account Customer1 naar een eindpunt aangeroepen **EndpointName**, waardoor het volledige toegangsrechten.
@@ -47,6 +47,6 @@ Voor een HTTPS-eindpunt ook duiden op de naam van het certificaat om terug te ke
 Lees de volgende artikelen voor de volgende stappen:
 * [Inzicht in het toepassingsmodel](service-fabric-application-model.md)
 * [Bronnen opgeven in een servicemanifest](service-fabric-service-manifest-resources.md)
-* [Een toepassing implementeren](service-fabric-deploy-remove-applications.md)
+* [Een app implementeren](service-fabric-deploy-remove-applications.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png

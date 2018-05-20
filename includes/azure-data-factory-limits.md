@@ -5,14 +5,14 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 04/27/2018
+ms.date: 05/16/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 03b7ce49f935c36b0e0652925c41deea987a2a26
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0deda4324a4287e7aa25cb686acb5b6152443735
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
 ---
 Gegevensfactory is een multitenant-service die beschikt over de volgende standaardlimiet om ervoor te zorgen klantabonnementen zijn beveiligd tegen elkaars werkbelastingen. Veel van de limieten kunnen eenvoudig gegeven voor uw abonnement tot het maximum aantal contact opnemen met de ondersteuning.
 
@@ -27,7 +27,7 @@ Gegevensfactory is een multitenant-service die beschikt over de volgende standaa
 | Gekoppelde services binnen een gegevensfactory | 2500 | [Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Integratie runtimes binnen een gegevensfactory <sup>4</sup> | 2500 | [Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Totale CPU-kernen voor Azure SSIS-integratie Runtime(s) onder één abonnement | 100 | [Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Gelijktijdige pipeline wordt per pijplijn | 20 | [Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Gelijktijdige pipeline wordt per pijplijn | 100 | [Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Maximum aantal activiteiten per pijplijn | 20 | 30 |
 | Maximum aantal parameters per pijplijn | 20 | 30 |
 | Aantal bytes per object voor pipeline-objecten <sup>1</sup> | 200 KB | 200 KB |

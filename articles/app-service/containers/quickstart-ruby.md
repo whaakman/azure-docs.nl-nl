@@ -16,15 +16,15 @@ ms.topic: quickstart
 ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 079eb7b89ff3d6c1e4ec0de6136cd934ba3a1f70
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0707835cf4d6891397579cc41de49fc0462b4521
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="create-a-ruby-app-in-app-service-on-linux"></a>Een Ruby-app maken in App Service on Linux
 
-[App Service on Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie. Deze quickstart laat zien hoe u een eenvoudige Ruby on Rails-toepassing maakt en implementeert als web-app in Azure Web App on Linux.
+[Azure App Service in Linux](app-service-linux-intro.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie. Deze snelstart laat zien hoe u een eenvoudige [Ruby on Rails](https://rubyonrails.org/)-toepassing maakt die als een web-app kan worden geïmplementeerd in Azure in Linux.
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 04/19/2018
 
 ## <a name="prerequisites"></a>Vereisten
 
-* <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Ruby 2.4.1 of hoger installeren</a>
+* <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Ruby 2.3 of hoger installeren</a>
 * <a href="https://git-scm.com/" target="_blank">Git installeren</a>
 
 ## <a name="download-the-sample"></a>Het voorbeeld downloaden
@@ -45,7 +45,7 @@ git clone https://github.com/Azure-Samples/ruby-docs-hello-world
 
 ## <a name="run-the-application-locally"></a>De toepassing lokaal uitvoeren
 
-Zorg ervoor dat de Rails-server actief is, anders werkt de toepassing niet. Ga naar de map *hello-world*, en start de server met de opdracht `rails server`.
+De Rails-server moet actief zijn, anders werkt de toepassing niet. Ga naar de map `hello-world` en gebruik de opdracht `rails server` om de server te starten.
 
 ```bash
 cd hello-world\bin

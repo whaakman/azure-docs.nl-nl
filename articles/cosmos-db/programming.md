@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: e6fd51cb2550549e14934c3f4774a40d42281247
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b3d7c94e8b1415a24427e1f90f5613d8c181608a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure DB Cosmos programmeren-server: opgeslagen procedures, databasetriggers en UDF's
 
@@ -151,6 +151,21 @@ De callback genereert een fout opgetreden in het bovenstaande voorbeeld als de b
 Deze opgeslagen procedure kan worden aangepast voor het uitvoeren van een matrix van document instanties als invoer en maak ze allemaal in dezelfde opgeslagen procedure uitvoering in plaats van meerdere aanvragen voor elk van deze afzonderlijk maken. Deze opgeslagen procedure kan worden gebruikt voor het implementeren van een efficiënte bulksgewijs importfunctie voor Cosmos-DB (Zie verderop in deze zelfstudie).   
 
 In het voorbeeld dat wordt beschreven hoe u opgeslagen procedures gedemonstreerd. Vervolgens leert u over triggers en de gebruiker gedefinieerde functies (UDF's) verderop in de zelfstudie.
+
+### <a name="known-issues"></a>Bekende problemen
+
+Bij het definiëren van een opgeslagen procedure met behulp van Azure portal, worden invoerparameters altijd verzonden als een tekenreeks met de opgeslagen procedure. Zelfs als u een matrix met tekenreeksen als invoer doorgeeft, wordt de matrix geconverteerd naar een tekenreeks en verzonden naar de opgeslagen procedure. Als tijdelijke oplossing dit probleem, kunt u een functie binnen de opgeslagen procedure om de tekenreeks als een matrix. De volgende code is een voorbeeld om de tekenreeks als een matrix: 
+
+``` 
+function sample(arr) {
+    if (typeof arr === "string") arr = JSON.parse(arr);
+    
+    arr.forEach(function(a) {
+        // do something here
+        console.log(a);
+    });
+}
+```
 
 ## <a name="database-program-transactions"></a>Programma databasetransacties
 Transactie in een typische database kan worden gedefinieerd als een reeks bewerkingen die worden uitgevoerd als één logische eenheid van het werk. Elke transactie biedt **ACID garanties**. ACID is een bekende acroniem die voor de vier eigenschappen - atomisch, consistentie, isolatie- en duurzaamheid staat.  

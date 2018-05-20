@@ -1,25 +1,26 @@
 ---
 title: Azure AD-Cordova aan de slag | Microsoft Docs
-description: "Het bouwen van een Cordova-toepassing die kan worden geïntegreerd met Azure AD voor aanmelden en Azure AD-beveiligde API aanroept met behulp van OAuth."
+description: Het bouwen van een Cordova-toepassing die kan worden geïntegreerd met Azure AD voor aanmelden en Azure AD-beveiligde API aanroept met behulp van OAuth.
 services: active-directory
-documentationcenter: 
-author: vibronet
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: b1a8d7bd-7ad6-44d5-8ccb-5255bb623345
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: vittorib
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: d6f1d545265f0965a03afb23e5791cdd5e5e379c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6d6d514875aa675bf160ee08a3e94b58944020ee
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-ad-cordova-getting-started"></a>Azure AD-Cordova aan de slag
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -33,7 +34,7 @@ Een invoegtoepassing Cordova verpakt Azure AD systeemeigen SDK's op iOS, Android
 In deze zelfstudie gebruiken we de Apache Cordova-invoegtoepassing voor Active Directory Authentication Library (ADAL) voor het verbeteren van een eenvoudige app door de volgende functies toe te voegen:
 
 * Verifiëren van een gebruiker met een paar regels code, en een token verkrijgen.
-* Gebruik dat token aan te roepen de Graph API om te vragen die map en de resultaten weer te geven.  
+* Gebruik dat token aan te roepen de Graph API om te vragen die map en de resultaten weer te geven. 
 * Gebruik de ADAL tokencache verificatie wordt u gevraagd om de gebruiker minimaliseren.
 
 Als u deze verbeteringen maken, moet u:
@@ -47,7 +48,7 @@ Als u deze verbeteringen maken, moet u:
 Voor deze zelfstudie hebt u het volgende nodig:
 
 * Een Azure AD-tenant waarin u een account met app-ontwikkeling rechten hebben.
-* Een ontwikkelingsomgeving die geconfigureerd voor gebruik van Apache Cordova.  
+* Een ontwikkelingsomgeving die geconfigureerd voor gebruik van Apache Cordova. 
 
 Als u beide al hebt ingesteld, doorgaan met stap 1.
 
@@ -98,8 +99,8 @@ Nadat u de registratie, wijst Azure AD een unieke toepassings-ID toe aan uw app.
 
 Om uit te voeren `DirSearchClient Sample`, de zojuist gemaakte app machtiging query uitvoeren op de Azure AD Graph API:
 
-1. Van de **instellingen** pagina **Required Permissions**, en selecteer vervolgens **toevoegen**.  
-2. Selecteer voor de toepassing Azure Active Directory **Microsoft Graph** als de API en voeg de **toegang tot de map als de gebruiker is aangemeld** machtiging onder **gedelegeerde machtigingen**.  Hierdoor wordt uw toepassing query uitvoeren op de Graph-API voor gebruikers.
+1. Van de **instellingen** pagina **Required Permissions**, en selecteer vervolgens **toevoegen**. 
+2. Selecteer voor de toepassing Azure Active Directory **Microsoft Graph** als de API en voeg de **toegang tot de map als de gebruiker is aangemeld** machtiging onder **gedelegeerde machtigingen**. Hierdoor wordt uw toepassing query uitvoeren op de Graph-API voor gebruikers.
 
 ## <a name="step-2-clone-the-sample-app-repository"></a>Stap 2: De voorbeeld-app-opslagplaats klonen
 Typ de volgende opdracht uit uw shell of vanaf de opdrachtregel:

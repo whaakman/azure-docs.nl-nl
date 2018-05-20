@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/09/2018
+ms.date: 05/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4c61cdc504306d4e28d1d8c03fce4e479a0bfd34
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f68a4d699d1ad6592fe5481cd69795b06e7d8fca
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="expressroute-faq"></a>Veelgestelde vragen ExpressRoute
 
@@ -156,7 +156,7 @@ Als uw serviceprovider ExpressRoute op beide sites biedt, kunt u werken met uw p
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>Kan ik meerdere ExpressRoute-circuits hebben in de dezelfde metro? Kan ik deze koppelen aan hetzelfde virtuele netwerk?
 
-Ja. U kunt meerdere ExpressRoute-circuits hebben met de dezelfde of verschillende serviceproviders. Als de metro meerdere ExpressRoute-peeringlocaties heeft en de circuits op verschillende peeringlocaties zijn gemaakt, kunt u ze kunt koppelen aan hetzelfde virtuele netwerk. Als de circuits worden gemaakt op dezelfde locatie peering, kunt u ze niet koppelen aan hetzelfde virtuele netwerk.
+Ja. U kunt meerdere ExpressRoute-circuits hebben met de dezelfde of verschillende serviceproviders. Als de metro meerdere ExpressRoute-peeringlocaties heeft en de circuits op verschillende peeringlocaties zijn gemaakt, kunt u ze kunt koppelen aan hetzelfde virtuele netwerk. Als de circuits worden gemaakt op dezelfde locatie peering, kunt u ze niet koppelen aan hetzelfde virtuele netwerk. De locatienaam van elke in Azure Portal of PowerShell/CLI API vertegenwoordigt één locatie. U kunt bijvoorbeeld de peeringlocaties 'Singapore' en 'Singapore2' selecteren en circuits vanaf elk op hetzelfde netwerk virtuan verbinding te maken. 
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Hoe kan ik mijn virtuele netwerken verbinden met een ExpressRoute-circuit
 

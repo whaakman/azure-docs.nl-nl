@@ -3,23 +3,25 @@ title: Azure Active Directory v2.0-eindpunt en beperkingen | Microsoft Docs
 description: Een lijst met voorwaarden en beperkingen voor het Azure AD v2.0-eindpunt.
 services: active-directory
 documentationcenter: ''
-author: dstrockis
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: a99289c0-e6ce-410c-94f6-c279387b4f66
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: a36f55c57a75f671b3e5eeae3d91ff60483afd37
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e026fd7021b39905d5392be55dbf3862cd307360
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Moet ik het v2.0-eindpunt gebruiken?
 Wanneer u toepassingen die zijn geïntegreerd met Azure Active Directory maakt, moet u bepalen of het v2.0-eindpunt en verificatieprotocollen aan uw behoeften voldoet. Oorspronkelijke Azure Active Directory-eindpunt wordt nog steeds volledig ondersteund en is in sommige opzichten meer uitgebreide functionaliteit dan versie 2.0. Echter, het v2.0-eindpunt [introduceert aanzienlijke voordelen](active-directory-v2-compare.md) voor ontwikkelaars.
@@ -47,7 +49,7 @@ Op dit moment voor elke app die u wilt integreren met het v2.0-eindpunt, moet u 
 Bovendien app registraties die u maakt in de [Registratieportal toepassing](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) hebben het volgende voorbehoud:
 
 * Twee appgeheimen toegestaan per aanvraag-ID.
-* Een app-registratie geregistreerd door een gebruiker met een persoonlijk Microsoft-account kan worden bekeken en beheerd alleen door een enkele ontwikkelaarsaccount. Deze kan niet worden gedeeld tussen meerdere ontwikkelaars.  Als u delen van uw app-registratie in meerdere ontwikkelaars wilt, kunt u de toepassing wanneer u zich aanmeldt bij de registratieportal met een Azure AD-account maken.
+* Een app-registratie geregistreerd door een gebruiker met een persoonlijk Microsoft-account kan worden bekeken en beheerd alleen door een enkele ontwikkelaarsaccount. Deze kan niet worden gedeeld tussen meerdere ontwikkelaars. Als u delen van uw app-registratie in meerdere ontwikkelaars wilt, kunt u de toepassing wanneer u zich aanmeldt bij de registratieportal met een Azure AD-account maken.
 * Er zijn enkele beperkingen van de indeling van de omleidings-URI die is toegestaan. Zie de volgende sectie voor meer informatie over omleidings-URI's.
 
 ## <a name="restrictions-on-redirect-uris"></a>Beperkingen voor omleidings-URI 's
@@ -89,12 +91,12 @@ Zie voor informatie over het registreren van een app in de Portal van de registr
 Ondersteuning voor het v2.0-eindpunt is momenteel beperkt. Als u het v2.0-eindpunt in een productietoepassing gebruiken wilt, hebt u deze opties:
 
 * Als u een webtoepassing maakt, kunt u veilig Microsoft algemeen beschikbaar serverzijde middleware gebruiken voor aanmelden en token. Hierbij wordt de OWIN Open ID Connect middleware voor ASP.NET en de Node.js Passport-invoegtoepassing. Zie voor codevoorbeelden die gebruikmaken van Microsoft-middleware onze [aan de slag](active-directory-appmodel-v2-overview.md#getting-started) sectie.
-* Als u een toepassing desktop of mobile bouwt, kunt u een van onze preview Microsoft Authentication Libraries (MSAL).  Deze bibliotheken zijn in een voorbeeld van productie ondersteund, dus veilig worden ze in productietoepassingen gebruiken. U kunt meer lezen over de voorwaarden van de Preview-versie en de beschikbare bibliotheken in onze [verificatie-bibliotheken verwijzing](active-directory-v2-libraries.md).
+* Als u een toepassing desktop of mobile bouwt, kunt u een van onze preview Microsoft Authentication Libraries (MSAL). Deze bibliotheken zijn in een voorbeeld van productie ondersteund, dus veilig worden ze in productietoepassingen gebruiken. U kunt meer lezen over de voorwaarden van de Preview-versie en de beschikbare bibliotheken in onze [verificatie-bibliotheken verwijzing](active-directory-v2-libraries.md).
 * Voor platforms die niet wordt gedekt door een Microsoft-bibliotheken, kunt u integreren met het v2.0-eindpunt door rechtstreeks verzenden en ontvangen van protocolberichten in uw toepassingscode. De v2.0 OpenID Connect en OAuth-protocollen [expliciet worden gedocumenteerd](active-directory-v2-protocols.md) om u te helpen bij het uitvoeren van een dergelijke integratie.
 * Ten slotte kunt u open source Open ID Connect en OAuth-bibliotheken integreren met het v2.0-eindpunt. Het v2.0-protocol moet compatibel zijn met veel open-source-protocol bibliotheken zonder grote wijzigingen. De beschikbaarheid van dit soort bibliotheken varieert per taal en het platform. De [Open ID Connect](http://openid.net/connect/) en [OAuth 2.0](http://oauth.net/2/) websites een lijst met populaire implementaties bijhouden. Zie voor meer informatie [Azure Active Directory-verificatie en v2.0 bibliotheken](active-directory-v2-libraries.md), en de lijst met open source-clientbibliotheken en voorbeelden die zijn getest met het v2.0-eindpunt.
 
 ## <a name="restrictions-on-protocols"></a>Beperkingen voor protocollen
-Het v2.0-eindpunt biedt geen ondersteuning voor SAML- of WS-Federation; ondersteunt alleen Open ID Connect en OAuth 2.0.  Niet alle functies en mogelijkheden van de OAuth-protocollen zijn opgenomen in het v2.0-eindpunt. Deze protocol functies en mogelijkheden zijn momenteel *niet beschikbaar* in het v2.0-eindpunt:
+Het v2.0-eindpunt biedt geen ondersteuning voor SAML- of WS-Federation; ondersteunt alleen Open ID Connect en OAuth 2.0. Niet alle functies en mogelijkheden van de OAuth-protocollen zijn opgenomen in het v2.0-eindpunt. Deze protocol functies en mogelijkheden zijn momenteel *niet beschikbaar* in het v2.0-eindpunt:
 
 * ID-tokens die zijn uitgegeven door het v2.0-eindpunt bevatten geen een `email` claim voor de gebruiker, zelfs als u toestemming van de gebruiker om hun e-mailbericht weer te geven aan te schaffen.
 * Het OpenID Connect gebruikersgegevens-eindpunt is niet geïmplementeerd op het v2.0-eindpunt. Alle gebruikersprofielgegevens die u mogelijk zou ontvangen op dit eindpunt is echter beschikbaar via Microsoft Graph `/me` eindpunt.

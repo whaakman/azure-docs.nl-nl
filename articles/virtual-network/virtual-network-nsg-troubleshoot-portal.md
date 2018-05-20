@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: b053993bec74d358dd7a0a8889fa05885b563b16
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: be400d674068d89f60d3c999006bc9291944ab1c
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Netwerkbeveiligingsgroepen met de Azure Portal oplossen
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ De volgende stappen voor het oplossen van nsg's voor een virtuele machine:
 
 U kunt de volledige lijst van de regels voor een effectieve beveiligingsmethode weergeven op een Netwerkinterfacekaart, van de virtuele machine zelf. U kunt ook toevoegen, wijzigen en verwijderen van zowel NIC en het subnetmasker NSG-regels op de blade effectieve regels als u machtigingen hebt voor deze bewerkingen uitvoeren.
 
-1. Meld u aan bij de Azure portal op https://portal.azure.com met een Azure-account. Uw account moet worden toegewezen aan de *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* bewerking voor de netwerkinterface. Zie voor meer bewerkingen toewijzen aan accounts [aangepaste rollen maken voor op rollen gebaseerd toegangsbeheer](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
+1. Meld u aan bij de Azure portal op https://portal.azure.com met een Azure-account. Uw account moet worden toegewezen aan de *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* bewerking voor de netwerkinterface. Zie voor meer bewerkingen toewijzen aan accounts [aangepaste rollen maken voor op rollen gebaseerd toegangsbeheer](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Klik op **alle services**, klikt u vervolgens op **virtuele machines** in de lijst die wordt weergegeven.
 3. Selecteer een virtuele machine om op te lossen in de lijst die wordt weergegeven en een VM-blade met opties wordt weergegeven.
 4. Klik op **spoor & oplossen van problemen met** en selecteer vervolgens een veelvoorkomend probleem. In dit voorbeeld **ik kan geen verbinding maken met mijn Windows-VM** is geselecteerd. 

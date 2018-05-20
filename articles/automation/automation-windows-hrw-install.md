@@ -9,11 +9,11 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: e63e4afb5c60f193d46e30ab884d72912a6a5054
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
-ms.translationtype: MT
+ms.openlocfilehash: 9ac6423c6b08aa2a86eda5b0560c8b10e7082284
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-deploy-a-windows-hybrid-runbook-worker"></a>Het implementeren van een Windows hybride Runbook Worker
 
@@ -130,6 +130,24 @@ Gebruik de **-uitgebreide** overschakelen met **Add-HybridRunbookWorker** voor h
 Runbooks kunt u elk van de activiteiten en de cmdlets die zijn gedefinieerd in de modules die zijn geïnstalleerd in uw Azure Automation-omgeving. Deze modules worden niet automatisch geïmplementeerd op lokale computers, zodat u ze handmatig moet installeren. De uitzondering is de Azure-module, dat standaard toegang tot de cmdlets voor alle Azure-services en activiteiten bieden voor Azure Automation is geïnstalleerd.
 
 Omdat het voornaamste doel van de Hybrid Runbook Worker-functie voor het beheren van lokale bronnen, moet u waarschijnlijk de modules die ondersteuning bieden voor deze resources te installeren. U kunt verwijzen naar [Modules installeren](http://msdn.microsoft.com/library/dd878350.aspx) voor informatie over het installeren van Windows PowerShell-modules. Modules die zijn geïnstalleerd, moeten zich in een locatie waarnaar wordt verwezen door de omgevingsvariabele PSModulePath zodat ze automatisch worden geïmporteerd door de hybride worker. Zie voor meer informatie [wijzigen van het installatiepad PSModulePath](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx).
+
+## <a name="troubleshooting"></a>Problemen oplossen
+
+De hybride Runbook Worker is afhankelijk van de Microsoft Monitoring Agent te communiceren met uw Automation-account voor het registreren van de werknemer, ontvangen van runbooktaken en status rapporteren. Als de registratie van de werknemer is mislukt, volgen hier enkele mogelijke oorzaken voor de fout:
+
+### <a name="the-microsoft-monitoring-agent-is-not-running"></a>Microsoft Monitoring Agent wordt niet uitgevoerd.
+
+Als de Microsoft Monitoring Agent Windows-service niet wordt uitgevoerd, dit voorkomt dat de hybride Runbook Worker communicatie met Azure Automation. Controleer of de agent wordt uitgevoerd met de volgende opdracht in PowerShell: `Get-Service healthservice`. Als de service wordt gestopt, voert u de volgende opdracht in PowerShell om de service te starten: `Start-Service healthservice`.
+
+### <a name="event-4502-in-operations-manager-log"></a>Gebeurtenis 4502 in Operations Manager-logboek
+
+In de **toepassingen en Services Logs\Operations Manager** gebeurtenislogboek, ziet u gebeurtenis 4502 en EventMessage met **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**met de volgende beschrijving: *het certificaat dat is doorgegeven door de service \<wsid\>. oms.opinsights.azure.com is niet uitgegeven door een certificeringsinstantie die wordt gebruikt voor Microsoft-services. Neem contact op met de netwerkbeheerder om te controleren of er een proxy die TLS/SSL-communicatie wordt onderschept worden uitgevoerd. Artikel KB3126513 bevat extra informatie over probleemoplossing voor problemen met de netwerkverbinding.*
+
+Dit kan worden veroorzaakt door uw proxy- of -firewall blokkeert communicatie met Microsoft Azure. Controleer of dat de computer heeft uitgaande toegang tot de *.azure automation.net op poort 443.
+
+Logboeken worden lokaal opgeslagen op elke worker hybride op C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. U kunt controleren of er zijn waarschuwingen of fouten die zijn geschreven naar de **toepassingen en Services Logs\Microsoft-SMA\Operations** en **toepassingen en Services Logs\Operations Manager** in het gebeurtenislogboek die duidt dit op een verbindings- of andere probleem met betrekking tot de voorbereiding van de rol aan Azure Automation of probleem tijdens het normale bewerkingen uitvoeren.
+
+Zie voor aanvullende stappen over het oplossen van problemen met updatebeheer [updatebeheer - probleemoplossing](automation-update-management.md#troubleshooting)
 
 ## <a name="next-steps"></a>Volgende stappen
 

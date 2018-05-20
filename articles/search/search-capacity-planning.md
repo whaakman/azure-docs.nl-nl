@@ -1,5 +1,5 @@
 ---
-title: Capaciteitsplanning voor Azure Search | Microsoft Docs
+title: Partities en replica's toe te wijzen voor query's en indexering in Azure Search | Microsoft Docs
 description: Partitie en replica computerbronnen in Azure Search, waarbij een prijs van elke resource in factureerbare search-eenheden aanpassen.
 author: HeidiSteen
 manager: cgronlun
@@ -8,13 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 08ae64aa92d7262b462ad105aa8e776bdaef15c0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b6c2c8283d5a60013c525db296bf84cc50d76617
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="scale-resource-levels-for-query-and-indexing-workloads-in-azure-search"></a>Resource schaalniveaus voor query's en workloads in Azure Search indexeren
+# <a name="allocate-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Partities en replica's voor query's en workloads in Azure Search indexeren toewijzen
 Nadat u [Kies een prijscategorie](search-sku-tier.md) en [inrichten van een zoekservice](search-create-service-portal.md), de volgende stap is het eventueel verhogen van het aantal replica's of partities die worden gebruikt door uw service. Elke laag biedt een vast aantal facturering eenheden. Dit artikel wordt uitgelegd hoe deze eenheden om te zorgen voor een optimale configuratie die door een compromis uw vereisten voor het uitvoeren van de query tussen, indexeren en de opslag toewijzen.
 
 Resourceconfiguratie is beschikbaar bij het instellen van een service op de [basisstaffel](http://aka.ms/azuresearchbasic) of een van de [standaard lagen](search-limits-quotas-capacity.md). Voor services op deze lagen, capaciteit is aangeschaft per *zoekeenheden* (SUs) waar elke partitie en replica telt als een SU. 

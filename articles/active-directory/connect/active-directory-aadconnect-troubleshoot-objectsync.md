@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/1/2018
+ms.date: 05/15/2018
 ms.author: billmath
-ms.openlocfilehash: a28a377ec3872fad0121636070b6604eaa415b30
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 9945ad30cc7d8882d8b99f6b4278f2063ab4b7f7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Problemen met object-synchronisatie met Azure AD Connect-synchronisatie
 Dit document bevat stappen voor het oplossen van problemen met synchronisatie van object met de taak voor het oplossen van problemen.
@@ -90,6 +90,8 @@ Een gekoppeld postvak moet worden gekoppeld aan een externe hoofdaccount in een 
 
 ## <a name="dynamic-distribution-group-issue"></a>Dynamische distributiegroep probleem
 Vanwege diverse verschillen tussen on-premises Active Directory en Azure Active Directory, Azure AD Connect niet wordt gesynchroniseerd dynamische distributiegroepen met de Azure AD-tenant.
+
+![Dynamische distributiegroep](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch13.png)
 
 ## <a name="html-report"></a>HTML-rapport
 Naast het analyseren van het object, genereert de taak voor het oplossen van problemen ook een HTML-rapport dat alles wat u bekend zijn voor het object is. Dit rapport HTML kan worden gedeeld met het ondersteuningsteam doen verder het oplossen van problemen, indien nodig.

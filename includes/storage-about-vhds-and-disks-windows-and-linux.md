@@ -1,6 +1,6 @@
 ---
-title: bestand opnemen
-description: bestand opnemen
+title: include file
+description: include file
 services: storage
 author: tamram
 ms.service: storage
@@ -9,66 +9,66 @@ ms.date: 04/09/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: b4d208ca28f6287489f104ba4e2ea9696e7a1f58
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/24/2018
 ---
-## <a name="about-vhds"></a>Over VHD's
+## <a name="about-vhds"></a>About VHDs
 
-De VHD's die worden gebruikt in Azure zijn .vhd-bestanden opgeslagen als pagina-blobs in een Standard Storage- of Premium Storage-account in Azure. Zie [Understanding block blobs and page blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/) (Inzicht in blok-blobs en pagina-blobs) voor meer informatie over pagina-blobs. Zie [High-performance premium storage and Azure VMs](../articles/virtual-machines/windows/premium-storage.md) (Hoogwaardige Premium Storage en virtuele Azure-machines) voor meer informatie over Premium Storage.
+The VHDs used in Azure are .vhd files stored as page blobs in a standard or premium storage account in Azure. For details about page blobs, see [Understanding block blobs and page blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). For details about premium storage, see [High-performance premium storage and Azure VMs](../articles/virtual-machines/windows/premium-storage.md).
 
-Azure biedt ondersteuning voor de VHD-indeling met vaste schijf. Bij een vaste indeling wordt de logische schijf lineair ingedeeld binnen het bestand, zodat de schijf-offset X wordt opgeslagen op blob-offset X. Een kleine voettekst aan het einde van de blob beschrijft de eigenschappen van de VHD. Bij een vaste indeling wordt vaak te veel ruimte gebruikt omdat de meeste schijven grote ongebruikte bereiken bevatten. Azure slaat VHD-bestanden echter in een sparse-indeling op, zodat u profiteert van de voordelen van zowel vaste als dynamische schijven. Zie [Getting started with virtual hard disks](https://technet.microsoft.com/library/dd979539.aspx) (Aan de slag met virtuele harde schijven) voor meer informatie.
+Azure supports the fixed disk VHD format. The fixed format lays the logical disk out linearly within the file, so that disk offset X is stored at blob offset X. A small footer at the end of the blob describes the properties of the VHD. Often, the fixed format wastes space because most disks have large unused ranges in them. However, Azure stores .vhd files in a sparse format, so you receive the benefits of both the fixed and dynamic disks at the same time. For more details, see [Getting started with virtual hard disks](https://technet.microsoft.com/library/dd979539.aspx).
 
-Alle VHD-bestanden in Azure die u gebruiken als bron wilt voor het maken van schijven of installatiekopieën zijn alleen-lezen, met uitzondering van de VHD-bestanden geüpload of gekopieerd naar Azure-opslag door de gebruiker (die kan worden alleen-lezen of alleen-lezen). Wanneer u een schijf of installatiekopie maakt, maakt Azure kopieën van de bron-VHD-bestanden. Deze kopieën kunnen alleen-lezen of lezen/schrijven zijn, afhankelijk van hoe u de VHD gebruikt.
+All .vhd files in Azure that you want to use as a source to create disks or images are read-only, except the .vhd files uploaded or copied to Azure storage by the user (which can be either read-write or read-only). When you create a disk or image, Azure makes copies of the source .vhd files. These copies can be read-only or read-and-write, depending on how you use the VHD.
 
-Wanneer u een virtuele machine van een installatiekopie maakt, maakt Azure een schijf voor de virtuele machine die een kopie is van het VHD-bronbestand. Als bescherming tegen onbedoeld verwijderen, plaatst Azure een lease op elk VHD-bronbestand dat wordt gebruikt voor het maken van een installatiekopie, een besturingssysteemschijf of een gegevensschijf.
+When you create a virtual machine from an image, Azure creates a disk for the virtual machine that is a copy of the source .vhd file. To protect against accidental deletion, Azure places a lease on any source .vhd file that’s used to create an image, an operating system disk, or a data disk.
 
-Voordat u een VHD-bronbestand kunt verwijderen, dient u de lease te verwijderen door de schijf of installatiekopie te verwijderen. Als u een VHD-bestand wilt verwijderen dat door een virtuele machine wordt gebruikt als besturingssysteemschijf, kunt u de virtuele machine, de besturingssysteemschijf en het VHD-bronbestand in één keer verwijderen door de virtuele machine en alle gekoppelde schijven te verwijderen. Het verwijderen van een VHD-bronbestand voor een gegevensschijf vereist echter een aantal stappen in een vaste volgorde. Koppel eerst de schijf los van de virtuele machine, verwijder daarna de schijf en verwijder vervolgens het VHD-bestand.
+Before you can delete a source .vhd file, you’ll need to remove the lease by deleting the disk or image. To delete a .vhd file that is being used by a virtual machine as an operating system disk, you can delete the virtual machine, the operating system disk, and the source .vhd file all at once by deleting the virtual machine and deleting all associated disks. However, deleting a .vhd file that’s a source for a data disk requires several steps in a set order. First you detach the disk from the virtual machine, then delete the disk, and then delete the .vhd file.
 > [!WARNING]
-> Als u een VHD-bronbestand uit de opslag verwijdert of uw opslagaccount verwijdert, kan Microsoft die gegevens niet voor u herstellen.
+> If you delete a source .vhd file from storage, or delete your storage account, Microsoft can't recover that data for you.
 > 
-> Pagina-blobs in Premium-opslag zijn alleen ontworpen voor gebruik als virtuele harde schijven. Niet wordt aangeraden het opslaan van andere typen gegevens in de pagina-blobs in Premium-opslag, zoals de kosten kan aanzienlijk groter zijn. Blok-blobs gebruiken voor het opslaan van gegevens die zich niet in een VHD.
+> Page blobs in Premium Storage are designed for use as VHDs only. Microsoft does not recommend storing other types of data in page blobs in Premium Storage, as the cost may be significantly greater. Use block blobs for storing data that is not in a VHD.
 
-## <a name="types-of-disks"></a>Typen schijven 
+## <a name="types-of-disks"></a>Types of disks 
 
-Azure-schijven zijn ontworpen om 99,999% van de tijd beschikbaar te zijn. Azure-schijven hebben dan bedrijfsniveau duurzaamheid met een toonaangevende nul % Annualized Faalpercentage consistent geleverd.
+Azure Disks are designed for 99.999% availability. Azure Disks have consistently delivered enterprise-grade durability, with an industry-leading ZERO% Annualized Failure Rate.
 
-U kunt kiezen uit twee prestatielagen voor opslag wanneer u uw schijven maakt: Standard Storage en Premium Storage. Daarnaast zijn er twee soorten schijven, niet-beheerd en beheerd, die zich in elk van de twee prestatielagen kunnen bevinden.
+There are two performance tiers for storage that you can choose from when creating your disks -- Standard Storage and Premium Storage. Also, there are two types of disks -- unmanaged and managed -- and they can reside in either performance tier.
 
 
-### <a name="standard-storage"></a>Standard Storage 
+### <a name="standard-storage"></a>Standard storage 
 
-Standard Storage wordt ondersteund door HDD's en biedt voordelige en hoogwaardige opslag. Standard Storage kan lokaal worden gerepliceerd in één datacenter of kan geografisch redundant zijn met primaire en secundaire datacenters. Zie [Azure Storage-replicatie](../articles/storage/common/storage-redundancy.md) voor meer informatie over opslagreplicatie. 
+Standard Storage is backed by HDDs, and delivers cost-effective storage while still being performant. Standard storage can be replicated locally in one datacenter, or be geo-redundant with primary and secondary data centers. For more information about storage replication, please see [Azure Storage replication](../articles/storage/common/storage-redundancy.md). 
 
-Raadpleeg [Standard Storage and Disks](../articles/virtual-machines/windows/standard-storage.md) (Standard Storage en schijven) voor meer informatie over het gebruik van Standard Storage met VM-schijven.
+For more information about using Standard Storage with VM disks, please see [Standard Storage and Disks](../articles/virtual-machines/windows/standard-storage.md).
 
-### <a name="premium-storage"></a>Premium Storage 
+### <a name="premium-storage"></a>Premium storage 
 
-Premium Storage maakt gebruik van SSD's en voorziet in hoogwaardige schijfondersteuning met lage latentie voor virtuele machines die I/O-intensieve workloads uitvoeren. Doorgaans kunt u Premium-opslag met grootten die een "s" in de naam van de gegevensreeks opnemen. Bijvoorbeeld: Er is de Dv3-reeks en de Dsv3-serie, de Dsv3-reeks kan worden gebruikt met Premium-opslag.  Ga voor meer informatie naar [Premium Storage](../articles/virtual-machines/windows/premium-storage.md).
+Premium Storage is backed by SSDs, and delivers high-performance, low-latency disk support for VMs running I/O-intensive workloads. Typically you can use Premium Storage with sizes that include an "s" in the series name. For example, there is the Dv3-Series and the Dsv3-series, the Dsv3-series can be used with Premium Storage.  For more information, please see [Premium Storage](../articles/virtual-machines/windows/premium-storage.md).
 
-### <a name="unmanaged-disks"></a>Niet-beheerde schijven
+### <a name="unmanaged-disks"></a>Unmanaged disks
 
-Oorspronkelijk werden niet-beheerde schijven gebruikt door virtuele machines. Met deze schijven maakt u uw eigen opslagaccount en specificeert u dit account wanneer u de schijf maakt. U dient te controleren of u niet te veel schijven in hetzelfde opslagaccount plaatst, omdat u anders de [schaalbaarheidsdoelen](../articles/storage/common/storage-scalability-targets.md) van het opslagaccount kunt overschrijden (bijvoorbeeld 20.000 IOP's), waardoor de virtuele machines worden vertraagd. Met niet-beheerde schijven moet u bepalen hoe u het beste gebruik kunt maken van een of meer opslagaccounts om de beste prestaties voor uw virtuele machines te realiseren.
+Unmanaged disks are the traditional type of disks that have been used by VMs. With these, you create your own storage account and specify that storage account when you create the disk. You have to make sure you don't put too many disks in the same storage account, because you could exceed the [scalability targets](../articles/storage/common/storage-scalability-targets.md) of the storage account (20,000 IOPS, for example), resulting in the VMs being throttled. With unmanaged disks, you have to figure out how to maximize the use of one or more storage accounts to get the best performance out of your VMs.
 
-### <a name="managed-disks"></a>Managed Disks 
+### <a name="managed-disks"></a>Managed disks 
 
-Managed Disks beheert het maken/beheren van het opslagaccount op de achtergrond en zorgt ervoor dat u zich geen zorgen hoeft te maken over de schaalbaarheidslimieten van het opslagaccount. U hoeft alleen maar de schijfgrootte en prestatielaag (Standard/Premium) op te geven en Azure maakt en beheert de schijf voor u. Zelfs als u schijven toevoegt of de virtuele machine omhoog of omlaag schaalt, hoeft u zich geen zorgen te maken over de gebruikte opslag. 
+Managed Disks handles the storage account creation/management in the background for you, and ensures that you do not have to worry about the scalability limits of the storage account. You simply specify the disk size and the performance tier (Standard/Premium), and Azure creates and manages the disk for you. Even as you add disks or scale the VM up and down, you don't have to worry about the storage being used. 
 
-U kunt ook uw aangepaste installatiekopieën in één opslagaccount per Azure-regio beheren en deze gebruiken om honderden virtuele machines onder hetzelfde abonnement te maken. Zie [Overzicht van Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md) voor meer informatie over Managed Disks.
+You can also manage your custom images in one storage account per Azure region, and use them to create hundreds of VMs in the same subscription. For more information about Managed Disks, please see the [Managed Disks Overview](../articles/virtual-machines/windows/managed-disks-overview.md).
 
-We raden u aan Azure Managed Disks te gebruiken voor nieuwe virtuele machines en uw vorige niet-beheerde schijven te converteren naar beheerde schijven, zodat u kunt profiteren van de functies in Managed Disks.
+We recommend that you use Azure Managed Disks for new VMs, and that you convert your previous unmanaged disks to managed disks, to take advantage of the many features available in Managed Disks.
 
-### <a name="disk-comparison"></a>Vergelijking van schijven
+### <a name="disk-comparison"></a>Disk comparison
 
-De volgende tabel bevat een vergelijking van Premium en Standard voor niet-beheerde en beheerde schijven om u te helpen bepalen welke u het beste kunt gebruiken.
+The following table provides a comparison of Premium vs Standard for both unmanaged and managed disks to help you decide what to use.
 
 |    | Azure Premium Disk | Azure Standard Disk |
 |--- | ------------------ | ------------------- |
-| Schijftype | Solid-state drives (SSD) | Hardeschijfstation (HDD)  |
-| Overzicht  | Hoogwaardige schijfondersteuning met lage latentie op basis van SSD's voor virtuele machines die IO-intensieve workloads uitvoeren of een bedrijfskritieke productieomgeving hosten | Voordelige schijfondersteuning op basis van HDD's voor het ontwikkelen/testen van virtuele machines |
-| Scenario  | Productie- en prestatiegevoelige workloads | Ontwikkelen/testen, niet-kritiek, <br>Incidentele toegang |
-| Schijfgrootte | P4: 32 GB (alleen beheerde schijven)<br>P6: 64 GB (alleen beheerde schijven)<br>P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB<br>P 40: 2048 GB<br>P50: 4095 GB | Niet-beheerde schijven: 1 GB – 4 TB (4095 GB) <br><br>Beheerde schijven:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB <br>S40: 2048 GB<br>AANBEVELING S50: 4095 GB| 
-| Max. doorvoer per schijf | 250 MB/s | 60 MB/s | 
-| Max. IOP's per schijf | 7500 IOP 'S | 500 IOP's | 
+| Disk Type | Solid State Drives (SSD) | Hard Disk Drives (HDD)  |
+| Overview  | SSD-based high-performance, low-latency disk support for VMs running IO-intensive workloads or hosting mission critical production environment | HDD-based cost effective disk support for Dev/Test VM scenarios |
+| Scenario  | Production and performance sensitive workloads | Dev/Test, non-critical, <br>Infrequent access |
+| Disk Size | P4: 32 GB (Managed Disks only)<br>P6: 64 GB (Managed Disks only)<br>P10: 128 GB<br>P20: 512 GB<br>P30: 1024 GB<br>P40: 2048 GB<br>P50: 4095 GB | Unmanaged Disks: 1 GB – 4 TB (4095 GB) <br><br>Managed Disks:<br> S4: 32 GB <br>S6: 64 GB <br>S10: 128 GB <br>S20: 512 GB <br>S30: 1024 GB <br>S40: 2048 GB<br>S50: 4095 GB| 
+| Max Throughput per Disk | 250 MB/s | 60 MB/s | 
+| Max IOPS per Disk | 7500 IOPS | 500 IOPS | 
 

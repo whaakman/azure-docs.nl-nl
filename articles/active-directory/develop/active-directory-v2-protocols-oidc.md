@@ -3,23 +3,25 @@ title: Azure Active Directory-v2.0 en het protocol OpenID Connect | Microsoft Do
 description: Webtoepassingen bouwen met behulp van de Azure AD v2.0-implementatie van het OpenID Connect-verificatieprotocol.
 services: active-directory
 documentationcenter: ''
-author: hpsin
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: a4875997-3aac-4e4c-b7fe-2b4b829151ce
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2018
-ms.author: hirsin
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: fd1f29f5c2920ea9956d883b9668f36c934a5e59
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a0cd077b1c6530c5794c92f131dffb814f5b341d
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory-v2.0 en het protocol OpenID Connect
 OpenID Connect is een authenticatieprotocol dat is gebaseerd op OAuth 2.0 die u gebruiken kunt voor het veilig Meld u aan een gebruiker aan een webtoepassing. Wanneer u het v2.0-eindpunt implementatie van OpenID Connect gebruikt, kunt u aanmelden en toegang tot API toevoegen aan uw web gebaseerde apps. In dit artikel wordt beschreven hoe u te doen dit onafhankelijk van de taal. We beschrijven hoe verzenden en ontvangen van HTTP-berichten zonder een Microsoft open source-bibliotheken.
@@ -43,7 +45,7 @@ Beschrijving van een document met metagegevens die de meeste van de vereiste inf
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 ```
 > [!TIP] 
-> Probeer het! Klik op [ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration ](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) om te zien de `common` tenants configuratie. 
+> Nu proberen. Klik op [ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration ](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) om te zien de `common` tenants configuratie. 
 >
 
 De `{tenant}` kan duren voordat een van de vier waarden:
@@ -82,7 +84,7 @@ Als uw web-app moet de gebruiker te verifiëren, kan de gebruiker worden doorges
 * De aanvraag moet bevatten de `nonce` parameter.
 
 > [!IMPORTANT]
-> Vragen om met succes is een token ID, de registratie van de app in de [registratieportal](https://apps.dev.microsoft.com) moet de **[impliciete grant](active-directory-v2-protocols-implicit.md)** ingeschakeld voor de de webclient.  Als deze niet is ingeschakeld, een `unsupported_response` fout geretourneerd: "de opgegeven waarde voor de invoerparameter 'response_type' is niet toegestaan voor deze client. Verwachte waarde is 'code' '
+> Vragen om met succes is een token ID, de registratie van de app in de [registratieportal](https://apps.dev.microsoft.com) moet de **[impliciete grant](active-directory-v2-protocols-implicit.md)** ingeschakeld voor de de webclient. Als deze niet is ingeschakeld, een `unsupported_response` fout geretourneerd: "de opgegeven waarde voor de invoerparameter 'response_type' is niet toegestaan voor deze client. Verwachte waarde is 'code' '
 
 Bijvoorbeeld:
 
@@ -196,10 +198,10 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 | Parameter | Voorwaarde | Beschrijving |
 | ----------------------- | ------------------------------- | ------------ |
-| post_logout_redirect_uri | Aanbevolen | De URL waarnaar de gebruiker wordt omgeleid naar na het afmelden is. Als de parameter niet opgenomen is, wordt de gebruiker een algemeen bericht dat wordt gegenereerd door het v2.0-eindpunt weergegeven. Deze URL moet overeenkomen met een van de omleiding die URI 's geregistreerd voor uw toepassing in de app-portal voor wachtwoordregistratie.  |
+| post_logout_redirect_uri | Aanbevolen | De URL waarnaar de gebruiker wordt omgeleid naar na het afmelden is. Als de parameter niet opgenomen is, wordt de gebruiker een algemeen bericht dat wordt gegenereerd door het v2.0-eindpunt weergegeven. Deze URL moet overeenkomen met een van de omleiding die URI 's geregistreerd voor uw toepassing in de app-portal voor wachtwoordregistratie. |
 
 ## <a name="single-sign-out"></a>Eenmalige afmelding
-Wanneer het omleiden van de gebruiker de `end_session_endpoint`, het v2.0-eindpunt wist de gebruikerssessie vanuit de browser. Echter, de gebruiker mogelijk nog steeds zijn aangemeld bij andere toepassingen die Microsoft-accounts voor verificatie gebruiken. Voor deze toepassingen voor het ondertekenen van de gebruiker uit tegelijk, het v2.0 eindpunt een HTTP GET-aanvraag verzendt naar de geregistreerde `LogoutUrl` van alle toepassingen die de gebruiker momenteel is aangemeld bij. Toepassingen op deze aanvraag moeten reageren door alle sessies waarin de gebruiker te wissen en retourneren een `200` antwoord.  Als u afmelden ondersteuning voor eenmalige aanmelding in uw toepassing wilt, moet u deze implementeren een `LogoutUrl` in de code van uw toepassing.  U kunt instellen de `LogoutUrl` van de app-portal voor wachtwoordregistratie.
+Wanneer het omleiden van de gebruiker de `end_session_endpoint`, het v2.0-eindpunt wist de gebruikerssessie vanuit de browser. Echter, de gebruiker mogelijk nog steeds zijn aangemeld bij andere toepassingen die Microsoft-accounts voor verificatie gebruiken. Voor deze toepassingen voor het ondertekenen van de gebruiker uit tegelijk, het v2.0 eindpunt een HTTP GET-aanvraag verzendt naar de geregistreerde `LogoutUrl` van alle toepassingen die de gebruiker momenteel is aangemeld bij. Toepassingen op deze aanvraag moeten reageren door alle sessies waarin de gebruiker te wissen en retourneren een `200` antwoord. Als u afmelden ondersteuning voor eenmalige aanmelding in uw toepassing wilt, moet u deze implementeren een `LogoutUrl` in de code van uw toepassing. U kunt instellen de `LogoutUrl` van de app-portal voor wachtwoordregistratie.
 
 ## <a name="protocol-diagram-access-token-acquisition"></a>Protocol diagram: toegang tot token verkrijgen
 Veel WebApps moeten niet alleen de gebruiker te melden bij, maar ook voor toegang tot een webservice namens de gebruiker met behulp van OAuth. Dit scenario combineert OpenID Connect voor de verificatie bij het ophalen van een autorisatiecode die u gebruiken kunt voor toegangstokens ophalen als u van de OAuth-autorisatiecodestroom gebruikmaakt tegelijk.

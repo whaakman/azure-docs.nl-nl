@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/5/2018
+ms.date: 5/14/2018
 ms.author: masaran;trinadhk;pullabhk;markgal;adigan
-ms.openlocfilehash: 3b37afc9d768313f6cc202eeecca22528cc57b07
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ef6be97144d05f18362ef707ef255b93c8cf21d9
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Met Azure Backup Server voorbereiden op het maken van back-ups van workloads
 > [!div class="op_single_selector"]
@@ -73,40 +73,19 @@ U kunt de DPM-opslag met behulp van Windows Server-Ontdubbeling ontdubbelen. Mee
 > - Een computer waarop Exchange Server wordt uitgevoerd
 > - Een computer die een knooppunt van een cluster is
 
-Altijd Azure Backup-Server toevoegen aan een domein. Als u van plan bent de server naar een ander domein verplaatsen, is het raadzaam dat u de server aan het nieuwe domein toevoegen voordat u Azure Backup-Server installeert. Een bestaande back-upserver van Azure-machine verplaatsen naar een nieuw domein nadat implementatie *niet ondersteund*.
+Altijd Azure Backup-Server toevoegen aan een domein. Als u van plan bent de server naar een ander domein verplaatsen, installeert u eerst Azure Backup-Server en de server toevoegen aan het nieuwe domein. Een bestaande back-upserver van Azure-machine verplaatsen naar een nieuw domein nadat implementatie *niet ondersteund*.
 
-## <a name="recovery-services-vault"></a>Recovery Services-kluis
-Of u back-upgegevens naar Azure verzenden of lokaal houden, wordt de software moet zijn verbonden met Azure. Meer specifiek, de Azure Backup-Server-machine moet worden geregistreerd met een recovery services-kluis.
+Of u back-upgegevens naar Azure verzenden of lokaal houden, moet Azure Backup-Server zijn geregistreerd bij een Recovery Services-kluis.
 
-Een Recovery Services-kluis maken:
-
-1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Klik in het menu Hub op **Bladeren** en typ in de lijst met resources **Recovery Services**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Klik op **Recovery Services-kluis**.
-
-    ![Een Recovery Services-kluis maken, stap 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png) <br/>
-
-    De lijst met Recovery Services-kluizen wordt weergegeven.
-3. Klik in het menu **Recovery Services-kluizen** op **Toevoegen**.
-
-    ![Een Recovery Services-kluis maken, stap 2](./media/backup-azure-microsoft-azure-backup/rs-vault-menu.png)
-
-    De blade Recovery Services-kluis wordt geopend en u wordt gevraagd een **naam**, **abonnement**, **resourcegroep** en **locatie** in te voeren.
-
-    ![Een Recovery Services-kluis maken, stap 5](./media/backup-azure-microsoft-azure-backup/rs-vault-attributes.png)
-4. Voer bij **Naam** een beschrijvende naam in om de kluis aan te duiden. De naam moet uniek zijn voor het Azure-abonnement. Typ een naam die tussen 2 en 50 tekens bevat. De naam moet beginnen met een letter en mag alleen letters, cijfers en afbreekstreepjes bevatten.
-5. Klik op **Abonnement** om de beschikbare lijst met abonnementen te bekijken. Als u niet zeker weet welk abonnement u moet gebruiken, gebruikt u het standaard- (of voorgestelde) abonnement. Er zijn alleen meerdere mogelijkheden als uw organisatieaccount is gekoppeld aan meerdere Azure-abonnementen.
-6. Klik op **Resourcegroep** om de lijst met beschikbare resourcegroepen te bekijken of klik op **Nieuw** om een nieuwe resourcegroep te maken. Zie [Overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) voor meer informatie over resourcegroepen.
-7. Klik op **Locatie** om de geografische regio voor de kluis te selecteren.
-8. Klik op **Create**. Het kan even duren voordat de Recovery Services-kluis is gemaakt. Controleer de statusmeldingen rechtsboven in de portal.
-   Zodra uw kluis is gemaakt, wordt het in de portal geopend.
+[!INCLUDE [backup-create-rs-vault.md](../../includes/backup-create-rs-vault.md)]
 
 ### <a name="set-storage-replication"></a>Opslagreplicatie instellen
-U kunt met de optie voor opslagreplicatie kiezen tussen geografisch redundante opslag en lokaal redundante opslag. Uw kluis heeft standaard geografisch redundante opslag. Als deze kluis uw primaire kluis is, laat u de opslagoptie die is ingesteld op geografisch redundante opslag. Kies lokaal redundante opslag als u een goedkopere optie wilt die niet zo duurzaam is. U vindt meer informatie over de opties voor [geografisch redundante](../storage/common/storage-redundancy-grs.md) en [lokaal redundante](../storage/common/storage-redundancy-lrs.md) opslag in het [overzicht van Azure Storage-replicatie](../storage/common/storage-redundancy.md).
+U kunt met de optie voor opslagreplicatie kiezen tussen geografisch redundante opslag en lokaal redundante opslag. Recovery Services-kluizen gebruiken standaard geografisch redundante opslag. Als deze kluis uw primaire kluis is, laat u de opslagoptie die is ingesteld op geografisch redundante opslag. Kies lokaal redundante opslag als u een goedkopere optie wilt die niet zo duurzaam is. U vindt meer informatie over de opties voor [geografisch redundante](../storage/common/storage-redundancy-grs.md) en [lokaal redundante](../storage/common/storage-redundancy-lrs.md) opslag in het [overzicht van Azure Storage-replicatie](../storage/common/storage-redundancy.md).
 
 De instelling voor opslagreplicatie bewerken:
 
-1. Selecteer de kluis om het kluisdashboard en de blade Instellingen te openen. Als de blade **Instellingen** niet wordt geopend, klikt u op **Alle instellingen** op het kluisdashboard.
-2. Klik op de blade **Instellingen** op **Back-upinfrastructuur** > **Back-upconfiguratie** om de blade **Back-upconfiguratie** te openen. Kies op de blade **Back-upconfiguratie** de optie voor opslagreplicatie voor uw kluis.
+1. Selecteer uw kluis om het kluisdashboard en het menu instellingen te openen. Als de **instellingen** menu niet wordt geopend, klikt u op **alle instellingen** op het kluisdashboard.
+2. Op de **instellingen** menu, klikt u op **back-upinfrastructuur** > **back-upconfiguratie** openen de **back-upconfiguratie**blade. Op de **back-upconfiguratie** menu, kies de optie voor opslagreplicatie voor uw kluis.
 
     ![Lijst met back-upkluizen](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
@@ -115,7 +94,7 @@ De instelling voor opslagreplicatie bewerken:
 ## <a name="software-package"></a>Softwarepakket
 ### <a name="downloading-the-software-package"></a>Het softwarepakket downloaden
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Als u al een Recovery Services-kluis is geopend, gaat u verder met stap 3. Als er nog geen Recovery Services-kluis is geopend, maar Azure Portal wordt weergeven, klikt u in het menu Hub op **Bladeren**.
+2. Als u al een Recovery Services-kluis is geopend, gaat u verder met stap 3. Als u geen een Recovery Services-kluis is geopend, maar in de Azure portal, in het hoofdmenu worden, klikt u op **Bladeren**.
 
    * Typ in de lijst met resources **Recovery Services**.
    * Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Wanneer **Recovery Services-kluizen** wordt weergegeven, klikt u erop.

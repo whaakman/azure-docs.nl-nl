@@ -1,23 +1,31 @@
 # [Documentatie voor ExpressRoute](index.md)
 
 # Overzicht
+
 ## [Wat is ExpressRoute?](expressroute-introduction.md)
-## [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md)
+
+# Zelfstudies
+## [Een circuit maken en wijzigen](expressroute-howto-circuit-portal-resource-manager.md)
+## [Een peeringconfiguratie maken en wijzigen](expressroute-howto-routing-portal-resource-manager.md)
+## [Een virtueel netwerk koppelen aan een ExpressRoute-circuit](expressroute-howto-linkvnet-portal-resource-manager.md)
+## [Routefilters voor Microsoft-peering configureren](how-to-routefilter-portal.md)
+
+# Concepten
+
 ## [Connectiviteitsmodellen](expressroute-connectivity-models.md)
 ## [Circuits en routeringsdomeinen](expressroute-circuit-peerings.md)
 ## [Locaties en partners](expressroute-locations.md)
 ### [Providers per locatie](expressroute-locations-providers.md)
 ### [Locaties per provider](expressroute-locations.md)
 ## [Virtuele netwerkgateways voor ExpressRoute](expressroute-about-virtual-network-gateways.md)
-
-# Aan de slag
 ## [Vereisten](expressroute-prerequisites.md)
 ## [Werkstromen](expressroute-workflows.md)
 ## [Routeringsvereisten](expressroute-routing.md)
 ## [QoS-vereisten](expressroute-qos.md)
 ## [Circuits verplaatsen van het klassieke model naar Resource Manager](expressroute-move.md)
 
-# Procedures
+# Handleidingen
+
 ## Een circuit maken en wijzigen
 ### [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-circuit-arm.md)
@@ -52,13 +60,11 @@
 ### [Een virtueel netwerk koppelen aan een ExpressRoute-circuit](expressroute-howto-linkvnet-classic.md)
 ### [Gelijktijdige ExpressRoute- en S2S-verbindingen configureren](expressroute-howto-coexist-classic.md)
 ### [Een gateway aan een VNet toevoegen](expressroute-howto-add-gateway-classic.md)
-
 ## Beste praktijken
 ### [Aanbevolen procedures voor netwerkbeveiliging en cloudservices](../best-practices-network-security.md)
 ### [Routering optimaliseren](expressroute-optimize-routing.md)
 ### [Asymmetrisch routeren](expressroute-asymmetric-routing.md)
 ### [NAT voor ExpressRoute](expressroute-nat.md)
-
 ## Problemen oplossen
 ### [ExpressRoute-connectiviteit controleren](expressroute-troubleshooting-expressroute-overview.md)
 ### [Problemen met de netwerkprestaties oplossen](expressroute-troubleshooting-network-performance.md)
@@ -67,19 +73,14 @@
 ### [ARP-tabellen ophalen (klassiek)](expressroute-troubleshooting-arp-classic.md)
 
 # Naslaginformatie
-## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#expressroute)
+
+## [Azure PowerShell](/powershell/module/azurerm.network#expressroute)
 ## [Azure-CLI](/cli/azure/network/express-route)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (klassiek)](https://msdn.microsoft.com/library/azure/dn606310)
 
-# Verwant
-## [Virtueel netwerk](/azure/virtual-network/)
-## [VPN Gateway](/azure/vpn-gateway/)
-## [Virtuele machines](/azure/virtual-machines/)
-## [Load Balancer](/azure/load-balancer/)
-## [Traffic Manager](/azure/traffic-manager/)
-
 # Resources
+## [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md)
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Casestudy's](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
 ## [Netwerkblog](https://azure.microsoft.com/blog/topics/networking/)

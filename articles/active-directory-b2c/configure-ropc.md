@@ -10,15 +10,15 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: davidmu
-ms.openlocfilehash: 4a052da4a6a16fde0583b3a1dbecc2a6de5cc0a9
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: c1b4d641f6830751e2cb9e66d5052eb20a48d371
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-ropc-in-azure-ad-b2c"></a>De resource-eigenaar wachtwoord referentiestroom (ROPC) configureren in Azure AD B2C
 
-De resource-eigenaar wachtwoord referenties (ROPC)-gegevensstroom is als een standaard OAUTH-authenticatiestroom waar de toepassing ook weten als de relying party, geldige referenties zoals gebruikersnaam en wachtwoord voor een token ID, toegangstoken en een vernieuwingstoken kunnen worden uitgewisseld. 
+De resource-eigenaar wachtwoord referenties (ROPC)-stroom is een standaard OAUTH-authenticatiestroom waar de toepassing, ook wel bekend als de relying party, geldige referenties zoals gebruikersnaam en wachtwoord voor een token ID, toegangstoken en een vernieuwingstoken uitgewisseld. 
 
 > [!NOTE]
 > Deze functie is in preview.

@@ -10,6 +10,7 @@
 ## [Azure AD Connect Health-Agent installeren](active-directory-aadconnect-health-agent-install.md)
 ## [Azure AD Connect Health-bewerkingen](active-directory-aadconnect-health-operations.md)
 ## [Fouten tijdens synchronisatie](../active-directory-aadconnect-troubleshoot-sync-errors.md)
+## [Synchronisatiefouten vaststellen bij dubbele kenmerken](active-directory-aadconnect-health-diagnose-sync-errors.md)
 
 # Problemen oplossen
 ## [Veelgestelde vragen over Azure AD Connect Health](active-directory-aadconnect-health-faq.md)

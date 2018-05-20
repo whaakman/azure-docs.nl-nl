@@ -1,24 +1,24 @@
 ---
 title: Definine en beheren van de status in Azure microservices | Microsoft Docs
-description: "Het definiëren en beheren van de status in Service Fabric-service"
+description: Het definiëren en beheren van de status in Service Fabric-service
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f5e618a5-3ea3-4404-94af-122278f91652
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 103fd6c3d536bc11f4e39444043a332a1d8f6c01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 46d2e27b9cdcb03213648982c7e9a0576838bc92
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-state"></a>Servicestatus
 **Status service** verwijst naar het geheugen of van schijfgegevens die een service nodig heeft om de functie. Het kan bijvoorbeeld omvat de gegevensstructuren en variabelen die de service leest en schrijft om te werken. Afhankelijk van hoe de service is ontworpen, kan deze ook bestanden of andere bronnen die zijn opgeslagen op schijf bevatten. Bijvoorbeeld, de bestanden een database wilt gebruiken voor het opslaan van gegevens en de transactielogboeken.

@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: ''
-ms.openlocfilehash: 2bc2559dc1cf737e018895ffae61d0da0e56fc85
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: a8844ea44bf604944c5980b0d41ab5d01a30b876
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timertrigger voor Azure Functions 
 
@@ -34,6 +34,8 @@ Dit artikel wordt uitgelegd hoe u werkt met timer triggers in Azure Functions. E
 De timertrigger is opgegeven de [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet-pakket. De broncode voor het pakket bevindt zich in de [azure webjobs-sdk extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) GitHub-opslagplaats.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
 
 ## <a name="example"></a>Voorbeeld
 
@@ -209,7 +211,7 @@ Elk veld kan een van de volgende soorten waarden hebben:
 |Een bepaalde waarde |<nobr>"0 5 * * * *"</nobr>|op hh:05:00 waarbij UU staat voor elk uur (eens per uur)|
 |Alle waarden (`*`)|<nobr>"0 * 5 * * *"</nobr>|op 5:mm: 00 per dag uit, waarbij mm wordt elke minuut van het uur (60 keer per dag)|
 |Een bereik (`-` operator)|<nobr>"5-7 * * * * *"</nobr>|op hh:mm:05 hh:mm:06 en hh:mm:07 waarbij UU: mm elke minuut van elk uur (3 maal een minuut wordt)|  
-|Een set waarden (`,` operator)|<nobr>"5,8,10 * * * * *"</nobr>|op hh:mm:05 hh:mm:08 en hh:mm:10 waarbij UU: mm elke minuut van elk uur (3 maal een minuut wordt)|
+|Een set waarden (`,` operator)|<nobr>"5,8,10 **** *"</nobr>|op hh:mm:05 hh:mm:08 en hh:mm:10 waarbij UU: mm elke minuut van elk uur (3 maal een minuut wordt)|
 |Een intervalwaarde (`/` operator)|<nobr>"0 */5 * * * *"</nobr>|op hh:05:00, hh:10:00, hh:15:00 tot en met hh:55:00 waarbij UU staat voor elk uur (12 keer een uur)|
 
 ### <a name="cron-examples"></a>CRON-voorbeelden
@@ -220,8 +222,8 @@ Hier volgen enkele voorbeelden van CRON-expressies die u voor de timertrigger in
 |---------|---------|
 |"0 */5 * * * *"|om de vijf minuten|
 |"0 0 * * * *"|eenmaal boven aan elk uur|
-|"0 0 */2 * * *"|elke twee uur|
-|"0 0 9-17 * * *"|één keer per uur van 9: 00 uur op 17: 00 uur|
+|"0 0 * / 2 ** *"|elke twee uur|
+|"0 0-9-17 ** *"|één keer per uur van 9: 00 uur op 17: 00 uur|
 |"0 30 9 * * *"|op elke dag 9:30 uur|
 |"0 30 9 * * 1-5"|om 9:30 AM elke weekdag|
 
@@ -256,7 +258,7 @@ Uitgedrukt als een tekenreeks, de `TimeSpan` indeling is `hh:mm:ss` wanneer `hh`
 
 |Voorbeeld |Wanneer deze worden geactiveerd  |
 |---------|---------|
-|"01:00:00" | Elk uur        |
+|"01:00:00" | elk uur        |
 |"00:01:00"|elke minuut         |
 |"24:00:00" | elke 24 dagen        |
 

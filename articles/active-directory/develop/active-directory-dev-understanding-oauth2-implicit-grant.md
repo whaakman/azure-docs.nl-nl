@@ -3,23 +3,25 @@ title: Inzicht in de impliciete OAuth2 stroom verlenen in Azure AD | Microsoft D
 description: Meer informatie over Azure Active Directory-implementatie van de impliciete OAuth2 flow, verlenen en of deze geschikt is voor uw toepassing.
 services: active-directory
 documentationcenter: dev-center-name
-author: jmprieur
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 90e42ff9-43b0-4b4f-a222-51df847b2a8d
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/15/2016
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7b3ed6edb0b770e8b57bb5bfde4c183d435335ce
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 263a093d5cf4b48ed1dadd4a288e548065ddf282
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Wat is de OAuth2 impliciete grant stroom in Azure Active Directory (AD)?
 De impliciete grant OAuth2 is algemeen wordt de grant met de langste lijst met beveiligingsproblemen in de OAuth2-specificatie. En nog, dat de aanpak door ADAL JS en we raden u aan bij de SPA-toepassingen schrijven die geïmplementeerd is. Wat te bieden? Het is een kwestie van de voor-en nadelen: en als het blijkt de impliciete verlenen is de aanbevolen aanpak u voor toepassingen die een Web-API via JavaScript via een browser gebruiken kunt voortzetten.

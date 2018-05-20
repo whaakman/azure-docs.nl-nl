@@ -3,23 +3,25 @@ title: Een Azure Active Directory v2.0-web-API beveiligen met behulp van Node.js
 description: Informatie over het bouwen van een Node.js-web-API die tokens van een persoonlijk Microsoft-account en van werk accepteert of school accounts.
 services: active-directory
 documentationcenter: nodejs
-author: navyasric
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 0b572fc1-2aaf-4cb6-82de-63010fb1941d
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 05/13/2017
-ms.author: nacanuma
+ms.author: celested
+ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: f07e421feedf3c82da7be16434891cdbe6069038
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 19ad25c7b08ff073097cacf3be359772ca0a327f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="secure-a-web-api-by-using-nodejs"></a>Een web-API beveiligen met behulp van Node.js
 > [!NOTE]
@@ -139,7 +141,7 @@ Restify is een krachtig mechanisme te traceren REST aanroept met behulp van DTra
     ```
 
 ## <a name="6-add-passport-azure-ad-to-your-web-api"></a>6: passport-azure-ad toevoegen aan uw web-API
-Voeg vervolgens de OAuth-strategie toe met behulp van de passport-azuread. `passport-azuread`is een reeks strategieën die Azure AD met Passport verbinden. We gebruiken deze strategie voor bearer-tokens in dit voorbeeld REST-API.
+Voeg vervolgens de OAuth-strategie toe met behulp van de passport-azuread. `passport-azuread` is een reeks strategieën die Azure AD met Passport verbinden. We gebruiken deze strategie voor bearer-tokens in dit voorbeeld REST-API.
 
 > [!NOTE]
 > Hoewel OAuth 2.0 een kader waarin elk onbekend type token kan worden uitgegeven biedt, worden bepaalde typen worden vaak gebruikt. Bearer-tokens worden vaak gebruikt voor het beveiligen van eindpunten. Bearer-tokens zijn het meest wordt uitgegeven token in OAuth 2.0-type. Veel OAuth 2.0-implementaties wordt ervan uitgegaan dat bearer-tokens het enige type token dat is uitgegeven zijn.

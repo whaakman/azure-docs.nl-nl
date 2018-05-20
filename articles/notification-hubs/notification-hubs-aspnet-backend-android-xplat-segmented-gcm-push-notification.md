@@ -1,249 +1,278 @@
 ---
-title: Notification Hubs voor belangrijk nieuws zelfstudie - Android
-description: Informatie over het gebruik van Azure Service Bus Notification Hubs voor belangrijk nieuws meldingen verzenden naar Android-apparaten.
+title: Pushmeldingen verzenden naar specifieke Android-apparaten met Azure Notification Hubs en Google Cloud Messaging | Microsoft Docs
+description: Leer hoe u pushmeldingen kunt verzenden naar specifieke Android-apparaten met behulp van Azure Notification Hubs en Google Cloud Messaging.
 services: notification-hubs
 documentationcenter: android
-author: ysxu
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru'
 ms.assetid: 3c23cb80-9d35-4dde-b26d-a7bfd4cb8f81
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
-ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: 3b3fc05cfec2b20501a28f3d76f474ccd49e27e8
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.topic: tutorial
+ms.custom: mvc
+ms.date: 04/06/2018
+ms.author: dimazaid
+ms.openlocfilehash: 00d6a2de3f51ef8ade50f29b14a4bc944ae5fee6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="use-notification-hubs-to-send-breaking-news"></a>Notification Hubs gebruiken om belangrijk nieuws te verzenden
+# <a name="tutorial-push-notifications-to-specific-android-devices-using-azure-notification-hubs-and-google-cloud-messaging"></a>Zelfstudie: Pushmeldingen verzenden naar specifieke Android-apparaten met Azure Notification Hubs en Google Cloud Messaging
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
 ## <a name="overview"></a>Overzicht
-Dit onderwerp leest u het gebruik van Azure Notification Hubs voor belangrijk nieuws meldingen naar een Android-app-broadcast. Als u klaar gaat u kunnen registreren voor nieuwscategorieën die u geïnteresseerd bent in op te splitsen en pushmeldingen voor deze categorieën ontvangen. Dit scenario is een algemene patroon voor veel apps waarbij moeten meldingen worden verzonden naar groepen gebruikers die interesse in deze, zoals RSS-lezer, apps voor muziek ventilatoren, enzovoort eerder is gedeclareerd.
+In deze zelfstudie wordt gedemonstreerd hoe u met Azure Notification Hubs meldingen voor belangrijk nieuws verzendt naar een Android-app. Als u klaar bent, kunt u zich registreren voor nieuwscategorieën waarin u geïnteresseerd bent en alleen voor die categorieën pushmeldingen ontvangen als er belangrijk nieuws is. Dit scenario is een algemeen patroon voor veel apps die meldingen moeten verzenden naar groepen gebruikers die eerder hebben aangegeven in bepaalde onderwerpen geïnteresseerd te zijn, zoals een RSS-lezer, apps voor muziekfans, enzovoort.
 
-Broadcast-scenario's zijn ingeschakeld door een of meer *labels* bij het maken van een registratie in de notification hub. Wanneer u meldingen worden verzonden naar een label, ontvangen alle apparaten die zijn geregistreerd voor het label de melding. Omdat tags gewoon tekenreeksen zijn, hoeven niet vooraf zijn ingericht. Raadpleeg voor meer informatie over tags [Notification Hubs-Routering en code-expressies](notification-hubs-tags-segment-push-message.md).
+Broadcast-scenario's zijn mogelijk door een of meer *tags* (of labels) toe te voegen wanneer u een registratie maakt in Notifications Hub. Wanneer meldingen worden verzonden naar een tag, ontvangen alle apparaten die zich hebben geregistreerd voor de tag de melding. Omdat tags niet meer dan tekenreeksen zijn, hoeven ze niet vooraf te worden opgesteld. Zie [Notification Hubs-routering en tagexpressies](notification-hubs-tags-segment-push-message.md) voor meer informatie over tags.
+
+In deze zelfstudie voert u de volgende acties uit: 
+
+> [!div class="checklist"]
+> * Categorieselectie toevoegen aan de mobiele app
+> * Registreren voor meldingen met tags 
+> * Getagde meldingen verzenden 
+> * De app testen
 
 ## <a name="prerequisites"></a>Vereisten
-In dit onderwerp is gebaseerd op de app die u hebt gemaakt in [aan de slag met Notification Hubs][get-started]. Voordat u deze zelfstudie begint, u moet al hebt voltooid [aan de slag met Notification Hubs][get-started].
+Deze zelfstudie bouwt voort op de app die u hebt gemaakt in de zelfstudie [Pushmeldingen verzenden naar Android-apparaten met behulp van Azure Notification Hubs en Google Cloud Messaging][get-started]. Voltooi de zelfstudie [Pushmeldingen verzenden naar Android-apparaten met behulp van Azure Notification Hubs en Google Cloud Messaging][get-started] voordat u aan deze zelfstudie begint.
 
-## <a name="add-category-selection-to-the-app"></a>Categorieselectie toevoegen aan de app.
-De eerste stap is het toevoegen van de UI-elementen naar uw bestaande belangrijkste activiteit waarmee de gebruiker kan de categorieën selecteren om te registreren. De categorieën die door een gebruiker is geselecteerd worden op het apparaat opgeslagen. Wanneer de app wordt gestart, wordt de apparaatregistratie van een in uw notification hub met de geselecteerde categorieën gemaakt als labels.
+## <a name="add-category-selection-to-the-app"></a>Categorieselectie toevoegen aan de app
+De eerste stap is het toevoegen van UI-elementen aan de bestaande hoofdactiviteit, zodat gebruikers categorieën kunnen selecteren waarvoor ze zich willen registreren. De geselecteerde categorieën worden op het apparaat opgeslagen. Wanneer de app wordt gestart, wordt er een apparaatregistratie gemaakt in uw meldingshub, met de geselecteerde categorieën als tags.
 
-1. Open het bestand res/layout/activity_main.xml en vervang de inhoud met de volgende opties:
+1. Open het bestand res/layout/activity_main.xml bestand en vervang de inhoud door de volgende code:
    
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingBottom="@dimen/activity_vertical_margin"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:paddingTop="@dimen/activity_vertical_margin"
-            tools:context="com.example.breakingnews.MainActivity"
-            android:orientation="vertical">
-   
-                <CheckBox
-                    android:id="@+id/worldBox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/label_world" />
-                <CheckBox
-                    android:id="@+id/politicsBox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/label_politics" />
-                <CheckBox
-                    android:id="@+id/businessBox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/label_business" />
-                <CheckBox
-                    android:id="@+id/technologyBox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/label_technology" />
-                <CheckBox
-                    android:id="@+id/scienceBox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/label_science" />
-                <CheckBox
-                    android:id="@+id/sportsBox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/label_sports" />
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="subscribe"
-                    android:text="@string/button_subscribe" />
-        </LinearLayout>
-2. Open uw bestand res/values/strings.xml en voeg de volgende regels:
-   
-        <string name="button_subscribe">Subscribe</string>
-        <string name="label_world">World</string>
-        <string name="label_politics">Politics</string>
-        <string name="label_business">Business</string>
-        <string name="label_technology">Technology</string>
-        <string name="label_science">Science</string>
-        <string name="label_sports">Sports</string>
-   
-    De grafische indeling main_activity.xml ziet er nu als volgt:
+    ```xml
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.breakingnews.MainActivity"
+        android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/worldBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_world" />
+            <CheckBox
+                android:id="@+id/politicsBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_politics" />
+            <CheckBox
+                android:id="@+id/businessBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_business" />
+            <CheckBox
+                android:id="@+id/technologyBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_technology" />
+            <CheckBox
+                android:id="@+id/scienceBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_science" />
+            <CheckBox
+                android:id="@+id/sportsBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_sports" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="subscribe"
+                android:text="@string/button_subscribe" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hello World!"
+                android:id="@+id/text_hello"
+            />
+    </LinearLayout>
+    ```
+2. Open het bestand res/values/strings.xml en voeg de volgende regels toe:
+
+    ```xml
+    <string name="button_subscribe">Subscribe</string>
+    <string name="label_world">World</string>
+    <string name="label_politics">Politics</string>
+    <string name="label_business">Business</string>
+    <string name="label_technology">Technology</string>
+    <string name="label_science">Science</string>
+    <string name="label_sports">Sports</string>
+    ```
+
+    De grafische indeling van main_activity.xml ziet er nu uit als in de volgende afbeelding:
    
     ![][A1]
-3. Maak nu een klasse **meldingen** in hetzelfde pakket als uw **MainActivity** klasse.
-   
-        import java.util.HashSet;
-        import java.util.Set;
-   
-        import android.content.Context;
-        import android.content.SharedPreferences;
-        import android.os.AsyncTask;
-        import android.util.Log;
-        import android.widget.Toast;
-   
-        import com.google.android.gms.gcm.GoogleCloudMessaging;
-        import com.microsoft.windowsazure.messaging.NotificationHub;
-   
-        public class Notifications {
-            private static final String PREFS_NAME = "BreakingNewsCategories";
-            private GoogleCloudMessaging gcm;
-            private NotificationHub hub;
-            private Context context;
-            private String senderId;
-   
-            public Notifications(Context context, String senderId, String hubName, 
-                                    String listenConnectionString) {
-                this.context = context;
-                this.senderId = senderId;
-   
-                gcm = GoogleCloudMessaging.getInstance(context);
-                hub = new NotificationHub(hubName, listenConnectionString, context);
-            }
-   
-            public void storeCategoriesAndSubscribe(Set<String> categories)
-            {
-                SharedPreferences settings = context.getSharedPreferences(PREFS_NAME, 0);
-                settings.edit().putStringSet("categories", categories).commit();
-                subscribeToCategories(categories);
-            }
-   
-            public Set<String> retrieveCategories() {
-                SharedPreferences settings = context.getSharedPreferences(PREFS_NAME, 0);
-                return settings.getStringSet("categories", new HashSet<String>());
-            }
-   
-            public void subscribeToCategories(final Set<String> categories) {
-                new AsyncTask<Object, Object, Object>() {
-                    @Override
-                    protected Object doInBackground(Object... params) {
-                        try {
-                            String regid = gcm.register(senderId);
-   
-                            String templateBodyGCM = "{\"data\":{\"message\":\"$(messageParam)\"}}";
-   
-                            hub.registerTemplate(regid,"simpleGCMTemplate", templateBodyGCM, 
-                                categories.toArray(new String[categories.size()]));
-                        } catch (Exception e) {
-                            Log.e("MainActivity", "Failed to register - " + e.getMessage());
-                            return e;
-                        }
-                        return null;
+3. Maak een klasse `Notifications` in hetzelfde pakket als uw **MainActivity**-klasse.
+
+    ```java   
+    import java.util.HashSet;
+    import java.util.Set;
+
+    import android.content.Context;
+    import android.content.SharedPreferences;
+    import android.os.AsyncTask;
+    import android.util.Log;
+    import android.widget.Toast;
+    import android.view.View;
+
+    import com.google.android.gms.gcm.GoogleCloudMessaging;
+    import com.microsoft.windowsazure.messaging.NotificationHub;
+
+    public class Notifications {
+        private static final String PREFS_NAME = "BreakingNewsCategories";
+        private GoogleCloudMessaging gcm;
+        private NotificationHub hub;
+        private Context context;
+        private String senderId;
+
+        public Notifications(Context context, String senderId, String hubName, 
+                                String listenConnectionString) {
+            this.context = context;
+            this.senderId = senderId;
+
+            gcm = GoogleCloudMessaging.getInstance(context);
+            hub = new NotificationHub(hubName, listenConnectionString, context);
+        }
+
+        public void storeCategoriesAndSubscribe(Set<String> categories)
+        {
+            SharedPreferences settings = context.getSharedPreferences(PREFS_NAME, 0);
+            settings.edit().putStringSet("categories", categories).commit();
+            subscribeToCategories(categories);
+        }
+
+        public Set<String> retrieveCategories() {
+            SharedPreferences settings = context.getSharedPreferences(PREFS_NAME, 0);
+            return settings.getStringSet("categories", new HashSet<String>());
+        }
+
+        public void subscribeToCategories(final Set<String> categories) {
+            new AsyncTask<Object, Object, Object>() {
+                @Override
+                protected Object doInBackground(Object... params) {
+                    try {
+                        String regid = gcm.register(senderId);
+
+                        String templateBodyGCM = "{\"data\":{\"message\":\"$(messageParam)\"}}";
+
+                        hub.registerTemplate(regid,"simpleGCMTemplate", templateBodyGCM, 
+                            categories.toArray(new String[categories.size()]));
+                    } catch (Exception e) {
+                        Log.e("MainActivity", "Failed to register - " + e.getMessage());
+                        return e;
                     }
-   
-                    protected void onPostExecute(Object result) {
-                        String message = "Subscribed for categories: "
-                                + categories.toString();
-                        Toast.makeText(context, message,
-                                Toast.LENGTH_LONG).show();
-                    }
-                }.execute(null, null, null);
-            }
-   
-        }
-   
-    Deze klasse maakt gebruik van de lokale opslag voor het opslaan van de categorieën van nieuws die dit apparaat heeft ontvangen. Het bevat ook methoden om te registreren voor deze categorieën.
-4. In uw **MainActivity** klasse verwijdert u uw persoonlijke velden voor **NotificationHub** en **GoogleCloudMessaging**, en voeg een veld voor **meldingen**:
-   
-        // private GoogleCloudMessaging gcm;
-        // private NotificationHub hub;
-        private Notifications notifications;
-5. Klik in de **onCreate** methode, verwijdert u de initialisatie van de **hub** veld en de **registerWithNotificationHubs** methode. Voeg de volgende regels met initialiseren van een exemplaar van de **meldingen** klasse. 
+                    return null;
+                }
 
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
-            MyHandler.mainActivity = this;
-
-            NotificationsManager.handleNotifications(this, SENDER_ID,
-                    MyHandler.class);
-
-            notifications = new Notifications(this, SENDER_ID, HubName, HubListenConnectionString);
-
-            notifications.subscribeToCategories(notifications.retrieveCategories());
+                protected void onPostExecute(Object result) {
+                    String message = "Subscribed for categories: "
+                            + categories.toString();
+                    Toast.makeText(context, message,
+                            Toast.LENGTH_LONG).show();
+                }
+            }.execute(null, null, null);
         }
 
-    `HubName`en `HubListenConnectionString` al moet zijn ingesteld met de `<hub name>` en `<connection string with listen access>` tijdelijke aanduidingen door de naam van uw notification hub en de verbindingsreeks voor *DefaultListenSharedAccessSignature* die u eerder hebt verkregen.
+    }
+    ```
+       
+    Deze klasse gebruik de lokale opslag voor het opslaan van de nieuwscategorieën die dit apparaat moet ontvangen. De klasse bevat ook methoden om te registreren voor deze categorieën.
+4. Ga naar de klasse **MainActivity** en verwijder de private-velden voor **NotificationHub** en **GoogleCloudMessaging**, en voeg een veld toe voor **Notifications**:
 
-    > [AZURE.NOTE] Omdat de referenties die worden gedistribueerd met een client-app niet over het algemeen veilig, moet u de sleutel voor listen toegang alleen distribueren met uw clientapp. Luisteren toegang kunnen uw app registreren voor meldingen, maar bestaande registraties kan niet worden gewijzigd en kunnen niet worden meldingen verzonden. De volledige toegang tot de sleutel wordt gebruikt in een beveiligde back-endservice voor het verzenden van meldingen en bestaande registraties wijzigen.
+    ```java   
+    // private GoogleCloudMessaging gcm;
+    // private NotificationHub hub;
+    private Notifications notifications;
+    ```
+5. Verwijder in de methode **onCreate** de initialisatie van het veld **hub** en de methode **registerWithNotificationHubs**. Voeg vervolgens de volgende regels toe, om een exemplaar van de klasse **Notifications** te initialiseren. 
 
+    ```java
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        mainActivity = this;
 
-1. Vervolgens voegt u de volgende import en `subscribe` methode voor het afhandelen van de knop aanmelden klikt u op de gebeurtenis:
-   
-        import android.widget.CheckBox;
-        import java.util.HashSet;
-        import java.util.Set;
-   
-        public void subscribe(View sender) {
-            final Set<String> categories = new HashSet<String>();
-   
-            CheckBox world = (CheckBox) findViewById(R.id.worldBox);
-            if (world.isChecked())
-                categories.add("world");
-            CheckBox politics = (CheckBox) findViewById(R.id.politicsBox);
-            if (politics.isChecked())
-                categories.add("politics");
-            CheckBox business = (CheckBox) findViewById(R.id.businessBox);
-            if (business.isChecked())
-                categories.add("business");
-            CheckBox technology = (CheckBox) findViewById(R.id.technologyBox);
-            if (technology.isChecked())
-                categories.add("technology");
-            CheckBox science = (CheckBox) findViewById(R.id.scienceBox);
-            if (science.isChecked())
-                categories.add("science");
-            CheckBox sports = (CheckBox) findViewById(R.id.sportsBox);
-            if (sports.isChecked())
-                categories.add("sports");
-   
-            notifications.storeCategoriesAndSubscribe(categories);
-        }
-   
-    Deze methode maakt u een lijst met categorieën en gebruikt de **meldingen** klasse voor het opslaan van de lijst in de lokale opslag en registreren van de bijbehorende tags voor uw notification hub. Wanneer categorieën worden gewijzigd, wordt de registratie opnieuw gemaakt met de nieuwe categorieën.
+        NotificationsManager.handleNotifications(this, NotificationSettings.SenderId,
+                MyHandler.class);
 
-Uw app is nu in staat een aantal categorieën opslaan in lokale opslag op het apparaat en registreren bij de notification hub wanneer de gebruiker de selectie van categorieën wijzigt.
+        notifications = new Notifications(this, NotificationSettings.SenderId, NotificationSettings.HubName, NotificationSettings.HubListenConnectionString);
+
+        notifications.subscribeToCategories(notifications.retrieveCategories());
+    }
+    ```
+
+    Controleer of de naam van de hub en de verbindingsreeks goed zijn ingesteld in de klasse NotificationSettings.
+
+    > [AZURE.NOTE] Omdat referenties die worden gedistribueerd met een client-app meestal niet beveiligd zijn, moet u met uw client-app alleen de sleutel voor listen-toegang distribueren. Uw app kan dan worden geregistreerd voor meldingen, maar bestaande registraties kunnen niet worden gewijzigd, en er kunnen geen meldingen worden verzonden. De sleutel voor volledige toegang wordt gebruikt in een beveiligde back-endservice voor het verzenden van meldingen en het wijzigen van bestaande registraties.
+1. Voeg nu deze imports toe:
+
+    ```java   
+    import android.widget.CheckBox;
+    import java.util.HashSet;
+    import java.util.Set;
+    ```
+1. Voeg de volgende methode `subscribe` toe voor het afhandelen van het klikken op de knop Subscribe:        
+   
+    ```java
+    public void subscribe(View sender) {
+        final Set<String> categories = new HashSet<String>();
+
+        CheckBox world = (CheckBox) findViewById(R.id.worldBox);
+        if (world.isChecked())
+            categories.add("world");
+        CheckBox politics = (CheckBox) findViewById(R.id.politicsBox);
+        if (politics.isChecked())
+            categories.add("politics");
+        CheckBox business = (CheckBox) findViewById(R.id.businessBox);
+        if (business.isChecked())
+            categories.add("business");
+        CheckBox technology = (CheckBox) findViewById(R.id.technologyBox);
+        if (technology.isChecked())
+            categories.add("technology");
+        CheckBox science = (CheckBox) findViewById(R.id.scienceBox);
+        if (science.isChecked())
+            categories.add("science");
+        CheckBox sports = (CheckBox) findViewById(R.id.sportsBox);
+        if (sports.isChecked())
+            categories.add("sports");
+
+        notifications.storeCategoriesAndSubscribe(categories);
+    }
+    ```
+       
+    Met deze methode maakt u een lijst met categorieën en gebruikt u de klasse **Notifications** om de lijst op te slaan in de lokale opslag en de bijbehorende tags te registreren bij uw meldingshub. Wanneer categorieën worden gewijzigd, wordt de registratie opnieuw gemaakt met de nieuwe categorieën.
+
+Uw app kan nu een set categorieën opslaan in de lokale opslag op het apparaat en deze registreren bij de meldingshub wanneer de gebruiker de selectie van categorieën wijzigt.
 
 ## <a name="register-for-notifications"></a>Registreren voor meldingen
-Deze stappen registreren bij de notification hub bij het opstarten met behulp van de categorieën die zijn opgeslagen in de lokale opslag.
+Met deze stappen registreert u zich tijdens het opstarten bij de meldingshub met behulp van de categorieën die zijn opgeslagen in de lokale opslag.
 
 > [!NOTE]
-> Omdat de registratie-id toegewezen door Google Cloud Messaging (GCM) op elk gewenst moment wijzigen kunt, kunt u moet registreren voor meldingen vaak ter voorkoming van fouten van de melding. In dit voorbeeld registreert voor melding van elke keer dat de app wordt gestart. Voor apps die vaak worden uitgevoerd, kunt meer dan één keer per dag, u waarschijnlijk overslaan registratie om bandbreedte te besparen als minder dan een dag is verstreken sinds de vorige registratie.
+> Omdat de registrationId die wordt toegewezen door GCM (Google Cloud Messaging) op elk moment kan veranderen, moet u zich regelmatig registreren voor meldingen om fouten te voorkomen. In dit voorbeeld wordt er elke keer dat de app wordt gestart een registratie voor meldingen vastgelegd. Voor apps die u regelmatig uitvoert (meer dan één keer per dag), kunt u de registratie waarschijnlijk overslaan om bandbreedte te besparen als er minder dan een dag is verstreken sinds de vorige registratie.
 > 
 > 
 
-1. Voeg de volgende code toe aan het einde van de **onCreate** methode in de **MainActivity** klasse:
+1. Voeg de volgende code toe aan het einde van de methode **onCreate** in de klasse **MainActivity**:
    
-        notifications.subscribeToCategories(notifications.retrieveCategories());
+    ```java
+    notifications.subscribeToCategories(notifications.retrieveCategories());
+    ```
    
-    Dit zorgt ervoor dat telkens wanneer de app wordt gestart de categorieën van lokale opslag haalt en een registratie voor deze categorieën vraagt. 
-2. Werk vervolgens de `onStart()` methode van de `MainActivity` klasse als volgt:
+    Deze code zorgt ervoor dat wanneer de app wordt gestart, de categorieën worden opgehaald uit de lokale opslag en registratie voor deze categorieën wordt aangevraagd. 
+2. Werk vervolgens de methode `onStart()` van de klasse `MainActivity` als volgt bij:
    
-    @Overridevoid onStart() {beveiligd
+    ```java
+    @Override
+    protected void onStart() {
    
         super.onStart();
         isVisible = true;
@@ -263,38 +292,36 @@ Deze stappen registreren bij de notification hub bij het opstarten met behulp va
         CheckBox sports = (CheckBox) findViewById(R.id.sportsBox);
         sports.setChecked(categories.contains("sports"));
     }
+    ```
    
-    Hiermee vernieuwt u de belangrijkste activiteit op basis van de status van de eerder opgeslagen categorieën.
+    Met deze code wordt de hoofdactiviteit bijgewerkt op basis van de status van eerder opgeslagen categorieën.
 
-De app is nu voltooid en een set categorieën kunt opslaan in de lokale opslag gebruikt om u te registreren bij de notification hub wanneer de gebruiker de selectie van categorieën wijzigt van apparaat. Vervolgens definiëren we een back-end die categorie meldingen naar deze app kunt verzenden.
+De app is nu klaar en kan een set categorieën opslaan in de lokale opslag op het apparaat en deze registreren bij de meldingshub wanneer de gebruiker de selectie van categorieën wijzigt. U gaat nu een back-end definiëren die categoriemeldingen naar deze app kan verzenden.
 
-## <a name="sending-tagged-notifications"></a>Verzenden van meldingen met tags
+## <a name="send-tagged-notifications"></a>Getagde meldingen verzenden
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
-## <a name="run-the-app-and-generate-notifications"></a>Voer de app en meldingen genereren
-1. In Android Studio bouwen van de app en start deze op een apparaat of emulator.
-   
-    Opmerking dat de UI-app biedt een reeks Schakelknoppen waarmee u kunt kiezen uit de categorieën om u te abonneren op.
-2. Een of meer categorieën Schakelknoppen inschakelen en klik vervolgens op **abonneren**.
-   
-    De app de geselecteerde categorieën converteert naar labels en een nieuwe apparaatregistratie voor de geselecteerde codes aanvragen van de notification hub. De geregistreerde categorieën worden geretourneerd en weergegeven in een pop-upmelding.
-3. Een nieuwe melding verzenden door het uitvoeren van de .NET-consoletoepassing.  U kunt ook met tags Sjabloonmeldingen met behulp van het foutopsporingstabblad van uw notification hub in verzenden de [Azure-portal].
-   
-    Meldingen voor de geselecteerde categorieën weergegeven als pop-upmeldingen.
+## <a name="test-the-app"></a>De app testen
+1. Voer in Android Studio de app uit op uw Android-apparaat of in een emulator. De UI van de app biedt een reeks schakelopties waarmee u de categorieën kunt kiezen waarop u zich wilt abonneren.
+2. Zet een of meer categorieën op On en klik vervolgens op **Subscribe**. De app zet de geselecteerde categorieën om in tags en vraagt bij Notification Hubs een nieuwe apparaatregistratie aan voor de geselecteerde tags. De geregistreerde categorieën worden geretourneerd en weergegeven in een pop-upmelding.
+
+    ![Abonneren op categorieën](./media/notification-hubs-aspnet-backend-android-breaking-news/subscribe-for-categories.png)
+1. Voer de .NET-console-app uit, om meldingen voor elke categorie te verzenden. Meldingen voor de geselecteerde categorieën worden weergegeven als pop-upmeldingen.
+
+    ![Meldingen over technologienieuws](./media/notification-hubs-aspnet-backend-android-breaking-news/technolgy-news-notification.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie hebt u geleerd hoe belangrijk nieuws per categorie-broadcast. Houd rekening met het voltooien van een van de volgende zelfstudies die andere geavanceerde scenario's voor Notification Hubs markeren:
+In deze zelfstudie hebt u broadcastmeldingen verzonden naar specifieke Android-apparaten die zijn geregistreerd voor de categorieën. Ga verder met de volgende zelfstudie als u wilt weten hoe u pushmeldingen kunt verzenden naar specifieke gebruikers: 
 
-* [Notification Hubs gebruiken voor het uitzenden van gelokaliseerde belangrijk nieuws]
-  
-    Informatie over het uitbreiden van de app belangrijk nieuws zodat gelokaliseerde verzenden van meldingen.
+> [!div class="nextstepaction"]
+>[Pushmeldingen verzenden naar specifieke gebruikers](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md)
 
 <!-- Images. -->
 [A1]: ./media/notification-hubs-aspnet-backend-android-breaking-news/android-breaking-news1.PNG
 
 <!-- URLs.-->
 [get-started]: notification-hubs-android-push-notification-google-gcm-get-started.md
-[Notification Hubs gebruiken voor het uitzenden van gelokaliseerde belangrijk nieuws]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
+[Use Notification Hubs to broadcast localized breaking news]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
 [Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users
 [Mobile Service]: /develop/mobile/tutorials/get-started/
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
@@ -302,5 +329,5 @@ In deze zelfstudie hebt u geleerd hoe belangrijk nieuws per categorie-broadcast.
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Azure-portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591

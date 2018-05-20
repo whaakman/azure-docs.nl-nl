@@ -12,11 +12,11 @@ ms.date: 04/03/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 7e4731e150c2d6428fa8c752765780f827c33741
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: ab029420ab9aa81b585c9b0315537bff2d9aaa6d
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Toepassingsproxy en Qlik verstand 
 Azure Active Directory-toepassingsproxy en Qlik zin hebben hun samen zodat u zich eenvoudig kunt toepassingsproxy gebruiken voor externe toegang voor uw implementatie Qlik zin.  
@@ -59,4 +59,4 @@ Uw toepassing is nu gereed om te testen. Toegang tot de externe URL die u hebt g
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Publiceren van toepassingen met toepassingsproxy](manage-apps/application-proxy-publish-azure-portal.md)
-- [Werken met toepassingsproxy connectors](active-directory-application-proxy-connectors-azure-portal.md).
+- [Werken met toepassingsproxy connectors](manage-apps/application-proxy-connector-groups.md).

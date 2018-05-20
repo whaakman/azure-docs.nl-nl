@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0d622ea6-a7c7-4bef-886b-06e6b85a97fb
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 5c291ef864518b2366c61c9e5c11fac9e8468a00
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 26dffa7e57da2ef383f078c7c5cbb7b9664923ee
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Het beheren van het brongebruik en de belasting in Service Fabric met metrische gegevens
 *Metrische gegevens* zijn de resources die uw services voorzichtig over en die worden geleverd door de knooppunten in het cluster. Een metriek is alles wat u wilt beheren om te kunnen verbeteren of de prestaties van uw services controleren. U kunt bijvoorbeeld geheugenverbruik als u wilt weten of de service is overbelast bekijken. Er wordt een andere gebruikt om te achterhalen of de service elders waarbij geheugen dat minder beperkt verplaatsen kan is, om betere prestaties wenst.
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 Items zoals geheugen, schijf- en CPU-gebruik zijn voorbeelden van metrische gegevens. Deze metrische gegevens zijn fysieke metrische gegevens en bronnen die overeenkomen met de fysieke resources op het knooppunt dat moet worden beheerd. Metrische gegevens kan ook worden (en meestal zijn) logische metrische gegevens. Logische metrische gegevens zijn bijvoorbeeld 'MyWorkQueueDepth' of 'MessagesToProcess' of 'TotalRecords'. Logische metrische gegevens zijn toepassingsspecifieke en indirect overeen met het verbruik van bepaalde fysieke resource. Logische metrische gegevens zijn algemene omdat het soms moeilijk te meten en in het rapport verbruik van de fysieke resources op basis van de per-service. De complexiteit van het meten van en rapportage van uw eigen fysieke metrische gegevens is ook waarom Service Fabric sommige standaard metrische gegevens bevat.
 
 ## <a name="default-metrics"></a>Standaard metrische gegevens
-Stel dat u wilt schrijven en implementeren van uw service aan de slag. Op dit moment weet niet welk fysieke of logische resources verbruikt. Dat is geen probleem! De Service Fabric Cluster Resource Manager maakt gebruik van bepaalde standaard metrische gegevens wanneer er geen andere waarden zijn opgegeven. Ze zijn:
+Stel dat u wilt schrijven en implementeren van uw service aan de slag. Op dit moment weet niet welk fysieke of logische resources verbruikt. Dat is geen probleem! De Service Fabric Cluster Resource Manager maakt gebruik van bepaalde standaard metrische gegevens wanneer er geen andere waarden zijn opgegeven. Dit zijn:
 
   - PrimaryCount - telling van de primaire replica's op het knooppunt 
   - ReplicaCount - telling van de totale stateful replica's op het knooppunt
@@ -36,7 +36,7 @@ Stel dat u wilt schrijven en implementeren van uw service aan de slag. Op dit mo
 | --- | --- | --- | --- |
 | PrimaryCount |0 |0 |1 |
 | ReplicaCount |0 |1 |1 |
-| Aantal |1 |1 |1 |
+| Count |1 |1 |1 |
 
 Voor algemene werkbelastingen geeft de standaard metrische gegevens een goede verdeling van het werk in het cluster. In het volgende voorbeeld gaan we kijken wat er gebeurt als er twee services en zijn afhankelijk van de standaard metrische gegevens voor netwerktaakverdeling. De eerste service is een stateful service met drie partities en een grootte van de drie doel replicaset. De tweede service is een staatloze service met één partitie en drie exemplaren.
 

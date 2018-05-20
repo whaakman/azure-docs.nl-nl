@@ -78,6 +78,7 @@
 #### [Node.js (algemeen)](iot-suite-connecting-devices-node.md)
 #### [Node.js op Raspberry Pi](iot-suite-connecting-pi-node.md)
 #### [C op Raspberry Pi](iot-suite-connecting-pi-c.md)
+#### [MX Chip AZ3166 DevKit](iot-suite-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md)
 
 ### Concepten
 #### [Implementatiegegevens van Externe bewaking](iot-suite-remote-monitoring-sample-walkthrough.md)

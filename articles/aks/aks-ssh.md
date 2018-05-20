@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 04/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c9d142a58f53c28c8f791692cf48b648522ccb99
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 95b385e9847a7809492bbb74bd1eba616df90d72
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="ssh-into-azure-kubernetes-service-aks-cluster-nodes"></a>Voeg SSH toe aan de clusterknooppunten Azure Kubernetes Service (AKS)
 
-Soms moet u mogelijk toegang krijgen tot een knooppunt Azure Kubernetes Service (AKS) voor onderhoud, logboekgegevens verzameld of andere bewerkingen voor het oplossen van problemen. Azure Kubernetes Service (AKS) knooppunten worden niet blootgesteld aan internet. Gebruik de stappen uiteengezet in dit document een SSH-verbinding maken met een AKS-knooppunt.
+Soms moet u mogelijk toegang krijgen tot een knooppunt Azure Kubernetes Service (AKS) voor onderhoud, logboekgegevens verzameld of andere bewerkingen voor het oplossen van problemen. AKS knooppunten worden niet blootgesteld aan internet. Gebruik de stappen uiteengezet in dit document een SSH-verbinding maken met een AKS-knooppunt.
 
 ## <a name="reset-ssh-keys"></a>SSH-sleutels opnieuw instellen
 
@@ -31,7 +31,7 @@ Selecteer **openbare opnieuw SSH-sleutel**, geef de gebruikersnaam van de cluste
 
 ![AKS portal VM met de knop wachtwoord opnieuw instellen](media/aks-ssh/reset-password-2.png)
 
-Zodra de SSH-sleutel is opnieuw ingesteld, kunt u een SSH verbinding maakt met behulp van de bijbehorende persoonlijke sleutel.
+Als de SSH-sleutel is opnieuw ingesteld, kunt u een SSH-verbinding met de bijbehorende persoonlijke sleutel maken.
 
 ## <a name="get-aks-node-address"></a>AKS knooppuntadres ophalen
 

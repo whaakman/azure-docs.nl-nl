@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/26/2018
 ms.author: menchi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6fbbce06653e60cd914c2ed4d5990aac78ef53a8
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 1e6f52da6f7524828cef928c2ee5d5cd92a1de1e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Begrijpen en gebruiken van module horende in IoT-Hub
 
@@ -27,7 +27,7 @@ In dit artikel wordt ervan uitgegaan dat u hebt gelezen [begrijpen en gebruiken 
 
 Het apparaat met IoT Hub SDK's inschakelen aan de kant apparaat voor het maken van de modules die elk een onafhankelijke verbinding met IoT Hub wordt geopend. Hiermee kunt u afzonderlijke naamruimten gebruiken voor andere onderdelen op uw apparaat. U hebt bijvoorbeeld een snoep-machine met drie verschillende sensoren. Elke sensor wordt beheerd door verschillende afdelingen in uw bedrijf. U kunt een module voor elke sensor maken. Op deze manier elke afdeling kan alleen taken of directe methoden verzenden naar de sensor die Hiermee worden beheerd, voorkomen van conflicten en gebruikersfouten.
 
- Module identiteits- en module twin biedt dezelfde mogelijkheden als apparaat-id en devic twin maar fijner samenvattingen. Deze weer specifieker kan apparaten, zoals besturingssysteem op basis van apparaten of firmware-apparaten beheren van meerdere onderdelen, als u wilt isoleren, configuratie en voorwaarden voor elk van deze onderdelen. Identiteit van de module en module horende bieden een scheiding van problemen bij het werken met IoT-apparaten waarvoor modulaire software-onderdelen. We gericht op de ondersteuning van alle apparaat twin functionaliteit op module twin niveau door de module twin algemene beschikbaarheid. 
+ Module identiteits- en module twin biedt dezelfde mogelijkheden als apparaat-id en het apparaat twin maar fijner samenvattingen. Deze weer specifieker kan apparaten, zoals besturingssysteem op basis van apparaten of firmware-apparaten beheren van meerdere onderdelen, als u wilt isoleren, configuratie en voorwaarden voor elk van deze onderdelen. Identiteit van de module en module horende bieden een scheiding van problemen bij het werken met IoT-apparaten waarvoor modulaire software-onderdelen. We gericht op de ondersteuning van alle apparaat twin functionaliteit op module twin niveau door de module twin algemene beschikbaarheid. 
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 

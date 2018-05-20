@@ -5,14 +5,14 @@ services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: babanisa
-ms.openlocfilehash: 8ddde98b448f4d6d6f24a2ee47acf9240593622c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: fd82d163ba8407a3dfa088cd322f3e236be5d7ea
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concepten in Azure Event raster
 
@@ -40,7 +40,7 @@ Bij het ontwerpen van uw toepassing, hebt u flexibiliteit wanneer u beslist hoev
 
 Een abonnement geïnstrueerd gebeurtenis raster op welke gebeurtenissen op een onderwerp een abonnee geïnteresseerd in ontvangst is. Een abonnement bevat ook informatie over hoe gebeurtenissen moeten worden bezorgd bij de abonnee.
 
-## <a name="event-handlers"></a>Gebeurtenis-handlers
+## <a name="event-handlers"></a>Event Handlers
 
 Een gebeurtenis-handler is vanuit het perspectief van een raster gebeurtenis, de plaats waar de gebeurtenis wordt verzonden. De handler duurt enkele verdere actie voor het verwerken van de gebeurtenis. Raster gebeurtenis biedt ondersteuning voor meerdere Abonneetypen. Afhankelijk van het type van abonnee volgt gebeurtenis raster verschillende mechanismen voor het garanderen van de levering van de gebeurtenis. Voor HTTP-webhook gebeurtenis-handlers de gebeurtenis is vaak herhaald totdat de handler statuscode retourneert `200 – OK`. Azure Storage-wachtrij, worden de gebeurtenissen vaak herhaald totdat de Queue-service kan worden verwerkt op de push-bewerking van het bericht in de wachtrij.
 

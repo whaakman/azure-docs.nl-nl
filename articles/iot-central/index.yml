@@ -1,0 +1,39 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentatie over Azure IoT Central (preview)
+metadata:
+  title: Documentatie over Azure IoT Central (preview) - zelfstudies, API-verwijzing | Microsoft Docs
+  description: Azure IoT Central is een volledig beheerde SaaS-oplossing (Software as a Service), waarmee u uw IoT-assets eenvoudig op schaal kunt verbinden, controleren en beheren. Azure IoT Central vereenvoudigt de eerste installatie van uw IoT-oplossing en vermindert de beheerlast, de operationele kosten en overheadkosten van een typisch IoT-project. Leer aan de hand van onze snelstarts en zelfstudies hoe u een Azure IoT Central-toepassing maakt, aanpast, beheert en gebruikt.
+  services: iot-central
+  author: czeumault
+  manager: carolz
+  ms.prod: microsoft-iot-central
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/08/2017
+  ms.author: carolz
+  ms.openlocfilehash: 3e443a4ba2de76971ef856b67fdeb1f8836f68e1
+  ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+  ms.translationtype: HT
+  ms.contentlocale: nl-NL
+  ms.lasthandoff: 05/16/2018
+abstract:
+  description: Azure IoT Central is een volledig beheerde SaaS-oplossing (Software as a Service), waarmee u uw IoT-assets eenvoudig op schaal kunt verbinden, controleren en beheren. Azure IoT Central vereenvoudigt de eerste installatie van uw IoT-oplossing en vermindert de beheerlast, de operationele kosten en overheadkosten van een typisch IoT-project. Leer aan de hand van onze snelstarts en zelfstudies hoe u een Azure IoT Central-toepassing maakt, aanpast, beheert en gebruikt.
+sections:
+- title: QuickStarts van vijf minuten
+  items:
+  - type: paragraph
+    text: Informatie over hoe u <a href="quick-deploy-iot-central">een nieuwe Azure IoT Central-toepassing maakt</a>.
+- title: Zelfstudies met stapsgewijze instructies
+  items:
+  - type: paragraph
+    text: Informatie over hoe u uw Azure IoT Central-toepassing aanpast en gebruikt.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="tutorial-define-device-type">Een nieuw apparaattype definiëren</a>
+    - html: <a href="tutorial-configure-rules">Regels configureren</a>
+    - html: <a href="tutorial-customize-operator">De weergave van de operator aanpassen</a>
+    - html: <a href="tutorial-monitor-devices">Uw apparaten controleren</a>
+    - html: <a href="tutorial-add-device">Een echt apparaat toevoegen</a>

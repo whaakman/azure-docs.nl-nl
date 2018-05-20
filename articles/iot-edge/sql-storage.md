@@ -10,11 +10,11 @@ ms.reviewer: ebertrams
 ms.date: 02/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4585e563d59d29ba0a026c992d277e5b0607e681
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: de75a7ab907655d84873949460692a921c8d3186
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>Opslaan van gegevens aan de rand met SQL Server-databases
 
@@ -95,7 +95,7 @@ In stap 3, kunt u het maken van opties voor de SQL Server-container die belangri
         }
    ```
 
-3. Vervang de `<docker registry address>` met het adres op de voltooide zelfstudie ingevuld [Azure-functie implementeren als een module van de rand van de IoT - voorbeeld](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-function)
+3. Vervang de `<docker registry address>` met het adres op de voltooide zelfstudie ingevuld [Azure-functie implementeren als een module IoT rand](tutorial-deploy-function.md).
 
    >[!NOTE]
    >Het registeradres van de container is hetzelfde als de aanmeldingsserver die u hebt gekopieerd uit het register. Deze moet de vorm van `<your container registry name>.azurecr.io`

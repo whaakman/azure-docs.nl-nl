@@ -5,20 +5,20 @@ services: key-vault
 author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
-ms.assetid: ''
+ms.assetid: 98cf8387-34de-468e-ac8f-5c02c9e83e68
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/16/2018
+ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: 391985f3ad0e07c4559545e9d0c5fffc45fe27d2
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 251cd7eaba439708e7ef4e1ee8ccbd7efe7d66bb
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-portal"></a>Snelstart: een sleutelkluis maken met behulp van Azure Portal
 
@@ -58,7 +58,7 @@ Vanaf dit punt is uw Azure-account nu als enige gemachtigd om bewerkingen op dez
 
 ## <a name="add-a-secret-to-key-vault"></a>Een geheim toevoegen aan Key Vault
 
-Als u een geheim wilt toevoegen aan de kluis, hoeft u maar een paar extra stappen uit te voeren. In dit geval voegen we een wachtwoord toe dat door een toepassing kan worden gebruikt. Het wachtwoord heeft de naam **ExamoplePassword**, en we slaan de waarde **Pa$$w0rd** erin op.
+Als u een geheim wilt toevoegen aan de kluis, hoeft u maar een paar extra stappen uit te voeren. In dit geval voegen we een wachtwoord toe dat door een toepassing kan worden gebruikt. Het wachtwoord is **ExamplePassword** en we slaan de waarde van **Pa$$w0rd** hier in op.
 
 1. Selecteer op de eigenschappenpagina van de sleutelkluis **Geheimen**.
 2. Klik op **Genereren/importeren**.
@@ -87,4 +87,4 @@ Als u die niet meer nodig hebt, verwijdert u de resourcegroep; hierdoor worden o
 In deze snelstart hebt u een sleutelkluis gemaakt en een geheim opgeslagen. Meer informatie over Key Vault en hoe u dat kunt gebruiken samen met uw toepassingen is te vinden in de zelfstudie voor webtoepassingen die geschikt zijn voor Key Vault.
 
 > [!div class="nextstepaction"]
-> [Azure Key Vault gebruiken in een webtoepassing](key-vault-use-from-web-application.md) Voor informatie over het lezen van een geheim uit Key Vault met behulp van een toepassing via [beheerde service-identiteit](/active-directory/managed-service-identity/overview.md) kunt u verdergaan met de volgende zelfstudie, [Een Azure-webtoepassing configureren om een geheim uit Key Vault te lezen](tutorial-web-application-keyvault.md)
+> Ga door met de volgende zelfstudie [Een Azure-webtoepassing configureren om een Key Vault-geheim te lezen](tutorial-web-application-keyvault.md) voor informatie over het lezen van een Key Vault-geheim van een webtoepassing met behulp van beheerde service-id’s.

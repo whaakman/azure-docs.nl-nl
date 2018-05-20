@@ -9,24 +9,24 @@ editor: amanbha
 ms.assetid: be23464a-0eea-4eca-ae5a-2e1b650d365e
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: dec785757ac582f044811c0f64ae0d452d6ad9a0
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 40f52cb399f2d7391657ce4356a0c30921d46e5f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="reliable-actors-reentrancy"></a>Betrouwbare actoren herintreding
 De runtime Reliable Actors kunt standaard u logische aanroep context gebaseerde herintreding. Hierdoor actoren worden inspringende als ze in dezelfde aanroep context keten. Bijvoorbeeld, verzendt Actor A een bericht naar Actor-B, die een bericht naar Actor C. verzendt Als onderdeel van de berichtverwerking als Actor C Actor A, roept is het bericht inspringende, dus wordt toegestaan. Alle berichten die deel van de aanroepcontext van een andere uitmaken wordt geblokkeerd op Actor A totdat het verwerken is voltooid.
 
 Er zijn twee opties beschikbaar voor actor herintreding gedefinieerd in de `ActorReentrancyMode` enum:
 
-* `LogicalCallContext`(standaardinstelling)
-* `Disallowed`-herintreding uitgeschakeld
+* `LogicalCallContext` (standaardinstelling)
+* `Disallowed` -herintreding uitgeschakeld
 
 ```csharp
 public enum ActorReentrancyMode

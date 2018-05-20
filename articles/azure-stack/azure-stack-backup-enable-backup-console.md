@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 0ef8247eba4605d3c8e5ef0992ce97bce989002e
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: ce5fd2feaa30948042cc0570a4b0ea7f0ab7ad77
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Back-up voor Azure-Stack inschakelen via de beheerportal
 De infrastructuur Backup-Service via de beheerportal ingeschakeld zodat Azure Stack back-ups kunnen genereren. U kunt deze back-ups herstellen van uw omgeving met behulp van cloud-herstel in geval van [een onherstelbare fout](.\azure-stack-backup-recover-data.md). Het doel van herstel van de cloud is om ervoor te zorgen dat uw operators en gebruikers zich in de portal aanmelden kunnen nadat het herstel is voltooid. Gebruikers hebben hun abonnementen met inbegrip van machtigingen voor toegang op basis van rollen en functies, oorspronkelijke plannen, aanbiedingen, en vooraf gedefinieerde compute, storage en netwerkquota worden hersteld.
@@ -45,7 +45,7 @@ Beheerders en gebruikers zijn verantwoordelijk voor een back-up en herstellen va
 3. Typ het pad naar de **opslaglocatie back-up**. Gebruik een Universal Naming Convention (UNC)-tekenreeks voor het pad naar een bestandsshare die wordt gehost op een afzonderlijk apparaat. Een UNC-tekenreeks bevat de locatie van resources, zoals gedeelde bestanden of apparaten. Voor de service, kunt u een IP-adres. Beschikbaarheid van de back-upgegevens na een noodgeval, zodat moet het apparaat op een andere locatie.
     > [!Note]  
     > Als uw omgeving naamomzetting vanaf het netwerk van Azure-Stack-infrastructuur voor uw omgeving enterprise ondersteunt, kunt u een FQDN-naam in plaats van het IP-adres.
-4. Typ de **gebruikersnaam** met behulp van het domein en gebruikersnaam. Bijvoorbeeld `Contoso\administrator`.
+4. Typ de **gebruikersnaam** met het domein en gebruikersnaam voldoende toegangsrechten voor bestanden lezen en schrijven. Bijvoorbeeld `Contoso\backupshareuser`.
 5. Typ de **wachtwoord** voor de gebruiker.
 5. Typ het wachtwoord opnieuw **wachtwoord bevestigen**.
 6. Een vooraf gedeelde sleutel opgeven in de **versleutelingssleutel** vak. Back-upbestanden zijn versleuteld met behulp van deze sleutel. Zorg ervoor dat deze sleutel opslaan op een veilige locatie. Zodra u deze sleutel voor het eerst definieert of de sleutel in de toekomst draaien, kunt u deze sleutel van deze interface niet weergeven. Voor meer instructies voor het genereren van een vooraf gedeelde sleutel, volgt u de scripts op [back-up inschakelen voor Azure-Stack met PowerShell](azure-stack-backup-enable-backup-powershell.md#generate-a-new-encryption-key). 

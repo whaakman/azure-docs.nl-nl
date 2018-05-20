@@ -277,7 +277,7 @@
 
 # Verwant
 ## Oplossingen 
-### [Accelerators voor IoT-oplossing](/azure/iot-suite) 
+### [IoT-oplossingsversnellers](/azure/iot-suite) 
 ### [IoT Central](https://docs.microsoft.com/microsoft-iot-central/) 
 ## Platformservices 
 ### [IoT Hub](/azure/iot-hub) 
@@ -292,6 +292,7 @@
 # Resources
 ## [Azure Certified voor IoT-apparaatcatalogus](https://catalog.azureiotsuite.com/)
 ## [Azure IoT-ontwikkelaarscentrum](https://azure.microsoft.com/develop/iot/)
+## [Verzoeken van klantgegevens](iot-hub-customer-data-requests.md)
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [Hulpprogramma DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
 ## [Hulpprogramma iothub-diagnostics](https://github.com/Azure/iothub-diagnostics)

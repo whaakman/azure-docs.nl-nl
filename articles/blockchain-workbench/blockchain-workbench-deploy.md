@@ -5,16 +5,16 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 4/22/2018
+ms.date: 5/17/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 6ee60d05897de7bb5408a226202623fd5955a88a
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 484c7a17fec4ee94e3170e93eb1438af688d101e
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Azure Blockchain Workbench implementeren
 
@@ -23,6 +23,25 @@ Azure Blockchain Workbench wordt geïmplementeerd met behulp van een oplossingss
 Zie voor meer informatie over de onderdelen van Blockchain Workbench [Azure Blockchain Workbench architectuur](blockchain-workbench-architecture.md).
 
 ## <a name="prepare-for-deployment"></a>Implementatie voorbereiden
+
+Blockchain Workbench kunt u een grootboek blockchain samen met een reeks relevante Azure-services meestal gebruikt voor het bouwen van een toepassing op basis van blockchain implementeren. Implementatie-Blockchain Workbench resulteert in de volgende Azure-services worden ingericht in de resourcegroep in uw Azure-abonnement.
+
+* 1 gebeurtenis raster onderwerp
+* 1-Service Bus Namespace
+* 1 application Insights
+* 1 SQL-Database (Standard-S0)
+* 2 app Services (standaard)
+* 2 azure Sleutelkluizen
+* 2 azure Storage-accounts (Standard-LRS)
+* 2 virtuele-machineschaalsets (voor validatie- en werkrollen knooppunten)
+* 2 virtuele netwerken (met inbegrip van de load balancer, netwerkbeveiligingsgroep en openbare IP-adres voor elke virtuele netwerk)
+* Optioneel: Azure Monitor
+
+Hieronder volgt een voorbeeld van een implementatie gemaakt in **myblockchain** resourcegroep.
+
+![Voorbeeldimplementatie](media/blockchain-workbench-deploy/example-deployment.png)
+
+De kosten van Blockchain Workbench is een statistische functie van de kosten van de onderliggende Azure-services. Prijsinformatie voor Azure-services kunnen worden berekend met behulp van de [prijscategorie Rekenmachine](https://azure.microsoft.com/pricing/calculator/).
 
 Azure Blockchain Workbench vereist verschillende vereisten voor de installatie. De vereisten zijn de configuratie en toepassing registraties Azure AD.
 
@@ -237,6 +256,8 @@ Zodra de implementatie van de Blockchain Workbench is voltooid, bevat een nieuwe
 
     ![App service essentials](media/blockchain-workbench-deploy/app-service.png)
 
+Zie koppelt u een aangepaste domeinnaam Blockchain Workbench, [configureren van een aangepaste domeinnaam voor een web-app in Azure App Service met behulp van Traffic Manager](../app-service/web-sites-traffic-manager-custom-domain-name.md).
+
 ## <a name="configuring-the-reply-url"></a>Configuratie van de antwoord-URL
 
 Zodra de Blockchain Azure Workbench is geïmplementeerd, wordt de volgende stap is om ervoor te zorgen dat de clienttoepassing Azure Active Directory (Azure AD) is geregistreerd op de juiste **antwoord-URL** web-URL van de geïmplementeerde Blockchain Workbench.
@@ -246,15 +267,24 @@ Zodra de Blockchain Azure Workbench is geïmplementeerd, wordt de volgende stap 
 3. Selecteer in het navigatiedeelvenster links de **Azure Active Directory** service. Selecteer **App-registraties**.
 4. Selecteer de Azure AD-clienttoepassing die u hebt geregistreerd in de sectie vereisten.
 5. Selecteer **instellingen > URL's beantwoorden**.
-6. Geef de belangrijkste web-URL van de Azure Blockchain Workbench-implementatie die u hebt opgehaald in de **ophalen van de Web-URL van Azure Blockchain Workbench** sectie. De antwoord-URL wordt voorafgegaan door `https://`.  Bijvoorbeeld: `https://myblockchain2-7v75.azurewebsites.net`
+6. Geef de belangrijkste web-URL van de Azure Blockchain Workbench-implementatie die u hebt opgehaald in de **ophalen van de Web-URL van Azure Blockchain Workbench** sectie. De antwoord-URL wordt voorafgegaan door `https://`. Bijvoorbeeld: `https://myblockchain2-7v75.azurewebsites.net`
 
     ![Antwoord-URL's](media/blockchain-workbench-deploy/configure-reply-url.png)
 
 7. Selecteer **opslaan** bijwerken van de clientregistratie van de.
 
+## <a name="remove-a-deployment"></a>Verwijderen van een implementatie
+
+Wanneer een implementatie niet meer nodig is, kunt u een implementatie verwijderen door het verwijderen van de resourcegroep Blockchain Workbench.
+
+1. Navigeer in de Azure-portal naar **resourcegroep** in het navigatiedeelvenster links en selecteer de resourcegroep die u wilt verwijderen. 
+2. Selecteer **Resourcegroep verwijderen**. Verwijdering controleren door te voeren van de naam van de resourcegroep en selecteer **verwijderen**.
+
+    ![Resourcegroep verwijderen](media/blockchain-workbench-deploy/delete-resource-group.png)
+
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel instructies als u Azure Blockchain Workbench hebt geïmplementeerd. Meer informatie over het maken van een toepassing blockchain, blijven de volgende procedures voor artikel.
+In dit artikel instructies als u Azure Blockchain Workbench geïmplementeerd. Meer informatie over het maken van een toepassing blockchain, blijven de volgende procedures voor artikel.
 
 > [!div class="nextstepaction"]
 > [Een toepassing blockchain maken in Azure Blockchain Workbench](blockchain-workbench-create-app.md)

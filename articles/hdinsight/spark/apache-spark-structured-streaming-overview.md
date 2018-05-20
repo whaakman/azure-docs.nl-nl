@@ -11,14 +11,14 @@ ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/05/2018
 ms.author: maxluk
-ms.openlocfilehash: ca4a248e9da2c0d50aaf320370b1f3050a0ff263
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: f3eccfb63b127f3cbb8f9d95ec2fa802861d8c9d
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="overview-of-spark-structured-streaming"></a>Overzicht van Spark gestructureerd Streaming
 
@@ -43,7 +43,7 @@ In de gestructureerde Streaming gegevens aankomt bij het systeem en direct in ee
 
 Het verwerken van de gegevens in de resultaten tabellen mogen alleen de gegevens die nieuw zijn sinds de laatste keer dat de query bevatten (*modus append*), of de tabel niet volledig vernieuwd telkens wanneer er nieuwe gegevens is, zodat de tabel alle van de uitvoergegevens bevat sinds het begin van de streaming-query (*volledige modus*).
 
-### <a name="append-mode"></a>De modus Append
+### <a name="append-mode"></a>Toevoegmodus
 
 In de modus, alleen de rijen toevoegen toegevoegd aan de tabel met resultaten sinds de laatste uitvoering van de query zijn aanwezig in de tabel met resultaten en geschreven naar een externe opslag. Bijvoorbeeld kopieert de meest eenvoudige query net alle gegevens van de invoertabel naar de tabel met resultaten ongewijzigd. Telkens wanneer die een trigger-interval is verstreken, de nieuwe gegevens worden verwerkt en de rijen die aangeeft dat de nieuwe gegevens worden weergegeven in de tabel met resultaten. 
 

@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 5e35be84df53386398deaca19d60d4a93f53e541
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6af564a1dc33b6382e70aaad107122034377a95e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="tutorial-scale-application-in-azure-container-service-aks"></a>Zelfstudie: toepassing schalen in AKS (Azure Container Service)
+# <a name="tutorial-scale-application-in-azure-kubernetes-service-aks"></a>Zelfstudie: Een toepassing schalen in AKS (Azure Kubernetes Service)
 
 Als u de zelfstudies volgt, hebt u een werkend Kubernetes-cluster in AKS en hebt u de Azure Voting-app geïmplementeerd.
 

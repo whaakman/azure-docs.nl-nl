@@ -1,0 +1,163 @@
+- name: Documentatie over virtuele-machineschaalsets
+  href: index.yml
+- name: Overzicht
+  items:
+    - name: Wat zijn schaalsets voor virtuele machines?
+      href: overview.md
+- name: Snelstartgidsen
+  items:
+    - name: Maken in Azure Portal
+      href: quick-create-portal.md
+    - name: Maken met Azure CLI 2.0
+      href: quick-create-cli.md
+    - name: Maken met Azure PowerShell
+      href: quick-create-powershell.md
+    - name: Maken met een sjabloon
+      items:
+        - name: Linux-schaalset
+          href: quick-create-template-linux.md
+        - name: Windows-schaalset
+          href: quick-create-template-windows.md
+- name: Zelfstudies
+  items:
+    - name: 1 - Schaalset maken/beheren
+      items:
+        - name: Azure CLI 2.0
+          href: tutorial-create-and-manage-cli.md
+        - name: Azure PowerShell
+          href: tutorial-create-and-manage-powershell.md
+    - name: 2 - Gegevensschijven gebruiken
+      items:
+        - name: Azure CLI 2.0
+          href: tutorial-use-disks-cli.md
+        - name: Azure PowerShell
+          href: tutorial-use-disks-powershell.md
+    - name: 3 - Een aangepaste VM-installatiekopie gebruiken
+      items:
+        - name: Azure CLI 2.0
+          href: tutorial-use-custom-image-cli.md
+        - name: Azure PowerShell
+          href: tutorial-use-custom-image-powershell.md
+    - name: 4 - Apps implementeren in een schaalset
+      items:
+        - name: Azure CLI 2.0
+          href: tutorial-install-apps-cli.md
+        - name: Azure PowerShell
+          href: tutorial-install-apps-powershell.md
+        - name: Template
+          href: tutorial-install-apps-template.md
+    - name: 5 - Een schaalset automatisch schalen
+      items:
+        - name: Azure CLI 2.0
+          href: tutorial-autoscale-cli.md
+        - name: Azure PowerShell
+          href: tutorial-autoscale-powershell.md
+        - name: Template
+          href: tutorial-autoscale-template.md
+    - name: Apps implementeren in een virtuele-machineschaalset van Azure met een aangepaste Packer-installatiekopie
+      items:
+        - name: Azure CLI 2.0
+          href: 'https://docs.microsoft.com/learn/deploy-custom-vmss-app/index'
+- name: Voorbeelden
+  items:
+    - name: Azure CLI 2.0
+      href: cli-samples.md
+    - name: PowerShell
+      href: powershell-samples.md
+- name: Procedures
+  items:
+    - name: Plannen en ontwerpen
+      items:
+        - name: Overwegingen bij het ontwerpen
+          href: virtual-machine-scale-sets-design-overview.md
+        - name: Exemplaar-id's begrijpen
+          href: virtual-machine-scale-sets-instance-ids.md
+    - name: Een sjabloon maken
+      items:
+        - name: Meer informatie over schaalsetsjablonen
+          href: virtual-machine-scale-sets-mvss-start.md
+        - name: Een bestaand virtueel netwerk gebruiken
+          href: virtual-machine-scale-sets-mvss-existing-vnet.md
+        - name: Een aangepaste installatiekopie gebruiken
+          href: virtual-machine-scale-sets-mvss-custom-image.md
+        - name: Automatisch schalen op basis van een gast met een Linux-schaalsetsjabloon
+          href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
+    - name: Implementeren
+      items:
+        - name: Maken met Visual Studio
+          href: virtual-machine-scale-sets-vs-create.md
+        - name: Beschikbaarheidszones gebruiken
+          href: virtual-machine-scale-sets-use-availability-zones.md
+        - name: Een schaalset automatisch schalen
+          href: virtual-machine-scale-sets-autoscale-overview.md
+          items:
+            - name: Azure Portal gebruiken
+              href: virtual-machine-scale-sets-autoscale-portal.md
+            - name: Geavanceerd automatisch schalen
+              href: ../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md
+        - name: Toepassingen op schaalsets
+          href: virtual-machine-scale-sets-deploy-app.md
+        - name: Gegevensschijven met schaalsets gebruiken
+          href: virtual-machine-scale-sets-attached-disks.md
+        - name: Schijven in schaalsets versleutelen
+          items:
+            - name: PowerShell gebruiken
+              href: virtual-machine-scale-sets-encrypt-disks-ps.md
+            - name: Azure CLI 2.0 gebruiken
+              href: virtual-machine-scale-sets-encrypt-disks-cli.md
+        - name: Met grote schaalsets werken
+          href: virtual-machine-scale-sets-placement-groups.md
+        - name: Een sjabloon voor schaalsets converteren voor gebruik van beheerde schijven
+          href: virtual-machine-scale-sets-convert-template-to-md.md
+        - name: Lage prioriteit gebruiken
+          href: virtual-machine-scale-sets-use-low-priority.md
+    - name: Beheren
+      items:
+        - name: Veelvoorkomende beheertaken
+          items:
+            - name: Azure CLI 2.0 gebruiken
+              href: virtual-machine-scale-sets-manage-cli.md
+            - name: Azure PowerShell gebruiken
+              href: virtual-machine-scale-sets-manage-powershell.md
+        - name: Verticaal schalen in een schaalset
+          href: virtual-machine-scale-sets-vertical-scale-reprovision.md
+        - name: Automatische upgrades voor het besturingssysteem
+          href: virtual-machine-scale-sets-automatic-upgrade.md
+        - name: Een schaalset wijzigen
+          href: virtual-machine-scale-sets-upgrade-scale-set.md
+        - name: DSC en schaalsets gebruiken
+          href: virtual-machine-scale-sets-dsc.md
+        - name: Netwerken voor schaalsets
+          href: virtual-machine-scale-sets-networking.md
+        - name: Een sjabloon converteren voor beheerde schijven
+          href: virtual-machine-scale-sets-convert-template-to-md.md
+    - name: Problemen oplossen
+      items:
+        - name: Automatisch schalen
+          href: virtual-machine-scale-sets-troubleshoot.md
+    - name: Veelgestelde vragen
+      items:
+        - name: Veelgestelde vragen over schaalsets
+          href: virtual-machine-scale-sets-faq.md
+- name: Naslaginformatie
+  items:
+    - name: Azure PowerShell
+      href: /powershell/azure/overview
+    - name: Azure-CLI
+      href: ../virtual-machines/azure-cli-arm-commands.md
+    - name: REST
+      href: /rest/api/virtualmachinescalesets/
+- name: Resources
+  items:
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=compute'
+    - name: Prijzen
+      items:
+        - name: Linux
+          href: 'https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/'
+        - name: Windows
+          href: 'https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/'
+    - name: Prijscalculator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-vm-scale-set'

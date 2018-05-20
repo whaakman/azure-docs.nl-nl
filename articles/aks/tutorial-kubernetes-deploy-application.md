@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 79fc716f70fe0fb3273badd485e4c01ea5d04e1d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8649fc12bd36172f3a10e1a2c9da891685c0b821
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="tutorial-run-applications-in-azure-container-service-aks"></a>Zelfstudie: Toepassingen uitvoeren in Azure Container Service (AKS)
+# <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Zelfstudie: Toepassingen uitvoeren in AKS (Azure Kubernetes Service)
 
 In deze zelfstudie, deel vier van acht, wordt een voorbeeldtoepassing geïmplementeerd in een Kubernetes-cluster. Dit zijn de uitgevoerde stappen:
 
@@ -30,7 +30,7 @@ In deze zelfstudie wordt ervan uitgegaan dat u over basiskennis van Kubernetes-c
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In de vorige zelfstudies is een toepassing verpakt in een containerinstallatiekopie, is deze installatiekopie geüpload naar Azure Container Registry en is een Kubernetes-cluster gemaakt. 
+In de vorige zelfstudies is een toepassing verpakt in een containerinstallatiekopie, is deze installatiekopie geüpload naar Azure Container Registry en is een Kubernetes-cluster gemaakt.
 
 Om deze zelfstudie te voltooien hebt u het vooraf gemaakte Kubernetes-manifestbestand `azure-vote-all-in-one-redis.yaml` nodig. Dit bestand is met de broncode van de toepassing gedownload in een vorige zelfstudie. Controleer of u de opslagplaats hebt gekloond en of u naar de gekloonde opslagplaats bent gegaan.
 
@@ -89,7 +89,7 @@ service "azure-vote-front" created
 
 ## <a name="test-application"></a>Toepassing testen
 
-Er wordt een [Kubernetes-service][kubernetes-service] gemaakt die de toepassing beschikbaar maakt op internet. Dit proces kan enkele minuten duren. 
+Er wordt een [Kubernetes-service][kubernetes-service] gemaakt die de toepassing beschikbaar maakt op internet. Dit proces kan enkele minuten duren.
 
 Gebruik de opdracht [kubectl get service][kubectl-get] met het argument `--watch` om de voortgang te controleren.
 
@@ -98,12 +98,12 @@ kubectl get service azure-vote-front --watch
 ```
 
 Eerst wordt het *externe IP-adres* voor de service *azure-vote-front* weergegeven als *in behandeling*.
-  
+
 ```
 azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s
 ```
 
-Zodra het *EXTERNE IP-adres* is gewijzigd van *in behandeling* in een *IP-adres*, gebruikt u `CTRL-C` om het controleproces van kubectl te stoppen. 
+Zodra het *EXTERNE IP-adres* is gewijzigd van *in behandeling* in een *IP-adres*, gebruikt u `CTRL-C` om het controleproces van kubectl te stoppen.
 
 ```
 azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
@@ -119,14 +119,14 @@ Volg deze stappen voor het verlenen van [toegang via een Kubernetes-geheim](http
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie is een Azure Vote-toepassing geïmplementeerd in een Kubernetes-cluster in AKS. Dit zijn de uitgevoerde taken:  
+In deze zelfstudie is een Azure Vote-toepassing geïmplementeerd in een Kubernetes-cluster in AKS. Dit zijn de uitgevoerde taken:
 
 > [!div class="checklist"]
 > * Kubernetes-manifestbestanden downloaden
 > * De toepassing uitvoeren in Kubernetes
 > * De toepassing testen
 
-Ga naar de volgende zelfstudie om te leren hoe u zowel een Kubernetes-toepassing als de onderliggende Kubernetes-infrastructuur schaalt. 
+Ga naar de volgende zelfstudie om te leren hoe u zowel een Kubernetes-toepassing als de onderliggende Kubernetes-infrastructuur schaalt.
 
 > [!div class="nextstepaction"]
 > [Kubernetes-toepassing en -infrastructuur schalen][aks-tutorial-scale]

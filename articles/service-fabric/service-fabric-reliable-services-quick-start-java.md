@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: java
 author: suhuruli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7831886f-7ec4-4aef-95c5-b2469a5b7b5d
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: e885a482edcba48c18e425c54f4acc28ee650ddd
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 48546e84b94ad0c11a159b2f88f7e21f7eb6ae0e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="get-started-with-reliable-services"></a>Aan de slag met Reliable Services
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/12/2018
 >
 >
 
-Dit artikel vindt u de basisbeginselen van Azure Service Fabric Reliable Services en leidt u door het maken en implementeren van een eenvoudige betrouwbare servicetoepassing geschreven in Java. Deze video Microsoft Virtual Academy leest u hoe u een stateless betrouwbare service maken:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
+Dit artikel vindt u de basisbeginselen van Azure Service Fabric Reliable Services en leidt u door het maken en implementeren van een eenvoudige betrouwbare servicetoepassing geschreven in Java. Deze video Microsoft Virtual Academy leest u hoe u een stateless betrouwbare service maken: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
 <img src="./media/service-fabric-reliable-services-quick-start-java/ReliableServicesJavaVid.png" WIDTH="360" HEIGHT="244">  
 </a></center>
 
@@ -127,7 +127,7 @@ Het platform roept deze methode wanneer een exemplaar van een service is geplaat
 
 Deze indeling wordt beheerd door Service Fabric ervoor zorgen dat uw service maximaal beschikbare en goed taakverdeling.
 
-`runAsync()`moet niet synchroon blokkeren. De implementatie van runAsync als resultaat moet een CompletableFuture zodat de runtime om door te gaan. Als uw werkbelasting moet een langlopende taak die moet worden uitgevoerd binnen de CompletableFuture implementeren.
+`runAsync()` moet niet synchroon blokkeren. De implementatie van runAsync als resultaat moet een CompletableFuture zodat de runtime om door te gaan. Als uw werkbelasting moet een langlopende taak die moet worden uitgevoerd binnen de CompletableFuture implementeren.
 
 #### <a name="cancellation"></a>Annulering
 Annulering van uw werkbelasting is een gezamenlijke inspanning gedirigeerd door het token opgegeven annulering. Het systeem wacht tot de taak te beëindigen (met succes is voltooid, annulering of fault) voordat het wordt verplaatst op. Het is belangrijk om te voldoen aan het token annulering, werk voltooien en af te sluiten `runAsync()` zo snel mogelijk wanneer het systeem annulering aanvraagt. Het volgende voorbeeld laat zien hoe een annulering gebeurtenis te verwerken:
@@ -193,7 +193,7 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 ```
 
 ### <a name="runasync"></a>RunAsync
-`RunAsync()`draait op dezelfde manier in stateful en staatloze services. Echter, in een stateful service het platform extra werk uitvoert namens jou voordat deze wordt uitgevoerd `RunAsync()`. Deze taak kunt opnemen ervoor te zorgen dat de betrouwbare statusbeheer en betrouwbare verzamelingen klaar zijn voor gebruik.
+`RunAsync()` draait op dezelfde manier in stateful en staatloze services. Echter, in een stateful service het platform extra werk uitvoert namens jou voordat deze wordt uitgevoerd `RunAsync()`. Deze taak kunt opnemen ervoor te zorgen dat de betrouwbare statusbeheer en betrouwbare verzamelingen klaar zijn voor gebruik.
 
 ### <a name="reliable-collections-and-the-reliable-state-manager"></a>Betrouwbare verzamelingen en de betrouwbare status Manager
 ```java

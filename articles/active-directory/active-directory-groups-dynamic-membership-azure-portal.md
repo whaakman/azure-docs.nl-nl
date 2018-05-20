@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 05/17/2018
 ms.author: curtand
-ms.reviewer: piotrci
+ms.reviewer: krbain
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 43f364ed7e8539397fe8662a8c75804883a82e4f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4eda67f9c28a52667a34af175086be19b627f2ce
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Op kenmerken gebaseerde regels maken voor dynamisch lidmaatschap in Azure Active Directory
 In Azure Active Directory (Azure AD), kunt u geavanceerde regels om in te schakelen van complexe op kenmerken gebaseerde dynamisch lidmaatschap voor groepen maken. In dit artikel beschrijft de kenmerken en de syntaxis voor het maken van regels voor dynamisch lidmaatschap voor gebruikers of apparaten. U kunt een regel instellen voor dynamisch lidmaatschap voor beveiligingsgroepen of Office 365-groepen.
@@ -84,7 +84,7 @@ De volgende tabel bevat de operators voor de regel ondersteund expression en hun
 | Contains |-bevat |
 | Komt niet overeen met |-notMatch |
 | Overeenkomst |-overeen met |
-| in | -in |
+| In | -in |
 | Niet In | -notIn |
 
 ## <a name="operator-precedence"></a>Operatoren
@@ -157,13 +157,13 @@ Toegestane operators
 | city |Een tekenreekswaarde of *null* |(user.city - eq '' waarde '') |
 | Land |Een tekenreekswaarde of *null* |(user.country - eq '' waarde '') |
 | Bedrijfsnaam | Een tekenreekswaarde of *null* | (user.companyName - eq '' waarde '') |
-| Afdeling |Een tekenreekswaarde of *null* |(user.department - eq '' waarde '') |
+| afdeling |Een tekenreekswaarde of *null* |(user.department - eq '' waarde '') |
 | displayName |Waarde van een tekenreeks |(user.displayName - eq '' waarde '') |
 | werknemer-id |Waarde van een tekenreeks |(user.employeeId - eq '' waarde '')<br>(user.employeeId - ne *null*) |
 | facsimileTelephoneNumber |Een tekenreekswaarde of *null* |(user.facsimileTelephoneNumber - eq '' waarde '') |
 | givenName |Een tekenreekswaarde of *null* |(user.givenName - eq '' waarde '') |
 | Functie |Een tekenreekswaarde of *null* |(user.jobTitle - eq '' waarde '') |
-| E-mail |Een tekenreekswaarde of *null* (SMTP-adres van de gebruiker) |(user.mail - eq '' waarde '') |
+| mail |Een tekenreekswaarde of *null* (SMTP-adres van de gebruiker) |(user.mail - eq '' waarde '') |
 | mailNickName |De waarde van een tekenreeks (mailalias van de gebruiker) |(user.mailNickName - eq '' waarde '') |
 | mobiele |Een tekenreekswaarde of *null* |(user.mobile - eq '' waarde '') |
 | object-id |GUID van het gebruikersobject |(user.objectId - eq "11111111-1111-1111-1111-111111111111") |
@@ -278,7 +278,7 @@ U kunt ook een regel die u apparaatobjecten voor lidmaatschap in een groep selec
  DeviceModel | Waarde van een tekenreeks | (device.deviceModel - eq "iPad lucht")
  deviceOwnership | Persoonlijk, bedrijf, onbekend | (device.deviceOwnership - eq "Bedrijf")
  Domeinnaam | Waarde van een tekenreeks | (device.domainName - eq 'contoso.com')
- enrollmentProfileName | De naam van het Inschrijvingsprofiel voor apparaten van Apple | (device.enrollmentProfileName - eq 'DEP iPhones')
+ enrollmentProfileName | Inschrijvingsprofiel voor apparaten van Apple of Windows Automatische piloot profielnaam | (device.enrollmentProfileName - eq 'DEP iPhones')
  isRooted | de waarde True, false | (device.isRooted - eq waar)
  managementType | MDM (voor mobiele apparaten)<br>PC (voor computers die worden beheerd door de Intune-PC-agent) | (device.managementType - eq 'MDM')
  OrganizationalUnit | de waarde van een tekenreeks die overeenkomt met de naam van de organisatie-eenheid ingesteld door een lokale Active Directory | (device.organizationalUnit - eq "VS-pc's")

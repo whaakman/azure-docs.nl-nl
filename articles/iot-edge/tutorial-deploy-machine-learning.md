@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 03/12/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e4753cf0ffdedcc2ddc694fba67c560363789e3a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6062d8193ce8cf7edaff3187f5c0f7dd9968658b
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Implementeren van Azure Machine Learning als een module van de rand van de IoT - voorbeeld
 
@@ -33,8 +33,8 @@ De Azure Machine Learning-module die u in deze zelfstudie maakt het milieu gegev
 
 * Azure IoT apparaat aan de rand die u hebt gemaakt in de Quick Start of de eerste zelfstudie.
 * De verbindingsreeks voor de IoT Hub voor uw IoT-Edge-apparaat verbinding met maakt IoT-hub.
-* Een Azure Machine Learning-account. Volg de instructies in voor het maken van een account [maken Azure Machine Learning-accounts en installeer Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). U hoeft niet te installeren van de workbench-toepassing voor deze zelfstudie.
-* Beheer van de module voor Azure ML op uw computer. Volg de instructies in voor het instellen van uw omgeving en maak een account, [Model beheerinstellingen](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration).
+* Een Azure Machine Learning-account. Volg de instructies in voor het maken van een account [maken Azure Machine Learning-accounts en installeer Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). U hoeft niet te installeren van de workbench-toepassing voor deze zelfstudie. 
+* Beheer van de module voor Azure ML op uw computer. Volg de instructies in voor het instellen van uw omgeving en maak een account, [Model beheerinstellingen](../machine-learning/desktop-workbench/deployment-setup-configuration.md).
 
 De Azure Machine Learning-module biedt geen ondersteuning voor ARM-processors.
 

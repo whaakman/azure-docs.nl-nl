@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 10/26/2017
+ms.date: 04/30/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 2e91a92d34131d0b35cfb7b0bfdca99637924552
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: afdee938145dacf50538ceb186957933fe7ec3bd
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Zelfstudie: een Azure-containerregister met geo-replicatie voorbereiden
 
@@ -31,17 +31,13 @@ In volgende zelfstudies implementeert u de container vanuit uw privéregister na
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-Voor deze zelfstudie moet u Azure CLI versie 2.0.20 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
+Voor deze zelfstudie is een lokale installatie van de Azure CLI (versie 2.0.31 of hoger) vereist. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
 
-In deze zelfstudie wordt ervan uitgegaan dat u een basiskennis hebt van Docker-kernconcepten zoals containers, containerinstallatiekopieën en Docker-basisopdrachten. Zie, indien nodig, [Aan de slag met Docker]( https://docs.docker.com/get-started/) voor een uitleg van de basisprincipes van containers.
+U moet bekend zijn met Docker-kernconcepten zoals containers, containerinstallatiekopieën en Docker CLI-basisopdrachten. Zie [Aan de slag met Docker]( https://docs.docker.com/get-started/) voor een uitleg van de basisprincipes van containers.
 
-Voor deze zelfstudie hebt u een Docker-ontwikkelomgeving nodig. Docker biedt pakketten die eenvoudig Docker op elke configureren op elk [Mac](https://docs.docker.com/docker-for-mac/)-, [Windows](https://docs.docker.com/docker-for-windows/)- of [Linux](https://docs.docker.com/engine/installation/#supported-platforms)-systeem.
+Voor het voltooien van deze zelfstudie, hebt u een lokale Docker-installatie nodig. Docker biedt installatie-instructies voor de systemen [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) en [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
 
 Azure Cloud Shell bevat niet de vereiste Docker-onderdelen die nodig zijn om elke stap in deze zelfstudie te voltooien. Daarom raden we een lokale installatie van de Azure CLI en Docker-ontwikkelomgeving aan.
-
-> [!IMPORTANT]
-> De functie voor geo-replicatie van Azure Container Registry is momenteel beschikbaar als **preview-versie**. Previews worden voor u beschikbaar gesteld op voorwaarde dat u akkoord met gaat de [aanvullende gebruiksvoorwaarden](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Sommige aspecten van deze functionaliteit kunnen wijzigen voordat deze functionaliteit algemeen beschikbaar wordt.
->
 
 ## <a name="create-a-container-registry"></a>Een containerregister maken
 
@@ -91,9 +87,9 @@ Wanneer de replicatie is voltooid, geeft de portal *Gereed* weer voor beide regi
 
 ## <a name="container-registry-login"></a>Aanmelden bij het containerregister
 
-Nu u geo-replicatie hebt geconfigureerd, maakt u een containerinstallatiekopie en pusht u deze naar het register. U moet u eerst aanmelden bij de ACR-instantie voordat u er installatiekopieën naar pusht. Met [Basic-, Standard- en Premium-SKU's](container-registry-skus.md) kunt u zich laten verifiëren met behulp van uw Azure-id.
+Nu u geo-replicatie hebt geconfigureerd, maakt u een containerinstallatiekopie en pusht u deze naar het register. U moet u eerst aanmelden bij de ACR-instantie voordat u er installatiekopieën naar pusht.
 
-Gebruik de opdracht [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login) om de referenties voor het register te verifiëren en in de cache te plaatsen. Vervang `<acrName>` door de naam van het register dat u in de vorige stappen hebt gemaakt.
+Gebruik de opdracht [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login) om de referenties voor het register te verifiëren en in de cache te plaatsen. Vervang `<acrName>` door de naam van het register dat u eerder hebt gemaakt.
 
 ```azurecli
 az acr login --name <acrName>
@@ -103,7 +99,7 @@ De opdracht retourneert `Login Succeeded` nadat deze is voltooid.
 
 ## <a name="get-application-code"></a>Toepassingscode ophalen
 
-Het voorbeeld in deze zelfstudie bevat een kleine webtoepassing die is gebouwd in [ASP.NET Core](http://dot.net). De app dient voor een HTML-pagina waarop de regio wordt weergegeven waaruit de installatiekopie is geïmplementeerd door Azure Container Registry.
+Het voorbeeld in deze zelfstudie bevat een kleine webtoepassing die is gebouwd in [ASP.NET Core][aspnet-core]. De app dient voor een HTML-pagina waarop de regio wordt weergegeven waaruit de installatiekopie is geïmplementeerd door Azure Container Registry.
 
 ![Zelfstudie-app weergegeven in browser][tut-app-01]
 
@@ -114,11 +110,13 @@ git clone https://github.com/Azure-Samples/acr-helloworld.git
 cd acr-helloworld
 ```
 
+Als u `git` niet hebt geïnstalleerd, kunt u [het ZIP-archief downloaden][acr-helloworld-zip] rechtstreeks vanuit GitHub.
+
 ## <a name="update-dockerfile"></a>Dockerfile bijwerken
 
-Het Dockerfile dat deel uitmaakt van de voorbeeldopslagplaats laat zien hoe de container wordt gebouwd. Het begint met een officiële [aspnetcore](https://store.docker.com/community/images/microsoft/aspnetcore)-installatiekopie, kopieert de toepassingsbestanden naar de container, installeert afhankelijkheden, compileert de uitvoer met behulp van de officiële [aspnetcore-build](https://store.docker.com/community/images/microsoft/aspnetcore-build)-installatiekopie en maakt tot slot een geoptimaliseerde aspnetcore-installatiekopie.
+Het Dockerfile dat deel uitmaakt van de voorbeeldopslagplaats laat zien hoe de container wordt gebouwd. Het begint met een officiële [aspnetcore][dockerhub-aspnetcore]-installatiekopie, kopieert de toepassingsbestanden naar de container, installeert afhankelijkheden, compileert de uitvoer met de officiële [aspnetcore-build][dockerhub-aspnetcore-build]-installatiekopie en maakt tot slot een geoptimaliseerde aspnetcore-installatiekopie.
 
-De Dockerfile bevindt zich in `./AcrHelloworld/Dockerfile` in de gekloonde bron.
+De [Dockerfile][dockerfile] bevindt zich in `./AcrHelloworld/Dockerfile` in de gekloonde bron.
 
 ```dockerfile
 FROM microsoft/aspnetcore:2.0 AS base
@@ -146,9 +144,9 @@ COPY --from=publish /app .
 ENTRYPOINT ["dotnet", "AcrHelloworld.dll"]
 ```
 
-De toepassing in de *acr-helloworld*-installatiekopie probeert de regio te bepalen waaruit de container is geïmplementeerd door in DNS een query uit te voeren naar informatie over de aanmeldingsserver van het register. U moet de aanmeldingsserver-URL van het register opgeven in de omgevingsvariabele `DOCKER_REGISTRY` in de Dockerfile.
+De toepassing in de *acr-helloworld*-installatiekopie probeert de regio te bepalen waaruit de container is geïmplementeerd door in DNS een query uit te voeren naar informatie over de aanmeldingsserver van het register. U moet de Fully Qualified Domain Name (FQDN) van de aanmeldingsserver van het register opgeven in de omgevingsvariabele `DOCKER_REGISTRY` in de Dockerfile.
 
-Haal eerst de aanmeldingsserver-URL van het register op met de opdracht `az acr show`. Vervang `<acrName>` door de naam van het register dat u in de vorige stappen hebt gemaakt.
+Haal eerst de aanmeldingsserver van het register op met de opdracht `az acr show`. Vervang `<acrName>` door de naam van het register dat u in de vorige stappen hebt gemaakt.
 
 ```azurecli
 az acr show --name <acrName> --query "{acrLoginServer:loginServer}" --output table
@@ -162,7 +160,7 @@ AcrLoginServer
 uniqueregistryname.azurecr.io
 ```
 
-Werk vervolgens de regel `DOCKER_REGISTRY` bij met de aanmeldingsserver-URL van het register. In dit voorbeeld werken we de regel bij, zodat deze overeenkomt met de naam van ons voorbeeldregister *uniqueregistryname*:
+Werk vervolgens de regel `ENV DOCKER_REGISTRY` bij met de FQDN van de aanmeldingsserver van uw register. In dit voorbeeld wordt de naam van het voorbeeldregister gebruikt, *uniqueregistryname*:
 
 ```dockerfile
 ENV DOCKER_REGISTRY uniqueregistryname.azurecr.io
@@ -170,7 +168,7 @@ ENV DOCKER_REGISTRY uniqueregistryname.azurecr.io
 
 ## <a name="build-container-image"></a>Containerinstallatiekopie maken
 
-Nu u de Dockerfile hebt bijgewerkt met de URL van het register, kunt u `docker build` gebruiken om de containerinstallatiekopie te maken. Voer de volgende opdracht uit om de installatiekopie te maken en te taggen met de URL van uw privéregister, waarbij u `<acrName>` opnieuw vervangt door de naam van uw register:
+Nu u de Dockerfile hebt bijgewerkt met de FQDN van de aanmeldingsserver van uw register, kunt u `docker build` gebruiken om de containerinstallatiekopie te maken. Voer de volgende opdracht uit om de installatiekopie te maken en te taggen met de URL van uw privéregister, waarbij u `<acrName>` opnieuw vervangt door de naam van uw register:
 
 ```bash
 docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-helloworld:v1
@@ -183,7 +181,9 @@ Sending build context to Docker daemon  523.8kB
 Step 1/18 : FROM microsoft/aspnetcore:2.0 AS base
 2.0: Pulling from microsoft/aspnetcore
 3e17c6eae66c: Pulling fs layer
-...
+
+[...]
+
 Step 18/18 : ENTRYPOINT dotnet AcrHelloworld.dll
  ---> Running in 6906d98c47a1
  ---> c9ca1763cfb1
@@ -192,23 +192,18 @@ Successfully built c9ca1763cfb1
 Successfully tagged uniqueregistryname.azurecr.io/acr-helloworld:v1
 ```
 
-Gebruik de opdracht `docker images` om de gemaakte installatiekopie te bekijken:
+Gebruik `docker images` om de gebouwde en getagde installatiekopie te zien:
 
-```bash
-docker images
-```
-
-Uitvoer:
-
-```bash
+```console
+$ docker images
 REPOSITORY                                      TAG    IMAGE ID        CREATED               SIZE
 uniqueregistryname.azurecr.io/acr-helloworld    v1     01ac48d5c8cf    About a minute ago    284MB
-...
+[...]
 ```
 
 ## <a name="push-image-to-azure-container-registry"></a>Installatiekopie pushen naar Azure Container Registry
 
-Gebruik tot slot de opdracht `docker push` om de *acr-helloworld*-installatiekopie naar het register te pushen. Vervang `<acrName>` door de naam van uw register.
+Gebruik vervolgens de opdracht `docker push` om de *acr-helloworld*-installatiekopie naar het register te pushen. Vervang `<acrName>` door de naam van uw register.
 
 ```bash
 docker push <acrName>.azurecr.io/acr-helloworld:v1
@@ -216,9 +211,8 @@ docker push <acrName>.azurecr.io/acr-helloworld:v1
 
 Omdat u het register voor de geo-replicatie hebt geconfigureerd, wordt uw installatiekopie automatisch gerepliceerd naar zowel de regio *VS - west* als de regio *VS - oost* met deze enkele `docker push`-opdracht.
 
-Uitvoer:
-
-```bash
+```console
+$ docker push uniqueregistryname.azurecr.io/acr-helloworld:v1
 The push refers to a repository [uniqueregistryname.azurecr.io/acr-helloworld]
 cd54739c444b: Pushed
 d6803756744a: Pushed
@@ -232,15 +226,9 @@ v1: digest: sha256:0799014f91384bda5b87591170b1242bcd719f07a03d1f9a1ddbae72b3543
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u een privécontainerregister met geo-replicatie gemaakt, een containerinstallatiekopie gemaakt en die installatiekopie vervolgens naar het register gepusht. Door de stappen in deze zelfstudie te hebben gevolgd, hebt u het volgende gedaan:
+In deze zelfstudie hebt u een privécontainerregister met geo-replicatie gemaakt, een containerinstallatiekopie gemaakt en die installatiekopie vervolgens naar het register gepusht.
 
-> [!div class="checklist"]
-> * Een Azure-containerregister met geo-replicatie gemaakt
-> * Toepassingsbroncode vanuit GitHub gekloond
-> * Een Docker-containerinstallatiekopie gemaakt uit de toepassingsbron
-> * De containerinstallatiekopie naar het register gepusht
-
-Ga naar de volgende zelfstudie voor meer informatie over het implementeren van de container op meerdere Web Apps for Containers-instanties, met behulp van geo-replicatie om de installatiekopieën lokaal te gebruiken.
+Ga naar de volgende zelfstudie om uw container te implementeren op meerdere Web Apps for Containers-instanties, met behulp van geo-replicatie om de installatiekopieën lokaal te gebruiken.
 
 > [!div class="nextstepaction"]
 > [Web-app implementeren vanuit Azure Container Registry](container-registry-tutorial-deploy-app.md)
@@ -253,3 +241,10 @@ Ga naar de volgende zelfstudie voor meer informatie over het implementeren van d
 [tut-portal-05]: ./media/container-registry-tutorial-prepare-registry/tut-portal-05.png
 [tut-app-01]: ./media/container-registry-tutorial-prepare-registry/tut-app-01.png
 [tut-map-01]: ./media/container-registry-tutorial-prepare-registry/tut-map-01.png
+
+<!-- LINKS - External -->
+[acr-helloworld-zip]: https://github.com/Azure-Samples/acr-helloworld/archive/master.zip
+[aspnet-core]: http://dot.net
+[dockerhub-aspnetcore]: https://hub.docker.com/r/microsoft/aspnetcore/
+[dockerhub-aspnetcore-build]: https://store.docker.com/community/images/microsoft/aspnetcore-build
+[dockerfile]: https://github.com/Azure-Samples/acr-helloworld/blob/master/AcrHelloworld/Dockerfile

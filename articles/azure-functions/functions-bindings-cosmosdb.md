@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 3d63e33adb9cbbe96ad2851870592cc07c9cc3da
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ffb18ef65bc0d901fe237ec9c4f97fdae43dc472
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Azure DB Cosmos-bindingen voor Azure Functions
 
@@ -35,6 +35,8 @@ Dit artikel wordt uitgelegd hoe u werkt met [Azure Cosmos DB](..\cosmos-db\serve
 De database van de Cosmos-bindingen voor functies versie 1.x vindt u in de [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) NuGet-pakket. Voor 2.x functies, het pakket is [Microsoft.Azure.WebJobs.Extensions.CosmosDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB). Broncode voor de bindingen is in de [azure webjobs-sdk extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/) GitHub-opslagplaats.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
 
 ## <a name="trigger"></a>Trigger
 
@@ -162,21 +164,21 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |**type** || moet worden ingesteld op `cosmosDBTrigger`. |
 |**direction** || moet worden ingesteld op `in`. Deze parameter wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt. |
 |**Naam** || De naam van de variabele gebruikt in functiecode die de lijst van documenten met wijzigingen vertegenwoordigt. | 
-|**connectionStringSetting**|**ConnectionStringSetting** | De naam van een app-instelling met de verbindingsreeks waarmee verbinding met de Azure DB die Cosmos-account wordt bewaakt. |
+|**ConnectionStringSetting**|**ConnectionStringSetting** | De naam van een app-instelling met de verbindingsreeks waarmee verbinding met de Azure DB die Cosmos-account wordt bewaakt. |
 |**databaseName**|**DatabaseName**  | De naam van de Azure DB die Cosmos-database met de verzameling wordt bewaakt. |
 |**CollectionName** |**CollectionName** | De naam van de verzameling wordt bewaakt. |
 |**leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (Optioneel) De naam van een app-instelling met de verbindingsreeks aan de service die de lease-verzameling bevat. Wanneer niet is ingesteld, de `connectionStringSetting` waarde wordt gebruikt. Deze parameter wordt automatisch ingesteld wanneer de binding in de portal is gemaakt. De verbindingsreeks voor de verzameling leases moet schrijfmachtigingen hebben.|
 |**leaseDatabaseName** |**LeaseDatabaseName** | (Optioneel) De naam van de database waarin de verzameling gebruikt voor het opslaan van leases. Wanneer niet is ingesteld, de waarde van de `databaseName` instelling wordt gebruikt. Deze parameter wordt automatisch ingesteld wanneer de binding in de portal is gemaakt. |
 |**leaseCollectionName** | **LeaseCollectionName** | (Optioneel) De naam van de verzameling gebruikt voor het opslaan van leases. Wanneer niet is ingesteld, de waarde `leases` wordt gebruikt. |
-|**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (Optioneel) Als de waarde `true`, de verzameling leases wordt automatisch gemaakt wanneer deze niet al bestaat. De standaardwaarde is `false`. |
+|**CreateLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (Optioneel) Als de waarde `true`, de verzameling leases wordt automatisch gemaakt wanneer deze niet al bestaat. De standaardwaarde is `false`. |
 |**LeasesCollectionThroughput**| **LeasesCollectionThroughput**| (Optioneel) Hiermee definieert u de hoeveelheid Aanvraageenheden toewijzen bij het maken van de verzameling van leases. Deze instelling wordt alleen gebruikt bij `createLeaseCollectionIfNotExists` is ingesteld op `true`. Deze parameter wordt automatisch ingesteld als de binding is gemaakt met behulp van de portal.
-|**leaseCollectionPrefix**| **LeaseCollectionPrefix**| (Optioneel) Als de waarde, wordt toegevoegd een voorvoegsel voor de leases gemaakt in de verzameling Lease voor deze functie, effectief zodat twee afzonderlijke Azure Functions dezelfde Lease verzameling delen met andere voorvoegsels.
+|**LeaseCollectionPrefix**| **LeaseCollectionPrefix**| (Optioneel) Als de waarde, wordt toegevoegd een voorvoegsel voor de leases gemaakt in de verzameling Lease voor deze functie, effectief zodat twee afzonderlijke Azure Functions dezelfde Lease verzameling delen met andere voorvoegsels.
 |**FeedPollDelay**| **FeedPollDelay**| (Optioneel) Wanneer is ingesteld, wordt gedefinieerd, in milliseconden, de vertraging tussen een partitie voor de nieuwe wijzigingen op de feed polling worden nadat alle huidige wijzigingen geleegd. De standaardwaarde is 5000 (5 seconden).
 |**LeaseAcquireInterval**| **LeaseAcquireInterval**| (Optioneel) Als de waarde, wordt gedefinieerd, in milliseconden, het interval voor ere van een taak worden berekend als partities gelijkmatig zijn verdeeld over bekende host exemplaren. De standaardwaarde is 13000 (13 seconden).
 |**LeaseExpirationInterval**| **LeaseExpirationInterval**| (Optioneel) Als de waarde, wordt gedefinieerd, in milliseconden, het interval waarvoor de lease op een lease voor een partitie wordt gehouden. Als de lease is niet binnen dit interval vernieuwd, wordt deze verlopen en eigendom van de partitie wordt verplaatst naar een ander exemplaar. De standaardwaarde is 60.000 (60 seconden).
 |**LeaseRenewInterval**| **LeaseRenewInterval**| (Optioneel) Als de waarde, wordt gedefinieerd, in milliseconden die het vernieuwingsinterval voor alle leases voor partities die momenteel worden vastgehouden door een exemplaar. De standaardwaarde is 17000 (17 seconden).
 |**CheckpointFrequency**| **CheckpointFrequency**| (Optioneel) Als de waarde, wordt gedefinieerd, in milliseconden, het interval tussen lease controlepunten. Standaard wordt altijd na een geslaagde functieaanroep.
-|**maxItemsPerInvocation**| **MaxItemsPerInvocation**| (Optioneel) Als de waarde, wordt de maximale hoeveelheid items ontvangen per aanroep van de functie wordt aangepast.
+|**MaxItemsPerInvocation**| **MaxItemsPerInvocation**| (Optioneel) Als de waarde, wordt de maximale hoeveelheid items ontvangen per aanroep van de functie wordt aangepast.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -757,7 +759,7 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |**Naam**     || Naam van de binding-parameter die het document in de functie vertegenwoordigt.  |
 |**databaseName** | **DatabaseName**|De database met de verzameling waarin het document is gemaakt.     |
 |**CollectionName** |**CollectionName**  | De naam van de verzameling waarin het document is gemaakt. |
-|**createIfNotExists**  |**CreateIfNotExists**    | Een Booleaanse waarde die aangeeft of de verzameling is gemaakt als deze nog niet bestaat. De standaardwaarde is *false* omdat nieuwe verzamelingen worden gemaakt met gereserveerde doorvoer, wat gevolgen heeft kosten. Zie de pagina [prijzen](https://azure.microsoft.com/pricing/details/documentdb/) voor meer informatie.  |
+|**CreateIfNotExists**  |**CreateIfNotExists**    | Een Booleaanse waarde die aangeeft of de verzameling is gemaakt als deze nog niet bestaat. De standaardwaarde is *false* omdat nieuwe verzamelingen worden gemaakt met gereserveerde doorvoer, wat gevolgen heeft kosten. Zie de pagina [prijzen](https://azure.microsoft.com/pricing/details/documentdb/) voor meer informatie.  |
 |**PartitionKey**|**PartitionKey** |Wanneer `CreateIfNotExists` is ingesteld op true, wordt het pad van de partitie voor de gemaakte verzameling gedefinieerd.|
 |**CollectionThroughput**|**CollectionThroughput**| Wanneer `CreateIfNotExists` is ingesteld op true, definieert de [doorvoer](../cosmos-db/set-throughput.md) van de verzameling gemaakt.|
 |**Verbinding**    |**ConnectionStringSetting** |De naam van de app-instelling met de verbindingsreeks voor Azure Cosmos DB.        |

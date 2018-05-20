@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 109f5af5cc1647cebee805c3141f4bc83c73bcfc
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 163c32bdb8a3fdc278404b9e26fdc3097797d16c
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-event-grid-event-schema-for-resource-groups"></a>Azure Event raster gebeurtenis schema voor resourcegroepen
 
@@ -97,19 +97,19 @@ Een gebeurtenis heeft de volgende gegevens op het hoogste niveau:
 | -------- | ---- | ----------- |
 | Onderwerp | tekenreeks | Volledige resource-pad naar de gegevensbron. Dit veld is niet beschrijfbaar. Gebeurtenis raster bevat deze waarde. |
 | Onderwerp | tekenreeks | Publisher gedefinieerde pad naar het onderwerp van de gebeurtenis. |
-| eventType | tekenreeks | Een van de typen van de geregistreerde gebeurtenis van de bron van deze gebeurtenis. |
+| EventType | tekenreeks | Een van de typen van de geregistreerde gebeurtenis van de bron van deze gebeurtenis. |
 | eventTime | tekenreeks | De tijd dat de gebeurtenis wordt gegenereerd, gebaseerd op de UTC-tijd van de provider. |
 | id | tekenreeks | De unieke id voor de gebeurtenis. |
 | gegevens | object | Gebeurtenisgegevens van de resource-groep. |
-| dataVersion | tekenreeks | De versie van het schema van het gegevensobject. De uitgever definieert de schemaversie. |
-| metadataVersion | tekenreeks | De versie van het schema van de metagegevens van de gebeurtenis. Gebeurtenis raster definieert het schema van de eigenschappen op het hoogste niveau. Gebeurtenis raster bevat deze waarde. |
+| dataVersion | tekenreeks | De schemaversie van het gegevensobject. De uitgever definieert de schemaversie. |
+| metadataVersion | tekenreeks | De schemaversie van de metagegevens van de gebeurtenis. Gebeurtenis raster definieert het schema van de eigenschappen op het hoogste niveau. Gebeurtenis raster bevat deze waarde. |
 
 Het gegevensobject heeft de volgende eigenschappen:
 
 | Eigenschap | Type | Beschrijving |
 | -------- | ---- | ----------- |
 | Autorisatie | tekenreeks | De aangevraagde autorisatie voor de bewerking. |
-| claims | tekenreeks | De eigenschappen van de claims. |
+| Claims | tekenreeks | De eigenschappen van de claims. |
 | correlationId | tekenreeks | Een bewerking-ID voor het oplossen van problemen. |
 | httpRequest | tekenreeks | De details van de bewerking. |
 | resourceProvider | tekenreeks | De resourceprovider voor de bewerking wordt uitgevoerd. |
@@ -117,7 +117,7 @@ Het gegevensobject heeft de volgende eigenschappen:
 | operationName | tekenreeks | De bewerking die werd uitgevoerd. |
 | status | tekenreeks | De status van de bewerking. |
 | subscriptionId | tekenreeks | De abonnements-ID van de resource. |
-| tenantId | tekenreeks | De tenant-ID van de resource. |
+| TenantId | tekenreeks | De tenant-ID van de resource. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

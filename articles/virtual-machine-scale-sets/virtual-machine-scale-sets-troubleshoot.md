@@ -2,10 +2,10 @@
 title: Problemen met automatisch schalen met virtuele-Machineschaalsets | Microsoft Docs
 description: Problemen oplossen met virtuele-Machineschaalsets voor automatisch schalen. Begrijpen typische problemen en hoe u deze kunt oplossen.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: c7d87b72-ee24-4e52-9377-a42f337f76fa
 ms.service: virtual-machine-scale-sets
@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: negat
-ms.openlocfilehash: 02a3acf818bfca31a56b364f7abab97551e0d3f0
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: ea634ea8bcb4fed1ed63dc8d1e17d215a00758c6
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Het oplossen van problemen met virtuele-Machineschaalsets voor automatisch schalen
-**Probleem** : u hebt gemaakt een infrastructuur voor automatisch schalen in Azure Resource Manager met behulp van de virtuele-machineschaalsets – bijvoorbeeld door het implementeren van een sjabloon zoals deze: https://github.com/Azure/azure-quickstart-templates/tree/master/201- vmss-bottle-automatisch schalen: u hebt uw scale-regels gedefinieerd en werkt geweldig, behalve ongeacht hoeveel belasting u op de virtuele machines, dat niet het geval automatisch schalen.
+**Probleem** : u hebt gemaakt een infrastructuur voor automatisch schalen in Azure Resource Manager met behulp van de virtuele-machineschaalsets – bijvoorbeeld door het implementeren van een sjabloon zoals deze: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale : u hebt uw scale-regels gedefinieerd en deze prima oplossing, met uitzondering van Nee hoeveel belasting van de virtuele machines uit, dat niet het geval automatisch schalen.
 
-## <a name="troubleshooting-steps"></a>Stappen voor het oplossen van problemen
+## <a name="troubleshooting-steps"></a>Stappen voor probleemoplossing
 Enkele overwegingen zijn onder andere:
 
 * Hoeveel Vcpu elke virtuele machine heeft en u elke vCPU laden?
@@ -78,7 +78,7 @@ Enkele overwegingen zijn onder andere:
     Als de gegevens er niet in staat, wordt verwezen naar dat het probleem is met de diagnostische extensie uitgevoerd in de virtuele machines. Als de gegevens aanwezig is, betekent dit dat er is een probleem met uw scale-regels of met de Insights-service. Controleer [Azure Status](https://azure.microsoft.com/status/).
     
     Zodra u via deze stappen zijn hebt als u steeds automatisch schalen problemen nog, kunt u proberen de volgende bronnen: 
-    * Lees de forums op [MSDN](https://social.msdn.microsoft.com/forums/azure/home?category=windowsazureplatform%2Cazuremarketplace%2Cwindowsazureplatformctp), of [Stack-overloop](http://stackoverflow.com/questions/tagged/azure) 
+    * Lees de forums op [MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=WAVirtualMachinesforWindows), of [Stack-overloop](http://stackoverflow.com/questions/tagged/azure) 
     * Meld u aan een aanroep van ondersteuning. Zorg ervoor dat u kunt de sjabloon en een weergave van uw gegevens delen.
 
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png

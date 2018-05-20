@@ -1,5 +1,5 @@
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium-opslag: Ontwerp voor hoge prestaties
-## <a name="overview"></a>Overzicht
+
 In dit artikel bevat richtlijnen voor het bouwen van krachtige toepassingen met behulp van Azure Premium-opslag. U kunt de instructies in dit document gecombineerd met aanbevolen procedures voor prestaties van toepassing op de technologieën die worden gebruikt door uw toepassing gebruiken. Ter illustratie van de richtlijnen hebben we gebruikt SQL Server wordt uitgevoerd op de Premium-opslag als voorbeeld in dit hele document.
 
 Hoewel we prestaties scenario's voor de Storage-laag in dit artikel, moet u de toepassingslaag te optimaliseren. Bijvoorbeeld als u een SharePoint-Farm op Azure Premium-opslag host, kunt u de SQL Server-voorbeelden uit dit artikel om te optimaliseren van de database-server. Bovendien optimaliseren van de webserver en de toepassingsserver ophalen van de meeste prestaties van de SharePoint-Farm.
@@ -83,14 +83,14 @@ De beste manier om te meten prestatie-eisen van uw toepassing is met bewaking va
 
 De prestatiemeteritems zijn beschikbaar voor de processor, geheugen, en elke logische schijf en de fysieke schijf van uw server. Als u premium-opslag-schijven met een virtuele machine, het item fysieke schijf zijn voor elke schijf premium-opslag en de prestatiemeteritems voor logische schijf voor elk volume dat is gemaakt op de premium-opslag-schijven zijn. U moet de waarden voor de schijven die als host fungeren van uw toepassing werklast vastleggen. Als er een één-op-een-toewijzing tussen logische en fysieke schijven, kunt u verwijzen naar de fysieke schijf tellers; Raadpleeg anders de prestatiemeteritems voor logische schijf. Op Linux genereert de opdracht iostat een CPU- en schijfresources utilization-rapport. Het disk utilization-rapport voorziet in statistieken per fysieke apparaat of partitie. Als u een databaseserver met de gegevens en logboekbestanden op afzonderlijke schijven hebt, kunt u deze gegevens voor beide schijven verzamelen. Onderstaande tabel worden beschreven tellers voor schijven, processor en geheugen:
 
-| Prestatiemeteritems | Beschrijving | PerfMon | Iostat |
+| Teller | Beschrijving | PerfMon | Iostat |
 | --- | --- | --- | --- |
 | **IOPS of transacties per seconde** |Het aantal i/o-aanvragen die zijn uitgegeven aan de opslagschijf per seconde. |Schijf lezen per seconde <br> Schijf schrijven per seconde |tps <br> r/s <br> w/s |
 | **Schijf lees- en schrijfbewerkingen** |% van de lees- en schrijfbewerkingen uitgevoerd op de schijf. |Percentage schijftijd voor lezen <br> Percentage schijftijd voor schrijven |r/s <br> w/s |
 | **Doorvoer** |De hoeveelheid gegevens lezen uit of schrijven naar de schijf per seconde. |Bytes gelezen op schijf/sec <br> Bytes geschreven naar schijf/sec |kB_read/s <br> kB_wrtn/s |
 | **Latentie** |Totale tijd om een schijf i/o-aanvraag te voltooien. |Gemiddelde leestijd voor schijf <br> Gemiddelde fysieke schijf |await <br> svctm |
 | **I/o-grootte** |De grootte van i/o-problemen naar de opslagschijven aanvragen. |Gemiddeld aantal gelezen Bytes <br> Gemiddelde aantal geschreven Bytes |avgrq sz |
-| **Wachtrijdiepte** |Het aantal openstaande i/o-aanvragen in afwachting van formulier lezen of schrijven naar de opslagschijf. |Huidige wachtrijlengte voor schijf |avgqu sz |
+| **Wachtrijdiepte** |Het aantal openstaande i/o-aanvragen in afwachting van lezen van of schrijven naar de opslagschijf. |Huidige wachtrijlengte voor schijf |avgqu sz |
 | **Max. Geheugen** |Vereiste toepassing probleemloos hoeveelheid geheugen |Percentage toegewezen Bytes in gebruik |Vmstat gebruiken |
 | **Max. CPU** |De hoeveelheid CPU probleemloos toepassing vereist |Percentage processortijd |% util |
 
@@ -102,15 +102,18 @@ De belangrijkste factoren die van invloed op prestaties van een toepassing die w
 In deze sectie, raadpleegt u de toepassing controlelijst voor de vereisten die u hebt gemaakt, om te identificeren hoeveel u nodig om de toepassingsprestaties van uw te optimaliseren. Op basis van die, kunt u zich kunt bepalen welke factoren in deze sectie u nodig om af te stemmen. Te wonen de gevolgen van elke factor voor de toepassingsprestaties van uw, moet u benchmarking's uitvoeren voor de installatie van uw toepassing. Raadpleeg de [Benchmarking](#Benchmarking) sectie aan het einde van dit artikel voor stappen voor het uitvoeren van algemene benchmarking's voor Windows en Linux-machines.
 
 ### <a name="optimizing-iops-throughput-and-latency-at-a-glance"></a>IOPS, Throughput and Latency optimaliseren in één oogopslag
-De onderstaande tabel bevat een overzicht van alle prestatiefactoren en de stappen voor het optimaliseren van IOPS, doorvoer en latentie. Elk bevat een beschrijving van de secties na dit overzicht factor is veel meer diepte.
+
+De onderstaande tabel bevat een overzicht van de prestatiefactoren en de stappen die nodig zijn om te optimaliseren IOPS, doorvoer en latentie. Elk bevat een beschrijving van de secties na dit overzicht factor is veel meer diepte.
+
+Zie voor meer informatie op de VM-grootten en op de IOPS, doorvoer en latentie beschikbaar voor elk type van de virtuele machine, [Linux VM-grootten](../articles/virtual-machines/linux/sizes.md) of [Windows VM-grootten](../articles/virtual-machines/windows/sizes.md).
 
 | &nbsp; | **IOPS** | **Doorvoer** | **Latentie** |
 | --- | --- | --- | --- |
 | **Voorbeeldscenario 's** |Enterprise OLTP-toepassing waarvoor zeer hoge transacties per tweede snelheid. |Enterprise gegevensopslag toepassing verwerking van grote hoeveelheden gegevens. |Bijna realtime toepassingen vereisen directe antwoorden op aanvragen van gebruikers, zoals online gaming. |
 | Prestatiefactoren | &nbsp; | &nbsp; | &nbsp; |
 | **I/o-grootte** |I/o-kleinere levert hogere IOPS. |I/o-groter naar levert hogere doorvoer. | &nbsp;|
-| **VM-grootte** |Gebruik een VM-grootte die groter zijn dan de vereisten voor toepassingsimplementatie IOPS biedt. Zie VM-grootten en hun IOPS-limieten. |Gebruik een VM-grootte met doorvoer limiet groter is dan de vereisten van uw toepassing. VM-grootten en hun doorvoerlimieten hier zien. |Gebruik een VM-grootte of aanbiedingen limieten groter is dan de vereiste toepassing schalen. VM-grootten en hun limieten hier zien. |
-| **Grootte van de schijf** |Gebruik een grootte van de schijf die groter zijn dan de vereisten voor toepassingsimplementatie IOPS biedt. Zie schijfgrootten en hun IOPS-limieten. |De grootte van een schijf met doorvoer limiet groter is dan de vereisten van uw toepassing gebruiken. Zie schijfgrootten en hun doorvoerlimieten hier. |Gebruik een grootte van de schijf dat aanbiedingen limieten groter is dan de vereiste toepassing schalen. Zie schijfgrootten en hier hun limieten. |
+| **VM-grootte** |Gebruik een VM-grootte die groter zijn dan de vereisten voor toepassingsimplementatie IOPS biedt. |Gebruik een VM-grootte met doorvoer limiet groter is dan de vereisten van uw toepassing. |Gebruik een VM-grootte of aanbiedingen limieten groter is dan de vereiste toepassing schalen. |
+| **Grootte van de schijf** |Gebruik een grootte van de schijf die groter zijn dan de vereisten voor toepassingsimplementatie IOPS biedt. |De grootte van een schijf met doorvoer limiet groter is dan de vereisten van uw toepassing gebruiken. |Gebruik een grootte van de schijf dat aanbiedingen limieten groter is dan de vereiste toepassing schalen. |
 | **Virtuele machine en Schaallimieten voor schijf** |IOPS-limiet van de VM-grootte gekozen moet groter zijn dan totale IOP's aangedreven door premium-opslag-schijven is gekoppeld. |Limiet van de doorvoer van de VM-grootte gekozen moet groter zijn dan de totale doorvoer van premium storage schijven zijn gekoppeld aan deze basis. |Schaallimieten van de VM-grootte gekozen moet groter zijn dan de totale schaallimieten van gekoppelde premium-opslag-schijven. |
 | **Schijfcache** |ReadOnly-Cache inschakelen op schijven met premium-opslag met zware leesbewerkingen hoger lezen IOPS ophalen. | &nbsp; |ReadOnly-Cache inschakelen op schijven met premium-opslag met gereed zware bewerkingen ophalen lezen zeer lage latenties. |
 | **Striping van de schijf** |Gebruik van meerdere schijven en ze samen een gecombineerde hogere limiet voor IOPS en Doorvoerlimieten stripe. Houd er rekening mee dat de gecombineerde limiet is per virtuele machine hoger zijn dan de gecombineerde limieten van de gekoppelde premium-schijven moet. | &nbsp; | &nbsp; |
@@ -242,8 +245,8 @@ Hieronder vindt u de aangeraden schijfruimte cache-instellingen voor gegevenssch
 
 | **Instelling van de schijfcache** | **Aanbeveling op wanneer deze instelling te gebruiken** |
 | --- | --- |
-| None |Host-cache configureren als geen voor de alleen-schrijven en schrijven zware schijven. |
-| Alleen-lezen |Host-cache configureren als alleen-lezen voor alleen-lezen en alleen-lezen-schijven. |
+| Geen |Host-cache configureren als geen voor de alleen-schrijven en schrijven zware schijven. |
+| ReadOnly |Host-cache configureren als alleen-lezen voor alleen-lezen en alleen-lezen-schijven. |
 | ReadWrite |Host-cache configureren als ReadWrite alleen als uw toepassing op correcte wijze schrijven van gegevens in de cache met permanente schijven wanneer deze nodig is. |
 
 *Alleen-lezen*  

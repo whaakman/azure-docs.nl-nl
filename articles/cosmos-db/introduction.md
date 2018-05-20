@@ -14,15 +14,15 @@ ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 13c6fc8550f6b5bfac6d236a7145039d2622f0ae
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3c7fc83e379bcd1ad084d20555d9a82697cb5069
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Welkom bij Azure Cosmos DB
 
-Azure Cosmos DB is de wereldwijd gedistribueerde database van Microsoft met meerdere modellen. Azure Cosmos DB maakt het mogelijk om met één muisklik doorvoer en opslag elastisch en onafhankelijk te schalen binnen een onbeperkt aantal geografische regio's van Azure. De oplossing biedt gegarandeerde doorvoer, latentie, beschikbaarheid en consistentie, vastgelegd in uitgebreide [serviceovereenkomsten](https://aka.ms/acdbsla) (SLA's), iets wat geen andere databaseservice kan bieden. [Probeer Azure Cosmos DB gratis uit](https://azure.microsoft.com/try/cosmosdb/) zonder Azure-abonnement, zonder kosten en zonder verplichtingen.
+Azure Cosmos DB is de wereldwijd gedistribueerde database van Microsoft met meerdere modellen. Azure Cosmos DB maakt het mogelijk om met één muisklik doorvoer en opslag elastisch en onafhankelijk te schalen binnen een onbeperkt aantal geografische regio's van Azure. De oplossing biedt gegarandeerde doorvoer, latentie, beschikbaarheid en consistentie, vastgelegd in uitgebreide [serviceovereenkomsten](https://aka.ms/acdbsla) (SLA's), iets wat geen andere databaseservice kan bieden. U kunt [Azure Cosmos DB gratis uitproberen](https://azure.microsoft.com/try/cosmosdb/) zonder Azure-abonnement, zonder kosten en zonder verplichtingen.
 
 > [!div class="nextstepaction"]
 > [Azure Cosmos DB gratis uitproberen](https://azure.microsoft.com/try/cosmosdb/)
@@ -43,7 +43,7 @@ Als een wereldwijd gedistribueerde databaseservice maakt Azure Cosmos DB het een
         * [SQL-API](sql-api-introduction.md): een JSON-database-engine zonder schema met uitgebreide SQL-querymogelijkheden.
         * [MongoDB-API](mongodb-introduction.md): een zeer schaalbare *MongoDB-as-a-Service*, mogelijk gemaakt door een Azure Cosmos DB-platform. Compatibel met bestaande bibliotheken, stuurprogramma's, hulpprogramma's en toepassingen van MongoDB.
         * [Cassandra-API](cassandra-introduction.md): een wereldwijd gedistribueerde Cassandra-as-a-Service, mogelijk gemaakt door een Azure Cosmos DB-platform. Compatibel met bestaande bibliotheken, stuurprogramma's, hulpprogramma's en toepassingen van [Apache Cassandra](https://cassandra.apache.org/).
-        * [Gremlin (Graph) API](graph-introduction.md): een volledig beheerd, horizontaal schaalbare graafdatabase-service waarmee u eenvoudig toepassingen kunt bouwen en uitvoeren die werken met maximaal verbonden gegevenssets met ondersteuning voor Open Graph-API's (op basis van de [Apache TinkerPop-specificatie](http://tinkerpop.apache.org/), Apache Gremlin).
+        * [Gremlin-API](graph-introduction.md): een volledig beheerd, horizontaal schaalbare grafiekdatabaseservice waarmee u eenvoudig toepassingen kunt bouwen en uitvoeren die werken met maximaal verbonden gegevenssets met ondersteuning voor Open Graph-API's (op basis van de [Apache TinkerPop-specificatie](http://tinkerpop.apache.org/), Apache Gremlin).
         * [Table-API](table-introduction.md): een sleutelwaarde-databaseservice, ontwikkeld om premium mogelijkheden te bieden (zoals automatisch indexeren, gegarandeerde lage latentie, wereldwijde distributie) voor bestaande Azure Table-opslagtoepassingen zonder dat er wijzigingen in de toepassingen zijn vereist.
         * Aanvullende gegevensmodellen en API's zijn binnenkort beschikbaar.
 
@@ -97,7 +97,7 @@ Lees onze snelstartgidsen om snel aan de slag te gaan met Azure Cosmos DB:
 * [Aan de slag met de SQL-API van Azure Cosmos DB](create-sql-api-dotnet.md)
 * [Aan de slag met de MongoDB-API van Azure Cosmos DB](create-mongodb-nodejs.md)
 * [Aan de slag met de Cassandra-API van Azure Cosmos DB](create-cassandra-dotnet.md)
-* [Aan de slag met de Graph-API van Azure Cosmos DB](create-graph-dotnet.md)
+* [Aan de slag met de Gremlin-API van Azure Cosmos DB](create-graph-dotnet.md)
 * [Aan de slag met de Table-API van Azure Cosmos DB](create-table-dotnet.md)
 
 > [!div class="nextstepaction"]

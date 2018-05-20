@@ -10,11 +10,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: giladm
-ms.openlocfilehash: 18afebefaee9117244767e0a00e293a297bbf9af
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 375142b0e55c741e6ab914e969751833f989d2fb
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL Database-gegevens voor het opsporen en classificatie
 Detectie van de gegevens & classificatie (momenteel in preview) biedt geavanceerde mogelijkheden die zijn ingebouwd in Azure SQL Database voor **detecteren**, **classificeren**, **labels**  &  **beveiligen** de gevoelige gegevens in uw databases.
@@ -22,6 +22,9 @@ Detecteren en classificeren van uw meest gevoelige gegevens (business, financië
 * Helpt voldoen aan vereisten van de naleving van regelgeving, zoals GDPR en gegevens privacystandaarden.
 * Verschillende security-scenario's, zoals controle (controleren) en waarschuwingen voor afwijkende toegang tot gevoelige gegevens.
 * Toegang tot beheren en beperken van de beveiliging van databases met uiterst gevoelige gegevens.
+
+> [!NOTE]
+> Dit document heeft alleen betrekking op Azure SQL Database. Zie voor SQL Server (on-premises) [SQL gegevens te zoeken en classificatie](https://go.microsoft.com/fwlink/?linkid=866999).
 
 ## <a id="subheading-1"></a>Overzicht
 Detectie van de gegevens & classificatie introduceert een aantal geavanceerde services en nieuwe SQL-mogelijkheden, vormen een nieuwe SQL-gegevensbeveiliging paradigma die gericht is op het beveiligen van de gegevens, niet alleen de database:
@@ -44,47 +47,47 @@ De classificatie bevat twee metagegevenskenmerken:
 
 2. Navigeer naar de **gegevens detectie & classificatie (preview)** instellen in de SQL-Database.
 
-    ![Navigatiedeelvenster][1]
+    ![Navigatievenster][1]
 
 3. De **overzicht** tabblad bevat een overzicht van de huidige status van de classificatie van de database, inclusief een gedetailleerde lijst met alle geclassificeerde kolommen die u ook filteren kunt om alleen specifieke schema delen, gegevenstypen en labels weer te geven. Als u dit nog niet hebt nog geen kolommen geclassificeerd [verder met stap 5](#step-5).
 
-    ![Navigatiedeelvenster][2]
+    ![Navigatievenster][2]
 
 4. Voor het downloaden van een rapport in Excel-indeling, klikt u op de **exporteren** optie in het bovenste menu van het venster.
 
-    ![Navigatiedeelvenster][3]
+    ![Navigatievenster][3]
 
 5.  <a id="step-5"></a>Om te beginnen met uw gegevens classificeren, klikt u op de **tabblad classificatie** aan de bovenkant van het venster.
 
-    ![Navigatiedeelvenster][4]
+    ![Navigatievenster][4]
 
 6. De classificatie-engine doorzoekt uw database voor kolommen die potentieel gevoelige gegevens en biedt een lijst met **aanbevolen kolom classificaties**. Bekijken en toepassen van aanbevelingen voor classificatie:
 
     * De lijst van classificaties aanbevolen kolom wilt weergeven, klikt u op in het deelvenster aanbevelingen aan de onderkant van het venster:
 
-        ![Navigatiedeelvenster][5]
+        ![Navigatievenster][5]
 
     * Bekijk de lijst met aanbevelingen: voor het accepteren van een aanbeveling voor een specifieke kolom, schakel het selectievakje in de linkerkolom van de desbetreffende rij. U kunt ook markeren *alle aanbevelingen* zoals geaccepteerd door het selectievakje in de tabelkop aanbevelingen.
 
-        ![Navigatiedeelvenster][6]
+        ![Navigatievenster][6]
 
     * Als u wilt toepassen op de geselecteerde aanbevelingen, klikt u op de blauwe **geselecteerde aanbevelingen accepteren** knop.
 
-        ![Navigatiedeelvenster][7]
+        ![Navigatievenster][7]
 
 7. U kunt ook **handmatig classificeren** kolommen als een alternatief of bovendien met de classificatie op basis van een aanbeveling:
 
     * Klik op **classificatie toevoegen** in het menu van het venster.
 
-        ![Navigatiedeelvenster][8]
+        ![Navigatievenster][8]
 
     * In de context-venster dat wordt geopend, selecteert u het schema > Tabel > kolom die u wilt classificeren en het label van type en de gevoeligheid van informatie. Klik vervolgens op de blauwe **classificatie toevoegen** knop onderaan in het venster context.
 
-        ![Navigatiedeelvenster][9]
+        ![Navigatievenster][9]
 
 8. Voor het voltooien van de classificatie en permanent label kolommen (tag) de database met de nieuwe classificatie-metagegevens, klikt u op **opslaan** in het menu van het venster.
 
-    ![Navigatiedeelvenster][10]
+    ![Navigatievenster][10]
 
 ## <a id="subheading-3"></a>Toegang tot gevoelige gegevens controleren
 
@@ -92,7 +95,7 @@ Een belangrijk aspect van het information protection paradigma is de mogelijkhei
 
 [Azure SQL Database Auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) is uitgebreid met een nieuw veld in het controlelogboek aangeroepen *data_sensitivity_information*, die de classificaties gevoeligheid (labels) van de werkelijke hoeveelheid gegevens die is geretourneerd door Logboeken de query.
 
-![Navigatiedeelvenster][11]
+![Navigatievenster][11]
 
 ## <a id="subheading-4"></a>Volgende stappen
 Houd rekening met het configureren van [Azure SQL Database Auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) voor bewaking en controle van toegang tot uw geclassificeerde gevoelige gegevens.

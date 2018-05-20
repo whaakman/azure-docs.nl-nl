@@ -2,22 +2,24 @@
 title: Aanmelden toevoegen aan een iOS-toepassing met behulp van het Azure AD v2.0-eindpunt | Microsoft Docs
 description: Het bouwen van een iOS-app die gebruikers met beide persoonlijke Microsoft-account aanmeldt en werk- of schoolaccount accounts met behulp van de bibliotheken van derden.
 services: active-directory
-author: xerners
+author: CelesteDG
 manager: mtillman
 ms.assetid: fd3603c0-42f7-438c-87b5-a52d20d6344b
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: brandwe
+ms.author: celested
+ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 5323f9a514c3c1c6134656e41af68e479fd8fdc5
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 7476417e6585976ea2404a83602a6d9aa77d9c7a
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="add-sign-in-to-an-ios-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a>Aanmelden voor een iOS-app met behulp van een derde partij-bibliotheek met Graph API met behulp van het v2.0-eindpunt toevoegen
 Op het Microsoft Identity-platform wordt gebruikgemaakt van open standaarden, zoals OAuth2 en OpenID Connect. Ontwikkelaars kunnen een bibliotheek die ze willen integreren in onze services gebruiken. Om te helpen ons platform gebruiken met andere bibliotheken ontwikkelaars, hebben we enkele scenario's zoals deze voorbeelden van het configureren van derden bibliotheken verbinding maken met het identiteitsplatform van Microsoft geschreven. De meeste bibliotheken die implementeren [de RFC6749 OAuth2-specificatie](https://tools.ietf.org/html/rfc6749) verbinding kunnen maken met het identiteitsplatform van Microsoft.
@@ -39,7 +41,7 @@ Het v2.0-eindpunt biedt geen ondersteuning voor alle Azure Active Directory-scen
 > 
 
 ## <a name="download-code-from-github"></a>Code vanuit GitHub downloaden
-De code voor deze zelfstudie wordt onderhouden in [GitHub](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-v2).  Als u wilt volgen, kunt u [basis van de app downloaden als een ZIP-](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) of het geraamte:
+De code voor deze zelfstudie wordt onderhouden in [GitHub](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-v2). Als u wilt volgen, kunt u [basis van de app downloaden als een ZIP-](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) of het geraamte:
 
 ```
 git clone --branch skeleton git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-v2.git
@@ -52,7 +54,7 @@ git clone git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-v2.g
 ```
 
 ## <a name="register-an-app"></a>Een app registreren
-Maakt een nieuwe app op de [toepassing registratieportal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), of de gedetailleerde stappen op [het registreren van een app met het v2.0-eindpunt](active-directory-v2-app-registration.md).  Zorg ervoor dat:
+Maakt een nieuwe app op de [toepassing registratieportal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), of de gedetailleerde stappen op [het registreren van een app met het v2.0-eindpunt](active-directory-v2-app-registration.md). Zorg ervoor dat:
 
 * Kopieer de **toepassings-Id** die toegewezen aan uw app, omdat u hebt deze snel nodig.
 * Voeg de **Mobile** platform voor uw app.
@@ -122,7 +124,7 @@ De bibliotheek NXOAuth2Client moet sommige waarden ophalen instellen. Nadat u di
 
 Bekijk meer informatie over de code in.
 
-De eerste tekenreeks is voor `scopes`.  De `User.Read` waarde kunt u lezen van het profiel van de basis van de aangemelde gebruiker.
+De eerste tekenreeks is voor `scopes`. De `User.Read` waarde kunt u lezen van het profiel van de basis van de aangemelde gebruiker.
 
 U kunt meer informatie over de beschikbare scopes op [Microsoft Graph-machtigingsbereiken](https://graph.microsoft.io/docs/authorization/permission_scopes).
 

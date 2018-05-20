@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: c54454dd2e7b56820834e4f3cd7452be10d5ddca
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6d07bd333e4d1663e37a840975cde2d9c73cec9c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Eindpuntcontrole van Traffic Manager
 
@@ -30,7 +30,7 @@ Voor het eindpunt bewaking configureert, moet u de volgende instellingen op uw T
 
 * **Protocol**. Kies HTTP, HTTPS of TCP als protocol gebruikt bij het scannen van uw eindpunt van Traffic Manager, om te controleren van de status. HTTPS-bewaking niet gecontroleerd dat of uw SSL-certificaat geldig is--wordt alleen gecontroleerd of het certificaat aanwezig is.
 * **Poort**. Kies de poort die wordt gebruikt voor de aanvraag.
-* **Pad**. Deze configuratieinstelling is alleen geldig voor de protocollen HTTP en HTTPS, voor welke opgeven van het pad instelling vereist is. Deze instelling voor de TCP-protocol resulteert in een fout bewaking bieden. Geeft het relatieve pad en de naam van de webpagina die of het bestand dat gebruikmaakt van de bewaking voor TCP-protocol. Een slash (/) is een geldige invoer voor het relatieve pad. Deze waarde geeft aan dat het bestand in de hoofdmap (standaard is).
+* **Pad**. Deze configuratieinstelling is alleen geldig voor de protocollen HTTP en HTTPS, voor welke opgeven van het pad instelling vereist is. Deze instelling voor de TCP-protocol resulteert in een fout bewaking bieden. Geeft het relatieve pad en de naam van de webpagina die of het bestand dat gebruikmaakt van de bewaking voor HTTP en HTTPS-protocol. Een slash (/) is een geldige invoer voor het relatieve pad. Deze waarde geeft aan dat het bestand in de hoofdmap (standaard is).
 * **Probing Interval**. Deze waarde geeft aan hoe vaak een eindpunt voor de status van een zoek Traffic Manager-agent wordt gecontroleerd. U kunt hier twee waarden opgeven: 30 seconden (normaal zoeken) en 10 seconden (snel zoeken). Als geen waarden zijn opgegeven, wordt het profiel wordt ingesteld op een standaardperiode van 30 seconden. Ga naar de [Traffic Manager prijzen](https://azure.microsoft.com/pricing/details/traffic-manager) pagina voor meer informatie over snelle Zoek prijzen.
 * **Aantal mislukte verdragen**. Deze waarde bepaalt hoeveel mislukte maximaal een zoek Traffic Manager-agent wordt toegestaan voordat dat eindpunt als beschadigd gemarkeerd. De waarde ervan kan variëren tussen 0 en 9. Een waarde 0 betekent dat één bewaking fout kan leiden tot dat eindpunt zijn gemarkeerd als beschadigd. Als geen waarde opgeeft, wordt de standaardwaarde van 3.
 * **Time-out voor bewaking**. Deze eigenschap geeft u de hoeveelheid tijd die de zoek Traffic Manager-agent moet worden gewacht voordat het overwegen van een storing controleren wanneer een selectievakje health test wordt verzonden naar het eindpunt. Als het scannen van Interval is ingesteld op 30 seconden, kunt u de time-outwaarde tussen 5 en 10 seconden instellen. Als geen waarde opgeeft, wordt een standaardwaarde van 10 seconden. Als het scannen van Interval is ingesteld op 10 seconden, kunt u de time-outwaarde tussen 5 en 9 seconden instellen. Als er geen time-outwaarde is opgegeven, wordt een standaardwaarde van 9 seconden.
@@ -114,7 +114,7 @@ De volgende tijdlijn in afbeelding 2 is een gedetailleerde beschrijving van het 
 
 **Afbeelding 2: Traffic manager-eindpunt failovers en herstel reeks**
 
-1. **GET**. Voor elk eindpunt voert de Traffic Manager bewakingssysteem een GET-aanvraag op het pad dat is opgegeven in de controle-instellingen.
+1. **OPHALEN VAN**. Voor elk eindpunt voert de Traffic Manager bewakingssysteem een GET-aanvraag op het pad dat is opgegeven in de controle-instellingen.
 2. **200 OK**. Het bewakingssysteem verwacht een HTTP 200 OK-bericht moet worden geretourneerd binnen 10 seconden. Wanneer deze dit antwoord ontvangt, herkent het dat de service beschikbaar is.
 3. **30 seconden tussen controles**. De statuscontrole van het eindpunt wordt herhaald elke 30 seconden.
 4. **Service is niet beschikbaar**. De service niet beschikbaar. Traffic Manager weet niet tot de volgende statuscontrole.

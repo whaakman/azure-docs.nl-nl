@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 3bf2f793baec4a0fdacadd7fb6d3d6784aa17f29
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2fbf7bd736a59cbcd6231fa8325a084f54927467
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>De Load Balancer op meerdere IP-configuraties met behulp van de Azure-portal
 
@@ -172,7 +172,7 @@ Configureer een health test voor de load balancer:
 
 Configureer de load-balancingregels voor elke website (contoso.com en fabrikam.com):
     
-1. <a name="step6-1"></a>Onder **instellingen**, selecteer **Health test**. Selecteer in het volgende deelvenster aan de bovenkant **toevoegen**. 
+1. <a name="step6-1"></a>Onder **instellingen**, selecteer ** taakverdeling regels **. Selecteer in het volgende deelvenster aan de bovenkant **toevoegen**. 
 
 2. Voor **naam**, typ een naam voor de taakverdelingsregel (bijvoorbeeld **HTTPc** voor contoso.com is, of **HTTPf** voor fabrikam.com).
 

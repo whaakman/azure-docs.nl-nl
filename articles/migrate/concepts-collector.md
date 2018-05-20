@@ -4,14 +4,14 @@ description: Biedt een overzicht van het toestel Collector en configureert.
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/03/2017
+ms.date: 05/15/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 99f34bce942626cd931c9270192766cc76105f5b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d0dd310a1f6dff389a4d3dd41dc389b7117272fe
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="collector-appliance"></a>Collector toestel
 
@@ -128,7 +128,7 @@ Wanneer een verbinding met de vCenter-, kunt u een scope om te detecteren. Als u
 2. U kunt slechts één scope op een tijdstip selecteren. Als u wilt meer virtuele machines selecteren, kunt u één detectie voltooid en opnieuw opstarten van het detectieproces met een nieuwe scope.
 3. U kunt alleen een bereik dat is selecteren *minder dan 1500 virtuele machines*.
 
-## <a name="specify-migration-project"></a>Geef-migratie
+## <a name="specify-migration-project"></a>Migratieproject opgeven
 
 Als de lokale vCenter is verbonden en een bereik is opgegeven, kunt u nu de migratie projectdetails die moeten worden gebruikt voor detectie en assessment opgeven. Geef de project-ID en sleutel en verbinding maken.
 
@@ -154,7 +154,7 @@ De verzameling taak detecteert de volgende statische metagegevens over de gesele
 
 De volgende tabel bevat de prestatiemeteritems die worden verzameld en ook vermeldt de resultaten van de beoordeling die worden beïnvloed als een bepaald item is niet verzameld.
 
-|Prestatiemeteritems                                  |Niveau    |Per apparaat niveau  |Evaluatie-impact                               |
+|Teller                                  |Niveau    |Per apparaat niveau  |Evaluatie-impact                               |
 |-----------------------------------------|---------|------------------|------------------------------------------------|
 |CPU.Usage.Average                        | 1       |N.v.t.                |VM-grootte en de kosten van aanbevolen                    |
 |Mem.Usage.Average                        | 1       |N.v.t.                |VM-grootte en de kosten van aanbevolen                    |

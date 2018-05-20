@@ -8,13 +8,13 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/02/2017
+ms.date: 05/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 46adcdf39625c85dc962a7541b68c5500cf920ee
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.openlocfilehash: 57821e9c7ed1ca04aa7442f089268c5e89a017c3
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="publish-a-managed-application-for-internal-consumption"></a>Een beheerde toepassing voor intern verbruik publiceren
 
@@ -55,7 +55,7 @@ De volgende JSON toevoegen aan uw bestand. Definieert de parameters voor het mak
         }
     },
     "variables": {
-        "storageAccountName": "[concat(parameters('storageAccountNamePrefix'), uniqueString('storage'))]"
+        "storageAccountName": "[concat(parameters('storageAccountNamePrefix'), uniqueString(resourceGroup().id))]"
     },
     "resources": [
         {
@@ -138,7 +138,7 @@ De volgende JSON toevoegen aan het bestand.
 }
 ```
 
-Sla het bestand createUIDefinition.json.
+Sla het bestand createUiDefinition.json.
 
 ## <a name="package-the-files"></a>De bestanden van het pakket
 
@@ -152,8 +152,7 @@ $storageAccount = New-AzureRmStorageAccount -ResourceGroupName storageGroup `
   -Name "mystorageaccount" `
   -Location eastus `
   -SkuName Standard_LRS `
-  -Kind Storage `
-  -EnableEncryptionService Blob
+  -Kind Storage
 
 $ctx = $storageAccount.Context
 
@@ -173,7 +172,9 @@ De volgende stap is het selecteren van een, gebruikersgroep of toepassing voor h
 
 U moet de object-ID van de gebruikersgroep moet worden gebruikt voor het beheren van de resources. 
 
-![Groeps-ID ophalen](./media/publish-service-catalog-app/get-group-id.png)
+```powershell
+$groupID=(Get-AzureRmADGroup -DisplayName mygroup).Id
+```
 
 ### <a name="get-the-role-definition-id"></a>De roldefinitie-ID ophalen
 
@@ -203,21 +204,49 @@ New-AzureRmManagedApplicationDefinition `
   -LockLevel ReadOnly `
   -DisplayName "Managed Storage Account" `
   -Description "Managed Azure Storage Account" `
-  -Authorization "<group-id>:$ownerID" `
+  -Authorization "${groupID}:$ownerID" `
   -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
 ```
 
-## <a name="create-the-managed-application-by-using-the-portal"></a>De beheerde toepassing maken met behulp van de portal
+## <a name="create-the-managed-application"></a>De beheerde toepassing maken
+
+U kunt de beheerde toepassing via de portal, PowerShell of Azure CLI kunt implementeren.
+
+### <a name="powershell"></a>PowerShell
+
+Eerst laten we PowerShell gebruiken om de beheerde toepassing te implementeren.
+
+```powershell
+# Create resource group
+New-AzureRmResourceGroup -Name applicationGroup -Location westcentralus
+
+# Get ID of managed application definition
+$appid=(Get-AzureRmManagedApplicationDefinition -ResourceGroupName appDefinitionGroup -Name ManagedStorage).ManagedApplicationDefinitionId
+
+# Create the managed application
+New-AzureRmManagedApplication `
+  -Name storageApp `
+  -Location westcentralus `
+  -Kind ServiceCatalog `
+  -ResourceGroupName applicationGroup `
+  -ManagedApplicationDefinitionId $appid `
+  -ManagedResourceGroupName "InfrastructureGroup" `
+  -Parameter "{`"storageAccountNamePrefix`": {`"value`": `"demostorage`"}, `"storageAccountType`": {`"value`": `"Standard_LRS`"}}"
+```
+
+Uw beheerde toepassing en de beheerde infrastructuur nu aanwezig in het abonnement.
+
+### <a name="portal"></a>Portal
 
 Nu gaan we de portal gebruiken om de beheerde toepassing te implementeren. Ziet u de gebruikersinterface die u hebt gemaakt in het pakket.
 
-1. Ga naar de Azure-portal. Selecteer **+ nieuw** en zoek naar **Servicecatalogus**.
+1. Ga naar de Azure-portal. Selecteer **+ maken van een resource** en zoek naar **Servicecatalogus**.
 
-   ![Servicecatalogus zoeken](./media/publish-service-catalog-app/select-new.png)
+   ![Servicecatalogus zoeken](./media/publish-service-catalog-app/create-new.png)
 
 1. Selecteer **Servicecatalogus beheerde toepassing**.
 
-   ![Selecteer de Servicecatalogus](./media/publish-service-catalog-app/select-service-catalog.png)
+   ![Selecteer de Servicecatalogus](./media/publish-service-catalog-app/select-service-catalog-managed-app.png)
 
 1. Selecteer **Maken**.
 
@@ -227,17 +256,17 @@ Nu gaan we de portal gebruiken om de beheerde toepassing te implementeren. Ziet 
 
    ![De beheerde toepassing zoeken](./media/publish-service-catalog-app/find-application.png)
 
-1. Geef algemene informatie die is vereist voor de beheerde toepassing. Geef het abonnement en een nieuwe resourcegroep op de beheerde toepassing bevat. Selecteer **West-Centraal VS** voor de locatie. Wanneer u klaar bent, selecteer **OK**.
+1. Geef algemene informatie die is vereist voor de beheerde toepassing. Geef het abonnement en een nieuwe resourcegroep op de beheerde toepassing bevat. Selecteer **West-Centraal VS** voor de locatie. Selecteer **Ok** wanneer u gereed bent.
 
-   ![Geef parameters op beheerde toepassing](./media/publish-service-catalog-app/provide-basics.png)
+   ![Geef parameters op beheerde toepassing](./media/publish-service-catalog-app/add-basics.png)
 
-1. Geef de waarde die specifiek voor de resources in de beheerde toepassing zijn. Wanneer u klaar bent, selecteer **OK**.
+1. Geef de waarde die specifiek voor de resources in de beheerde toepassing zijn. Selecteer **Ok** wanneer u gereed bent.
 
-   ![Geef Resourceparameters op die](./media/publish-service-catalog-app/provide-resource-values.png)
+   ![Geef Resourceparameters op die](./media/publish-service-catalog-app/add-storage-settings.png)
 
 1. De sjabloon valideert de waarden die u hebt opgegeven. Als de validatie slaagt, selecteert u **OK** implementatie te starten.
 
-   ![Valideren van de beheerde toepassing](./media/publish-service-catalog-app/validate.png)
+   ![Valideren van de beheerde toepassing](./media/publish-service-catalog-app/view-summary.png)
 
 Nadat de implementatie is voltooid, wordt de beheerde toepassing in een resourcegroep met de naam applicationGroup bestaat. Het opslagaccount bestaat in een resourcegroep met de naam applicationGroup plus een hash string-waarde.
 

@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/03/2018
+ms.date: 05/14/2018
 ms.author: terrylan
-ms.openlocfilehash: 90a73545afa82276256a021588eaa594b95ee8da
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 847127c96f23bbeb3cf3a5d1c9768af6e0cc0dc4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="data-collection-in-azure-security-center"></a>Verzamelen van gegevens in Azure Security Center
 Security Center verzamelt gegevens van uw virtuele Azure-machines (VM's) en niet-Azure-computers om te controleren op beveiligingsproblemen en bedreigingen. De gegevens worden verzameld met behulp van de MMA, die verschillende configuraties en gebeurtenislogboeken met betrekking tot beveiliging van de machine leest en de gegevens kopieert naar uw werkruimte voor analyse. Voorbeelden van dergelijke gegevens zijn: besturingssysteemtype en -versie, besturingssysteemlogboeken (Windows-gebeurtenislogboeken), actieve processen, computernaam, IP-adressen, aangemelde gebruiker en tenant-ID. Crashdumpbestanden Microsoft Monitoring Agent ook gekopieerd naar de werkruimte.
 
 ## <a name="enable-automatic-provisioning-of-microsoft-monitoring-agent"></a>Automatische inrichting van Microsoft Monitoring Agent inschakelen     
-Wanneer automatische inrichting is ingeschakeld, wordt Security Center voorziet in de Microsoft Monitoring Agent op alle ondersteunde virtuele Azure-machines en nieuwe bestanden die zijn gemaakt. Automatische inrichting is het raadzaam maar handmatige agentinstallatie is ook beschikbaar. [Informatie over het installeren van de uitbreiding voor Microsoft Monitoring Agent](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension).
+Automatische inrichting is standaard uitgeschakeld. Wanneer automatische inrichting is ingeschakeld, wordt Security Center voorziet in de Microsoft Monitoring Agent op alle ondersteunde virtuele Azure-machines en nieuwe bestanden die zijn gemaakt. Automatische inrichting is het raadzaam maar handmatige agentinstallatie is ook beschikbaar. [Informatie over het installeren van de uitbreiding voor Microsoft Monitoring Agent](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension).
 
 > [!NOTE]
 > Door automatische inrichting uit te schakelen, wordt de beveiligingsbewaking voor uw resources beperkt. Zie voor meer informatie, [automatische inrichting](security-center-enable-data-collection.md#disable-automatic-provisioning) in dit artikel. VM schijf momentopnamen en artefact verzameling zijn ingeschakeld, zelfs als automatische inrichting is uitgeschakeld.
@@ -32,13 +32,16 @@ Wanneer automatische inrichting is ingeschakeld, wordt Security Center voorziet 
 >
 
 Automatische inrichting van de MMA inschakelen:
-1. Selecteer in het hoofdmenu van Security Center de optie **Beveiligingsbeleid**.
+1. Selecteer onder het hoofdmenu Security Center **beveiligingsbeleid**.
 2. Selecteer het abonnement.
+
+  ![Abonnement selecteren][7]
+
 3. Onder **Beveiligingsbeleid** selecteert u **Gegevensverzameling**.
-4. Onder **Onboarding**, selecteer **op** automatische inrichting inschakelen.
+4. Onder **automatische inrichting**, selecteer **op** automatische inrichting inschakelen.
 5. Selecteer **Opslaan**.
 
-![Automatische inrichting inschakelen][1]
+  ![Automatische inrichting inschakelen][1]
 
 ## <a name="default-workspace-configuration"></a>Configuratie van de standaardwerkruimte
 Gegevens die worden verzameld door Security Center wordt opgeslagen in workspace(s) logboekanalyse.  U kunt kiezen om gegevens verzameld van de Azure VM's die zijn opgeslagen in de werkruimten die zijn gemaakt door Security Center of in een bestaande werkruimte die u hebt gemaakt.
@@ -49,16 +52,16 @@ Uw bestaande werkruimte voor logboekanalyse gebruiken:
 
 Selecteer een bestaande werkruimte voor logboekanalyse:
 
-1. Onder **beveiligingsbeleid – gegevensverzameling**, selecteer **gebruik een andere werkruimte**.
+1. Onder **werkruimte standaardconfiguratie**, selecteer **gebruik een andere werkruimte**.
 
    ![Selecteer een bestaande werkruimte][2]
 
 2. Selecteer een werkruimte voor het opslaan van verzamelde gegevens in de vervolgkeuzelijst.
 
-> [!NOTE]
-> In de vervolgkeuzelijst menu, worden alleen de werkruimten die u hebt toegang tot en in uw Azure-abonnement weergegeven.
->
->
+  > [!NOTE]
+  > In de vervolgkeuzelijst menu zijn de werkruimten in al uw abonnementen beschikbaar. Zie [cross-abonnement werkruimte selectie](security-center-enable-data-collection.md#cross-subscription-workspace-selection) voor meer informatie.
+  >
+  >
 
 3. Selecteer **Opslaan**.
 4. Na het selecteren van **opslaan**, wordt u gevraagd als u reconfigure bewaakt virtuele machines wilt.
@@ -73,7 +76,15 @@ Selecteer een bestaande werkruimte voor logboekanalyse:
 
    - Selecteer **annuleren** om de bewerking te annuleren.
 
-   ![Selecteer een bestaande werkruimte][3]
+     ![Selecteer een bestaande werkruimte][3]
+
+## <a name="cross-subscription-workspace-selection"></a>Cross-abonnement werkruimte selecteren
+Wanneer u een werkruimte voor het opslaan van uw gegevens selecteert, zijn de werkruimten in al uw abonnementen beschikbaar. Cross-abonnement kunt selectie van de werkruimte u gegevens verzamelen van virtuele machines die worden uitgevoerd in verschillende abonnementen en sla het in de werkruimte van uw keuze. Deze mogelijkheid werkt voor zowel virtuele machines met Linux en Windows.
+
+> [!NOTE]
+> Cross-abonnement is werkruimte selectie onderdeel van Azure Security Center gratis laag. Bekijk de pagina [Prijzen](security-center-pricing.md) voor meer informatie over de tariefopties van Security Center.
+>
+>
 
 ## <a name="data-collection-tier"></a>Verzameling gegevenslaag
 Security Center kunt u het aantal gebeurtenissen verminderen behoud voldoende gebeurtenissen voor onderzoek, controle en detectie van dreigingen. U kunt het recht voor het filteren van beleid voor uw abonnementen en werkruimten uit vier sets met gebeurtenissen moeten worden verzameld door de agent.
@@ -84,7 +95,8 @@ Security Center kunt u het aantal gebeurtenissen verminderen behoud voldoende ge
 - **Geen** – beveiligingsgebeurtenissen te verzamelen van het AppLocker-logboeken en beveiliging uitschakelen. Voor klanten die deze optie kiest, hebben hun dashboards beveiliging alleen de logboeken van Windows Firewall en proactieve beoordelingen zoals anti-malware, basislijn en de update.
 
 > [!NOTE]
-> Deze sets zijn ontworpen voor het oplossen van typische scenario's. Zorg ervoor dat bepalen welke past bij uw behoeften voordat u deze implementeert.
+> Deze beveiliging gebeurtenissen sets zijn alleen beschikbaar in Standard-laag van Security Center. Bekijk de pagina [Prijzen](security-center-pricing.md) voor meer informatie over de tariefopties van Security Center.
+Deze sets zijn ontworpen voor het oplossen van typische scenario's. Zorg ervoor dat bepalen welke past bij uw behoeften voordat u deze implementeert.
 >
 >
 
@@ -115,7 +127,7 @@ Dit is een volledig overzicht van de beveiligings- en App Referentiekluis gebeur
 >
 
 Uw beleid voor filteren volgt kiezen:
-1. Op de **beveiligingsbeleid & instellingen voor** blade, selecteer uw filteren beleid onder **beveiligingsgebeurtenissen**.
+1. Op de **beveiligingsbeleid voor gegevensverzameling** blade, selecteer uw filteren beleid onder **beveiligingsgebeurtenissen**.
 2. Selecteer **Opslaan**.
 
    ![Kies beleid filteren][5]
@@ -129,12 +141,13 @@ U kunt uitschakelen om automatische inrichting van bronnen op elk gewenst moment
 >
 
 1. Terug naar het hoofdmenu Security Center en selecteer het beveiligingsbeleid.
-
-   ![Automatische inrichting][6]
-
 2. Selecteer het abonnement waarvoor u automatisch inrichten wilt uitschakelen.
-3. Op de **beveiligingsbeleid – gegevensverzameling** blade onder **Onboarding** Selecteer **uit** automatisch inrichten uitschakelen.
-4. Selecteer **Opslaan**.  
+3. Op de **beveiligingsbeleid – gegevensverzameling** blade onder **automatische inrichting** Selecteer **uit**.
+4. Selecteer **Opslaan**.
+
+  ![Automatisch inrichten uitschakelen][6]
+
+Wanneer automatische inrichting is uitgeschakeld (uitgeschakeld), wordt de configuratiesectie van de standaard-werkruimte niet weergegeven.
 
 ## <a name="next-steps"></a>Volgende stappen
 In dit artikel hebt u geleerd hoe gegevens verzamelen en automatische inrichting in Security Center werkt. Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
@@ -153,4 +166,5 @@ In dit artikel hebt u geleerd hoe gegevens verzamelen en automatische inrichting
 [2]: ./media/security-center-enable-data-collection/use-another-workspace.png
 [3]: ./media/security-center-enable-data-collection/reconfigure-monitored-vm.png
 [5]: ./media/security-center-enable-data-collection/data-collection-tiers.png
-[6]: ./media/security-center-enable-data-collection/disable-automatic-provisioning.png
+[6]: ./media/security-center-enable-data-collection/disable-data-collection.png
+[7]: ./media/security-center-enable-data-collection/select-subscription.png

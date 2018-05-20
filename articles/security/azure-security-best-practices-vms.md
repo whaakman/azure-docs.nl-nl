@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 409ed4618b8ddf022cfc3457851cf434ba810b94
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 832f842aeae53e9c089a9889bf064918de417ed5
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Aanbevolen procedures voor beveiliging van de virtuele machine in Azure
 
@@ -55,7 +55,7 @@ Wanneer u beleidsregels voor Resource Manager en RBAC VM toegangsbeheer inschake
 
 - [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): VM's, maar niet het virtuele netwerk of opslag account waaraan ze zijn verbonden kunt beheren.
 - [Klassieke Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): virtuele machines die zijn gemaakt met behulp van het klassieke implementatiemodel, maar niet het virtuele netwerk of opslag account waarmee de virtuele machines zijn verbonden kunt beheren.
-- [Beveiligingsbeheer](../role-based-access-control/built-in-roles.md#security-manager): beveiligingsonderdelen, beveiligingsbeleid en virtuele machines kunt beheren.
+- [Beveiliging Admin](../role-based-access-control/built-in-roles.md#security-admin): beveiligingsonderdelen en beveiligingsbeleid kunt beheren.
 - [DevTest Labs gebruiker](../role-based-access-control/built-in-roles.md#devtest-labs-user): kunt Alles weergeven en verbinding maken, starten, opnieuw opstarten en afsluiten van virtuele machines.
 
 Deel geen accounts en wachtwoorden tussen beheerders en gebruik wachtwoorden niet niet meerdere gebruikersaccounts of services, met name de wachtwoorden voor sociale media of andere niet-administratieve activiteiten. In het ideale geval moet u [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) sjablonen voor het instellen van uw virtuele machines veilig. U kunt met deze benadering versterking van uw implementatie-instellingen en beveiligingsinstellingen in de implementatie worden afgedwongen.

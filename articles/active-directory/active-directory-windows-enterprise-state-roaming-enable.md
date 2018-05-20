@@ -3,7 +3,7 @@ title: Enterprise State Roaming in Azure Active Directory inschakelen | Microsof
 description: Veelgestelde vragen over Enterprise State Roaming-instellingen in Windows-apparaten. Enterprise State Roaming biedt gebruikers een uniforme ervaring via hun Windows-apparaten en minder tijd nodig voor het configureren van een nieuw apparaat.
 services: active-directory
 keywords: Enterprise-status tijdens roaming windows cloud, het inschakelen van enterprise state roaming
-documentationcenter: 
+documentationcenter: ''
 author: tanning
 manager: mtillman
 editor: curtand
@@ -13,18 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 05/14/2018
 ms.author: markvi
-ms.openlocfilehash: 3a8714ddbda10d8e1b4a8de35711101f4c8a0106
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dba749b6d85898e6438ce1160b9bf6eaff6f4ac9
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Enterprise state roaming inschakelen in Azure Active Directory
 Enterprise State Roaming is beschikbaar voor elke organisatie met een Azure AD Premium of Enterprise Mobility + Security (EMS)-licentie. Zie voor meer informatie over het verkrijgen van een Azure AD-abonnement de [productpagina Azure AD](https://azure.microsoft.com/services/active-directory).
 
-Wanneer u Enterprise State Roaming inschakelt, is uw organisatie automatisch een gratis, beperkt gebruik licentie verleend voor Azure Rights Management. Dit gratis abonnement is beperkt tot het versleutelen en ontsleutelen van de instellingen van de onderneming en toepassingsgegevens gesynchroniseerd door Enterprise State Roaming. U moet hebben [een betaald abonnement](https://azure.microsoft.com/pricing/details/active-directory/) gebruik van de volledige functionaliteit van Azure Rights Management.
+Wanneer u Enterprise State Roaming inschakelt, wordt uw organisatie een gratis, beperkt gebruik licentie voor Azure Rights Management-beveiliging automatisch verleend van Azure Information Protection. Dit gratis abonnement is beperkt tot het versleutelen en ontsleutelen van de instellingen van de onderneming en toepassingsgegevens gesynchroniseerd door Enterprise State Roaming. U moet hebben [een betaald abonnement](https://azure.microsoft.com/pricing/details/information-protection/) gebruik van de volledige functionaliteit van de Azure Rights Management-service.
 
 ## <a name="to-enable-enterprise-state-roaming"></a>Enterprise State Roaming inschakelen
 
@@ -38,7 +38,7 @@ Wanneer u Enterprise State Roaming inschakelt, is uw organisatie automatisch een
   
 Voor een apparaat met Windows 10 Enterprise State Roaming service gebruiken, moet het apparaat met een Azure AD-identiteit verifiëren. Identiteit van de gebruiker primaire aanmelden is hun Azure AD-identiteit voor apparaten die zijn gekoppeld aan Azure AD, zodat er geen aanvullende configuratie vereist. Voor apparaten die gebruikmaken van lokale Active Directory, de IT-beheerder moet [de domein-apparaten verbinden met Azure AD voor Windows 10 optreedt](active-directory-azureadjoin-devices-group-policy.md).
 
-## <a name="data-storage"></a>Opslag van gegevens
+## <a name="data-storage"></a>Gegevensopslag
 Enterprise State Roaming gegevens wordt gehost in een of meer [Azure-regio's](https://azure.microsoft.com/regions/) dat beste zijn uitgelijnd met de waarde land/regio in de Azure Active Directory-exemplaar. Enterprise State Roaming gegevens is gepartitioneerd op basis van drie belangrijke geografische regio's: Noord-Amerika, EMEA en APAC. Gegevens voor de tenant Enterprise State Roaming lokaal bevindt met de geografische regio en wordt niet gerepliceerd tussen regio's.  Bijvoorbeeld:
 Land/regio-waarde | de gegevens heeft gehost
 ---------------------|-------------------------

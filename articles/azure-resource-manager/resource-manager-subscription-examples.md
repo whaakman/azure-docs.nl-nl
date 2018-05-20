@@ -14,34 +14,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 6bd4e9f6bbc5bba73b2c169b7f3c5931f30029e6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2c16c0414ddf023e7055a8b57c514fc069f3112a
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>Voorbeelden van de implementatie van Azure enterprise scaffold
-Dit onderwerp vindt u voorbeelden van hoe de aanbevelingen voor in een onderneming implementeren kunt een [Azure enterprise scaffold](resource-manager-subscription-governance.md). Een fictief bedrijf met de naam Contoso wordt gebruikt ter illustratie van best practices voor algemene scenario's.
+Dit artikel vindt u voorbeelden van hoe de aanbevelingen voor in een onderneming implementeren kunt een [Azure enterprise scaffold](resource-manager-subscription-governance.md). Een fictief bedrijf met de naam Contoso wordt gebruikt ter illustratie van best practices voor algemene scenario's.
 
 ## <a name="background"></a>Achtergrond
-Contoso is een wereldwijd bedrijf dat levering keten oplossingen voor klanten in alles uit een model 'Software as a Service' naar een ingepakte model biedt lokale geïmplementeerd.  Ze ontwikkelen software overal ter wereld met aanzienlijke development centers in India, de Verenigde Staten en Canada.
+Contoso is een wereldwijd bedrijf waarmee levering keten oplossingen voor klanten. Ze bieden alles van een Software als een servicemodel in een ingepakte model lokale geïmplementeerd.  Ze ontwikkelen software overal ter wereld met aanzienlijke development centers in India, de Verenigde Staten en Canada.
 
 De ISV-gedeelte van het bedrijf is onderverdeeld in meerdere onafhankelijke business units die producten in een grote onderneming beheren. Elk bedrijfsonderdeel heeft een eigen ontwikkelaars, productmanagers en -architecten.
 
 De Services voor Enterprise-technologie (ETS) business unit biedt de mogelijkheid van centrale IT en beheert de verschillende datacenters waar bedrijfseenheden hun toepassingen hosten. Samen met het beheren van de datacenters, de organisatie ETS biedt en beheert centraal samenwerking (zoals e-mail en websites) en netwerk/telephony-services. Ze ook beheren klantgerichte werkbelastingen voor kleinere business units die operationele medewerkers geen.
 
-De volgende Persona's worden gebruikt in dit onderwerp:
+De volgende Persona's worden gebruikt in dit artikel:
 
 * Dave is de ETS Azure-beheerder.
 * Alice is van Contoso directeur van ontwikkeling in de levering keten business unit.
 
-Contoso moet een line-of-business-app en een app klantgerichte bouwen. Zij heeft besloten de apps in Azure uitvoeren. Dave leest de [prescriptieve abonnement governance](resource-manager-subscription-governance.md) onderwerp, en is nu gereed voor het implementeren van de aanbevelingen.
+Contoso moet een line-of-business-app en een app klantgerichte bouwen. Zij heeft besloten de apps in Azure uitvoeren. Dave leest de [prescriptieve abonnement governance](resource-manager-subscription-governance.md) artikel en is nu gereed voor het implementeren van de aanbevelingen.
 
 ## <a name="scenario-1-line-of-business-application"></a>Scenario 1: line-of-business-toepassing
-Contoso is bezig met een beheersysteem van de bron-code (BitBucket) moet worden gebruikt door ontwikkelaars over de hele wereld.  De toepassing maakt gebruik van infrastructuur als een Service (IaaS) voor het hosten van, en bestaat uit de webservers en een databaseserver. Ontwikkelaars toegang tot de servers in hun ontwikkelomgevingen, maar ze geen toegang nodig tot de servers in Azure. Contoso ETS wenst te maken voor de eigenaar van de toepassing en het team voor het beheren van de toepassing. De toepassing is alleen beschikbaar bij in het bedrijfsnetwerk van Contoso. Dave moet voor het instellen van het abonnement voor deze toepassing. Het abonnement wordt ook als host fungeren andere software developer-gerelateerde in de toekomst.  
+Contoso is bezig met een beheersysteem van de bron-code (BitBucket) moet worden gebruikt door ontwikkelaars over de hele wereld.  De toepassing maakt gebruik van infrastructuur als een Service (IaaS) voor het hosten van, en bestaat uit de webservers en een databaseserver. Ontwikkelaars toegang tot de servers in hun ontwikkelomgevingen, maar ze geen toegang nodig tot de servers in Azure. Contoso ETS wil maken voor de eigenaar van de toepassing en het team voor het beheren van de toepassing. De toepassing is alleen beschikbaar bij in het bedrijfsnetwerk van Contoso. Dave moet voor het instellen van het abonnement voor deze toepassing. Het abonnement wordt ook als host fungeren andere software developer-gerelateerde in de toekomst.  
 
 ### <a name="naming-standards--resource-groups"></a>Naamgevingsstandaarden & resourcegroepen
-Maakt een abonnement ter ondersteuning van hulpprogramma's voor ontwikkelaars die voor alle business units gelden Dave. Hij moet betekenisvolle namen voor het abonnement en de resource-groepen (voor de toepassing en de netwerken) maken. Hij maakt de volgende abonnement en de resource-groepen:
+Maakt een abonnement ter ondersteuning van hulpprogramma's voor ontwikkelaars die voor alle business units gelden Dave. Dave moet betekenisvolle namen voor het abonnement en de resource-groepen (voor de toepassing en de netwerken) maken. Hij maakt de volgende abonnement en de resource-groepen:
 
 | Item | Naam | Beschrijving |
 | --- | --- | --- |
@@ -57,7 +57,7 @@ Dave wijst de volgende rollen voor het abonnement:
 | Rol | Toegewezen aan | Beschrijving |
 | --- | --- | --- |
 | [Eigenaar](../role-based-access-control/built-in-roles.md#owner) |ID van Contoso beheerde AD |Deze ID wordt beheerd met Just in Time (Just in time) toegang via de Contoso Identity Management-hulpprogramma en zorgt ervoor dat er volledig abonnement eigenaar toegang wordt gecontroleerd |
-| [Security Manager](../role-based-access-control/built-in-roles.md#security-manager) |Gegevensbeveiliging en risicobeheer management afdeling |Deze rol kan gebruikers om te kijken naar het Azure Security Center en de status van de resources |
+| [Beveiliging lezer](../role-based-access-control/built-in-roles.md#security-reader) |Gegevensbeveiliging en risicobeheer management afdeling |Deze rol kan gebruikers om te kijken naar het Azure Security Center en de status van de resources |
 | [Inzender voor netwerken](../role-based-access-control/built-in-roles.md#network-contributor) |Netwerkteam |Deze rol kan team van de Contoso netwerk voor het beheren van de Site naar Site VPN-verbinding en de virtuele netwerken |
 | *Aangepaste rol* |De eigenaar van de toepassing |Dave maakt een rol die de mogelijkheid om te wijzigen van resources binnen de resourcegroep verleent. Zie voor meer informatie [aangepaste rollen in Azure RBAC](../role-based-access-control/custom-roles.md) |
 
@@ -90,14 +90,14 @@ Hij voegt de volgende [labels](resource-group-using-tags.md) aan de resourcegroe
 | Business Unit |**ETS** (de business unit die is gekoppeld aan het abonnement) |
 
 ### <a name="core-network"></a>Basisnetwerk
-Het Contoso ETS informatie gegevensbeveiliging en risicobeheer management-team onderzoekt van Dave voorgestelde plan te verplaatsen van de toepassing in Azure. Ze willen om ervoor te zorgen dat de toepassing geen toegang heeft tot internet.  Dave heeft ook developer-apps die in de toekomst wordt verplaatst naar Azure. Deze apps vereisen openbare interfaces.  Om te voldoen aan deze vereisten, biedt hij zowel interne als externe virtuele netwerken en een netwerkbeveiligingsgroep om toegang te beperken.
+Het Contoso ETS informatie gegevensbeveiliging en risicobeheer management-team onderzoekt van Dave voorgestelde plan te verplaatsen van de toepassing in Azure. Ze willen om ervoor te zorgen dat de toepassing wordt niet blootgesteld aan internet.  Dave heeft ook developer-apps die in de toekomst wordt verplaatst naar Azure. Deze apps vereisen openbare interfaces.  Om te voldoen aan deze vereisten, biedt hij zowel interne als externe virtuele netwerken en een netwerkbeveiligingsgroep om toegang te beperken.
 
 Hij maakt de volgende bronnen:
 
 | Resourcetype | Naam | Beschrijving |
 | --- | --- | --- |
-| Virtueel netwerk |interne-vnet |Met de BitBucket-toepassing gebruikt en met het bedrijfsnetwerk van Contoso is verbonden via ExpressRoute.  Een subnet (`bitbucket`) biedt de toepassing met een specifiek IP-adresruimte |
-| Virtueel netwerk |externe-vnet |Beschikbaar voor toekomstige toepassingen waarvoor openbare eindpunten |
+| Virtual Network |interne-vnet |Met de BitBucket-toepassing gebruikt en met het bedrijfsnetwerk van Contoso is verbonden via ExpressRoute.  Een subnet (`bitbucket`) biedt de toepassing met een specifiek IP-adresruimte |
+| Virtual Network |externe-vnet |Beschikbaar voor toekomstige toepassingen waarvoor openbare eindpunten |
 | Netwerkbeveiligingsgroep |bitbucket nsg |Zorgt ervoor dat de kwetsbaarheid voor aanvallen van deze workload wordt geminimaliseerd doordat verbindingen alleen via poort 443 voor het subnet waar de toepassing woont (`bitbucket`) |
 
 ### <a name="resource-locks"></a>Resourcevergrendelingen
@@ -115,7 +115,7 @@ Dave heeft niets te automatiseren voor deze toepassing. Hoewel hij een Azure Aut
 ### <a name="azure-security-center"></a>Azure Security Center
 Er moet een Contoso IT-servicebeheer om snel te identificeren en bedreigingen te verwerken. Ze willen ook om te begrijpen welke problemen kunnen bestaan.  
 
-Om te voldoen aan deze vereisten, Dave kan de [Azure Security Center](../security-center/security-center-intro.md), en biedt toegang tot de rol Security Manager.
+Om te voldoen aan deze vereisten, Dave kan de [Azure Security Center](../security-center/security-center-intro.md), en biedt toegang tot de rol Lezer van de beveiliging.
 
 ## <a name="scenario-2-customer-facing-app"></a>Scenario 2: klantgerichte app
 De leidinggevende bedrijven in de levering keten business unit geconstateerd verschillende mogelijkheden om de betrokkenheid bij Contoso klanten via een loyaliteitskaart te vergroten. Els van team maken van deze toepassing en besluit dat Azure verhoogt de mogelijkheid om te voldoen aan de zakelijke behoeften. Els werkt met Dave van ETS twee abonnementen voor het ontwikkelen en gebruiken van deze toepassing te configureren.
@@ -137,7 +137,7 @@ Voor de **ontwikkeling abonnement**, maken van het volgende beleid:
 | --- | --- | --- |
 | location |Audit |Het maken van de resources in elke regio controleren |
 
-Ze vormen geen beperking van het type van een gebruiker in ontwikkeling maken kan sku en tags is niet vereist voor alle resourcegroepen en resources.
+Zij niet het type van een gebruiker in ontwikkeling maken kan sku beperken en ze labels niet nodig voor alle resourcegroepen en resources.
 
 Voor de **productie abonnement**, ze de volgende beleidsregels maken:
 
@@ -148,7 +148,7 @@ Voor de **productie abonnement**, ze de volgende beleidsregels maken:
 | tags |weigeren |Afdeling tag vereisen |
 | tags |toevoegen |Code toevoegen aan elke resourcegroep die productie-omgeving aangeeft |
 
-Ze beperken niet het type van een gebruiker in productie maken kan sku.
+Zij beperken niet het type van een gebruiker in productie maken kan sku.
 
 ### <a name="resource-tags"></a>Resourcetags
 Dave begrijpt dat hij zijn van specifieke informatie moet voor het identificeren van de juiste bedrijfsgroepen voor facturerings- en eigendom. Hij definieert resourcetags voor resourcegroepen en resources.
@@ -166,13 +166,13 @@ Voor de **ontwikkeling abonnement**, ze maken:
 
 | Resourcetype | Naam | Beschrijving |
 | --- | --- | --- |
-| Virtueel netwerk |interne-vnet |De ontwikkelomgeving Contoso loyaliteitskaart fungeert en is verbonden via ExpressRoute Contoso netwerk van bedrijf |
+| Virtual Network |interne-vnet |De ontwikkelomgeving Contoso loyaliteitskaart fungeert en is verbonden via ExpressRoute Contoso netwerk van bedrijf |
 
 Voor de **productie abonnement**, ze maken:
 
 | Resourcetype | Naam | Beschrijving |
 | --- | --- | --- |
-| Virtueel netwerk |externe-vnet |Als host fungeert voor de toepassing loyaliteitskaart en niet rechtstreeks is verbonden met ExpressRoute van Contoso. Code wordt doorgeschoven, is via hun broncode-systeem rechtstreeks aan de PaaS-services |
+| Virtual Network |externe-vnet |Als host fungeert voor de toepassing loyaliteitskaart en niet rechtstreeks is verbonden met ExpressRoute van Contoso. Code wordt doorgeschoven, is via hun broncode-systeem rechtstreeks aan de PaaS-services |
 | Netwerkbeveiligingsgroep |loyaltycard nsg |Zorgt ervoor dat de kwetsbaarheid voor aanvallen van deze workload door alleen in gebonden communicatie toe te staan op TCP 443 wordt geminimaliseerd.  Contoso is ook het onderzoeken van het gebruik van een Web Application Firewall voor extra beveiliging |
 
 ### <a name="resource-locks"></a>Resourcevergrendelingen

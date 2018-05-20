@@ -15,12 +15,13 @@ ms.topic: get-started-article
 ms.date: 05/08/2018
 ms.author: mabrigg
 ms.reviewer: Thomas.Roettinger
-ms.openlocfilehash: 7dc4cfe580246b0f34073113f790ca3b5057995d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: dc572353c2e27ddfbae2398f1aece56586955e26
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/12/2018
 ---
+<!---Loc Comment: Please, check the comment in coversation section---> 
 # <a name="manage-physical-memory-capacity-for-azure-stack"></a>Fysiek geheugencapaciteit voor Azure-Stack beheren
 
 *Van toepassing op: Azure Stack geïntegreerd systemen*
@@ -28,7 +29,7 @@ ms.lasthandoff: 05/10/2018
 U kunt extra geheugen toevoegen voor een verhoging van de capaciteit van de totale beschikbare geheugen voor Azure-Stack. In Azure-Stack uw fysieke server ook aangeduid als een *scale unit knooppunt*. Alle knooppunten van de scale-eenheid die lid van een enkele schaaleenheid zijn moeten dezelfde hoeveelheid geheugen hebben.
 
 > [!note]  
-> Voordat u doorgaat, Raadpleeg de documentatie van uw hardware om te controleren of de leverancier van de upgrade van een fysiek geheugen ondersteunt. Uw OEM hardware leverancier support-contract verlangen dat ze de fysieke server rack plaatsing en de apparaat-firmware-update uitvoeren.
+> Voordat u doorgaat, in de documentatie van de fabrikant van uw hardware om te controleren of een fabrikant van uw ondersteunt de upgrade van een fysiek geheugen. Uw OEM hardware leverancier support-contract kan vereisen dat de leverancier van de fysieke server rack plaatsing en de apparaat-firmware-update uitvoeren.
 
 Het volgende stroomdiagram ziet u het algemene proces geheugen toevoegen aan elk knooppunt van de eenheid schaal.
 

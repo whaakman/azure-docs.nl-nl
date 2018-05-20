@@ -9,16 +9,16 @@ editor: subramar,zhol
 ms.assetid: 91ea6ca4-cc2a-4155-9823-dcbd0b996349
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/6/2017
 ms.author: mcoskun
-ms.openlocfilehash: dd8042620b6b9829e49f3124ecdee1c038f8c12f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c90231d58ca8eb562aadb916c8667e2bee700b3a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="back-up-and-restore-reliable-services-and-reliable-actors"></a>Back-up en herstel Reliable Services en Reliable Actors
 Azure Service Fabric is een hoge beschikbaarheid-platform die de status repliceert op meerdere knooppunten om deze hoge beschikbaarheid te houden.  Dus zelfs als een knooppunt in het cluster is mislukt, blijven de services beschikbaar. Bij deze ingebouwde redundantie geleverd door het platform is mogelijk niet voldoende is voor sommige, in bepaalde gevallen is het wenselijk voor de service voor back-ups (naar een externe winkel).
@@ -241,7 +241,7 @@ Het is belangrijk om ervoor te zorgen dat essentiële gegevens wordt back-up en 
 ## <a name="under-the-hood-more-details-on-backup-and-restore"></a>Achter de schermen: meer informatie over back-up en herstel
 Hier volgt een aantal meer informatie over back-up en herstel.
 
-### <a name="backup"></a>Back-up maken
+### <a name="backup"></a>Backup
 Statusbeheer voor het betrouwbare biedt de mogelijkheid te consistente back-ups maken zonder blokkering van alle lees- of schrijfbewerkingen. Om dit te doen, maakt het gebruik van een mechanisme controlepunt- en logboekbestanden.  Statusbeheer voor het betrouwbare duurt fuzzy (lightweight) controlepunten op bepaalde tijdstippen te ontlasten zware belasting van het logboek voor transactionele en hersteltijden te verbeteren.  Wanneer `BackupAsync` wordt aangeroepen, statusbeheer voor het betrouwbare Hiermee geeft u alle objecten van betrouwbare hun meest recente om controlepuntbestanden te kopiëren naar een lokale map voor back-up.  Statusbeheer voor het betrouwbare kopieert vervolgens alle logboekrecords vanaf de aanwijzer' start' naar de meest recente logboekrecord in de back-upmap.  Aangezien de logboekrecords tot de meest recente logboekrecord zijn opgenomen in de back-up en betrouwbare statusbeheer voor het vooraf geschreven logboekregistratie behoudt, betrouwbare statusbeheer voor het zorgt ervoor dat alle transacties die toegewezen zijn (`CommitAsync` met succes heeft geretourneerd ) zijn opgenomen in de back-up.
 
 De transactie die na doorvoeren `BackupAsync` mei is aangeroepen of mogelijk niet in de back-up.  Zodra de lokale back-upmap is gevuld door het platform (dat wil zeggen, lokale back-up is voltooid door de runtime), back-up van de service-callback is aangeroepen.  Deze retouraanroep is verantwoordelijk voor de back-map verplaatst naar een externe locatie zoals Azure Storage.
@@ -263,5 +263,5 @@ Totdat een service deze API is (met retourneert true of false voltooit) en de re
   - [Betrouwbare Services meldingen](service-fabric-reliable-services-notifications.md)
   - [Configuratie van betrouwbare Services](service-fabric-reliable-services-configuration.md)
   - [Referentie voor ontwikkelaars voor betrouwbare verzamelingen](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-  - [Periodieke back-up en herstel in Azure Service Fabric](service-fabric-backuprestoreservice-quickstart-azurecluster.md)
+  - [Periodic backup and restore in Azure Service Fabric](service-fabric-backuprestoreservice-quickstart-azurecluster.md) (Periodieke back-up en herstel in Azure Service Fabric)
 

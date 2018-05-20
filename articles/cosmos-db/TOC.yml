@@ -80,8 +80,6 @@ items:
         href: unique-keys.md
       - name: Database zonder servers
         href: serverless-computing-database.md
-      - name: Overzicht van BulkExecutor
-        href: bulk-executor-overview.md
       - name: Beveiliging
         href: database-security.md
         items:
@@ -175,6 +173,8 @@ items:
                 href: bulk-executor-dot-net.md
               - name: BulkExecutor - JAVA
                 href: bulk-executor-java.md
+              - name: Het gebruik van Storage Explorer beheren
+                href: storage-explorer.md
               - name: Query’s uitvoeren
                 items:
                   - name: SQL-query's uitvoeren
@@ -263,6 +263,8 @@ items:
                 href: sql-api-sql-query-reference.md
           - name: Resources
             items:
+              - name: Het gebruik van Storage Explorer beheren
+                href: storage-explorer.md
               - name: Visual Studio Code-extensie
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
               - name: SQL-testomgeving
@@ -325,8 +327,12 @@ items:
                 href: mongodb-indexing.md
               - name: Uw gegevens visualiseren met Power BI
                 href: powerbi-visualize.md
+              - name: Het gebruik van Storage Explorer beheren
+                href: storage-explorer.md
           - name: Resources
             items:
+              - name: Het gebruik van Storage Explorer beheren
+                href: storage-explorer.md
               - name: Visual Studio Code-extensie
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
       - name: Graph API-documenten
@@ -349,6 +355,8 @@ items:
             items:
               - name: Graph-partitionering
                 href: graph-partitioning.md
+              - name: Het gebruik van Storage Explorer beheren
+                href: storage-explorer.md
               - name: Integreren
                 items:
                   - name: Verbinding maken met Spark GraphX
@@ -359,6 +367,8 @@ items:
                 href: graph-sdk-dotnet.md
           - name: Resources
             items:
+              - name: Het gebruik van Storage Explorer beheren
+                href: storage-explorer.md
               - name: Visual Studio Code-extensie
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
       - name: Tabel-API-documenten
@@ -415,6 +425,8 @@ items:
                 href: table-sdk-python.md
           - name: Resources
             items:
+              - name: Het gebruik van Storage Explorer beheren
+                href: storage-explorer.md
               - name: Overzicht van Table Storage
                 href: table-storage-overview.md
               - name: Ontwerpoverzicht voor Table Storage
@@ -453,12 +465,20 @@ items:
         href: regional-failover.md
       - name: Diagnostische logboeken
         href: logging.md
+      - name: Overzicht van BulkExecutor
+        href: bulk-executor-overview.md
       - name: Rendabele lees- en schrijfbewerkingen
         href: key-value-store-cost.md
       - name: Gegevens automatisch laten verlopen
         href: time-to-live.md
+      - name: Beheren met PowerShell
+        href: manage-account-with-powershell.md
+      - name: Het gebruik van Storage Explorer beheren
+        href: storage-explorer.md
   - name: Resources
     items:
+      - name: Het gebruik van Storage Explorer beheren
+        href: storage-explorer.md
       - name: Query-cheatsheet
         href: query-cheat-sheet.md
       - name: 20 dagen met tips

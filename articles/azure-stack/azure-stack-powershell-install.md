@@ -11,14 +11,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 5/10/2018
+ms.date: 5/17/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: 8fea502457275c89d99084a5b025b620872d796b
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: cb672c8e378db80707db1b0cf77a3196e36b1eb5
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="install-powershell-for-azure-stack"></a>Installeer PowerShell voor Azure Stack
 
@@ -72,8 +72,8 @@ Install-Module -Name AzureRm.BootStrapper
 # Install and import the API Version Profile required by Azure Stack into the current PowerShell session. 
 Use-AzureRmProfile -Profile 2017-03-09-profile -Force 
 
-# Install Module Version 1.2.12 if Azure Stack is running 1804 at a minimum 
-Install-Module -Name AzureStack -RequiredVersion 1.2.12 
+# Install Module Version 1.3.0 if Azure Stack is running 1804 at a minimum 
+Install-Module -Name AzureStack -RequiredVersion 1.3.0 
 
 # Install Module Version 1.2.11 if Azure Stack is running a lower version then 1804 
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 
@@ -91,8 +91,8 @@ Als de installatie geslaagd is, worden de modules AzureRM en AzureStack weergege
 
 In een niet-verbonden scenario moet u eerst de PowerShell-modules voor een machine die verbinding heeft met Internet te downloaden en ze vervolgens overbrengen naar de Azure-Stack Development Kit voor installatie.
 
-> [!IMPORTANT]
-> De versie van de PowerShell-module AzureRM 1.2.12 wordt geleverd met een lijst met wijzigingen op te splitsen. Upgrade van de 1.2.10 versie, Zie de [Migratiehandleiding](https://github.com/bganapa/azure-powershell/blob/stack-migration/documentation/migration-guides/Stack/migration-guide.1.2.12.md).
+> [!IMPORTANT]  
+> De versie van de Azure Stack 1.3.0 PowerShell-module is voorzien van een lijst met wijzigingen op te splitsen. Upgrade van de 1.2.11 versie, Zie de [Migratiehandleiding](https://aka.ms/azspowershellmigration).
 
 1. Meld u bij een computer waarop u beschikt over een internetverbinding en gebruik het volgende script downloaden de AzureRM en AzureStack pakketten naar de lokale computer:
 
@@ -105,7 +105,7 @@ In een niet-verbonden scenario moet u eerst de PowerShell-modules voor een machi
      -Name AzureRM `
      -Path $Path `
      -Force `
-     -RequiredVersion 1.2.12
+     -RequiredVersion 1.2.11
 
    Save-Package `
      -ProviderName NuGet `
@@ -113,11 +113,11 @@ In een niet-verbonden scenario moet u eerst de PowerShell-modules voor een machi
      -Name AzureStack `
      -Path $Path `
      -Force `
-     -RequiredVersion 1.2.12 
+     -RequiredVersion 1.3.0 
    ```
 
-> [!Important]  
-> Als u geen Azure-Stack met update 1804 of hoger, wijzig de **requiredversion** parameterwaarde naar `1.2.11`. 
+  > [!Important]  
+  > Als u geen Azure-Stack met update 1804 of hoger, wijzig de **requiredversion** parameterwaarde naar `1.2.11`. 
 
 2. Kopieer het gedownloade pakketten via een USB-apparaat.
 

@@ -14,17 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 70a2118ef0e26043f9f6a9cceb9d4a533d343556
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 9d09fb60722865a75ea0825f5ca54f792642980a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="install-powershell-for-azure-stack"></a>Installeer PowerShell voor Azure Stack  
+# <a name="install-powershell-for-azure-stack"></a>Installeer PowerShell voor Azure Stack
 
-Azure Stack compatibele Azure PowerShell-modules zijn vereist voor het werken met Azure-Stack. In deze handleiding doorlopen we de stappen die nodig zijn voor het installeren van PowerShell voor Azure-Stack. U kunt de stappen in dit artikel vanuit de Azure-Stack Development Kit of vanaf een externe Windows-client als u via VPN-verbinding verbonden bent gebruiken.
+*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
-In dit artikel bevat gedetailleerde instructies voor het installeren van PowerShell voor Azure-Stack. Als u wilt snel installeren en configureren van PowerShell, kunt u het script dat is opgegeven in het artikel 'Actief en werkend ophalen met PowerShell' gebruiken. 
+Azure Stack compatibele Azure PowerShell-modules zijn vereist voor het werken met Azure-Stack. In dit artikel begeleidt u bij de stappen die nodig zijn voor het installeren van PowerShell voor Azure-Stack. U kunt de stappen in dit artikel vanuit de Azure-Stack Development Kit of vanaf een externe Windows-client als u via VPN-verbinding verbonden bent gebruiken.
+
+In dit artikel biedt gedetailleerde instructies voor het installeren van PowerShell. Als u wilt snel installeren en configureren van PowerShell, kunt u het script dat in het artikel 'Actief en werkend ophalen met PowerShell' gebruiken.
 
 > [!NOTE]
 > De volgende stappen moet PowerShell 5.0. U kunt uw versie controleren door $PSVersionTable.PSVersion uitvoeren en het vergelijken van de ' ' hoofdversie.
@@ -41,24 +43,22 @@ Set-PSRepository `
 
 Voordat u de vereiste versie installeert, moet u eventuele bestaande Azure PowerShell-modules verwijderen. U kunt ze verwijderen met behulp van een van de volgende twee methoden:
 
-* Voor het verwijderen van de bestaande PowerShell-modules, meld u op de development kit, of op de externe Windows-client als u van plan bent een VPN-verbinding tot stand brengen. Sluit alle actieve sessies in PowerShell en voer de volgende opdracht: 
+* Voor het verwijderen van de bestaande PowerShell-modules, meld u op de development kit, of op de externe Windows-client als u van plan bent een VPN-verbinding tot stand brengen. Sluit alle actieve sessies in PowerShell en voer de volgende opdracht:
 
    ```powershell
    Get-Module -ListAvailable | where-Object {$_.Name -like “Azure*”} | Uninstall-Module
    ```
 
-* Meld u op de development kit, of op de externe Windows-client als u van plan bent een VPN-verbinding tot stand brengen. De mappen die met 'Azure beginnen' verwijderen uit de `C:\Program Files (x86)\WindowsPowerShell\Modules` en `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` mappen. Deze mappen verwijdert, worden eventuele bestaande PowerShell-modules van de 'AzureStackAdmin' en 'global' gebruiker bereiken. 
+* Meld u op de development kit, of op de externe Windows-client als u van plan bent een VPN-verbinding tot stand brengen. De mappen die met 'Azure beginnen' verwijderen uit de `C:\Program Files (x86)\WindowsPowerShell\Modules` en `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` mappen. Deze mappen verwijdert, worden eventuele bestaande PowerShell-modules van de 'AzureStackAdmin' en 'global' gebruiker bereiken.
 
-De volgende secties beschrijven de stappen voor het installeren van PowerShell voor Azure-Stack. PowerShell kan worden geïnstalleerd op Azure-Stack die wordt gebruikt in verbonden, gedeeltelijk is verbonden, of in een scenario met niet-verbonden. 
+De volgende secties beschrijven de stappen voor het installeren van PowerShell voor Azure-Stack. PowerShell kan worden geïnstalleerd op Azure-Stack die wordt gebruikt in verbonden, gedeeltelijk is verbonden, of in een scenario met niet-verbonden.
 
-## <a name="install-powershell-in-a-connected-scenario-with-internet-connectivity"></a>Installeer PowerShell in een scenario met verbonden (met de verbinding met internet)
+## <a name="install-powershell-in-a-connected-scenario-with-internet-connectivity"></a>Installeer PowerShell in een scenario met verbonden (met de verbinding met Internet)
 
 Azure Stack compatibel AzureRM-modules zijn geïnstalleerd via de API-versie profielen. Azure Stack vereist de **2017-03-09-profiel** profiel API-versie die beschikbaar is door de module AzureRM.Bootstrapper installeren. Raadpleeg voor meer informatie over profielen voor API-versie en de cmdlets die is geleverd door ze naar de [API-versie Profielbeheer](azure-stack-version-profiles-powershell.md). Naast de modules AzureRM, moet u ook de Azure-Stack-specifieke PowerShell-modules installeren. Voer het volgende PowerShell-script voor deze modules installeren op uw ontwikkelwerkstation:
 
-
-
   ```powershell
-  # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet 
+  # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet
   Install-Module `
     -Name AzureRm.BootStrapper
 
@@ -77,6 +77,7 @@ Bevestig de installatie door de volgende opdracht uitvoeren:
   Get-Module `
     -ListAvailable | where-Object {$_.Name -like “Azure*”}
   ```
+
   Als de installatie geslaagd is, worden de modules AzureRM en Azure-Stack in de uitvoer weergegeven.
 
 ## <a name="install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>Installeer PowerShell in een niet-verbonden of een gedeeltelijk verbonden scenario (met beperkte verbinding met internet)
@@ -102,12 +103,12 @@ In een scenario met en zonder gedeeltelijk verbinding moet u eerst de PowerShell
      -Name AzureStack `
      -Path $Path `
      -Force `
-     -RequiredVersion 1.2.11 
+     -RequiredVersion 1.2.11
    ```
 
 2. Kopieer het gedownloade pakketten via een USB-apparaat.
 
-3. Aanmelden bij de development kit en kopieer de pakketten van het USB-apparaat naar een locatie op de development kit. 
+3. Aanmelden bij de development kit en kopieer de pakketten van het USB-apparaat naar een locatie op de development kit.
 
 4. U moet nu registreren van deze locatie als de standaard-opslagplaats en installeren van de modules AzureRM en AzureStack uit deze opslagplaats:
 
@@ -125,11 +126,11 @@ In een scenario met en zonder gedeeltelijk verbinding moet u eerst de PowerShell
      -Repository $RepoName
 
    Install-Module AzureStack `
-     -Repository $RepoName 
+     -Repository $RepoName
    ```
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Azure-Stack-hulpprogramma's vanuit GitHub downloaden](azure-stack-powershell-download.md)  
-* [Configureren van de gebruiker van de Stack van Azure PowerShell-omgeving](azure-stack-powershell-configure-user.md)  
-* [Profielen voor API-versie in Azure-Stack beheren](azure-stack-version-profiles-powershell.md)  
+* [Azure-Stack-hulpprogramma's vanuit GitHub downloaden](azure-stack-powershell-download.md)
+* [Configureren van de gebruiker van de Stack van Azure PowerShell-omgeving](azure-stack-powershell-configure-user.md)
+* [Profielen voor API-versie in Azure-Stack beheren](azure-stack-version-profiles-powershell.md)

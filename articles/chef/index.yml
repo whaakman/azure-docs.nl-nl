@@ -1,0 +1,61 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentatie over Chef Software op Azure
+metadata:
+  title: Documentatie over Chef Software op Azure - zelfstudies, voorbeelden, verwijzingen en resources
+  meta.description: Chef Software provides a DevOps automation platform for Linux and Windows that enables the management of both physical and virtual server configurations. Learn how to use Chef Software products to automate infrastructure as code (IaC) recipes and manage and deploy virtual machines on Azure with quickstarts and tutorials.
+  services: chef
+  author: tomarcher
+  manager: jeconnoc
+  ms.service: chef
+  ms.tgt_pltfrm: na
+  ms.devlang: devops
+  ms.topic: landing page
+  ms.date: 05/15/2018
+  ms.author: tarcher
+  ms.openlocfilehash: 644b50455ac4e7e7aba818ae31f95c736ae5d632
+  ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+  ms.translationtype: HT
+  ms.contentlocale: nl-NL
+  ms.lasthandoff: 05/17/2018
+abstract:
+  description: Chef Software levert een DevOps-automatiseringsplatform voor Linux en Windows. Hiermee kunnen zowel fysieke als virtuele serverconfiguraties worden beheerd. Leer aan de hand van onze snelstarts en zelfstudies hoe u producten van Chef Software gebruikt om IaC-recepten (infrastructure-as-code) te automatiseren en virtuele machines in Azure te beheren en implementeren.
+  aside:
+    image:
+      alt: Logo van Chef
+      height: 133
+      width: 48
+      src: media/chef.png
+    title: 
+sections:
+- title: QuickStarts van vijf minuten
+  items:
+  - type: paragraph
+    text: Installeer en configureer Chef en gebruik het om een virtuele Linux-machine te maken in Azure.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: /azure/media/index/azure_dev-9.svg
+      text: Chef installeren en configureren
+      href: ./chef-extension-portal.md
+- title: Zelfstudies met stapsgewijze instructies
+  items:
+  - type: paragraph
+    text: Leer hoe u hulpprogramma's van Chef Software gebruikt om berekenings- en netwerkinfrastructuur te maken in Azure.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/virtual-machines/windows/chef-automation">Implementatie van virtuele Azure-machines automatiseren met Chef</a>.
+- title: Bronnen en hulpprogramma's
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Chef Automate
+      html: <p><a href="https://docs.chef.io/chef_automate.html">Overzicht van Chef Automate</a></p> <p><a href="https://docs.chef.io/install_chef_automate.html">Installatiehandleiding voor Chef Automate</a></p> <p><a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate">Chef Automate op Azure Marketplace</a></p>
+    - title: Hulpprogramma's van Chef Software
+      html: <p><a href="https://marketplace.visualstudio.com/items?itemName=chef-software.vsts-chef-tasks">Chef-extensie voor Visual Studio Team Services</a></p> <p><a href="https://marketplace.visualstudio.com/items?itemName=chef-software.vsts-habitat-tasks">Habitat-extensie voor Visual Studio Team Services</a></p>
+    - title: Nieuws over Chef Software
+      html: <p><a href="https://blog.chef.io/">Blog van Chef Software</a></p>

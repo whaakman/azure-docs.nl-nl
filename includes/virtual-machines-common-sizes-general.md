@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 786261b38fe27dccc9c7ef5ee6550f4b50c52e4b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ab9ad821c6780c685c884a87f3075a5d58c1d73a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 VM-grootten voor algemeen gebruik bieden taakverdeling verhouding van de CPU voor geheugen. Ideaal voor testen en ontwikkelen, kleine tot middelgrote databases en webservers met weinig of gemiddeld verkeer. In dit artikel bevat informatie over het aantal Vcpu, gegevensschijven en NIC's, evenals opslag doorvoer en bandbreedte voor elke grootte in deze groepering. 
 
@@ -29,7 +29,7 @@ VM-grootten voor algemeen gebruik bieden taakverdeling verhouding van de CPU voo
 
 ## <a name="b-series"></a>B-serie
 
-De B-serie burstable VM's zijn ideaal voor workloads die niet moet de volledige prestaties van de CPU continu, zoals webservers, kleine databases en ontwikkeling en testen van omgevingen. Deze werkbelastingen hebben doorgaans burstable prestatie-eisen. De B-reeks biedt deze klanten de mogelijkheid om aan te schaffen van een VM-grootte met een basislijn voor prijs morele waarmee de VM-instantie om op te bouwen tegoed bij kleiner zijn dan de algemene prestatiegegevens gebruik van de virtuele machine. Wanneer de virtuele machine zijn tegoed verzameld, kan de virtuele machine burst boven de VM-basislijn met maximaal 100% CPU wanneer uw toepassing hoger CPU-prestaties vereist.
+De B-serie burstable VM's zijn ideaal voor workloads die niet moet de volledige prestaties van de CPU continu, zoals webservers, kleine databases en ontwikkeling en testen van omgevingen. Deze werkbelastingen hebben doorgaans burstable prestatie-eisen. De B-reeks biedt deze klanten de mogelijkheid om aan te schaffen van een VM-grootte met een prijs weloverwogen basislijnprestaties waarmee de VM-instantie om op te bouwen tegoed bij kleiner zijn dan de algemene prestatiegegevens gebruik van de virtuele machine. Wanneer de virtuele machine zijn tegoed verzameld, kan de virtuele machine burst boven de VM-basislijn met maximaal 100% CPU wanneer uw toepassing hoger CPU-prestaties vereist.
 
 
 | Grootte             | vCPU  | Geheugen: GiB | Lokale SSD: GiB | Basis van de prestaties van een kern | Tegoed gestort / uur | Maximale gestort tegoed | Max. aantal gegevensschijven | Maximum aantal lokale schijf perf: IOP's / MBps | Maximale uncached schijf perf: IOP's / MBps | Max. aantal NIC's |          

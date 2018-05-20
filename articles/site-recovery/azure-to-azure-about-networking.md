@@ -6,13 +6,13 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 05/16/2018
 ms.author: sujayt
-ms.openlocfilehash: e3acedf4135166f5239b95eb21eb5dfd66d6100f
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 55eed1afa9d9dbf2c16643cf9186a7e6dafa847e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Over netwerken in Azure-Azure-replicatie
 
@@ -31,7 +31,7 @@ Het volgende diagram ziet u een typische Azure-omgeving, voor toepassingen die w
 
 ![klant-omgeving](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
 
-Als u Azure ExpressRoute of een VPN-verbinding vanuit uw on-premises netwerk naar Azure, lijkt de omgeving als volgt:
+Als u Azure ExpressRoute of een VPN-verbinding vanuit uw on-premises netwerk naar Azure, is de omgeving is als volgt:
 
 ![klant-omgeving](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
 

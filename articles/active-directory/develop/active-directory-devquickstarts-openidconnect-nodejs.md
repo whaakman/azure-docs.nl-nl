@@ -3,23 +3,25 @@ title: Azure AD Node.js-web-app aan de slag | Microsoft Docs
 description: Informatie over het bouwen van een Node.js Express MVC-web-app die met Azure AD voor aanmelden integreert.
 services: active-directory
 documentationcenter: nodejs
-author: navyasric
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 81deecec-dbe2-4e75-8bc0-cf3788645f99
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 04/20/2018
-ms.author: nacanuma
+ms.author: celested
+ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 7e92c50525efdf2854710d7e62781a5c6efb2cf3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8068e193ac267ef23bdaab1fc23bc7bf9b0d330b
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD Node.js-web-app aan de slag
 We gebruiken hier Passport:
@@ -37,7 +39,7 @@ U doet dit door de volgende stappen uitvoeren:
 3. U gebruikt Passport om aan- en afmeldingsaanvragen te verzenden naar Azure AD.
 4. Gegevens over de gebruiker afdrukken.
 
-De code voor deze zelfstudie wordt onderhouden in [GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS).  Als u wilt volgen, kunt u [basis van de app downloaden als ZIP-bestand](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip) of het geraamte:
+De code voor deze zelfstudie wordt onderhouden in [GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS). Als u wilt volgen, kunt u [basis van de app downloaden als ZIP-bestand](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip) of het geraamte:
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
 
@@ -55,7 +57,7 @@ De voltooide toepassing wordt verstrekt aan het einde van deze zelfstudie ook.
 5. Volg de aanwijzingen voor het maken van een **webtoepassing** en/of **WebAPI**.
   * De **naam** beschrijft uw toepassing voor gebruikers van de toepassing.
 
-  * De **aanmeldings-URL** is de basis-URL van uw app.  Het basisproject standaardwaarde is `http://localhost:3000/auth/openid/return`.
+  * De **aanmeldings-URL** is de basis-URL van uw app. Het basisproject standaardwaarde is `http://localhost:3000/auth/openid/return`.
 
 6. Nadat u hebt geregistreerd, wijst Azure AD van uw app een unieke toepassings-ID. U moet deze waarde in de volgende secties, dus kopiëren van de toepassingspagina.
 7. Van de **instellingen** -> **eigenschappen** pagina voor uw toepassing, het bijwerken van de App ID URI. De **App ID URI** is de unieke id voor uw toepassing. De overeenkomst is met de indeling `https://<tenant-domain>/<app-name>`, bijvoorbeeld: `https://contoso.onmicrosoft.com/my-first-aad-app`.
@@ -78,7 +80,7 @@ De voltooide toepassing wordt verstrekt aan het einde van deze zelfstudie ook.
 Hiermee installeert u de bibliotheken die `passport-azure-ad` is afhankelijk van.
 
 ## <a name="step-3-set-up-your-app-to-use-the-passport-node-js-strategy"></a>Stap 3: Uw app instellen voor het gebruik van de strategie passport-knooppunt-js
-We configureren hier snelle voor het gebruik van het OpenID Connect-verificatieprotocol.  Passport wordt gebruikt om verschillende dingen, met inbegrip van probleem aanmelden en afmeldingsaanvragen te verzenden, sessie van de gebruiker beheren en informatie ophalen over de gebruiker.
+We configureren hier snelle voor het gebruik van het OpenID Connect-verificatieprotocol. Passport wordt gebruikt om verschillende dingen, met inbegrip van probleem aanmelden en afmeldingsaanvragen te verzenden, sessie van de gebruiker beheren en informatie ophalen over de gebruiker.
 
 1. Om te beginnen, opent u de `config.js` bestand in de hoofdmap van het project en voer vervolgens de configuratiewaarden van uw app in de `exports.creds` sectie.
 
@@ -181,7 +183,7 @@ De vorige code wordt elke gebruiker die plaatsvindt om te verifiëren met onze s
             };
     ```
 
-5.  Vervolgens voegen we de code voor het laden van de Express-engine. Hier gebruiken we de standaard /views en /routes patroon dat Express biedt.
+5. Vervolgens voegen we de code voor het laden van de Express-engine. Hier gebruiken we de standaard /views en /routes patroon dat Express biedt.
 
     ```JavaScript
 
@@ -252,7 +254,7 @@ De vorige code wordt elke gebruiker die plaatsvindt om te verifiëren met onze s
 
 
 ## <a name="step-4-use-passport-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>Stap 4: Gebruik Passport om aan- en afmeldingsaanvragen te verzenden naar Azure AD
-Uw app is nu geconfigureerd om te communiceren met het eindpunt met behulp van het OpenID Connect-verificatieprotocol.  `passport-azure-ad` heeft gezorgd voor de details van verificatieberichten, het valideren van tokens van Azure AD en het onderhoud van gebruikerssessies. Alle resterende is door uw gebruikers te kunnen aanmelden en afmelden en verzamelen van aanvullende informatie over de aangemelde gebruikers.
+Uw app is nu geconfigureerd om te communiceren met het eindpunt met behulp van het OpenID Connect-verificatieprotocol. `passport-azure-ad` heeft gezorgd voor de details van verificatieberichten, het valideren van tokens van Azure AD en het onderhoud van gebruikerssessies. Alle resterende is door uw gebruikers te kunnen aanmelden en afmelden en verzamelen van aanvullende informatie over de aangemelde gebruikers.
 
 1. Eerst gaan we de standaard, aanmelden, account en toevoegen afmeldingsmethoden toe aan onze `app.js` bestand:
 
@@ -282,7 +284,7 @@ Uw app is nu geconfigureerd om te communiceren met het eindpunt met behulp van h
 
     ```
 
-2.  Laten we controleert deze onderdelen:
+2. Laten we controleert deze onderdelen:
 
   * De `/`route wordt omgeleid naar de weergave index.ejs doorgeven van de gebruiker in de aanvraag (indien aanwezig).
   * De `/account` eerst routeren *zorgt ervoor dat we worden geverifieerd* (we implementeren die in het volgende voorbeeld), en wordt de gebruiker doorgegeven in de aanvraag zodat we extra informatie over de gebruiker kunt ophalen.

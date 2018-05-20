@@ -2,19 +2,19 @@
 title: Hoog contrast in Azure-portal inschakelen | Microsoft Docs
 description: Ontdek hoe hoog contrast inschakelen of wijzigen van de Azure portal thema.
 services: azure-portal
-keywords: 
+keywords: ''
 author: cwatson-cat
 ms.author: cwatson
 ms.date: 08/24/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: accessibility
-manager: timlt
-ms.openlocfilehash: 6099bc9d19216dced5611785c2a484d50fde7883
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+manager: dougeby
+ms.openlocfilehash: 08f42fc70373effd46297ad67d4359bfa42852b7
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="turn-on-high-contrast-or-change-the-theme-in-the-azure-portal"></a>Hoog contrast inschakelen of wijzigen van het thema in de Azure portal
 Als u meer contrast nodig of u wilt wijzigen van het kleurenschema in de Azure portal, gaat u naar de instellingen voor de wijziging aan te brengen. 

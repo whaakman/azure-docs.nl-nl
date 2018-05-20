@@ -7,13 +7,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2018
+ms.date: 05/16/2018
 ms.author: sujayt
-ms.openlocfilehash: d7bfbbe834ac8506b7d12d5748406460df0fe3bc
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: daaca3c7b389642a288f738eb0954050e168abef
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>De ondersteuningsmatrix voor het repliceren van een Azure-regio naar een andere
 
@@ -30,7 +30,7 @@ In dit artikel bevat een overzicht van ondersteunde configuraties en -onderdelen
 --- | ---
 **Azure Portal** | Ondersteund
 **Klassieke portal** | Niet ondersteund
-**PowerShell** | [Preview](azure-to-azure-powershell.md)
+**PowerShell** | [Replicatie van Azure naar Azure met PowerShell](azure-to-azure-powershell.md)
 **REST API** | Momenteel niet ondersteund
 **CLI** | Momenteel niet ondersteund
 

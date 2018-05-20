@@ -12,11 +12,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/29/2017
 ms.author: tdykstra
-ms.openlocfilehash: bd4f36bb029f123b0fa41d6dcd57547413e015c0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 29f6b3e8b7d7d940da098953e8f9d3deaccf78dc
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid-bindingen
 
@@ -29,6 +29,8 @@ Dit artikel wordt uitgelegd hoe u e-mail verzendt met behulp van [SendGrid](http
 De SendGrid-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) NuGet-pakket. De broncode voor het pakket bevindt zich in de [azure webjobs-sdk extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/) GitHub-opslagplaats.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
 
 ## <a name="example"></a>Voorbeeld
 
@@ -187,8 +189,8 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |**direction**|| Vereist - moet worden ingesteld op `out`.|
 |**Naam**|| Vereist: de naam van de variabele in functiecode gebruikt voor de aanvraag of de hoofdtekst van de aanvraag. Deze waarde is ```$return``` wanneer er slechts één waarde. |
 |**apiKey**|**ApiKey**| De naam van een app-instelling die uw API-sleutel bevat. Als niet is ingesteld, de standaard-app instellen van is de naam 'AzureWebJobsSendGridApiKey'.|
-|**to**|**Aan**| e-mailadres van de geadresseerde. |
-|**from**|**From**| e-mailadres van de afzender. |
+|**Aan**|**Aan**| e-mailadres van de geadresseerde. |
+|**Van**|**Van**| e-mailadres van de afzender. |
 |**Onderwerp**|**Onderwerp**| het onderwerp van het e-mailbericht. |
 |**Tekst**|**Tekst**| de inhoud van e-mail. |
 

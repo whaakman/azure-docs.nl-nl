@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: tdykstra
-ms.openlocfilehash: ae24031922c2ef01c9274f6ecf572158a9a194d4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: MT
+ms.openlocfilehash: 5266acf2f053af62f907f71ff1fe0805e1008927
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Service Bus-bindingen voor Azure Functions
 
@@ -49,16 +49,22 @@ Zie het voorbeeld taalspecifieke:
 
 ### <a name="trigger---c-example"></a>Trigger - C#-voorbeeld
 
-Het volgende voorbeeld wordt een [C#-functie](functions-dotnet-class-library.md) die zich aanmeldt met een Service Bus-wachtrij-bericht.
+Het volgende voorbeeld wordt een [C#-functie](functions-dotnet-class-library.md) die leest [bericht metagegevens](#trigger---message-metadata) en registreert een Service Bus-wachtrijbericht:
 
 ```cs
 [FunctionName("ServiceBusQueueTriggerCSharp")]                    
 public static void Run(
     [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] 
-    string myQueueItem, 
+    string myQueueItem,
+    Int32 deliveryCount,
+    DateTime enqueuedTimeUtc,
+    string messageId,
     TraceWriter log)
 {
     log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.Info($"DeliveryCount={deliveryCount}");
+    log.Info($"MessageId={messageId}");
 }
 ```
 
@@ -66,7 +72,7 @@ In dit voorbeeld is voor Azure Functions versie 1.x; voor 2.x [laat de parameter
  
 ### <a name="trigger---c-script-example"></a>Trigger - voorbeeld van C#-script
 
-Het volgende voorbeeld ziet u een Service Bus-trigger binding in een *function.json* bestand en een [C# scriptfunctie](functions-reference-csharp.md) die gebruikmaakt van de binding. De functie registreert een Service Bus-wachtrij-bericht.
+Het volgende voorbeeld ziet u een Service Bus-trigger binding in een *function.json* bestand en een [C# scriptfunctie](functions-reference-csharp.md) die gebruikmaakt van de binding. De functie leest [bericht metagegevens](#trigger---message-metadata) en registreert het bericht van een Service Bus-wachtrij.
 
 Dit zijn de bindingsgegevens de *function.json* bestand:
 
@@ -88,9 +94,19 @@ Dit zijn de bindingsgegevens de *function.json* bestand:
 Dit is de C#-scriptcode:
 
 ```cs
-public static void Run(string myQueueItem, TraceWriter log)
+using System;
+
+public static void Run(string myQueueItem,
+    Int32 deliveryCount,
+    DateTime enqueuedTimeUtc,
+    string messageId,
+    TraceWriter log)
 {
     log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+
+    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.Info($"DeliveryCount={deliveryCount}");
+    log.Info($"MessageId={messageId}");
 }
 ```
 
@@ -124,7 +140,7 @@ let Run(myQueueItem: string, log: TraceWriter) =
 
 ### <a name="trigger---javascript-example"></a>Trigger - JavaScript-voorbeeld
 
-Het volgende voorbeeld ziet u een Service Bus-trigger binding in een *function.json* bestand en een [JavaScript-functie](functions-reference-node.md) die gebruikmaakt van de binding. De functie registreert een Service Bus-wachtrij-bericht. 
+Het volgende voorbeeld ziet u een Service Bus-trigger binding in een *function.json* bestand en een [JavaScript-functie](functions-reference-node.md) die gebruikmaakt van de binding. De functie leest [bericht metagegevens](#trigger---message-metadata) en registreert het bericht van een Service Bus-wachtrij. 
 
 Dit zijn de bindingsgegevens de *function.json* bestand:
 
@@ -148,6 +164,9 @@ Hier volgt de JavaScript-scriptcode:
 ```javascript
 module.exports = function(context, myQueueItem) {
     context.log('Node.js ServiceBus queue trigger function processed message', myQueueItem);
+    context.log('EnqueuedTimeUtc =', context.bindingData.enqueuedTimeUtc);
+    context.log('DeliveryCount =', context.bindingData.deliveryCount);
+    context.log('MessageId =', context.bindingData.messageId);
     context.done();
 };
 ```
@@ -221,7 +240,7 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |**direction** | N.v.t. | Moet worden ingesteld op 'in'. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt. |
 |**Naam** | N.v.t. | De naam van de variabele die staat voor de wachtrij of onderwerp bericht in de functiecode. Ingesteld op '$return' om te verwijzen naar de retourwaarde van de functie. | 
 |**queueName**|**Wachtrijnaam**|De naam van de wachtrij om te controleren.  Alleen ingesteld als een wachtrij, niet voor een onderwerp bewaking.
-|**topicName**|**TopicName**|De naam van het onderwerp om te controleren. Alleen ingesteld als een onderwerp, voor een wachtrij niet controleren.|
+|**TopicName**|**TopicName**|De naam van het onderwerp om te controleren. Alleen ingesteld als een onderwerp, voor een wachtrij niet controleren.|
 |**SubscriptionName**|**SubscriptionName**|Naam van het abonnement om te controleren. Alleen ingesteld als een onderwerp, voor een wachtrij niet controleren.|
 |**Verbinding**|**Verbinding**|De naam van een app-instelling met de Service Bus-verbindingsreeks moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam opgeven. Als u bijvoorbeeld `connection` naar 'MyServiceBus', lijkt de runtime van Functions voor een app die is met de naam 'AzureWebJobsMyServiceBus'. Als u niets `connection` leeg is, wordt de runtime van Functions maakt gebruik van de standaard Service Bus-verbindingsreeks in de app-instelling met de naam 'AzureWebJobsServiceBus'.<br><br>Als u een verbindingsreeks, volgt u de stappen die wordt weergegeven op [Beheerreferenties](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). De verbindingsreeks moet voor een Service Bus-naamruimte niet beperkt tot een specifieke wachtrij of onderwerp. |
 |**accessRights**|**Toegang**|Toegangsrechten voor de verbindingsreeks. Beschikbare waarden zijn `manage` en `listen`. De standaardwaarde is `manage`, wat aangeeft dat de `connection` heeft de **beheren** machtiging. Als u een verbindingsreeks die u niet beschikt over de **beheren** , machtigingenset `accessRights` ' luisteren '. De runtime mislukken kan voor bewerkingen waarvoor probeert functies beheren anders rechten. In Azure Functions versie 2.x deze eigenschap is niet beschikbaar omdat de nieuwste versie van de opslag-SDK biedt geen ondersteuning voor bewerkingen beheren.|
@@ -247,7 +266,30 @@ Verwerken van verontreinigde berichten kan niet worden beheerd of geconfigureerd
 
 ## <a name="trigger---peeklock-behavior"></a>Trigger - PeekLock gedrag
 
-De runtime van Functions ontvangt een bericht in [PeekLock modus](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). Roept `Complete` op het bericht als de functie wordt voltooid of aanroepen `Abandon` als de functie is mislukt. Als de functie wordt uitgevoerd langer dan de `PeekLock` een time-out opgetreden, de vergrendeling wordt automatisch verlengd.
+De runtime van Functions ontvangt een bericht in [PeekLock modus](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). Roept `Complete` op het bericht als de functie wordt voltooid of aanroepen `Abandon` als de functie is mislukt. Als de functie wordt uitgevoerd langer dan de `PeekLock` een time-out opgetreden, de vergrendeling wordt automatisch verlengd, zolang de functie wordt uitgevoerd. 
+
+Functies 1.x kunt u configureren `autoRenewTimeout` in *host.json*, die wordt toegewezen aan [OnMessageOptions.AutoRenewTimeout](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout?view=azure-dotnet#Microsoft_ServiceBus_Messaging_OnMessageOptions_AutoRenewTimeout). Het toegestane maximum voor deze instelling is 5 minuten volgens de documentatie van de Service Bus, terwijl u de tijdslimiet functies van de standaardwaarde van 5 minuten tot 10 minuten kunt verhogen. Voor Service Bus-functies u wilt niet dat vervolgens doen omdat u de limiet voor het vernieuwen van Service Bus zou overschrijden.
+
+## <a name="trigger---message-metadata"></a>Trigger - bericht metagegevens
+
+De Service Bus-trigger bevat diverse [eigenschappen voor metagegevens](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Deze eigenschappen kunnen worden gebruikt als onderdeel van de expressies voor gegevensbinding in andere bindingen of als parameters in uw code. Dit zijn de eigenschappen van de [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) klasse.
+
+|Eigenschap|Type|Beschrijving|
+|--------|----|-----------|
+|`DeliveryCount`|`Int32`|Het aantal leveringen.|
+|`DeadLetterSource`|`string`|De bron voor onbestelbare berichten.|
+|`ExpiresAtUtc`|`DateTime`|De verlooptijd in UTC.|
+|`EnqueuedTimeUtc`|`DateTime`|De tijd in de wachtrij in UTC.|
+|`MessageId`|`string`|Een door de gebruiker gedefinieerde waarde die Service Bus gebruiken kunt voor het identificeren van dubbele berichten als ingeschakeld.|
+|`ContentType`|`string`|Een inhoudstype-id door de afzender en ontvanger voor specifieke toepassingslogica gebruikt.|
+|`ReplyTo`|`string`|Het antwoord naar de wachtrijadres.|
+|`SequenceNumber`|`Int64`|Het unieke nummer toegewezen aan een bericht met de Service Bus.|
+|`To`|`string`|De verzenden naar het adres.|
+|`Label`|`string`|Het specifieke label van de toepassing.|
+|`CorrelationId`|`string`|De correlatie-ID.|
+|`Properties`|`IDictionary<String,Object>`|De toepassing specifieke bericht-eigenschappen.|
+
+Zie [codevoorbeelden](#trigger---example) die gebruikmaken van deze eigenschappen eerder in dit artikel.
 
 ## <a name="trigger---hostjson-properties"></a>Trigger - eigenschappen host.json
 
@@ -404,7 +446,7 @@ Hier volgt een JavaScript-scriptcode die één bericht worden gemaakt:
 module.exports = function (context, myTimer) {
     var message = 'Service Bus queue message created at ' + timeStamp;
     context.log(message);   
-    context.bindings.outputSbQueueMsg = message;
+    context.bindings.outputSbQueue = message;
     context.done();
 };
 ```
@@ -415,9 +457,9 @@ Hier volgt een JavaScript-scriptcode die meerdere berichten worden gemaakt:
 module.exports = function (context, myTimer) {
     var message = 'Service Bus queue message created at ' + timeStamp;
     context.log(message);   
-    context.bindings.outputSbQueueMsg = [];
-    context.bindings.outputSbQueueMsg.push("1 " + message);
-    context.bindings.outputSbQueueMsg.push("2 " + message);
+    context.bindings.outputSbQueue = [];
+    context.bindings.outputSbQueue.push("1 " + message);
+    context.bindings.outputSbQueue.push("2 " + message);
     context.done();
 };
 ```
@@ -462,7 +504,7 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |**direction** | N.v.t. | Moet worden ingesteld op 'out'. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt. |
 |**Naam** | N.v.t. | De naam van de variabele die staat voor de wachtrij of onderwerp in de functiecode. Ingesteld op '$return' om te verwijzen naar de retourwaarde van de functie. | 
 |**queueName**|**Wachtrijnaam**|De naam van de wachtrij.  Alleen ingesteld als Wachtrijberichten, niet voor een onderwerp verzenden.
-|**topicName**|**TopicName**|De naam van het onderwerp om te controleren. Alleen ingesteld als onderwerp berichten, niet voor een wachtrij te verzenden.|
+|**TopicName**|**TopicName**|De naam van het onderwerp om te controleren. Alleen ingesteld als onderwerp berichten, niet voor een wachtrij te verzenden.|
 |**Verbinding**|**Verbinding**|De naam van een app-instelling met de Service Bus-verbindingsreeks moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam opgeven. Als u bijvoorbeeld `connection` naar 'MyServiceBus', lijkt de runtime van Functions voor een app die is met de naam 'AzureWebJobsMyServiceBus'. Als u niets `connection` leeg is, wordt de runtime van Functions maakt gebruik van de standaard Service Bus-verbindingsreeks in de app-instelling met de naam 'AzureWebJobsServiceBus'.<br><br>Als u een verbindingsreeks, volgt u de stappen die wordt weergegeven op [Beheerreferenties](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). De verbindingsreeks moet voor een Service Bus-naamruimte niet beperkt tot een specifieke wachtrij of onderwerp.|
 |**accessRights**|**Toegang**|Toegangsrechten voor de verbindingsreeks. Beschikbare waarden zijn `manage` en `listen`. De standaardwaarde is `manage`, wat aangeeft dat de `connection` heeft de **beheren** machtiging. Als u een verbindingsreeks die u niet beschikt over de **beheren** , machtigingenset `accessRights` ' luisteren '. De runtime mislukken kan voor bewerkingen waarvoor probeert functies beheren anders rechten. In Azure Functions versie 2.x deze eigenschap is niet beschikbaar omdat de nieuwste versie van de opslag-SDK biedt geen ondersteuning voor bewerkingen beheren.|
 

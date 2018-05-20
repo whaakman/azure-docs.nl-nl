@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: mfussell
-editor: 
+editor: ''
 ms.assetid: 7c712c22-d333-44bc-b837-d0b3603d9da8
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/2/2017
 ms.author: dekapur
-ms.openlocfilehash: a8c1ac57d38ae504e677c44c6fec08164b9b74ce
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 82ee3cbca40713d527f64ae4698cb9ce64a10215
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="report-and-check-service-health"></a>Servicestatus rapporteren en controleren
 Wanneer uw services problemen ondervindt, is de mogelijkheid om te reageren op en oplossen van incidenten en storingen afhankelijk van de mogelijkheid voor het detecteren van de problemen snel. Als u problemen en fouten aan de Azure Service Fabric health manager vanuit uw servicecode, kunt u standaard voor health monitoring hulpprogramma's die Service Fabric bevat om de health-status te controleren.

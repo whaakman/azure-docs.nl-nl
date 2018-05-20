@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: 65e1f8a907c8bf64497f7439e5b635ad336cd23a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 026ff0394e988081bdc581bf001417b13e44427b
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referentie - IoT-Hub quota's en beperking
 
@@ -39,7 +39,7 @@ De volgende tabel toont de afgedwongen vertragingen. Waarden verwijzen naar een 
 | Vertragen | Gratis B1 en S1 | B2 en S2 | B3 en S3 | 
 | -------- | ------- | ------- | ------- |
 | Identiteit registerbewerkingen (maken, ophalen, weergeven, bijwerken en verwijderen) | 1.67/sec/Unit (min-100/unit) | 1.67/sec/Unit (min-100/unit) | 83.33/sec/Unit (min-5000/unit) |
-| Apparaatverbindingen | Hogere van 100 per seconde of sec-12-eenheid <br/> Twee S1 eenheden zijn bijvoorbeeld 2\*12 = 24/sec, maar u hebt ten minste 100 per seconde voor uw units. Met negen S1 eenheden, hebt u 108 per seconde (9\*12) voor uw units. | sec-120-eenheid | sec-6000-eenheid |
+| Nieuwe apparaatverbindingen (deze limiet is van toepassing op de snelheid waarmee _nieuwe verbindingen_ tot stand worden gebracht, niet het totale aantal verbindingen) | Hogere van 100 per seconde of sec-12-eenheid <br/> Twee S1 eenheden zijn bijvoorbeeld 2\*12 = 24 nieuwe verbindingen dat per seconde, maar u hebt u ten minste 100 nieuwe verbindingen dat per seconde in de eenheden. Met negen S1 eenheden, hebt u 108 nieuwe verbindingen dat per seconde (9\*12) voor uw units. | nieuwe verbindingen/sec/eenheid van de 120 | 6000 nieuwe verbindingen/sec/eenheid |
 | Apparaat-naar-cloud verzendt | Hogere van 100 per seconde of sec-12-eenheid <br/> Twee S1 eenheden zijn bijvoorbeeld 2\*12 = 24/sec, maar u hebt ten minste 100 per seconde voor uw units. Met negen S1 eenheden, hebt u 108 per seconde (9\*12) voor uw units. | sec-120-eenheid | sec-6000-eenheid |
 | Cloud-naar-apparaat verzendt<sup>1</sup> | 1.67/sec/Unit (min-100/unit) | 1.67/sec/Unit (min-100/unit) | 83.33/sec/Unit (min-5000/unit) |
 | Cloud-naar-apparaat ontvangt<sup>1</sup> <br/> (alleen als apparaat maakt gebruik van HTTPS)| 16.67/sec/Unit (min-1000/unit) | 16.67/sec/Unit (min-1000/unit) | 833.33/sec/Unit (min-50000/unit) |

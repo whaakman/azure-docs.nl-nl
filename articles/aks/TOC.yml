@@ -45,14 +45,14 @@
           href: delete-cluster.md
     - name: Gegevensvolumes configureren
       items:
-        - name: Kubernetes-volume - schijven
-          href: azure-disk-volume.md
-        - name: Kubernetes-volume - bestanden
-          href: azure-files-volume.md
-        - name: Permanent volume - schijven
+        - name: Dynamische inrichting van AzureDisk
           href: azure-disks-dynamic-pv.md
-        - name: Permanent volume - bestanden
+        - name: Statische inrichting van AzureDisk
+          href: azure-disk-volume.md
+        - name: Dynamische inrichting van AzureFile
           href: azure-files-dynamic-pv.md
+        - name: Statische inrichting van AzureFile
+          href: azure-files-volume.md
     - name: Netwerk configureren
       items:
         - name: Overzicht van netwerken

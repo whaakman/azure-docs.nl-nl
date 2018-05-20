@@ -4,54 +4,70 @@ description: 'Meer informatie over Apache Kafka in HDInsight: wat het is, wat he
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: f284b6e3-5f3b-4a50-b455-917e77588069
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/27/2018
+ms.date: 04/11/2018
 ms.author: larryfr
-ms.openlocfilehash: 4a4f2c6734de211cd20ee4b9f6815bdefefb25bc
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 51b4e4dea0f0c4da739f9e40beb74931060dd22b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="introducing-apache-kafka-on-hdinsight"></a>Inleiding tot Apache Kafka in HDInsight
+# <a name="what-is-apache-kafka-on-hdinsight"></a>Wat is Apache Kafka in HDInsight?
 
-[Apache Kafka](https://kafka.apache.org) is een open-source gedistribueerd streamingplatform dat kan worden gebruikt voor het bouwen van pijplijnen en toepassingen voor realtime streaming van gegevens. Kafka biedt ook berichtenbrokerfunctionaliteit vergelijkbaar met een berichtenwachtrij, waarmee u benoemde gegevensstromen kunt publiceren en zich erop kunt abonneren. Kafka in HDInsight biedt u een beheerde, zeer schaalbare en maximaal beschikbare service in Microsoft Azure Cloud.
+[Apache Kafka](https://kafka.apache.org) is een open-source gedistribueerd streamingplatform dat kan worden gebruikt voor het bouwen van pijplijnen en toepassingen voor realtime streaming van gegevens. Kafka biedt ook berichtenbrokerfunctionaliteit vergelijkbaar met een berichtenwachtrij, waarmee u benoemde gegevensstromen kunt publiceren en zich erop kunt abonneren. 
 
-## <a name="why-use-kafka-on-hdinsight"></a>Waarom Kafka op HDInsight gebruiken?
+Dit zijn specifieke kenmerken van Kafka in HDInsight:
 
-Kafka op HDInsight biedt de volgende functies:
+* Het is een beheerde service die een vereenvoudigd configuratieproces mogelijk maakt. Het resultaat is een configuratie die is getest en die wordt ondersteund door Microsoft.
 
-* __Service Level Agreement (SLA) voor 99,9% uptime op Kafka__: zie voor meer informatie het document [SLA-gegevens voor HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
+* Microsoft biedt een SLA (Service Level Agreement) met een uptime van 99,9% voor Kafka. Zie [SLA-informatie voor HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/) voor meer informatie.
 
-* __Fouttolerantie__: Kafka is ontworpen met een eendimensionale weergave van een rack, wat voor bepaalde omgevingen goed werkt. In omgevingen zoals Azure wordt een rack echter onderverdeeld in twee dimensies: updatedomeinen (UD's) en foutdomeinen (FD's). Microsoft biedt hulpprogramma's voor het herverdelen van Kafka-partities en -replica's op UD’s en FD’s. 
-
-    Zie [Hoge beschikbaarheid met Kafka op HDInsight](apache-kafka-high-availability.md) voor meer informatie.
-
-* **Integratie met Azure Managed Disks**: beheerde schijven bieden een hogere schaal en doorvoer voor de schijven die door Kafka worden gebruikt op HDInsight, tot 16 TB per knooppunt in het cluster.
-
-    Zie [Increase scalability of Kafka on HDInsight](apache-kafka-scalability.md) (Schaalbaarheid verhogen van Kafka in HDInsight) voor informatie over het configureren van beheerde schijven met Kafka in HDInsight.
+* Het gebruikt Azure Managed Disks als de externe opslag voor Kafka. Managed Disks kan maximaal 16 TB opslag per Kafka-broker leveren. Zie [Increase scalability of Kafka on HDInsight](apache-kafka-scalability.md) (Schaalbaarheid verhogen van Kafka in HDInsight) voor informatie over het configureren van beheerde schijven met Kafka in HDInsight.
 
     Zie [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) voor meer informatie over beheerde schijven.
 
-* **Waarschuwingen, controle en predictief onderhoud**: Azure Log Analytics kan worden gebruikt om Kafka op HDInsight te controleren. Log Analytics haalt informatie op VM-niveau naar boven, zoals schijf- en NIC-gegevens en JMX-gegevens van Kafka.
+* Kafka is ontworpen als een eendimensionale weergave van een rek. Azure splitst een rek op in twee dimensies: updatedomeinen (UD) en foutdomeinen (FD). Microsoft biedt hulpprogramma's voor het herverdelen van Kafka-partities en -replica's in UD’s en FD’s. 
+
+    Zie [Hoge beschikbaarheid met Kafka op HDInsight](apache-kafka-high-availability.md) voor meer informatie.
+
+* Met HDInsight kunt u het aantal werkknooppunten (waarop de Kafka-broker wordt gehost) wijzigen na het maken van het cluster. Schalen kan worden uitgevoerd vanuit Azure Portal, Azure PowerShell en andere interfaces voor Azure-beheer. Voor Kafka moet u partitiereplica's na het schalen herverdelen. Door herverdeling van partities kan Kafka gebruikmaken van het nieuwe aantal worker-knooppunten.
+
+    Zie [Hoge beschikbaarheid met Kafka op HDInsight](apache-kafka-high-availability.md) voor meer informatie.
+
+* Azure Log Analytics kan worden gebruikt voor het monitoren van Kafka in HDInsight. Log Analytics haalt informatie op VM-niveau naar boven, zoals schijf- en NIC-gegevens en JMX-gegevens van Kafka.
 
     Zie [Logboeken voor Kafka op HDInsight analyseren](apache-kafka-log-analytics-operations-management.md) voor meer informatie.
+
+### <a name="kafka-on-hdinsight-architecture"></a>Architectuur van Kafka in HDInsight
+
+Het volgende diagram toont een typische Kafka-configuratie die gebruikmaakt van de consumentgroepen, partitionering en replicatie om het parallel lezen van gebeurtenissen met fouttolerantie mogelijk te maken:
+
+![Diagram van Kafka-clusterconfiguratie](./media/apache-kafka-introduction/kafka-cluster.png)
+
+Apache ZooKeeper beheert de status van het Kafka-cluster. Zookeeper is gebouwd voor gelijktijdige, robuuste transacties met een lage latentie. 
+
+Kafka slaat records (gegevens) op in **onderwerpen**. Records worden geproduceerd door **producenten** en worden gebruikt door **consumenten**. Producenten versturen records naar Kafka-**brokers**. Elk werkrolknooppunt in uw HDInsight-cluster is een Kafka-broker. 
+
+Onderwerpen verdelen records over brokers. Wanneer records worden verbruikt, kunt u maximaal één consumer per partitie gebruiken voor parallelle verwerking van de gegevens.
+
+Replicatie wordt gebruikt om partities te dupliceren over knooppunten, zodat er beveiliging is tegen storingen van knooppunten (broker). Een partitie die in het diagram is gemarkeerd met een *(L)*, is de leidende partitie voor de opgegeven partitie. Producentverkeer wordt doorgestuurd naar de leider van elk knooppunt, met behulp van de status die wordt beheerd door ZooKeeper.
+
+## <a name="why-use-kafka-on-hdinsight"></a>Waarom Kafka op HDInsight gebruiken?
+
+Hier volgen enkele algemene taken en patronen die kunnen worden uitgevoerd met Kafka in HDInsight:
 
 * **Replicatie van Kafka-gegevens**: Kafka biedt het hulpprogramma MirrorMaker, waarmee gegevens worden gerepliceerd tussen Kafka-clusters.
 
     Zie [Kafka-onderwerpen repliceren met Kafka op HDInsight](apache-kafka-mirroring.md) voor informatie over het gebruik van MirrorMaker.
-
-* **Clusterschaling**: met HDInsight kunt u het aantal worker-knooppunten (waarop de Kafka-broker wordt gehost) wijzigen na het maken van het cluster. Een cluster omhoog schalen als de werkbelasting toeneemt of omlaag schalen om de kosten te verlagen. Schalen kan worden uitgevoerd vanuit Azure Portal, Azure PowerShell en andere interfaces voor Azure-beheer. Voor Kafka moet u partitiereplica's na het schalen herverdelen. Door herverdeling van partities kan Kafka gebruikmaken van het nieuwe aantal worker-knooppunten.
-
-    Zie [Hoge beschikbaarheid met Kafka op HDInsight](apache-kafka-high-availability.md) voor meer informatie.
 
 * **Publicatie-/abonnementsberichten**: Kafka biedt een producent-API voor het publiceren van records naar een Kafka-onderwerp. De consument-API wordt gebruikt bij het abonneren op een onderwerp.
 
@@ -79,27 +95,12 @@ Kafka op HDInsight biedt de volgende functies:
 
 * **Transformatie**: met streamverwerking kunt u de gegevens uit meerdere invoeronderwerpen combineren en vertalen naar één of meer uitvoeronderwerpen.
 
-## <a name="architecture"></a>Architectuur
-
-![Kafka-clusterconfiguratie](./media/apache-kafka-introduction/kafka-cluster.png)
-
-Dit diagram toont een typische Kafka-configuratie die gebruikmaakt van de consumentgroepen, partitionering en replicatie om het parallel lezen van gebeurtenissen met fouttolerantie mogelijk te maken. Apache ZooKeeper is gebouwd voor gelijktijdige, robuuste transacties met een lage latentie voor het beheren van de status van het Kafka-cluster. Kafka slaat records op in *onderwerpen*. Records worden geproduceerd door *producenten* en worden gebruikt door *consumenten*. Producenten halen records op uit Kafka-*brokers*. Elk werkrolknooppunt in uw HDInsight-cluster is een Kafka-broker. Voor elke consument wordt één partitie gemaakt, zodat de streaminggegevens parallel kunnen worden verwerkt. Replicatie wordt gebruikt om de partities over knooppunten te verdelen, zodat er beveiliging is tegen storingen van knooppunten (broker). Een partitie die is gemarkeerd met een *(L)* is de leidende partitie voor de opgegeven partitie. Producentverkeer wordt doorgestuurd naar de leider van elk knooppunt, met behulp van de status die wordt beheerd door ZooKeeper.
-
-Elke Kafka-broker maakt gebruik van Azure Managed Disks. Het aantal schijven is per gebruiker gedefinieerd en kan maximaal 16 TB aan opslag per broker bieden.
-
-> [!IMPORTANT]
-> Kafka is niet op de hoogte van de onderliggende hardware (rack) in het Azure-datacentrum. Om ervoor te zorgen dat partities correct worden verdeeld over de onderliggende hardware raadpleegt u het document [Hoge beschikbaarheid configureren (Kafka)](apache-kafka-high-availability.md).
-
 ## <a name="next-steps"></a>Volgende stappen
 
 Gebruik de volgende koppelingen voor meer informatie over het gebruik van Apache Kafka in HDInsight:
 
-* [Aan de slag met Kafka in HDInsight](apache-kafka-get-started.md)
+* [Snelstart: Een Kafka-cluster maken in HDInsight](apache-kafka-get-started.md)
 
-* [MirrorMaker gebruiken voor het maken van een replica van Kafka in HDInsight](apache-kafka-mirroring.md)
+* [Zelfstudie: Apache Spark gebruiken met Kafka in HDInsight](../hdinsight-apache-spark-with-kafka.md)
 
-* [Apache Storm gebruiken met Kafka in HDInsight](../hdinsight-apache-storm-with-kafka.md)
-
-* [Apache Spark gebruiken met Kafka in HDInsight](../hdinsight-apache-spark-with-kafka.md)
-
-* [Verbinding maken met Kafka via een Azure Virtual Network](apache-kafka-connect-vpn-gateway.md)
+* [Zelfstudie: Apache Storm gebruiken met Kafka in HDInsight](../hdinsight-apache-storm-with-kafka.md)

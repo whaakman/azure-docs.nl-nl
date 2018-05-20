@@ -3,22 +3,22 @@ title: Limieten en -configuratie - Azure Logic Apps | Microsoft Docs
 description: Service-limieten en configuratiewaarden voor Azure Logic Apps
 services: logic-apps
 documentationcenter: ''
-author: jeffhollan
-manager: anneta
+author: ecfan
+manager: cfowler
 editor: ''
 ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.workload: logic-apps
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 524a2dc7a1a5ae4f0747af03d1b9e69d512f0f00
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.date: 05/14/2018
+ms.author: estfan
+ms.openlocfilehash: 8c2ac4b8f55d25d5d3fcfdd6a9bcb6f6c8cfc201
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limieten en configuratie-informatie voor Azure Logic Apps
 
@@ -52,15 +52,26 @@ Hier volgen de limieten voor een definitie van één logische app:
 
 Hier volgen de limieten voor een enkele logische-app uitvoeren:
 
-| Naam | Limiet | 
-| ---- | ----- | 
-| Duur uitvoering | 90 dagen | 
-| Bewaren van opslag | Begintijd van 90 dagen van de uitvoeren | 
-| Minimale terugkeerpatroon | 1 seconde </br>Voor logic apps met een App Service-Plan: 15 seconden | 
-| Maximale terugkeerpatroon | 500 dagen | 
-||| 
+| Naam | Limiet | Opmerkingen | 
+|------|-------|-------| 
+| Duur uitvoering | 90 dagen | Zie het wijzigen van deze limiet [wijziging duur uitvoering](#change-duration). | 
+| Bewaren van opslag | Begintijd van 90 dagen van de uitvoeren | Zie het wijzigen van deze limiet [opslag bewaarperiode wijzigen](#change-retention). | 
+| Minimale terugkeerpatroon | 1 seconde | | 
+| Maximale terugkeerpatroon | 500 dagen | | 
+|||| 
 
-Overschrijden voor uitvoering duur of handhaving van opslag in uw flow normale verwerking [Neem contact op met het team van Logic Apps](mailto://logicappsemail@microsoft.com) voor hulp bij uw behoeften.
+<a name="change-duration"></a>
+<a name="change-retention"></a>
+
+### <a name="change-run-duration-and-storage-retention"></a>Voer duur en opslag bewaarperiode wijzigen
+
+U kunt deze limiet wijzigen in een waarde tussen zeven dagen en 90 dagen. Echter, de maximale limiet overschrijden [Neem contact op met het team van Logic Apps](mailto://logicappsemail@microsoft.com) voor hulp bij uw behoeften.
+
+1. Kies in de Azure-portal op uw logische app-menu **Werkstroominstellingen**. 
+
+2. Onder **Runtime opties**, uit de **geschiedenis bewaartermijn in dagen uitgevoerd** Kies **aangepaste**. 
+
+3. Voer of sleep de schuifregelaar voor het aantal dagen dat u wilt.
 
 <a name="looping-debatching-limits"></a>
 
@@ -113,7 +124,8 @@ Bepaalde bewerkingen connector asynchrone aanroepen of luisteren naar webhook-aa
 
 | Naam | Limiet | Opmerkingen | 
 | ---- | ----- | ----- | 
-| Berichtgrootte | 100 MB | Sommige connectors en API's mogelijk geen ondersteuning voor 100 MB. | 
+| Berichtgrootte | 100 MB | U kunt deze beperking omzeilen, Zie [verwerken van grote berichten met de verdeling in segmenten](../logic-apps/logic-apps-handle-large-messages.md). Echter bepaalde connectors en API's mogelijk geen ondersteuning voor verdeling in segmenten of zelfs de standaardlimiet. | 
+| Grootte van het bericht met de verdeling in segmenten | 1 GB | Deze beperking geldt voor acties die systeemeigen ondersteuning voor verdeling in segmenten of verdeling in segmenten-ondersteuning is ingeschakeld in de runtime-configuratie kunnen hebben. Zie voor meer informatie [verwerken van grote berichten met de verdeling in segmenten](../logic-apps/logic-apps-handle-large-messages.md). | 
 | Expressie evaluatie limiet | 131.072 tekens | De `@concat()`, `@base64()`, `@string()` expressies mag niet langer zijn dan deze limiet. | 
 |||| 
 
@@ -146,21 +158,45 @@ Hier volgen de limieten voor het aangepaste connectors die u van web-API's maken
 
 ### <a name="artifact-limits-per-integration-account"></a>Artefacten limieten per integratie-account
 
-Hier volgen de grenzen van het aantal artefacten voor elk account integratie.
+Hier volgen de grenzen van het aantal artefacten voor elk account integratie. Zie voor meer informatie [Logic Apps prijzen](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-*Gratis prijscategorie*
+*Gratis laag*
 
-| Naam | Limiet | Opmerkingen | 
-| ---- | ----- | ----- | 
-| Overeenkomsten | 10 | | 
-| Andere typen artefact | 25 | Artefacten typen zijn partners, schema's, certificaten en maps. Elk type mogelijk tot het maximum aantal van artefacten. | 
+| Artefacten | Limiet | Opmerkingen | 
+|----------|-------|-------| 
+| EDI-handelspartners | 25 | | 
+| Handelspartners EDI-overeenkomsten | 10 | | 
+| Kaarten | 25 | | 
+| Schema 's | 25 | 
+| Assembly's | 10 | | 
+| Batchconfiguraties | 5 | 
+| Certificaten | 25 | | 
 |||| 
 
-*Standard-prijscategorie*
+*Basic-laag*
 
-| Naam | Limiet | Opmerkingen | 
-| ---- | ----- | ----- | 
-| Elk type artefact | 500 | Artefacten typen zijn overeenkomsten, partners, schema's, certificaten en maps. Elk type mogelijk tot het maximum aantal van artefacten. | 
+| Artefacten | Limiet | Opmerkingen | 
+|----------|-------|-------| 
+| EDI-handelspartners | 2 | | 
+| Handelspartners EDI-overeenkomsten | 1 | | 
+| Kaarten | 500 | | 
+| Schema 's | 500 | 
+| Assembly's | 25 | | 
+| Batchconfiguraties | 1 | | 
+| Certificaten | 2 | | 
+|||| 
+
+*Standaardlaag*
+
+| Artefacten | Limiet | Opmerkingen | 
+|----------|-------|-------| 
+| EDI-handelspartners | 500 | | 
+| Handelspartners EDI-overeenkomsten | 500 | | 
+| Kaarten | 500 | | 
+| Schema 's | 500 | 
+| Assembly's | 50 | | 
+| Batchconfiguraties | 5 |  
+| Certificaten | 50 | | 
 |||| 
 
 <a name="artifact-capacity-limits"></a>

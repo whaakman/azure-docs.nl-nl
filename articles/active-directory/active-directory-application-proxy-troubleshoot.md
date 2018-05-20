@@ -15,11 +15,11 @@ ms.date: 02/14/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 2584af94be5f36d07278d1e3d70d7d3f1403203c
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 838bdccb06e5763d33f63208cb6f941a55778b32
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Oplossen van problemen met toepassingsproxy en foutberichten
 Als er fouten optreden bij het openen van een gepubliceerde toepassing of in de publicatie van toepassingen, controleert u de volgende opties om te zien of Microsoft Azure AD-toepassingsproxy correct werkt:
@@ -27,7 +27,7 @@ Als er fouten optreden bij het openen van een gepubliceerde toepassing of in de 
 * Open de console Windows-Services en controleer of de **Microsoft AAD Application Proxy Connector** -service is ingeschakeld en worden uitgevoerd. U kunt ook om te kijken naar de eigenschappenpagina van Application Proxy service zoals weergegeven in de volgende afbeelding:  
   ![Eigenschappen van Microsoft AAD Application Proxy Connector venster-schermafbeelding](./media/active-directory-application-proxy-troubleshoot/connectorproperties.png)
 * Open Logboeken en zoekt u naar Application Proxy connector-gebeurtenissen in **logboeken toepassingen en Services** > **Microsoft** > **AadApplicationProxy** > **Connector** > **Admin**.
-* Indien nodig, meer gedetailleerde logboeken kunnen worden [inschakelen van de logboeken van de Application Proxy connector sessie](application-proxy-understand-connectors.md#under-the-hood).
+* Indien nodig, meer gedetailleerde logboeken kunnen worden [inschakelen van de logboeken van de Application Proxy connector sessie](manage-apps/application-proxy-connectors.md#under-the-hood).
 
 Zie voor meer informatie over het hulpprogramma Azure AD-probleemoplossing [hulpprogramma probleemoplossing netwerken vereisten connector valideren](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites).
 
@@ -90,7 +90,7 @@ Als er een fout of een probleem met Azure AD-toepassingsproxy die niet is vermel
 * [Toepassingsproxy voor Azure Active Directory inschakelen](manage-apps/application-proxy-enable.md)
 * [Publiceren van toepassingen met toepassingsproxy](manage-apps/application-proxy-publish-azure-portal.md)
 * [Eenmalige aanmelding inschakelen](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
-* [Voorwaardelijke toegang inschakelen](application-proxy-enable-remote-access-sharepoint.md)
+* [Voorwaardelijke toegang inschakelen](manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 
 
 <!--Image references-->

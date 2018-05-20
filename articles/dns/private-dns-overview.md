@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2018
 ms.author: kumud
-ms.openlocfilehash: 1c805819a22d26e650d13b0e41ebac00c4e52d91
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 677fc66b66d6c17806a313f2fac3a15e8e1775ba
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="using-azure-dns-for-private-domains"></a>Azure DNS gebruiken voor persoonlijke domeinen
 Het Domain Name System en DNS, is verantwoordelijk voor het omzetten van (of het oplossen van) de naam van een service het IP-adres. Azure DNS is een hosting service voor DNS-domeinen omzetten van namen met behulp van de Microsoft Azure-infrastructuur.  Naast internet gerichte DNS-domeinen ondersteunt Azure DNS ook nu persoonlijke DNS-domeinen als preview-functie.  
@@ -54,7 +54,7 @@ Azure DNS biedt een betrouwbare, veilige DNS-service wilt beheren en oplossen va
 
 ## <a name="limitations"></a>Beperkingen
 * 1 virtueel netwerk van de registratie per persoonlijke Zone
-* Resolutie van maximaal 10 virtuele netwerken per persoonlijke Zone
+* Maximaal 10 virtuele netwerken van de oplossing per persoonlijke Zone
 * Een bepaald virtueel netwerk kan slechts worden gekoppeld aan een Zone voor persoonlijke als een virtueel netwerk voor registratie
 * Een bepaald virtueel netwerk kan worden gekoppeld aan maximaal 10 persoonlijke Zones als een virtueel netwerk resolutie
 * Als een virtueel netwerk van de registratie is opgegeven, de DNS-records voor de virtuele machines van dit virtuele netwerk die zijn geregistreerd op de Zone persoonlijke niet worden bekeken of worden opgehaald van de Powershell/CLI/API's, maar de VM-records inderdaad zijn geregistreerd en wordt opgelost is

@@ -9,21 +9,21 @@ editor: vturecek
 ms.assetid: 974b2614-014e-4587-a947-28fcef28b382
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 6c4503b3e05f7d78f64a161f620b1fbd6cd38ab1
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a03bb3c74d9c776b893b11c3dec8788fe9ac598c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-programming-model-overview"></a>Overzicht van service Fabric programming model
 Service Fabric biedt verschillende manieren om te schrijven en beheren van uw services. Services kunt gebruiken van de Service Fabric-API's te kunnen profiteren van het platform functies en toepassingsframeworks. Services kunnen ook worden alle gecompileerde uitvoerbaar programma geschreven in elke taal of de code die wordt uitgevoerd in een container gehost op een Service Fabric-cluster.
 
-## <a name="guest-executables"></a>Gast uitvoerbare bestanden
+## <a name="guest-executables"></a>Uitvoerbare gastbestanden
 Een [Gast uitvoerbaar bestand](service-fabric-guest-executables-introduction.md) is een bestaande willekeurige uitvoerbaar bestand (geschreven in een andere taal) en dat kan worden uitgevoerd als een service in uw toepassing. Gast uitvoerbare bestanden de Service Fabric SDK-API's niet rechtstreeks aangeroepen. Maar ze nog steeds profiteren van het platform, zoals aangepaste health service onderwerpgebieden biedt functies en laden door het aanroepen van REST-API's die worden weergegeven door de Service Fabric reporting. Ze hebben ook de volledige toepassing lifecycle ondersteuning.
 
 Aan de slag met gast uitvoerbare bestanden door het implementeren van uw eerste [Gast uitvoerbare toepassing](service-fabric-deploy-existing-app.md).

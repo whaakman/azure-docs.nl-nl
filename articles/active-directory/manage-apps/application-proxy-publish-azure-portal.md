@@ -15,11 +15,11 @@ ms.date: 12/06/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 3ab4530047daec9e8cf163b0223109be6b18525b
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 6ab0e36fc0b4bd3f04d75499b6dfe734a9f72d4d
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Toepassingen publiceren met Azure AD-toepassingsproxy
 
@@ -53,7 +53,7 @@ Volg deze stappen voor het publiceren van uw apps met Application Proxy. Als u d
    - **Interne URL**: de URL die u gebruikt voor toegang tot de toepassing uit binnen uw particuliere netwerk. U kunt voor het publiceren een specifiek pad opgeven op de back-endserver, terwijl de rest van de server ongepubliceerd blijft. U kunt op deze manier kunnen verschillende sites op dezelfde server als verschillende apps publiceren en elk een eigen naam en toegangsregels geven.
 
      > [!TIP]
-     > Als u een pad publiceert, moet u ervoor zorgen dat dit alle benodigde installatiekopieën, scripts en opmaakmodellen voor uw toepassing bevat. Bijvoorbeeld, als uw app wordt op https://yourapp/app en gebruikmaakt van installatiekopieën zich bevindt op https://yourapp/media, en vervolgens moet u publiceren https://yourapp/ als het pad. Deze interne URL hoeft niet te worden van de startpagina van die uw gebruikers te zien. Zie voor meer informatie [instellen van een aangepaste startpagina van gepubliceerde apps](../application-proxy-office365-app-launcher.md).
+     > Als u een pad publiceert, moet u ervoor zorgen dat dit alle benodigde installatiekopieën, scripts en opmaakmodellen voor uw toepassing bevat. Bijvoorbeeld, als uw app wordt op https://yourapp/app en gebruikmaakt van installatiekopieën zich bevindt op https://yourapp/media, en vervolgens moet u publiceren https://yourapp/ als het pad. Deze interne URL hoeft niet te worden van de startpagina van die uw gebruikers te zien. Zie voor meer informatie [instellen van een aangepaste startpagina van gepubliceerde apps](application-proxy-configure-custom-home-page.md).
 
    - **Externe URL**: het adres uw gebruikers gaat naar om toegang tot de app van buiten uw netwerk. Als u niet wilt gebruiken van het standaarddomein toepassingsproxy, leest u over [aangepaste domeinen in Azure AD-toepassingsproxy](application-proxy-configure-custom-domain.md).
    - **Verificatie vooraf**: hoe Application Proxy gebruikers worden geverifieerd voordat ze toegang geven tot uw toepassing. 
@@ -69,7 +69,7 @@ Volg deze stappen voor het publiceren van uw apps met Application Proxy. Als u d
 5. Indien nodig, extra instellingen configureren. Voor de meeste toepassingen, moet u deze instellingen behouden de standaardwaarden hebben. 
    - **Back-end toepassing time-out**: deze waarde instelt op **lang** alleen als uw toepassing traag is om te verifiëren en verbinding maken. 
    - **URL's in de Headers vertalen**: deze waarde als behouden **Ja** tenzij uw toepassing de oorspronkelijke host-header in de verificatieaanvraag vereist.
-   - **URL's in de hoofdtekst van de toepassing te vertalen**: deze waarde als behouden **Nee** tenzij u hardcoded HTML-koppelingen naar andere on-premises toepassingen hebben en geen aangepaste domeinen gebruiken. Zie voor meer informatie [koppelen vertaling met toepassingsproxy](../application-proxy-link-translation.md).
+   - **URL's in de hoofdtekst van de toepassing te vertalen**: deze waarde als behouden **Nee** tenzij u hardcoded HTML-koppelingen naar andere on-premises toepassingen hebben en geen aangepaste domeinen gebruiken. Zie voor meer informatie [koppelen vertaling met toepassingsproxy](application-proxy-configure-hard-coded-link-translation.md).
    
    ![Uw toepassing configureren](./media/application-proxy-publish-azure-portal/additional-settings.png)
 
@@ -99,6 +99,6 @@ Navigeer naar de externe URL die u hebt geconfigureerd tijdens de stap voor publ
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Downloaden van connectors](application-proxy-enable.md) en [connector groepen maken](../active-directory-application-proxy-connectors-azure-portal.md) voor het publiceren van toepassingen op afzonderlijke netwerken en locaties.
+- [Downloaden van connectors](application-proxy-enable.md) en [connector groepen maken](application-proxy-connector-groups.md) voor het publiceren van toepassingen op afzonderlijke netwerken en locaties.
 
-- [Instellen van eenmalige aanmelding](../application-proxy-sso-azure-portal.md) voor uw zojuist gepubliceerde app
+- [Instellen van eenmalige aanmelding](application-proxy-configure-single-sign-on-password-vaulting.md) voor uw zojuist gepubliceerde app

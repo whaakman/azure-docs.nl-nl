@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 05/16/2018
 ms.author: billmath
-ms.openlocfilehash: 564f4f4a3f7532a7419e15b91fdbae9ee12088fd
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a96e856b55f118b74c7cb43ead925e10e4b74f1c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Toegang voor gasten met Azure AD beheren beoordelingen openen
 
@@ -33,7 +33,11 @@ U kunt eenvoudig bovendien dat gastgebruikers juiste toegang hebben. Zichzelf of
 
 ## <a name="prerequisites"></a>Vereisten 
 
-Toegangsbeoordelingen zijn beschikbaar met de Premium P2-editie van Azure AD, die deel uitmaakt van Microsoft Enterprise Mobility + Security, E5. Zie [Azure Active Directory-edities](active-directory-editions.md) voor meer informatie. Elke gebruiker die deze functie gebruikt - bijvoorbeeld voor het maken van een beoordeling, het openen van een beoordeling of het toepassen van een beoordeling - heeft een licentie nodig.
+
+Toegangsbeoordelingen zijn beschikbaar met de Premium P2-editie van Azure AD, die deel uitmaakt van Microsoft Enterprise Mobility + Security, E5. Zie [Azure Active Directory-edities](active-directory-editions.md) voor meer informatie. Elke gebruiker die met deze functie communiceert, inclusief een revisie te maken, een beoordeling invullen of hun toegang bevestigen is een licentie vereist. 
+
+Toegangsbeoordelingen zijn beschikbaar met de Premium P2-editie van Azure AD, die deel uitmaakt van Microsoft Enterprise Mobility + Security, E5. Zie [Azure Active Directory-edities](active-directory-whatis.md) voor meer informatie. Elke gebruiker die deze functie gebruikt - bijvoorbeeld voor het maken van een beoordeling, het openen van een beoordeling of het toepassen van een beoordeling - heeft een licentie nodig.
+
 
 Als u van plan bent om het gastgebruikers vragen om hun eigen toegang controleren, leest u over licentieverlening van Gast-gebruiker. Zie voor meer informatie [licentieverlening van Azure AD B2B-samenwerking](active-directory-b2b-licensing.md).
 

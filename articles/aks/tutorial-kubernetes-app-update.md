@@ -9,15 +9,15 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 97a7e0b8e33042739ccea9a086642d9019c15e5b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: df118a2b5bd8e31bd3fe6101d1d3f631092b6f24
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="tutorial-update-an-application-in-azure-container-service-aks"></a>Zelfstudie: een toepassing bijwerken in Azure Container Service (AKS)
+# <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Zelfstudie: Een toepassing bijwerken in AKS (Azure Kubernetes Service)
 
-Nadat een toepassing is geïmplementeerd in Kubernetes, kunt u deze bijwerken door een nieuwe containerinstallatiekopie of versie van de installatiekopie op te geven. Wanneer u dit doet, wordt de update gefaseerd, zodat telkens maar een deel van de implementatie wordt bijgewerkt. Dankzij deze gefaseerde update kan de toepassing tijdens de update worden uitgevoerd. Het biedt ook een terugdraaimechanisme als er een implementatiefout optreedt. 
+Nadat een toepassing is geïmplementeerd in Kubernetes, kunt u deze bijwerken door een nieuwe containerinstallatiekopie of versie van de installatiekopie op te geven. Wanneer u dit doet, wordt de update gefaseerd, zodat telkens maar een deel van de implementatie wordt bijgewerkt. Dankzij deze gefaseerde update kan de toepassing tijdens de update worden uitgevoerd. Het biedt ook een terugdraaimechanisme als er een implementatiefout optreedt.
 
 In deze zelfstudie, deel zes van acht, wordt de voorbeeldapp Azure Vote bijgewerkt. Taken die u uitvoert, zijn onder andere:
 
@@ -31,15 +31,15 @@ In de volgende zelfstudies wordt Log Analytics geconfigureerd om het Kubernetes-
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In de vorige zelfstudies is een toepassing verpakt in een containerinstallatiekopie, de installatiekopie geüpload naar Azure Container Registry en een Kubernetes-cluster gemaakt. De toepassing is vervolgens in het Kubernetes-cluster uitgevoerd. 
+In de vorige zelfstudies is een toepassing verpakt in een containerinstallatiekopie, de installatiekopie geüpload naar Azure Container Registry en een Kubernetes-cluster gemaakt. De toepassing is vervolgens in het Kubernetes-cluster uitgevoerd.
 
 Er is ook een toepassingsopslagplaats gekloond die de broncode van de toepassing bevat en een vooraf gemaakt Docker Compose-bestand dat wordt gebruikt in deze zelfstudie. Controleer of u een kloon van de opslagplaats hebt gemaakt en of u mappen in de gekloonde map hebt gewijzigd. In deze map bevindt zich een map genaamd `azure-vote` en een bestand genaamd `docker-compose.yaml`.
 
-Als u deze stappen niet hebt voltooid en deze zelfstudie wilt volgen, gaat u terug naar [Zelfstudie 1: Containerinstallatiekopieën maken][aks-tutorial-prepare-app]. 
+Als u deze stappen niet hebt voltooid en deze zelfstudie wilt volgen, gaat u terug naar [Zelfstudie 1: Containerinstallatiekopieën maken][aks-tutorial-prepare-app].
 
 ## <a name="update-application"></a>Toepassing bijwerken
 
-Voor deze zelfstudie wordt een wijziging aangebracht in de toepassing en wordt de bijgewerkte toepassing geïmplementeerd in het Kubernetes-cluster. 
+Voor deze zelfstudie wordt een wijziging aangebracht in de toepassing en wordt de bijgewerkte toepassing geïmplementeerd in het Kubernetes-cluster.
 
 De broncode van de toepassing vindt u in de map `azure-vote`. Open het bestand `config_file.cfg` met een code- of teksteditor. In dit voorbeeld wordt `vi` gebruikt.
 
@@ -69,13 +69,13 @@ docker-compose up --build -d
 
 ## <a name="test-application-locally"></a>Toepassing lokaal testen
 
-Blader naar http://localhost:8080 om de bijgewerkte toepassing te zien.
+Blader naar http://localhost:8080 om de bijgewerkte app weer te geven.
 
 ![Afbeelding van Kubernetes-cluster in Azure](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 
 ## <a name="tag-and-push-images"></a>Installatiekopieën taggen en pushen
 
-Tag de `azure-vote-front`-installatiekopie met de aanmeldingserver van het containerregister. 
+Tag de `azure-vote-front`-installatiekopie met de aanmeldingserver van het containerregister.
 
 Haal de naam van de aanmeldingsserver op met de opdracht [az acr list](/cli/azure/acr#az_acr_list).
 
@@ -164,7 +164,7 @@ In deze zelfstudie hebt u een toepassing bijgewerkt en deze update geïmplemente
 > * De containerinstallatiekopie is gepusht naar Azure Container Registry
 > * De bijgewerkte toepassing is geïmplementeerd
 
-Ga naar de volgende zelfstudie om te leren hoe u Kubernetes controleert met Log Analytics.
+Ga naar de volgende zelfstudie om te leren hoe u Kubernetes bewaakt met Log Analytics.
 
 > [!div class="nextstepaction"]
 > [Kubernetes bewaken met Log Analytics][aks-tutorial-monitor]

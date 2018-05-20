@@ -1,25 +1,26 @@
 ---
-title: Azure Active Directory-ontwikkelaar verklarende woordenlijst | Microsoft Docs
+title: Verklarende woordenlijst voor Azure Active Directory-ontwikkelaar | Microsoft Docs
 description: Een lijst met voorwaarden voor vaak gebruikte concepten voor ontwikkelaars van Azure Active Directory en functies.
 services: active-directory
 documentationcenter: ''
-author: bryanla
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/16/2017
-ms.author: bryanla
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: d32858c89c59ef8240eddca42824374132255fe7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 12c1a4b2b1f3e433721b9c8a335c6b55de746643
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory-ontwikkelaar verklarende woordenlijst
 In dit artikel bevat definities voor enkele van de belangrijkste Azure Active Directory (AD) concepten voor ontwikkelaars, dit handig is bij leren over het ontwikkelen van toepassingen voor Azure AD.
@@ -35,7 +36,7 @@ Toegangstokens worden soms aangeduid als 'Gebruiker + App' of 'App alleen-lezen'
 Zie [Azure AD-tokenverwijzing] [ AAD-Tokens-Claims] voor meer informatie.
 
 ## <a name="application-id-client-id"></a>toepassings-id (client-id)
-De unieke id van Azure AD-problemen voor de registratie van een toepassing die een bepaalde toepassing en de bijbehorende configuraties identificeert.  Deze toepassing-id ([client-id](https://tools.ietf.org/html/rfc6749#page-15)) wordt gebruikt wanneer verificatie vereist en die aan de verificatiebibliotheken in ontwikkeling. De toepassings-id (client-id) is niet een geheim. 
+De unieke id van Azure AD-problemen voor de registratie van een toepassing die een bepaalde toepassing en de bijbehorende configuraties identificeert. Deze toepassing-id ([client-id](https://tools.ietf.org/html/rfc6749#page-15)) wordt gebruikt wanneer verificatie vereist en die aan de verificatiebibliotheken in ontwikkeling. De toepassings-id (client-id) is niet een geheim. 
 
 ## <a name="application-manifest"></a>Het toepassingsmanifest
 Een functie die is geleverd door de [Azure-portal][AZURE-portal], dat resulteert in een JSON-weergave van de identiteit van de configuratie van toepassing, gebruikt als een mechanisme voor het bijwerken van de bijbehorende [ Toepassing] [ AAD-Graph-App-Entity] en [ServicePrincipal] [ AAD-Graph-Sp-Entity] entiteiten. Zie [inzicht in de Azure Active Directory-toepassingsmanifest] [ AAD-App-Manifest] voor meer informatie.
@@ -85,7 +86,7 @@ Een [beveiligingstoken](#security-token) bevat claims, die asserties over één 
 Zie [Azure AD-tokenverwijzing] [ AAD-Tokens-Claims] voor meer informatie.
 
 ## <a name="client-application"></a>clienttoepassing
-Zoals gedefinieerd door de [OAuth2 autorisatie Framework][OAuth2-Role-Def], een toepassing die wordt beveiligd resource aanvragen namens de [resource-eigenaar](#resource-owner). De term 'client' betekent niet dat een bepaalde hardware-implementatie-eigenschappen (bijvoorbeeld: Hiermee wordt aangegeven of de toepassing wordt uitgevoerd op een server, een bureaublad of andere apparaten).  
+Zoals gedefinieerd door de [OAuth2 autorisatie Framework][OAuth2-Role-Def], een toepassing die wordt beveiligd resource aanvragen namens de [resource-eigenaar](#resource-owner). De term 'client' betekent niet dat een bepaalde hardware-implementatie-eigenschappen (bijvoorbeeld: Hiermee wordt aangegeven of de toepassing wordt uitgevoerd op een server, een bureaublad of andere apparaten). 
 
 Een clienttoepassing vraagt [autorisatie](#authorization) van een resource-eigenaar deelnemen aan een [OAuth2 authorization grant](#authorization-grant) vloeien en mogelijk toegang tot API's / gegevens namens de resource-eigenaar. Het OAuth2-autorisatie-Framework [definieert twee soorten clients][OAuth2-Client-Types], 'vertrouwelijk' en 'openbare', op basis van de client kan blijven de vertrouwelijkheid van de referenties. Toepassingen kunnen implementeren een [webclient (vertrouwelijk)](#web-client) die wordt uitgevoerd op een webserver, een [native client (openbaar)](#native-client) geïnstalleerd op een apparaat of een [client op basis van gebruikers-agent (openbaar)](#user-agent-based-client)die wordt uitgevoerd in de browser van een apparaat.
 
@@ -121,7 +122,7 @@ Zoals gedefinieerd door de [OAuth2 autorisatie Framework][OAuth2-Role-Def], een 
 ## <a name="resource-server"></a>resource-server
 Zoals gedefinieerd door de [OAuth2 autorisatie Framework][OAuth2-Role-Def], een server die hosts bronnen, kunnen worden geaccepteerd en reageren beveiligde op aanvragen door resource beveiligd [client toepassingen](#client-application) die aanwezig een [toegangstoken](#access-token). Ook wel bekend als een beveiligde resource-server of een resource-toepassing.
 
-Een resource-server beschrijft-API's en dwingt de toegang tot de beveiligde bronnen via af [scopes](#scopes) en [rollen](#roles), met het OAuth 2.0 autorisatie-Framework. Voorbeelden zijn de Azure AD Graph API waarmee u toegang hebt tot gegevens van Azure AD-tenant en de Office 365-API die toegang bieden tot gegevens zoals e-mail en agenda. Beide zijn ook toegankelijk via de [Microsoft Graph API][Microsoft-Graph].  
+Een resource-server beschrijft-API's en dwingt de toegang tot de beveiligde bronnen via af [scopes](#scopes) en [rollen](#roles), met het OAuth 2.0 autorisatie-Framework. Voorbeelden zijn de Azure AD Graph API waarmee u toegang hebt tot gegevens van Azure AD-tenant en de Office 365-API die toegang bieden tot gegevens zoals e-mail en agenda. Beide zijn ook toegankelijk via de [Microsoft Graph API][Microsoft-Graph]. 
 
 Net als een clienttoepassing configuratie van de identiteit van de toepassing van de resource is gemaakt [registratie](#application-registration) bieden de toepassing en de service-principal-object in een Azure AD-tenant. Sommige Microsoft geleverde API's, zoals de Azure AD Graph API hebt vooraf geregistreerd voor service-principals beschikbaar gesteld in alle huurders tijdens het inrichten.
 
@@ -177,7 +178,7 @@ Net zoals die een service-principal-object wordt gebruikt voor de instantie van 
 Een soort [clienttoepassing](#client-application) die alle code op een webserver, en kunnen functioneren als een "Vertrouwelijk" client door de referenties veilig opslaan op de server wordt uitgevoerd. Zie [OAuth2-client van het type en -profielen] [ OAuth2-Client-Types] voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
-De [Ontwikkelaarshandleiding voor Azure AD] [ AAD-Dev-Guide] is de startpagina kunt gebruiken voor alle Azure AD-ontwikkeling Verwante onderwerpen, waaronder een overzicht van [toepassingsintegratie] [ AAD-How-To-Integrate] en de basisprincipes van [Azure AD-verificatie en scenario's voor ondersteunde verificatie][AAD-Auth-Scenarios].  U vindt ook codevoorbeelden en zelfstudies over het ophalen van snel gebruiksklaar op [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
+De [Ontwikkelaarshandleiding voor Azure AD] [ AAD-Dev-Guide] is de startpagina kunt gebruiken voor alle Azure AD-ontwikkeling Verwante onderwerpen, waaronder een overzicht van [toepassingsintegratie] [ AAD-How-To-Integrate] en de basisprincipes van [Azure AD-verificatie en scenario's voor ondersteunde verificatie][AAD-Auth-Scenarios]. U vindt ook codevoorbeelden en zelfstudies over het ophalen van snel gebruiksklaar op [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
 Gebruik de volgende sectie met opmerkingen uw feedback en help ons verfijnen en onze inhoud, met inbegrip van aanvragen voor nieuwe definities of voor het bijwerken van bestaande vorm!
 

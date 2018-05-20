@@ -11,16 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/14/2018
 ms.author: vinagara
-ms.openlocfilehash: 0de596f454a1e79b1f5540854897bd15f8de88c4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 241ac027a0606f901f51d6a20b9a48a2cf7a9fcf
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-extend-copy-alerts-from-oms-into-azure"></a>Het uitbreiden van waarschuwingen (kopiëren) van OMS in Azure
 Vanaf **14 mei 2018**, alle klanten die gebruikmaken van waarschuwingen die zijn geconfigureerd in [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), zal worden uitgebreid in Azure. Waarschuwingen die zijn uitgebreid naar Azure gedragen zich hetzelfde als in OMS. Mogelijkheden voor bewaking, blijven behouden. Waarschuwingen die zijn gemaakt in OMS naar Azure uitbreiden biedt veel voordelen. Zie voor meer informatie over de voordelen en het proces voor het verlengen van waarschuwingen van OMS naar Azure [waarschuwingen van OMS uitbreiden naar Azure](monitoring-alerts-extend.md).
+
+> [!NOTE]
+> Starten van 14 mei 2018 - Microsoft begint het proces voor het automatisch verlengen waarschuwingen naar Azure. Niet alle werkruimten en waarschuwingen wordt uitgebreid voor deze dag; in plaats daarvan begint Microsoft om uit te breiden waarschuwingen automatisch op de schijven in de komende weken. Daarom uw waarschuwingen in de OMS-portal wordt niet automatisch-uitbreiden naar Azure onmiddellijk op 14 mei 2018 en uitbreiden van de gebruiker nog steeds handmatig hun waarschuwingen met behulp van de opties hieronder voor meer informatie.
 
 Klanten willen verplaatsen hun waarschuwingen direct van OMS naar Azure kunt doen met behulp van een van de opties die zijn vermeld.
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 5/10/2018
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: 4faa6930c37f9d491a3efa4b34519dbb13761a9d
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 5fab656734d0984cf44a9fe1f29fd73530bd9aa8
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>Back-up inschakelen voor Azure Stack met PowerShell
 
@@ -64,7 +64,7 @@ Bewerk in dezelfde PowerShell-sessie het volgende PowerShell-script door de vari
 
 | Variabele        | Beschrijving   |
 |---              |---                                        |
-| $username       | Typ de **gebruikersnaam** met behulp van het domein en gebruikersnaam voor de locatie van de gedeelde schijf. Bijvoorbeeld `Contoso\administrator`. |
+| $username       | Typ de **gebruikersnaam** met behulp van het domein en gebruikersnaam voor de locatie van de gedeelde schijf met voldoende toegangsrechten voor bestanden lezen en schrijven. Bijvoorbeeld `Contoso\backupshareuser`. |
 | $password       | Typ de **wachtwoord** voor de gebruiker. |
 | $sharepath      | Typ het pad naar de **opslaglocatie back-up**. U moet een tekenreeks Universal Naming Convention (UNC) gebruiken voor het pad naar een bestandsshare die wordt gehost op een afzonderlijk apparaat. Een UNC-tekenreeks bevat de locatie van resources, zoals gedeelde bestanden of apparaten. Beschikbaarheid van de back-upgegevens, zodat moet het apparaat op een andere locatie. |
 

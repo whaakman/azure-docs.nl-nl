@@ -4,26 +4,27 @@ description: Richtlijnen aan de slag met het gebruik van Azure Stack Storage ont
 services: azure-stack
 author: mabriggs
 ms.author: mabrigg
-ms.date: 02/21/2018
+ms.date: 05/14/2018
 ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 81c62fc569e9f758d08bfca0bdfc5bcc9ed5860f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ce5c72262e7c046de2f06c474c585082804dcdf4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Aan de slag met Azure Stack Storage ontwikkelingsprogramma 's
 
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
-Microsoft Azure-Stack biedt een set van opslagservices, inclusief Azure Blob, Table en Queue storage.
+Microsoft Azure-Stack biedt een set van opslagservices met blob, table en queue storage.
 
-In dit artikel biedt snelle richtlijnen voor het gebruik van Azure Stack Storage ontwikkelingsprogramma's. U vindt meer gedetailleerde informatie en voorbeeldcode in de bijbehorende zelfstudies voor Azure Storage.
+Gebruik dit artikel als richtlijn bij aan de slag met Azure Stack Storage ontwikkelingsprogramma's. U vindt meer gedetailleerde informatie en voorbeeldcode in bijbehorende zelfstudies voor Azure Storage.
 
-Er zijn bekende verschillen tussen Azure Storage en Azure Stack opslag, met inbegrip van een aantal specifieke vereisten voor elk platform. Er zijn bijvoorbeeld specifieke clientbibliotheken en specifieke eindpunt achtervoegsel vereisten voor Azure-Stack. Zie voor meer informatie [Azure Stack Storage: verschillen en overwegingen](azure-stack-acs-differences.md).
+>[!NOTE]
+>Er zijn bekende verschillen tussen Azure Stack Storage en Azure Storage, met inbegrip van de specifieke vereisten voor elk platform. Er zijn bijvoorbeeld specifieke clientbibliotheken en specifieke eindpunt achtervoegsel vereisten voor Azure-Stack. Zie voor meer informatie [Azure Stack Storage: verschillen en overwegingen](azure-stack-acs-differences.md).
 
 ## <a name="azure-client-libraries"></a>Azure-clientbibliotheken
 
@@ -38,14 +39,15 @@ De ondersteunde versies van de REST-API voor Azure Stack Storage zijn 2017-04-17
 | Node.js | 2.7.0 | NPM-koppeling:<br>https://www.npmjs.com/package/azure-storage<br>(Voer: `npm install azure-storage@2.7.0`)<br> <br>De versie van Github:<br>https://github.com/Azure/azure-storage-node/releases/tag/v2.7.0 | Service-exemplaar declaratie |
 | C++ | 3.1.0 | Nuget-pakket:<br>https://www.nuget.org/packages/wastorage.v140/3.1.0<br> <br>De versie van GitHub:<br>https://github.com/Azure/azure-storage-cpp/releases/tag/v3.1.0 | Verbinding tekenreeks instellen |
 | PHP | 1.0.0 | De versie van GitHub:<br>Algemene: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-common<br>BLOB: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-blob<br>Wachtrij:<br>https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-queue<br>Tabel: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-table<br> <br>Installeren via de Composer (voor meer informatie, [Zie de details hieronder](#install-php-client-via-composer---current).) | Verbinding tekenreeks instellen |
-| Python | 1.0.0 | De versie van GitHub:<br>Algemene:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common<br>Blob:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-blob<br>Wachtrij:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-queue | Service-exemplaar declaratie |
-| Ruby | 1.0.1 | RubyGems pakket:<br>Algemene:<br>https://rubygems.org/gems/azure-storage-common/versions/1.0.1<br>Blob: https://rubygems.org/gems/azure-storage-blob/versions/1.0.1<br>Queue: https://rubygems.org/gems/azure-storage-queue/versions/1.0.1<br>Tabel: https://rubygems.org/gems/azure-storage-table/versions/1.0.1<br> <br>De versie van GitHub:<br>Algemene: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common<br>BLOB: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-blob<br>Wachtrij: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-queue<br>Tabel: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-table | Verbinding tekenreeks instellen |
+| Python | 1.0.0 | De versie van GitHub:<br>Algemene:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common<br>BLOB:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-blob<br>Wachtrij:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-queue | Service-exemplaar declaratie |
+| Ruby | 1.0.1 | RubyGems pakket:<br>Algemene:<br>https://rubygems.org/gems/azure-storage-common/versions/1.0.1<br>BLOB: https://rubygems.org/gems/azure-storage-blob/versions/1.0.1<br>Wachtrij: https://rubygems.org/gems/azure-storage-queue/versions/1.0.1<br>Tabel: https://rubygems.org/gems/azure-storage-table/versions/1.0.1<br> <br>De versie van GitHub:<br>Algemene: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common<br>BLOB: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-blob<br>Wachtrij: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-queue<br>Tabel: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-table | Verbinding tekenreeks instellen |
 
 #### <a name="install-php-client-via-composer---current"></a>PHP-client via Composer - huidige installeren
 
 Te installeren via de Composer: (blob nemen als voorbeeld).
 
 1. Maak een bestand met de naam **composer.json** in de hoofdmap van het project met de volgende code:
+
   ```php
     {
       "require": {
@@ -53,6 +55,7 @@ Te installeren via de Composer: (blob nemen als voorbeeld).
       }
     }
   ```
+
 2. Download [composer.phar](http://getcomposer.org/composer.phar) naar de hoofdmap van het project.
 3. Voer: `php composer.phar install`.
 
@@ -73,6 +76,7 @@ Te installeren via de Composer: (blob nemen als voorbeeld).
 Te installeren via de Composer:
 
 1. Maak een bestand met de naam **composer.json** in de hoofdmap van het project met de volgende code:
+
   ```php
     {
           "require":{
@@ -80,6 +84,7 @@ Te installeren via de Composer:
           }
     }
   ```
+
 2. Download [composer.phar](http://getcomposer.org/composer.phar) in de hoofdmap van het project.
 3. Voer: `php composer.phar install`.
 
@@ -91,16 +96,16 @@ Neem contact op met de cloudbeheerder als u niet zeker weet over uw eindpunt.
 
 ## <a name="examples"></a>Voorbeelden
 
-
 ### <a name="net"></a>.NET
 
 Azure-Stack, is het achtervoegsel eindpunt opgegeven in het bestand app.config:
 
 ```
-<add key="StorageConnectionString" 
+<add key="StorageConnectionString"
 value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;
 EndpointSuffix=local.azurestack.external;" />
 ```
+
 ### <a name="java"></a>Java
 
 Azure-Stack is het achtervoegsel van het eindpunt opgegeven in de instellingen van de verbindingsreeks:
@@ -121,6 +126,7 @@ Azure-Stack is het achtervoegsel van het eindpunt opgegeven in de declaratie-exe
 var blobSvc = azure.createBlobService('myaccount', 'mykey',
 'myaccount.blob.local.azurestack.external');
 ```
+
 ### <a name="c"></a>C++
 
 Azure-Stack is het achtervoegsel van het eindpunt opgegeven in de instellingen van de verbindingsreeks:
@@ -152,6 +158,7 @@ block_blob_service = BlockBlobService(account_name='myaccount',
 account_key='mykey',
 endpoint_suffix='local.azurestack.external')
 ```
+
 ### <a name="ruby"></a>Ruby
 
 Azure-Stack is het achtervoegsel van het eindpunt opgegeven in de instellingen van de verbindingsreeks:
@@ -187,7 +194,6 @@ De volgende zelfstudies voor Azure Queue storage zijn van toepassing op Azure-St
 * [Queue Storage gebruiken met PHP](../../storage/queues/storage-php-how-to-use-queues.md)
 * [Queue Storage gebruiken met Python](../../storage/queues/storage-python-how-to-use-queue-storage.md)
 * [Queue Storage gebruiken met Ruby](../../storage/queues/storage-ruby-how-to-use-queue-storage.md)
-
 
 ## <a name="table-storage"></a>Table Storage
 

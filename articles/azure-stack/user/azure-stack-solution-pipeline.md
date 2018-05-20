@@ -14,9 +14,9 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 49a80805c976e5584bb158965583a03eda68cc46
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
-ms.translationtype: MT
+ms.openlocfilehash: 2a51169fa74384778d3351d48055d05e387d0ea6
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/10/2018
 ---
@@ -71,7 +71,7 @@ Azure Stack
     - U vindt gedetailleerde instructies over het implementeren van de ASDK op '[zelfstudie: implementeer de ASDK met behulp van het installatieprogramma](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy)'
     - U kunt een aantal stappen na de implementatie van de ASDK met het volgende PowerShell-script automatiseren [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ).
 
-    > [!note]  
+    > [!Note]  
     > De installatie van de ASDK duurt een zeven uur moet zijn voltooid, dus dienovereenkomstig plan.
 
  - Implementeer [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) PaaS-services naar Azure-Stack. 
@@ -87,7 +87,7 @@ Azure Stack
  - [Installeer Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) en [aanmelden bij VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
  - Verbinding maken met het project en [klonen lokaal](https://www.visualstudio.com/docs/git/gitquickstart).
  
- > [!note]  
+ > [!Note]  
  > Azure-Stack moet u met de juiste installatiekopieën extern gepubliceerd als u wilt uitvoeren (Windows Server en SQL) en App-Service geïmplementeerd.
  
 ## <a name="prepare-the-private-build-and-release-agent-for-visual-studio-team-services-integration"></a>Voorbereiden van de persoonlijke build en de release-agent voor Visual Studio Team Services-integratie
@@ -207,7 +207,7 @@ Elke agent plaats afzonderlijk te beheren, kunt u agents indelen in groepen van 
 
 3. Kopieer het token.
     
-    > [!note]  
+    > [!Note]  
     > De tokeninformatie verkrijgen. Dit wordt niet opnieuw na het verlaten van dit scherm worden weergegeven. 
     
     ![Alternatieve tekst](media\azure-stack-solution-hybrid-pipeline\000_19.png)
@@ -268,7 +268,7 @@ Gebruikers kunnen eindpunten maken zodat VSTO builds Azure Service-apps naar de 
 
 Hybride CI/CD Web-App implementeren naar Azure en Azure-Stack en automatische push-wijzigingen in beide clouds instellen.
 
-> [!note]  
+> [!Note]  
 > Azure-Stack moet u met de juiste installatiekopieën extern gepubliceerd als u wilt uitvoeren (Windows Server en SQL) en App-Service geïmplementeerd. Controleer de App Service-documentatie sectie 'Vereisten' voor Azure Stack Operator vereisten.
 
 ### <a name="add-code-to-vsts-project"></a>Voeg code toe aan VSTS project
@@ -399,7 +399,7 @@ Visual Studio Team Services (VSTS) en Team Foundation Server (TFS) bieden een pi
 
 21. Alle wijzigingen worden opgeslagen.
 
-> [!note]  
+> [!Note]  
 > Sommige instellingen voor de taken kunnen automatisch gedefinieerd als [omgevingsvariabelen](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) tijdens het maken van een release-definitie van een sjabloon. Deze instellingen kunnen niet worden gewijzigd in de taakinstellingen; in plaats daarvan moet u het item bovenliggende omgeving om deze instellingen te bewerken.
 
 ## <a name="create-a-release"></a>Een releaserecord maken

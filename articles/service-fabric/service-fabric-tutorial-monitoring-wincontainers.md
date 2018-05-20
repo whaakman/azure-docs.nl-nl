@@ -15,15 +15,15 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 087dafe426b835d447c69a44f6842c41a48cec8c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9024036c5340e9afb2369feedde140d84e880265
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-log-analytics"></a>Zelfstudie: Windows-containers in Service Fabric bewaken met behulp van Log Analytics
 
-Dit is deel drie van een zelfstudie. U wordt begeleid bij het instellen van Log Analytics voor het bewaken van uw Windows-containers die in Service Fabric worden georganiseerd.
+Dit is deel twee van een zelfstudie. U wordt begeleid bij het instellen van Log Analytics voor het bewaken van uw Windows-containers die in Service Fabric worden georganiseerd.
 
 In deze zelfstudie leert u het volgende:
 

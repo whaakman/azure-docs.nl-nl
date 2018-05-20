@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: db0fab5b619ddbca4663a0f6afedfff373d406f9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 20c5635c0ce00c9fccfec84c477d60c77c55e2fb
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Azure API Management gebruiken met virtuele netwerken
 Virtuele netwerken van Azure (vnet's) kunt u een van uw Azure-resources in een internet-routeable netwerk dat u toegang tot te plaatsen. Deze netwerken kunnen vervolgens worden verbonden met uw on-premises netwerken met behulp van verschillende VPN-technologieën. Voor meer informatie over virtuele netwerken van Azure beginnen met de informatie hier: [Azure Virtual Network-overzicht](../virtual-network/virtual-networks-overview.md).
@@ -168,6 +168,7 @@ Opgegeven van de berekening boven de minimale grootte van het subnet waarin API 
 * Het subnet en het API Management-service moeten zich in hetzelfde abonnement.
 * Een subnet met exemplaren van API Management kan niet worden verplaatst tussen abonnementen.
 * Gebruikers zijn verantwoordelijk voor het beheren van de taakverdeling tussen meerdere regio's, zoals ze eigenaar zijn van de routering voor meerdere landen/regio API Management-implementaties in de modus intern virtueel netwerk geconfigureerd.
+* Verbinding tussen een bron in een globaal peered VNET in een andere regio en API Management-service in de interne modus werkt niet vanwege een beperking van het platform. Zie voor meer informatie [Resources in een virtueel netwerk kunnen niet communiceren met Azure interne load balancer in het virtuele netwerk brengen](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)
 
 
 ## <a name="related-content"> </a>Gerelateerde inhoud

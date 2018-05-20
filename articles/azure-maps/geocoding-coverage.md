@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: b668ff70d627a63fb34012b07d9b41fc6f6ecb6c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a7dc7a1dbf024b6d334ec374f78d5e912db3835c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Azure Maps geocodering dekking
 
@@ -116,7 +116,7 @@ Wanneer u naar een locatie met Azure Maps zoekt, wordt de search-service heeft v
 | Nieuw-Caledonië                                       |                 |                |              |      ✓     |          ✓         |
 | Nieuw-Zeeland                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Niue                                                |                 |                |              |      ✓     |          ✓         |
-| Norfolk                                      |                 |                |              |      ✓     |          ✓         |
+| Norfolkeiland                                      |                 |                |              |      ✓     |          ✓         |
 | Noord-Korea                                         |                 |                |              |      ✓     |          ✓         |
 | Noordelijke Marianen                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Pakistan                                            |                 |                |              |      ✓     |          ✓         |
@@ -209,7 +209,7 @@ Wanneer u naar een locatie met Azure Maps zoekt, wordt de search-service heeft v
 | Oekraïne                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Verenigd Koninkrijk                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Oezbekistan                                          |                 |                |              |      ✓     |          ✓         |
-| Heilige Stoel (Vaticaanstad)                                        |                 |                |       ✓      |      ✓     |          ✓         |
+| Vaticaanstad                                        |                 |                |       ✓      |      ✓     |          ✓         |
 
 
 ## <a name="middle-east-and-africa"></a>Midden-Oosten en Afrika
@@ -237,12 +237,12 @@ Wanneer u naar een locatie met Azure Maps zoekt, wordt de search-service heeft v
 | Equatoriaal-Guinea Republiek                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Eritrea                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Ethiopië                                            |                 |                |       ✓      |      ✓     |          ✓         |
-| Franse Gebieden in de zuidelijke Indische Oceaan|                 |                |              |      ✓     |          ✓         |
+| Franse Zuidelijke Gebieden|                 |                |              |      ✓     |          ✓         |
 | Gabon                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Gambia                                              |                 |                |              |      ✓     |          ✓         |
 | Ghana                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Guinee                                              |                 |                |       ✓      |      ✓     |          ✓         |
-| Guinee-Bissau                                       |                 |                |       ✓      |      ✓     |          ✓         |
+| Guinea-Bissau                                       |                 |                |       ✓      |      ✓     |          ✓         |
 | Iran                                                |                 |                |              |      ✓     |          ✓         |
 | Irak                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Israël                                              |                 |                |              |      ✓     |          ✓         |
@@ -253,12 +253,12 @@ Wanneer u naar een locatie met Azure Maps zoekt, wordt de search-service heeft v
 | Lesotho                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Liberia                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Libië|                 |                |       ✓      |      ✓     |          ✓         |
-| Madagaskar                                          |                 |                |       ✓      |      ✓     |          ✓         |
+| Madagascar                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Malawi                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Maldiven |                 |                |              |      ✓     |          ✓         |
 | Mali                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Marshalleilanden |                 |                |              |      ✓     |          ✓         |
-| Mauritanië                                          |                 |                |       ✓      |      ✓     |          ✓         |
+| Mauretanië                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Mauritius                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Mayotte                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Marokko                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -297,7 +297,7 @@ Wanneer u naar een locatie met Azure Maps zoekt, wordt de search-service heeft v
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over Azure Maps geocodering de [Search](https://docs.microsoft.com/rest/api/azure-maps/search) verwijzen naar pagina's.
+Zie voor meer informatie over Azure Maps geocodering de [Search](https://docs.microsoft.com/rest/api/maps/search) verwijzen naar pagina's.
 
 Meer informatie over de [dekking gebieden voor de toewijzingen verkeer service](traffic-coverage.md). 
 

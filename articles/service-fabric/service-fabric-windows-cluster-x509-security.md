@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fe0ed74c-9af5-44e9-8d62-faf1849af68c
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: ee1a2eeeda95b03b185090841cf93c4183c5fce2
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 62d821894521c5dea8e7577b75d9590adc829263
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Een zelfstandige cluster op Windows beveiligen met behulp van X.509-certificaten
 In dit artikel wordt beschreven hoe een beveiligde communicatie tussen de verschillende knooppunten van uw zelfstandige Windows-cluster. Ook wordt beschreven hoe u verificatie van clients die verbinding met dit cluster maken met behulp van X.509-certificaten. Verificatie zorgt ervoor dat alleen geautoriseerde gebruikers kunnen toegang krijgen het cluster en de geïmplementeerde toepassingen tot en beheertaken uitvoeren. Certificaatbeveiliging moet worden ingeschakeld op het cluster als het cluster is gemaakt.  

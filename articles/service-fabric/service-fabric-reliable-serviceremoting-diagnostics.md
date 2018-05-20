@@ -9,16 +9,16 @@ editor: suchiagicha
 ms.assetid: 1c229923-670a-4634-ad59-468ff781ad18
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: suchiagicha
-ms.openlocfilehash: f54e157654fb15d2f7ff48ddc666c6c8803c75a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d462ba0955a362c27b786ee6a5670eec20c52a22
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnostische gegevens en Prestatiebewaking voor betrouwbare Service voor externe toegang
 De runtime betrouwbare ServiceRemoting verzendt [prestatiemeteritems](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Deze biedt mogelijk inzicht in hoe de ServiceRemoting functioneert en helpt bij het oplossen van problemen en de bewaking van toepassingsprestaties.
@@ -29,8 +29,8 @@ De runtime betrouwbare ServiceRemoting definieert de volgende categorieën voor 
 
 | Category | Beschrijving |
 | --- | --- |
-| Service Fabric-Service |Tellers die specifiek zijn voor Azure Service Fabric-Service voor externe toegang, bijvoorbeeld, gemiddelde tijd die nodig is voor het verwerken van aanvraag |
-| Service Fabric-Service-methode |Items die specifiek zijn voor methoden geïmplementeerd door de Service Fabric Remoting Service, bijvoorbeeld hoe vaak een servicemethode wordt aangeroepen |
+| Service Fabric Service |Tellers die specifiek zijn voor Azure Service Fabric-Service voor externe toegang, bijvoorbeeld, gemiddelde tijd die nodig is voor het verwerken van aanvraag |
+| Service Fabric Service-methode |Items die specifiek zijn voor methoden geïmplementeerd door de Service Fabric Remoting Service, bijvoorbeeld hoe vaak een servicemethode wordt aangeroepen |
 
 Elk van de voorgaande categorieën heeft een of meer items.
 
@@ -84,19 +84,19 @@ De runtime betrouwbare Service publiceert de volgende prestatiemeteritems die be
 
 | Categorienaam | Naam van het meteritem | Beschrijving |
 | --- | --- | --- |
-| Service Fabric-Service-methode |Aanroepen per seconde |Aantal keren dat de servicemethode wordt aangeroepen per seconde |
-| Service Fabric-Service-methode |Gemiddeld aantal milliseconden per aanroep |Tijd uitvoering van de servicemethode in milliseconden |
-| Service Fabric-Service-methode |Opgetreden uitzonderingen per seconde |Aantal keren dat de servicemethode een uitzondering gegenereerd per seconde heeft |
+| Service Fabric Service-methode |Aanroepen/sec |Aantal keren dat de servicemethode wordt aangeroepen per seconde |
+| Service Fabric Service-methode |Gemiddeld aantal milliseconden per aanroep |Tijd uitvoering van de servicemethode in milliseconden |
+| Service Fabric Service-methode |Aantal opgetreden uitzonderingen/sec |Aantal keren dat de servicemethode een uitzondering gegenereerd per seconde heeft |
 
 ### <a name="service-request-processing-performance-counters"></a>Prestatiemeteritems voor service-aanvraag verwerken
 Wanneer een client een methode via een proxy serviceobject aanroept, leidt dit tot een aanvraagbericht naar de service voor externe toegang via het netwerk wordt verzonden. De service verwerkt het request-bericht en stuurt een antwoord terug naar de client. De runtime betrouwbare ServiceRemoting publiceert de volgende prestatiemeteritems die betrekking hebben op de verwerking van de service-aanvraag.
 
 | Categorienaam | Naam van het meteritem | Beschrijving |
 | --- | --- | --- |
-| Service Fabric-Service |Aantal openstaande aanvragen |Het aantal aanvragen dat in de service wordt verwerkt |
-| Service Fabric-Service |Gemiddeld aantal milliseconden per aanvraag |Gebruikte tijd (in milliseconden) door de service een aanvraag te verwerken |
-| Service Fabric-Service |Gemiddeld aantal milliseconden voor de deserialisatie van aanvragen |Gebruikte tijd (in milliseconden) voor het deserialiseren van aanvraagbericht service wanneer deze is ontvangen door de service |
-| Service Fabric-Service |Gemiddeld aantal milliseconden voor de serialisatie van reacties |Gebruikte tijd (in milliseconden) voor het serialiseren van het antwoordbericht van de service op de service voordat het antwoord wordt verzonden naar de client |
+| Service Fabric Service |Aantal openstaande aanvragen |Het aantal aanvragen dat in de service wordt verwerkt |
+| Service Fabric Service |Gemiddeld aantal milliseconden per aanvraag |Gebruikte tijd (in milliseconden) door de service een aanvraag te verwerken |
+| Service Fabric Service |Gemiddeld aantal milliseconden voor de deserialisatie van aanvragen |Gebruikte tijd (in milliseconden) voor het deserialiseren van aanvraagbericht service wanneer deze is ontvangen door de service |
+| Service Fabric Service |Gemiddeld aantal milliseconden voor de serialisatie van reacties |Gebruikte tijd (in milliseconden) voor het serialiseren van het antwoordbericht van de service op de service voordat het antwoord wordt verzonden naar de client |
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Voorbeeldcode](https://github.com/Azure/servicefabric-samples)

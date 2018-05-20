@@ -6,121 +6,175 @@ documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/11/2017
+ms.date: 05/12/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c886655f0f9469b742532fa940519176a773ad41
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9e2ea46ea1a6b5bd3f50d4d4c15492c16c5241c0
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="create-custom-roles-for-azure-role-based-access-control"></a>Aangepaste rollen maken voor op rollen gebaseerd toegangsbeheer
-Maak een aangepaste rol in gebaseerd toegangsbeheer (RBAC) als geen van de ingebouwde rollen aan de behoeften van uw specifieke toegang. Aangepaste rollen kunnen worden gemaakt met [Azure PowerShell](role-assignments-powershell.md), [Azure-opdrachtregelinterface](role-assignments-cli.md) (CLI) en de [REST-API](role-assignments-rest.md). Net als de ingebouwde rollen kunt u aangepaste rollen toewijzen aan gebruikers, groepen en toepassingen bij het abonnement, resourcegroep en resource bereiken. Aangepaste rollen worden opgeslagen in een Azure AD-tenant en kunnen worden gedeeld door abonnementen.
+# <a name="create-custom-roles-in-azure"></a>Aangepaste rollen maken in Azure
 
-Elke tenant kan maximaal 2000 aangepaste rollen maken. 
+Als de [ingebouwde rollen](built-in-roles.md) niet voldoen aan de behoeften van uw specifieke toegang, kunt u uw eigen aangepaste rollen maken. Net als de ingebouwde rollen kunt u aangepaste rollen toewijzen aan gebruikers, groepen en service-principals op abonnement, resourcegroep en resource bereiken. Aangepaste rollen worden opgeslagen in een tenant van Azure Active Directory (Azure AD) en kunnen worden gedeeld door abonnementen. Aangepaste rollen kunnen worden gemaakt met Azure PowerShell, Azure CLI of de REST-API. Dit artikel bevat een voorbeeld van hoe om te beginnen met het maken van aangepaste rollen met behulp van PowerShell en Azure CLI.
 
-Het volgende voorbeeld ziet u een aangepaste rol voor het controleren en opnieuw starten van virtuele machines:
+## <a name="create-a-custom-role-to-open-support-requests-using-powershell"></a>Een aangepaste beveiligingsrol om te openen met behulp van PowerShell ondersteuningsaanvragen maken
+
+Voor het maken van een aangepaste beveiligingsrol, kunt u beginnen met een ingebouwde rol, bewerken en maak vervolgens een nieuwe rol. In dit voorbeeld de ingebouwde [lezer](built-in-roles.md#reader) rol kan worden aangepast voor het maken van een aangepaste beveiligingsrol met de naam 'lezer ondersteuningstickets toegangsniveau'. Dit kan de gebruiker om alles in het abonnement en ook openen ondersteuningsaanvragen weer te geven.
+
+> [!NOTE]
+> De slechts twee ingebouwde rollen waarmee een gebruiker ondersteuningsaanvragen openen zijn [eigenaar](built-in-roles.md#owner) en [Inzender](built-in-roles.md#contributor). Voor een gebruiker om te kunnen openen ondersteuningsaanvragen moet hij worden toegewezen een rol bij het abonnementsbereik, omdat alle ondersteuningsaanvragen zijn gemaakt op basis van een Azure-abonnement.
+
+Gebruik in PowerShell de [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) opdracht exporteren van de [lezer](built-in-roles.md#reader) rol in JSON-indeling.
+
+```azurepowershell
+Get-AzureRmRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\rbacrole2.json
+```
+
+Hieronder vindt u de JSON-uitvoer voor de [lezer](built-in-roles.md#reader) rol. Een typische rol bestaat uit drie gedeelten `Actions`, `NotActions`, en `AssignableScopes`. De `Actions` sectie vindt u de toegestane bewerkingen voor de rol. Uitsluiten van bewerkingen van het `Actions`, u ze toevoegt aan `NotActions`. De effectieve machtigingen wordt berekend door af te trekken de `NotActions` bewerkingen van de `Actions` bewerkingen.
 
 ```json
 {
-  "Name": "Virtual Machine Operator",
-  "Id": "cadb4a5a-4e7a-47be-84db-05cad13b6769",
-  "IsCustom": true,
-  "Description": "Can monitor and restart virtual machines.",
-  "Actions": [
-    "Microsoft.Storage/*/read",
-    "Microsoft.Network/*/read",
-    "Microsoft.Compute/*/read",
-    "Microsoft.Compute/virtualMachines/start/action",
-    "Microsoft.Compute/virtualMachines/restart/action",
-    "Microsoft.Authorization/*/read",
-    "Microsoft.Resources/subscriptions/resourceGroups/read",
-    "Microsoft.Insights/alertRules/*",
-    "Microsoft.Insights/diagnosticSettings/*",
-    "Microsoft.Support/*"
-  ],
-  "NotActions": [
+    "Name":  "Reader",
+    "Id":  "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "IsCustom":  false,
+    "Description":  "Lets you view everything, but not make any changes.",
+    "Actions":  [
+                    "*/read"
+                ],
+    "NotActions":  [
 
-  ],
-  "AssignableScopes": [
-    "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
-    "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624",
-    "/subscriptions/34370e90-ac4a-4bf9-821f-85eeedeae1a2"
-  ]
+                   ],
+    "AssignableScopes":  [
+                             "/"
+                         ]
 }
 ```
-## <a name="actions"></a>Acties
-De **acties** eigenschap van een aangepaste rol geeft u de Azure-bewerkingen waarvoor de rol toegang verleent. Er is een verzameling van bewerking tekenreeksen waarmee beveiligbare bewerkingen van de Azure-resourceproviders. Voer de bewerking tekenreeksen de indeling van `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. Bewerking tekenreeksen met jokertekens (\*) toegang verlenen tot alle bewerkingen die overeenkomen met de tekenreeks voor de bewerking. Bijvoorbeeld:
 
-* `*/read` verleent toegang tot leesbewerkingen voor alle resourcetypen van alle Azure-resourceproviders.
-* `Microsoft.Compute/*` verleent toegang tot alle bewerkingen voor alle resourcetypen in de Microsoft.Compute-resourceprovider.
-* `Microsoft.Network/*/read` verleent toegang tot leesbewerkingen voor alle resourcetypen in de Microsoft.Network-resourceprovider van Azure.
-* `Microsoft.Compute/virtualMachines/*` verleent toegang tot alle bewerkingen van virtuele machines en het onderliggende resourcetypen.
-* `Microsoft.Web/sites/restart/Action` verleent toegang tot websites starten.
+Vervolgens moet bewerken u de JSON-uitvoer voor het maken van uw aangepaste rol. In dit geval maken ondersteuning servicetickets, de `Microsoft.Support/*` bewerking moet worden toegevoegd. Elke bewerking wordt beschikbaar gesteld van een resourceprovider. Als u een lijst van de bewerkingen voor een resourceprovider, kunt u de [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) opdracht of Raadpleeg [Azure Resource Manager resource provider operations](resource-provider-operations.md).
 
-Gebruik `Get-AzureRmProviderOperation` (in PowerShell) of `azure provider operations show` (in de Azure CLI) aan de bewerkingen na opvragen van de Azure-resourceproviders. U kunt deze opdrachten om te controleren of een tekenreeks bewerking geldig is en uit te breiden jokertekens bewerking tekenreeksen.
+Het is verplicht dat de rol bevat de expliciete abonnement-id's waar het wordt gebruikt. De abonnement-id's worden vermeld in `AssignableScopes`, anders u niet mag worden importeren van de rol in uw abonnement.
 
-```powershell
-Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Operation, OperationName
+Tot slot stelt u de `IsCustom` eigenschap `true` om op te geven dat dit een aangepaste beveiligingsrol is.
 
-Get-AzureRMProviderOperation Microsoft.Network/*
+```json
+{
+    "Name":  "Reader support tickets access level",
+    "IsCustom":  true,
+    "Description":  "View everything in the subscription and also open support requests.",
+    "Actions":  [
+                    "*/read",
+                    "Microsoft.Support/*"
+                ],
+    "NotActions":  [
+
+                   ],
+    "AssignableScopes":  [
+                             "/subscriptions/11111111-1111-1111-1111-111111111111"
+                         ]
+}
 ```
 
-![Schermafbeelding van de PowerShell - Get-AzureRMProviderOperation](./media/custom-roles/1-get-azurermprovideroperation-1.png)
+Voor het maken van de nieuwe aangepaste rol die u gebruikt de [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) opdracht en geeft u het bijgewerkte definitiebestand van de JSON-rol.
+
+```azurepowershell
+New-AzureRmRoleDefinition -InputFile "C:\rbacrole2.json"
+```
+
+Nadat u [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition), de nieuwe aangepaste rol is beschikbaar in de Azure-portal en kunnen worden toegewezen aan gebruikers.
+
+![Schermafbeelding van de aangepaste rol geïmporteerd in de Azure portal](./media/custom-roles/18.png)
+
+![schermopname van het aangepaste geïmporteerde rol toewijzen aan gebruiker in dezelfde map](./media/custom-roles/19.png)
+
+![schermopname van machtigingen voor aangepaste geïmporteerde beveiligingsrol](./media/custom-roles/20.png)
+
+Gebruikers met deze aangepaste rol kunnen nieuwe ondersteuningsaanvragen maken.
+
+![Schermafbeelding van de aangepaste rol ondersteuningsaanvragen maken](./media/custom-roles/21.png)
+
+Gebruikers met deze aangepaste rol kunnen andere acties worden uitgevoerd, zoals virtuele machines maken of maken van resourcegroepen.
+
+![Schermafbeelding van de aangepaste rol kan niet worden gemaakt van virtuele machines](./media/custom-roles/22.png)
+
+![Schermafbeelding van de aangepaste rol kan niet worden gemaakt van nieuwe RGs](./media/custom-roles/23.png)
+
+## <a name="create-a-custom-role-to-open-support-requests-using-azure-cli"></a>Een aangepaste beveiligingsrol om te openen met behulp van Azure CLI ondersteuningsaanvragen maken
+
+De stappen voor het maken van een aangepaste beveiligingsrol met Azure CLI zijn vergelijkbaar met behulp van PowerShell, behalve dat de JSON-uitvoer verschilt.
+
+Bijvoorbeeld, u kunt beginnen met de ingebouwde [lezer](built-in-roles.md#reader) rol. Voor een lijst met de acties van de [lezer](built-in-roles.md#reader) rol, gebruik de [az rol definitielijst](/cli/azure/role/definition#az_role_definition_list) opdracht.
 
 ```azurecli
-azure provider operations show "Microsoft.Compute/virtualMachines/*/action" --js on | jq '.[] | .operation'
-
-azure provider operations show "Microsoft.Network/*"
+az role definition list --name "Reader" --output json
 ```
 
-![Azure CLI schermafbeelding - azure-bewerkingen weergeven voor provider "Microsoft.Compute/virtualMachines/ \* /Action" ](./media/custom-roles/1-azure-provider-operations-show.png)
+```json
+[
+  {
+    "additionalProperties": {},
+    "assignableScopes": [
+      "/"
+    ],
+    "description": "Lets you view everything, but not make any changes.",
+    "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "name": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "permissions": [
+      {
+        "actions": [
+          "*/read"
+        ],
+        "additionalProperties": {},
+        "notActions": [],
+      }
+    ],
+    "roleName": "Reader",
+    "roleType": "BuiltInRole",
+    "type": "Microsoft.Authorization/roleDefinitions"
+  }
+]
+```
 
-## <a name="notactions"></a>NotActions
-Gebruik de **NotActions** eigenschap als een reeks bewerkingen die u wilt toestaan eenvoudiger wordt gedefinieerd door het met uitzondering van beperkte bewerkingen. De toegang wordt verleend door een aangepaste rol die wordt berekend door af te trekken de **NotActions** bewerkingen van de **acties** bewerkingen.
+Maak een JSON-bestand met de volgende indeling. De `Microsoft.Support/*` bewerking is toegevoegd aan de `Actions` secties zodat deze gebruiker ondersteuningsaanvragen terwijl u moet een lezer kunt openen. U moet de abonnements-ID waarop u deze rol wordt gebruikt in toevoegen de `AssignableScopes` sectie.
 
-> [!NOTE]
-> Als een gebruiker een rol heeft die worden uitgesloten van een bewerking in toegewezen **NotActions**, en een tweede rol die toegang tot dezelfde bewerking verleent, de gebruiker is toegestaan voor deze bewerking is toegewezen. **NotActions** is niet een weigeren regel – het is gewoon een handige manier voor het maken van een set toegestane bewerkingen wanneer specifieke bewerkingen moeten worden uitgesloten.
->
->
+```json
+{
+    "Name":  "Reader support tickets access level",
+    "IsCustom":  true,
+    "Description":  "View everything in the subscription and also open support requests.",
+    "Actions":  [
+                    "*/read",
+                    "Microsoft.Support/*"
+                ],
+    "NotActions":  [
 
-## <a name="assignablescopes"></a>AssignableScopes
-De **AssignableScopes** eigenschap van de aangepaste rol geeft u de bereiken (abonnementen, resourcegroepen of resources) waarin de aangepaste rol die beschikbaar voor toewijzing is. U kunt de aangepaste rol die beschikbaar zijn voor toewijzing te maken in alleen de abonnementen of resourcegroepen waarvoor dit en niet door elkaar op de gebruikerservaring op voor de rest van de abonnementen of resourcegroepen.
+                   ],
+    "AssignableScopes": [
+                            "/subscriptions/11111111-1111-1111-1111-111111111111"
+                        ]
+}
+```
 
-Voorbeelden van geldige toewijsbare bereiken zijn:
+Gebruik voor het maken van de nieuwe aangepaste rol die de [az roldefinitie maken](/cli/azure/role/definition#az_role_definition_create) opdracht.
 
-* "/ subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e', '/ subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624' - maakt de rol beschikbaar voor toewijzing in twee abonnementen.
-* '/ subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e' - maakt de rol beschikbaar voor toewijzing in één abonnement.
-* '/ abonnementen/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/netwerk' - maakt de rol beschikbaar voor toewijzing alleen in de resourcegroep netwerk.
+```azurecli
+az role definition create --role-definition ~/roles/rbacrole1.json
+```
 
-> [!NOTE]
-> Moet u ten minste één abonnement, resourcegroep of resource-ID.
->
->
+De nieuwe aangepaste rol is nu beschikbaar in de Azure-portal en het proces voor het gebruik van deze rol is hetzelfde als in de vorige sectie met PowerShell.
 
-## <a name="custom-roles-access-control"></a>Aangepaste rollen toegangsbeheer
-De **AssignableScopes** ook de eigenschap van de aangepaste rol bepaalt wie kunt weergeven, wijzigen en verwijderen van de rol.
+![Azure portal schermafbeelding van de aangepaste rol die zijn gemaakt met behulp van de CLI 1.0](./media/custom-roles/26.png)
 
-* Wie kan een aangepaste beveiligingsrol maken?
-    Eigenaars (en beheerders van de gebruiker toegang) van de abonnementen, resourcegroepen en resources kunnen aangepaste rollen maken voor gebruik in deze bereiken.
-    De gebruiker de rol maken moet uitvoeren `Microsoft.Authorization/roleDefinition/write` bewerking op alle de **AssignableScopes** van de rol.
-* Wie kan een aangepaste rol wijzigen?
-    Eigenaars (en beheerders van de gebruiker toegang) van de abonnementen, resourcegroepen en resources aangepaste rollen in deze bereiken kunnen wijzigen. Gebruikers moeten kunnen worden uitgevoerd de `Microsoft.Authorization/roleDefinition/write` bewerking op alle de **AssignableScopes** van een aangepaste beveiligingsrol.
-* Wie kan aangepaste rollen bekijken?
-    Alle ingebouwde rollen in Azure RBAC kunnen bekijken van functies die beschikbaar voor toewijzing zijn. Gebruikers die kunnen worden uitgevoerd de `Microsoft.Authorization/roleDefinition/read` bewerking met een bereik de RBAC-rollen die beschikbaar voor toewijzing op dat bereik zijn kunt weergeven.
 
 ## <a name="see-also"></a>Zie ook
-* [Op rollen gebaseerd toegangsbeheer](role-assignments-portal.md): aan de slag met RBAC in Azure portal.
-* Zie voor een lijst van beschikbare bewerkingen [Resourceprovider van Azure Resource Manager operations](resource-provider-operations.md).
-* Meer informatie over het beheren van toegang met:
-  * [PowerShell](role-assignments-powershell.md)
-  * [Azure-CLI](role-assignments-cli.md)
-  * [REST API](role-assignments-rest.md)
-* [Ingebouwde rollen](built-in-roles.md): meer informatie over de functies die standaard in RBAC.
+- [Roldefinities begrijpen](role-definitions.md)
+- [Toegangsbeheer op basis van rollen met AzurePowerShell beheren](role-assignments-powershell.md)
+- [Op rollen gebaseerde toegangsbeheer met Azure CLI beheren](role-assignments-cli.md)
+- [Op rollen gebaseerde toegangsbeheer met de REST-API beheren](role-assignments-rest.md)

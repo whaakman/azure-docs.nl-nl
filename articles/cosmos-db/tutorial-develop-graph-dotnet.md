@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 66f0d0064fe59c6e1d249eb69c1b433fe661c513
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3391213600300067ad1685e4f8cccacbf52de86e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB: ontwikkelen met de Graph-API in .NET
 Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de globale distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
@@ -121,7 +121,7 @@ Als voorbeeld gaan we werken met een eenvoudig sociaal netwerk met vier personen
 De `Microsoft.Azure.Graphs.Elements`-naamruimte bevat de klassen `Vertex`, `Edge`, `Property` en `VertexProperty` klassen voor het deserialiseren van GraphSON-antwoorden op goed gedefinieerde .NET-objecten.
 
 ## <a name="run-gremlin-using-creategremlinquery"></a>Gremlin uitvoeren met behulp van CreateGremlinQuery
-Net als SQL biedt Gremlin ondersteuning voor lees-, schrijf- en querybewerkingen. Het volgende fragment laat bijvoorbeeld zien hoe u hoekpunten en randen kunt maken, hoe u enkele voorbeeldquery’s kunt uitvoeren met behulp van `CreateGremlinQuery<T>`, en hoe u deze resultaten met behulp van `ExecuteNextAsync` en HasMoreResults herhaald kunt doorlopen.
+Net als SQL biedt Gremlin ondersteuning voor lees-, schrijf- en querybewerkingen. Het volgende fragment laat bijvoorbeeld zien hoe u hoekpunten en randen kunt maken, hoe u enkele voorbeeldquery’s kunt uitvoeren met behulp van `CreateGremlinQuery<T>`, en hoe u deze resultaten met behulp van `ExecuteNextAsync` en `HasMoreResults` herhaald kunt doorlopen.
 
 ```cs
 Dictionary<string, string> gremlinQueries = new Dictionary<string, string>

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 5f060dfd061af07f220576f17110afccd01fdae5
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 89d4110679d7a02d1468a9dab6816fb9e6b02181
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-python"></a>Accountbeheerbewerkingen - Aan de slag met Azure Data Lake Store met Python
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Informatie over het gebruik van Python SDK voor Azure Data Lake Store voor het u
 U moet drie modules installeren voordat u Data Lake Store kunt gebruiken met Python.
 
 * Module `azure-mgmt-resource`, die Azure-modules bevat voor Active Directory enzovoort.
-* Module `azure-mgmt-datalake-store`, die de accountbeheerbewerkingen voor Azure Data Lake Store bevat. Zie [Naslaginformatie over Azure Data Lake Store-beheermodule](http://azure-sdk-for-python.readthedocs.io/sample_azure-mgmt-datalake-store.html) voor meer informatie over deze module.
+* Module `azure-mgmt-datalake-store`, die de accountbeheerbewerkingen voor Azure Data Lake Store bevat. Zie [Naslaginformatie over Azure Data Lake Store-beheermodule](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python) voor meer informatie over deze module.
 * Module `azure-datalake-store`, die de bestandssysteembewerkingen voor Azure Data Lake Store bevat. Zie [Naslaginformatie over Azure Data Lake Store-bestandssysteemmodule](http://azure-datalake-store.readthedocs.io/en/latest/) voor meer informatie over deze module.
 
 Gebruik de volgende opdrachten om de modules te installeren.

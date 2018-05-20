@@ -1,13 +1,14 @@
 ---
 title: Azure eenmalige van SAML-Protocol | Microsoft Docs
-description: "Dit artikel wordt beschreven voor het één Sign-Out SAML-Protocol in Azure Active Directory"
+description: Dit artikel wordt beschreven voor het één Sign-Out SAML-Protocol in Azure Active Directory
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 0e4aa75d-d1ad-4bde-a94c-d8a41fb0abe6
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,11 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: priyamo
 ms.custom: aaddev
-ms.openlocfilehash: c77bf15d69a4c7749567f53df96c91a1d329a466
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9ec99ffc64138cf1cd94e0f11077cdc5d86dbc57
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="single-sign-out-saml-protocol"></a>Één afmelden SAML-Protocol
 Azure Active Directory (Azure AD) ondersteunt het SAML 2.0 web browser-profiel op één afmelding plaatsvindt. Voor één afmeldingen via correcte werking moet de **LogoutURL** voor de toepassing moet expliciet worden geregistreerd bij Azure AD tijdens de toepassingsregistratie. Azure AD gebruikt de LogoutURL om gebruikers te leiden nadat ze zich afgemeld.
@@ -41,9 +42,9 @@ De cloud service verzendt een `LogoutRequest` bericht naar Azure AD om aan te ge
 ### <a name="logoutrequest"></a>LogoutRequest
 De `LogoutRequest` element verzonden naar Azure AD vereist de volgende kenmerken:
 
-* `ID`: Hiermee wordt de afmelden aanvraag geïdentificeerd. De waarde van `ID` mogen niet beginnen met een getal. De gebruikelijke manier is om toe te voegen **id** als de tekenreeksweergave van een GUID.
-* `Version`: Stel de waarde van dit element kunt **2.0**. Deze waarde is verplicht.
-* `IssueInstant`: Dit is een `DateTime` tekenreeks met een waarde coördineren Universal Time (UTC) en [round trip-indeling ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD een waarde van dit type verwacht, maar worden niet afgedwongen.
+* `ID` : Hiermee wordt de afmelden aanvraag geïdentificeerd. De waarde van `ID` mogen niet beginnen met een getal. De gebruikelijke manier is om toe te voegen **id** als de tekenreeksweergave van een GUID.
+* `Version` : Stel de waarde van dit element kunt **2.0**. Deze waarde is verplicht.
+* `IssueInstant` : Dit is een `DateTime` tekenreeks met een waarde coördineren Universal Time (UTC) en [round trip-indeling ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD een waarde van dit type verwacht, maar worden niet afgedwongen.
 
 ### <a name="issuer"></a>Certificaatverlener
 De `Issuer` -element in een `LogoutRequest` moet exact overeenkomen met een van de **ServicePrincipalNames** in de cloudservice in Azure AD. Normaal gesproken deze is ingesteld op de **App ID URI** die is opgegeven tijdens de toepassingsregistratie.

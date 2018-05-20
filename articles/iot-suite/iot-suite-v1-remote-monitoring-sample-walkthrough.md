@@ -1,12 +1,12 @@
 ---
 title: Walkthrough over vooraf geconfigureerde oplossing voor externe controle | Microsoft Docs
 description: Een beschrijving van de vooraf geconfigureerde oplossing voor externe controle IoT Azure en de bijbehorende architectuur.
-services: 
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 7cef60998cf9e46a8d89f8ad53edd0382e3ce76e
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 3aa9bb9c785bb69c80d9bb33e595393a5a1d220a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>Walkthrough over vooraf geconfigureerde oplossing voor externe controle
 
@@ -35,7 +35,17 @@ In dit artikel wordt stapsgewijs een aantal belangrijke elementen van externe co
 
 Het volgende diagram geeft een overzicht van de logische onderdelen van de vooraf geconfigureerde oplossing:
 
-![Logische architectuur](media/iot-suite-v1-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
+![Logische architectuur](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture-updated.png)
+
+## <a name="microservices--docker-containers"></a>Microservices en Docker-containers
+Externe controle is de eerste van onze vooraf geconfigureerde oplossingen die is gebaseerd op een architectuur voor microservices. De oplossing is beschikbaar voor zowel [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) als [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
+Microservices zijn ontstaan als een gangbaar patroon voor het realiseren van schaalbaarheid en flexibiliteit (doordat containers afzonderlijk kunnen worden geschaald), zonder dat dit gevolgen heeft voor de ontwikkelingssnelheid.
+Microservices verdelen de code in compartimenten en bieden goed gedefinieerde interfaces waardoor de oplossing gemakkelijker te begrijpen is en minder monolithisch is. De services vergroten ook de mogelijkheden voor partners die onze huidige oplossingsversnellers willen uitbreiden voor het bouwen van oplossingen met een verdienmodel.
+
+**Meer informatie over Docker-containers**
+* [Docker installeren](https://docs.docker.com/engine/installation/)
+* [Veelgebruikte Docker-opdrachten voor externe controle](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#common-docker-commands)
+* [Aan de slag met Docker](https://docs.docker.com/get-started/)
 
 ## <a name="simulated-devices"></a>Gesimuleerde apparaten
 
@@ -230,7 +240,7 @@ GROUP BY
 
 De ASA-taken voor **apparaatgegevens** en **regels** voeren hun gegevens uit naar Event Hubs die zo kunnen worden doorgestuurd naar de **gebeurtenisprocessor** die actief is in de webtaak.
 
-## <a name="azure-storage"></a>Azure-opslag
+## <a name="azure-storage"></a>Azure Storage
 
 De oplossing maakt gebruik van Azure Blob-opslag om alle ruwe en samengevatte telemetriegegevens op de apparaten in de oplossing te behouden. Met de portal worden de telemetriegegevens uit de blobopslag gelezen om de grafieken te vullen. Voor het weergeven van waarschuwingen leest de oplossingsportal de gegevens uit de blobopslag, waarin is vastgelegd wanneer telemetriewaarden de geconfigureerde drempelwaarden hebben overschreden. In de oplossing wordt blobopslag ook gebruikt om de drempelwaarden vast te leggen die u in de oplossingsportal hebt ingesteld.
 

@@ -9,11 +9,11 @@ ms.author: philmea
 ms.date: 04/29/2018
 ms.topic: article
 ms.service: iot-suite
-ms.openlocfilehash: 12248a719d7d30c9b83be9c72539e0a81f19fb7b
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 09a54e9cb1c6f063e878fd42c42699a906b60c7b
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="visualize-remote-monitoring-data-with-time-series-insights"></a>Externe controle-gegevens visualiseren met Time Series Insights
 
@@ -23,7 +23,7 @@ Een operator kunt verder uitbreiden buiten van de vakgegevens visualisatie gelev
 
 Als u deze instructies, moet u het volgende:
 
-* [De externe controle vooraf geconfigureerde oplossing implementeren](iot-suite-remote-monitoring-deploy.md)
+* [De externe controle vooraf geconfigureerde oplossing implementeren](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md)
 
 ## <a name="create-a-consumer-group"></a>Een consumergroep maken
 
@@ -88,11 +88,11 @@ Maak een nieuwe gebeurtenisbron verbinding maken met uw IoT-hub. Zorg ervoor dat
     | Bron | **IoT Hub** |
     | Importoptie | **Gebruik IoT Hub uit de beschikbare abonnementen** |
     | Abonnements-id | Selecteer uw Azure-abonnement in de vervolgkeuzelijst. |
-    | Naam van IoT Hub | **contosorma57a6**. Gebruik de naam van uw IoT-hub van uw oplossing voor externe controle. |
-    | Naam van het IoT Hub-beleid | **iothubowner** Zorg ervoor dat het beleid op waarmee een beleid voor de eigenaar van is. |
-    | Sleutel voor het IoT Hub-beleid | Dit veld wordt automatisch gevuld. |
-    | Consumentengroep voor IoT Hub | **timeseriesinsights** |
-    | Serialisatie-indeling voor gebeurtenissen | **JSON**     | Naam van de timestamp-eigenschap | Leeg laten |
+    | De naam van de IOT-hub | **contosorma57a6**. Gebruik de naam van uw IoT-hub van uw oplossing voor externe controle. |
+    | Naam voor het IOT-hub | **iothubowner** Zorg ervoor dat het beleid op waarmee een beleid voor de eigenaar van is. |
+    | IOT hub beleidssleutel | Dit veld wordt automatisch gevuld. |
+    | IOT hub klantengroep | **timeseriesinsights** |
+    | Serialisatie-indeling voor gebeurtenissen | **JSON**     | De naam van de timestamp-eigenschap | Leeg laten |
 
     ![Maken van de bron van gebeurtenis](media/iot-suite-time-series-insights/time-series-insights-event-source-create.png)
 

@@ -12,11 +12,11 @@ ms.topic: article
 ms.workload: big-data
 ms.date: 03/15/2018
 ms.author: omidm
-ms.openlocfilehash: c6c39fb0810a7ea8b6facec1ca80da25d2253329
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 4334a438f09d7c18912262e9c70bfffbcdeb1d9e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-data-lake-analytics-quota-limits"></a>De quotalimieten voor Azure Data Lake Analytics
 
@@ -32,29 +32,33 @@ Als u verdergaan dan deze limiet wilt, kunt u proberen deze opties:
 * Kies een andere regio als geschikte
 * Neem contact op met de ondersteuning van Azure door [een ondersteuningsticket openen](#increase-maximum-quota-limits) om aan te vragen een verhoging van het quotum.
 
-## <a name="adla-account-limits"></a>Limieten van ADLA
+## <a name="default-adla-account-limits"></a>Standaardlimiet ADLA van account
 
-**Maximum aantal eenheden Analytics (AUs) per account:** 250
+**Maximum aantal eenheden Analytics (AUs) per account:** 32
 
 Dit is het maximum aantal AUs die tegelijkertijd kunnen worden uitgevoerd in uw account. Als het totale aantal AUs uitvoeren voor alle taken deze limiet overschrijdt, nieuwere taken in de wachtrij automatisch. Bijvoorbeeld:
 
-* Als u slechts één taak hebt uitgevoerd met 250 AUs, wanneer u een tweede indient taak deze in de taakwachtrij wacht totdat de eerste taak is voltooid.
-* Als u hebt al vijf taken worden uitgevoerd en elk van 50 gebruikmaakt AUs, wanneer u een zesde taak die 20 moet stuurt deze in de taakwachtrij wacht totdat er 20 AUs AUs beschikbaar.
+* Als u slechts één taak hebt uitgevoerd met 32 AUs, wanneer u een tweede indient taak deze in de taakwachtrij wacht totdat de eerste taak is voltooid.
+* Als u hebt al vier taken worden uitgevoerd en elk van 8 gebruikmaakt AUs, wanneer u een vijfde taak die 8 moet stuurt deze in de taakwachtrij wacht totdat er 8 AUs AUs beschikbaar.
+
+**Maximum aantal eenheden Analytics (AUs) per taak:** 32
+
+Dit is de standaard maximum aantal AUs die afzonderlijke taken kan worden toegewezen in uw account. Taken die zijn toegewezen meer dan deze limiet wordt geweigerd, tenzij de aanvrager is van invloed op een compute-beleid (limiet voor het verzenden van taak) waarmee ze meer AUs per taak. De bovengrens van deze waarde is de Australië-limiet voor het account.
 
 **Maximum aantal gelijktijdige U-SQL-taken per account:** 20
 
 Dit is het maximum aantal taken die tegelijkertijd kunnen worden uitgevoerd in uw account. Boven deze waarde nieuwere taken in de wachtrij automatisch.
 
-## <a name="adjust-adla-quota-limits-per-account"></a>De quotalimieten ADLA per account aanpassen
+## <a name="adjust-adla-account-limits"></a>Limieten van ADLA aanpassen
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Kies een bestaand ADLA-account.
 3. Klik op **Eigenschappen**.
-4. Aanpassen **parallelle uitvoering** en **gelijktijdige taken** aan uw behoeften.
-
-    ![Azure Data Lake Analytics-portal-pagina](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-properties.png)
+4. Wijzig de waarden voor **maximale AUs**, **maximumaantal actieve taken**, en **verzending limieten taak** aan uw behoeften.
 
 ## <a name="increase-maximum-quota-limits"></a>Maximumquotum limieten verhogen
+
+U vindt meer informatie over Azure beperkingen in de [Azure servicespecifieke beperkt documentatie](../azure-subscription-service-limits.md#data-lake-analytics-limits).
 
 1. Open een ondersteuningsaanvraag in Azure-portal.
 

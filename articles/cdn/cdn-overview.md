@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/06/2018
-ms.author: rli
+ms.date: 04/20/2018
+ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 2da919a880332be928c211a2493f2c0b09a0fcbb
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 36de1011e48f274759c0aeebde74bd26c6604e19
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>Wat is een netwerk voor contentlevering in Azure?
 Een netwerk voor contentlevering (CDN) is een gedistribueerd netwerk van servers dat webinhoud efficiënt aan gebruikers kan leveren. In CDN's wordt gecachede inhoud opgeslagen op randservers in aanwezigheidspunt (POP)-locaties in de buurt van eindgebruikers om de latentie zo klein mogelijk te maken. 
@@ -50,7 +50,7 @@ Zie [Azure CDN POP-locaties](cdn-pop-locations.md) om een lijst met de huidige C
 6. Als de TTL voor het bestand niet is verlopen, retourneert de POP-randserver het bestand rechtstreeks vanuit de cache. Dit proces resulteert in een snellere, responsievere gebruikerservaring.
 
 ## <a name="requirements"></a>Vereisten
-Als u Azure CDN wilt gebruiken, dient u ten minste één Azure-abonnement te hebben. U dient ook ten minste één CDN-profiel te maken. Dit is een verzameling CDN-eindpunten. Elk CDN-eindpunt stelt een specifieke configuratie voor van het gedrag van en de toegang tot contentlevering. U kunt meerdere profielen gebruiken om de CDN-eindpunten te ordenen op basis van het internetdomein, de webtoepassing of andere criteria. [Prijsstelling van Azure CDN](https://azure.microsoft.com/pricing/details/cdn/) wordt toegepast op het niveau van het CDN-profiel, dus u dient meerdere CDN-profielen te maken als u een combinatie van prijscategorieën wilt gebruiken.
+Als u Azure CDN wilt gebruiken, dient u ten minste één Azure-abonnement te hebben. U dient ook ten minste één CDN-profiel te maken. Dit is een verzameling CDN-eindpunten. Elk CDN-eindpunt stelt een specifieke configuratie voor van het gedrag van en de toegang tot contentlevering. U kunt meerdere profielen gebruiken om de CDN-eindpunten te ordenen op basis van het internetdomein, de webtoepassing of andere criteria. [Prijsstelling van Azure CDN](https://azure.microsoft.com/pricing/details/cdn/) wordt toegepast op het niveau van het CDN-profiel, dus u dient meerdere CDN-profielen te maken als u een combinatie van prijscategorieën wilt gebruiken. Zie [Understanding Azure CDN billing](cdn-billing.md) (Facturering voor Azure CDN begrijpen) voor meer informatie over de factureringsstructuur van Azure CDN.
 
 ### <a name="limitations"></a>Beperkingen
 Elk Azure-abonnement kent standaardlimieten voor de volgende resources:
@@ -77,4 +77,5 @@ Zie [Azure CDN-producteigenschappen](cdn-features.md) voor een complete lijst me
 - Beheer uw CDN-eindpunten via [Microsoft Azure Portal](https://portal.azure.com) of met [PowerShell](cdn-manage-powershell.md).
 - Meer informatie over hoe u Azure CDN kunt automatiseren met [.NET](cdn-app-dev-net.md) of [Node.js](cdn-app-dev-node.md).
 - Bekijk de [Azure-video's](https://azure.microsoft.com/resources/videos/index/?services=cdn&sort=newest) als u Azure CDN in actie wilt zien.
+- Zie het [Azure CDN-blog](https://azure.microsoft.com/blog/tag/azure-cdn/) voor informatie over de nieuwste Azure CDN-functies.
 

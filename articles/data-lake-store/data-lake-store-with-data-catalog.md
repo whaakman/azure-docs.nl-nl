@@ -2,23 +2,21 @@
 title: Registreert gegevens van Data Lake Store in Azure Data Catalog | Microsoft Docs
 description: Registreert gegevens van Data Lake Store in Azure Data Catalog
 services: data-lake-store,data-catalog
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 3294d91e-a723-41b5-9eca-ace0ee408a4b
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: e341f6a4b3a6aef0a328aa4f5d8c9ae92dc24137
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: ea5d658b8f465b3a527033ef5e9d2126732c7029
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="register-data-from-data-lake-store-in-azure-data-catalog"></a>Registreert gegevens van Data Lake Store in Azure Data Catalog
 In dit artikel leert u hoe u Azure Data Lake Store integreert met Azure Data Catalog zodat uw gegevens binnen een organisatie kan worden gedetecteerd door integratie met Data Catalog. Zie voor meer informatie over de gegevens worden gecatalogiseerd, [Azure Data Catalog](../data-catalog/data-catalog-what-is-data-catalog.md). Zie voor informatie over scenario's voor gebruik van Data Catalog, [algemene scenario's voor een Azure Data Catalog](../data-catalog/data-catalog-common-scenarios.md).

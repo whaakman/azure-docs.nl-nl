@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 64dcf5608710a85c47cd14ed9bee33594d46e083
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 7c505080e6b6144ab3cf24ad89bb084efbb77c29
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>Koppelingen op de pagina werken niet voor een toepassing toepassingsproxy
 
@@ -45,5 +45,5 @@ Er zijn drie manieren om dit probleem te verhelpen. De opties hieronder in staan
 Als gevolg hiervan wordt aangeraden met behulp van de [aangepaste domeinen](manage-apps/application-proxy-configure-custom-domain.md) oplossing indien mogelijk. Als u deelnemen aan de preview wilt, e- <aadapfeedback@microsoft.com> met de applicationId(s).
 
 ## <a name="next-steps"></a>Volgende stappen
-[Werken met bestaande lokale proxyservers](application-proxy-working-with-proxy-servers.md)
+[Werken met bestaande lokale proxyservers](manage-apps/application-proxy-configure-connectors-with-proxy-servers.md)
 

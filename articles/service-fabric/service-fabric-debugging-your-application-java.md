@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: suhuruli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cb888532-bcdb-4e47-95e4-bfbb1f644da4
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
-ms.author: suhuruli;mikhegn
-ms.openlocfilehash: 023b878706abf524b5a7939492937a92151f6035
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: suhuruli
+ms.openlocfilehash: 0e9e816fa84816b1b5d12f066dc65aee7b4930f7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Fouten opsporen in uw Eclipse met Java Service Fabric-toepassing
 > [!div class="op_single_selector"]
@@ -28,12 +28,12 @@ ms.lasthandoff: 12/21/2017
 
 1. Een lokaal ontwikkelcluster starten door de stappen in [instellen van uw ontwikkelomgeving Service Fabric](service-fabric-get-started-linux.md).
 
-2. Werk entryPoint.sh van de service die u opsporen in, wilt zodat deze de java-proces met de parameters voor foutopsporing op afstand begint. Dit bestand kan worden gevonden op de volgende locatie: ``ApplicationName\ServiceNamePkg\Code\entrypoint.sh``. Poort 8001 is voor foutopsporing in dit voorbeeld ingesteld.
+2. Werk entryPoint.sh van de service die u opsporen in, wilt zodat deze de java-proces met de parameters voor foutopsporing op afstand begint. Dit bestand kan worden gevonden op de volgende locatie: ``ApplicationName\ServiceNamePkg\Code\entrypoint.sh``. Poort 8001 is in dit voorbeeld voor foutopsporing ingesteld.
 
     ```sh
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=y -Djava.library.path=$LD_LIBRARY_PATH -jar myapp.jar
     ```
-3. Werk het Manifest van de toepassing door het instellen van het aantal exemplaren of het aantal replica's voor de service die foutopsporing wordt uitgevoerd op 1. Deze instelling voorkomt de poort die wordt gebruikt voor het opsporen van conflicten. Bijvoorbeeld voor stateless services instellen ``InstanceCount="1"`` en voor stateful services het doel heeft en min replica grootten ingesteld op 1 als volgt: `` TargetReplicaSetSize="1" MinReplicaSetSize="1"``.
+3. Werk het Manifest van de toepassing door het instellen van het aantal exemplaren of het aantal replica's voor de service die foutopsporing wordt uitgevoerd op 1. Deze instelling voorkomt conflicten voor de poort die wordt gebruikt voor het opsporen van fouten. Stel bijvoorbeeld voor stateless services ``InstanceCount="1"`` in en stel voor stateful services de doel- en min-replicasetgrootten als volgt in op 1: `` TargetReplicaSetSize="1" MinReplicaSetSize="1"``.
 
 4. Implementeer de toepassing.
 

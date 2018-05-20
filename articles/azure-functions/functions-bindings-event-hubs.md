@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 44dbe4c3157b1b765004975a6f04e3a96b477846
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
-ms.translationtype: MT
+ms.openlocfilehash: 8516f6d1f598e79bcb47922f02926f75c328861b
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Event Hubs-bindingen voor Azure Functions
 
@@ -82,15 +82,29 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-Als u toegang tot de metagegevens van de gebeurtenis, binden aan een [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) object (vereist een `using` -instructie voor `Microsoft.ServiceBus.Messaging`).
+Toegang krijgen tot [gebeurtenis metagegevens](#trigger---event-metadata) in functiecode, koppelen aan een [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) object (moet een u-instructie voor `Microsoft.ServiceBus.Messaging`). U kunt ook toegang tot dezelfde eigenschappen met behulp van de expressies voor gegevensbinding in de methodehandtekening.  Het volgende voorbeeld ziet u beide manieren om dezelfde gegevens:
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] EventData myEventHubMessage, TraceWriter log)
+public static void Run(
+    [EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] EventData myEventHubMessage, 
+    DateTime enqueuedTimeUtc, 
+    Int64 sequenceNumber,
+    string offset,
+    TraceWriter log)
 {
-    log.Info($"{Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+    log.Info($"Event: {Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+    // Metadata accessed by binding to EventData
+    log.Info($"EnqueuedTimeUtc={myEventHubMessage.EnqueuedTimeUtc}");
+    log.Info($"SequenceNumber={myEventHubMessage.SequenceNumber}");
+    log.Info($"Offset={myEventHubMessage.Offset}");
+    // Metadata accessed by using binding expressions
+    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.Info($"SequenceNumber={sequenceNumber}");
+    log.Info($"Offset={offset}");
 }
 ```
+
 Zorg voor het ontvangen van gebeurtenissen in een batch, `string` of `EventData` een matrix:
 
 ```cs
@@ -130,16 +144,29 @@ public static void Run(string myEventHubMessage, TraceWriter log)
 }
 ```
 
-Als u toegang tot de metagegevens van de gebeurtenis, binden aan een [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) object (vereist een met-instructie voor `Microsoft.ServiceBus.Messaging`).
+Toegang krijgen tot [gebeurtenis metagegevens](#trigger---event-metadata) in functiecode, koppelen aan een [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) object (moet een u-instructie voor `Microsoft.ServiceBus.Messaging`). U kunt ook toegang tot dezelfde eigenschappen met behulp van de expressies voor gegevensbinding in de methodehandtekening.  Het volgende voorbeeld ziet u beide manieren om dezelfde gegevens:
 
 ```cs
 #r "Microsoft.ServiceBus"
 using System.Text;
+using System;
 using Microsoft.ServiceBus.Messaging;
 
-public static void Run(EventData myEventHubMessage, TraceWriter log)
+public static void Run(EventData myEventHubMessage,
+    DateTime enqueuedTimeUtc, 
+    Int64 sequenceNumber,
+    string offset,
+    TraceWriter log)
 {
-    log.Info($"{Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+    log.Info($"Event: {Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+    // Metadata accessed by binding to EventData
+    log.Info($"EnqueuedTimeUtc={myEventHubMessage.EnqueuedTimeUtc}");
+    log.Info($"SequenceNumber={myEventHubMessage.SequenceNumber}");
+    log.Info($"Offset={myEventHubMessage.Offset}");
+    // Metadata accessed by using binding expressions
+    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.Info($"SequenceNumber={sequenceNumber}");
+    log.Info($"Offset={offset}");
 }
 ```
 
@@ -180,7 +207,7 @@ let Run(myEventHubMessage: string, log: TraceWriter) =
 
 ### <a name="trigger---javascript-example"></a>Trigger - JavaScript-voorbeeld
 
-Het volgende voorbeeld ziet u een event hub-trigger binding in een *function.json* bestand en een [JavaScript-functie](functions-reference-node.md) die gebruikmaakt van de binding. De functie Logboeken de berichttekst van de event hub-trigger.
+Het volgende voorbeeld ziet u een event hub-trigger binding in een *function.json* bestand en een [JavaScript-functie](functions-reference-node.md) die gebruikmaakt van de binding. De functie leest [gebeurtenis metagegevens](#trigger---event-metadata) en registreert het bericht.
 
 Dit zijn de bindingsgegevens de *function.json* bestand:
 
@@ -197,8 +224,12 @@ Dit zijn de bindingsgegevens de *function.json* bestand:
 Hier volgt de JavaScript-code:
 
 ```javascript
-module.exports = function (context, myEventHubMessage) {
-    context.log('Node.js eventhub trigger function processed work item', myEventHubMessage);    
+module.exports = function (context, eventHubMessage) {
+    context.log('Event Hubs trigger function processed message: ', myEventHubMessage);
+    context.log('EnqueuedTimeUtc =', context.bindingData.enqueuedTimeUtc);
+    context.log('SequenceNumber =', context.bindingData.sequenceNumber);
+    context.log('Offset =', context.bindingData.offset);
+     
     context.done();
 };
 ```
@@ -262,6 +293,22 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |**Verbinding** |**Verbinding** | De naam van een app-instelling met de verbindingsreeks naar de event hub-naamruimte. Kopieer deze verbindingsreeks door te klikken op de **verbindingsgegevens** knop voor de [naamruimte](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), niet de event hub zelf. Deze verbindingsreeks moet ten minste leesmachtigingen hebben voor de trigger wordt geactiveerd.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+## <a name="trigger---event-metadata"></a>Trigger - metagegevens van de gebeurtenis
+
+De trigger Event Hubs bevat diverse [eigenschappen voor metagegevens](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Deze eigenschappen kunnen worden gebruikt als onderdeel van de expressies voor gegevensbinding in andere bindingen of als parameters in uw code. Dit zijn de eigenschappen van de [EventData](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventdata) klasse.
+
+|Eigenschap|Type|Beschrijving|
+|--------|----|-----------|
+|`PartitionContext`|[PartitionContext](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|De `PartitionContext` exemplaar.|
+|`EnqueuedTimeUtc`|`DateTime`|De tijd in de wachtrij in UTC.|
+|`Offset`|`string`|De verschuiving van de gegevens ten opzichte van de Event Hub-partitie-stroom. De offset is een markering of id voor een gebeurtenis in de Event Hubs-stroom. De id is uniek zijn binnen een partitie van de Event Hubs-stroom.|
+|`PartitionKey`|`string`|De partitie aan welke gebeurtenis gegevens moeten worden verzonden.|
+|`Properties`|`IDictionary<String,Object>`|De gebruikerseigenschappen van de gebeurtenisgegevens worden opgeslagen.|
+|`SequenceNumber`|`Int64`|Het aantal logische volgorde van de gebeurtenis.|
+|`SystemProperties`|`IDictionary<String,Object>`|De eigenschappen, met inbegrip van gegevens van de gebeurtenis.|
+
+Zie [codevoorbeelden](#trigger---example) die gebruikmaken van deze eigenschappen eerder in dit artikel.
 
 ## <a name="trigger---hostjson-properties"></a>Trigger - eigenschappen host.json
 

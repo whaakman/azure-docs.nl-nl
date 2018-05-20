@@ -11,6 +11,7 @@
 ## [Een model maken in Azure Portal (preview)](analysis-services-create-model-portal.md)
 
 # Concepten
+## [Automatisering met service-principals](analysis-services-service-principal.md)
 ## [Ondersteunde gegevensbronnen](analysis-services-datasource.md)
 ## [Verbinding maken met on-premises gegevensbronnen](analysis-services-gateway.md)
 ## [Verbinding maken met servers](analysis-services-connect.md)

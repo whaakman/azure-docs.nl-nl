@@ -2,21 +2,21 @@
 title: Een Azure API Management-exemplaar maken | Microsoft Docs
 description: Volg de stappen in deze zelfstudie om een nieuw Azure API Management-exemplaar te maken.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cflower
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 84758fbf8f19728370280d5d94acb478ff739019
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7fb4182c0b5149a9006a30ad34782ad968e16758
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>Een nieuw exemplaar van de API Management-service maken
 
@@ -30,7 +30,7 @@ In deze quickstart worden de stappen beschreven voor het maken van een nieuw API
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-Meld u via http://portal.azure.com aan bij Azure Portal.
+Meld u aan bij Azure Portal op http://portal.azure.com.
 
 ## <a name="create-a-new-service"></a>Een nieuwe service maken
 

@@ -6,14 +6,14 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 05/14/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 1424ae2d9ffe7308fe85b7eb8ed6b0062d59ce31
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 9abe7743906064d182453fea403ff94a097c3558
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="vcore-based-purchasing-model-for-azure-sql-database-preview"></a>op basis van vCore aankoopmodel voor Azure SQL Database (preview)
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 05/11/2018
 |**Aankoopmodel**|**Beschrijving**|**Bij beste voor**|
 |---|---|---|
 |Op basis van het DTU-model|Dit model is gebaseerd op een gecombineerde meting van de berekenings-, opslag- en i/o-resources. Prestatieniveaus worden uitgedrukt in termen van DTU’s (DTU’s: Database Transaction Units) voor enkelvoudige databases en eDTU’s (eDTU’s: elastische DTU’s) voor elastische pools. Zie voor meer informatie over dtu's en edtu's [wat dtu's en edtu's zijn](sql-database-what-is-a-dtu.md)?|Bij beste voor klanten die eenvoudige, vooraf geconfigureerde opties willen.| 
-|op basis van vCore model|Dit model kunt u de berekenings-en opslagbronnen onafhankelijk van elkaar schalen. Ook kunt u Azure hybride voordeel voor SQL Server gebruiken om te krijgen van kosten te besparen.|Bij beste voor flexibiliteit, controle en transparantie value-klanten.|
+|op basis van vCore model|Dit model kunt u de berekenings- en resources - maximaal 80 vCores, de opslag van gegevens van 4 TB en 200000 IOP's onafhankelijk van elkaar schalen. Ook kunt u Azure hybride voordeel voor SQL Server gebruiken om te krijgen van kosten te besparen.|Bij beste voor flexibiliteit, controle en transparantie value-klanten.|
 ||||  
 
 ![Prijsmodel](./media/sql-database-service-tiers/pricing-model.png)
@@ -65,10 +65,10 @@ De volgende tabel biedt meer inzicht in de verschillen tussen deze twee lagen:
 ||**Voor algemene doeleinden**|**Kritieke zakelijke**|
 |---|---|---|
 |Ideaal voor|De meeste zakelijke workloads. Aanbiedingen budget objectgeoriënteerde taakverdeling en schaalbare berekenings- en -opties.|Zakelijke toepassingen die snelle I/O vereisen. Maakt gebruik van verschillende geïsoleerde replica's voor de hoogste mate van flexibiliteit wat storingen betreft.|
-|Compute|1 tot en met 16 vCore|1 tot en met 16 vCore|
+|Compute|1 tot 80 vCore, generatie 4 en 5 van de generatie |1 tot 80 vCore, generatie 4 en 5 van de generatie|
 |Geheugen|7 GB per core |7 GB per core |
-|Storage|Premium externe opslag, 5 GB – 4 TB|Lokale SSD-opslag, 5 GB – 1 TB|
-|I/o-doorvoer (bij benadering)|500 IOP's per vCore met 7500 maximumaantal IOPS|5000 IOP's per core|
+|Storage|Premium externe opslag, 5 GB – 4 TB|Lokale SSD-opslag, 5 GB – 4 TB|
+|I/o-doorvoer (bij benadering)|500 IOP's per vCore met 7000 maximumaantal IOPS|5000 IOP's per core met 200000 maximumaantal IOPS|
 |Beschikbaarheid|1 replica, geen lees-schaal|3-replica's, 1 [lezen scale](sql-database-read-scale-out.md), zone redundant HA|
 |Back-ups|RA-GRS, 7-35 dagen (7 dagen standaard)|RA-GRS, 7-35 dagen (7 dagen standaard) *|
 |In het geheugen|N/A|Ondersteund|

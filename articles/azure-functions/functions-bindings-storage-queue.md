@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/23/2017
 ms.author: tdykstra
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: d140822b47325e8749d3b2788b47cf820f720a39
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: 67dff6acff33b548518053ca1f569186d6b5b3ae
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Queue storage-bindingen voor Azure Functions
 
@@ -252,6 +252,8 @@ De trigger wachtrij bevat diverse [eigenschappen voor metagegevens](functions-tr
 |`InsertionTime`|`DateTimeOffset`|De tijd die het bericht is toegevoegd aan de wachtrij.|
 |`NextVisibleTime`|`DateTimeOffset`|De tijd die het bericht vervolgens zichtbaar zijn.|
 |`PopReceipt`|`string`|Pop ontvangst van het bericht.|
+
+Zie [codevoorbeelden](#trigger---example) die gebruikmaken van deze eigenschappen eerder in dit artikel.
 
 ## <a name="trigger---poison-messages"></a>Trigger - verontreinigde berichten
 

@@ -1,24 +1,22 @@
 ---
-title: "Gegevens kopiëren van Azure Storage-Blobs in Data Lake Store | Microsoft Docs"
-description: "AdlCopy hulpprogramma gebruiken om gegevens te kopiëren van Azure Storage-Blobs naar Data Lake Store"
+title: Gegevens kopiëren van Azure Storage-Blobs in Data Lake Store | Microsoft Docs
+description: AdlCopy hulpprogramma gebruiken om gegevens te kopiëren van Azure Storage-Blobs naar Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: dc273ef8-96ef-47a6-b831-98e8a777a5c1
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 33bfd200f72cb56b391cab52bf90f19b568893a9
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 964ba0eb9c619fa226b0704a6c83c05186a95261
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-data-lake-store"></a>Gegevens kopiëren van Azure Storage Blob naar Data Lake Store
 > [!div class="op_single_selector"]
@@ -44,7 +42,7 @@ Voordat u dit artikel gaat lezen, moet u beschikken over het volgende:
 * **Azure Storage-Blobs** container met enkele gegevens.
 * **Een Azure Data Lake Store-account**. Zie voor instructies over het maken van een [aan de slag met Azure Data Lake Store](data-lake-store-get-started-portal.md)
 * **Azure Data Lake Analytics-account (optioneel)** -Zie [aan de slag met Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md) voor instructies over het maken van een Data Lake Store-account.
-* **AdlCopy hulpprogramma**. Installeer het hulpprogramma AdlCopy van [http://aka.ms/downloadadlcopy](http://aka.ms/downloadadlcopy).
+* **AdlCopy hulpprogramma**. Installeer het hulpprogramma AdlCopy van [ http://aka.ms/downloadadlcopy ](http://aka.ms/downloadadlcopy).
 
 ## <a name="syntax-of-the-adlcopy-tool"></a>Syntaxis van het hulpprogramma AdlCopy
 Gebruik de volgende syntaxis om te werken met het hulpprogramma AdlCopy
@@ -72,7 +70,7 @@ De parameters in de syntaxis worden hieronder beschreven:
 
         AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
-    >[AZURE.NOTE]De bovenstaande syntaxis Hiermee geeft u het bestand moet worden gekopieerd naar een map in het Data Lake Store-account. AdlCopy hulpprogramma maakt een map als de naam van de opgegeven map niet bestaat.
+    >[AZURE.NOTE] De bovenstaande syntaxis Hiermee geeft u het bestand moet worden gekopieerd naar een map in het Data Lake Store-account. AdlCopy hulpprogramma maakt een map als de naam van de opgegeven map niet bestaat.
 
     U wordt gevraagd de referenties voor de Azure-abonnement waaronder die u een Data Lake Store-account hebt invoeren. Hier ziet u uitvoer ziet er als volgt:
 
@@ -164,7 +162,7 @@ In dit gedeelte vindt u informatie over het gebruik van AdlCopy om gegevens te k
 
         AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/FoodInspectionData/ /dest adl://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Pattern *.csv
 
-## <a name="billing"></a>Facturering
+## <a name="billing"></a>Billing
 * Als u het hulpprogramma AdlCopy als zelfstandige wordt u gefactureerd voor uitgaande kosten voor het verplaatsen van gegevens, als de bron van Azure Storage-account zich niet in dezelfde regio bevinden als de Data Lake Store.
 * Als u het hulpprogramma AdlCopy met uw Data Lake Analytics gebruiken-account standaard [Data Lake Analytics facturering tarieven](https://azure.microsoft.com/pricing/details/data-lake-analytics/) wordt toegepast.
 

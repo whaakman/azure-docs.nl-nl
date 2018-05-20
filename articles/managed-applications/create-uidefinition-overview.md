@@ -8,16 +8,16 @@ manager: timlt
 editor: tysonn
 ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 1e995a3de33960fa3255074a704528bec9d21491
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 59003e71324f5342cb2b724f670603fd6b67afe4
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="create-azure-portal-user-interface-for-your-managed-application"></a>Azure portal-gebruikersinterface voor de beheerde toepassing maken
 Dit document worden de belangrijkste concepten van het bestand createUiDefinition.json. Dit bestand wordt gebruikt voor het genereren van de gebruikersinterface voor het maken van een beheerde toepassing van de Azure-portal.
@@ -70,7 +70,7 @@ De naam van de beheerde toepassing resource stelt u een waarde met de naam moet 
 }
 ```
 
-## <a name="functions"></a>Functies
+## <a name="functions"></a>Functions
 Net als bij sjabloonfuncties in Azure Resource Manager (zowel in de syntaxis en functionaliteit), CreateUiDefinition biedt functies voor het werken met elementen invoer en uitvoer, evenals functies zoals voorwaardelijke.
 
 ## <a name="next-steps"></a>Volgende stappen

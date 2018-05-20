@@ -1,24 +1,24 @@
 ---
 title: Prijzen en facturering - Azure Logic Apps | Microsoft Docs
 description: Meer informatie over prijzen en facturering werking voor Azure Logic Apps
-author: kevinlam1
-manager: anneta
-editor: 
 services: logic-apps
-documentationcenter: 
+author: kevinlam1
+manager: cfowler
+editor: ''
+documentationcenter: ''
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.service: logic-apps
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.workload: logic-apps
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 11/11/2017
-ms.author: LADocs; klam
-ms.openlocfilehash: 096fdd5a6604ed8cecc931da2169194b777664d2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 05/11/2018
+ms.author: klam
+ms.openlocfilehash: 3f01ac12bb3987d564f8d9f70706ae6aabd0a0ee
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="logic-apps-pricing-model"></a>Prijsmodel voor logische apps
 
@@ -57,7 +57,7 @@ Acties die worden uitgevoerd in lussen worden per elke cyclus in de lus meegetel
 
 ## <a name="integration-account-usage"></a>Gebruik van het Account integratie
 
-Gebruik op basis van verbruik bevat een [integratie account](logic-apps-enterprise-integration-create-integration-account.md) waar u kunt verkennen, ontwikkelen en testen van de [B2B/EDI](logic-apps-enterprise-integration-b2b.md) en [XML-verwerking](logic-apps-enterprise-integration-xml.md) functies van Logic Apps zonder extra kosten. U kunt een van deze integratieaccounts per regio en store maximaal 10 overeenkomsten en 25 maps hebben. U kunt hebt en onbeperkte partners, schema's en certificaten uploaden.
+Gebruik op basis van verbruik bevat een [integratie account](logic-apps-enterprise-integration-create-integration-account.md) waar u kunt verkennen, ontwikkelen en testen van de [B2B/EDI](logic-apps-enterprise-integration-b2b.md) en [XML-verwerking](logic-apps-enterprise-integration-xml.md) functies in Logic Apps zonder extra kosten. U kunt er één account zijn integratie per regio en store tot specifieke [getallen van artefacten](../logic-apps/logic-apps-limits-and-config.md), zoals EDI-handelspartners en overeenkomsten, kaarten, schema's, assembly's, certificaten en configuraties van de batch.
 
 Logic Apps biedt ook de basis en standaard integratieaccounts met ondersteunde SLA van Logic Apps. U kunt basisintegratie accounts gebruiken wanneer u wilt gebruiken alleen bericht verwerken, of fungeren als een klein bedrijfspartner die een trading partner relatie met een grotere business-entiteit heeft. Standaard integratieaccounts complexere B2B relaties ondersteuning en verhoog het aantal entiteiten die u kunt beheren. Zie voor meer informatie [Azure-prijzen](https://azure.microsoft.com/pricing/details/logic-apps).
 

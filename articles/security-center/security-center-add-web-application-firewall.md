@@ -5,27 +5,27 @@ services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 8f56139a-4466-48ac-90fb-86d002cf8242
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2018
+ms.date: 05/15/2018
 ms.author: terrylan
-ms.openlocfilehash: 4454d18893d698e49f118048eca0bfc94df315a5
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: e28a1f6b865dae3abe2cb9dfac2921c6a2034491
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>Web application firewall toevoegen in Azure Security Center
 Azure Security Center kan aanbevelen web application firewall (WAF) toe te voegen uit een Microsoft-partner voor het beveiligen van uw webtoepassingen. Dit document vindt u via een voorbeeld van het toepassen van deze aanbeveling.
 
 Een WAF aanbeveling wordt voor een openbare internetgerichte IP (exemplaar niveau IP- of Load Balanced IP) met een gekoppelde netwerkbeveiligingsgroep met poorten voor inkomend web openen (80,443) weergegeven.
 
-Security Center raadt aan dat u een WAF om te helpen beschermen tegen aanvallen die gericht is op uw webtoepassingen op virtuele machines en op externe App Service-omgevingen inrichten. Een as-omgeving (App Service omgeving) is een [Premium](https://azure.microsoft.com/pricing/details/app-service/) service-plan optie van Azure App Service die een volledig geïsoleerde en toegewezen omgeving biedt voor het veilig uitvoeren van Azure App Service-apps. Zie voor meer informatie over het as-omgeving, de [documentatie van App Service-omgeving](../app-service/environment/intro.md).
+Security Center raadt het inrichten van een WAF om te helpen beschermen tegen aanvallen die gericht is op uw webtoepassingen op virtuele machines en op externe App Service-omgevingen (as-omgeving) geïmplementeerd onder de [geïsoleerd](https://azure.microsoft.com/pricing/details/app-service/windows/) service-abonnement. Het Isolated-abonnement host uw apps in een privé en speciale Azure-omgeving en is ideaal voor apps die beveiligde verbindingen in uw lokale netwerk of extra prestaties en schaalgrootte vereisen. Naast uw app wordt in een geïsoleerde omgeving, moet uw app in een extern IP-adres op de load balancer hebben. Zie voor meer informatie over het as-omgeving, de [documentatie van App Service-omgeving](../app-service/environment/intro.md).
 
 > [!NOTE]
 > In dit document wordt de service geïntroduceerd aan de hand van een voorbeeldimplementatie.  Dit document is niet een stapsgewijze handleiding.

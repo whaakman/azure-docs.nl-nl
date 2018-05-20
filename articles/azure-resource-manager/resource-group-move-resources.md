@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 05/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6691ba1e89b7558302c869d3246fc69acd5dcd84
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: b92cbf0df971afd3bea981327975ed792ce942d4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar de nieuwe resourcegroep of abonnement
 
@@ -156,6 +156,7 @@ De services waarmee verplaatsen naar een nieuwe resourcegroep en een abonnement 
 * Virtuele Machines (klassiek) - Zie [klassieke implementatie beperkingen](#classic-deployment-limitations)
 * Virtuele-Machineschaalsets - Zie [beperkingen van de virtuele Machines](#virtual-machines-limitations)
 * Virtuele netwerken - Zie [beperkingen van de virtuele netwerken](#virtual-networks-limitations)
+* Visual Studio teamservices - accounts met niet-Microsoft-extensie VSTS koopt moet [hun aankopen annuleren](https://go.microsoft.com/fwlink/?linkid=871160) voordat ze het account voor abonnementen kunnen verplaatsen.
 * VPN Gateway
 
 ## <a name="services-that-cannot-be-moved"></a>Services die kunnen niet worden verplaatst
@@ -170,10 +171,10 @@ De services die op dit moment niet inschakelen voor het verplaatsen van een reso
 * Azure Migrate
 * BizTalk Services
 * Certificaten - App Service-certificaten kunnen worden verplaatst, maar geüploade certificaten hebben [beperkingen](#app-service-limitations).
-* Kubernetes-Service
 * DevTest Labs - te verplaatsen naar een nieuwe resourcegroep in hetzelfde abonnement is ingeschakeld, maar cross abonnement verplaatsen is niet ingeschakeld.
 * Dynamics LCS
 * ExpressRoute
+* Kubernetes-Service
 * Load Balancers - Zie [Load Balancer-beperkingen](#lb-limitations)
 * Managed Applications
 * Beheerde schijven - Zie [beperkingen van de virtuele Machines](#virtual-machines-limitations)
@@ -209,6 +210,8 @@ Bij het verplaatsen van een virtueel netwerk, moet u ook de afhankelijke resourc
 Als u wilt een peered virtueel netwerk verplaatsen, moet u eerst het virtuele netwerk van de peering uitschakelen. Als uitgeschakeld, kunt u het virtuele netwerk kunt verplaatsen. Na de verplaatsing opnieuw inschakelen het virtuele netwerk van de peering.
 
 U kunt een virtueel netwerk niet verplaatsen naar een ander abonnement als het virtuele netwerk een subnet met resourcenavigatiekoppelingen bevat. Als een Redis-Cache-bron in een subnet is geïmplementeerd, heeft dat subnet een navigatiekoppeling resource.
+
+U kunt een virtueel netwerk niet verplaatsen naar een ander abonnement als het virtuele netwerk een aangepaste DNS-server bevat. Voor het verplaatsen van het virtuele netwerk, moet u deze op de standaardwaarde (Azure) DNS-server instellen. Na het verplaatsen door de aangepaste DNS-server opnieuw te configureren.
 
 ## <a name="app-service-limitations"></a>App Service-beperkingen
 

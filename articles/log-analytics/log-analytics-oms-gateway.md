@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 207b7ab0968f775dba99c2f48c1961d74b4f11c4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.openlocfilehash: 18f7c0323493b73f4f136228fb9535ed63323c05
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>Verbinding maken met computers zonder toegang tot het Internet met behulp van de OMS-Gateway
 Dit document beschrijft hoe u communicatie met Azure Automation configureert en verbonden met de OMS-Gateway als directe logboekanalyse of Operations Manager bewaakt computers hebben geen toegang tot Internet.  De OMS-Gateway een forward HTTP-proxy die ondersteuning biedt voor HTTP-tunneling met de opdracht HTTP-verbinding is, kunnen gegevens verzamelen en naar Azure Automation en Log Analytics namens hen verzonden.  
@@ -36,7 +36,7 @@ Wanneer een beheergroep van Operations Manager is geïntegreerd met Log Analytic
 
 Hoge beschikbaarheid bieden voor direct verbonden of Operations beheergroepen die met logboekanalyse via de gateway communiceren, kunt u Netwerktaakverdeling omgeleid en distributie van het verkeer over meerdere gatewayservers.  Als een gatewayserver uitvalt, wordt het verkeer wordt omgeleid naar een ander beschikbaar knooppunt.  
 
-Het verdient aanbeveling dat u de OMS-agent op de computer met de OMS-Gateway-software installeren voor het controleren van de OMS-Gateway en analyseren van gegevens van prestaties of gebeurtenis. Daarnaast helpt de agent bij het identificeren van de service-eindpunten die nodig is om te communiceren met OMS-Gateway.
+De OMS-agent is vereist op de computer met de OMS-Gateway in om deze te identificeren van de service-eindpunten die nodig is om te communiceren met en controleren van de OMS-Gateway voor het analyseren van de prestaties of de gegevens van gebeurtenissen.
 
 Elke agent moet verbinding met het netwerk naar de gateway hebben, zodat de agents automatisch gegevens naar en van de gateway kunnen overdragen. De gateway is geïnstalleerd op een domeincontroller wordt niet aanbevolen.
 
@@ -56,13 +56,14 @@ Wanneer het toewijzen van een computer worden uitgevoerd van de OMS-Gateway, moe
 * Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2,  Windows Server 2008
 * .Net Framework 4.5
 * Minimum van een 4-core-processor en 8 GB geheugen 
+* OMS-Agent voor Windows 
 
 ### <a name="language-availability"></a>Beschikbare talen
 
 De OMS-Gateway is beschikbaar in de volgende talen:
 
-- Chinees (Vereenvoudigd)
-- Chinees (Traditioneel)
+- Chinees (vereenvoudigd)
+- Chinees (traditioneel)
 - Tsjechisch
 - Nederlands
 - Nederlands

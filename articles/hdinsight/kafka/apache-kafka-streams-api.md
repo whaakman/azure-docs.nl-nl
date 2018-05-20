@@ -1,6 +1,6 @@
 ---
-title: De Apache Kafka Streams API - Azure HDInsight gebruiken | Microsoft Docs
-description: Informatie over het gebruik van de API van Apache Kafka stromen met Kafka op HDInsight. Deze API kunt u stroomverwerkingslogica tussen de onderwerpen in Kafka uitvoeren.
+title: 'Zelfstudie: Werken met de Streams-API van Apache Kafka - Azure HDInsight | Microsoft Docs'
+description: Leer hoe u de Streams-API van Apache Kafka gebruikt met Kafka in HDInsight. Met deze API kunt u gegevensstromen tussen onderwerpen in Kafka verwerken.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -9,23 +9,41 @@ editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 04/10/2018
+ms.topic: tutorial
+ms.date: 04/17/2018
 ms.author: larryfr
-ms.openlocfilehash: 36d67cdb99871f3948db1f6497b1a4638df4f3f1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 8aff28079a0aaa7c02d8a187cb379ecdbedcd854
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="apache-kafka-streams-api"></a>Apache Kafka streams API
+# <a name="tutorial-apache-kafka-streams-api"></a>Zelfstudie: Streams-API van Apache Kafka
 
-Informatie over het maken van een toepassing die gebruikmaakt van de stromen Kafka API en deze worden uitgevoerd met Kafka op HDInsight.
+Leer hoe u een toepassing maakt die gebruikmaakt van de Streams-API van Kafka en hoe u deze uitvoert met Kafka in HDInsight. 
 
-Als u werkt met Apache Kafka, stroom verwerken vaak is voltooid met Apache Spark of Storm. Kafka versie 0.10.0 (in HDInsight 3.5 en 3.6) is de API van de stromen Kafka geïntroduceerd. Deze API kunt u voor het transformeren van gegevensstromen tussen invoer- en onderwerpen, met behulp van een toepassing die wordt uitgevoerd op Kafka. In sommige gevallen kan dit een alternatief voor het maken van een Spark of Storm streamingoplossing. Zie voor meer informatie over Kafka Streams de [Inleiding tot Streams](https://kafka.apache.org/10/documentation/streams/) documentatie op Apache.org.
+De voorbeeldtoepassing die wordt gebruikt in deze zelfstudie, is een app voor het tellen van woorden die via een stream worden aangeboden. Eerst worden er tekstgegevens gelezen uit een onderwerp van Kafka, vervolgens worden afzonderlijke woorden uitgepakt en ten slotte worden de woorden en het aantal woorden opgeslagen in een ander Kafka-onderwerp.
+
+> [!NOTE]
+> De verwerking van Kafka-gegevensstromen gebeurt vaak met Apache Spark of Storm. De Streams-API is geïntroduceerd in Kafka versie 0.10.0 (in HDInsight 3.5 en 3.6). Met deze API kunt u gegevensstromen transformeren tussen invoer- en uitvoeronderwerpen. In sommige gevallen kan dit een alternatief zijn voor het maken van een streamingoplossing op basis van Spark of Storm. 
+>
+> Meer informatie over de Streams-API van Kafka vindt u in het Engelstalige artikel [Intro to Streams](https://kafka.apache.org/10/documentation/streams/) op Apache.org.
+
+In deze zelfstudie leert u het volgende:
+
+> [!div class="checklist"]
+> * De ontwikkelomgeving instellen
+> * De code begrijpen
+> * De toepassing compileren en implementeren
+> * Kafka onderwerpen configureren
+> * De code uitvoeren
+
+## <a name="prerequisites"></a>Vereisten
+
+* Een Kafka in HDInsight 3.6-cluster. Zie [Aan de slag met Kafka in HDInsight](apache-kafka-get-started.md) voor informatie over het maken van een Kafka-cluster in HDInsight.
+
+* Voer de stappen in het document [Consumer- en Producer-API's van Kafka](apache-kafka-producer-consumer-api.md) uit. In de stappen in dit document worden de voorbeeldtoepassing en onderwerpen gebruikt die in deze zelfstudie zijn gemaakt.
 
 ## <a name="set-up-your-development-environment"></a>De ontwikkelomgeving instellen
 
@@ -37,93 +55,188 @@ De volgende onderdelen moeten zijn geïnstalleerd in de ontwikkelingsomgeving:
 
 * Een SSH-client en de opdracht `scp`. Zie het document [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
-## <a name="set-up-your-deployment-environment"></a>Uw implementatieomgeving instellen
+## <a name="understand-the-code"></a>De code begrijpen
 
-Dit voorbeeld vereist Kafka op HDInsight 3.6. Zie voor meer informatie over het maken van een Kafka op HDInsight-cluster, de [beginnen met Kafka op HDInsight](apache-kafka-get-started.md) document.
+De voorbeeldtoepassing bevindt zich op [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started), in de submap `Streaming`. De toepassing bestaat uit twee bestanden:
 
-## <a name="build-and-deploy-the-example"></a>Bouw en implementeer het voorbeeld
+* `pom.xml`: dit bestand definieert de projectafhankelijkheden, de Java-versie en de pakketmethoden.
+* `Stream.java`: dit bestand implementeert de streaming-logica.
 
-Gebruik de volgende stappen uit om te bouwen en het project implementeren in uw Kafka op HDInsight-cluster.
+### <a name="pomxml"></a>Pom.xml
 
-1. Downloaden van de voorbeelden van [ https://github.com/Azure-Samples/hdinsight-kafka-java-get-started ](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
+Belangrijke aandachtspunten voor het bestand `pom.xml`:
 
-2. Wijzig de mappen op de `Streaming` directory, en gebruik de volgende opdracht om een jar-pakket te maken:
+* Afhankelijkheden: dit project is afhankelijk van de Kafka-API Streams, die wordt geleverd door het pakket `kafka-clients`. Deze afhankelijkheid wordt gedefinieerd met de volgende XML-code:
+
+    ```xml
+    <!-- Kafka client for producer/consumer operations -->
+    <dependency>
+      <groupId>org.apache.kafka</groupId>
+      <artifactId>kafka-clients</artifactId>
+      <version>${kafka.version}</version>
+    </dependency>
+    ```
+
+    > [!NOTE]
+    > De vermelding `${kafka.version}` wordt gedeclareerd in de sectie `<properties>..</properties>` van `pom.xml`, en wordt geconfigureerd voor de Kafka-versie van het HDInsight-cluster.
+
+* Plugins: de Maven-plugins bieden diverse mogelijkheden. In dit project worden de volgende plugins of invoegtoepassingen gebruikt:
+
+    * `maven-compiler-plugin`: wordt gebruikt om de Java-versie die wordt gebruikt door het project in te stellen op 8. Java 8 is vereist voor HDInsight 3.6.
+    * `maven-shade-plugin`: wordt gebruikt voor het genereren van een uber jar die deze toepassing bevat, evenals eventuele afhankelijkheden. Dit bestand wordt ook gebruikt om het toegangspunt van de toepassing in te stellen, zodat u het Jar-bestand rechtstreeks kunt uitvoeren, dus zonder de hoofdklasse op te geven.
+
+### <a name="streamjava"></a>Stream.java
+
+Het bestand `Stream.java` gebruikt de Streams-API voor het implementeren van een toepassing voor het tellen van woorden. De toepassing leest gegevens uit een Kafka-onderwerp met de naam `test` en schrijft het gelezen aantal woorden naar een onderwerp met de naam `wordcounts`.
+
+Met de volgende code wordt de toepassing gedefinieerd:
+
+```java
+package com.microsoft.example;
+
+import org.apache.kafka.common.serialization.Serde;
+import org.apache.kafka.common.serialization.Serdes;
+import org.apache.kafka.streams.KafkaStreams;
+import org.apache.kafka.streams.KeyValue;
+import org.apache.kafka.streams.StreamsConfig;
+import org.apache.kafka.streams.kstream.KStream;
+import org.apache.kafka.streams.kstream.KStreamBuilder;
+
+import java.util.Arrays;
+import java.util.Properties;
+
+public class Stream
+{
+    public static void main( String[] args ) {
+        Properties streamsConfig = new Properties();
+        // The name must be unique on the Kafka cluster
+        streamsConfig.put(StreamsConfig.APPLICATION_ID_CONFIG, "wordcount-example");
+        // Brokers
+        streamsConfig.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, args[0]);
+        // SerDes for key and values
+        streamsConfig.put(StreamsConfig.KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass().getName());
+        streamsConfig.put(StreamsConfig.VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass().getName());
+
+        // Serdes for the word and count
+        Serde<String> stringSerde = Serdes.String();
+        Serde<Long> longSerde = Serdes.Long();
+
+        KStreamBuilder builder = new KStreamBuilder();
+        KStream<String, String> sentences = builder.stream(stringSerde, stringSerde, "test");
+        KStream<String, Long> wordCounts = sentences
+                .flatMapValues(value -> Arrays.asList(value.toLowerCase().split("\\W+")))
+                .map((key, word) -> new KeyValue<>(word, word))
+                .countByKey("Counts")
+                .toStream();
+        wordCounts.to(stringSerde, longSerde, "wordcounts");
+
+        KafkaStreams streams = new KafkaStreams(builder, streamsConfig);
+        streams.start();
+
+        Runtime.getRuntime().addShutdownHook(new Thread(streams::close));
+    }
+}
+```
+
+
+## <a name="build-and-deploy-the-example"></a>Het voorbeeld compileren en implementeren
+
+Als u het project wilt implementeren in het Kafka-cluster in HDInsight, voert u de volgende stappen uit:
+
+1. Download de voorbeelden van [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
+
+2. Wijzig de mappen in de locatie van de map `Streaming` en gebruik de volgende opdracht om een JAR-pakket te maken:
 
     ```bash
     mvn clean package
     ```
 
-    Met deze opdracht maakt u een directory met de naam `target`, die een bestand met de naam `kafka-streaming-1.0-SNAPSHOT.jar` bevat.
+    Met deze opdracht maakt u het pakket op `target/kafka-streaming-1.0-SNAPSHOT.jar`.
 
-3. Gebruik de volgende opdracht om te kopiëren de `kafka-streaming-1.0-SNAPSHOT.jar` bestand met uw HDInsight-cluster:
+3. Gebruik de volgende opdracht om het bestand `kafka-streaming-1.0-SNAPSHOT.jar` naar uw HDInsight-cluster te kopiëren:
    
     ```bash
-    scp ./target/kafka-streaming-1.0-SNAPSHOT.jar SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net:kafka-streaming.jar
+    scp ./target/kafka-streaming-1.0-SNAPSHOT.jar sshuser@clustername-ssh.azurehdinsight.net:kafka-streaming.jar
     ```
    
-    Vervang **SSHUSER** door de SSH-gebruiker van uw cluster en vervang **CLUSTERNAME** door de naam van het cluster. Als u wordt gevraagd, voer het wachtwoord voor de SSH-gebruikersaccount. Voor meer informatie over het gebruik van `scp` met HDInsight, raadpleegt u [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+    Vervang `sshuser` door de SSH-gebruiker voor uw cluster en `clustername` door de naam van het cluster. Voer het wachtwoord voor het SSH-gebruikersaccount in wanneer hierom wordt gevraagd. Zie [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie over het gebruik van `scp` met HDInsight.
 
-## <a name="run-the-example"></a>Het voorbeeld uitvoert
+## <a name="create-kafka-topics"></a>Kafka-onderwerpen maken
 
-1. U kunt een SSH-verbinding met het cluster openen met de volgende opdracht:
+1. Gebruik de volgende opdracht om een SSH-verbinding met het cluster op te zetten:
 
     ```bash
-    ssh SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net
+    ssh sshuser@clustername-ssh.azurehdinsight.net
     ```
 
-    Vervang **SSHUSER** door de SSH-gebruiker van uw cluster en vervang **CLUSTERNAME** door de naam van het cluster. Als u wordt gevraagd, voer het wachtwoord voor de SSH-gebruikersaccount. Voor meer informatie over het gebruik van `scp` met HDInsight, raadpleegt u [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+    Vervang `sshuser` door de SSH-gebruiker voor uw cluster en `clustername` door de naam van het cluster. Voer het wachtwoord voor het SSH-gebruikersaccount in wanneer hierom wordt gevraagd. Zie [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie over het gebruik van `scp` met HDInsight.
 
-4. Voor het maken van de Kafka onderwerpen die door dit voorbeeld worden gebruikt, gebruik de volgende opdrachten:
+2. Gebruik de volgende opdrachten om de clusternaam op te slaan in een variabele en een hulpprogramma voor het parseren van JSON (`jq`) te installeren. Wanneer u daarom wordt gevraagd, geeft u de naam van het Kafka-cluster op:
 
     ```bash
     sudo apt -y install jq
+    read -p 'Enter your Kafka cluster name:' CLUSTERNAME
+    ```
 
-    CLUSTERNAME='your cluster name'
+3. Gebruik de volgende opdrachten als u de Kafka-brokerhosts en de Zookeeper-hosts wilt opvragen. Voer desgevraagd het wachtwoord voor het account voor clusteraanmelding (admin). U wordt tweemaal om uw wachtwoord gevraagd.
 
-    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    ```bash
+    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
+    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
+    ```
 
-    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+4. Gebruik de volgende opdrachten om de onderwerpen te maken die worden gebruikt door de streaming-bewerking:
 
+    > [!NOTE]
+    > Er kan een foutbericht worden weergegeven dat het onderwerp `test` al bestaat. Dit is geen probleem omdat het onderwerp mogelijk in de zelfstudie over de Producer- en Consumer-API's van Apache Kafka is gemaakt.
+
+    ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
 
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic wordcounts --zookeeper $KAFKAZKHOSTS
+
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic RekeyedIntermediateTopic --zookeeper $KAFKAZKHOSTS
+
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic wordcount-example-Counts-changelog --zookeeper $KAFKAZKHOSTS
     ```
 
-    Vervang __uw clusternaam__ met de naam van uw HDInsight-cluster. Wanneer u wordt gevraagd, voert u het wachtwoord voor de aanmeldingsaccount van het HDInsight-cluster.
+    De onderwerpen worden gebruikt voor de volgende doeleinden:
+
+    * `test`: dit is het onderwerp waarin records worden ontvangen. De streaming-toepassing leest uit dit onderwerp.
+    * `wordcounts`: dit is het onderwerp waarin de uitvoer van de streaming-toepassing wordt opgeslagen.
+    * `RekeyedIntermediateTopic`: dit onderwerp wordt gebruikt voor het opnieuw partitioneren van gegevens wanneer het aantal woorden wordt bijgewerkt door de operator `countByKey`.
+    * `wordcount-example-Counts-changelog`: in dit onderwerp worden statuswaarden opgeslagen die worden gebruikt door de bewerking `countByKey`.
+
+    > [!IMPORTANT]
+    > Kafka in HDInsight kan ook worden geconfigureerd voor het automatisch maken van onderwerpen. Zie [How to configure Apache Kafka on HDInsight to automatically create topics](apache-kafka-auto-create-topics.md) (Apache Kafka in HDInsight configureren voor het automatisch maken van onderwerpen) voor meer informatie.
+
+## <a name="run-the-code"></a>De code uitvoeren
+
+1. Gebruik de volgende opdracht om de streaming-toepassing te starten als een achtergrondproces:
+
+    ```bash
+    java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS &
+    ```
 
     > [!NOTE]
-    > Als uw cluster-aanmelding anders dan de standaardwaarde van is `admin`, vervang de `admin` waarde in de vorige opdrachten met de naam van uw cluster-aanmelding.
+    > Er kan een waarschuwing over log4j worden weergegeven. Deze kunt u negeren.
 
-5. U voert dit voorbeeld, moet u drie dingen doen:
+2. Als u records wilt verzenden naar het onderwerp `test`, gebruikt u de volgende opdracht gebruiken om de Producer-toepassing te starten:
 
-    * Starten van de oplossing Streams in `kafka-streaming.jar`.
-    * Start een producent die naar schrijft de `test` onderwerp.
-    * Een consumer te starten, zodat u de uitvoer geschreven ziet naar de `wordcounts` onderwerp
+    ```bash
+    java -jar kafka-producer-consumer.jar producer $KAFKABROKERS
+    ```
+
+3. Zodra de toepassing is voltooid, gebruikt u de volgende opdracht om de informatie weer te geven die is opgeslagen in het onderwerp `wordcounts`:
+
+    ```bash
+    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer --from-beginning
+    ```
 
     > [!NOTE]
-    > U moet controleren of de `auto.create.topics.enable` eigenschap is ingesteld op `true` in het configuratiebestand Kafka Broker. Deze eigenschap worden bekeken en gewijzigd in de geavanceerde configuratie van Kafka Broker-bestand met de Ambari-Webgebruikersinterface. Anders moet u voor het maken van de tussenliggende onderwerp `RekeyedIntermediateTopic` handmatig voordat u dit voorbeeld met de volgende opdracht uitvoert:
-    ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic RekeyedIntermediateTopic  --zookeeper $KAFKAZKHOSTS
-    ```
-    
-    U kunt deze bewerkingen kan uitvoeren door het openen van drie SSH-sessies. Maar u moet vervolgens ingesteld `$KAFKABROKERS` en `$KAFKAZKHOSTS` stap voor elk door het uitvoeren van 4 in deze sectie bij elke SSH-sessie. Een eenvoudiger oplossing is met de `tmux` hulpprogramma kan de huidige weergave SSH in meerdere secties gesplitst. Starten van de stroom, producent en consumenten met `tmux`, gebruik de volgende opdracht:
+    > De parameters `--property` geven de Consumer-API opdracht om de key (het woord) samen met de count (waarde) weer te geven. Deze parameter configureert ook welke deserializer moet worden gebruikt bij het lezen van deze waarden uit Kafka.
 
-    ```bash
-    tmux new-session '/usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer' \; split-window -h 'java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS' \; split-window -v '/usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic test' \; attach
-    ```
-
-    Met deze opdracht splitst de SSH-weergave in drie secties:
-
-    * Het linkergedeelte wordt uitgevoerd een console consumer, welke leesbewerkingen van berichten van de `wordcounts` onderwerp: `/usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer`
-
-        > [!NOTE]
-        > De `--property` parameters laat de consument console afdrukken van de sleutel (word) samen met het aantal (waarde). Deze parameter configureert ook de deserializer moet worden gebruikt bij het lezen van deze waarden van Kafka.
-
-    * Het bovenste gedeelte van de juiste voert de Streams API-oplossing: `java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS`
-
-    * Het onderste gedeelte van de juiste de producent console wordt uitgevoerd en wordt gewacht op berichten te verzenden geeft u de `test` onderwerp: `/usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic test`
- 
-6. Na de `tmux` opdracht splitst de weergave, wordt de cursor in het onderste gedeelte van de juiste. Beginnen met het invoeren van zinnen. Het linkerdeelvenster wordt bijgewerkt na elke zin om weer te geven van een aantal unieke woorden. De uitvoer lijkt op het volgende:
+    De uitvoer lijkt op het volgende:
    
         dwarfs  13635
         ago     13664
@@ -139,19 +252,13 @@ Gebruik de volgende stappen uit om te bouwen en het project implementeren in uw 
         jumped  13641
    
     > [!NOTE]
-    > De telling wordt verhoogd wanneer er een woord wordt gedetecteerd.
+    > De parameter `--from-beggining` configureert de Consumer om te beginnen bij het begin van de records die zijn opgeslagen in het onderwerp. Het aantal wordt met elk ontvangen woord opgehoogd, zodat het onderwerp meerdere vermeldingen voor elk woord bevat, met een oplopend aantal.
 
-7. Gebruik de __Ctrl + c drukken__ om af te sluiten van de producent. Blijven gebruiken __Ctrl + c drukken__ om af te sluiten van de toepassing en de consumer.
+7. Gebruik __Ctrl+C__ om de Producer af te sluiten. Blijf op __Ctrl+C__ drukken om de toepassing en de Consumer af te sluiten.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit document hebt u geleerd hoe u de API Kafka-stromen met Kafka op HDInsight. Gebruik de volgende documenten voor meer informatie over het werken met Kafka:
+In dit document hebt u geleerd hoe u de Streams-API van Kafka gebruikt met Kafka in HDInsight. Gebruik de volgende documenten voor meer informatie over het werken met Kafka:
 
 * [Kafka-logboekbestanden analyseren](apache-kafka-log-analytics-operations-management.md)
 * [Gegevens repliceren tussen Kafka-clusters](apache-kafka-mirroring.md)
-* [Producer and Consumer API van Kafka met HDInsight](apache-kafka-producer-consumer-api.md)
-* [Apache Spark-streaming (DStream) gebruiken met Kafka in HDInsight](../hdinsight-apache-spark-with-kafka.md)
-* [Apache Spark Structured Streaming met Kafka in HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md)
-* [Apache Spark Structured Streaming gebruiken om gegevens te verplaatsen van Kafka in HDInsight naar Cosmos DB](../apache-kafka-spark-structured-streaming-cosmosdb.md)
-* [Apache Storm gebruiken met Kafka in HDInsight](../hdinsight-apache-storm-with-kafka.md)
-* [Verbinding maken met Kafka via een Azure Virtual Network](apache-kafka-connect-vpn-gateway.md)

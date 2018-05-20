@@ -3,7 +3,7 @@ title: De paginastijl aanpassen in de ontwikkelaarsportal van Azure API Manageme
 description: Volg de stappen van deze snelstart voor het aanpassen van de stijl van de elementen in de ontwikkelaarsportal van Azure API Management.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 15012317d3d0a4d3e50d56966bf8d26b0ef48118
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d1f638c9825ea5eedf6eaee0e0ca2ccfd5a491bc
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>De stijl van de pagina's van de ontwikkelaarsportal aanpassen
 
@@ -34,7 +34,7 @@ In deze zelfstudie leert u het volgende:
 > * Aanpassen van de stijl van elementen op pagina's van de **ontwikkelaars**portal
 > * Uw wijziging bekijken
 
-![Stijl aanpassen](./media/modify-developer-portal-style/developer_portal.png)
+![stijl aanpassen](./media/modify-developer-portal-style/developer_portal.png)
 
 ## <a name="prerequisites"></a>Vereisten
 

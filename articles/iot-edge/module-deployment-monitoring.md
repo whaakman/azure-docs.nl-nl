@@ -1,19 +1,19 @@
 ---
 title: Modules voor Azure IoT rand implementeren | Microsoft Docs
-description: "Meer informatie over hoe modules ophalen geïmplementeerd op de edge-apparaten"
+description: Meer informatie over hoe modules ophalen geïmplementeerd op de edge-apparaten
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 0fb8c55937c1f4c29c542204673a2f41e3ae29db
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: ffd3a8e6bde7310f6bdbed0e0f87419c73fcd6fc
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>Rand van de IoT-implementaties voor één apparaten of op grote schaal begrijpen - voorbeeld
 
@@ -59,7 +59,7 @@ De metagegevens van de configuratie voor elke module omvat:
 
 De doelvoorwaarden wordt continu op te nemen van nieuwe apparaten die voldoen aan de vereisten of verwijderen van apparaten die niet langer via de levensduur van de implementatie geëvalueerd. De implementatie wordt opnieuw worden geactiveerd als de service wordt gedetecteerd door elke wijziging van de doel-voorwaarde. Bijvoorbeeld, u een implementatie met een doel voorwaarde tags.environment A hebt = de prod'. Wanneer u ere van de implementatie, zijn er 10 prod-apparaten. De modules zijn geïnstalleerd in deze 10-apparaten. De Agent-Status van de IoT-rand wordt weergegeven als totaal aantal apparaten 10, 10 is antwoorden, 0 mislukte reacties en 0 in behandeling antwoorden. Nu u 5 meer apparaten met tags.environment toevoegen = de prod'. Detecteert de wijziging van de service en de Agent-Status van de IoT-rand wordt 15 totaal aantal apparaten, 10 is antwoorden, 0 mislukte reacties en 5 in behandeling antwoorden bij een poging te implementeren op de vijf nieuwe apparaten.
 
-Gebruik een Boole-voorwaarde op apparaat horende tags of de apparaat-id selecteren de doelapparaten. Als u voorwaarde gebruiken met labels wilt, moet u toevoegen 'labels' :{} sectie in de apparaat-twin onder hetzelfde niveau als eigenschappen. [Meer informatie over labels in de apparaat-twin](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins)
+Gebruik een Boole-voorwaarde op apparaat horende tags of de apparaat-id selecteren de doelapparaten. Als u voorwaarde gebruiken met labels wilt, moet u 'labels' toevoegen:{} sectie in de apparaat-twin onder hetzelfde niveau als eigenschappen. [Meer informatie over labels in de apparaat-twin](../iot-hub/iot-hub-devguide-device-twins.md)
 
 Voorbeelden van de doel-voorwaarden:
 * apparaat-id = 'linuxprod1'

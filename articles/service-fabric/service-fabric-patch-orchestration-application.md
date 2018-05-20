@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: novino
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/07/2018
 ms.author: nachandr
-ms.openlocfilehash: 43a0675b1613e7bcf338537c1203de7df9a02fc4
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d36fcac4cbbdf8127e60e23df4ff2d52e68b6689
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch voor het Windows-besturingssysteem in uw Service Fabric-cluster
 
@@ -150,12 +150,12 @@ Het gedrag van de patch orchestration-app kan worden geconfigureerd om te voldoe
 |TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy geeft aan het beleid dat moet worden gebruikt door de coördinator-Service voor het installeren van Windows-updates over de clusterknooppunten Service Fabric.<br>                         Toegestane waarden zijn: <br>                                                           <b>NodeWise</b>. Windows Update is geïnstalleerd, één knooppunt tegelijk. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update is geïnstalleerd, één upgradedomein tegelijk. (Het maximum is bereikt, alle knooppunten van een upgradedomein gaan voor Windows Update.)
 |LogsDiskQuotaInMB   |Lang  <br> (Standaard: 1024)               |Maximale grootte van de patch orchestration app registreert in MB, hetgeen kan lokaal op knooppunten worden gehandhaafd.
 | WUQuery               | tekenreeks<br>(Standaard: ' IsInstalled = 0 ")                | De query voor het ophalen van Windows-updates. Zie voor meer informatie [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
-| InstallWindowsOSOnlyUpdates | Booleaans <br> (standaard: True)                 | Deze vlag kan updates voor Windows-besturingssysteem moet worden geïnstalleerd.            |
+| InstallWindowsOSOnlyUpdates | Boole-waarde <br> (standaard: True)                 | Deze vlag kan updates voor Windows-besturingssysteem moet worden geïnstalleerd.            |
 | WUOperationTimeOutInMinutes | Int <br>(Standaard: 90).                   | Hiermee geeft u de time-out voor een Windows Update-bewerking (zoeken of downloaden of installeren). Als de bewerking is niet voltooid binnen de opgegeven time-out, wordt het afgebroken.       |
 | WURescheduleCount     | Int <br> (Standaard: 5).                  | Het maximum aantal keren dat de service opnieuw gepland voor de Windows update als een bewerking blijft mislukken.          |
 | WURescheduleTimeInMinutes | Int <br>(Standaard: 30). | Het interval waarmee de service wordt automatisch opnieuw gepland Windows update als de fout zich blijft voordoen. |
 | WUFrequency           | Door komma's gescheiden tekenreeks (standaard: "Wekelijks, woensdag, 7:00:00")     | De frequentie voor het installeren van Windows Update. De indeling en de mogelijke waarden zijn: <br>-Maandelijks, DD: mm: ss, bijvoorbeeld, maandelijks, 5, 12: 22:32. <br> -Per week, dag,: mm: ss, voor bijvoorbeeld wekelijks, dinsdag, 12:22:32.  <br> -Dagelijks: mm: ss, bijvoorbeeld dagelijks, 12:22:32.  <br> -Geen geeft aan dat de Windows Update mag niet worden uitgevoerd.  <br><br> Houd er rekening mee dat de tijden in UTC zijn.|
-| AcceptWindowsUpdateEula | Booleaans <br>(Standaard: true) | Deze vlag instelt, wordt in de toepassing de eindgebruiker-licentie voor Windows Update accepteert namens de eigenaar van de machine.              |
+| AcceptWindowsUpdateEula | Boole-waarde <br>(Standaard: true) | Deze vlag instelt, wordt in de toepassing de eindgebruiker-licentie voor Windows Update accepteert namens de eigenaar van de machine.              |
 
 > [!TIP]
 > Als u Windows Update gebeurt onmiddellijk wilt, stelt `WUFrequency` ten opzichte van de tijd van de implementatie van toepassing. Stel bijvoorbeeld dat u hebt een testcluster met vijf knooppunten en plan de implementatie van de app op ongeveer 5:00 uur UTC. Als u wordt ervan uitgegaan dat de upgrade van de toepassing of implementatie 30 minuten maximaal duurt, ingesteld op de WUFrequency "Dagelijks, 17:30:00."
@@ -225,7 +225,7 @@ Hieronder vindt u de velden van de JSON.
 Veld | Waarden | Details
 -- | -- | --
 OperationResult | 0 - geslaagd<br> 1 - is voltooid met fouten<br> 2 - is mislukt<br> 3 - afgebroken<br> 4 - afgebroken met time-out | Geeft het resultaat van de algehele bewerking (meestal met betrekking tot installatie van een of meer updates).
-ResultCode | Zelfde als OperationResult | Dit veld wordt het resultaat van de installatiebewerking voor individuele update aangegeven.
+resultCode | Zelfde als OperationResult | Dit veld wordt het resultaat van de installatiebewerking voor individuele update aangegeven.
 OperationType | 1 - installatie<br> 0 - te zoeken en downloaden.| De installatie is de enige OperationType die standaard wordt weergegeven in de resultaten.
 WindowsUpdateQuery | Standaardwaarde is "IsInstalled = 0 ' |Windows update-query die is gebruikt om te zoeken naar updates. Zie voor meer informatie [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
 RebootRequired | waar - is opnieuw opstarten vereist<br> ONWAAR - is opnieuw opstarten niet vereist | Hiermee wordt aangegeven of opnieuw opstarten vereist voor volledige installatie van updates is.

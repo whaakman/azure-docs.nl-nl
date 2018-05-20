@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/26/2018
 ms.author: vidarmsft
-ms.openlocfilehash: 4d27bc3660035ace25436a4f756c41e88200649d
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 429f1edae15a98b3c38ae4980a630f23b3a85d23
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Overzicht van de oplossing StorSimple Data Manager
 
@@ -80,6 +80,11 @@ Deze sleutel wordt gebruikt door de rekenresources voor het uitvoeren van de tra
 Als uw regio Data Manager af van uw taak definitie regio wijkt, is het belangrijk dat u weet welke gegevens/metadata bevindt zich in elk van deze gebieden. Het volgende diagram illustreert het effect van de verschillende regio's voor de definitie van Data Manager en de taak.
 
 ![Definitie van de service en de taak in verschillende regio 's](./media/storsimple-data-manager-overview/data-manager-job-different-regions.png)
+
+## <a name="gdpr-compliance"></a>GDPR naleving
+
+[Algemene gegevens beveiliging regelgeving (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) is van een Europese Unie beveiliging en privacy-wet. De GDPR bevat veel vereisten over hoe u verzamelen, opslaan en persoonlijke gegevens gebruikt. De regels GDPR worden opgelegd voor bedrijven, overheidsinstanties en andere organisaties die in EU werken en te verzamelen, analyseren van gegevens die zijn gekoppeld aan de EU inwoners. De Data StorSimple Manager is GDPR compatibel. De service Manager gegevens verzamelt geen persoonlijke gegevens.
+Raadpleeg voor meer informatie, het beleid voor Microsoft Privacy [Vertrouwenscentrum](https://www.microsoft.com/trustcenter).
 
 ## <a name="next-steps"></a>Volgende stappen
 

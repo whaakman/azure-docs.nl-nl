@@ -9,11 +9,11 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 43a3427b05b8e4f1fbaf0f8f5e6b60da9e837a46
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
-ms.translationtype: MT
+ms.openlocfilehash: 0af8806cdc55b89a9ab87a8059808e4fcc9a1730
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="automate-resources-in-your-data-center-or-cloud-with-hybrid-runbook-worker"></a>Automatiseren van bronnen in uw datacenter of de cloud met Hybrid Runbook Worker
 
@@ -143,28 +143,19 @@ Naast de standaard-adressen en poorten die de hybride Runbook Worker is vereist,
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-De hybride Runbook Worker is afhankelijk van de Microsoft Monitoring Agent te communiceren met uw Automation-account voor het registreren van de werknemer, ontvangen van runbooktaken en status rapporteren. Als de registratie van de werknemer is mislukt, volgen hier enkele mogelijke oorzaken voor de fout:
+De hybride Runbook Worker is afhankelijk van een agent om te communiceren met uw Automation-account voor het registreren van de werknemer, ontvangen van runbooktaken en status rapporteren. Voor Windows is deze agent Microsoft Monitoring Agent. Voor Linux is de OMS-Agent voor Linux. Als de registratie van de werknemer is mislukt, volgen hier enkele mogelijke oorzaken voor de fout:
 
-1. De hybride worker zich achter een proxy of firewall.
+### <a name="the-hybrid-worker-is-behind-a-proxy-or-firewall"></a>De hybride worker zich achter een proxy of firewall
 
-   Controleer of dat de computer heeft uitgaande toegang tot de *.azure automation.net op poort 443.
+Controleer of dat de computer heeft uitgaande toegang tot de *.azure automation.net op poort 443.
 
-2. De computer die de hybride worker op wordt uitgevoerd heeft minder dan de minimale hardwarevereisten.
+### <a name="the-computer-the-hybrid-worker-is-running-on-has-less-than-the-minimum-hardware-requirements"></a>De computer die de hybride worker op wordt uitgevoerd heeft minder dan de minimale hardwarevereisten
 
-   Computers met de hybride Runbook Worker aan de minimale hardwarevereisten voldoen voordat u deze als host voor deze functie. Gebruik anders, afhankelijk van het Resourcegebruik van andere achtergrondprocessen en conflicten veroorzaakt door runbooks tijdens het uitvoeren van de computer wordt overbelast en ervoor zorgen dat de runbook-taak vertragingen of time-outs.
+Computers met de hybride Runbook Worker aan de minimale hardwarevereisten voldoen voordat u deze als host voor deze functie. Gebruik anders, afhankelijk van het Resourcegebruik van andere achtergrondprocessen en conflicten veroorzaakt door runbooks tijdens het uitvoeren van de computer wordt overbelast en ervoor zorgen dat de runbook-taak vertragingen of time-outs.
 
-   Controleer de computer moeten worden uitgevoerd van de Hybrid Runbook Worker-functie voldoet aan de minimale hardwarevereisten. Zo ja, monitor CPU en geheugen gebruik om te bepalen een correlatie tussen de prestaties van Hybrid Runbook Worker-processen en vensters. Als er geheugen of CPU-belasting, dit kan duiden op hoeft bij te werken of toevoegen van extra processors of geheugen voor het adres van de resource-knelpunt en los de fout te verhogen. Selecteer een andere berekeningsresource die de minimum vereisten en schaal ondersteunen kan wanneer werkbelasting eisen duiden op dat een verhoging is nodig.
+Controleer de computer moeten worden uitgevoerd van de Hybrid Runbook Worker-functie voldoet aan de minimale hardwarevereisten. Zo ja, monitor CPU en geheugen gebruik om te bepalen een correlatie tussen de prestaties van Hybrid Runbook Worker-processen en vensters. Als er geheugen of CPU-belasting, dit kan duiden op hoeft bij te werken of toevoegen van extra processors of geheugen voor het adres van de resource-knelpunt en los de fout te verhogen. Selecteer een andere berekeningsresource die de minimum vereisten en schaal ondersteunen kan wanneer werkbelasting eisen duiden op dat een verhoging is nodig.
 
-3. De service Microsoft Monitoring Agent wordt niet uitgevoerd.
-
-   Als de Microsoft Monitoring Agent Windows-service niet wordt uitgevoerd, dit voorkomt dat de hybride Runbook Worker communicatie met Azure Automation. Controleer of de agent wordt uitgevoerd met de volgende opdracht in PowerShell: `get-service healthservice`. Als de service wordt gestopt, voert u de volgende opdracht in PowerShell om de service te starten: `start-service healthservice`.
-
-4. In de **toepassingen en Services Logs\Operations Manager** gebeurtenislogboek, ziet u gebeurtenis 4502 en EventMessage met **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**met de volgende beschrijving: *het certificaat dat is doorgegeven door de service \<wsid\>. oms.opinsights.azure.com is niet uitgegeven door een certificeringsinstantie die wordt gebruikt voor Microsoft-services. Neem contact op met de netwerkbeheerder om te controleren of er een proxy die TLS/SSL-communicatie wordt onderschept worden uitgevoerd. Artikel KB3126513 bevat extra informatie over probleemoplossing voor problemen met de netwerkverbinding.*
-    Dit kan worden veroorzaakt door uw proxy- of -firewall blokkeert communicatie met Microsoft Azure. Controleer of dat de computer heeft uitgaande toegang tot de *.azure automation.net op poort 443.
-
-Logboeken worden lokaal opgeslagen op elke worker hybride op C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. U kunt controleren of er zijn waarschuwingen of fouten die zijn geschreven naar de **toepassingen en Services Logs\Microsoft-SMA\Operations** en **toepassingen en Services Logs\Operations Manager** in het gebeurtenislogboek die duidt dit op een verbindings- of andere probleem met betrekking tot de voorbereiding van de rol aan Azure Automation of probleem tijdens het normale bewerkingen uitvoeren.
-
-Zie voor aanvullende stappen over het oplossen van problemen met updatebeheer [updatebeheer - probleemoplossing](automation-update-management.md#troubleshooting)
+Zie voor meer informatie over het oplossen van een specifiek besturingssysteem [Linux Hybrid Runbook Worker](automation-linux-hrw-install.md#troubleshooting) of [Windows Hybrid Runbook Worker](automation-windows-hrw-install.md#troubleshooting)
 
 ## <a name="next-steps"></a>Volgende stappen
 

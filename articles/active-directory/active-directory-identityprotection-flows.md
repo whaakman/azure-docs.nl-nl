@@ -3,7 +3,7 @@ title: Aanmelden-ervaringen met Azure AD Identity Protection | Microsoft Docs
 description: Biedt een overzicht van de gebruikerservaring als Identity Protection is verholpen of hersteld van een gebruiker of als de multi-factor authentication-server is vereist voor een beleid.
 services: active-directory
 keywords: beveiliging in Azure active directory-identiteit, cloud app discovery, het beheren van toepassingen, beveiliging, risico, risiconiveau, beveiligingsprobleem, beveiligingsbeleid
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 558d1e04e352d5f33201bb15cb7a2dd1c18f524f
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 43681ce665bec088472b5c33f64d52d3d9fda5a1
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Aanmelden-ervaring met Azure AD Identity Protection
 U kunt met Azure Active Directory: Identity Protection:
@@ -49,10 +49,7 @@ In dit onderwerp biedt een overzicht van de aanmeldingservaring van een gebruike
 ## <a name="multi-factor-authentication-registration"></a>Registratie voor meervoudige verificatie
 De beste gebruikerservaring voor zowel de verdacht account recovery stroom en de stroom voor riskante aanmelden is wanneer de gebruiker zelf kunt herstellen. Als gebruikers zijn geregistreerd voor multi-factor authentication, hebben ze al een telefoonnummer dat is gekoppeld aan hun account die kan worden gebruikt om door te geven van beveiligingsproblemen met zich mee. Geen help helpdesk of beheerder betrokkenheid is nodig voor het herstellen van inbreuk op het account. Dus is het raadzaam om op te halen van de gebruikers die zijn geregistreerd voor multi-factor authentication. 
 
-Beheerders kunnen:
-
-* een beleid instellen dat gebruikers moeten hun accounts instellen voor aanvullende beveiligingsverificatie. 
-* bieden registratie voor meervoudige verificatie overslaan voor maximaal 30 dagen, als deze gebruikers geven een respijtperiode wilt voordat u registreert.
+Beheerders kunnen een beleid instellen dat gebruikers moeten hun accounts instellen voor aanvullende beveiligingsverificatie. Dit beleid kan gebruikers multi-factor authentication-registratie overslaan gedurende 14 dagen. De respijtperiode 14 dagen kan niet worden geconfigureerd.
 
 **De registratie van de multi-factor authentication-server heeft drie stappen:**
 

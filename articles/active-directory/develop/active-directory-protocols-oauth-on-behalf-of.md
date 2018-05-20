@@ -5,21 +5,23 @@ services: active-directory
 documentationcenter: .net
 author: navyasric
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
-ms.author: nacanuma
+ms.author: celested
+ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: bb3e01b1b8741253a459a41cfff27da558573551
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2f7566bc696d07ad3a8003b3493a382f494c4599
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>Service naar serviceaanroepen met behulp van gedelegeerde gebruikersidentiteit in de On-namens-stroom
 De OAuth 2.0 On-Behalf-Of stroom fungeert de gebruiksvoorbeeld waar een toepassing wordt aangeroepen met een service of web-API, die op zijn beurt moet aan te roepen op een andere service of web-API. Het idee is het doorgeven van de gedelegeerde gebruikersidentiteit en machtigingen via de aanvraagketen. Voor de middelste laag-service voor geverifieerde aanvragen naar de downstream-service maken, moet deze voor het beveiligen van een toegangstoken van Azure Active Directory (Azure AD), namens de gebruiker.
@@ -76,13 +78,13 @@ Wanneer u een gedeeld geheim, bevat een tokenaanvraag voor service-naar-service 
 
 | Parameter |  | Beschrijving |
 | --- | --- | --- |
-| grant_type |Vereist | Het type van de tokenaanvraag. Voor een aanvraag met behulp van een JWT, moet de waarde **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
-| Verklaring |Vereist | De waarde van het token dat wordt gebruikt in de aanvraag. |
-| client_id |Vereist | De App-ID is toegewezen aan de service aanroepen tijdens de registratie met Azure AD. U kunt de App-ID vinden in de Azure-beheerportal op **Active Directory**, klikt u op de map en klik op de naam van de toepassing. |
-| client_secret |Vereist | De sleutel wordt geregistreerd voor de service aanroepen in Azure AD. Deze waarde moet zijn vermeld op het moment van inschrijving. |
-| Bron |Vereist | De App ID URI van de ontvangende service (beveiligde resource). Klik op de App ID URI, informatie in de Azure-beheerportal **Active Directory**, klikt u op de map, klik op de toepassingsnaam, **alle instellingen** en klik vervolgens op **eigenschappen**. |
-| requested_token_use |Vereist | Hiermee geeft u op hoe de aanvraag moet worden verwerkt. In de On-namens-stroom, de waarde moet **on_behalf_of**. |
-| Bereik |Vereist | Een spatie gescheiden lijst met bereiken voor de tokenaanvraag. Voor het OpenID Connect, het bereik **openid** moet worden opgegeven.|
+| grant_type |vereist | Het type van de tokenaanvraag. Voor een aanvraag met behulp van een JWT, moet de waarde **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
+| Verklaring |vereist | De waarde van het token dat wordt gebruikt in de aanvraag. |
+| client_id |vereist | De App-ID is toegewezen aan de service aanroepen tijdens de registratie met Azure AD. U kunt de App-ID vinden in de Azure-beheerportal op **Active Directory**, klikt u op de map en klik op de naam van de toepassing. |
+| client_secret |vereist | De sleutel wordt geregistreerd voor de service aanroepen in Azure AD. Deze waarde moet zijn vermeld op het moment van inschrijving. |
+| Bron |vereist | De App ID URI van de ontvangende service (beveiligde resource). Klik op de App ID URI, informatie in de Azure-beheerportal **Active Directory**, klikt u op de map, klik op de toepassingsnaam, **alle instellingen** en klik vervolgens op **eigenschappen**. |
+| requested_token_use |vereist | Hiermee geeft u op hoe de aanvraag moet worden verwerkt. In de On-namens-stroom, de waarde moet **on_behalf_of**. |
+| scope |vereist | Een spatie gescheiden lijst met bereiken voor de tokenaanvraag. Voor het OpenID Connect, het bereik **openid** moet worden opgegeven.|
 
 #### <a name="example"></a>Voorbeeld
 De volgende HTTP POST-aanvragen een toegangstoken voor de https://graph.windows.net web-API. De `client_id` de service identificeert die het toegangstoken aanvragen.
@@ -108,19 +110,19 @@ Een service-naar-service toegang tokenaanvraag met een certificaat bevat de volg
 
 | Parameter |  | Beschrijving |
 | --- | --- | --- |
-| grant_type |Vereist | Het type van de tokenaanvraag. Voor een aanvraag met behulp van een JWT, moet de waarde **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
-| Verklaring |Vereist | De waarde van het token dat wordt gebruikt in de aanvraag. |
-| client_id |Vereist | De App-ID is toegewezen aan de service aanroepen tijdens de registratie met Azure AD. U kunt de App-ID vinden in de Azure-beheerportal op **Active Directory**, klikt u op de map en klik op de naam van de toepassing. |
-| client_assertion_type |Vereist |De waarde moet liggen`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |Vereist | Een bewering (een JSON Web Token) die u nodig hebt voor het maken en te ondertekenen met het certificaat u geregistreerd als referenties voor uw toepassing.  Meer informatie over [referenties van het certificaat](active-directory-certificate-credentials.md) voor informatie over het registreren van uw certificaat en de indeling van de bevestiging.|
-| Bron |Vereist | De App ID URI van de ontvangende service (beveiligde resource). Klik op de App ID URI, informatie in de Azure-beheerportal **Active Directory**, klikt u op de map, klik op de toepassingsnaam, **alle instellingen** en klik vervolgens op **eigenschappen**. |
-| requested_token_use |Vereist | Hiermee geeft u op hoe de aanvraag moet worden verwerkt. In de On-namens-stroom, de waarde moet **on_behalf_of**. |
-| Bereik |Vereist | Een spatie gescheiden lijst met bereiken voor de tokenaanvraag. Voor het OpenID Connect, het bereik **openid** moet worden opgegeven.|
+| grant_type |vereist | Het type van de tokenaanvraag. Voor een aanvraag met behulp van een JWT, moet de waarde **urn: ietf:params:oauth:grant-type: jwt-bearer**. |
+| Verklaring |vereist | De waarde van het token dat wordt gebruikt in de aanvraag. |
+| client_id |vereist | De App-ID is toegewezen aan de service aanroepen tijdens de registratie met Azure AD. U kunt de App-ID vinden in de Azure-beheerportal op **Active Directory**, klikt u op de map en klik op de naam van de toepassing. |
+| client_assertion_type |vereist |De waarde moet liggen `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |vereist | Een bewering (een JSON Web Token) die u nodig hebt voor het maken en te ondertekenen met het certificaat u geregistreerd als referenties voor uw toepassing. Meer informatie over [referenties van het certificaat](active-directory-certificate-credentials.md) voor informatie over het registreren van uw certificaat en de indeling van de bevestiging.|
+| Bron |vereist | De App ID URI van de ontvangende service (beveiligde resource). Klik op de App ID URI, informatie in de Azure-beheerportal **Active Directory**, klikt u op de map, klik op de toepassingsnaam, **alle instellingen** en klik vervolgens op **eigenschappen**. |
+| requested_token_use |vereist | Hiermee geeft u op hoe de aanvraag moet worden verwerkt. In de On-namens-stroom, de waarde moet **on_behalf_of**. |
+| scope |vereist | Een spatie gescheiden lijst met bereiken voor de tokenaanvraag. Voor het OpenID Connect, het bereik **openid** moet worden opgegeven.|
 
 De parameters zijn bijna hetzelfde is in het geval van de aanvraag door een gedeeld geheim, behalve dat de parameter client_secret wordt vervangen door twee parameters: een client_assertion_type en client_assertion.
 
 #### <a name="example"></a>Voorbeeld
-De volgende HTTP POST-aanvragen een toegangstoken voor de web-https://graph.windows.net API met een certificaat. De `client_id` de service identificeert die het toegangstoken aanvragen.
+De volgende HTTP POST-aanvragen een toegangstoken voor de https://graph.windows.net web-API met een certificaat. De `client_id` de service identificeert die het toegangstoken aanvragen.
 
 ```
 // line breaks for legibility only
@@ -145,7 +147,7 @@ Een geslaagde reactie is een JSON OAuth 2.0-antwoord met de volgende parameters.
 | Parameter | Beschrijving |
 | --- | --- |
 | token_type |Geeft de waarde van het type token. Het enige type dat ondersteunt Azure AD is **Bearer**. Zie voor meer informatie over bearer-tokens, de [OAuth 2.0 autorisatie Framework: Bearer-Token gebruik (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt). |
-| Bereik |Het bereik van toegang verleend in het token. |
+| scope |Het bereik van toegang verleend in het token. |
 | expires_in |Hoe lang het toegangstoken is ongeldig (in seconden). |
 | expires_on |De tijd wanneer het toegangstoken is verlopen. De datum die wordt weergegeven als het aantal seconden van 1970-01-01T0:0:0Z UTC totdat de verlooptijd. Deze waarde wordt gebruikt om te bepalen van de levensduur van tokens in de cache. |
 | Bron |De App ID URI van de ontvangende service (beveiligde resource). |
@@ -154,7 +156,7 @@ Een geslaagde reactie is een JSON OAuth 2.0-antwoord met de volgende parameters.
 | refresh_token |Het vernieuwingstoken voor het aangevraagde toegangstoken. De aanroepende service kunt u dit token gebruiken om aan te vragen van een andere toegangstoken nadat het huidige toegangstoken is verlopen. |
 
 ### <a name="success-response-example"></a>Geslaagd antwoord voorbeeld
-Het volgende voorbeeld toont een geslaagde reactie op een aanvraag voor een toegangstoken voor de https://graph.windows.net web-API.
+Het volgende voorbeeld toont een geslaagde reactie op een aanvraag voor een toegang token voor de https://graph.windows.net web-API.
 
 ```
 {

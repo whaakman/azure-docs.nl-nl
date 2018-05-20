@@ -2,23 +2,23 @@
 title: Het gebruik van PerfInsights in Microsoft Azure | Microsoft Docs
 description: Leert PerfInsights gebruiken voor het oplossen van prestatieproblemen met virtuele machine van Windows.
 services: virtual-machines-windows'
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
 editor: na
-tags: 
+tags: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 06b3b246d5c350f0982faa9b1d5f5692cd0c428e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: cac17b5f3ee730bf1f56dbfd05b6c6d3b02c891f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-use-perfinsights"></a>Het gebruik van PerfInsights 
 
@@ -79,15 +79,15 @@ Dit scenario voert een speciale prestaties teller vastleggen samen met een netwe
 | Latentie      | Gem. per seconde/gegevensaanvraag         |
 |              | Gemiddelde leestijd                 |
 |              | Gemiddelde schrijftijd                |
-| I/o-grootte      | Avg. Bytes/gegevensaanvraag       |
-|              | Avg. Bytes/Read               |
-|              | Avg. Geschreven bytes              |
-| Doorvoer   | Data Bytes/sec                |
+| I/o-grootte      | Gem. Bytes/gegevensaanvraag       |
+|              | Gem. Bytes/Read               |
+|              | Gem. Geschreven bytes              |
+| Doorvoer   | Gegevens Bytes per seconde                |
 |              | Gelezen Bytes per seconde                |
 |              | Geschreven Bytes per seconde               |
-| Wachtrijlengte | Avg. Wachtrijlengte voor lezen        |
-|              | Avg. Wachtrijlengte voor schrijven       |
-|              | Avg. Wachtrijlengte van gegevens        |
+| Wachtrijlengte | Gem. Wachtrijlengte voor lezen        |
+|              | Gem. Wachtrijlengte voor schrijven       |
+|              | Gem. Wachtrijlengte van gegevens        |
 
 ### <a name="custom-slow-vm-analysis"></a>Aangepaste analyse van trage VM 
 
@@ -293,7 +293,7 @@ De **diagnostische** tabblad bevat informatie over bovenste consumenten van CPU,
 
 Diskspd is een opslag laden en prestaties van de generator test hulpprogramma van Microsoft. Zie voor meer informatie [Diskspd](https://github.com/Microsoft/diskspd).
 
-### <a name="xperf"></a>Xperf
+### <a name="xperf"></a>XPerf
 
 XPerf is een opdrachtregelprogramma voor het vastleggen van traces van de werkset van de prestaties van Windows. Zie voor meer informatie [Windows prestaties Toolkit – Xperf](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/).
 

@@ -5,20 +5,20 @@ services: Service-Fabric
 documentationcenter: .net
 author: sumukhs
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 79b48ffa-2474-4f1c-a857-3471f9590ded
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: 5dcd1b4f5a070e9a09b6f8338928d93d10227d38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 00ae5db5fc7a327ae19e64c3d8adf653afd12677
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Reliable Actors--ReliableDictionaryActorStateProvider configureren
 U kunt de standaardconfiguratie van ReliableDictionaryActorStateProvider wijzigen door het settings.xml-bestand voor de opgegeven actor gegenereerd in de hoofdmap van het Visual Studio-pakket onder de map Config wordt gewijzigd.
@@ -40,8 +40,8 @@ Het clustermanifest is een XML-bestand met instellingen en configuraties die van
 ### <a name="configuration-names"></a>Configuratienamen
 | Naam | Eenheid | Standaardwaarde | Opmerkingen |
 | --- | --- | --- | --- |
-| WriteBufferMemoryPoolMinimumInKB |KB |8388608 |Minimum aantal KB in de kernelmodus voor het logboek schrijven buffergroep geheugen toewijzen. Deze geheugengroep wordt gebruikt voor het opslaan van informatie over de status voor het schrijven naar de schijf. |
-| WriteBufferMemoryPoolMaximumInKB |KB |Geen limiet |Maximale grootte waarnaar het logboek schrijven buffergroep geheugen kan worden uitgebreid. |
+| WriteBufferMemoryPoolMinimumInKB |Kilobytes |8388608 |Minimum aantal KB in de kernelmodus voor het logboek schrijven buffergroep geheugen toewijzen. Deze geheugengroep wordt gebruikt voor het opslaan van informatie over de status voor het schrijven naar de schijf. |
+| WriteBufferMemoryPoolMaximumInKB |Kilobytes |Geen limiet |Maximale grootte waarnaar het logboek schrijven buffergroep geheugen kan worden uitgebreid. |
 | SharedLogId |GUID |"" |Hiermee geeft u een unieke GUID moet worden gebruikt voor het identificeren van de gedeelde standaardlogboekbestand gebruikt door alle betrouwbare services op alle knooppunten in het cluster die de SharedLogId in hun specifieke configuratie van de service geen opgeven. Als SharedLogId is opgegeven, moet klikt u vervolgens SharedLogPath ook worden opgegeven. |
 | SharedLogPath |Naam van het volledig gekwalificeerde pad |"" |Hiermee geeft u de volledig gekwalificeerde pad waar het gedeelde logboekbestand wordt gebruikt door alle betrouwbare services op alle knooppunten in het cluster die de SharedLogPath in hun specifieke configuratie van de service geen opgeven. Echter, als SharedLogPath is opgegeven, klikt u vervolgens SharedLogId moet ook worden opgegeven. |
 | SharedLogSizeInMB |Megabytes |8192 |Hiermee geeft u het aantal MB aan schijfruimte voor het statisch toewijzen voor de gedeelde logboek. De waarde moet 2048 aan of groter zijn. |
@@ -68,27 +68,27 @@ SharedLogSizeInMB geeft de hoeveelheid schijfruimte toe te wijzen voor het stand
 Beveilig het communicatiekanaal dat wordt gebruikt tijdens de replicatie worden beveiligingsconfiguraties Replicator gebruikt. Dit betekent dat services elkaars replicatieverkeer, zodat de gegevens die maximaal beschikbaar is, is ook veilig kunnen niet zien.
 Standaard wordt een lege beveiligingsconfiguratiesectie voorkomen dat replicatiebeveiliging.
 
-### <a name="section-name"></a>De sectienaam van de
+### <a name="section-name"></a>Sectienaam
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig
 
 ## <a name="replicator-configuration"></a>Configuratie van de Replicator
 Replicator configuraties gebruikt voor het configureren van de replicatie die verantwoordelijk is voor de Actor State-Provider staat maximaal betrouwbare door repliceren en de status van de lokaal persistent maken.
 De standaardconfiguratie wordt gegenereerd door de sjabloon voor Visual Studio en moet voldoende zijn. Deze sectie wordt gesproken over aanvullende configuraties die beschikbaar zijn voor het afstemmen van de replicator.
 
-### <a name="section-name"></a>De sectienaam van de
+### <a name="section-name"></a>Sectienaam
 &lt;ActorName&gt;ServiceReplicatorConfig
 
 ### <a name="configuration-names"></a>Configuratienamen
 | Naam | Eenheid | Standaardwaarde | Opmerkingen |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Seconden |0.015 |Periode waarvoor de replicatie op de secundaire Wacht na de ontvangst van een bewerking voor het verzenden van back-een bevestiging naar de primaire. Alle andere bevestigingen voor bewerkingen binnen dit interval verwerkt worden verzonden, worden verzonden als een reactie. |
-| ReplicatorEndpoint |N.v.t. |Er is geen standaard--vereiste parameter |IP-adres en poort op die de primaire en secundaire replicatie wordt gebruikt om te communiceren met andere replicaties in de replica is ingesteld. Dit moet verwijzen naar een resource TCP-eindpunt in het servicemanifest. Raadpleeg [Service manifest resources](service-fabric-service-manifest-resources.md) voor meer informatie over het definiëren van endpoint-resources in servicemanifest. |
+| ReplicatorEndpoint |N/A |Er is geen standaard--vereiste parameter |IP-adres en poort op die de primaire en secundaire replicatie wordt gebruikt om te communiceren met andere replicaties in de replica is ingesteld. Dit moet verwijzen naar een resource TCP-eindpunt in het servicemanifest. Raadpleeg [Service manifest resources](service-fabric-service-manifest-resources.md) voor meer informatie over het definiëren van endpoint-resources in servicemanifest. |
 | MaxReplicationMessageSize |Bytes |50 MB |Maximale grootte van de replicatiegegevens die kunnen worden overgebracht in één bericht. |
 | MaxPrimaryReplicationQueueSize |Aantal bewerkingen |8192 |Maximum aantal bewerkingen in de primaire wachtrij. Een bewerking wordt vrijgemaakt nadat de primaire replicatie een bevestiging van de secundaire replicaties ontvangt. Deze waarde moet groter zijn dan 64 en een macht van 2 zijn. |
 | MaxSecondaryReplicationQueueSize |Aantal bewerkingen |16384 |Maximum aantal bewerkingen in de secundaire wachtrij. Een bewerking wordt vrijgemaakt nadat u de status maximaal beschikbaar is via persistentie. Deze waarde moet groter zijn dan 64 en een macht van 2 zijn. |
 | CheckpointThresholdInMB |MB |200 |De hoeveelheid ruimte in logboekbestand waarna de status gecontroleerd wordt. |
 | MaxRecordSizeInKB |KB |1024 |Grootste recordgrootte dat de replicatie mogelijk in het logboek schrijven. Deze waarde moet een meervoud van 4 en groter zijn dan 16. |
-| OptimizeLogForLowerDiskUsage |Booleaanse waarde |De waarde True |Indien true, wordt het logboek geconfigureerd zodat toegewezen logboekbestand van de replica wordt gemaakt met behulp van een NTFS-sparse bestand. Hierdoor wordt het werkelijke gebruik van schijfruimte voor het bestand verlaagd. Als deze eigenschap ONWAAR is, wordt het bestand gemaakt met vaste toewijzingen, wat mogelijk is dat de beste schrijfprestaties. |
+| OptimizeLogForLowerDiskUsage |Boole-waarde |true |Indien true, wordt het logboek geconfigureerd zodat toegewezen logboekbestand van de replica wordt gemaakt met behulp van een NTFS-sparse bestand. Hierdoor wordt het werkelijke gebruik van schijfruimte voor het bestand verlaagd. Als deze eigenschap ONWAAR is, wordt het bestand gemaakt met vaste toewijzingen, wat mogelijk is dat de beste schrijfprestaties. |
 | SharedLogId |GUID |"" |Hiermee geeft u een unieke guid moet worden gebruikt voor het identificeren van de gedeelde logboekbestand gebruikt in combinatie met deze replica. Services moeten normaal gesproken niet gebruiken voor deze instelling. Echter, als SharedLogId is opgegeven, klikt u vervolgens SharedLogPath moet ook worden opgegeven. |
 | SharedLogPath |Naam van het volledig gekwalificeerde pad |"" |Hiermee geeft u de volledig gekwalificeerde pad waar het gedeelde logboekbestand voor deze replica wordt gemaakt. Services moeten normaal gesproken niet gebruiken voor deze instelling. Echter, als SharedLogPath is opgegeven, klikt u vervolgens SharedLogId moet ook worden opgegeven. |
 

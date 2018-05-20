@@ -9,22 +9,22 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2018
-ms.author: dekapur;srrengar
-ms.openlocfilehash: dd2446fda204f4026ac8080c658ca1aa9419f1bd
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: srrengar
+ms.openlocfilehash: 4fcf8c514cb785dbb0a149e5b3073fc72937b68a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Controle en diagnostische gegevens voor Azure Service Fabric
 
 In dit artikel biedt een overzicht van controle en diagnostische gegevens voor Azure Service Fabric. Controle en diagnostische gegevens zijn essentieel om te ontwikkelen, testen en implementeren van werkbelastingen in een cloudomgeving. Bewaking, kunt u bijhouden hoe uw toepassingen worden gebruikt, het brongebruik en de algehele status van het cluster. U kunt deze informatie gebruiken om te onderzoeken en verhelp eventuele problemen en voorkomen dat er problemen optreden in de toekomst. 
 
-## <a name="application-monitoring"></a>Toepassingen bewaken
+## <a name="application-monitoring"></a>Toepassingsbewaking
 Toepassingsbewaking houdt hoe functies en onderdelen van uw toepassing worden gebruikt. U wilt bewaken van uw toepassingen en zorg ervoor dat problemen die gebruikers zijn opgepikt impact. Bewaking van uw toepassingen kan handig zijn in de volgende scenario's zijn:
 * het bepalen van laden van toepassingen en gebruiker verkeer - moet u uw services om te voldoen aan de eisen van de gebruiker of een potentiële knelpunten in uw toepassing adres schalen?
 * identificeren van problemen met servicecommunicatie en externe toegang via het cluster

@@ -11,14 +11,14 @@ ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 58ecf22fa0f9349a767455fe3ab08fca058d02da
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: b4c1e3fb919ab9ad88a15b51a5e204290a7a12cf
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="phoenix-performance-best-practices"></a>Best practices voor Phoenix-prestatie
 
@@ -36,23 +36,23 @@ De primaire sleutel gedefinieerd voor een tabel in Phoenix bepaalt hoe gegevens 
 
 Een tabel voor contactpersonen heeft bijvoorbeeld de voornaam, laatste naam, telefoonnummer en adres, allemaal in dezelfde kolomfamilie. U kunt een primaire sleutel op basis van een toenemende volgnummer definiëren:
 
-|rowkey|       Adres|   Telefoon| Voornaam| lastName|
+|rowkey|       Adres|   telefoon| Voornaam| lastName|
 |------|--------------------|--------------|-------------|--------------|
-|  1000|1111 San Gabriel Dr.|1-425-000-0002|    Jan|Dole|
+|  1000|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole|
 |  8396|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji|
 
 Als u vaak een query door lastName kan deze primaire sleutel echter niet uitvoeren, omdat elke query een volledige tabelscan lezen van de waarde van elke achternaam is vereist. In plaats daarvan kunt u een primaire sleutel op de achternaam, firstName en sociaal-fiscaal nummer kolommen definiëren. Deze laatste kolom is twee inwoners op hetzelfde adres met dezelfde naam, zoals een vader en zoon toe.
 
-|rowkey|       Adres|   Telefoon| Voornaam| lastName| socialSecurityNum |
+|rowkey|       Adres|   telefoon| Voornaam| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
-|  1000|1111 San Gabriel Dr.|1-425-000-0002|    Jan|Dole| 111 |
+|  1000|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
 |  8396|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
 Met deze nieuwe primaire sleutel van de rij zou sleutels die zijn gegenereerd door Phoenix zijn:
 
-|rowkey|       Adres|   Telefoon| Voornaam| lastName| socialSecurityNum |
+|rowkey|       Adres|   telefoon| Voornaam| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
-|  Dole-John-111|1111 San Gabriel Dr.|1-425-000-0002|    Jan|Dole| 111 |
+|  Dole-John-111|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
 |  Raji-Calvin-222|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
 De gegevens voor de rowkey wordt in de eerste rij hierboven weergegeven zoals wordt weergegeven:
@@ -60,8 +60,8 @@ De gegevens voor de rowkey wordt in de eerste rij hierboven weergegeven zoals wo
 |rowkey|       sleutel|   waarde| 
 |------|--------------------|---|
 |  Dole-John-111|Adres |1111 San Gabriel Dr.|  
-|  Dole-John-111|Telefoon |1-425-000-0002|  
-|  Dole-John-111|Voornaam |Jan|  
+|  Dole-John-111|telefoon |1-425-000-0002|  
+|  Dole-John-111|Voornaam |John|  
 |  Dole-John-111|lastName |Dole|  
 |  Dole-John-111|socialSecurityNum |111| 
 
@@ -118,9 +118,9 @@ Gedekte indexen zijn indexen die gegevens bevatten uit de rij naast de waarden d
 
 Bijvoorbeeld, in het voorbeeld tabel kunt u een secundaire index maken voor alleen de kolom socialSecurityNum contactpersoon. Deze secundaire index query's die worden gefilterd op waarden socialSecurityNum zou versnellen, maar bij het ophalen van andere veldwaarden is vereist een andere tegen de hoofdtabel lezen.
 
-|rowkey|       Adres|   Telefoon| Voornaam| lastName| socialSecurityNum |
+|rowkey|       Adres|   telefoon| Voornaam| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
-|  Dole-John-111|1111 San Gabriel Dr.|1-425-000-0002|    Jan|Dole| 111 |
+|  Dole-John-111|1111 San Gabriel Dr.|1-425-000-0002|    John|Dole| 111 |
 |  Raji-Calvin-222|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
 Als u doorgaans wilt de voornaam en achternaam die zijn opgegeven van de socialSecurityNum opzoeken, kan u echter een gedekte index die de voornaam en achternaam als de werkelijke gegevens in de indextabel bevat maken:

@@ -9,16 +9,14 @@ editor: cgronlun
 ms.assetid: ebd5b2ac-c5cc-46d4-9cfd-1a1ee70024c2
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 4dc1b070f7933f23ee615501dfbc68551068210c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f4014d304d1e0a7d841e797c3e3bdfe31918c151
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="security-in-azure-data-lake-store"></a>Beveiliging in Azure Data Lake Store
 Veel bedrijven profiteert van big data-analyses voor zakelijke inzichten zodat beslissingen voor de smartcard. Een organisatie kan een complex en gereglementeerde omgeving met een toenemend aantal diverse gebruikers hebben. Is het essentieel is voor een ondernemings-om ervoor te zorgen dat essentiële bedrijfsgegevens veiliger, wordt opgeslagen met het juiste niveau van toegang te krijgen tot afzonderlijke gebruikers. Azure Data Lake Store is ontworpen om te voldoen aan deze beveiligingsvereisten. In dit artikel meer informatie over de beveiligingsmogelijkheden van Data Lake Store, met inbegrip van:

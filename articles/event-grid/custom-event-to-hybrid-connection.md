@@ -1,5 +1,5 @@
 ---
-title: Aangepaste gebeurtenissen voor Azure Event raster verzenden naar de hybride verbinding | Microsoft Docs
+title: Aangepaste gebeurtenissen voor Azure Event Grid verzenden naar hybride verbinding | Microsoft Docs
 description: Gebruik Azure Event Grid en Azure CLI om een onderwerp te publiceren en u te abonneren op deze gebeurtenis. Een hybride verbinding wordt gebruikt voor het eindpunt.
 services: event-grid
 keywords: ''
@@ -8,19 +8,21 @@ ms.author: tomfitz
 ms.date: 05/04/2018
 ms.topic: article
 ms.service: event-grid
-ms.openlocfilehash: 42b3e88d4bf411aa8a0d3bb129795f0d8ab98525
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c95cfee787244367688b82959474e2a8028b7ff6
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Aangepaste gebeurtenissen doorsturen naar Azure Relay hybride verbindingen met Azure CLI en gebeurtenis raster
+# <a name="route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Aangepaste gebeurtenissen naar Azure Relay Hybrid Connections routeren met behulp van Azure CLI en Event Grid
 
-Azure Event Grid is een gebeurtenisservice voor de cloud. Azure Relay hybride verbindingen is een van de ondersteunde gebeurtenis-handlers. U hybride verbindingen gebruiken als de gebeurtenis-handler als u nodig hebt om gebeurtenissen uit toepassingen die u hebt een openbaar eindpunt geen te verwerken. Deze toepassingen is mogelijk in uw bedrijfsnetwerk. In dit artikel gebruikt u de Azure CLI om een aangepast onderwerp te maken, u op het onderwerp te abonneren, en de gebeurtenis te activeren om het resultaat weer te geven. U kunt de gebeurtenissen verzenden naar de hybride verbinding.
+Azure Event Grid is een gebeurtenisservice voor de cloud. Azure Relay Hybrid Connections is een van de ondersteunde gebeurtenis-handlers. U gebruikt hybride verbindingen als gebeurtenis-handler wanneer u gebeurtenissen uit toepassingen moet verwerken die geen openbaar eindpunt hebben. Deze toepassingen bevinden zich mogelijk in uw bedrijfsnetwerk. In dit artikel gebruikt u de Azure CLI om een aangepast onderwerp te maken, u op het onderwerp te abonneren, en de gebeurtenis te activeren om het resultaat weer te geven. U verstuurt de gebeurtenissen naar de hybride verbinding.
 
 ## <a name="prerequisites"></a>Vereisten
 
-In dit artikel wordt ervan uitgegaan dat u hebt al een hybride verbinding en een listener-toepassing. Als u wilt beginnen met de hybride verbindingen, Zie [aan de slag met Relay hybride verbindingen - .NET](../service-bus-relay/relay-hybrid-connections-dotnet-get-started.md) of [aan de slag met Relay hybride verbindingen - knooppunt](../service-bus-relay/relay-hybrid-connections-node-get-started.md).
+In dit artikel wordt ervan uitgegaan dat u al een hybride verbinding en een listener-toepassing hebt. Zie [Aan de slag met Relay Hybrid Connections - .NET](../service-bus-relay/relay-hybrid-connections-dotnet-get-started.md) of [Aan de slag met Relay Hybrid Connections - knooppunt](../service-bus-relay/relay-hybrid-connections-node-get-started.md) als u wilt beginnen met hybride verbindingen.
+
+[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
@@ -39,16 +41,20 @@ az group create --name gridResourceGroup --location westus2
 Een Event Grid-onderwerp biedt een door de gebruiker gedefinieerd eindpunt waarop u de gebeurtenissen kunt posten. In het volgende voorbeeld wordt het aangepaste onderwerp in uw resourcegroep gemaakt. Vervang `<topic_name>` door een unieke naam voor het onderwerp. De onderwerpnaam moet uniek zijn omdat deze wordt vertegenwoordigd door een DNS-vermelding.
 
 ```azurecli-interactive
+# if you have not already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
 az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 ```
 
 ## <a name="subscribe-to-a-topic"></a>Abonneren op een onderwerp
 
-U abonneert u op een onderwerp om Event Grid te laten weten welke gebeurtenissen u wilt traceren. Het volgende voorbeeld is lid van het onderwerp dat u hebt gemaakt en de bron-ID van de hybride verbinding voor het eindpunt is geslaagd. De ID van hybride verbinding is in de indeling:
+U abonneert u op een onderwerp om Event Grid te laten weten welke gebeurtenissen u wilt traceren. In het volgende voorbeeld ziet u hoe u zich abonneert op het onderwerp dat u hebt gemaakt, en hoe de resource-id van de hybride verbinding wordt doorgegeven voor het eindpunt. De id van hybride verbinding heeft deze indeling:
 
 `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Relay/namespaces/<relay-namespace>/hybridConnections/<hybrid-connection-name>`
 
-Het volgende script haalt de resource-ID van de relay-naamruimte. Het vormt van de ID voor de hybride verbinding en een raster onderwerp over de gebeurtenis is geabonneerd. Het eindpunttype wordt ingesteld op `hybridconnection` en maakt gebruik van de hybride verbindings-ID voor het eindpunt.
+Met het volgende script wordt de resource-id van de relay-naamruimte opgehaald. Het script maakt de id voor de hybride verbinding en neemt vervolgens een abonnement op een onderwerp van Event Grid. Het type eindpunt wordt ingesteld op `hybridconnection` en de id van de hybride verbinding wordt gebruikt voor het eindpunt.
 
 ```azurecli-interactive
 relayname=<namespace-name>
@@ -75,14 +81,14 @@ endpoint=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --qu
 key=$(az eventgrid topic key list --name <topic_name> -g gridResourceGroup --query "key1" --output tsv)
 ```
 
-Ter vereenvoudiging van dit artikel gebruikt u voorbeeldgebeurtenisgegevens om naar het onderwerp te verzenden. Meestal worden de gebeurtenisgegevens verzonden via een toepassing of Azure-service. CURL is een hulpprogramma waarmee HTTP-aanvragen worden verzonden. In dit artikel gebruiken we CURL om de gebeurtenis naar het onderwerp te verzenden.  Het volgende voorbeeld verzendt drie gebeurtenissen naar het raster onderwerp:
+Ter vereenvoudiging van dit artikel gebruikt u voorbeeldgebeurtenisgegevens om naar het onderwerp te verzenden. Meestal worden de gebeurtenisgegevens verzonden via een toepassing of Azure-service. CURL is een hulpprogramma waarmee HTTP-aanvragen worden verzonden. In dit artikel gebruiken we CURL om de gebeurtenis naar het onderwerp te verzenden.  In het volgende voorbeeld worden drie gebeurtenissen verstuurd naar het onderwerp van Event Grid:
 
 ```azurecli-interactive
 body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/customevent.json)'")
 curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
 ```
 
-Uw toepassing listener ontvangt het gebeurtenisbericht.
+Uw listener-toepassing moet het gebeurtenisbericht ontvangen.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 Als u verder wilt werken met deze gebeurtenis, schoon dan de resources die u in dit artikel hebt gemaakt, niet op. Gebruik anders de volgende opdracht om de resources te verwijderen die u in dit artikel hebt gemaakt.

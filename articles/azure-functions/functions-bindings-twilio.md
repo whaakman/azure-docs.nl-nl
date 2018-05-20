@@ -5,8 +5,8 @@ services: functions
 documentationcenter: na
 author: wesmc7777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 keywords: Azure functions, functies, verwerking van gebeurtenissen, dynamische compute zonder server architectuur
 ms.service: functions
 ms.devlang: multiple
@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: wesmc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff31f8b265452b6864e36323e770f808f87de019
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 30a47fb597b5739e9f947caa9b72238631c780fe
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Twilio-binding voor Azure Functions
 
@@ -33,6 +33,8 @@ In dit artikel wordt uitgelegd hoe u om berichten te verzenden met behulp van [T
 De Twilio-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet-pakket. De broncode voor het pakket bevindt zich in de [sdk van azure webjobs](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/) GitHub-opslagplaats.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
 
 ## <a name="example"></a>Voorbeeld
 
@@ -232,9 +234,9 @@ De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt
 |**Naam**|| Naam van de variabele in functiecode gebruikt voor de Twilio SMS-bericht. |
 |**accountSid**|**AccountSid**| Deze waarde moet worden ingesteld op de naam van een app-instelling van de Sid van uw Twilio-Account.|
 |**authToken**|**AuthToken**| Deze waarde moet worden ingesteld op de naam van een app-instelling die uw Twilio-verificatietoken bevat.|
-|**to**|**Aan**| Deze waarde is ingesteld op het telefoonnummer dat naar de SMS-tekst wordt verzonden.|
-|**from**|**From**| Deze waarde is ingesteld op het telefoonnummer dat door de SMS-tekst wordt verzonden.|
-|**body**|**Hoofdtekst**| Deze waarde kan worden gebruikt voor de SMS-bericht harde code als u niet hoeft worden dynamisch ingesteld in de code voor de functie. |
+|**Aan**|**Aan**| Deze waarde is ingesteld op het telefoonnummer dat naar de SMS-tekst wordt verzonden.|
+|**Van**|**Van**| Deze waarde is ingesteld op het telefoonnummer dat door de SMS-tekst wordt verzonden.|
+|**Hoofdtekst**|**Hoofdtekst**| Deze waarde kan worden gebruikt voor de SMS-bericht harde code als u niet hoeft worden dynamisch ingesteld in de code voor de functie. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

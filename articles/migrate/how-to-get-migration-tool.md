@@ -4,13 +4,13 @@ description: Hierin wordt beschreven hoe u de aanbevelingen voor het migreren va
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 05/15/2018
 ms.author: raynew
-ms.openlocfilehash: e6e32e9bd2384987a1d0315bfbef913c46fc5dbb
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 242a8b95e7eb278a7884eec7d0cc6a607bdf24d4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="migrate-machines-after-assessment"></a>Machines na beoordeling migreren
 
@@ -35,15 +35,15 @@ Als u suggesties met betrekking tot de hulpprogramma's voor migratie, moet u doe
 1. Voordat u een voorgestelde migratiemethode ophalen kunt, moet u een Azure migreren-project maken, het lokale machines detecteren en het uitvoeren van een migratie uit te voeren. [Meer informatie](tutorial-assessment-vmware.md).
 2. Nadat de beoordeling is gemaakt, weergeven in het project > **overzicht** > **Dashboard**. Klik op **Readiness Assessment**
 
-    ![Readiness Assessment](./media/tutorial-assessment-vmware/assessment-report.png)  
+    ![Gereedheid evalueren](./media/tutorial-assessment-vmware/assessment-report.png)  
 
 3. In **hulpprogramma voorgestelde**, lees de suggesties voor hulpprogramma's die u voor migratie gebruiken kunt.
 
-    ![Voorgestelde hulpprogramma](./media/tutorial-assessment-vmware/assessment-suitability.png) 
+    ![Voorgesteld hulpprogramma](./media/tutorial-assessment-vmware/assessment-suitability.png) 
 
 
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Meer informatie](concepts-assessment-calculation.md) over hoe beoordelingen zijn berekend.
+[Meer informatie](concepts-assessment-calculation.md) over hoe evaluaties worden berekend.

@@ -2,24 +2,25 @@
 title: Fouten opsporen in op basis van SAML eenmalige aanmelding tot toepassingen in Azure Active Directory | Microsoft Docs
 description: 'Meer informatie over fouten opsporen in op basis van SAML eenmalige aanmelding tot toepassingen in Azure Active Directory '
 services: active-directory
-author: asmalser-msft
+author: CelesteDG
 documentationcenter: na
 manager: mtillman
 ms.assetid: edbe492b-1050-4fca-a48a-d1fa97d47815
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/20/2017
-ms.author: asmalser
+ms.author: celested
 ms.custom: aaddev
-ms.reviewer: dastrock
-ms.openlocfilehash: 55ff6b7a70bcdcceacb1484f9969337f9853ce50
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.reviewer: dastrock; smalser
+ms.openlocfilehash: 1a33b5ab9e26ed497e3be2d430f66ef41402733d
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Fouten opsporen in op basis van SAML eenmalige aanmelding tot toepassingen in Azure Active Directory
 
@@ -98,7 +99,7 @@ Ga naar [fout op de pagina na het aanmelden van de toepassing](https://docs.micr
 Voor informatie over het controleren van het SAML antwoord gaat u naar het artikel [Single Sign-On SAML-protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference?/?WT.mc_id=DOC_AAD_How_to_Debug_SAML#response).
 
 
-## <a name="related-articles"></a>Gerelateerde artikelen
+## <a name="related-articles"></a>Verwante artikelen
 * [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md) (Artikelindex voor toepassingsbeheer in Azure Active Directory)
 * [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](../application-config-sso-how-to-configure-federated-sso-non-gallery.md) (Eenmalige aanmelding configureren voor toepassingen die zich niet in de Azure Active Directory-toepassingsgalerie bevinden)
 * [Het aanpassen van uitgegeven Claims in het SAML-Token voor vooraf geïntegreerde Apps](active-directory-saml-claims-customization.md)

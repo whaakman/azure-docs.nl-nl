@@ -1,6 +1,6 @@
 ---
-title: Activiteit logboek waarschuwingen maken en beheren van deze met de nieuwe waarschuwingen (Preview)-ervaring in Azure Monitor | Microsoft Docs
-description: In dit artikel bevat informatie over het maken van de activiteit logboek waarschuwingen van tabblad onder Azure Monitor waarschuwingen (Preview). In dit artikel wordt de nieuwe gebruikerservaring voor deze functie.
+title: Activiteit logboek waarschuwingen maken en beheren van deze nieuwe ervaring voor de waarschuwingen in de Azure-Monitor met | Microsoft Docs
+description: In dit artikel bevat informatie over het maken van de activiteit logboek waarschuwingen in het tabblad waarschuwingen onder Azure-Monitor
 author: JYOTHIRMAISURI
 manager: vvithal
 editor: ''
@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 02/05/2018
 ms.author: v-jysur
 ms.custom: ''
-ms.openlocfilehash: 740edfd158d56fcb224cf93d1720a2330779bfd6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 070acc6fb6f6f744474edeef0e914dda9d24c558
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="create-activity-log-alerts-using-the-new-alerts-preview-experience"></a>Waarschuwingen met behulp van de nieuwe waarschuwingen (Preview) optreden activiteitenlogboek maken
+# <a name="create-activity-log-alerts-using-the-new-alerts-experience"></a>Waarschuwingen met behulp van de nieuwe waarschuwingen optreden activiteitenlogboek maken
 
 Activiteit logboek waarschuwingen zijn de waarschuwingen die ophalen geactiveerd wanneer een nieuwe activiteit logboekgebeurtenis optreedt die overeenkomt met de voorwaarden die is opgegeven in de waarschuwing.
 
-Deze waarschuwingen zijn voor Azure-resources, kunnen worden gemaakt met behulp van een Azure Resource Manager-sjabloon. Ze kunnen ook worden gemaakt, bijgewerkt of verwijderd in de Azure portal. Dit artikel bevat de concepten achter activiteit logboek waarschuwingen. Deze vervolgens ziet u hoe de Azure portal gebruiken om een waarschuwing op activiteit logboekgebeurtenissen met behulp van de nieuwe ervaring in te stellen [Azure waarschuwingen (Preview)](monitoring-overview-unified-alerts.md).
+Deze waarschuwingen zijn voor Azure-resources, kunnen worden gemaakt met behulp van een Azure Resource Manager-sjabloon. Ze kunnen ook worden gemaakt, bijgewerkt of verwijderd in de Azure portal. Dit artikel bevat de concepten achter activiteit logboek waarschuwingen. Deze vervolgens ziet u hoe de Azure portal gebruiken om een waarschuwing op activiteit logboekgebeurtenissen met behulp van de nieuwe ervaring in te stellen [Azure waarschuwingen](monitoring-overview-unified-alerts.md).
 
 Meestal maakt u activiteit logboek waarschuwingen meldingen wilt ontvangen wanneer bepaalde wijzigingen voor bronnen in uw Azure-abonnement optreden, vaak binnen het bereik van bepaalde resourcegroepen of bron. Bijvoorbeeld, u wilt mogelijk een melding krijgen wanneer een virtuele machine in (voorbeeld resourcegroep) **myProductionResourceGroup** wordt verwijderd, of u kunt de hoogte worden gebracht als er geen nieuwe rollen zijn toegewezen aan een gebruiker in uw abonnement.
 
@@ -46,11 +46,11 @@ Zie voor meer informatie over actiegroepen, [maken en beheren van actiegroepen i
 Zie voor meer informatie over servicestatusmeldingen, [activiteit logboek meldingen ontvangen op servicestatusmeldingen](monitoring-activity-log-alerts-on-service-notifications.md).
 
 
-## <a name="whats-new-in-alerts-preview-for-activity-logs"></a>Wat is nieuw in waarschuwingen Preview om activiteitenlogboeken?
+## <a name="whats-new-in-alerts-for-activity-logs"></a>Wat is er nieuw in waarschuwingen om activiteitenlogboeken?
 
-[Waarschuwingen van Azure (Preview)](monitoring-overview-unified-alerts.md) biedt nu verbeterde gebruikerservaring voor activiteit logboek waarschuwingen. Met de [verbeterde gebruikerservaring voor waarschuwingen](monitoring-overview-unified-alerts.md), kunt u nu:
+[Waarschuwingen van Azure](monitoring-overview-unified-alerts.md) biedt nu verbeterde gebruikerservaring voor activiteit logboek waarschuwingen. Met de [verbeterde gebruikerservaring voor waarschuwingen](monitoring-overview-unified-alerts.md), kunt u nu:
 
-- [Maak](#create-an-alert-rule-for-an-activity-log) en [beheren](#view-and-manage-activity-log-alert-rules) de activiteit waarschuwingsregels, meld u bij **Monitor** > **waarschuwingen (Preview)** blade. Meer informatie over [activiteitenlogboeken](monitoring-overview-activity-logs.md).
+- [Maak](#create-an-alert-rule-for-an-activity-log) en [beheren](#view-and-manage-activity-log-alert-rules) de activiteit waarschuwingsregels, meld u bij **Monitor** > **waarschuwingen** blade. Meer informatie over [activiteitenlogboeken](monitoring-overview-activity-logs.md).
 
 - **Nieuwe opties voor waarschuwingen doel**: tijdens het maken van een nieuwe activiteit logboek waarschuwingsregel, kunt u nu kiezen een doelbron of een resourcegroep of een abonnement.
 
@@ -68,8 +68,8 @@ Zie voor meer informatie over servicestatusmeldingen, [activiteit logboek meldin
 
 Gebruik de volgende procedure:
 
-1. Selecteer in Azure portal **Monitor** > **waarschuwingen (Preview).**
-2. Klik op **nieuwe waarschuwingsregel** boven aan de **waarschuwingen (Preview)** venster.
+1. Selecteer in Azure portal **Monitor** > **waarschuwingen**
+2. Klik op **nieuwe waarschuwingsregel** boven aan de **waarschuwingen** venster.
 
      ![nieuwe waarschuwingsregel](./media/monitoring-activity-log-alerts-new-experience/create-new-alert-rule.png)
 
@@ -130,7 +130,7 @@ Gebruik de volgende procedure:
 
 ## <a name="view-and-manage-activity-log-alert-rules"></a>Weergeven en beheren van de activiteit logboek waarschuwingsregels
 
-1. Klik vanuit Azure-portal op **Monitor** > **waarschuwingen (Preview)** en klik op **regels beheren** op linksboven in het venster.
+1. Klik vanuit Azure-portal op **Monitor** > **waarschuwingen** en klik op **regels beheren** op linksboven in het venster.
 
     ![ regels voor waarschuwingen beheren](./media/monitoring-activity-log-alerts-new-experience/manage-alert-rules.png)
 

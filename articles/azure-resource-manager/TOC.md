@@ -102,6 +102,7 @@
 ## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Service-updates](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
+## [Persoonlijke gegevens beheren](resource-manager-personal-data.md)
 ## [Beperkingsaanvragen](resource-manager-request-limits.md)
 ## [Asynchrone bewerkingen bijhouden](resource-manager-async-operations.md)
 ## [Video's](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)

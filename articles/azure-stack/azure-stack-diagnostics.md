@@ -7,19 +7,17 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 04/27/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: e823aeb4291b3e765b35181c24b41fa58c170cca
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: 28e1939d3c9cb5a9b9080e60230ad5600ad8a6a3
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack diagnostische hulpprogramma 's
 
-*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
- 
 Azure-Stack is een grote verzameling onderdelen samenwerken en interactie met elkaar. Al deze onderdelen genereren hun eigen unieke Logboeken. Hierdoor vaststellen van problemen met een uitdaging, met name voor fouten die afkomstig zijn van meerdere, interactie van onderdelen van de Azure-Stack. 
 
 Onze diagnostische hulpprogramma's zorgen dat het mechanisme voor het verzamelen van logboek is eenvoudig en efficiënt. Verzameling hulpprogramma's voor Meld het volgende diagram laat zien hoe in Azure Stack werk:
@@ -79,7 +77,36 @@ Deze bestanden worden verzameld en opgeslagen in een share Trace-collector. De *
   Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
 
-### <a name="to-run-get-azurestacklog-on-an-azure-stack-integrated-system"></a>Voor het uitvoeren van Get-AzureStackLog op een Azure-Stack geïntegreerd systeem
+### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems-version-1804-and-later"></a>Voor het uitvoeren van Get-AzureStackLog op Azure-Stack geïntegreerd systemen versie 1804 en hoger
+
+Het hulpprogramma log verzameling op een geïntegreerd systeem uitgevoerd, moet u beschikken over naar de bevoorrechte eindpunt (PEP). Hier volgt een voorbeeldscript dat u kunt uitvoeren met behulp van de PEP voor het verzamelen van Logboeken op een geïntegreerde systeem:
+
+```powershell
+$ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
+ 
+$pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
+ 
+$shareCred = Get-Credential
+ 
+$s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Credential $cred
+
+$fromDate = (Get-Date).AddHours(-8)
+$toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
+ 
+Invoke-Command -Session $s {    Get-AzureStackLog -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
+
+if($s)
+{
+    Remove-PSSession $s
+}
+```
+
+- De parameters **OutputSharePath** en **OutputShareCredential** worden gebruikt voor het uploaden van logboeken naar een externe gedeelde map.
+- Zoals weergegeven in het vorige voorbeeld de **FromDate** en **ToDate** parameters kunnen worden gebruikt voor het verzamelen van Logboeken voor een bepaalde periode. Dit kan erg handig scenario's zoals het verzamelen van Logboeken nadat een updatepakket zijn toegepast op een geïntegreerde systeem.
+
+
+### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems-version-1803-and-earlier"></a>Voor het uitvoeren van Get-AzureStackLog op Azure-Stack geïntegreerd systemen versie 1803 en lager
 
 Het hulpprogramma log verzameling op een geïntegreerd systeem uitgevoerd, moet u beschikken over naar de bevoorrechte eindpunt (PEP). Hier volgt een voorbeeldscript dat u kunt uitvoeren met behulp van de PEP voor het verzamelen van Logboeken op een geïntegreerde systeem:
 
@@ -108,6 +135,7 @@ if($s)
 - De parameters **OutputSharePath** en **OutputShareCredential** zijn optioneel en worden gebruikt wanneer u logboeken naar een externe gedeelde map uploadt. Deze parameters gebruiken *bovendien* naar **OutputPath**. Als **OutputPath** niet is opgegeven, het hulpprogramma log verzameling maakt gebruik van het systeemstation van de VM PEP voor opslag. Hierdoor kan het script is mislukt, omdat de schijfruimte beperkt is.
 - Zoals weergegeven in het vorige voorbeeld de **FromDate** en **ToDate** parameters kunnen worden gebruikt voor het verzamelen van Logboeken voor een bepaalde periode. Dit kan erg handig scenario's zoals het verzamelen van Logboeken nadat een updatepakket zijn toegepast op een geïntegreerde systeem.
 
+
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>De parameter-overwegingen voor zowel ASDK en geïntegreerde systemen
 
 - Als de **FromDate** en **ToDate** parameters niet zijn opgegeven, logboeken worden standaard verzameld voor de afgelopen vier uur.
@@ -117,35 +145,44 @@ if($s)
 
    |   |   |   |
    | - | - | - |
-   | ACSMigrationService     | ACSMonitoringService   | ACSSettingsService |
-   | ACS                     | ACSFabric              | ACSFrontEnd        |
-   | ACSTableMaster          | ACSTableServer         | ACSWac             |
-   | ADFS                    | ASAppGateway           | BareMetal          |
-   | BRP                     | CA                     | CPI                |
-   | CRP                     | DeploymentMachine      | DHCP               |
-   | Domein                  | ECE                    | ECESeedRing        | 
-   | FabricRing              | FabricRingServices     | FRP                |
-   | Gateway                 | HealthMonitoring       | HRP                |   
-   | IBC                     | InfraServiceController | KeyVaultAdminResourceProvider|
-   | KeyVaultControlPlane    | KeyVaultDataPlane      | NC                 |   
-   | NonPrivilegedAppGateway | NRP                    | SeedRing           |
-   | SeedRingServices        | SLB                    | SQL                |   
-   | SRP                     | Storage                | StorageController  |
-   | URP                     | UsageBridge            | VirtualMachines    |  
-   | WAS                     | WASPUBLIC              | WDS                |
-
+   | ACS                    | DeploymentMachine                | NC                         |
+   | ACSBlob                | DiskRP                           | Netwerk                    |
+   | ACSFabric              | Domein                           | NonPrivilegedAppGateway    |
+   | ACSFrontEnd            | ECE                              | NRP                        |
+   | ACSMetrics             | ExternalDNS                      | OEM                        |
+   | ACSMigrationService    | Fabric                           | PXE                        |
+   | ACSMonitoringService   | FabricRing                       | SeedRing                   | 
+   | ACSSettingsService     | FabricRingServices               | SeedRingServices           |
+   | ACSTableMaster         | FRP                              | AANVRAAGPAD                        |   
+   | ACSTableServer         | Gallery                          | SlbVips                    |
+   | ACSWac                 | Gateway                          | SQL                        |   
+   | ADFS                   | HealthMonitoring                 | SRP                        |
+   | ASAppGateway           | HRP                              | Storage                    |   
+   | NCAzureBridge          | IBC                              | StorageAccounts            |    
+   | AzurePackConnector     | IdentityProvider                 | StorageController          |  
+   | AzureStackBitlocker    | IDN 's                             | Tenant                     |
+   | BareMetal              | InfraServiceController           | TraceCollector             |
+   | BRP                    | Infrastructuur                   | URP                        |
+   | CA                     | KeyVaultAdminResourceProvider    | UsageBridge                |
+   | Cloud                  | KeyVaultControlPlane             | Virtuele machines            |
+   | Cluster                | KeyVaultDataPlane                | IS                        |
+   | Compute                | KeyVaultInternalControlPlane     | WASBootstrap               |
+   | KPI                    | KeyVaultInternalDataPlane        | WASPUBLIC                  |
+   | CRP                    | KeyVaultNamingService            |                            |
+   | DatacenterIntegration  | MonitoringAgent                  |                            |
+   |                        |                                  |                            |
 
 ### <a name="bkmk_gui"></a>Verzamelen van logboeken met behulp van een grafische gebruikersinterface
-In plaats van de vereiste parameters voor de cmdlet Get-AzureStackLog voor het ophalen van Azure-Stack-logboeken bieden, kunt u gebruikmaken van de beschikbare open-source Azure Stack-hulpprogramma's zich in de belangrijkste Azure Stack extra GitHub extra opslagplaats op http://aka.ms/AzureStackTools.
+In plaats van de vereiste parameters voor de cmdlet Get-AzureStackLog voor het ophalen van Azure-Stack-logboeken bieden, kunt u gebruikmaken van de beschikbare open-source Azure Stack-hulpprogramma's zich in de belangrijkste Azure Stack extra GitHub tools-opslagplaats op http://aka.ms/AzureStackTools.
 
-De **ERCS_AzureStackLogs.ps1** PowerShell-script wordt opgeslagen in de GitHub-opslagplaats voor hulpprogramma's en regelmatig wordt bijgewerkt. Om ervoor te zorgen dat u de laatst beschikbare versie hebt, moet u deze rechtstreeks vanuit http://aka.ms/ERCS downloaden. Het script hebt gestart vanuit een administratief PowerShell-sessie, verbinding maakt met het bevoorrechte eindpunt en Get-AzureStackLog uitvoert met de opgegeven parameters. Als er geen parameters zijn opgegeven, wordt het script wordt standaard ingesteld op te vragen voor parameters via een grafische gebruikersinterface.
+De **ERCS_AzureStackLogs.ps1** PowerShell-script wordt opgeslagen in de GitHub-opslagplaats voor hulpprogramma's en regelmatig wordt bijgewerkt. Om ervoor te zorgen dat u de laatst beschikbare versie hebt, moet u het downloaden rechtstreeks vanuit http://aka.ms/ERCS. Het script hebt gestart vanuit een administratief PowerShell-sessie, verbinding maakt met het bevoorrechte eindpunt en Get-AzureStackLog uitvoert met de opgegeven parameters. Als er geen parameters zijn opgegeven, wordt het script wordt standaard ingesteld op te vragen voor parameters via een grafische gebruikersinterface.
 
 U kunt bekijken voor meer informatie over het ERCS_AzureStackLogs.ps1 PowerShell-script, [een korte video](https://www.youtube.com/watch?v=Utt7pLsXEBc) of weergeven van het script [Leesmij-bestand](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) zich in de Azure-Stack extra GitHub-opslagplaats. 
 
 ### <a name="additional-considerations"></a>Aanvullende overwegingen
 
 * De opdracht wordt uitgevoerd op basis van welke rollen van Logboeken van de verzamelen enige tijd. Factoren omvatten ook de tijd die is opgegeven voor het logboek verzamelen en het aantal knooppunten in de Azure-Stack-omgeving.
-* Nadat het logboekverzameling is voltooid, controleert u de nieuwe map gemaakt de **OutputPath** parameter die is opgegeven in de opdracht.
+* Als u zich aanmeldt verzameling wordt uitgevoerd, controleert de nieuwe map gemaakt de **OutputSharePath** parameter die is opgegeven in de opdracht.
 * Elke functie heeft haar Logboeken in afzonderlijke zip-bestanden. Afhankelijk van de grootte van de logboeken die worden verzameld, kan een rol de logboeken splitsen in meerdere zip-bestanden hebben. Gebruik een hulpprogramma dat kunt pak bulksgewijs (zoals 7zip) voor een functie als u dat alle logboekbestanden naar één map wilt zijn uitgepakt. Selecteer de gecomprimeerde bestanden voor de rol en selecteer **extraheren hier**. Hiermee wordt de logboekbestanden voor die rol in een enkele samengevoegde map uitgepakt.
 * Een bestand met de naam **Get-AzureStackLog_Output.log** ook in de map waarin de gecomprimeerde logboekbestanden gemaakt. Dit bestand is een logboek van de uitvoer van de opdracht, die kan worden gebruikt voor het oplossen van problemen tijdens de logboekgegevens verzameld.
 * Voor het onderzoeken van een specifieke fout mogelijk van meer dan één component logboeken nodig.

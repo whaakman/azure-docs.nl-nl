@@ -9,23 +9,23 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/21/2018
 ms.author: mfussell
-ms.openlocfilehash: bd2bb0d05029237242b42225a2c846c78a7c6de9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3fe22d8bb52fa5f45ce5f1cdc7b860d1ce295a71
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Het opstartscript van een service uitvoeren als lokale gebruiker of systeemaccount
 Voordat u een uitvoerbaar bestand Service Fabric-service wordt mogelijk werk configuratie of installatie uitvoeren.  Bijvoorbeeld, configureren van omgevingsvariabelen. U kunt opgeven dat een script uit te voeren voordat het uitvoerbare bestand van de service wordt gestart in het servicemanifest voor de service. Het uitvoerbare installatiebestand uitgevoerd door het configureren van een RunAs-beleid voor het installatieprogramma toegangspunt dat kunt u welk account onder.  Een toegangspunt voor de afzonderlijke instellingen kunt u hoge privilged configuratie voor een korte periode uitvoeren zodat de ServiceHost uitvoerbare hoeven niet te worden uitgevoerd met hoge machtigingen voor langere tijd.
 
 Het ingangspunt setup (**entrypoint** in de [servicemanifest](service-fabric-application-and-service-manifests.md)) is een bevoorrechte toegangspunt die standaard wordt uitgevoerd met dezelfde referenties als Service Fabric (meestal de  *NetworkService* account) voordat andere toegangspunt. Het uitvoerbare bestand dat is opgegeven door **EntryPoint** is meestal de ServiceHost langlopende. De **EntryPoint** uitvoerbaar bestand wordt uitgevoerd na de **entrypoint** uitvoerbaar bestand correct wordt afgesloten. Het resulterende proces wordt bewaakt en opnieuw opgestart, en opnieuw begint met **entrypoint** ooit wordt beëindigd als of als deze is vastgelopen. 
 
-## <a name="configure-the-service-setup-entry-point"></a>Configureer het toegangspunt voor service-instellingen
+## <a name="configure-the-service-setup-entry-point"></a>Het toegangspunt voor service-instellingen configureren
 Hieronder volgt een voorbeeld van een eenvoudige service manifest voor een stateless service waarmee u een installatiescript *MySetup.bat* in de service **entrypoint**.  **Argumenten** wordt gebruikt voor het doorgeven van argumenten aan het script als deze wordt uitgevoerd.
 
 ```xml
@@ -241,6 +241,6 @@ Echo "Test console redirection which writes to the application log folder on the
 * [Meer informatie over de toepassing en Servicebeveiliging](service-fabric-application-and-service-security.md)
 * [Inzicht in het toepassingsmodel](service-fabric-application-model.md)
 * [Bronnen opgeven in een servicemanifest](service-fabric-service-manifest-resources.md)
-* [Een toepassing implementeren](service-fabric-deploy-remove-applications.md)
+* [Een app implementeren](service-fabric-deploy-remove-applications.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png

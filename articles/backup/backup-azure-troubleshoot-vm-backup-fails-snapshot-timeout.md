@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: de3fcc4abcc8558066d9e524011047d6a117f4e5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 17f4f832af0177ad588058833672c0986adeb3fa
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup-fout oplossen: problemen met de agent of de extensie
 
@@ -194,21 +194,6 @@ Dit probleem is specifiek voor VM's van beheerde waarin de gebruiker Hiermee ver
 
 #### <a name="solution"></a>Oplossing
 
-U lost het probleem door de volgende stappen voor het verwijderen van de verzameling van de punt herstellen: <br>
- 
-1. Verwijder de vergrendeling in de resourcegroep waarin de virtuele machine zich bevindt. 
-2. Installeer ARMClient Chocolatey met: <br>
-   https://github.com/projectkudu/ARMClient
-3. Aanmelden bij ARMClient: <br>
-    `.\armclient.exe login`
-4. De verzameling van herstelpunt die overeenkomt met de virtuele machine ophalen: <br>
-    `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
-
-    Voorbeeld: `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
-5. Verwijder de verzameling van de punt herstellen: <br>
-    `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
-6. De volgende geplande back-up maakt automatisch een punt-verzameling van herstel en nieuwe herstelpunten.
-
- 
-Het probleem zal opnieuw optreden als u de resourcegroep opnieuw vergrendelen. 
+U lost het probleem door de vergrendeling te verwijderen uit de resourcegroep en laat de Azure Backup-service, wist u de recovery point-verzameling en de onderliggende momentopnamen in de volgende back-up.
+Hierna kunt u opnieuw plaatsen terug de vergrendeling op de VM-resourcegroep. 
 

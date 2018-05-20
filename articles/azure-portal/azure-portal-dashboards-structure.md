@@ -2,22 +2,22 @@
 title: De structuur van Azure Dashboards | Microsoft Docs
 description: Dit artikel wordt uitgelegd van de JSON-structuur van een Azure-Dashboard
 services: azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: adamab
-manager: timlt
+manager: dougeby
 editor: tysonn
 ms.service: azure-portal
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: f71ff9383f20a1a75fd2c1cf4dc3aaf049d970cf
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: fa50b31a0c8e9077658106039c4fbd2eef8b4367
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="the-structure-of-azure-dashboards"></a>De structuur van Azure Dashboards
 Dit document helpt bij de structuur van een Azure-dashboard met het volgende dashboard als een voorbeeld:
@@ -335,10 +335,10 @@ De __positie__ eigenschap bevat de informatie van de grootte en locatie van uitg
 Elk onderdeel heeft een eigenschap metadata, een object slechts één vereiste eigenschap aangeroepen __type__. Deze tekenreeks de portal wordt uitgelegd welke tegel om weer te geven. Onze dashboard voorbeeld maakt gebruik van deze typen tegels:
 
 
-1. `Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart`: Wordt gebruikt om weer te geven metrische gegevens controleren
-1. `Extension[azure]/HubsExtension/PartType/MarkdownPart`: Wordt gebruikt om weer te geven tekst of afbeeldingen met basic opmaak voor lijsten, koppelingen, enzovoort.
-1. `Extension[azure]/HubsExtension/PartType/VideoPart`– Gebruikt voor het weergeven van video's van YouTube, Channel9 en een ander type video in een video html-tag werkt.
-1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart`– Gebruikt voor het weergeven van de naam en de status van een virtuele machine van Azure.
+1. `Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart` : Wordt gebruikt om weer te geven metrische gegevens controleren
+1. `Extension[azure]/HubsExtension/PartType/MarkdownPart` : Wordt gebruikt om weer te geven tekst of afbeeldingen met basic opmaak voor lijsten, koppelingen, enzovoort.
+1. `Extension[azure]/HubsExtension/PartType/VideoPart` – Gebruikt voor het weergeven van video's van YouTube, Channel9 en een ander type video in een video html-tag werkt.
+1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart` – Gebruikt voor het weergeven van de naam en de status van een virtuele machine van Azure.
 
 Elk type onderdeel heeft een eigen configuratie. De mogelijke configuratie-eigenschappen worden genoemd __invoer__, __instellingen__, en __asset__. 
 

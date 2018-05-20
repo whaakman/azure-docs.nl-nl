@@ -1,6 +1,6 @@
 ---
-title: Visual Studio Code gebruiken om op te sporen Azure werkt in combinatie met Azure IoT rand | Microsoft Docs
-description: Fouten opsporen in C# Azure werkt in combinatie met Azure IoT rand in de VS-Code
+title: Fouten opsporen in modules van de functies voor Azure IoT rand | Microsoft Docs
+description: Gebruik Visual Studio Code fouten opsporen in C# Azure werkt in combinatie met Azure IoT rand
 services: iot-edge
 keywords: ''
 author: shizn
@@ -9,15 +9,15 @@ ms.author: xshi
 ms.date: 3/20/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 8bd3513e932540f2dd710e0ac1536e757c00a3e1
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: cd870d8f5c3fff87b121ab777a086f21df07cfbc
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="use-visual-studio-code-to-debug-azure-functions-with-azure-iot-edge"></a>Visual Studio Code gebruiken om op te sporen Azure werkt in combinatie met Azure IoT rand
 
-In dit artikel vindt u gedetailleerde instructies voor het gebruik van [Visual Studio Code](https://code.visualstudio.com/) als de belangrijkste ontwikkelprogramma fouten opsporen in uw Azure-functies op IoT rand.
+In dit artikel vindt u gedetailleerde instructies voor het gebruik van [Visual Studio (VS) Code](https://code.visualstudio.com/) fouten opsporen in uw Azure-functies op IoT rand.
 
 ## <a name="prerequisites"></a>Vereisten
 In dit artikel wordt ervan uitgegaan dat u gebruikmaakt van een computer of virtuele machine met Windows of Linux als uw ontwikkelcomputer. Uw IoT-randapparaat kan een andere fysieke apparaat of kunt u uw IoT-randapparaat simuleren op uw ontwikkelcomputer.
@@ -32,25 +32,21 @@ Voer de stappen in voordat u de instructies in dit artikel, [ontwikkelen van een
 - Een Edge-runtime is uitgevoerd op uw ontwikkelcomputer.
 
 ## <a name="build-your-iot-edge-function-module-for-debugging-purpose"></a>Uw IoT rand functie-module voor het opsporen van doel maken
-1. Voor foutopsporing starten, moet u de **Dockerfile.amd64.debug** naar uw docker-installatiekopie bouwen en implementeren van uw oplossing opnieuw. Navigeer in VS-Code Verkenner naar `deployment.template.json` bestand. De afbeeldings-URL van de functie bijwerken door toe te voegen een `.debug` in het einde.
+1. Voor foutopsporing starten, moet u gebruiken **Dockerfile.amd64.debug** naar uw docker-installatiekopie bouwen en implementeren van uw oplossing opnieuw. Navigeer in VS-Code Verkenner naar `deployment.template.json` bestand. De afbeeldings-URL van de functie bijwerken door toe te voegen een `.debug` in het einde.
 
     ![Foutopsporing installatiekopie maken](./media/how-to-debug-csharp-function/build-debug-image.png)
 
 2. Uw oplossing opnieuw worden opgebouwd. Typ in de VS Code opdracht palet en voer de opdracht **rand: bouwen IoT oplossing**.
+3. In Azure IoT Hub-apparaten explorer met de rechtermuisknop op een apparaat-ID van IoT-rand en selecteer vervolgens **implementatie creëert voor randapparaat**. Selecteer de `deployment.json` bestand onder de `config` map. Vervolgens ziet u dat de implementatie is gemaakt met een implementatie-ID in VS-Code wordt geïntegreerd terminal.
 
-3. In Azure IoT Hub-apparaten explorer met de rechtermuisknop op een apparaat-ID van IoT-rand en selecteer vervolgens **implementatie creëert voor randapparaat**. Selecteer de `deployment.json` onder `config` map. Vervolgens ziet u dat de implementatie is gemaakt met een implementatie-ID in VS-Code wordt geïntegreerd terminal.
-
-> [!NOTE]
-> U kunt de status van de container in de VS Code Docker Verkenner of voer controleren de `docker images` opdracht in de terminal.
+U kunt de status van de container in de VS Code Docker explorer of door te voeren controleren de `docker images` opdracht in de terminal.
 
 ## <a name="start-debugging-c-function-in-vs-code"></a>C#-functie in VS-Code foutopsporing starten
-1. VS Code houdt foutopsporing configuratie-informatie in een `launch.json` bestand zich in een `.vscode` map in uw werkruimte. Dit `launch.json` bestand is gegenereerd tijdens het maken van een nieuwe rand van de IoT-oplossing. En deze worden bijgewerkt wanneer die u een nieuwe module die ondersteuning bieden voor foutopsporing toevoegt. Navigeer naar de weergave voor foutopsporing en selecteer het bijbehorende configuratiebestand voor foutopsporing.
+1. VS Code houdt foutopsporing configuratie-informatie in een `launch.json` bestand zich in een `.vscode` map in uw werkruimte. Dit `launch.json` bestand is gegenereerd tijdens het maken van een nieuwe rand van de IoT-oplossing. Telkens wanneer u een nieuwe module die ondersteuning biedt voor foutopsporing toevoegt worden bijgewerkt. Navigeer naar de weergave voor foutopsporing en selecteer het bijbehorende configuratiebestand voor foutopsporing.
     ![Selecteer Foutopsporing configuratie](./media/how-to-debug-csharp-function/select-debug-configuration.jpg)
 
 2. Navigeer naar `run.csx`. Een onderbrekingspunt in de functie toevoegen.
-
-3. Klik op knop foutopsporing starten of druk op **F5**, en selecteert u het proces om aan te koppelen.
-
+3. Klik op de **foutopsporing starten** of drukt u op **F5**, en selecteert u het proces om aan te koppelen.
 4. VS Code fouten opsporen in de weergave ziet u de variabelen in het linkerdeelvenster. 
 
 

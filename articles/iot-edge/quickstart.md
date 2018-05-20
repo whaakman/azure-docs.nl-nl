@@ -6,14 +6,14 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 05/03/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: f9ad01d3194ee0f8be4c3b4321c83c4bb15ea55c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 888f74d215956f4ad38605ca247f681da700a787
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Snelstartgids: Uw eerste rand van de IoT-module van de Azure-portal naar een Windows-apparaat implementeren - voorbeeld
 
@@ -29,7 +29,7 @@ Deze zelfstudie wordt ervan uitgegaan dat u een computer of virtuele machine met
    * Windows 10 
    * Windows Server
 2. Installeer [Docker voor Windows] [ lnk-docker] en zorg ervoor dat deze wordt uitgevoerd.
-3. Installeer [Python 2.7 op Windows] [ lnk-python] en zorg ervoor dat u de opdracht pip kunt gebruiken.
+3. Installeer [Python op Windows] [ lnk-python] en zorg ervoor dat u de opdracht pip kunt gebruiken. Deze snelstartgids is getest met Python versies > 2.7.9 = en > = 3.5.4.  
 4. Voer de volgende opdracht voor het downloaden van het script IoT Edge-besturingselement.
 
    ```cmd
@@ -100,7 +100,7 @@ docker ps
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
 
-## <a name="view-generated-data"></a>Gegevens weergeven die zijn gegenereerd
+## <a name="view-generated-data"></a>Gegenereerde gegevens weergeven
 
 In deze snelstartgids gemaakt van een nieuwe IoT Edge-apparaat en de rand van de IoT-runtime is geïnstalleerd. Vervolgens gebruikt u de Azure-portal voor de push-een IoT-Edge-module worden uitgevoerd op het apparaat zonder dat wijzigingen aanbrengen in het apparaat zelf. In dit geval wordt maakt de module die u gepusht milieu gegevens die u voor de zelfstudies gebruiken kunt. 
 

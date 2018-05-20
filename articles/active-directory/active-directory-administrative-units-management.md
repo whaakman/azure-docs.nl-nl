@@ -14,11 +14,11 @@ ms.date: 08/17/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 373983413ea83e5924b52fbbcbc666aa1a188d80
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4fa93e4bf64e01b44b0826b2182b125004c49609
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="administrative-units-management-in-azure-ad---public-preview"></a>Beheer van beheereenheden in Azure AD - openbare preview
 In dit artikel beschrijft administratieve eenheden – een nieuwe Azure Active Directory-container van bronnen die kunnen worden gebruikt voor het overdragen van beheerdersmachtigingen via subsets van gebruikers en -beleid toepassen op een subset van gebruikers. In Azure Active Directory kunnen administratieve eenheden centrale beheerders overdragen van machtigingen voor de regionale beheerders of beleid instellen op een gedetailleerd niveau.
@@ -38,4 +38,4 @@ U kunt maken en beheren van administratieve eenheden met de Azure Active Directo
 Zie voor meer informatie over de softwarevereisten en de Azure AD-module installeren en voor informatie over de Azure AD-Module-cmdlets voor het beheren van administratieve eenheden, inclusief syntaxis, beschrijvingen van parameters en voorbeelden [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 
 ## <a name="next-steps"></a>Volgende stappen
-[Azure Active Directory-edities](active-directory-editions.md)
+[Azure Active Directory-edities](active-directory-whatis.md)

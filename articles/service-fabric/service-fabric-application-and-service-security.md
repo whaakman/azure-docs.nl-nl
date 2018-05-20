@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: ryanwi
-ms.openlocfilehash: a84e42d3a0254c90bfad2d54eda1aa8e5e35650a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: fa6d46186ad833b68e60c24f742d210b7845759a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric-toepassing en Servicebeveiliging
 Een architectuur microservices kunt brengen [veel voordelen](service-fabric-overview-microservices.md). Het beheren van de beveiliging van microservices, is echter een challenge en anders dan traditionele monolithische toepassingen beveiliging beheren. 
@@ -95,7 +95,7 @@ U kunt beveiligde verbinding maken tussen de omgekeerde proxy en services, waard
 Het framework Reliable Services biedt enkele vooraf gedefinieerde communicatie stacks en hulpprogramma's die u gebruiken kunt om beveiliging te verbeteren. Informatie over het verbeteren van beveiliging wanneer u service voor externe toegang (in [C#](service-fabric-reliable-services-secure-communication.md) of [Java](service-fabric-reliable-services-secure-communication-java.md)) of met behulp van [WCF](service-fabric-reliable-services-secure-communication-wcf.md).
 
 ## <a name="encrypt-application-data-at-rest"></a>Toepassingsgegevens in rust versleutelen
-Elke [knooppunttype](service-fabric-cluster-nodetypes.md) in een Service Fabric-cluster worden uitgevoerd in Azure wordt ondersteund door een [virtuele-machineschaalset](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). U kunt met behulp van een Azure Resource Manager-sjabloon gegevensschijven koppelen aan de combinatie van de schaal die gezamenlijk de Service Fabric-cluster.  Als uw services gegevens op een schijf bijgesloten gegevens opgeslagen, kunt u [coderen die gegevensschijven](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) om de toepassingsgegevens van uw te beveiligen.
+Elke [knooppunttype](service-fabric-cluster-nodetypes.md) in een Service Fabric-cluster worden uitgevoerd in Azure wordt ondersteund door een [virtuele-machineschaalset](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). U kunt met behulp van een Azure Resource Manager-sjabloon gegevensschijven koppelen aan de schaalsets die gezamenlijk het Service Fabric-cluster vormen.  Als uw services gegevens op een schijf bijgesloten gegevens opgeslagen, kunt u [coderen die gegevensschijven](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) om de toepassingsgegevens van uw te beveiligen.
 
 <!--TO DO: Enable BitLocker on Windows standalone clusters?
 TO DO: Encrypt disks on Linux clusters?-->
@@ -105,7 +105,7 @@ TO DO: Encrypt disks on Linux clusters?-->
 ## <a name="next-steps"></a>Volgende stappen
 * [Een setup-script uitvoeren op de service is gestart](service-fabric-run-script-at-service-startup.md)
 * [Bronnen opgeven in een servicemanifest](service-fabric-service-manifest-resources.md)
-* [Een toepassing implementeren](service-fabric-deploy-remove-applications.md)
+* [Een app implementeren](service-fabric-deploy-remove-applications.md)
 * [Meer informatie over clusterbeveiliging](service-fabric-cluster-security.md)
 
 <!-- Links -->

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2018
+ms.date: 05/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 326d6873ae78c5f712832c4cfce9c793f1dfbf37
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e0c0c3f51b455983dbe3f937917ed090e51d0005
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Met gekoppelde en geneste sjablonen bij het implementeren van Azure-resources
 
@@ -148,7 +148,7 @@ Het volgende voorbeeld laat zien hoe u een basis-URL om te maken van twee URL's 
 }
 ```
 
-U kunt ook [deployment()](resource-group-template-functions-deployment.md#deployment) ophalen van de basis-URL voor de huidige sjabloon en gebruik die voor de URL voor andere sjablonen op dezelfde locatie bevinden. Deze methode is handig als de locatie van uw sjabloon (mogelijk vanwege versioning wijzigt) of u wilt voorkomen dat URL's in het sjabloonbestand hard coderen.
+U kunt ook [deployment()](resource-group-template-functions-deployment.md#deployment) ophalen van de basis-URL voor de huidige sjabloon en gebruik die voor de URL voor andere sjablonen op dezelfde locatie bevinden. Deze methode is handig als de locatie van uw sjabloon (mogelijk vanwege versioning wijzigt) of u wilt voorkomen dat URL's in het sjabloonbestand hard coderen. De eigenschap templateLink wordt alleen geretourneerd wanneer koppelen aan een externe sjabloon met een URL. Als u een lokale sjabloon gebruikt, is die eigenschap niet beschikbaar.
 
 ```json
 "variables": {
@@ -209,7 +209,7 @@ De belangrijkste sjabloon implementeert de gekoppelde sjabloon en de geretournee
 }
 ```
 
-Net als andere brontypen, kunt u de afhankelijkheden tussen de gekoppelde sjabloon en andere resources instellen. Daarom als voor andere bronnen vereist een waarde voor de uitvoer van de gekoppelde sjabloon, kunt u ervoor dat de gekoppelde sjabloon voordat deze is geïmplementeerd. Of als de gekoppelde sjabloon is afhankelijk van andere bronnen, kunt u ervoor zorgen dat andere resources worden geïmplementeerd voordat u de gekoppelde sjabloon.
+Net als andere brontypen, kunt u de afhankelijkheden tussen de gekoppelde sjabloon en andere resources instellen. Daarom andere bronnen vereist een waarde voor de uitvoer van de gekoppelde sjabloon, zorg er bij dat de gekoppelde sjabloon voordat deze wordt geïmplementeerd. Of wanneer de gekoppelde sjabloon is afhankelijk van andere bronnen, controleert u of dat andere resources worden geïmplementeerd voordat u de gekoppelde sjabloon.
 
 Het volgende voorbeeld ziet u een sjabloon die u implementeert een openbaar IP-adres en retourneert de resource-ID:
 

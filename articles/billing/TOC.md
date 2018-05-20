@@ -53,11 +53,19 @@
 ### [Weergave voor bedrijfskosten is uitgeschakeld](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
 # Naslaginformatie
-## [API-overzicht](billing-usage-rate-card-overview.md)
-## [Enterprise Reporting API-overzicht](billing-enterprise-api.md)
-## [Factuur-REST](/rest/api/billing)
-## [Gebruiks- en RateCard-REST](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)
-## [Partneroplossing: Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md)
+## [Azure Billing API-overzicht](billing-usage-rate-card-overview.md)
+### [Azure Billing REST API](https://docs.microsoft.com/rest/api/billing)
+### [Partneroplossing: Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md)
+## Azure Consumption API
+### [Azure Consumption REST API](https://docs.microsoft.com/rest/api/consumption) 
+### [RateCard REST API](https://msdn.microsoft.com/library/azure/mt219005.aspx)
+### [Usage REST API](https://msdn.microsoft.com/library/azure/mt219003.aspx)
+## [Overzicht Enterprise-rapportage](billing-enterprise-api.md)
+### [Enterprise Reporting REST API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary)
+## Codevoorbeelden voor facturering
+### [Codevoorbeeld Invoice API](https://github.com/Azure-Samples/billing-dotnet-core-invoice-download)
+### [Codevoorbeeld Usage API](https://github.com/Azure-Samples/billing-dotnet-usage-api)
+### [Codevoorbeeld RateCard API](https://github.com/Azure-Samples/billing-dotnet-ratecard-api)
 
 # Resources
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/)

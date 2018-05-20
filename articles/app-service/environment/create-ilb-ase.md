@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 61a454ffb36865d4e1bc6b7ae5622fa4d4e85fd2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b2eeb7d2cca124abd811859077d7e5e55a36c521
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Een interne load balancer maken en gebruiken met een App Service-omgeving #
 
@@ -63,6 +63,8 @@ Ga als volgt te werk om een ILB AS-omgeving te maken:
 
 4. Selecteer of maak een VNet.
 
+    * Als u een nieuw VNet selecteert, kunt u een naam en locatie opgeven. Als u van plan bent om Linux-apps te hosten op deze ASE, worden op dit moment alleen deze zes regio's ondersteund: **VS West, VS Oost, West-Europa, Noord-Europa, Australië Oost en Zuidoost-Azië.** 
+
 5. Als u een bestaand VNet selecteert, moet u een subnet maken om de AS-omgeving in te plaatsen. Zorg ervoor dat u een subnetgrootte instelt die groot genoeg is voor een eventuele toekomstige groei van uw AS-omgeving. We raden een grootte aan van `/25`. Dit formaat bevat 128 adressen en kan de grootst mogelijke AS-omgeving verwerken. De minimale grootte die u kunt selecteren is een `/28`. Deze grootte kan, afhankelijk van de behoeften van uw infrastructuur, niet verder worden geschaald dan maximaal 3 exemplaren.
 
     * Ga verder dan het maximumaantal van 100 exemplaren in uw App Service-plannen.
@@ -106,7 +108,7 @@ Als u het **VIP-type** instelt op **Intern**, wordt de naam van de AS-omgeving n
 
 Het maken van een app in een ILB AS-omgeving werkt hetzelfde als het maken van een app in een AS-omgeving.
 
-1. Selecteer in Azure Portal achtereenvolgens **Een resource maken** > **Web en mobiel** > **Web** of **Mobiel** of **API-app**.
+1. Selecteer in Azure Portal achtereenvolgens **Een resource maken** > **Web en mobiel** > **Web-app**.
 
 2. Voer de naam van de app in.
 
@@ -114,9 +116,13 @@ Het maken van een app in een ILB AS-omgeving werkt hetzelfde als het maken van e
 
 4. Selecteer of maak een resourcegroep.
 
-5. Selecteer of maak een App Service-plan. Als u een nieuw App Service-plan wilt maken, selecteert u uw AS-omgeving als locatie. Selecteer de groep met werkrollen waarin u het App Service-plan wilt maken. Wanneer u het App Service-plan maakt, selecteert u uw AS-omgeving als de locatie en de groep met werkrollen. Wanneer u de naam van de app opgeeft, wordt het domein onder de app-naam vervangen door het domein van de AS-omgeving.
+5. Selecteer uw besturingssysteem. 
 
-6. Selecteer **Maken**. Als u de app wilt weergeven op het dashboard, vinkt u het selectievakje **Vastmaken aan dashboard** aan.
+    * Als u een Linux-app wilt maken met behulp van een aangepaste Docker-container, kunt u uw eigen container gebruiken door deze instructies te volgen. 
+
+6. Selecteer of maak een App Service-plan. Als u een nieuw App Service-plan wilt maken, selecteert u uw AS-omgeving als locatie. Selecteer de groep met werkrollen waarin u het App Service-plan wilt maken. Wanneer u het App Service-plan maakt, selecteert u uw AS-omgeving als de locatie en de groep met werkrollen. Wanneer u de naam van de app opgeeft, wordt het domein onder de app-naam vervangen door het domein van de AS-omgeving.
+
+7. Selecteer **Maken**. Als u de app wilt weergeven op het dashboard, vinkt u het selectievakje **Vastmaken aan dashboard** aan.
 
     ![Het maken van een App Service-plan][2]
 

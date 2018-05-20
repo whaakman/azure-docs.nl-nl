@@ -17,7 +17,7 @@
   items:
     - name: Webverkeer beheren
       href: tutorial-manage-web-traffic-cli.md
-    - name: Webverkeer beperken
+    - name: Web Application Firewall inschakelen
       href: tutorial-restrict-web-traffic-cli.md
     - name: Beveiligen met SSL
       href: tutorial-ssl-cli.md
@@ -35,18 +35,23 @@
       href: cli-samples.md
 - name: Concepten
   items:
+    - name: SSL-beëindiging
+      href: ssl-overview.md
+    - name: Overzicht van het SSL-beleid
+      href: application-gateway-ssl-policy-overview.md
     - name: Web Application Firewall
       href: waf-overview.md
     - name: URL-routering
       href: url-route-overview.md
     - name: Meerdere sites hosten
       href: multiple-site-overview.md
-    - name: SSL-beëindiging
-      href: ssl-overview.md
-    - name: URL-omleiding
+    - name: Ondersteuning voor omleiding
       href: redirect-overview.md
+    - name: Ondersteuning voor meerdere tenants
     - name: Statuscontrole
       href: application-gateway-probe-overview.md
+    - name: Ondersteuning voor WebSocket
+      href: application-gateway-websocket.md
 - name: Handleidingen
   items:
     - name: Een toepassingsgateway maken
@@ -55,10 +60,20 @@
           href: create-vmss-template.md
         - name: Web-apps - PowerShell
           href: create-web-app.md
-    - name: SSL-beëindiging inschakelen - Portal
+        - name: Een interne load balancer configureren
+          href: application-gateway-ilb.md
+    - name: SSL-beëindiging configureren - Portal
       href: create-ssl-portal.md
     - name: Meerdere sites hosten - Portal
       href: create-multiple-sites-portal.md
+    - name: WAF-regels aanpassen
+      items:
+        - name: Azure Portal
+          href: application-gateway-customize-waf-rules-portal.md
+        - name: Azure PowerShell
+          href: application-gateway-customize-waf-rules-powershell.md
+        - name: Azure-CLI
+          href: application-gateway-customize-waf-rules-cli.md
     - name: Extern verkeer omleiden
       items:
         - name: Azure PowerShell
@@ -111,6 +126,8 @@
           href: application-gateway-diagnostics.md
 - name: Naslaginformatie
   items:
+    - name: CRS-regels
+      href: application-gateway-crs-rulegroups-rules.md
     - name: Azure-CLI
       href: /cli/azure/network/application-gateway
     - name: Azure PowerShell

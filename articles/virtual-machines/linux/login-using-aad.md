@@ -12,13 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/08/2018
+ms.date: 05/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 652f9867b7423ce4307dba1c77e8f38fcd596c67
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: ec330570604494503de2fa3f5484a1e41ddf4603
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Aanmelden bij een virtuele Linux-machine in Azure met Azure Active Directory-verificatie (Preview)
 
@@ -34,6 +34,7 @@ Er zijn veel voordelen van het gebruik van Azure AD-verificatie voor aanmelding 
   - Vermindert uw vertrouwen op de lokale administrator-accounts, hoeft u niet te hoeven maken over verlies/diefstal van referenties, gebruikers zwakke verwijzingen enzovoort configureert.
   - De complexiteit van wachtwoorden en levensduur wachtwoordbeleid geconfigureerd voor uw Azure AD-directory kunnen beveiligde virtuele Linux-machines ook.
   - U kunt multi-factor authentication-server configureren voor verdere beveiligde aanmelding bij virtuele machines in Azure.
+  - De mogelijkheid zich aanmelden bij Linux VM's met Azure Active Directory werkt ook voor klanten die gebruikmaken van [Federation Services](../../active-directory/connect/active-directory-aadconnectfed-whatis.md).
 
 - **Naadloze samenwerking:** With Role-Based toegangsbeheer (RBAC), kunt u die bij een bepaalde virtuele machine als een gewone gebruiker of met administrator-bevoegdheden aanmelden kunt. Wanneer gebruikers lid of uw team laat, kunt u het beleid voor de virtuele machine toegang zo nodig het RBAC bijwerken. Deze ervaring is veel eenvoudiger dan hoeft te verwijderen van virtuele machines voor het verwijderen van onnodige openbare SSH-sleutels. Wanneer werknemers uw bedrijf verlaat en hun gebruikersaccount is uitgeschakeld of verwijderd uit Azure AD, hebben ze niet langer toegang tot uw resources.
 
@@ -49,7 +50,7 @@ De volgende Linux-distributies worden momenteel ondersteund tijdens de preview v
 
 De volgende Azure-regio's worden momenteel ondersteund tijdens de preview van deze functie:
 
-- Alle openbare Azure-regio 's
+- Alle globale Azure-regio 's
 
 >[!IMPORTANT]
 > Voor het gebruik van deze preview-functie, moet u alleen een ondersteunde Linux-distro implementeren en in een ondersteunde Azure-regio. De functie wordt niet ondersteund in Azure Government of soevereine clouds.
@@ -166,6 +167,10 @@ Als u de verificatie-stap in een webbrowser met succes hebt voltooid, kunt u onm
 - Controleer of u hebt opgegeven bij de prompt SSH naam juist is. Een typefout gemaakt in de naam van de aanmelding kan ervoor zorgen dat u hebt opgegeven bij de prompt SSH naam en het account dat u aangemeld bij Azure AD met niet overeenkomen. Bijvoorbeeld: u hebt getypt *azuresuer@contoso.onmicrosoft.com* in plaats van *azureuser@contoso.onmicrosoft.com*.
 - Als u meerdere gebruikersaccounts hebt, moet dat u een ander gebruikersaccount in het browservenster niet opgeeft tijdens het aanmelden bij Azure AD.
 - Linux is een hoofdlettergevoelige besturingssysteem. Er is een verschil tussen 'Azureuser@contoso.onmicrosoft.com'en'azureuser@contoso.onmicrosoft.com', waardoor een niet-overeenkomend. Zorg ervoor dat u de UPN met de juiste hoofdlettergevoeligheid bij de SSH-prompt opgeeft.
+
+## <a name="preview-feedback"></a>Preview feedback
+
+Stuur ons uw feedback over deze preview-functie of het rapport problemen zijn met het op de [forum met feedback van Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
 
 ## <a name="next-steps"></a>Volgende stappen
 

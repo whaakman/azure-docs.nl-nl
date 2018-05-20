@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory-risicogebeurtenissen | Microsoft Docs
-description: In dit onderwerp vindt u een gedetailleerd overzicht van wat risicogebeurtenissen zijn.
+description: Deze artice biedt u een gedetailleerd overzicht van wat risicogebeurtenissen zijn.
 services: active-directory
 keywords: beveiliging voor Azure active directory-identiteit, beveiliging, risico, risiconiveau, beveiligingsprobleem, beveiligingsbeleid
 author: MarkusVi
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 05/14/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 59c8932f7676a5388413baf2edb5d9e259769f93
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: e883caa63bde26e13234dde949ce4517b328e3a5
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory-risicogebeurtenissen
 
@@ -39,18 +39,19 @@ Azure Active Directory detecteert op dit moment zes typen risicogebeurtenissen d
 Het voor een risicogebeurtenis gedetecteerde dat u inzicht is gekoppeld aan uw abonnement Azure AD. Met de Azure AD Premium P2-editie, moet u de meest gedetailleerde informatie over alle onderliggende detecties ophalen. Met de editie Azure AD Premium-P1 detecties die niet wordt gedekt door uw licenties worden weergegeven als de risicogebeurtenis **aanmelden met extra risico gedetecteerd**.
 
 
-In dit onderwerp biedt u een gedetailleerd overzicht van welke gebeurtenissen van de risico's zijn en hoe u ze kunt gebruiken om de identiteiten van uw Azure AD te beschermen.
+In dit artikel biedt u een gedetailleerd overzicht van welke gebeurtenissen van de risico's zijn en hoe u ze kunt gebruiken om de identiteiten van uw Azure AD te beschermen.
 
 
 ## <a name="risk-event-types"></a>Risicogebeurtenistypen
 
-De eigenschap voor type gebeurtenis risico is dat een id voor de verdachte actie een record van de gebeurtenis risico is gemaakt.  
+De eigenschap voor type gebeurtenis risico is dat een id voor de verdachte actie een record van de gebeurtenis risico is gemaakt.
+
 Microsoft continue investeringen in het detectieproces leiden tot:
 
 - Verbeteringen in de nauwkeurigheid van de detectie van de bestaande risicogebeurtenissen 
 - Nieuwe typen van de risico's gebeurtenissen die in de toekomst worden toegevoegd
 
-### <a name="leaked-credentials"></a>Gelekte aanmeldingsreferenties
+### <a name="leaked-credentials"></a>Gelekte referenties
 
 Wanneer cybercriminelen inbreuk geldige wachtwoorden van legitieme gebruikers, wordt in de criminelen vaak deze referenties delen. Dit gebeurt gewoonlijk door ze te posten openbaar op de donker web- of -sites of door handel of de referenties op de zwarte markt verkopen. De Microsoft gelekte referenties service verkrijgt gebruikersnaam / wachtwoord paren door de bewaking van openbare en donkere websites en door met:
 
@@ -76,6 +77,8 @@ De algoritme wordt genegeerd voor de hand liggende 'valse positieven' bijdragen 
 
 Dit type risico gebeurtenis uit het verleden aanmelden locaties overweegt (IP, breedtegraad / lengtegraad en ASN) om te bepalen van de nieuwe / onbekende locaties. Het systeem wordt informatie opgeslagen over de voorgaande locaties die worden gebruikt door een gebruiker en deze 'bekend' locaties overweegt. De risicogebeurtenis wordt geactiveerd wanneer de aanmeldingspagina plaatsvindt vanaf een locatie die nog niet in de lijst met vertrouwde sites. Het systeem heeft een initiële learning periode van 30 dagen, waarover biedt het geen nieuwe locaties als onbekende locaties vlag. Aanmeldingen vanaf bekende apparaten en de locaties die geografisch zich dicht bij een vertrouwde locatie worden ook negeert door het systeem. 
 
+Identity Protection detecteert aanmeldingen vanaf onbekende locaties ook voor basisverificatie / verouderde protocollen. Omdat deze protocollen moderne vertrouwde functies zoals client-id niet hebt, is er niet genoeg telemetrie naar valse positieven te reduceren. Als u het aantal gedetecteerde risicogebeurtenissen, moet u overstappen naar moderne verificatie.   
+
 ### <a name="sign-ins-from-infected-devices"></a>Aanmeldingen vanaf geïnfecteerde apparaten
 
 Dit type risico gebeurtenis identificeert aanmeldingen vanaf apparaten geïnfecteerd met malware die bekend zijn bij actief communiceren met een bot-server. Dit wordt bepaald door de IP-adressen van het apparaat van de gebruiker op basis van IP-adressen die verbonden met een bot-server zijn. 
@@ -86,8 +89,7 @@ Dit type risico gebeurtenis identificeert IP-adressen waaruit een groot aantal m
 
 ## <a name="detection-type"></a>Detectietype
 
-De eigenschap van het type detectie is een indicator (realtime of Offline) voor het tijdsbestek detectie van een risicogebeurtenis.  
-Op dit moment worden de meeste risicogebeurtenissen gedetecteerd offline in na verwerking bewerking nadat de risicogebeurtenis heeft plaatsgevonden.
+De eigenschap van het type detectie is een indicator (realtime of Offline) voor het tijdsbestek detectie van een risicogebeurtenis. Op dit moment worden de meeste risicogebeurtenissen gedetecteerd offline in na verwerking bewerking nadat de risicogebeurtenis heeft plaatsgevonden.
 
 De volgende tabel bevat de hoeveelheid tijd die nodig is voor een type detectie worden weergegeven in een gerelateerde rapport:
 
@@ -113,8 +115,7 @@ Voor de gebeurtenis risico typen die Azure Active Directory wordt gedetecteerd, 
 
 De eigenschap van het risico van een risicogebeurtenis is een indicator (hoog, Gemiddeld of laag) voor de ernst en het vertrouwen van een risicogebeurtenis. Deze eigenschap kunt u bepalen welke acties die u moet uitvoeren. 
 
-De ernst van de risicogebeurtenis vertegenwoordigt de sterkte van het signaal identiteit inbreuk te voorspellen.  
-Het vertrouwen is een indicator voor de mogelijkheid van valse positieven. 
+De ernst van de risicogebeurtenis vertegenwoordigt de sterkte van het signaal identiteit inbreuk te voorspellen. Het vertrouwen is een indicator voor de mogelijkheid van valse positieven. 
 
 Bijvoorbeeld: 
 
@@ -126,19 +127,18 @@ Bijvoorbeeld:
 
 ![Risiconiveau](./media/active-directory-reporting-risk-events/01.png)
 
-### <a name="leaked-credentials"></a>Gelekte aanmeldingsreferenties
+### <a name="leaked-credentials"></a>Gelekte referenties
 
 Gelekte referenties risicogebeurtenissen die zijn geclassificeerd als een **hoge**, omdat ze een duidelijke aanwijzing is bieden dat de gebruikersnaam en wachtwoord beschikbaar voor een aanvaller zijn.
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>Aanmeldingen vanaf anonieme IP-adressen
 
-Het risiconiveau voor dit type risico gebeurtenis is **gemiddeld** omdat een anoniem IP-adres niet een sterke indicatie van inbreuk op een account is.  
-Het is raadzaam dat u direct contact opnemen met de gebruiker om te controleren of als ze anonieme IP-adressen gebruikten.
+Het risiconiveau voor dit type risico gebeurtenis is **gemiddeld** omdat een anoniem IP-adres niet een sterke indicatie van inbreuk op een account is. Het is raadzaam dat u direct contact opnemen met de gebruiker om te controleren of als ze anonieme IP-adressen gebruikten.
 
 
 ### <a name="impossible-travel-to-atypical-locations"></a>Onmogelijke reis naar ongewone locaties
 
-Onmogelijke reis is meestal een goede indicatie die een hacker kon is aanmelden. ONWAAR-positieven kunnen echter optreden wanneer een gebruiker op reis gaat met behulp van een nieuw apparaat of via een VPN die doorgaans niet wordt gebruikt door andere gebruikers in de organisatie. Een andere bron van false positieven is voor toepassingen die onjuist server IP-adressen als client-IP-adressen, zodat de vormgeving van aanmeldingen die hebben plaatsgevonden in het datacenter waarin de toepassing van back-end wordt gehost (dit zijn vaak Microsoft-datacenters die geven de vormgeving van aanmeldingen plaatsvinden van Microsoft die eigendom zijn van IP-adressen). Als gevolg van deze ONWAAR-positieven, het risiconiveau voor deze risicogebeurtenis is **gemiddeld**.
+Onmogelijke reis is meestal een goede indicatie die een hacker kon te kunnen aanmelden. ONWAAR-positieven kunnen echter optreden wanneer een gebruiker op reis gaat met behulp van een nieuw apparaat of via een VPN die doorgaans niet wordt gebruikt door andere gebruikers in de organisatie. Een andere bron van false positieven is voor toepassingen die onjuist server IP-adressen als client-IP-adressen, zodat de vormgeving van aanmeldingen die hebben plaatsgevonden in het datacenter waarin de toepassing van back-end wordt gehost (dit zijn vaak Microsoft-datacenters die geven de vormgeving van aanmeldingen plaatsvinden van Microsoft die eigendom zijn van IP-adressen). Als gevolg van deze ONWAAR-positieven, het risiconiveau voor deze risicogebeurtenis is **gemiddeld**.
 
 > [!TIP]
 > U kunt de hoeveelheid gemelde ONWAAR-positieven voor dit type van de gebeurtenis risico verkleinen door te configureren [locaties met de naam](active-directory-named-locations.md). 

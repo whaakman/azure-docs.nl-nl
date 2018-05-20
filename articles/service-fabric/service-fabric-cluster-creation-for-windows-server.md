@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 31349169-de19-4be6-8742-ca20ac41eb9e
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
-ms.author: dekapur;chackdan;maburlik
-ms.openlocfilehash: 7d65845d21205e22a3e5b0868acb637ff614fb42
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: dekapur
+ms.openlocfilehash: efa48aa90806b45c99237404af24cb8aba762d15
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Een zelfstandige cluster met Windows Server maken
 U kunt Azure Service Fabric gebruiken voor het maken van Service Fabric-clusters op alle virtuele machines of de computers waarop Windows Server wordt uitgevoerd. Dit betekent dat u kunt implementeren en Service Fabric-toepassingen uitvoeren in een omgeving die een set met elkaar verbonden computers met Windows Server bevat, worden deze on-premises of bij een cloudprovider. Service Fabric bevat een installatiepakket voor het maken van Service Fabric-clusters die het zelfstandige pakket met Windows Server genoemd.
@@ -130,7 +130,7 @@ Voorbeeld:
 Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 ```
 ### <a name="step-3-bring-up-service-fabric-explorer"></a>Stap 3: Online zetten van de Service Fabric Explorer
-Nu u verbinding met het cluster met Service Fabric Explorer vanuit een van de machines http://localhost:19080/Explorer/index.html of op afstand met http://&lt maken kunt;*IPAddressofaMachine*>: 19080/Explorer/index.html.
+Nu u verbinding met het cluster met Service Fabric Explorer maken kunt rechtstreeks vanaf een van de machines met http://localhost:19080/Explorer/index.html of op afstand met http://<*IPAddressofaMachine*>: 19080/Explorer/index.html.
 
 ## <a name="add-and-remove-nodes"></a>Toevoegen en verwijderen van knooppunten
 U kunt toevoegen of knooppunten aan uw zelfstandige Service Fabric-cluster verwijderen als uw bedrijf. Zie [toevoegen of verwijderen van knooppunten aan een zelfstandige Service Fabric-cluster](service-fabric-cluster-windows-server-add-remove-nodes.md) voor gedetailleerde stappen.
@@ -154,9 +154,9 @@ Dit script kan worden uitgevoerd op een machine met beheerdersrechten op alle ma
 <a id="telemetry"></a>
 
 ## <a name="telemetry-data-collected-and-how-to-opt-out-of-it"></a>Telemetrische gegevens verzameld en hoe deze afmelden
-Standaard verzamelt het product telemetrie van de Service Fabric-gebruik voor het verbeteren van het product. De Best Practices Analyzer die wordt uitgevoerd als onderdeel van het installatieprogramma controleert voor connectiviteit met [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1). Als dit niet bereikbaar is, wordt de installatie mislukt, tenzij u telemetrie afmelden.
+Standaard verzamelt het product telemetrie van de Service Fabric-gebruik voor het verbeteren van het product. De Best Practices Analyzer die wordt uitgevoerd als onderdeel van het installatieprogramma controleert voor connectiviteit met [ https://vortex.data.microsoft.com/collect/v1 ](https://vortex.data.microsoft.com/collect/v1). Als dit niet bereikbaar is, wordt de installatie mislukt, tenzij u telemetrie afmelden.
 
-1. De pijplijn telemetrie probeert te uploaden van de volgende gegevens op [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1) eenmaal voor elke dag. Het uploaden van een best effort is en heeft geen invloed op de clusterfunctionaliteit. De telemetrie alleen wordt verzonden via het knooppunt waarop de failover manager primaire. Er zijn geen andere knooppunten verzenden telemetrie.
+1. De pijplijn telemetrie probeert te uploaden van de volgende gegevens op [ https://vortex.data.microsoft.com/collect/v1 ](https://vortex.data.microsoft.com/collect/v1) eenmaal voor elke dag. Het uploaden van een best effort is en heeft geen invloed op de clusterfunctionaliteit. De telemetrie alleen wordt verzonden via het knooppunt waarop de failover manager primaire. Er zijn geen andere knooppunten verzenden telemetrie.
 2. De telemetrie bestaat uit het volgende:
 
 * Aantal services
@@ -166,7 +166,7 @@ Standaard verzamelt het product telemetrie van de Service Fabric-gebruik voor he
 * Aantal FailoverUnits
 * Aantal InBuildFailoverUnits
 * Aantal UnhealthyFailoverUnits
-* Aantal replica 's
+* Aantal replica's
 * Aantal InBuildReplicas
 * Aantal StandByReplicas
 * Aantal OfflineReplicas

@@ -1,5 +1,5 @@
 ---
-title: Inleiding tot Azure-Stack virtuele machines
+title: Kennismaking met virtuele machines in Azure Stack
 description: Meer informatie over Azure-Stack virtuele machines
 services: azure-stack
 author: mattbriggs
@@ -8,41 +8,41 @@ ms.service: azure-stack
 ms.topic: get-started-article
 ms.date: 02/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: 2453f2449124cb4956797e0d9748f1ee3bf0d9ad
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 41e75a6806cc5ff13fad64fd415344376e0d6e88
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="introduction-to-azure-stack-virtual-machines"></a>Inleiding tot Azure-Stack virtuele machines
+# <a name="introduction-to-azure-stack-virtual-machines"></a>Kennismaking met virtuele machines in Azure Stack
 
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
 ## <a name="overview"></a>Overzicht
-Een Azure Stack van virtuele Machine (VM) is een type op aanvraag, schaalbare rekenbron die Azure-Stack biedt. Normaal gesproken kiest u voor een VM wanneer u meer controle nodig hebt over de computeromgeving dan andere opties bieden. In dit artikel vindt u informatie over wat u moet overwegen voordat u een VM maakt, hoe u deze maakt en hoe u deze beheert.
+Een Azure Stack van virtuele Machine (VM) is een op aanvraag, schaalbare rekenbron die Azure-Stack biedt één type. Normaal gesproken kiest u voor een VM wanneer u meer controle nodig hebt over de computeromgeving dan andere opties bieden. In dit artikel vindt u informatie over wat u moet overwegen voordat u een VM maakt, hoe u deze maakt en hoe u deze beheert.
 
-Een Azure-Stack van virtuele machine biedt u de flexibiliteit van virtualisatie zonder de noodzaak om afzonderlijke clusters of computers te beheren. U moet de VM echter wel onderhouden door taken uit te voeren, zoals het configureren, patchen en onderhouden van de software die erop wordt uitgevoerd.
+Een Azure-Stack van virtuele machine biedt u de flexibiliteit van virtualisatie zonder de noodzaak om clusters of afzonderlijke computers te beheren. U moet echter nog steeds het onderhouden van de virtuele machine door taken uitvoeren zoals het configureren, patchen en installeren van de software die wordt uitgevoerd op deze.
 
-Virtuele machines in Azure Stack kan op verschillende manieren worden gebruikt. Bijvoorbeeld:
+U kunt Azure-Stack virtuele machines op verschillende manieren gebruiken. Bijvoorbeeld:
 
 * **Ontwikkeling en tests** – Stack van virtuele machines van Azure bieden een snelle en gemakkelijke manier om het maken van een computer met een specifieke configuratie vereist om de code en testen van een toepassing.
 
 * **Toepassingen in de cloud** – omdat de aanvraag voor uw toepassing kunt fluctueren, kan het zinvol economische uit te voeren op een virtuele machine in Azure-Stack. U betaalt voor extra virtuele machines wanneer u ze nodig hebt en schakelt ze uit wanneer u ze niet meer nodig hebt.
 
-* **Uitgebreide datacenter** – virtuele machines in een virtueel netwerk van Azure-Stack kunnen eenvoudig worden verbonden met de netwerk- of Azure van uw organisatie.
+* **Uitgebreide datacenter** – virtuele machines in een virtueel netwerk van Azure-Stack kunnen eenvoudig worden aangesloten op het netwerk van uw organisatie of naar Azure.
 
-Het aantal virtuele machines dat uw toepassing gebruikt, kan omhoog worden geschaald naar wat is vereist om te voldoen aan uw behoeften.
+De virtuele machines die uw toepassing gebruikt kunnen omhoog schalen of uitschalen naar wat is vereist om te voldoen aan uw behoeften.
 
 ## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>Waar moet ik over nadenken voordat ik een VM maak?
 
-Er zijn altijd een groot aantal Ontwerpoverwegingen bij het samenstellen van de infrastructuur van een toepassing in Azure-Stack. Deze aspecten van een VM zijn belangrijk om over na te denken voordat u begint:
+Er zijn altijd talrijke Ontwerpoverwegingen bij het samenstellen van de infrastructuur van een toepassing in Azure-Stack. Deze aspecten van een virtuele machine zijn belangrijk om na te denken over voordat u begint met het maken van uw infrastructuur:
 
-- De namen van uw toepassingsresources
-- De grootte van de VM
-- Het maximumaantal VM's dat kan worden gemaakt
-- Het besturingssysteem dat op de VM wordt uitgevoerd
-- De configuratie van de VM nadat deze is gestart 
-- De gerelateerde resources die de VM nodig heeft
+* De namen van de toepassingsresources van uw.
+* De grootte van de virtuele machine.
+* Het maximum aantal VM's die kunnen worden gemaakt.
+* Het besturingssysteem dat de virtuele machine wordt uitgevoerd.
+* De configuratie van de virtuele machine nadat deze is gestart.
+* De gerelateerde bronnen waarvoor u de virtuele machine.
 
 ### <a name="naming"></a>Naamgeving
 
@@ -61,10 +61,9 @@ Uw abonnement heeft standaard de quotalimieten dat invloed op de implementatie v
 ### <a name="operating-system-disks-and-images"></a>Schijven en installatiekopieën voor een besturingssysteem
 
 Virtuele machines maken gebruik van virtuele harde schijven (VHD's) voor de opslag van het besturingssysteem (OS) en de gegevens. VHD's worden ook gebruikt voor de installatiekopieën waarmee u een besturingssysteem kunt installeren.
-Azure Stack biedt een marketplace voor gebruik met verschillende versies en typen van besturingssystemen. Marketplace-installatiekopieën worden aangeduid met uitgever, aanbieding, SKU en versie van de installatiekopie (de versie wordt meestal gespecificeerd als meest recente).
+Azure Stack biedt een marketplace voor gebruik met verschillende versies en typen van besturingssystemen. Marketplace-installatiekopieën worden geïdentificeerd door de installatiekopie-uitgever, aanbieding, sku en versie (meestal versie als laatste is opgegeven).
 
 De volgende tabel ziet u enkele manieren dat u de gegevens voor een installatiekopie kunt vinden:
-
 
 |Methode|Beschrijving|
 |---------|---------|
@@ -112,7 +111,12 @@ De volgende tabel bevat informatie om u te helpen beginnen met het opstellen van
 
 ## <a name="how-do-i-manage-the-vm-that-i-created"></a>Hoe beheer ik de VM die ik heb gemaakt?
 
-VM's kunnen worden beheerd via een op een browser gebaseerde portal, opdrachtregelprogramma's met ondersteuning voor het uitvoeren van scripts of rechtstreeks via API's. Typische beheertaken die u uitvoert, zijn bijvoorbeeld: informatie over een VM ophalen, u aanmelden op een VM, de beschikbaarheid beheren en back-ups maken.
+U kunt virtuele machines met een browser gebaseerde portal, opdrachtregelprogramma's met ondersteuning voor het uitvoeren van scripts of rechtstreeks via API's kunt beheren. Er zijn een aantal veelvoorkomende beheertaken die u kunt uitvoeren:
+
+* Informatie ophalen over een virtuele machine
+* Verbinding maken met een virtuele machine
+* Beschikbaarheid van beheren
+* Back-ups maken
 
 ### <a name="get-information-about-a-vm"></a>Informatie over een VM ophalen
 
@@ -130,5 +134,5 @@ De volgende tabel ziet u een aantal manieren waarop die u informatie over een vi
 U kunt de **Connect** knop in de Stack van Azure-portal verbinding maken met uw virtuele machine.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Overwegingen voor virtuele Machines in Azure Stack](azure-stack-vm-considerations.md)
 
+* [Overwegingen voor virtuele Machines in Azure Stack](azure-stack-vm-considerations.md)

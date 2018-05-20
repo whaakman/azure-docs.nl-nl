@@ -5,16 +5,16 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 4/9/2018
+ms.date: 5/17/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 485f761e22871396dace71333868ba7712e41f67
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: e4e2866e18c508c0df7a9a9e85a22c98e4372661
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="create-a-blockchain-application-in-azure-blockchain-workbench"></a>Een toepassing blockchain maken in Azure Blockchain Workbench
 
@@ -33,6 +33,8 @@ In deze zelfstudie leert u procedures om het volgende te doen:
 * Een Blockchain Workbench-implementatie. Zie voor meer informatie [Azure Blockchain Workbench-implementatie](blockchain-workbench-deploy.md) voor meer informatie over de implementatie.
 * Azure Active Directory-gebruikers in de tenant gekoppeld aan Blockchain Workbench. Zie voor meer informatie [Azure AD-gebruikers toevoegen in Azure Blockchain Workbench](blockchain-workbench-manage-users.md#add-azure-ad-users).
 * Een beheerdersaccount Blockchain Workbench. Zie voor meer informatie toevoegen [Blockchain Workbench beheerders in Azure Blockchain Workbench](blockchain-workbench-manage-users.md#manage-blockchain-workbench-administrators).
+
+## <a name="hello-blockchain"></a>Hallo, Blockchain!
 
 We gaan een eenvoudige toepassing waarin een aanvrager verzendt een aanvraag en een responder een antwoord op de aanvraag verzenden bouwen. Bijvoorbeeld, een aanvraag kan zijn, 'Hallo, hoe weet u?', en de antwoord-kunnen zijn, 'Ik ben geweldig!'. Zowel de aanvraag en het antwoord worden op de onderliggende blockchain geregistreerd. 
 

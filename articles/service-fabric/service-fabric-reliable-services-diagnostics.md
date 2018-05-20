@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: ae0e8f99-69ab-4d45-896d-1fa80ed45659
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 3ed03194ca095d539d10081578fa71c748ba1d23
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 268ec61515f438fb7f98b6cef7a8ec60ba22e23f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Diagnosefunctionaliteit voor Stateful Reliable Services
 De klasse Azure Service Fabric Stateful betrouwbare Services StatefulServiceBase verzendt [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) gebeurtenissen die kunnen worden gebruikt voor fouten opsporen in de service biedt mogelijk inzicht in hoe de runtime is functioneren en oplossen van problemen met.
@@ -29,7 +29,7 @@ De naam van de EventSource voor de klasse Stateful betrouwbare Services Stateful
 Voorbeelden van hulpprogramma's en -technologieën die helpen bij het verzamelen en/of het bekijken van EventSource gebeurtenissen zijn [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md), en de [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ## <a name="events"></a>Gebeurtenissen
-| De naam van gebeurtenis | Gebeurtenis-id | Niveau | Beschrijving van gebeurtenis |
+| Gebeurtenisnaam | Gebeurtenis-id | Niveau | Beschrijving van gebeurtenis |
 | --- | --- | --- | --- |
 | StatefulRunAsyncInvocation |1 |Informatief |Verzonden wanneer de taak service RunAsync wordt gestart |
 | StatefulRunAsyncCancellation |2 |Informatief |Verzonden wanneer de taak service RunAsync wordt geannuleerd |

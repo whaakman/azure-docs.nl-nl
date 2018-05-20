@@ -15,11 +15,11 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 0ab788494f56364d4a46d632e34e4a1334564836
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: c5f706e6e9402bfc404c370a0d1a45fc07656a9e
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>Het verstrekken van veilige externe toegang tot on-premises toepassingen
 
@@ -52,15 +52,15 @@ Azure AD-toepassingsproxy is:
 Met Azure AD-toepassingsproxy hebt u toegang tot verschillende soorten interne toepassingen:
 
 * Webtoepassingen die gebruikmaken van [geïntegreerde Windows-verificatie](application-proxy-configure-single-sign-on-with-kcd.md) voor verificatie  
-* Webtoepassingen die gebruikmaken van op basis van formulieren of [op basis van een koptekst](../application-proxy-ping-access.md) toegang  
+* Webtoepassingen die gebruikmaken van op basis van formulieren of [op basis van een koptekst](application-proxy-configure-single-sign-on-with-ping-access.md) toegang  
 * Web-API's die u wilt weergeven voor de uitgebreide toepassingen op verschillende apparaten  
-* Toepassingen die worden gehost achter een [extern bureaublad-Gateway](../application-proxy-publish-remote-desktop.md)  
+* Toepassingen die worden gehost achter een [extern bureaublad-Gateway](application-proxy-integrate-with-remote-desktop-services.md)  
 * Rich client-apps die zijn geïntegreerd met de Active Directory Authentication Library (ADAL)
 
 ## <a name="how-does-application-proxy-work"></a>Hoe werkt de toepassingsproxy?
 Er zijn twee onderdelen die u nodig hebt om te configureren zodat de toepassingsproxy werken: een connector en een extern eindpunt. 
 
-De connector is een lichtgewicht agent die zich op een Windows-Server in uw netwerk. De connector vereenvoudigt het netwerkverkeer van de service voor toepassingsproxy in de cloud met uw toepassing on-premises. Uitgaande verbindingen wordt alleen gebruikt zodat u niet hoeft te openen van poorten voor inkomend verkeer of alles in het Perimeternetwerk plaatst. De connectors zijn staatloze en ophalen uit de cloud indien nodig. Voor meer informatie over connectors worden, zoals hoe ze verdelen en worden geverifieerd, Zie [inzicht in Azure AD-toepassingsproxy connectors](../application-proxy-understand-connectors.md). 
+De connector is een lichtgewicht agent die zich op een Windows-Server in uw netwerk. De connector vereenvoudigt het netwerkverkeer van de service voor toepassingsproxy in de cloud met uw toepassing on-premises. Uitgaande verbindingen wordt alleen gebruikt zodat u niet hoeft te openen van poorten voor inkomend verkeer of alles in het Perimeternetwerk plaatst. De connectors zijn staatloze en ophalen uit de cloud indien nodig. Voor meer informatie over connectors worden, zoals hoe ze verdelen en worden geverifieerd, Zie [inzicht in Azure AD-toepassingsproxy connectors](application-proxy-connectors.md). 
 
 Het externe eindpunt is hoe uw gebruikers bereiken voor uw toepassingen terwijl buiten uw netwerk. Ze kunnen ofwel rechtstreeks naar een externe URL die u wilt bepalen of toegang te krijgen tot de toepassing via de portal MyApps. Wanneer gebruikers naar een van deze eindpunten gaat, worden ze zich verifiëren bij Azure AD en vervolgens worden gerouteerd via de connector van de on-premises toepassing.
 
@@ -95,9 +95,9 @@ Nadat u uw eerste app publiceert, vindt u veel meer u met toepassingsproxy doen 
 
 * [Eenmalige aanmelding inschakelen](application-proxy-configure-single-sign-on-with-kcd.md)
 * [Toepassingen publiceren met uw eigen domeinnaam](application-proxy-configure-custom-domain.md)
-* [Meer informatie over Azure AD-toepassingsproxy connectors](../application-proxy-understand-connectors.md)
-* [Werken met bestaande lokale proxyservers](../application-proxy-working-with-proxy-servers.md) 
-* [Een aangepaste startpagina ingesteld](../application-proxy-office365-app-launcher.md)
+* [Meer informatie over Azure AD-toepassingsproxy connectors](application-proxy-connectors.md)
+* [Werken met bestaande lokale proxyservers](application-proxy-configure-connectors-with-proxy-servers.md) 
+* [Een aangepaste startpagina ingesteld](application-proxy-configure-custom-home-page.md)
 
 Ga naar het [blog over toepassingsproxy](http://blogs.technet.com/b/applicationproxyblog/) voor nieuws en updates.
 

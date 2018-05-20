@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 9bc75748-96b0-49ca-8d8a-41fe08398f25
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 0306a219112a14121fd881a7cc52d58597a073a2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 44f4dc3a9c876e383a6e4df8ef5f467f2b93eaa9
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Upgrade van de service Fabric-toepassing met behulp van PowerShell
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ Bouwen en de toepassing publiceren door met de rechtermuisknop op het toepassing
 
 Nadat u het project in Visual Studio maakt, kunt u de PowerShell-opdracht [kopie ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) het toepassingspakket kopiëren naar de Installatiekopieopslag. Als u controleren of het app-pakket lokaal wilt, gebruikt u de [Test ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) cmdlet. De volgende stap is het registreren van de toepassing met de Service Fabric-runtime via de [registreren ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) cmdlet. De volgende stap is het een exemplaar van de toepassing wordt gestart via de [nieuw ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet.  Deze drie stappen zijn vergelijkbaar met behulp van de **implementeren** menu-item in Visual Studio.  Nadat het inrichten is voltooid, moet u het gekopieerde toepassingspakket uit het installatiekopiearchief opschonen om te reduceren van de resources verbruikt.  Als een toepassingstype niet langer vereist is, moet zijn geregistreerd om dezelfde reden. Zie [implementeren en verwijderen van toepassingen via PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) voor meer informatie.
 
-U kunt nu [Service Fabric Explorer om het cluster en de toepassing weer te geven](service-fabric-visualizing-your-cluster.md). De toepassing heeft een webservice die kan worden genavigeerd in Internet Explorer door te typen [http://localhost: 8081/visualobjects](http://localhost:8081/visualobjects) in de adresbalk.  Hier ziet u enkele zwevende visual objecten navigeren in het scherm.  Bovendien kunt u [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) om de toepassingsstatus te controleren.
+U kunt nu [Service Fabric Explorer om het cluster en de toepassing weer te geven](service-fabric-visualizing-your-cluster.md). De toepassing heeft een webservice die kan worden genavigeerd in Internet Explorer door te typen [ http://localhost:8081/visualobjects ](http://localhost:8081/visualobjects) in de adresbalk.  Hier ziet u enkele zwevende visual objecten navigeren in het scherm.  Bovendien kunt u [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) om de toepassingsstatus te controleren.
 
 ## <a name="step-2-update-the-visual-objects-sample"></a>Stap 2: Het voorbeeld visuele objecten bijwerken
 U wellicht opgevallen dat door de versie die is geïmplementeerd in stap 1, visuele objecten niet draaien. Deze toepassing op een waar de visuele objecten ook draaien gaat upgraden.

@@ -6,14 +6,14 @@ author: neilpeterson
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 02/24/2018
+ms.date: 05/13/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 53201021433b71aa6cd5b53e2089c2a105bade07
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 70e13fb377be3ec501cce5170ed391aac8cb6e5d
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="use-helm-with-azure-kubernetes-service-aks"></a>Helm gebruiken met Azure Kubernetes-Service (AKS)
 
@@ -53,7 +53,7 @@ Bash completion has been installed to:
 De [helm init] [ helm-init] opdracht Helm onderdelen installeren in een cluster Kubernetes en client-side '-configuraties maken wordt gebruikt. Voer de volgende opdracht Helm op uw cluster AKS installeren en configureren van de client Helm.
 
 ```azurecli-interactive
-helm init
+helm init --upgrade --service-account default
 ```
 
 Uitvoer:
@@ -118,7 +118,7 @@ Update Complete. ⎈ Happy Helming!⎈
 Voor het implementeren van een inkomend NGINX controller gebruiken de [helm installeren] [ helm-install] opdracht.
 
 ```azurecli-interactive
-helm install stable/nginx-ingress
+helm install stable/nginx-ingress --set rbac.create=false --set rbac.createRole=false --set rbac.createClusterRole=false
 ```
 
 De uitvoer ziet er ongeveer als volgt, maar bevat aanvullende informatie zoals instructies over het gebruik van de Kubernetes-implementatie.

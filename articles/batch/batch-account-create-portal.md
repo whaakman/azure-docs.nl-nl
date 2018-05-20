@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 11/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6374e49f3f682d022613e3e5244d273337213311
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: b1c8c981c0b1c3b599d2dd737b680390a52888eb
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Een Batch-account maken met behulp van Azure Portal
 
@@ -37,8 +37,7 @@ Zie [Overzicht van de functies](batch-api-basics.md) voor achtergrondinformatie 
 
 ## <a name="create-a-batch-account"></a>Batch-account maken
 
-> [!NOTE]
-> Als u een Batch-account maakt, moet u normaliter de standaardmodus **Batch-service** kiezen, waarbij pools achter de schermen van door Azure beheerde abonnementen worden toegewezen. In de alternatieve modus, **Gebruikersabonnement**, die voor de meeste scenario's niet meer wordt aanbevolen, worden Batch-VM's en andere resources rechtstreeks in uw abonnement gemaakt wanneer er een groep wordt gemaakt. Voor het maken van een Batch-account in de gebruikersabonnementmodus moet u het account ook bij Azure Batch registreren en aan een Azure Key Vault koppelen.
+[!INCLUDE [batch-account-mode-include](../../includes/batch-account-mode-include.md)]
 
 1. Meld u aan bij [Azure Portal][azure_portal].
 2. Klik op **Een resource maken** en zoek op de Marketplace naar **Batch-service**.

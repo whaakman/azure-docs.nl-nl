@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: d05b7ca2ab1d5b2f3d3fd3973eefe1b3ec5a1c04
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 599f8327e9939f400ca18c87fa6193ac3c1e4a61
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="manage-and-configure-your-devices"></a>Uw apparaten beheren en configureren
 
@@ -24,7 +24,7 @@ Deze zelfstudie ziet het apparaat management mogelijkheden van de oplossing voor
 
 Contoso heeft besteld nieuwe machines uit te breiden een van de mogelijkheden om te verhogen van de uitvoer. Terwijl u op de nieuwe machine wacht moet worden geleverd, die u wilt uitvoeren van een simulatie om te controleren of het gedrag van uw oplossing. Als operator die u wilt beheren en configureren van de apparaten in de oplossing voor externe controle.
 
-Bieden een uitbreidbare manier om te beheren en configureren van apparaten, gebruikt de oplossing voor externe controle IoT Hub functies zoals [taken](../iot-hub/iot-hub-devguide-jobs.md) en [methoden directe](../iot-hub/iot-hub-devguide-direct-methods.md). Zie voor meer informatie over hoe een apparaat-ontwikkelaar de methoden op een fysiek apparaat implementeert, [aanpassen van de externe controle oplossingsverbetering](iot-suite-remote-monitoring-customize.md).
+Bieden een uitbreidbare manier om te beheren en configureren van apparaten, gebruikt de oplossing voor externe controle IoT Hub functies zoals [taken](../iot-hub/iot-hub-devguide-jobs.md) en [methoden directe](../iot-hub/iot-hub-devguide-direct-methods.md). Zie voor meer informatie over hoe een apparaat-ontwikkelaar de methoden op een fysiek apparaat implementeert, [aanpassen van de externe controle oplossingsverbetering](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md).
 
 In deze zelfstudie leert u het volgende:
 
@@ -38,7 +38,7 @@ In deze zelfstudie leert u het volgende:
 
 Volg deze zelfstudie, moet u een geïmplementeerd exemplaar van de oplossing voor externe controle in uw Azure-abonnement.
 
-Als u de oplossing voor externe controle nog niet hebt geïmplementeerd, maar u moet voltooien de [implementeren van de externe controle oplossingsverbetering](iot-suite-remote-monitoring-deploy.md) zelfstudie.
+Als u de oplossing voor externe controle nog niet hebt geïmplementeerd, maar u moet voltooien de [implementeren van de externe controle oplossingsverbetering](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md) zelfstudie.
 
 ## <a name="add-a-simulated-device"></a>Een gesimuleerd apparaat toevoegen
 

@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a5f36366-a2ab-4ae3-bb08-bc2f9533bc5a
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: c5a4ff9d70ea2b9c7e3a0337e913ea224b31648c
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 2f6fad0ecca09ff9210b5961301fea3446a88f11
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="how-data-serialization-affects-an-application-upgrade"></a>De invloed van serialisatie van gegevens op een upgrade van de toepassing
 In een [rolling upgrade van de toepassing](service-fabric-application-upgrade.md), de upgrade wordt toegepast op een deelverzameling met knooppunten, één upgradedomein tegelijk. Tijdens dit proces een aantal upgradedomeinen zijn op de nieuwere versie van uw toepassing en een aantal upgradedomeinen zijn op de oudere versie van uw toepassing. De nieuwe versie van uw toepassing moet kunnen lezen van de oude versie van uw gegevens tijdens de implementatie en de oude versie van uw toepassing moet kunnen lezen van de nieuwe versie van uw gegevens. Als de gegevensindeling niet voorwaarts en achterwaarts compatibel is, wordt de upgrade mislukken of slechter, gegevens mogelijk verloren gegaan of beschadigd. Dit artikel wordt beschreven wat wordt verstaan onder de indeling van uw gegevens en biedt de aanbevolen procedures om ervoor te zorgen dat uw gegevens voorwaarts en achterwaarts zijn compatibel.

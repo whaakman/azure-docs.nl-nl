@@ -3,22 +3,24 @@ title: Ondertekening sleutelrollover in Azure AD
 description: Dit artikel wordt de ondertekening sleutelrollover best practices voor Azure Active Directory
 services: active-directory
 documentationcenter: .net
-author: dstrockis
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2016
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 5396baa57fe0b49809d9fe06eb2b2feda2ed9ba8
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 29ac254bf3b0e8decb26452fc36112af0a3970af
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Ondertekening sleutelrollover in Azure Active Directory
 Dit artikel wordt beschreven wat u moet weten over de openbare sleutels die worden gebruikt in Azure Active Directory (Azure AD) voor het ondertekenen van beveiligingstokens. Het is belangrijk te weten dat deze rollover voor sleutels op periodieke basis en, in een noodsituatie onmiddellijk kan worden overgeschakeld. Alle toepassingen die gebruikmaken van Azure AD moeten kunnen programmatisch verwerken van het proces sleutelrollover of een overschakeling van de periodieke handmatige proces tot stand brengen. Blijven lezen om te begrijpen hoe de sleutels werken, het beoordelen van de impact van de overschakeling van uw toepassing en het bijwerken van uw toepassing of tot stand brengen van een overschakeling van de periodieke handmatige proces voor het afhandelen van sleutelrollover indien nodig.
@@ -274,7 +276,7 @@ Zodra u deze stappen hebt uitgevoerd, wordt Web.config voor uw toepassing met de
 
 Volg de onderstaande stappen om te controleren of de logica sleutelrollover werkt.
 
-1. Nadat u hebt gecontroleerd dat uw toepassing van de bovenstaande code gebruikmaakt, opent u de **Web.config** bestands- en navigeer naar de  **<issuerNameRegistry>**  blok, speciaal op zoek naar de volgende paar regels:
+1. Nadat u hebt gecontroleerd dat uw toepassing van de bovenstaande code gebruikmaakt, opent u de **Web.config** bestands- en navigeer naar de **<issuerNameRegistry>** blok, speciaal op zoek naar de volgende paar regels:
    ```
    <issuerNameRegistry type="System.IdentityModel.Tokens.ValidatingIssuerNameRegistry, System.IdentityModel.Tokens.ValidatingIssuerNameRegistry">
         <authority name="https://sts.windows.net/ec4187af-07da-4f01-b18f-64c2f5abecea/">
@@ -282,7 +284,7 @@ Volg de onderstaande stappen om te controleren of de logica sleutelrollover werk
             <add thumbprint="3A38FA984E8560F19AADC9F86FE9594BB6AD049B" />
           </keys>
    ```
-2. In de  **<add thumbprint=””>**  instelt, de vingerafdrukwaarde wijzigen door te willekeurig teken vervangen door een andere naam. Sla de **Web.config** bestand.
+2. In de **<add thumbprint=””>** instelt, de vingerafdrukwaarde wijzigen door te willekeurig teken vervangen door een andere naam. Sla de **Web.config** bestand.
 3. De toepassing bouwen en uitvoeren. Als u het proces aanmelden voltooien kunt, wordt uw toepassing de sleutel is bijgewerkt door de vereiste gegevens van uw directory document met federatieve metagegevens wordt gedownload. Als u problemen met aanmelden ondervindt, controleert u de wijzigingen in uw toepassing correct zijn door te lezen de [toevoegen van aanmelding bij uw Web Application Using Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) artikel of downloaden en bekijken in het volgende voorbeeld: [ Multitenant Cloudtoepassing voor Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
 
 ### <a name="vs2010"></a>Webtoepassingen bescherming van bronnen en zijn gemaakt met Visual Studio 2008 of 2010 en Windows Identity Foundation (WIF) v1.0 voor .NET 3.5

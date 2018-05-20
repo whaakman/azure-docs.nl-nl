@@ -10,11 +10,11 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 1dba7c302d8acad6133c0e7c6a2186f7ba617e2c
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 5409bf198d0e3f6537619ef4698d9f2e31bd27c5
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Wachtwoord opnieuw instellen zonder dat eindgebruikers registratie implementeren
 
@@ -33,16 +33,27 @@ Werkt alleen goed als telefoonnummers moet de indeling *+ CountryCode PhoneNumbe
 
 Als u de standaardinstellingen in Azure AD Connect gebruikt, worden de volgende toewijzingen worden gemaakt:
 
-| On-premises Active Directory | Azure AD | Azure AD authentication contactgegevens |
-| --- | --- | --- |
-| telephoneNumber | Telefoon (werk) | Alternatief telefoonnummer |
-| mobiele | Mobiele telefoon | Telefoon |
+| On-premises Active Directory | Azure AD |
+| --- | --- |
+| telephoneNumber | Telefoon (werk) |
+| mobiele | Mobiele telefoon |
 
-Deze velden lijkt leeg totdat een gebruiker de verificatiegegevens bevestigt.
+Wanneer hun mobiele telefoonnummer wordt gecontroleerd door een gebruiker, wordt ook het veld Phone onder de contactgegevens voor verificatie in Azure AD worden ingevuld met dit nummer.
 
-Een globale beheerder kunt handmatig de contactgegevens voor de verificatie instellen voor de gebruiker, zoals weergegeven in de volgende schermafbeelding.
+## <a name="authentication-contact-info"></a>Contactgegevens voor verificatie
+
+Een globale beheerder kunt handmatig de contactgegevens voor de verificatie instellen voor een gebruiker, zoals weergegeven in de volgende schermafbeelding.
 
 ![Neem contact op met][Contact]
+
+Als het veld telefoon wordt ingevuld en mobiele telefoon is ingeschakeld in het beleid voor SSPR, ziet de gebruiker dat nummer op de registratiepagina voor wachtwoord opnieuw instellen en tijdens het wachtwoord opnieuw instellen van werkstroom. 
+
+Het veld alternatief telefoonnummer wordt niet gebruikt voor het wachtwoord opnieuw instellen.
+
+Als het e-veld is ingevuld en e-mailbericht in de SSPR-beleid is ingeschakeld, ziet de gebruiker dat e-mail op de registratiepagina voor wachtwoord opnieuw instellen en tijdens het wachtwoord opnieuw instellen van werkstroom.
+
+Als het veld alternatieve e-mailadres wordt ingevuld en e-mailbericht in de SSPR-beleid is ingeschakeld, wordt de gebruiker wordt **niet** Zie dat e-mail op het wachtwoord opnieuw instellen van registratiepagina, maar ze zien tijdens het wachtwoord opnieuw instellen van werkstroom. 
+
 
 ## <a name="security-questions-and-answers"></a>Beveiligingsvragen en antwoorden
 

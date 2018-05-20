@@ -15,26 +15,22 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: danis
-ms.openlocfilehash: b90b7948d10ff91f3c63b772bc302b1def416f2b
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: c023f226894d2fabb90736513e49a1ecca179d4f
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Beheren van gebruikers met beheerdersrechten, SSH en controleer of het herstellen van schijven op virtuele Linux-machines met behulp van de VMAccess-extensie met de Azure CLI 2.0
-
 ## <a name="overview"></a>Overzicht
-
 De schijf op uw Linux-VM worden fouten weergegeven. U enigszins het root-wachtwoord opnieuw instellen voor uw Linux-VM of uw persoonlijke SSH-sleutel per ongeluk worden verwijderd. Als dat is gebeurd terug in de dagen van het datacenter, zou u moet er station en open vervolgens de KVM ophalen via de serverconsole. De Azure-VMAccess-extensie beschouwen als die KVM-switch waarmee u toegang tot de console opnieuw instellen naar Linux of voer schijfonderhoud niveau.
 
 In dit artikel laat zien hoe de VMAccess-extensie van Azure gebruiken om te controleren of herstellen van een schijf, gebruikerstoegang opnieuw instellen, beheren van accounts voor gebruikers met beheerdersrechten of bijwerken van de SSH-configuratie op Linux wanneer ze worden uitgevoerd als virtuele machines van Azure Resource Manager. Als u nodig hebt voor het beheren van klassieke virtuele machines - kunt u de instructies in de [klassieke VM documentatie](../linux/classic/reset-access-classic.md). 
 
 ## <a name="prerequisites"></a>Vereisten
-
 ### <a name="operating-system"></a>Besturingssysteem
 
 De toegang van de VM-extensie kan worden uitgevoerd op basis van deze Linux-distributies:
-
 
 | Distributie | Versie |
 |---|---|
@@ -58,7 +54,7 @@ Gebruik de volgende voorbeelden [az vm gebruiker](/cli/azure/vm/user) opdrachten
 ## <a name="update-ssh-key"></a>SSH-sleutel bijwerken
 Het volgende voorbeeld de SSH-sleutel voor de gebruiker bijgewerkt `azureuser` op de virtuele machine met de naam `myVM`:
 
-```azurecli
+```azurecli-interactive
 az vm user update \
   --resource-group myResourceGroup \
   --name myVM \
@@ -71,7 +67,7 @@ az vm user update \
 ## <a name="reset-password"></a>Wachtwoord opnieuw instellen
 Het wachtwoord voor de gebruiker opnieuw instellen van het volgende voorbeeld `azureuser` op de virtuele machine met de naam `myVM`:
 
-```azurecli
+```azurecli-interactive
 az vm user update \
   --resource-group myResourceGroup \
   --name myVM \
@@ -82,7 +78,7 @@ az vm user update \
 ## <a name="restart-ssh"></a>SSH opnieuw starten
 Het volgende voorbeeld de SSH-daemon opnieuw is opgestart en de SSH-configuratie opnieuw instellen naar standaardwaarden op een virtuele machine met de naam `myVM`:
 
-```azurecli
+```azurecli-interactive
 az vm user reset-ssh \
   --resource-group myResourceGroup \
   --name myVM
@@ -91,7 +87,7 @@ az vm user reset-ssh \
 ## <a name="create-an-administrativesudo-user"></a>Maken van een gebruiker met beheerdersrechten/sudo
 Het volgende voorbeeld wordt een gebruiker met de naam `myNewUser` met **sudo** machtigingen. Het account een SSH-sleutel gebruikt voor verificatie op de virtuele machine met de naam `myVM`. Deze methode is ontworpen om u te helpen u weer toegang tot een virtuele machine in het geval dat de referenties van huidige zijn kwijtraakt of vergeet. Als een best practice van accounts met **sudo** machtigingen moeten worden beperkt.
 
-```azurecli
+```azurecli-interactive
 az vm user update \
   --resource-group myResourceGroup \
   --name myVM \
@@ -99,18 +95,15 @@ az vm user update \
   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
-
-
 ## <a name="delete-a-user"></a>Een gebruiker verwijderen
 Het volgende voorbeeld wordt een gebruiker met de naam `myNewUser` op de virtuele machine met de naam `myVM`:
 
-```azurecli
+```azurecli-interactive
 az vm user delete \
   --resource-group myResourceGroup \
   --name myVM \
   --username myNewUser
 ```
-
 
 ## <a name="use-json-files-and-the-vmaccess-extension"></a>Gebruik JSON-bestanden en de VMAccess-extensie
 De volgende voorbeelden onbewerkte JSON-bestanden gebruiken. Gebruik [az vm-extensie set](/cli/azure/vm/extension#az_vm_extension_set) aan te roepen vervolgens uw JSON-bestanden. Deze JSON-bestanden kunnen ook worden aangeroepen vanuit de Azure-sjablonen. 
@@ -129,7 +122,7 @@ Maak een bestand met de naam voor het bijwerken van de openbare SSH-sleutel van 
 
 Voer het script VMAccess met:
 
-```azurecli
+```azurecli-interactive
 az vm extension set \
   --resource-group myResourceGroup \
   --vm-name myVM \
@@ -150,7 +143,7 @@ Als u wilt een gebruikerswachtwoord opnieuw instelt, maakt u een bestand met de 
 
 Voer het script VMAccess met:
 
-```azurecli
+```azurecli-interactive
 az vm extension set \
   --resource-group myResourceGroup \
   --vm-name myVM \
@@ -171,7 +164,7 @@ Als u wilt de SSH-daemon starten en de SSH-configuratie opnieuw instellen naar s
 
 Voer het script VMAccess met:
 
-```azurecli
+```azurecli-interactive
 az vm extension set \
   --resource-group myResourceGroup \
   --vm-name myVM \
@@ -195,7 +188,7 @@ Maken van een gebruiker met **sudo** machtigingen die gebruikmaakt van een SSH-s
 
 Voer het script VMAccess met:
 
-```azurecli
+```azurecli-interactive
 az vm extension set \
   --resource-group myResourceGroup \
   --vm-name myVM \
@@ -215,7 +208,7 @@ Als u wilt een gebruiker verwijdert, maakt u een bestand met de naam `delete_use
 
 Voer het script VMAccess met:
 
-```azurecli
+```azurecli-interactive
 az vm extension set \
   --resource-group myResourceGroup \
   --vm-name myVM \
@@ -239,7 +232,7 @@ Om te controleren en herstel daarna de schijf, maakt u een bestand met de naam `
 
 Voer het script VMAccess met:
 
-```azurecli
+```azurecli-interactive
 az vm extension set \
   --resource-group myResourceGroup \
   --vm-name myVM \
@@ -248,13 +241,16 @@ az vm extension set \
   --version 1.4 \
   --protected-settings disk_check_repair.json
 ```
+## <a name="troubleshoot-and-support"></a>Oplossen van problemen en ondersteunen
 
-## <a name="next-steps"></a>Volgende stappen
-Bijwerken van Linux via de Azure-VMAccess-extensie is een methode wijzigingen aanbrengen in een actieve Linux VM. U kunt ook hulpprogramma's zoals cloud init en Azure Resource Manager-sjablonen gebruiken om te wijzigen van uw Linux VM op opstarten.
+### <a name="troubleshoot"></a>Problemen oplossen
 
-[Uitbreidingen van de virtuele machine en functies voor Linux](features-linux.md)
+Gegevens over de status van extensie-implementaties kunnen worden opgehaald uit de Azure portal en met behulp van de Azure CLI. Overzicht van de implementatiestatus van uitbreidingen voor een bepaalde virtuele machine, voer de volgende opdracht met de Azure CLI.
 
-[Azure Resource Manager-sjablonen met Linux VM-extensies](../windows/template-description.md)
+```azurecli
+az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
+```
 
-[Gebruik van cloud-init voor het aanpassen van een Linux-VM tijdens het maken van](../linux/using-cloud-init.md)
+### <a name="support"></a>Ondersteuning
 
+Als u meer hulp op elk gewenst moment in dit artikel nodig hebt, kunt u de Azure-experts raadplegen op de [MSDN Azure en Stack Overflow-forums](https://azure.microsoft.com/support/forums/). U kunt ook een incident voor ondersteuning van Azure indienen. Ga naar de [ondersteuning van Azure site](https://azure.microsoft.com/support/options/) en selecteer de Get-ondersteuning. Voor meer informatie over het gebruik van Azure ondersteuning voor de [ondersteuning van Microsoft Azure Veelgestelde vragen over](https://azure.microsoft.com/support/faq/).

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 165464bd6851bf5fa76632731455722c393060c6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d3ca9983eee4db09a68bf772b80c9ef841117872
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Logboeken beheren voor een HDInsight-cluster
 
@@ -80,7 +80,7 @@ Een typische HDInsight-cluster maakt gebruik van verschillende services en open-
 
 ### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Configuratie-instellingen van het cluster met de Ambari UI weergeven
 
-Apache Ambari vereenvoudigt het beheer, configuratie en bewaking van een HDInsight-cluster met een web-gebruikersinterface en een REST-API. Ambari is opgenomen op Linux gebaseerde HDInsight-clusters. Selecteer de **Cluster-Dashboard** deelvenster op de Azure portal HDInsight pagina opent de**' Clusterdashboards** koppelingenpagina.  Selecteer vervolgens de **HDInsight-cluster-dashboard** deelvenster de Ambari UI te openen.  U wordt gevraagd om de aanmeldingsreferenties voor uw cluster.
+Apache Ambari vereenvoudigt het beheer, configuratie en bewaking van een HDInsight-cluster met een web-gebruikersinterface en een REST-API. Ambari is opgenomen op Linux gebaseerde HDInsight-clusters. Selecteer de **Cluster-Dashboard** deelvenster op de Azure portal HDInsight pagina opent de **' Clusterdashboards** koppelingenpagina.  Selecteer vervolgens de **HDInsight-cluster-dashboard** deelvenster de Ambari UI te openen.  U wordt gevraagd om de aanmeldingsreferenties voor uw cluster.
 
 Als u een lijst met serviceweergaven, schakelt de **Ambari-weergaven** deelvenster op de Azure portal-pagina voor HDInsight.  Deze lijst varieert, afhankelijk van welke bibliotheken die u hebt geïnstalleerd.  Bijvoorbeeld, ziet u mogelijk YARN Queue Manager Hive-weergave en Tez weergeven.  Selecteer een service-koppeling om te zien, configuratie en service-informatie.  De Ambari UI **Stack en versie** pagina vindt u informatie over de configuratie van de clusterservices en versiegeschiedenis van de service. Om te navigeren naar deze sectie van de Ambari-UI, selecteer de **Admin** menu en vervolgens **Stacks en versies**.  Selecteer de **versies** tabblad om service versie-informatie te bekijken.
 
@@ -105,17 +105,6 @@ De volgende stap met het controleren van de logboekbestanden van de taak kan wor
 HDInsight worden de logboekbestanden opgeslagen in het bestandssysteem van het cluster en in Azure storage. U kunt logboekbestanden in het cluster controleren door het openen van een SSH-verbinding met het cluster en het bestandssysteem te bladeren of met behulp van de Status van Hadoop YARN-portal op de server extern hoofdknooppunt. Bekijk de logboekbestanden in de Azure-opslag met een van de hulpprogramma's die kunnen openen en downloaden van gegevens uit Azure storage. Voorbeelden zijn AZCopy, CloudXplorer en Visual Studio Server Explorer. U kunt ook PowerShell en de clientbibliotheken van Azure Storage of de Azure .NET SDK's, toegang tot gegevens in Azure blob-opslag gebruiken.
 
 Hadoop wordt uitgevoerd het werk van de taken als *pogingen taak* op verschillende knooppunten in het cluster. HDInsight kan initiëren speculatieve taak pogingen, beëindigt alle andere pogingen taak die u niet eerst uitvoert. Hiermee wordt de belangrijke activiteit die wordt vastgelegd in de domeincontroller, stderr en syslog-logboek bestanden op het moment gegenereerd. Bovendien meerdere taak pogingen tegelijkertijd worden uitgevoerd, maar een logboekbestand kan resultaten alleen lineair weergeven.
-
-#### <a name="hdinsight-logs-written-to-azure-tables"></a>HDInsight-Logboeken geschreven naar de Azure-tabellen
-
-De logboeken geschreven naar de Azure-tabellen bieden inzicht in wat er met een HDInsight-cluster gebeurt. Wanneer u een Linux gebaseerde HDInsight-cluster maakt, worden automatisch zes tabellen gemaakt in de tabel standaard opslag:
-
-* hdinsightagentlog
-* syslog
-* daemonlog
-* hadoopservicelog
-* ambariserverlog
-* ambariagentlog
 
 #### <a name="hdinsight-logs-written-to-azure-blob-storage"></a>HDInsight-Logboeken geschreven naar Azure Blob-opslag
 

@@ -8,11 +8,11 @@ ms.author: dastanfo
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 6d7ccd94243d7064008197518f6194d5837b17be
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9ea51f6ea55c62fdd01efb155d26fade3941ce41
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Blob storage gebeurtenissen routeren naar een aangepaste website-eindpunt met PowerShell
 
@@ -21,7 +21,7 @@ Azure Event Grid is een gebeurtenisservice voor de cloud. In dit artikel, Azure 
 Meestal stuurt u gebeurtenissen naar een eindpunt dat reageert op de gebeurtenis, zoals een webhook of Azure-functie. Om te vereenvoudigen het voorbeeld in dit artikel, worden gebeurtenissen verzonden naar een URL die alleen de berichten worden verzameld. U maakt deze URL met behulp van een hulpprogramma van derden, [Hookbin](https://hookbin.com/).
 
 > [!NOTE]
-> **Hookbin** is niet bedoeld voor gebruik met hoge doorvoer. Dit hulpprogramma wordt alleen gebruikt ter demonstratie. Als u meer dan een gebeurtenis tegelijk pusht, ziet u mogelijk niet alle gebeurtenissen in het hulpprogramma.
+> **Hookbin** is niet bedoeld voor gebruik met hoge doorvoer. Dit hulpprogramma wordt alleen gebruikt ter demonstratie. Als u meer dan een gebeurtenis tegelijk pusht, ziet u mogelijk niet alle gebeurtenissen in het hulpprogramma. Houd rekening met ook **Hookbin** opgehaald [speciale behandeling](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-grid#create-a-requestbin-endpoint) door Azure gebeurtenis raster. Om te bevorderen testen, verzendt gebeurtenis raster er gebeurtenissen zonder een juiste reactie op aanvragen voor validatie van abonnement (dat gebeurt [anders](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication#validation-details)).
 
 Als u de stappen in dit artikel hebt voltooid, ziet u dat de gegevens van gebeurtenissen naar een eindpunt zijn verzonden.
 
@@ -63,7 +63,7 @@ New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 
 Als u gebeurtenissen van Blob-opslag, moet u ofwel een [Blob-opslagaccount](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) of een [algemeen v2-opslagaccount](../common/storage-account-options.md#general-purpose-v2). **Algemene doel v2 (GPv2)** storage-accounts die ondersteuning bieden voor alle functies voor storage-services, met inbegrip van Blobs, bestanden, wachtrijen en tabellen zijn. Een **Blob-opslagaccount** is een gespecialiseerd opslagaccount voor het opslaan van ongestructureerde gegevens als blobs (objecten) in Azure Storage. BLOB storage-accounts zijn vergelijkbaar met opslagaccounts voor algemeen gebruik en delen van de meeste duurzaamheid, beschikbaarheid, schaalbaarheid en prestaties van functies dat u vandaag inclusief 100 procent API-consistentie voor blok-blobs gebruikt en toevoeg-blobs. Voor toepassingen die alleen blok- of toevoeg-blob-opslag nodig hebben, wordt het gebruik van Blob-opslagaccounts aangeraden.  
 
-Een Blob storage-account maken met het gebruik van de replicatie LRS [nieuw AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), haal vervolgens de context van het opslagaccount waarin de storage-account moet worden gebruikt. Wanneer optreedt op een storage-account, maar u verwijzen naar de context in plaats van herhaaldelijk geven de referenties. In dit voorbeeld maakt u een opslagaccount aangeroepen **gridstorage** met lokaal redundante opslag (LRS). 
+Een Blob storage-account maken met het gebruik van de replicatie LRS [nieuw AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), haal vervolgens de context van het opslagaccount waarin de storage-account moet worden gebruikt. Als u werkt met een opslagaccount, verwijst u naar de context in plaats van herhaaldelijk de referenties op te geven. In dit voorbeeld maakt u een opslagaccount aangeroepen **gridstorage** met lokaal redundante opslag (LRS). 
 
 > [!NOTE]
 > Namen van opslagaccounts zijn in een globale naamruimte, dus moet u bepaalde willekeurige tekens toevoegen aan de naam in dit script.

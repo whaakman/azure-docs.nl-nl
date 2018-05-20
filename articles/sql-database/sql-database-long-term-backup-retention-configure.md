@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 130b3ea0012c5fb21766b26ce2c3e589f0916736
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: df3d843516bce30253c23080716e606dfb56f25e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Back-up op lange termijn bewaren van Azure SQL Database beheren
 
@@ -80,6 +80,10 @@ De back-ups die worden bewaard voor een specifieke database met een beleid van l
 ## <a name="use-powershell-to-configure-long-term-retention-policies-and-restore-backups"></a>PowerShell gebruiken om te en terugzetten van back-ups op lange termijn bewaarbeleidsregels configureren
 
 De volgende secties laten zien hoe PowerShell gebruiken voor het configureren van de lange bewaartermijn voor de back-up, back-ups weergeven in Azure SQL-opslag- en herstel van een back-up in Azure SQL-opslag.
+
+> [!IMPORTANT]
+> U moet de meest recente AzureRM powershell gebruiken voor het instellen van links naar rechts V2-beleid. De huidige versie is [AzureRM 4.5.0-preview](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0-preview), dit is een preview-versie, dus gebruik deze opdracht om deze te installeren: `Install-Module -Name AzureRM.Sql -AllowPrerelease -Force`.
+> Zie voor instructies over het installeren van de voorlopige versie [PowerShellGet ophalen module](https://docs.microsoft.com/en-us/powershell/gallery/installing-psget). De AzureRM powershell release in mei 2018 afkomstig is in een paar dagen (naar verwachting 18/5/2018), kunt u de schakeloptie - AllowPrelease negeren als u de releaseversie installeren zodra deze beschikbaar en de volgende opdracht gebruiken " `Install-Module -Name AzureRM.Sql -Force`.
 
 ### <a name="create-an-ltr-policy"></a>Een beleid LTR maken
 

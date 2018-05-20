@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 2a16e346e508b96338bb1c216ad6a64c013895f2
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: aa8d92e86a40841ca46ff39f72ebf0ee24d332f8
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Prijscategorieën PostgreSQL-Database
 
@@ -87,7 +87,15 @@ U kunt extra opslagcapaciteit toevoegen tijdens en na het maken van de server. D
 
 U kunt uw i/o-verbruik in de Azure-portal of met behulp van Azure CLI-opdrachten kunt bewaken. De relevante meetgegevens voor het bewaken van zijn [opslaglimiet bereikt, opslagpercentage opslag gebruikt en i/o-procent](concepts-monitoring.md).
 
-## <a name="backup"></a>Back-up maken
+### <a name="reaching-the-store-limit"></a>De store-limiet bereikt
+
+De server wordt gemarkeerd als alleen-lezen wanneer de hoeveelheid vrije opslagruimte op minder dan 5 GB of ingerichte opslag maar 5% bereikt, afhankelijk van wat is. Bijvoorbeeld, als u hebt ingericht, 100 GB aan opslagruimte en het werkelijke gebruik gaat over 95 GB, de server is gemarkeerd als alleen-lezen. U kunt ook als u 5 GB aan opslagruimte hebt ingericht, is de server gemarkeerd alleen-lezen wanneer de vrije opslagruimte op minder dan 250 MB bereikt.  
+
+Wanneer de server is ingesteld op alleen-lezen, niet zijn verbonden met alle bestaande sessies en niet-doorgevoerde transacties teruggedraaid. Alle opeenvolgende schrijfbewerkingen en transactie worden doorgevoerd mislukken. Alle volgende lezen query's werken onderbroken.  
+
+Vergroot de hoeveelheid ingerichte opslag met de server of een nieuwe sessie starten in de modus en -neerzetten gegevens lezen-schrijven om vrije opslagruimte vrij te maken. Met `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;` Hiermee stelt u de huidige sessie om te lezen modus schrijven. Om te voorkomen dat gegevensbeschadiging, niet schrijfbewerkingen uitvoeren wanneer de server nog steeds in alleen-lezen is.
+
+## <a name="backup"></a>Backup
 
 De service wordt automatisch een back-ups van uw server. De minimale bewaarperiode voor back-ups is zeven dagen. U kunt een bewaarperiode van maximaal 35 dagen instellen. De bewaarperiode kan worden aangepast op elk gewenst moment tijdens de levensduur van de server. U kunt kiezen tussen lokaal redundante en geografisch redundante back-ups. Geografisch redundante back-ups worden ook opgeslagen in de [regio geo gekoppeld](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) van de regio waar uw server wordt gemaakt. Dit biedt een niveau van bescherming in het geval van een noodgeval. Ook krijgt u de mogelijkheid uw server naar een andere Azure-regio waarin de service beschikbaar met geografisch redundante back-ups is herstellen. Het is niet mogelijk om te wijzigen tussen de twee opties voor back-upopslag nadat de server is gemaakt.
 

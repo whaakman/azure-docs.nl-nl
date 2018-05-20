@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 19c7a0475d975344a1563b8ff5e279059a93fbea
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a74a16fa583ac3bc7ea2250f916e855a0bd9d1c1
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Hybride Azure Active Directory die lid zijn van apparaten configureren
 
@@ -95,6 +95,7 @@ Als uw organisatie is wilt naadloze eenmalige aanmelding gebruiken, zijn de volg
 
 - Ook de volgende instelling in de intranetzone van de gebruiker moet worden ingeschakeld: 'Updates voor de statusbalk via script toestaan'.
 
+Als uw organisatie gebruikmaakt van de beheerde (niet-gefedereerde)-installatie met on-premises AD en maakt geen gebruik van AD FS wilt federeren met Azure AD en hybride Azure AD join op Windows 10 is afhankelijk van de computerobjecten in AD worden sync'ed naar Azure AD. Zorg ervoor dat een organisatie-eenheden (OE) die de computerobjecten bevatten die moeten worden hybride die lid zijn van Azure AD zijn ingeschakeld voor synchronisatie in de configuratie van de Azure AD Connect-synchronisatie.
 
 Als uw organisatie toegang tot Internet via een uitgaande proxyconfiguratie vereist, moet u Web Proxy Auto-Discovery (WPAD) zodat Windows 10-computers te registreren bij Azure AD implementeren.
 
@@ -186,6 +187,14 @@ In een configuratie met meerdere forests, moet u het volgende script voor het ma
 
     $deSCP.CommitChanges()
 
+In het bovenstaande script
+
+- `$verifiedDomain = "contoso.com"` is een tijdelijke aanduiding die u wilt vervangen door een van uw geverifieerde domeinnamen in Azure AD. U moet eigenaar van het domein voordat u deze kunt gebruiken.
+
+Zie voor meer informatie over geverifieerde domeinnamen [een aangepaste domeinnaam toevoegen aan Azure Active Directory](active-directory-domains-add-azure-portal.md).  
+Als u een lijst van uw bedrijf geverifieerde domeinen, kunt u de [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain?view=azureadps-2.0) cmdlet. 
+
+![Get-AzureADDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)
 
 ## <a name="step-2-setup-issuance-of-claims"></a>Stap 2: De uitgifte van claims instellen
 
@@ -329,6 +338,7 @@ In de bovenstaande claim
 
 
 Zie voor meer informatie over geverifieerde domeinnamen [een aangepaste domeinnaam toevoegen aan Azure Active Directory](active-directory-domains-add-azure-portal.md).  
+
 Als u een lijst van uw bedrijf geverifieerde domeinen, kunt u de [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0) cmdlet. 
 
 ![Get-MsolDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)
@@ -561,8 +571,6 @@ Wanneer u de vereiste stappen hebt voltooid, worden apparaten die lid zijn van e
 ### <a name="remarks"></a>Opmerkingen
 
 - U kunt een Group Policy object gebruiken voor het beheren van de implementatie van automatische inschrijving van Windows 10 en Windows Server 2016 domein computers. **Als u niet dat deze apparaten wilt worden automatisch geregistreerd bij Azure AD of als u wilt bepalen van de registratie**, en vervolgens moet u Groepsbeleid voor de automatische registratie al deze apparaten eerst uitschakelen voordat u begint met de configuratie uitrolt stappen. Nadat u klaar bent u configureert, en wanneer u gereed om te testen bent, moet u Groepsbeleid inschakelen van de automatische registratie alleen voor de testapparaten implementeert en vervolgens naar alle andere apparaten als u kiest.
-
-- Windows 10 November 2015 Update automatisch samengevoegd met Azure AD **alleen** als het groepsbeleidsobject van de implementatie is ingesteld.
 
 - Implementatie van Windows downlevel-computers, u kunt implementeren een [Windows Installer-pakket](#windows-installer-packages-for-non-windows-10-computers) op computers die u selecteert.
 

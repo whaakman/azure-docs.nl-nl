@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 517f78f811d57e06b4c6e6f0fad24d3b0f96b6e3
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 34422cb42768ddbc2997da3eec3d35c11e272855
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="an-application-proxy-application-takes-too-long-to-load"></a>Een toepassing toepassingsproxy duurt te lang om te laden
 
 In dit artikel helpt u om te begrijpen waarom een Azure AD-toepassingsproxy-toepassing kan lang duren om te laden. Ook wordt uitgelegd wat u kunt doen om dit probleem te verhelpen.
 
 ## <a name="overview"></a>Overzicht
-Hoewel u uw toepassingen werkt, kunnen ze hebben een lange latentie. Er is mogelijk netwerk topologie trucs die u kunt snelheid verhogen. Zie voor een evaluatie van verschillende topologieën, de [netwerk overwegingen document](application-proxy-network-topology-considerations.md).
+Hoewel u uw toepassingen werkt, kunnen ze hebben een lange latentie. Er is mogelijk netwerk topologie trucs die u kunt snelheid verhogen. Zie voor een evaluatie van verschillende topologieën, de [netwerk overwegingen document](manage-apps/application-proxy-network-topology.md).
 
 Naast de netwerktopologie zijn er momenteel geen aanbevelingen meer voor prestaties afstemmen. Als de toepassingsproxy service breidt deze mogelijk geleverd aan een datacenter die zich fysiek dichter. De dichter bij de kan u helpen met een latentie. Zie voor een overzicht van Azure-datacenters, de [latentie testpagina](http://www.azurespeed.com/Azure/Latency). 
 
@@ -36,4 +36,4 @@ Mogelijk zijn er Azure-datacenters die niet nog toepassingsproxy omvatten, maar 
 Microsoft werkt op de aanvullende mogelijkheden voor het verbeteren van de latentie. Zodra deze verbeteringen beschikbaar zijn, kunt u de documentatie worden bijgewerkt.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Werken met bestaande lokale proxyservers](application-proxy-working-with-proxy-servers.md)
+[Werken met bestaande lokale proxyservers](manage-apps/application-proxy-configure-connectors-with-proxy-servers.md)

@@ -2,24 +2,26 @@
 title: Het inschakelen van eenmalige aanmelding voor cross-app voor Android met behulp van ADAL | Microsoft Docs
 description: 'Het gebruik van de functies van de ADAL-SDK voor eenmalige aanmelding inschakelen tussen uw toepassingen. '
 services: active-directory
-documentationcenter: 
-author: danieldobalian
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 40710225-05ab-40a3-9aec-8b4e96b6b5e7
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: android
 ms.devlang: java
 ms.topic: article
 ms.date: 04/07/2017
-ms.author: dadobali
+ms.author: celested
+ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 7d832ecf3e9c64088a75cc88551879b4e09df715
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ee27b1d4dcc091ef570e2b0aef32273af986d3f9
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Het inschakelen van eenmalige aanmelding voor cross-app voor Android met behulp van ADAL
 Mits eenmalige aanmelding (SSO) zodat gebruikers alleen moeten eenmaal hun referenties invoeren en deze referenties automatisch laten samenwerken binnen wordt nu toepassingen door klanten verwacht. De problemen in hun gebruikersnaam en wachtwoord invoeren op een klein scherm, vaak keren gecombineerd met een extra factor (2FA), zoals een telefoongesprek of ge-code, resulteert in een snelle ergernis als een gebruiker heeft om dit te doen meer dan één keer voor het product.
@@ -86,7 +88,7 @@ Hier volgt een weergave over de werking van de Microsoft Identity-SDK's met de g
 Aanmeldingen Broker-ondersteunde zijn aanmelding ervaringen die optreden in de broker-toepassing en de opslag en de beveiliging van de broker gebruiken voor het delen van referenties voor alle toepassingen die de Microsoft Identity-platform van toepassing op het apparaat. Dit betekent dat uw toepassingen afhankelijk zijn van de broker gebruikers aanmelden. Op iOS en Android worden deze beleggingsmakelaars opgegeven downloadbare toepassingen dat klanten afzonderlijk installeren of op het apparaat kunnen worden geactiveerd door een bedrijf die het apparaat voor de gebruiker beheert. Een voorbeeld van dit type toepassing is de Microsoft Authenticator-toepassing op iOS. In Windows worden deze functionaliteit wordt verstrekt door een ingebouwd in het besturingssysteem en technisch als de Webauthenticatiebroker bekend kiezen.
 De ervaring varieert per platform en kan soms worden verstoren aan gebruikers als dat niet correct worden beheerd. U kunt waarschijnlijk meest bekend zijn met dit patroon als u de Facebook-toepassing geïnstalleerd en Facebook-verbinding van een andere toepassing. De Microsoft Identity-platform gebruikt hetzelfde patroon.
 
-Voor iOS die dit tot een 'overgang leidt' komt animatie waarbij uw toepassing wordt verzonden naar de achtergrond tijdens de Microsoft Authenticator toepassingen naar de achtergrond voor de gebruiker te selecteren welke account die ze graag willen aanmelden.  
+Voor iOS die dit tot een 'overgang leidt' komt animatie waarbij uw toepassing wordt verzonden naar de achtergrond tijdens de Microsoft Authenticator toepassingen naar de achtergrond voor de gebruiker te selecteren welke account die ze graag willen aanmelden. 
 
 Voor Android en Windows wordt de account-kiezer boven op uw toepassing minder verstoren aan de gebruiker weergegeven.
 
@@ -160,11 +162,11 @@ In de volgorde voor het platform voor Microsoft Identity weten dat het delen van
 
 U vraagt zich misschien af hoe u verschillende apps met de Microsoft Identity-service wordt geïdentificeerd als deze gebruikmaakt van de dezelfde toepassing-ID. Het antwoord is met de **omleidings-URI's**. Elke toepassing kan meerdere omleidings-URI's geregistreerd in de portal voor onboarding hebben. Elke app in de suite hebben een verschillende omleidings-URI. Een voorbeeld van hoe dit eruitziet lager is dan:
 
-App1 omleidings-URI:`msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D`
+App1 omleidings-URI: `msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D`
 
-App2 omleidings-URI:`msauth://com.example.userapp1/KmB7PxIytyLkbGHuI%2UitkW%2Fejk%4E`
+App2 omleidings-URI: `msauth://com.example.userapp1/KmB7PxIytyLkbGHuI%2UitkW%2Fejk%4E`
 
-App3 omleidings-URI:`msauth://com.example.userapp2/Pt85PxIyvbLkbKUtBI%2SitkW%2Fejk%9F`
+App3 omleidings-URI: `msauth://com.example.userapp2/Pt85PxIyvbLkbKUtBI%2SitkW%2Fejk%9F`
 
 ....
 

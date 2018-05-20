@@ -2,34 +2,41 @@
 title: Een virtuele machine met veilig opgeslagen wachtwoord op Azure-Stack implementeren | Microsoft Docs
 description: Informatie over het implementeren van een virtuele machine met een wachtwoord opgeslagen in Azure Stack Sleutelkluis
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 23322a49-fb7e-4dc2-8d0e-43de8cd41f80
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/08/2017
+ms.date: 05/07/2018
 ms.author: mabrigg
-ms.openlocfilehash: 8d9a2cebd7a28ca13cf88518a7c83b217af4c0e1
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 4239eb31afd4abc8b3555f0ee353f5d96716d623
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="create-a-virtual-machine-by-retrieving-the-password-stored-in-a-key-vault"></a>Een virtuele machine door op te halen van het wachtwoord dat is opgeslagen in een Sleutelkluis maken
+# <a name="create-a-virtual-machine-using-a-secure-password-stored-in-azure-stack-key-vault"></a>Maken van een virtuele machine via een beveiligd wachtwoord opgeslagen in Azure Stack Sleutelkluis
 
-Wanneer u een beveiligde waarde zoals een wachtwoord doorgegeven tijdens de implementatie, kunt u die waarde opslaan als een geheim in de sleutelkluis voor een Azure-Stack en ernaar wordt verwezen in de Azure Resource Manager-sjablonen. U doet dat niet moet het geheim handmatig invoeren telkens wanneer die u de resources, implementeert u kunt ook opgeven welke gebruikers of service-principals hebben toegang tot het geheim. 
+*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
-In dit artikel doorlopen we de stappen die nodig zijn voor het implementeren van een virtuele Windows-machine in Azure-Stack door op te halen van het wachtwoord dat is opgeslagen in een Sleutelkluis. Daarom is het wachtwoord nooit in tekst zonder opmaak in het parameterbestand sjabloon geplaatst. U kunt deze stappen van de Azure-Stack Development Kit of via een externe client gebruiken als u via VPN-verbinding verbonden bent.
+In dit artikel wordt stapsgewijs instructies voor het implementeren van een Windows Server-virtuele machine met een wachtwoord opgeslagen in Azure Stack Sleutelkluis. Een sleutelkluis-wachtwoord is veiliger dan het doorgeven van een wachtwoord als tekst zonder opmaak.
+
+## <a name="overview"></a>Overzicht
+
+U kunt waarden zoals een wachtwoord opslaan als een geheim in de sleutelkluis voor een Azure-Stack. Nadat u een geheim hebt gemaakt, kunt u het verwijzen naar in Azure Resource Manager-sjablonen. Met behulp van geheimen met Resource Manager biedt de volgende voordelen:
+
+* U hoeft niet te geheim handmatig invoeren telkens wanneer die u een resource implementeert.
+* U kunt opgeven welke gebruikers of service-principals toegang krijgen een geheim tot.
 
 ## <a name="prerequisites"></a>Vereisten
- 
-* U moet zich abonneren op een aanbieding met de Sleutelkluis-service.  
-* [Installeer PowerShell voor Azure-Stack.](azure-stack-powershell-install.md)  
+
+* U moet zich abonneren op een aanbieding met de Sleutelkluis-service.
+* [Installeer PowerShell voor Azure-Stack.](azure-stack-powershell-install.md)
 * [Configureren van de gebruiker van de Stack van Azure PowerShell-omgeving.](azure-stack-powershell-configure-user.md)
 
 De volgende stappen beschrijven het proces is vereist voor het maken van een virtuele machine door op te halen van het wachtwoord dat is opgeslagen in een Sleutelkluis:
@@ -37,6 +44,8 @@ De volgende stappen beschrijven het proces is vereist voor het maken van een vir
 1. Een Sleutelkluis geheim maken.
 2. Het bestand azuredeploy.parameters.json bijwerken.
 3. De sjabloon implementeert.
+
+>[OPMERKING] U kunt deze stappen van de Azure-Stack Development Kit of van een externe client gebruiken als u via VPN-verbinding verbonden bent.
 
 ## <a name="create-a-key-vault-secret"></a>Een Sleutelkluis geheim maken
 
@@ -74,7 +83,7 @@ Wijzig de `azuredeploy.parameters.json` bestand volgens de Omgevingswaarden in d
 
 ## <a name="update-the-azuredeployparametersjson-file"></a>Het bestand azuredeploy.parameters.json bijwerken
 
-Het bestand azuredeploy.parameters.json bijwerken met de KeyVault-URI, secretName, adminUsername van de waarden van de virtuele machine aan de hand van uw omgeving. Het volgende JSON-bestand ziet u een voorbeeld van de sjabloon parameters: 
+Het bestand azuredeploy.parameters.json bijwerken met de KeyVault-URI, secretName, adminUsername van de waarden van de virtuele machine aan de hand van uw omgeving. Het volgende JSON-bestand ziet u een voorbeeld van de sjabloon parameters:
 
 ```json
 {
@@ -114,13 +123,13 @@ New-AzureRmResourceGroupDeployment `
   -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `
   -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
 ```
+
 Wanneer de sjabloon wordt geïmplementeerd, resulteert dit in de volgende uitvoer:
 
 ![Implementatie-uitvoer](media/azure-stack-kv-deploy-vm-with-secret/deployment-output.png)
 
-
 ## <a name="next-steps"></a>Volgende stappen
+
 [Een voorbeeld-app met Sleutelkluis implementeren](azure-stack-kv-sample-app.md)
 
 [Een virtuele machine met een certificaat Sleutelkluis implementeren](azure-stack-kv-push-secret-into-vm.md)
-

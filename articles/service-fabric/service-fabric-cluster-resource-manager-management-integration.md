@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 956cd0b8-b6e3-4436-a224-8766320e8cd7
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 70c0cc37a1d362c937ab86bd630c5ab051e63870
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3f93ca94d5aa3e95637a53a4c8fe3d9d264dd58c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Cluster resource manager-integratie met Service Fabric-Clusterbeheer
 De Service Fabric Cluster Resource Manager biedt geen upgrades station in Service Fabric, maar het is betrokken. De eerste manier die de Cluster Resource Manager met management is door de gewenste status van het cluster en de services in het bijhouden. De Cluster Resource Manager verzendt statusrapporten wanneer deze niet kan het cluster in de gewenste configuratie geplaatst. Bijvoorbeeld, als er onvoldoende capaciteit verzendt de Cluster Resource Manager health-waarschuwingen en fouten die wijzen op het probleem. Een andere stukje integratie heeft te maken met de werking van upgrades. De Cluster Resource Manager verandert het gedrag enigszins tijdens upgrades.  

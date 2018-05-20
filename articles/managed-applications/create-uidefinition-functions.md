@@ -1,23 +1,23 @@
 ---
 title: Azure-beheerde toepassing UI definitie functies maken | Microsoft Docs
 description: Beschrijft de functies voor gebruik bij het samenstellen van UI-definities voor beheerde Azure-toepassingen
-services: azure-resource-manager
+services: managed-applications
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: dcf570ca4bdc8eacb7e4d7a8ff0011c8e07b7a40
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: a01a59a7e8c9757cb41d328cd26a34fa219f9152
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="createuidefinition-functions"></a>CreateUiDefinition functies
 Deze sectie bevat de handtekeningen voor alle ondersteunde functies van een CreateUiDefinition.
@@ -40,7 +40,7 @@ Indien van toepassing, kunt u verwijzen naar eigenschappen van de uitvoer van ee
 "[func().prop1]"
 ```
 
-## <a name="referencing-functions"></a>Functies die verwijzen naar
+## <a name="referencing-functions"></a>Verwijzingsfuncties
 Deze functies kunnen worden gebruikt om te verwijzen naar uitvoer van de eigenschappen of de context van een CreateUiDefinition.
 
 ### <a name="basics"></a>basisbeginselen
@@ -70,7 +70,7 @@ Het volgende voorbeeld kan retourneren `"westus"`:
 "[location()]"
 ```
 
-## <a name="string-functions"></a>Tekenreeks-functies
+## <a name="string-functions"></a>Tekenreeksfuncties
 Deze functies kunnen alleen worden gebruikt met een JSON-tekenreeks.
 
 ### <a name="concat"></a>concat
@@ -130,7 +130,7 @@ Het volgende voorbeeld wordt `"FOOBAR"`:
 ## <a name="collection-functions"></a>Functies van de verzameling
 Deze functies kunnen worden gebruikt met verzamelingen, zoals JSON tekenreeksen, matrices en objecten.
 
-### <a name="contains"></a>Bevat
+### <a name="contains"></a>bevat
 Retourneert `true` als een tekenreeks de opgegeven subtekenreeks bevat een matrix de opgegeven waarde bevat of een object de opgegeven sleutel bevat.
 
 #### <a name="example-1-string"></a>Voorbeeld 1: tekenreeks
@@ -196,7 +196,7 @@ Het volgende voorbeeld wordt `2`:
 "[length(steps('foo').element1)]"
 ```
 
-### <a name="empty"></a>leeg
+### <a name="empty"></a>Leeg
 Retourneert `true` als de tekenreekswaarde, een matrix of object null of leeg is.
 
 #### <a name="example-1-string"></a>Voorbeeld 1: tekenreeks
@@ -492,7 +492,7 @@ Stel `element1` en `element2` zijn niet gedefinieerd. Het volgende voorbeeld wor
 "[coalesce(steps('foo').element1, steps('foo').element2, 'foobar')]"
 ```
 
-## <a name="conversion-functions"></a>Van conversiefuncties
+## <a name="conversion-functions"></a>Conversiefuncties
 Deze functies kunnen worden gebruikt om waarden tussen JSON-gegevenstypen en coderingen te converteren.
 
 ### <a name="int"></a>int
@@ -510,7 +510,7 @@ Het volgende voorbeeld wordt `2`:
 "[int(2.9)]"
 ```
 
-### <a name="float"></a>Float
+### <a name="float"></a>drijvend
 De parameter converteert naar een drijvende komma. Deze functie biedt ondersteuning voor parameters van het nummer van het type en de tekenreeks.
 
 Het volgende voorbeeld wordt `1.0`:
@@ -525,7 +525,7 @@ Het volgende voorbeeld wordt `2.9`:
 "[float(2.9)]"
 ```
 
-### <a name="string"></a>Tekenreeks
+### <a name="string"></a>tekenreeks
 De parameter converteert naar een tekenreeks. Deze functie biedt ondersteuning voor parameters van alle JSON-gegevenstypen.
 
 Het volgende voorbeeld wordt `"1"`:
@@ -642,7 +642,7 @@ Het volgende voorbeeld wordt `"https://portal.azure.com/"`:
 "[decodeUriComponent('https%3A%2F%2Fportal.azure.com%2F')]"
 ```
 
-## <a name="math-functions"></a>Rekenkundige functies
+## <a name="math-functions"></a>Wiskundige functies
 ### <a name="add"></a>toevoegen
 Telt twee getallen en retourneert het resultaat.
 
@@ -703,7 +703,7 @@ Het volgende voorbeeld wordt `1`:
 "[min(1, 2)]"
 ```
 
-### <a name="max"></a>Maximum aantal
+### <a name="max"></a>max
 Retourneert de grootste van de twee getallen.
 
 Het volgende voorbeeld wordt `2`:

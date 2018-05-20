@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/15/2017
-ms.author: dugill;tomfitz
-ms.openlocfilehash: 0b7ddaa7e8a98cdff0e92c87f8a1f7e24efbd67e
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.author: dugill
+ms.openlocfilehash: 1a526663b0280bd1bb7739ccc9a4ebf78882754d
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Gebruik Resource Manager authenticatie-API aan abonnementen, toegang
 ## <a name="introduction"></a>Inleiding
@@ -29,7 +29,7 @@ Uw app hebben toegang tot de Resource Manager-API's in verschillende manieren:
 1. **Gebruikers- + toegang tot Apps**: voor apps die toegang krijgen bronnen namens een gebruiker aangemeld tot. Deze methode werkt voor apps, zoals web-apps en opdrachtregelprogramma's, die betrekking op alleen 'interactieve management' Azure-resources hebben.
 2. **App-lezentoegang**: voor apps die daemon-services en geplande taken worden uitgevoerd. Identiteit van de app wordt rechtstreeks toegang tot de bronnen worden verleend. Deze methode werkt voor apps die langlopende headless (zonder toezicht) toegang tot Azure nodig.
 
-Dit artikel bevat stapsgewijze instructies voor het maken van een app die gebruikmaakt van deze twee autorisatiemethoden. Er wordt weergegeven hoe om uit te voeren van elke stap met REST-API of C#. De volledige ASP.NET MVC-toepassing is beschikbaar op [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
+Dit artikel bevat stapsgewijze instructies voor het maken van een app die gebruikmaakt van deze twee autorisatiemethoden. Er wordt weergegeven hoe om uit te voeren van elke stap met REST-API of C#. De volledige ASP.NET MVC-toepassing is beschikbaar op [ https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense ](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
 
 ## <a name="what-the-web-app-does"></a>Betekenis van de web-app
 De web-app:
@@ -224,7 +224,7 @@ U hoeft alleen een toegangstoken voor Azure Resource Manager - moet u een nieuw 
 <a id="app-azure-ad-graph" />
 
 ### <a name="get-app-only-access-token-for-azure-ad-graph-api"></a>App-lezentoegang voor Azure AD Graph API token ophalen
-Om uw app verifiëren en krijgt u een token voor Azure AD Graph API, door een tokenaanvraag door Client referentie Grant OAuth2.0 stroom te verlenen aan Azure AD-tokeneindpunt (**https://login.microsoftonline.com/ {directory_domain_name} / OAuth2/Token**).
+Om uw app verifiëren en krijgt u een token voor Azure AD Graph API, door een tokenaanvraag door Client referentie Grant OAuth2.0 stroom te verlenen aan Azure AD-tokeneindpunt (**https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token**).
 
 De [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) methode van de ASP.net MVC-voorbeeldtoepassing krijgt een app alleen-lezen toegang token voor Graph API met behulp van de Active Directory Authentication Library voor .NET.
 

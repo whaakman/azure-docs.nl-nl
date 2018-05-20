@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 8e83eb161f487a73d5984425e2c24993006a08a5
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: d07ad69b3a1f6023cf70bb0b9a82cd54defc5c49
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-identity-management-security-overview"></a>Overzicht van Azure identity management-beveiliging
 Microsoft identiteits- en toegangsbeheer management oplossingen zorgen ervoor dat IT beveiligen toegang tot toepassingen en bronnen in het zakelijke datacenter en in de cloud, extra niveaus van validatie van de multi-factor authentication en voorwaardelijke toegang inschakelen beleid. Bewaking verdachte activiteiten via geavanceerde beveiliging rapportage, controle en waarschuwingen helpt bij het verminderen mogelijke beveiligingsproblemen. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) biedt eenmalige aanmelding tot duizenden cloud-apps (SaaS) en toegang tot web-apps die u on-premises uitgevoerd.
@@ -67,7 +67,7 @@ Meer informatie:
 * [Azure AD-toepassingsproxy inschakelen](../active-directory/manage-apps/application-proxy-enable.md)
 * [Toepassingen publiceren met Azure AD-toepassingsproxy](../active-directory/active-directory-application-proxy-publish.md)
 * [Single-sign-on met toepassingsproxy](../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
-* [Werken met voorwaardelijke toegang](../active-directory/application-proxy-enable-remote-access-sharepoint.md)
+* [Werken met voorwaardelijke toegang](../active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 Azure multi-factor authentication (MFA) is een authenticatiemethode die vereist het gebruik van meer dan één verificatiemethode en een kritieke tweede beveiligingslaag wordt toegevoegd aan de gebruikersaanmeldingen en transacties. MFA helpt beveiliging toegang tot gegevens en toepassingen en te voldoen aan de behoeften van de gebruiker voor een eenvoudig proces aanmelden. Levert sterke verificatie via een aantal opties voor verificatie: telefoonoproep, tekstbericht of mobiele app melding of verificatie van code en van derden OAuth-tokens.

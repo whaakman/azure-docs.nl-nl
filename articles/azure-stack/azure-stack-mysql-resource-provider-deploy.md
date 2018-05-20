@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/24/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: 66e1d5691b431be0c3d040570b13e8d16b1669ef
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 4fb522e1a5a3c1adeaf5f46b8ccc3b9a852f4a88
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>MySQL-database gebruiken op Microsoft Azure-Stack
 
@@ -176,9 +176,11 @@ U kunt deze parameters opgeven op de opdrachtregel. Als u dit niet doet, of als 
 | **MaxRetryCount** | Het aantal keren dat u wilt opnieuw proberen aan elke als er een storing optreedt.| 2 |
 | **RetryDuration** | De time-interval tussen nieuwe pogingen, in seconden. | 120 |
 | **Verwijderen** | Hiermee verwijdert u de resourceprovider en alle bijbehorende resources (Zie de volgende opmerkingen). | Nee |
-| **DebugMode** | Voorkomt dat automatisch opschonen bij fouten. | Nee |
+| **Fouten opsporen-modus** | Voorkomt dat automatisch opschonen bij fouten. | Nee |
 | **AcceptLicense** | Slaat de prompt voor het accepteren van de licentie GPL.  (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | |
 
+>[!NOTE]
+> SKU's kunnen een uur duren zichtbaar in de portal. U kunt een database kan niet maken, tot de SKU is gemaakt.
 
 ## <a name="verify-the-deployment-by-using-the-azure-stack-portal"></a>Controleer of de implementatie met behulp van de Stack van Azure-portal
 
@@ -219,8 +221,7 @@ De SKU-naam moet overeenkomen met de eigenschappen zodat tenants hun databases o
 ![Maken van een MySQL-SKU](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
 
 
->[!NOTE]
-> SKU's kunnen een uur duren zichtbaar in de portal. U kunt een database kan niet maken, tot de SKU is gemaakt.
+
 
 
 ## <a name="test-your-deployment-by-creating-your-first-mysql-database"></a>Uw implementatie testen door uw eerste MySQL-database te maken
@@ -335,7 +336,7 @@ U kunt deze parameters opgeven op de opdrachtregel. Als u dit niet, of als er pa
 | **MaxRetryCount** | Het aantal keren dat u wilt opnieuw proberen aan elke als er een storing optreedt.| 2 |
 | **RetryDuration** | De time-interval tussen nieuwe pogingen, in seconden. | 120 |
 | **Verwijderen** | Verwijder de resourceprovider en alle bijbehorende resources (Zie de volgende opmerkingen). | Nee |
-| **DebugMode** | Voorkomt dat automatisch opschonen bij fouten. | Nee |
+| **Fouten opsporen-modus** | Voorkomt dat automatisch opschonen bij fouten. | Nee |
 | **AcceptLicense** | Slaat de prompt voor het accepteren van de licentie GPL.  (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | |
 
 
@@ -458,5 +459,5 @@ Als u wilt verwijderen van de resourceprovider, is het essentieel voor Verwijder
 7. Opnieuw uit het script voor implementatie met de volgende elementen:
     - De - parameter verwijderen
     - De Azure Resource Manager-eindpunten
-    - The DirectoryTenantID
+    - De DirectoryTenantID
     - De referenties voor de service administrator-account

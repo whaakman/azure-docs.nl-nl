@@ -2,30 +2,40 @@
 title: Azure-Stack-hulpprogramma's downloaden vanuit GitHub | Microsoft Docs
 description: Informatie over het downloaden van de hulpprogramma's voor het werken met Azure-Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 28F360AD-789A-488D-965F-FC6E6CCF3329
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 05/15/2018
 ms.author: mabrigg
-ms.openlocfilehash: d4f8a8d73f8e2ea321cb6cc1deda2301033b249d
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: a5bc23ee6f986da80630371bafcd8ec80dde3577
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="download-azure-stack-tools-from-github"></a>Azure-Stack-hulpprogramma's vanuit GitHub downloaden
 
-AzureStack-hulpprogramma's is een GitHub-opslagplaats die als host fungeert voor PowerShell-modules die u gebruiken kunt om te beheren en implementeren van resources voor Azure-Stack. U kunt downloaden en deze PowerShell-modules op de Azure-Stack Development Kit, of op een externe windows-client gebruiken als u van plan bent om VPN-verbinding te maken. U kunt deze hulpprogramma's, de GitHub-opslagplaats klonen of downloaden van de map AzureStack-hulpprogramma's voor het volgende script uit te voeren:
+*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
+
+AzureStack-hulpprogramma's is een GitHub-opslagplaats die als host fungeert voor PowerShell-modules die u gebruiken kunt om te beheren en implementeren van resources voor Azure-Stack.
+
+## <a name="download-targets"></a>Doelen downloaden
+
+U kunt downloaden en gebruiken van deze PowerShell-modules Azure Stack Development Kit of naar een externe Windows-client die gebruikmaakt van een VPN-verbinding.
+
+## <a name="how-to-get-the-tools"></a>Het ophalen van de hulpprogramma 's
+
+Als u deze hulpprogramma's, de AzureStack-hulpprogramma's voor GitHub-opslagplaats klonen of downloaden van de map AzureStack-hulpprogramma's voor het volgende script uit te voeren:
 
 ```PowerShell
-# Change directory to the root directory 
+# Change directory to the root directory
 cd \
 
 # Download the tools archive
@@ -45,7 +55,7 @@ cd AzureStack-Tools-master
 
 ## <a name="functionalities-provided-by-the-modules"></a>Functies die worden geleverd door de modules
 
-De opslagplaats AzureStack-hulpprogramma's bevat PowerShell-modules die ondersteuning bieden voor Azure-Stack voor de volgende functies:  
+De opslagplaats AzureStack-hulpprogramma's bevat PowerShell-modules die ondersteuning bieden voor Azure-Stack voor de volgende functies:
 
 | Functionaliteit | Beschrijving | wie deze module kunt gebruiken? |
 | --- | --- | --- |
@@ -54,7 +64,7 @@ De opslagplaats AzureStack-hulpprogramma's bevat PowerShell-modules die onderste
 | [Verbinding maken met Azure Stack](azure-stack-connect-azure-stack.md) | Gebruik deze module verbinding maken met een exemplaar netwerkstack Azure via PowerShell en het configureren van VPN-verbinding met Azure-Stack. | Cloudbeheerders en gebruikers |
 | [Validatie van de sjabloon](azure-stack-validate-templates.md) | Gebruik deze module om te controleren of als een bestaande of een nieuwe sjabloon kan worden toegepast op Azure-Stack. | Cloudbeheerders en gebruikers |
 
-
 ## <a name="next-steps"></a>Volgende stappen
-* [Configureren van de gebruiker van de Stack van Azure PowerShell-omgeving](azure-stack-powershell-configure-user.md)   
-* [Via een VPN verbinding maken met Azure Stack Development Kit](azure-stack-connect-azure-stack.md)  
+
+* [Configureren van de gebruiker van de Stack van Azure PowerShell-omgeving](azure-stack-powershell-configure-user.md)
+* [Via een VPN verbinding maken met Azure Stack Development Kit](azure-stack-connect-azure-stack.md)

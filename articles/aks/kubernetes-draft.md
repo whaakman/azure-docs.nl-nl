@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: bb80d68d7ac37c8930626b5163597dc0e492a0d2
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a5dfecefb6ce1d74e02c64371a864a6d3b07a2e1
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>Concept gebruiken met Azure Kubernetes-Service (AKS)
 
@@ -38,7 +38,7 @@ De CLI concept is een client die wordt uitgevoerd op uw ontwikkelsysteem, en kun
 > [!NOTE]
 > Als concept voorafgaand aan versie 0,12 is geïnstalleerd, moet u eerst concept verwijderen uit uw cluster met `helm delete --purge draft` en verwijder vervolgens de lokale configuratie door te voeren `rm -rf ~/.draft`. Als u van Mac OS gebruikmaakt, voert u `brew upgrade draft`.
 
-Het concept CLI installeren op een Mac-gebruik `brew`. Zie voor aanvullende installatie-opties, wordt de [concept installeren handleiding][install-draft].
+Het concept CLI installeren op een Mac-gebruik `brew`. Zie voor aanvullende installatie-opties, wordt de [concept installeren handleiding][draft-documentation].
 
 ```console
 brew tap azure/draft
@@ -288,7 +288,6 @@ Zie voor meer informatie over het gebruik van concept, de ontwerp-documentatie o
 
 <!-- LINKS - external -->
 [draft-documentation]: https://github.com/Azure/draft/tree/master/docs
-[install-draft]: https://github.com/Azure/draft/blob/master/docs/install.md
 [kubernetes-ingress]: ./ingress.md
 [kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
 

@@ -3,8 +3,8 @@ title: Een internetgerichte load balancer maken - Azure Cloud Services | Microso
 description: Meer informatie over hoe u met PowerShell een interne load balancer maakt in het klassieke implementatiemodel
 services: load-balancer
 documentationcenter: na
-author: KumudD
-manager: timlt
+author: genlin
+manager: cshepard
 tags: azure-service-management
 ms.assetid: 57966056-0f46-4f95-a295-483ca1ad135d
 ms.service: load-balancer
@@ -13,18 +13,18 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
-ms.author: kumud
-ms.openlocfilehash: 6616c26ede13919b94a098dc38bdd6e2f0fc0b5b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: genli
+ms.openlocfilehash: 96a7c5b21d78dcc84a32fbfc8835542d64a5d7af
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="get-started-creating-an-internal-load-balancer-classic-for-cloud-services"></a>Aan de slag met het maken van een interne load balancer (klassiek) voor cloudservices
 
 > [!div class="op_single_selector"]
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-classic-ps.md)
-> * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-classic-cli.md)
+> * [Azure-CLI](../load-balancer/load-balancer-get-started-ilb-classic-cli.md)
 > * [Cloudservices](../load-balancer/load-balancer-get-started-ilb-classic-cloud.md)
 
 > [!IMPORTANT]

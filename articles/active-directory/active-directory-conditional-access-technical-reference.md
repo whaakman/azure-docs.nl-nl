@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 04/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 300367ee4e4bdb412bf4e5f25ba6cea067e18ed3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 341142222fb1440cf5118e6d10f5a254e73d53d9
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory-naslaginformatie voor voorwaardelijke toegang
 
@@ -140,6 +140,15 @@ Deze instelling werkt met alle browsers. Echter, om te voldoen aan een apparaatb
 #### <a name="chrome-support"></a>Chrome-ondersteuning
 
 Ondersteuning voor Chrome in **Windows 10 auteurs Update (versie 1703)** of later installeren [deze extensie](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+Om automatisch te implementeren voor deze extensie aan Chrome-browser, maken de volgende registersleutel:
+
+|    |    |
+|--- | ---|
+|Pad | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+|Naam | 1 |
+|Type | REG_SZ (tekenreeks) |
+|Gegevens | ppnbnpeolgkicgegkbkbjmhlideopiji;https://clients2.google.com/service/update2/crx
 
 Ondersteuning voor Chrome in **Windows 8.1 en 7**, maken de volgende registersleutel:
 

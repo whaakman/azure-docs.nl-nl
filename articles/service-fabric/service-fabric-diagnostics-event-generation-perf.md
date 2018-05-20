@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
-ms.author: dekapur; srrengar
-ms.openlocfilehash: 54837b2a43f93f43d089a2fdf35d8b74ecacfc3e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: srrengar
+ms.openlocfilehash: 9e740dd3acce842f888e5994fe8f46222477adc1
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="performance-metrics"></a>Metrische gegevens voor prestaties
 
@@ -28,7 +28,7 @@ Metrische gegevens moeten worden verzameld voor informatie over de prestaties va
 
 Voor de computers in uw cluster, kunt u het verzamelen van de volgende prestatiemeteritems om beter te begrijpen van de belasting op elke machine en relevante cluster schalen beslissingen maken.
 
-| Prestatiemeteritem-categorie | Naam van het meteritem |
+| Prestatiemeteritem-categorie | Naam van teller |
 | --- | --- |
 | Fysieke schijf (per schijf) | Gem. Wachtrijlengte voor schijf lezen |
 | Fysieke schijf (per schijf) | Gem. Wachtrijlengte voor schijf schrijven |
@@ -43,7 +43,7 @@ Voor de computers in uw cluster, kunt u het verzamelen van de volgende prestatie
 | Processor(Total) | Percentage processortijd |
 | Proces (per-service) | Percentage processortijd |
 | Proces (per-service) | Proces-ID |
-| Proces (per-service) | Eigen Bytes |
+| Proces (per-service) | Privébytes |
 | Proces (per-service) | Aantal threads |
 | Proces (per-service) | Virtuele Bytes |
 | Proces (per-service) | Werkset |
@@ -58,7 +58,7 @@ Voor de computers in uw cluster, kunt u het verzamelen van de volgende prestatie
 
 De volgende prestatiemeteritems verzamelen als u .NET-services in uw cluster implementeert. 
 
-| Prestatiemeteritem-categorie | Naam van het meteritem |
+| Prestatiemeteritem-categorie | Naam van teller |
 | --- | --- |
 | .NET CLR-geheugen (per-service) | Proces-id |
 | .NET CLR-geheugen (per-service) | # Totaal aantal toegewezen Bytes |

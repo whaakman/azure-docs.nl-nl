@@ -1,12 +1,12 @@
 ---
-title: Kennismaken met oplossingen voor verbonden factory's - Azure | Microsoft Docs
-description: Een beschrijving van de vooraf geconfigureerde Azure IoT-oplossing Connected Factory en de bijbehorende architectuur.
-services: 
+title: Kennismaken met de oplossing Verbonden factory - Azure | Microsoft Docs
+description: Een beschrijving van de Azure IoT-oplossingsversneller Verbonden factory en de onderliggende architectuur.
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
 ms.devlang: na
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 10497097bfda36a0a8a2b6b677ac26394217d8b4
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 65eb24cf5f995570b7b1752fc850b596209ea59a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="connected-factory-preconfigured-solution-walkthrough"></a>Walkthrough voor de vooraf geconfigureerde oplossing Connected Factory
+# <a name="connected-factory-solution-accelerator-walkthrough"></a>Kennismaken met de oplossingsversneller Verbonden factory
 
-De [vooraf geconfigureerde oplossing][lnk-preconfigured-solutions] Connected Factory van IoT Suite is een complete brancheoplossing waarmee:
+De [oplossingsversneller][lnk-preconfigured-solutions] Verbonden factory is een complete brancheoplossing waarmee:
 
-* Gesimuleerde industriële apparaten met OPC UA-servers in gesimuleerde fabrieksproductielijnen en echte OPC UA-serverapparaten kunnen worden verbonden. Zie de [veelgestelde vragen over Connected Factory](iot-suite-faq-cf.md) voor meer informatie over OPC UA.
+* Gesimuleerde industriële apparaten met OPC UA-servers in gesimuleerde fabrieksproductielijnen en echte OPC UA-serverapparaten kunnen worden verbonden. Zie de [veelgestelde vragen over verbonden factory's](iot-suite-faq-cf.md) voor meer informatie over OPC UA.
 * Operationele KPI's en OEE van die apparaten en productielijnen kunnen worden bekeken.
 * U kunt bekijken hoe cloudgebaseerde toepassingen kunnen worden gebruikt om te werken met OPC UA-serversystemen.
 * U verbinding kunt maken met uw eigen OPC UA-serverapparaten.
@@ -34,19 +34,19 @@ De [vooraf geconfigureerde oplossing][lnk-preconfigured-solutions] Connected Fac
 
 U kunt de oplossing gebruiken als uitgangspunt voor uw eigen implementatie en u kunt deze [aanpassen][lnk-customize] aan uw eigen specifieke zakelijke vereisten.
 
-In dit artikel wordt stapsgewijs een aantal belangrijke elementen van de oplossing Connected Factory beschreven waarmee u inzicht krijgt in de werking. In dit artikel wordt ook beschreven hoe gegevens via de oplossing stromen. Deze kennis helpt u bij:
+In dit artikel wordt stapsgewijs een aantal belangrijke elementen van de oplossing Verbonden factory beschreven waarmee u inzicht krijgt in de werking. In dit artikel wordt ook beschreven hoe gegevens via de oplossing stromen. Deze kennis helpt u bij:
 
 * Het oplossen van problemen met de oplossing.
 * Het plannen van een aanpassing van de oplossing zodat deze voldoet aan uw eigen specifieke vereisten.
 * Het ontwerpen van uw eigen IoT-oplossing die gebruikmaakt van Azure-services.
 
-Zie de [veelgestelde vragen over Connected Factory](iot-suite-faq-cf.md) voor meer informatie.
+Zie de [veelgestelde vragen over Verbonden factory](iot-suite-faq-cf.md) voor meer informatie.
 
 ## <a name="logical-architecture"></a>Logische architectuur
 
-Het volgende diagram geeft een overzicht van de logische onderdelen van de vooraf geconfigureerde oplossing:
+Het volgende diagram geeft een overzicht van de logische onderdelen van de oplossingsversneller:
 
-![Logische architectuur van Connected Factory][connected-factory-logical]
+![Logische architectuur van verbonden factory][connected-factory-logical]
 
 ## <a name="communication-patterns"></a>Communicatiepatronen
 
@@ -122,7 +122,7 @@ De IoT Hub in de oplossing doet ook het volgende:
 Voor de oplossing wordt gebruikgemaakt van Azure Blob Storage voor schijfopslag voor de VM en om implementatiegegevens op te slaan.
 
 ## <a name="web-app"></a>Web-app
-De web-app die wordt geïmplementeerd als onderdeel van de vooraf geconfigureerde oplossing, bestaat uit een ingebouwde OPC UA-client, biedt verwerking van waarschuwingen en biedt visualisatie van de telemetrie.
+De web-app die wordt geïmplementeerd als onderdeel van de oplossingsversneller bestaat uit een ingebouwde OPC UA-client, biedt verwerking van waarschuwingen en biedt visualisatie van de telemetrie.
 
 ## <a name="telemetry-data-flow"></a>Telemetriegegevensstroom
 
@@ -162,17 +162,17 @@ De web-app die wordt geïmplementeerd als onderdeel van de vooraf geconfigureerd
 
 9. Data-at-rest in TSI.
 
-10. Verbonden factory-WebApp in Azure AppService vraagt de vereiste gegevens van TSI.
+10. Een web-app op basis van een verbonden factory in Azure AppService vraagt de vereiste gegevens op bij TSI.
     - Maakt gebruik van met TCP/TLS beveiligde communicatie.
     - Deze stap is intern voor het datacenter.
 
-11. Webbrowser maakt verbinding met de web-app Connected Factory.
-    - Geeft het dashboard van Connected Factory weer.
+11. Webbrowser maakt verbinding met de web-app voor de verbonden factory.
+    - Geeft het dashboard van de verbonden factory weer.
     - Maakt verbinding via HTTPS.
-    - Voor toegang tot de app Connected Factory is verificatie van de gebruiker via Azure Active Directory vereist.
-    - WebApi-aanroepen naar de app Connected Factory worden beveiligd door anti-vervalsingstokens.
+    - Voor toegang tot de app van de verbonden factory is verificatie van de gebruiker via Azure Active Directory vereist.
+    - WebApi-aanroepen naar de app van de verbonden factory worden beveiligd door anti-vervalsingstokens.
 
-12. Bij gegevensupdates verstuurt de verbonden factory-WebApp bijgewerkte gegevens naar de webbrowser.
+12. Bij gegevensupdates verstuurt de web-app van de verbonden factory bijgewerkte gegevens naar de webbrowser.
     - Maakt gebruik van het SignalR-protocol.
     - Beveiligd door TCP/TLS.
 
@@ -190,16 +190,16 @@ De web-app die wordt geïmplementeerd als onderdeel van de vooraf geconfigureerd
     - Leest alle bekende apparaten vanaf IoT Hub.
     - Maakt gebruik van MQTT via TLS via socket of beveiligde WebSocket.
 
-3. Webbrowser maakt verbinding met de web-app Connected Factory en geeft het dashboard van Connected Factory weer.
+3. Webbrowser maakt verbinding met de web-app van de verbonden factory en geeft het dashboard van de factory weer.
     - Maakt gebruik van HTTPS.
     - Een gebruiker selecteert een OPC UA-server om verbinding mee te maken.
 
-4. Verbonden factory-WebApp brengt een OPC UA-sessie tot stand met de geselecteerde OPC UA-server.
+4. Web-app van verbonden factory brengt een OPC UA-sessie tot stand met de geselecteerde OPC UA-server.
     - Maakt gebruik van OPC UA-stack.
 
 5. OPC-proxytransport ontvangt een aanvraag van de OPC UA-stack om een TCP-socketverbinding met de OPC UA-server tot stand te brengen.
     - De TCP-nettolading wordt opgehaald en ongewijzigd gebruikt.
-    - Deze stap is intern voor de web-app Connected Factory.
+    - Deze stap is intern voor de web-app van de verbonden factory.
 
 6. OPC-proxy (clientcomponent) zoekt het OPC-proxy (servercomponent)-apparaat in het IoT Hub-apparaatregister. Vervolgens wordt een apparaatmethode van het OPC-proxy (servercomponent)-apparaat in IoT Hub aangeroepen.
     - Maakt gebruik van HTTPS via TCP/TLS om OPC-proxy te zoeken.
@@ -215,29 +215,29 @@ De web-app die wordt geïmplementeerd als onderdeel van de vooraf geconfigureerd
 
 10. Het antwoord wordt ontvangen door de socket van de OPC-proxy (servercomponent).
     - OPC-proxy stuurt de gegevens als retourwaarde van de apparaatmethode naar IoT Hub en de OPC-proxy (clientcomponent).
-    - Deze gegevens worden afgeleverd aan de OPC UA-stack in de app Connected Factory.
+    - Deze gegevens worden afgeleverd aan de OPC UA-stack in de app van de verbonden factory.
 
-11. De verbonden factory-WebApp retourneert OPC-browser-UX verrijkt met de OPC UA-specifieke gegevens (ontvangen van de OPC UA-server) naar de webbrowser om ze weer te geven.
-    - Tijdens het browsen door de OPC-adresruimte en het toepassen van functies op knooppunten in de OPC-adresruimte, maakt het OPC-browser-UX-clientonderdeel gebruik van AJAX-aanroepen via HTTPS (beveiligd met anti-vervalsingstokens) om gegevens op te halen uit de verbonden factor-WebApp.
+11. De web-app van de verbonden factory retourneert OPC-browser-UX verrijkt met de OPC UA-specifieke gegevens (ontvangen van de OPC UA-server) naar de webbrowser om ze weer te geven.
+    - Tijdens het browsen door de OPC-adresruimte en het toepassen van functies op knooppunten in de OPC-adresruimte, maakt het OPC-browser-UX-clientonderdeel gebruik van AJAX-aanroepen via HTTPS (beveiligd met anti-vervalsingstokens) om gegevens op te halen uit de web-app van de verbonden factory.
     - Zo nodig maakt de client gebruik van de communicatie (zoals uitgelegd in stap 4 t/m 10) om gegevens uit te wisselen met de OPC UA-server.
 
 > [!NOTE]
 > De OPC-proxy (servercomponent) en OPC-proxy (clientcomponent) voltooien stap 4 t/m 10 voor alle TCP-verkeer dat gerelateerd is met OPC UA-communicatie.
 
 > [!NOTE]
-> Voor de OPC UA-server en de OPC UA-stack in de web-app Connected Factory is de OPC-proxycommunicatie transparant en zijn alle OPC UA-beveiligingsfuncties voor verificatie en versleuteling van toepassing.
+> Voor de OPC UA-server en de OPC UA-stack in de web-app van de verbonden factory is de OPC-proxycommunicatie transparant en zijn alle OPC UA-beveiligingsfuncties voor verificatie en versleuteling van toepassing.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt verder aan de slag gaan met IoT Suite door de volgende artikelen te lezen:
+U kunt verder aan de slag gaan met IoT-oplossingsversnellers door de volgende artikelen te lezen:
 
 * [Machtigingen op de site azureiotsuite.com][lnk-permissions]
-* [Een gateway implementeren in Windows of Linux voor de vooraf geconfigureerde oplossing Connected Factory](iot-suite-connected-factory-gateway-deployment.md)
+* [Een gateway implementeren in Windows of Linux voor de oplossingsversneller Verbonden factory](iot-suite-connected-factory-gateway-deployment.md)
 * [OPC Publisher reference implementation](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md) (Implementatie ter referentie van OPC Publisher).
 
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
 
-[lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
+[lnk-preconfigured-solutions]: iot-suite-what-are-solution-accelerators.md
 [lnk-customize]: iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
 [lnk-IoT Hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md

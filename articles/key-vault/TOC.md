@@ -16,11 +16,12 @@
 # Voorbeelden
 ## [Codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=key-vault)
 # Concepten
+## [Wat is Key Vault?](key-vault-whatis.md)
 ## [Beveiligingsgebieden](key-vault-ovw-security-worlds.md)
 ## [Voorlopig verwijderen](key-vault-ovw-soft-delete.md)
 ## [Opslagaccountsleutels](key-vault-ovw-storage-keys.md)
 ## [Beperking](key-vault-ovw-throttling.md)
-## [Wat is Key Vault?](key-vault-whatis.md)
+
 
 # Handleidingen
 ## Beheren
@@ -68,11 +69,12 @@
 ### [Methoden voor het maken van certificaten](create-certificate.md)
 ### [Het maken van certificaten controleren en beheren](create-certificate-scenarios.md)
 ## [Verificatie, vragen en antwoorden](authentication-requests-and-responses.md)
+## [Functies van klantgegevens](key-vault-customer-data.md)
 ## [Algemene parameters en headers](common-parameters-and-headers.md)
 ## [Versies van Key Vault](key-vault-versions.md)
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Blog](http://blogs.technet.com/b/kv/)
-## [Codevoorbeelden](https://www.microsoft.com/download/details.aspx?id=45343)
+## [Codevoorbeelden](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault&type=&language=)
 ## [Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)
 ## [Prijzen](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [Prijscalculator](https://azure.microsoft.com/pricing/calculator/)

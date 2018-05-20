@@ -1,67 +1,64 @@
 ---
-title: Interactieve query's uitvoeren op een Azure HDInsight Spark-cluster | Microsoft Docs
-description: HDInsight Spark-snelstartgids over het maken van een Apache Spark-cluster in HDInsight.
-keywords: spark-snelstartgids,interactieve spark,interactieve query,hdinsight spark,azure spark
-services: hdinsight
-documentationcenter: ''
+title: "Zelfstudie: Gegevens laden en query's uitvoeren in een Apache Spark-cluster in Azure HDInsight | Microsoft Docs"
+description: Leer hoe u gegevens laadt en interactieve query's uitvoert op Spark-clusters in Azure HDInsight.
+services: azure-hdinsight
 author: mumian
 manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
+ms.custom: hdinsightactive,mvc
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 11/29/2017
+ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 177fb47c72e9abbafcda69416643fbd3848373bd
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: MT
+ms.date: 05/07/2018
+ms.openlocfilehash: 63a876dc148129cd2a3eb93ed7ab6baf06a07c62
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="run-interactive-queries-on-spark-clusters-in-hdinsight"></a>Interactieve query's uitvoeren op Spark-clusters in HDInsight
+# <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Zelfstudie: Gegevens laden en query's uitvoeren in een Apache Spark-cluster in Azure HDInsight
 
-Informatie over het gebruik van Jupyter-notebook voor interactieve Spark SQL-query's uitvoeren op een Spark-cluster. 
+In deze zelfstudie leert u hoe u een gegevensframe maakt van een CSV-bestand en hoe u interactieve Spark SQL-query's uitvoert op een Apache Spark-cluster in Azure HDInsight. In Spark is een gegevensframe een gedistribueerde verzameling gegevens die zijn geordend in benoemde kolommen. Er ligt hetzelfde concept aan ten grondslag als aan een tabel in een relationele database of aan een gegevensframe in R/Python.
+ 
+In deze zelfstudie leert u het volgende:
+> [!div class="checklist"]
+> * Een gegevensframe maken van een CSV-bestand
+> * Query's uitvoeren op het gegevensframe
 
-[Jupyter-notebook](http://jupyter-notebook.readthedocs.io/en/latest/notebook.html) is een browsertoepassing die uitgebreider is dan de interactieve ervaring via de console op het Web. Apache Spark in HDInsight bevat tevens [Zeppelin Notebook](apache-spark-zeppelin-notebook.md). Jupyter Notebook wordt in deze zelfstudie gebruikt.
-
-In Jupyter-notebooks in HDInsight-clusters worden drie kernels ondersteund: **PySpark**, **PySpark3** en **Spark**. In deze zelfstudie wordt de **PySpark**-kernel gebruikt. Zie [Use Jupyter notebook kernels with Apache Spark clusters in HDInsight](apache-spark-jupyter-notebook-kernels.md) (Jupyter-notebookkernels gebruiken met Apache Spark-clusters in HDInsight) voor meer informatie over de kernels en de voordelen van het gebruik van **PySpark**. Zie voor het gebruik van de Notebook Zeppelin [gebruiken Zeppelin-notebooks met Apache Spark in Azure HDInsight-cluster](./apache-spark-zeppelin-notebook.md).
-
-In deze zelfstudie maakt u een query gegevens in een csv-bestand. Eerst moet u die gegevens laden in Spark als een dataframe. Vervolgens kunt u query's uitvoeren op de dataframe met Jupyter-Notebook. 
+Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* **Een Azure HDInsight Spark-cluster**. Zie voor instructies [een Apache Spark-cluster maken in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* **Een Jupyter-notebook met behulp van de PySpark**. Zie voor instructies [maken van een Jupyter-Notebook](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
+* De snelstart [Een Apache Spark-cluster maken in Azure HDInsight](apache-spark-jupyter-spark-sql.md) uitvoeren.
 
-## <a name="create-a-dataframe-from-a-csv-file"></a>Een dataframe uit een csv-bestand maken
+## <a name="create-a-dataframe-from-a-csv-file"></a>Een gegevensframe maken van een CSV-bestand
 
-Met een SQLContext maken toepassingen dataframes van een bestaande RDD, een Hive-tabel of gegevensbronnen. 
+Toepassingen kunnen gegevensframes maken van een bestaande RDD (Resilient Distributed Dataset), van een Hive-tabel of van gegevensbronnen met behulp van het SQLContext-object. In de volgende schermafbeelding ziet u een momentopname van het bestand HVAC.csv dat wordt gebruikt in deze zelfstudie. Het CSV-bestand wordt geleverd met alle HDInsight Spark-clusters. De gegevens hebben betrekking op de schommelingen in temperatuur van sommige gebouwen.
+    
+![Momentopname van gegevens voor interactieve Spark SQL-query](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Momentopname van gegevens voor interactieve Spark SQL-query")
 
-**Een dataframe uit een csv-bestand maken**
 
-1. Maak een Jupyter-notebook met PySpark als u niet hebt. Zie voor instructies [maken van een Jupyter-Notebook](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
-
-2. Plak de volgende code in een lege cel van de notebook en druk vervolgens op **SHIFT + ENTER** de code uit te voeren. Met de code importeert u de typen die voor dit scenario zijn vereist:
+1. Open het Jupyter-notebook dat u hebt gemaakt in de snelstart die wordt vermeld bij Vereisten.
+2. Plak de volgende code in een lege cel van het notebook en druk op **Shift+Enter** om de code uit te voeren. Met de code importeert u de typen die voor dit scenario zijn vereist:
 
     ```PySpark
     from pyspark.sql import *
     from pyspark.sql.types import *
     ```
-    Met behulp van de PySpark-kernel een laptop, de Spark maken en Hive-worden contexten automatisch voor u gemaakt tijdens het uitvoeren van de eerste codecel. U hoeft niet expliciet contexten te maken.
 
-    Wanneer een interactieve query uitgevoerd in Jupyter, ziet u het bijschrift web browser venster of tabblad een **(bezet)** status samen met de notebooktitel. Ook ziet u een gevulde cirkel naast de **PySpark**-tekst in de rechterbovenhoek. Wanneer de taak is voltooid, verandert deze in een lege cirkel.
+    Wanneer u een interactieve query uitvoert in Jupyter, ziet u in het venster van de webbrowser of de titelbalk van het tabblad de status **(Busy)**, samen met de titel van het notebook. Ook ziet u een gevulde cirkel naast de **PySpark**-tekst in de rechterbovenhoek. Wanneer de taak is voltooid, verandert deze in een lege cirkel.
 
     ![Status van interactieve Spark SQL-query](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Status van interactieve Spark SQL-query")
 
-3. Voer de volgende code om een dataframe en een tijdelijke tabel te maken (**hvac**) door het uitvoeren van de volgende code: de code niet alle kolommen beschikbaar in het CSV-bestand extraheren. 
+3. Voer de volgende code uit om een gegevensframe en een tijdelijke tabel (**hvac**) te maken. Met de code worden niet alle kolommen geëxtraheerd die beschikbaar zijn in het CSV-bestand. 
 
     ```PySpark
     # Create an RDD from sample data
     hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
     
-    # Create a schema for our data
+    # Create a schema for the data
     Entry = Row('Date', 'Time', 'TargetTemp', 'ActualTemp', 'BuildingID')
     
     # Parse the data and create a schema
@@ -74,44 +71,54 @@ Met een SQLContext maken toepassingen dataframes van een bestaande RDD, een Hive
     dfw = DataFrameWriter(hvacTable)
     dfw.saveAsTable('hvac')
     ```
-    De volgende schermafbeelding ziet een momentopname van het bestand HVAC.csv. Het csv-bestand wordt geleverd met alle HDInsigt Spark-clusters. De gegevens worden vastgelegd variaties van de temperatuur van een gebouw.
 
-    ![Momentopname van gegevens voor interactieve Spark SQL-query](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "momentopname voor interactieve Spark SQL-query")
+    > [!NOTE]
+    > Door met behulp van de PySpark-kernel een notebook te maken, worden de SQL-contexten automatisch voor u gemaakt tijdens het uitvoeren van de eerste cel met code. U hoeft dus niet expliciet contexten te maken.
 
-## <a name="run-queries-on-the-dataframe"></a>Query's uitvoeren op de dataframe
+
+## <a name="run-queries-on-the-dataframe"></a>Query's uitvoeren op het gegevensframe
 
 Zodra de tabel is gemaakt, kunt u een interactieve query uitvoeren op de gegevens.
 
-**Een query uit te voeren**
-
-1. Voer de volgende code in een lege cel van de notebook:
+1. Voer de volgende code uit in een lege cel van de notebook:
 
     ```PySpark
     %%sql
     SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
     ```
 
-   Omdat de PySpark-kernel wordt gebruikt in de notebook, u kunt nu rechtstreeks een interactieve SQL query uitvoeren op de tijdelijke tabel **hvac** die u hebt gemaakt met behulp van de `%%sql` verwerkt Magic-pakket. Voor meer informatie over de `%%sql`-magic, en andere magics die voor de PySpark-kernel beschikbaar zijn, raadpleegt u [Beschikbare kernels op Jupyter-notebooks met HDInsight Spark-clusters](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+   Omdat de PySpark-kernel wordt gebruikt in het notebook, kunt u nu rechtstreeks een interactieve SQL-query uitvoeren op de tijdelijke tabel **hvac**.
 
-   Standaard wordt de volgende tabelvormige uitvoer weergegeven.
+   De uitvoer wordt weergegeven in een tabel.
 
      ![Tabeluitvoer van resultaat van interactieve Spark-query](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png "Tabeluitvoer van resultaat van interactieve Spark-query")
 
-3. U kunt de resultaten ook in andere visualisaties bekijken. U ziet een gebiedsgrafiek voor dezelfde uitvoer, selecteer **gebied** Stel u andere waarden, zoals wordt weergegeven.
+3. U kunt de resultaten ook in andere visualisaties bekijken. Als u een vlakdiagram wilt zien voor dezelfde uitvoer, selecteert u **Area** en stelt u de andere waarden in zoals deze worden weergegeven.
 
     ![Gebiedsgrafiek van resultaat van interactieve Spark-query](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Gebiedsgrafiek van resultaat van interactieve Spark-query")
 
-10. Van de **bestand** menu aan de laptop, klikt u op **opslaan en controlepunt**. 
+10. Klik in het menu **File** van het notitieblok op **Save and Checkpoint**. 
 
-11. Als u begint de [volgende zelfstudie](apache-spark-use-bi-tools.md) nu, laat u de notebook open. Als dit niet het geval is, sluit de notebook voor het vrijgeven van de clusterbronnen: van de **bestand** menu aan de laptop, klikt u op **sluiten en stoppen**.
+11. Als u direct verdergaat met de [volgende zelfstudie](apache-spark-use-bi-tools.md), laat u het notebook open. Anders sluit u het notebook om de clusterresources vrij te geven. Kies hiervoor **Close and Halt** on het menu **File** van het notebook.
 
-## <a name="next-step"></a>Volgende stap
+## <a name="clean-up-resources"></a>Resources opschonen
 
-In dit artikel hebt u geleerd hoe u interactieve query's uitvoeren in Spark met Jupyter-notebook. Ga naar het volgende artikel om te zien hoe de gegevens die u in Spark geregistreerd in een BI-hulpprogramma voor analyse zoals Power BI en Tableau kan worden opgevraagd. 
+Met HDInsight worden uw gegevens opgeslagen in Azure Storage of Azure Data Lake Store, zodat u een cluster veilig kunt verwijderen wanneer dit niet wordt gebruikt. Voor een HDInsight-cluster worden ook kosten in rekening gebracht, zelfs wanneer het niet wordt gebruikt. Aangezien de kosten voor het cluster vaak zoveel hoger zijn dan de kosten voor opslag, is het financieel gezien logischer clusters te verwijderen wanneer ze niet worden gebruikt. Als u direct verder wilt met de zelfstudie, is het beter om het cluster te behouden.
 
+Open het cluster in Azure Portal en selecteer **Verwijderen**.
+
+![HDInsight-cluster verwijderen](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "HDInsight-cluster verwijderen")
+
+U kunt ook de naam van de resourcegroep selecteren om de pagina van de resourcegroep te openen en vervolgens **Resourcegroep verwijderen** selecteren. Als u de resourcegroep verwijdert, verwijdert u zowel het HDInsight Spark-cluster als het standaardopslagaccount.
+
+## <a name="next-steps"></a>Volgende stappen
+
+In deze zelfstudie heeft u het volgende geleerd:
+
+* Een Spark-gegevensframe maken.
+* Spark SQL uitvoeren op het gegevensframe.
+
+Ga naar het volgende artikel om te zien hoe de gegevens die u hebt geregistreerd in Spark kunnen worden overgebracht naar een BI-hulpprogramma voor analyse zoals Power BI. 
 > [!div class="nextstepaction"]
->[Gebruik van de hulpmiddelen voor gegevensvisualisatie met Azure HDInsight Spark-BI](apache-spark-use-bi-tools.md)
-
-
-
+> [Gegevens analyseren met BI-tools](apache-spark-use-bi-tools.md)
 

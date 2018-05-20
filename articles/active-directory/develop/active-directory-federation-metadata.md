@@ -3,23 +3,25 @@ title: Azure AD-Federatiemetagegevens | Microsoft Docs
 description: Dit artikel wordt het document met federatieve metagegevens die Azure Active Directory publiceert voor services die Azure Active Directory-tokens accepteert.
 services: active-directory
 documentationcenter: .net
-author: dstrockis
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c2d5f80b-aa74-452c-955b-d8eb3ed62652
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 58e5f62009e4e8b688108c6098ea8eabe8020e51
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cfc79b451eafe7dcdd0b8f4285f92714138260bb
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="federation-metadata"></a>Federatieve metagegevens
 Azure Active Directory (Azure AD) publiceert een document met federatieve metagegevens voor services die is geconfigureerd voor het accepteren van de beveiligingstokens die Azure AD geeft. De indeling van federatieve metagegevens document wordt beschreven in de [Web Services Federation Language (WS-Federation) versie 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), die breidt [metagegevens voor de OASIS Security Assertion Markup Language (SAML) 2.0](http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).
@@ -41,12 +43,12 @@ Voor **tenantspecifieke eindpunten**, wordt de `TenantDomainName` een van de vol
 
 Voor **tenant-onafhankelijke eindpunten**, wordt de `TenantDomainName` is `common`. Dit document worden de Federatiemetagegevens-elementen die gemeenschappelijk zijn voor alle Azure AD-tenants die worden gehost op login.microsoftonline.com.
 
-Bijvoorbeeld, een eindpunt tenantspecifieke mogelijk `https://login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`. Het eindpunt van de tenant-onafhankelijke [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml). U kunt het document met federatieve metagegevens weergeven door deze URL te typen in een browser.
+Bijvoorbeeld, een eindpunt tenantspecifieke mogelijk `https://login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`. Het eindpunt van de tenant-onafhankelijke [ https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml ](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml). U kunt het document met federatieve metagegevens weergeven door deze URL te typen in een browser.
 
 ## <a name="contents-of-federation-metadata"></a>Inhoud van de federatieve metagegevens
 De volgende sectie bevat informatie die door services die de tokens die zijn uitgegeven door Azure AD gebruiken die nodig is.
 
-### <a name="entity-id"></a>Entiteit-ID
+### <a name="entity-id"></a>Entiteits-id
 De `EntityDescriptor` element bevat een `EntityID` kenmerk. De waarde van de `EntityID` kenmerk vertegenwoordigt de verlener, dat wil zeggen, de beveiligingstokenservice (STS) die het token heeft uitgegeven. Het is belangrijk om te valideren van de verlener wanneer u een token ontvangt.
 
 De volgende metagegevens toont een voorbeeld van een tenantspecifieke `EntityDescriptor` element met een `EntityID` element.

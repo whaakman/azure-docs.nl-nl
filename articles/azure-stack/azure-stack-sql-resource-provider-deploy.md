@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 70b07cae9a1dc8b45e27f95e19fbc84f06a0b6d3
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 20b289c16a73bd20ed020987116975c8abe893f0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>SQL-databases op Microsoft Azure-Stack gebruiken
 De resourceprovider Azure Stack SQL Server gebruiken om SQL-databases als een service van Azure-Stack weer te geven. De SQL resource provider-service wordt uitgevoerd op de SQL-resourceprovider virtuele machine een virtuele machine van Windows Server core is.
@@ -73,6 +73,8 @@ U kunt deze parameters opgeven op de opdrachtregel. Als u dit niet doet, of als 
 | **Verwijderen** | Hiermee verwijdert u de resourceprovider en alle bijbehorende resources (Zie de volgende opmerkingen). | Nee |
 | **Fouten opsporen-modus** | Voorkomt dat automatisch opschonen bij fouten. | Nee |
 
+>[!NOTE]
+> SKU's kunnen een uur duren zichtbaar in de portal. U kunt een database kan niet maken, tot de SKU is gemaakt.
 
 
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>De SQL-resourceprovider met een aangepast script implementeren

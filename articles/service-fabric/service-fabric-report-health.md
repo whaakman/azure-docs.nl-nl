@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: oanapl
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0a00a7d2-510e-47d0-8aa8-24c851ea847f
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 1cd429ed8252573f8e8c3ed11d6c841cba855b52
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 3eccb6ba18e6689c3726c8d930279b8a85ab1c92
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Aangepaste statusrapporten van Service Fabric toevoegen
 Azure Service Fabric introduceert een [statusmodel](service-fabric-health-introduction.md) ontworpen om te markeren slecht cluster en de voorwaarden van toepassing op specifieke entiteiten. Maakt gebruik van het statusmodel **health rapporteurs** (onderdelen van het systeem en watchdogs). Het doel is snel en gemakkelijk diagnose en herstel. Schrijvers van de service moeten om na te denken over status vooraf. Een voorwaarde die van invloed kan status moet worden gerapporteerd, vooral als deze vlag problemen dicht bij de hoofdmap kan helpen. Statusgegevens bespaart tijd en moeite op onderzoek naar en foutopsporing. Het nut vooral duidelijk is wanneer de service actief op de gewenste schaal in de cloud is (particulier of Azure).

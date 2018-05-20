@@ -10,15 +10,13 @@ ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: aa803e823eb3096ea785f1f912293cae82c24b8d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 29b662aa2f30083b444483554a78d53f0d05cb7f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="tuning-azure-data-lake-store-for-performance"></a>Azure Data Lake Store voor prestaties afstemmen
 
@@ -66,7 +64,7 @@ Analytics-engines zoals HDInsight en Azure Data Lake Analytics hebben doorgaans 
 
 Uw gegevens in het algemeen zijn ingedeeld in grotere grootte bestanden voor betere prestaties.  Als een vuistregel organiseert gegevenssets in bestanden van 256MB of hoger. In sommige gevallen, zoals afbeeldingen en binaire gegevens is het niet mogelijk ze parallel te verwerken.  In dergelijke gevallen is het aanbevolen om minder dan 2GB voor afzonderlijke bestanden te houden.
 
-Soms beperkt gegevenspijplijnen controle over de onbewerkte gegevens met een groot aantal kleine bestanden.  Het is raadzaam een 'koken' proces die grotere bestanden moet worden gebruikt voor downstream toepassingen worden gegenereerd.  
+Soms beperkt gegevenspijplijnen controle over de onbewerkte gegevens met een groot aantal kleine bestanden.  Het is raadzaam een 'koken' proces die grotere bestanden moet worden gebruikt voor downstream toepassingen worden gegenereerd.
 
 ### <a name="organizing-time-series-data-in-folders"></a>Time Series-gegevens in mappen ordenen
 
@@ -123,7 +121,7 @@ Er zijn drie lagen in een HDInsight-cluster kunnen worden afgestemd Verhoog het 
 
 Afhankelijk van uw werkbelasting moet altijd er een YARN container minimumgrootte die nodig is. Als u een container te klein kiest, worden de taken worden uitgevoerd in-geheugen problemen. Doorgaans moet YARN containers niet kleiner zijn dan 1GB. Het is gebruikelijk om te zien van 3GB YARN containers. Voor sommige werkbelastingen moet u grotere YARN-containers.  
 
-**Kernen per YARN-container verhogen.**  Verhoog het aantal kernen dat is toegewezen aan elke container om het aantal parallelle taken die worden uitgevoerd in elke container te vergroten.  Dit werkt voor toepassingen zoals Spark die meerdere taken per container worden uitgevoerd.  Voor toepassingen zoals Hive die een enkele thread in elke container worden uitgevoerd, is het beter om meer containers in plaats van meer kernen per container hebt.   
+**Kernen per YARN-container verhogen.**  Verhoog het aantal kernen dat is toegewezen aan elke container om het aantal parallelle taken die worden uitgevoerd in elke container te vergroten.  Dit werkt voor toepassingen zoals Spark die meerdere taken per container worden uitgevoerd.  Voor toepassingen zoals Hive die een enkele thread in elke container worden uitgevoerd, is het beter om meer containers in plaats van meer kernen per container hebt.
 
 ### <a name="workload-layer"></a>Laag van de werkbelasting
 

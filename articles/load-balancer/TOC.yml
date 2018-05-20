@@ -49,7 +49,7 @@
 - name: Procedures
   items:
     - name: Een zoneredundante openbare load balancer van het type Standard maken
-      href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
+      href: load-balancer-get-started-internet-az-portal.md
       items:
         - name: Een zoneredundante openbare load balancer van het type Standard maken (PowerShell)
           href: load-balancer-get-started-internet-az-powershell.md

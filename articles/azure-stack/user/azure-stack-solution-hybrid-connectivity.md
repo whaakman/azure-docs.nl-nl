@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 8b5f59d3fea402efa50bdafd7fc0439a93051e69
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 048e2636aabe406728c8fe1b93ef861f13346256
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>Zelfstudie: hybride cloud-verbindingen configureren met Azure en Azure-Stack
 
@@ -93,7 +93,7 @@ Specificaties voor verbinding:
 
 ## <a name="create-a-virtual-network-in-global-azure-and-azure-stack"></a>Een virtueel netwerk maken in globale Azure en Azure-Stack
 
-> [!note]  
+> [!Note]  
 > U moet ervoor zorgen dat er geen overlapping van IP-adressen in Azure of Stack Azure vNet-adresruimten is. 
 
 Een vNet maken in het Resource Manager-implementatiemodel met behulp van de Azure-portal. Gebruik de [voorbeeldwaarden](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#values) als u deze stappen uitvoert als onderdeel van een zelfstudie. Als u deze stappen niet uitvoert als onderdeel van een zelfstudie, vervangt u de waarden door die van uzelf. 
@@ -129,7 +129,7 @@ Navigeer in de [portal](http://portal.azure.com/) naar het virtuele netwerk van 
         - Klik op **+ nieuw** openen de **openbare IP-adres maken** pagina.
         - Voer een **naam** voor uw openbare IP-adres. Laat de SKU als **Basic**, selecteer daarna **OK** onder aan deze pagina uw wijzigingen op te slaan.
 
-    > [!note]  
+    > [!Note]  
     > VPN-Gateway ondersteunt momenteel alleen dynamische openbare IP-adrestoewijzing. Dit betekent echter niet dat het IP-adres wordt gewijzigd nadat het aan uw VPN Gateway is toegewezen. Het openbare IP-adres verandert alleen wanneer de gateway wordt verwijderd en opnieuw wordt gemaakt. Het verandert niet wanneer de grootte van uw VPN Gateway verandert, wanneer deze gateway opnieuw wordt ingesteld of wanneer andere interne onderhoudswerkzaamheden of upgrades worden uitgevoerd.
 
 4. Controleer de instellingen. 

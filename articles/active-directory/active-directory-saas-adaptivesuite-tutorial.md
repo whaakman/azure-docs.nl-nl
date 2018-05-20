@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 8e128ddf53a93fe30350d8e914657f3539701603
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0932eea407ea6dbb43760c2e64c49be802363360
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adaptive-suite"></a>Zelfstudie: Azure Active Directory-integratie met adaptieve Suite
 
@@ -110,11 +110,17 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-adaptivesuite-tutorial/tutorial_adaptivesuite_url.png)
 
-    In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
+    In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
 
     >[!NOTE]
     > U kunt deze waarde niet ophalen uit de adaptieve Suite **SAML SSO instellingen** pagina.
-    >  
+    >
+    
+    Controleer de **weergeven geavanceerde instellingen voor URL** vak. In de **id (entiteit-ID)** textbox, typt u de dezelfde URL die u hebt ingevoerd in de **antwoord-URL** textbox.
+    
+    >[!NOTE]
+    > De entiteit-ID voor elk domein adaptieve Insights is hetzelfde als de antwoord-URL.
+    >
 
 4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **certificaat (Base64)** en sla het certificaatbestand op uw computer.
 
@@ -261,7 +267,7 @@ Het doel van deze sectie is het testen van uw Microsoft Azure AD Single Sign-On 
 Als u op de tegel adaptieve Suite in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing adaptieve Suite.
 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/24/2018
 ms.author: sedusch
-ms.openlocfilehash: 5bc578d617edd093a3b7eec7903209bfdb9ebfce
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1965438e64af84d0c808b0684f9e81c797193bff
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Hoge beschikbaarheid van SAP HANA op Azure virtuele Machines (VM's)
 
@@ -228,10 +228,10 @@ De volgende items worden voorafgegaan door een **[A]** - van toepassing op alle 
        sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
        </code></pre>
        
-       De logische volumes maken
+        De logische volumes maken. Lineaire volume wordt gemaakt wanneer u lvcreate zonder -i overschakelen. We raden aan om striped volumes maken voor betere i/o-prestaties, de i - argument moet hetzelfde zijn als het aantal onderliggende fysieke volume. In dit document 2 fysieke volumes worden gebruikt voor gegevensvolume, zodat de -i overschakelen argument 2. 1 fysieke volume wordt gebruikt voor logboekvolume dus geen i - switch expliciet wordt gebruikt. Gebruik -i switch en het nummer op onderliggende fysieke volume aantal vervangen wanneer u meer dan 1 fysieke volume voor elke gegevens, logboek of gedeelde volumes gebruikt.
 
        <pre><code>
-       sudo lvcreate -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
+       sudo lvcreate <b>-i 2</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
        sudo lvcreate -l 100%FREE -n hana_log vg_hana_log_<b>HN1</b>
        sudo lvcreate -l 100%FREE -n hana_shared vg_hana_shared_<b>HN1</b>
        sudo mkfs.xfs /dev/vg_hana_data_<b>HN1</b>/hana_data

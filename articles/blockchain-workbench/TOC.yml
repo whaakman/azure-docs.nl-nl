@@ -1,6 +1,7 @@
 - name: Azure Blockchain Workbench (openbare review)
   href: index.yml
 - name: Overzicht
+  expanded: true
   items:
     - name: Over Azure Blockchain Workbench
       href: blockchain-workbench-overview.md
@@ -11,13 +12,14 @@
     - name: Integratiepatronen
       href: blockchain-workbench-integration-patterns.md
 - name: Handleidingen
+  expanded: true
   items:
     - name: Workbench implementeren
       href: blockchain-workbench-deploy.md
-    - name: Workbench-gebruikers beheren
-      href: blockchain-workbench-manage-users.md
     - name: Een blockchain-app maken
       href: blockchain-workbench-create-app.md
+    - name: Workbench-gebruikers beheren
+      href: blockchain-workbench-manage-users.md
     - name: Een blockchain-app gebruiken
       href: blockchain-workbench-use.md
     - name: Workbench-API gebruiken

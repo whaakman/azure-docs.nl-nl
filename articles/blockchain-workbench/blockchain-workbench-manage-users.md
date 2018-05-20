@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 440072a94ff7146ebcdb242a058ab48b434714f9
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 80f20e438b1d923e688aeef9e6b353642bd74c27
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>Gebruikers in Azure Blockchain Workbench beheren
 
@@ -43,9 +43,9 @@ Ga naar [Azure AD](../active-directory/add-users-azure-active-directory.md) docu
 
 ## <a name="manage-blockchain-workbench-administrators"></a>Blockchain Workbench beheerders beheren
 
-Nadat gebruikers zijn toegevoegd aan de directory, wordt de volgende stap is om te kiezen Blockchain Workbench beheerders zijn. Gebruikers in de **beheerders** groep zijn gekoppeld aan de **toepassing beheerdersrol** in Blockchain Workbench. Beheerders kunnen toevoegen of verwijderen van gebruikers, gebruikers toewijzen aan specifieke scenario's en maak nieuwe toepassingen.
+Nadat gebruikers zijn toegevoegd aan de directory, wordt de volgende stap is om te kiezen Blockchain Workbench beheerders zijn. Gebruikers in de **beheerder** groep zijn gekoppeld aan de **toepassing beheerdersrol** in Blockchain Workbench. Beheerders kunnen toevoegen of verwijderen van gebruikers, gebruikers toewijzen aan specifieke scenario's en maak nieuwe toepassingen.
 
-Gebruikers toevoegen aan de **beheerders** groep in de Azure AD-map:
+Gebruikers toevoegen aan de **beheerder** groep in de Azure AD-map:
 
 1.  Meld u aan bij [Azure Portal](https://portal.azure.com).
 2.  Controleer of dat u zich in de Azure AD-tenant die is gekoppeld aan Blockchain Workbench door uw account selecteren in de rechterbovenhoek.

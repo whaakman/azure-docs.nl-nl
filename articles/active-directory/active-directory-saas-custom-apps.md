@@ -15,18 +15,18 @@ ms.date: 01/20/2018
 ms.author: asmalser
 ms.reviewer: luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e161bb308f08e2a7c137c696e77bf1dfb86e8d31
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 8b76809e615174e7c4e118c6043c8f3fbef3ee94
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="configuring-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Configuring single sign-on to applications that are not in the Azure Active Directory application gallery (Eenmalige aanmelding configureren voor toepassingen die zich niet in de Azure Active Directory-toepassingsgalerie bevinden)
-Dit artikel is over een functie waarmee beheerders voor het configureren van eenmalige aanmelding tot toepassingen die niet aanwezig in de app-galerie van Azure Active Directory *zonder code te schrijven*. Deze functie werd uitgebracht van technical preview op 18 November 2015 en is opgenomen in [Azure Active Directory Premium](active-directory-editions.md). Als u in plaats daarvan-handleiding voor ontwikkelaars over het integreren van aangepaste apps met Azure AD via code zoekt, Zie [verificatie scenario's voor Azure AD](active-directory-authentication-scenarios.md).
+Dit artikel is over een functie waarmee beheerders voor het configureren van eenmalige aanmelding tot toepassingen die niet aanwezig in de app-galerie van Azure Active Directory *zonder code te schrijven*. Deze functie werd uitgebracht van technical preview op 18 November 2015 en is opgenomen in [Azure Active Directory Premium](active-directory-whatis.md). Als u in plaats daarvan-handleiding voor ontwikkelaars over het integreren van aangepaste apps met Azure AD via code zoekt, Zie [verificatie scenario's voor Azure AD](active-directory-authentication-scenarios.md).
 
 De Azure Active Directory-toepassingsgalerie biedt een overzicht van toepassingen die bekend zijn bij het ondersteunen van een vorm van eenmalige aanmelding bij Azure Active Directory, zoals beschreven in [in dit artikel](active-directory-appssoaccess-whatis.md). Als u (als een IT infrastructuurspecialist of system integrator in uw organisatie) hebt gevonden dat de toepassing die u wilt verbinden, u kunt aan de slag door de stapsgewijze instructies die zijn gepresenteerd in de Azure-portal voor eenmalige aanmelding inschakelen.
 
-Klanten met [Azure Active Directory Premium](active-directory-editions.md) licentie ook krijgen deze aanvullende mogelijkheden:
+Klanten met [Azure Active Directory Premium](active-directory-whatis.md) licentie ook krijgen deze aanvullende mogelijkheden:
 
 * Selfservice integratie van alle toepassingen die ondersteuning biedt voor SAML 2.0 id-providers (Serviceprovider geïnitieerde of IdP gestart)
 * Integratie van een webtoepassing met een op basis van een HTML-aanmeldingspagina met selfservice [eenmalige aanmelding op basis van wachtwoorden](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)
@@ -110,7 +110,7 @@ Voor informatie over het toevoegen en bewerken van claims voor deze scenario's, 
 ### <a name="testing-the-saml-application"></a>De SAML-toepassing testen
 Zodra de SAML-URL's en het certificaat zijn geconfigureerd in Azure AD en in de toepassing, gebruikers of groepen zijn toegewezen aan de toepassing in Azure, en de claims hebt bekeken en bewerkt, indien nodig, wordt de gebruiker zich aanmeldt bij de toepassing gereed is. 
 
-Om te testen, gewoon sign-in het Azure AD-Toegangsvenster op https://myapps.microsoft.com met een gebruikersaccount die u hebt toegewezen aan de toepassing en klik vervolgens op de tegel voor de toepassing op ere van het proces voor eenmalige aanmelding. U kunt ook rechtstreeks naar de aanmeldings-URL voor de toepassing en aanmelden bladeren daar. 
+Om te testen, gewoon aanmelden in de Azure AD-Toegangsvenster op https://myapps.microsoft.com met behulp van een gebruikersaccount die u hebt toegewezen aan de toepassing en klik vervolgens op de tegel voor de toepassing op ere van het proces voor eenmalige aanmelding. U kunt ook rechtstreeks naar de aanmeldings-URL voor de toepassing en aanmelden bladeren daar. 
 
 Zie voor foutopsporing tips, [artikel op fouten opsporen in op basis van SAML eenmalige aanmelding tot toepassingen](active-directory-saml-debugging.md) 
 
@@ -130,7 +130,7 @@ Na het selecteren van **volgende**, wordt u gevraagd de URL van de toepassing ko
 
 Opmerking: U kunt een logo in tegel voor de toepassing met uploaden de **Logo uploaden** knop op de **configureren** tabblad voor de toepassing.
 
-## <a name="related-articles"></a>Gerelateerde artikelen
+## <a name="related-articles"></a>Verwante artikelen
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md) (Artikelindex voor toepassingsbeheer in Azure Active Directory)
 * [Het aanpassen van uitgegeven Claims in het SAML-Token voor vooraf geïntegreerde Apps](active-directory-saml-claims-customization.md)
 * [Het oplossen van problemen op basis van SAML eenmalige aanmelding](active-directory-saml-debugging.md)

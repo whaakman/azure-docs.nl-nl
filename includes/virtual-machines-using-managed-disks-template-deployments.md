@@ -216,4 +216,4 @@ Als u wilt zoeken in volledige informatie over de REST-API-specificaties, Contro
 * Ga naar de [overzicht van Azure schijven beheerd](../articles/virtual-machines/windows/managed-disks-overview.md) document voor meer informatie over beheerde schijven.
 * De sjabloon-naslagdocumentatie voor bronnen voor virtuele machines controleren in via de [Microsoft.Compute/virtualMachines sjabloonverwijzing](/azure/templates/microsoft.compute/virtualmachines) document.
 * Bekijk de naslagdocumentatie over de sjabloon voor de schijfbronnen in via de [Microsoft.Compute/disks sjabloonverwijzing](/azure/templates/microsoft.compute/disks) document.
- 
+* Voor informatie over het gebruik van beheerde schijven in de Azure VM Scale ingesteld, gaat u naar de [gegevensschijven gebruiken met schaalsets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md) document.

@@ -3,22 +3,24 @@ title: Migreren van de service Azure Access Control | Microsoft Docs
 description: Opties voor het verplaatsen van apps en services van de Azure Access Control-service
 services: active-directory
 documentationcenter: dev-center-name
-author: dstrockis
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/14/2017
-ms.author: dastrock
-ms.openlocfilehash: 6c22f85d3e76a005c45a4679ddfd8948a46acffc
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: celested
+ms.reviewer: dastrock
+ms.openlocfilehash: c1c86f21d5a99cf251b0b83f41576c2cdaf96dfb
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Migreren van de Azure Access Control-service
 
@@ -71,7 +73,7 @@ Hier wordt het schema voor bestandstypen Access Control-onderdelen:
 - **7 november 2018**: alle Access Control-onderdelen, permanent worden afgesloten. Dit omvat de Access Control-beheerportal, de beheerservice, STS en de token transformatie-engine voor regel. Op dit moment geen verzoeken verzonden naar de Access Control (te vinden op \<naamruimte\>. accesscontrol.windows.net) mislukken. U moet hebt gemigreerd alle bestaande apps en services voor andere technologieën voor deze tijd ook.
 
 
-## <a name="migration-strategies"></a>Strategieën voor migratie
+## <a name="migration-strategies"></a>Migratiestrategieën
 
 De volgende secties worden op hoog niveau aanbevelingen voor het migreren van toegangsbeheer voor andere Microsoft-technologieën.
 
@@ -252,7 +254,7 @@ In dergelijke gevallen wilt u mogelijk moet u uw webtoepassing op een andere clo
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) is een flexibele cloud identity-service die is gemaakt [op hoog niveau migratie richtlijnen voor klanten van toegangsbeheer](https://auth0.com/acs), en ondersteunt bijna elke functie heeft van ACS. |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping-identiteit](https://www.pingidentity.com) biedt twee oplossingen die vergelijkbaar is met ACS. PingOne wordt een identiteit met een cloudservice die ondersteuning biedt voor veel van dezelfde functies als ACS en PingFederate is een vergelijkbaar on-premises identity product die meer flexibiliteit biedt. Raadpleeg [Ping de ACS buiten gebruik stellen richtlijnen](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) voor meer informatie over het gebruik van deze producten.  |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping-identiteit](https://www.pingidentity.com) biedt twee oplossingen die vergelijkbaar is met ACS. PingOne wordt een identiteit met een cloudservice die ondersteuning biedt voor veel van dezelfde functies als ACS en PingFederate is een vergelijkbaar on-premises identity product die meer flexibiliteit biedt. Raadpleeg [Ping de ACS buiten gebruik stellen richtlijnen](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) voor meer informatie over het gebruik van deze producten. |
 
 Ons doel voor het werken met Ping identiteits- en Auth0 is om ervoor te zorgen dat alle klanten van toegangsbeheer een migratiepad voor hun apps en services die minimaliseert de hoeveelheid werk dat nodig is voor het verplaatsen van toegangsbeheer.
 
@@ -277,7 +279,7 @@ Voor de webservices die zijn beveiligd met tokens die zijn uitgegeven door toega
 - Ondersteuning voor de volgende indelingen token: JWT, SAML 1.1 SAML 2.0 en SWT.
 - Eenvoudige token transformatie-regels.
 
-Service-identiteiten in de Access Control worden meestal gebruikt voor het implementeren van server naar server-verificatie.  
+Service-identiteiten in de Access Control worden meestal gebruikt voor het implementeren van server naar server-verificatie. 
 
 #### <a name="migrate-to-azure-active-directory"></a>Migreren naar Azure Active Directory
 
@@ -291,7 +293,7 @@ U kunt ook Azure AD gebruiken voor verificatie van de server naar server met beh
 | Het registreren van een client | Maken van een service-identiteit in de Access Control-beheerportal | Een andere Azure AD-webtoepassing maken in de Azure portal |
 | Protocol dat wordt gebruikt |-OAuth WRAP protocol<br />-De referenties van de client OAuth 2.0-concept 13 verlenen | OAuth 2.0-clientreferenties verlenen |
 | Methoden voor clientverificatie |-Eenvoudig wachtwoord<br />-Ondertekende SWT<br />-SAML-token van een federatieve identiteiten-provider |-Eenvoudig wachtwoord<br />-Ondertekende JWT |
-| Token indelingen |-JWT<br />-SAML 1.1<br />- SAML 2.0<br />- SWT<br /> | Alleen JWT |
+| Token indelingen |-JWT<br />-SAML 1.1<br />-SAML 2.0<br />-SWT<br /> | Alleen JWT |
 | Token transformatie |-Aangepaste claims toevoegen<br />-Eenvoudig als dan claimuitgifte logica | Aangepaste claims toe te voegen | 
 | Configureren en beheren van taken automatiseren | Ondersteund via Access Control-Management-Service | Ondersteund via Microsoft Graph en Azure AD Graph API |
 
@@ -314,7 +316,7 @@ In dergelijke gevallen kunt u uw webtoepassing op een andere cloud authenticatio
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) is een flexibele cloud identity-service die is gemaakt [op hoog niveau migratie richtlijnen voor klanten van toegangsbeheer](https://auth0.com/acs), en ondersteunt bijna elke functie heeft van ACS. |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping-identiteit](https://www.pingidentity.com) biedt twee oplossingen die vergelijkbaar is met ACS. PingOne wordt een identiteit met een cloudservice die ondersteuning biedt voor veel van dezelfde functies als ACS en PingFederate is een vergelijkbaar on-premises identity product die meer flexibiliteit biedt. Raadpleeg [Ping de ACS buiten gebruik stellen richtlijnen](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) voor meer informatie over het gebruik van deze producten.  |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping-identiteit](https://www.pingidentity.com) biedt twee oplossingen die vergelijkbaar is met ACS. PingOne wordt een identiteit met een cloudservice die ondersteuning biedt voor veel van dezelfde functies als ACS en PingFederate is een vergelijkbaar on-premises identity product die meer flexibiliteit biedt. Raadpleeg [Ping de ACS buiten gebruik stellen richtlijnen](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) voor meer informatie over het gebruik van deze producten. |
 
 Ons doel voor het werken met Ping identiteits- en Auth0 is om ervoor te zorgen dat alle klanten van toegangsbeheer een migratiepad voor hun apps en services die minimaliseert de hoeveelheid werk dat nodig is voor het verplaatsen van toegangsbeheer.
 

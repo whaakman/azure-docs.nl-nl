@@ -8,18 +8,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: nepeters
-ms.openlocfilehash: d03f906f0cf4d22772388a589424877d8bb2f8ce
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 3152dc69bc8fb9a94111f85976e5d999c4b18261
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Veelgestelde vragen over Azure Kubernetes Service (AKS)
 
 Dit artikel adressen regelmatige vragen over Azure Kubernetes Service (AKS).
 
 > [!IMPORTANT]
-> AKS (Azure Kubernetes Service) is momenteel in de **preview-fase**. Previews worden voor u beschikbaar gesteld op voorwaarde dat u akkoord gaat met de [aanvullende gebruiksvoorwaarden](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Sommige aspecten van deze functionaliteit kunnen wijzigen voordat deze functionaliteit algemeen beschikbaar wordt.
+> AKS (Azure Kubernetes Service) is momenteel in **preview**. Previews worden voor u beschikbaar gesteld op voorwaarde dat u akkoord gaat met de [aanvullende gebruiksvoorwaarden](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Sommige aspecten van deze functionaliteit kunnen wijzigen voordat deze functionaliteit algemeen beschikbaar wordt.
 >
 
 ## <a name="which-azure-regions-provide-the-azure-kubernetes-service-aks-today"></a>Welke Azure-regio's bieden vandaag de dag van de Azure Kubernetes Service (AKS)?
@@ -60,7 +60,7 @@ Nee, RBAC wordt momenteel niet ondersteund in AKS maar is binnenkort beschikbaar
 
 ## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>Kan ik AKS implementeren in mijn bestaande virtuele netwerk?
 
-Nee, dit is nog niet beschikbaar, maar zal binnenkort beschikbaar.
+Ja, dit wordt ondersteund door de [geavanceerde netwerken functie](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/aks/networking-overview.md).
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Is Azure Sleutelkluis geïntegreerd met AKS?
 
@@ -68,7 +68,7 @@ Nee, is het niet, maar deze integratie is gepland. In de tussentijd uitproberen 
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>Kan ik Windows Server-containers op AKS uitvoeren?
 
-Nee, AKS biedt momenteel geen agent op basis van Windows Server-knooppunten, zodat u Windows Server-containers niet uitvoeren. Als u uitvoeren van Windows Server-containers op Kubernetes in Azure wilt, raadpleegt u de [documentatie voor acs-engine](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
+Windows Server-containers, hebt u nodig om uit te voeren op basis van Windows Server-knooppunten. Windows Server gebaseerde knooppunten zijn geopend in [private preview](https://azure.microsoft.com/en-us/blog/kubernetes-on-azure/). Als u Windows Server-containers op Kubernetes in Azure uitgevoerd buiten de preview moet, raadpleegt u de [documentatie voor acs-engine](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>Waarom worden twee resourcegroepen met AKS gemaakt?
 

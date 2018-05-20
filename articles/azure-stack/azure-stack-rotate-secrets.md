@@ -6,20 +6,19 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 49071044-6767-4041-9EDD-6132295FA551
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 05/15/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: a158da6fb397b864a439e067ca99d79814e2b8d2
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a3dfce6ce1b136e39047cfd47b336b2fb2a35af9
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Geheimen in Azure-Stack draaien
 
@@ -49,6 +48,24 @@ Certificaten van de infrastructuur-service voor extern gerichte services die wor
 
 Operators moeten om de integriteit van de Azure-Stack-infrastructuur te behouden, de mogelijkheid om terug te draaien regelmatig hun infrastructuur geheimen op frequenties die consistent met de beveiligingsvereisten van hun organisatie zijn.
 
+### <a name="rotating-secrets-with-external-certificates-from-a-new-certificate-authority"></a>Geheimen met externe certificaten van een nieuwe certificeringsinstantie draaien
+
+Azure-Stack ondersteunt geheime wisselen met externe certificaten van een nieuwe certificeringsinstantie (CA) in de volgende situaties:
+
+|Geïnstalleerde certificaat CA|CA om terug te draaien|Ondersteund|Azure Stack-versies die worden ondersteund|
+|-----|-----|-----|-----|-----|
+|Van zelf-ondertekend|Naar de onderneming|Niet ondersteund||
+|Van zelf-ondertekend|Voor zelf-ondertekend|Niet ondersteund||
+|Van zelf-ondertekend|Naar openbaar<sup>*</sup>|Ondersteund|1803 & hoger|
+|Van Enterprise|Naar de onderneming|Ondersteund zolang klanten de dezelfde ondernemings-CA gebruiken zoals gebruikt bij de implementatie|1803 & hoger|
+|Van Enterprise|Voor zelf-ondertekend|Niet ondersteund||
+|Van Enterprise|Naar openbaar<sup>*</sup>|Ondersteund|1803 & hoger|
+|Van publiek<sup>*</sup>|Naar de onderneming|Niet ondersteund|1803 & hoger|
+|Van publiek<sup>*</sup>|Voor zelf-ondertekend|Niet ondersteund||
+|Van publiek<sup>*</sup>|Naar openbaar<sup>*</sup>|Ondersteund|1803 & hoger|
+
+<sup>*</sup> Hier volgen openbare certificeringsinstanties die deel van de vertrouwde basis-programma van Windows uitmaken. U vindt de volledige lijst [Microsoft Trusted Root Certificate Program: deelnemers (vanaf 27 juni 2017)](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+
 ## <a name="alert-remediation"></a>Waarschuwing herstel
 
 Wanneer geheimen binnen 30 dagen na de vervaldatum zijn, worden de volgende waarschuwingen gegenereerd in de Beheerdersportal: 
@@ -74,7 +91,7 @@ Geheime rotatie van de onderstaande instructies wordt uitgevoerd, wordt deze waa
 
 ## <a name="rotating-external-and-internal-secrets"></a>Externe en interne geheimen draaien
 
-Een interne geheimen voor zowel extern draaien:
+Beide externe een interne geheim draaien:
 
 1. Binnen het zojuist gemaakte **certificaten** map gemaakt in de stappen vóór de nieuwe set van externe certificaten vervangen in de mapstructuur volgens de notatie die wordt beschreven in de sectie verplichte certificaten plaatsen van de [Azure Stack PKI-certificaatvereisten](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates).
 2. Maken van een PowerShell-sessie met de [bevoegde eindpunt](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint) met behulp van de **CloudAdmin** account en de sessies opslaan als een variabele. Als de parameter in de volgende stap gebruikt u deze variabele.
@@ -139,7 +156,7 @@ De cmdlet Start-SecretRotation draait geheimen van de infrastructuur van een Azu
 
 | Parameter | Type | Vereist | Positie | Standaard | Beschrijving |
 | -- | -- | -- | -- | -- | -- |
-| PfxFilesPath | Tekenreeks  | False  | Met de naam  | Geen  | Het fileshare-pad naar de **\Certificates** map met alle externe eindpunt certificaten het netwerk. Alleen vereist wanneer de interne en externe geheimen draaien. Einde map moet **\Certificates**. |
+| PfxFilesPath | Reeks  | False  | Met de naam  | Geen  | Het fileshare-pad naar de **\Certificates** map met alle externe eindpunt certificaten het netwerk. Alleen vereist wanneer de interne en externe geheimen draaien. Einde map moet **\Certificates**. |
 | CertificatePassword | SecureString | False  | Met de naam  | Geen  | Het wachtwoord voor alle certificaten die zijn opgegeven in de PfXFilesPath. Waarde is vereist als PfxFilesPath wordt verstrekt wanneer zowel interne als externe geheimen worden gedraaid. |
 |
 

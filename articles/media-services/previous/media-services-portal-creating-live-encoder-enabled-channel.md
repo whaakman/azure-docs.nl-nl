@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 4f512d906f9d35efbc602b104d8742bdedba7261
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b9ac1696594ab9f7cb67bb0e340c6a80158e67e2
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Live streamen met Azure Media Services om multi-bitrate streams te maken met Azure Portal
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Hieronder volgen de algemene stappen voor het maken van veelvoorkomende toepassi
 > 
 > 
 
-1. Sluit een videocamera aan op een computer. Start en configureer een on-premises livecoderingsprogramma dat een single-bitrate stream in een van de volgende protocollen kan uitvoeren: RTMP, Smooth Streaming of RTP (MPEG-TS). Zie [Azure Media Services RTMP-ondersteuning en live coderingsprogramma's](http://go.microsoft.com/fwlink/?LinkId=532824) voor meer informatie.
+1. Sluit een videocamera aan op een computer. Start en configureer een on-premises livecoderingsprogramma dat een single-bitrate stream in een van de volgende protocollen kan uitvoeren: RTMP of Smooth Streaming. Zie [Azure Media Services RTMP-ondersteuning en live coderingsprogramma's](http://go.microsoft.com/fwlink/?LinkId=532824) voor meer informatie.
    
     Deze stap kan ook worden uitgevoerd nadat u uw kanaal hebt gemaakt.
 2. Maak en start een kanaal. 
@@ -95,7 +95,6 @@ Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien.
       
       * Single-bitrate Fragmented MP4 (Smooth Streaming);
       * Single-bitrate RTMP;
-      * RTP (MPEG-TS): MPEG-2-transportstroom via RTP.
         
         Zie [Live streamen met Azure Media Services om multi-bitrate streams te maken](media-services-manage-live-encoder-enabled-channels.md) voor een gedetailleerde beschrijving van de protocollen.
         

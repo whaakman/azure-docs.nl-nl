@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 09f3bf3726a4a359d8c54d45843b08871d82f159
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 97a77de2fe1111f0a65b5325a5db96ad30f40f15
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory bewijs van concept playbook: bouwstenen
 
@@ -241,11 +241,11 @@ Geschatte tijd om te voltooien: 20 minuten
 
 | Vereiste | Resources |
 | --- | --- |
-| Een Microsoft Azure AD basic of premium-abonnement en een Azure AD-directory waarvoor u een globale beheerder bent | [Azure Active Directory-edities](active-directory-editions.md) |
+| Een Microsoft Azure AD basic of premium-abonnement en een Azure AD-directory waarvoor u een globale beheerder bent | [Azure Active Directory-edities](active-directory-whatis.md) |
 | Een webtoepassing gehost on-premises die u wilt configureren voor externe toegang |  |
-| Een server met Windows Server 2012 R2 of Windows 8.1 of hoger, waarop u de Connector voor toepassingsproxy kunt installeren | [Azure AD-toepassingsproxy connectors begrijpen](application-proxy-understand-connectors.md) |
+| Een server met Windows Server 2012 R2 of Windows 8.1 of hoger, waarop u de Connector voor toepassingsproxy kunt installeren | [Azure AD-toepassingsproxy connectors begrijpen](manage-apps/application-proxy-connectors.md) |
 | Als er een firewall in het pad, zorg ervoor dat deze geopend is zodat de Connector HTTPS (TCP) aanvragen naar de toepassingsproxy kunt maken | [Toepassingsproxy inschakelen in de Azure-portal: vereisten voor toepassingsproxy](manage-apps/application-proxy-enable.md#application-proxy-prerequisites) |
-| Als uw organisatie gebruikmaakt van proxy-servers verbinding maken met internet, nemen de blog kijken werken met bestaande lokale proxyservers voor meer informatie over het configureren ervan boeken | [Werken met bestaande lokale proxyservers](application-proxy-working-with-proxy-servers.md) |
+| Als uw organisatie gebruikmaakt van proxy-servers verbinding maken met internet, nemen de blog kijken werken met bestaande lokale proxyservers voor meer informatie over het configureren ervan boeken | [Werken met bestaande lokale proxyservers](manage-apps/application-proxy-configure-connectors-with-proxy-servers.md) |
 
 
 ### <a name="steps"></a>Stappen
@@ -255,13 +255,13 @@ Geschatte tijd om te voltooien: 20 minuten
 | Een connector op de server installeren | [Toepassingsproxy inschakelen in de Azure-portal: Installeer en registreer de Connector](manage-apps/application-proxy-enable.md#install-and-register-a-connector) |
 | De on-premises toepassing publiceren in Azure AD als een toepassing toepassingsproxy | [Toepassingen publiceren met Azure AD-toepassingsproxy](manage-apps/application-proxy-publish-azure-portal.md) |
 | Testgebruikers toewijzen | [Toepassingen publiceren met Azure AD-toepassingsproxy: een testgebruiker toevoegen](manage-apps/application-proxy-publish-azure-portal.md#add-a-test-user) |
-| Configureer desgewenst een ervaring voor eenmalige aanmelding voor uw gebruikers | [Geef eenmalige aanmelding met Azure AD-toepassingsproxy](application-proxy-sso-azure-portal.md) |
+| Configureer desgewenst een ervaring voor eenmalige aanmelding voor uw gebruikers | [Geef eenmalige aanmelding met Azure AD-toepassingsproxy](manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md) |
 | App testen door het aanmelden bij de portal MyApps als toegewezen gebruiker | https://myapps.microsoft.com |
 
 ### <a name="considerations"></a>Overwegingen
 
-1. Terwijl het is raadzaam om de connector in te stellen in uw bedrijfsnetwerk, zijn er gevallen wanneer ziet u betere prestaties plaatsen hiervan op in de cloud. Meer informatie: [aandachtspunten voor topologie netwerk bij gebruik van Azure Active Directory-toepassingsproxy](application-proxy-network-topology-considerations.md)
-2. Zie voor meer informatie over de beveiliging en hoe dit biedt een bijzonder veilige externe toegang oplossing door alleen uitgaande verbindingen onderhouden: [beveiligingsoverwegingen voor toegang tot de apps op afstand met behulp van Azure AD-toepassingsproxy](application-proxy-security-considerations.md)
+1. Terwijl het is raadzaam om de connector in te stellen in uw bedrijfsnetwerk, zijn er gevallen wanneer ziet u betere prestaties plaatsen hiervan op in de cloud. Meer informatie: [aandachtspunten voor topologie netwerk bij gebruik van Azure Active Directory-toepassingsproxy](manage-apps/application-proxy-network-topology.md)
+2. Zie voor meer informatie over de beveiliging en hoe dit biedt een bijzonder veilige externe toegang oplossing door alleen uitgaande verbindingen onderhouden: [beveiligingsoverwegingen voor toegang tot de apps op afstand met behulp van Azure AD-toepassingsproxy](manage-apps/application-proxy-security.md)
 
 ## <a name="generic-ldap-connector-configuration"></a>Algemene configuratie van de LDAP-Connector
 

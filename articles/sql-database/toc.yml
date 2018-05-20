@@ -104,6 +104,16 @@
       items:
         - name: Overzicht
           href: sql-database-security-overview.md
+        - name: Advanced Threat Protection
+          href: sql-advanced-threat-protection.md
+        - name: Gegevensdetectie en -classificatie
+          href: sql-database-data-discovery-and-classification.md
+        - name: Evaluatie van beveiligingsproblemen
+          href: sql-vulnerability-assessment.md
+        - name: Detectie van bedreigingen - SQL Database
+          href: sql-database-threat-detection.md
+        - name: Detectie van bedreigingen - beheerd exemplaar
+          href: sql-database-managed-instance-threat-detection.md
         - name: Firewall-regels
           href: sql-database-firewall-configure.md
         - name: Virtueel-netwerkregels voor firewall
@@ -120,18 +130,10 @@
           href: sql-database-auditing.md
         - name: Controleren - beheerd exemplaar
           href: sql-database-managed-instance-auditing.md
-        - name: Detectie van bedreigingen - SQL Database
-          href: sql-database-threat-detection.md
-        - name: Detectie van bedreigingen - beheerd exemplaar
-          href: sql-database-managed-instance-threat-detection.md
         - name: Tabel controleren en TDS
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
         - name: Dynamische gegevensmaskering
           href: sql-database-dynamic-data-masking-get-started.md
-        - name: Evaluatie van beveiligingsproblemen
-          href: sql-vulnerability-assessment.md
-        - name: Gegevensdetectie en -classificatie
-          href: sql-database-data-discovery-and-classification.md
     - name: Bedrijfscontinuïteit
       items:
         - name: Overzicht

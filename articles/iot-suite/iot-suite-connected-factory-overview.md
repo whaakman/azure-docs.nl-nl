@@ -1,13 +1,13 @@
 ---
 title: Overzicht van oplossingen voor verbonden factory's - Azure | Microsoft Docs
-description: Een beschrijving van de vooraf geconfigureerde oplossing Connected Factory van Azure IoT Suite.
-services: 
+description: Een beschrijving van de Azure IoT-oplossingsversneller Verbonden factory.
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: hero-article
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: bd68859e3837f7e5adbe911518631cb7abc2c2ce
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: c5fe6cf6dff6fd8951a949761739cb12f98834bf
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="get-started-with-the-connected-factory-preconfigured-solution"></a>Aan de slag met de vooraf geconfigureerde oplossing Connected Factory
+# <a name="get-started-with-the-connected-factory-solution-accelerator"></a>Aan de slag met de oplossingsversneller voor verbonden factory's
 
-[Vooraf geconfigureerde oplossingen][lnk-preconfigured-solutions] voor Azure IoT Suite zijn voorzien van meerdere Azure IoT-services om totaaloplossingen te leveren voor het implementeren van algemene IoT-bedrijfsscenario's. De vooraf geconfigureerde oplossing *Connected Factory* maakt verbinding met en controleert uw industriële apparaten. U kunt de oplossing gebruiken om de gegevensstroom van uw apparaten te analyseren en operationele productiviteit en winstgevendheid te bevorderen.
+[Oplossingsversnellers van Azure IoT][lnk-preconfigured-solutions] combineren meerdere Azure IoT-services om totaaloplossingen te leveren voor het implementeren van algemene IoT-bedrijfsscenario's. De oplossingsversneller *Verbonden factory* maakt verbinding met en controleert uw industriële apparaten. U kunt de oplossing gebruiken om de gegevensstroom van uw apparaten te analyseren en operationele productiviteit en winstgevendheid te bevorderen.
 
-In deze zelfstudie leert u hoe u de vooraf geconfigureerde oplossing Connected Factory inricht. Hierbij maakt u ook kennis met de basisfuncties van de vooraf geconfigureerde oplossing. U hebt toegang tot veel van deze functies via het *oplossingsdashboard* dat als onderdeel van de vooraf geconfigureerde oplossing wordt geïmplementeerd:
+In deze zelfstudie leert u hoe u de oplossingsversneller voor verbonden factory's inricht. Hierbij maakt u ook kennis met de basisfuncties van de oplossingsversneller. U hebt toegang tot veel van deze functies via het *oplossingsdashboard*, dat als onderdeel van de oplossingsversneller wordt geïmplementeerd:
 
-![Dashboard van de vooraf geconfigureerde oplossing voor verbonden factory's][img-cf-home]
+![Dashboard van de oplossingsversneller voor verbonden factory's][img-cf-home]
 
 U hebt een actief Azure-abonnement nodig om deze zelfstudie te voltooien.
 
@@ -38,7 +38,7 @@ U hebt een actief Azure-abonnement nodig om deze zelfstudie te voltooien.
 
 1. Meld u aan bij azureiotsuite.com met de referenties van uw Azure-account en klik op **+** om een oplossing te maken.
 2. Klik op de tegel **Verbonden factory** op **Selecteren**.
-3. Voer een **oplossingsnaam** in voor de vooraf geconfigureerde oplossing Connected Factory.
+3. Voer bij **Naam van de oplossing** een naam in voor de oplossingsversneller voor verbonden factory's.
 4. Selecteer het **abonnement** dat en de **regio** die u wilt gebruiken voor het inrichten van de oplossing.
 5. Klik op **Oplossing maken** om het inrichtingsproces te starten. Doorgaans duurt het enkele minuten om dit proces uit te voeren.
 
@@ -50,13 +50,13 @@ U hebt een actief Azure-abonnement nodig om deze zelfstudie te voltooien.
 4. Klik op de tegel om de details van uw oplossing in het rechterdeelvenster weer te geven.
 
 > [!NOTE]
-> Als er problemen zijn met de implementatie van de vooraf geconfigureerde oplossing, leest u [Machtigingen op azureiotsuite.com][lnk-permissions] en de [veelgestelde vragen over Connected Factory](iot-suite-faq-cf.md). Als de problemen zich blijven voordoen, maakt u een serviceticket aan in de [portal][lnk-portal].
+> Als er problemen zijn met de implementatie van de oplossingsversneller, leest u [Machtigingen op de site azureiotsuite.com][lnk-permissions] en de [veelgestelde vragen over verbonden factory's](iot-suite-faq-cf.md). Als de problemen zich blijven voordoen, maakt u een serviceticket aan in de [portal][lnk-portal].
 
 Zijn er voor uw oplossing bepaalde details niet vermeld, die u wel verwacht had te zien? Geef suggesties voor functies op [User Voice](https://feedback.azure.com/forums/321918-azure-iot).
 
 ## <a name="scenario-overview"></a>Overzicht van scenario's
 
-Wanneer u de vooraf geconfigureerde oplossing Connected Factory implementeert, wordt deze vooraf ingevuld met de resources waarmee u een algemeen industrieel scenario kunt doorlopen. In dit scenario rapporteren verschillende factory's die zijn verbonden met de oplossing, de gegevenswaarden die vereist zijn voor het berekenen van de algemene apparatuurefficiëntie (overall equipment efficiency, OEE) en de key performance indicators (KPI's). De volgende gedeelten laten u zien hoe u:
+Wanneer u de oplossingsversneller Verbonden factory implementeert, wordt deze vooraf ingevuld met de resources waarmee u een algemeen industrieel scenario kunt doorlopen. In dit scenario rapporteren verschillende factory's die zijn verbonden met de oplossing, de gegevenswaarden die vereist zijn voor het berekenen van de algemene apparatuurefficiëntie (overall equipment efficiency, OEE) en de key performance indicators (KPI's). De volgende gedeelten laten u zien hoe u:
 
 * de factory, de productielijnen, de OEE van stations en de KPI-waarden controleert;
 * de telemetriegegevens analyseert die van deze apparaten worden gegenereerd, met behulp van Time Series Insights in Azure;
@@ -68,17 +68,17 @@ Een belangrijke functie van dit scenario is dat u al deze acties extern kunt uit
 
 Vanaf het dashboard van de oplossing kunt u de geïmplementeerde oplossing beheren. Het is een hiërarchische weergave van een overkoepelende factoryconfiguratie. U kunt bijvoorbeeld de OEE en KPI's weergeven, nieuwe knooppunten voor telemetrie publiceren en waarschuwingen uitvoeren.
 
-1. Wanneer het inrichten is voltooid en op de tegel van de vooraf geconfigureerde oplossing Connected Factory de status **Gereed** wordt weergegeven, kiest u **Starten** om de portal voor de oplossing Connected Factory te openen op een nieuw tabblad.
+1. Wanneer het inrichten is voltooid en op de tegel van de oplossingsversneller Verbonden factory de status **Gereed** wordt weergegeven, kiest u **Starten** om de portal voor de oplossing Verbonden factory te openen in een nieuw tabblad.
 
-    ![De vooraf geconfigureerde oplossing starten][img-launch-solution]
+    ![De oplossingsversneller starten][img-launch-solution]
 
 1. Standaard ziet u in de oplossingsportal het *dashboard*. U kunt naar andere gebieden van de portal navigeren met het menu aan de linkerkant van de pagina.
 
-    ![Dashboard van de vooraf geconfigureerde oplossing voor verbonden factory's][cf-img-menu]
+    ![Dashboard van de oplossingsversneller voor verbonden factory's][cf-img-menu]
 
 Het dashboard bevat de volgende informatie:
 
-* Een paneel met een **factorylijst** waarin de status, locatie en huidige productieconfiguratie in de oplossing worden weergegeven. Wanneer u de oplossing voor het eerst uitvoert, zijn er een paar gesimuleerde apparaten. De simulatie van de productielijn bestaat uit drie echte OPC UA-servers per productielijn die gesimuleerde taken uitvoeren en gegevens delen. Zie de [veelgestelde vragen over Connected Factory](iot-suite-faq-cf.md) voor meer informatie over OPC UA.
+* Een paneel met een **factorylijst** waarin de status, locatie en huidige productieconfiguratie in de oplossing worden weergegeven. Wanneer u de oplossing voor het eerst uitvoert, zijn er een paar gesimuleerde apparaten. De simulatie van de productielijn bestaat uit drie echte OPC UA-servers per productielijn die gesimuleerde taken uitvoeren en gegevens delen. Zie de [veelgestelde vragen over verbonden factory's](iot-suite-faq-cf.md) voor meer informatie over OPC UA.
 * Een **kaart** die de locatie aangeeft van elk apparaat dat met de oplossing is verbonden. De oplossing kan de Bing Kaarten-API gebruiken om informatie op de kaart tekenen. Als de Bing Kaarten Enterprise-API is ingeschakeld voor uw abonnement, wordt deze functie automatisch gebruikt. Als dit niet het geval is, leest u de [veelgestelde vragen][lnk-faq] voor meer informatie over hoe u de kaart dynamisch kunt maken.
 * Een paneel **Waarschuwingen** dat waarschuwingen weergeeft die worden gegenereerd wanneer een telemetrie- of OEE-/KPI-waarde een bepaalde drempelwaarde overschrijdt.
 * Een paneel **Overall Equipment Efficiency** dat de OEE-waarden weergeeft voor de hele onderneming of voor de factory, de productielijn of het station die/dat u bekijkt. Deze waarde wordt geaggregeerd van de stationsweergave naar het ondernemingsniveau. De OEE-gegevens en de bijbehorende elementen kunnen nader worden geanalyseerd.
@@ -88,7 +88,7 @@ Het dashboard bevat de volgende informatie:
 
 Het paneel *Factory-locaties* geeft de geografische locatie van alle factory's in de oplossing weer, samen met hun status en de huidige productieconfiguratie. U kunt in de lijst met locaties naar de andere niveaus in de oplossingshiërarchie navigeren. De rijen in de lijst zijn hyperlinks die gekoppeld zijn aan details van de productielijnen op die locatie. U kunt vervolgens inzoomen op de details van de productielijn en de weergave op stationsniveau. U kunt ook een filter toepassen op de lijst.
 
-![Factory's van vooraf geconfigureerde oplossing voor verbonden factory's][cf-img-factories]
+![Factory's van de oplossingsversneller voor verbonden factory's][cf-img-factories]
 
 1. Het **paneel Factory's** bevat de lijst met factory's voor deze oplossing.
 
@@ -106,7 +106,7 @@ Het paneel *Factory-locaties* geeft de geografische locatie van alle factory's i
 
 Als u met uw abonnement toegang hebt tot de Bing Kaarten-API, wordt op de kaart *Factory's* de geografische locatie en de status van alle factory's in de oplossing weergegeven. Klik op de locaties op de kaart om in te zoomen op de locatiedetails.
 
-![Kaart van vooraf geconfigureerde oplossing voor verbonden factory's][cf-img-map]
+![Kaart van de oplossingsversneller voor verbonden factory's][cf-img-map]
 
 ## <a name="view-alarms"></a>Waarschuwingen weergeven
 
@@ -121,10 +121,10 @@ Eventueel kunt u complexere acties uitvoeren. Voor het OPC UA-drukknooppunt van 
 * De oorzaak van de waarschuwing oplossen door een OPC UA-methode op het apparaat aan te roepen.
 * De beschikbaarheid van de standaardacties onderdrukken.
 
-    ![Waarschuwingen van vooraf geconfigureerde oplossing Connected Factory][cf-img-alerts]
+    ![Waarschuwingen van de oplossingsversneller voor verbonden factory's][cf-img-alerts]
 
 > [!NOTE]
-> Deze waarschuwingen worden gegenereerd door regels die zijn opgegeven in een configuratiebestand in de vooraf geconfigureerde oplossing. Deze regels kunnen waarschuwingen genereren wanneer de OEE- of KPI-gegevens of de waarden van het OPC UA-knooppunt de geconfigureerde drempelwaarde overschrijden.
+> Deze waarschuwingen worden gegenereerd door regels die zijn opgegeven in een configuratiebestand in de oplossingsversneller. Deze regels kunnen waarschuwingen genereren wanneer de OEE- of KPI-gegevens of de waarden van het OPC UA-knooppunt de geconfigureerde drempelwaarde overschrijden.
 
 1. Het **paneel Waarschuwingen** geeft de waarschuwingen weer die in deze oplossing worden gegenereerd.
 
@@ -138,23 +138,23 @@ Eventueel kunt u complexere acties uitvoeren. Voor het OPC UA-drukknooppunt van 
 
 De OEE bepaalt de efficiëntie van het productieproces met behulp van operationele parameters gerelateerd aan cruciale productie. OEE is een standaardmeeteenheid binnen de industrie die wordt berekend door de beschikbaarheidswaarde te vermenigvuldigen met de prestatiewaarde en de kwaliteitswaarde: OEE = beschikbaarheid x prestaties x kwaliteit.
 
-![OEE van vooraf geconfigureerde oplossing voor verbonden factory's][cf-img-oee]
+![OEE van de oplossingsversneller voor verbonden factory's][cf-img-oee]
 
 1. Als u de OEE voor een bepaald niveau in de hiërarchie wilt bekijken, gaat u naar de weergave die u nodig hebt. De OEE voor deze weergave wordt in het paneel weergegeven samen met de elementen die onderdeel uitmaken van het OEE-percentage.
 
 2. Voor een nadere analyse van de OEE voor een willekeurig niveau in de hiërarchiegegevens klikt u op het OEE-percentage, het beschikbaarheidspercentage, het prestatiepercentage of het kwaliteitspercentage. Er wordt een contextpaneel weergegeven met Time Series Insights-visualisaties die gegevens van het afgelopen uur, de afgelopen 24 uur en de afgelopen 7 dagen tonen.
 
-    ![TSI-visualisatie van vooraf geconfigureerde oplossing voor verbonden factory's][cf-img-tsi-visualization]
+    ![TSI-visualisatie van de oplossingsversneller voor verbonden factory's][cf-img-tsi-visualization]
 
 3. Klik op de grafiek in het paneel Waarschuwingen om de waarschuwingsgegevens verder te analyseren. Met deze actie wordt de Time Series Insights-verkenner geopend.
 
-    ![TSI-verkenner van vooraf geconfigureerde oplossing voor verbonden factory's][cf-img-tsi-explorer]
+    ![TSI-verkenner van de oplossingsversneller voor verbonden factory's][cf-img-tsi-explorer]
 
 ## <a name="view-key-performance-indicators"></a>Key performance indicators weergeven
 
 De oplossing biedt twee key performance indicators: *eenheden per uur* en *energieverbruik in kWh*.
 
-![KPI van vooraf geconfigureerde oplossing voor verbonden factory's][cf-img-kpi]
+![KPI van de oplossingsversneller voor verbonden factory's][cf-img-kpi]
 
 1. Als u het aantal eenheden per uur of het energieverbruik voor een bepaald niveau in de hiërarchie wilt bekijken, gaat u naar de weergave die u nodig hebt. Het aantal eenheden per uur en het energieverbruik worden in het paneel weergegeven.
 
@@ -166,7 +166,7 @@ In dit scenario hebt u de OEE- en KPI-waarden van uw factory's gecontroleerd in 
 
 ## <a name="other-features"></a>Andere functies
 
-De volgende gedeelten beschrijven een aantal extra functies van de oplossing Connected Factory die niet aan bod zijn gekomen in het voorgaande scenario.
+De volgende gedeelten beschrijven een aantal extra functies van de oplossing Verbonden factory die niet aan bod zijn gekomen in het voorgaande scenario.
 
 ## <a name="apply-filters"></a>Filters toepassen
 
@@ -174,13 +174,13 @@ De volgende gedeelten beschrijven een aantal extra functies van de oplossing Con
 
 2. Het paneel Filters wordt weergegeven.
 
-    ![Filters van vooraf geconfigureerde oplossing voor verbonden factory's][cf-img-alert-filter]
+    ![Filters van de oplossingsversneller voor verbonden factory's][cf-img-alert-filter]
 
 3. Kies het filter dat u nodig hebt. U kunt ook vrije tekst typen in de filtervelden.
 
 4. Het filter wordt vervolgens toegepast. U ziet de filterstatus ook in het dashboard en wel in de vorm van een trechter die wordt weergegeven in de tabellen met factory's en waarschuwingen.
 
-    ![Filters van vooraf geconfigureerde oplossing voor verbonden factory's][cf-img-alert-filter-funnel]
+    ![Filters van de oplossingsversneller voor verbonden factory's][cf-img-alert-filter-funnel]
 
     > [!NOTE]
     > Een actief filter heeft geen invloed op de weergegeven OEE- en KPI-waarden; het filtert alleen de inhoud van de lijst.
@@ -189,27 +189,27 @@ De volgende gedeelten beschrijven een aantal extra functies van de oplossing Con
 
 ## <a name="browse-an-opc-ua-server"></a>Door een OPC UA-server bladeren
 
-Wanneer u de vooraf geconfigureerde oplossing implementeert, worden er automatisch gesimuleerde OPC UA-servers ingericht die u met de oplossingsbrowser kunt doorbladeren. Deze servers zijn *gesimuleerde OPC UA-servers*. Gesimuleerde servers maken het voor u gemakkelijk om te experimenteren met een vooraf geconfigureerde oplossing zonder dat u echte, fysieke servers hoeft te implementeren. Raadpleeg de zelfstudie [Connect your OPC UA device to the connected factory preconfigured solution][lnk-connect-cf] (Uw OPC UA-apparaat koppelen aan de vooraf geconfigureerde oplossing Connected Factory) als u een echte OPC UA-server aan de oplossing wilt koppelen.
+Wanneer u de oplossingsversneller implementeert, worden er automatisch gesimuleerde OPC UA-servers ingericht die u met de oplossingsbrowser kunt doorbladeren. Deze servers zijn *gesimuleerde OPC UA-servers*. Gesimuleerde servers maken het voor u gemakkelijk om te experimenteren met een oplossingsversneller zonder dat u echte, fysieke servers hoeft te implementeren. Raadpleeg de zelfstudie [Uw OPC UA-apparaat koppelen aan de oplossingsversneller Verbonden factory][lnk-connect-cf] als u een echte OPC UA-server aan de oplossing wilt koppelen.
 
 1. Klik op het **browserpictogram** in de navigatiebalk van het dashboard.
 
-    ![Serverbrowser van vooraf geconfigureerde oplossing voor verbonden factory's][cf-img-server-browser]
+    ![Serverbrowser van de oplossingsversneller Verbonden factory][cf-img-server-browser]
 
-2. Kies een van de servers uit de vooraf geconfigureerde lijst. Deze lijst bevat de servers die in de vooraf geconfigureerde oplossing zijn geïmplementeerd.
+2. Kies een van de servers uit de vooraf geconfigureerde lijst. Deze lijst bevat de servers die in de oplossingsversneller zijn geïmplementeerd.
 
-    ![Serverselectie van vooraf geconfigureerde oplossing voor verbonden factory's][cf-img-server-choice]
+    ![Serverselectie in de oplossingsversneller Verbonden factory][cf-img-server-choice]
 
 3. Klik op **Verbinden**. Er wordt een beveiligingsdialoogvenster weergegeven. Tijdens de simulatie is het veilig om op **Doorgaan** te klikken
 
 4. Klik op een van de knooppunten in de serverstructuur om deze uit te vouwen. Naast knooppunten die telemetrie publiceren, staat een vinkje.
 
-    ![Serverstructuur van vooraf geconfigureerde oplossing voor verbonden factory's][cf-img-server-tree]
+    ![Serverstructuur in de oplossingsversneller Verbonden factory][cf-img-server-tree]
 
 5. Klik met de rechtermuisknop op een item om het knooppunt te lezen, te schrijven, te publiceren of aan te roepen. Welke acties er beschikbaar zijn, is afhankelijk van uw machtigingen en de kenmerken van het knooppunt. Met de optie voor lezen wordt een contextpaneel weergegeven met de waarde van dat knooppunt. Met de optie voor schrijven wordt een contextpaneel weergegeven waarin u een nieuwe waarde kunt invoeren. Met de optie voor aanroepen wordt een knooppunt weergegeven waarin u de parameters voor het aanroepen kunt invoeren.
 
 ## <a name="publish-a-node"></a>Een knooppunt publiceren
 
-Wanneer u door een *gesimuleerde OPC UA-server* bladert, kunt u ook nieuwe knooppunten publiceren. Vervolgens kunt u de telemetrie van deze knooppunten in de oplossing analyseren. De *gesimuleerde OPC UA-servers* maken het gemakkelijk om te experimenteren met een vooraf geconfigureerde oplossing zonder dat u echte, fysieke apparaten hoeft te implementeren.
+Wanneer u door een *gesimuleerde OPC UA-server* bladert, kunt u ook nieuwe knooppunten publiceren. Vervolgens kunt u de telemetrie van deze knooppunten in de oplossing analyseren. De *gesimuleerde OPC UA-servers* maken het gemakkelijk om te experimenteren met een oplossingsversneller zonder dat u echte, fysieke apparaten hoeft te implementeren.
 
 1. Blader naar een knooppunt in de browserstructuur van de OPC UA-server die u wilt publiceren.
 
@@ -217,15 +217,15 @@ Wanneer u door een *gesimuleerde OPC UA-server* bladert, kunt u ook nieuwe knoop
 
 3. Kies **Publiceren**.
 
-    ![Verbonden factory publiceert knooppunt][cf-img-publish-node]
+    ![Verbonden factory publiceert knooppunten][cf-img-publish-node]
 
 4. Er word een contextpaneel weergegeven waarin staat dat het publiceren is voltooid. Het knooppunt wordt weergegeven met een vinkje in de weergave op stationsniveau.
 
-    ![Succesvolle publicatie van vooraf geconfigureerde Connected Factory][cf-img-publish-success]
+    ![Succesvolle publicatie van vooraf geconfigureerde verbonden factory][cf-img-publish-success]
 
 ## <a name="command-and-control"></a>Opdracht en controle
 
-Met Connected Factory kunt u uw industriële apparaten rechtstreeks vanuit de cloud beheren en bedienen. U kunt deze functie gebruiken om te reageren op waarschuwingen die door het apparaat worden gegenereerd. U kunt bijvoorbeeld vanuit de cloud een opdracht naar het apparaat verzenden. U vindt de beschikbare opdrachten in het knooppunt **StationCommands** in de browserstructuur van de OPC UA-servers. In dit scenario opent u een overdrukventiel op de verzamelplaats van een productielijn in München. U moet de rol van **beheerder** hebben voor de implementatie van de vooraf geconfigureerde oplossing om de opdracht- en bedieningsfuncties te kunnen gebruiken.
+Met Verbonden factory kunt u uw industriële apparaten rechtstreeks vanuit de cloud beheren en bedienen. U kunt deze functie gebruiken om te reageren op waarschuwingen die door het apparaat worden gegenereerd. U kunt bijvoorbeeld vanuit de cloud een opdracht naar het apparaat verzenden. U vindt de beschikbare opdrachten in het knooppunt **StationCommands** in de browserstructuur van de OPC UA-servers. In dit scenario opent u een overdrukventiel op de verzamelplaats van een productielijn in München. U moet de rol van **beheerder** hebben voor de implementatie van de oplossingsversneller om de opdracht- en bedieningsfuncties te kunnen gebruiken.
 
 1. Blader naar het knooppunt **StationCommands** in de browserstructuur van de OPC UA-server.
 
@@ -235,39 +235,39 @@ Met Connected Factory kunt u uw industriële apparaten rechtstreeks vanuit de cl
 
 4. Kies **Aanroepen**.
 
-    ![Aanroepopdracht van vooraf geconfigureerde oplossing voor verbonden factory's][cf-img-call-command]
+    ![Opdracht aanroepen met de oplossingsversneller Verbonden factory][cf-img-call-command]
 
 5. Er wordt een contextpaneel weergegeven waarin staat welke methode u gaat aanroepen en, indien van toepassing, details van de parameter.
 
 6. Kies **Aanroepen**.
 
-    ![Aanroepcontext van vooraf geconfigureerde oplossing voor verbonden factory's][cf-img-call-context]
+    ![Context van aanroep van de oplossingsversneller Verbonden factory][cf-img-call-context]
 
 7. Het contextpaneel wordt bijgewerkt met de melding dat het aanroepen van de methode is voltooid. U kunt controleren of de oproep is voltooid door de waarde van het drukknooppunt te lezen, die na de aanroep is bijgewerkt.
 
-    ![Aanroepen voltooid van vooraf geconfigureerde oplossing voor verbonden factory's][cf-img-call-success]
+    ![Aanroep van de oplossingsversneller Verbonden factory gelukt][cf-img-call-success]
 
 ## <a name="behind-the-scenes"></a>Achter de schermen
 
-Wanneer u een vooraf geconfigureerde oplossing implementeert, maakt het implementatieproces meerdere resources in het door u geselecteerde Azure-abonnement. U kunt deze resources weergeven in Azure [Portal][lnk-portal]. Het implementatieproces maakt een **resourcegroep** met een naam die is gebaseerd op de naam die u voor uw vooraf geconfigureerde oplossing hebt gekozen:
+Wanneer u een oplossingsversneller implementeert, maakt het implementatieproces meerdere resources in het door u geselecteerde Azure-abonnement. U kunt deze resources weergeven in Azure [Portal][lnk-portal]. Het implementatieproces maakt een **resourcegroep** met een naam die is gebaseerd op de naam die u voor uw oplossingsversneller hebt gekozen:
 
-![Vooraf geconfigureerde oplossing in Azure Portal][img-cf-portal]
+![Oplossingsversneller in Azure Portal][img-cf-portal]
 
 U kunt de instellingen van elke resource weergeven door deze te selecteren in de lijst met resources in de resourcegroep.
 
-U kunt ook de broncode voor de vooraf geconfigureerde oplossing weergeven. De broncode van de vooraf geconfigureerde oplossing Connected Factory bevindt zich in de GitHub-opslagplaats [azure-iot-connected-factory][lnk-cfgithub]:
+U kunt ook de broncode voor de oplossingsversneller weergeven. De broncode van de oplossingsversneller Verbonden factory bevindt zich in de GitHub-opslagplaats [azure-iot-connected-factory][lnk-cfgithub]:
 
-Wanneer u klaar bent, kunt u de vooraf geconfigureerde oplossing verwijderen uit uw Azure-abonnement op de site [azureiotsuite.com][lnk-azureiotsuite]. Met de site kunt u gemakkelijk resources verwijderen die werden aangevoerd toen u de vooraf geconfigureerde oplossing hebt gemaakt.
+Wanneer u klaar bent, kunt u de oplossingsversneller verwijderen uit uw Azure-abonnement op de site [azureiotsuite.com][lnk-azureiotsuite]. Met de site kunt u gemakkelijk alle resources verwijderen die zijn ingericht op het moment dat de oplossingsversneller werd gemaakt.
 
 > [!NOTE]
-> Verwijder de oplossing op de site [azureiotsuite.com][lnk-azureiotsuite]. Zo zorgt u ervoor dat alles met betrekking tot de vooraf geconfigureerde oplossing wordt verwijderd. Verwijder de resourcegroep niet in de portal.
+> Verwijder de oplossingsversneller op de site [azureiotsuite.com][lnk-azureiotsuite]. Zo weet u zeker dat alles met betrekking tot de oplossingsversneller wordt verwijderd. Verwijder de resourcegroep niet in de portal.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu u een werkende vooraf geconfigureerde oplossing hebt geïmplementeerd, kunt u doorgaan met IoT Suite door de volgende artikels te lezen:
+Nu u een werkende oplossingsversneller hebt geïmplementeerd, kunt u gaan werken met de IoT-oplossingsversnellers door de volgende artikelen te lezen:
 
-* [Overzicht van de vooraf geconfigureerde oplossing voor verbonden factory's][lnk-rm-walkthrough]
-* [Uw apparaat koppelen aan de vooraf geconfigureerde oplossing voor verbonden factory's][lnk-connect-cf]
+* [Kennismaken met de oplossingsversneller Verbonden factory][lnk-rm-walkthrough]
+* [Uw apparaat koppelen aan de oplossingsversneller voor verbonden factory's][lnk-connect-cf]
 * [Machtigingen op de site azureiotsuite.com][lnk-permissions]
 
 [img-cf-home]:media/iot-suite-connected-factory-overview/cf-dashboard.png
@@ -293,7 +293,7 @@ Nu u een werkende vooraf geconfigureerde oplossing hebt geïmplementeerd, kunt u
 [cf-img-alert-filter-funnel]:media/iot-suite-connected-factory-overview/cf-filter-funnel.png
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
+[lnk-preconfigured-solutions]: iot-suite-what-are-solution-accelerators.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
 [lnk-portal]: http://portal.azure.com/
 [lnk-cfgithub]: https://github.com/Azure/azure-iot-connected-factory

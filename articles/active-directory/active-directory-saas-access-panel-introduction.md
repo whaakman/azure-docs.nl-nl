@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/18
+ms.date: 05/11/18
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 442bfa7081865b2549c07a9436296ba2385a0b66
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: e25bd3e5c47667a711c53711f9823fb231dbcd86
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="what-is-the-access-panel"></a>Wat is het toegangsvenster?
 
@@ -86,6 +86,10 @@ Als u wilt aanmelden bij op basis van wachtwoorden eenmalige aanmelding, moet u 
 > [!NOTE]
 > Aanvullende functies zijn alleen beschikbaar voor rand en Chrome, Firefox.
 >
+U kunt de uitbreiding downloaden rechtstreeks vanuit de volgende sites:
+- [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
+- [Rand](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 Als u een URL voor mijn Apps dan `https://myapps.microsoft.com`, standaard-URL configureren door het volgende te doen:
 1. Terwijl u bent *niet* aangemeld bij de extensie, met de rechtermuisknop op het pictogram extensie.
@@ -93,6 +97,12 @@ Als u een URL voor mijn Apps dan `https://myapps.microsoft.com`, standaard-URL c
 3. Selecteer uw standaard-URL.
 4. Selecteer het pictogram extensie.
 5. Selecteer **melden aan de slag**.
+
+Voor het gebruik van URL's intern bedrijf terwijl deze extern is met de extensie, het volgende doen:
+1. [Configureren van Application Proxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) op uw tenant.
+2. [De toepassing publiceren](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) en de URL via toepassingsproxy.
+3. De uitbreiding te installeren en aanmelden bij het selecteren van aanmelding aan de slag.
+4. Nu kunt u bladeren naar de URL van de interne bedrijf zelfs terwijl deze extern is.
 
 ## <a name="mobile-app-support"></a>Ondersteuning voor mobiele Apps
 

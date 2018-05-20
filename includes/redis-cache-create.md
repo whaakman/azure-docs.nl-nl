@@ -1,36 +1,39 @@
-Voor het maken van een cache eerst aanmelden bij de [Azure-portal](https://portal.azure.com), en klik op **maken van een resource** > **Databases** > **Redis-Cache** .
-
-> [!NOTE]
-> Als u geen Azure-account hebt, kunt u binnen een paar minuten [gratis een Azure-account openen](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero).
-> 
-> 
+---
+title: bestand opnemen
+description: bestand opnemen
+services: redis-cache
+author: wesmc7777
+ms.service: cache
+ms.topic: include
+ms.date: 03/28/2018
+ms.author: wesmc
+ms.custom: include file
+ms.openlocfilehash: 55bc2bd4e065c301f11a5fc4d3b58aa443b83e2d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 04/28/2018
+---
+Als u een cache wilt maken, meldt u zich eerst aan bij [Azure Portal](https://portal.azure.com) en klikt u vervolgens op **Resource maken** > **Databases** > **Redis-cache**.
 
 ![Nieuwe cache](media/redis-cache-create/redis-cache-new-cache-menu.png)
 
-> [!NOTE]
-> U kunt caches niet alleen in Azure Portal maken. U kunt ze ook maken met Resource Manager-sjablonen, PowerShell of Azure CLI.
-> 
-> * Zie [Create a Redis cache using a template](../articles/redis-cache/cache-redis-cache-arm-provision.md) (Een Redis-cache maken met een sjabloon) als u een cache wilt maken met Resource Manager-sjablonen.
-> * Zie [Manage Azure Redis Cache with Azure PowerShell](../articles/redis-cache/cache-howto-manage-redis-cache-powershell.md) (Azure Redis-cache beheren met Azure PowerShell) als u een cache wilt maken met Azure PowerShell.
-> * Zie [How to create and manage Azure Redis Cache using the Azure Command-Line Interface (Azure CLI)](../articles/redis-cache/cache-manage-cli.md) (Azure Redis Cache maken en beheren met de Azure-opdrachtregelinterface (Azure CLI)) als u een cache wilt maken met Azure CLI.
-> 
-> 
+Configureer in **Nieuwe Redis-cache** de instellingen voor de nieuwe cache.
 
-In **nieuwe Redis-Cache**, geef de gewenste configuratie voor de cache.
+| Instelling      | Voorgestelde waarde  | Beschrijving |
+| ------------ |  ------- | -------------------------------------------------- |
+| **DNS-naam** | Wereldwijd unieke naam | De cachenaam is een tekenreeks van 1 tot 63 tekens die alleen cijfers, letters en het teken `-` mag bevatten. De cachenaam mag niet beginnen of eindigen met het teken `-`, en opeenvolgende `-`-tekens zijn niet toegestaan.  | 
+| **Abonnement** | Uw abonnement | Het abonnement waarmee deze nieuwe Azure Redis-cache is gemaakt. | 
+| **Resourcegroep** |  *TestResourceGroup* | Naam voor de nieuwe resourcegroep waarin de cache moet worden gemaakt. Door alle resources voor een app in een groep te plaatsen, kunt u ze samen beheren. Als u de resourcegroep verwijdert, worden bijvoorbeeld alle resources verwijderd die bij de app behoren. | 
+| **Locatie** | VS - oost | Kies een [regio](https://azure.microsoft.com/regions/) vlakbij de andere services die gaan gebruikmaken van de cache. |
+| **[Prijscategorie](https://azure.microsoft.com/pricing/details/cache/)** |  Basic C0 (250 MB Cache) |  De prijscategorie bepaalt de grootte, prestaties en functies die beschikbaar zijn voor de cache. Zie het [Azure Redis-cacheoverzicht](../articles/redis-cache/cache-overview.md) voor meer informatie. |
+| **Vastmaken aan dashboard** |  Geselecteerd | Klik om de nieuwe cache vast te maken aan het dashboard, zodat u deze gemakkelijk kunt vinden. |
 
 ![Cache maken](media/redis-cache-create/redis-cache-cache-create.png) 
 
-* Voer in **DNS-naam** een unieke cachenaam in die u voor het eindpunt van de cache wilt gebruiken. De cachenaam is een tekenreeks van 1 tot 63 tekens die alleen cijfers, letters en het teken `-` mag bevatten. De cachenaam mag niet beginnen of eindigen met het teken `-`, en opeenvolgende `-`-tekens zijn niet toegestaan.
-* Selecteer bij **Abonnement** het Azure-abonnement dat u voor de cache wilt gebruiken. Als uw account slechts één abonnement heeft, wordt deze automatisch geselecteerd en de **abonnement** vervolgkeuzelijst wordt niet weergegeven.
-* In **Resourcegroep** selecteert of maakt u een resourcegroep voor uw cache. Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../articles/azure-resource-manager/resource-group-overview.md) voor meer informatie. 
-* Gebruik **Locatie** om de geografische locatie op te geven waar uw cache wordt gehost. Voor de beste prestaties wordt aangeraden de cache te maken in dezelfde regio als de cacheclienttoepassing.
-* Gebruik **Prijscategorie** om de gewenste cachegrootte en -functies te selecteren.
-* Met **Redis-cluster** kunt u caches maken die groter zijn dan 53 GB en kunt u gegevens verdelen over meerdere Redis-knooppunten. Zie [How to configure clustering for a Premium Azure Redis Cache](../articles/redis-cache/cache-how-to-premium-clustering.md) (Clustering voor een Premium Azure Redis Cache configureren) voor meer informatie.
-* **Redis-persistentie** biedt de mogelijkheid om de cache vast te leggen in een Azure Storage-account. Zie [How to configure persistence for a Premium Azure Redis Cache](../articles/redis-cache/cache-how-to-premium-persistence.md) (Persistentie voor een Premium Azure Redis Cache configureren) voor instructies over het configureren van persistentie.
-* **Virtueel netwerk** biedt verbeterde beveiliging en isolatie door de toegang tot uw cache te beperken tot alleen de clients binnen het opgegeven Azure Virtual Network. U kunt alle functies van VNet, zoals subnetten, toegangscontrolebeleid en andere functies, gebruiken om de toegang tot Redis verder te beperken. Zie [How to configure Virtual Network support for a Premium Azure Redis Cache](../articles/redis-cache/cache-how-to-premium-vnet.md) (Virtual Network-ondersteuning voor een Premium Azure Redis Cache configureren) voor meer informatie.
-* Voor nieuwe caches is niet-SSL-toegang standaard uitgeschakeld. Als u de niet-SSL-poort wilt inschakelen, schakelt u **Blokkering van poort 6379 (niet versleuteld met SSL) opheffen** in.
+Klik op **Maken** wanneer de instellingen voor de nieuwe cache zijn geconfigureerd. 
 
-Klik op **Maken** wanneer de opties voor de nieuwe cache zijn geconfigureerd. Het kan enkele minuten duren voordat de cache is gemaakt. Als u de status wilt zien, kunt u de voortgang bekijken via het startboard. Nadat de cache is gemaakt, heeft uw nieuwe cache de status **Wordt uitgevoerd** en is deze gereed voor gebruik met de [standaardinstellingen](../articles/redis-cache/cache-configure.md#default-redis-server-configuration).
+Het kan enkele minuten duren voordat de cache is gemaakt. Als u de status wilt zien, kunt u de voortgang bekijken op het dashboard. Nadat de cache is gemaakt, heeft uw nieuwe cache de status **Wordt uitgevoerd** en is deze gereed voor gebruik.
 
 ![Cache gemaakt](media/redis-cache-create/redis-cache-cache-created.png)
 

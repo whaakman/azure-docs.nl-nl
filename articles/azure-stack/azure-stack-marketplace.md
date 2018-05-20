@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/16/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 588da055d06d7e63510085ff48169f3ea756c53c
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 7b1a6020fb8730aee7ed41d8c82358db0945e4ef
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="the-azure-stack-marketplace-overview"></a>Het overzicht van Azure Stack Marketplace
 
@@ -29,7 +29,7 @@ De Marketplace is een verzameling van services, toepassingen en bronnen worden a
 
 Als een Azure-Stack-operator, besluit u welke items om toe te voegen (publiceren) naar de Marketplace. U kunt items zoals databases en App-Services publiceren. Publicatie maakt deze zichtbaar voor alle gebruikers. Aangepaste items die u maakt, kunt u publiceren. U kunt ook items uit een groeiende publiceren [lijst met items van Azure Marketplace](azure-stack-marketplace-azure-items.md). Wanneer u een item in de Marketplace publiceert, kunnen gebruikers deze zien binnen vijf minuten.
 
-De Marketplace, klikt u op **nieuw**.
+Als de Marketplace, in de beheerconsole schakelt **nieuw**.
 
 ![](media/azure-stack-publish-custom-marketplace-item/image1.png)
 
@@ -47,5 +47,6 @@ Elk item dat is gepubliceerd naar de Marketplace maakt gebruik van de Azure Gall
 Met versie 1803 en hoger, Azure Stack afbeeldingen worden geconverteerd naar sparse bestanden wanneer ze downloaden van Azure of wanneer u aangepaste installatiekopieën uploaden. Dit proces wordt toegevoegd tijd bij het toevoegen van een installatiekopie, maar databaseruimte en de implementatie van deze installatiekopieën sneller. Conversie is alleen van toepassing op nieuwe afbeeldingen.  Bestaande installatiekopieën worden niet gewijzigd. 
 
 ## <a name="next-steps"></a>Volgende stappen
+[Downloaden van de Marketplace-items](azure-stack-download-azure-marketplace-item.md)  
 [Maken en publiceren van een Marketplace-item](azure-stack-create-and-publish-marketplace-item.md)
 

@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 03/23/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 58b4c6769f6eb441e9ccaf041f3d56f4af9a0831
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3d95a602815cd444fb4b062853d9d31b75993e6a
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>Begrijpen hoe de rand van de IoT-modules kunnen worden gebruikt, is geconfigureerd, en hergebruikt - voorbeeld
 
@@ -168,7 +168,7 @@ Het implementatiemanifest kunt gewenste eigenschappen opgeven voor de module-twi
 
 Als u een module-twin gewenste eigenschappen in het implementatiemanifest niet opgeeft, IoT-Hub wordt de module-twin op elke manier hierdoor niet gewijzigd en u zich voor het instellen van de gewenste eigenschappen programmatisch.
 
-Dezelfde mechanismen waarmee u kunt wijzigen horende apparaten worden gebruikt voor het wijzigen van de module horende. Raadpleeg de [apparaat twin ontwikkelaarshandleiding](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) voor meer informatie.   
+Dezelfde mechanismen waarmee u kunt wijzigen horende apparaten worden gebruikt voor het wijzigen van de module horende. Raadpleeg de [apparaat twin ontwikkelaarshandleiding](../iot-hub/iot-hub-devguide-device-twins.md) voor meer informatie.   
 
 ## <a name="deployment-manifest-example"></a>Voorbeeld van de implementatie-manifest
 

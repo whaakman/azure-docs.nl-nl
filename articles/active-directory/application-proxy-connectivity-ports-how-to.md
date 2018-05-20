@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 0b7b8642d29a815ba40655dd9cab519a2b12ecd8
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 72acfbd21159e15fe237be6d509cb2c4a2b1bffd
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-open-the-firewall-ports-required-for-an-application-proxy-application"></a>Het openen van de firewall-poorten die vereist zijn voor een toepassing toepassingsproxy
 
@@ -36,4 +36,4 @@ Om te zorgen dat het hulpprogramma kunt u de juiste resultaten, moet u:
 -   Zorg ervoor dat alle proxy's of de van toepassing op uw Connector firewalls ook worden toegepast op deze pagina. Dit kan worden gedaan in Internet Explorer door te gaan naar **instellingen**  - &gt; **Internetopties**  - &gt; **verbindingen**  - &gt; **Lan-instellingen**. Op deze pagina ziet u het veld 'Gebruik een Proxy-Server voor uw LAN'. Schakel dit in en adres voor de proxyserver in het veld 'Adres' geplaatst.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Azure AD-toepassingsproxy connectors begrijpen](application-proxy-understand-connectors.md)
+[Azure AD-toepassingsproxy connectors begrijpen](manage-apps/application-proxy-connectors.md)

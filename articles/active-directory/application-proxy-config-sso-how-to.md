@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 09d17f9f70ef352fe8d44a16c0f78323153a8a1a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: c090a3fc36c300a108f10f02d0b663dc1e29f986
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Het configureren van eenmalige aanmelding tot een toepassing toepassingsproxy
 
@@ -37,7 +37,7 @@ Het specifieke type van eenmalige aanmelding configureren. De methoden voor eenm
 
 -   **Geïntegreerde Windows-verificatie**: voor toepassingen met geïntegreerde Windows-verificatie (IWA), eenmalige aanmelding is ingeschakeld via Kerberos-beperkt delegatie (KCD). Deze methode wordt Application Proxy Connectors gemachtigd in Active Directory gebruikers, te imiteren en om het verzenden en ontvangen van tokens in hun naam. Meer informatie over het configureren van KCD vindt u in de [eenmalige aanmelding met KCD documentatie](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md).
 
--   **Op basis van een koptekst aanmelding**: Header gebaseerde aanmelding via een verbinding is ingeschakeld en is aanvullende configuratie vereist. Zie voor meer informatie over de samenwerking en stapsgewijze instructies voor het configureren van eenmalige aanmelding tot een toepassing die gebruikmaakt van headers voor de verificatie, de [PingAccess voor Azure AD-documentatie](application-proxy-ping-access.md).
+-   **Op basis van een koptekst aanmelding**: Header gebaseerde aanmelding via een verbinding is ingeschakeld en is aanvullende configuratie vereist. Zie voor meer informatie over de samenwerking en stapsgewijze instructies voor het configureren van eenmalige aanmelding tot een toepassing die gebruikmaakt van headers voor de verificatie, de [PingAccess voor Azure AD-documentatie](manage-apps/application-proxy-configure-single-sign-on-with-ping-access.md).
 
 Elk van deze opties kunt u vinden door te gaan naar de toepassing in 'Bedrijfstoepassingen' en openen van de **Single Sign-On** pagina in het menu links. Houd er rekening mee dat als uw toepassing in de oude portal is gemaakt, u niet al deze opties ziet mogelijk.
 

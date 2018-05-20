@@ -1,7 +1,7 @@
 ---
 title: Grondige Learning en AI frameworks - Azure | Microsoft Docs
 description: Deep Learning en AI-frameworks
-keywords: hulpmiddelen voor wetenschappelijke gegevens, gegevens wetenschappelijke virtuele machine, hulpprogramma's voor gegevenswetenschap, gegevenswetenschap linux
+keywords: hulpprogramma's voor datatechnologie, virtuele machine voor datatechnologie, hulpprogramma voor datatechnologie, linux-datatechnologie
 services: machine-learning
 documentationcenter: ''
 author: gopitk
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: d73869d1371247a269b6601c35b1a938d89176c0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: cd8579fe29282f3875ecfddf67a34444e3de9ef5
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Deep Learning en AI-frameworks
 De [gegevens wetenschappelijke virtuele Machine](http://aka.ms/dsvm) (DSVM) en de [grondige Learning VM](http://aka.ms/dsvm/deeplearning) ondersteunt een aantal grondige learning frameworks om u te helpen bij het ontwikkelen van toepassingen met predictive analytics kunstmatige intelligentie (AI) en cognitieve mogelijkheden, zoals de installatiekopie en language understanding. 
@@ -80,6 +80,7 @@ Hier volgen de details op alle frameworks die beschikbaar is op de DSVM learning
 | Wat is het?   | Grondige learning framework      |
 | Ondersteunde DSVM edities      | Ubuntu     |
 | Hoe wordt deze geconfigureerd / geïnstalleerd op de DSVM?  | Caffe is geïnstalleerd in `/opt/caffe`.    |
+| Overschakelen naar Python 2.7 | Voer `source activate root` uit. |
 | Koppelingen naar voorbeelden      | Voorbeelden zijn opgenomen in `/opt/caffe/examples`.      |
 | Bijbehorende hulpprogramma's op de DSVM      | Caffe2      |
 ### <a name="how-to-use--run-it"></a>Hoe gebruik / uitvoeren?  
@@ -88,12 +89,15 @@ X2Go aanmelden bij uw VM vervolgens start een nieuwe terminal en voer gebruiken
 
 ```
 cd /opt/caffe/examples
+source activate root
 jupyter notebook
 ```
 
 Een nieuw browservenster geopend met voorbeeldquery notitieblokken.
 
-Binaire bestanden worden geïnstalleerd in /opt/caffe/build/install/bin. 
+Binaire bestanden worden geïnstalleerd in /opt/caffe/build/install/bin.
+
+Geïnstalleerde versie van Caffe Python 2.7 vereist en werkt niet met Python 3.5 standaard geactiveerd. Voer `source activate root` overschakelen Anaconda-omgeving. 
 
 ## <a name="caffe2"></a>Caffe2
 

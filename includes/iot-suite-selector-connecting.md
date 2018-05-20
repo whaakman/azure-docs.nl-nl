@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 43acf33ec7787378595ad62540a868100bf587f7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 12e2f0f458d491235a75aab7e3e5e474edf50e4b
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 > [!div class="op_single_selector"]
 > * [C op Windows](../articles/iot-suite/iot-suite-connecting-devices.md)
@@ -21,7 +21,7 @@ ms.lasthandoff: 05/07/2018
 > * [Node.js op Raspberry Pi](../articles/iot-suite/iot-suite-connecting-pi-node.md)
 > * [C op Raspberry Pi](../articles/iot-suite/iot-suite-connecting-pi-c.md)
 
-In deze zelfstudie implementeert u een **Koelunit** apparaat dat de volgende telemetrie naar de externe controle verzendt [oplossingsverbetering](../articles/iot-suite/iot-suite-what-are-solution-accelerators.md):
+In deze zelfstudie implementeert u een **Koelunit** apparaat dat de volgende telemetrie naar de externe controle verzendt [oplossingsverbetering](../articles/iot-accelerators/iot-accelerators-what-are-solution-accelerators.md):
 
 * Temperatuur
 * Druk
@@ -43,7 +43,7 @@ Voordat u code voor uw apparaat schrijven, wordt uw externe controle oplossingsv
 
 ### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>Uw externe controle oplossingsverbetering implementeren
 
-De **Koelunit** apparaat die u in deze zelfstudie maakt gegevens verzendt naar een exemplaar van de [externe controle](../articles/iot-suite/iot-suite-remote-monitoring-explore.md) oplossingsverbetering. Als u dit nog niet hebt externe controle oplossingsverbetering in uw Azure-account voorzien, Zie [remote monitoring solution accelerator implementeren](../articles/iot-suite/iot-suite-remote-monitoring-deploy.md)
+De **Koelunit** apparaat die u in deze zelfstudie maakt gegevens verzendt naar een exemplaar van de [externe controle](../articles/iot-suite/iot-suite-remote-monitoring-explore.md) oplossingsverbetering. Als u dit nog niet hebt externe controle oplossingsverbetering in uw Azure-account voorzien, Zie [remote monitoring solution accelerator implementeren](../articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy.md)
 
 Wanneer het implementatieproces voor de oplossing voor externe controle is voltooid, klikt u op **starten** dashboard van de oplossing in uw browser te openen.
 

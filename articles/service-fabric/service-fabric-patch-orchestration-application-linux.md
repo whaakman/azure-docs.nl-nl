@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: novino
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/22/2018
 ms.author: nachandr
-ms.openlocfilehash: dac8068705e284b04d84d128eb1ce62c459d44ff
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f5d9b39a91567dd04b4e8ca0cd580c58024bb2f2
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Patch voor het Linux-besturingssysteem in uw Service Fabric-cluster
 
@@ -219,7 +219,7 @@ Velden van de JSON worden als volgt beschreven:
 Veld | Waarden | Details
 -- | -- | --
 OperationResult | 0 - geslaagd<br> 1 - is voltooid met fouten<br> 2 - is mislukt<br> 3 - afgebroken<br> 4 - afgebroken met time-out | Geeft het resultaat van de algehele bewerking (meestal met betrekking tot installatie van een of meer updates).
-ResultCode | Zelfde als OperationResult | Dit veld wordt het resultaat van de installatiebewerking voor individuele update aangegeven.
+resultCode | Zelfde als OperationResult | Dit veld wordt het resultaat van de installatiebewerking voor individuele update aangegeven.
 OperationType | 1 - installatie<br> 0 - te zoeken en downloaden.| De installatie is de enige OperationType die standaard wordt weergegeven in de resultaten.
 UpdateClassification | De standaardwaarde is "securityupdates" | Type-updates die tijdens de updatebewerking is geïnstalleerd
 UpdateFrequency | De standaardwaarde is "Wekelijks, woensdag, 7:00:00" | Werk de synchronisatiefrequentie gebruikt die is geconfigureerd voor deze update.

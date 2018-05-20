@@ -15,17 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: sngun
-ms.openlocfilehash: 4d5743703f3a1d98b720bd92a30c91549bbf89c0
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 21274a71042c5acf38711d29a5062e9f68b6a6a0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Ondersteuning van Azure DB Cosmos-firewall
 Als u wilt beveiligen gegevens die zijn opgeslagen in een databaseaccount Azure Cosmos DB, Azure Cosmos DB heeft biedt ondersteuning voor een geheim op basis van [autorisatie model](https://msdn.microsoft.com/library/azure/dn783368.aspx) die gebruikmaakt van een sterke Hash-based message authentication code (HMAC). Azure Cosmos DB ondersteunt nu, naast het model geheime gebaseerde autorisatie beleid IP gebaseerd toegangsbeheer voor binnenkomende firewallondersteuning aangestuurd. Dit model is vergelijkbaar met de firewallregels van een systeem van traditionele databases en biedt een extra beveiligingsniveau voor de account van de Azure DB die Cosmos-database. Met dit model, kunt u nu een databaseaccount Azure Cosmos DB om te worden alleen toegankelijk vanuit een goedgekeurde set machines en/of cloud services configureren. Toegang tot Azure Cosmos DB resources uit deze goedgekeurde sets met machines en services vereisen nog steeds de aanroeper om weer te geven van een geldige verificatietoken.
 
+> [!NOTE]
+> Firewallondersteuning is momenteel beschikbaar voor accounts voor SQL-API van Azure Cosmos DB en Mongo-API. Mogelijkheid voor het configureren van firewalls voor andere API's en soevereine clouds zoals Duitse Azure of Azure Government zijn binnenkort beschikbaar. Als u van plan bent voor het configureren van de service-eindpunt ACL voor uw Azure DB die Cosmos-account met een bestaande geconfigureerde IP-firewall, houd er rekening mee configuratie van de firewall, verwijdert u de firewall van het IP- en configureert u het service-eindpunt-ACL. Nadat u service-eindpunt hebt geconfigureerd, kunt u de IP-firewall weer inschakelen indien nodig.
+
 ## <a name="ip-access-control-overview"></a>IP-Toegangsbeheer-overzicht
-Een Azure DB die Cosmos-databaseaccount is standaard toegankelijk is vanaf het openbare internet, zolang de aanvraag vergezeld van een geldige verificatietoken gaat. De gebruiker moet de verzameling van IP-adressen of IP-adresbereiken in CIDR-formulier moeten worden opgenomen als de lijst met toegestane van client-IP-adressen voor een bepaalde database-account opgeven voor het configureren van IP-toegangsbeheer op basis van beleid. Zodra deze configuratie wordt toegepast, worden alle aanvragen die afkomstig zijn van computers buiten deze lijst met toegestane geblokkeerd door de server.  De verwerking van de stroom voor het besturingselement toegang op basis van IP-verbinding wordt beschreven in het volgende diagram:
+Een Azure Cosmos DB-databaseaccount is standaard toegankelijk via openbaar internet zolang de aanvraag wordt vergezeld van een geldige autorisatietoken. Als u IP-toegangsbeheer op basis van beleid wilt configureren, moet u de set IP-adressen of IP-adresbereiken in CIDR-notatie opgeven om op te nemen als toegestane lijst van client-IP's voor een bepaald databaseaccount. Wanneer deze configuratie is toegepast, worden alle aanvragen die afkomstig zijn van computers buiten deze toegestane lijst geblokkeerd door de server.  De verwerking van de stroom voor het besturingselement toegang op basis van IP-verbinding wordt beschreven in het volgende diagram:
 
 ![Diagram van het verbindingsproces voor toegangsbeheer op basis van IP](./media/firewall-support/firewall-support-flow.png)
 

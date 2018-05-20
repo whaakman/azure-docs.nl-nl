@@ -9,23 +9,23 @@ editor: msfussell
 ms.assetid: 7d1052ec-2c9f-443d-8b99-b75c97266e6c
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: d0b4ff1959465ade5f57c045d2a005e828638eb2
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 2b6fd2373a9cd0b376a6c8729d5952c5fc48ddf8
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Verbinding maken en te communiceren met Service Fabric-services
 In Service Fabric, een service wordt uitgevoerd ergens in een Service Fabric-cluster, doorgaans verdeeld over meerdere virtuele machines. Deze kan worden verplaatst vanaf één locatie naar een andere, door de eigenaar van de service of automatisch door de Service Fabric. Services zijn niet statisch gekoppeld aan een bepaalde machine of een adres.
 
 Een Service Fabric-toepassing in het algemeen bestaat uit veel verschillende services, waarbij elke service een speciale taak uitvoert. Deze services kunnen communiceren met elkaar om een volledige functie, zoals de rendering van verschillende onderdelen van een webtoepassing. Er zijn ook clienttoepassingen die verbinding maken met en communiceren met de services. Dit document wordt beschreven hoe u voor het instellen van de communicatie met en tussen uw services in Service Fabric.
 
-Servicecommunicatie wordt ook beschreven in deze video van Microsoft Virtual Academy:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=iYFCk76yC_6706218965">  
+Servicecommunicatie wordt ook beschreven in deze video van Microsoft Virtual Academy: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=iYFCk76yC_6706218965">  
 <img src="./media/service-fabric-connect-and-communicate-with-services/CommunicationVid.png" WIDTH="360" HEIGHT="244">  
 </a></center>
 

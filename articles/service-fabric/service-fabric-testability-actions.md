@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: motanv
 manager: timlt
-editor: toddabel
+editor: heeldin
 ms.assetid: ed53ca5c-4d5e-4b48-93c9-e386f32d8b7a
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/07/2017
-ms.author: motanv;heeldin
-ms.openlocfilehash: c8ddc7732999ae555323bebaef60aa34c8f2ec17
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: motanv
+ms.openlocfilehash: 087a0f12f765b55c2e2976abd93d791409ff6d44
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="testability-actions"></a>Testbaarheid acties
 Om te simuleren een onbetrouwbare infrastructuur, biedt u de ontwikkelaar, manieren om te simuleren verschillende echte fouten en statusovergangen van Azure Service Fabric. Deze zijn beschikbaar als testbaarheid acties. De acties zijn de op laag niveau API's die ertoe leiden een specifieke fout injectie, statusovergang of validatie dat. U kunt uitgebreide Testscenario's voor uw services schrijven door een combinatie van deze acties.
@@ -45,7 +45,7 @@ Voor betere quality-validatie uitvoeren, de service en zakelijke werkbelasting t
 | Secundaire verplaatsen |De huidige secundaire replica van een stateful service verplaatst naar een ander clusterknooppunt. |MoveSecondaryAsync |Move-ServiceFabricSecondaryReplica |Correcte |
 | RemoveReplica |Een replica-fout simuleert door het verwijderen van een replica van een cluster. Dit de replica wordt gesloten en verandert deze in rol 'None', verwijderen van alle van de status van het cluster. |RemoveReplicaAsync |Remove-ServiceFabricReplica |Correcte |
 | RestartDeployedCodePackage |Simuleert een fout in het pakket code door een codepakket geïmplementeerd op een knooppunt in een cluster opnieuw te starten. Hiermee annuleert het proces voor het pakket van code, die wordt alle gebruiker service replica's die worden gehost in het proces opnieuw opgestart. |RestartDeployedCodePackageAsync |Restart-ServiceFabricDeployedCodePackage |Geforceerde afsluiting |
-| RestartNode |Simuleert een knooppuntfout voor Service Fabric-cluster door een knooppunt opnieuw te starten. |RestartNodeAsync |Restart-ServiceFabricNode |Geforceerde afsluiting |
+| Restartnode uitgevoerd |Simuleert een knooppuntfout voor Service Fabric-cluster door een knooppunt opnieuw te starten. |RestartNodeAsync |Restart-ServiceFabricNode |Geforceerde afsluiting |
 | RestartPartition |Simuleert een datacenter onleesbaar of cluster onleesbaar scenario door enkele of alle replica's van een partitie opnieuw te starten. |RestartPartitionAsync |Restart-ServiceFabricPartition |Correcte |
 | RestartReplica |Simuleert een replica mislukt door een persistente replica opnieuw te starten in een cluster, het sluiten van de replica en het vervolgens opnieuw te openen. |RestartReplicaAsync |Restart-ServiceFabricReplica |Correcte |
 | StartNode |Start een knooppunt in een cluster dat is al gestopt. |StartNodeAsync |Start-ServiceFabricNode |Niet van toepassing |

@@ -8,11 +8,11 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: marsma
-ms.openlocfilehash: 80d12d1f5d6b388c46ed90eb84b7bc00250e17ff
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 818bae2e05f6a3256ccbf0cbcc901dd337b9a260
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Netwerkconfiguratie in Azure Kubernetes Service (AKS)
 
@@ -86,7 +86,7 @@ De volgende vragen en antwoorden van toepassing op de **Geavanceerd** netwerkcon
 
   Nee. Implementatie van virtuele machines in het subnet dat wordt gebruikt door uw cluster Kubernetes wordt niet ondersteund. Virtuele machines kunnen worden geïmplementeerd in hetzelfde VNet, maar in een ander subnet.
 
-* * Kan ik per schil netwerkbeleid configureren?
+* *Kan ik per schil netwerkbeleid configureren?*
 
   Nee. Per schil netwerkbeleid worden momenteel niet ondersteund.
 

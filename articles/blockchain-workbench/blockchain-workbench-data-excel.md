@@ -1,6 +1,6 @@
 ---
-title: Azure Blockchain Workbench gegevens in Microsoft Excel gebruiken
-description: Informatie over het laden en Azure Blockchain Workbench SQL DB-gegevens weergeven in Microsoft Excel.
+title: Gegevens van Azure Blockchain Workbench gebruiken in Microsoft Excel
+description: Leer hoe u gegevens uit een SQL-database van Azure Blockchain Workbench laadt en weergeeft in Microsoft Excel.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
@@ -10,61 +10,62 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 70297bd0af6322d0f3ac2c719d1827e4bc5898cd
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: e8c20f4b8e39615e2a8c486130d7c8bec655a936
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/12/2018
 ---
-# <a name="view-azure-blockchain-workbench-data-with-microsoft-excel"></a>Azure Blockchain Workbench gegevens met Microsoft Excel weergeven
+# <a name="view-azure-blockchain-workbench-data-with-microsoft-excel"></a>Gegevens van Azure Blockchain Workbench weergeven met Microsoft Excel
 
-Gegevens weergeven in Azure Blockchain Workbench SQL-database kunt u Microsoft Excel. Dit artikel bevat de stappen die u wilt:
+U kunt Microsoft Excel gebruiken om gegevens in een SQL-database van Azure Blockchain Workbench weer te geven. Dit artikel bevat de stappen die nodig zijn voor deze bewerkingen:
 
-* Verbinding maken met de database Blockchain Workbench van Microsoft Excel
-* Bekijk Blockchain Workbench databasetabellen en weergaven
-* Laden van gegevens in de Blockchain Workbench in Excel
+* Verbinding maken met een database van Blockchain Workbench vanuit Microsoft Excel
+* Databasetabellen en -weergaven van Blockchain Workbench bekijken
+* Gegevens van Blockchain Workbench laden in Excel
 
-## <a name="connect-to-the-blockchain-workbench-database"></a>Verbinding maken met de database Blockchain Workbench
+## <a name="connect-to-the-blockchain-workbench-database"></a>Verbinding maken met een database van Blockchain Workbench
 
-Verbinding maken met een database Blockchain Workbench:
+U kunt als volgt verbinding maken met een database van Blockchain Workbench:
 
 1. Open Microsoft Excel.
-2. Op de **gegevens** Kies **gegevens ophalen**.
-3. Selecteer **van Azure** en selecteer vervolgens **van Azure SQL Database**.
+2. Ga naar het tabblad **Gegevens** en kies **Gegevens ophalen**.
+3. Selecteer **Uit Azure** en selecteer vervolgens **Uit Azure SQL Database**.
 
    ![Verbinding maken met Azure SQL Database](media/blockchain-workbench-data-excel/connect-sql-db.png)
 
-4. In de **SQL Server-database** in het dialoogvenster:
+4. Ga als volgt te werk in het dialoogvenster **SQL Server-database**:
 
-    * Voor **Server**, voer de naam van de server Blockchain Workbench.
-    * Voor **Database (optioneel)**, voer de naam van de database.
+    * Voer bij **Server** de naam van de Blockchain Workbench-server in.
+    * Voer bij **Database (optioneel)** de naam van de database in.
 
-   ![Database-server en database opgeven](media/blockchain-workbench-data-excel/provide-server-db.png)
+   ![Databaseserver en database opgeven](media/blockchain-workbench-data-excel/provide-server-db.png)
 
-5. In de **SQL Server-database** dialoogvenster navigatiebalk, selecteer **Database**. Voer uw **gebruikersnaam** en **wachtwoord**, en selecteer vervolgens **Connect**.
+5. Selecteer **Database** in de navigatiebalk van het dialoogvenster **SQL Server-database**. Geef bij **Gebruikersnaam** en **Wachtwoord** uw gebruikersnaam en wachtwoord op en selecteer vervolgens **Verbinding maken**.
 
     > [!NOTE]
-    > Als u de referenties die zijn gemaakt tijdens de implementatie van Azure Blockchain Workbench de **gebruikersnaam** is `dbadmin`. De **wachtwoord** wordt de website die u tijdens de implementatie van de Blockchain Workbench gemaakt.
+    > Als u de referenties gebruikt die zijn gemaakt tijdens de implementatie van Azure Blockchain Workbench, is `dbadmin` de **gebruikersnaam**. Gebruik voor **Wachtwoord** het wachtwoord dat u hebt gemaakt tijdens de implementatie van Blockchain Workbench.
     
    ![Referenties opgeven voor toegang tot de database](media/blockchain-workbench-data-excel/provide-credentials.png)
 
-## <a name="look-at-database-tables-and-views"></a>Databasetabellen en weergaven bekijken
+## <a name="look-at-database-tables-and-views"></a>Databasetabellen en -weergaven bekijken
 
-Het dialoogvenster Navigator Excel wordt geopend nadat u verbinding met de database maakt. U kunt de Navigator gebruiken om te kijken naar de tabellen en weergaven in de database. De weergaven zijn ontworpen voor rapportage en hun namen worden voorafgegaan door **code**.
+Het dialoogvenster Navigator van Excel wordt geopend zodra er verbinding is met de database. Gebruik dit dialoogvenster om de tabellen en weergaven in de database te bekijken. De weergaven zijn ontworpen voor rapportagedoeleinden en hun namen worden voorafgegaan door **vw**.
 
-   ![Voorbeeld van een weergave Excel Navigator](media/blockchain-workbench-data-excel/excel-navigator.png)
+   ![Voorbeeld van een weergave in Excel Navigator](media/blockchain-workbench-data-excel/excel-navigator.png)
 
-## <a name="load-view-data-into-an-excel-workbook"></a>Gegevens van de Load-weergeven in een Excel-werkmap
+## <a name="load-view-data-into-an-excel-workbook"></a>Gegevens van een weergave laden in een Excel-werkmap
 
-Het volgende voorbeeld ziet hoe u gegevens kunt laden vanuit een weergave in een Excel-werkmap.
+Het volgende voorbeeld laat zien hoe u gegevens vanuit een weergave kunt laden in een Excel-werkmap.
 
-1. In de **Navigator** schuifbalk, selecteer de **vwContractAction** weergeven. De **vwContractAction** voorbeeld worden de acties die zijn gekoppeld aan een contract in de database Blockchain Workbench.
-2. Selecteer **Load** op te halen van de gegevens in de weergave en plaats deze in uw Excel-werkmap.
+1. Selecteer op de schuifbalk van **Navigator** de weergave **vwContractAction**. In het voorbeeld van **vwContractAction** worden alle acties weergegeven die zijn gerelateerd aan een contract in de database van Blockchain Workbench.
+2. Selecteer **Laden** om alle gegevens in de weergave op te halen en deze over te brengen naar de Excel-werkmap.
 
-   ![Gegevens uit een weergave wordt geladen](media/blockchain-workbench-data-excel/view-data.png)
+   ![Gegevens geladen uit een weergave](media/blockchain-workbench-data-excel/view-data.png)
 
-Nu dat u de gegevens die zijn geladen hebt, kunt u Excel-functies om uw eigen rapporten met behulp van de metagegevens en transactie gegevens uit de database Azure Blockchain Workbench te maken.
+Nu de gegevens geladen zijn, kunt u functies van Excel gebruiken om uw eigen rapporten te maken met behulp van de metagegevens en transactiegegevens uit de database van Azure Blockchain Workbench.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Databaseweergaven in Azure Blockchain Workbench](blockchain-workbench-database-views.md)
+> [!div class="nextstepaction"]
+> [Databaseweergaven in Azure Blockchain Workbench](blockchain-workbench-database-views.md)

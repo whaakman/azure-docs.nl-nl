@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: rli; v-deasim
-ms.openlocfilehash: 2ffe547d1d1333a5469d313f9f9cc60f5118f814
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 4c0a68fd7b6cdf96bb495f6b447299bdbc5772f7
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Dynamische site-versnelling via Azure CDN
 
@@ -158,7 +158,7 @@ Toegang krijgen tot cachebewerkingen regels:
 
 1. Van de **CDN-profiel** pagina onder instellingen, selecteert **regels opslaan in cache**.  
     
-    ![Knop regels CDN opslaan in cache](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
+    ![Knop Regels voor CDN-caching](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
 
     De **regels opslaan in cache** pagina wordt geopend.
 
@@ -183,9 +183,6 @@ Toegang krijgen tot de regelengine:
 U kunt ook twee CDN-eindpunten gebruiken: één eindpunt geoptimaliseerd met DSA leveren dynamische activa en een ander eindpunt geoptimaliseerd met een statische optimalisatie-type, zoals algemene web-levering aan levering caching geschikte activa. Wijzig de URL van uw webpagina directe koppeling naar de asset op het CDN-eindpunt dat u wilt gebruiken. 
 
 Bijvoorbeeld: `mydynamic.azureedge.net/index.html` is een dynamische pagina en is geladen vanuit het DSA-eindpunt.  De html-pagina verwijst naar meerdere statische elementen zoals JavaScript-bibliotheken of installatiekopieën die worden geladen vanuit het statische CDN-eindpunt, zoals `mystatic.azureedge.net/banner.jpg` en `mystatic.azureedge.net/scripts.js`. 
-
-Zie voor een voorbeeld over het gebruik van domeincontrollers in een ASP.NET-webtoepassing inhoud via een specifieke CDN URL [inhoud verzorgen vanaf een domeincontroller acties via Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-cloud-service-with-cdn#controller).
-
 
 
 

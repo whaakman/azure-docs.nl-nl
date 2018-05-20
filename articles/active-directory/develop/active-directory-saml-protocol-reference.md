@@ -1,13 +1,14 @@
 ---
 title: Naslaginformatie over Azure AD-SAML-Protocol | Microsoft Docs
-description: "Dit artikel bevat een overzicht van de profielen voor eenmalige aanmelding en één Sign-Out SAML in Azure Active Directory."
+description: Dit artikel bevat een overzicht van de profielen voor eenmalige aanmelding en één Sign-Out SAML in Azure Active Directory.
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 88125cfc-45c1-448b-9903-a629d8f31b01
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,11 +17,11 @@ ms.date: 07/21/2017
 ms.author: priyamo
 ms.custom: aaddev
 ms.reviewer: dastrock
-ms.openlocfilehash: 84bd6ae5e1624ade18dc7ee2b73fe1c94914978e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3a38d5e7a33a681c2e6d4964863d25f5cfbd6725
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-azure-active-directory-uses-the-saml-protocol"></a>Hoe het SAML-protocol wordt gebruikt in Azure Active Directory
 Maakt gebruik van het SAML 2.0-protocol van de Azure Active Directory (Azure AD) zodat toepassingen kunnen een ervaring voor eenmalige aanmelding te bieden aan hun gebruikers. De [Single Sign-On](active-directory-single-sign-on-protocol-reference.md) en [één Afmelden](active-directory-single-sign-out-protocol-reference.md) SAML-profielen van Azure AD wordt uitgelegd hoe SAML asserties, protocollen en bindingen worden gebruikt in de id-provider-service.
@@ -33,7 +34,7 @@ Azure AD gebruikt de **Metadata URI** van de cloudservice voor het ophalen van d
 
 Azure Active Directory wordt tenantspecifieke en algemene (tenant-onafhankelijk) eenmalige aanmelding en één afmelden eindpunten. Deze URL's vertegenwoordigen adresseerbare locaties--ze zijn niet alleen een id's--zodat u naar het eindpunt gaat te lezen van de metagegevens.
 
-* Het eindpunt tenantspecifieke bevindt zich op `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`.  De <TenantDomainName> tijdelijke aanduiding voor een geregistreerde domeinnaam of TenantID GUID van een Azure AD-tenant vertegenwoordigt. De federatiemetagegevens van de tenant contoso.com is bijvoorbeeld op: https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
+* Het eindpunt tenantspecifieke bevindt zich op `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`. De <TenantDomainName> tijdelijke aanduiding voor een geregistreerde domeinnaam of TenantID GUID van een Azure AD-tenant vertegenwoordigt. De federatiemetagegevens van de tenant contoso.com is bijvoorbeeld op: https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
 
 * Het eindpunt van de Tenant-onafhankelijke bevindt zich op `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`. In dit eindpuntadres **algemene** wordt weergegeven, in plaats van een tenant domeinnaam of -ID.
 

@@ -3,7 +3,7 @@ title: Snelstartgids voor het installeren van Azure Machine Learning-services | 
 description: In deze snelstart kunt u leren hoe u Azure Machine Learning-resources kunt maken en hoe u Azure Machine Learning Workbench kunt installeren en ermee aan het werk gaan.
 services: machine-learning
 author: hning86
-ms.author: chhavib
+ms.author: haining
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 3/7/2018
-ms.openlocfilehash: 61f51063ea7542e11ec8488c1f526c0fff1e5e38
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 12a34bc98db396482d9fde8da778db0f0ef7de4b
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="quickstart-install-and-get-started-with-azure-machine-learning-services"></a>Snelstart: Azure Machine Learning-services installeren en starten
 Azure Machine Learning-services (preview) zijn een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse. Het helpt professionele gegevenswetenschappers gegevens voor te bereiden, experimenten te ontwikkelen en modellen te implementeren op cloudschaal.

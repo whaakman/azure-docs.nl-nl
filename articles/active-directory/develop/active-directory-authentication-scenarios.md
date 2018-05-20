@@ -3,23 +3,25 @@ title: Verificatie-scenario's voor Azure AD | Microsoft Docs
 description: Biedt een overzicht van de vijf meest voorkomende verificatie scenario's voor Azure Active Directory (Azure AD)
 services: active-directory
 documentationcenter: dev-center-name
-author: jmprieur
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/24/2018
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f85898d566ea5c6791350df809e960f7e951012d
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 0c1390945848901dd71214e01469ab3bfa765ef4
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/30/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Verificatie-scenario's voor Azure AD
 
@@ -49,7 +51,7 @@ Met het diagram hierboven in gedachten is dit wat u moet weten over de verschill
 * Azure AD is de id-provider, die verantwoordelijk is voor de identiteit van gebruikers en toepassingen die zijn opgenomen in de directory van de organisatie en het afgeven van uiteindelijk beveiligingstokens na een geslaagde verificatie van gebruikers en toepassingen.
 * Een toepassing die wil uitbesteden verificatie met Azure AD moet worden geregistreerd in Azure AD dat registreert en een unieke identificatie van de app in de map.
 * Ontwikkelaars kunnen de open source Azure AD-verificatiebibliotheken gebruiken dat verificatie gemakkelijker door de verwerking van de gegevens van het protocol voor u. Zie voor meer informatie [Azure Active Directory Authentication Libraries](active-directory-authentication-libraries.md).
-* Wanneer een gebruiker is geverifieerd, moet de toepassing van de gebruiker beveiligingstoken om ervoor te zorgen dat de verificatie is geslaagd valideren.  Er zijn voorbeelden van wat de toepassing moet doen in verschillende talen en frameworks op [GitHub](https://github.com/Azure-Samples?q=active-directory).  Als u een web-app in ASP.NET maakt, raadpleegt u de [aanmelden voor een ASP.NET web app handleiding toevoegen](https://docs.microsoft.com/en-us/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp).  Als u een web API-bron in ASP.NET maakt, raadpleegt u de [web-API aan de slag](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devquickstarts-webapi-dotnet).
+* Wanneer een gebruiker is geverifieerd, moet de toepassing van de gebruiker beveiligingstoken om ervoor te zorgen dat de verificatie is geslaagd valideren. Er zijn voorbeelden van wat de toepassing moet doen in verschillende talen en frameworks op [GitHub](https://github.com/Azure-Samples?q=active-directory). Als u een web-app in ASP.NET maakt, raadpleegt u de [aanmelden voor een ASP.NET web app handleiding toevoegen](https://docs.microsoft.com/en-us/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp). Als u een web API-bron in ASP.NET maakt, raadpleegt u de [web-API aan de slag](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devquickstarts-webapi-dotnet).
 * De stroom van aanvragen en antwoorden voor het verificatieproces wordt bepaald door het verificatieprotocol dat is gebruikt, zoals OAuth 2.0, OpenID Connect, WS-Federation of SAML 2.0. Deze protocollen worden besproken in meer detail in de [Azure Active Directory-verificatieprotocollen](active-directory-authentication-protocols.md) artikel en in de onderstaande secties.
 
 > [!NOTE]
@@ -72,7 +74,7 @@ Beveiligingstokens (toegang en ID-tokens) uitgegeven door Azure AD bevatten clai
 | Groepen | Object-id's van Azure AD-groepen waarvan de gebruiker lid is van bevat. |
 | Id-provider | Registreert de id-provider die het onderwerp van het token wordt geverifieerd. |
 | Verleend aan | De tijd waarop het token is uitgegeven, vaak gebruikt voor het token nieuwheid registreert. |
-| Verlener | Identificeert de STS dat het token, evenals de Azure AD-tenant verzonden. |
+| Certificaatverlener | Identificeert de STS dat het token, evenals de Azure AD-tenant verzonden. |
 | Achternaam | Biedt de achternaam van de gebruiker als set in Azure AD. |
 | Naam | Biedt een menselijke leesbare waarde die aangeeft van het onderwerp van het token. |
 | Object-id | Bevat een niet-wijzigbaar, unieke id van het onderwerp in Azure AD. |
@@ -189,7 +191,7 @@ Met behulp van ADAL.js helpt bij:
 * vernieuwen van een verlopen token
 * aanvragen van een toegangstoken om aan te roepen een web API-resource
 
-Na een geslaagde verificatie schrijft Azure AD een cookie in de browser van de gebruiker een sessie tot stand brengen.  Noteer dat de sessie bestaat tussen de gebruiker en de Azure AD (niet tussen de webtoepassing en de gebruiker). Wanneer een token is verlopen, ADAL.js maakt gebruik van deze sessie op de achtergrond een ander token verkrijgen. ADAL.js maakt gebruik van een verborgen iFrame verzenden en ontvangen van de aanvraag met behulp van de impliciete OAuth-Grant-protocol. ADAL.js kunt ook hetzelfde mechanisme gebruiken achtergrond toegangstokens ophalen voor andere web-API-resources die de toepassing wordt aangeroepen, zolang deze resources ondersteuning voor cross-origin-resource delen (CORS) zijn geregistreerd in de map van de gebruiker en eventuele toestemming vereist is die door de gebruiker tijdens het aanmelden.
+Na een geslaagde verificatie schrijft Azure AD een cookie in de browser van de gebruiker een sessie tot stand brengen. Noteer dat de sessie bestaat tussen de gebruiker en de Azure AD (niet tussen de webtoepassing en de gebruiker). Wanneer een token is verlopen, ADAL.js maakt gebruik van deze sessie op de achtergrond een ander token verkrijgen. ADAL.js maakt gebruik van een verborgen iFrame verzenden en ontvangen van de aanvraag met behulp van de impliciete OAuth-Grant-protocol. ADAL.js kunt ook hetzelfde mechanisme gebruiken achtergrond toegangstokens ophalen voor andere web-API-resources die de toepassing wordt aangeroepen, zolang deze resources ondersteuning voor cross-origin-resource delen (CORS) zijn geregistreerd in de map van de gebruiker en eventuele toestemming vereist is die door de gebruiker tijdens het aanmelden.
 
 ### <a name="native-application-to-web-api"></a>Systeemeigen toepassing aan web-API
 
@@ -260,7 +262,7 @@ De toepassings-id en de identiteit van gedelegeerd gebruikerstypen worden bespro
 
 1. Een gebruiker is al aangemeld bij een webtoepassing waarvan verificatiemechanisme onafhankelijk van Azure AD is.
 1. De webtoepassing vereist een autorisatiecode bij het aanschaffen van een toegangstoken zodat deze een aanvraag via de browser aan Azure AD autorisatie eindpunt uitgeeft, bieden de toepassings-ID en omleidings-URI voor de webtoepassing na een geslaagde authenticatie. De gebruiker zich aanmeldt bij Azure AD.
-1. Als de gebruiker van de webtoepassing niet nog heeft ingestemd aan waardoor de webtoepassing om aan te roepen namens de web-API, wordt de gebruiker moet toestemming geven. De machtigingen die vereist worden weergegeven door de toepassing en als een van deze machtigingen op administrator-niveau, normale gebruiker in de map kan niet worden om toestemming. Deze toestemming geldt voor zowel één als meerdere tenants toepassing.  Een beheerder kan admin toestemming-toestemming uitvoeren namens gebruikers in het geval één tenant.  U kunt dit doen met behulp van de `Grant Permissions` knop in de [Azure Portal](https://portal.azure.com). 
+1. Als de gebruiker van de webtoepassing niet nog heeft ingestemd aan waardoor de webtoepassing om aan te roepen namens de web-API, wordt de gebruiker moet toestemming geven. De machtigingen die vereist worden weergegeven door de toepassing en als een van deze machtigingen op administrator-niveau, normale gebruiker in de map kan niet worden om toestemming. Deze toestemming geldt voor zowel één als meerdere tenants toepassing. Een beheerder kan admin toestemming-toestemming uitvoeren namens gebruikers in het geval één tenant. U kunt dit doen met behulp van de `Grant Permissions` knop in de [Azure Portal](https://portal.azure.com). 
 1. Nadat de gebruiker heeft ingestemd, ontvangt de webtoepassing de autorisatiecode die nodig zijn voor het verkrijgen van een toegangstoken.
 1. Met behulp van de autorisatiecode uitgegeven door Azure AD, verzendt de webtoepassing een aanvraag naar Azure AD-tokeneindpunt waarin de autorisatiecode, informatie over de clienttoepassing (toepassings-ID en omleidings-URI) en de gewenste resource (toepassings-ID De URI voor de web-API).
 1. De autorisatiecode en informatie over de webtoepassing en de web-API worden gevalideerd door Azure AD. Heeft validatie is geslaagd, wordt de Azure AD twee tokens: een JWT-token voor toegang en een vernieuwingstoken JWT.

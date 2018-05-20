@@ -2,22 +2,23 @@
 title: Fout tijdens het verwerken van aanbevolen procedures voor clients van Azure Active Directory Authentication Library (ADAL)
 description: Biedt richtlijnen en aanbevolen procedures voor ADAL-clienttoepassingen voor foutafhandeling.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: danieldobalian
 manager: mtillman
-ms.author: bryanla
+ms.author: celested
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
-ms.custom: 
-ms.openlocfilehash: 2b4c945f5707c158c76c8edbd233d1a8b034111f
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.custom: ''
+ms.openlocfilehash: 27315262ff64b640acc3af16a26fc3887d852a00
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Fout tijdens het verwerken van aanbevolen procedures voor clients van Azure Active Directory Authentication Library (ADAL)
 
@@ -49,7 +50,7 @@ Er is een reeks fouten die zijn gegenereerd door het besturingssysteem waarvoor 
 
 Fundamenteel, er zijn twee gevallen AcquireTokenSilent fouten:
 
-| Aanvraag | Beschrijving |
+| Case | Beschrijving |
 |------|-------------|
 | **Voorbeeld 1**: fout kan worden omgezet met een interactieve aanmelden | Voor fouten worden veroorzaakt door het ontbreken van geldige tokens, is een interactieve aanvraag nodig. Zoeken in het cachegeheugen en een vernieuwingstoken dat ongeldig/verlopen moet in het bijzonder een AcquireToken-aanroep om op te lossen.<br><br>In dergelijke gevallen moet de eindgebruiker gevraagd om aan te melden. De toepassing kunt kiezen voor een interactieve aanvraag doen onmiddellijk na de interactie door de eindgebruiker (zoals een knop roept) of later. De keuze is afhankelijk van het gewenste gedrag van de toepassing.<br><br>Zie de code in de volgende sectie voor deze specifieke aanvraag en de fouten die deze diagnose.|
 | **Voorbeeld 2**: fout kan niet worden omgezet met een interactieve aanmelden | Voor het netwerk en tijdelijke/tijdelijke fouten of andere fouten, uitvoeren van een interactieve AcquireToken-aanvraag komt het probleem oplossen niet. Onnodige interactief aanmelden prompts kunnen ook frustrerend kan zijn voor eindgebruikers. ADAL probeert automatisch een enkele nieuwe poging voor de meeste fouten op AcquireTokenSilent fouten.<br><br>De clienttoepassing kan ook op een later tijdstip opnieuw proberen, maar wanneer en hoe u dit doen, is afhankelijk van het gedrag van toepassingen en gewenste eindgebruikers. Bijvoorbeeld, kunnen een AcquireTokenSilent opnieuw proberen na een paar minuten of als reactie op een bepaalde actie door eindgebruikers uitvoeren. Een directe nieuwe leidt ertoe dat de toepassing wordt beperkt, en niet uit te voeren.<br><br>Een opeenvolgende pogingen mislukken met dezelfde fout betekent niet dat de client een interactieve aanvraag met AcquireToken, moet doen als de fout kan niet worden omgezet.<br><br>Zie de code in de volgende sectie voor deze specifieke aanvraag en de fouten die deze diagnose. |
@@ -74,7 +75,7 @@ catch (AdalSilentTokenAcquisitionException e) {
     // Exception: AdalSilentTokenAcquisitionException
     // Caused when there are no tokens in the cache or a required refresh failed. 
 
-    // Action: Case 1, resolvable with an interactive request.  
+    // Action: Case 1, resolvable with an interactive request. 
 } 
 
 catch(AdalServiceException e) {
@@ -138,7 +139,7 @@ public void onError(Exception e) {
 
 De volgende richtlijnen ziet u voorbeelden van foutafhandeling in combinatie met ADAL methoden: 
 
-- acquireTokenSilentWithResource(…)
+- acquireTokenSilentWithResource(...)
 
 Uw code zou als volgt uitgevoerd:
 
@@ -157,7 +158,7 @@ Uw code zou als volgt uitgevoerd:
             // Error: AD_ERROR_CACHE_MULTIPLE_USERS
             // Description: There was ambiguity in the silent request resulting in multiple cache items.
             // Action: Special Case, application should perform another silent request and specify the user using ADUserIdentifier. 
-            // Can be caused in cases of a multi-user application.  
+            // Can be caused in cases of a multi-user application. 
 
             // Action: Case 2, not resolvable with an interactive request.
             // Attempt retry after some time or user action.
@@ -170,9 +171,9 @@ Uw code zou als volgt uitgevoerd:
 
 ## <a name="acquiretoken"></a>AcquireToken
 
-AcquireToken is de standaardmethode ADAL gebruikt voor het ophalen van tokens. In gevallen waarin gebruikers-id vereist is, AcquireToken probeert op te halen van een token achtergrond eerste en de gebruikersinterface wordt weergegeven indien nodig (tenzij PromptBehavior.Never wordt doorgegeven). In gevallen waarin toepassings-id vereist is, AcquireToken probeert op te halen van een token, maar UI niet weergeven omdat er geen gebruiker einde is.  
+AcquireToken is de standaardmethode ADAL gebruikt voor het ophalen van tokens. In gevallen waarin gebruikers-id vereist is, AcquireToken probeert op te halen van een token achtergrond eerste en de gebruikersinterface wordt weergegeven indien nodig (tenzij PromptBehavior.Never wordt doorgegeven). In gevallen waarin toepassings-id vereist is, AcquireToken probeert op te halen van een token, maar UI niet weergeven omdat er geen gebruiker einde is. 
 
-Bij het verwerken van AcquireToken fouten foutafhandeling is afhankelijk van het platform en scenario de toepassing probeert te bereiken.  
+Bij het verwerken van AcquireToken fouten foutafhandeling is afhankelijk van het platform en scenario de toepassing probeert te bereiken. 
 
 Het besturingssysteem kan ook een reeks fouten waarvoor foutafhandeling afhankelijk van de specifieke toepassing genereren. Zie voor meer informatie 'Besturingssysteemfouten' in [fout en logboekregistratie verwijzing](#error-and-logging-reference). 
 
@@ -187,7 +188,7 @@ Het besturingssysteem kan ook een reeks fouten waarvoor foutafhandeling afhankel
 
 ### <a name="error-cases-and-actionable-steps-native-client-applications"></a>Fout-aanvragen en bruikbare stappen: Native client-toepassingen
 
-Als u een native client-toepassing maakt, zijn er enkele fout verwerking gevallen rekening houden met die betrekking hebben op netwerkproblemen, tijdelijke fouten en andere platform-specifieke fouten. In de meeste gevallen niet moet een toepassing uitvoeren directe nieuwe pogingen, maar in plaats van te wachten op interactie door de eindgebruiker waarin wordt gevraagd om een aanmeldingspagina.  
+Als u een native client-toepassing maakt, zijn er enkele fout verwerking gevallen rekening houden met die betrekking hebben op netwerkproblemen, tijdelijke fouten en andere platform-specifieke fouten. In de meeste gevallen niet moet een toepassing uitvoeren directe nieuwe pogingen, maar in plaats van te wachten op interactie door de eindgebruiker waarin wordt gevraagd om een aanmeldingspagina. 
 
 Er zijn enkele bijzondere gevallen waarin een enkele nieuwe poging mogelijk los het probleem. Bijvoorbeeld wanneer een gebruiker nodig heeft om in te schakelen van gegevens op een apparaat of de Azure AD-broker voltooid downloaden na de eerste fout. 
 
@@ -344,7 +345,7 @@ Als u maakt een web-app voor .NET aanroepen ontvangt een token met behulp van ee
 
 De volgende richtlijnen ziet u voorbeelden van foutafhandeling in combinatie met ADAL methoden: 
 
-- AcquireTokenByAuthorizationCodeAsync(…)
+- AcquireTokenByAuthorizationCodeAsync(...)
 
 Uw code zou als volgt uitgevoerd:
 
@@ -365,7 +366,7 @@ catch (AdalException e) {
 
 ### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>Fout-aanvragen en bruikbare stappen: toepassingen met één pagina (adal.js)
 
-Als u een adal.js met AcquireToken met één pagina-toepassing maakt, is de code voor foutafhandeling is vergelijkbaar met die van een aanroep van typische achtergrond.  In het bijzonder in adal.js, AcquireToken nooit meer wordt weergegeven een gebruikersinterface. 
+Als u een adal.js met AcquireToken met één pagina-toepassing maakt, is de code voor foutafhandeling is vergelijkbaar met die van een aanroep van typische achtergrond. In het bijzonder in adal.js, AcquireToken nooit meer wordt weergegeven een gebruikersinterface. 
 
 Een mislukte AcquireToken heeft de volgende gevallen:
 
@@ -512,7 +513,7 @@ Logger.getInstance().setExternalLogger(new ILogger() {
     @Override   
     public void Log(String tag, String message, String additionalMessage, LogLevel level, ADALError errorCode) { 
     // …
-    // You can write this to logfile depending on level or errorcode.     
+    // You can write this to logfile depending on level or errorcode. 
     writeToLogFile(getApplicationContext(), tag +":" + message + "-" + additionalMessage);    
     }
 }

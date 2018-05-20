@@ -1,6 +1,6 @@
 ---
-title: Geld besparen door virtuele machines in Azure vooraf betalen - Azure | Microsoft Docs
-description: Meer informatie over Azure gereserveerde virtuele Machine-exemplaar op te slaan op de kosten van uw virtuele machines.
+title: Wat zijn gereserveerd exemplaren van Azure? -Azure-facturering | Microsoft Docs
+description: Meer informatie over Azure gereserveerde VM-instanties en prijzen om op de kosten van uw virtuele machines opslaan en krijgt de beste effectieve prijs VM.
 services: billing
 documentationcenter: ''
 author: yashesvi
@@ -11,66 +11,65 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/09/2017
+ms.date: 05/09/2018
 ms.author: yashar
-ms.openlocfilehash: 9c73102f09e252b449f78603debaf707b3c89c3b
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 93be4bb037af400599b88bb71f34143ee65a5deb
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/17/2018
 ---
-# <a name="save-money-on-virtual-machines-with-reserved-virtual-machine-instances"></a>Geld besparen op virtuele machines met een gereserveerde virtuele Machine-exemplaren 
-Gereserveerde virtuele Machine-exemplaren kunt u vooraf betalen voor één jaar of drie jaar rekencapaciteit korting te krijgen op de virtuele machines die u gebruikt. De kosten van de virtuele machine op de aanzienlijk wordt gereduceerd — tot 72 procent op betalen naar gebruik prijzen – met vooraf inzet van één jaar of drie jaar. Gereserveerde virtuele Machine-exemplaren is een korting van facturering en heeft geen invloed op de runtimestatus van virtuele machines.
+# <a name="what-are-azure-reserved-vm-instances"></a>Wat zijn gereserveerd VM-exemplaren van Azure?
+[Azure VM-instanties van gereserveerde](https://azure.microsoft.com/pricing/reserved-vm-instances) helpt u geld besparen door vooraf betalen voor één jaar of drie jaar rekencapaciteit zodat u korting te krijgen op de virtuele machines die u gebruikt. Azure gereserveerde-exemplaren kunnen uw virtuele machine aanzienlijk verlagen — tot 72 procent op betalen naar gebruik prijzen – met vooraf inzet van één jaar of drie jaar. Gereserveerde exemplaren facturering korting geven en hebben geen invloed op de runtimestatus van uw virtuele machines.
 
-U kunt een exemplaar van de gereserveerde virtuele Machine kopen de [Azure-portal](https://aka.ms/reservations). Zie voor meer informatie [Vooruitbetalen voor virtuele machines en geld besparen met gereserveerde virtuele Machine-exemplaren](https://go.microsoft.com/fwlink/?linkid=861721).
+U kunt een gereserveerde exemplaar (k) kopen de [Azure-portal](https://aka.ms/reservations). Zie voor meer informatie [Vooruitbetalen voor virtuele machines en geld besparen met gereserveerde exemplaren](https://go.microsoft.com/fwlink/?linkid=861721).
 
-## <a name="why-should-i-buy-a-reserved-virtual-machine-instance"></a>Waarom zou ik aanschaffen van een exemplaar van de gereserveerde virtuele Machine?
-Als u virtuele machines die worden uitgevoerd voor langere tijd hebt, kunt aanschaffen van een exemplaar van de gereserveerde virtuele Machine u de beste effectieve prijs. Bijvoorbeeld, als u vier exemplaren van standaard D2 continu in de regio VS-West uitvoeren, zonder een reservering u worden in rekening gebracht volgens de tarieven voor betalen-als-Ga-you. Als u een exemplaar van de gereserveerde virtuele Machine voor de vier VMs koopt, u de virtuele machines onmiddellijk de facturering profiteren. Ze zijn niet meer in rekening gebracht volgens de pay-as-you Ga tarieven. 
+## <a name="why-should-i-buy-a-reserved-instance"></a>Waarom zou ik een gereserveerde exemplaar aanschaffen?
+Als u virtuele machines die worden uitgevoerd voor langere tijd hebt, biedt aanschaffen van een gereserveerde exemplaar u de meest rendabele optie. Bijvoorbeeld, als u vier exemplaren van een standaard D2 VM continu in de regio VS-West uitvoeren, zonder een gereserveerde exemplaar u worden in rekening gebracht volgens de tarieven voor betalen naar gebruik. Als u een gereserveerde exemplaar voor de vier VMs koopt, u de virtuele machines onmiddellijk de facturering profiteren. Ze zijn niet meer in rekening gebracht volgens de tarieven voor betalen naar gebruik. 
 
-## <a name="what-charges-does-a-reserved-virtual-machine-instance-cover"></a>Welke kosten heeft betrekking op een exemplaar van de gereserveerde virtuele Machine?
-Een reservering bevat alleen informatie over de kosten van de virtuele machine infrastructuur voor uw virtuele machines van Windows of Linux. Een reservering omvatten geen extra kosten voor software-, netwerk- of opslag. Voor Windows virtuele machines, kunt u de licentiekosten met Windows dekt [Azure hybride voordeel](https://azure.microsoft.com/pricing/hybrid-benefit/).
+## <a name="what-charges-does-a-reserved-instance-cover"></a>Welke kosten heeft betrekking op een gereserveerde exemplaar?
+Een gereserveerde exemplaar bevat alleen informatie over de kosten van de virtuele machine infrastructuur voor uw virtuele machines van Windows of Linux. Een gereserveerde exemplaar omvatten geen extra kosten voor software-, netwerk- of opslag. Voor Windows virtuele machines, kunt u de licentiekosten met Windows dekt [Azure hybride voordeel](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-## <a name="whos-eligible-to-purchase-a-reserved-virtual-machine-instance"></a>Wie is in aanmerking voor een exemplaar van de gereserveerde virtuele Machine?
-Azure-klanten met deze typen abonnementen kunnen aanschaffen van een exemplaar van de gereserveerde virtuele Machine:
+## <a name="whos-eligible-to-purchase-a-reserved-instance"></a>Wie is in aanmerking voor een gereserveerde exemplaar?
+Azure-klanten met deze typen abonnementen kunnen kopen een gereserveerde exemplaar:
 -   Enterprise agreement type abonnementsaanbod (MS-AZR - 0017P).
--   [Betalen naar gebruik](https://azure.microsoft.com/offers/ms-azr-0003p/) type abonnementsaanbod (MS-AZR - 003 P).
-U moet zich in de 'Eigenaar'-rol op het abonnement op een gereserveerde exemplaar kopen. Op de aanschaf van reserveringen in een enterprise-inschrijving moet de ondernemingsbeheerder reservering aankopen in de portal EA inschakelen standaard die de instelling is ingeschakeld.
--   Cloud Solution Provider (CSP) partners Azure Management Portal kunnen gebruiken of [Partnercentrum](https://docs.microsoft.com/partner-center/azure-reservations) om aan te schaffen reserveringen.
+-   [Betalen naar gebruik](https://azure.microsoft.com/offers/ms-azr-0003p/) type abonnementsaanbod (MS-AZR - 003 P). U moet zich in de 'Eigenaar'-rol op het abonnement op een gereserveerde exemplaar kopen. Op de aanschaf van gereserveerde exemplaren in een enterprise-inschrijving, moet de ondernemingsbeheerder aankopen gereserveerde exemplaar in de portal EA inschakelen. Deze instelling is standaard ingeschakeld.
+-   Cloud Solution Provider (CSP) partners Azure Portal kunnen gebruiken of [Partnercentrum](https://docs.microsoft.com/partner-center/azure-reservations) om aan te schaffen gereserveerde exemplaren.
 
-## <a name="how-is-a-reserved-virtual-machine-instances-purchase-billed"></a>Hoe wordt de aankoop van een gereserveerde virtuele Machine-exemplaren in rekening gebracht?
-De reservering aankoop wordt verrekend met de betalingsmethode die is gekoppeld aan het abonnement. Als u een Enterprise-abonnement hebt, wordt de reservering kosten van het saldo van uw bedrag afgetrokken. Als uw saldo bedrag dekt de kosten van de reservering niet, bent u gefactureerd de overschrijding.
+## <a name="how-is-a-reserved-instance-purchase-billed"></a>Hoe wordt de aanschaf van een gereserveerde exemplaar gefactureerd?
+De gereserveerde exemplaar aankoop wordt verrekend met de betalingsmethode die is gekoppeld aan het abonnement. Als u een Enterprise-abonnement hebt, wordt de kosten gereserveerde exemplaar van het saldo van uw bedrag afgetrokken. Als uw saldo bedrag niet de kosten van het gereserveerde exemplaar dekt, bent u gefactureerd de overschrijding.
 Als u een abonnement met betalen naar gebruik hebt, wordt de creditcard die u voor uw account hebt onmiddellijk gefactureerd. Als u wordt gefactureerd per factuur, ziet u de kosten op uw volgende factuur.
 
-## <a name="how-is-the-purchased-reserved-virtual-machine-instance-discount-applied"></a>Hoe wordt de gekochte exemplaar van de gereserveerde virtuele Machine korting toegepast?
-De gereserveerde virtuele Machine exemplaar korting geldt voor de virtuele machines die overeenkomen met de kenmerken die u selecteert bij de aankoop van de reservering. De kenmerken omvatten het bereik waarin de overeenkomende virtuele machines worden uitgevoerd. Bijvoorbeeld, als u een korting gereserveerde VM-instantie voor vier standaard D2 virtuele machines in de regio VS-West wilt, selecteer het abonnement waar de virtuele machines worden uitgevoerd. Als de virtuele machines worden uitgevoerd in verschillende abonnementen in uw registratie-/ account, selecteert u het bereik als gedeeld. Gedeeld bereik kan de reservering korting moet worden toegepast voor abonnementen.
-Nadat u een gereserveerde VM-instantie hebt gekocht, kunt u het bereik wijzigen. Zie documentatie over het beheren van reserveringen wijzigen van het bereik.
+## <a name="how-is-the-purchased-reserved-instance-discount-applied"></a>Hoe wordt de gekochte gereserveerde exemplaar korting toegepast?
+De gereserveerde exemplaar korting geldt voor de virtuele machines die overeenkomen met de kenmerken die u selecteert bij de aankoop van het gereserveerde exemplaar. De kenmerken omvatten het bereik waarin de overeenkomende virtuele machines worden uitgevoerd. Bijvoorbeeld, als u een korting gereserveerde exemplaar voor vier standaard D2 virtuele machines in de regio VS-West wilt, selecteer het abonnement waar de virtuele machines worden uitgevoerd. Als de virtuele machines worden uitgevoerd in verschillende abonnementen in uw registratie-/ account, selecteert u het bereik als gedeeld. Gedeeld bereik kan de gereserveerde exemplaar korting moet worden toegepast voor abonnementen. Nadat u een gereserveerde exemplaar hebt gekocht, kunt u het bereik wijzigen. Zie documentatie over het beheren van gereserveerde exemplaren wijzigen van het bereik.
 
-De reservering korting geldt alleen voor virtuele machines in abonnementen met enterprise- of typen van de aanbieding betalen naar gebruik. Virtuele machines die worden uitgevoerd in een abonnement met andere aanbiedingstypen ontvangen niet de reservering korting. Enterprise ontwikkelen en testen abonnementen zijn niet voor enterprise-inschrijvingen in aanmerking komen voor de gereserveerde exemplaar voordelen.
+De gereserveerde exemplaar korting geldt alleen voor virtuele machines die zijn gekoppeld aan enterprise of betalen naar gebruik abonnement typen. Virtuele machines die worden uitgevoerd in een abonnement met andere aanbiedingstypen ontvangen niet de gereserveerde exemplaar korting. Enterprise ontwikkelen en testen abonnementen zijn niet voor enterprise-inschrijvingen in aanmerking komen voor de gereserveerde exemplaar voordelen.
 
-Hoe reservering is van invloed op de virtuele machine facturering wordt uitgelegd in [inzicht in de toepassing van de reservering facturering voordeel](https://go.microsoft.com/fwlink/?linkid=863405).
+Zie voor meer informatie over hoe gereserveerde exemplaar is van invloed op de facturering voor uw virtuele machine, [inzicht in de toepassing van gereserveerde exemplaren facturering voordeel](https://go.microsoft.com/fwlink/?linkid=863405).
 
-## <a name="what-happens-when-the-reservation-term-expires"></a>Wat gebeurt er wanneer de term reservering is verlopen?
-Aan het einde van de termijn reservering, de facturering korting verlopen en de infrastructuur van de virtuele machine wordt in rekening gebracht tegen de pay-as-you Ga prijs. Reserveringen verlengd niet automatisch. Als u wilt doorgaan met het ophalen van de facturering korting, moet u een nieuw exemplaar van gereserveerde virtuele Machine aanschaffen. 
+## <a name="what-happens-when-the-reserved-instance-term-expires"></a>Wat gebeurt er wanneer de term gereserveerde exemplaar is verlopen?
+Aan het einde van de termijn gereserveerde exemplaar, de facturering korting verlopen en de infrastructuur van de virtuele machine wordt in rekening gebracht tegen de pay-as-you Ga prijs. Gereserveerde exemplaren verlengd niet automatisch. Als u wilt doorgaan met het ophalen van de facturering korting, moet u een nieuw exemplaar van de gereserveerde aanschaffen. 
 
 ## <a name="sizes-and-regional-availability"></a>Grootten en regionale beschikbaarheid
-Reserveringen zijn beschikbaar voor de meeste VM-groottes met enkele uitzonderingen:
-- Preview VM-grootten: de grootte die in de preview zijn niet beschikbaar voor de aankoop van de instantie van de gereserveerde virtuele Machine.
-- Clouds – gereserveerde virtuele Machine-exemplaren zijn niet beschikbaar voor de aankoop van het Azure US Government, Duitsland of China regio's. 
-- Onvoldoende quota: Er is een gereserveerde virtuele machine exemplaar dat is afgestemd op één abonnement moet vCPU quotum beschikbaar in het abonnement voor de nieuwe k hebben. Bijvoorbeeld, als het doelabonnement een quotumlimiet van 10 vcpu's voor de D-reeks familie heeft, kan geen u koop een gereserveerde VM-instantie voor 11 Standard_D1 exemplaren. De controle van de quota voor reserveringen bevat de virtuele machines die al zijn geïmplementeerd in het abonnement. Bijvoorbeeld als het abonnement heeft een quotum van 10 vcpu's voor de D-reeks familie. Als dit abonnement twee standard_D1 instanties zijn geïmplementeerd heeft, kunt u een exemplaar van de gereserveerde virtuele machine voor 10 standard_D1 exemplaren in dit abonnement kopen. 
-- Capaciteitsbeperkingen – In zeldzame gevallen, Azure limieten aanschaf van nieuwe reserveringen voor een subset van VM-grootte en als gevolg van onvoldoende capaciteit in een regio.
+Gereserveerde exemplaren zijn beschikbaar voor de meeste VM-groottes met enkele uitzonderingen:
+- Virtuele machines in Preview: een VM-serie of de grootte die in de preview zijn niet gereserveerd exemplaar aanschaffen.
+- Clouds – gereserveerde instanties zijn niet beschikbaar voor de aankoop van het Azure US Government, Duitsland of China regio's. 
+- Onvoldoende quota: Er is een gereserveerde exemplaar dat is afgestemd op één abonnement moet vCPU quotum beschikbaar in het abonnement voor de nieuwe k hebben. Bijvoorbeeld, als het doelabonnement een quotumlimiet van 10 vcpu's voor D-reeks heeft, kan geen u koop een gereserveerde exemplaar voor 11 Standard_D1 exemplaren. De controle van de quota voor gereserveerde exemplaren bevat de virtuele machines die al zijn geïmplementeerd in het abonnement. Bijvoorbeeld, als het abonnement een quotum van 10 vcpu's voor D-reeks heeft en twee standard_D1 instanties zijn geïmplementeerd heeft, kunt u koop een gereserveerde exemplaar voor 10 standard_D1 exemplaren in dit abonnement. 
+- Capaciteit beperkingen – In zeldzame gevallen, Azure limieten voor de aanschaf van nieuwe gereserveerde instanties voor een subset van de VM-groottes, vanwege onvoldoende capaciteit in een regio.
 
 ## <a name="next-steps"></a>Volgende stappen
-Start opslaan op uw virtuele machines door het aanschaffen van een [exemplaar van de gereserveerde virtuele Machine](https://go.microsoft.com/fwlink/?linkid=861721). 
+Start opslaan op uw virtuele machines door het aanschaffen van een [gereserveerde exemplaar van Azure](https://go.microsoft.com/fwlink/?linkid=861721). 
 
-Zie de volgende artikelen voor meer informatie over gereserveerde virtuele Machine-exemplaren.
+Zie voor meer informatie over gereserveerde exemplaren, de volgende artikelen:
 
-- [Vooruitbetalen voor virtuele Machines met een gereserveerde VM-exemplaren](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Exemplaren van de gereserveerde virtuele Machine beheren](billing-manage-reserved-vm-instance.md)
-- [Begrijpen hoe de korting exemplaar van de gereserveerde virtuele Machine wordt toegepast](billing-understand-vm-reservation-charges.md)
+- [Vooruitbetalen voor virtuele Machines met gereserveerde exemplaren](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Gereserveerde exemplaren beheren](billing-manage-reserved-vm-instance.md)
+- [Begrijpen hoe de gereserveerde exemplaar korting wordt toegepast](billing-understand-vm-reservation-charges.md)
 - [Gebruik van de gereserveerde exemplaar voor uw abonnement op gebruiksbasis begrijpen](billing-understand-reserved-instance-usage.md)
 - [Gereserveerde exemplaar gebruiksgegevens voor uw Enterprise enrollment begrijpen](billing-understand-reserved-instance-usage-ea.md)
 - [Kosten voor Windows-software niet zijn opgenomen in de gereserveerde exemplaren](billing-reserved-instance-windows-software-costs.md)
 - [Gereserveerde exemplaren in programma Partner Center Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
-Als u hulp nodig hebt, moet [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ophalen van uw probleem snel worden opgelost.
+
+Als u nog steeds meer vragen hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ophalen van uw probleem snel worden opgelost.

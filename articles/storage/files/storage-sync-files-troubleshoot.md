@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 7f3d9672e9fc152580f49cf06b431ced890d9f08
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 8526918630189824e26b95df7f0560c96392e55d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Problemen met Azure File-synchronisatie (preview)
 Gebruik Azure bestand Sync (preview) te centraliseren bestandsshares van uw organisatie in Azure-bestanden, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestand-server. Azure File-synchronisatie transformeert Windows Server in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB en NFS FTPS gebruiken. U kunt zoveel caches als u over de hele wereld nodig hebben.
@@ -154,7 +154,7 @@ Als de synchronisatie is mislukt op een server:
     2. Controleren of de service Azure File-synchronisatie wordt uitgevoerd op de server. Om dit te doen, opent u de Services MMC-module en controleren of de opslag Sync-Agent-service (FileSyncSvc) wordt uitgevoerd.
 
 <a id="replica-not-ready"></a>**Synchronisatie mislukt vanwege de volgende fout: '0x80c8300f - de replica is niet klaar voor het uitvoeren van de vereiste bewerking'**  
-Dit probleem wordt verwacht als u een cloudeindpunt maken en gebruiken van een Azure-bestandsshare die gegevens bevat. Wanneer de wijziging detectie-taak is voltooid op de Azure-bestandsshare (het kan tot 24 uur duren) uitgevoerd, moet synchronisatie starten correct werkt.
+Dit probleem wordt verwacht als u een cloudeindpunt maken en gebruiken van een Azure-bestandsshare die gegevens bevat. De wijziging detectie-taak die scans voor wijzigingen in de Azure-bestandsshare is gepland voor elke 24 uur.  De tijd in beslag is afhankelijk van de grootte van de naamruimte in de Azure-bestandsshare.  Deze fout moet verdwijnen als u klaar.
 
 
     > [!NOTE]

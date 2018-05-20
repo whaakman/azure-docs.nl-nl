@@ -1,5 +1,5 @@
 ---
-title: Veelgestelde vragen over Azure-bestanden | Microsoft Docs
+title: Veelgestelde vragen (FAQ) voor Azure-bestanden | Microsoft Docs
 description: Antwoorden op veelgestelde vragen over Azure-bestanden.
 services: storage
 documentationcenter: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: ef8b5b30edaef61eca1be0cf80c5defd09c4dac2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 67884df9e38906ba7dc426b63275941dba2b8130
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="frequently-asked-questions-about-azure-files"></a>Veelgestelde vragen over Azure-bestanden
+# <a name="frequently-asked-questions-faq-about-azure-files"></a>Veelgestelde vragen (FAQ) over Azure-bestanden
 [Azure Files](storage-files-introduction.md) biedt volledig beheerd bestandsshares in de cloud die toegankelijk zijn via de industriestandaard [protocol Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (ook wel Common Internet File System of CIFS). U kunt Azure-bestandsshares gelijktijdig koppelen op de cloud of on-premises implementaties van Windows, Linux en Mac OS. U kunt Azure-bestandsshares op Windows Server-machines cache met behulp van Azure File-synchronisatie (preview) voor snelle toegang bijna waar de gegevens wordt gebruikt.
 
 In dit artikel antwoorden op veelgestelde vragen over Azure-bestanden functies en functionaliteit, waaronder het gebruik van Azure File-synchronisatie met Azure-bestanden. Als u het antwoord op uw vraag niet ziet, u kunt contact met ons opnemen via de volgende kanalen (in groeiende volgorde):
@@ -27,7 +27,7 @@ In dit artikel antwoorden op veelgestelde vragen over Azure-bestanden functies e
 1. Het gedeelte met opmerkingen van dit artikel.
 2. [Azure Storage-Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. [Azure bestanden UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
-4. Microsoft ondersteuning. Maken van een nieuw ondersteuningsverzoek in de Azure-portal op de **Help** tabblad de **Help + ondersteuning** knop en selecteer vervolgens **nieuw ondersteuningsverzoek**.
+4. Microsoft Ondersteuning. Maken van een nieuw ondersteuningsverzoek in de Azure-portal op de **Help** tabblad de **Help + ondersteuning** knop en selecteer vervolgens **nieuw ondersteuningsverzoek**.
 
 ## <a name="general"></a>Algemeen
 * <a id="why-files-useful"></a>
@@ -229,10 +229,10 @@ In dit artikel antwoorden op veelgestelde vragen over Azure-bestanden functies e
 **Hoe kan ik een Azure-bestandsshare op mijn lokale computer koppelen?**  
     U kunt de bestandsshare koppelt via het SMB-protocol als poort 445 (TCP uitgaand) geopend is en de client het SMB 3.0-protocol ondersteunt (bijvoorbeeld, als u Windows 10 of Windows Server 2016). Als poort 445 wordt geblokkeerd door uw organisatie beleid of door uw Internetprovider, kunt u Azure bestand Sync kunt gebruiken voor toegang tot uw Azure-bestandsshare.
 
-## <a name="backup"></a>Back-up maken
+## <a name="backup"></a>Backup
 * <a id="backup-share"></a>
 **Hoe kan ik back-up van mijn Azure-bestand delen?**  
-    U kunt periodieke [delen momentopnamen](storage-snapshots-files.md) ter bescherming tegen onbedoeld verwijderen. Ook kunt u AzCopy, Robocopy of een back-hulpprogramma van derden die u kunt back-up van een gekoppelde bestandsshare. 
+    U kunt periodieke [delen momentopnamen](storage-snapshots-files.md) ter bescherming tegen onbedoeld verwijderen. Ook kunt u AzCopy, Robocopy of een back-hulpprogramma van derden die u kunt back-up van een gekoppelde bestandsshare. Azure Backup biedt back-up van de Azure-bestanden. Meer informatie over [back-up van Azure-bestandsshares door Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files).
 
 ## <a name="share-snapshots"></a>Delen van momentopnamen
 ### <a name="share-snapshots-general"></a>Delen van momentopnamen: Algemeen

@@ -1,6 +1,6 @@
 ---
-title: Inleiding tot Azure Container Service voor Kubernetes
-description: Met Azure Container Service voor Kubernetes kunt u eenvoudig toepassingen op basis van containers implementeren en beheren in Azure.
+title: Kennismaking met Azure Kubernetes Service
+description: Met Azure Kubernetes Service kunt u eenvoudig toepassingen op basis van containers implementeren en beheren in Azure.
 services: container-service
 author: gabrtv
 manager: timlt
@@ -9,20 +9,20 @@ ms.topic: overview
 ms.date: 11/13/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: f418e70c6da46443b95e5fd4056ca26d46d95505
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4936554465fbbed45000f43853a6a77567c3028f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="introduction-to-azure-container-service-aks-preview"></a>Inleiding tot AKS (Azure Container Service) preview
+# <a name="introduction-to-azure-kubernetes-service-aks-preview"></a>Kennismaking met de preview van Azure Kubernetes Service (AKS)
 
-Azure Container Service (AKS) helpt bij het eenvoudig maken, configureren en beheren van een cluster virtuele machines die vooraf zijn geconfigureerd voor het uitvoeren van beperkte toepassingen. U kunt hierbij dan uitgaan van uw eigen vaardigheden of gebruikmaken van een grote en groeiende groep community experts om toepassingen op basis van containers te implementeren en beheren in Microsoft Azure.
+Met Azure Kubernetes Service (AKS) kunt u eenvoudig een cluster met virtuele machines maken, configureren en beheren die vooraf zijn geconfigureerd voor het uitvoeren van toepassingen in een container. U kunt hierbij dan uitgaan van uw eigen vaardigheden of gebruikmaken van een grote en groeiende groep community experts om toepassingen op basis van containers te implementeren en beheren in Microsoft Azure.
 
 Met AKS profiteert u van de hoogwaardige functies van Azure en behoudt u draagbaarheid van toepassingen via Kubernetes en het Docker-installatiekopieformaat.
 
 > [!IMPORTANT]
-> AKS (Azure Container Service) is momenteel in de **preview-fase**. Previews worden voor u beschikbaar gesteld op voorwaarde dat u akkoord gaat met de [aanvullende gebruiksvoorwaarden](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Sommige aspecten van deze functionaliteit kunnen wijzigen voordat deze functionaliteit algemeen beschikbaar wordt.
+> AKS (Azure Kubernetes Service) is momenteel in **preview**. Previews worden voor u beschikbaar gesteld op voorwaarde dat u akkoord gaat met de [aanvullende gebruiksvoorwaarden](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Sommige aspecten van deze functionaliteit kunnen wijzigen voordat deze functionaliteit algemeen beschikbaar wordt.
 >
 
 ## <a name="managed-kubernetes-in-azure"></a>Managed Kubernetes in Azure
@@ -37,11 +37,11 @@ AKS verkleind de complexiteit en de operationele overhead die gepaard gaan met h
 
 Omdat Azure het beheer van de knooppunten in uw AKS-cluster afhandelt, hoeft u veel taken niet meer handmatig uit te voeren, zoals het upgraden van clusters. Omdat Azure deze cruciale onderhoudstaken voor u uitvoert, hebt u via AKS geen directe toegang (zoals met SSH) tot het cluster.
 
-## <a name="using-azure-container-service-aks"></a>Azure Container Service (AKS) gebruiken
+## <a name="using-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) gebruiken
 AKS is bedoeld om een hostomgeving voor containers te bieden door gebruik te maken van de open source tools en technologieën die tegenwoordig populair zijn onder onze klanten. Om dit te bereiken, maken we de standaard API-eindpunten van Kubernetes beschikbaar. Met behulp van deze standaard eindpunten kunt u gebruikmaken van alle software die geschikt is voor communicatie met een Kubernetes-cluster. U kunt bijvoorbeeld [kubectl][kubectl-overview], [helm][helm] of [draft][draft] gebruiken.
 
-## <a name="creating-a-kubernetes-cluster-using-azure-container-service-aks"></a>Een Kubernetes-cluster maken met Azure Container Service (AKS)
-Als u AKS wilt gebruiken, implementeert u eerst een AKS-cluster met behulp van [Azure CLI][aks-quickstart] of via de portal (zoek in Marketplace op **Azure Container Service**). Gebruik, als u een ervaren gebruiker bent en meer controle wilt over de Azure Resource Manager-sjablonen, het open source [acs-engine][acs-engine]-project om uw eigen aangepaste Kubernetes-cluster te bouwen en dit te implementeren via de `az` CLI.
+## <a name="creating-a-kubernetes-cluster-using-azure-kubernetes-service-aks"></a>Een Kubernetes-cluster maken met Azure Kubernetes Service (AKS)
+Als u AKS wilt gebruiken, implementeert u eerst een AKS-cluster met behulp van [Azure CLI][aks-quickstart] of via de portal (zoek in Marketplace op **Azure Kubernetes Service**). Gebruik, als u een ervaren gebruiker bent en meer controle wilt over de Azure Resource Manager-sjablonen, het open source [acs-engine][acs-engine]-project om uw eigen aangepaste Kubernetes-cluster te bouwen en dit te implementeren via de `az` CLI.
 
 ### <a name="using-kubernetes"></a>Kubernetes gebruiken
 Kubernetes automatiseert het implementeren, schalen en beheren van toepassingen in containers. De applicatie bevat een uitgebreide set functies, zoals:
@@ -56,7 +56,7 @@ Kubernetes automatiseert het implementeren, schalen en beheren van toepassingen 
 
 ## <a name="videos"></a>Video's
 
-Azure Container Service (AKS) - Azure Friday, oktober 2017:
+Azure Kubernetes Service (AKS) - Azure Friday, oktober 2017:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Container-Orchestration-Simplified-with-Managed-Kubernetes-in-Azure-Container-Service-AKS/player]
 >

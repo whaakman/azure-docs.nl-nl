@@ -6,14 +6,14 @@
       href: azure-stack-poc.md
     - name: Releaseopmerkingen
       items:
+        - name: 1804 update
+          href: azure-stack-update-1804.md
         - name: 1803 update
           href: azure-stack-update-1803.md
         - name: 1802 update
           href: azure-stack-update-1802.md
         - name: 1712 update
           href: azure-stack-update-1712.md
-        - name: 1711 update
-          href: azure-stack-update-1711.md
 - name: Snelstartgidsen
   expanded: true
   items:
@@ -111,8 +111,6 @@
               href: azure-stack-powershell-download.md
             - name: Cloud-operator voor PowerShell configureren
               href: azure-stack-powershell-configure-admin.md
-            - name: Aan de slag met PowerShell
-              href: azure-stack-powershell-configure-quickstart.md
         - name: Eindpunt met bevoegde toegang
           href: azure-stack-privileged-endpoint.md
         - name: Updates beheren

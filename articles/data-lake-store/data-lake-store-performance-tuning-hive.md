@@ -10,15 +10,13 @@ ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 43637ee76c1840d9f4d5fd85aca0050f61523e43
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c46eb1b2da62d70337e60066ed0706c3a4fdedcf
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-store"></a>Prestaties afstemmen richtlijnen voor Hive in HDInsight en Azure Data Lake Store
 
@@ -46,9 +44,9 @@ Hier volgen de belangrijkste instellingen af te stemmen voor verbeterde ADLS-pre
 
 **hive.tez.container.Size** -de grootte van de container bepaalt hoeveel geheugen beschikbaar is voor elke taak.  Dit is de belangrijkste invoer voor het beheren van de concurrency in Hive.  
 
-**grootte van tez.Grouping.min** – deze parameter kunt u de minimale grootte van elke mapper instellen.  Als het aantal mappers die Tez kiest kleiner dan de waarde van deze parameter is, wordt de hier ingestelde waarde gebruikt op Tez.  
+**grootte van tez.Grouping.min** – deze parameter kunt u de minimale grootte van elke mapper instellen.  Als het aantal mappers die Tez kiest kleiner dan de waarde van deze parameter is, wordt de hier ingestelde waarde gebruikt op Tez.
 
-**grootte van tez.Grouping.Max** : de parameter kunt u de maximale grootte van elke mapper instellen.  Als het aantal mappers die Tez kiest groter dan de waarde van deze parameter is, wordt de hier ingestelde waarde gebruikt op Tez.  
+**grootte van tez.Grouping.Max** : de parameter kunt u de maximale grootte van elke mapper instellen.  Als het aantal mappers die Tez kiest groter dan de waarde van deze parameter is, wordt de hier ingestelde waarde gebruikt op Tez.
 
 **hive.Exec.reducer.bytes.per.reducer** – deze parameter wordt de grootte van elke reducer ingesteld.  Standaard is elke reducer 256MB.  
 
@@ -75,9 +73,10 @@ Stel dat u hebt een cluster met 8 knooppunten D14.
     # of YARN containers = 768GB / 3072MB = 256
 
 ## <a name="limitations"></a>Beperkingen
+
 **ADLS-beperking** 
 
-Wanneer u de grenzen van de bandbreedte die worden geleverd door ADLS UIf raakt, u zou gaan om te zien van de mislukte taken. Dit kan worden geïdentificeerd door observeren bandbreedteregeling fouten in de logboeken van de taak.  U kunt de parallelle uitvoering verlagen door de Tez-container vergroten.  Als u meer gelijktijdigheid van taken bij uw werk nodig, neem dan contact met ons.   
+Wanneer u de grenzen van de bandbreedte die worden geleverd door ADLS UIf raakt, u zou gaan om te zien van de mislukte taken. Dit kan worden geïdentificeerd door observeren bandbreedteregeling fouten in de logboeken van de taak.  U kunt de parallelle uitvoering verlagen door de Tez-container vergroten.  Als u meer gelijktijdigheid van taken bij uw werk nodig, neem dan contact met ons.
 
 Om te zien als u zijn ophalen beperkt, moet u de opdracht debug logboekregistratie aan de clientzijde inschakelen. Hier ziet u hoe u dat kunt doen:
 

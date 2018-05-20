@@ -4,19 +4,19 @@ description: -Naslagdocumentatie voor Service Fabric-omgevingsvariabelen
 documentationcenter: .net
 author: mikkelhegn
 manager: msfussell
-editor: 
+editor: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: mikhegn
-ms.openlocfilehash: a9faefb43b9d5da81dddef8f326a3867b32842f7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f7c36fec7ff58c225e41899e8264ca1dde95ce7c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-environment-variables"></a>Service Fabric-omgevingsvariabelen
 
@@ -37,7 +37,7 @@ Service Fabric heeft ingebouwde omgevingsvariabelen ingesteld voor elk service-e
 | Fabric_NodeIPOrFQDN                          | Het IP of FQDN van het knooppunt, zoals opgegeven in het cluster manifestbestand. | localhost of 10.0.0.1                                                |
 | Fabric_NodeName                              | De naam van het knooppunt van het knooppunt waarop het proces wordt uitgevoerd                          | _Node_0                                                              |
 | Fabric_ServiceName                           | De naam van de service, als deze service wordt gehost in de modus ExclusiveProcess. De waarde van deze variabele is alleen beschikbaar als u de service met ServicePackageActivationMode ExclusiveProcess maakt.  | MyService                                               |
-| Fabric_ServicePackageActivationId            | The ServicePackageActivationId                                         | EEN GUID                                                               |
+| Fabric_ServicePackageActivationId            | De ServicePackageActivationId                                         | EEN GUID                                                               |
 | Fabric_ServicePackageName                    | Naam van het pakket met de service het proces maakt deel uit van                     | Web1Pkg                                                              |
 
 Interne omgevingsvariabelen die door de Service Fabric-Runtime:

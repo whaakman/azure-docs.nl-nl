@@ -5,27 +5,27 @@ services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 08837cca-5aa7-40da-b087-2b657224a097
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 923778e54a1ae5967d681751841c3a2b3fb45130
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: e7dddfca3640615cb851fb6dce9eaa80260ccbf6
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-application-lifecycle"></a>De levenscyclus van de service Fabric-toepassing
 Zoals met andere platforms wordt een toepassing op Azure Service Fabric meestal de volgende fasen doorloopt: ontwerpen, ontwikkelen, testen, implementatie, upgraden, onderhoud en verwijderen. Service Fabric biedt uitstekende ondersteuning voor de levenscyclus van de volledige toepassing van cloud-toepassingen, van ontwikkeling tot implementatie, dagelijkse beheer en onderhoud voor uiteindelijke buiten gebruik stellen. Het service-model kan verschillende verschillende rollen onafhankelijk deelnemen aan de levenscyclus van de toepassing. Dit artikel bevat een overzicht van de API's en hoe ze worden gebruikt door de verschillende rollen in de fasen van de levenscyclus van de Service Fabric-toepassing.
 
 [!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
-De volgende video voor Microsoft Virtual Academy wordt beschreven hoe voor het beheren van de levenscyclus van uw toepassing:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
+De volgende video voor Microsoft Virtual Academy wordt beschreven hoe voor het beheren van de levenscyclus van uw toepassing: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
 <img src="./media/service-fabric-application-lifecycle/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 
@@ -96,6 +96,6 @@ Voor meer informatie over het ontwikkelen, Zie testen en het beheren van Service
 
 * [Reliable Actors](service-fabric-reliable-actors-introduction.md)
 * [Reliable Services](service-fabric-reliable-services-introduction.md)
-* [Een toepassing implementeren](service-fabric-deploy-remove-applications.md)
+* [Een app implementeren](service-fabric-deploy-remove-applications.md)
 * [Toepassingsupgrade](service-fabric-application-upgrade.md)
 * [Overzicht van testbaarheid](service-fabric-testability-overview.md)

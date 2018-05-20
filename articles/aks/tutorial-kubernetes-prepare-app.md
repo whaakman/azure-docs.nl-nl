@@ -3,24 +3,24 @@ title: 'Zelfstudie: Kubernetes in Azure - app voorbereiden'
 description: 'Zelfstudie: AKS - app voorbereiden'
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8a2c2e53ed04cf00cc02135c5e5f82ded18fc2bc
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 50c302ddc7bad9cd2de666c1b99d1fbc6d5a62a8
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="tutorial-prepare-application-for-azure-container-service-aks"></a>Zelfstudie: toepassing voorbereiden voor AKS (Azure Container Service)
+# <a name="tutorial-prepare-application-for-azure-kubernetes-service-aks"></a>Zelfstudie: Toepassing voorbereiden voor AKS (Azure Kubernetes Service)
 
-In deze zelfstudie, deel een van acht, wordt een toepassing met meerdere containers voorbereid voor gebruik in Kubernetes. Dit zijn de uitgevoerde stappen:  
+In deze zelfstudie, deel een van acht, wordt een toepassing met meerdere containers voorbereid voor gebruik in Kubernetes. Dit zijn de uitgevoerde stappen:
 
 > [!div class="checklist"]
-> * Toepassingsbron klonen vanuit GitHub  
+> * Toepassingsbron klonen vanuit GitHub
 > * Een containerinstallatiekopie maken uit de toepassingsbron
 > * De toepassing testen in een lokale Docker-omgeving
 
@@ -32,7 +32,7 @@ In de volgende zelfstudies wordt de containerinstallatiekopie geüpload naar een
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In deze zelfstudie wordt ervan uitgegaan dat u een basiskennis hebt van Docker-kernconcepten zoals containers, containerinstallatiekopieën en Docker-basisopdrachten. Zie, indien nodig, [Aan de slag met Docker][docker-get-started] voor een uitleg van de basisprincipes van containers. 
+In deze zelfstudie wordt ervan uitgegaan dat u een basiskennis hebt van Docker-kernconcepten zoals containers, containerinstallatiekopieën en Docker-basisopdrachten. Zie, indien nodig, [Aan de slag met Docker][docker-get-started] voor een uitleg van de basisprincipes van containers.
 
 Voor deze zelfstudie hebt u een Docker-ontwikkelomgeving nodig. Docker biedt pakketten die eenvoudig Docker configureren op elk [Mac][docker-for-mac]-, [Windows][docker-for-windows]- of [Linux][docker-for-linux]-systeem.
 
@@ -40,7 +40,7 @@ Azure Cloud Shell bevat niet de vereiste Docker-onderdelen die nodig zijn om elk
 
 ## <a name="get-application-code"></a>Toepassingscode ophalen
 
-De voorbeeldtoepassing die wordt gebruikt in deze zelfstudie, is een eenvoudige stem-app. De toepassing bestaat uit een front-endwebonderdeel en een back-end-Redis-exemplaar. Het webonderdeel is verpakt in een aangepaste containerinstallatiekopie. Het Redis-exemplaar gebruikt een ongewijzigde installatiekopie van Docker Hub.  
+De voorbeeldtoepassing die wordt gebruikt in deze zelfstudie, is een eenvoudige stem-app. De toepassing bestaat uit een front-endwebonderdeel en een back-end-Redis-exemplaar. Het webonderdeel is verpakt in een aangepaste containerinstallatiekopie. Het Redis-exemplaar gebruikt een ongewijzigde installatiekopie van Docker Hub.
 
 Gebruik git om een kopie van de toepassing te downloaden naar de ontwikkelomgeving.
 
@@ -54,7 +54,7 @@ Wijzig de mappen zodat u vanuit de gekloonde map werkt.
 cd azure-voting-app-redis
 ```
 
-In de map bevinden zich de broncode van de toepassing, een vooraf gemaakt Docker Compose-bestand en een Kubernetes-manifestbestand. Deze bestanden worden gebruikt in de alle delen van de zelfstudie. 
+In de map bevinden zich de broncode van de toepassing, een vooraf gemaakt Docker Compose-bestand en een Kubernetes-manifestbestand. Deze bestanden worden gebruikt in de alle delen van de zelfstudie.
 
 ## <a name="create-container-images"></a>Containerinstallatiekopieën maken
 
@@ -97,7 +97,7 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 
 ## <a name="test-application-locally"></a>Toepassing lokaal testen
 
-Blader naar http://localhost:8080 om de actieve toepassing te zien.
+Blader naar http://localhost:8080 om de toepassing te zien terwijl deze wordt uitgevoerd.
 
 ![Afbeelding van Kubernetes-cluster in Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
@@ -124,7 +124,7 @@ Na voltooiing hebt u een containerinstallatiekopie die de Azure Vote-toepassing 
 In deze zelfstudie is een toepassing getest en zijn containerinstallatiekopieën gemaakt voor de toepassing. De volgende stappen zijn voltooid:
 
 > [!div class="checklist"]
-> * De toepassingsbron klonen vanuit GitHub  
+> * De toepassingsbron klonen vanuit GitHub
 > * Containerinstallatiekopie maken uit de toepassingsbron
 > * De toepassing testen in een lokale Docker-omgeving
 

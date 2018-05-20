@@ -1,5 +1,5 @@
 ---
-title: Kies een SKU of prijscategorie voor Azure Search | Microsoft Docs
+title: Kies een prijscategorie laag of SKU voor Azure Search-service | Microsoft Docs
 description: "Azure Search kan worden ingericht op deze SKU's: gratis, basis en standaard, waarbij standaard is beschikbaar in verschillende configuraties van resources en capaciteit niveaus."
 services: search
 author: HeidiSteen
@@ -7,102 +7,145 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 10/24/2016
+ms.date: 05/12/2018
 ms.author: heidist
-ms.openlocfilehash: 6fe41a8c4d184fef4d1bb0a12fed44a49ef8a6da
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: bbf535c5b446fd654331374d29c106b6e43d55f5
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/17/2018
 ---
-# <a name="choose-a-sku-or-pricing-tier-for-azure-search"></a>Kies een SKU of prijscategorie voor Azure Search
-In Azure Search een [service is ingericht](search-create-service-portal.md) op een specifieke prijscategorie of SKU. Opties zijn onder andere **vrije**, **Basic**, of **standaard**, waarbij **standaard** is beschikbaar in meerdere configuraties en capaciteit.
+# <a name="choose-a-pricing-tier-for-azure-search"></a>Kies een prijscategorie voor Azure Search
 
-Het doel van dit artikel is bij het kiezen van een laag. Als een laag capaciteit blijkt te laag, moet u een nieuwe service op de hogere lagen in te richten en vervolgens de indexen opnieuw te laden. Er is geen in-place upgrade van dezelfde service van een SKU naar een andere.
+In Azure Search een [service is ingericht](search-create-service-portal.md) op een specifieke prijscategorie of SKU. Opties zijn onder andere **vrije**, **Basic**, of **standaard**, waarbij **standaard** is beschikbaar in meerdere configuraties en capaciteit. 
 
-> [!NOTE]
-> Nadat u een laag kiezen en [inrichten van een zoekservice](search-create-service-portal.md), kunt u de replica verhogen en partitie telt in de service. Zie voor instructies [schalen niveaus van de bron voor query's en workloads indexering](search-capacity-planning.md).
->
->
+Het doel van dit artikel is bij het kiezen van een laag. Er is een aanvulling op de [pagina met prijzen](https://azure.microsoft.com/pricing/details/search/) en [Servicelimieten](search-limits-quotas-capacity.md) pagina met een overzicht van facturering concepten en verbruik patronen die zijn gekoppeld aan verschillende lagen. Ook raadt u aan een herhaalbare aanpak om te begrijpen welke laag beste aan uw behoeften voldoet. 
 
-## <a name="how-to-approach-a-pricing-tier-decision"></a>Een prijscategorie laag beslissing benadering
-In Azure Search bepaalt de laag niet functiebeschikbaarheid capaciteit. In het algemeen zijn functies beschikbaar op elke laag, met inbegrip van de preview-functies. De enige uitzondering hierop is geen ondersteuning voor indexeerfuncties in S3 HD.
+Lagen bepalen capaciteit, niet-functies. Als een laag capaciteit blijkt te laag, moet u voor het inrichten van een nieuwe service op de hogere lagen en vervolgens [opnieuw laden van de indexen](search-howto-reindex.md). Er is geen in-place upgrade van dezelfde service van een SKU naar een andere.
+
+Beschikbaarheid van functies is geen overweging primaire laag. Alle lagen, waaronder de **vrije** servicetier, functie pariteit, met uitzondering van de indexeerfunctie ondersteuning voor S3HD bieden. Echter beperkingen voor indexering en resource effectief kunnen worden beperkt de omvang van het gebruik van functies. Bijvoorbeeld: [cognitieve zoeken](cognitive-search-concept-intro.md) indexeren heeft langlopende vaardigheden die time-out voor een gratis service tenzij de gegevensset gebeurt erg klein.
 
 > [!TIP]
-> Het is raadzaam dat u altijd inrichten een **vrije** service (één per abonnement zonder vervaldatum) zodat de direct beschikbaar voor lichte projecten. Gebruik de **vrije** service voor testen en evalueren; te maken van een tweede factureerbare service op de **Basic** of **standaard** -laag voor de productie of groter testwerkbelastingen.
+> De meeste klanten beginnen met de **vrije** servicetier voor evaluatie en vervolgens naar studeren **standaard** voor ontwikkeling. Nadat u een laag kiezen en [inrichten van een zoekservice](search-create-service-portal.md), kunt u [verhogen van de replica en partitie aantallen](search-capacity-planning.md) voor prestaties afstemmen. Zie voor meer informatie over wanneer en waarom zou u capaciteit aanpassen [aandachtspunten voor prestaties en optimalisatie](search-performance-optimization.md).
 >
->
 
-Ga hand voorhanden capaciteit en de kosten van het uitvoeren van de service. De informatie in dit artikel kunt u bepalen welke SKU levert de juiste balans, maar een van deze nuttig zijn, moet u ten minste ruwe schattingen op de volgende:
+## <a name="billing-concepts"></a>Concepten van facturering
 
-* Aantal en de grootte van indexen die u wilt maken
-* Aantal en de grootte van documenten te uploaden
-* Een idee van de query-volume, in termen van query's Per tweede (QPS). Zie voor instructies [Azure Search-prestaties en optimalisatie](search-performance-optimization.md).
+Concepten waarover die u moet begrijpen voor het selecteren van een bevatten definities van capaciteit, Servicelimieten en service-eenheden. 
 
-Aantal en de grootte zijn belangrijk omdat de maximale limiet wordt bereikt door middel van een vaste limiet op het aantal indexen per service of op resources (opslag of replica's) dat wordt gebruikt door de service. De werkelijke limiet voor uw service is afhankelijk van wat eerst wordt gebruikt: bronnen of objecten.
+### <a name="capacity"></a>Capaciteit
 
-Schattingen in hand moeten de volgende stappen uit het proces vereenvoudigen:
-
-* **Stap 1** beschrijvingen van de SKU hieronder voor meer informatie over de beschikbare opties bekijken.
-* **Stap 2** de onderstaande moet worden uitgevoerd op een voorlopige beslissing vragen beantwoorden.
-* **Stap 3** uw beslissing voltooien door de vaste limieten op opslag controleren en prijzen.
-
-## <a name="sku-descriptions"></a>Beschrijvingen van de SKU
-De volgende tabel bevat beschrijvingen van elke laag.
-
-| Laag | Primaire scenario's |
-| --- | --- |
-| **Gratis** |Een gedeelde service, zonder kosten, gebruikt voor de evaluatie, onderzoek of kleine werkbelastingen. Omdat deze wordt gedeeld met andere abonnees, varieert query-doorvoer en indexeren op basis van wie de service wordt gebruikt. Capaciteit is klein (50 MB of 3 indexen met van 10.000 documenten elk). |
-| **Basic** |Kleine productieworkloads op specifieke hardware. Maximaal beschikbaar. De capaciteit is maximaal 3 replica's en 1 partitie (2 GB). |
-| **S1** |Standaard 1 ondersteunt flexibele combinaties van partities (12) en replica's (12) gebruikt voor gemiddeld productieworkloads op specifieke hardware. U kunt partities en replica's in de combinaties die worden ondersteund door het maximale aantal 36 factureerbare search-eenheden toewijzen. Partities zijn op dit niveau 25 GB. |
-| **S2** |Standaard 2 wordt uitgevoerd met behulp van de dezelfde 36 search-eenheden als S1, maar met grotere grootte partities en replica's groter productie-workloads. Partities zijn op dit niveau 100 GB. |
-| **S3** |Standaard 3 wordt uitgevoerd proportioneel groter productieworkloads op hogere end-systemen in de configuratie van maximaal 12 partities of 12 replica's onder 36 search-eenheden. Partities zijn op dit niveau 200 GB. |
-| **HD S3** |Standaard 3 high-density is ontworpen voor een groot aantal kleinere indexen. U kunt maximaal 3 partities hebben van 200 GB.|
+Capaciteit is gestructureerd als *replica's* en *partities*. Replica's zijn exemplaren van de search-service, waarbij elke replica fungeert als host voor één taakverdeling exemplaar van een index. Zo heeft een service met 6 replica's 6 kopieën van elke index geladen in de service. Partities opslaan indexen en automatisch doorzoekbare gegevens splitsen: twee partities uw index in de helft, ziet u drie partities splitsen in derde, enzovoort. In termen van capaciteit, *partitie grootte* is voor de primaire functie van de verschillende alle lagen.
 
 > [!NOTE]
-> Replica- en partitie maximumwaarden wordt gefactureerd uit als de search-eenheden (36 maximale per service eenheid), die legt een effectieve ondergrens dan de maximale impliceert op face-waarde. Bijvoorbeeld: voor het gebruik van het maximum van 12 replica's, kan er maximaal 3 partities (12 * 3 = 36 units). Verminder op dezelfde manier voor het gebruik van de maximale partities replica's op 3. Zie [schalen niveaus van de bron voor query's en workloads in Azure Search indexeren](search-capacity-planning.md) voor een grafiek van toegestane combinaties.
->
->
+> Alle **standaard** lagen ondersteuning [flexibele combinaties replica en partities](search-capacity-planning.md#chart) zodat u kunt [gewicht van uw systeem voor snelheid of opslag](search-performance-optimization.md) door het wijzigen van het saldo. **Basic** biedt tot drie replica's voor hoge beschikbaarheid maar alleen partitie heeft. **Gratis** lagen bieden geen toegewijde bronnen: computing resources worden gedeeld door meerdere gratis services.
 
-## <a name="review-limits-per-tier"></a>Limieten per laag controleren
-De volgende tabel is een subset van de limieten van [Servicelimieten in Azure Search](search-limits-quotas-capacity.md). Hiermee geeft u de meest waarschijnlijke invloed zijn op een beslissing SKU factoren. U kunt verwijzen naar deze grafiek bij het controleren van de onderstaande vragen.
+### <a name="limits"></a>Limieten
 
-| Resource | Gratis | Basic | S1 | S2 | S3 | S3 HD |
-| --- | --- | --- | --- | --- | --- | --- |
-| Service Level Agreement (SLA) |Nee <sup>1</sup> |Ja |Ja |Ja |Ja |Ja |
-| Limieten voor index |3 |5 |50 |200 |200 |1000 <sup>2</sup> |
-| Document limieten |10.000 in totaal |1 miljoen per service |15 miljoen per partitie |60 miljoen per partitie |120 miljoen per partitie |1 miljoen per index |
-| Maximum aantal partities |N/A |1 |12 |12 |12 |3 <sup>2</sup> |
-| Partitiegrootte |Totaal aantal 50 MB |2 GB per service |25 GB per partitie |100 GB per partitie (maximaal 1,2 TB per service) |200 GB per partitie (tot maximum van 2,4 TB per service) |200 GB (maximaal 600 GB per service) |
-| Maximum aantal replica 's |N/A |3 |12 |12 |12 |12 |
+Services hostresources, zoals indexen, indexeerfuncties, enzovoort. Elke laag legt [Servicelimieten](search-limits-quotas-capacity.md) op de hoeveelheid resources die u kunt maken. Hierdoor is een limiet van het aantal indexen (en andere objecten) de tweede verschillende functie tussen lagen. Houd er rekening mee de grenzen van het aantal indexen tijdens het bekijken van elke optie in de portal. Andere resources, zoals Indexeerfuncties en gegevensbronnen vaardigheden, worden index-limieten vastgelegd.
 
-<sup>1</sup> gratis laag en de preview-functies niet bij service level agreements (Sla's) worden geleverd. Voor alle factureerbare lagen, sla's van kracht als u voldoende redundantie voor uw service inricht. Twee of meer replica's zijn vereist voor de SLA voor query (gelezen). Drie of meer replica's zijn vereist voor query's en indexering SLA (lezen / schrijven). Het aantal partities is niet een SLA-overweging. 
+### <a name="search-units"></a>Zoekeenheden
 
-<sup>2</sup> S3 en S3 HD worden ondersteund door de infrastructuur van identieke hoge capaciteit, maar elk ervan de maximale limiet bereikt die op verschillende manieren. S3 gericht op een kleiner aantal zeer grote indexen. Als zodanig de resource afhankelijk is van de maximumlimiet (2,4 TB voor elke service). S3 HD is bedoeld voor een groot aantal kleine indexen. S3 HD bereikt 1000 indexen, de grenzen in de vorm van indexbeperkingen. Als u een klant S3 HD die meer dan 1000 indexen nodig heeft, moet u contact op met Microsoft Support voor meer informatie over om door te gaan.
+Het belangrijkste facturering concept om te begrijpen is een *zoekeenheid* (SU) Dit is de facturering eenheid voor Azure Search. Omdat Azure Search, hangt af van de replica's en partities functie, niet dat u door een of andere gefactureerd. In plaats daarvan is facturering gebaseerd op een samenstelling van beide. Formulaically, is van het product van replica- en partities die worden gebruikt door een service in een SU: (R X P = SU). Ten minste elke service wordt gestart met 1 SU (één replica vermenigvuldigd met één partitie), maar een meer realistische model is mogelijk een 3-replica, 3-partitie service gefactureerd als 9 SUs. 
 
-## <a name="eliminate-skus-that-dont-meet-requirements"></a>Elimineren SKU's die niet voldoen aan vereisten
-De volgende vragen kunt u op de juiste beslissing SKU voor uw workload binnenkomen.
+Hoewel elke laag geleidelijk hogere capaciteit biedt, kunt u brengt een deel van de totale capaciteit online, de rest in reserve houden. In termen van facturering is het aantal partities en replica's u brengt online, berekend met behulp van de formule SU, die bepaalt wat u daadwerkelijk betaalt.
 
-1. Hebt u **Service Level Agreement (SLA)** vereisten? U kunt elke categorie factureerbare (basis op up), maar u moet de service voor de redundantie configureren. Twee of meer replica's zijn vereist voor de SLA voor query (gelezen). Drie of meer replica's zijn vereist voor query's en indexering SLA (lezen / schrijven). Het aantal partities is niet een SLA-overweging.
-2. **Hoeveel indexeert** hebben die u nodig? Een van de grootste variabelen waarbij in een beslissing SKU is het aantal indexen die worden ondersteund door elke SKU. Ondersteuning van de index is op veel verschillende niveaus in de onderste Prijscategorieën. Vereisten voor het aantal indexen kunnen een primaire factor van een beslissing SKU worden.
-3. **Het aantal documenten** worden geladen in elke index? Het aantal en de grootte van documenten wordt de uiteindelijke grootte van de index bepaald. U kunt dit nummer op basis van de grootte van de partitie per SKU, uitgebreid door het aantal partities vereist voor het opslaan van een index van deze grootte ervan uitgaande dat u de geschatte grootte van de index kunt schatten, vergelijken.
-4. **Wat is de verwachte querybelasting**? U kunt query werkbelastingen zodra opslagvereisten worden begrepen. S2 en beide S3-SKU's bieden bijna-equivalente doorvoer, maar SLA vereisten zal sprake is van een preview-SKU's.
-5. Als u de categorie S2 of S3 overweegt, moet u bepalen of u nodig [indexeerfuncties](search-indexer-overview.md). Indexeerfuncties zijn nog niet beschikbaar voor de laag S3 HD. Alternatieve methode is het gebruik van een pushmodel voor index-updates, waar het schrijven van code van de toepassing naar een gegevensset naar een index te pushen.
+Facturerings frequentie is per uur per SU, met elke laag met een ander tarief. Voor elke laag kan worden gevonden op classificeert [prijsinformatie](https://azure.microsoft.com/pricing/details/search/).
 
-De meeste klanten kunnen een specifieke SKU in- of regel op basis van hun antwoorden op de bovenstaande vragen. Als u niet zeker weet welke SKU te gaan met, kunt u vragen stellen op MSDN of StackOverflow forums, of neem contact op met de Azure-ondersteuning voor verdere informatie.
+## <a name="consumption-patterns"></a>Patronen voor verbruik
 
-## <a name="decision-validation-does-the-sku-offer-sufficient-storage-and-qps"></a>Besluit validatie: de SKU biedt voldoende opslagruimte en QPS?
-Als laatste stap terugkeren naar de [pagina met prijzen](https://azure.microsoft.com/pricing/details/search/) en de [per-service en per index secties in Servicelimieten](search-limits-quotas-capacity.md) om te controleren van uw maakt een schatting op basis van limieten voor het abonnement en de service.
+De meeste klanten beginnen met de **vrije** service, zodat ze voor onbepaalde tijd worden behouden en kies vervolgens een van de **standaard** lagen voor ernstige ontwikkeling of productie werkbelastingen. 
 
-Als de prijs of de opslag vereisten buiten het bereik zijn, wilt u mogelijk opsplitsen van de werkbelasting tussen meerdere kleinere services (bijvoorbeeld). U kunt op een meer gedetailleerd niveau herontwerp indexen kleiner of filters gebruiken om te efficiënter query's.
+![Azure search lagen](./media/search-sku-tier/tiers.png "Azure search Prijscategorieën")
+
+Op beide uiteinden **Basic** en **S3 HD** voor belangrijke maar ongebruikelijk verbruik patronen bestaan. **Basic** is bedoeld voor kleine productieworkloads: SLA, biedt toegewezen resources, hoge beschikbaarheid, maar matige opslag, toegenomen uit op de totaal 2 GB. Deze laag is ontworpen voor klanten die consistent onder gebruikte beschikbare capaciteit. Aan het einde, **S3 HD** is voor werkbelastingen doorgaans ISV's, partners, [multitenant oplossingen](search-modeling-multitenant-saas-applications.md), of een willekeurige configuratie aanroepen voor een groot aantal kleine indexen. Dit heeft vaak voor de hand liggende wanneer **Basic** of **S3 HD** laag is de juiste keuze te maken, maar als u wilt bevestigen dat u kunt boeken [StackOverflow](https://stackoverflow.com/questions/tagged/azure-search) of [Neem contact op met Azure Ondersteuning voor](https://azure.microsoft.com/support/options/) voor verdere informatie.
+
+Focus verschuiven naar de meest gangbare standaard lagen **S1 S3** zijn een voortgang van de capaciteit met infecties punten op de grootte van partitie- en maximumwaarden op aantal indexen, Indexeerfuncties en corollary resources te verhogen:
+
+|  | S1 | S2 | S3 |  |  |  |  |
+|--|----|----|----|--|--|--|--|
+| Partitiegrootte|  25 GB | 100 GB | 250 GB |  |  |  |  |
+| index en indexeerfunctie limieten| 50 | 200 | 200 |  |  |  |  |
+
+**S1** is een algemene keuze wanneer toegewijde bronnen en meerdere partities niet meer noodzakelijk. Met partities van 25 GB voor maximaal 12 partities de per-service beperken op **S1** is 300 GB totaal als u partities op replica's maximaliseren (Zie [partities en replica's toe te wijzen](search-capacity-planning.md#chart) voor meer met gelijke taakverdeling de samenstelling.)
+
+Pagina's Portal en prijscategorie zet de focus op partitiegrootte en opslag, maar voor elke laag alle mogelijkheden (schijfcapaciteit, snelheid, CPU's) berekenen lineair groeien met prijs. Een **S2** replica is sneller dan **S1**, en **S3** sneller dan **S2**. **S3** lagen opsplitsen het doorgaans lineaire compute prijzen patroon niet goed sneller i/o's. Als u een i/o's als de knelpunt voorziet een **S3** biedt u veel meer IOPS dan lagere niveaus.
+
+**S3** en **S3 HD** worden ondersteund door identieke hoge capaciteit infrastructuur, maar elk een de maximumlimiet is bereikt op verschillende manieren. **S3** gericht is op een kleiner aantal zeer grote indexen. Als zodanig de resource afhankelijk is van de maximumlimiet (2,4 TB voor elke service). **S3 HD** gericht is op een groot aantal kleine indexen. Op 1000 indexen **S3 HD** de grenzen in de vorm van indexbeperkingen is bereikt. Als u een **S3 HD** klant die meer dan 1000 indexen nodig contact op met Microsoft Support voor meer informatie over om door te gaan.
 
 > [!NOTE]
-> Vereisten voor opslag kunnen worden te veel hoge als documenten overbodige gegevens bevatten. In het ideale geval bevatten documenten alleen doorzoekbare gegevens of metagegevens. Binaire gegevens is niet-doorzoekbare en moet worden opgeslagen afzonderlijk (mogelijk in een Azure table of blob-opslag) met een veld in de index van een URL-verwijzing naar de externe gegevens bevatten. De maximale grootte van een afzonderlijk document 16 MB is (of minder als u meerdere documenten in één aanvraag uploaden bulksgewijs zijn). Zie [Servicelimieten in Azure Search](search-limits-quotas-capacity.md) voor meer informatie.
->
+> Voorheen document limieten overweging zijn maar die niet meer van toepassing voor de meeste Azure Search-services na januari 2018 ingericht. Zie voor meer informatie over voorwaarden waarvoor limieten document nog steeds gelden [Servicelimieten: document limieten](search-limits-quotas-capacity.md#document-limits).
 >
 
-## <a name="next-step"></a>Volgende stap
-Als u welk SKU is de juiste keuze te maken weet, kunt u verder met deze stappen:
+## <a name="evaluate-capacity"></a>Capaciteit evalueren
 
-* [Maken van een service voor zoeken in de portal](search-create-service-portal.md)
-* [Wijzig de toewijzing van partities en replica's om uw service te schalen](search-capacity-planning.md)
+Ga hand voorhanden capaciteit en de kosten van het uitvoeren van de service. Lagen leggen beperkingen met betrekking tot twee niveaus (opslag en resources), dus u beide bedenken moet omdat ongeacht een scherm eerst de effectieve limiet is. 
+
+Zakelijke vereisten, het aantal indexen, u moet doorgaans bepalen. Bijvoorbeeld, een globale index voor een grote opslagplaats van documenten of mogelijk meerdere indexen op basis van regio, toepassing of zakelijke gespecialiseerde.
+
+Om te bepalen van de grootte van een index, u moet [een bouwen](search-create-index-portal.md). De structuur van de gegevens in Azure Search is voornamelijk een [omgekeerde index](https://en.wikipedia.org/wiki/Inverted_index), die andere kenmerken dan brongegevens heeft. Omvang en complexiteit voor een omgekeerde index worden bepaald door de inhoud, niet per se de hoeveelheid gegevens die u in het kanaal. Een bron grote hoeveelheden gegevens met grote redundantie kan resulteren in een index kleiner is dan een kleinere gegevensset die maximaal variabele inhoud bevat.  Hierdoor is het zelden kunt afleiden van de indexgrootte van de op basis van de grootte van de oorspronkelijke gegevensset.
+
+### <a name="preliminary-estimates-using-the-free-tier"></a>Voorlopige maakt een schatting met behulp van de laag gratis
+
+Een aanpak voor het schatten van de capaciteit is beginnen met de **vrije** laag. Intrekken die de **vrije** service biedt maximaal 3 indexen, 50 MB aan opslagruimte en 2 minuten van tijd te indexeren. Het kan lastig zijn om in te schatten van de indexgrootte van een verwachte met deze beperkingen, maar het volgende voorbeeld wordt een benadering:
+
++ [Een gratis service maken](search-create-service-portal.md)
++ Voorbereiden van een kleine, representatieve gegevensset (wordt ervan uitgegaan dat 5000 documenten en samplegrootte van tien procent)
++ [Een initiële index bouwen](search-create-index-portal.md) en noteer de grootte in de portal (wordt ervan uitgegaan dat 30 MB)
+
+Ervan uitgaande dat het voorbeeld is zowel vertegenwoordiger en tien procent van de gehele gegevensbron, wordt een index 30 MB ongeveer 300 MB als alle documenten worden geïndexeerd. . Met dit nummer voorlopig worden mogelijk dubbel bedrag naar budget voor twee indexen (ontwikkeling en productie) voor een totaal van 600 MB in opslagvereisten. Dit eenvoudig door wordt voldaan aan de **Basic** servicetier, zodat u er zou gaan.
+
+### <a name="advanced-estimates-using-a-billable-tier"></a>Geavanceerde maakt een schatting met behulp van een factureerbare laag
+
+Bepaalde klanten graag starten met toegewijde bronnen die kunnen geschikt voor grotere steekproeven en verwerkingstijden en vervolgens tijdens het ontwikkelen van ontwikkelen realistische maakt een schatting van de index aantal, de grootte en de volumes van de query. In eerste instantie is een service is ingericht op basis van een schatting van de beste schatting en vervolgens naarmate het project voor de ontwikkeling meer vormt krijgt, teams meestal weten of de bestaande service boven of onder de capaciteit voor geprojecteerde productieworkloads is. 
+
+1. [Bekijk Servicelimieten op elke laag](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity#index-limits) om te bepalen of het aantal indexen, u moet kunnen ondersteuning voor lagere niveaus. Via de **Basic**-**S1**- **S2** lagen, index-limieten zijn 15 50 200, respectievelijk.
+
+1. [Een service maken op een factureerbare laag](search-create-service-portal.md):
+
+    + Start lage op **Basic** of **S1** als u aan het begin van uw leerproces.
+    + Start hoge op **S2** of zelfs **S3**als voor de hand liggende grootschalige indexeren en de query laadt.
+
+1. [Een initiële index bouwen](search-create-index-portal.md) om te bepalen hoe de brongegevens worden omgezet naar een index. Dit is de enige manier om een schatting maken van de indexgrootte van de.
+
+1. [Bewaken van opslag, Servicelimieten query volume en latentie](search-monitor-usage.md) in de portal. De portal ziet u query's per tweede, beperkte query's en zoeken latentie; alle kunt u bepalen of u zich op de juiste laag. Behalve portal metrische gegevens, kunt u configureren diepe bewaking, zoals clickthrough-analyse, doordat [zoeken traffic analytics](search-traffic-analytics.md). 
+
+Aantal van de index en de grootte evenveel relevant zijn voor uw analyse omdat de maximale limiet wordt bereikt door middel van volledig gebruik van opslag (partities) of door het maximum aantal beperkingen met betrekking tot resources (indexen, indexeerfuncties, enzovoort), afhankelijk van wat zich het eerste voordoet. De portal kunt u het bijhouden van beide, weergegeven met huidige gebruik en maximaal limieten naast elkaar op de pagina overzicht.
+
+> [!NOTE]
+> Vereisten voor opslag kunnen worden te veel hoge als documenten overbodige gegevens bevatten. In het ideale geval bevatten documenten alleen de gegevens die u nodig hebt voor de zoekfunctie. Binaire gegevens is niet-doorzoekbare en moet worden opgeslagen afzonderlijk (mogelijk in een Azure table of blob-opslag) met een veld in de index van een URL-verwijzing naar de externe gegevens bevatten. De maximale grootte van een afzonderlijk document 16 MB is (of minder als u meerdere documenten in één aanvraag uploaden bulksgewijs zijn). [Servicelimieten in Azure Search](search-limits-quotas-capacity.md) bevat meer informatie.
+>
+
+**Overwegingen voor query-volume**
+
+Query's per seconde (QPS) is een metriek die uitzien tijdens prestatieafstemming krijgt, maar is in het algemeen geen laag overweging tenzij u zeer hoge query volume in het begin verwacht.
+
+Alle van de lagen standard bieden een evenwicht van replica's op partities, snellere reactietijd ook een query door middel van replica's meer ondersteuning voor het laden van taakverdeling en extra partities voor parallelle verwerking. U kunt voor prestaties afstemmen nadat de service is ingericht.
+
+Klant die verwacht strong aanhoudend query volumes vanaf het begin rekening moeten houden voor hogere lagen, ondersteund door krachtigere hardware. U kunt vervolgens partities en replica's offline te halen of zelfs overschakelen naar een lagere service van de laag als u deze query volumes niet kunt geven aan. Zie voor meer informatie over het berekenen van de query doorvoer [Azure Search-prestaties en optimalisatie](search-performance-optimization.md).
+
+
+**Serviceovereenkomsten**
+
+De **vrije** laag en de preview-functies niet afkomstig zijn met [service level agreements (Sla)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). Voor alle factureerbare lagen, sla's van kracht als u voldoende redundantie voor uw service inricht. Twee of meer replica's zijn vereist voor de SLA voor query (gelezen). Drie of meer replica's zijn vereist voor query's en indexering SLA (lezen / schrijven). Het aantal partities is niet een SLA-overweging. 
+
+## <a name="tips-for-tier-evaluation"></a>Tips voor evaluatie van de laag
+
++ Informatie over het bouwen van indexen op efficiënte en welke methoden vernieuwen zijn de minimale impactful. Het is raadzaam [zoeken traffic analytics](search-traffic-analytics.md) om de ervaring voor de queryactiviteit inzicht te krijgen.
+
++ Toestaan van metrische gegevens te bouwen om query's en verzamelen van gegevens om gebruikspatronen (query's tijdens de kantooruren, tijdens de daluren te indexeren) en deze gegevens gebruiken om te informeren over toekomstige service beslissingen voor de inrichting. Tijdens het niet praktisch op een niveau Uurlijkse of dagelijkse kunt u partities en resources voor geplande wijzigingen in de query-volumes, of niet-geplande maar volgehouden wijzigingen als niveaus lang genoeg is houdt voor de actie te ondernemen garandeert dynamisch aanpassen.
+
++ Houd er rekening mee dat het enige nadeel van onder-inrichting is dat u een service moeten verbreken wellicht als de daadwerkelijke vereisten groter dan u geschatte zijn. Als u wilt voorkomen dat de service wordt onderbroken, zou u een nieuwe service maken in hetzelfde abonnement op een hogere categorie en voer dit gelijktijdige totdat alle apps en aanvragen gericht op het nieuwe eindpunt.
+
+## <a name="next-steps"></a>Volgende stappen
+
+Beginnen met een **vrije** servicetier en bouwen van een initiële index met behulp van een subset van uw gegevens om te begrijpen van de kenmerken ervan. De structuur van de gegevens in Azure Search is een omgekeerde index, waarbij de grootte en complexiteit van een omgekeerde index wordt bepaald door de inhoud. Houd er rekening mee dat maximaal redundante inhoud leidt doorgaans tot een kleinere index dan maximaal onregelmatige inhoud. Hierdoor is het kenmerken van inhoud in plaats van de grootte van de gegevensset die opslagvereisten index bepaalt.
+
+Zodra er een initiële idee van de indexgrootte, [inrichten van een factureerbare service](search-create-service-portal.md) op een van de lagen die wordt besproken in dit artikel, ofwel **Basic** of een **standaard** laag. Kunstmatige beperkingen op gegevenssubsets versoepelen en [uw index opnieuw worden opgebouwd](search-howto-reindex.md) alle van de gegevens die u wilt worden doorzocht.
+
+[Partities en replica's toe te wijzen](search-capacity-planning.md) zo nodig om op te halen van de prestaties en schalen die u nodig hebt.
+
+Als de prestaties en capaciteit fijn zijn, bent u klaar. Anders maakt opnieuw een search-service op een andere tier die meer nauw afgestemd op uw behoeften.
+
+> [!NOTE]
+> Voor meer hulp bij uw vragen naar boeken [StackOverflow](https://stackoverflow.com/questions/tagged/azure-search) of [Neem contact op met ondersteuning van Azure](https://azure.microsoft.com/support/options/).

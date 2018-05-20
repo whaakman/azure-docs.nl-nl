@@ -10,14 +10,14 @@ ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 ms.date: 12/04/2017
 ms.author: ashishth
-ms.openlocfilehash: 4adc0cf81a36307369fa9f4eecd281a93ccba98b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: ef89bcea3eab92c3137a6f532398764462ae204c
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="phoenix-query-server-rest-sdk"></a>Phoenix queryserver REST-SDK
 
@@ -78,7 +78,7 @@ Hier volgen enkele eigenschappen van belang:
 | Eigenschap | Beschrijving |
 | -- | -- |
 | Automatische doorvoer | Een boolean die aangeeft of `autoCommit` is ingeschakeld voor Phoenix transacties. |
-| Alleen-lezen | Een Booleaanse waarde die aangeeft of de verbinding alleen-lezen is. |
+| ReadOnly | Een Booleaanse waarde die aangeeft of de verbinding alleen-lezen is. |
 | TransactionIsolation | Een geheel getal dat aangeeft van het niveau van de transactie-isolatieniveau volgens de specificatie JDBC - Zie de volgende tabel.|
 | Catalogus | De naam van de catalogus voor gebruik bij het ophalen van de eigenschappen van de verbinding. |
 | Schema | De naam van het schema moet worden gebruikt bij het ophalen van de eigenschappen van de verbinding. |

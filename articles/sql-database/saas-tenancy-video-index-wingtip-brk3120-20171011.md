@@ -2,20 +2,20 @@
 title: Video geïndexeerd, SaaS-SQL Azure-app | Microsoft Docs
 description: In dit artikel indexeert verschillende tijdstippen in onze video over SaaS-DB-tenancymodus app ontwerp van de Ignite conferentie 11 oktober 2017 81 minuten. U kunt gaat u verder met het onderdeel dat u bent geïnteresseerd. Ten minste 3 patronen worden beschreven. Azure-functies die de ontwikkeling en het beheer vereenvoudigen worden beschreven.
 services: sql-database
-ms.date: 04/01/2018
+ms.date: 05/14/2018
 ms.service: sql-database
 ms.reviewer: billgib
 ms.topic: article
 author: MightyPen
 ms.author: genemi
 manager: craigg
-ms.openlocfilehash: 7dcd4681833f227f32534ae3053b7b482bb813bc
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 4ea62855b61cb7439b19204564cbc2d7fcdbd0fa
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="video-indexed-and-annotated-for-mulit-tenant-saas-app-using-azure-sql-database"></a>Video geïndexeerd en aangetekend voor mulit-tenant SaaS app met Azure SQL Database
+# <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>Video geïndexeerd en aangetekend voor multitenant SaaS app met Azure SQL Database
 
 Dit artikel is een aantekeningen index in de locaties van de tijd van een video over SaaS-tenancymodus modellen of patronen 81 minuut. In dit artikel kunt u op vorige of doorsturen in de video op welk gedeelte u bent geïnteresseerd. De video worden de ontwerpopties belangrijke voor een databasetoepassing met meerdere tenants in Azure SQL-Database. De video omvat demo's, scenario's van management code en op tijdstippen meer details op de hoogte door ervaring dan mogelijk in onze documentatie is geschreven.
 

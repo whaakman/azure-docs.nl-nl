@@ -5,14 +5,14 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 05/15/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d1862c5ed83033eb8de74459f26260864c646dfa
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ff48d70a19e99531dcc90a81f8c7c723133ba8a0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Asynchrone vernieuwen met de REST-API
 U kunt de gegevensvernieuwing asynchrone bewerkingen op uw Azure Analysis Services-modellen in tabelvorm uitvoeren met behulp van elke programmeertaal die REST-aanroepen ondersteunt. Dit omvat de synchronisatie van alleen-lezen-replica's voor query scale-out. 
@@ -97,7 +97,7 @@ Het opgeven van parameters is niet vereist. De standaardwaarde is toegepast.
 
 |Naam  |Type  |Beschrijving  |Standaard  |
 |---------|---------|---------|---------|
-|Type     |  Enum       |  Het type verwerking moet worden uitgevoerd. De typen worden afgestemd op de TMSL [de opdracht refresh](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) typen: volledige, clearValues, dataOnly, automatische berekening, toevoegen en defragmenteren.       |   Automatisch      |
+|Type     |  Enum       |  Het type verwerking moet worden uitgevoerd. De typen worden afgestemd op de TMSL [de opdracht refresh](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) typen: volledige, clearValues, dataOnly, automatische, berekening en defragmenteren. Voeg type wordt niet ondersteund.      |   Automatisch      |
 |CommitMode     |  Enum       |  Hiermee wordt bepaald of de objecten worden doorgevoerd in batches of alleen als u klaar. Modi omvatten: standaard transactionele, partialBatch.  |  transactionele       |
 |MaxParallelism     |   Int      |  Deze waarde bepaalt het maximum aantal threads waarop de verwerking van opdrachten parallel worden uitgevoerd. Deze waarde wordt uitgelijnd met de eigenschap MaxParallelism die kan worden ingesteld in de TMSL [opdracht sequentiëren](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) of andere methoden gebruiken.       | 10        |
 |retryCount    |    Int     |   Geeft het aantal keren dat de bewerking zal opnieuw worden geprobeerd voordat deze is mislukt.      |     0    |

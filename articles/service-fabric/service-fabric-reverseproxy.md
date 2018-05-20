@@ -9,16 +9,16 @@ editor: vturecek
 ms.assetid: 47f5c1c1-8fc8-4b80-a081-bc308f3655d3
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 55b201842503a879725fa77328a72c83fe0bbade
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 21e1e3041d7b1f4dc205355f6c0b8d4fd2e82775
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric-omgekeerde proxy
 Omgekeerde proxy is ingebouwd in Azure Service Fabric helpt microservices uitgevoerd in een Service Fabric-cluster detecteren en te communiceren met andere services die HTTP-eindpunten hebben.
@@ -97,18 +97,18 @@ Hieronder vindt u de resources voor de service:
 
 Als de service gebruikt de singleton partitieschema, de *PartitionKey* en *PartitionKind* queryreeksparameters zijn niet vereist en de service kan worden bereikt door het gebruik van de gateway als:
 
-* Extern:`http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService`
-* Intern:`http://localhost:19081/MyApp/MyService`
+* Extern: `http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService`
+* Intern: `http://localhost:19081/MyApp/MyService`
 
 Als de service het partitieschema Uniform Int64 gebruikt de *PartitionKey* en *PartitionKind* queryreeksparameters worden gebruikt voor het bereiken van een partitie van de service:
 
-* Extern:`http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
-* Intern:`http://localhost:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
+* Extern: `http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
+* Intern: `http://localhost:19081/MyApp/MyService?PartitionKey=3&PartitionKind=Int64Range`
 
 Het bereiken van de resources die de service beschikbaar worden gesteld, plaatst u het bronpad achter de servicenaam in de URL:
 
-* Extern:`http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService/index.html?PartitionKey=3&PartitionKind=Int64Range`
-* Intern:`http://localhost:19081/MyApp/MyService/api/users/6?PartitionKey=3&PartitionKind=Int64Range`
+* Extern: `http://mycluster.eastus.cloudapp.azure.com:19081/MyApp/MyService/index.html?PartitionKey=3&PartitionKind=Int64Range`
+* Intern: `http://localhost:19081/MyApp/MyService/api/users/6?PartitionKey=3&PartitionKind=Int64Range`
 
 De gateway stuurt vervolgens deze aanvragen naar de URL van de service:
 

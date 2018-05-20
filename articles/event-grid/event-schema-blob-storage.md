@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: d0a8a3726ac3c33668d8ad91c97c35937c299b46
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a4d3f5d50df49851437cfd3bcec16ad217220eca
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Azure Event raster gebeurtenis schema voor Blob-opslag
 
@@ -90,12 +90,12 @@ Een gebeurtenis heeft de volgende gegevens op het hoogste niveau:
 | -------- | ---- | ----------- |
 | Onderwerp | tekenreeks | Volledige resource-pad naar de gegevensbron. Dit veld is niet beschrijfbaar. Gebeurtenis raster bevat deze waarde. |
 | Onderwerp | tekenreeks | Publisher gedefinieerde pad naar het onderwerp van de gebeurtenis. |
-| eventType | tekenreeks | Een van de typen van de geregistreerde gebeurtenis van de bron van deze gebeurtenis. |
+| EventType | tekenreeks | Een van de typen van de geregistreerde gebeurtenis van de bron van deze gebeurtenis. |
 | eventTime | tekenreeks | De tijd dat de gebeurtenis wordt gegenereerd, gebaseerd op de UTC-tijd van de provider. |
 | id | tekenreeks | De unieke id voor de gebeurtenis. |
 | gegevens | object | BLOB storage-gebeurtenisgegevens. |
-| dataVersion | tekenreeks | De versie van het schema van het gegevensobject. De uitgever definieert de schemaversie. |
-| metadataVersion | tekenreeks | De versie van het schema van de metagegevens van de gebeurtenis. Gebeurtenis raster definieert het schema van de eigenschappen op het hoogste niveau. Gebeurtenis raster bevat deze waarde. |
+| dataVersion | tekenreeks | De schemaversie van het gegevensobject. De uitgever definieert de schemaversie. |
+| metadataVersion | tekenreeks | De schemaversie van de metagegevens van de gebeurtenis. Gebeurtenis raster definieert het schema van de eigenschappen op het hoogste niveau. Gebeurtenis raster bevat deze waarde. |
 
 Het gegevensobject heeft de volgende eigenschappen:
 
@@ -104,8 +104,8 @@ Het gegevensobject heeft de volgende eigenschappen:
 | api | tekenreeks | De bewerking waarmee de gebeurtenis is geactiveerd. |
 | clientRequestId | tekenreeks | Een client is gegenereerd, ondoorzichtige waarde met een maximaal 1 KB tekens. Wanneer u opslaganalyse logboekregistratie hebt ingeschakeld, is het vastgelegd in het analytics. |
 | aanvraag-id | tekenreeks | De unieke id voor de aanvraag. Deze gebruiken voor het oplossen van de aanvraag. |
-| eTag | tekenreeks | De waarde die u gebruiken kunt voor voorwaardelijk bewerkingen uitvoeren. |
-| contentType | tekenreeks | Het inhoudstype dat is opgegeven voor de blob. |
+| ETag | tekenreeks | De waarde die u gebruiken kunt voor voorwaardelijk bewerkingen uitvoeren. |
+| ContentType | tekenreeks | Het inhoudstype dat is opgegeven voor de blob. |
 | contentLength | geheel getal | De grootte van de blob in bytes. |
 | blobType | tekenreeks | Het type van de blob. Geldige waarden zijn 'BlockBlob' of 'PageBlob'. |
 | url | tekenreeks | Het pad naar de blob. |

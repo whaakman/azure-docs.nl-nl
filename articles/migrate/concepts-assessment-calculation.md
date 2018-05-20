@@ -4,13 +4,13 @@ description: Biedt een overzicht van assessment berekeningen in de service Azure
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/02/2017
+ms.date: 05/15/2018
 ms.author: raynew
-ms.openlocfilehash: f3ac9c328db1130ea25ac63170ee7de35fb67d16
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: be4fb15d96f5598d4b1ddbbaa4befe7f6530152c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="assessment-calculations"></a>Beoordelingsberekeningen
 
@@ -66,7 +66,7 @@ Andere besturingssystemen<br/><br/> bijvoorbeeld, Oracle Solaris, Apple Mac OS e
 OS opgegeven als *andere* in vCenter-Server | Het besturingssysteem identificeren in dit geval niet in Azure migreren. | Onbekende gereedheid. Zorg ervoor dat het besturingssysteem in de virtuele machine in Azure wordt ondersteund.
 32-bits besturingssystemen. | De machine kan worden opgestart in Azure, maar Azure kan geen volledige ondersteuning bieden. | Voorwaardelijk klaar te maken voor Azure, overweeg dan het besturingssysteem van de machine met 32-bits besturingssysteem upgraden naar de 64-bits besturingssysteem voordat u migreert naar Azure.
 
-## <a name="sizing"></a>Schaling
+## <a name="sizing"></a>Grootte aanpassen
 
 Nadat een machine is gemarkeerd als gereed voor Azure, Azure migreren de grootte van de virtuele machine en de schijven voor Azure. Als het criterium sizing is opgegeven in de eigenschappen van de assessment doen formaat op basis van prestaties, beschouwt Azure migreren de prestatiegeschiedenis van de machine naar een VM-grootte in Azure te identificeren. Deze methode is nuttig in scenario's waarin u de lokale virtuele machine te veel hebt toegewezen, maar het gebruik van de laag is en u wilt het juiste formaat de virtuele machines in Azure om op te slaan kosten.
 

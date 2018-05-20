@@ -6,20 +6,19 @@ documentationcenter: ''
 author: dksimpson
 manager: akucer
 editor: ''
-ms.assetid: 289f8d9e-8839-4e21-b248-bef320f9dbfc
 ms.service: cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/06/2018
-ms.author: mazha
+ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: dad9866a3d61421987bc4a62057498e004f65e7f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f57cfe19fd2eee0952a20fabcaa0d73ca96894ef
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Zelfstudie: Een aangepast domein toevoegen aan uw Azure CDN-eindpunt
 Deze zelfstudie laat zien hoe u een aangepast domein toevoegt aan een Azure CDN-eindpunt (Content Delivery Network). Wanneer u een CDN-eindpunt gebruikt voor het leveren van inhoud, is een aangepast domein nodig als u wilt dat uw eigen domeinnaam zichtbaar is in de URL van uw CDN. Een zichtbare domeinnaam kan handig zijn voor uw klanten en nuttig zijn voor branding-doelen. 
@@ -28,9 +27,9 @@ Nadat u een CDN-eindpunt in uw profiel hebt gemaakt, is de naam van het eindpunt
 
 In deze zelfstudie leert u het volgende:
 > [!div class="checklist"]
-> - Een CNAME DNS-record maken
-> - Het aangepaste domein koppelen aan uw CDN-eindpunt
-> - Het aangepaste domein verifiëren
+> - Een CNAME DNS-record maken.
+> - Het aangepaste domein koppelen aan het CDN-eindpunt.
+> - Het aangepaste domein verifiëren.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -211,16 +210,16 @@ In de voorgaande stappen hebt u een aangepast domein toegevoegd aan een CDN-eind
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Wat u hebt geleerd:
+In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
-> - Een CNAME DNS-record maken
-> - Het aangepaste domein koppelen aan uw CDN-eindpunt
-> - Het aangepaste domein verifiëren
+> - Een CNAME DNS-record maken.
+> - Het aangepaste domein koppelen aan het CDN-eindpunt.
+> - Het aangepaste domein verifiëren.
 
 Ga naar de volgende zelfstudie voor meer informatie over hoe u HTTPS configureert op een aangepast Azure CDN-domein.
 
 > [!div class="nextstepaction"]
-> [HTTPS op een aangepast Azure CDN-domein configureren](cdn-custom-ssl.md)
+> [Zelfstudie: HTTPS configureren op een aangepast Azure CDN-domein](cdn-custom-ssl.md)
 
 

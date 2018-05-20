@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 490b162bcab0656388ef0b211ea693809d446346
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: e12010f225b5f8db247d1b751615cbedd413dfb3
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Prijscategorieën MySQL-Database
 
@@ -86,7 +86,13 @@ U kunt extra opslagcapaciteit toevoegen tijdens en na het maken van de server. D
 
 U kunt uw i/o-verbruik in de Azure-portal of met behulp van Azure CLI-opdrachten kunt bewaken. De relevante meetgegevens voor het bewaken van zijn [opslaglimiet bereikt, opslagpercentage opslag gebruikt en i/o-procent](concepts-monitoring.md).
 
-## <a name="backup"></a>Back-up maken
+### <a name="reaching-the-storage-limit"></a>De opslaglimiet bereikt
+
+De server wordt gemarkeerd als alleen-lezen wanneer de hoeveelheid vrije opslagruimte op minder dan 5 GB of ingerichte opslag maar 5% bereikt, afhankelijk van wat is. Bijvoorbeeld, als u hebt ingericht, 100 GB aan opslagruimte en het werkelijke gebruik gaat over 95 GB, de server is gemarkeerd als alleen-lezen. U kunt ook als u 5 GB aan opslagruimte hebt ingericht, is de server gemarkeerd alleen-lezen wanneer de vrije opslagruimte op minder dan 250 MB bereikt.  
+
+Terwijl de service probeert te maken van de server alleen-lezen, alle nieuwe schrijftransactieaanvragen worden geblokkeerd en bestaande actieve transacties blijven uitvoeren. Wanneer de server is ingesteld op alleen-lezen, doorvoeren alle daaropvolgende schrijfbewerkingen en transactie is mislukt. Alleen query's blijven doorwerken. Nadat u de ingerichte opslag verhoogt, moet de server klaar om te schrijven transacties opnieuw accepteren.
+
+## <a name="backup"></a>Backup
 
 De service wordt automatisch een back-ups van uw server. De minimale bewaarperiode voor back-ups is zeven dagen. U kunt een bewaarperiode van maximaal 35 dagen instellen. De bewaarperiode kan worden aangepast op elk gewenst moment tijdens de levensduur van de server. U kunt kiezen tussen lokaal redundante en geografisch redundante back-ups. Geografisch redundante back-ups worden ook opgeslagen in de [regio geo gekoppeld](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) van de regio waar uw server wordt gemaakt. Dit biedt een niveau van bescherming in het geval van een noodgeval. Ook krijgt u de mogelijkheid uw server naar een andere Azure-regio waarin de service beschikbaar met geografisch redundante back-ups is herstellen. Het is niet mogelijk om te wijzigen tussen de twee opties voor back-upopslag nadat de server is gemaakt.
 

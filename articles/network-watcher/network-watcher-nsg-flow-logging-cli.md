@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: b8c2ff527328fe5f486362db416a99a1c711c9c2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: fa90d406313d756f3dd852305a6d61db29815192
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Netwerk beveiliging groep overgebracht logboeken configureren met Azure CLI
 
@@ -51,7 +51,7 @@ De opdracht uit om Logboeken van de stroom wordt weergegeven in het volgende voo
 az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName
 ```
 
-Het opslagaccount dat u opgeeft dat geen netwerk-regels geconfigureerd die toegang tot het netwerk te tot alleen Microsoft-services of specifieke virtuele netwerken beperken.
+Het opslagaccount dat u opgeeft dat geen netwerk-regels geconfigureerd die toegang tot het netwerk te tot alleen Microsoft-services of specifieke virtuele netwerken beperken. Het opslagaccount kan zich in hetzelfde of een ander Azure-abonnement, dan het NSG waarmee het logboek van de stroom voor. Als u verschillende abonnementen gebruikt, moeten ze beide zijn gekoppeld aan dezelfde Azure Active Directory-tenant. Het account waarmee u voor elk abonnement moet hebben de [noodzakelijke machtigingen](required-rbac-permissions.md).
 
 ## <a name="disable-network-security-group-flow-logs"></a>Netwerkbeveiligingsgroep uitschakelen stroom Logboeken
 

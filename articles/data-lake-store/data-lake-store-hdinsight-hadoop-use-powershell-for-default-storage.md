@@ -10,17 +10,16 @@ ms.assetid: 8917af15-8e37-46cf-87ad-4e6d5d67ecdb
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 81074d303fbcefdf396de09510f69067eac3f3f6
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2a9f2e9c2634173cf2feb9ded2e87e49f9c8d1e4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-as-default-storage-by-using-powershell"></a>HDInsight-clusters maken met Data Lake Store als standaard opslag met behulp van PowerShell
+
 > [!div class="op_single_selector"]
 > * [Azure Portal gebruiken](data-lake-store-hdinsight-hadoop-use-portal.md)
 > * [Gebruik PowerShell (voor opslag van de standaard)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
@@ -38,11 +37,12 @@ Hier volgen enkele belangrijke overwegingen voor het gebruik van HDInsight met D
 Volg de instructies in de volgende vijf secties voor het configureren van HDInsight werken met Data Lake Store met behulp van PowerShell.
 
 ## <a name="prerequisites"></a>Vereisten
+
 Voordat u deze zelfstudie begint, controleert u dat u voldoet aan de volgende vereisten:
 
 * **Een Azure-abonnement**: Ga naar [gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1.0 of hoger**: Zie [PowerShell installeren en configureren hoe](/powershell/azure/overview).
-* **Windows Software Development Kit (SDK)**: voor het installeren van Windows-SDK, gaat u naar [downloadt en hulpprogramma's voor Windows 10](https://dev.windows.com/en-us/downloads). De SDK gebruikt voor het maken van een beveiligingscertificaat.
+* **Windows Software Development Kit (SDK)**: voor het installeren van Windows-SDK, gaat u naar [downloadt en hulpprogramma's voor Windows 10](https://dev.windows.com/downloads). De SDK gebruikt voor het maken van een beveiligingscertificaat.
 * **Azure Active Directory-service-principal**: in deze zelfstudie wordt beschreven hoe u een service-principal maken in Azure Active Directory (Azure AD). Voor het maken van een service-principal, moet u echter een Azure AD-beheerder zijn. Als u een beheerder bent, kunt u deze vereiste overslaan en doorgaan met de zelfstudie.
 
     >[!NOTE]
@@ -50,6 +50,7 @@ Voordat u deze zelfstudie begint, controleert u dat u voldoet aan de volgende ve
     >
 
 ## <a name="create-a-data-lake-store-account"></a>Een Data Lake Store-account maken
+
 Ga als volgt te werk als u wilt maken van een Data Lake Store-account:
 
 1. Open een PowerShell-venster op het bureaublad en voer vervolgens de codefragmenten hieronder. Wanneer u wordt gevraagd met aanmelden, meld u aan als een van de abonnementbeheerders of eigenaren. 
@@ -142,7 +143,7 @@ In deze sectie maakt een service-principal voor een Azure AD-toepassing, een rol
 
         $certificateFilePath = "$certificateFileDir\CertFile.pfx"
 
-        $password = Read-Host –Prompt "Enter the password" # This is the password you specified for the .pfx file
+        $password = Read-Host -Prompt "Enter the password" # This is the password you specified for the .pfx file
 
         $certificatePFX = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($certificateFilePath, $password)
 

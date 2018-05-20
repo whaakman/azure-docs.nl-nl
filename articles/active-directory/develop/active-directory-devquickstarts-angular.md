@@ -3,29 +3,31 @@ title: Azure AD-AngularJS aan de slag | Microsoft Docs
 description: Hoe een AngularJS één pagina toepassing bouwt die kan worden geïntegreerd met Azure AD voor aanmelden en Azure AD-beveiligde API aanroept met behulp van OAuth.
 services: active-directory
 documentationcenter: ''
-author: jmprieur
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 2f78a6b17a512ab54ffab4554ccc0f3f1486f27a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5b99ce605d9ecea6c7d67ab9a2ea679d531787d7
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-ad-angularjs-getting-started"></a>Azure AD-AngularJS aan de slag
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Azure Active Directory (Azure AD) maakt het eenvoudig en snel kunt aanmelden, afmelden en veilige OAuth-API toevoegen aan uw apps met één pagina aanroept.  Hiermee kunt uw apps voor het verifiëren van gebruikers met hun Windows Server Active Directory-accounts en een web-API die Azure AD beveiligen kunt, zoals de Office 365-API of de Azure-API gebruiken.
+Azure Active Directory (Azure AD) maakt het eenvoudig en snel kunt aanmelden, afmelden en veilige OAuth-API toevoegen aan uw apps met één pagina aanroept. Hiermee kunt uw apps voor het verifiëren van gebruikers met hun Windows Server Active Directory-accounts en een web-API die Azure AD beveiligen kunt, zoals de Office 365-API of de Azure-API gebruiken.
 
 Voor JavaScript-toepassingen die zijn uitgevoerd in een browser, levert Azure AD de Active Directory Authentication Library (ADAL) of adal.js. Het enige doel van adal.js is gemakkelijker voor uw app toegangstokens ophalen. Als u wilt laten zien hoe eenvoudig het is, hier we je een AngularJS To Do List toepassing bouwt die:
 
@@ -53,7 +55,7 @@ Als u wilt inschakelen voor de app voor het verifiëren van gebruikers en tokens
 5. Volg de aanwijzingen en maak een nieuwe webtoepassing en/of web-API:
   * **Naam** beschrijving van uw toepassing voor gebruikers.
   * **Eenmalige aanmelding URL** is de locatie waarop Azure AD tokens wordt geretourneerd. De standaardlocatie voor dit voorbeeld is `https://localhost:44326/`.
-6. Nadat u de registratie, wijst Azure AD een unieke toepassings-ID toe aan uw app.  U moet deze waarde in de volgende secties, dus kopiëren vanaf het toepassingstabblad.
+6. Nadat u de registratie, wijst Azure AD een unieke toepassings-ID toe aan uw app. U moet deze waarde in de volgende secties, dus kopiëren vanaf het toepassingstabblad.
 7. De impliciete OAuth-stroom Adal.js gebruikt om te communiceren met Azure AD. U moet de impliciete stroom inschakelen voor uw toepassing:
   1. Klik op de toepassing en selecteer **Manifest** om het manifest inline-editor te openen.
   2. Zoek de `oauth2AllowImplicitFlow` eigenschap. Stel de waarde op `true`.
@@ -118,11 +120,11 @@ Adal.js integreert met AngularJS route en HTTP-providers, zodat u beveiligde afz
     ```
 
 ## <a name="summary"></a>Samenvatting
-U hebt nu een veilige één pagina app waarmee u kunt gebruikers aanmelden en bearer-token-beveiligde aanvragen te verlenen aan de back-end-API. Wanneer een gebruiker klikt op de **TodoList** koppeling adal.js worden automatisch omgeleid naar Azure AD voor aanmelden indien nodig. Adal.js wordt bovendien automatisch een toegangstoken koppelen aan een Ajax-aanvragen die worden verzonden naar de back-end van de app.  
+U hebt nu een veilige één pagina app waarmee u kunt gebruikers aanmelden en bearer-token-beveiligde aanvragen te verlenen aan de back-end-API. Wanneer een gebruiker klikt op de **TodoList** koppeling adal.js worden automatisch omgeleid naar Azure AD voor aanmelden indien nodig. Adal.js wordt bovendien automatisch een toegangstoken koppelen aan een Ajax-aanvragen die worden verzonden naar de back-end van de app. 
 
 De voorgaande stappen zijn bare minimale nodig voor het bouwen van een app met één pagina met behulp van adal.js. Maar een aantal andere functies zijn handig in één pagina app:
 
-* Expliciet uitgeven aanmelden en afmeldingsaanvragen te verzenden, kunt u functies definiëren in uw domeincontrollers die adal.js aanroepen.  In `App/Scripts/homeCtrl.js`:
+* Expliciet uitgeven aanmelden en afmeldingsaanvragen te verzenden, kunt u functies definiëren in uw domeincontrollers die adal.js aanroepen. In `App/Scripts/homeCtrl.js`:
 
     ```js
     ...
@@ -143,7 +145,7 @@ De voorgaande stappen zijn bare minimale nodig voor het bouwen van een app met �
     ...
     ```
 
-* Er zijn veel scenario's waarin u weten wilt of de gebruiker is aangemeld of niet. U kunt ook de `userInfo` object informatie te verzamelen.  Bijvoorbeeld in `index.html`, kunt u weergeven ofwel de **aanmelding** of **afmelding** knop op basis van de status van verificatie:
+* Er zijn veel scenario's waarin u weten wilt of de gebruiker is aangemeld of niet. U kunt ook de `userInfo` object informatie te verzamelen. Bijvoorbeeld in `index.html`, kunt u weergeven ofwel de **aanmelding** of **afmelding** knop op basis van de status van verificatie:
 
     ```js
     <li><a class="btn btn-link" ng-show="userInfo.isAuthenticated" ng-click="logout()">Logout</a></li>

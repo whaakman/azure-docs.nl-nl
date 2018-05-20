@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 816f2c10631de3809c6679c1e2715174f072f56d
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 299d3df1c9ae82bb9f184e9ffb1dd922013e5e65
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-configure-an-application-proxy-application"></a>Het configureren van een toepassing toepassingsproxy
 
@@ -51,7 +51,7 @@ Het foutbericht moet worden weergegeven in de rechterbovenhoek bij het maken van
 
 ## <a name="configure-connectorsconnector-groups"></a>Connectors/connector groepen configureren
 
-Als u problemen bij het configureren van uw toepassing vanwege een waarschuwing over connectors en connector groepen ondervindt, raadpleegt u de instructies op de toepassingsproxy inschakelen voor meer informatie over het downloaden van connectors. Als u weten over connectors wilt, raadpleegt u de [connectors documentatie](application-proxy-understand-connectors.md).
+Als u problemen bij het configureren van uw toepassing vanwege een waarschuwing over connectors en connector groepen ondervindt, raadpleegt u de instructies op de toepassingsproxy inschakelen voor meer informatie over het downloaden van connectors. Als u weten over connectors wilt, raadpleegt u de [connectors documentatie](manage-apps/application-proxy-connectors.md).
 
 Als uw connectors niet actief zijn, betekent dit dat ze niet bereiken van de service zijn. Dit is vaak omdat niet de vereiste poorten geopend zijn. Een lijst met vereiste poorten, Zie de sectie vereisten van de documentatie van de toepassingsproxy inschakelen.
 

@@ -1,20 +1,20 @@
 ---
 title: Automatische update van de Mobility-Service in Azure-Azure-noodherstel | Microsoft Docs
-description: Biedt een overzicht van het automatisch bijwerken van de Mobility-Service wordt gebruikt voor replicatie van Azure VM's met Azure Site Recovery.
+description: Biedt een overzicht van het automatisch bijwerken van de Mobility-Service bij het repliceren van virtuele Azure-machines met Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 05/16/2018
 ms.author: rajanaki
-ms.openlocfilehash: d9b653e4766746d2142a7e1040d6d60ec2aacc44
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: add80b17c76e7262f55e50cd07d4e9b053cfa1ff
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="automatic-update-of-mobility-service-extension-in-azure-to-azure-replication"></a>Automatische update van de Mobility-Service de extensie in de replicatie van Azure naar Azure
+# <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Automatische update van de Mobility-Service in de replicatie van Azure naar Azure
 
 Azure Site Recovery heeft een maandelijkse release uitgebracht waarbij verbeteringen in bestaande functies of er nieuwe bestanden worden toegevoegd en bekende problemen, indien van toepassing zijn opgelost. Dit betekent dat er om te blijven met de service, moet u over de implementatie van deze patches per maand. Om te voorkomen dat de failover-kop die zijn gekoppeld aan de upgrade, kunnen gebruikers in plaats daarvan kiezen om toe te staan van Site Recovery om updates van de onderdelen te beheren. Zoals beschreven in de [architectuur verwijzing](azure-to-azure-architecture.md) voor noodherstel van Azure naar Azure, de Mobility-Service wordt geïnstalleerd op alle Azure virtuele machines waarvoor replicatie is ingeschakeld tijdens het repliceren van virtuele machines van één Azure de regio naar een andere. Wanneer u automatische updates hebt ingeschakeld, wordt de Mobility-extensie met elke nieuwe release bijgewerkt. In dit document worden de volgende:
 

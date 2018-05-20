@@ -5,24 +5,24 @@ services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 96176149-69bb-4b06-a72e-ebbfea84454b
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: ea3b1f50bada3c1301f8661f8f0b4866cb1c732c
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 6bf7ea90bb5351411984110fd8fb05c2f8cb0650
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric met Azure API Management-overzicht
 
-Cloud-toepassingen moeten doorgaans een front-gateway voor een potentieel inkomend voor gebruikers, apparaten of andere toepassingen. In de Service Fabric, een gateway worden alle stateless Services, zoals een [ASP.NET Core toepassing](service-fabric-reliable-services-communication-aspnetcore.md), of een andere service die zijn ontworpen voor inkomend verkeer, zoals [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IoT Hub](https://docs.microsoft.com/azure/iot-hub/), of [Azure API Management](https://docs.microsoft.com/azure/api-management/).
+Cloudtoepassingen hebben meestal een gateway in de front-end nodig om een centraal ingangspunt te bieden voor gebruikers, apparaten of andere toepassingen. In de Service Fabric, een gateway worden alle stateless Services, zoals een [ASP.NET Core toepassing](service-fabric-reliable-services-communication-aspnetcore.md), of een andere service die zijn ontworpen voor inkomend verkeer, zoals [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IoT Hub](https://docs.microsoft.com/azure/iot-hub/), of [Azure API Management](https://docs.microsoft.com/azure/api-management/).
 
 Dit artikel bevat een inleiding tot het gebruik van Azure API Management als een gateway voor uw Service Fabric-toepassingen. API Management wordt rechtstreeks geïntegreerd met Service Fabric, zodat u voor het publiceren van API's met een groot aantal regels voor het doorsturen naar uw back-end Service Fabric-services. 
 
@@ -80,8 +80,8 @@ In dit voorbeeld wordt een nieuwe staatloze service-exemplaar voor elke gebruike
 
  Elke service een unieke naam heeft, maar de namen niet bekend zijn vooraf omdat de services worden gemaakt naar aanleiding van de gebruiker of beheerder invoer en dus kan niet worden hardgecodeerd in APIM beleid of routeringsregels. In plaats daarvan de naam van de service voor het verzenden van een aanvraag wordt gegenereerd in de beleidsdefinitie van de back-end-van de `name` waarde die is opgegeven in het URL-aanvraag-pad. Bijvoorbeeld:
 
-  - Een aanvraag voor `/api/users/foo` wordt doorgestuurd naar de service-exemplaar`fabric:/app/users/foo`
-  - Een aanvraag voor `/api/users/bar` wordt doorgestuurd naar de service-exemplaar`fabric:/app/users/bar`
+  - Een aanvraag voor `/api/users/foo` wordt doorgestuurd naar de service-exemplaar `fabric:/app/users/foo`
+  - Een aanvraag voor `/api/users/bar` wordt doorgestuurd naar de service-exemplaar `fabric:/app/users/bar`
 
 ![Service Fabric met Azure API Management-topologie-overzicht][sf-apim-dynamic-stateless]
 
@@ -99,8 +99,8 @@ In dit voorbeeld wordt een nieuwe stateful service-exemplaar voor elke gebruiker
 
  Elke service een unieke naam heeft, maar de namen niet bekend zijn vooraf omdat de services worden gemaakt naar aanleiding van de gebruiker of beheerder invoer en dus kan niet worden hardgecodeerd in APIM beleid of routeringsregels. In plaats daarvan de naam van de service voor het verzenden van een aanvraag wordt gegenereerd in de beleidsdefinitie van de back-end-van de `name` waarde opgegeven in het URL-aanvraag-pad. Bijvoorbeeld:
 
-  - Een aanvraag voor `/api/users/foo` wordt doorgestuurd naar de service-exemplaar`fabric:/app/users/foo`
-  - Een aanvraag voor `/api/users/bar` wordt doorgestuurd naar de service-exemplaar`fabric:/app/users/bar`
+  - Een aanvraag voor `/api/users/foo` wordt doorgestuurd naar de service-exemplaar `fabric:/app/users/foo`
+  - Een aanvraag voor `/api/users/bar` wordt doorgestuurd naar de service-exemplaar `fabric:/app/users/bar`
 
 Elk exemplaar van de service ook is gepartitioneerd met behulp van het partitieschema Int64 met twee partities en een sleutel bereik die omvat `Int64.MinValue` naar `Int64.MaxValue`. Het back-end-beleid wordt een partitiesleutel binnen dat bereik berekend door het converteren van de `id` waarde die is opgegeven in het URL-aanvraag-pad naar een 64-bits geheel getal, hoewel elk algoritme kan hier worden gebruikt voor het berekenen van de partitiesleutel. 
 

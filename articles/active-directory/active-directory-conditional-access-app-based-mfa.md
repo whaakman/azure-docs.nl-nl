@@ -15,24 +15,22 @@ ms.workload: identity
 ms.date: 05/11/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: d675236f36840858f0f011484392186d355ac6df
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 475b0229b9e627a56b02d2299ee2e5400aa0ede1
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Snelstartgids: MFA vereisen voor specifieke apps met voorwaardelijke toegang van Azure Active Directory 
 
 Om te vereenvoudigen de aanmeldingservaring van uw gebruikers, is het raadzaam zodat ze aan te melden bij uw cloud-apps met een gebruikersnaam en een wachtwoord. Veel omgevingen hebben echter ten minste enkele apps waarvoor u wordt aangeraden om te vereisen een sterkere vorm van accountverificatie,, zoals multi-factor authentication (MFA). Dit kan zijn, voor de voorbeeld-waar, voor toegang tot e-mailsysteem van uw organisatie of uw HR-apps. In Azure Active Directory (Azure AD), u kunt dit te bereiken met een beleid voor voorwaardelijke toegang.    
 
-Deze snelstartgids toont hoe u configureert een [beleid voor voorwaardelijke toegang van Azure AD](active-directory-conditional-access-azure-portal.md) waarvoor multi-factor authentication-server is vereist voor een set met geselecteerde cloud-apps in uw omgeving.
+Deze snelstartgids toont hoe u configureert een [beleid voor voorwaardelijke toegang van Azure AD](active-directory-conditional-access-azure-portal.md) waarvoor multi-factor authentication-server is vereist voor een geselecteerde cloud-app in uw omgeving.
+
+![Beleid maken](./media/active-directory-conditional-access-app-based-mfa/32.png)
 
 
-## <a name="scenario-description"></a>Scenariobeschrijving
-
-Het scenario in dit artikel wordt de Azure-portal als tijdelijke aanduiding voor een cloud-app die MFA is vereist voor een specifieke gebruiker. Isabella Simonsen is een gebruiker in uw organisatie. Wanneer zij zich heeft aangemeld bij uw Azure-portal, wilt u haar verder haar account verifiëren met MFA.
-
-![Multi-Factor Authentication](./media/active-directory-conditional-access-app-based-mfa/22.png)
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 
 
@@ -40,27 +38,31 @@ Het scenario in dit artikel wordt de Azure-portal als tijdelijke aanduiding voor
 
 Voor het voltooien van het scenario in deze snelstartgids hebt u het volgende nodig:
 
-- **Toegang tot een Azure AD Premium-editie** -voorwaardelijke toegang van Azure AD is een Azure AD Premium-functie. Als u geen toegang tot een Azure AD Premium edition hebt, kunt u [aanmelden voor een proefversie](https://azure.microsoft.com/trial/get-started-active-directory/).
+- **Toegang tot een Azure AD Premium-editie** -voorwaardelijke toegang van Azure AD is een Azure AD Premium-functie. 
 
-- **Een testaccount genoemd Isabella Simonsen** : als u niet hoe u een testaccount maken weet, lezen [deze instructies](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
+- **Een testaccount genoemd Isabella Simonsen** : als u niet hoe een testaccount maken weet, raadpleeg dan [cloud-gebaseerde gebruikers toevoegen](add-users-azure-active-directory.md#add-cloud-based-users).
 
 
 
 ## <a name="create-your-conditional-access-policy"></a>Maken van uw beleid voor voorwaardelijke toegang 
 
-Deze sectie toont het maken van beleid voor voorwaardelijke toegang vereist.  
-U instellen in uw beleid:
+Deze sectie toont het maken van beleid voor voorwaardelijke toegang vereist. Maakt gebruik van het scenario in deze snelstartgids:
+
+- De Azure-portal als tijdelijke aanduiding voor een cloud-app die MFA is vereist. 
+- Uw voorbeeldgebruiker voor het testen van beleid voor voorwaardelijke toegang.  
+
+In uw beleid instellen:
 
 |Instelling |Waarde|
 |---     | --- |
 |Gebruikers en groepen | Isabella Simonsen |
 |Cloud-apps | Beheer van Microsoft Azure |
-|Verlenen | Meervoudige verificatie vereisen |
+|Toegang verlenen | Meervoudige verificatie vereisen |
  
 
 ![Beleid maken](./media/active-directory-conditional-access-app-based-mfa/31.png)
 
-
+ 
 
 
 **Uw beleid voor voorwaardelijke toegang configureren:**
@@ -137,9 +139,19 @@ U instellen in uw beleid:
 13. Klik op **Create**.
 
 
-## <a name="evaluate-your-conditional-access-policy"></a>Uw beleid voor voorwaardelijke toegang evalueren
+## <a name="evaluate-a-simulated-sign-in"></a>Een gesimuleerde aanmelden evalueren
 
-Nu dat u uw beleid voor voorwaardelijke toegang hebt geconfigureerd, wilt u waarschijnlijk weet of deze werkt zoals verwacht. Als een eerste stap kunt u de [voorwaardelijke toegang tot wat als hulpprogramma beleid](active-directory-conditional-access-whatif.md) om te simuleren een aanmeldingspagina van een gebruiker. Wanneer u het hulpprogramma met configureert **Isabella Simonsen** als gebruiker en **Microsoft Azure Management** als cloud-app, ziet u het hulpprogramma **MFA vereisen voor toegang tot de Azure portal** onder **Beleidsregels die van toepassing** en **meervoudige authenticatie** als **Grant besturingselementen**.
+Nu dat u uw beleid voor voorwaardelijke toegang hebt geconfigureerd, wilt u waarschijnlijk weet of deze werkt zoals verwacht. Gebruik als een eerste stap de voorwaardelijke toegang wat gebeurt er als beleid hulpprogramma om te simuleren een aanmeldingspagina van uw testgebruiker. De simulatie maakt een schatting van de impact dit aanmelden heeft op uw beleid en een simulatierapport genereert.  
+
+Initialisatie van de wat als hulpprogramma voor het evalueren van beleid is ingesteld:
+
+- **Isabella Simonsen** als gebruiker 
+- **Microsoft Azure Management** als cloud-app
+
+ Te klikken op **wat gebeurt er als** maakt u een simulatierapport:
+
+- **MFA vereisen voor toegang tot de Azure portal** onder **beleidsregels die van toepassing** 
+- **Meervoudige authenticatie** als **Grant besturingselementen**.
 
 ![Wat gebeurt er als hulpprogramma-beleid](./media/active-directory-conditional-access-app-based-mfa/23.png)
 
@@ -174,11 +186,22 @@ Nu dat u uw beleid voor voorwaardelijke toegang hebt geconfigureerd, wilt u waar
 
 ## <a name="test-your-conditional-access-policy"></a>Testen van uw beleid voor voorwaardelijke toegang
 
-De vorige sectie In de vorige sectie u 
+In de vorige sectie hebt u geleerd hoe een gesimuleerde aanmelden evalueren. Naast een simulatie, moet u ook testen van uw beleid voor voorwaardelijke toegang om ervoor te zorgen dat deze werkt zoals verwacht. 
 
 Als u wilt testen van uw beleid, willen aanmelden bij uw [Azure-portal](https://portal.azure.com) met behulp van uw **Isabella Simonsen** test-account. U ziet een dialoogvenster dat moet worden ingesteld van uw account voor aanvullende beveiligingsverificatie.
 
 ![Multi-Factor Authentication](./media/active-directory-conditional-access-app-based-mfa/22.png)
+
+
+## <a name="clean-up-resources"></a>Resources opschonen
+
+Wanneer deze niet langer nodig is, verwijder de testgebruiker en beleid voor voorwaardelijke toegang:
+
+- Als u het verwijderen van een Azure AD-gebruiker niet weet, Zie [gebruikers verwijderen van Azure AD](add-users-azure-active-directory.md#delete-users-from-azure-ad).
+
+- Selecteer uw beleid voor het verwijderen van uw beleid en klik vervolgens op **verwijderen** in de werkbalk Snelle toegang.
+
+    ![Multi-Factor Authentication](./media/active-directory-conditional-access-app-based-mfa/33.png)
 
 
 ## <a name="next-steps"></a>Volgende stappen

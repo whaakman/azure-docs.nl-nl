@@ -1,3 +1,19 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: virtual-machines-linux, virtual-machines-windows
+author: dlepow
+ms.service: multiple
+ms.topic: include
+ms.date: 05/11/2018
+ms.author: danlep
+ms.custom: include file
+ms.openlocfilehash: 32a438d393077cfe4cb7f6ee62f3a01edfce0571
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 05/12/2018
+---
 Organisaties hebben grootschalige IT-behoeften. Deze Big Compute-workloads bevatten technische ontwerpen en analyses, berekeningen van financiële risico's, rendering van afbeeldingen, complexe modellering, Monte Carlo-simulaties en meer. 
 
 Gebruik de Azure-cloud rekenintensieve Linux- en Windows workloads efficiënt vanaf parallelle batchtaken voor traditionele HPC-simulaties uitvoeren. Voer uw HPC en batch-workloads in Azure-infrastructuur, met van uw keuze compute services, raster managers Marketplace-oplossingen en toepassingen met de leverancier van host (SaaS). Azure biedt flexibele oplossingen voor het distribueren van werk en kan worden uitgebreid naar duizenden virtuele machines of kernen en daarna geschaald verkleinen wanneer u minder bronnen nodig. 
@@ -21,6 +37,7 @@ Gebruik de Azure-cloud rekenintensieve Linux- en Windows workloads efficiënt va
 * **BIG Compute-oplossingen als een service**
     * Aangepaste Big Compute-oplossingen en werkstromen die gebruikmaken van ontwikkelen [Azure Batch](#azure-batch) en verwante [Azure-services](#related-azure-services).
     * Engineering en simulatie Azure-oplossingen uitvoeren vanaf leveranciers zoals [Altair](http://www.altair.com/), [oorspronkelijke](https://www.rescale.com/azure/), en [Cycle Computing](https://cyclecomputing.com/) (nu [samengevoegd met Microsoft](https://blogs.microsoft.com/blog/2017/08/15/microsoft-acquires-cycle-computing-accelerate-big-computing-cloud/)).
+    * Gebruik een [Cray supercomputer](https://www.cray.com/solutions/supercomputing-as-a-service/cray-in-azure) als een service die wordt gehost in Azure.
 * **Marketplace-oplossingen**
     * De schaal van [HPC-toepassingen](#hpc-applications) en [oplossingen](#marketplace-solutions) aangeboden in de [Azure Marketplace](https://azuremarketplace.microsoft.com/). 
     
@@ -36,7 +53,7 @@ Ga naar de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplac
 
 * [RogueWave op basis van CentOS HPC](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73HPC?tab=Overview)
 * [SUSE Linux Enterprise Server voor HPC](https://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver12optimizedforhighperformancecompute/)
-*  [TIBCO Grid Server Engine](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tibco-software.gridserverlinuxengine?tab=Overview)
+*  [TIBCO raster-Engine van Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tibco-software.gridserverlinuxengine?tab=Overview)
 * [Azure voor Gegevenswetenschap VM voor Windows en Linux](../articles/machine-learning/machine-learning-data-science-virtual-machine-overview.md)
 * [D3View](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/xfinityinc.d3view-v5?tab=Overview)
 * [UberCloud](https://azure.microsoft.com/search/marketplace/?q=ubercloud)
@@ -107,17 +124,18 @@ Leer hoe u het volgende doet:
 * [Gebruik van Azure Batch-codevoorbeelden](https://github.com/Azure/azure-batch-samples)
 * [Met lage prioriteit virtuele machines, met Batch](../articles/batch/batch-low-pri-vms.md)
 * [Beperkte HPC-workloads uitvoeren met Batch scheepswerf](https://github.com/Azure/batch-shipyard)
-* [Gebruik de taal R met Batch](https://github.com/Azure/doAzureParallel)
-* [De Azure gedistribueerde Data Engineering Toolkit uitvoeren op Batch](https://github.com/Azure/aztk)
+* [Uitvoeren van parallelle workloads van R op Batch](https://github.com/Azure/doAzureParallel)
+* [Op aanvraag Spark taken uitvoeren op Batch](https://github.com/Azure/aztk)
 
 ## <a name="workload-managers"></a>Werkbelasting managers
 
 Hier volgen enkele voorbeelden van het cluster en de belasting van managers die kunnen worden uitgevoerd in Azure-infrastructuur. Zelfstandige clusters maken in Azure Virtual machines of burst virtuele Azure-machines van een on-premises-cluster. 
+* [Alces vlucht Compute](https://azuremarketplace.microsoft.com/marketplace/apps/alces-flight-limited.alces-flight-compute-solo?tab=Overview)
 * [TIBCO DataSynapse GridServer](https://azure.microsoft.com/blog/tibco-datasynapse-comes-to-the-azure-marketplace/) 
-* [Bright Cluster Manager](http://www.brightcomputing.com/technology-partners/microsoft)
+* [Helder Clusterbeheer](http://www.brightcomputing.com/technology-partners/microsoft)
 * [IBM Spectrum Symphony en Symphony LSF](https://azure.microsoft.com/blog/ibm-and-microsoft-azure-support-spectrum-symphony-and-spectrum-lsf/)
 * [PBS Pro](http://pbspro.org)
-* [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029(v=ws.11).aspx) -opties in te voeren ziet [Windows](../articles/virtual-machines/windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) en [Linux](../articles/virtual-machines/linux/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) virtuele machines 
+* [Microsoft HPC Pack](https://technet.microsoft.com/library/mt744885.aspx) -opties in te voeren ziet [Windows](../articles/virtual-machines/windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) en [Linux](../articles/virtual-machines/linux/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) virtuele machines 
 
 
 
@@ -127,7 +145,7 @@ Grootschalige Batch- en HPC-workloads hebben vaak voor opslag van gegevens en de
 
 Meer informatie:
 
-* [Parallelle bestandssystemen voor HPC-opslag in Azure](https://blogs.msdn.microsoft.com/azurecat/2017/03/17/parallel-file-systems-for-hpc-storage-on-azure/)
+* [Parallelle virtuele bestandssystemen in Azure](https://azure.microsoft.com/resources/parallel-virtual-file-systems-on-microsoft-azure/)
 * Hoogwaardige opslagoplossingen cloud van [Avere](http://www.averesystems.com/about-us/about-avere) (nu [die lid zijn van Microsoft](https://blogs.microsoft.com/blog/2018/01/03/microsoft-to-acquire-avere-systems-accelerating-high-performance-computing-innovation-for-media-and-entertainment-industry-and-beyond/))
 
 
@@ -144,11 +162,13 @@ Azure virtuele machines, virtuele-machineschaalsets Batch en verwante compute se
 * [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md)
 * [Data Factory](../articles/data-factory/introduction.md)
 * [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
-* [Machine Learning](../articles/machine-learning/machine-learning-what-is-machine-learning.md)
+* [Databricks](../articles/azure-databricks/what-is-azure-databricks.md)
 * [SQL Database](../articles/sql-database/sql-database-technical-overview.md)
 
-### <a name="ai-and-cognitive-services"></a>AI en cognitieve services
+### <a name="ai-and-machine-learning"></a>AI en machine learning
+* [Machine Learning-Services](../articles/machine-learning/service/overview-what-is-azure-ml.md)
 * [Batch AI](../articles/batch-ai/overview.md)
+* [Genomica](../articles/genomics/overview-what-is-genomics.md)
 
 ### <a name="networking"></a>Netwerken
 * [Virtueel netwerk](../articles/virtual-network/virtual-networks-overview.md)
@@ -156,32 +176,34 @@ Azure virtuele machines, virtuele-machineschaalsets Batch en verwante compute se
 
 ### <a name="containers"></a>Containers
 * [Container Service](../articles/container-service/dcos-swarm/container-service-intro.md)
+* [Azure Kubernetes-Service (AKS)](../articles/aks/intro-kubernetes.md)
 * [Container Registry](../articles/container-registry/container-registry-intro.md)
 
 
 
 ## <a name="customer-stories"></a>Verhalen van klanten
 
-Hier volgen enkele voorbeelden van klanten die zakelijke problemen met Azure HPC-oplossingen hebt opgelost:
+Voorbeelden van klanten die zakelijke problemen met Azure HPC-oplossingen hebt opgelost:
 
 * [ANEO](https://customers.microsoft.com/story/it-provider-finds-highly-scalable-cloud-based-hpc-redu) 
 * [AXA globale P & C](https://customers.microsoft.com/story/axa-global-p-and-c)
 * [Axioma](https://customers.microsoft.com/story/axioma-delivers-fintechs-first-born-in-the-cloud-multi-asset-class-enterprise-risk-solution)
 * [d3View](https://customers.microsoft.com/story/big-data-solution-provider-adopts-new-cloud-gains-thou)
+* [EFS](https://customers.microsoft.com/story/efs-professionalservices-azure)
 * [Hymans Robertson](https://customers.microsoft.com/story/hymans-robertson)
 * [MetLife](https://enterprise.microsoft.com/en-us/customer-story/industries/insurance/metlife/)
 * [Microsoft Research](https://customers.microsoft.com/doclink/fast-lmm-and-windows-azure-put-genetics-research-on-fa)
 * [Milliman](https://customers.microsoft.com/story/actuarial-firm-works-to-transform-insurance-industry-w)
-* [Mitsubishi UFJ Securities International](https://customers.microsoft.com/story/powering-risk-compute-grids-in-the-cloud)
+* [Mitsubishi UFJ effecten International](https://customers.microsoft.com/story/powering-risk-compute-grids-in-the-cloud)
 * [Schlumberger](http://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
 * [Towers Watson](https://customers.microsoft.com/story/insurance-tech-provider-delivers-disruptive-solutions)
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over Big Compute-oplossingen voor [simulatie engineering](https://simulation.azure.com/), [rendering](https://simulation.azure.com/), [bank- en investering markten](https://finance.azure.com/), en [genomica](https://enterprise.microsoft.com/en-us/industries/health/genomics/) .
+* Meer informatie over Big Compute-oplossingen voor [simulatie engineering](https://simulation.azure.com/), [rendering](https://azure.microsoft.com/solutions/big-compute/rendering/), [bank- en investering markten](https://finance.azure.com/), en [genomica](https://enterprise.microsoft.com/en-us/industries/health/genomics/) .
 * Bezoek het [teamblog voor Microsoft HPC en Batch](http://blogs.technet.com/b/windowshpc/) en het [Azure-blog](https://azure.microsoft.com/blog/tag/hpc/) voor de meest recente aankondigingen.
 
-* Gebruik de beheerde en schaalbare Azure [Batch](https://azure.microsoft.com/services/batch/) service rekenintensieve workloads uit zonder de onderliggende infrastructuur beheren [meer informatie](https://azure.microsoft.com/en-us/solutions/architecture/hpc-big-compute-saas/)
+* Gebruik de beheerde en schaalbare Azure [Batch](https://azure.microsoft.com/services/batch/) service rekenintensieve workloads uit zonder de onderliggende infrastructuur beheren [meer informatie](https://azure.microsoft.com/solutions/architecture/hpc-big-compute-saas/)
 
 
 

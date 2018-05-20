@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: dc820a95a9ccd0feb8b67c898ecfa8ce9826838a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: d1c9f4dd8504c2409663cb87b0c0d56164229ed2
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-does-azure-ad-application-proxy-provide-single-sign-on"></a>Hoe biedt Azure AD-toepassingsproxy eenmalige aanmelding
 
@@ -54,7 +54,7 @@ Deze optie is een goede keuze als uw on-premises toepassing niet vereisen dat ge
 
 Als u gebruiken van Azure Active Directory als een kluis wachtwoord voor uw on-premises toepassingen wilt, kiest u **op basis van wachtwoorden aanmelding**. Deze optie is een goede keuze als uw toepassing wordt geverifieerd met een gebruikersnaam en wachtwoord keuzelijst met invoervak in plaats van de toegangstokens of headers. Met op basis van wachtwoorden aanmelding moeten uw gebruikers zich aanmelden bij de toepassing de eerste keer dat ze het willen openen. Daarna biedt Azure Active Directory de gebruikersnaam en wachtwoord namens de gebruiker. 
 
-Zie voor meer informatie over het instellen van wachtwoorden gebaseerde aanmelding [wachtwoord vaulting voor eenmalige aanmelding met toepassingsproxy](../application-proxy-sso-azure-portal.md).
+Zie voor meer informatie over het instellen van wachtwoorden gebaseerde aanmelding [wachtwoord vaulting voor eenmalige aanmelding met toepassingsproxy](application-proxy-configure-single-sign-on-password-vaulting.md).
 
 ## <a name="linked-sign-on"></a>Gekoppelde aanmelding
 
@@ -72,10 +72,10 @@ Zie voor meer informatie over het instellen van geïntegreerde Windows-verificat
 
 Als uw toepassingen headers voor verificatie gebruikt, kiest u **headers gebaseerde aanmelding**. Met deze optie kunnen hoeft uw gebruikers alleen te verificatie de Azure Active Directory. Microsoft werkt samen met een derde partij verificatieservice aangeroepen PingAccess waarmee het toegangstoken van Azure Active Directory vertaald naar een header-indeling voor de toepassing. 
 
-Zie voor meer informatie over het instellen van verificatie op basis van een koptekst [verificatie op basis van een koptekst voor eenmalige aanmelding met toepassingsproxy](../application-proxy-ping-access.md).
+Zie voor meer informatie over het instellen van verificatie op basis van een koptekst [verificatie op basis van een koptekst voor eenmalige aanmelding met toepassingsproxy](application-proxy-configure-single-sign-on-with-ping-access.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Wachtwoord voor eenmalige aanmelding met toepassingsproxy vaulting](../application-proxy-sso-azure-portal.md)
+- [Wachtwoord voor eenmalige aanmelding met toepassingsproxy vaulting](application-proxy-configure-single-sign-on-password-vaulting.md)
 - [Kerberos-beperkte delegatie voor eenmalige aanmelding met toepassingsproxy](application-proxy-configure-single-sign-on-with-kcd.md)
-- [Verificatie op basis van een koptekst voor eenmalige aanmelding met toepassingsproxy](../application-proxy-ping-access.md) 
+- [Verificatie op basis van een koptekst voor eenmalige aanmelding met toepassingsproxy](application-proxy-configure-single-sign-on-with-ping-access.md) 

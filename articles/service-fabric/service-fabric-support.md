@@ -9,16 +9,16 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/26/2018
+ms.date: 5/14/2018
 ms.author: pkc
-ms.openlocfilehash: ec634dd19cf1e944c768e1d368f114f66e9c38a9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7a00b72f0b8d52ae0ced5f44784c2a61d40c8ac2
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="azure-service-fabric-support-options"></a>Opties voor Azure Service Fabric-ondersteuning
 
@@ -77,7 +77,7 @@ Hier vindt u de lijst met de Service Fabric-versies die worden ondersteund en de
 | 5.6.* | 5.4.164.* |Kleiner dan of gelijk zijn aan versie 2.6 |Oktober 13,2017   |
 | 5.7.* | 5.4.164.* |Kleiner dan of gelijk zijn aan versie 2.7 |December 15,2017  |
 | 6.0.* | 5.6.205.* |Kleiner dan of gelijk zijn aan versie 2.8 |30,2018 maart     | 
-| 6.1.* | 5.7.221.* |Kleiner dan of gelijk zijn aan versie 3.0 |Juni 15,2018      |
+| 6.1.* | 5.7.221.* |Kleiner dan of gelijk zijn aan versie 3.0 |Juli 15,2018      |
 | 6.2. * | 6.0.232.* |Kleiner dan of gelijk zijn aan versie 3.1 |Huidige versie en dus geen einddatum |
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Service Fabric-Preview versies - wordt niet ondersteund voor gebruik in productieomgevingen.

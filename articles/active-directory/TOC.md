@@ -185,27 +185,27 @@
 ##### [Aangepaste domeinen](manage-apps/application-proxy-configure-custom-domain.md)
 #### [Eenmalige aanmelding](manage-apps/application-proxy-single-sign-on.md)
 ##### [Eenmalige aanmelding met KCD](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
-##### [Eenmalige aanmelding met koppen](application-proxy-ping-access.md)
-##### [Eenmalige aanmelding met wachtwoordkluis](application-proxy-sso-azure-portal.md)
+##### [Eenmalige aanmelding met koppen](manage-apps/application-proxy-configure-single-sign-on-with-ping-access.md)
+##### [Eenmalige aanmelding met wachtwoordkluis](manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md)
 #### Concepten
-##### [Connectors](application-proxy-understand-connectors.md)
-##### [Beveiliging](application-proxy-security-considerations.md)
-##### [Netwerken](application-proxy-network-topology-considerations.md)
+##### [Connectors](manage-apps/application-proxy-connectors.md)
+##### [Beveiliging](manage-apps/application-proxy-security.md)
+##### [Netwerken](manage-apps/application-proxy-network-topology.md)
 
 
-##### [Upgraden van TMG of UAG](application-proxy-transition-from-uag-tmg.md)
+##### [Upgraden van TMG of UAG](manage-apps/application-proxy-migration.md)
 
 #### Geavanceerd configuratie
-##### [Publiceren op afzonderlijke netwerken](active-directory-application-proxy-connectors-azure-portal.md)
-##### [Proxyservers](application-proxy-working-with-proxy-servers.md)
-##### [Claimbewuste apps](active-directory-application-proxy-claims-aware-apps.md)
-##### [Systeemeigen client-apps](active-directory-application-proxy-native-client.md)
-##### [Stille installatie](active-directory-application-proxy-silent-installation.md)
-##### [Aangepaste startpagina](application-proxy-office365-app-launcher.md)
-##### [Inlinelinks vertalen](application-proxy-link-translation.md)
+##### [Publiceren op afzonderlijke netwerken](manage-apps/application-proxy-connector-groups.md)
+##### [Proxyservers](manage-apps/application-proxy-configure-connectors-with-proxy-servers.md)
+##### [Claimbewuste apps](manage-apps/application-proxy-configure-for-claims-aware-applications.md)
+##### [Systeemeigen client-apps](manage-apps/application-proxy-configure-native-client-application.md)
+##### [Stille installatie](manage-apps/application-proxy-register-connector-powershell.md)
+##### [Aangepaste startpagina](manage-apps/application-proxy-configure-custom-home-page.md)
+##### [Inlinelinks vertalen](manage-apps/application-proxy-configure-hard-coded-link-translation.md)
 #### Publicatie-overzicht
-##### [Extern bureaublad](application-proxy-publish-remote-desktop.md)
-##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
+##### [Extern bureaublad](manage-apps/application-proxy-integrate-with-remote-desktop-services.md)
+##### [SharePoint](manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
 ##### [Tableau](active-directory-application-proxy-tableau.md)
 
@@ -283,6 +283,7 @@
 ### [Toegang voor gasten met toegangsbeoordelingen](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
 ### [Gebruikerstoegang met beoordelingen beheren](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
 ### [Programma's en besturingselementen beheren](active-directory-azure-ad-controls-manage-programs-controls.md)
+### [Resultaten van de toegangsbeoordeling ophalen](active-directory-azure-ad-controls-retrieve-access-review.md)
 
 ## Uw identiteiten beveiligen
 ### [Voorwaardelijke toegang](active-directory-conditional-access-azure-portal.md)
@@ -336,7 +337,6 @@
 ### [Hash-algoritme van de handtekening wijzigen](active-directory-federation-sha256-guidance.md)
 
 ## [Problemen oplossen](active-directory-troubleshooting-support-howto.md)
-### [Functie voor het oplossen van problemen met Active Directory-items ontbreekt of is niet beschikbaar](active-directory-troubleshooting.md)
 
 ## Azure AD Proof of Concept (PoC) implementeren
 ### [PoC Playbook: inleiding](active-directory-playbook-intro.md)

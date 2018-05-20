@@ -1,0 +1,120 @@
+---
+title: Technologieën en oplossingen voor Azure IoT (Internet of Things)
+description: Dit is de verzameling PaaS-/SaaS-technologieën en -oplossingen die beschikbaar zijn voor het bouwen van een Azure IoT-oplossing.
+services: iot-hub
+documentationcenter: ''
+author: BryanLa
+manager: timlt
+editor: bryanla; v-clay
+ms.service: iot
+ms.devlang: na
+ms.topic: overview
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 03/30/2018
+ms.author: bryanla; v-clay
+ms.custom: ''
+ms.openlocfilehash: 04b4079038ab0ef3f87cfceea521a1424e93cce1
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 05/01/2018
+---
+# <a name="azure-iot-technologies-and-solutions-paas-and-saas"></a>Azure IoT-technologieën en -oplossingen: PaaS en SaaS
+
+Microsoft heeft een portfolio gebouwd die ondersteuning biedt voor de behoeften van alle klanten, waardoor iedereen toegang heeft tot de voordelen van digitale transformatie. De Azure IoT-productportofolio is een overzicht van de beschikbare PaaS-/SaaS-technologieën en -oplossingen. Het geeft twee beschikbare paden weer voor het bouwen van uw eigen oplossing:
+- PaaS (Platform as a Service): bouw de toepassing met behulp van de [Azure IoT Suite](https://www.azureiotsuite.com/), een verzameling vooraf geconfigureerde oplossingen op bedrijfsniveau die u in staat stellen de ontwikkeling van aangepaste IoT-oplossingen te versnellen.
+- SaaS (Software as a Service): ga snel aan de slag met [Azure IoT Central](https://azure.microsoft.com/services/iot-central/), de nieuwe SaaS-oplossing voor het ontwikkelen van IoT-toepassingen, zonder de complexiteit van de IoT-oplossing. Als uw organisatie niet beschikt over de resources voor het bouwen van uw eigen IoT-oplossing, is Azure IoT Central de beste keuze. Dit is een IoT-oplossing zonder code waarmee u in enkele minuten modellen, dashboards en regels kunt maken.
+
+![De meest uitgebreide portfolio met technologieën en oplossingen in de branche][img-paas-saas-technologies-solutions]
+
+## <a name="solutions"></a>Oplossingen
+
+Ga snel aan de slag met aanbiedingen van Azure IoT Suite en SaaS. Kies uit vooraf geconfigureerde oplossingen die algemene IoT-scenario’s mogelijk maken, zoals extern beheren, voorspeld onderhoud en verbonden factory, om een volledig aanpasbare oplossing te maken. Of gebruik Azure IoT Central, een volledig beheerde end-to-endoplossing die krachtige IoT-scenario’s mogelijk maakt, zonder dat kennis op het gebied van cloudoplossingen is vereist.
+
+### <a name="azure-iot-suite-paas"></a>Azure IoT Suite (PaaS)
+
+Azure IoT Suite is een verzameling op bedrijfsniveau met aanpasbare PaaS-oplossingen die een hoge mate van beheer van de IoT-oplossing bieden. Als IoT in uw bedrijf wordt geïmplementeerd voor verbonden bewerkingen of als er aanpasbare vereisten zijn voor verbonden producten, biedt Azure IoT het beheer dat u nodig hebt. 
+
+Organisaties met een groot aantal apparaten of apparaatmodellen, en fabrikanten die op zoek zijn naar verbonden factory-oplossingen, zijn voorbeelden van bedrijven die hun voordeel kunnen doen met Azure IoT-oplossingen. Door het maken van zeer aanpasbare oplossingen die op maat zijn gemaakt voor complexe behoeften, biedt IoT:
+
+- Vooraf geconfigureerde oplossingen
+    - Externe bewaking
+    - Verbonden factory
+    - Voorspellend onderhoud
+    - Apparaatsimulatie
+- De mogelijkheid om te implementeren in slechts enkele minuten
+- Een versnelde tijd-tot-waarde
+- Oplossingen die een hoge mate van beheer bieden 
+ 
+### <a name="azure-iot-central-saas"></a>Azure IoT Central (SaaS)
+
+Azure IoT Central is een volledig beheerde SaaS-oplossing, waarmee u snel aan de slag kunt gaan met minimale IoT-ervaring. Als uw bedrijf snelheid boven aanpassing stelt, zijn SaaS-modellen waarschijnlijk zeer geschikt voor uw IoT-implementatiebehoeften. 
+
+Organisaties met minder apparaatmodellen, meer voorspelbare modellen, en beperkte IoT-/IT-mogelijkheden, kunnen nu hun voordeel doen met IoT via een SaaS-methode. Bedrijven die voorheen de tijd, het geld en de kennis misten om verbonden producten te ontwikkelen, kunnen nu snel aan de slag gaan met Azure IoT Central. Microsoft is toonaangevend in het leveren van een volledig ontwikkelde SaaS-oplossing die voldoet aan de algemene vereisten voor IoT-implementaties. 
+
+- Volledig beheerde IoT SaaS
+- Geen kennis op het gebied van cloudoplossing vereist
+- Configureerbaar aan uw behoeften
+- Ideaal voor eenvoudige IoT-behoeften
+
+### <a name="compare-azure-iot-suite-and-azure-iot-central"></a>Azure IoT Suite vergelijken met Azure IoT Central
+
+Azure IoT biedt verschillende opties als u een typische [IoT-oplossingsarchitectuur](/azure/iot-fundamentals/iot-introduction#iot-solution-architecture) wilt implementeren, [Azure IoT Suite](/azure/iot-suite) en [AZure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions). Beide zijn geschikt voor verschillende sets vereisten van klanten.
+
+[Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) is de belangrijkste Azure PaaS waarvan zowel Azure IoT Central als Azure IoT Suite gebruikmaken. IoT Hub maakt stabiele en veilige tweerichtingscommunicatie tussen miljoenen IoT-apparaten en een cloudoplossing mogelijk. Met IoT Hub kunt u de uitdagingen van IoT-implementatie aan, zoals:
+
+* Connectiviteit en beheer van grote volumes aan apparaten.
+* Telemetrieopname van groot volume.
+* Opdracht en besturing van apparaten.
+* Afdwinging van apparaatbeveiliging.
+
+Het kiezen van uw Azure IoT-product is een belangrijk onderdeel van het plannen van uw IoT-oplossing. IoT Hub is een afzonderlijke Azure-service die zelfstandig geen volledige IoT-oplossing biedt. IoT Hub kan worden gebruikt als startpunt voor elke IoT-oplossing. Bovendien hebt u hiervoor Azure IoT Suite of Azure IoT Central niet nodig. Zowel Azure IoT Suite als Azure IoT Central maken gebruik van IoT Hub, samen met andere Azure-services. In de volgende tabel worden de belangrijkste verschillen tussen Azure IoT Suite en Azure IoT Central weergegeven om u te helpen de beste optie voor uw vereisten te kiezen:
+
+|                        | Azure IoT Suite | Azure IoT Central |
+| ---------------------- | --------- | ----------- |
+| Primair gebruik | Snellere ontwikkeling van een aangepaste IoT-oplossing die maximale flexibiliteit nodig heeft. | Kortere time-to-market voor eenvoudige IoT-oplossingen waarvoor geen uitgebreide serviceaanpassing is vereist. |
+| Toegang tot onderliggende PaaS-services          | U hebt toegang tot de onderliggende Azure-services om deze te beheren of indien nodig te vervangen. | SaaS. Volledig beheerde oplossing; de onderliggende services worden niet weergegeven. |
+| Flexibiliteit            | Hoog. De code voor de microservices is open-source en u kunt deze op elke gewenste manier wijzigen. Daarnaast kunt u de implementatie-infrastructuur aanpassen.| Gemiddeld. U kunt de ingebouwde browsergebaseerde gebruikerservaring gebruiken om het oplossingsmodel en aspecten van de gebruikersinterface aan te passen. De infrastructuur kan niet worden aangepast, omdat de verschillende onderdelen niet worden weergegeven.|
+| Kennisniveau                 | Gemiddeld-hoog. U heeft ervaring met Java of .NET nodig om de back-end van de oplossing aan te passen. U heeft ervaring met JavaScript nodig om de visualisatie aan te passen. | Laag. U heeft modelleerervaring nodig om de oplossing aan te passen. Ervaring met codering is niet vereist. |
+| Opstartervaring | Vooraf geconfigureerde oplossingen implementeren algemene IoT-scenario's. Kan in enkele minuten worden geïmplementeerd. | Toepassingssjablonen en apparaatsjablonen bieden vooraf gebouwde modellen. Kan in enkele minuten worden geïmplementeerd. |
+| Prijzen                | U kunt de services afstellen om de kosten te beperken. | Eenvoudige, voorspelbare prijsstructuur. |
+
+Uw keuze voor welk product u wilt gebruiken om uw IoT-oplossing te maken, wordt uiteindelijk bepaald door:
+
+* Uw zakelijke vereisten.
+* Het type oplossing dat u wilt maken.
+* De kwalificaties van uw organisatie voor het maken en op de lange termijn onderhouden van de oplossing.
+
+## <a name="technologies-paas"></a>Technologieën (PaaS)
+
+PaaS-technologieën (Platform-as-as-Service) bieden de meest uitgebreide IoT-portfolio met platformservices die het hele Azure-platform beslaan en u in staat stellen om eenvoudig alle aspecten van uw IoT-oplossing te maken, aan te passen en te beheren. Breng bidirectionele communicaties tot stand met miljarden IoT-apparaten en beheer uw IoT-apparaten op schaal. Integreer vervolgens uw IoT-apparaatgegevens met andere platformservices, zoals Azure Cosmos DB en Azure Time Series Insights, om inzicht in uw oplossing te verbeteren. 
+
+### <a name="device-support"></a>Ondersteuning voor apparaten
+
+Ga vol vertrouwen aan de slag met uw IoT-projecten met behulp van [Azure IoT Starter Kits](https://catalog.azureiotsuite.com/kits) of kies uit honderden gecertificeerde IoT-apparaten in de [apparaatcatalogus](http://catalog.azureiotsuite.com/). Alle apparaten zijn platformneutraal en getest om naadloos verbinding te maken met IoT Hub.
+Verbind al uw apparaten met Azure IoT met behulp van de open-source [apparaat-SDK’s](/azure/iot-hub/iot-hub-devguide-sdks). De SDK’s bieden ondersteuning voor meerdere besturingssystemen, zoals Linux Windows en besturingssystemen in realtime, alsook voor meerdere programmeertalen, zoals [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp) en [Python](https://github.com/Azure/azure-iot-sdk-python).
+
+### <a name="iot"></a>IoT 
+[Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) is een volledig beheerde service die betrouwbare en beveiligde bidirectionele communicatie mogelijk maakt tussen miljoenen IoT-apparaten en een oplossings-back-end. De Azure IoT Hub Device Provisioning Service is een Helper-service voor IoT Hub die Just-In-Time-inrichting naar de juiste IoT-hub mogelijk maakt zonder tussenkomst van de gebruiker, zodat klanten miljoenen apparaten op een veilige en schaalbare manier kunnen inrichten.
+
+### <a name="edge"></a>Edge
+[Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) is een IoT-service (Internet of Things). Deze service is bedoeld voor klanten die ook gegevens willen analyseren op apparaten, oftewel ‘naar de marge’. Door delen van uw werkbelasting naar de marge te verplaatsen, is er sprake van een verminderde redundantie en kunt u offlinescenario’s gebruiken.
+
+
+### <a name="data-and-analytics"></a>Gegevens en analyse
+Maak gebruik van een breed scala aan PaaS-voordelen voor Azure-gegevens en -analyses in uw IoT-oplossing: van slimme cloudfuncties in de marge met Azure Machine Learning, tot het op een kostenbesparende manier opslaan van IoT-apparaatgegevens met Azure Data lake, en het visualiseren van een groot aantal gegevens van IoT-apparaten met [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/).
+
+### <a name="visualization-and-integration"></a>Visualisatie en integratie
+Microsoft Azure biedt een volledige cloudoplossing die een constant groeiende verzameling geïntegreerde cloudservices combineert met een toonaangevende toezegging voor de beveiliging en privacy van uw gegevens. Meer informatie over [Microsoft Azure](https://azure.microsoft.com/).
+
+
+
+
+
+## <a name="next-steps"></a>Volgende stappen
+
+Ga naar de sectie [Aan de slag](/azure/iot-hub/iot-hub-get-started) voor snelle en eenvoudige informatie over IoT-functies. Of volg een van de [zelfstudies](/azure/iot-edge/tutorial-simulate-device-windows) voor een uitgebreidere praktische uitleg.
+
+[img-paas-saas-technologies-solutions]: media/iot-comparison/paas-saas-technologies-solutions.png
+

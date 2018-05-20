@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 04/12/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7361a71d9e178f47761c42cebe706246eb9d5e64
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 7446de27c306f795d885b4d929d7a8f75c3dcf23
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service"></a>Zelfstudie: Een HTTPS-eindpunt toevoegen aan een front-end-service van ASP.NET Core Web API
 Deze zelfstudie is deel drie van een serie.  U leert hoe u HTTPS kunt inschakelen in een ASP.NET Core-service die wordt uitgevoerd in Service Fabric. Wanneer u klaar bent, hebt u een stemtoepassing met een ASP.NET Core web-front-end en HTTPS-functionaliteit die luistert op poort 443. Als u de stemtoepassing niet handmatig wilt maken in [Een .NET Service Fabric-toepassing bouwen](service-fabric-tutorial-deploy-app-to-party-cluster.md), kunt u [de broncode downloaden](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) voor de voltooide toepassing.
@@ -274,7 +274,7 @@ Modify the *SetCertAccess.ps1* file properties to set **Copy to Output Directory
 ### <a name="run-the-setup-script-as-a-local-administrator"></a>Het installatiescript uitvoeren als lokale beheerder
 Het uitvoerbare bestand voor het invoerpunt van de service-installatie wordt standaard uitgevoerd onder dezelfde referenties als Service Fabric (meestal het NetworkService-account). Voor *SetCertAccess.ps1* zijn beheerdersbevoegdheden vereist. In het toepassingsmanifest kunt u de beveiligingsmachtigingen voor het uitvoeren van het opstartscript onder een lokaal beheerdersaccount wijzigen.  
 
-Open *Voting/ApplicationPackageRoot/ManifestManifest.xml* vanuit Solution Explorer. Maak eerst een **Principals**-sectie en voeg een nieuwe gebruiker toe (bijvoorbeeld 'SetupAdminUser'). Voeg het gebruikersaccount SetupAdminUser toe aan de systeemgroep Administrators.
+Open *Voting/ApplicationPackageRoot/ApplicationManifest.xml* vanuit Solution Explorer. Maak eerst een **Principals**-sectie en voeg een nieuwe gebruiker toe (bijvoorbeeld 'SetupAdminUser'). Voeg het gebruikersaccount SetupAdminUser toe aan de systeemgroep Administrators.
 Vervolgens configureert u in de sectie VotingWebPkg **ServiceManifestImport** een **RunAsPolicy** om de principal SetupAdminUser toe te passen op het invoerpunt van de installatie. Dit beleid laat Service Fabric weten dat het bestand Setup.bat wordt uitgevoerd als SetupAdminUser (met beheerdersbevoegdheden). 
 
 ```xml

@@ -8,18 +8,17 @@ editor: cgronlun
 ms.assetid: 164ada5a-222e-4be2-bd32-e51dbe993bc0
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 9591da6826c0bdd369792e8a9fe125619a091f29
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4c08dac95a2d2b52f1a1d28f6933b94ad4db10b7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-data-lake-store-as-additional-storage"></a>Azure PowerShell gebruiken voor het maken van een HDInsight-cluster met Data Lake Store (als extra opslag)
+
 > [!div class="op_single_selector"]
 > * [Portal gebruiken](data-lake-store-hdinsight-hadoop-use-portal.md)
 > * [Met behulp van PowerShell (voor opslag van de standaard)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
@@ -54,7 +53,7 @@ Voordat u met deze zelfstudie begint, moet u het volgende hebben of hebben gedaa
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1.0 of hoger**. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview).
-* **Windows-SDK**. Kunt u het installeren van [hier](https://dev.windows.com/en-us/downloads). Hiermee u maakt een beveiligingscertificaat.
+* **Windows-SDK**. Deze kunt u [hier](https://dev.windows.com/en-us/downloads) downloaden. Hiermee u maakt een beveiligingscertificaat.
 * **Azure Active Directory Service-Principal**. De stappen in deze zelfstudie bevatten instructies voor het maken van een service-principal in Azure AD. U moet echter een Azure AD-beheerder om te kunnen maken van een service-principal. Als u een Azure AD-beheerder bent, kunt u deze vereiste overslaan en doorgaan met de zelfstudie.
 
     **Als u niet een Azure AD-beheerder**, u kan niet worden de stappen die zijn vereist voor het maken van een service-principal uit te voeren. In dat geval moet uw Azure AD-beheerder eerst een service-principal maken voordat u een HDInsight-cluster met Data Lake Store maken kunt. Ook de service-principal moet worden gemaakt met een certificaat, zoals beschreven op [een service-principal maken met certificaat](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority).
@@ -122,6 +121,7 @@ Volg deze stappen voor het maken van een Data Lake Store.
 
 
 ## <a name="set-up-authentication-for-role-based-access-to-data-lake-store"></a>Verificatie voor op rollen gebaseerde toegang tot Data Lake Store instellen
+
 Elke Azure-abonnement is gekoppeld aan een Azure Active Directory. Gebruikers en services die toegang tot bronnen van het abonnement via de Azure portal of Azure Resource Manager-API moeten eerst worden geverifieerd met die Azure Active Directory. Toegang te krijgen tot Azure-abonnementen en services door het toewijzen van de juiste rol op een Azure-resource.  Voor services identificeert een service-principal in de Azure Active Directory (AAD) van de service. Deze sectie ziet u hoe u een toepassingsservice,, zoals HDInsight, toegang tot een Azure-resource (de Azure Data Lake Store-account u eerder hebt gemaakt) verlenen door het maken van een service-principal voor de toepassing en rollen toewijzen aan die via Azure PowerShell.
 
 Als u Active Directory-verificatie voor Azure Data Lake instelt, moet u de volgende taken uitvoeren.
@@ -130,6 +130,7 @@ Als u Active Directory-verificatie voor Azure Data Lake instelt, moet u de volge
 * Een toepassing in Azure Active Directory en een Service-Principal maken
 
 ### <a name="create-a-self-signed-certificate"></a>Een zelfondertekend certificaat maken
+
 Zorg ervoor dat u hebt [Windows SDK](https://dev.windows.com/en-us/downloads) geïnstalleerd voordat u doorgaat met de stappen in deze sectie. U moet hebben ook een directory hebt gemaakt, zoals **C:\mycertdir**, waar het certificaat wordt gemaakt.
 
 1. Ga naar de locatie waar u de Windows SDK geïnstalleerd vanuit het PowerShell-venster (meestal `C:\Program Files (x86)\Windows Kits\10\bin\x86` en gebruik de [MakeCert] [ makecert] hulpprogramma om een zelfondertekend certificaat en een persoonlijke sleutel te maken. Gebruik de volgende opdrachten.
@@ -147,13 +148,14 @@ Zorg ervoor dat u hebt [Windows SDK](https://dev.windows.com/en-us/downloads) ge
     Als u wordt gevraagd het wachtwoord voor persoonlijke invoeren u eerder hebt opgegeven. De waarde die u opgeeft voor de **-po** parameter is het wachtwoord dat is gekoppeld aan het .pfx-bestand. Nadat u de opdracht is voltooid, ziet u ook een CertFile.pfx in de opgegeven map voor het certificaat.
 
 ### <a name="create-an-azure-active-directory-and-a-service-principal"></a>Een Azure Active Directory en een service-principal maken
+
 In deze sectie voert u de stappen voor het maken van een service principal voor een Azure Active Directory-toepassing, een rol toewijzen aan de service-principal en verifiëren als de service-principal door te geven van een certificaat. Voer de volgende opdrachten om te maken van een toepassing in Azure Active Directory.
 
 1. Plak de volgende cmdlets in het venster PowerShell-console. Zorg ervoor dat de waarde die u opgeeft voor de **- weergavenaam** eigenschap uniek is. Ook kunnen de waarden voor **- startpagina** en **- IdentiferUris** tijdelijke aanduiding voor waarden zijn en worden niet geverifieerd.
 
         $certificateFilePath = "$certificateFileDir\CertFile.pfx"
 
-        $password = Read-Host –Prompt "Enter the password" # This is the password you specified for the .pfx file
+        $password = Read-Host -Prompt "Enter the password" # This is the password you specified for the .pfx file
 
         $certificatePFX = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($certificateFilePath, $password)
 

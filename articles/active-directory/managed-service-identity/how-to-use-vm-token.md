@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 9300c3a45f57da7e55eed1dbdf8fd6e94b094c31
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2f24eaa65781eb56b641ed179536867ee514f668
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Het gebruik van een Azure VM beheerde Service identiteit (MSI) voor de aanschaf van token 
 
@@ -282,10 +282,10 @@ Het eindpunt van de Service-identiteit beheerd signalen fouten via het statusvel
 
 | Statuscode | Foutreden | Hoe moet worden verwerkt |
 | ----------- | ------------ | ------------- |
+| 404 niet gevonden. | IMDS eindpunt wordt bijgewerkt. | Probeer het opnieuw met Expontential Backoff. Zie de onderstaande richtlijnen. |
 | 429 te veel aanvragen. |  IMDS beperken de limiet bereikt. | Opnieuw proberen met exponentieel uitstel. Zie de onderstaande richtlijnen. |
 | 4XX fout in de aanvraag. | Een of meer van de aanvraagparameters is onjuist. | Niet opnieuw.  Raadpleeg de foutdetails voor meer informatie.  4XX fouten zijn ontwerptijd fouten.|
 | 5XX tijdelijke fout van de service. | Onderliggende MSI-systeem of Azure Active Directory een tijdelijke fout geretourneerd. | Het is veilig om opnieuw te proberen na een wachttijd van ten minste 1 seconde.  Als u opnieuw te snel of te vaak, IMDS en/of Azure AD mogelijk geretourneerd met een frequentie limietfout (429).|
-| 404 niet gevonden. | IMDS eindpunt wordt bijgewerkt. | Probeer het opnieuw met Expontential Backoff. Zie de onderstaande richtlijnen. |
 | timeout | IMDS eindpunt wordt bijgewerkt. | Probeer het opnieuw met Expontential Backoff. Zie de onderstaande richtlijnen. |
 
 Als er een fout optreedt, bevat de bijbehorende HTTP-antwoordtekst JSON met de details van fout:

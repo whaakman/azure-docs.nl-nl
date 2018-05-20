@@ -5,25 +5,25 @@ services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 030b1465-6616-4c0b-8bc7-24ed47d054c0
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 06d65878d84fb845cf0c4c333a1e2d12b0aaec2f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5d2f195c50750a5c7685f62c909f77b2960613e6
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Taakverdeling van uw service fabric-cluster
 De Service Fabric Cluster Resource Manager biedt ondersteuning voor wijzigingen van de dynamische belasting, reageren op toevoegingen of verwijderingen van knooppunten of services. Deze functie ook automatisch gecorrigeerd schendingen van plaatsingsbeperkingen en proactief rebalances het cluster. Maar hoe vaak deze acties worden uitgevoerd en wat ze activeert?
 
-Er zijn drie verschillende categorieën van het werk dat de Cluster Resource Manager uitvoert. Ze zijn:
+Er zijn drie verschillende categorieën van het werk dat de Cluster Resource Manager uitvoert. Dit zijn:
 
 1. Plaatsing: deze fase omgaat met de plaatsing van een stateful replica's of stateless exemplaren die ontbreken. Plaatsing bevat nieuwe services en de afhandeling van stateful replica's of stateless exemplaren die zijn mislukt. Verwijderen en het verwijderen van replica's of exemplaren worden hier afgehandeld.
 2. Beperking controleert: deze fase controleert en corrigeert schendingen van de verschillende plaatsingsbeperkingen (regels) in het systeem. Voorbeelden van regels zijn bijvoorbeeld ervoor te zorgen dat knooppunten niet overbelast zijn en dat de plaatsingsbeperkingen voor een service is voldaan.

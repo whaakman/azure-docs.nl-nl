@@ -12,13 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/22/2018
+ms.date: 05/14/2018
 ms.author: jgao
-ms.openlocfilehash: eda1f0e434c59a2a1c7bb63d92ce7b1fa5b42344
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8523b012d6ceaf116e6849abaf8952bbde8b41b3
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Op basis van Linux-clusters maken in HDInsight met behulp van de .NET SDK
 
@@ -30,7 +30,7 @@ Informatie over het maken van een Hadoop-cluster in Azure HDInsight-cluster met 
 > [!IMPORTANT]
 > De stappen in dit document wordt een cluster maken met een werkrolknooppunt. Als u van plan bent op meer dan 32 worker-knooppunten op het maken van het cluster of door te schalen van het cluster na het maken, moet u een grootte van het hoofdknooppunt met ten minste 8 kerngeheugens en 14GB RAM-geheugen selecteren.
 >
-> Zie voor meer informatie over knooppuntgrootten en bijbehorende kosten [HDInsight prijzen](https://azure.microsoft.com/pricing/details/hdinsight/).
+> Zie [Prijsdetails voor Azure HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/) voor meer informatie over knooppuntgrootten en de bijbehorende kosten.
 
 ## <a name="prerequisites"></a>Vereisten
 

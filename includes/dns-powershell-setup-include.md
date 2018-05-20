@@ -1,6 +1,6 @@
 ---
-title: bevat het bestand voor PowerShell voor Azure DNS
-description: bevat het bestand voor PowerShell voor Azure DNS
+title: bestand opnemen voor PowerShell voor Azure DNS
+description: bestand opnemen voor PowerShell voor Azure DNS
 services: dns
 author: subsarma
 ms.service: dns
@@ -8,11 +8,11 @@ ms.topic: include file for PowerShell for Azure DNS
 ms.date: 03/21/2018
 ms.author: subsarma
 ms.custom: include file for PowerShell for Azure DNS
-ms.openlocfilehash: 1ddfd1ae8dffbc5d381773ea9679713e93a44a32
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
-ms.translationtype: MT
+ms.openlocfilehash: 388bea528b138d78b9ec23ceea295108306c61e9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 ## <a name="set-up-azure-powershell-for-azure-dns"></a>Azure PowerShell voor Azure DNS instellen
 
@@ -23,7 +23,7 @@ Controleer voordat u met de configuratie begint of u de volgende items hebt.
 * Een Azure-abonnement. Als u nog geen Azure-abonnement hebt, kunt u [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) of [u aanmelden voor een gratis account](https://azure.microsoft.com/pricing/free-trial/).
 * U moet de meest recente versie van de Azure Resource Manager PowerShell-cmdlets installeren. Zie [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs) voor meer informatie.
 
-Persoonlijke om Zones te gebruiken (openbare Preview), moet u bovendien zorg ervoor dat u hebt de onderstaande PowerShell-modules en versies. 
+En om Private Zones (openbare Preview) te gebruiken, moet u er bovendien voor zorgen dat u onderstaande PowerShell-modules en versies hebt. 
 * AzureRM.Dns - [versie 4.1.0](https://www.powershellgallery.com/packages/AzureRM.Dns/4.1.0) of hoger
 * AzureRM.Network - [versie 5.4.0](https://www.powershellgallery.com/packages/AzureRM.Network/5.4.0) of hoger
 
@@ -35,9 +35,9 @@ Find-Module -Name AzureRM.Dns
 Find-Module -Name AzureRM.Network 
 ``` 
  
-De uitvoer van de bovenstaande opdrachten moet weergeven dat de versie van AzureRM.Dns 4.1.0 of hogere versie is, en voor AzureRM.Network 5.4.0 of hogere versie.  
+De uitvoer van bovenstaande opdrachten moet weergeven dat de versie van AzureRM.Dns 4.1.0 of hoger is, en voor AzureRM.Network moet dit 5.4.0 of hoger zijn.  
 
-Als uw systeem over eerdere versies, kunt u ofwel de meest recente versie van Azure PowerShell installeren of downloaden en installeren de bovenstaande modules van de PowerShell Gallery, via de koppelingen hierboven naast de Module-versies. U kunt deze vervolgens installeren met behulp van de onderstaande opdrachten. De modules die beide zijn vereist en zijn volledig achterwaarts compatibel. 
+Als uw systeem met een lagere versie werkt, kunt u de meest recente versie van Azure PowerShell installeren of bovenstaande modules downloaden en installeren uit de PowerShell Gallery. Gebruik daarvoor de koppelingen hierboven naast de moduleversies. U kunt deze vervolgens installeren met behulp van de onderstaande opdrachten. Beide modules zijn vereist en zijn volledig achterwaarts compatibel. 
 
 ```powershell
 Install-Module -Name AzureRM.Dns -Force
@@ -49,10 +49,10 @@ Install-Module -Name AzureRM.Network -Force
 
 ### <a name="sign-in-to-your-azure-account"></a>Aanmelden bij uw Azure-account
 
-Open de PowerShell-console en maak verbinding met uw account. Zie voor meer informatie [met behulp van PowerShell met Resource Manager](../articles/azure-resource-manager/powershell-azure-resource-manager.md).
+Open de PowerShell-console en maak verbinding met uw account. Zie [Using PowerShell with Resource Manager](../articles/azure-resource-manager/powershell-azure-resource-manager.md) (PowerShell gebruiken met Resource Manager) voor meer informatie.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ### <a name="select-the-subscription"></a>Het abonnement selecteren
