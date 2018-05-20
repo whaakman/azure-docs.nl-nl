@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 89d657e754f6908a3afbb615a2158c9d7f3380f9
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 38125877a5ab17a81d6fe108e0e8c462ecd5d953
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-onetrust-privacy-management-software"></a>Zelfstudie: Azure Active Directory-integratie met OneTrust Privacy beheersoftware
 
@@ -30,7 +30,7 @@ Privacy-beheersoftware OneTrust integreren met Azure AD biedt de volgende voorde
 - U kunt uw gebruikers automatisch ophalen aangemeld bij OneTrust Privacy beheersoftware (Single Sign-On) inschakelen met hun Azure AD-accounts.
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -108,15 +108,15 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![URL's en OneTrust Privacy beheerdomein Software eenmalige aanmelding informatie](./media/active-directory-saas-onetrust-tutorial/tutorial_onetrust_url.png)
 
-    a. In de **id** textbox, typ een URL:`https://www.onetrust.com/saml2`
+    a. In de **id** textbox, typ een URL: `https://www.onetrust.com/saml2`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<subdomain>.onetrust.com/auth/consumerservice`
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<subdomain>.onetrust.com/auth/consumerservice`
 
 4. Controleer **weergeven geavanceerde instellingen voor URL** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
 
     ![URL's en OneTrust Privacy beheerdomein Software eenmalige aanmelding informatie](./media/active-directory-saas-onetrust-tutorial/tutorial_onetrust_url1.png)
 
-    In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<subdomain>.onetrust.com/auth/login`
+    In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<subdomain>.onetrust.com/auth/login`
      
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden met de werkelijke antwoord-URL en meld u op de URL voor bijwerken. Neem contact op met [OneTrust Privacy Beheerclient Software ondersteuningsteam](mailto:support@onetrust.com) ophalen van deze waarden. 
@@ -203,17 +203,17 @@ In deze sectie maakt inschakelen u Britta Simon gebruikt Azure eenmalige aanmeld
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
 Als u op de tegel OneTrust Privacy Management Software in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing OneTrust-Software voor het beheer van Privacy.
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.openlocfilehash: 7cbb6e45f730b8eaef4cb25307cfeaf9f1c853a1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4008567333d0c1881ab2b79ac62c1a4755bd319e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>Zelfstudie: Azure Active Directory-integratie met Panorama9
 
@@ -29,7 +29,7 @@ Panorama9 integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Panorama9 inschakelen (Single Sign-On) met hun Azure AD-accounts
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -111,9 +111,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-panorama9-tutorial/tutorial_panorama9_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL als:`https://dashboard.panorama9.com/saml/access/3262`
+    a. In de **aanmeldings-URL** textbox, typ een URL als: `https://dashboard.panorama9.com/saml/access/3262`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`http://www.panorama9.com/saml20/<tenant-name>`
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen: `http://www.panorama9.com/saml20/<tenant-name>`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [Panorama9 Client ondersteuningsteam](https://support.panorama9.com) ophalen van deze waarden. 
@@ -197,7 +197,7 @@ In het geval van Panorama9 is inrichting een handmatige taak.
    
   ![Gebruikers](./media/active-directory-saas-panorama9-tutorial/ic790027.png "gebruikers")
 
-3. Klik in de sectie gebruikers  **+**  nieuwe gebruiker toe te voegen.
+3. Klik in de sectie gebruikers **+** nieuwe gebruiker toe te voegen.
 
  ![Gebruikers](./media/active-directory-saas-panorama9-tutorial/ic790028.png "gebruikers")
 
@@ -245,10 +245,10 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 Als u op de tegel Panorama9 in het deelvenster toegang, u moet ophalen automatisch aangemeld bij Panorama9 toepassing.
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md).
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

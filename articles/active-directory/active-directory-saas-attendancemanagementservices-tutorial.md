@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 1fcbbabe80c3ff4b5a18904637cb227499da6829
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: abf882d7b06083080ad5cb3c2a20390a76a48139
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-attendance-management-services"></a>Zelfstudie: Azure Active Directory-integratie met beheerservices aanwezigheid
 
@@ -30,7 +30,7 @@ Aanwezigheid Management Services integreren met Azure AD biedt de volgende voord
 - U kunt uw gebruikers automatisch ophalen aangemeld bij aanwezigheid Management Services (Single Sign-On) inschakelen met hun Azure AD-accounts.
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -203,7 +203,7 @@ Om Azure AD-gebruikers zich aanmelden bij aanwezigheid Management Services, moet
 
     ![Werknemer toevoegen](./media/active-directory-saas-attendancemanagementservices-tutorial/user4.png)
 
-    a. In de **OBCiD** textbox, typ het e-mailadres van gebruiker, zoals  **BrittaSimon@contoso.com** .
+    a. In de **OBCiD** textbox, typ het e-mailadres van gebruiker, zoals **BrittaSimon@contoso.com**.
 
     b. In de **wachtwoord** textbox, typt u het wachtwoord van gebruiker.
 
@@ -240,7 +240,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruikt Azure eenmalige aanmeld
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
@@ -250,7 +250,7 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

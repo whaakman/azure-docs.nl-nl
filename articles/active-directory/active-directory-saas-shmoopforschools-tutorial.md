@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: e824fe7a74c4adc619f7fa324aa6fa28dacecf24
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 799a88344d6c348061af19bfbbd9022025d2d66b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Zelfstudie: Azure Active Directory-integratie met Shmoop voor scholen
 
@@ -30,7 +30,7 @@ Shmoop voor scholen integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Shmoop voor scholen met hun Azure AD-accounts kunt inschakelen.
 - U kunt uw accounts op één centrale locatie--de Azure-portal beheren.
 
-Zie voor meer informatie over de integratie met Azure AD SaaS [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Zie voor meer informatie over de integratie met Azure AD SaaS [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -219,7 +219,7 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 
 7. In de **toevoegen toewijzing** selecteert u de **toewijzen** knop.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie testen met behulp van het toegangsvenster.
 
@@ -230,7 +230,7 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies voor het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jeedes
-ms.openlocfilehash: ee2adf151d47931ab6a2e3bdc5e20c16deb8e8e4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 444bc2d0724f8e7efc453c9efa577908822a4df2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>Zelfstudie: Azure Active Directory-integratie met ScreenSteps
 
@@ -30,7 +30,7 @@ ScreenSteps integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij ScreenSteps (Single Sign-On) met hun Azure AD-accounts kunt inschakelen.
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -108,7 +108,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![URL's en ScreenSteps domein eenmalige aanmelding informatie](./media/active-directory-saas-screensteps-tutorial/tutorial_screensteps_url.png)
 
-    In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<tenantname>.ScreenSteps.com`
+    In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<tenantname>.ScreenSteps.com`
 
     > [!NOTE] 
     > Deze waarde is geen echte. Deze waarde bijwerken met de werkelijke aanmeldings-URL, die verderop in deze zelfstudie wordt beschreven. 
@@ -243,17 +243,17 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
 Als u op de tegel ScreenSteps in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing ScreenSteps.
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

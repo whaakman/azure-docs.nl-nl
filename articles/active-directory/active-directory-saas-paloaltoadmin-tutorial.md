@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: c5be53f06e009cb2d5180e43318c8670139a68db
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: aa3366810a40b004fe510cb2909f8da0f3513ddb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="integrate-azure-active-directory-with-palo-alto-networks---admin-ui"></a>Azure Active Directory integreren met netwerken Palo Alto - Admin-gebruikersinterface
 
@@ -30,7 +30,7 @@ Door integratie van Azure AD met netwerken Palo Alto - Admin UI, profiteren van 
 - U kunt uw gebruikers krijgen automatisch aangemeld bij Palo Alto Networks - Admin UI (eenmalige aanmelding of SSO) met hun Azure AD-accounts kunt inschakelen.
 - U kunt uw accounts op één centrale locatie, de Azure-portal beheren.
 
-Zie voor meer informatie over de integratie van SaaS-app met Azure AD [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Zie voor meer informatie over de integratie van SaaS-app met Azure AD [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -119,7 +119,7 @@ Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmel
         
     | Naam van kenmerk | De waarde van kenmerk |
     | --- | --- |    
-    | gebruikersnaam | user.userprincipalname |
+    | gebruikersnaam | User.userPrincipalName |
     | adminrole | customadmin |
 
     a. Selecteer **toevoegen kenmerk**.  
@@ -180,7 +180,7 @@ Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmel
 
     ![Het venster 'SAML identiteit Provider Server-profiel'](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_slo.png)
   
-    a. In de **identiteit Provider SLO URL** vak, wordt de URL van de eerder geïmporteerd SLO vervangen door de volgende URL:  **https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0** .
+    a. In de **identiteit Provider SLO URL** vak, wordt de URL van de eerder geïmporteerd SLO vervangen door de volgende URL: **https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0**.
   
     b. Selecteer **OK**.
 
@@ -301,7 +301,7 @@ In deze sectie schakelt u gebruiker Britta Simon Azure eenmalige aanmelding gebr
 
 7. In de **toevoegen toewijzing** Selecteer **toewijzen**.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie testen met behulp van het toegangsvenster.
 
@@ -312,7 +312,7 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

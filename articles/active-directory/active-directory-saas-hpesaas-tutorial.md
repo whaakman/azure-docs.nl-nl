@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 32e3ecdd66900c6bb816a0301f0135addd834528
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7f71da89739885744002405b6b1aad72853a3e09
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hpe-saas"></a>Zelfstudie: Azure Active Directory-integratie met HPE SaaS
 
@@ -29,7 +29,7 @@ HPE SaaS integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij HPE SaaS (Single Sign-On) inschakelen met hun Azure AD-accounts
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,9 +110,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-hpesaas-tutorial/tutorial_hpesaas_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL als:`https://login.saas.hpe.com/msg`
+    a. In de **aanmeldings-URL** textbox, typ een URL als: `https://login.saas.hpe.com/msg`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<subdomain>.saas.hpe.com`
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<subdomain>.saas.hpe.com`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [HPE SaaS Client ondersteuningsteam](https://saas.hpe.com/en-us/contact) ophalen van deze waarden. 
@@ -202,10 +202,10 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 Als u op de tegel HPE SaaS in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw HPE SaaS-toepassing.
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md).
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

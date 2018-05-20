@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.openlocfilehash: 87525eacdb7224e7352f713028428d72d64a288e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: be400e9b51e2956557297b3a57313f08a434f96d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ethicspoint-incident-management-epim"></a>Zelfstudie: Azure Active Directory-integratie met EthicsPoint Incident Management (EPIM)
 
@@ -29,7 +29,7 @@ EthicsPoint Incident Management (EPIM) integreren met Azure AD biedt de volgende
 - U kunt uw gebruikers automatisch ophalen aangemelde naar EthicsPoint Incident Management (EPIM) (Single Sign-On) inschakelen met hun Azure AD-accounts
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -116,9 +116,9 @@ In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure por
     | `https://<companyname>.navexglobal.com`|
     | `https://<companyname>.ethicspointvp.com`|
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<companyname>.navexglobal.com/adfs/services/trust`
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<companyname>.navexglobal.com/adfs/services/trust`
 
-    c. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<servername>.navexglobal.com/adfs/ls/`
+    c. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<servername>.navexglobal.com/adfs/ls/`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke antwoord-URL, -id en aanmeldings-URL. Neem contact op met [EthicsPoint Incident Management (EPIM) Client ondersteuningsteam](http://www.navexglobal.com/company/contact-us) ophalen van deze waarden. 
@@ -207,10 +207,10 @@ In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding toegang verlee
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 Als u op de tegel EthicsPoint Incident Management (EPIM) in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing EthicsPoint Incident Management (EPIM).
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

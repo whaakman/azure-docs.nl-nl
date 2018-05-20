@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 796f4d1b679c06be8677cd07f52ce305a7bc1ef8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b523841fc40f8ac07448abc80125f1f510cba840
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sd-elements"></a>Zelfstudie: Azure Active Directory-integratie met SD-elementen
 
@@ -29,7 +29,7 @@ SD-elementen integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij SD-elementen (Single Sign-On) inschakelen met hun Azure AD-accounts
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,9 +110,9 @@ In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure por
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-sd-elements-tutorial/tutorial_sdelements_url.png)
 
-    a. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<tenantname>.sdelements.com/sso/saml2/metadata`
+    a. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<tenantname>.sdelements.com/sso/saml2/metadata`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<tenantname>.sdelements.com/sso/saml2/acs/`
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<tenantname>.sdelements.com/sso/saml2/acs/`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke id en de antwoord-URL. Neem contact op met [SD-elementen ondersteuningsteam](mailto:support@sdelements.com) ophalen van deze waarden.
@@ -123,7 +123,7 @@ In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure por
 
 5. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de afbeelding en de volgende stappen uitvoeren: 
 
-    | Kenmerknaam | Waarde kenmerk |
+    | Naam kenmerk | Waarde kenmerk |
     | --- | --- |
     | e-mailen |User.mail |
     | Voornaam |User.givenName |
@@ -228,7 +228,7 @@ Het doel van deze sectie is het maken van een gebruiker Britta Simon aangeroepen
    
     ![Maken van een testgebruiker SD-elementen](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_13.png) 
    
-    a. In de **e** textbox, voer het e-mailadres van de gebruiker zoals  **brittasimon@contoso.com** .
+    a. In de **e** textbox, voer het e-mailadres van de gebruiker zoals **brittasimon@contoso.com**.
    
     b. In de **voornaam** textbox, voer de voornaam van de gebruiker zoals **Britta**.
    
@@ -274,10 +274,10 @@ Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding conf
   
 Als u op de tegel SD-elementen in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing SD-elementen.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

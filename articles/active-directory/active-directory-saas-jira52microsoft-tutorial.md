@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: 20d08fa6aac5a55480d2c11eb6e4f746ff863f78
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 785a75d3d9a748e3ddf01099fc844b5c1099d0b9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-microsoft-azure-active-directory-single-sign-on-for-jira-52"></a>Zelfstudie: Azure Active Directory-integratie met Microsoft Azure Active Directory eenmalige aanmelding voor JIRA 5.2
 
@@ -30,7 +30,7 @@ Microsoft Azure Active Directory eenmalige aanmelding voor JIRA 5.2 integreren m
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Microsoft Azure Active Directory eenmalige aanmelding voor JIRA 5.2 (Single Sign-On) met hun Azure AD-accounts kunt inschakelen.
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="description"></a>Beschrijving
 
@@ -284,7 +284,7 @@ In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding gebruiken door
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
@@ -294,7 +294,7 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

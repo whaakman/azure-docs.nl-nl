@@ -15,17 +15,17 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: ebc4de2b3a01138a8b48cc637dcab5fc67a68841
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: a6f9f35931ff13eb3f0f35748b3a040af37df672
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Het beheer van gebruikersaccount inrichten voor zakelijke apps in Azure portal
-In dit artikel wordt beschreven hoe u de [Azure-portal](https://portal.azure.com) voor het beheren van automatische account gebruikersaanvragen en verwijderen van gegevens voor toepassingen die ondersteuning bieden voor deze, met name lijsten die zijn toegevoegd in de categorie 'aanbevolen' van de [Azure Active Directory-toepassingsgalerie](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Zie voor meer informatie over automatische account gebruikersaanvragen en hoe het werkt, [gebruikersaanvragen automatiseren en Deprovisioning voor SaaS-toepassingen met Azure Active Directory](active-directory-saas-app-provisioning.md).
+In dit artikel wordt beschreven hoe u de [Azure-portal](https://portal.azure.com) voor het beheren van automatische account gebruikersaanvragen en verwijderen van gegevens voor toepassingen die ondersteuning bieden voor deze, met name lijsten die zijn toegevoegd in de categorie 'aanbevolen' van de [Azure Active Directory-toepassingsgalerie](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). Zie voor meer informatie over automatische account gebruikersaanvragen en hoe het werkt, [gebruikersaanvragen automatiseren en Deprovisioning voor SaaS-toepassingen met Azure Active Directory](active-directory-saas-app-provisioning.md).
 
 ## <a name="finding-your-apps-in-the-portal"></a>Uw apps te zoeken in de portal
-Alle toepassingen die zijn geconfigureerd voor eenmalige aanmelding in een map met een directory-beheerder met behulp van de [Azure Active Directory-toepassingsgalerie](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), kan worden bekeken en beheerd in de [Azure-portal](https://portal.azure.com). De toepassingen vindt u in de **alle Services** &gt; **bedrijfstoepassingen** sectie van de portal. Zakelijke apps zijn apps die zijn geïmplementeerd en worden gebruikt binnen uw organisatie.
+Alle toepassingen die zijn geconfigureerd voor eenmalige aanmelding in een map met een directory-beheerder met behulp van de [Azure Active Directory-toepassingsgalerie](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery), kan worden bekeken en beheerd in de [Azure-portal](https://portal.azure.com). De toepassingen vindt u in de **alle Services** &gt; **bedrijfstoepassingen** sectie van de portal. Zakelijke apps zijn apps die zijn geïmplementeerd en worden gebruikt binnen uw organisatie.
 
 ![Deelvenster bedrijfstoepassingen](./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-pane.png)
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 96a091af6d8a29b2c6257087889d0c19825467b3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cc4499043ed7fbff964549fe56ecee641f7eadf3
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-front"></a>Zelfstudie: Azure Active Directory-integratie met voorzijde
 
@@ -30,7 +30,7 @@ Begin integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemelde naar voorgrond (Single Sign-On) met hun Azure AD-accounts kunt inschakelen.
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -108,9 +108,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-front-tutorial/tutorial_front_url1.png)
 
-    a. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<companyname>.frontapp.com`
+    a. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<companyname>.frontapp.com`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<companyname>.frontapp.com/sso/saml/callback`
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<companyname>.frontapp.com/sso/saml/callback`
      
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke id en de antwoord-URL die worden beschreven verderop in de zelfstudie of neem contact op met [Front Client ondersteuningsteam](mailto:support@frontapp.com) ophalen van deze waarden. 
@@ -229,16 +229,16 @@ In deze sectie maakt inschakelen u Britta Simon Azure eenmalige aanmelding gebru
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 Het doel van deze sectie is het testen van uw Azure AD-SSOconfiguration met behulp van het toegangsvenster.
 
 Als u op de Front-tegel in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw Front-toepassing. 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

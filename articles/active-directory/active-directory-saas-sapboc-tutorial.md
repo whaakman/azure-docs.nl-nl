@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jeedes
-ms.openlocfilehash: b0ea48aea2e13027c5af273a416489e48987b44a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5a56a892ac3b28c4e90ec2ea6360da3d2eff2581
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Zelfstudie: Azure Active Directory-integratie met SAP Business Object Cloud
 
@@ -30,7 +30,7 @@ Wanneer u een SAP Business Object Cloud met Azure AD integreert profiteren van d
 - U kunt uw gebruikers SAP Business Object Cloud automatisch aanmelden met behulp van eenmalige aanmelding en Azure AD-account van een gebruiker.
 - U kunt uw accounts op één centrale locatie, de Azure-portal beheren.
 
-Zie voor meer informatie over software als een dienst (SaaS)-app-integratie met Azure AD, [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Zie voor meer informatie over software als een dienst (SaaS)-app-integratie met Azure AD, [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -217,7 +217,7 @@ Voor het inrichten van een gebruikersaccount:
 
     ![Werknemer toevoegen](./media/active-directory-saas-sapboc-tutorial/user1.png)
 
-3. Op de **gebruikers** pagina details van de nieuwe gebruiker toevoegen selecteren  **+** . 
+3. Op de **gebruikers** pagina details van de nieuwe gebruiker toevoegen selecteren **+**. 
 
     ![Gebruikers toevoegen](./media/active-directory-saas-sapboc-tutorial/user4.png)
 
@@ -231,7 +231,7 @@ Voor het inrichten van een gebruikersaccount:
 
     4. In de **WEERGAVENAAM** en voer de volledige naam van de gebruiker, zoals **Britta Simon**.
 
-    5. In de **e** Voer het e-mailadres van de gebruiker, zoals  **brittasimon@contoso.com** .
+    5. In de **e** Voer het e-mailadres van de gebruiker, zoals **brittasimon@contoso.com**.
 
     6. Op de **rollen selecteren** pagina, selecteer de juiste rol voor de gebruiker en selecteer vervolgens **OK**.
 
@@ -270,7 +270,7 @@ Britta Simon toewijzen aan SAP Business Object Cloud:
 
 ![Toewijzen van de gebruikersrol][200] 
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie testen met behulp van het toegangsvenster.
 
@@ -278,10 +278,10 @@ Wanneer u de tegel SAP Business Object Cloud in het deelvenster toegang selectee
 
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md).
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 <!--Image references-->

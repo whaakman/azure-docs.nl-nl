@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: d42a6b63833bffc3cce1830a728ec21083b25dc9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c25acd00aa55bb8d8c222f440ddfc951bfdf7970
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Zelfstudie: Werkplek door Facebook configureren voor het automatisch gebruikers inrichten
 
@@ -98,5 +98,5 @@ U kunt nu een testaccount maken. Wacht 20 minuten duren om te verifiëren dat he
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Het beheren van gebruikers account inrichten voor zakelijke Apps](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Eenmalige aanmelding configureren](active-directory-saas-workplacebyfacebook-tutorial.md)

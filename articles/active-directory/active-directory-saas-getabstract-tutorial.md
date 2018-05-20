@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 37419f8f65f5dfa171302bb0d85cef23e8cea93b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 388a2a3f38db1637994e6daae37ca98c51b6067d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-getabstract"></a>Zelfstudie: Azure Active Directory-integratie met Getabstract
 
@@ -30,7 +30,7 @@ Getabstract integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Getabstract (Single Sign-On) met hun Azure AD-accounts kunt inschakelen.
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,15 +110,15 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     a. In de **id** textbox, typ de URL:
 
-    Voor fase/pre_production:`https://int.getabstract.com`
+    Voor fase/pre_production: `https://int.getabstract.com`
 
-    Voor productie:`https://www.getabstract.com`
+    Voor productie: `https://www.getabstract.com`
 
     b. In de **antwoord-URL** textbox, typ de URL:
     
-    Voor fase/pre_production:`https://int.getabstract.com/ACS.do`
+    Voor fase/pre_production: `https://int.getabstract.com/ACS.do`
     
-    Voor productie:`https://www.getabstract.com/ACS.do`
+    Voor productie: `https://www.getabstract.com/ACS.do`
 
 4. Controleer **weergeven geavanceerde instellingen voor URL** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
 
@@ -126,9 +126,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:
     
-    Voor fase/pre_production:`https://int.getabstract.com/portal/<org_username>`
+    Voor fase/pre_production: `https://int.getabstract.com/portal/<org_username>`
     
-    Voor productie:`https://www.getabstract.com/portal/<org_username>`
+    Voor productie: `https://www.getabstract.com/portal/<org_username>`
 
     > [!NOTE] 
     > Deze waarde is geen echte. Deze waarde bijwerken met de werkelijke URL voor eenmalige aanmelding. Neem contact op met [Getabstract Client ondersteuningsteam](https://www.getabstract.com/en/contact) deze waarde op te halen.
@@ -215,17 +215,17 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
 Als u op de tegel Getabstract in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Getabstract.
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

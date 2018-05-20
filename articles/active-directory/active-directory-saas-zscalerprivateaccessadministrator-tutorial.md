@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jeedes
-ms.openlocfilehash: bf0b7cbd8047dfdbc1a4503775e6d36f8e8a67c1
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: c3918e4b54d60d6f609e99e24ed2f4b2995bf80c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-administrator"></a>Zelfstudie: Azure Active Directory-integratie met Zscaler persoonlijke Access-beheerder
 
@@ -30,7 +30,7 @@ Zscaler persoonlijke toegang beheerder integreren met Azure AD biedt de volgende
 - U kunt uw gebruikers automatisch ophalen aangemelde Zscaler persoonlijke toegang beheerder (Single Sign-On) inschakelen met hun Azure AD-accounts.
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -214,7 +214,7 @@ Om Azure AD-gebruikers zich aanmelden voor persoonlijke Zscaler Access-beheerder
 
     ![Gebruikerbeheerder Zscaler persoonlijke Access-beheerder](./media/active-directory-saas-zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_useradmin.png)
 
-    a. In de **gebruikersnaam** textbox, voer het e-mailadres van de gebruiker zoals  **BrittaSimon@contoso.com** .
+    a. In de **gebruikersnaam** textbox, voer het e-mailadres van de gebruiker zoals **BrittaSimon@contoso.com**.
 
     b. In de **wachtwoord** textbox, typt u het wachtwoord.
 
@@ -222,7 +222,7 @@ Om Azure AD-gebruikers zich aanmelden voor persoonlijke Zscaler Access-beheerder
 
     d. Selecteer **rol** als **Zscaler persoonlijke toegang beheerder**.
 
-    e. In de **e** textbox, voer het e-mailadres van de gebruiker zoals  **BrittaSimon@contoso.com** .
+    e. In de **e** textbox, voer het e-mailadres van de gebruiker zoals **BrittaSimon@contoso.com**.
 
     f. In de **Phone** textbox, typt u het telefoonnummer.
 
@@ -260,7 +260,7 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
@@ -270,7 +270,7 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: aec0e475bc897b3d983a8054819562be4aa4682b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e6ff23d76710cf1f63e7b0439e27760eed333c1b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-birst-agile-business-analytics"></a>Zelfstudie: Azure Active Directory-integratie met Birst flexibele Business Analytics
 
@@ -29,7 +29,7 @@ Birst flexibele Business Analytics integreren met Azure AD biedt de volgende voo
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Birst flexibele Business Analytics (Single Sign-On) inschakelen met hun Azure AD-accounts
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,13 +110,13 @@ In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure por
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-birst-tutorial/tutorial_birst_url.png)
 
-     In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID`
+     In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID`
 
      De URL is afhankelijk van het datacenter dat uw account Birst zich bevindt: 
 
-     * Voor VS datacenter gebruik het patroon volgen:`https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID` 
+     * Voor VS datacenter gebruik het patroon volgen: `https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID` 
 
-     * Voor Europa datacenter gebruikt u het volgende patroon volgen:`https://login.eu1.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID`
+     * Voor Europa datacenter gebruikt u het volgende patroon volgen: `https://login.eu1.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID`
 
     > [!NOTE] 
     > Deze waarde is geen echte. Werk de waarde met de werkelijke URL voor eenmalige aanmelding. Neem contact op met [Birst flexibele Business Analytics Client ondersteuningsteam](mailto:info@birst.com) de waarde op te halen. 
@@ -214,10 +214,10 @@ Het doel van deze sectie is het testen van uw Azure AD SSO-configuratie met behu
 
 Als u op de tegel Birst flexibele Business Analytics in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Birst flexibele Business Analytics. 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

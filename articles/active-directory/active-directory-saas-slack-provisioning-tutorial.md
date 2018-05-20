@@ -2,7 +2,7 @@
 title: 'Zelfstudie: Slack configureren voor het automatisch gebruikers inrichten met Azure Active Directory | Microsoft Docs'
 description: Informatie over het configureren van Azure Active Directory automatisch leveren en intrekken accounts van gebruikers met Slack.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
 manager: mtillman
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: b0bbc310edddcc461633e57340950a0f4050f66a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 897121e0dcaaf417430b892c501a243303ae9b6e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Zelfstudie: Slack configureren voor het automatisch gebruikers inrichten
 
@@ -55,7 +55,7 @@ Voordat u configureren en inschakelen van de inrichting service, moet u bepalen 
 
 Deze sectie helpt u bij uw Azure AD verbinden met Slack van gebruikersaccount inrichten API en de inrichting service maken, bijwerken en uitschakelen configureren toegewezen gebruikersaccounts in Slack op basis van gebruiker en groepstoewijzing in Azure AD.
 
-**Tip:** u kunt ook ingeschakeld op basis van SAML eenmalige aanmelding voor de vertraging, volgt de instructies in (Azure-portal) [https://portal.azure.com]. Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatische inrichting, hoewel deze twee functies aanvulling van elkaar.
+**Tip:** kunt u ook ingeschakeld op basis van SAML eenmalige aanmelding voor de vertraging, volgt de instructies in (Azure-portal) [https://portal.azure.com]. Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatische inrichting, hoewel deze twee functies aanvulling van elkaar.
 
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-slack-in-azure-ad"></a>Voor het configureren van automatische gebruikers account inrichten met Slack in Azure AD:
@@ -115,4 +115,4 @@ Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [ra
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Het beheren van gebruikers account inrichten voor zakelijke Apps](active-directory-enterprise-apps-manage-provisioning.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)

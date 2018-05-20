@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 4d9fd7127a36e9a699a352dbe6899edd5ea99e92
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6421921d75b299d44cdd0942b64e524a73dfa042
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Zelfstudie: Azure Active Directory-integratie met Picturepark
 
@@ -29,7 +29,7 @@ Picturepark integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Picturepark (Single Sign-On) met hun Azure AD-accounts inschakelen
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,7 +110,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-picturepark-tutorial/tutorial_picturepark_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<companyname>.picturepark.com`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<companyname>.picturepark.com`
 
     b. In de **id** textbox, typ een URL met het volgende patroon volgen: 
     
@@ -221,7 +221,7 @@ Om in te schakelen gebruikers van Azure AD aan te melden bij Picturepark, moeten
    
     ![Gebruiker maken](./media/active-directory-saas-picturepark-tutorial/ic795069.png "gebruiker maken")
    
-    a. In de **e-mailadres** textbox type de **e-mailadres** van de gebruiker  **BrittaSimon@contoso.com** .  
+    a. In de **e-mailadres** textbox type de **e-mailadres** van de gebruiker **BrittaSimon@contoso.com**.  
    
     b. In de **wachtwoord** en **wachtwoord bevestigen** tekstvakken, typ de **wachtwoord** van BrittaSimon. 
    
@@ -237,7 +237,7 @@ Om in te schakelen gebruikers van Azure AD aan te melden bij Picturepark, moeten
    
     h. In de **stad** textbox type de **plaatsnaam** van de gebruiker.
 
-    ik. Selecteer een **taal**.
+    i. Selecteer een **taal**.
    
     j. Klik op **Create**.
 
@@ -281,10 +281,10 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 
 Als u op de tegel Picturepark in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Picturepark. Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md).
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

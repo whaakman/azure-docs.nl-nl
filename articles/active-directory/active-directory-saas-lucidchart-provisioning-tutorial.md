@@ -2,7 +2,7 @@
 title: 'Zelfstudie: LucidChart configureren voor het automatisch gebruikers inrichten met Azure Active Directory | Microsoft Docs'
 description: Informatie over het configureren van Azure Active Directory voor het automatisch inrichten en gebruikersaccounts aan LucidChart ongedaan in te richten.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
 manager: mtillman
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 7d0855a7040af595744dbd3977f6a969abb78017
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ccc876b2421641271e73ad72ec0c00a10792f8b3
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Zelfstudie: LucidChart configureren voor het automatisch gebruikers inrichten
 
@@ -95,7 +95,7 @@ Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [ra
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Het beheren van gebruikers account inrichten voor zakelijke Apps](active-directory-enterprise-apps-manage-provisioning.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 

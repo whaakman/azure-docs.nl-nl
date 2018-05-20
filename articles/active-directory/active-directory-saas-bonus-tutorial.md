@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: b69cf1c42cbc6aedb064378271e2c631b4be39f3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8133ec95bf0cbf6a9ce4ca1ad224d03ac593c940
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Zelfstudie: Azure Active Directory-integratie met Bonusly
 
@@ -30,7 +30,7 @@ Bonusly integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Bonusly (Single Sign-On) met hun Azure AD-accounts inschakelen
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -107,7 +107,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Bonusly domein en de URL's van eenmalige aanmelding informatie](./media/active-directory-saas-bonus-tutorial/tutorial_bonusly_url.png)
 
-    In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://Bonus.ly/saml/<tenant-name>`
+    In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://Bonus.ly/saml/<tenant-name>`
 
     > [!NOTE] 
     > De waarde is geen echte. Werk de waarde met de werkelijke antwoord-URL. Neem contact op met [Bonusly ondersteuningsteam](https://Bonusly/contact) de waarde op te halen.
@@ -216,7 +216,7 @@ Om Azure AD-gebruikers zich aanmelden bij Bonusly inschakelt, moeten ze worden i
 
     b. In de **achternaam** textbox, geef de achternaam van de gebruiker zoals **Simon**.
  
-    c. In de **e** textbox, voer het e-mailadres van de gebruiker zoals  **brittasimon@contoso.com** .
+    c. In de **e** textbox, voer het e-mailadres van de gebruiker zoals **brittasimon@contoso.com**.
 
     d. Klik op **Opslaan**.
    
@@ -254,16 +254,16 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
 Wanneer u klikt op de tegel Bonusly in het deelvenster toegang u moet ophalen automatisch aangemeld bij uw Bonusly toepassing.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

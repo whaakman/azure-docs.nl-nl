@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 6261ba6c02278a56d20f3f7694fa79ee7eb08ce8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c0ee45305f1feda0033ed18b4e07fa93df5d4781
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yardi-elearning"></a>Zelfstudie: Azure Active Directory-integratie met Yardi eLearning
 
@@ -29,7 +29,7 @@ Integratie van Yardi biedt eLearning met Azure AD de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Yardi eLearning (Single Sign-On) met hun Azure AD-accounts inschakelen
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,9 +110,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-yardielearning-tutorial/tutorial_yardielearning_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<companyname>.yardielearning.com/login`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<companyname>.yardielearning.com/login`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<companyname>.yardielearning.com/trust`
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<companyname>.yardielearning.com/trust`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [Yardi eLearning Client ondersteuningsteam](mailto:elearning@yardi.com) ophalen van deze waarden. 
@@ -207,10 +207,10 @@ Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding conf
 
 Als u op de tegel Yardi eLearning in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw Yardi eLearning-toepassing. 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

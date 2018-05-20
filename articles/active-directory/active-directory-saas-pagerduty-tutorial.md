@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: a5a2e3a9d8aa32894e07fb8e96389167d5bb96f9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6ba7e1fc2f58fd8fb7a05935ce2c4b99709d642c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagerduty"></a>Zelfstudie: Azure Active Directory-integratie met PagerDuty
 
@@ -30,7 +30,7 @@ PagerDuty integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij PagerDuty (Single Sign-On) met hun Azure AD-accounts inschakelen
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -108,9 +108,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![URL's en PagerDuty domein eenmalige aanmelding informatie](./media/active-directory-saas-pagerduty-tutorial/tutorial_pagerduty_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<tenant-name>.pagerduty.com`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<tenant-name>.pagerduty.com`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<tenant-name>.pagerduty.com`
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<tenant-name>.pagerduty.com`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [PagerDuty Client ondersteuningsteam](https://www.pagerduty.com/support/) ophalen van deze waarden. 
@@ -210,7 +210,7 @@ In het geval van PagerDuty is inrichting een handmatige taak.
 
     a. Typ de **eerste en laatste naam** van gebruiker zoals **Britta Simon**. 
    
-    b. Voer **e** adres van de gebruiker, zoals  **brittasimon@contoso.com** .
+    b. Voer **e** adres van de gebruiker, zoals **brittasimon@contoso.com**.
    
     c. Klik op **toevoegen**, en klik vervolgens op **verzenden nodigt**.
    
@@ -247,7 +247,7 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
@@ -255,10 +255,10 @@ Wanneer u klikt op de tegel PagerDuty in de Panelyou toegang moet krijgen automa
 
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md).
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

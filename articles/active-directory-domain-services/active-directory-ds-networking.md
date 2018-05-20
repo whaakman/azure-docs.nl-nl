@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: a56413490decc928ff2643213084155ae469871c
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: b40aa0e105c0e9fac9c9cab63a5b0a2a6116c4c9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Overwegingen voor Azure AD Domain Services netwerken
 ## <a name="how-to-select-an-azure-virtual-network"></a>Het selecteren van een virtuele Azure-netwerk
@@ -86,7 +86,7 @@ De volgende poorten zijn vereist voor de service Azure AD Domain Services en ond
 * Deze poort via uw NSG te openen is optioneel.
 * Deze poort ook blijft grotendeels is uitgeschakeld op uw beheerde domein. Dit mechanisme wordt niet gebruikt voortdurend omdat beheer en controle van taken worden uitgevoerd met behulp van PowerShell voor externe toegang. Deze poort wordt alleen gebruikt in het zeldzame geval dat Microsoft extern verbinding maken met uw beheerde domein moet voor geavanceerde probleemoplossing. De poort is gesloten, zodra de probleemoplossing bewerking voltooid is.
 
-**Port 636 (Secure LDAP)**
+**Poort 636 (beveiligde LDAP)**
 * Deze wordt gebruikt voor het inschakelen van beveiligde LDAP-toegang tot uw beheerde domein via internet.
 * Deze poort via uw NSG te openen is optioneel. Open de poort alleen als u beveiligde LDAP toegang via het internet is ingeschakeld.
 * U kunt binnenkomende toegang beperken tot deze poort voor de bron-IP-adressen van waaruit u verbinding maken via een veilige LDAP verwacht.
@@ -95,7 +95,7 @@ De volgende poorten zijn vereist voor de service Azure AD Domain Services en ond
 
 
 ## <a name="network-security-groups"></a>Netwerkbeveiligingsgroepen
-Een [Netwerkbeveiligingsgroep (NSG)](../virtual-network/virtual-networks-nsg.md) bevat een lijst met regels voor lijst ACL (Access Control) toestaan of weigeren van netwerkverkeer naar uw VM-exemplaren in een virtueel netwerk. NSG's kunnen worden gekoppeld aan subnetten of afzonderlijke VM-exemplaren in dat subnet. Als een NSG is gekoppeld aan een subnet, zijn de ACL-regels van toepassing op alle VM-exemplaren in dat subnet. Bovendien het verkeer naar een afzonderlijke virtuele machine kan worden beperkt door een NSG rechtstreeks aan die VM koppelen verdere.
+Een [Netwerkbeveiligingsgroep (NSG)](../virtual-network/security-overview.md) bevat een lijst met regels voor lijst ACL (Access Control) toestaan of weigeren van netwerkverkeer naar uw VM-exemplaren in een virtueel netwerk. NSG's kunnen worden gekoppeld aan subnetten of afzonderlijke VM-exemplaren in dat subnet. Als een NSG is gekoppeld aan een subnet, zijn de ACL-regels van toepassing op alle VM-exemplaren in dat subnet. Bovendien het verkeer naar een afzonderlijke virtuele machine kan worden beperkt door een NSG rechtstreeks aan die VM koppelen verdere.
 
 ### <a name="sample-nsg-for-virtual-networks-with-azure-ad-domain-services"></a>Voorbeeld NSG voor virtuele netwerken met Azure AD Domain Services
 De volgende tabel ziet u een voorbeeld van een NSG die u voor een virtueel netwerk met een beheerd domein van Azure AD Domain Services configureren kunt. Deze regel kunnen binnenkomend verkeer via de vereiste poorten om te controleren of uw beheerde domein blijft een patch uitgevoerd, bijgewerkt en kan worden bewaakt door Microsoft. De 'DenyAll' standaardregel geldt voor alle binnenkomend verkeer van het internet.
@@ -141,5 +141,5 @@ U kunt een Resource Manager gebaseerde virtueel netwerk verbinding maken met de 
 ## <a name="related-content"></a>Gerelateerde inhoud
 * [Virtueel netwerk van Azure-peering](../virtual-network/virtual-network-peering-overview.md)
 * [Een VNet-naar-VNet-verbinding voor het klassieke implementatiemodel configureren](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
-* [Beveiligingsgroepen voor Azure-netwerk](../virtual-network/virtual-networks-nsg.md)
+* [Beveiligingsgroepen voor Azure-netwerk](../virtual-network/security-overview.md)
 * [Een Netwerkbeveiligingsgroep maken](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)

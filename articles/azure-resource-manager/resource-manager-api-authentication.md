@@ -16,7 +16,7 @@ ms.date: 11/15/2017
 ms.author: dugill
 ms.openlocfilehash: 1a526663b0280bd1bb7739ccc9a4ebf78882754d
 ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/17/2018
 ---

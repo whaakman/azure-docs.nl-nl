@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: c7b456fe08db7c4e4cc71c635e405a20c24516cf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5f8698e50f9740d46a5cec708e3d5ae6bf1043ce
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-officespace-software"></a>Zelfstudie: Azure Active Directory-integratie met OfficeSpace Software
 
@@ -30,7 +30,7 @@ OfficeSpace Software integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij OfficeSpace Software (Single Sign-On) inschakelen met hun Azure AD-accounts.
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -108,9 +108,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![URL's en OfficeSpace Software domein eenmalige aanmelding informatie](./media/active-directory-saas-officespace-tutorial/tutorial_officespace_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<company name>.officespacesoftware.com/users/sign_in/saml`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<company name>.officespacesoftware.com/users/sign_in/saml`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`<company name>.officespacesoftware.com`
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen: `<company name>.officespacesoftware.com`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [OfficeSpace Software Client ondersteuningsteam](mailto:support@officespacesoftware.com) ophalen van deze waarden. 
@@ -121,12 +121,12 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 5. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster Selecteer **user.mail** als **gebruikers-id** en voor elke rij in de onderstaande tabel wordt weergegeven, voert u de volgende stappen uit:
     
-    | Kenmerknaam | Waarde kenmerk |
+    | Naam kenmerk | Waarde kenmerk |
     | --- | --- |    
     | e-mailen | User.mail |
     | naam | User.DisplayName |
-    | Voornaam | User.givenName |
-    | Achternaam | User.surname |
+    | first_name | User.givenName |
+    | last_name | User.surname |
 
     a. Klik op **toevoegen kenmerk** openen de **kenmerk toevoegen** dialoogvenster.
 
@@ -250,16 +250,16 @@ In deze sectie maakt inschakelen u Britta Simon gebruikt Azure eenmalige aanmeld
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
 Als u op de tegel OfficeSpace Software in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing OfficeSpace Software.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

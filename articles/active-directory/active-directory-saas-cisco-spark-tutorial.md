@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: c7ee96abacffc6599187ded9a5049cc3bf672e0a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4307904e87bdf9a0361a7fb143e87ae3a662f18e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-spark"></a>Zelfstudie: Azure Active Directory-integratie met Cisco Spark
 
@@ -29,7 +29,7 @@ Cisco Spark integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Cisco Spark (Single Sign-On) inschakelen met hun Azure AD-accounts
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,9 +110,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-cisco-spark-tutorial/tutorial_ciscospark_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL als:`https://web.ciscospark.com/#/signin`
+    a. In de **aanmeldings-URL** textbox, typ een URL als: `https://web.ciscospark.com/#/signin`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://idbroker.webex.com/<companyname>`
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://idbroker.webex.com/<companyname>`
 
     > [!NOTE] 
     > Deze waarde is geen echte. Deze waarde door de werkelijke ID bijwerken. Neem contact op met [Cisco Spark Client ondersteuningsteam](https://support.ciscospark.com/) deze waarde op te halen. 
@@ -127,7 +127,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 6. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de afbeelding hierboven en voer de volgende stappen uit:
     
-    | Kenmerknaam  | Waarde kenmerk |
+    | Naam kenmerk  | Waarde kenmerk |
     | --------------- | -------------------- |    
     |   UID    | User.userPrincipalName |   
 
@@ -218,7 +218,7 @@ In deze sectie kunt u een gebruiker Britta Simon aangeroepen in Cisco Spark make
     
     b. In de **achternaam** textbox type **Simon**.
     
-    c. In de **e-mailadres** textbox type  **britta.simon@contoso.com** .
+    c. In de **e-mailadres** textbox type **britta.simon@contoso.com**.
 
 5. Klik op het plusteken om toe te voegen Britta Simon. Klik op **Volgende**.
 
@@ -260,10 +260,10 @@ Het doel van deze sectie is het testen van uw Azure AD SSO-configuratie met behu
 
 Als u op de tegel Cisco Spark in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Cisco Spark.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

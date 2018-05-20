@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 0e415aab14e6c79ec937607433e0b8f13a0e971c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fc551aaa0a1383376d345f922c3e226cb88c4d26
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bgs-online"></a>Zelfstudie: Azure Active Directory-integratie met BGS Online
 
@@ -29,7 +29,7 @@ Online BGS integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij BGS Online (Single Sign-On) inschakelen met hun Azure AD-accounts
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -112,15 +112,15 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     a. In de **id** textbox, typ een URL met het volgende patroon volgen:
 
-    Gebruik dit patroon voor productie-omgeving.`https://<company name>.millwardbrown.report` 
+    Gebruik dit patroon voor productie-omgeving. `https://<company name>.millwardbrown.report` 
 
-    Gebruik dit patroon voor de testomgeving`https://millwardbrown.marketingtracker.nl/mt5/`
+    Gebruik dit patroon voor de testomgeving `https://millwardbrown.marketingtracker.nl/mt5/`
 
     b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:
     
-    Gebruik dit patroon voor productie-omgeving.`https://<company name>.millwardbrown.report/sso/saml/AssertionConsumerService.aspx` 
+    Gebruik dit patroon voor productie-omgeving. `https://<company name>.millwardbrown.report/sso/saml/AssertionConsumerService.aspx` 
       
-    Gebruik dit patroon voor de testomgeving`https://millwardbrown.marketingtracker.nl/mt5/sso/saml/AssertionConsumerService.aspx`
+    Gebruik dit patroon voor de testomgeving `https://millwardbrown.marketingtracker.nl/mt5/sso/saml/AssertionConsumerService.aspx`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke id en de antwoord-URL. Neem contact op met [BGS Online ondersteuningsteam](mailTo:bgsdashboardteam@millwardbrown.com) ophalen van deze waarden.
@@ -215,10 +215,10 @@ In deze sectie kunt u uw Azure AD SSO-configuratie met behulp van het toegangsve
 
 Als u op de tegel BGS Online in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw BGS Online-toepassing.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 22f786864067385b0a61b6d8fdb5fc314a90be1c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a1a8e8bf818ad90e0f834ab87dba929e5d1ceaa3
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benselect"></a>Zelfstudie: Azure Active Directory-integratie met BenSelect
 
@@ -29,7 +29,7 @@ BenSelect integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij BenSelect (Single Sign-On) met hun Azure AD-accounts inschakelen
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,7 +110,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-benselect-tutorial/tutorial_benselect_url.png)
 
-    In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://www.benselect.com/enroll/login.aspx?Path=<tenant name>`
+    In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://www.benselect.com/enroll/login.aspx?Path=<tenant name>`
 
     > [!NOTE] 
     > Deze waarde is geen echte. Deze waarde bijwerken met de werkelijke antwoord-URL. Neem contact op met [BenSelect ondersteuningsteam](mailto:support@selerix.com) deze waarde op te halen.
@@ -216,10 +216,10 @@ In deze sectie kunt u uw Azure AD SSO-configuratie met behulp van het toegangsve
 
 Als u op de tegel BenSelect in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing BenSelect.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

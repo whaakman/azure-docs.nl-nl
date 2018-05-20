@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: jeedes
-ms.openlocfilehash: cada2ca63e27f4a17f1541679395727ef710c035
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8cca4fb3ee10d56481cefccb7ea869b6bf13109c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qlik-sense-enterprise"></a>Zelfstudie: Azure Active Directory-integratie met Qlik zin Enterprise
 
@@ -30,7 +30,7 @@ Qlik zin Enterprise integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Qlik zin Enterprise (Single Sign-On) inschakelen met hun Azure AD-accounts.
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -108,7 +108,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![URL's en Qlik zin Enterprise domein eenmalige aanmelding informatie](./media/active-directory-saas-qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<Qlik Sense Fully Qualifed Hostname>:443//samlauthn/`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<Qlik Sense Fully Qualifed Hostname>:443//samlauthn/`
     
     > [!NOTE]
     > Noteer de afsluitende slash aan het einde van deze URI. Dit is vereist.
@@ -191,7 +191,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     
     h. De **SAML-ondertekeningsalgoritme** Hiermee stelt u de serviceprovider (in dit geval Qlik zin server) voor Certificaatondertekening voor de virtuele-proxyconfiguratie.  Als Qlik zin server gebruikmaakt van een vertrouwd certificaat gegenereerd met behulp van de Microsoft Enhanced RSA and AES Cryptographic Provider, wijzigt u de SAML-ondertekeningsalgoritme naar **SHA-256**.
     
-    ik. De SAML-kenmerk toewijzing sectie kan extra kenmerken zoals groepen worden verzonden naar Qlik zin voor gebruik in regels.
+    i. De SAML-kenmerk toewijzing sectie kan extra kenmerken zoals groepen worden verzonden naar Qlik zin voor gebruik in regels.
 
 13. Klik op de **LOAD BALANCING** menuoptie zichtbaar te maken.  Het scherm Load Balancing wordt weergegeven.
     
@@ -314,16 +314,16 @@ In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding toegang verlee
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
 Als u op de tegel Qlik zin Enterprise in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Qlik zin Enterprise. 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

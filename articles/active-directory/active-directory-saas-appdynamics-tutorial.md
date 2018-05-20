@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: b818f5d24873007aff5a8713a11d368cbe799ee6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e6978db61b193fad070bf937decf208906b13b82
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appdynamics"></a>Zelfstudie: Azure Active Directory-integratie met AppDynamics
 
@@ -29,7 +29,7 @@ AppDynamics integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij AppDynamics (Single Sign-On) met hun Azure AD-accounts inschakelen
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,9 +110,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-appdynamics-tutorial/tutorial_appdynamics_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<companyname>.saas.appdynamics.com`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<companyname>.saas.appdynamics.com`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<companyname>.saas.appdynamics.com/controller`
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<companyname>.saas.appdynamics.com/controller`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [AppDynamics Client ondersteuningsteam](https://www.appdynamics.com/support/) ophalen van deze waarden. 
@@ -197,7 +197,7 @@ Om Azure AD-gebruikers zich aanmelden bij AppDynamics, moeten ze worden ingerich
 
 1. Meld u aan bij uw bedrijf AppDynamics site als beheerder.
 
-2. Ga naar **gebruikers**, en klik vervolgens op  **+**  openen de **gebruiker maken** dialoogvenster.
+2. Ga naar **gebruikers**, en klik vervolgens op **+** openen de **gebruiker maken** dialoogvenster.
    
     ![Gebruikers](./media/active-directory-saas-appdynamics-tutorial/ic790229.png "gebruikers")
 
@@ -248,10 +248,10 @@ Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding conf
 
 Als u op de tegel AppDynamics in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing AppDynamics.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 79ef85e14f36153c086d9e9ae889fa9a51d065db
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2c76edea4498e32363a3a4952056e69c012bd468
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>Zelfstudie: Azure Active Directory-integratie met wachtwoordbeheer houder & digitale kluis
 
@@ -29,7 +29,7 @@ Wachtwoordbeheer houder & digitale kluis integreren met Azure AD biedt de volgen
 - U kunt uw gebruikers automatisch ophalen aangemeld bij houder wachtwoordbeheer & digitale kluis (Single Sign-On) inschakelen met hun Azure AD-accounts
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,11 +110,11 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-keeperpasswordmanager-tutorial/tutorial_keeper_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://{SSO CONNECT SERVER}/sso-connect/saml/login`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://{SSO CONNECT SERVER}/sso-connect/saml/login`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://{SSO CONNECT SERVER}/sso-connect/saml/sso`
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://{SSO CONNECT SERVER}/sso-connect/saml/sso`
 
-    c. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://{SSO CONNECT SERVER}/sso-connect`
+    c. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://{SSO CONNECT SERVER}/sso-connect`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke antwoord-URL en de aanmeldings-URL. Neem contact op met [houder wachtwoordbeheer & digitale kluis Client ondersteuningsteam](https://keepersecurity.com/contact.html) ophalen van deze waarden. 
@@ -208,10 +208,10 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 
 Als u op de tegel houder wachtwoordbeheer & digitale kluis in het deelvenster toegang, krijgt u de aanmeldingspagina van houder wachtwoordbeheer & digitale kluis toepassing. Op de geslaagde verificatie, moet u in de toepassing ophalen. Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

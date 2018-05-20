@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: adac71abf24f377df078e793f7902ace80a0f572
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bab11e9bfa92fcecf614ef9edeb79ceec5e13f3b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-frankly"></a>Zelfstudie: Azure Active Directory-integratie met & eerlijk gezegd
 
@@ -29,7 +29,7 @@ Integratie van & eerlijk gezegd met Azure AD biedt u de volgende voordelen:
 - U kunt uw gebruikers automatisch aangemelde op & eerlijk gezegd inschakelen (Single Sign-On) met hun Azure AD-accounts
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,15 +110,15 @@ In deze sectie kunt u Azure AD eenmalige aanmelding in de Azure portal inschakel
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_url.png)
 
-    a. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/metadata.php/<tenant id>`
+    a. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/metadata.php/<tenant id>`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/saml2-acs.php/<tenant id>`
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/saml2-acs.php/<tenant id>`
 
 4. Controleer **weergeven geavanceerde instellingen voor URL**. Als u wilt configureren van de toepassing in **SP** modus gestart:
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-andfrankly-tutorial/tutorial_andfrankly_url1.png)
 
-    In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://andfrankly.com/saml/okta/?saml_sso=<tenant id>`
+    In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://andfrankly.com/saml/okta/?saml_sso=<tenant id>`
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke-id en eenmalige aanmelding en antwoord-URL. Neem contact op met [andfrankly ondersteuningsteam](mailto:help@andfrankly.com) ophalen van deze waarden.
 
@@ -206,10 +206,10 @@ Het doel van deze sectie is het testen van uw Azure AD SSO-configuratie met behu
 
 Wanneer u klikt op de & eerlijk gezegd tegel in het deelvenster toegang, krijgt u automatisch aangemeld bij uw & eerlijk gezegd groep
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 9ac65791e8d50d5e5da5d36adee14cd0e88a3da8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1d5434c57a95e53e4fe37c33f3fe11585fc3177f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-zpa"></a>Zelfstudie: Azure Active Directory-integratie met Zscaler persoonlijke toegang (ZPA)
 
@@ -29,7 +29,7 @@ Zscaler persoonlijke toegang (ZPA) integreren met Azure AD biedt de volgende voo
 - U kunt uw gebruikers automatisch ophalen aangemelde naar Zscaler persoonlijke toegang (ZPA) (Single Sign-On) inschakelen met hun Azure AD-accounts
 - U kunt uw accounts op één centrale locatie - en de Azure Management portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -115,9 +115,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure-beheerport
     
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_01.png)
 
-    a. In de **aanmelding op URL** textbox, typ een URL met het volgende patroon volgen:`https://samlsp.private.zscaler.com/auth/login?domain=<your-domain-name>`
+    a. In de **aanmelding op URL** textbox, typ een URL met het volgende patroon volgen: `https://samlsp.private.zscaler.com/auth/login?domain=<your-domain-name>`
 
-    b. In de **id** textbox, type:`https://samlsp.private.zscaler.com/auth/metadata`
+    b. In de **id** textbox, type: `https://samlsp.private.zscaler.com/auth/metadata`
 
     > [!NOTE] 
     > Houd er rekening mee dat deze niet de werkelijke waarden zijn. U hebt deze waarden bijwerken met het werkelijke aanmelding op de URL en de id. Hier raden we u voor het gebruik van de unieke waarde van de URL in de id. Neem contact op met [Zscaler persoonlijke toegang (ZPA) ondersteuningsteam](https://help.zscaler.com/zpa-submit-ticket) ophalen van deze waarden.
@@ -239,10 +239,10 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 Als u op de tegel Zscaler persoonlijke toegang (ZPA) in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Zscaler persoonlijke toegang (ZPA).
 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

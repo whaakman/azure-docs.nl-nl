@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: d1c9f4dd8504c2409663cb87b0c0d56164229ed2
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 1d31b11c3307cc2e54b91e68e1e1a3811ae2ef96
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="how-does-azure-ad-application-proxy-provide-single-sign-on"></a>Hoe biedt Azure AD-toepassingsproxy eenmalige aanmelding
 
@@ -60,7 +60,7 @@ Zie voor meer informatie over het instellen van wachtwoorden gebaseerde aanmeldi
 
 Als u al een oplossing voor eenmalige aanmelding instellen voor uw on-premises identiteiten, kiest u **gekoppelde aanmelding**. Deze optie kunt Azure Active Directory voor het benutten van bestaande oplossingen voor eenmalige aanmelding, maar nog steeds geeft uw gebruikers externe toegang tot de toepassing. 
 
-Zie voor meer informatie over de gekoppelde aanmelding (voorheen bekend als bestaande eenmalige aanmelding) [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
+Zie voor meer informatie over de gekoppelde aanmelding (voorheen bekend als bestaande eenmalige aanmelding) [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ## <a name="integrated-windows-authentication"></a>Geïntegreerde Windows-verificatie
 

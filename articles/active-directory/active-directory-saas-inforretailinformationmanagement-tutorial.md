@@ -1,6 +1,6 @@
 ---
-title: "Zelfstudie: Azure Active Directory-integratie met informatie Retail – informatiebeheer | Microsoft Docs"
-description: "Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en informatie Retail – informatiebeheer."
+title: 'Zelfstudie: Azure Active Directory-integratie met informatie Retail – informatiebeheer | Microsoft Docs'
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en informatie Retail – informatiebeheer.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: jeedes
-ms.openlocfilehash: f31f493e06dc8b097a1ba24da19404a7584046c5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7aecd00032e7e16d6f1586e409fa552c4f0795d7
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-retail--information-management"></a>Zelfstudie: Azure Active Directory-integratie met informatie Retail – informatiebeheer
 
@@ -30,7 +30,7 @@ Integratie van informatie Retail – informatiebeheer met Azure AD biedt de volg
 - U kunt uw gebruikers automatisch ophalen aangemeld bij informatie Retail – informatiebeheer (Single Sign-On) inschakelen met hun Azure AD-accounts.
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -114,13 +114,13 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     | `https://<company name>.mingle.infor.com` |
     | `http://<company name>.mingledev.infor.com` |
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<company name>.mingle.infor.com/sp/ACS.saml2`
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<company name>.mingle.infor.com/sp/ACS.saml2`
 
 4. Controleer **weergeven geavanceerde instellingen voor URL** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
 
     ![Informatie Retail – informatie beheerdomein en URL's eenmalige aanmelding informatie SP](./media/active-directory-saas-inforretailinformationmanagement-tutorial/tutorial_inforretailinformationmanagement_url1.png)
 
-    In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<company name>.mingle.infor.com/<company code>`
+    In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<company name>.mingle.infor.com/<company code>`
      
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke id, antwoord-URL en aanmeldings-URL. Neem contact op met [informatie Retail – informatie Beheerclient ondersteuningsteam](mailto:innovate@infor.com) ophalen van deze waarden. 
@@ -204,17 +204,17 @@ In deze sectie maakt inschakelen u Britta Simon gebruikt Azure eenmalige aanmeld
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
 Wanneer u klikt op de informatie handelsversie – informatiebeheer tegel in het deelvenster toegang u moet ophalen automatisch aangemeld bij uw informatie Retail – informatie Management-toepassing.
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

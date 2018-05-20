@@ -1,6 +1,6 @@
 ---
-title: "Zelfstudie: Azure Active Directory-integratie met IBM Kenexa enquête Enterprise | Microsoft Docs"
-description: "Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en IBM Kenexa enquête Enterprise."
+title: 'Zelfstudie: Azure Active Directory-integratie met IBM Kenexa enquête Enterprise | Microsoft Docs'
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en IBM Kenexa enquête Enterprise.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 929ae8b780c0e18074832adfefb9a7674097fd08
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 88e0072adeeebaf6c9e964db28a45f6fe038fddf
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ibm-kenexa-survey-enterprise"></a>Zelfstudie: Azure Active Directory-integratie met IBM Kenexa enquête Enterprise
 
@@ -29,7 +29,7 @@ IBM Kenexa enquête Enterprise integreren met Azure AD biedt de volgende voordel
 - U kunt uw gebruikers automatisch aanmelden bij IBM Kenexa enquête Enterprise met behulp van eenmalige aanmelding (SSO) met hun Azure AD-accounts kunt inschakelen.
 - U kunt uw accounts op één locatie beheren: de Azure-portal.
 
-Als u meer weten over software als een dienst (SaaS)-app-integratie met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Als u meer weten over software als een dienst (SaaS)-app-integratie met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -102,9 +102,9 @@ In dit gedeelte Azure AD-eenmalige aanmelding inschakelen in de Azure-portal en 
 
     ![IBM Kenexa enquête Enterprise domein en de URL's van eenmalige aanmelding informatie](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_kenexasurvey_url.png)
 
-    a. In de **id** textbox type een URL met het volgende patroon volgen:`https://surveys.kenexa.com/<companycode>`
+    a. In de **id** textbox type een URL met het volgende patroon volgen: `https://surveys.kenexa.com/<companycode>`
 
-    b. In de **antwoord-URL** textbox type een URL met het volgende patroon volgen:`https://surveys.kenexa.com/<companycode>/tools/sso.asp`
+    b. In de **antwoord-URL** textbox type een URL met het volgende patroon volgen: `https://surveys.kenexa.com/<companycode>/tools/sso.asp`
 
     > [!NOTE] 
     > De voorgaande waarden zijn niet echt. Deze bijwerken met de werkelijke-id en antwoord-URL. De werkelijke waarden, neem contact op met de [IBM Kenexa enquête Enterprise ondersteuningsteam](https://www.ibm.com/support/home/?lnk=fcw).
@@ -202,16 +202,16 @@ Gebruiker Britta Simon om aan te wijzen IBM Kenexa enquête Enterprise, het volg
 
 7. In de **toevoegen toewijzing** in het dialoogvenster, klikt u op de **toewijzen** knop.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u de configuratie van uw Azure AD SSO testen met behulp van het toegangsvenster.
 
 Wanneer u klikt op de **IBM Kenexa enquête Enterprise** tegel in het deelvenster toegang u moet worden automatisch aangemeld bij uw toepassing IBM Kenexa enquête Enterprise.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

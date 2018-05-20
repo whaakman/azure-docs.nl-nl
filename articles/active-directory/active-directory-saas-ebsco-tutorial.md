@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: jeedes
-ms.openlocfilehash: ea7fe09c31d88cf2095b3a3777b6b1f9feb8df46
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9da10e134db019162abdff35a8eb742ccdc30626
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ebsco"></a>Zelfstudie: Azure Active Directory-integratie met EBSCO
 
@@ -30,7 +30,7 @@ EBSCO integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij EBSCO (Single Sign-On) met hun Azure AD-accounts kunt inschakelen.
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -106,13 +106,13 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![URL's en EBSCO domein eenmalige aanmelding informatie](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_url.png)
 
-    In de **id** textbox, typ een URL:`pingsso.ebscohost.com`
+    In de **id** textbox, typ een URL: `pingsso.ebscohost.com`
 
 4. Controleer **weergeven geavanceerde instellingen voor URL** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
 
     ![URL's en EBSCO domein eenmalige aanmelding informatie](./media/active-directory-saas-ebsco-tutorial/tutorial_ebsco_url1.png)
 
-    In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`http://search.ebscohost.com/login.aspx?authtype=sso&custid=<unique EBSCO customer ID>&profile=<profile ID>`
+    In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `http://search.ebscohost.com/login.aspx?authtype=sso&custid=<unique EBSCO customer ID>&profile=<profile ID>`
      
     > [!NOTE] 
     > De waarde van de aanmeldings-URL is geen echte. Werk de waarde met de werkelijke URL voor eenmalige aanmelding. Neem contact op met [EBSCO Client ondersteuningsteam](mailto:sso@ebsco.com) de waarde op te halen. 
@@ -134,9 +134,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     
     | Naam kenmerk | Waarde kenmerk |
     | ---------------| --------------- |    
-    | FirstName   | user.givenname |
+    | Voornaam   | User.givenName |
     | LastName   | User.surname |
-    | E-mail   | User.mail |
+    | Email   | User.mail |
 
     a. Klik op **toevoegen kenmerk** openen de **kenmerk toevoegen** dialoogvenster.
 
@@ -236,7 +236,7 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
@@ -256,7 +256,7 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

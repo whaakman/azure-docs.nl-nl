@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 72ba6b9f02bc36b46628394afdb29acc6a2fa332
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 28ce4cf68b6d3204e42bcf4db38846f262c9bc9e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trakstar"></a>Zelfstudie: Azure Active Directory-integratie met Trakstar
 
@@ -29,7 +29,7 @@ Trakstar integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Trakstar (Single Sign-On) met hun Azure AD-accounts inschakelen
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -111,9 +111,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-trakstar-tutorial/tutorial_trakstar_url.png)
 
-    a. In de **aanmeldings-URL** textbox-, Kopieer de waarde gevonden in de **ACS (consument) URL** binnen Trakstar (instellingen > verificatie en eenmalige aanmelding) in de indeling:`https://app.trakstar.com/auth/saml/callback?namespace=<YOUR_NAMESPACE>`
+    a. In de **aanmeldings-URL** textbox-, Kopieer de waarde gevonden in de **ACS (consument) URL** binnen Trakstar (instellingen > verificatie en eenmalige aanmelding) in de indeling: `https://app.trakstar.com/auth/saml/callback?namespace=<YOUR_NAMESPACE>`
 
-    b. In de **id** textbox laat de standaardwaarde:`https://app.trakstar.com`
+    b. In de **id** textbox laat de standaardwaarde: `https://app.trakstar.com`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Meld u bij Trakstar als een beheerder om deze waarden.
@@ -208,10 +208,10 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.  
 Als u op de tegel Trakstar in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Trakstar. 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

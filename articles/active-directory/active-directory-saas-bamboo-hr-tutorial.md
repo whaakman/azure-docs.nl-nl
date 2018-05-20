@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 081144a645683d4d00ed0d464e23558378dc1b38
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c63a625c1eca7008c751d6904f182f76ee5f343b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bamboohr"></a>Zelfstudie: Azure Active Directory-integratie met BambooHR
 
@@ -30,7 +30,7 @@ BambooHR integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij BambooHR via eenmalige aanmelding (SSO) met hun Azure AD-accounts kunt inschakelen.
 - U kunt uw accounts op één centrale locatie, de Azure-portal beheren.
 
-Zie voor meer informatie over de integratie met Azure AD SaaS [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Zie voor meer informatie over de integratie met Azure AD SaaS [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -187,7 +187,7 @@ Om Azure AD-gebruikers aan te melden bij BambooHR, handmatig instellen in Bamboo
    
     ![De knop instellingen](./media/active-directory-saas-bamboo-hr-tutorial/IC796694.png "instelling")
 
-3. Selecteer **overzicht**.
+3. Selecteer **Overzicht**.
 
 4. Selecteer in het linkerdeelvenster **beveiliging** > **gebruikers**.
 
@@ -228,7 +228,7 @@ Gebruiker Britta Simon om aan te wijzen BambooHR, het volgende doen:
 
 7. In de **toevoegen toewijzing** Selecteer de **toewijzen** knop.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 De configuratie van de Azure AD SSO testen met behulp van het toegangsvenster.
 
@@ -239,7 +239,7 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

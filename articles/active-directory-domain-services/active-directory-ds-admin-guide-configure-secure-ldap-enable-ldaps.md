@@ -2,7 +2,7 @@
 title: Beveiligde LDAP (LDAPS) in Azure AD Domain Services configureren | Microsoft Docs
 description: Beveiligde LDAP (LDAPS) voor een beheerd domein van Azure AD Domain Services configureren
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: maheshu
-ms.openlocfilehash: 8b6c1dec6f97311e5fb92f2adef8685b59cbeb2c
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 8da03990ace37b527553b0fe3ff0032515e1b812
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Beveiligde LDAP (LDAPS) voor een beheerd domein van Azure AD Domain Services configureren
 
@@ -105,7 +105,7 @@ De volgende tabel ziet u een voorbeeld van een NSG die u configureren kunt, als 
 
 ![Voorbeeld NSG LDAPS om toegang te beveiligen via internet](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
 
-**Meer informatie** - [Netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md).
+**Meer informatie** - [Netwerkbeveiligingsgroepen](../virtual-network/security-overview.md).
 
 <br>
 
@@ -128,5 +128,5 @@ Als u nog steeds problemen ondervindt verbinding te maken met het beheerde domei
 * [Azure AD Domain Services - handleiding aan de slag](active-directory-ds-getting-started.md)
 * [Een beheerd domein van Azure AD Domain Services beheren](active-directory-ds-admin-guide-administer-domain.md)
 * [Groepsbeleid voor een Azure AD Domain Services beheerd domein beheren](active-directory-ds-admin-guide-administer-group-policy.md)
-* [Netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md)
+* [Netwerkbeveiligingsgroepen](../virtual-network/security-overview.md)
 * [Een Netwerkbeveiligingsgroep maken](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)

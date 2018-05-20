@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 10ce59668127ff918a85caf537e8ab495c542278
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 48aee4565548fd57ef9925a41299b06660df2718
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-marketo"></a>Zelfstudie: Azure Active Directory-integratie met Marketo
 
@@ -29,7 +29,7 @@ Marketo integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Marketo (Single Sign-On) met hun Azure AD-accounts inschakelen
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,9 +110,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_url.png)
 
-    a. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://saml.marketo.com/sp`
+    a. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://saml.marketo.com/sp`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://login.marketo.com/saml/assertion/\<munchkinid\>`
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://login.marketo.com/saml/assertion/\<munchkinid\>`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke id en de antwoord-URL. Neem contact op met [Marketo-ondersteuningsteam](http://investors.marketo.com/contactus.cfm) ophalen van deze waarden.
@@ -174,7 +174,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     > [!NOTE]
     > Als uw gebruikers-id geen UPN-naam en wijzig de waarde in het tabblad kenmerk is.
    
-    ik. Upload het certificaat dat u hebt gedownload van Azure AD-configuratiewizard. **Sla** de instellingen.
+    i. Upload het certificaat dat u hebt gedownload van Azure AD-configuratiewizard. **Sla** de instellingen.
    
     j. Bewerk de instellingen voor pagina's omleiden.
    
@@ -312,10 +312,10 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 
 Als u op de Marketo-tegel in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Marketo.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

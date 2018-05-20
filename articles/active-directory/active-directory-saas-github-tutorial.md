@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.openlocfilehash: 2a0e1df5244ef977bdcccc5bcfea615a05efa3bd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ef9d0bb112738e9abea5894fb0f321368b7fc26e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>Zelfstudie: Azure Active Directory-integratie met GitHub
 
@@ -30,7 +30,7 @@ GitHub integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij GitHub (Single Sign-On) met hun Azure AD-accounts inschakelen
 - U kunt uw accounts op één centrale locatie - en de Azure Management portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -116,9 +116,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure-beheerport
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-github-tutorial/tutorial_github_saml011.png)
 
-    a. In de **aanmeldings-URL** textbox, typ de waarde als:`https://github.com/orgs/<entity-id>/sso`
+    a. In de **aanmeldings-URL** textbox, typ de waarde als: `https://github.com/orgs/<entity-id>/sso`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://github.com/orgs/<entity-id>`
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://github.com/orgs/<entity-id>`
 
     > [!NOTE] 
     > Houd er rekening mee dat deze niet de werkelijke waarden zijn. U moet deze waarden bijwerken met de werkelijke Kana-URL en de id. Hier raden we u voor het gebruik van de unieke waarde van een tekenreeks in de id. Ga naar de sectie GitHub Admin naar deze waarden ophaalt. 
@@ -177,7 +177,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure-beheerport
 
     ![Instellingen](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_06.png)
 
-16. Klik op **opslaan**
+16. Klik op **Opslaan**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
 Het doel van deze sectie is het een testgebruiker maken in Azure Management portal Britta Simon aangeroepen.
@@ -281,10 +281,10 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 Als u op de GitHub-tegel in het deelvenster toegang, u moet ophalen aangemeld bij uw GitHub-toepassing. U zult logboekregistratie in als een organisatie account maar moet zich aanmelden met uw persoonlijke account.
 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

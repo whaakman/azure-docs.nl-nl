@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2018
 ms.author: jeedes
-ms.openlocfilehash: e4bb050e96d3e8d9da4666f5418ac3e444f6212d
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 7016208aad3ec60f2db8d071bf67f9dae66a59bd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-grovo"></a>Zelfstudie: Azure Active Directory-integratie met Grovo
 
@@ -30,7 +30,7 @@ Grovo integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Grovo (Single Sign-On) met hun Azure AD-accounts kunt inschakelen.
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -108,9 +108,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![URL's en Grovo domein eenmalige aanmelding informatie](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_url.png)
 
-    a. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<subdomain>.grovo.com/sso/saml2/metadata`
+    a. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<subdomain>.grovo.com/sso/saml2/metadata`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
 4. Controleer **weergeven geavanceerde instellingen voor URL**, voer de volgende stap:
 
@@ -122,7 +122,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![URL's en Grovo domein eenmalige aanmelding informatie](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_url2.png)
     
-    In de **aanmelden URL** textbox, typ een URL met het volgende patroon volgen:`https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
+    In de **aanmelden URL** textbox, typ een URL met het volgende patroon volgen: `https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke-id en antwoord-URL met eenmalige URL en de Relay-status. Neem contact op met [Grovo ondersteuningsteam](https://www.grovo.com/contact-us) ophalen van deze waarden.
@@ -135,10 +135,10 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     
     | Naam kenmerk | Waarde kenmerk |
     | ------------------- | -------------------- |    
-    | Voornaam          | user.givenname |
+    | Voornaam          | User.givenName |
     | Achternaam           | User.surname |
     | E-mailadres       | User.mail    |
-    | Werknemer-id          | user.employeeid |
+    | Werknemer-id          | User.EmployeeID |
 
     a. Klik op **toevoegen kenmerk** openen de **kenmerk toevoegen** dialoogvenster.
 
@@ -262,7 +262,7 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
@@ -272,7 +272,7 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 612a0d298eb1153bc8a64f0d7fbcb4dbd8752672
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b4e1239855756690be7d6c4d1c91eb58ce2aa11f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Zelfstudie: Azure Active Directory-integratie met vice
 
@@ -29,7 +29,7 @@ Vice integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij vice (Single Sign-On) met hun Azure AD-accounts inschakelen
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -152,7 +152,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_url2.png)
 
-    In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<your-subdomain>.<region>.deputy.com`
+    In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<your-subdomain>.<region>.deputy.com`
     
     >[!NOTE]
     > Vice regio achtervoegsel is optioneel, of moet een van de volgende gebruiken: Australië | n.v.t. | EU | als | la | af | een | ent Australië | ent na | ent eu | ent-als | ent la | ent af | ent een
@@ -184,7 +184,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
    
     b. Open uw Base64-gecodeerde certificaat gedownload vanuit Azure-portal in Kladblok, Kopieer de inhoud ervan naar het Klembord en plakt u deze naar de **OpenSSL certificaat** textbox.
    
-    c. Typ in het tekstvak URL van SAML-SSO`https://<your subdomain>.deputy.com/exec/devapp/samlacs?dpLoginTo=<saml sso url>`
+    c. Typ in het tekstvak URL van SAML-SSO `https://<your subdomain>.deputy.com/exec/devapp/samlacs?dpLoginTo=<saml sso url>`
     
     d. Vervang in het tekstvak URL van SAML SSO `<your subdomain>` met een subdomein.
    
@@ -292,10 +292,10 @@ Het doel van deze sectie is het testen van uw Azure AD SSO-configuratie met behu
 
 Als u op de tegel vice in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing vice.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

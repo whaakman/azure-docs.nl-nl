@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: f83d817647a5339176260bfcf73005045f9ead54
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 94c30d39a5d72a022dd77d65141f1af679cf3dd3
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>Zelfstudie: Azure Active Directory-integratie met ScaleX Enterprise
 
@@ -29,7 +29,7 @@ ScaleX-onderneming integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij ScaleX Enterprise (Single Sign-On) inschakelen met hun Azure AD-accounts
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, zien. Wat is er toegang tot toepassingen en eenmalige aanmelding met [Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, zien. Wat is er toegang tot toepassingen en eenmalige aanmelding met [Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,15 +110,15 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_url1.png)
 
-    a. In de **id** textbox, typ de waarde met het volgende patroon volgen:`https://platform.rescale.com/saml2/<company id>/`
+    a. In de **id** textbox, typ de waarde met het volgende patroon volgen: `https://platform.rescale.com/saml2/<company id>/`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://platform.rescale.com/saml2/<company id>/acs/`
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://platform.rescale.com/saml2/<company id>/acs/`
 
 4. Controleer **weergeven geavanceerde instellingen voor URL**, als u wilt configureren van de toepassing in **SP** modus gestart:
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_url2.png)
 
-    In de **aanmeldings-URL** textbox, typ de waarde met het volgende patroon volgen:`https://platform.rescale.com/saml2/<company id>/sso/`
+    In de **aanmeldings-URL** textbox, typ de waarde met het volgende patroon volgen: `https://platform.rescale.com/saml2/<company id>/sso/`
      
     > [!NOTE] 
     > Deze zijn niet de werkelijke waarden. Deze waarden bijwerken met de werkelijke-id, antwoord-URL of aanmeldings-URL. Neem contact op met [ScaleX Enterprise Client ondersteuningsteam](http://info.rescale.com/contact_sales) ophalen van deze waarden. 
@@ -168,7 +168,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     b. **Service Provider saml**: waarde van het plakken ***urn: oasis: namen: tc: SAML:2.0:nameid-indeling: permanente***
 
-    c. **Naam van identiteitsprovider e veld in de ACS-antwoord**: waarde van het plakken`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+    c. **Naam van identiteitsprovider e veld in de ACS-antwoord**: waarde van het plakken `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
     d. **Identiteit EntityDescriptor entiteit-ID van Provider:** plakken de **SAML entiteit-ID** waarde opgehaald uit de Azure-portal.
 
@@ -256,10 +256,10 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 Klik op de tegel ScaleX Enterprise in het deelvenster toegang, u wordt u automatisch aangemeld bij uw toepassing ScaleX Enterprise. Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](https://msdn.microsoft.com/library/dn308586).
 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

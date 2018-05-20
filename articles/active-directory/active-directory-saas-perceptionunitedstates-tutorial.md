@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: d94d233a12e51bf851a791fda481b91c513d64b7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: da0529897bb02745a2346f6a0282be86923468ba
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Zelfstudie: Azure Active Directory-integratie met perceptie Verenigde Staten (niet-UltiPro)
 
@@ -30,7 +30,7 @@ Perceptie Verenigde Staten (niet-UltiPro) integreren met Azure AD biedt de volge
 - U kunt uw gebruikers automatisch ophalen aangemelde naar perceptie Verenigde Staten (niet-UltiPro) (Single Sign-On) met hun Azure AD-accounts kunt inschakelen.
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -108,9 +108,9 @@ In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure por
 
     ![Perceptie Verenigde Staten (niet-UltiPro)-domein en de URL's van eenmalige aanmelding informatie](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_url.png)
 
-    a. In de **id** textbox, typ de URL:`https://perception.kanjoya.com/sp`
+    a. In de **id** textbox, typ de URL: `https://perception.kanjoya.com/sp`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://perception.kanjoya.com/sso?idp=<entity_id>`
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://perception.kanjoya.com/sso?idp=<entity_id>`
 
     > [!NOTE] 
     > De waarde is geen echte. U kunt de waarde wordt bijgewerkt met de werkelijke antwoord-URL, die verderop in de zelfstudie wordt beschreven.
@@ -163,7 +163,7 @@ In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure por
     
     c. In **identiteit providernaam** textbox, plak de waarde van **SAML entiteit-ID**, die u hebt gekopieerd vanuit Azure-portal. 
 
-    d. In **SAML domein textbox**, geef het domein zoals  **@contoso.com** .
+    d. In **SAML domein textbox**, geef het domein zoals **@contoso.com**.
 
     e. Klik op **opnieuw uploaden** voor het uploaden van de **Metadata XML** bestand.
 
@@ -239,17 +239,17 @@ In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding toegang verlee
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
 Als u op de tegel perceptie Verenigde Staten (niet-UltiPro) in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing perceptie Verenigde Staten (niet-UltiPro).
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

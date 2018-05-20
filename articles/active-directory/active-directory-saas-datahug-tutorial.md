@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: jeedes
-ms.openlocfilehash: e032aee88a430fe8ac5fa37229f1eee6fc04f710
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 929b63ea3d78aafe6b96af40b9dce4decbd295b1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-datahug"></a>Zelfstudie: Azure Active Directory-integratie met Datahug
 
@@ -29,7 +29,7 @@ Datahug integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Datahug (Single Sign-On) met hun Azure AD-accounts inschakelen
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, zien. [Wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, zien. [Wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,15 +110,15 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_ur1.png)
 
-    a. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://apps.datahug.com/identity/<uniqueID>`
+    a. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://apps.datahug.com/identity/<uniqueID>`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://apps.datahug.com/identity/<uniqueID>/acs`
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://apps.datahug.com/identity/<uniqueID>/acs`
 
 4. Controleer **weergeven geavanceerde instellingen voor URL**. Als u wilt configureren van de toepassing in **SP** modus gestart:
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_url2.png)
 
-    In de **aanmeldings-URL** textbox, typ een URL als:`https://apps.datahug.com/`
+    In de **aanmeldings-URL** textbox, typ een URL als: `https://apps.datahug.com/`
      
     > [!NOTE] 
     > Deze waarden zijn niet de werkelijke. Deze waarden bijwerken met de werkelijke id en de antwoord-URL. Hier raden we u voor het gebruik van de unieke waarde van een tekenreeks in de id en de antwoord-URL. Neem contact op met [Datahug Client ondersteuningsteam](http://datahug.com/about/contact-us/) ophalen van deze waarden. 
@@ -240,10 +240,10 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 Als u op de tegel Datahug in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Datahug. Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](https://msdn.microsoft.com/library/dn308586). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

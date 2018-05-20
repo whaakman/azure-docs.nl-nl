@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
-ms.openlocfilehash: fae6a376d4a53a23e22e585c63d97f22ca76c66d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b6f839ace5d80d41b242992feba8dea546b51c2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Zelfstudie: Azure Active Directory-integratie met HR2day door Merces
 
@@ -29,7 +29,7 @@ HR2day door Merces integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij HR2day door Merces met hun Azure AD-accounts kunt inschakelen.
 - U kunt uw accounts op één centrale locatie--de Azure-portal beheren.
 
-Zie voor meer informatie over de integratie met Azure AD SaaS [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Zie voor meer informatie over de integratie met Azure AD SaaS [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -152,7 +152,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     e. Voor **tekenreeks2**, typt u de unieke id die wordt geleverd door uw team HR2day.
 
-    f. In de **scheidingsteken** in het vak  **@** .
+    f. In de **scheidingsteken** in het vak **@**.
     
     g. Selecteer **Ok**.
 
@@ -241,16 +241,16 @@ In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding gebruiken door
 
 7. In de **toevoegen toewijzing** dialoogvenster, **toewijzen**.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 Het doel van deze sectie is het testen van uw configuratie Azure AD eenmalige aanmelding met behulp van het toegangsvenster.  
 
 Wanneer u de HR2day door Merces-tegel in het toegangsvenster selecteert, ophalen u automatisch aangemeld bij uw HR2day door Merces toepassing.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

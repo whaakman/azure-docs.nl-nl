@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 924abe287b5e39bb77a418b56b5c33195095e07a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 539de49f24b2ca0c9b70be5a339625c1e14edc44
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Zelfstudie: Azure Active Directory-integratie met Pega systemen
 
@@ -30,7 +30,7 @@ Pega systemen integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Pega systemen (Single Sign-On) inschakelen met hun Azure AD-accounts.
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -108,15 +108,15 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![URL's en Pega systemen domein eenmalige aanmelding informatie](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_url.png)
 
-    a. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<CUSTOMERNAME>.pegacloud.io:443/prweb/sp/<INSTANCEID>`
+    a. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<CUSTOMERNAME>.pegacloud.io:443/prweb/sp/<INSTANCEID>`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<CUSTOMERNAME>.pegacloud.io:443/prweb/PRRestService/WebSSO/SAML/AssertionConsumerService`
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<CUSTOMERNAME>.pegacloud.io:443/prweb/PRRestService/WebSSO/SAML/AssertionConsumerService`
 
 4. Controleer **weergeven geavanceerde instellingen voor URL** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
 
     ![URL's en Pega systemen domein eenmalige aanmelding informatie](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_url1.png)
 
-    In de **Relay status** textbox, typ een URL met het volgende patroon volgen:`https://<CUSTOMERNAME>.pegacloud.io/prweb/sso`
+    In de **Relay status** textbox, typ een URL met het volgende patroon volgen: `https://<CUSTOMERNAME>.pegacloud.io/prweb/sso`
      
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke id, antwoord-URL en Relay status URL. U vindt de waarden van de id en de antwoord-URL van Pega-toepassing die verderop in deze zelfstudie wordt beschreven. Voor de status van de Relay, neem contact op met [Pega Systems Client ondersteuningsteam](https://www.pega.com/contact-us) de waarde op te halen. 
@@ -127,11 +127,11 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 6. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de voorgaande afbeelding en de volgende stappen uitvoeren:
     
-    | Kenmerknaam | Waarde kenmerk |
+    | Naam kenmerk | Waarde kenmerk |
     | ------------------- | -------------------- |    
     | UID | *********** |
     | algemene naam  | *********** |
-    | E-mail | *********** |
+    | mail | *********** |
     | accessgroup | *********** |
     | Organisatie | *********** |
     | orgdivision | *********** |
@@ -197,7 +197,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     c. Selecteer **aanvraag ondertekening uitschakelen**.
 
-15. Klik op **opslaan**
+15. Klik op **Opslaan**.
     
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -269,17 +269,17 @@ In deze sectie maakt inschakelen u Britta Simon Azure eenmalige aanmelding gebru
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
 Als u op de tegel Pega systemen in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Pega systemen.
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

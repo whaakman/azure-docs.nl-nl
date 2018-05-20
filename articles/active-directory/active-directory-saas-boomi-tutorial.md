@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 6d1af05f40d6e57b2f6128261828791be7e516c7
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: bd0b5cd66718ca0eeb9fa90366b90a899181e912
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-boomi"></a>Zelfstudie: Azure Active Directory-integratie met Boomi
 
@@ -30,7 +30,7 @@ Boomi integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Boomi (Single Sign-On) met hun Azure AD-accounts kunt inschakelen.
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -108,9 +108,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![URL's en Boomi domein eenmalige aanmelding informatie](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_url.png)
 
-    a. In de **id** textbox, typ een URL:`https://platform.boomi.com/`
+    a. In de **id** textbox, typ een URL: `https://platform.boomi.com/`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://platform.boomi.com/sso/<boomi-tenant>/saml`
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://platform.boomi.com/sso/<boomi-tenant>/saml`
 
     > [!NOTE] 
     > De antwoord-URL-waarde is geen echte. Werk de waarde met de werkelijke antwoord-URL. Neem contact op met [Boomi ondersteuningsteam](https://boomi.com/company/contact/) de waarde op te halen.
@@ -214,7 +214,7 @@ Om Azure AD-gebruikers zich aanmelden bij Boomi inschakelt, moeten ze worden ing
 
     ![Gebruikers](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_001.png "gebruikers")
 
-3. Klik op  **+**  pictogram en de **toevoegen/onderhouden gebruikersrollen** dialoogvenster wordt geopend.
+3. Klik op **+** pictogram en de **toevoegen/onderhouden gebruikersrollen** dialoogvenster wordt geopend.
 
     ![Gebruikers](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_002.png "gebruikers")
 
@@ -265,7 +265,7 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
@@ -275,7 +275,7 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

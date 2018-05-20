@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: c851c056095ef8e7fb40d7d2ead76457495b2118
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 43355374436cb9efac82cf118fce285c01a59175
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---globalprotect"></a>Zelfstudie: Azure Active Directory-integratie met netwerken Palo Alto - GlobalProtect
 
@@ -30,7 +30,7 @@ Netwerken Palo Alto - GlobalProtect met Azure AD integreren biedt de volgende vo
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Palo Alto Networks - GlobalProtect (Single Sign-On) met hun Azure AD-accounts kunt inschakelen.
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -108,9 +108,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Netwerken voor Palo Alto - GlobalProtect domein en één URL's aanmelding informatie](./media/active-directory-saas-paloaltoglobalprotect-tutorial/tutorial_paloaltoglobal_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<Customer Firewall URL>`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<Customer Firewall URL>`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<Customer Firewall URL>/SAML20/SP`
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<Customer Firewall URL>/SAML20/SP`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [Palo Alto Networks - ondersteuningsteam GlobalProtect Client](https://support.paloaltonetworks.com/support) ophalen van deze waarden. 
@@ -123,7 +123,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     
     | Naam kenmerk | Waarde kenmerk |
     | --- | --- |    
-    | gebruikersnaam | user.userprincipalname |
+    | gebruikersnaam | User.userPrincipalName |
 
     a. Klik op **toevoegen kenmerk** openen de **kenmerk toevoegen** dialoogvenster.
 
@@ -236,7 +236,7 @@ In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding gebruiken door
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
@@ -246,7 +246,7 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

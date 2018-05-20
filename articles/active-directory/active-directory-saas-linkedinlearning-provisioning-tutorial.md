@@ -2,7 +2,7 @@
 title: 'Zelfstudie: LinkedIn Learning configureren voor het automatisch gebruikers inrichten met Azure Active Directory | Microsoft Docs'
 description: Informatie over het configureren van Azure Active Directory voor het automatisch inrichten en gebruikersaccounts aan LinkedIn Learning ongedaan in te richten.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
 manager: mtillman
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: f2ef582bd3a5ecd837dd053067cae6c1ea47b6f8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: da39a31777323535c90b4d57e316741295aa873a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-linkedin-learning-for-automatic-user-provisioning"></a>Zelfstudie: LinkedIn Learning configureren voor het automatisch gebruikers inrichten
 
@@ -99,7 +99,7 @@ De eerste stap is om op te halen van uw toegangstoken LinkedIn. Als u een ondern
 
 11)  Vul de volgende velden onder **beheerdersreferenties** :
 
-* In de **Tenant-URL** Voer https://api.linkedin.com.
+* In de **Tenant-URL** veld https://api.linkedin.com.
 
 * In de **geheim Token** veld, voer het toegangstoken dat u in stap 1 hebt gemaakt en klik op **testverbinding** .
 
@@ -124,4 +124,4 @@ Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [ra
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Het beheren van gebruikers account inrichten voor zakelijke Apps](active-directory-enterprise-apps-manage-provisioning.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)

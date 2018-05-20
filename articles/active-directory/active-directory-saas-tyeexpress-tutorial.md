@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: jeedes
-ms.openlocfilehash: 09ce6851013e05859572bd00215a9f751db4ca53
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8d3980b6169c8a9fc60c04e527814159082a46e4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Zelfstudie: Azure Active Directory-integratie met T & E Express
 
@@ -29,7 +29,7 @@ D & E Express integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij d & E Express (Single Sign-On) met hun Azure AD-accounts inschakelen
 - U kunt uw accounts op één centrale locatie - en de Azure Management portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,9 +110,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure-beheerport
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-tyeexpress-tutorial/tutorial_tyeexpress_url.png)
 
-    a. In de **id** textbox, typ de waarde als:`https://<domain>.tyeexpress.com`
+    a. In de **id** textbox, typ de waarde als: `https://<domain>.tyeexpress.com`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<domain>.tyeexpress.com/authorize/samlConsume.aspx`
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<domain>.tyeexpress.com/authorize/samlConsume.aspx`
 
     > [!NOTE] 
     > Houd er rekening mee dat deze niet de werkelijke waarden zijn. U hebt deze waarden bijwerken met de werkelijke id en de antwoord-URL. Hier raden we u voor het gebruik van de unieke waarde van een tekenreeks in de id. Neem contact op met [d & E Express ondersteuningsteam](http://www.tyeexpress.com/contacto.aspx) ophalen van deze waarden.
@@ -182,7 +182,7 @@ In geval van een T & E Express is inrichting een handmatige taak.
 
     ![Werknemer toevoegen](./media/active-directory-saas-tyeexpress-tutorial/tye-adminusers.png)
 
-3. Klik op de startpagina op  **+**  de gebruikers toe te voegen.
+3. Klik op de startpagina op **+** de gebruikers toe te voegen.
 
     ![Werknemer toevoegen](./media/active-directory-saas-tyeexpress-tutorial/tye-usershome.png)
 
@@ -229,10 +229,10 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 
 Als u op de tegel d & E Express in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing d & E Express.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

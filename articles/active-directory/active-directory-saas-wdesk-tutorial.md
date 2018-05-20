@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 9338c8b8ef740885562ea3f2f1ac316b2a0783fb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c55b9c32ccf6712da69c869a6f44c71e1c209627
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wdesk"></a>Zelfstudie: Azure Active Directory-integratie met Wdesk
 
@@ -29,7 +29,7 @@ Wdesk integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Wdesk (Single Sign-On) met hun Azure AD-accounts inschakelen
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, zien. [Wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, zien. [Wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,15 +110,15 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-wdesk-tutorial/tutorial_wdesk_url.png)
 
-    a. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<subdomain>.wdesk.com/auth/saml/sp/metadata/<instancename>`
+    a. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<subdomain>.wdesk.com/auth/saml/sp/metadata/<instancename>`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<subdomain>.wdesk.com/auth/saml/sp/consumer/<instancename>`
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<subdomain>.wdesk.com/auth/saml/sp/consumer/<instancename>`
 
 4. Controleer **weergeven geavanceerde instellingen voor URL**. Als u wilt configureren van de toepassing in **SP** geïnitieerd modus, voer de volgende stap:
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-wdesk-tutorial/tutorial_wdesk_url1.png)
 
-    In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<subdomain>.wdesk.com/auth/login/saml/<instancename>`
+    In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<subdomain>.wdesk.com/auth/login/saml/<instancename>`
      
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke id, antwoord-URL en aanmeldings-URL. U krijgt deze waarden van de portal WDesk bij het configureren van de SSO. 
@@ -216,7 +216,7 @@ Om Azure AD-gebruikers zich aanmelden bij Wdesk, moeten ze worden ingericht in W
    
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-wdesk-tutorial/createuser1.png)  
 
-5. In **gebruiker** tekst en voer de gebruikersnaam van de gebruiker zoals  **brittasimon@contoso.com**  en klik op **doorgaan** knop.
+5. In **gebruiker** tekst en voer de gebruikersnaam van de gebruiker zoals **brittasimon@contoso.com** en klik op **doorgaan** knop.
 
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-wdesk-tutorial/createuser3.png)
 
@@ -224,7 +224,7 @@ Om Azure AD-gebruikers zich aanmelden bij Wdesk, moeten ze worden ingericht in W
   
     ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-wdesk-tutorial/createuser4.png)
  
-    a. In **e** tekst en voer het e-mailadres van de gebruiker zoals  **brittasimon@contoso.com** .
+    a. In **e** tekst en voer het e-mailadres van de gebruiker zoals **brittasimon@contoso.com**.
 
     b. In **voornaam** tekst en voer de voornaam van de gebruiker zoals **Britta**.
 
@@ -272,10 +272,10 @@ Als u op de tegel Wdesk in het deelvenster toegang, u moet ophalen automatisch a
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md).
 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

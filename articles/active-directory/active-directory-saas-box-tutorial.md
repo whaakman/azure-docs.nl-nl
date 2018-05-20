@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/8/2017
 ms.author: jeedes
-ms.openlocfilehash: 638ae63057df00375b05a58e3ceab510e2a608de
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: daad9104798dc02b479b4e022287c3630e4a67a0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="integrate-azure-active-directory-with-box"></a>Azure Active Directory integreren met het selectievakje
 
@@ -30,7 +30,7 @@ Door Azure AD integreren met Box, profiteren van de volgende voordelen:
 - U kunt uw gebruikers krijgen automatisch aangemeld aan vak (eenmalige aanmelding of SSO) met hun Azure AD-accounts kunt inschakelen.
 - U kunt uw accounts op één centrale locatie, de Azure-portal beheren.
 
-Zie voor meer informatie over de integratie van SaaS-app met Azure AD [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Zie voor meer informatie over de integratie van SaaS-app met Azure AD [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -187,7 +187,7 @@ In deze sectie maakt inschakelen u gebruiker Britta Simon gebruikt Azure eenmali
 
 7. In de **toevoegen toewijzing** Selecteer **toewijzen**.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie testen met behulp van het toegangsvenster.
 
@@ -196,7 +196,7 @@ Wanneer u selecteert de **vak** tegel in het deelvenster toegang u opent de aanm
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Gebruikers inrichten configureren](active-directory-saas-box-userprovisioning-tutorial.md)
 
 

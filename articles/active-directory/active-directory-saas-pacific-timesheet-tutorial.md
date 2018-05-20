@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 2aa8de697df3e712265cc7a37495fe9420289cf5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2f29c041c5464277937594a45b816fef395d04e6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pacific-timesheet"></a>Zelfstudie: Azure Active Directory-integratie met Pacific rooster
 
@@ -29,7 +29,7 @@ Pacific rooster integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij rooster Pacific (Single Sign-On) inschakelen met hun Azure AD-accounts
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,9 +110,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-pacific-timesheet-tutorial/tutorial_pacifictimesheet_url.png)
 
-    a. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<InstanceID>.pacifictimesheet.com/timesheet/home.do`
+    a. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<InstanceID>.pacifictimesheet.com/timesheet/home.do`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<InstanceID>.pacifictimesheet.com/timesheet/home.do`
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<InstanceID>.pacifictimesheet.com/timesheet/home.do`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke id en de antwoord-URL. Neem contact op met [Pacific rooster ondersteuningsteam](http://www.pacifictimesheet.com/support) ophalen van deze waarden.
@@ -206,10 +206,10 @@ Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding conf
 
 Als u op de tegel Pacific rooster in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Pacific rooster.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

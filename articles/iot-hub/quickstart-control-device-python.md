@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: ns
 ms.date: 04/30/2018
 ms.author: dobett
-ms.openlocfilehash: 42d70fe28b07f81f4f417612e323359c6dec9468
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b6b8eb7150f276c754e45113b81b4e7fb61cb7ee
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Snelstartgids: Een apparaat beheren dat is verbonden met een IoT-hub (Python)
 
@@ -28,7 +28,7 @@ IoT Hub is een Azure-service waarmee u grote hoeveelheden telemetrie van uw IoT-
 In de snelstartgids worden twee vooraf geschreven Python-toepassingen gebruikt:
 
 * Een toepassing voor een gesimuleerd apparaat die reageert op de directe methoden die worden aangeroepen vanuit een back-endtoepassing. Om de aanroepen van de directe methoden te kunnen ontvangen, maakt deze toepassing verbinding met een apparaatspecifiek eindpunt op uw IoT-hub.
-* Een back-endtoepassing die de directe methoden op het gesimuleerde apparaat aanroept. Om een directe methode op een apparaat aan te roepen, maakt deze toepassing verbinding met een eindpunt aan de servicezijde van uw IoT-hub.
+* Een back-endtoepassing die de directe methoden op het gesimuleerde apparaat aanroept. Als u een directe methode op een apparaat wilt aanroepen, maakt u met deze toepassing verbinding met een eindpunt aan de servicezijde van uw IoT-hub.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -54,13 +54,13 @@ Als u dit nog niet hebt gedaan, downloadt u het voorbeeldproject met Python van 
 
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken
 
-U kunt deze stap overslaan als u eerder deze zelfstudie hebt voltooid: [Snelstartgids: Telemetriegegevens vanaf een apparaat verzenden naar een IoT-hub en de telemetriegegevens op de hub lezen met een back-endtoepassing (Python)](quickstart-send-telemetry-python.md).
+U kunt deze stap overslaan na het afronden van de voorgaande [ snelstartgids: Telemetriegegevens vanaf een apparaat verzenden naar een IoT-hub](quickstart-send-telemetry-python.md).
 
 [!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
 
 ## <a name="register-a-device"></a>Een apparaat registreren
 
-U kunt deze stap overslaan als u eerder deze zelfstudie hebt voltooid: [Snelstartgids: Telemetriegegevens vanaf een apparaat verzenden naar een IoT-hub en de telemetriegegevens op de hub lezen met een back-endtoepassing (Python)](quickstart-send-telemetry-python.md).
+U kunt deze stap overslaan na het afronden van de voorgaande [ snelstartgids: Telemetriegegevens vanaf een apparaat verzenden naar een IoT-hub](quickstart-send-telemetry-python.md).
 
 Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan maken. In deze snelstart gebruikt u de Azure-CLI om een gesimuleerd apparaat te registreren.
 
@@ -68,8 +68,10 @@ Een apparaat moet zijn geregistreerd bij uw IoT-hub voordat het verbinding kan m
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name {YourIoTHubName}--device-id MyPythonDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyPythonDevice
     ```
+
+    Als u een andere naam voor het apparaat kiest, werkt u de apparaatnaam bij in de voorbeeldtoepassingen voordat u ze uitvoert.
 
 1. Voer de volgende opdracht uit om de _apparaatverbindingsreeks_ op te halen voor het apparaat dat u zojuist hebt geregistreerd:
 
@@ -139,7 +141,7 @@ De back-endtoepassing maakt verbinding met een eindpunt aan de servicezijde van 
 
     ![De back-endtoepassing uitvoeren](media/quickstart-control-device-python/BackEndApplication.png)
 
-    Nadat u de back-endtoepassing hebt uitgevoerd, ziet u een bericht in het consolevenster dat het gesimuleerde apparaat wordt uitgevoerd, en ook dat het interval voor het verzenden van berichten is gewijzigd:
+    Nadat u de back-endtoepassing hebt uitgevoerd, ziet u een bericht in het consolevenster dat het gesimuleerde apparaat wordt uitgevoerd, en dat het interval voor het verzenden van berichten is gewijzigd:
 
     ![Wijziging in gesimuleerde client](media/quickstart-control-device-python/SimulatedDevice-2.png)
 
@@ -156,4 +158,4 @@ In deze snelstartgids hebt u vanuit een back-endtoepassing een directe methode o
 Ga verder met de volgende zelfstudie als u wilt leren hoe u berichten van een apparaat naar andere bestemmingen in de cloud kunt routeren.
 
 > [!div class="nextstepaction"]
-> [Routeren van berichten met IoT Hub (Python)](iot-hub-python-python-process-d2c.md)
+> [Zelfstudie: Routeren van telemetriegegevens naar verschillende eindpunten voor verwerking](iot-hub-python-python-process-d2c.md)

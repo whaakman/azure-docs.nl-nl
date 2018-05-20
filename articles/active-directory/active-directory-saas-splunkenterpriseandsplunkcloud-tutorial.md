@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2017
 ms.author: jeedes
-ms.openlocfilehash: fe9a995a32f632c47aeed6d3f12d37a224823f06
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8b06680c872f567cef3fd2821e40a814b834c3a3
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-splunk-enterprise-and-splunk-cloud"></a>Zelfstudie: Azure Active Directory-integratie met Splunk Enterprise en Splunk Cloud
 
@@ -29,7 +29,7 @@ Splunk Enterprise en Splunk Cloud integreren met Azure AD biedt de volgende voor
 - U kunt uw gebruikers automatisch ophalen aangemelde Splunk Enterprise-en Splunk (Single Sign-On) inschakelen met hun Azure AD-accounts
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,11 +110,11 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-splunkenterpriseandsplunkcloud-tutorial/tutorial_splunkenterpriseandsplunkcloud_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<splunkserverUrl>/en-US/app/launcher/home`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<splunkserverUrl>/en-US/app/launcher/home`
     
     b. In de **id** textbox, typ de URL van uw Splunk Server.
 
-    c. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<splunkserver>/saml/acs`
+    c. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<splunkserver>/saml/acs`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke id, antwoord-URL en aanmeldings-URL. Hier raden we u voor het gebruik van de unieke waarde van een tekenreeks in de id. Neem contact op met [Splunk Enterprise- en Cloud-Client Splunk ondersteuningsteam](https://www.splunk.com/content/splunkcom/en_us/about-us/contact.html#tabs/customer-support) ophalen van deze waarden. 
@@ -204,10 +204,10 @@ In deze sectie kunt u uw Azure AD-SSOonfiguration met behulp van het toegangsven
 
 Wanneer u klikt op de onderneming Splunk en Splunk Cloud-tegel in het toegangsvenster, u moet ophalen automatisch aangemeld bij uw toepassing Splunk Enterprise en Splunk Cloud.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 <!--Image references-->

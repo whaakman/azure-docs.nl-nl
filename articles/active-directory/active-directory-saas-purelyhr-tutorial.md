@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 5254f0e043a301cd05b6f00785db48cbc9d02f17
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4bf6dd503e50214185bd1470f0faa57cfce2228f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-purelyhr"></a>Zelfstudie: Azure Active Directory-integratie met PurelyHR
 
@@ -29,7 +29,7 @@ PurelyHR integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij PurelyHR (Single Sign-On) met hun Azure AD-accounts inschakelen
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,13 +110,13 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-purelyhr-tutorial/tutorial_purelyhr_url.png)
    
-    In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<companyID>.purelyhr.com/sso-consume`
+    In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<companyID>.purelyhr.com/sso-consume`
 
 4. Controleer **weergeven geavanceerde instellingen voor URL**, als u wilt configureren van de toepassing in **SP** modus gestart:
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-purelyhr-tutorial/tutorial_purelyhr_url1.png)
     
-    In de **aanmeldings-URL** textbox, typ de waarde met het volgende patroon volgen:`https://<companyID>.purelyhr.com/sso-initiate`
+    In de **aanmeldings-URL** textbox, typ de waarde met het volgende patroon volgen: `https://<companyID>.purelyhr.com/sso-initiate`
      
     > [!NOTE]
     > Deze waarden zijn niet de werkelijke. Deze waarden bijwerken met de werkelijke antwoord-URL en de aanmeldings-URL. Neem contact op met [PurelyHR Client ondersteuningsteam](http://support.purelyhr.com/) ophalen van deze waarden. 
@@ -228,10 +228,10 @@ Klik op de tegel LMS opnemen in het deelvenster toegang, u ophalen automatisch a
 
 Zie voor meer informatie over het toegangsvenster. [Inleiding tot het toegangsvenster](https://msdn.microsoft.com/library/dn308586).
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

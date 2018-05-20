@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: c38d98f790d6b2cfd6553f11cc8317174461967f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f9e87fe54a325f10fd01dbde20041e37c44d51d6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tango-analytics"></a>Zelfstudie: Azure Active Directory-integratie met Tango Analytics
 
@@ -29,7 +29,7 @@ Tango Analytics integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Tango Analytics (Single Sign-On) inschakelen met hun Azure AD-accounts
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,9 +110,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-tangoanalytics-tutorial/tutorial_tangoanalytics_url.png)
 
-    a. In de **id** textbox, typ de waarde`TACORE_SSO`
+    a. In de **id** textbox, typ de waarde `TACORE_SSO`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://mts.tangoanalytics.com/saml2/sp/acs/post`
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://mts.tangoanalytics.com/saml2/sp/acs/post`
 
     > [!NOTE] 
     > De antwoord-URL-waarde is geen echte. Dit bijwerken met de werkelijke antwoord-URL. Neem contact op met [Tango Analytics ondersteuningsteam](mailto:support@tangoanalytics.com) deze waarde op te halen.
@@ -203,10 +203,10 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 Als u op de tegel Tango Analytics in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Tango Analytics.
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md).
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

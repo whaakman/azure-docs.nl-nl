@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 70955676e78642e6c8a6eb85f8165b327baece3f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5f7ad606fc8ee394125300a55dc0586a055a33be
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-123contactform"></a>Zelfstudie: Azure Active Directory-integratie met 123ContactForm
 
@@ -29,7 +29,7 @@ In deze zelfstudie leert u hoe 123ContactForm integreren met Azure Active Direct
 - U kunt uw gebruikers automatisch ophalen aangemeld bij 123ContactForm inschakelen (Single Sign-On) met hun Azure AD-accounts
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,9 +110,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-123contactform-tutorial/url1.png)
 
-    a. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://www.123contactform.com/saml/azure_ad/<tenant_id>/metadata`
+    a. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/metadata`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://www.123contactform.com/saml/azure_ad/<tenant_id>/acs`
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/acs`
 
 4. Als u wilt configureren van de toepassing in **SP geïnitieerd modus**, voer de volgende stappen uit:
 
@@ -120,7 +120,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     a. Klik op de **weergeven geavanceerde instellingen voor URL** optie
 
-    b. In de **aanmelding op URL** textbox, typ een URL als:`https://www.123contactform.com/saml/azure_ad/<tenant_id>/sso`
+    b. In de **aanmelding op URL** textbox, typ een URL als: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/sso`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. U moet deze waarde van de werkelijke URL's en -id die verderop in de zelfstudie wordt uitgelegd bijwerken.
@@ -133,7 +133,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-123contactform-tutorial/tutorial_general_400.png)
 
-7. Eenmalige aanmelding configureren op **123ContactForm** aan clientzijde, gaat u naar [https://www.123contactform.com/form-2709121/](https://www.123contactform.com/form-2709121/) en voer de volgende stappen uit:
+7. Eenmalige aanmelding configureren op **123ContactForm** aan clientzijde, gaat u naar [ https://www.123contactform.com/form-2709121/ ](https://www.123contactform.com/form-2709121/) en voer de volgende stappen uit:
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-123contactform-tutorial/submit.png) 
 
@@ -229,10 +229,10 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 Als u op de tegel 123ContactForm in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing 123ContactForm.
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md).
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

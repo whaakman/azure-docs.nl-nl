@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 05/09/2018
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: fe2133e321b90f8ada91f95ecc2c556631a8b41b
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 5f42a706bd7cb44162765bb77039cc3173d6941e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Uw toepassing weergeven in de Azure Active Directory-toepassingsgalerie
 
@@ -64,7 +64,7 @@ Als een toepassing in de galerie van Azure AD-app wilt weergeven, moet u eerst e
 
     * Als u problemen met betrekking tot toegang hebt, neem dan contact op met de [SSO van Azure AD-integratie Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
-*   **Wachtwoord SSO**: Maak een webtoepassing met een HTML-aanmeldingspagina configureren [op basis van wachtwoorden eenmalige aanmelding](../active-directory-appssoaccess-whatis.md). Op basis van wachtwoorden SSO, ook bekend als wachtwoord vaulting, kunt u voor het beheren van toegang voor gebruikers en wachtwoorden tot webtoepassingen die geen ondersteuning voor identiteitsfederatie. Het is ook nuttig voor scenario's waarin meerdere gebruikers moeten één account, zoals delen op uw organisatie sociale media app accounts.
+*   **Wachtwoord SSO**: Maak een webtoepassing met een HTML-aanmeldingspagina configureren [op basis van wachtwoorden eenmalige aanmelding](../manage-apps/what-is-single-sign-on.md). Op basis van wachtwoorden SSO, ook bekend als wachtwoord vaulting, kunt u voor het beheren van toegang voor gebruikers en wachtwoorden tot webtoepassingen die geen ondersteuning voor identiteitsfederatie. Het is ook nuttig voor scenario's waarin meerdere gebruikers moeten één account, zoals delen op uw organisatie sociale media app accounts.
 
     ![Tijdlijn van het wachtwoord SSO-toepassing in de galerie opsommen](./media/active-directory-app-gallery-listing/passwordsso.png)
 

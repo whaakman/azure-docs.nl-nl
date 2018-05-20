@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 9e3b5ad4487ff1309923a1b0ffac9589084e715b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f257ebe03129501034cca3b3e54e8fc796c357fc
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rally-software"></a>Zelfstudie: Azure Active Directory-integratie met Rally Software
 
@@ -30,7 +30,7 @@ Software Rally integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Rally Software (Single Sign-On) inschakelen met hun Azure AD-accounts.
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -108,9 +108,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Software-domein en de URL's eenmalige aanmelding informatie Rally](./media/active-directory-saas-rally-software-tutorial/tutorial_rallysoftware_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<tenant-name>.rally.com`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<tenant-name>.rally.com`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<tenant-name>.rally.com`
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<tenant-name>.rally.com`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [Rally Software Client ondersteuningsteam](https://help.rallydev.com/) ophalen van deze waarden. 
@@ -203,7 +203,7 @@ Azure AD-gebruikers moeten kunnen aanmelden, als ze worden ingericht voor de Sof
 
     a. In de **gebruikersnaam** textbox, typ de naam van gebruiker, zoals **Brittsimon**.
    
-    b. In **e-mailadres** textbox, voer het e-mailadres van de gebruiker zoals  **brittasimon@contoso.com** .
+    b. In **e-mailadres** textbox, voer het e-mailadres van de gebruiker zoals **brittasimon@contoso.com**.
 
     c. In **voornaam** tekst en voer de voornaam van de gebruiker zoals **Britta**.
 
@@ -244,16 +244,16 @@ In deze sectie maakt inschakelen u Britta Simon Azure eenmalige aanmelding gebru
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
 Als u op de tegel Rally Software in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Rally Software.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 598592d87cf6471a431dab89d19c5e8beb48e661
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 8d51d516d8716c0ac07bc851210733d352c47b6a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-redbrick-health"></a>Zelfstudie: Azure Active Directory-integratie met RedBrick Health
 
@@ -30,7 +30,7 @@ RedBrick Health integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij RedBrick Health (Single Sign-On) inschakelen met hun Azure AD-accounts.
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -108,17 +108,17 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![RedBrick Health domein en de URL's van eenmalige aanmelding informatie](./media/active-directory-saas-redbrickhealth-tutorial/tutorial_redbrickhealth_url.png)
 
-    a. In de **id** textbox, typ een URL:`http://www.redbrickhealth.com`
+    a. In de **id** textbox, typ een URL: `http://www.redbrickhealth.com`
     
-    b. In de **antwoord-URL** textbox, typ een URL:`https://sso-intg.redbrickhealth.com/sp/ACS.saml2`
+    b. In de **antwoord-URL** textbox, typ een URL: `https://sso-intg.redbrickhealth.com/sp/ACS.saml2`
     
-    Voor de productie-omgeving:`https://sso.redbrickhealth.com/sp/ACS.saml2`
+    Voor de productie-omgeving: `https://sso.redbrickhealth.com/sp/ACS.saml2`
 
     c. Klik op **weergeven geavanceerde instellingen voor URL**.
     
     ![RedBrick Health domein en de URL's van eenmalige aanmelding informatie](./media/active-directory-saas-redbrickhealth-tutorial/tutorial_redbrickhealth_url1.png)
 
-    d. In de **Relay status** textbox, typ een URL met het volgende patroon volgen:`https://api-sso2.redbricktest.com/identity/sso/nbound?target=https://vanity9-sso2.redbrickdev.com/portal&connection=<companyname>conn1`
+    d. In de **Relay status** textbox, typ een URL met het volgende patroon volgen: `https://api-sso2.redbricktest.com/identity/sso/nbound?target=https://vanity9-sso2.redbrickdev.com/portal&connection=<companyname>conn1`
     
     > [!NOTE] 
     > Status van de relay-waarde is geen echte. Deze waarde bijwerken met de huidige status van de Relay. Neem contact op met [RedBrick Health ondersteuningsteam](https://home.redbrickhealth.com/contact/) deze waarde op te halen.
@@ -235,7 +235,7 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
@@ -245,7 +245,7 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

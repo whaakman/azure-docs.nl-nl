@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 3ca017dbfe35d291083c66f41868fd425e74a602
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3ad92a3edf8fac79bc9eaa3b4a641b5a03eb4ebe
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>Zelfstudie: Azure Active Directory-integratie met FilesAnywhere
 
@@ -29,7 +29,7 @@ FilesAnywhere integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij FilesAnywhere (Single Sign-On) met hun Azure AD-accounts inschakelen
 - U kunt uw accounts op één centrale locatie - en de Azure Management portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -115,7 +115,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure-beheerport
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-FilesAnywhere-tutorial/tutorial_filesanywhere_url.png)
     
-    a. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<company name>.filesanywhere.com/saml20.aspx?c=215`
+    a. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<company name>.filesanywhere.com/saml20.aspx?c=215`
 > [!NOTE]
 > Houd er rekening mee dat de waarde **215** is een **clientid** en is slechts een voorbeeld. U wilt vervangen door de werkelijke clientid-waarde.
 
@@ -125,7 +125,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure-beheerport
 
     a. Klik op de **weergeven geavanceerde instellingen voor URL** optie
 
-    b. In de **aanmelding op URL** textbox, typ een URL met het volgende patroon volgen:`https://<sub domain>.filesanywhere.com/`
+    b. In de **aanmelding op URL** textbox, typ een URL met het volgende patroon volgen: `https://<sub domain>.filesanywhere.com/`
 
     > [!NOTE] 
     > Houd er rekening mee dat deze niet de werkelijke waarden zijn. U hebt deze waarden bijwerken met de werkelijke aanmelding op de URL en antwoord-URL. Neem contact op met [FilesAnywhere ondersteuningsteam](mailto:support@FilesAnywhere.com) ophalen van deze waarden. 
@@ -141,7 +141,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure-beheerport
 
 6. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de afbeelding hierboven en voer de volgende stappen uit:
     
-    | Kenmerknaam | Waarde kenmerk |
+    | Naam kenmerk | Waarde kenmerk |
     | ---------------| --------------- |    
     | clientid | *'uniquevalue'* |
 
@@ -250,10 +250,10 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 Als u op de tegel FilesAnywhere in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing FilesAnywhere.
 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

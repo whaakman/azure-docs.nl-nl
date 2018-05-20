@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 7271efe4a1cd943f84d322e7333c92d6f60b62aa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5471a4edfc6830367d120580c1c36f30f87a8f90
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp-globalview"></a>Zelfstudie: Azure Active Directory-integratie met ADP Globalview
 
@@ -29,7 +29,7 @@ ADP Globalview integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij ADP Globalview (Single Sign-On) inschakelen met hun Azure AD-accounts
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,7 +110,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-adglobalview-tutorial/tutorial_adpglobalview_url.png)
 
-     In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<subdomain>.globalview.adp.com/federate` of`https://<subdomain>.globalview.adp.com/federate2`
+     In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<subdomain>.globalview.adp.com/federate` of `https://<subdomain>.globalview.adp.com/federate2`
 
     > [!NOTE] 
     > De waarde is geen echte. Werk de waarde met de werkelijke identificatie. Neem contact op met [ADP Globalview ondersteuning](https://www.adp.com/contact-us/overview.aspx) de waarde op te halen.
@@ -127,7 +127,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 7. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de afbeelding en de volgende stappen uitvoeren:
     
-    | Kenmerknaam | Waarde kenmerk |
+    | Naam kenmerk | Waarde kenmerk |
     | ------------------- | -------------------- |    
     | personalimmutableid | User.extensionattribute2 |
     | e-mailen               | User.mail |
@@ -232,10 +232,10 @@ Het doel van deze sectie is het testen van uw Azure AD SSO-configuratie met behu
 
 Als u op de tegel ADP GlobalView in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing ADP GlobalView.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

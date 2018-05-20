@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 94c67bef7a0c6ba60fc9c7a60c79a23bf7984fb1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 92c24688cf3d9baefcedcf22c915752b2d29b53c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Zelfstudie: Azure Active Directory-integratie met centraal bureaublad
 
@@ -30,7 +30,7 @@ Centrale bureaublad integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij centrale bureaublad met hun Azure AD-accounts kunt inschakelen.
 - U kunt uw accounts op één centrale locatie--de Azure-portal beheren.
 
-Zie voor meer informatie over de integratie met Azure AD SaaS [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Zie voor meer informatie over de integratie met Azure AD SaaS [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -108,7 +108,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Centrale bureaublad domein en één URL's aanmelding informatie](./media/active-directory-saas-central-desktop-tutorial/tutorial_centraldesktop_url.png)
 
-    a. In de **aanmeldings-URL** vak een URL met het volgende patroon volgen:`https://<companyname>.centraldesktop.com`
+    a. In de **aanmeldings-URL** vak een URL met het volgende patroon volgen: `https://<companyname>.centraldesktop.com`
 
     b. In de **id** vak een URL met het volgende patroon volgen:
     | |
@@ -116,7 +116,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     | `https://<companyname>.centraldesktop.com/saml2-metadata.php`|
     | `https://<companyname>.imeetcentral.com/saml2-metadata.php`|
 
-    c. In de **antwoord-URL** vak een URL met het volgende patroon volgen:`https://<companyname>.centraldesktop.com/saml2-assertion.php`    
+    c. In de **antwoord-URL** vak een URL met het volgende patroon volgen: `https://<companyname>.centraldesktop.com/saml2-assertion.php`    
      
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke-id en antwoord-URL en de aanmeldings-URL. Neem contact op met de [centrale Desktop client ondersteuningsteam](https://imeetcentral.com/contact-us) ophalen van deze waarden. 
@@ -153,7 +153,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 10. In de **bericht handtekening verificatiemethode** sectie, voert de volgende stappen uit:
 
-    ![Handtekening verificatiemethode bericht](./media/active-directory-saas-central-desktop-tutorial/ic769565.png "bericht handtekening verificatiemethode") een. Selecteer **certificaat**.
+    ![Handtekening verificatiemethode bericht](./media/active-directory-saas-central-desktop-tutorial/ic769565.png "bericht handtekening verificatiemethode") een. Selecteer **Certificaat**.
     
     b. In de **SSO certificaat** selecteert **RSH SHA256**.
     
@@ -258,7 +258,7 @@ In deze sectie maakt inschakelen u gebruiker Britta Simon Azure eenmalige aanmel
 
 7. In de **toevoegen toewijzing** selecteert u de **toewijzen** knop.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie door uw configuratie Azure AD eenmalige aanmelding te testen met behulp van het toegangsvenster.
 
@@ -268,7 +268,7 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

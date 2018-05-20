@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.openlocfilehash: 74d9d80a1ce35f1766261038a985cc6f0cc39fd3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5eb3aa008ccfa5711d8282f6d98df44239d236a4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lockpath-keylight"></a>Zelfstudie: Azure Active Directory-integratie met LockPath Keylight
 
@@ -29,7 +29,7 @@ LockPath Keylight integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij LockPath Keylight (Single Sign-On) inschakelen met hun Azure AD-accounts
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,11 +110,11 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<company name>.keylightgrc.com/`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<company name>.keylightgrc.com/`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<company name>.keylightgrc.com`
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<company name>.keylightgrc.com`
 
-    c. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<company name>.keylightgrc.com/Login.aspx`
+    c. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<company name>.keylightgrc.com/Login.aspx`
     
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke id, antwoord-URL en aanmeldings-URL. Neem contact op met [LockPath Keylight Client ondersteuningsteam](https://www.lockpath.com/contact/) ophalen van deze waarden. 
@@ -167,7 +167,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     h. Stel **automatisch inrichten accounttype** naar **volledige gebruiker**.
 
-    ik. Stel **automatisch inrichten beveiligingsrol**, selecteer **standaardgebruiker met SAML**.
+    i. Stel **automatisch inrichten beveiligingsrol**, selecteer **standaardgebruiker met SAML**.
     
     j. Stel **automatisch inrichten beveiliging config**, selecteer **standaardconfiguratie van de gebruiker**.
      
@@ -258,10 +258,10 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 
 Als u op de tegel LockPath Keylight in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing LockPath Keylight. 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

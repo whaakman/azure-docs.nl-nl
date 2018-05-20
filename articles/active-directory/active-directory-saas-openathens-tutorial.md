@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: jeedes
-ms.openlocfilehash: af26e007c953c4157f5ee7a4251a52e9c45a6eac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3b19f3c7ed84a63f48320a2c7af8d06a9cc5deb4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-openathens"></a>Zelfstudie: Azure Active Directory-integratie met OpenAthens
 
@@ -30,7 +30,7 @@ OpenAthens integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch aan te melden op OpenAthens (eenmalige aanmelding) met hun Azure AD-accounts kunt inschakelen.
 - U kunt uw accounts op één centrale locatie--de Azure-portal beheren.
 
-Zie voor meer informatie over de integratie met Azure AD SaaS [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Zie voor meer informatie over de integratie met Azure AD SaaS [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -214,17 +214,17 @@ In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding gebruiken door
 
 7. Selecteer de **toewijzen** knop in de **toevoegen toewijzing** deelvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie testen met behulp van het toegangsvenster.
 
 Wanneer u selecteert de **OpenAthens** tegel in het deelvenster toegang u moet automatisch aangemeld bij uw toepassing OpenAthens.
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * Zie voor een lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory, [SaaS app integratie-zelfstudies voor gebruik met Azure AD](active-directory-saas-tutorial-list.md).
-* Zie voor meer informatie over toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+* Zie voor meer informatie over toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 <!--Image references-->
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 76e91c1a4f52337fe7e24d2c7dc727d1fb0ebef2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 340bbd62de7dab9bd0ae45da3105ec2ffd271dfe
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-10000ft-plans"></a>Zelfstudie: Azure Active Directory-integratie met 10.000 ft plannen
 
@@ -29,7 +29,7 @@ In deze zelfstudie leert u hoe 10.000 ft plannen integreren met Azure Active Dir
 - U kunt uw gebruikers automatisch ophalen aangemeld bij 10.000 ft plannen (Single Sign-On) met hun Azure AD-accounts inschakelen
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,9 +110,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-10000ftplans-tutorial/tutorial_10,000ftplans_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ de URL:`https://app.10000ft.com`
+    a. In de **aanmeldings-URL** textbox, typ de URL: `https://app.10000ft.com`
 
-    b. In de **id** textbox, typ de URL:`https://app.10000ft.com/saml/metadata`
+    b. In de **id** textbox, typ de URL: `https://app.10000ft.com/saml/metadata`
 
     > [!NOTE] 
     > De waarde voor **id** verschilt hebt u een aangepast domein. Neem contact op met [10.000 ft plannen ondersteuningsteam](https://www.10000ft.com/plans/support) deze waarde op te halen. 
@@ -207,10 +207,10 @@ In deze sectie schakelt u Britta Simon gebruiken Azure eenmalige aanmelding toeg
 Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.  
 Als u op de tegel 10.000 ft plannen in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing 10.000 ft-plannen.
  
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

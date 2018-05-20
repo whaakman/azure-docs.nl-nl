@@ -2,7 +2,7 @@
 title: 'Zelfstudie: Cerner centraal configureren voor het automatisch gebruikers inrichten met Azure Active Directory | Microsoft Docs'
 description: Informatie over het configureren van Azure Active Directory automatisch inrichten-beheerders kunnen een schema in Cerner centraal.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
 manager: mtillman
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: a4aca2db0190b97d209fc6769b9db55b0ad468d9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 060686089634eda5d15345da9668ff294d350012
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Zelfstudie: Cerner centraal configureren voor het automatisch gebruikers inrichten
 
@@ -57,7 +57,7 @@ Voordat u configureren en inschakelen van de inrichting service, moet u bepalen 
 Deze sectie helpt u bij het verbinding maken met uw Azure AD Cerner centraal van gebruiker schema van Cerner SCIM gebruikersaccount gebruikt API-inrichting, en configureren van de inrichting service te maken, bijwerken en uitschakelen van de toegewezen gebruiker accounts in Cerner centrale op basis van toewijzing van gebruikers en groepen in Azure AD.
 
 > [!TIP]
-> U kunt ook op basis van SAML eenmalige aanmelding is ingeschakeld voor Cerner centraal, volgt de instructies in [Azure-portal (https://portal.azure.com). Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatische inrichting, hoewel deze twee functies elkaar aanvullen. Zie voor meer informatie de [één centrale Cerner aanmelding zelfstudie](active-directory-saas-cernercentral-tutorial.md).
+> U kunt ook op basis van SAML eenmalige aanmelding is ingeschakeld voor Cerner centraal, vindt u de instructies te volgen in [Azure-portal (https://portal.azure.com). Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatische inrichting, hoewel deze twee functies elkaar aanvullen. Zie voor meer informatie de [één centrale Cerner aanmelding zelfstudie](active-directory-saas-cernercentral-tutorial.md).
 
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-cerner-central-in-azure-ad"></a>Voor het configureren van automatische account gebruikersaanvragen naar Cerner centraal in Azure AD:
@@ -67,25 +67,25 @@ Gebruikersaccounts aan Cerner centraal inricht, hebt u nodig voor een systeemacc
 
 1.  De eerste stap is om te controleren of de mensen die het beheer van de Cerner en Azure AD-integratie hebben een CernerCare-account is vereist voor toegang tot de documentatie die nodig zijn voor de instructies. Gebruik de onderstaande URL's CernerCare accounts maken in elke omgeving van toepassing, indien nodig.
 
-   * Sandbox: https://sandboxcernercare.com/accounts/create
+   * Sandbox:  https://sandboxcernercare.com/accounts/create
 
-   * Productie: https://cernercare.com/accounts/create  
+   * Productie:  https://cernercare.com/accounts/create  
 
 2.  Vervolgens moet een systeem-account worden gemaakt voor Azure AD. Volg de onderstaande instructies om aan te vragen van een systeem-Account voor uw sandbox en productie-omgevingen.
 
-   * Instructies: https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
+   * Instructies:  https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
 
    * Sandbox: https://sandboxcernercentral.com/system-accounts/
 
-   * Productie: https://cernercentral.com/system-accounts/
+   * Productie:  https://cernercentral.com/system-accounts/
 
 3.  Vervolgens een OAuth bearer-token genereren voor elk van uw systeemaccounts. U doet dit door de onderstaande instructies uit te voeren.
 
-   * Instructies: https://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
+   * Instructies:  https://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
 
    * Sandbox: https://sandboxcernercentral.com/system-accounts/
 
-   * Productie: https://cernercentral.com/system-accounts/
+   * Productie:  https://cernercentral.com/system-accounts/
 
 4. Tot slot moet u aan te schaffen gebruikersnamen schema Realm voor de sandbox en de productie-omgevingen in Cerner om de configuratie te voltooien. Zie voor meer informatie over het verkrijgen van dit: https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+SCIM. 
 
@@ -101,13 +101,13 @@ Gebruikersaccounts aan Cerner centraal inricht, hebt u nodig voor een systeemacc
 
 9.  Vul de volgende velden onder **beheerdersreferenties**:
 
-   * In de **Tenant-URL** en voer een URL in de notatie, "Gebruiker-schema-Realm-ID" vervangen door de realm-ID die u hebt verkregen in stap &#4;.
+   * In de **Tenant-URL** en voer een URL in de notatie, "Gebruiker-schema-Realm-ID" vervangen door de realm-ID die u hebt verkregen in stap 4 #.
 
 > Sandbox: https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
-> Production: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+> Productie: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
-   * In de **geheim Token** veld, voert u het OAuth bearer-token die u in stap &#3; gegenereerd en klikt u op **testverbinding**.
+   * In de **geheim Token** veld, voert u het OAuth bearer-token die u in stap 3 # gegenereerd en klikt u op **testverbinding**.
 
    * U ziet een melding met succes de upperright-zijde van de portal.
 
@@ -130,7 +130,7 @@ Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [ra
 * [Cerner centraal: Publiceren van identiteitsgegevens met behulp van Azure AD](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD)
 * [Zelfstudie: Cerner centraal configureren voor eenmalige aanmelding bij Azure Active Directory](active-directory-saas-cernercentral-tutorial.md)
 * [Het beheren van gebruikers account inrichten voor zakelijke Apps](active-directory-enterprise-apps-manage-provisioning.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Informatie over het bekijken van Logboeken en rapporten over het inrichten van de activiteit](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).

@@ -2,7 +2,7 @@
 title: Azure Access Configuratiescherm extensie voor IE met behulp van een groepsbeleidsobject implementeren | Microsoft Docs
 description: Het gebruik van Groepsbeleid voor het implementeren van de invoegtoepassing Internet Explorer voor de portal mijn Apps.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 7c2d49c8-5be0-4e7e-abac-332f9dfda736
@@ -15,14 +15,14 @@ ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a203548575eacb2d0eb0d09a4aaf239b11caad3c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a39e454bd0993f07efd1168404df453f3013e0fa
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>De extensie van het Configuratiescherm toegang voor Internet Explorer met behulp van Groepsbeleid implementeren
-Deze zelfstudie laat zien hoe het gebruik van Groepsbeleid op afstand installeren van de extensie Toegangspaneel voor Internet Explorer op uw gebruikers-machines. Deze uitbreiding is vereist voor Internet Explorer-gebruikers hoeven zich aanmeldt bij apps die zijn geconfigureerd met [op basis van wachtwoorden eenmalige aanmelding](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
+Deze zelfstudie laat zien hoe het gebruik van Groepsbeleid op afstand installeren van de extensie Toegangspaneel voor Internet Explorer op uw gebruikers-machines. Deze uitbreiding is vereist voor Internet Explorer-gebruikers hoeven zich aanmeldt bij apps die zijn geconfigureerd met [op basis van wachtwoorden eenmalige aanmelding](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on).
 
 Het is raadzaam dat beheerders de implementatie van deze extensie automatiseren. Gebruikers hebben anders downloaden en installeren van de extensie zelf, die is kwetsbaar voor gebruikersfouten en zijn beheerdersrechten vereist. Deze zelfstudie bevat één methode voor het software-implementaties automatiseren met behulp van Groepsbeleid. [Meer informatie over Groepsbeleid.](https://technet.microsoft.com/windowsserver/bb310732.aspx)
 
@@ -107,8 +107,8 @@ Naast het installatieprogramma wordt uitgevoerd, moet alle uitbreidingen voor In
     ![Klik op inschakelen en klik vervolgens op weergeven...](./media/active-directory-saas-ie-group-policy/edit-add-on-list-window.png)
 4. In de **inhoud weergeven** venster de volgende stappen uitvoeren:
    
-   1. Voor de eerste kolom (de **waardenaam** veld), kopiëren en plakken van de volgende klasse-ID:`{030E9A3F-7B18-4122-9A60-B87235E4F59E}`
-   2. Voor de tweede kolom (de **waarde** veld), typt u de volgende waarde:`1`
+   1. Voor de eerste kolom (de **waardenaam** veld), kopiëren en plakken van de volgende klasse-ID: `{030E9A3F-7B18-4122-9A60-B87235E4F59E}`
+   2. Voor de tweede kolom (de **waarde** veld), typt u de volgende waarde: `1`
    3. Klik op **OK** sluiten de **inhoud weergeven** venster.
       
       ![Vul de parameterwaarden als is beschreven.](./media/active-directory-saas-ie-group-policy/show-contents.png)
@@ -151,7 +151,7 @@ Gebruikers wordt niet langer hun referenties of automatisch aanvullen gebruiken 
 De volgende stappen om te controleren of de implementatie van de uitbreiding geslaagd is:
 
 1. Als u hebt geïmplementeerd met behulp van **Computerconfiguratie**, meld u aan bij een clientcomputer die deel uitmaakt van de organisatie-eenheid die u hebt geselecteerd in [stap 2: het groepsbeleidsobject maken](#step-2-create-the-group-policy-object). Als u hebt geïmplementeerd met behulp van **Gebruikersconfiguratie**, zorg ervoor dat u zich aanmelden als een gebruiker die lid is van organisatie-eenheid.
-2. Het duurt een paar aanmelding modules voor het groepsbeleid wijzigt volledig bijwerken met deze machine. Als u wilt dat de update, opent u een **opdrachtprompt** venster en voer de volgende opdracht:`gpupdate /force`
+2. Het duurt een paar aanmelding modules voor het groepsbeleid wijzigt volledig bijwerken met deze machine. Als u wilt dat de update, opent u een **opdrachtprompt** venster en voer de volgende opdracht: `gpupdate /force`
 3. De computer voor de installatie te kunnen uitvoeren, moet u opnieuw. Wanneer kan aanzienlijk langer duren dan normaal tijdens de uitbreiding wordt geïnstalleerd.
 4. Start opnieuw op en open **Internet Explorer**. Klik in de rechterbovenhoek van het venster op **extra** (het tandwielpictogram pictogram), en selecteer vervolgens **invoegtoepassingen beheren**.
    
@@ -162,6 +162,6 @@ De volgende stappen om te controleren of de implementatie van de uitbreiding ges
 
 ## <a name="related-articles"></a>Verwante artikelen
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md) (Artikelindex voor toepassingsbeheer in Azure Active Directory)
-* [Toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md)
+* [Toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md)
 * [De uitbreiding van het deelvenster toegang tot het oplossen van problemen voor Internet Explorer](active-directory-saas-ie-troubleshooting.md)
 

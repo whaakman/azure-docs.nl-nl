@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: jeedes
-ms.openlocfilehash: d1bbafdb8bbd5ea7bfa193832992d56016b6ee5e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d9c615e3d0f144080a02f6f8d95603ecac4341f0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Zelfstudie: Vak configureren voor het automatisch gebruikers inrichten
 
@@ -43,7 +43,7 @@ Voordat u configureren en inschakelen van de inrichting service, moet u bepalen 
 De **vak > gebruikers en groepen** tabblad in de Azure portal kunt u opgeven welke gebruikers en groepen toegang moeten worden verleend aan vak. Toewijzing van een gebruiker of groep zorgt ervoor dat de volgende taken uitvoeren:
 
 * Azure AD kan de toegewezen gebruiker (via een rechtstreekse toewijzing toe of groepslidmaatschap) om het selectievakje te verifiëren. Als een gebruiker niet is toegewezen, Azure AD staat niet toe dat ze aan te melden bij vak en retourneert een fout op de aanmeldingspagina van Azure AD.
-* Een app-tegel voor Box wordt toegevoegd aan de gebruiker [toepassingsstartprogramma](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users).
+* Een app-tegel voor Box wordt toegevoegd aan de gebruiker [toepassingsstartprogramma](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users).
 * Als automatische inrichting is ingeschakeld, worden klikt u vervolgens de toegewezen gebruikers en/of groepen toegevoegd aan de inrichting wachtrij automatisch worden ingericht.
   
   * Als alleen gebruikersobjecten zijn geconfigureerd om te worden ingericht, vervolgens alle rechtstreeks toegewezen gebruikers in de inrichting wachtrij zijn geplaatst en alle gebruikers die lid van een toegewezen groepen zijn in de inrichting wachtrij zijn geplaatst. 
@@ -120,5 +120,5 @@ In uw tenant vak gesynchroniseerde gebruikers worden vermeld in **beheerde gebru
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Het beheren van gebruikers account inrichten voor zakelijke Apps](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Eenmalige aanmelding configureren](active-directory-saas-box-tutorial.md)

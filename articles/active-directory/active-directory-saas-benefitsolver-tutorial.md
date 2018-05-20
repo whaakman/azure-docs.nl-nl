@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: jeedes
-ms.openlocfilehash: d23f1c4d6613d525695ed222e0d84736b9007833
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: a254f1696d60d825f637b6aa37d05cf95b318a25
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>Zelfstudie: Azure Active Directory-integratie met Benefitsolver
 
@@ -30,7 +30,7 @@ Benefitsolver integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Benefitsolver (Single Sign-On) met hun Azure AD-accounts kunt inschakelen.
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -108,11 +108,11 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![URL's en Benefitsolver domein eenmalige aanmelding informatie](./media/active-directory-saas-benefitsolver-tutorial/tutorial_benefitsolver_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`http://<companyname>.benefitsolver.com`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `http://<companyname>.benefitsolver.com`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<companyname>.benefitsolver.com/saml20`
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<companyname>.benefitsolver.com/saml20`
 
-    c. In de **antwoord-URL** textbox, typ de URL:`https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml`
+    c. In de **antwoord-URL** textbox, typ de URL: `https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke aanmeldings-URL, -id en antwoord-URL. Neem contact op met [Benefitsolver Client ondersteuningsteam](https://www.businessolver.com/contact) ophalen van deze waarden.
@@ -123,7 +123,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 5. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de afbeelding en de volgende stappen uitvoeren:
     
-    | Naam van kenmerk| De waarde van kenmerk|
+    | Naam kenmerk| Waarde kenmerk|
     |---------------|----------------|
     | ClientID | U moet deze waarde van uw [Benefitsolver Client ondersteuningsteam](https://www.businessolver.com/contact).|
     | ClientKey | U moet deze waarde van uw [Benefitsolver Client ondersteuningsteam](https://www.businessolver.com/contact).|
@@ -228,7 +228,7 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
@@ -238,7 +238,7 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

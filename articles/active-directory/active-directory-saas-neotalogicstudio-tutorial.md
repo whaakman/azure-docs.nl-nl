@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: jeedes
-ms.openlocfilehash: 839a4ed8bb3facbfd41f8a9ca2849b475e03ffc1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f7fbab381d369da4e5d1bec52c2c2f029b6cb818
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-neota-logic-studio"></a>Zelfstudie: Azure Active Directory-integratie met Neota logica Studio
 
@@ -29,7 +29,7 @@ Neota logica Studio integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Neota logica Studio (Single Sign-On) inschakelen met hun Azure AD-accounts
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, zien. [Wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, zien. [Wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -113,9 +113,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-neotalogicstudio-tutorial/tutorial_neotalogicstudio_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<sub domain>.neotalogic.com/a/<sub application>`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<sub domain>.neotalogic.com/a/<sub application>`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<sub domain>.neotalogic.com/wb`
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<sub domain>.neotalogic.com/wb`
 
     > [!NOTE] 
     > Deze waarden zijn niet de werkelijke. Deze waarden bijwerken met de werkelijke aanmeldings-URL & -id. Hier raden we u voor het gebruik van de unieke waarde van een tekenreeks in de id. Neem contact op met [Neota logica Studio Client ondersteuningsteam](https://www.neotalogic.com/contact-us/) ophalen van deze waarden. 
@@ -206,10 +206,10 @@ Klik op de tegel Neota logica Studio in het deelvenster toegang, wordt u omgelei
 
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](https://msdn.microsoft.com/library/dn308586). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

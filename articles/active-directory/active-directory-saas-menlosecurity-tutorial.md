@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: jeedes
-ms.openlocfilehash: db8072e072fca5041a98f38b27a5f542a36ce674
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 206f4b8b0c8a4d67624e02ac8d760a2d58df0475
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-menlo-security"></a>Zelfstudie: Azure Active Directory-integratie met Menlo beveiliging
 
@@ -29,7 +29,7 @@ Menlo beveiliging integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij de beveiliging Menlo (Single Sign-On) inschakelen met hun Azure AD-accounts
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, zien. [Wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, zien. [Wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,9 +110,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-menlosecurity-tutorial/tutorial_menlosecurity_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<subdomain>.menlosecurity.com/account/login`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<subdomain>.menlosecurity.com/account/login`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<subdomain>.menlosecurity.com/safeview-auth-server/saml/metadata`
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<subdomain>.menlosecurity.com/safeview-auth-server/saml/metadata`
 
     > [!NOTE] 
     > Deze waarden zijn niet de werkelijke. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [Beveiligingsclient Menlo ondersteuningsteam](https://www.menlosecurity.com/menlo-contact) ophalen van deze waarden. 
@@ -147,7 +147,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     f. **X.509-certificaat** : Open de **certificaat (Base64)** gedownload vanuit de Azure-Portal in Kladblok en plak deze in dit vak.
 
-    g. Klik op **opslaan** de instellingen op te slaan.
+    g. Klik op **Opslaan** om de instellingen op te slaan.
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -224,10 +224,10 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie testen.
 
 Open een browservenster in de modus 'InPrivate' of 'Incognito' voor het activeren van een nieuwe verificatie.  Gebruik Ctrl + Shift + P in Internet Explorer.  Gebruik Ctrl + Shift + N in Chrome.  Blader naar een beveiligde bron in het persoonlijke Browse venster en uitvoeren van een Azure AD-aanmelding.  Bij geslaagde aanmelding gaat u naar de gewenste site in een sessie isolatie.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

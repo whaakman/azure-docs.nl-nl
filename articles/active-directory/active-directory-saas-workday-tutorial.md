@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: jeedes
-ms.openlocfilehash: 5f3c3bbb23b9d4439188286342d80eb1cc1d0833
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 1bc10894a7d86937628b8c8563df9d88453d4ccb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Zelfstudie: Azure Active Directory-integratie met Workday
 
@@ -30,7 +30,7 @@ Werkdag integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Workday (Single Sign-On) met hun Azure AD-accounts kunt inschakelen.
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -153,7 +153,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     >[!NOTE]
     > De waarde van de omgeving-kenmerk is gekoppeld aan de waarde van de tenant-URL:  
-    >-Als de domeinnaam van de tenant-URL voor Workday wordt gestart met impl bijvoorbeeld:  *https://impl.workday.com/ \<tenant\>/login-saml2.htmld*), wordt de **omgeving** kenmerk moet worden ingesteld aan de implementatie.  
+    >-Als de domeinnaam van de tenant-URL voor Workday wordt gestart met impl bijvoorbeeld: *https://impl.workday.com/\<tenant\>/login-saml2.htmld*), wordt de **omgeving** kenmerk moet worden ingesteld op implementatie.  
     >-Als de domeinnaam met iets anders begint, moet u contact opnemen met [Workday Client ondersteuningsteam](https://www.workday.com/en-us/partners-services/services/support.html) ophalen van het overeenkomende **omgeving** waarde.
 
 11. In de **SAML Setup** sectie, voert u de volgende stappen uit:
@@ -301,7 +301,7 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 <!--Image references-->

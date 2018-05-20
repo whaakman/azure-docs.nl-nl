@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 32b3a45d9baf0b53e05708abab78a462c6780daa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: aaa2adc30d1d798312b50370d4b635d0d8a123e9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---captive-portal"></a>Zelfstudie: Azure Active Directory-integratie met netwerken Palo Alto - besloten Portal
 
@@ -30,7 +30,7 @@ Netwerken Palo Alto - besloten Portal met Azure AD integreren biedt de volgende 
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Palo Alto Networks - besloten Portal (Single Sign-On) met hun Azure AD-accounts kunt inschakelen.
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -108,9 +108,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Netwerken voor Palo Alto - besloten Portal domein en één URL's aanmelding informatie](./media/active-directory-saas-paloaltonetworks-captiveportal-tutorial/tutorial_paloaltocaptiveportal_url.png)
 
-    a. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<Customer Firewall Hostname>/SAML20/SP`
+    a. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<Customer Firewall Hostname>/SAML20/SP`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<Customer Firewall Hostname>/SAML20/SP/ACS`
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<Customer Firewall Hostname>/SAML20/SP/ACS`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke id en de antwoord-URL. Neem contact op met [Palo Alto Networks - ondersteuningsteam besloten Portal](https://support.paloaltonetworks.com/support) ophalen van deze waarden.
@@ -215,14 +215,14 @@ In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding toegang verlee
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 Besloten Portal is geconfigureerd achter de firewall op de virtuele machine van Windows.  Eenmalige aanmelding op de aanmelding via de Windows-VM met RDP-besloten Portal testen. De RDP-sessie, open in een browservenster met een website, moet deze automatisch de url voor eenmalige aanmelding en de prompt voor verificatie openen. Zodra verificatie voltooid is, kunt u moet kunnen navgiate naar websites. 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

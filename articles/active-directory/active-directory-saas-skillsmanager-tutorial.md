@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 7cfa44ca070996d7ae85a23f3297b07b406881e8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 610ef23dff752a1503b81e9b6a4ffb651e2b0cf5
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-manager"></a>Zelfstudie: Azure Active Directory-integratie met vaardigheden Manager
 
@@ -30,7 +30,7 @@ Vaardigheden Manager integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij vaardigheden Manager (Single Sign-On) inschakelen met hun Azure AD-accounts.
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -108,9 +108,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Vaardigheden Manager-domein en URL's van eenmalige aanmelding informatie](./media/active-directory-saas-skillsmanager-tutorial/tutorial_skillsmanager_url.png)
 
-    a. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://subdomain.skills-manager.com/kennametal`
+    a. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://subdomain.skills-manager.com/kennametal`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://subdomain.skills-manager.com/public/SamlLogin2.aspx`
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://subdomain.skills-manager.com/public/SamlLogin2.aspx`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke id en de antwoord-URL. Neem contact op met [vaardigheden Manager ondersteuningsteam](https://www.ibm.com/support/uk/?lnk=msu_uk) ophalen van deze waarden.
@@ -198,17 +198,17 @@ In deze sectie maakt inschakelen u Britta Simon gebruikt Azure eenmalige aanmeld
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
 Als u op de tegel vaardigheden Manager in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing vaardigheden Manager.
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

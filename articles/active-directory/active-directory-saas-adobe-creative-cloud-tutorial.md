@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: c34d6bddb733c5979bc2006738e950cf7a185c4e
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 808debcee11eb83f7e6afa1f3443a35c9f6767c4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>Zelfstudie: Azure Active Directory-integratie met Adobe Creative Cloud
 
@@ -30,7 +30,7 @@ Adobe Creative Cloud integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Adobe Creative Cloud (Single Sign-On) inschakelen met hun Azure AD-accounts.
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -108,9 +108,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Adobe Creative Cloud-domein en de URL's van eenmalige aanmelding informatie](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_url.png)
 
-    a. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://www.okta.com/saml2/service-provider/<token>`
+    a. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://www.okta.com/saml2/service-provider/<token>`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<company name>.okta.com/auth/saml20/accauthlinktest`
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<company name>.okta.com/auth/saml20/accauthlinktest`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke id en de antwoord-URL. Neem contact op met [Adobe Creative Cloud Client ondersteuningsteam](https://helpx.adobe.com/in/contact/support.html) ophalen van deze waarden. 
@@ -119,7 +119,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Adobe Creative Cloud-domein en de URL's van eenmalige aanmelding informatie](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_url2.png)
 
-    In de **aanmeldings-URL** textbox, typ de waarde als:`https://adobe.com`
+    In de **aanmeldings-URL** textbox, typ de waarde als: `https://adobe.com`
 
 5. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
 
@@ -133,9 +133,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     | Naam kenmerk | Waarde kenmerk |
     | ---------------| ----------------|
-    | FirstName |user.givenname |
+    | Voornaam |User.givenName |
     | LastName |User.surname |
-    | E-mail |User.mail |
+    | Email |User.mail |
 
     a. Klik op **toevoegen kenmerk** openen de **kenmerk toevoegen** dialoogvenster.
     
@@ -263,7 +263,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruikt Azure eenmalige aanmeld
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
@@ -273,7 +273,7 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Stel een domein (adobe.com)](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
 * [Azure configureren voor gebruik met Adobe eenmalige aanmelding (adobe.com)](https://helpx.adobe.com/enterprise/kb/configure-microsoft-azure-with-adobe-sso.html)
 

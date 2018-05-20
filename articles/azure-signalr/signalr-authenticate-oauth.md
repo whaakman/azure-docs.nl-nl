@@ -14,17 +14,19 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/17/2018
 ms.author: wesmc
-ms.openlocfilehash: e7107e5c75d79714ae8d2d78d35e2cd3742ac674
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 748e5839233b9d71b9ed072d0cfe45f018471c52
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>Zelfstudie: Verificatie van Azure SignalR-service
 
+De Microsoft Azure SignalR-service is momenteel beschikbaar in de [openbare preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Deze zelfstudie is gebaseerd op de toepassing voor een chatruimte die wordt beschreven in de snelstart. Als u [Een chatruimte maken met de SignalR-service](signalr-quickstart-dotnet-core.md) nog niet voltooid, moet u dat eerst doen. 
 
-In deze zelfstudie leert u hoe u uw eigen verificatie implementeert en deze vervolgens integreert met de Azure-SignalR-service. 
+In deze zelfstudie leert u hoe u uw eigen verificatie implementeert en deze vervolgens integreert met de Microsoft Azure SignalR-service. 
 
 De verificatie die in eerste instantie wordt gebruikt in de toepassing voor een chatruimte in de snelstart is te eenvoudig voor praktijkscenario's. In de toepassing kan elke client claimen wie ze zijn en de server accepteert dit vervolgens. Deze aanpak is niet erg handig in praktische toepassingen, waar een malafide gebruiker een andere gebruiker kan imiteren om toegang te krijgen tot gevoelige gegevens. 
 
@@ -603,9 +605,7 @@ Na enkele ogenblikken worden de resourcegroep en alle resources in de groep verw
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u verificatie met OAuth toegevoegd om een betere methode voor verificatie met de Azure SignalR-service mogelijk te maken. Als u meer wilt weten over het gebruik van Azure SignalR-Server, gaat u verder met de volgende zelfstudie, waarin integratie met Azure Functions wordt behandeld.
+In deze zelfstudie hebt u verificatie met OAuth toegevoegd om een betere methode voor verificatie met de Azure SignalR-service mogelijk te maken. Voor meer informatie over het gebruik van Azure SignalR Server gaat u verder met de voorbeelden van Azure CLI voor de SignalR-service.
 
 > [!div class="nextstepaction"]
-> [Azure Functions integreren met Azure SignalR-service](./signalr-integrate-functions.md)
-
-
+> [Azure CLI-voorbeelden voor SignalR](./signalr-cli-samples.md)

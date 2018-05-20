@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: jeedes
-ms.openlocfilehash: fde1d2c5d1a90092ec4528f727dc7af672f80917
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2c8dcf4ad49b8f261814c2d442bfdded221e8cbf
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-sales-navigator"></a>Zelfstudie: Azure Active Directory-integratie met LinkedIn verkoop Navigator
 
@@ -29,7 +29,7 @@ LinkedIn verkoop Navigator integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij LinkedIn verkoop Navigator (Single Sign-On) inschakelen met hun Azure AD-accounts
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u meer gedetailleerde informatie over de integratie van de SaaS-app met Azure AD, bladert u [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u meer gedetailleerde informatie over de integratie van de SaaS-app met Azure AD, bladert u [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -128,7 +128,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_url2.png)
 
-    In de **aanmeldings-URL** textbox, typ de waarde met het volgende patroon volgen:`https://www.linkedin.com/checkpoint/enterprise/login/<account id>?application=salesNavigator`
+    In de **aanmeldings-URL** textbox, typ de waarde met het volgende patroon volgen: `https://www.linkedin.com/checkpoint/enterprise/login/<account id>?application=salesNavigator`
 
 8. Uw **LinkedIn verkoop Navigator** toepassing de SAML-asserties in een specifieke indeling waarvoor u aangepaste kenmerktoewijzingen toevoegen aan uw configuratie van SAML-token kenmerken verwacht. De volgende Schermafbeelding toont een voorbeeld. De standaardwaarde van **gebruikers-id** is **user.userprincipalname** maar LinkedIn verkoop Navigator verwacht met e-mailadres van de gebruiker worden toegewezen. U kunt **user.mail** kenmerk uit de lijst of gebruik de juiste kenmerkwaarde op basis van de organisatieconfiguratie van uw. 
 
@@ -136,10 +136,10 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
     
 9. In **gebruikerskenmerken** sectie, klikt u op **weergeven en bewerken van alle andere gebruikerskenmerken** en kenmerken instellen. De gebruiker moet vier claims met de naam toe te voegen **e**, **afdeling**, **firstname**, en **lastname** en de waarde moet worden toegewezen met **user.mail**, **user.department**, **user.givenname**, en **user.surname** respectievelijk
 
-    | Kenmerknaam | Waarde kenmerk |
+    | Naam kenmerk | Waarde kenmerk |
     | --- | --- |    
     | e-mailen| User.mail |
-    | Afdeling| User.Department |
+    | afdeling| User.Department |
     | Voornaam| User.givenName |
     | Achternaam| User.surname |
     
@@ -261,10 +261,10 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 
 Als u op de tegel LinkedIn verkoop Navigator in het deelvenster toegang, moet u naar organisatie pagina waar u de details van uw persoonlijke LinkedIn moet worden omgeleid. Uw persoonlijke account aan uw LinkedIn business-account worden gekoppeld. Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](https://msdn.microsoft.com/library/dn308586). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

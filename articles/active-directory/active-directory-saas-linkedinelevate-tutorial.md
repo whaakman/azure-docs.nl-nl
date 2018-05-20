@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
-ms.openlocfilehash: 5b46323dc487bbc714c2306ed006afffe8c1bb6a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3e82cf4ccdc09cd6505994f9db952ac718342bf2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>Zelfstudie: Azure Active Directory-integratie met LinkedIn uitbreiden
 
@@ -29,7 +29,7 @@ LinkedIn bevoegdheden integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij LinkedIn bevoegdheden (Single Sign-On) inschakelen met hun Azure AD-accounts
 - U kunt uw accounts op één centrale locatie - en de Azure Management portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -132,9 +132,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure-beheerport
 
 9. In **gebruikerskenmerken** sectie, klikt u op **weergeven en bewerken van alle andere gebruikerskenmerken** en kenmerken instellen. U moet een andere claim met de naam toevoegen **afdeling** en de waarde moet worden toegewezen aan **user.department**.
 
-    | Kenmerknaam | Waarde kenmerk |
+    | Naam kenmerk | Waarde kenmerk |
     | --- | --- |    
-    | Afdeling| User.Department |
+    | afdeling| User.Department |
 
       ![Een Azure AD-testgebruiker maken](./media/active-directory-saas-linkedinElevate-tutorial/userattribute.png)
 
@@ -236,11 +236,11 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 
 Als u op de tegel LinkedIn bevoegdheden in het deelvenster toegang, krijgt u de pagina Azure eenmalige aanmelding en op na geslaagde aanmelding, krijgt u in uw toepassing LinkedIn uitbreiden.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Zelfstudie: LinkedIn bevoegdheden configureren voor automatisch gebruikers inrichten met Azure Active Directory](active-directory-saas-linkedinelevate-provisioning-tutorial.md)
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 <!--Image references-->

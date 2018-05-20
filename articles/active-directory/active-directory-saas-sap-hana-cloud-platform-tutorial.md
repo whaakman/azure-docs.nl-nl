@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: a578a732efa3d2b91240ef0f4c02670aea8e547f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4d39c8437cbed497e2a2a7e64caa05f8e3d04869
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Zelfstudie: Azure Active Directory-integratie met SAP Cloud-Platform
 
@@ -30,7 +30,7 @@ SAP-Cloudplatform integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij SAP Cloud Platform (Single Sign-On) inschakelen met hun Azure AD-accounts.
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -159,7 +159,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 7. Klik op de **vertrouwen** tabblad.
    
-    ![Trust](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/ic790800.png "Trust")
+    ![Vertrouwen](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/ic790800.png "vertrouwen")
 
 8. In de sectie beheer vertrouwen onder **lokale serviceprovider**, voer de volgende stappen uit:
 
@@ -210,15 +210,15 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 13. Op de **kenmerken** tabblad, voert u de volgende stap:
     
-    ![Attributes](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/ic790804.png "Attributes") 
+    ![Kenmerken](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/ic790804.png "kenmerken") 
 
     a. Klik op **Add Assertion-Based kenmerk**, en voeg vervolgens de volgende kenmerken op basis van een bevestiging:
        
     | Verklaring kenmerk | Principal-kenmerk |
     | --- | --- |
     | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |Voornaam |
-    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |lastname |
-    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |e-mail |
+    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |Achternaam |
+    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |e-mailen |
    
      >[!NOTE]
      >De configuratie van de kenmerken is afhankelijk van hoe de toepassing(en) op SCP worden ontwikkeld, dat wil zeggen, welke kenmerken ze in de SAML-reactie verwachten en onder welke naam (Principal kenmerk) toegang tot dit kenmerk in de code.
@@ -326,7 +326,7 @@ In deze sectie maakt inschakelen u Britta Simon gebruikt Azure eenmalige aanmeld
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
@@ -336,7 +336,7 @@ Als u op de tegel SAP Cloud-Platform in het deelvenster toegang, u moet ophalen 
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

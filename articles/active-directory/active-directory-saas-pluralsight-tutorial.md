@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 62d148d78d9f98b6a3ddf1259177936b3976aeab
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: ec199b665f0f9ed34ac6763855cfa9d35b80a7e2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pluralsight"></a>Zelfstudie: Azure Active Directory-integratie met Pluralsight
 
@@ -30,7 +30,7 @@ Pluralsight integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Pluralsight (Single Sign-On) met hun Azure AD-accounts kunt inschakelen.
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -108,11 +108,11 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![URL's en Pluralsight domein eenmalige aanmelding informatie](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<instancename>.pluralsight.com/sso/<companyname>`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<instancename>.pluralsight.com/sso/<companyname>`
 
-    b. In de **id** textbox, typ de URL:`www.pluralsight.com`
+    b. In de **id** textbox, typ de URL: `www.pluralsight.com`
 
-    c. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<instancename>.pluralsight.com/sp/ACS.saml2`
+    c. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<instancename>.pluralsight.com/sp/ACS.saml2`
      
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke antwoord-URL en de aanmeldings-URL. Neem contact op met [Pluralsight Client ondersteuningsteam](mailto:support@pluralsight.com) ophalen van deze waarden. 
@@ -136,7 +136,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
    | ---| --- |
    | Voornaam |User.givenName |
    | Achternaam |User.surname |
-   | E-mail |User.mail |
+   | Email |User.mail |
    
    a. Klik op **gebruikerskenmerk toevoegen** openen de **gebruikerskenmerk toevoegen** dialoogvenster.
     
@@ -223,7 +223,7 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
@@ -233,7 +233,7 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

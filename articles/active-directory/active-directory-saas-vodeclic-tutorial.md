@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 940c7bb5040fb91a03b01dc43ee07d52e3d4e63b
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: bc889919f2d869478843881cc8eae06fc9cb232c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>Zelfstudie: Azure Active Directory-integratie met Vodeclic
 
@@ -30,7 +30,7 @@ Vodeclic integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers te automatisch ophalen ondertekend op Vodeclic (eenmalige aanmelding of SSO) met hun Azure AD-accounts kunt inschakelen.
 - U kunt uw accounts op één centrale locatie--de Azure-portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -108,15 +108,15 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Vodeclic domein en één URL's aanmelding informatie](./media/active-directory-saas-vodeclic-tutorial/tutorial_vodeclic_url.png)
 
-    a. In de **id** vak een URL met het volgende patroon volgen:`https://<companyname>.lms.vodeclic.net/auth/saml`
+    a. In de **id** vak een URL met het volgende patroon volgen: `https://<companyname>.lms.vodeclic.net/auth/saml`
 
-    b. In de **antwoord-URL** vak een URL met het volgende patroon volgen:`https://<companyname>.lms.vodeclic.net/auth/saml/callback`
+    b. In de **antwoord-URL** vak een URL met het volgende patroon volgen: `https://<companyname>.lms.vodeclic.net/auth/saml/callback`
 
 4. Als u wilt configureren van de toepassing in **SP** geïnitieerd modus, selecteer de **weergeven geavanceerde instellingen voor URL** selectievakje en de volgende stap uitvoeren:
 
     ![Vodeclic domein en één URL's aanmelding informatie](./media/active-directory-saas-vodeclic-tutorial/tutorial_vodeclic_url1.png)
 
-    In de **aanmeldings-URL** vak een URL met het volgende patroon volgen:`https://<companyname>.lms.vodeclic.net/auth/saml`
+    In de **aanmeldings-URL** vak een URL met het volgende patroon volgen: `https://<companyname>.lms.vodeclic.net/auth/saml`
      
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke-id en antwoord-URL en de aanmeldings-URL. Neem contact op met de [Vodeclic Client ondersteuningsteam](mailto:hotline@vodeclic.com) ophalen van deze waarden.
@@ -203,7 +203,7 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 
 7. In de **toevoegen toewijzing** selecteert u de **toewijzen** knop.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie testen met behulp van het toegangsvenster.
 
@@ -211,10 +211,10 @@ Wanneer u de tegel Vodeclic in het deelvenster toegang selecteert, krijgen u aut
 
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

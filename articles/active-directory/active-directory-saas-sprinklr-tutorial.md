@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 13eea1b7889c6382f1f4a6fb5c9bc02578c52711
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e2222e3e71fbddaebf1077149f6d71a43eb8dea0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sprinklr"></a>Zelfstudie: Azure Active Directory-integratie met Sprinklr
 
@@ -29,7 +29,7 @@ Sprinklr integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Sprinklr (Single Sign-On) met hun Azure AD-accounts inschakelen
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,9 +110,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-sprinklr-tutorial/tutorial_sprinklr_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<subdomain>.sprinklr.com`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<subdomain>.sprinklr.com`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<subdomain>.sprinklr.com`
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<subdomain>.sprinklr.com`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Werk de waarde met het werkelijke aanmeldings-URL en de id. Neem contact op met [Sprinklr Client ondersteuningsteam](https://www.sprinklr.com/contact-us/) ophalen van deze waarden. 
@@ -159,7 +159,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     h. Plak de **Sign-Out URL** waarde die u hebt gekopieerd vanuit Azure Portal naar de **identiteit Provider afmelding URL** textbox.
      
-    ik. Als **SAML-ID gebruikerstype**, selecteer **Assertion gebruiker bevat ' s sprinklr.com gebruikersnaam**.
+    i. Als **SAML-ID gebruikerstype**, selecteer **Assertion gebruiker bevat ' s sprinklr.com gebruikersnaam**.
 
     j. Als **SAML-ID gebruikerslocatie**, selecteer **gebruikers-ID is in het element met naam-id van het onderwerp overzicht**.
 
@@ -281,10 +281,10 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 
 Als u op de tegel Sprinklr in het deelvenster toegang, krijgt u automatisch aangemeld bij uw toepassing Sprinklr Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

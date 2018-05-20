@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 5/4/18
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: 87396204933ca964634656f9eb84c6d245c0c6c0
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 8db0c28b0ea6b6f78ef86c773ff24f9d22fe3ecd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="install-the-access-panel-browser-extension"></a>De uitbreiding voor toegang tot Configuratiescherm browser installeren
 
@@ -124,4 +124,4 @@ Als deze beschikbaar is, moet u een ondersteuningsticket opent met de volgende i
 -   Fiddler traceringen
 
 ## <a name="next-steps"></a>Volgende stappen
-[Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+[Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)

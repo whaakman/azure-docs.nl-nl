@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 2925f0a9f582d0dfeca9832ca032b0d847f23f6b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8af9e7023142077fdeed0262e5f39921b158a14f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Zelfstudie: Azure Active Directory-integratie met Clarizen
 
@@ -32,7 +32,7 @@ Het scenario in deze zelfstudie bestaat uit twee belangrijke taken:
 1. Clarizen uit de galerie toevoegen.
 2. Configureren en testen eenmalige aanmelding Azure AD.
 
-Als u meer informatie over de software als een dienst (SaaS)-app-integratie met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Als u meer informatie over de software als een dienst (SaaS)-app-integratie met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 Voor het configureren van Azure AD-integratie met Clarizen, moet u de volgende items:
@@ -225,7 +225,7 @@ Britta Simon Azure eenmalige aanmelding gebruiken door haar toegang verlenen aan
 
     ![Te klikken op 'Gebruikers en groepen'][202]
 
-4. Klik op de **toevoegen** knop. Klik in de **toevoegen toewijzing** dialoogvenster, **gebruikers en groepen**.
+4. Klik op de knop **Toevoegen**. Klik in de **toevoegen toewijzing** dialoogvenster, **gebruikers en groepen**.
 
     ![De knop "Toevoegen" en het dialoogvenster 'Toewijzing toevoegen'][203]
 
@@ -235,15 +235,15 @@ Britta Simon Azure eenmalige aanmelding gebruiken door haar toegang verlenen aan
 
 7. In de **toevoegen toewijzing** in het dialoogvenster, klikt u op de **toewijzen** knop.
 
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 Uw Azure AD eenmalige aanmelding configuratie testen met behulp van het toegangsvenster.
 
 Als u op de tegel Clarizen in het deelvenster toegang, moet u worden automatisch aangemeld bij uw toepassing Clarizen.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 85c815218bca322bcbfd25b5a10b9eaa17ea4adf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0d70e853450ac2ff5c16db005849239901184da9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-betterworks"></a>Zelfstudie: Azure Active Directory-integratie met BetterWorks
 
@@ -29,7 +29,7 @@ BetterWorks integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij BetterWorks (Single Sign-On) met hun Azure AD-accounts inschakelen
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,9 +110,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-betterworks-tutorial/tutorial_betterworks_url.png)
 
-    a. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://app.betterworks.com/saml2/metadata/`
+    a. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://app.betterworks.com/saml2/metadata/`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://app.betterworks.com/saml2/acs/`
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://app.betterworks.com/saml2/acs/`
 
 4. Op de **BetterWorks domein en de URL's** sectie als u wilt configureren van de toepassing in **SP geïnitieerd modus**, voer de volgende stappen uit:
     
@@ -120,7 +120,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     a. Klik op de **weergeven geavanceerde instellingen voor URL**.
 
-    b. In de **aanmelding op URL** textbox, typ een URL met het volgende patroon volgen:`https://app.betterworks.com`
+    b. In de **aanmelding op URL** textbox, typ een URL met het volgende patroon volgen: `https://app.betterworks.com`
 
     > [!NOTE] 
     > Deze zijn niet echte waarden. Deze waarden bijwerken met de antwoord-URL, de id en de werkelijke aanmelding op URL. Neem contact op met [BetterWorks ondersteuningsteam](mailto:support@betterworks.com) ophalen van deze waarden.
@@ -135,7 +135,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 6. Op de **SAML-token kenmerken** dialoogvenster uitvoeren voor elke rij in de onderstaande tabel wordt weergegeven op de volgende stappen uit:
  
-   | Kenmerknaam | Waarde kenmerk |
+   | Naam kenmerk | Waarde kenmerk |
    | -------------- |  ------------ |
    | saml_token     | bd189cf6-1701-11e6-8f90-d26992eca2a5 |
 
@@ -233,10 +233,10 @@ Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding conf
 
 Als u op de tegel BetterWorks in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing BetterWorks.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 <!--Image references-->

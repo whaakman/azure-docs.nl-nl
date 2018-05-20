@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 34ac0f6f98ba84584d468b5f199d8d6a713ede8a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a2710c7fa0d035cee8a16d10edf3d603443ad520
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-versal"></a>Zelfstudie: Azure Active Directory-integratie met Vigatie
 
@@ -30,7 +30,7 @@ Vigatie integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Vigatie (Single Sign-On) met hun Azure AD-accounts kunt inschakelen.
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -108,9 +108,9 @@ In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure por
 
     ![Versal domein en de URL's van eenmalige aanmelding informatie](./media/active-directory-saas-versal-tutorial/tutorial_versal_url.png)
 
-    a. In de **id** textbox, typ de waarde:`VERSAL`
+    a. In de **id** textbox, typ de waarde: `VERSAL`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://versal.com/sso/saml/orgs/<organization_id>`
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://versal.com/sso/saml/orgs/<organization_id>`
 
     > [!NOTE] 
     > Antwoord-URL-waarde is geen echte. Deze waarde bijwerken met de werkelijke antwoord-URL. Neem contact op met [Vigatie ondersteuningsteam](https://support.versal.com/hc/) deze waarde op te halen.
@@ -198,7 +198,7 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie maakt testen u de Azure AD één aanmelding configuratie met behulp van een Vigatie loop ingesloten in uw website.
 Zie de [organisatie cursussen insluiten](https://support.versal.com/hc/en-us/articles/203271866-Embedding-organizational-courses) **SAML Single Sign-On** ondersteuning guide voor instructies voor het insluiten van een loop Vigatie met ondersteuning voor Azure AD eenmalige aanmelding. 
@@ -206,10 +206,10 @@ Zie de [organisatie cursussen insluiten](https://support.versal.com/hc/en-us/art
 U moet een loop maken en publiceren om te testen loop insluiten delen met uw organisatie. Zie [maken van een loop](https://support.versal.com/hc/en-us/articles/203722528-Create-a-course), [publiceren een loop](https://support.versal.com/hc/en-us/articles/203753398-Publishing-a-course), en [verloop en de cursist management](https://support.versal.com/hc/en-us/articles/206029467-Course-and-learner-management) voor meer informatie.  
                      
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

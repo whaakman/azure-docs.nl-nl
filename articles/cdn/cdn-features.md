@@ -1,10 +1,10 @@
 ---
-title: Azure Content Delivery Network (CDN) productfuncties | Microsoft Docs
+title: Productfuncties van Azure Content Delivery Network (CDN) vergelijken| Microsoft Docs
 description: Meer informatie over de functies waarvoor elk product van Azure Content Delivery Network (CDN) ondersteuning biedt.
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -12,20 +12,22 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/25/2018
+ms.date: 05/09/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: ae57d4e9feb23f67bb4f05148d87fec96f055a7f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 01396ceba142a91a88040ac28c51275734476e5d
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="azure-cdn-product-features"></a>Azure CDN-producteigenschappen
+# <a name="compare-azure-cdn-product-features"></a>Azure CDN-producteigenschappen vergelijken
 
-Azure Content Delivery Network (CDN) bestaat uit vier producten: **Azure CDN Standard van Microsoft**, **Azure CDN Standard van Akamai**, **Azure CDN Standard van Verizon** en **Azure CDN Premium van Verizon**. De volgende tabel vergelijkt de functies die beschikbaar zijn voor elk product.
+Azure Content Delivery Network (CDN) bestaat uit vier producten: **Azure CDN Standard van Microsoft** (preview-versie), **Azure CDN Standard van Akamai**, **Azure CDN Standard van Verizon** en **Azure CDN Premium van Verizon**. 
 
-| **Prestatiefuncties en -optimalisatie** | **Standard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** |
+De volgende tabel vergelijkt de functies die beschikbaar zijn voor elk product.
+
+| **Prestatiefuncties en -optimalisatie** | **Standard Microsoft (preview)** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** |
 | --- | --- | --- | --- | --- |
 | [Dynamische siteversnelling](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration)  |  | **&#x2713;**  | **&#x2713;** | **&#x2713;** |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Dynamische siteversnelling - adaptieve afbeeldingscompressie](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#adaptive-image-compression-akamai-only)  |  | **&#x2713;**  |  |  |
@@ -61,7 +63,7 @@ Azure Content Delivery Network (CDN) bestaat uit vier producten: **Azure CDN Sta
 | [Realtime waarschuwingen](cdn-real-time-alerts.md)  |  | | |**&#x2713;** |
 ||||
 | **Gebruiksgemak** | **Standard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
-| Eenvoudige integratie met Azure-services, zoals [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md) en [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Eenvoudige integratie met Azure-services, zoals [Storage](cdn-create-a-storage-account-with-cdn.md), [Web Apps](app-service-web-tutorial-content-delivery-network.md) en [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Beheer via [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) of [PowerShell](cdn-manage-powershell.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Aanpasbare, op regels gebaseerde engine voor contentlevering](cdn-rules-engine.md)  |  | | |**&#x2713;** |
 | URL-omleidings-/herschrijfbewerking (met behulp van [regels-engine](cdn-rules-engine.md))  |  | | |**&#x2713;** |

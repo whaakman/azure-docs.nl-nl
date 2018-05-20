@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 130e13b0bb801c498f6de6e4bfd61bd3d2c3bf00
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 4afe9bb36080027ba1873dc6fd3938972044a5d1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-replicon"></a>Zelfstudie: Azure Active Directory-integratie met Replicon
 
@@ -30,7 +30,7 @@ Replicon integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Replicon (Single Sign-On) met hun Azure AD-accounts kunt inschakelen.
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -108,11 +108,11 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![URL's en replicon domein eenmalige aanmelding informatie](./media/active-directory-saas-replicon-tutorial/tutorial_replicon_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://na2.replicon.com/<companyname>/saml2/sp-sso/post`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://na2.replicon.com/<companyname>/saml2/sp-sso/post`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://global.replicon.com/<companyname>`
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://global.replicon.com/<companyname>`
 
-    c. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://global.replicon.com/!/saml2/<companyname>/sso/post`
+    c. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://global.replicon.com/!/saml2/<companyname>/sso/post`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke aanmeldings-URL, id en antwoord-URL. Neem contact op met [Replicon Client ondersteuningsteam](https://www.replicon.com/customerzone/contact-support) ophalen van deze waarden. 
@@ -131,14 +131,14 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
    
     ![SAML-verificatie inschakelen](./media/active-directory-saas-replicon-tutorial/ic777805.png "inschakelen SAML-verificatie")
     
-    a. Om weer te geven de **EnableSAML Authentication2** dialoogvenster het volgende toevoegen aan de URL na de sleutel van uw bedrijf:`/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
+    a. Om weer te geven de **EnableSAML Authentication2** dialoogvenster het volgende toevoegen aan de URL na de sleutel van uw bedrijf: `/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
     
     * Hieronder ziet u het schema van de volledige URL:  
    `https://na2.replicon.com/\<YourCompanyKey\>/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
    
-   b. Klik op de  **+**  uit te breiden de **v20Configuration** sectie.
+   b. Klik op de **+** uit te breiden de **v20Configuration** sectie.
 
-   c. Klik op de  **+**  uit te breiden de **metaDataConfiguration** sectie.
+   c. Klik op de **+** uit te breiden de **metaDataConfiguration** sectie.
 
    d. Klik op **bestand kiezen**, zodat uw identiteit provider metagegevens-XML-bestand selecteren en op **indienen**.
 
@@ -198,7 +198,7 @@ Om in te schakelen gebruikers van Azure AD aan te melden bij Replicon, moeten ze
    
     ![Gebruikersprofiel](./media/active-directory-saas-replicon-tutorial/ic777808.png "gebruikersprofiel")
     
-    a. In de **aanmeldingsnaam** textbox type de Azure AD-e-mailadres van de Azure AD-gebruiker die u inrichten wilt zoals  **BrittaSimon@contoso.com** .
+    a. In de **aanmeldingsnaam** textbox type de Azure AD-e-mailadres van de Azure AD-gebruiker die u inrichten wilt zoals **BrittaSimon@contoso.com**.
     
     b. Als **verificatietype**, selecteer **SSO**.
     
@@ -241,17 +241,17 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
 Als u op de tegel Replicon in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Replicon.
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

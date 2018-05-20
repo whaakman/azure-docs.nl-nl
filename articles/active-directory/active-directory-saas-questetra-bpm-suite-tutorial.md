@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2017
 ms.author: jeedes
-ms.openlocfilehash: e2515d571aa1615f14b597ef82b1087df3827f82
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 122473da723cb101e0f0f9226b34aa3294477657
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>Zelfstudie: Azure Active Directory-integratie met Questetra BPM Suite
 
@@ -30,7 +30,7 @@ Questetra BPM Suite integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Questetra BPM Suite (Single Sign-On) inschakelen met hun Azure AD-accounts
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -107,9 +107,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Sectie Questetra BPM Suite domein en URL 's](./media/active-directory-saas-questetra-bpm-suite-tutorial/tutorial_questetra-bpm-suite_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<subdomain>.questetra.net/saml/SSO/alias/bpm`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<subdomain>.questetra.net/saml/SSO/alias/bpm`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<subdomain>.questetra.net/`
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<subdomain>.questetra.net/`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. U kunt deze waarden ophalen uit **SP informatie** sectie op uw **Questetra BPM Suite** bedrijf-site, wordt verderop in de zelfstudie of neem contact op met besproken [clientondersteuning Questetra BPM Suite team](https://www.questetra.com/contact/). 
@@ -207,9 +207,9 @@ Het doel van deze sectie is het maken van een gebruiker Britta Simon aangeroepen
    
     ![Testgebruiker maken][300] 
    
-    a. In de **naam** textbox type **naam** van de gebruiker  **britta.simon@contoso.com** .
+    a. In de **naam** textbox type **naam** van de gebruiker **britta.simon@contoso.com**.
    
-    b. In de **e** textbox type **e** van de gebruiker**britta.simon@contoso.com**
+    b. In de **e** textbox type **e** van de gebruiker **britta.simon@contoso.com**
    
     c. In de **wachtwoord** textbox, typ een **wachtwoord** van de gebruiker.
     
@@ -245,17 +245,17 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
 Als u op de tegel Questetra BPM Suite in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Questetra BPM Suite.
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md).
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

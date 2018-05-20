@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 42632dcf8997ec5e987ac8a6615aae24e903399a
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 527d74910244058506e8435d431e239968896cd9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>Zelfstudie: Azure Active Directory-integratie met Cisco Webex
 
@@ -30,7 +30,7 @@ Cisco Webex integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Cisco Webex met hun Azure AD-accounts kunt inschakelen.
 - U kunt uw accounts op één centrale locatie--de Azure-portal beheren.
 
-Zie voor meer informatie over de integratie met Azure AD SaaS [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Zie voor meer informatie over de integratie met Azure AD SaaS [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,11 +110,11 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Cisco Webex domein en de URL's van eenmalige aanmelding informatie](./media/active-directory-saas-cisco-webex-tutorial/tutorial_ciscowebex_url.png)
 
-    a. In de **aanmeldings-URL** vak een URL met het volgende patroon volgen:`https://<subdomain>.webex.com`
+    a. In de **aanmeldings-URL** vak een URL met het volgende patroon volgen: `https://<subdomain>.webex.com`
 
     b. In de **id** vak, typ de URL `http://www.webex.com`.
 
-    c. In de **antwoord-URL** vak een URL met het volgende patroon volgen:`https://company.webex.com/dispatcher/SAML2AuthService?siteurl=company`
+    c. In de **antwoord-URL** vak een URL met het volgende patroon volgen: `https://company.webex.com/dispatcher/SAML2AuthService?siteurl=company`
      
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke antwoord-URL en aanmelding URL. Neem contact op met [Cisco Webex Client ondersteuningsteam](https://www.webex.co.in/support/support-overview.html) ophalen van deze waarden. 
@@ -161,7 +161,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     h. In de **AuthnContextClassRef** in het vak **urn: oasis: namen: tc: SAML:2.0:ac:classes:Password**.
 
-    ik. In de **klant SSO-Service-URL voor afmelden** vak, plak **Sign-Out URL**, die u hebt gekopieerd uit de Azure-portal.
+    i. In de **klant SSO-Service-URL voor afmelden** vak, plak **Sign-Out URL**, die u hebt gekopieerd uit de Azure-portal.
    
     j. Selecteer **Update**.
 
@@ -222,9 +222,9 @@ Om Azure AD-gebruikers aan te melden bij Cisco Webex, moeten ze worden ingericht
 
     c. In de **achternaam** typt u de achternaam van de gebruiker (in dit geval **Simon**).
 
-    d. In de **gebruikersnaam** typt u het e-mailadres van de gebruiker (in dit geval  **Brittasimon@contoso.com** ).
+    d. In de **gebruikersnaam** typt u het e-mailadres van de gebruiker (in dit geval **Brittasimon@contoso.com**).
 
-    e. In de **e** typt u het e-mailadres van de gebruiker (in dit geval  **Brittasimon@contoso.com** ).
+    e. In de **e** typt u het e-mailadres van de gebruiker (in dit geval **Brittasimon@contoso.com**).
 
     f. In de **wachtwoord** typt u het wachtwoord van de gebruiker.
 
@@ -267,7 +267,7 @@ In deze sectie kunt u de gebruiker Britta Simon Azure eenmalige aanmelding gebru
 
 7. Selecteer de **toewijzen** knop in de **toevoegen toewijzing** in het dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie testen met behulp van het toegangsvenster.
 
@@ -275,10 +275,10 @@ Wanneer u selecteert de Cisco Webex-tegel in het deelvenster toegang u automatis
 
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 3b14c40b402ae1877f6bfb267c137c9a051b8225
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 269c5aedb2e990a83358605445d19d9d61261f3b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>Zelfstudie: Azure Active Directory-integratie met Skillport
 
@@ -29,7 +29,7 @@ Skillport integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Skillport (Single Sign-On) met hun Azure AD-accounts inschakelen
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -112,21 +112,21 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     a. In de **aanmeldings-URL** textbox, typ de URL:
       
-      EU Datacenter:`https://adfs.skillport.eu`
+      EU Datacenter: `https://adfs.skillport.eu`
    
-      VS Datacenter:`https://sso.skillport.com`
+      VS Datacenter: `https://sso.skillport.com`
 
     b. In de **id** textbox, typ de URL:
       
-      EU Datacenter:`http://adfs.skillport.eu/adfs/services/trust`
+      EU Datacenter: `http://adfs.skillport.eu/adfs/services/trust`
    
-      VS Datacenter:`https://sso.skillport.com`
+      VS Datacenter: `https://sso.skillport.com`
    
     c. In de **antwoord-URL** textbox, typ de URL:
     
-      EU Datacenter:` https://adfs.skillport.eu/adfs/ls/`
+      EU Datacenter: ` https://adfs.skillport.eu/adfs/ls/`
     
-      VS Datacenter:`https://sso.skillport.com/sp/ACS.saml2`
+      VS Datacenter: `https://sso.skillport.com/sp/ACS.saml2`
  
 4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het XML-bestand op uw computer.
 
@@ -210,10 +210,10 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 Als u op de tegel Skillport in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Skillport.
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](https://msdn.microsoft.com/library/dn308586). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

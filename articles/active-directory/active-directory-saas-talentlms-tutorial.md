@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 171457617c23f2c0ff761f7ae1e78dcf152cd0b3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1c81d3e01170b2d134f83551911f9fcbd6e5f6e9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>Zelfstudie: Azure Active Directory-integratie met TalentLMS
 
@@ -29,7 +29,7 @@ TalentLMS integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij TalentLMS (Single Sign-On) met hun Azure AD-accounts inschakelen
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,9 +110,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-talentlms-tutorial/tutorial_talentlms_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<tenant-name>.TalentLMSapp.com`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<tenant-name>.TalentLMSapp.com`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`http://<tenant-name>.talentlms.com`
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen: `http://<tenant-name>.talentlms.com`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [TalentLMS Client ondersteuningsteam](https://www.talentlms.com/contact) ophalen van deze waarden. 
@@ -153,13 +153,13 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     f. Vul in het volgende: 
 
-    * In de **TargetedID** textbox type`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`
+    * In de **TargetedID** textbox type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`
      
-    * In de **voornaam** textbox type`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
+    * In de **voornaam** textbox type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
     
-    * In de **achternaam** textbox type`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
+    * In de **achternaam** textbox type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
     
-    * In de **e** textbox type`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+    * In de **e** textbox type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
     
 11. Klik op **Opslaan**.
  
@@ -216,7 +216,7 @@ Om Azure AD-gebruikers zich aanmelden bij TalentLMS, moeten ze worden ingericht 
 
     b. In de **achternaam** textbox, geef de achternaam van de gebruiker zoals **Simon**.
  
-    c. In de **e-mailadres** textbox, voer het e-mailadres van de gebruiker zoals  **brittasimon@contoso.com** .
+    c. In de **e-mailadres** textbox, voer het e-mailadres van de gebruiker zoals **brittasimon@contoso.com**.
 
     d. Klik op **gebruiker toevoegen**.
 
@@ -260,10 +260,10 @@ Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding conf
 
 Als u op de tegel TalentLMS in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing TalentLMS
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 5a260338354799e7076f7475a98aa648bf73a45a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e762c0c0e2ed6e8f4a22da047aec7059b9147193
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intime"></a>Zelfstudie: Azure Active Directory-integratie met InTime
 
@@ -30,7 +30,7 @@ InTime integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij InTime (Single Sign-On) met hun Azure AD-accounts kunt inschakelen.
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -108,9 +108,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![InTime domein en de URL's van eenmalige aanmelding informatie](./media/active-directory-saas-intime-tutorial/tutorial_intime_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ de URL:`https://intime6.intimesoft.com/mytime/login/login.xhtml`
+    a. In de **aanmeldings-URL** textbox, typ de URL: `https://intime6.intimesoft.com/mytime/login/login.xhtml`
 
-    b. In de **id** textbox, typ de URL:`https://auth.intimesoft.com/auth/realms/master`
+    b. In de **id** textbox, typ de URL: `https://auth.intimesoft.com/auth/realms/master`
 
 4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
@@ -200,16 +200,16 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
 Wanneer u klikt op de tegel InTime in het deelvenster toegang krijgt u de aanmeldingspagina van uw toepassing InTime. Klik op de **aanmelding** knop, en vervolgens een reeks IdPs wordt weergegeven op een lijst met knoppen. Klik op **IDP naam** gegeven door [InTime ondersteuningsteam](mailto:hdollard@intimesoft.com) om aan te melden in uw toepassing InTime. Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

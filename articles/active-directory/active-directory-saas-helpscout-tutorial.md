@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 5608df300ad3b5d3fd42bd904a52d43d115ebf53
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 596a1ba27516755e586d88ab56a20a1daed63fc2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Zelfstudie: Azure Active Directory-integratie met Scout Help
 
@@ -30,7 +30,7 @@ Scout te integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Scout Help (Single Sign-On) inschakelen met hun Azure AD-accounts.
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -105,9 +105,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Help-URL's en Scout domein één aanmelding informatie](./media/active-directory-saas-helpscout-tutorial/tutorial_helpscout_url.png)
 
-    a. **Id** is de **'Doelgroep URI (serviceprovider entiteit-ID)'** van Help Scout begint met`urn:`
+    a. **Id** is de **'Doelgroep URI (serviceprovider entiteit-ID)'** van Help Scout begint met `urn:`
 
-    b. **Antwoord-URL** is de **'na de back-URL (Assertion Consumer Service URL)** van Help Scout begint met`https://` 
+    b. **Antwoord-URL** is de **'na de back-URL (Assertion Consumer Service URL)** van Help Scout begint met `https://` 
 
     > [!NOTE] 
     > De waarden in deze URL's zijn voor de demonstratie alleen. U moet deze waarden uit de werkelijke antwoord-URL en de ID bijwerken. U deze waarden ophalen uit de **Single Sign-On** tabblad onder sectie verificatie, die verderop in de zelfstudie wordt beschreven.
@@ -116,7 +116,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Help-URL's en Scout domein één aanmelding informatie](./media/active-directory-saas-helpscout-tutorial/tutorial_helpscout_url1.png)
 
-    In de **aanmeldings-URL** textbox, typ een URL als:`https://secure.helpscout.net/members/login/`
+    In de **aanmeldings-URL** textbox, typ een URL als: `https://secure.helpscout.net/members/login/`
      
 5. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **certificaat (Base64)** en sla het certificaatbestand op uw computer.
 
@@ -234,17 +234,17 @@ In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding gebruikt helpe
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
 Als u op de tegel Help Scout in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Scout Help.
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

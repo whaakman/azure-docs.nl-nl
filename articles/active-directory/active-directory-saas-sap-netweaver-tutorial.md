@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 3987b833e5ed15082d3cc6b39bb160e3eaac6e91
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9ef63353286a43afed9c8a909e121a75fc8a14c5
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Zelfstudie: Azure Active Directory-integratie met SAP NetWeaver
 
@@ -29,7 +29,7 @@ SAP NetWeaver integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij SAP NetWeaver (Single Sign-On) inschakelen met hun Azure AD-accounts
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 
 ## <a name="prerequisites"></a>Vereisten
@@ -111,11 +111,11 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-sap-netweaver-tutorial/tutorial_sapnetweaver_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<your company instance of SAP NetWeaver>`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<your company instance of SAP NetWeaver>`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<your company instance of SAP NetWeaver>`
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<your company instance of SAP NetWeaver>`
 
-    c. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<your company instance of SAP NetWeaver>/sap/saml2/sp/acs/100`
+    c. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<your company instance of SAP NetWeaver>/sap/saml2/sp/acs/100`
      
     > [!NOTE] 
     > Deze waarden zijn niet de werkelijke. Deze waarden bijwerken met de werkelijke id en antwoord-URL en de aanmeldings-URL. Hier raden we u voor het gebruik van de unieke waarde van een tekenreeks in de id. Neem contact op met [SAP NetWeaver Client ondersteuningsteam](https://www.sap.com/support.html) ophalen van deze waarden. 
@@ -209,10 +209,10 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 
 Als u op de tegel SAP NetWeaver in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing SAP NetWeaver.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

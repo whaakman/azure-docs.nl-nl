@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 0c0cd547a9a33ee83883058623e4905ea0af4031
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 52cb6eccc85dd6c00ee1ab3b97f7410c43aef91d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-blackboard-learn"></a>Zelfstudie: Azure Active Directory-integratie met Schoolbord meer
 
@@ -29,7 +29,7 @@ Schoolbord meer integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Schoolbord meer (Single Sign-On) inschakelen met hun Azure AD-accounts
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,9 +110,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-blackboard-learn-tutorial/tutorial_blackboardlearn_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<subdomain>.blackboard.com/`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<subdomain>.blackboard.com/`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<subdomain>.blackboard.com/auth-saml/saml/SSO/entity-id/SAML_AD`
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<subdomain>.blackboard.com/auth-saml/saml/SSO/entity-id/SAML_AD`
     
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [Schoolbord meer informatie over Client-ondersteuningsteam](https://www.blackboard.com/support/index.aspx) ophalen van deze waarden. 
@@ -124,7 +124,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 5. In de **gebruikerskenmerken** sectie op **eenmalige aanmelding** dialoogvenster SAML-token kenmerken configureren zoals wordt weergegeven in de afbeelding en de volgende stappen uitvoeren. We hebben de Userprincipalname toegewezen als het kenmerk unieke gebruikers hier maar kunt u deze toewijzen aan de juiste waarde die uniek is voor de gebruiker in de organisatie en die wordt toegewezen aan het veld username Schoolbord meer informatie.
            
-    | Kenmerknaam | Waarde kenmerk |   
+    | Naam kenmerk | Waarde kenmerk |   
     | ---------------| ----------------|
     | urn:oid:1.3.6.1.4.1.5923.1.1.1.6 |User.userPrincipalName |
 
@@ -228,10 +228,10 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 
 Als u op de tegel Schoolbord meer in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Schoolbord meer informatie. Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

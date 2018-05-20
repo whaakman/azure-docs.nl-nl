@@ -15,23 +15,23 @@ ms.date: 01/20/2018
 ms.author: asmalser
 ms.reviewer: luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b76809e615174e7c4e118c6043c8f3fbef3ee94
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 5316cca9d3c944735355d7912a0f1e044c585001
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="configuring-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Configuring single sign-on to applications that are not in the Azure Active Directory application gallery (Eenmalige aanmelding configureren voor toepassingen die zich niet in de Azure Active Directory-toepassingsgalerie bevinden)
 Dit artikel is over een functie waarmee beheerders voor het configureren van eenmalige aanmelding tot toepassingen die niet aanwezig in de app-galerie van Azure Active Directory *zonder code te schrijven*. Deze functie werd uitgebracht van technical preview op 18 November 2015 en is opgenomen in [Azure Active Directory Premium](active-directory-whatis.md). Als u in plaats daarvan-handleiding voor ontwikkelaars over het integreren van aangepaste apps met Azure AD via code zoekt, Zie [verificatie scenario's voor Azure AD](active-directory-authentication-scenarios.md).
 
-De Azure Active Directory-toepassingsgalerie biedt een overzicht van toepassingen die bekend zijn bij het ondersteunen van een vorm van eenmalige aanmelding bij Azure Active Directory, zoals beschreven in [in dit artikel](active-directory-appssoaccess-whatis.md). Als u (als een IT infrastructuurspecialist of system integrator in uw organisatie) hebt gevonden dat de toepassing die u wilt verbinden, u kunt aan de slag door de stapsgewijze instructies die zijn gepresenteerd in de Azure-portal voor eenmalige aanmelding inschakelen.
+De Azure Active Directory-toepassingsgalerie biedt een overzicht van toepassingen die bekend zijn bij het ondersteunen van een vorm van eenmalige aanmelding bij Azure Active Directory, zoals beschreven in [in dit artikel](manage-apps/what-is-single-sign-on.md). Als u (als een IT infrastructuurspecialist of system integrator in uw organisatie) hebt gevonden dat de toepassing die u wilt verbinden, u kunt aan de slag door de stapsgewijze instructies die zijn gepresenteerd in de Azure-portal voor eenmalige aanmelding inschakelen.
 
 Klanten met [Azure Active Directory Premium](active-directory-whatis.md) licentie ook krijgen deze aanvullende mogelijkheden:
 
 * Selfservice integratie van alle toepassingen die ondersteuning biedt voor SAML 2.0 id-providers (Serviceprovider geïnitieerde of IdP gestart)
-* Integratie van een webtoepassing met een op basis van een HTML-aanmeldingspagina met selfservice [eenmalige aanmelding op basis van wachtwoorden](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)
+* Integratie van een webtoepassing met een op basis van een HTML-aanmeldingspagina met selfservice [eenmalige aanmelding op basis van wachtwoorden](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on)
 * Verbinding van toepassingen die gebruikmaken van het protocol SCIM voor gebruikers inrichten selfservice ([hier beschreven](active-directory-scim-provisioning.md))
-* Koppelingen toevoegen aan elke toepassing in de [Office 365 app linksboven](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) of de [deelvenster Azure AD access](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)
+* Koppelingen toevoegen aan elke toepassing in de [Office 365 app linksboven](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) of de [deelvenster Azure AD access](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users)
 
 Dit kunnen bijvoorbeeld niet alleen SaaS-toepassingen die u gebruikt, maar hebben niet nog is geïntegreerde naar de galerie van Azure AD-toepassing, maar van derden webtoepassingen die uw organisatie is geïmplementeerd op servers die u, in de cloud of on-premises beheert.
 
@@ -115,18 +115,18 @@ Om te testen, gewoon aanmelden in de Azure AD-Toegangsvenster op https://myapps.
 Zie voor foutopsporing tips, [artikel op fouten opsporen in op basis van SAML eenmalige aanmelding tot toepassingen](active-directory-saml-debugging.md) 
 
 ## <a name="password-single-sign-on"></a>Eenmalige aanmelding wachtwoord
-Selecteer deze optie voor het configureren van [op basis van wachtwoorden eenmalige aanmelding](active-directory-appssoaccess-whatis.md) voor een webtoepassing met een HTML-aanmeldingspagina. Op basis van wachtwoorden SSO, ook bekend als wachtwoord vaulting, kunt u voor het beheren van toegang voor gebruikers en wachtwoorden tot webtoepassingen die geen ondersteuning voor identiteitsfederatie. Het is ook nuttig voor scenario's waarin meerdere gebruikers één account moeten, zoals delen op uw organisatie sociale media app accounts. 
+Selecteer deze optie voor het configureren van [op basis van wachtwoorden eenmalige aanmelding](manage-apps/what-is-single-sign-on.md) voor een webtoepassing met een HTML-aanmeldingspagina. Op basis van wachtwoorden SSO, ook bekend als wachtwoord vaulting, kunt u voor het beheren van toegang voor gebruikers en wachtwoorden tot webtoepassingen die geen ondersteuning voor identiteitsfederatie. Het is ook nuttig voor scenario's waarin meerdere gebruikers één account moeten, zoals delen op uw organisatie sociale media app accounts. 
 
 Na het selecteren van **volgende**, wordt u gevraagd naar de URL van de toepassing web gebaseerde aanmeldingspagina opgeven. Houd er rekening mee dat dit de pagina met de gebruikersnaam en wachtwoord invoervelden moet zijn. Zodra u hebt ingevoerd, wordt in Azure AD een proces voor het parseren van de aanmeldingspagina voor een gebruikersnaam invoeren en een wachtwoord invoeren gestart. Als het proces niet geslaagd is, klikt u vervolgens leidt het u door een alternatief proces van het installeren van een Browseruitbreiding (vereist Internet Explorer, Chrome of Firefox) waarmee u de velden handmatig vastleggen.
 
-Zodra de aanmeldingspagina wordt vastgelegd, gebruikers en groepen kunnen worden toegewezen en referentie beleidsregels kunnen worden ingesteld net als normale [wachtwoord SSO apps](active-directory-appssoaccess-whatis.md).
+Zodra de aanmeldingspagina wordt vastgelegd, gebruikers en groepen kunnen worden toegewezen en referentie beleidsregels kunnen worden ingesteld net als normale [wachtwoord SSO apps](manage-apps/what-is-single-sign-on.md).
 
 Opmerking: U kunt een logo in tegel voor de toepassing met uploaden de **Logo uploaden** knop op de **configureren** tabblad voor de toepassing. 
 
 ## <a name="existing-single-sign-on"></a>Bestaande eenmalige aanmelding
 Selecteer deze optie om een koppeling toevoegen aan een toepassing als uw organisatie Azure AD-Toegangsvenster of Office 365-portal. U kunt deze koppelingen wilt toevoegen aan aangepaste web-apps die momenteel gebruikmaken van Azure Active Directory Federation Services (of een andere federatieservice) gebruiken in plaats van Azure AD voor verificatie. Of u kunt dieptekoppelingen toevoegen aan de specifieke SharePoint-pagina's of andere webpagina's die u zojuist hebt wilt op van uw gebruikers toegang panelen worden weergegeven. 
 
-Na het selecteren van **volgende**, wordt u gevraagd de URL van de toepassing koppelen aan invoeren. Zodra de voltooid, gebruikers en groepen kunnen worden toegewezen aan de toepassing die ervoor zorgt de toepassing wordt weergegeven dat de [Office 365 app linksboven](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) of de [Azure AD-Toegangsvenster](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) voor gebruikers.
+Na het selecteren van **volgende**, wordt u gevraagd de URL van de toepassing koppelen aan invoeren. Zodra de voltooid, gebruikers en groepen kunnen worden toegewezen aan de toepassing die ervoor zorgt de toepassing wordt weergegeven dat de [Office 365 app linksboven](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) of de [Azure AD-Toegangsvenster](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users) voor gebruikers.
 
 Opmerking: U kunt een logo in tegel voor de toepassing met uploaden de **Logo uploaden** knop op de **configureren** tabblad voor de toepassing.
 

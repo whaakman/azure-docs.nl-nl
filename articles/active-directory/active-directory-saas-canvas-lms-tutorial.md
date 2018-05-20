@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: jeedes
-ms.openlocfilehash: ae007ee34f1dc997db2d7ca8267ba2522e0eb687
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 56fe4679448fec1db67f826ff70cf8768699e507
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas-lms"></a>Zelfstudie: Azure Active Directory-integratie met Canvas LMS
 
@@ -29,7 +29,7 @@ Canvas integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Canvas (Single Sign-On) met hun Azure AD-accounts inschakelen
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,9 +110,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-canvas-lms-tutorial/tutorial_canvaslms_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<tenant-name>.instructure.com`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<tenant-name>.instructure.com`
 
-    b. In de **id** textbox, typ de waarde met het volgende patroon volgen:`https://<tenant-name>.instructure.com/saml2`
+    b. In de **id** textbox, typ de waarde met het volgende patroon volgen: `https://<tenant-name>.instructure.com/saml2`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [Canvas Client ondersteuningsteam](https://community.canvaslms.com/community/help) ophalen van deze waarden. 
@@ -221,9 +221,9 @@ In geval van een Canvas is gebruikersaanvragen een handmatige taak.
    
    a. In de **volledige naam** textbox, voer de naam van gebruiker zoals **BrittaSimon**.
 
-   b. In de **e** textbox, voer het e-mailadres van de gebruiker zoals  **brittasimon@contoso.com** .
+   b. In de **e** textbox, voer het e-mailadres van de gebruiker zoals **brittasimon@contoso.com**.
 
-   c. In de **aanmelding** textbox, voer de gebruiker Azure AD e-mailadres zoals  **brittasimon@contoso.com** .
+   c. In de **aanmelding** textbox, voer de gebruiker Azure AD e-mailadres zoals **brittasimon@contoso.com**.
 
    d. Selecteer **de gebruiker over het maken van dit account een E-mail**.
 
@@ -269,10 +269,10 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 Als u op de tegel Canvas in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Canvas.
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md).
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: asteen
 ms.reviewer: asteen
-ms.openlocfilehash: 9a8b85539ac26629c31e49097fca5c3ce5c5abc2
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 30b3fbd415fac1e11a77b3905cb01e5935a62839
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="whats-new-in-enterprise-application-management-in-azure-active-directory"></a>Wat is er nieuw in Enterprise Toepassingsbeheer in Azure Active Directory 
 
@@ -34,7 +34,7 @@ Hieronder volgen enkele van de uitbreidingen voor Azure AD in de [Azure-portal](
 
 ## <a name="improvements-to-the-azure-active-directory-application-gallery"></a>Verbeteringen in de Azure Active Directory-Toepassingsgalerie
 
-Toevoegen van uw favoriete toepassingen ongeacht of deze uit de [toepassingsgalerie](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), aangepaste toepassingen die u wilt uitbreiden naar de cloud of nieuwe toepassingen die u ontwikkelt.  U kunt aan de slag met deze nieuwe ervaring door te klikken op **toevoegen** onder **bedrijfstoepassingen** of **alle toepassingen**.
+Toevoegen van uw favoriete toepassingen ongeacht of deze uit de [toepassingsgalerie](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery), aangepaste toepassingen die u wilt uitbreiden naar de cloud of nieuwe toepassingen die u ontwikkelt.  U kunt aan de slag met deze nieuwe ervaring door te klikken op **toevoegen** onder **bedrijfstoepassingen** of **alle toepassingen**.
  
   ![Een toepassing toevoegen](./media/active-directory-enterprise-apps-whats-new-azure-portal/01.png)
 

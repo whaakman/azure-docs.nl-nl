@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 05/18/2018
 ms.author: billmath
-ms.openlocfilehash: 2686bdef9c25f4540f9b2a21594b18cbe0404e08
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9cb32d137334141183831e703fb11cd3e6bd5a73
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Installeren Azure AD Connect met SQL delegated administrator-machtigingen
 Vóór de laatste build van de Azure AD Connect beheerdersrechten delegering bij het implementeren van configuraties die SQL vereist, niet wordt ondersteund.  Gebruikers die wilden Azure AD Connect installeert die nodig zijn om machtigingen voor server-beheerder (SA) op de SQL server.
@@ -42,7 +42,7 @@ Gebruik de volgende stappen voor het inrichten van de buiten-band-database en Az
 
 
 1.  De SQL-beheerder de database ADSync maakt met een reeks hoofdlettergevoelige sortering **(Latin1_General_CI_AS)**.  De database moet de naam **ADSync**.  Het herstelmodel, compatibiliteitsniveau en containment-type zijn bijgewerkt naar de juiste waarden wanneer Azure AD Connect is geïnstalleerd.  Maar de volgorde moet correct zijn ingesteld door de SQL-beheerder anders Azure AD Connect zal de installatie geblokkeerd.  Als u wilt herstellen van de SA moeten verwijderen en opnieuw maken van de database.</br>
-![Sortering](media/active-directory-aadconnect-sql-delegation/sql1.png)
+![Sortering](media/active-directory-aadconnect-sql-delegation/sql4.png)
 2.  Verleen de beheerder van de Azure AD Connect en het domeinaccount van de service de volgende machtigingen:
     - SQL-aanmelding 
     - **database-owner(dbo)** rechten.  </br>

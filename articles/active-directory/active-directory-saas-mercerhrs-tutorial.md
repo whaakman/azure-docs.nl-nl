@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: jeedes
-ms.openlocfilehash: dfc963be9d087c6ad1c56dcdaf922ff5dbf5b284
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c0a9fc6c906af96bd613c02e8b4248fc2125d9e1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mercer-benefitscentral-mbc"></a>Zelfstudie: Azure Active Directory-integratie met Mercer BenefitsCentral (MBC)
 
@@ -30,7 +30,7 @@ Mercer BenefitsCentral (MBC) integreren met Azure AD biedt de volgende voordelen
 - U kunt uw gebruikers automatisch ophalen aangemelde naar Mercer BenefitsCentral (MBC) (Single Sign-On) inschakelen met hun Azure AD-accounts.
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -108,9 +108,9 @@ In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure por
 
     ![Mercer BenefitsCentral (MBC)-domein en de URL's van eenmalige aanmelding informatie](./media/active-directory-saas-mercerhrs-tutorial/tutorial_mercerhrs_url.png)
 
-    a. In de **id** textbox, typ een URL met het volgende patroon volgen:`stg.mercerhrs.com/saml2.0`
+    a. In de **id** textbox, typ een URL met het volgende patroon volgen: `stg.mercerhrs.com/saml2.0`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://ssous-stg.mercerhrs.com/SP2/Saml2AssertionConsumer.aspx`
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://ssous-stg.mercerhrs.com/SP2/Saml2AssertionConsumer.aspx`
 
     > [!NOTE] 
     > Antwoord-URL-waarde is geen echte. Deze waarde bijwerken met de werkelijke antwoord-URL. Neem contact op met [Mercer BenefitsCentral (MBC) ondersteuningsteam](https://www.mercer.com/contact-us.html) deze waarde op te halen.
@@ -198,17 +198,17 @@ In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding toegang verlee
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
 Als u op de tegel Mercer BenefitsCentral (MBC) in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Mercer BenefitsCentral (MBC).
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

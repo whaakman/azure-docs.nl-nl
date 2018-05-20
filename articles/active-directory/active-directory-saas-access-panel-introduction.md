@@ -15,11 +15,11 @@ ms.date: 05/11/18
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e25bd3e5c47667a711c53711f9823fb231dbcd86
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 982e2cb6780e5285dc5849d655efdf830f76cf13
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="what-is-the-access-panel"></a>Wat is het toegangsvenster?
 
@@ -60,7 +60,7 @@ Bereiken van het toegangsvenster, moet u worden geverifieerd via een account voo
 
 Als u een abonnement voor Azure of Office 365 hebt en u hebt gebruikt de Azure portal of een Office 365-toepassing, kunt u de lijst met toepassingen weergeven zonder meldt u zich opnieuw. Als u niet bent geverifieerd, wordt u gevraagd om aan te melden met behulp van de gebruikersnaam en het wachtwoord voor uw account in Azure AD. Als uw organisatie heeft federation geconfigureerd, is typt de gebruikersnaam voldoende.
 
-Wanneer u bent geverifieerd, kunt u communiceren met de toepassingen die de beheerder heeft geïntegreerd in de map. Zie voor meer informatie over toepassingen integreren met Azure AD, [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Wanneer u bent geverifieerd, kunt u communiceren met de toepassingen die de beheerder heeft geïntegreerd in de map. Zie voor meer informatie over toepassingen integreren met Azure AD, [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="web-browser-requirements"></a>Vereisten voor webbrowsers
 
@@ -215,7 +215,7 @@ Bijvoorbeeld, als een toepassing is geconfigureerd om gebruikers te verifiëren 
  
 - Zie voor informatie over het integreren van een SaaS-app met Azure AD, de [lijst met zelfstudies over het integreren van SaaS-apps](active-directory-saas-tutorial-list.md).
  
-- Zie voor meer informatie over het beheren van apps met Azure AD, de [Inleiding tot één aanmelding en beheren van app-toegang met Azure Active Directory](active-directory-appssoaccess-whatis.md).
+- Zie voor meer informatie over het beheren van apps met Azure AD, de [Inleiding tot één aanmelding en beheren van app-toegang met Azure Active Directory](manage-apps/what-is-single-sign-on.md).
  
 - Zie voor meer informatie over gebruikers inrichten, [gebruikers inrichten en opheffen van inrichting tot SaaS-toepassingen automatiseren](active-directory-saas-app-provisioning.md).
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 39c2acb24f1c15af9ab0c8698e9590fb0e032113
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 22bc26190971ef8ceed409a70d45be5e049d7401
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mypolicies"></a>Zelfstudie: Azure Active Directory-integratie met myPolicies
 
@@ -29,7 +29,7 @@ MyPolicies integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij myPolicies (Single Sign-On) met hun Azure AD-accounts inschakelen
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,9 +110,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-mypolicies-tutorial/tutorial_mypolicies_url.png)
 
-    a. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<tenantname>.mypolicies.com/`
+    a. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<tenantname>.mypolicies.com/`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<tenantname>.mypolicies.com/users/auth/saml/callback`
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<tenantname>.mypolicies.com/users/auth/saml/callback`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke id en de antwoord-URL. Neem contact op met [myPolicies ondersteuningsteam](mailto:support@mypolicies.com) ophalen van deze waarden.
@@ -123,7 +123,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 5. Klik op **weergeven en bewerken van alle andere gebruikerskenmerken** selectievakje in de **gebruikerskenmerken** sectie uit te breiden, de kenmerken. Voer de volgende stappen uit op elk van de kenmerken weergegeven-
 
-    | Kenmerknaam | Waarde kenmerk |
+    | Naam kenmerk | Waarde kenmerk |
     | ------------------- | ---------- |
     | Voornaam | User.givenName |
     | Achternaam | User.surname |
@@ -228,10 +228,10 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 Als u op de tegel myPolicies in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing myPolicies.
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md).
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

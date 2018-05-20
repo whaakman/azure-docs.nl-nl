@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 66165b2586304f3726f5d712fb334fe67e2cd02b
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: c30d59a2bd903a5578caf376957a22bb270455f9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>Zelfstudie: Azure Active Directory-integratie met vxMaintain
 
@@ -29,7 +29,7 @@ Deze integratie biedt een aantal belangrijke voordelen. U kunt:
 - Kunnen uw gebruikers automatisch aanmelden bij vxMaintain met eenmalige aanmelding (SSO) via hun Azure AD-accounts.
 - Uw accounts op één locatie beheren: de Azure-portal.
 
-Zie voor meer informatie over de integratie van de SaaS-app met Azure AD, [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Zie voor meer informatie over de integratie van de SaaS-app met Azure AD, [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -104,9 +104,9 @@ In deze sectie maakt kunt u zowel Azure AD-eenmalige aanmelding inschakelen in d
 
     ![De vxMaintain sectie domein en URL 's](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_url.png)
 
-    a. In de **id** typt u een URL die heeft de volgende syntaxis:`https://<company name>.verisae.com`
+    a. In de **id** typt u een URL die heeft de volgende syntaxis: `https://<company name>.verisae.com`
 
-    b. In de **antwoord-URL** typt u een URL die heeft de volgende syntaxis:`https://<company name>.verisae.com/DataNett/action/ssoConsume/mobile?_log=true`
+    b. In de **antwoord-URL** typt u een URL die heeft de volgende syntaxis: `https://<company name>.verisae.com/DataNett/action/ssoConsume/mobile?_log=true`
 
     > [!NOTE] 
     > De voorgaande waarden zijn niet echt. Deze bijwerken met de werkelijke-id en antwoord-URL. De waarden, neem contact op met de [vxMaintain ondersteuningsteam](http://www.verisae.com/contact-us).
@@ -198,7 +198,7 @@ Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsven
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

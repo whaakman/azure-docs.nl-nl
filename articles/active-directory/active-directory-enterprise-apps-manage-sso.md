@@ -15,15 +15,15 @@ ms.workload: identity
 ms.date: 09/19/2017
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: baf437294dbbca7f63f9d4cdc80ac1cb33a67e42
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 548bd4ca9e8ec66e4c50ea078dc0bccc1788095a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Eenmalige aanmelding voor zakelijke apps beheren
 
-In dit artikel wordt beschreven hoe u de [Azure-portal](https://portal.azure.com) voor het beheren van instellingen voor eenmalige aanmelding voor bedrijfstoepassingen. Zakelijke apps zijn apps die zijn geïmplementeerd en worden gebruikt binnen uw organisatie. In dit artikel geldt met name voor apps die zijn toegevoegd vanuit de [Azure Active Directory-toepassingsgalerie](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). 
+In dit artikel wordt beschreven hoe u de [Azure-portal](https://portal.azure.com) voor het beheren van instellingen voor eenmalige aanmelding voor bedrijfstoepassingen. Zakelijke apps zijn apps die zijn geïmplementeerd en worden gebruikt binnen uw organisatie. In dit artikel geldt met name voor apps die zijn toegevoegd vanuit de [Azure Active Directory-toepassingsgalerie](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). 
 
 ## <a name="finding-your-apps-in-the-portal"></a>Uw apps te zoeken in de portal
 Alle zakelijke apps die zijn ingesteld voor eenmalige aanmelding kunnen worden weergegeven en beheerd in de Azure portal. De toepassingen vindt u in de **alle Services** &gt; **bedrijfstoepassingen** sectie van de portal. 
@@ -43,7 +43,7 @@ Selecteer voor het beheren van instellingen voor eenmalige aanmelding **eenmalig
 * **Op basis van wachtwoorden aanmelding** -deze optie is beschikbaar als Azure AD ondersteunt wachtwoord formulier invullen voor deze toepassing.
 * **Eenmalige aanmelding gekoppeld** -voorheen bekend als 'Bestaande single sign-on', deze optie kan beheerders een koppeling naar deze toepassing in hun gebruiker Azure AD-Toegangsvenster of Office 365 startprogramma voor toepassingen plaatsen.
 
-Zie voor meer informatie over deze modi [hoe eenmalige aanmelding met Azure Active Directory work](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
+Zie voor meer informatie over deze modi [hoe eenmalige aanmelding met Azure Active Directory work](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ## <a name="saml-based-sign-on"></a>Op basis van SAML eenmalige aanmelding
 De **op basis van SAML aanmelding** optie is onderverdeeld in vier secties:
@@ -79,12 +79,12 @@ De **toepassing configureren** vervolgmenu biedt nieuwe beknopte, ingesloten ins
 ![Ingesloten docs](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-embedded-docs.png)
 
 ## <a name="password-based-sign-on"></a>Op basis van wachtwoorden eenmalige aanmelding
-Als voor de toepassing wordt ondersteund, de eenmalige aanmelding op basis van wachtwoorden modus selecteren en te selecteren **opslaan** onmiddellijk configureert u eenmalige aanmelding op basis van wachtwoorden. Zie voor meer informatie over het implementeren van eenmalige aanmelding op basis van wachtwoorden [hoe eenmalige aanmelding met Azure Active Directory work](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
+Als voor de toepassing wordt ondersteund, de eenmalige aanmelding op basis van wachtwoorden modus selecteren en te selecteren **opslaan** onmiddellijk configureert u eenmalige aanmelding op basis van wachtwoorden. Zie voor meer informatie over het implementeren van eenmalige aanmelding op basis van wachtwoorden [hoe eenmalige aanmelding met Azure Active Directory work](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ![Op basis van wachtwoorden eenmalige aanmelding](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-password-sso.png)
 
 ## <a name="linked-sign-on"></a>Gekoppelde aanmelding
-Als voor de toepassing wordt ondersteund, kunt de gekoppelde SSO-modus u de URL die u wilt de Azure AD-Toegangsvenster of Office 365 waarnaar wordt doorverwezen wanneer gebruikers op deze app klikt, invoeren. Zie voor meer informatie over gekoppelde eenmalige aanmelding (voorheen bekend als 'bestaande SSO'), [hoe eenmalige aanmelding met Azure Active Directory work](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
+Als voor de toepassing wordt ondersteund, kunt de gekoppelde SSO-modus u de URL die u wilt de Azure AD-Toegangsvenster of Office 365 waarnaar wordt doorverwezen wanneer gebruikers op deze app klikt, invoeren. Zie voor meer informatie over gekoppelde eenmalige aanmelding (voorheen bekend als 'bestaande SSO'), [hoe eenmalige aanmelding met Azure Active Directory work](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ![Gekoppelde aanmelding](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-linked-sso.png)
 

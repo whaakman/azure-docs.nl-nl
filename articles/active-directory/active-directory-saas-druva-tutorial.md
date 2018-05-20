@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 5be9f384d9e8c0871d26ccb5d35a49e9387ad753
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 43b09ebaac70cceb5fdee8589ef70bd9531574dd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-druva"></a>Zelfstudie: Azure Active Directory-integratie met Druva
 
@@ -30,7 +30,7 @@ Druva integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Druva (Single Sign-On) met hun Azure AD-accounts kunt inschakelen.
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -108,13 +108,13 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-druva-tutorial/tutorial_druva_url.png)
 
-    In de **id** textbox, typt u de string-waarde:`druva-cloud`
+    In de **id** textbox, typt u de string-waarde: `druva-cloud`
     
 4. Controleer **weergeven geavanceerde instellingen voor URL**. Als u wilt configureren van de toepassing in **SP** modus gestart:
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-druva-tutorial/tutorial_druva_url1.png)
     
-    In de **aanmeldings-URL** textbox, typ de URL:`https://cloud.druva.com/home`
+    In de **aanmeldings-URL** textbox, typ de URL: `https://cloud.druva.com/home`
 
 5. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
 
@@ -126,7 +126,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 7. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de voorgaande afbeelding en de volgende stappen uitvoeren:
 
-    | Kenmerknaam      | Waarde kenmerk      |
+    | Naam kenmerk      | Waarde kenmerk      |
     | ------------------- | -------------------- |
     | synchroon\_auth\_token |Voer de token gegenereerde waarde |
     
@@ -236,7 +236,7 @@ Om Azure AD-gebruikers zich aanmelden bij Druva inschakelt, moeten ze worden ing
    
    ![Maken van nieuwegebruiker](./media/active-directory-saas-druva-tutorial/ic795099.png "nieuwegebruiker maken")
    
-   a. In de **e-mailadres** textbox, voer het e-mailadres van de gebruiker zoals  **brittasimon@contoso.com** .
+   a. In de **e-mailadres** textbox, voer het e-mailadres van de gebruiker zoals **brittasimon@contoso.com**.
    
    b. In de **naam** textbox, voer de naam van gebruiker zoals **BrittaSimon**.
    
@@ -275,17 +275,17 @@ In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toega
 
 7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
     
-### <a name="test-single-sign-on"></a>Test eenmalige aanmelding
+### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
 In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
 
 Als u op de tegel Druva in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Druva.
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

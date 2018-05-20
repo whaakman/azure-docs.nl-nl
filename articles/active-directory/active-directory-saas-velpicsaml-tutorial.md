@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: jeedes
-ms.openlocfilehash: e4f7e4c9e960450f0024cd7ca35bd3808d31ee19
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 03ef1ef04d80ac9bb83bcce2082b6cc3f617d812
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-velpic-saml"></a>Zelfstudie: Azure Active Directory-integratie met Velpic SAML
 
@@ -29,7 +29,7 @@ Velpic SAML integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Velpic SAML (Single Sign-On) inschakelen met hun Azure AD-accounts
 - U kunt uw accounts op één centrale locatie - en de Azure Management portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,9 +110,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure-beheerport
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-velpicsaml-tutorial/tutorial_velpicsaml_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ de waarde als:`https://<sub-domain>.velpicsaml.net`
+    a. In de **aanmeldings-URL** textbox, typ de waarde als: `https://<sub-domain>.velpicsaml.net`
 
-    b. In de **id** textbox, plak de **'Eenmalige op URL'** waarde`https://auth.velpic.com/saml/v2/<entity-id>/login`
+    b. In de **id** textbox, plak de **'Eenmalige op URL'** waarde `https://auth.velpic.com/saml/v2/<entity-id>/login`
     
     > [!NOTE]
     > Houd er rekening mee dat de aanmelding URL worden geleverd door het team Velpic SAML en id-waarde beschikbaar zijn bij het configureren van de SSO-invoegtoepassing Velpic SAML-zijde. U wilt dat de waarde van de Velpic SAML toepassingspagina kopiëren en plak dit hier.
@@ -259,10 +259,10 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 2. Klik op de **'Aanmelden met Azure AD'** knop aanmelden bij Velpic met behulp van uw Azure AD-account.
 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

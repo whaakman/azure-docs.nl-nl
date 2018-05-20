@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: jeedes
-ms.openlocfilehash: 1ac2894a7ec10db52a23bdff74840723e02ed677
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cfc4899a8770037d6f0e5c58d61ce73ec862de9a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-blackboard-learn---shibboleth"></a>Zelfstudie: Azure Active Directory-integratie met Schoolbord meer - Shibboleth
 
@@ -29,7 +29,7 @@ Integratie van Schoolbord meer - Shibboleth met Azure AD biedt de volgende voord
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Schoolbord meer - Shibboleth (Single Sign-On) met hun Azure AD-accounts inschakelen
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,11 +110,11 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/tutorial_blackboardlearn-shibboleth_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://<yourblackoardlearnserver>.blackboardlearn.com/Shibboleth.sso/Login`
+    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<yourblackoardlearnserver>.blackboardlearn.com/Shibboleth.sso/Login`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<yourblackoardlearnserver>.blackboardlearn.com/shibboleth-sp`
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<yourblackoardlearnserver>.blackboardlearn.com/shibboleth-sp`
 
-    c. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<yourblackoardlearnserver>.blackboardlearn.com/Shibboleth.sso/SAML2/POST`
+    c. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<yourblackoardlearnserver>.blackboardlearn.com/Shibboleth.sso/SAML2/POST`
  
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke id, antwoord-URL en aanmeldings-URL. Neem contact op met [Schoolbord meer - ondersteuningsteam Shibboleth Client](https://www.blackboard.com/forms/contact-us_form.aspx) ophalen van deze waarden. 
@@ -208,10 +208,10 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 
 Wanneer u klikt op de Schoolbord meer - tegel in het deelvenster toegang Shibboleth u moet ophalen automatisch aangemeld bij uw Schoolbord meer - Shibboleth toepassing.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

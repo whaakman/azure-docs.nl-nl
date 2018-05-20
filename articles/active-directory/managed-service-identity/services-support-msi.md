@@ -9,11 +9,11 @@ ms.topic: reference
 ms.service: active-directory
 ms.component: msi
 manager: mtillman
-ms.openlocfilehash: 59f3535bd7efd17d818bf3c60dc1744d19a2ec37
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: d31c169600c594fc4764262cb8d080e9aee96b21
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="services-that-support-managed-service-identity"></a>Services die ondersteuning bieden voor Service-identiteit beheerd 
 
@@ -39,7 +39,7 @@ De volgende services ondersteuning bieden voor Azure AD-verificatie en getest me
 | ------- | ----------- | ------ | ---- | ------------- |
 | Azure Resource Manager | https://management.azure.com/ | Beschikbaar | September 2017 | [Azure Portal](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[Azure-CLI](howto-assign-access-CLI.md) |
 | Azure Key Vault | https://vault.azure.net | Beschikbaar | September 2017 | |
-| Azure Data Lake | https://datalake.azure.net | Beschikbaar | September 2017 | |
-| Azure SQL | https://database.windows.net | Beschikbaar | Oktober 2017 | |
+| Azure Data Lake | https://datalake.azure.net/ | Beschikbaar | September 2017 | |
+| Azure SQL | https://database.windows.net/ | Beschikbaar | Oktober 2017 | |
 | Azure Event Hubs | https://eventhubs.azure.net | Beschikbaar | December 2017 | |
 | Azure Service Bus | https://servicebus.azure.net | Beschikbaar | December 2017 | |

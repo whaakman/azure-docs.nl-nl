@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/3/2017
 ms.author: jeedes
-ms.openlocfilehash: b744b8e197c918e7fe3a0e6e7eeab6a70cc6e34a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2b1c7461cb1ed232290cf78a03449611f9ef95da
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicechannel"></a>Zelfstudie: Azure Active Directory-integratie met ServiceChannel
 
@@ -29,7 +29,7 @@ ServiceChannel integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij ServiceChannel (Single Sign-On) met hun Azure AD-accounts inschakelen
 - U kunt uw accounts op één centrale locatie - en de Azure Management portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,9 +110,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure-beheerport
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-servicechannel-tutorial/tutorial-servicechannel_urls.png)
 
-    a. In de **id** textbox, typ de waarde als:`http://adfs.<domain>.com/adfs/service/trust`
+    a. In de **id** textbox, typ de waarde als: `http://adfs.<domain>.com/adfs/service/trust`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<customer domain>.servicechannel.com/saml/acs`
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<customer domain>.servicechannel.com/saml/acs`
 
     > [!NOTE] 
     > Houd er rekening mee dat deze niet de werkelijke waarden zijn. U hebt deze waarden bijwerken met de werkelijke id en de antwoord-URL. Hier raden we u voor het gebruik van de unieke waarde van een tekenreeks in de id. Neem contact op met [ServiceChannel ondersteuningsteam](https://servicechannel.zendesk.com/hc/en-us) ophalen van deze waarden.
@@ -128,7 +128,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure-beheerport
 
 5. In **gebruikerskenmerken** sectie, klikt u op **weergeven en bewerken van alle andere gebruikerskenmerken** en kenmerken instellen.
 
-    | Kenmerknaam | Waarde kenmerk |
+    | Naam kenmerk | Waarde kenmerk |
     | --- | --- |    
     | Rol| User.assignedroles |
 
@@ -227,10 +227,10 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 
 Als u op de tegel ServiceChannel in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing ServiceChannel.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 <!--Image references-->

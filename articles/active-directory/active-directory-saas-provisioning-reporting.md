@@ -2,7 +2,7 @@
 title: Rapportage van Azure Active Directory automatisch account gebruikersinrichting voor SaaS-toepassingen | Microsoft Docs
 description: Informatie over het controleren van de status van automatische gebruikersaccount inrichten en het oplossen van de inrichting van afzonderlijke gebruikers.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
 manager: mtillman
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/12/2017
 ms.author: asmalser-msft
-ms.openlocfilehash: d2ec1b25e39717fb2411d35e3b0a9f5eb3a977be
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1527e8fe28d395a77d7b3c1535e40fe59df1baba
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Zelfstudie: Rapportage over automatische gebruikers account inrichten
 
@@ -31,7 +31,7 @@ Dit artikel wordt beschreven hoe u controleert de status van het inrichten nadat
 
 Inrichting connectors zijn voornamelijk ingesteld en geconfigureerd met behulp van de [Azure-beheerportal](https://portal.azure.com), door de [documentatie opgegeven](active-directory-saas-tutorial-list.md) voor de toepassing waarin het inrichten van het account vereist is. Zodra de geconfigureerde en actieve worden inrichten voor een toepassing gerapporteerd over het gebruik van een van twee methoden:
 
-* **Azure-beheerportal** -in dit artikel beschrijft voornamelijk bij het ophalen van rapportgegevens uit de [Azure-beheerportal](https://portal.azure.com), waarmee u zowel een overzichtsrapport inrichten als gedetailleerde inrichting controlelogboeken voor een bepaalde toepassing.
+* **Azure-beheerportal** -in dit artikel beschrijft voornamelijk bij het ophalen van rapportgegevens uit de [Azure-beheerportal](https://portal.azure.com), waarmee u zowel een overzichtsrapport voor inrichting, evenals gedetailleerde inrichting audit Logboeken voor een bepaalde toepassing.
 
 * **Audit API** -Azure Active Directory biedt ook een Audit-API die basisfunctionaliteit voor programmatische voor het ophalen van de gedetailleerde inrichting controlelogboeken. Zie [Azure Active Directory-audit API-referentiemateriaal](active-directory-reporting-api-audit-reference.md) voor documentatie over het gebruik van deze API. Terwijl dit artikel het gebruik van de API niet specifiek omvat, dit de typen gebeurtenissen die zijn vastgelegd in het controlelogboek inrichting toegelicht.
 
@@ -67,7 +67,7 @@ Het overzichtsrapport voor inrichting is zichtbaar in de **inrichten** tabblad v
 
 Het overzichtsrapport voor de inrichting, moet de eerste plaats admins uiterlijk bij het controleren van de operationele status van de taak.
 
- ![Het overzichtsrapport voor](./media/active-directory-saas-provisioning-reporting/summary_report.PNG)
+ ![Samenvattend rapport](./media/active-directory-saas-provisioning-reporting/summary_report.PNG)
 
 ### <a name="provisioning-audit-logs"></a>Inrichting controlelogboeken
 Alle activiteiten die worden uitgevoerd door de inrichting-service worden geregistreerd in de Azure AD-auditlogboeken kunnen worden weergegeven in de **controlelogboeken** tabblad onder de **Account inrichten** categorie. Geregistreerde activiteit gebeurtenistypen zijn onder andere:
@@ -133,4 +133,4 @@ Zie voor instructies over het oplossen van problemen met Automatische gebruikers
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Het beheren van gebruikers account inrichten voor zakelijke Apps](active-directory-enterprise-apps-manage-provisioning.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)

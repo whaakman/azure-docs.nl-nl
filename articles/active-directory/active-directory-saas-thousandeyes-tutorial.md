@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 81132e40eba589dff7ede0ee94fab1a289dc19d7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d40ab6d2587f5d842ac98479a6db7609d8a9ce4d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thousandeyes"></a>Zelfstudie: Azure Active Directory-integratie met ThousandEyes
 
@@ -29,7 +29,7 @@ ThousandEyes integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij ThousandEyes (Single Sign-On) met hun Azure AD-accounts inschakelen
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,7 +110,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-thousandeyes-tutorial/tutorial_thousandeyes_url.png)
 
-    In de **aanmeldings-URL** textbox, typ een URL als:`https://app.thousandeyes.com/login/sso`
+    In de **aanmeldings-URL** textbox, typ een URL als: `https://app.thousandeyes.com/login/sso`
 
 4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Certificate(Base64)** en sla het certificaatbestand op uw computer.
 
@@ -218,7 +218,7 @@ In het geval van ThousandEyes is inrichting een handmatige taak.
   
     a. In **naam** textbox, typ de naam van gebruiker, zoals **Britta Simon**.
 
-    b. In **e** textbox, typ het e-mailadres van gebruiker, zoals  **brittasimon@contoso.com** .
+    b. In **e** textbox, typ het e-mailadres van gebruiker, zoals **brittasimon@contoso.com**.
    
     b. Klik op **nieuwe gebruiker toevoegen aan het Account**.
       
@@ -263,10 +263,10 @@ Als u op de tegel ThousandEyes in het deelvenster toegang, u moet ophalen automa
 
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md).
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

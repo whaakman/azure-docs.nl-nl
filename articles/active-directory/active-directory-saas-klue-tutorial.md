@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 56df0048a2dea9d09392f6c39b001f0ae1f6c05c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1d3cd24ebacacd030e326dce19c5135254abb1aa
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-klue"></a>Zelfstudie: Azure Active Directory-integratie met Klue
 
@@ -29,7 +29,7 @@ Klue integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Klue (Single Sign-On) met hun Azure AD-accounts inschakelen
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,15 +110,15 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-klue-tutorial/tutorial_klue_url1.png)
 
-    a. In de **id** textbox, typ een URL met het volgende patroon volgen:`urn:klue:<Customer ID>`
+    a. In de **id** textbox, typ een URL met het volgende patroon volgen: `urn:klue:<Customer ID>`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://app.klue.com/account/auth/saml/<Customer UUID>/callback`
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://app.klue.com/account/auth/saml/<Customer UUID>/callback`
 
 4. Controleer **weergeven geavanceerde instellingen voor URL**. Als u wilt configureren van de toepassing in **SP** modus gestart:
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-klue-tutorial/tutorial_klue_url2.png)
 
-    In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:`https://app.klue.com/account/auth/saml/<Customer UUID>/`
+    In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://app.klue.com/account/auth/saml/<Customer UUID>/`
      
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke antwoord-URL, -id en aanmeldings-URL. Neem contact op met [Klue Client ondersteuningsteam](mailto:support@klue.com) ophalen van deze waarden.
@@ -129,10 +129,10 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
 6. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de voorgaande afbeelding en de volgende stappen uitvoeren:
     
-    | Kenmerknaam      | Waarde kenmerk      |
+    | Naam kenmerk      | Waarde kenmerk      |
     | ------------------- | -------------------- |
-    | Voornaam          | User.givenName |
-    | Achternaam           | User.surname |
+    | first_name          | User.givenName |
+    | last_name           | User.surname |
     | e-mailen               | User.userPrincipalName|
     
     a. Klik op **toevoegen kenmerk** openen de **kenmerk toevoegen** dialoogvenster.
@@ -239,10 +239,10 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 Als u op de tegel Klue in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Klue.
 Zie voor meer informatie over het toegangsvenster [Inleiding tot het toegangsvenster](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

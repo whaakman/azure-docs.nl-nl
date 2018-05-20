@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 07e638fbce863833eeb75ce6e680af3d1d6339eb
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 71c2463a38f2115bd3aeff82b100e3f2c20e7708
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Article Index for Application Management in Azure Active Directory (Engelstalig)
 Deze pagina bevat een uitgebreide lijst met elk document dat is geschreven over de verschillende functies van de toepassing-gerelateerde in Azure Active Directory (Azure AD).
@@ -31,7 +31,7 @@ De onderstaande artikelen zijn goede beginpunt voor gebruikers die alleen een ko
 | Artikel handleiding |  |
 |:---:| --- |
 | Een inleiding tot het beheer van toepassingsproblemen Azure AD is opgelost |[Toepassingen beheren met Azure Active Directory (AD)](manage-apps/what-is-application-management.md) |
-| Een overzicht van de verschillende functies in Azure AD betrekking hebben op het inschakelen van eenmalige aanmelding definiëren wie toegang heeft tot apps en hoe gebruikers apps openen |[Toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md) |
+| Een overzicht van de verschillende functies in Azure AD betrekking hebben op het inschakelen van eenmalige aanmelding definiëren wie toegang heeft tot apps en hoe gebruikers apps openen |[Toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md) |
 | Bekijk de verschillende stappen die betrokken zijn bij het integreren van apps in uw Azure AD |[Integratie van Azure Active Directory met toepassingen](manage-apps/plan-an-application-integration.md)<br /><br />[Inschakelen van eenmalige aanmelding voor SaaS-Apps](active-directory-enterprise-apps-manage-sso.md)<br /><br />[Toegang tot Apps beheren](active-directory-managing-access-to-apps.md) |
 | Een technische uitleg van hoe apps worden weergegeven in Azure AD |[Hoe en waarom toepassingen worden toegevoegd aan Azure AD](active-directory-how-applications-are-added.md) |
 
@@ -52,8 +52,8 @@ Eenmalige aanmelding kunt gebruikers toegang krijgen tot een aantal apps en serv
 
 | Artikel handleiding |  |
 |:---:| --- |
-| Een inleiding tot federatieve en andere typen van eenmalige aanmelding |[Eenmalige aanmelding met Azure AD](active-directory-appssoaccess-whatis.md) |
-| SaaS-apps die vooraf geïntegreerd met Azure AD met zijn duizenden vereenvoudigd configuratiestappen voor eenmalige aanmelding |[Aan de slag met Azure AD-toepassingsgalerie](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Volledige lijst met vooraf geïntegreerde Apps die ondersteuning bieden voor Federatie](active-directory-saas-tutorial-list.md)<br /><br />[Uw App toevoegen aan de App-galerie van Azure AD](active-directory-app-gallery-listing.md) |
+| Een inleiding tot federatieve en andere typen van eenmalige aanmelding |[Eenmalige aanmelding met Azure AD](manage-apps/what-is-single-sign-on.md) |
+| SaaS-apps die vooraf geïntegreerd met Azure AD met zijn duizenden vereenvoudigd configuratiestappen voor eenmalige aanmelding |[Aan de slag met Azure AD-toepassingsgalerie](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Volledige lijst met vooraf geïntegreerde Apps die ondersteuning bieden voor Federatie](active-directory-saas-tutorial-list.md)<br /><br />[Uw App toevoegen aan de App-galerie van Azure AD](active-directory-app-gallery-listing.md) |
 | Meer dan 150 app-zelfstudies over het configureren van eenmalige aanmelding voor apps zoals [Salesforce](active-directory-saas-salesforce-tutorial.md), [ServiceNow](active-directory-saas-servicenow-tutorial.md), [Google Apps](active-directory-saas-google-apps-tutorial.md), [Workday](active-directory-saas-workday-tutorial.md), en nog veel meer |[Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md) |
 | Het handmatig instellen en aanpassen van uw configuratie voor eenmalige aanmelding |[Hoe om te configureren voor federatieve eenmalige aanmelding voor Apps die niet zijn opgenomen in de Azure Active Directory-Toepassingsgalerie](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[Het aanpassen van uitgegeven Claims in het SAML-Token voor vooraf geïntegreerde Apps](active-directory-saml-claims-customization.md) |
 | Gids voor probleemoplossing voor federatieve apps die gebruikmaken van het SAML-protocol |[Het oplossen van problemen op basis van SAML eenmalige aanmelding](active-directory-saml-debugging.md) |
@@ -66,7 +66,7 @@ Om eenmalige aanmelding te bieden geen ondersteuning voor federatieve toepassing
 
 | Artikel handleiding |  |
 |:---:| --- |
-| Een inleiding tot hoe op wachtwoord gebaseerde SSO werkt en een korte technisch overzicht |[Op basis van wachtwoorden eenmalige aanmelding met Azure AD](active-directory-appssoaccess-whatis.md#password-based-single-sign-on) |
+| Een inleiding tot hoe op wachtwoord gebaseerde SSO werkt en een korte technisch overzicht |[Op basis van wachtwoorden eenmalige aanmelding met Azure AD](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on) |
 | Een samenvatting van de scenario's die betrekking hebben op account delen en hoe deze problemen kunnen worden opgelost door Azure AD |[Accounts delen met Azure AD](active-directory-sharing-accounts.md) |
 | Het wachtwoord voor bepaalde apps automatisch worden gewijzigd met een regelmatig interval |[Geautomatiseerde Rollover van wachtwoord (preview)](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
 | Implementatie en probleemoplossing van de handleidingen voor de Internet Explorer versie van de Azure AD-extensie voor het beheer van wachtwoord |[De extensie van het Configuratiescherm toegang voor Internet Explorer met behulp van Groepsbeleid implementeren](active-directory-saas-ie-group-policy.md)<br /><br />[De uitbreiding van het deelvenster toegang tot het oplossen van problemen voor Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
@@ -183,11 +183,11 @@ De Azure AD-Toegangsvenster is waar eindgebruikers kunnen hun apps starten en to
 
 | Artikel handleiding |  |
 |:---:| --- |
-| Een vergelijking van de verschillende opties die beschikbaar zijn voor het implementeren van apps voor eenmalige aanmelding voor gebruikers |[Implementatie van Azure AD geïntegreerde toepassingen voor gebruikers](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) |
+| Een vergelijking van de verschillende opties die beschikbaar zijn voor het implementeren van apps voor eenmalige aanmelding voor gebruikers |[Implementatie van Azure AD geïntegreerde toepassingen voor gebruikers](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users) |
 | Een overzicht van het toegangsvenster en de mobiele gelijkwaardige MyApps |[Inleiding tot het toegangsvenster en MyApps](active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | Toegang tot Azure AD-apps van de Office 365-website |[Via de Office 365-App starten](https://support.office.com/en-us/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
 | Toegang tot Azure AD-apps uit de mobiele app van Intune Managed Browser |[Intune Managed Browser](https://technet.microsoft.com/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
-| Toegang tot Azure AD-apps met dieptekoppelingen initiëren eenmalige aanmelding |[Directe aanmelding koppelingen naar uw Apps ophalen](active-directory-appssoaccess-whatis.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
+| Toegang tot Azure AD-apps met dieptekoppelingen initiëren eenmalige aanmelding |[Directe aanmelding koppelingen naar uw Apps ophalen](manage-apps/what-is-single-sign-on.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
 
 Toegangspaneel is beschikbaar voor [alle edities van Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 

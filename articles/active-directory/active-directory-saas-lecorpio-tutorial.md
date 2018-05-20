@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2017
 ms.author: jeedes
-ms.openlocfilehash: 15eded8b676dfea018f041aed75b4f706bc1a55b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b5acc60873cc88e465d7268d9aa9709016d6fda7
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lecorpio"></a>Zelfstudie: Azure Active Directory-integratie met Lecorpio
 
@@ -29,7 +29,7 @@ Lecorpio integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Lecorpio (Single Sign-On) met hun Azure AD-accounts inschakelen
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,9 +110,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-lecorpio-tutorial/tutorial_lecorpio_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ de waarde met het volgende patroon volgen:`https://<instance name>.lecorpio.com/<customer name>`
+    a. In de **aanmeldings-URL** textbox, typ de waarde met het volgende patroon volgen: `https://<instance name>.lecorpio.com/<customer name>`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<instance name>.lecorpio.com/<customer name>`
+    b. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<instance name>.lecorpio.com/<customer name>`
 
     > [!NOTE] 
     > Deze waarden zijn niet de werkelijke. Deze waarden bijwerken met de werkelijke aanmeldings-URL en de id. Hier raden we u voor het gebruik van de unieke waarde van een tekenreeks in de id. Neem contact op met [Lecorpio Client ondersteuningsteam](mailto:info@lecorpio.com) ophalen van deze waarden. 
@@ -203,10 +203,10 @@ In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp v
 
 Als u op de tegel Lecorpio in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Lecorpio.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 
