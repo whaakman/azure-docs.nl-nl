@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 1aa75b87b01417b8864632b7a09539bd6be05d0b
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: c47822bebdc8b3cc8896fe56b8f9a4ce317495c3
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Installeren en configureren van extern bureaublad verbinding maken met een Linux VM in Azure
 Linux virtuele machines (VM's) in Azure worden meestal beheerd vanaf de opdrachtregel met behulp van een verbinding met secure shell (SSH). Wanneer er nieuwe voor Linux, of om snel scenario's voor het oplossen van problemen, kan het gebruik van extern bureaublad eenvoudiger zijn. Dit artikel wordt uitgelegd hoe u kunt installeren en configureren van een bureaublad-omgeving ([xfce](https://www.xfce.org)) en extern bureaublad ([xrdp](http://www.xrdp.org)) voor uw Linux-VM met het implementatiemodel van Resource Manager.
@@ -83,7 +83,7 @@ sudo passwd azureuser
 
 
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>Een Netwerkbeveiligingsgroep regel maken voor extern bureaublad-verkeer
-Voor extern bureaublad-verkeer te bereiken van uw Linux-VM een netwerkbeveiliging kunt groep regel moet worden gemaakt die TCP op poort 3389 bereiken van uw virtuele machine. Zie voor meer informatie over netwerkbeveiligingsgroepen [wat is er een Netwerkbeveiligingsgroep?](../../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) U kunt ook [Azure portal gebruiken voor het maken van een groep voor de netwerkbeveiligingsregel](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Voor extern bureaublad-verkeer te bereiken van uw Linux-VM een netwerkbeveiliging kunt groep regel moet worden gemaakt die TCP op poort 3389 bereiken van uw virtuele machine. Zie voor meer informatie over netwerkbeveiligingsgroepen [wat is er een netwerkbeveiligingsgroep?](../../virtual-network/security-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) U kunt ook [Azure portal gebruiken voor het maken van een groep voor de netwerkbeveiligingsregel](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Het volgende voorbeeld wordt een groep van de netwerkbeveiligingsregel met [az vm open poort](/cli/azure/vm#az_vm_open_port) op poort *3389*.
 

@@ -1,12 +1,12 @@
 ---
 title: Azure IoT Suite Veelgestelde vragen | Microsoft Docs
 description: Veelgestelde vragen over IoT Suite
-services: 
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
 ms.service: iot-suite
 ms.devlang: na
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: 6c644395aa7ad51c289cdc4a23b02e9e0239a0fe
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 4c8ecdae8d84028986b4b3fba94486ce8eb7f1bc
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>Veelgestelde vragen over IoT Suite
 
-Zie ook de specifieke verbonden factory [Veelgestelde vragen over](iot-suite-faq-cf.md).
+Zie ook de specifieke verbonden factory [Veelgestelde vragen over](../iot-accelerators/iot-accelerators-faq-cf.md).
 
 ### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solutions"></a>Waar vind ik de broncode voor de vooraf geconfigureerde oplossingen
 
@@ -34,7 +34,7 @@ De broncode is opgeslagen in de volgende GitHub-opslagplaatsen:
 
 ### <a name="how-do-i-update-to-the-latest-version-of-the-remote-monitoring-preconfigured-solution-that-uses-the-iot-hub-device-management-features"></a>Hoe kan ik bijwerken naar de nieuwste versie van de vooraf geconfigureerde oplossing voor externe controle die gebruikmaakt van de beheerfuncties van de IoT Hub-apparaten?
 
-* Als u een vooraf geconfigureerde oplossing van de site https://www.azureiotsuite.com/ implementeert, implementeert deze altijd een nieuw exemplaar van de meest recente versie van de oplossing.
+* Als u een vooraf geconfigureerde oplossing van implementeert de https://www.azureiotsuite.com/ site, deze altijd een nieuw exemplaar van de meest recente versie van de oplossing implementeert.
 * Als u een vooraf geconfigureerde oplossing via de opdrachtregel implementeert, kunt u een bestaande implementatie bijwerken met nieuwe code. Zie [Cloud implementatie] [ lnk-cloud-deployment] in de GitHub [opslagplaats][lnk-remote-monitoring-github].
 
 ### <a name="how-can-i-add-support-for-a-new-device-method-to-the-remote-monitoring-preconfigured-solution"></a>Hoe kan ik ondersteuning voor een nieuwe apparaat-methode toevoegen aan de vooraf geconfigureerde oplossing voor externe controle?
@@ -104,7 +104,7 @@ Zie het blogbericht van Eric Golpe van [overzicht van het verwijderen van een Az
 U kunt ook enkele van de andere functies en mogelijkheden van de vooraf geconfigureerde IoT Suite-oplossingen verkennen:
 
 * [Overzicht van voorspeld onderhoud vooraf geconfigureerde oplossing][lnk-predictive-overview]
-* [Overzicht van de verbonden factory vooraf geconfigureerde oplossing](iot-suite-connected-factory-overview.md)
+* [Overzicht van de verbonden factory vooraf geconfigureerde oplossing](../iot-accelerators/iot-accelerators-connected-factory-overview.md)
 * [Fundamentele IoT-beveiliging][lnk-security-groundup]
 
 [lnk-predictive-overview]: iot-suite-predictive-overview.md

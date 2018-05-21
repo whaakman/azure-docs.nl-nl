@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: debfff03ea9a4de4fb2cd69779d58709a6a3a34f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 34248d75c190aa4636c39f087d399d946b589d58
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="create-an-external-app-service-environment"></a>Een externe App Service-omgeving maken #
 
@@ -170,7 +170,7 @@ Als u een zelfstandige as-omgeving maakt, heeft niets in deze. Een leeg as-omgev
 
 5. Selecteer uw VNet en locatie. U kunt een nieuw VNet maken of een bestaande VNet selecteren: 
 
-    * Als u een nieuw VNet selecteert, kunt u een naam en locatie opgeven. Als u van plan bent voor het hosten van Linux-apps op deze as-omgeving, deze 6 regio's worden ondersteund op dit moment: **VS-West, VS-Oost, West-Europa, Noord-Europa, Australië-Oost, Zuidoost-Azië.** 
+    * Als u een nieuw VNet selecteert, kunt u een naam en locatie opgeven. Als u van plan bent om Linux-apps te hosten op deze ASE, worden op dit moment alleen deze zes regio's ondersteund: **VS West, VS Oost, West-Europa, Noord-Europa, Australië Oost en Zuidoost-Azië.** 
     
     * De nieuwe VNet heeft de adres-bereik 192.168.250.0/23 en een subnet met de naam default. Het subnet is gedefinieerd als 192.168.250.0/24. U kunt alleen een Resource Manager VNet selecteren. De **VIP Type** selectie bepaalt als uw as-omgeving rechtstreeks toegankelijk zijn vanaf internet (extern) of als een ILB wordt gebruikt. Zie voor meer informatie over deze opties, [maken en gebruiken van een interne load balancer met een App Service-omgeving][MakeILBASE]. 
 
@@ -207,7 +207,7 @@ Zie voor meer informatie over ASEv1, [Inleiding tot de App Service-omgeving v1][
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/virtual-networks-nsg.md
+[NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [webapps]: ../app-service-web-overview.md
