@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 05/18/2018
 ms.author: jeffgilb
-ms.openlocfilehash: a89e5bf48c24abf72f18ee98f2dcb0eda6db35cd
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: e08c0bfd3cbed64f5042e469801e20c913c2f70e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Hosting-servers toevoegen voor de SQL-resourceprovider
 U kunt SQL-exemplaren op virtuele machines in uw [Azure Stack](azure-stack-poc.md), of een exemplaar buiten uw Azure-Stack-omgeving, opgegeven van de resourceprovider verbinding mee kan maken. De algemene vereisten zijn:
@@ -96,25 +96,21 @@ Configuratie-exemplaren van SQL Always On zijn aanvullende stappen vereist en mo
 > [!NOTE]
 > De SQL-adapter RP _alleen_ ondersteunt SQL 2016 SP1 Enterprise of hoger exemplaren voor Always On omdat hiervoor een nieuwe SQL-functies, zoals automatische seeding. Naast de voorgaande algemene lijst met vereisten:
 
-* U moet een bestandsserver naast de SQL Always On computers opgeven. Er is een [snelstartsjabloon met de Azure-Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2016-ha) die voor u deze omgeving kunt maken. Het kan ook fungeren als een handleiding voor het bouwen van uw eigen exemplaar.
+U moet in het bijzonder [automatische Seeding](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) op elke voor elk exemplaar van SQL Server-beschikbaarheidsgroep:
 
-* U moet de SQL-servers instellen. U moet in het bijzonder [automatische Seeding](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) op elke beschikbaarheidsgroep voor elk exemplaar van SQL Server.
+  ```
+  ALTER AVAILABILITY GROUP [<availability_group_name>]
+      MODIFY REPLICA ON 'InstanceName'
+      WITH (SEEDING_MODE = AUTOMATIC)
+  GO
+  ```
 
-```
-ALTER AVAILABILITY GROUP [<availability_group_name>]
-    MODIFY REPLICA ON 'InstanceName'
-    WITH (SEEDING_MODE = AUTOMATIC)
-GO
-```
+Gebruik deze SQL-opdrachten op de secundaire exemplaren:
 
-Op secundaire exemplaren
-```
-ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
-GO
-
-```
-
-
+  ```
+  ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
+  GO
+  ```
 
 SQL Always On hosting als servers wilt toevoegen, de volgende stappen uit:
 
@@ -124,14 +120,16 @@ SQL Always On hosting als servers wilt toevoegen, de volgende stappen uit:
 
     De **SQL-Servers die als host fungeert** blade is waar u de Resource Provider voor SQL Server kunt verbinden met de daadwerkelijke exemplaren van SQL Server die als back-end van de resourceprovider dienen.
 
-
-3. Vul het formulier met de details van de verbinding van uw SQL Server-exemplaar wordt zorg ervoor dat u de FQDN-naam of IPv4-adres van de altijd op de Listener (en optioneel poortnummer). Geef de accountgegevens voor de account die u hebt geconfigureerd met een systeemaccount van de beheerder.
+3. Vul het formulier met de details van de verbinding van uw SQL Server-exemplaar wordt zorg ervoor dat u de FQDN-adres van de altijd op de Listener (en optioneel poortnummer). Geef de accountgegevens voor de account die u hebt geconfigureerd met een systeemaccount van de beheerder.
 
 4. Schakel dit selectievakje in als ondersteuning voor exemplaren van SQL AlwaysOn-beschikbaarheidsgroep wilt inschakelen.
 
     ![Hosting-Servers](./media/azure-stack-sql-rp-deploy/AlwaysOn.PNG)
 
-5. Het exemplaar van SQL Always On toevoegen aan een SKU. U kunt zelfstandige servers niet samen met AlwaysOn-exemplaren in de dezelfde SKU. Die wordt bepaald wanneer u de eerste hostserver toevoegt. Bij mix typen daarna het leidt tot een fout opgetreden.
+5. Het exemplaar van SQL Always On toevoegen aan een SKU. 
+
+> [!IMPORTANT]
+> U kunt zelfstandige servers niet samen met AlwaysOn-exemplaren in de dezelfde SKU. Wilt mix typen na het toevoegen van de eerste hosting server, resulteert in een fout.
 
 
 ## <a name="making-sql-databases-available-to-users"></a>SQL-databases maken beschikbaar voor gebruikers

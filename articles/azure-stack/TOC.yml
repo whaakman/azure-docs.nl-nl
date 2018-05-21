@@ -156,6 +156,8 @@
               href: azure-stack-backup-enable-backup-powershell.md
             - name: Back-up van Azure-Stack
               href: azure-stack-backup-back-up-azure-stack.md
+            - name: Back-up van bestanden en toepassingen op Azure-Stack
+              href: ..\backup\backup-mabs-files-applications-azure-stack.md?toc=%2fazure%2fazure-stack%2ftoc.json
             - name: Herstellen van onherstelbaar gegevensverlies
               href: azure-stack-backup-recover-data.md
             - name: Aanbevolen procedures voor back-up
@@ -245,6 +247,8 @@
               href: azure-stack-app-service-configure-deployment-sources.md
             - name: App-Service op Azure-Stack update 1 release-opmerkingen
               href: azure-stack-app-service-release-notes-update-one.md
+            - name: App-Service op de opmerkingen bij de release van de Azure-Stack-update 2
+              href: azure-stack-app-service-release-notes-update-two.md
         - name: De Marketplace vullen
           items:
             - name: Overzicht van Marketplace

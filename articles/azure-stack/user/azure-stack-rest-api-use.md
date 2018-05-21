@@ -3,55 +3,57 @@ title: Gebruik de Azure API-Stack | Microsoft Docs
 description: Informatie over het ophalen van een verificatie van Azure API-aanvragen in Azure Stack aanbrengen.
 services: azure-stack
 documentationcenter: ''
-author: cblackuk
+author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 05/14/2018
 ms.author: mabrigg
-ms.reviewer: sijuman
-ms.openlocfilehash: 2bbfe4f829ad5c42a5742fdf08f2d185af627f42
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.reviewer: thoroet
+ms.openlocfilehash: e8a9489a3f487a45303bac45f805381b41427b4b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
 ---
-<!--  cblackuk and charliejllewellyn -->
+<!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
 # <a name="use-the-azure-stack-api"></a>De Azure API-Stack gebruiken
 
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
-U kunt de Stack-API van Azure gebruiken om bewerkingen zoals Webfeedindeling marketplace-items te automatiseren.
+U kunt de Azure Stack Interface API (Application Programming) gebruiken om bewerkingen zoals Webfeedindeling marketplace-items te automatiseren.
 
-Met de API vereist dat uw client om te verifiëren voor het eindpunt van Microsoft Azure-aanmelding. Het eindpunt retourneert een token voor gebruik in de koptekst van elke aanvraag verzonden naar de Stack-API van Azure. (Microsoft Azure gebruikt Oauth 2.0).
+De API vereist dat de client om te verifiëren voor het eindpunt van Microsoft Azure-aanmelding. Het eindpunt retourneert een token voor gebruik in de koptekst van elke aanvraag verzonden naar de Stack-API van Azure. Oauth 2.0 maakt gebruik van Microsoft Azure.
 
-Dit artikel vindt voorbeelden die met het hulpprogramma curl Azure Stack aanvragen maken. Deze voorbeelden is doorlopen van het proces van het ophalen van een token voor toegang tot de Azure-Stack-API. De meeste programmeertalen bieden Oauth 2.0-bibliotheken die robuust token taken voor beheer en de ingang die het vernieuwen van het token.
+Dit artikel vindt u voorbeelden die gebruikmaken van de **cURL** hulpprogramma voor het maken van Azure-Stack-aanvragen. De toepassing, cURL, is een opdrachtregelprogramma met een bibliotheek voor het overbrengen van gegevens. Deze voorbeelden is doorlopen van het proces van het ophalen van een token voor toegang tot de Azure-Stack-API. De meeste programmeertalen bieden Oauth 2.0-bibliotheken die robuust token taken voor beheer en de ingang die het vernieuwen van het token.
 
-Kijken naar het hele proces van het gebruik van de Stack REST-API van Azure met een algemene REST-client, zoals curl vindt u informatie over de onderliggende vraagt en ziet u wat u kunt verwachten in een nettolading antwoord ontvangen.
+Bekijk het hele proces van het gebruik van de Stack REST-API van Azure met een algemene REST-client, zoals **cURL**waarmee u inzicht krijgen in de onderliggende aanvragen en ziet u wat u kunt verwachten in een nettolading antwoord ontvangen.
 
-In dit artikel verkennen niet alle opties die beschikbaar zijn voor het ophalen van tokens zoals interactieve aanmelding of specifieke App-id's maken. Zie voor meer informatie [Azure REST API-verwijzing](https://docs.microsoft.com/rest/api/).
+In dit artikel verkennen niet alle opties die beschikbaar zijn voor het ophalen van tokens zoals interactieve aanmelding of specifieke App-id's maken. Zie voor informatie over deze onderwerpen, [Azure REST API-verwijzing](https://docs.microsoft.com/rest/api/).
 
 ## <a name="get-a-token-from-azure"></a>Een token verkrijgen van Azure
 
-Maken van een aanvraag *hoofdtekst* geformatteerd met het type inhoud x-1-800-www-Dell-form-urlencoded verkrijgen van een toegangstoken. Uw aanvraag om het eindpunt Azure REST Authentication en meld u aan te plaatsen.
+Maak een aanvraagtekst geformatteerd met het type inhoud x-1-800-www-Dell-form-urlencoded verkrijgen van een toegangstoken. Uw aanvraag om het eindpunt Azure REST Authentication en meld u aan te plaatsen.
 
-```
+### <a name="uri"></a>URI
+
+```bash  
 POST https://login.microsoftonline.com/{tenant id}/oauth2/token
 ```
 
 **Tenant-ID** is:
 
-* Uw tenant-domein, zoals fabrikam.onmicrosoft.com
-* Uw tenant-ID, zoals 8eaed023-2b34-4da1-9baa-8bc8c9d6a491
-* De standaardwaarde voor tenant-onafhankelijke sleutels: algemene
+ - Uw tenant-domein, zoals `fabrikam.onmicrosoft.com`
+ - Uw tenant-ID, zoals `8eaed023-2b34-4da1-9baa-8bc8c9d6a491`
+ - De standaardwaarde voor tenant-onafhankelijke sleutels: `common`
 
 ### <a name="post-body"></a>Post-instantie
 
-```
+```bash  
 grant_type=password
 &client_id=1950a258-227b-4e31-a9cf-717495945fc2
 &resource=https://contoso.onmicrosoft.com/4de154de-f8a8-4017-af41-df619da68155
@@ -62,32 +64,25 @@ grant_type=password
 
 Voor elke waarde:
 
-  **grant_type**
+ - **grant_type**  
+    Het type verificatieschema u gaat gebruiken. In dit voorbeeld wordt is de waarde `password`
 
-  Het type verificatieschema u gaat gebruiken. In dit voorbeeld wordt de waarde is:
+ - **Resource**  
+    De resource het token wordt opgevraagd. U vindt de resource een query uitgevoerd op het Azure-Stack management metagegevens-eindpunt. Bekijk de **doelgroepen** sectie
 
-  ```
-  password
-  ```
+ - **Azure Stack-management-eindpunt**  
+    ```
+    https://management.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
+    ```
 
-  **Resource**
-
-  De resource het token wordt opgevraagd. U vindt de resource een query uitgevoerd op het Azure-Stack management metagegevens-eindpunt. Bekijk de **doelgroepen** sectie
-
-  Het eindpunt Azure Stack Management:
-
-  ```
-  https://management.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
-  ```
-
- > [!NOTE]
- > Als u toegang wilt krijgen tot de tenant-API beheerder bent en vervolgens moet u ervoor zorgen eindpunt te gebruiken tenant, bijvoorbeeld: 'https://adminmanagement.{region}.{Azure Stack domein} / metagegevens/eindpunten? api-version = 2015-01-011
+  > [!NOTE]  
+  > Als u een beheerder toegang wilt krijgen tot de tenant-API moet vervolgens u controleren eindpunt te gebruiken tenant, bijvoorbeeld: `https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011`  
 
   Bijvoorbeeld, met de Azure-Stack Development Kit als een eindpunt:
 
-  ```
-  curl 'https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01'
-  ```
+    ```bash
+    curl 'https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01'
+    ```
 
   Antwoord:
 
@@ -171,17 +166,17 @@ Antwoord:
 
 ## <a name="api-queries"></a>API-query 's
 
-Nadat u uw toegangstoken hebt verkregen, moet u als een koptekst toevoegen aan elk van uw API-aanvragen. Als u wilt doen, moet u een koptekst maken **autorisatie** met waarde: `Bearer <access token>`. Bijvoorbeeld:
+Nadat u uw toegangstoken ontvangt, moet u als een koptekst toevoegen aan elk van uw API-aanvragen. Als u wilt doen, moet u een koptekst maken **autorisatie** met waarde: `Bearer <access token>`. Bijvoorbeeld:
 
 Aanvraag:
 
-```
+```bash  
 curl -H "Authorization: Bearer eyJ0eXAiOi...truncated for readability..." 'https://adminmanagement.local.azurestack.external/subscriptions?api-version=2016-05-01'
 ```
 
 Antwoord:
 
-```
+```bash  
 offerId : /delegatedProviders/default/offers/92F30E5D-F163-4C58-8F02-F31CFE66C21B
 id : /subscriptions/800c4168-3eb1-406b-a4ca-919fe7ee42e8
 subscriptionId : 800c4168-3eb1-406b-a4ca-919fe7ee42e8

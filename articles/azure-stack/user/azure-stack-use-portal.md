@@ -5,26 +5,25 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 5aa00123-5b87-45e0-a671-4165e66bfbc6
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 05/14/2018
 ms.author: mabrigg
-ms.openlocfilehash: 279722cc53889cb0a261fcffde0c7e0f86be6dc5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.reviewer: efemmano
+ms.openlocfilehash: 2ebafc4249f8455bdbe45a07a5bf88aa8984d67a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="using-the-azure-stack-portal"></a>Met behulp van de Stack van Azure-portal
 
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
-U kunt als consument van Stack Azure services de portal Azure Stack gebruiken om u te abonneren op de openbare aanbieding en gebruik van de services die deze aanbiedingen bieden. Als u de Azure-portal voordat hebt gebruikt, bent u al bekend bent met de gebruikersinterface.
+U kunt de Stack van Azure-portal gebruiken om u te abonneren op openbare voorstellen en gebruiken van de services die deze aanbiedingen voorzien. Als u de globale Azure-portal hebt gebruikt, bent u al bekend bent met de werking van de site.
 
 ## <a name="access-the-portal"></a>Toegang tot de portal
 
@@ -60,15 +59,15 @@ Als u de richtlijnen voor het gebruik van de beschikbare services moet, mogelijk
     We raden met name de volgende artikelen aan de slag te controleren:
 
     - [Belangrijke overwegingen: met behulp van services of het ontwikkelen van apps voor Azure-Stack](azure-stack-considerations.md)
-    - In de sectie "Gebruik services" van de documentatie is er een artikel in de 'overwegingen' voor elke service. De pagina 'overwegingen' beschrijving van de verschillen tussen de aangeboden in Azure service en dezelfde service aangeboden in Azure stapel. Zie voor een voorbeeld [VM overwegingen](azure-stack-vm-considerations.md). Mogelijk zijn er andere informatie in de sectie "Services gebruiken", die uniek is voor Azure-Stack.
+    - In de **services gebruiken** sectie van de documentatie is een artikel overwegingen voor elke service. De pagina overwegingen beschrijft de verschillen tussen de aangeboden in Azure-service en dezelfde service aangeboden in Azure-Stack. Zie voor een voorbeeld [VM overwegingen](azure-stack-vm-considerations.md). Er kunnen ook andere informatie in de **services gebruiken** sectie die uniek is voor Azure-Stack.
      
       U kunt de documentatie van Azure gebruiken als algemene referentie voor een service, maar u moet rekening houden met deze verschillen. Begrijpen dat de documentatie van koppelingen op de **Quick Start-zelfstudies** tegel wijs Azure-documentatie.
 
 ## <a name="get-support"></a>Ondersteuning krijgen
 
-Als u extra ondersteuning nodig hebt, neem dan contact op met uw organisatie of service provider voor hulp.
+Als u ondersteuning nodig hebt, moet u contact op met uw organisatie of service provider voor hulp.
 
-Als u de Azure Stack Development Kit, de [Stack Azure forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) is de enige bron van ondersteuning.
+Als u de Azure-Stack Development Kit de [Azure Stack-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) is de enige bron van ondersteuning.
 
 ## <a name="next-steps"></a>Volgende stappen
 

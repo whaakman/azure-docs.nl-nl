@@ -12,20 +12,20 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 05/18/2018
 ms.author: anwestg
-ms.openlocfilehash: 330b8015bdddbbcf27e4325b97e8b734c4d98d12
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9554309522e4a1e60fd3599b9a19bcf9cf4bbefb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Een App Service-resourceprovider toevoegen aan Azure-Stack
 
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
 > [!IMPORTANT]
-> De update 1802 toepassen op uw Azure-Stack geïntegreerd systeem of de nieuwste Azure-Stack development kit implementeren voordat u Azure App Service implementeert.
+> De update 1804 toepassen op uw Azure-Stack geïntegreerd systeem of de nieuwste Azure-Stack development kit implementeren voordat u Azure App Service 1.2 implementeert.
 >
 >
 
@@ -70,7 +70,7 @@ Volg deze stappen voor het implementeren van App Service-resourceprovider:
 
     ![App Service-installatie][3]
 
-4. U hebt nu de optie om te implementeren in een bestaand virtueel netwerk, zoals die zijn geconfigureerd door de stappen [hier](azure-stack-app-service-before-you-get-started.md#virtual-network), of het App Service-installatieprogramma voor het maken van een virtueel netwerk en gekoppelde subnetten toe.
+7. U hebt nu de optie om te implementeren in een bestaand virtueel netwerk, zoals die zijn geconfigureerd door de stappen [hier](azure-stack-app-service-before-you-get-started.md#virtual-network), of het App Service-installatieprogramma voor het maken van een virtueel netwerk en gekoppelde subnetten toe.
     1. Selecteer **VNet maken met de standaardinstellingen**, accepteer de standaardinstellingen en klik op **volgende**, of;
     2. Selecteer **gebruiken van bestaande VNet en subnetten**.
         1. Selecteer de **resourcegroep** waarin het virtuele netwerk.
@@ -80,7 +80,7 @@ Volg deze stappen voor het implementeren van App Service-resourceprovider:
 
     ![App Service-installatie][4]
 
-7. Geef de gegevens voor de bestandsshare en klik vervolgens op **volgende**. Het adres van de bestandsshare moet gebruiken voor de FQDN-naam of IP-adres van de bestandsserver. Bijvoorbeeld: \\\appservicefileserver.local.cloudapp.azurestack.external\websites, of \\\10.0.0.1\websites.
+8. Geef de gegevens voor de bestandsshare en klik vervolgens op **volgende**. Het adres van de bestandsshare moet gebruiken voor de FQDN-naam of IP-adres van de bestandsserver. Bijvoorbeeld: \\\appservicefileserver.local.cloudapp.azurestack.external\websites, of \\\10.0.0.1\websites.
 
    > [!NOTE]
    > Het installatieprogramma probeert te testen van verbinding met de bestandsshare voordat u doorgaat.  Als u hebt gekozen om te implementeren in een bestaand virtueel netwerk, maar het installatieprogramma mogelijk geen verbinding maken met de bestandsshare en een waarschuwing wordt weergegeven waarin wordt gevraagd of u wilt doorgaan.  Controleer de bestandsshare en doorgaan als ze juist zijn.
@@ -89,7 +89,7 @@ Volg deze stappen voor het implementeren van App Service-resourceprovider:
 
    ![App Service-installatie][7]
 
-8. Op de volgende pagina:
+9. Op de volgende pagina:
     1. In de **identiteit toepassings-ID** Voer de GUID voor de toepassing die u voor de identiteit (van Azure AD gebruikt).
     2. In de **Application Identity-certificaatbestand** vak (Typ of blader naar) de locatie van het certificaatbestand.
     3. In de **identiteit toepassing certificaatwachtwoord** Voer het wachtwoord voor het certificaat. Dit wachtwoord is die u genoteerd hebt als u het script gebruikt voor het maken van de certificaten.
@@ -98,7 +98,7 @@ Volg deze stappen voor het implementeren van App Service-resourceprovider:
 
     ![App Service-installatie][9]
 
-9. Elk van de drie vakken bestand van het certificaat, klikt u op **Bladeren** en navigeer naar het gewenste certificaatbestand. U moet het wachtwoord opgeven voor elk certificaat. Deze certificaten zijn degene die u hebt gemaakt in de [maken vereiste certificaten stap](azure-stack-app-service-before-you-get-started.md#get-certificates). Klik op **volgende** na het invoeren van alle informatie.
+10. Elk van de drie vakken bestand van het certificaat, klikt u op **Bladeren** en navigeer naar het gewenste certificaatbestand. U moet het wachtwoord opgeven voor elk certificaat. Deze certificaten zijn degene die u hebt gemaakt in de [maken vereiste certificaten stap](azure-stack-app-service-before-you-get-started.md#get-certificates). Klik op **volgende** na het invoeren van alle informatie.
 
     | Box | Voorbeeld van de naam van een certificaat |
     | --- | --- |
@@ -110,7 +110,7 @@ Volg deze stappen voor het implementeren van App Service-resourceprovider:
 
     ![App Service-installatie][10]
 
-10. Voer de SQL Server-gegevens voor het serverexemplaar waarmee de App Service resource provider-databases hosten en klik vervolgens op **volgende**. Het installatieprogramma valideert de eigenschappen van de SQL-verbinding.
+11. Voer de SQL Server-gegevens voor het serverexemplaar waarmee de App Service resource provider-databases hosten en klik vervolgens op **volgende**. Het installatieprogramma valideert de eigenschappen van de SQL-verbinding.
 
     > [!NOTE]
     > Het installatieprogramma probeert te testen van verbinding met de SQl-Server voordat u doorgaat.  Als u hebt gekozen om te implementeren in een bestaand virtueel netwerk, maar het installatieprogramma mogelijk geen verbinding maken met de SQL-Server en een waarschuwing wordt weergegeven waarin wordt gevraagd of u wilt doorgaan.  Controleer of de SQL Server-gegevens en doorgaan als ze juist zijn.
@@ -119,7 +119,7 @@ Volg deze stappen voor het implementeren van App Service-resourceprovider:
 
     ![App Service-installatie][11]
 
-11. Bekijk de rolinstantie en SKU-opties. De standaardinstellingen te vullen met het minimum aantal exemplaar en de minimale SKU voor elke rol in de implementatie van een ASDK. Een overzicht van de vereisten voor vCPU en het geheugen is opgegeven bij het plannen van uw implementatie. Nadat u uw selecties maken, klikt u op **volgende**.
+12. Bekijk de rolinstantie en SKU-opties. De standaardinstellingen te vullen met het minimum aantal exemplaar en de minimale SKU voor elke rol in de implementatie van een ASDK. Een overzicht van de vereisten voor vCPU en het geheugen is opgegeven bij het plannen van uw implementatie. Nadat u uw selecties maken, klikt u op **volgende**.
 
     > [!NOTE]
     > Voor implementaties in de instructies in het volgende [planning van capaciteit voor Azure App Service-serverfuncties in Azure-Stack](azure-stack-app-service-capacity-planning.md).
@@ -139,23 +139,23 @@ Volg deze stappen voor het implementeren van App Service-resourceprovider:
     > [!NOTE]
     > **Windows Server 2016-Core, is geen ondersteund platforminstallatiekopie voor gebruik met Azure App Service op Azure-Stack.  Gebruik geen evaluatie installatiekopieën voor productie-implementaties.**
 
-12. In de **Platforminstallatiekopie Selecteer** vak, kiest u de installatiekopie van uw implementatie van Windows Server 2016-virtuele machine van de afbeeldingen die beschikbaar zijn in de compute resourceprovider voor de cloud-App Service. Klik op **Volgende**.
+13. In de **Platforminstallatiekopie Selecteer** vak, kiest u de installatiekopie van uw implementatie van Windows Server 2016-virtuele machine van de afbeeldingen die beschikbaar zijn in de compute resourceprovider voor de cloud-App Service. Klik op **Volgende**.
 
-13. Op de volgende pagina:
+14. Op de volgende pagina:
      1. Voer de gebruikersnaam voor Worker-rol virtuele machine-beheerder en het wachtwoord.
      2. Voer de gebruikersnaam van de beheerder voor andere rollen virtuele machine en het wachtwoord.
      3. Klik op **Volgende**.
 
     ![App Service-installatie][15]    
 
-14. Op de pagina overzicht:
+15. Op de pagina overzicht:
     1. Controleer of de selecties die u hebt aangebracht. Als u wilt wijzigen, gebruikt u de **vorige** knoppen naar vorige pagina's te gaan.
     2. Als de configuraties correct zijn, schakel het selectievakje in.
     3. Voor het starten van de implementatie, klikt u op **volgende**.
 
     ![App Service-installatie][16]
 
-15. Op de volgende pagina:
+16. Op de volgende pagina:
     1. De installatievoortgang volgen. App-Service op Azure-Stack duurt ongeveer 60 minuten te implementeren op basis van de standaardselecties.
     2. Nadat het installatieprogramma met succes is voltooid, klikt u op **afsluiten**.
 

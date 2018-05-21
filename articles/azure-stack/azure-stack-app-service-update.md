@@ -2,30 +2,30 @@
 title: Bijwerken op Azure Stack-Azure App Service | Microsoft Docs
 description: Gedetailleerde richtlijnen voor het bijwerken van Azure App Service op Azure-Stack
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 05/18/2018
 ms.author: anwestg
-ms.openlocfilehash: 151456bbb7f9331730e640e4bece3872c3c92f8d
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: c822f25e25953b8709f481e51d6a63e6a912a60a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>Op Azure Stack-Azure App Service bijwerken
 
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
 > [!IMPORTANT]
-> De update 1802 toepassen op uw Azure-Stack geïntegreerd systeem of de nieuwste Azure-Stack development kit implementeren voordat u Azure App Service implementeert.
+> De update 1804 toepassen op uw Azure-Stack geïntegreerd systeem of de nieuwste Azure-Stack development kit implementeren voordat u Azure App Service 1.2 implementeert.
 >
 >
 
@@ -44,7 +44,7 @@ Tijdens dit proces wordt de upgrade:
 * Alle updatepakketten en nieuwe versies van alle OSS-bibliotheken voor implementatie voorbereiden
 * Uploaden naar de opslag
 * Upgraden van alle functies van de App Service (domeincontrollers, beheer, front-, uitgever en Worker rollen)
-* App Service-scale set definities bijwerken
+* Definities App Service-schaalset bijwerken
 * App Service Provider Bronmanifest bijwerken
 
 > [!IMPORTANT]
@@ -54,7 +54,7 @@ Tijdens dit proces wordt de upgrade:
 
 Upgrade van uw implementatie van App-Service op Azure-Stack moet de volgende stappen uit:
 
-1. Download de [App Service-installatie](https://aka.ms/appsvcupdate1installer)
+1. Download de [App Service-installatie](https://aka.ms/appsvcupdate2installer)
 
 2. Appservice.exe als administrator uitvoeren
 
@@ -74,8 +74,8 @@ Upgrade van uw implementatie van App-Service op Azure-Stack moet de volgende sta
 
    1. Klik op de **Connect** naast de **Stack-Azure-abonnementen** vak.
         * Als u gebruikmaakt van Azure Active Directory (Azure AD), voert u de Azure AD-beheerdersaccount en het wachtwoord die u hebt opgegeven tijdens de implementatie van Azure-Stack. Klik op **aanmelden**.
-        * Als u Active Directory Federation Services (AD FS), Geef uw beheerdersaccount. Bijvoorbeeld:  *cloudadmin@azurestack.local* . Voer uw wachtwoord in en klikt u op **aanmelden**.
-   2. In de **Stack-Azure-abonnementen** Selecteer uw abonnement.
+        * Als u Active Directory Federation Services (AD FS), Geef uw beheerdersaccount. Bijvoorbeeld: *cloudadmin@azurestack.local*. Voer uw wachtwoord in en klikt u op **aanmelden**.
+   2. In de **Stack-Azure-abonnementen** de optie de **Provider-abonnement standaard**.
    3. In de **Azure stacklocaties** Selecteer de locatie die overeenkomt met de regio die u implementeert op. Selecteer bijvoorbeeld **lokale** als uw implementatie van de Azure-Stack Development Kit.
    4. Als een bestaande App Service-implementatie wordt gedetecteerd, vervolgens de resource-account voor groep en opslag ingevuld en grijs.
    5. Klik op **volgende** naar het overzicht van de upgrade.

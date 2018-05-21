@@ -12,20 +12,20 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 05/18/2018
 ms.author: anwestg
-ms.openlocfilehash: 7907056635049ce90a2653b0d58ef6299b77c71e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5b4281de4a6c2efee8e96f98a3cd46fec191fe22
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Een App Service-resourceprovider toevoegen aan een Azure-Stack omgeving zonder verbinding beveiligd met AD FS
 
 *Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
 
 > [!IMPORTANT]
-> De update 1802 toepassen op uw Azure-Stack geïntegreerd systeem of de nieuwste Azure-Stack development kit implementeren voordat u Azure App Service implementeert.
+> De update 1804 toepassen op uw Azure-Stack geïntegreerd systeem of de nieuwste Azure-Stack development kit implementeren voordat u Azure App Service 1.2 implementeert.
 >
 >
 
@@ -80,7 +80,7 @@ Voor het App Service implementeren in een omgeving zonder verbinding, moet u eer
 7. Op de volgende pagina:
     1. Klik op de **Connect** naast de **Stack-Azure-abonnementen** vak.
         - Geef uw beheerdersaccount. Bijvoorbeeld cloudadmin@azurestack.local. Voer uw wachtwoord in en klikt u op **aanmelden**.
-    2. In de **Stack-Azure-abonnementen** Selecteer uw abonnement.
+    2. In de **Stack-Azure-abonnementen** de optie de **Provider-abonnement standaard**.
     3. In de **Azure stacklocaties** Selecteer de locatie die overeenkomt met de regio die u implementeert op. Selecteer bijvoorbeeld **lokale** als uw implementatie van de Azure-Stack Development Kit.
     4. Klik op **Volgende**.
 
@@ -126,7 +126,7 @@ Voor het App Service implementeren in een omgeving zonder verbinding, moet u eer
 
     ![App Service-installatie][11]
 
-12. Voer de SQL Server-gegevens voor het serverexemplaar waarmee de App Service resource provider-databases hosten en klik vervolgens op **volgende**. Het installatieprogramma valideert de eigenschappen van de SQL-verbinding.
+12. Voer de SQL Server-gegevens voor het serverexemplaar waarmee de App Service resource provider-databases hosten en klik vervolgens op **volgende**. Het installatieprogramma valideert de eigenschappen van de SQL-verbinding. U **moet** Voer de intern IP-adres of FQDN-naam voor de SQL Server-naam.
 
 > [!NOTE]
 > Het installatieprogramma probeert te testen van verbinding met de SQl-Server voordat u doorgaat.  Echter, als u wilt implementeren in een bestaand virtueel netwerk, het installatieprogramma mogelijk geen verbinding maken met de SQL-Server en toont een waarschuwing waarin wordt gevraagd of u wilt doorgaan.  Controleer of de SQL Server-gegevens en doorgaan als ze juist zijn.
