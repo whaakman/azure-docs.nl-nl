@@ -8,11 +8,11 @@ ms.service: batch
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: danlep
-ms.openlocfilehash: fdc68744406c3e995a2764f93d4474b807337ff5
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 5898206761e5029f94b6d1f1b48223481ae2ca13
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Configureren of uitschakelen van externe toegang rekenknooppunten in een Azure Batch-toepassingen
 
@@ -23,7 +23,7 @@ In uw omgeving moet u wellicht te beperken of uitschakelen van deze standaardins
 ## <a name="about-the-pool-endpoint-configuration"></a>Over de configuratie van de endpoint van toepassingen
 De eindpuntconfiguratie bestaat uit een of meer [network address translation (NAT) pools](/rest/api/batchservice/pool/add#inboundnatpool) frontend-poorten. (Niet hetzelfde als een NAT-pool met de Batch-pool van rekenknooppunten.) U instellen elke NAT-pool om te overschrijven de standaardinstellingen van de verbinding op de rekenknooppunten van de groep. 
 
-De configuratie van elke NAT-pool bevat één of meer [beveiligingsregels voor de groep (NSG) netwerk](/rest/api/batchservice/pool/add#networksecuritygrouprule). Elke regel van het NSG toestaat of weigert bepaald netwerkverkeer naar het eindpunt. U kunt toestaan of weigeren van alle verkeer, verkeer geïdentificeerd door een [standaardtag](../virtual-network/virtual-networks-nsg.md#default-tags) (zoals 'Internet'), of het verkeer van specifieke IP-adressen of subnetten.
+De configuratie van elke NAT-pool bevat één of meer [beveiligingsregels voor de groep (NSG) netwerk](/rest/api/batchservice/pool/add#networksecuritygrouprule). Elke regel van het NSG toestaat of weigert bepaald netwerkverkeer naar het eindpunt. U kunt toestaan of weigeren van alle verkeer, verkeer geïdentificeerd door een [service tag](../virtual-network/security-overview.md#service-tags) (zoals 'Internet'), of het verkeer van specifieke IP-adressen of subnetten.
 
 ### <a name="considerations"></a>Overwegingen
 * De eindpuntconfiguratie groep maakt deel uit van de groep [netwerkconfiguratie](/rest/api/batchservice/pool/add#NetworkConfiguration). De netwerkconfiguratie kunt u eventueel instellingen voor het koppelen van de toepassingen die u wilt opnemen een [virtuele Azure-netwerk](batch-virtual-network.md). Als u de toepassingen in een virtueel netwerk hebt ingesteld, kunt u NSG-regels die gebruikmaken van de adresinstellingen in het virtuele netwerk maken.
@@ -124,7 +124,7 @@ pool.network_configuration=batchmodels.NetworkConfiguration(
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over het NSG-regels in Azure, [filteren van netwerkverkeer met netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md).
+- Zie voor meer informatie over het NSG-regels in Azure, [filteren van netwerkverkeer met netwerkbeveiligingsgroepen](../virtual-network/security-overview.md).
 
 - Zie voor een gedetailleerd overzicht van Batch [ontwikkelen grootschalige parallelle compute-oplossingen met Batch](batch-api-basics.md).
 

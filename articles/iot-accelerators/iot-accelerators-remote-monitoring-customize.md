@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: ab5a0913922e4664c867d54d9ec07e3611345dd8
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 94bd864215ad80b299db09b6237f2cebe63feb88
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>De oplossing voor externe controle accelerator aanpassen
 
@@ -462,7 +462,7 @@ Als u wilt de presentatie en visualisaties laag in de oplossing voor externe con
 
 In dit artikel hebt u geleerd over de resources beschikbaar om te helpen u de webgebruikersinterface in Remote Monitoring solution accelerator aanpassen.
 
-Zie voor meer informatie over de oplossing voor externe controle accelerator [externe controle-architectuur](../iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md)
+Zie voor meer informatie over de oplossing voor externe controle accelerator [externe controle-architectuur](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
-Zie voor meer informatie over het aanpassen van de oplossing voor externe controle [aanpassen en opnieuw een microservice](../iot-suite/iot-suite-microservices-example.md)
+Zie voor meer informatie over het aanpassen van de oplossing voor externe controle [aanpassen en opnieuw een microservice](iot-accelerators-microservices-example.md)
 <!-- Next tutorials in the sequence -->

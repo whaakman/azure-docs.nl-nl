@@ -1,44 +1,45 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: iot-hub
+author: dominicbetts
+ms.service: iot-hub
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: f8cd78e63099f864c5fc54b6268f6e558d738626
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 05/20/2018
+---
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken
 
 [!INCLUDE [iot-hub-create-hub](iot-hub-create-hub.md)]
 
 Nu dat u een IoT-hub hebt gemaakt, zoek de belangrijke informatie waarmee u verbinding maken met apparaten en toepassingen naar uw IoT-hub. 
 
-1. Nadat uw IoT-hub is gemaakt, klikt u erop in het dashboard. Noteer de **Hostname** (Hostnaam) en klik vervolgens op **Shared access policies** (Gedeeld toegangsbeleid).
+Open in uw IoT hub-navigatiemenu **gedeeld toegangsbeleid**.
+Selecteer de **iothubowner** beleid en kopieer de **verbindingsreeks---primaire sleutel** van uw iothub. Zie voor meer informatie [Toegang tot IoT Hub regelen](../articles/iot-hub/iot-hub-devguide-security.md).
 
-   ![De hostnaam van uw IoT-hub ophalen](../articles/iot-hub/media/iot-hub-create-hub-and-device/4_get-azure-iot-hub-hostname-portal.png)
+   > [!NOTE] 
+   > U hoeft deze verbindingsreeks iothubowner niet voor deze zelfstudie installeren. Echter, moet u mogelijk het voor een aantal van de zelfstudies of andere IoT-scenario's na het voltooien van deze configuratie.
 
-1. Klik in het deelvenster **Gedeeld toegangsbeleid** op het beleid **iothubowner** en kopieer en noteer de **Verbindingsreeks** van uw IoT-hub. Zie voor meer informatie [Toegang tot IoT Hub regelen](../articles/iot-hub/iot-hub-devguide-security.md).
-
-> [!NOTE] 
-U hoeft deze iothubowner-verbindingsreeks niet te installeren voor deze zelfstudie. U hebt deze echter mogelijk na het voltooien van deze configuratie nodig voor een aantal van de zelfstudies over andere IoT-scenario's.
-
-   ![Uw IoT-hub-verbindingsreeks ophalen](../articles/iot-hub/media/iot-hub-create-hub-and-device/5_get-azure-iot-hub-connection-string-portal.png)
+   ![Uw IoT-hub-verbindingsreeks ophalen](./media/iot-hub-get-started-create-hub-and-device/create-iot-hub5.png)
 
 ## <a name="register-a-device-in-the-iot-hub-for-your-device"></a>Een apparaat in de IoT-hub voor uw apparaat registreren
 
-1. Open uw IoT-hub in [Azure Portal](https://portal.azure.com/).
+1. Open in uw IoT hub-navigatiemenu **IoT-apparaten**, klikt u vervolgens op **toevoegen** registreren van een apparaat in uw IoT-hub.
 
-2. Klik op **IoT-apparaten**.
-3. Klik in het deelvenster IoT-apparaten op **toevoegen** naar een apparaat toevoegt aan uw IoT-hub. Ga daarna als volgt te werk:
+   ![Een apparaat toevoegt in de IoT-apparaten van uw IoT-hub](./media/iot-hub-get-started-create-hub-and-device/create-identity-portal.png)
 
-   **Apparaat-ID**: voer de ID van het nieuwe apparaat in. Apparaat-id's zijn hoofdlettergevoelig.
-
-   **Verificatietype**: selecteer **Symmetrische sleutel**.
-
-   **Automatisch sleutels genereren**: schakel dit selectievakje in.
-
-   **Het apparaat verbinden met IoT Hub**: klik op **Inschakelen**.
-
-   ![Een apparaat toevoegt in de IoT-apparaten van uw IoT-hub](../articles/iot-hub/media/iot-hub-create-hub-and-device/6_add-device-in-azure-iot-hub-iot-devices-portal.png)
+2. Voer een **apparaat-ID** voor het nieuwe apparaat. Apparaat-id's zijn hoofdlettergevoelig.
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
 4. Klik op **Opslaan**.
-5. Nadat het apparaat is gemaakt, opent u het apparaat in de **IoT-apparaten** deelvenster.
+5. Nadat het apparaat is gemaakt, opent u het apparaat uit de lijst in de **IoT-apparaten** deelvenster.
+6. Kopieer de **verbindingsreeks---primaire sleutel** voor later gebruik.
 
-   ![Lijst met IoT-apparaten in IoT-Hub](../articles/iot-hub/media/iot-hub-create-hub-and-device/7_device-list-in-iot-devices-portal.png)
-
-6. Noteer de primaire sleutel van de verbindingsreeks.
-
-   ![De verbindingsreeks ophalen](../articles/iot-hub/media/iot-hub-create-hub-and-device/8_get-device-connection-string-in-iot-devices-portal.png)
+   ![De verbindingsreeks ophalen](./media/iot-hub-get-started-create-hub-and-device/device-connection-string.png)

@@ -8,136 +8,138 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: nepeters
-ms.openlocfilehash: dbe418db8fb3d73739a30b60703f15b3dc47b291
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 4df230c8306a3876e94a5e9ada5e7408f134ba26
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Gebruik Azure Containerexemplaren als een Jenkins bouwen agent
 
-Azure containerexemplaren bieden een op aanvraag, burstable en geïsoleerde omgeving voor het uitvoeren van beperkte werkbelasting. Vanwege deze kenmerken zorg Azure containerexemplaren een geweldig platform voor het uitvoeren van Jenkins build taken op grote schaal. Dit document helpt bij de implementatie en het gebruik van een Jenkins-server die vooraf is geconfigureerd met ACI als build-doel.
+Azure Container exemplaren (ACI) biedt een op aanvraag, burstable en geïsoleerde omgeving voor het uitvoeren van beperkte workloads. Vanwege deze kenmerken maakt ACI een geweldig platform voor het uitvoeren van Jenkins build taken op grote schaal. Dit artikel helpt bij de implementatie en het gebruik van een Jenkins-server die vooraf geconfigureerd met ACI als build-doel.
 
 Zie voor meer informatie over Azure Containerexemplaren [over Azure Containerexemplaren][about-aci].
 
-## <a name="deploy-jenkins-server"></a>Jenkins server implementeren
+## <a name="deploy-a-jenkins-server"></a>Jenkins-server implementeren
 
-Selecteer in de Azure-portal **maken van een resource** en zoek naar **Jenkins**. Selecteer het Jenkins aanbod aan een publisher van **Microsoft** en selecteer **maken**.
+1. Selecteer in de Azure-portal **maken van een resource** en zoek naar **Jenkins**. Selecteer het Jenkins aanbod aan een publisher van **Microsoft**, en selecteer vervolgens **maken**.
 
-Voer de volgende informatie op het formulier basisbeginselen en klik op **OK** wanneer u klaar bent.
+2. Voer de volgende informatie op de **basisbeginselen** vormen en selecteer vervolgens **OK**.
 
-- **Naam** - naam voor de implementatie Jenkins.
-- **Gebruikersnaam** -deze gebruikersnaam wordt gebruikt als de gebruiker met beheerdersrechten voor de Jenkins virtuele machine.
-- **Verificatietype** - SSH openbare sleutel wordt aanbevolen. Indien geselecteerd, kopieer dan in een openbare SSH-sleutel moet worden gebruikt bij het aanmelden bij de Jenkins virtuele machine.
-- **Abonnement** -Selecteer een Azure-abonnement.
-- **Resourcegroep** : Maak een nieuwe of Selecteer een bestaande resourcegroep.
-- **Locatie** -Selecteer een locatie voor de Jenkins-server.
+   - **Naam**: Voer een naam voor de implementatie Jenkins.
+   - **Gebruikersnaam**: Voer een naam voor de beheerder van de Jenkins virtuele machine.
+   - **Verificatietype**: raadzaam een openbare SSH-sleutel voor verificatie. Als u deze optie selecteert, plakken in een openbare SSH-sleutel moet worden gebruikt voor het aanmelden bij de Jenkins virtuele machine.
+   - **Subscription**: selecteer een Azure-abonnement.
+   - **Resourcegroep**: maak een nieuwe resourcegroep of selecteer een bestaande.
+   - **Locatie**: Selecteer een locatie voor de Jenkins-server.
 
-![Basisinstellingen voor Jenkins portal-implementatie](./media/container-instances-jenkins/jenkins-portal-01.png)
+   ![Basisinstellingen voor Jenkins portal-implementatie](./media/container-instances-jenkins/jenkins-portal-01.png)
 
-Voer in het formulier de overige instellingen op de volgende items:
+3. Op de **extra instellingen** vormen, voert u de volgende items:
 
-- **De grootte van** -formaat van de juiste optie voor uw Jenkins virtuele machine.
-- **VM-schijftype** -harde schijven (harde schijf) of SSD (solid-state drive) opgeeft voor de Jenkins-server.
-- **Virtueel netwerk** -(optioneel) Selecteer virtueel netwerk naar de standaardinstellingen wijzigen.
-- **Subnetten** - subnetten te selecteren, Controleer de informatie en selecteer **OK**.
-- **Openbaar IP-adres** -het openbare IP-adres te selecteren, kunt u een aangepaste naam geven, SKU en toewijzingsmethode configureren.
-- **Domeinnaamlabel** -Geef een waarde op voor het maken van een volledig gekwalificeerde URL naar de Jenkins virtuele machine.
-- **Versietype Jenkins** -Selecteer het type van de gewenste versie in de opties: TNS, wekelijkse build of Azure worden geverifieerd.
+   - **De grootte van**: de juiste sizing optie voor uw Jenkins virtuele machine.
+   - **VM-schijftype**: Geef ofwel **HDD** (harde schijf) of **SSD** (solid-state drive) voor de Jenkins-server.
+   - **Virtueel netwerk**: Selecteer de pijl als u wilt de standaardinstellingen wijzigen.
+   - **Subnetten**: Selecteer de pijl, Controleer de informatie en selecteer **OK**.
+   - **Openbaar IP-adres**: Selecteer de pijl Geef een aangepaste naam op voor het openbare IP-adres, het configureren van de SKU en het instellen van de methode voor het toewijzen.
+   - **Domeinnaamlabel**: Geef een waarde op voor het maken van een volledig gekwalificeerde URL naar de Jenkins virtuele machine.
+   - **Versietype Jenkins**: Selecteer het type van de gewenste versie in de opties: **LTS**, **wekelijks bouwen**, of **Azure geverifieerd**.
 
-![Aanvullende Jenkins portal-implementatie-instellingen](./media/container-instances-jenkins/jenkins-portal-02.png)
+   ![Aanvullende instellingen voor Jenkins portal-implementatie](./media/container-instances-jenkins/jenkins-portal-02.png)
 
-Selecteer voor service-principal integratie **Auto(MSI)** hebben [Azure Managed Service-identiteit] [ managed-service-identity] automatisch een verificatie-identiteit voor het exemplaar Jenkins maken. Selecteer handmatig naar provider uw eigen service principal-referenties.
+4. Selecteer voor service-principal integratie **Auto(MSI)** hebben [Azure Managed Service-identiteit] [ managed-service-identity] automatisch een verificatie-identiteit voor de Jenkins maken exemplaar. Selecteer **handmatige** uw eigen service principal-referenties op te geven.
 
-Cloud-agents configureren een cloud-gebaseerde platform voor Jenkins taken bouwen. Selecteer ACI voor dit document. Met de agent van de cloud ACI wordt elke Jenkins build-taak uitgevoerd in een exemplaar van Azure-Container.
+5. Cloud-agents configureren een cloud-gebaseerde platform voor Jenkins taken bouwen. Selecteer voor dit artikel **ACI**. Met de ACI cloud-agent wordt elke Jenkins build-taak uitgevoerd in een exemplaar van de container.
 
-![Jenkins portal implementatie-instellingen voor cloud-integratie](./media/container-instances-jenkins/jenkins-portal-03.png)
+   ![Cloud-instellingen voor Jenkins portal-implementatie](./media/container-instances-jenkins/jenkins-portal-03.png)
 
-Wanneer u klaar met de integratie-instellingen, klikt u op **OK**, en vervolgens **OK** opnieuw op de validatiesamenvatting. Klik op **maken** op de voorwaarden van de samenvatting van gebruik. De server Jenkins duurt een paar minuten om te implementeren.
+6. Wanneer u met de integratie-instellingen bent klaar, selecteert u **OK**, en selecteer vervolgens **OK** opnieuw op de validatiesamenvatting. Selecteer **maken** op de **gebruiksvoorwaarden** samenvatting. De server Jenkins duurt een paar minuten om te implementeren.
 
 ## <a name="configure-jenkins"></a>Jenkins configureren
 
-Blader naar de resourcegroep Jenkins in de Azure portal, selecteer de Jenkins virtuele machine en noteer de DNS-naam.
+1. Blader naar de resourcegroep Jenkins in de Azure portal, selecteer de Jenkins virtuele machine en noteer de DNS-naam.
 
-![Jenkins aanmelding instructies](./media/container-instances-jenkins/jenkins-portal-fqdn.png)
+   ![DNS-naam in de details over de Jenkins virtuele machine](./media/container-instances-jenkins/jenkins-portal-fqdn.png)
 
-De browser de DNS-naam van het Jenkins VM en kopieer de SSH-tekenreeks geretourneerd.
+2. Blader naar de DNS-naam van de VM Jenkins en kopieer de SSH-tekenreeks geretourneerd.
 
-![Jenkins aanmelding instructies](./media/container-instances-jenkins/jenkins-portal-04.png)
+   ![Jenkins aanmelding instructies met SSH-reeks](./media/container-instances-jenkins/jenkins-portal-04.png)
 
-Open een terminalsessie op uw ontwikkelsysteem en plakken in de SSH-tekenreeks in de vorige stap. 'Username' is bijgewerkt naar de gebruikersnaam die is opgegeven bij het implementeren van de server Jenkins.
+3. Open een terminalsessie op uw ontwikkelsysteem en plak in de SSH-tekenreeks in de vorige stap. Update `username` naar de gebruikersnaam die u hebt opgegeven bij de implementatie van de server Jenkins.
 
-Eenmaal zijn verbonden, voer de volgende opdracht voor het ophalen van de eerste beheerderswachtwoord.
+4. Na de sessie is verbonden, voer de volgende opdracht voor het ophalen van de eerste beheerderswachtwoord:
 
-```
-sudo cat /var/lib/jenkins/secrets/initialAdminPassword
-```
+   ```
+   sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+   ```
 
-Laat de SSH-sessie en tunnel uitgevoerd en navigeer naar http://localhost:8080 in een browser. Plak de initiële beheerderswachtwoord in het veld zoals te zien is in de volgende afbeelding. Selecteer **doorgaan** wanneer u klaar bent.
+5. Laat de SSH-sessie en tunnel uitgevoerd en Ga naar http://localhost:8080 in een browser. De eerste beheerderswachtwoord plak in het vak en selecteer vervolgens **doorgaan**.
 
-![Jenkins ontgrendelen](./media/container-instances-jenkins/jenkins-portal-05.png)
+   ![Scherm 'Ontgrendelen Jenkins' met het selectievakje uit voor het administrator-wachtwoord](./media/container-instances-jenkins/jenkins-portal-05.png)
 
-Selecteer **voorgestelde invoegtoepassingen installeren** aanbevolen Jenkins invoegtoepassingen gebruikt om alle te installeren.
+6. Selecteer **voorgestelde invoegtoepassingen installeren** aanbevolen Jenkins invoegtoepassingen gebruikt om alle te installeren.
 
-![Jenkins-invoegtoepassing installeren](./media/container-instances-jenkins/jenkins-portal-06.png)
+   ![Scherm met 'Jenkins aanpassen' 'Voorgestelde invoegtoepassingen installeren' geselecteerd](./media/container-instances-jenkins/jenkins-portal-06.png)
 
-Maak een nieuw gebruikersaccount van de beheerder. Dit account wordt gebruikt voor het aan te melden bij en werken met uw Jenkins-exemplaar.
+7. Maak een beheerdersaccount van de gebruiker. Dit account wordt gebruikt voor het aanmelden bij en werken met uw Jenkins-exemplaar.
 
-![Jenkins gebruiker maken](./media/container-instances-jenkins/jenkins-portal-07.png)
+   !['De eerste gebruiker die beheerder maken' scherm met de referenties die zijn ingevuld](./media/container-instances-jenkins/jenkins-portal-07.png)
 
-Selecteer **opslaan en voltooien** wanneer u klaar bent, en vervolgens **aan de slag met Jenkins** om de configuratie te voltooien.
+8. Selecteer **opslaan en voltooien**, en selecteer vervolgens **aan de slag met Jenkins** om de configuratie te voltooien.
 
 Jenkins is nu geconfigureerd en gereed om te bouwen en implementeren van code. In dit voorbeeld wordt een eenvoudige Java-toepassing gebruikt ter illustratie van een build Jenkins op exemplaren van Azure-Container.
 
-## <a name="create-build-job"></a>Build-taak maken
+## <a name="create-a-build-job"></a>Een build-taak maken
 
-Wanneer met de installatiekopie van een container als een Jenkins doel maken, moet u een afbeelding met alle tooling nodig is voor een geslaagde build opgeven. Als u wilt opgeven van de installatiekopie van het **beheren Jenkins** > **System configureren** en schuif omlaag naar de **Cloud** sectie. Bijvoorbeeld, werk de waarde van de afbeelding Docker naar `microsoft/java-on-azure-jenkins-slave`.
+Wanneer u een kopie van de container als een Jenkins doel bouwen, moet u een afbeelding met alle tooling nodig is voor een geslaagde build opgeven. De installatiekopie opgeven:
 
-Hierna klikt u **opslaan** om terug te keren naar het dashboard Jenkins.
+1. Selecteer **beheren Jenkins** > **System configureren** en schuif omlaag naar de **Cloud** sectie. Bijvoorbeeld, werk de waarde van de afbeelding Docker naar **microsoft/java-op-azure-jenkins-slave**.
 
-![De cloudconfiguratie Jenkins](./media/container-instances-jenkins/jenkins-aci-image.png)
+   Wanneer u bent klaar, selecteert u **opslaan** om terug te keren naar het dashboard Jenkins.
 
-Nu een Jenkins build-taak maken. Selecteer **Nieuw Item**, het build-project, zoals een naam geven `aci-java-demo`, selecteer **Freestyle project**, en klik op **OK**.
+   ![De cloudconfiguratie Jenkins](./media/container-instances-jenkins/jenkins-aci-image.png)
 
-![Jenkins-taak maken](./media/container-instances-jenkins/jenkins-new-job.png)
+2. Nu een Jenkins build-taak maken. Selecteer **Nieuw Item**, het build-project, zoals een naam geven **aci-java-demo**, selecteer **Freestyle project**, en selecteer **OK**.
 
-Onder **algemene**, zorg ervoor dat **beperken waar dit project kan worden uitgevoerd** is geselecteerd. Voer `linux` voor de labelexpressie. Deze configuratie zorgt ervoor dat deze build-taak wordt uitgevoerd in de cloud ACI.
+   ![Vak voor de naam van de build-taak en de lijst met projecttypen](./media/container-instances-jenkins/jenkins-new-job.png)
 
-![Jenkins-taak maken](./media/container-instances-jenkins/jenkins-job-01.png)
+3. Onder **algemene**, zorg ervoor dat **beperken waar dit project kan worden uitgevoerd** is geselecteerd. Voer **linux** voor de labelexpressie. Deze configuratie zorgt ervoor dat deze build-taak wordt uitgevoerd in de cloud ACI.
 
-Selecteer onder beheer van gegevensbronnen code, `Git` en voer `https://github.com/spring-projects/spring-petclinic.git` voor de URL van de opslagplaats. Deze GitHub-opslagplaats bevat de voorbeeldcode van de toepassing.
+   !['Algemene' tabblad met configuratiedetails](./media/container-instances-jenkins/jenkins-job-01.png)
 
-![Broncode aan Jenkins taak toevoegen](./media/container-instances-jenkins/jenkins-job-02.png)
+4. Onder **Source Code Management**, selecteer **Git** en voer **https://github.com/spring-projects/spring-petclinic.git** voor de URL van de opslagplaats. Deze GitHub-opslagplaats bevat de voorbeeldcode van de toepassing.
 
-Selecteer onder Build en **toevoegen van een stap build** en selecteer `Invoke top-level Maven targets`. Voer `package` als het doel van de stap build.
+   ![Tabblad 'Bron Code Management' met code-informatie van gegevensbron](./media/container-instances-jenkins/jenkins-job-02.png)
 
-![Jenkins bouwen stap toevoegen](./media/container-instances-jenkins/jenkins-job-03.png)
+5. Onder **bouwen**, selecteer **toevoegen build stap** en selecteer **aanroepen op het hoogste niveau Maven doelen**. Voer **pakket** als het doel van de stap build.
 
-Selecteer **opslaan** wanneer u klaar bent.
+   ![Tabblad 'Maken' met de selecties voor de build-stap](./media/container-instances-jenkins/jenkins-job-03.png)
+
+6. Selecteer **Opslaan**.
 
 ## <a name="run-the-build-job"></a>Voer de build-taak
 
 Als u wilt testen van de taak build en houd rekening met de Containerexemplaren Azure als het build-platform, een build handmatig te starten.
 
-Selecteer **nu bouwen** om een taak build te starten. Het duurt enkele minuten duren voordat de taak is gestart, wanneer uitgevoerd, ziet u de status is vergelijkbaar met de volgende afbeeldingen.
+1. Selecteer **nu bouwen** om een taak build te starten. Het duurt enkele minuten duren voordat de taak is gestart. U ziet een status die vergelijkbaar is met de volgende afbeelding:
 
-![Jenkins bouwen stap toevoegen](./media/container-instances-jenkins/jenkins-job-status.png)
+   ![Informatie "Bouwen geschiedenis" met de status van taak](./media/container-instances-jenkins/jenkins-job-status.png)
 
-Terwijl de taak wordt uitgevoerd, opent u de Azure-portal en bekijk de resourcegroep Jenkins. U ziet dat er een exemplaar van Azure-Container is gemaakt. Het is in dit exemplaar waarop de taak Jenkins wordt uitgevoerd.
+2. Terwijl de taak wordt uitgevoerd, de Azure portal openen en kijk in de resourcegroep Jenkins. U ziet dat er een exemplaar van de container is gemaakt. De taak Jenkins wordt binnen dit exemplaar uitgevoerd.
 
-![Jenkins builds in ACI](./media/container-instances-jenkins/jenkins-aci.png)
+   ![Exemplaar van de container in de resourcegroep](./media/container-instances-jenkins/jenkins-aci.png)
 
-Zoals Jenkins wordt meer taken dan het geconfigureerde aantal Jenkins Executor (standaard 2) uitgevoerd, worden meerdere exemplaren van de Azure-Container gemaakt.
+3. Zoals Jenkins wordt meer taken dan het geconfigureerde aantal Jenkins Executor (standaard 2) uitgevoerd, worden meerdere containerexemplaren gemaakt.
 
-![Jenkins builds in ACI](./media/container-instances-jenkins/jenkins-aci-multi.png)
+   ![Nieuw gemaakte containerexemplaren](./media/container-instances-jenkins/jenkins-aci-multi.png)
 
-Zodra alle build-taken zijn voltooid, worden de instanties van de Azure-container verwijderd.
+4. Nadat alle build taken hebt voltooid, wordt de container-instanties zijn verwijderd.
 
-![Jenkins builds in ACI](./media/container-instances-jenkins/jenkins-aci-none.png)
+   ![Resourcegroep met de containerexemplaren verwijderd](./media/container-instances-jenkins/jenkins-aci-none.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Voor meer informatie over Jenkins op Azure Zie [Azure en Jenkins][jenkins-azure].
+Zie voor meer informatie over Jenkins op Azure, [Azure en Jenkins][jenkins-azure].
 
 <!-- LINKS - internal -->
 [about-aci]: ./container-instances-overview.md

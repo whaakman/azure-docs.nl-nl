@@ -15,11 +15,11 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.openlocfilehash: 231e8110dc6e1844108502e5c2277edc3ba77132
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b63beffdd3b10071c6d18128e78a949374c171b2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Inleiding tot cloudcomputing en Microsoft Azure
 
@@ -162,7 +162,7 @@ Een Azure-resourcegroep is een container met verwante resources voor een Azure-o
 
 Een Azure Resource Manager-sjabloon is een JSON JavaScript Object Notation ()-bestand dat definieert een of meer resources om te implementeren voor een resourcegroep. Het definieert ook de afhankelijkheden tussen geïmplementeerde resources. Resource Manager-sjablonen worden behandeld in meer detail verderop in deze handleiding.
 
-### <a name="automation"></a>Automatisering
+### <a name="automation"></a>Automation
 
 
 Naast het maken, beheren en verwijderen van de resources met behulp van de Azure-portal, kunt u deze activiteiten automatiseren met behulp van PowerShell of de Azure-opdrachtregelinterface (CLI).
@@ -509,7 +509,7 @@ U kunt ook de Azure CLI gebruiken om een Azure Resource Manager-sjabloon te impl
 
 ### <a name="access-and-security-for-virtual-networks"></a>Toegang en beveiliging voor virtuele netwerken
 
-U kunt beveiligde virtuele Azure-netwerken met behulp van een netwerkbeveiligingsgroep. Nsg's bevatten een lijst van de toegangsbeheerlijst (ACL) toegangscontroleregels toestaan of weigeren van netwerkverkeer naar uw VM-exemplaren in een virtueel netwerk. U kunt nsg's koppelen aan subnetten of afzonderlijke VM-exemplaren in dat subnet. Wanneer u een NSG aan een subnet koppelen, worden de ACL-regels toepassen op alle VM-exemplaren in dat subnet. Bovendien kunt u verder beperken verkeer naar een afzonderlijke virtuele machine door het koppelen van een NSG rechtstreeks aan die VM. Zie voor meer informatie [filteren van netwerkverkeer met netwerkbeveiligingsgroepen](../../virtual-network/virtual-networks-nsg.md).
+U kunt beveiligde virtuele Azure-netwerken met behulp van een netwerkbeveiligingsgroep. Nsg's bevatten een lijst van de toegangsbeheerlijst (ACL) toegangscontroleregels toestaan of weigeren van netwerkverkeer naar uw VM-exemplaren in een virtueel netwerk. U kunt nsg's koppelen aan subnetten of afzonderlijke VM-exemplaren in dat subnet. Wanneer u een NSG aan een subnet koppelen, worden de ACL-regels toepassen op alle VM-exemplaren in dat subnet. Bovendien kunt u verder beperken verkeer naar een afzonderlijke virtuele machine door het koppelen van een NSG rechtstreeks aan die VM. Zie voor meer informatie [filteren van netwerkverkeer met netwerkbeveiligingsgroepen](../../virtual-network/security-overview.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

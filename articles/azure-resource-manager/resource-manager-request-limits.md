@@ -9,16 +9,16 @@ editor: tysonn
 ms.assetid: e1047233-b8e4-4232-8919-3268d93a3824
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1d670fd7a9a165977fa5c8d3ce4caf5ff1b1df1e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f3dcb0c5036b2cfc38ef2a6a16269a8697bbd9e6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="throttling-resource-manager-requests"></a>Beperking van Resource Manager-aanvragen
 Voor elk abonnement en de tenant Resource Manager-limieten aanvragen voor 15.000 per uur lezen en schrijven van aanvragen naar 1200 per uur. Deze beperkingen gelden voor elk exemplaar van Azure Resource Manager. Er zijn meerdere exemplaren in elke Azure-regio en Azure Resource Manager wordt geïmplementeerd op alle Azure-regio's.  Dus in de praktijk limieten effectief veel hoger dan deze limieten zijn, als gebruiker worden aanvragen meestal onderhouden door veel verschillende exemplaren.

@@ -5,7 +5,7 @@ services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
+editor: ''
 ms.assetid: d169387a-1243-4867-a602-01d6f2d8a2a1
 ms.service: virtual-network
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: fb5e399d4ab02a7f2805cc280b213bf5b44f6993
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf015f4857a22b755813d0be1af5a55a8b7b6535
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="microsoft-cloud-services-and-network-security"></a>Microsoft cloud services en netwerk-beveiliging
 Microsoft cloud-services leveren hyperschaal services en -infrastructuur, bedrijfsniveau mogelijkheden en veel keuzes voor hybride verbindingen. Klanten kunnen kiezen voor toegang tot deze services via Internet of met Azure ExpressRoute, waarmee u verbinding met het particuliere netwerk. Het Microsoft Azure-platform kan klanten probleemloos hun infrastructuur in de cloud uitbreiden en bouwen van meerdere lagen architecturen. Bovendien kunt derden uitgebreide mogelijkheden inschakelen door het aanbieden van beveiligingsservices en virtuele apparaten. In dit artikel biedt een overzicht van beveiliging en architectuur problemen die klanten rekening houden moeten bij het gebruik van Microsoft-cloudservices is toegankelijk via ExpressRoute. Het omvat tevens veiliger services in Azure virtuele netwerken maken.
@@ -104,7 +104,7 @@ Het perimeternetwerk is de front-end van het netwerk, rechtstreeks in aanraking 
 ### <a name="perimeter-network-characteristics"></a>Perimeter-netwerkeigenschappen
 Verwijst naar de vorige afbeelding, zijn een deel van de kenmerken van een goede perimeternetwerk als volgt:
 
-* Internetgerichte:
+* Internet-facing:
   * Het perimeternetwerk netwerksubnet zelf is internetgerichte, rechtstreeks communiceren met Internet.
   * Openbare IP-adressen, VIP's en/of service-eindpunten die niet aan de front-end-netwerk en apparaten internetverkeer doorgeven.
   * Binnenkomend verkeer van het Internet passeert beveiligingsapparaten voordat andere bronnen op de front-endnetwerk.
@@ -514,8 +514,8 @@ Het toevoegen van een netwerkverbinding ExpressRoute persoonlijke Peering kunt d
 ### <a name="helpful-websites-and-documentation"></a>Documentatie en nuttige websites
 * Toegang van Azure met Azure Resource Manager:
 * Toegang tot Azure met PowerShell: [https://docs.microsoft.com/powershell/azureps-cmdlets-docs/](/powershell/azure/overview)
-* Informatie over virtuele netwerken: [https://docs.microsoft.com/azure/virtual-network/](https://docs.microsoft.com/azure/virtual-network/)
-* Network security groep documentatie: [https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg](virtual-network/virtual-networks-nsg.md)
+* Virtuele netwerken documentatie: [https://docs.microsoft.com/azure/virtual-network/](https://docs.microsoft.com/azure/virtual-network/)
+* Documentatie voor Network security groep: [https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg](virtual-network/security-overview.md)
 * Gebruiker gedefinieerde routering documentatie: [https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview](virtual-network/virtual-networks-udr-overview.md)
 * Azure virtuele gateways: [https://docs.microsoft.com/azure/vpn-gateway/](https://docs.microsoft.com/azure/vpn-gateway/)
 * Site-naar-Site VPN-verbindingen: [https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell](vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)

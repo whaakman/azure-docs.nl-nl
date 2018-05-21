@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2018
 ms.author: bwren
-ms.openlocfilehash: bf9acd5d7130a5e35182271f07593adab19d448b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e4e2edeb6703e8c55a16b488175fbcdb0dfe56a9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="custom-logs-in-log-analytics"></a>Aangepaste logboeken in Log Analytics
 De gegevensbron voor de aangepaste logboeken in Log Analytics kunt u het verzamelen van gebeurtenissen uit tekstbestanden op Windows- en Linux-computers. Veel toepassingen logboekgegevens naar tekstbestanden in plaats van standaard logboekregistratieservices zoals Windows-gebeurtenislogboek of Syslog.  Zodra verzameld, kunt u elke record in de aanmelding bij afzonderlijke velden met parseren de [aangepaste velden](log-analytics-custom-fields.md) functie van logboekanalyse.
@@ -29,7 +29,7 @@ De logboekbestanden moeten worden verzameld, moeten overeenkomen met de volgende
 
 - Het logboek moet hebben één vermelding per regel of een tijdstempel die overeenkomt met een van de volgende indelingen aan het begin van elke vermelding te gebruiken.
 
-    YYYY-MM-DD HH:MM:SS<br>M/D/JJJJ UU: MM: SS AM/PM <br>Ma DD JJJJ: mm: ss
+    JJJJ-MM-DD: MM: SS<br>M/D/JJJJ UU: MM: SS AM/PM<br>Ma DD JJJJ: mm: ss<br />JJMMDD: mm: ss<br />ddMMyy: mm: ss<br />MMM d: mm: ss<br />DD/MMM/yyyy:HH:mm:ss zzz<br />jjjj-MM-ddTHH:mm:ssK
 
 - Het logboekbestand mag geen toestaan circulair vastleggen of logrotatie, waar het bestand wordt overschreven met nieuwe gegevens.
 - Het logboekbestand moet gebruiken ASCII- of UTF-8-codering.  Andere indelingen zoals UTF-16 worden niet ondersteund.
