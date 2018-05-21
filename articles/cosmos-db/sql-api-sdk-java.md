@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 05/16/2018
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b1d8c1dee087abdc13ff1b1a0a9595d1e5b29d9f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 62941b3654204533d982b11f56b6ca08d591a72f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK voor SQL-API: releaseopmerkingen en resources
 > [!div class="op_single_selector"]
@@ -54,6 +54,22 @@ De SQL-API Java SDK biedt ondersteuning voor synchrone bewerkingen. Voor asynchr
 </table></br>
 
 ## <a name="release-notes"></a>Releaseopmerkingen
+
+### <a name="a-name11611161"></a><a name="1.16.1"/>1.16.1
+* Ondersteuning toegevoegd voor unieke Index.
+* Ondersteuning toegevoegd voor het beperken van de token grootte voortzetting in een feed-opties.
+* Heeft een fout in de Json-serialisatie (tijdstempel).
+* Heeft een fout in de Json-serialisatie (enum).
+* Afhankelijkheid van com.fasterxml.jackson.core:jackson-databind bijgewerkt naar 2.9.5.
+
+### <a name="a-name11601160"></a><a name="1.16.0"/>1.16.0
+* Verbeterde groepsgewijze voor directe modus.
+* Prefetch verbetering voor orderby kruislings partitiequery verbeterd.
+* Verbeterde UUID generatie.
+* Verbeterde sessie consistentie logica.
+* Ondersteuning toegevoegd voor multipolygon.
+* Ondersteuning toegevoegd voor de partitie sleutel bereik statistieken voor de verzameling.
+* Heeft een fout in de ondersteuning voor meerdere landen/regio.
 
 ### <a name="a-name11501150"></a><a name="1.15.0"/>1.15.0
 * Verbeterde prestaties van de Json-serialisatie.
@@ -184,6 +200,8 @@ Elk verzoek aan de Cosmos-database met behulp van een buiten gebruik gestelde SD
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
+| [1.16.1](#1.16.1) |16 mei 2018 |--- |
+| [1.16.0](#1.16.0) |15 maart 2018 |--- |
 | [1.15.0](#1.15.0) |14 november 2017 |--- |
 | [1.14.0](#1.14.0) |28 OCT 2017 |--- |
 | [1.13.0](#1.13.0) |25 augustus 2017 |--- |

@@ -6,34 +6,34 @@ documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: 2b7ec44b820e510d1e8bd99ef195546a519c365c
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 4fc17b997c44560199e65edb01d20c6a24e49877
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Numerieke functies voor Azure Resource Manager-sjablonen
 
 Resource Manager biedt de volgende functies voor het werken met gehele getallen zijn:
 
-* [toevoegen](#add)
+* [add](#add)
 * [copyIndex](#copyindex)
 * [div](#div)
 * [Float](#float)
 * [int](#int)
-* [maximale](#max)
+* [max](#max)
 * [min](#min)
 * [Mod](#mod)
 * [mul](#mul)
-* [Sub](#sub)
+* [sub](#sub)
 
 <a id="add" />
 
@@ -92,7 +92,7 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| addResult | int | 8 |
+| addResult | Int | 8 |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 
@@ -117,7 +117,7 @@ Retourneert de index van een lus herhaling.
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| loopName | Nee | Tekenreeks | De naam van de lus voor het ophalen van de herhaling. |
+| loopName | Nee | tekenreeks | De naam van de lus voor het ophalen van de herhaling. |
 | offset |Nee |int |Het aantal toevoegen aan de op nul gebaseerde herhaling-waarde. |
 
 ### <a name="remarks"></a>Opmerkingen
@@ -209,7 +209,7 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| divResult | int | 2 |
+| divResult | Int | 2 |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 
@@ -225,7 +225,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="float" />
 
-## <a name="float"></a>Float
+## <a name="float"></a>drijvend
 `float(arg1)`
 
 De waarde omgezet in een drijvende komma. U deze functie alleen gebruiken als aangepaste parameters wordt doorgegeven aan een toepassing, zoals een logische App.
@@ -303,7 +303,7 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| intResult | int | 4 |
+| intResult | Int | 4 |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 
@@ -319,7 +319,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="max" />
 
-## <a name="max"></a>Maximum aantal
+## <a name="max"></a>max
 `max (arg1)`
 
 Retourneert de maximumwaarde van een matrix van gehele getallen of een door komma's gescheiden lijst met gehele getallen zijn.
@@ -366,8 +366,8 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| arrayOutput | int | 5 |
-| intOutput | int | 5 |
+| arrayOutput | Int | 5 |
+| intOutput | Int | 5 |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 
@@ -430,8 +430,8 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| arrayOutput | int | 0 |
-| intOutput | int | 0 |
+| arrayOutput | Int | 0 |
+| intOutput | Int | 0 |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 
@@ -501,7 +501,7 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| modResult | int | 1 |
+| modResult | Int | 1 |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 
@@ -572,7 +572,7 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| mulResult | int | 15 |
+| mulResult | Int | 15 |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 
@@ -642,7 +642,7 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| subResult | int | 4 |
+| subResult | Int | 4 |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 

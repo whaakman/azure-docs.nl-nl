@@ -11,47 +11,47 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 53494abead5701052f6e08f68b01ccdf1bfa211c
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 1286698fb7dd13c7568a0fa8b20c50511d5a6919
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services-formerly-azure-devtest-labs"></a>Lab-accounts in Azure Lab Services (voorheen Azure DevTest Labs) beheren
 In dit artikel wordt beschreven hoe een lab-account maken, alle lab accounts weergeven of verwijderen van een lab-account.
 
 ## <a name="create-a-lab-account"></a>Een lab-account maken
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Selecteer in het hoofdmenu aan de linkerkant **maken van een resource**.
-3. Zoeken naar **Lab Services** in de Azure Marketplace en selecteer **Lab Services** in de vervolgkeuzelijst. 
+2. Selecteer **Een resource maken** in het hoofdmenu aan de linkerkant.
+3. Zoek naar **Lab Services** in Azure Marketplace en selecteer **Lab Services** in de vervolgkeuzelijst. 
 4. Selecteer **Lab Sercices (Preview)** in de lijst flitered van services. 
-5. In de **een lab-account maken** Selecteer **maken**.
-7. In de **Lab account** venster de volgende acties uitvoeren: 
-    1. Voor **Lab accountnaam**, voer een naam in. 
-    2. Selecteer de **Azure-abonnement** in die u wilt maken van het lab-account.
-    3. Voor **resourcegroep**, selecteer **nieuw**, en voer een naam voor de resourcegroep.
-    4. Voor **locatie**, selecteer een locatie/de regio waarin u wilt dat het lab-account moet worden gemaakt. 
+5. Selecteer **Maken** in het venster **Een lab-account maken**.
+7. Voer in het venster **Lab-account** de volgende acties uit: 
+    1. Voer een naam in bij **lab-accountnaam**. 
+    2. Selecteer het **Azure-abonnement** waarin u het lab-account wilt maken.
+    3. Selecteer voor **Resourcegroep** de optie **Nieuwe maken** en voer een naam in voor de resourcegroep.
+    4. Selecteer voor **Locatie** een locatie/regio waarin het lab-account moet worden gemaakt. 
     5. Selecteer **Maken**. 
 
-        ![Maken van een venster van de account lab](./media/how-to-manage-lab-accounts/lab-account-settings.png)
-5. Als u de pagina voor het lab-account niet ziet, selecteert u de **meldingen** knop en klik vervolgens op **gaat u naar de resource** knop in de meldingen. 
+        ![Venster Een lab-account maken](./media/how-to-manage-lab-accounts/lab-account-settings.png)
+5. Als u de pagina voor het lab-account niet ziet, selecteert u de knop **Meldingen** en klikt u vervolgens op de knop **Ga naar resource** in de meldingen. 
 
-    ![Maken van een venster van de account lab](./media/how-to-manage-lab-accounts/notification-go-to-resource.png)    
-6. U ziet het volgende **lab account** pagina:
+    ![Venster Een lab-account maken](./media/how-to-manage-lab-accounts/notification-go-to-resource.png)    
+6. U ziet de volgende pagina **lab-account**:
 
-    ![De pagina serviceaccount Lab](./media/how-to-manage-lab-accounts/lab-account-page.png)
+    ![Pagina lab-account](./media/how-to-manage-lab-accounts/lab-account-page.png)
 
-## <a name="add-a-user-to-the-lab-creator-role"></a>Een gebruiker toevoegen aan de rol van Lab
-De machtiging voor het maken van labs voor hun klassen, toe te voegen aan de rol van Lab voor onderwijsinstellingen opgeven:
+## <a name="add-a-user-to-the-lab-creator-role"></a>Een gebruiker toevoegen aan de rol Labmaker
+Als u machtigingen wilt toekennen aan docenten om labs te maken voor hun lessen, voegt u hen toe aan de rol Labmaker:
 
-1. Op de **Lab Account** pagina **toegangsbeheer (IAM)**, en klik op **+ toevoegen** op de werkbalk. 
+1. Selecteer op de pagina **lab-account** de optie **Toegangsbeheer (IAM)** en klik op **+ Toevoegen** in de werkbalk. 
 
-    ![De pagina serviceaccount Lab](./media/tutorial-setup-lab-account/access-control.png)
-2. Op de **machtigingen toevoegen** pagina **Lab Maker** voor **rol**, selecteert u de gebruiker die u wilt toevoegen aan de rol Beveiligingsbeheerder Lab en selecteer **opslaan**. 
+    ![Pagina lab-account](./media/tutorial-setup-lab-account/access-control.png)
+2. Selecteer op de pagina **Machtigingen toevoegen** de optie **Labmaker** als **rol**. Selecteer de gebruiker die u wilt toevoegen aan de rol Labmaker en selecteer **Opslaan**. 
 
-    ![Gebruiker toevoegen aan de rol van Lab](./media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
+    ![Gebruiker toevoegen aan de rol Labmaker](./media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
 
 
 ## <a name="view-lab-accounts"></a>Weergave lab accounts
@@ -69,7 +69,7 @@ Volg de instructies van de vorige sectie lab accounts in een lijst weergegeven. 
 4. Selecteer **Verwijderen**. 
 
 ## <a name="next-steps"></a>Volgende stappen
-Aan de slag met het instellen van een testomgeving met Azure Lab Services:
+Aan de slag met het installeren van een lab met Azure Lab Services:
 
-- [Een testomgeving leslokaal instellen](tutorial-setup-classroom-lab.md)
-- [Een aangepaste testomgeving instellen](tutorial-create-custom-lab.md)
+- [Een leslokaallab instellen](tutorial-setup-classroom-lab.md)
+- [Een aangepast lab instellen](tutorial-create-custom-lab.md)

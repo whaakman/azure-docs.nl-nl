@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 05/16/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 0deda4324a4287e7aa25cb686acb5b6152443735
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 63653795ad8c52e2743fb02fa804dd2edbf0d2ab
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/20/2018
 ---
 Gegevensfactory is een multitenant-service die beschikt over de volgende standaardlimiet om ervoor te zorgen klantabonnementen zijn beveiligd tegen elkaars werkbelastingen. Veel van de limieten kunnen eenvoudig gegeven voor uw abonnement tot het maximum aantal contact opnemen met de ondersteuning.
 
@@ -28,7 +28,7 @@ Gegevensfactory is een multitenant-service die beschikt over de volgende standaa
 | Integratie runtimes binnen een gegevensfactory <sup>4</sup> | 2500 | [Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Totale CPU-kernen voor Azure SSIS-integratie Runtime(s) onder één abonnement | 100 | [Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Gelijktijdige pipeline wordt per pijplijn | 100 | [Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Maximum aantal activiteiten per pijplijn | 20 | 30 |
+| Maximum aantal activiteiten per pijplijn | 20 | 40 |
 | Maximum aantal parameters per pijplijn | 20 | 30 |
 | Aantal bytes per object voor pipeline-objecten <sup>1</sup> | 200 KB | 200 KB |
 | Aantal bytes per object voor de gegevensset en objecten van de gekoppelde service <sup>1</sup> | 100 KB | 2000 KB |

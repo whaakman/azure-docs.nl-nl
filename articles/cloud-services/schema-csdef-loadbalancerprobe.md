@@ -1,23 +1,23 @@
 ---
 title: Azure Cloud Services-naam Def. LoadBalancerProbe Schema | Microsoft Docs
-ms.custom: 
+ms.custom: ''
 ms.date: 04/14/2015
-ms.prod: azure
-ms.reviewer: 
+services: cloud-services
+ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: 
-ms.tgt_pltfrm: 
+ms.suite: ''
+ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 113374a8-8072-4994-9d99-de391a91e6ea
-caps.latest.revision: "14"
+caps.latest.revision: 14
 author: thraka
 ms.author: adegeo
 manager: timlt
-ms.openlocfilehash: 31c974c5a4b9dc9cff882ff42b73ee023fc4ad9b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6cd56c9b04fc4657cedf845e7f111005a8dee183
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Azure Cloud Services-definitie LoadBalancerProbe Schema
 De load balancer-test is een klant gedefinieerde health test van UDP-eindpunten en eindpunten in rolinstanties. De `LoadBalancerProbe` is geen zelfstandige element; deze wordt gecombineerd met de Webrol of functie in een servicedefinitiebestand worker. Een `LoadBalancerProbe` kunnen worden gebruikt door meer dan één rol.
@@ -50,10 +50,10 @@ De `LoadBalancerProbes` element van het servicedefinitiebestand bevat de volgend
 - [LoadBalancerProbes Element](#LoadBalancerProbes)
 - [LoadBalancerProbe Element](#LoadBalancerProbe)
 
-##  <a name="LoadBalancerProbes"></a>LoadBalancerProbes Element
+##  <a name="LoadBalancerProbes"></a> LoadBalancerProbes Element
 De `LoadBalancerProbes` -element de verzameling van load balancer-tests worden beschreven. Dit element is het bovenliggende element van de [LoadBalancerProbe Element](#LoadBalancerProbe). 
 
-##  <a name="LoadBalancerProbe"></a>LoadBalancerProbe Element
+##  <a name="LoadBalancerProbe"></a> LoadBalancerProbe Element
 De `LoadBalancerProbe` element wordt gedefinieerd voor de health-test voor een model. U kunt meerdere load balancer-tests kunt definiëren. 
 
 De volgende tabel beschrijft de kenmerken van de `LoadBalancerProbe` element:
@@ -62,7 +62,7 @@ De volgende tabel beschrijft de kenmerken van de `LoadBalancerProbe` element:
 | ------------------- | -------- | -----------------|
 | `name`              | `string` | Vereist. De naam van de load balancer-test. De naam moet uniek zijn.|
 | `protocol`          | `string` | Vereist. Hiermee geeft u het protocol van het eindpunt. Mogelijke waarden zijn `http` en `tcp`. Als `tcp` is opgegeven, wordt een ontvangen ACK is vereist voor de test kan alleen slagen. Als `http` is opgegeven, wordt een 200 OK reactie van de opgegeven URI is vereist voor de test kan alleen slagen.|
-| `path`              | `string` | De URI die wordt gebruikt voor het aanvragen van de status van de virtuele machine. `path`is vereist als `protocol` is ingesteld op `http`. Anders wordt is het niet toegestaan.<br /><br /> Er is geen standaardwaarde.|
+| `path`              | `string` | De URI die wordt gebruikt voor het aanvragen van de status van de virtuele machine. `path` is vereist als `protocol` is ingesteld op `http`. Anders wordt is het niet toegestaan.<br /><br /> Er is geen standaardwaarde.|
 | `port`              | `integer` | Optioneel. De poort voor communicatie van de test. Dit is optioneel voor een willekeurig eindpunt als dezelfde poort vervolgens voor de test gebruikt wordt. U kunt een andere poort voor hun gezocht, evenals configureren. Mogelijke waarden tussen 1 en 65535 op.<br /><br /> De standaardwaarde is ingesteld door het eindpunt.|
 | `intervalInSeconds` | `integer` | Optioneel. Het interval in seconden, voor hoe vaak het eindpunt voor de status van de health-test. Het interval is meestal iets meer dan een halve de toegewezen time-outperiode (in seconden) waarmee twee volledige tests voordat u het exemplaar buiten de draaihoek.<br /><br /> De standaardwaarde is 15, de minimumwaarde is 5.|
 | `timeoutInSeconds`  | `integer` | Optioneel. De time-outperiode in seconden, toegepast op de test waar geen antwoord resulteert in meer verkeer wordt geleverd met het eindpunt wordt gestopt. Deze waarde kan eindpunten moeten worden uitgevoerd buiten de draaihoek sneller of langzamer dan de typische tijden worden gebruikt in Azure (die de standaardinstellingen).<br /><br /> De standaardwaarde is 31, de minimale waarde 11 is.|

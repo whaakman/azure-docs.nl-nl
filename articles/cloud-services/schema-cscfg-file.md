@@ -1,23 +1,23 @@
 ---
 title: Azure Cloud Services-definitie Schema (.cscfg-bestand) | Microsoft Docs
-ms.custom: 
+services: cloud-services
+ms.custom: ''
 ms.date: 12/07/2016
-ms.prod: azure
-ms.reviewer: 
+ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: 
-ms.tgt_pltfrm: 
+ms.suite: ''
+ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 3ddc7fea-3339-4fc0-bdf9-853c32b25f69
-caps.latest.revision: "35"
+caps.latest.revision: 35
 author: thraka
 ms.author: adegeo
 manager: timlt
-ms.openlocfilehash: bba02688e443d4b5bde89691ca0b74b3597b453a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6347314e7f279356f4f3944f3238deda84f10fc0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-cloud-services-config-schema-cscfg-file"></a>Azure Cloud Services-Config-Schema (.cscfg-bestand)
 Het configuratiebestand van de service wordt het aantal rolinstanties implementeren voor elke rol in de service, de waarden van een configuratie-instellingen en de vingerafdrukken instellen voor alle certificaten die zijn gekoppeld aan een rol. Als de service deel van een virtueel netwerk uitmaakt, kunnen configuratie-informatie voor het netwerk moet worden opgegeven in het configuratiebestand van de service, evenals in het configuratiebestand voor virtuele netwerken. De standaardextensie voor het configuratiebestand van de service is cscfg-bestand.
@@ -54,14 +54,14 @@ De volgende onderwerpen beschrijven het schema voor de `ServiceConfiguration` el
 ## <a name="service-configuration-namespace"></a>Service Configuration Namespace
 De XML-naamruimte voor het service-configuratiebestand is: `http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration`.
 
-##  <a name="ServiceConfiguration"></a>Element serviceconfiguration zijn
+##  <a name="ServiceConfiguration"></a> Element serviceconfiguration zijn
 De `ServiceConfiguration` -element is het element op het hoogste niveau van het configuratiebestand van de service.
 
 De volgende tabel beschrijft de kenmerken van de `ServiceConfiguration` element. Alle kenmerken waarden zijn tekenreekstypen.
 
 | Kenmerk | Beschrijving |
 | --------- | ----------- |
-|Servicenaam|Vereist. De naam van de cloudservice. De hier opgegeven naam moet overeenkomen met de naam die is opgegeven in het servicedefinitiebestand.|
+|serviceName|Vereist. De naam van de cloudservice. De hier opgegeven naam moet overeenkomen met de naam die is opgegeven in het servicedefinitiebestand.|
 |besturingssysteemtype|Optioneel. Hiermee geeft u het Gastbesturingssysteem dat op de rolinstanties in de cloudservice wordt uitgevoerd. Zie voor meer informatie over ondersteunde Gast OS releases [Azure Gast OS Releases en SDK compatibiliteit Matrix](cloud-services-guestos-update-matrix.md).<br /><br /> Als u geen een `osFamily` waarde en u niet hebt ingesteld de `osVersion` kenmerk naar een specifieke Gast OS-versie, een standaardwaarde van 1 wordt gebruikt.|
 |OsVersion|Optioneel. Hiermee geeft u de versie van het Gastbesturingssysteem dat op de rolinstanties in de cloudservice wordt uitgevoerd. Zie voor meer informatie over de versies van het Gastbesturingssysteem [Azure Gast OS Releases en SDK compatibiliteit Matrix](cloud-services-guestos-update-matrix.md).<br /><br /> U kunt opgeven dat het Gastbesturingssysteem automatisch moeten worden bijgewerkt naar de nieuwste versie. Om dit te doen, stel de waarde van de `osVersion` kenmerk `*`. Als de waarde `*`, de rolinstanties zijn geïmplementeerd met behulp van de nieuwste versie van het Gastbesturingssysteem voor de opgegeven OS-familie en wordt automatisch bijgewerkt wanneer er nieuwe versies van het Gastbesturingssysteem zijn uitgebracht.<br /><br /> Als u wilt een specifieke versie handmatig opgeven, gebruikt u de `Configuration String` uit de tabel in de **toekomstige, huidige en overgangs Gast OS-versies** sectie van [Azure Gast OS Releases en SDK compatibiliteit Matrix](cloud-services-guestos-update-matrix.md) .<br /><br /> De standaardwaarde voor de `osVersion` kenmerk `*`.|
 |schemaVersion|Optioneel. Hiermee geeft u de versie van het schema van de configuratie van de Service. De schemaversie kunt Visual Studio, selecteer de juiste SDK's moet worden gebruikt voor schemavalidatie als meer dan één versie van de SDK is geïnstalleerd naast elkaar. Zie voor meer informatie over de compatibiliteit van het schema en versie [Azure Gast OS Releases en SDK compatibiliteit Matrix](cloud-services-guestos-update-matrix.md)|

@@ -8,25 +8,25 @@ manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: e5d93963dddb4acb1147042ae338b32cb5d7646f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
-ms.translationtype: HT
+ms.openlocfilehash: a8784a8e29e65d8abea566b5a2bf41a2ae6cadf0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Portal gebruiken voor het maken van een Azure Active Directory-toepassing en service-principal die toegang bronnen tot
 
-Wanneer u code die behoeften openen of wijzigen van resources hebt, moet u een Azure Active Directory (AD)-toepassing instellen. U kunt de vereiste machtigingen toewijzen aan AD-toepassing. Deze aanpak is voorkeur boven het uitvoeren van de app met uw eigen referenties, omdat u machtigingen kunt toewijzen aan de identiteit van de app die anders zijn dan uw eigen machtigingen. Deze machtigingen zijn meestal beperkt tot precies wat de app moet doen.
+Wanneer u code die behoeften openen of wijzigen van resources hebt, moet u een Azure Active Directory (AD)-toepassing instellen. U kunt de vereiste machtigingen toewijzen aan AD-toepassing. Deze aanpak is voorkeur boven het uitvoeren van de app met uw eigen referenties, omdat u machtigingen kunt toewijzen aan de identiteit van de app die anders zijn dan uw eigen machtigingen. Deze machtigingen worden meestal beperkt tot de functies die met de app moeten kunnen worden uitgevoerd.
 
 Dit artikel laat zien hoe u deze stappen uitvoert via de portal. Het is gericht op een één-tenant-toepassing waarin de toepassing is bedoeld om uit te voeren binnen één organisatie. Doorgaans gebruikt toepassingen voor één tenant voor line-of-business-toepassingen die worden uitgevoerd binnen uw organisatie.
 
 > [!IMPORTANT]
-> In plaats van een service-principal maken, kunt u overwegen Azure AD beheerde Service-identiteit voor de identiteit van uw toepassingen. Azure AD-MSI is een openbare preview-functie van Azure Active Directory die vereenvoudigt het maken van een identiteit voor de code. Als uw code wordt uitgevoerd op een service die ondersteuning biedt voor Azure AD MSI en toegang tot bronnen die ondersteuning bieden voor Azure Active Directory-verificatie, is Azure AD MSI een betere optie voor u. Zie voor meer informatie over Azure AD MSI, met inbegrip van welke services momenteel ondersteuning [Service-identiteit voor Azure-resources beheerd](../active-directory/managed-service-identity/overview.md).
+> In plaats van een service-principal te maken, kunt u overwegen Azure AD Managed Service Identity te gebruiken voor de identiteit van uw toepassing. Azure AD MSI is een openbare preview-functie van Azure Active Directory die het eenvoudiger maakt om een identiteit voor code te maken. Als uw code wordt uitgevoerd op een service met ondersteuning voor Azure AD MSI en toegang heeft tot bronnen met ondersteuning voor Azure Active Directory-verificatie, is Azure AD MSI een betere optie voor u. Zie [Managed Service Identity voor Azure-resources](../active-directory/managed-service-identity/overview.md) voor meer informatie over Azure AD MSI en de services die MSI ondersteunen.
 
 ## <a name="required-permissions"></a>Vereiste machtigingen
 
