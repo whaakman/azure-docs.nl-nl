@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: 47ee22df081b71e7bafa40210a9c4cac0a844825
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2e5862e99b3e883554b42341d2c1dbe9d8b8ec72
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-networking"></a>Azure-netwerken
 
@@ -120,7 +120,7 @@ De volgende afbeelding ziet een internetgerichte toepassing met meerdere lagen d
 
 U kunt filteren verkeer van en naar Azure-resources met de volgende opties:
 
-- **Netwerk:** u Azure netwerkbeveiligingsgroepen (nsg's) voor het filteren van binnenkomend en uitgaand verkeer voor Azure-resources kunt implementeren. Elke NSG bevat een of meer regels voor binnenkomend en uitgaand. Elke regel geeft u aan de bron-IP-adressen, IP-doeladressen, poort en protocol dat verkeer wordt gefilterd met. Nsg's kunnen worden toegepast op afzonderlijke subnetten en afzonderlijke virtuele machines. Lees voor meer informatie over Nsg de [netwerk beveiligingsgroepen overzicht](../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fnetworking%2ftoc.json) artikel.
+- **Netwerk:** u Azure netwerkbeveiligingsgroepen (nsg's) voor het filteren van binnenkomend en uitgaand verkeer voor Azure-resources kunt implementeren. Elke NSG bevat een of meer regels voor binnenkomend en uitgaand. Elke regel geeft u aan de bron-IP-adressen, IP-doeladressen, poort en protocol dat verkeer wordt gefilterd met. Nsg's kunnen worden toegepast op afzonderlijke subnetten en afzonderlijke virtuele machines. Lees voor meer informatie over Nsg de [netwerk beveiligingsgroepen overzicht](../virtual-network/security-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) artikel.
 - **Toepassing:** met behulp van een toepassingsgateway met web application firewall kunt u uw webtoepassingen beschermen tegen beveiligingsproblemen en aanvallen. Algemene voorbeelden zijn SQL-injectieaanvallen, cross-site scripting en een verkeerd ingedeelde kopteksten. Toepassingsgateway dit verkeer gefilterd en voorkomt dat uw webservers is bereikt. U zijn kunt configureren welke regels die u ingeschakeld wilt. De mogelijkheid voor het configureren van SSL-onderhandelingsbeleid is opgegeven voor het toestaan van bepaalde beleidsregels worden uitgeschakeld. Lees voor meer informatie over de web application firewall de [Web application firewall](../application-gateway/application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) artikel.
 
 Als u moet de mogelijkheid via het netwerk Azure niet opgeven of wilt gebruiken, netwerktoepassingen die u lokaal gebruikt, kunt u de producten in virtuele machines implementeren en verbind ze met uw VNet. De [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances) bevat verschillende andere virtuele machines die vooraf geconfigureerd met de netwerktoepassingen die u kunt. Deze vooraf geconfigureerde virtuele machines worden gewoonlijk aangeduid als virtuele netwerkapparaten (NVA). NVAs zijn beschikbaar met toepassingen zoals firewall en WAN-optimalisatie.

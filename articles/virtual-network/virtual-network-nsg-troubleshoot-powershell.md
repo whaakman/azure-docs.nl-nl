@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 3d1928428915d3ea5f9f28dc400f251b9f90679f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: edbf76ef5dcf581acfec17970becdf698445cbeb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-azure-powershell"></a>Problemen met Netwerkbeveiligingsgroepen met Azure PowerShell
 > [!div class="op_single_selector"]
@@ -30,9 +30,9 @@ ms.lasthandoff: 05/14/2018
 
 Als u Netwerkbeveiligingsgroepen (nsg's) geconfigureerd op de virtuele machine (VM) en problemen met de netwerkverbinding van de VM ondervinden, is dit artikel bevat een overzicht van diagnostische gegevens mogelijkheden voor het nsg's om op te lossen verder.
 
-Nsg's kunnen u bepalen welke typen verkeer stromen en naar uw virtuele machines (VM's). Nsg's kunnen worden toegepast op subnetten in een Azure-netwerk (VNet), netwerkinterfaces (NIC) of beide. De effectieve regels toegepast op een NIC zijn een aggregatie van de regels die zijn opgenomen in het nsg's toegepast op een NIC en het is verbonden met subnet. Regels in deze nsg's kunnen soms met elkaar conflicteren en invloed van een virtuele machine netwerkverbinding.  
+Nsg's kunnen u bepalen welke typen verkeer stromen en naar uw virtuele machines (VM's). Nsg's kunnen worden toegepast op subnetten in een Azure-netwerk (VNet), netwerkinterfaces (NIC) of beide. De effectieve regels toegepast op een NIC zijn een aggregatie van de regels die zijn opgenomen in het nsg's toegepast op een NIC en het is verbonden met subnet. Regels in deze nsg's kunnen soms met elkaar conflicteren en invloed van een virtuele machine netwerkverbinding.
 
-U kunt de effectieve beveiligingsregels weergeven van uw nsg's, zoals toegepast op de NIC's van de VM. Dit artikel ziet het oplossen van problemen met de virtuele machine netwerkverbinding met deze regels in het Azure Resource Manager-implementatiemodel. Als u niet bekend met concepten VNet en NSG bent, leest u de [virtueel netwerk](virtual-networks-overview.md) en [Netwerkbeveiligingsgroepen](virtual-networks-nsg.md) overzicht artikelen.
+U kunt de effectieve beveiligingsregels weergeven van uw nsg's, zoals toegepast op de NIC's van de VM. Dit artikel ziet het oplossen van problemen met de virtuele machine netwerkverbinding met deze regels in het Azure Resource Manager-implementatiemodel. Als u niet bekend met concepten VNet en NSG bent, Zie [Virtual network-overzicht](virtual-networks-overview.md) en [netwerk groep beveiligingsoverzicht](security-overview.md).
 
 ## <a name="using-effective-security-rules-to-troubleshoot-vm-traffic-flow"></a>Effectieve beveiligingsregels voor verbindingen gebruiken bij het oplossen van VM-netwerkverkeer
 De volgende scenario is een voorbeeld van een veelvoorkomend verbindingsprobleem:
@@ -159,8 +159,7 @@ De volgende stappen voor het oplossen van nsg's voor een virtuele machine:
    
    * Er zijn twee **NetworkSecurityGroup** secties: een is gekoppeld aan een subnet (*Subnet1*) en een is gekoppeld aan een NIC (*VM1 NIC1*). In dit voorbeeld is elk een NSG toegepast.
    * **Koppeling** wordt de resource (subnet of NIC) in een opgegeven NSG is gekoppeld. Als het NSG-resource verplaatst/ontkoppeld is onmiddellijk voordat u deze opdracht uitvoert, moet u wellicht wacht een paar seconden om de wijziging door te geven in de opdrachtuitvoer. 
-   * De namen van de regel die worden voorafgegaan door *defaultSecurityRules*: wanneer een NSG is gemaakt, verschillende standaard beveiligingsregels worden gemaakt binnen deze. Standaardregels kunnen niet worden verwijderd, maar kunnen ze met hogere prioriteitregels worden overschreven.
-     Lees de [NSG overzicht](virtual-networks-nsg.md#default-rules) artikel voor meer informatie over het NSG standaard beveiligingsregels voor verbindingen.
+   * De namen van de regel die worden voorafgegaan door *defaultSecurityRules*: wanneer een NSG is gemaakt, verschillende standaard beveiligingsregels worden gemaakt binnen deze. Standaardregels kunnen niet worden verwijderd, maar kunnen ze met hogere prioriteitregels worden overschreven. Meer informatie over [standaard beveiligingsregels](security-overview.md#default-security-rules).
    * **ExpandedAddressPrefix** de adresvoorvoegsels voor standaardtags NSG wordt uitgebreid. Labels vertegenwoordigen meerdere adresvoorvoegsels. Uitbreiding van de labels kan nuttig zijn bij het oplossen van VM-connectiviteit van specifieke adresvoorvoegsels. Bijvoorbeeld, met een VNET-peering, VIRTUAL_NETWORK tag uitgebreid VNet-voorvoegsels peer is ingesteld in de vorige uitvoer weergegeven.
      
      > [!NOTE]

@@ -14,21 +14,21 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/2/2017
 ms.author: hshapiro
-ms.openlocfilehash: d089dd24df3308994aab0cf135da8be9a3e28d79
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 095cc724beb9f35896bd02e299523839a9f43f4b
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB: een Flask-app maken met de MongoDB-API
 
 Azure Cosmos DB is de globaal gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de globale distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB.
 
-In deze snelstartgids wordt gebruikgemaakt van het volgende [Flask voorbeeld](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) en wordt gedemonstreerd hoe u een eenvoudige Flask-app kunt maken met de [Azure Cosmos DB-emulator](/local-emulator.md) en de [MongoDB-API](mongodb-introduction.md) van Azure Cosmos DB in plaats van met MongoDB.
+In deze snelstartgids wordt gebruikgemaakt van het volgende [Flask voorbeeld](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) en wordt gedemonstreerd hoe u een eenvoudige Flask-app kunt maken met de [Azure Cosmos DB-emulator](local-emulator.md) en de [MongoDB-API](mongodb-introduction.md) van Azure Cosmos DB in plaats van met MongoDB.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Download de [Azure Cosmos DB-emulator](/local-emulator.md). De emulator wordt momenteel alleen ondersteund op Windows. In het voorbeeld wordt getoond hoe het Flask-voorbeeld kan worden gebruikt met een productie-sleutel van Azure. Dit kan op elk platform worden uitgevoerd.
+- Download de [Azure Cosmos DB-emulator](local-emulator.md). De emulator wordt momenteel alleen ondersteund op Windows. In het voorbeeld wordt getoond hoe het Flask-voorbeeld kan worden gebruikt met een productie-sleutel van Azure. Dit kan op elk platform worden uitgevoerd.
 
 - Als u Visual Studio Code nog niet hebt geïnstalleerd, kunt u snel [VS Code](https://code.visualstudio.com/Download) installeren voor uw platform (Windows, Mac, Linux).
 

@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: muralikk
-ms.openlocfilehash: 4d6177fe0a50c531ba6c4b3e87eaa08299af2ddd
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f6dc104470ca2bfd738ca9bfc334a1c1325f7318
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>De Microsoft Azure Import/Export-service gebruiken om gegevens overdragen naar Azure Storage
 In dit artikel bieden we Stapsgewijze instructies over het gebruik van Azure Import/Export-service veilig grote hoeveelheden gegevens overdragen naar Azure Blob storage en Azure-bestanden door de back-upfunctie schijven naar een Azure-Datacenter. Deze service kan ook worden gebruikt gegevens overdragen naar Azure storage naar harde schijven en verzenden naar uw on-premises-sites. Gegevens uit een enkele interne SATA harde schijf kunnen worden geïmporteerd naar Azure Blob storage of Azure-bestanden. 
@@ -259,7 +259,7 @@ U kunt de status van de importbewerking volgen of taken exporteren vanuit de Azu
 
 U ziet een van de volgende statussen van de taak afhankelijk van waar de schijf in het proces is.
 
-| De Status van taak | Beschrijving |
+| Taakstatus | Beschrijving |
 |:--- |:--- |
 | Maken | Nadat een taak is gemaakt, wordt de status is ingesteld op maken. Terwijl de taak de status maken wordt, de Import/Export-service wordt ervan uitgegaan dat de schijven nog niet zijn verzonden naar het datacenter. Een taak kan blijven in de status maken voor maximaal twee weken, waarna deze worden automatisch verwijderd door de service. |
 | Verzenden | Nadat u uw pakket verzendt, moet u de controle-informatie in de Azure portal bijwerken.  Hierdoor wordt de taak in 'Back-upfunctie'. De taak blijft in de status van de back-ups van twee weken. 
@@ -569,6 +569,9 @@ Als u [WAImportExport hulpprogramma](http://download.microsoft.com/download/3/6/
 DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
 G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |
 ```
+
+[!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
+
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Instellen van het hulpprogramma WAImportExport](storage-import-export-tool-how-to.md)

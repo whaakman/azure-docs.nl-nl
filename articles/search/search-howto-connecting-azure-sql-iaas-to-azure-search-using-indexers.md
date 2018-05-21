@@ -8,11 +8,11 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: heidist
-ms.openlocfilehash: 34c5d1999625d1728e884adb794af235ba415c26
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 7800e83891cb336bb896299b8fd4d6b3ba590178
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Een verbinding van een Azure Search-indexeerfunctie naar SQL Server configureren op een virtuele machine in Azure
 Zoals vermeld in [verbinding maken met Azure SQL Database in Azure Search met indexeerfuncties](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), maken indexeerfuncties tegen **SQL Server op Azure Virtual machines** (of **SQL Azure Virtual machines** voor korte) wordt ondersteund door Azure Search, maar er zijn enkele beveiliging gerelateerde vereisten voor het eerst behandelen. 
@@ -52,14 +52,14 @@ In het bijzonder, Raadpleeg de sectie in elk artikel voor 'verbinding maken via 
 ## <a name="configure-the-network-security-group-nsg"></a>De Netwerkbeveiligingsgroep (NSG) configureren
 Het is niet ongebruikelijke voor het configureren van de NSG en bijbehorende Azure-eindpunt of lijst ACL (Access Control) om uw Azure VM toegankelijk maken voor andere partijen. Waarschijnlijk hebben dat u dit nog om toe te staan van uw eigen toepassingslogica verbinding maken met uw SQL Azure virtuele machine hebt gedaan. Het gaat niet anders voor een Azure Search-verbinding met uw SQL Azure virtuele machine. 
 
-De onderstaande koppelingen bieden instructies over het NSG-configuratie voor VM-implementaties. Volg deze instructies voor de Toegangsbeheerlijst van een Azure SEarch-eindpunt op basis van het IP-adres.
+De onderstaande koppelingen bieden instructies over het NSG-configuratie voor VM-implementaties. Volg deze instructies voor de Toegangsbeheerlijst van een Azure Search-eindpunt op basis van het IP-adres.
 
 > [!NOTE]
-> Zie voor achtergrondinformatie, [wat is er een Netwerkbeveiligingsgroep?](../virtual-network/virtual-networks-nsg.md)
+> Zie voor achtergrondinformatie, [wat is er een Netwerkbeveiligingsgroep?](../virtual-network/security-overview.md)
 > 
 > 
 
-* Voor een **Resource Manager** VM, Zie [nsg's maken voor implementaties van ARM](../virtual-network/virtual-networks-create-nsg-arm-pportal.md). 
+* Voor een **Resource Manager** VM, Zie [nsg's maken voor implementaties van ARM](../virtual-network/tutorial-filter-network-traffic.md). 
 * Voor een **klassieke** VM, Zie [nsg's maken voor klassieke implementaties](../virtual-network/virtual-networks-create-nsg-classic-ps.md).
 
 IP-adressering kan opleveren voor enkele uitdagingen die gemakkelijk te overwinnen zijn als u zich bewust bent van het probleem en mogelijke oplossingen. De resterende secties bevatten aanbevelingen voor het verwerken van problemen met het IP-adressen in de ACL.

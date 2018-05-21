@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: jovanpop
-ms.openlocfilehash: 1d80d199e21222be973fa6f5a06e6e80a505f164
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 7707a40a39e429333ff1c20fb7884a1fb7ee2162
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Automatische afstemming in Azure SQL Database
 
@@ -61,13 +61,13 @@ Zie voor een overzicht van de werking van automatische afstemmen werkt en typisc
 ## <a name="automatic-tuning-options"></a>Opties voor automatische afstemmen
 
 Opties voor automatische afstemmen in Azure SQL Database beschikbaar zijn:
- 1. **CREATE INDEX** die identificeert de indexen die de prestaties van uw werkbelasting mogelijk verbeterd, maakt de indexen en controleert of dat ze de prestaties van de query's verbeteren.
- 2. **DROP INDEX** die redundante en dubbele indexen en indexen die niet werden gebruikt in de lange periode identificeert.
- 3. **LAATSTE goed PLAN FORCE** SQL-query's die gebruikmaken van uitvoeringsplan die lager is dan de vorige goed plan identificeert en maakt gebruik van de laatste bekende goede planning in plaats van het regressed plan.
+ 1. **CREATE INDEX** -indexen die de prestaties van uw werkbelasting mogelijk verbeterd, maakt indexen en automatisch verifieert dat de prestaties van query's is verbeterd identificeert. De standaardinstelling Azure voor deze optie is ingeschakeld.
+ 2. **DROP INDEX** -identificeert overbodige en dubbele indexen en indexen die niet zijn gebruikt voor een heel lange periode. Houd er rekening mee dat op dit moment de optie is niet compatibel met toepassingen die gebruikmaken van partitie schakelen en de index-hints. De standaardinstelling Azure voor deze optie is uitgeschakeld.
+ 3. **LAATSTE goed PLAN FORCE** -SQL-query's met behulp van uitvoeringsplan die lager ligt dan de vorige goed plan en query's met de laatste bekende goede planning in plaats van het plan regressed identificeert. De standaardinstelling Azure voor deze optie is ingeschakeld.
 
 Azure SQL Database identificeert **CREATE INDEX**, **DROP INDEX**, en **FORCE laatste goede plannen** aanbevelingen die u kunnen de database te optimaliseren en wordt deze weergegeven in Azure-portal. Meer informatie over de identificatie van de indexen die moeten worden gewijzigd op [indexaanbevelingen vinden in Azure portal](sql-database-advisor-portal.md). Met behulp van de portal aanbevelingen handmatig toepassen of Azure SQL Database voor het automatisch toepassen van aanbevelingen, werkbelasting bewaken na herstart van de wijziging laten en verifiëren dat de aanbeveling de prestaties van uw werkbelasting verbeterd.
 
-Automatische afstemming van opties kan worden afzonderlijk ingeschakeld of uitgeschakeld per database, of ze kunnen worden geconfigureerd op de logische server en toegepast op elke database die u neemt instellingen over van de server. Configureren van automatische afstemming van de opties op de server en overnemen van de instellingen van de databases op de server, wordt aanbevolen methode voor het configureren van automatische afstemming omdat het beheer van de opties voor automatische afstemmen op een groot aantal databases vereenvoudigt.
+Automatische afstemming van opties kan worden afzonderlijk ingeschakeld of uitgeschakeld per database, of ze kunnen worden geconfigureerd op de logische server en toegepast op elke database die u neemt instellingen over van de server. Logische servers kunnen Azure standaardwaarden voor instellingen voor automatische afstemmen overnemen. Configureren van automatische afstemming van de opties op de server en overnemen van de instellingen van de databases op de server, wordt aanbevolen methode voor het configureren van automatische afstemming omdat het beheer van de opties voor automatische afstemmen op een groot aantal databases vereenvoudigt.
 
 ## <a name="next-steps"></a>Volgende stappen
 

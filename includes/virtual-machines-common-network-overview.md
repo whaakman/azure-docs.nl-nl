@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/11/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 3b0ea0e55653e7b6087e21bd531ba3f6649d4967
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 5940be8c13a85e256055d6bd6362c9cd93323ee4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/20/2018
 ---
 Wanneer u een virtuele Azure-machine maakt, moet u een [virtueel netwerk](../articles/virtual-network/virtual-networks-overview.md) (VNet) maken of een bestaand VNet gebruiken. U moet ook bepalen hoe uw virtuele machines kunnen worden geopend via de VNet. Het is belangrijk om [een planning te maken voordat u resources maakt](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) en ervoor te zorgen dat u op de hoogte bent van de [limieten van netwerkresources](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -95,7 +95,7 @@ Deze tabel bevat de methoden die u kunt gebruiken voor het maken van een VNet en
 
 ## <a name="network-security-groups"></a>Netwerkbeveiligingsgroepen
 
-Een [netwerkbeveiligingsgroep (NSG)](../articles/virtual-network/virtual-networks-nsg.md) bevat een lijst met ACL-regels (Access Control List, toegangsbeheerlijst) waarmee netwerkverkeer naar subnetten, NIC’s of beide wordt toegestaan of geweigerd. NSG's kunnen worden gekoppeld aan subnetten of afzonderlijke NIC’s die zijn verbonden met een subnet. Als een NSG is gekoppeld aan een subnet, zijn de ACL-regels van toepassing op alle virtuele machines in dat subnet. U kunt het verkeer naar een afzonderlijke NIC beperken door een NSG rechtstreeks aan een NIC te koppelen.
+Een [netwerkbeveiligingsgroep (NSG)](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) bevat een lijst met ACL-regels (Access Control List, toegangsbeheerlijst) waarmee netwerkverkeer naar subnetten, NIC’s of beide wordt toegestaan of geweigerd. NSG's kunnen worden gekoppeld aan subnetten of afzonderlijke NIC’s die zijn verbonden met een subnet. Als een NSG is gekoppeld aan een subnet, zijn de ACL-regels van toepassing op alle virtuele machines in dat subnet. U kunt het verkeer naar een afzonderlijke NIC beperken door een NSG rechtstreeks aan een NIC te koppelen.
 
 NSG's bevatten twee sets met regels: een set met regels voor binnenkomend verkeer en een set met regels voor uitgaand verkeer. De prioriteit voor een regel moet uniek zijn binnen elke set. Elke regel heeft eigenschappen voor protocol, bron- en doelpoortbereik, adresvoorvoegsels, richting van verkeer, prioriteit en toegangstype. 
 
@@ -103,7 +103,7 @@ Alle NSG's bevatten een set met standaardregels. De standaardregels kunnen niet 
 
 Als u een NSG aan een NIC koppelt, worden de netwerktoegangsregels in de NSG alleen toegepast op die NIC. Als een NSG wordt toegepast op één NIC op een virtuele machine met meerdere NIC’s, heeft dat geen invloed op verkeer naar de andere NIC's. U kunt verschillende NSG's koppelen aan een NIC (of virtuele machine, afhankelijk van het implementatiemodel) en het subnet dat met een NIC of VM is verbonden. Prioriteit wordt verleend op basis van de richting van het verkeer.
 
-Zorg ervoor dat u uw NSG’s [plant](../articles/virtual-network/virtual-networks-nsg.md#planning) wanneer u uw virtuele machines en VNet aan het plannen bent.
+Zorg ervoor dat u uw NSG’s [plant](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) wanneer u uw virtuele machines en VNet aan het plannen bent.
 
 Deze tabel bevat de methoden die u kunt gebruiken voor het maken van een netwerkbeveiligingsgroep.
 
