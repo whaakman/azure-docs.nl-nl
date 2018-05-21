@@ -6,29 +6,29 @@ documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: d16264abf64ef88dfb24948fc04e33de619f4e3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d8a7ae412fc80dff7bd91c1cdc5d4fcd985e07f4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Logische functies voor Azure Resource Manager-sjablonen
 
 Resource Manager biedt een aantal functies voor het maken van vergelijkingen in uw sjablonen.
 
-* [en](#and)
-* [BOOL](#bool)
-* [Als](#if)
+* [En](#and)
+* [bool](#bool)
+* [if](#if)
 * [niet](#not)
-* [of](#or)
+* [or](#or)
 
 ## <a name="and"></a>en
 `and(arg1, arg2)`
@@ -39,8 +39,8 @@ Controleert of beide parameterwaarden true zijn.
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| Arg1 |Ja |Booleaanse waarde |De eerste waarde om te controleren of is ingesteld op true. |
-| Arg2 |Ja |Booleaanse waarde |De tweede waarde om te controleren of is ingesteld op true. |
+| Arg1 |Ja |booleaans |De eerste waarde om te controleren of is ingesteld op true. |
+| Arg2 |Ja |booleaans |De tweede waarde om te controleren of is ingesteld op true. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -157,7 +157,7 @@ Voor het implementeren van deze voorbeeldsjabloon met PowerShell gebruiken:
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/bool.json
 ```
 
-## <a name="if"></a>Als
+## <a name="if"></a>if
 `if(condition, trueValue, falseValue)`
 
 Retourneert een waarde op basis van of u een voorwaarde is true of false.
@@ -166,7 +166,7 @@ Retourneert een waarde op basis van of u een voorwaarde is true of false.
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| Voorwaarde |Ja |Booleaanse waarde |De waarde om te controleren of deze voorwaarden voldaan wordt. |
+| voorwaarde |Ja |booleaans |De waarde om te controleren of deze voorwaarden voldaan wordt. |
 | trueValue |Ja | String, int, object of matrix |De waarde wilt retourneren wanneer de voorwaarde waar is. |
 | falseValue |Ja | String, int, object of matrix |De waarde wilt retourneren wanneer de voorwaarde onwaar is. |
 
@@ -247,8 +247,8 @@ De uitvoer van het vorige voorbeeld is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| yesOutput | Tekenreeks | ja |
-| noOutput | Tekenreeks | nee |
+| yesOutput | Reeks | ja |
+| noOutput | Reeks | nee |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 
@@ -271,7 +271,7 @@ Booleaanse waarde omgezet in de tegengestelde waarde.
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| Arg1 |Ja |Booleaanse waarde |De waarde te converteren. |
+| Arg1 |Ja |booleaans |De waarde te converteren. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -366,8 +366,8 @@ Controleert of de waarde voor de parameter ingesteld op true is.
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| Arg1 |Ja |Booleaanse waarde |De eerste waarde om te controleren of is ingesteld op true. |
-| Arg2 |Ja |Booleaanse waarde |De tweede waarde om te controleren of is ingesteld op true. |
+| Arg1 |Ja |booleaans |De eerste waarde om te controleren of is ingesteld op true. |
+| Arg2 |Ja |booleaans |De tweede waarde om te controleren of is ingesteld op true. |
 
 ### <a name="return-value"></a>Retourwaarde
 

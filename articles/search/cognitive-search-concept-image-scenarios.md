@@ -10,11 +10,11 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: c58e731f6b8c86a0b7d6f2500d81077904b2f5ef
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 77fbd69aad6c78ecd5c933d8017c980afaa661a3
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Hoe worden verwerkt en gegevens ophalen van afbeeldingen in scenario's cognitieve zoeken
 
@@ -38,6 +38,8 @@ U uitschakelen installatiekopie normalisatie niet. Vaardigheden die afbeeldingen
 
 > [!NOTE]
 > Als u de *imageAction* eigenschap in op iets anders dan 'none', u zich niet in te stellen de *parsingMode* eigenschap in op iets anders dan 'standaard'.  U mag een van deze twee eigenschappen alleen instellen op een niet-standaard-waarde in de configuratie van de indexeerfunctie.
+
+Stel de **parsingMode** -parameter voor `json` (om het indexeren van elke blob als één document) of `jsonArray` (als uw blobs JSON-matrices bevatten en moet u elk element van een matrix moet worden behandeld als een afzonderlijk document).
 
 De standaardwaarde van 2000 pixels voor de installatiekopieën van genormaliseerde maximale breedte en hoogte is gebaseerd op de maximale grootte wordt ondersteund door de [OCR kwalificatie](cognitive-search-skill-ocr.md) en de [analysis kwalificatie installatiekopie](cognitive-search-skill-image-analysis.md). Als u de maximale limieten verhogen, kan verwerking op de grotere afbeeldingen mislukken.
 

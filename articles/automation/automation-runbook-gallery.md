@@ -9,11 +9,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8fb0e2181c518db541504f0eea77ce9fde7edf8f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 61d267898bab5e5df394d4097eacb33ada809518
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Runbook- en galerieën voor Azure Automation
 In plaats van uw eigen runbooks en modules in Azure Automation, kunt u toegang tot allerlei scenario's die al zijn gebouwd door Microsoft en de community.  U kunt deze scenario's zonder aanpassingen gebruiken of u kunt ze als uitgangspunt gebruiken en ze bewerken voor uw specifieke vereisten.
@@ -90,6 +90,9 @@ PowerShell-modules bevatten cmdlets die u in uw runbooks gebruiken kunt en besta
 9. Op de **importeren** pagina, klikt u op **OK** de module te importeren. Terwijl Azure Automation importeert een module in uw account, pakt deze metagegevens over de module en de cmdlets. Dit kan enkele minuten duren, omdat elke activiteit moet worden geëxtraheerd.
 10. U ontvangt een initiële melding dat de module wordt geïmplementeerd en nog een melding wanneer deze is voltooid.
 11. Nadat de module is geïmporteerd, kunt u de beschikbare activiteiten bekijken en kunt u de resources in uw runbooks en Desired State Configuration.
+
+> [!NOTE]
+> Modules die alleen ondersteuning voor PowerShell core worden niet ondersteund in Azure Automation en kunnen niet worden geïmporteerd in de Azure portal of geïmplementeerd rechtstreeks vanuit de PowerShell-galerie.
 
 ## <a name="requesting-a-runbook-or-module"></a>Een runbook of de module aanvragen
 U kunt aanvragen verzenden [User Voice](https://feedback.azure.com/forums/246290-azure-automation/).  Als u nodig hebt te schrijven van een runbook of een vraag over PowerShell hebt, een vraag te posten onze [forum](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).

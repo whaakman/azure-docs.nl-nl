@@ -6,24 +6,24 @@ author: neilpeterson
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 05/17/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 21245688076cf0a21164b549eb68bc6f55d6ec6c
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 991db1fc32ae89ab04ca040cfb6e8d59ffe5262f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="persistent-volumes-with-azure-files"></a>Permanente volumes met Azure-bestanden
 
-Een permanente volume vertegenwoordigt een onderdeel van de opslag die is ingericht voor gebruik in een cluster Kubernetes. Een permanente volume kan worden gebruikt door een of meer gehele product en worden dynamisch of statisch ingericht. In dit document worden dynamisch inrichten van een Azure-bestandsshare als een permanente volume Kubernetes in een cluster AKS.
+Een permanente volume is een onderdeel van de opslag die is gemaakt voor gebruik in een cluster Kubernetes. Een permanente volume kan worden gebruikt door een of meer gehele product en kan worden dynamisch of statisch gemaakt. De Documentdetails van dit **dynamisch maken** van een Azure-bestandsshare als een permanente volume.
 
-Zie voor meer informatie over Kubernetes permanente volumes [Kubernetes permanente volumes][kubernetes-volumes].
+Zie voor meer informatie over Kubernetes permanente volumes, waaronder het maken van de statische, [Kubernetes permanente volumes][kubernetes-volumes].
 
 ## <a name="create-storage-account"></a>Een opslagaccount maken
 
-Bij het dynamisch inrichten van een Azure-bestandsshare als een volume Kubernetes, kan een opslagaccount worden gebruikt als deze is opgenomen in dezelfde resourcegroep bevinden als het cluster AKS. Maak een opslagaccount in dezelfde resourcegroep bevinden als het cluster AKS indien nodig.
+Wanneer u een Azure-bestandsshare als een volume Kubernetes dynamisch maakt, kan een opslagaccount worden gebruikt als deze zich in dezelfde resourcegroep bevinden als het cluster AKS. Maak een opslagaccount in dezelfde resourcegroep bevinden als het cluster AKS indien nodig.
 
 Om de juiste resourcegroep hebt geïdentificeerd, gebruiken de [az groepslijst] [ az-group-list] opdracht.
 
@@ -31,7 +31,7 @@ Om de juiste resourcegroep hebt geïdentificeerd, gebruiken de [az groepslijst] 
 az group list --output table
 ```
 
-Zoekt u naar een resourcegroep met een naam die lijkt op `MC_clustername_clustername_locaton`, waarbij clustername de naam van uw cluster AKS en locatie van de Azure-regio waar het cluster is geïmplementeerd.
+Zoek naar een resourcegroep met een naam die lijkt op `MC_clustername_clustername_locaton`.
 
 ```
 Name                                 Location    Status
@@ -76,9 +76,9 @@ kubectl apply -f azure-file-sc.yaml
 
 Een claim permanente volume (PVC) maakt gebruik van het opslagobject klasse te richten op dynamische wijze een Azure-bestandsshare.
 
-Het volgende manifest kan worden gebruikt voor het maken van een claim permanente volume `5GB` aan de grootte van `ReadWriteOnce` toegang.
+De volgende YAML kan worden gebruikt voor het maken van een claim permanente volume `5GB` aan de grootte van `ReadWriteOnce` toegang. Zie voor meer informatie over toegangsmodi in de [Kubernetes permanente volume] [ access-modes] documentatie.
 
-Maak een bestand met de naam `azure-file-pvc.yaml` en kopieer het volgende manifest. Zorg ervoor dat de `storageClassName` overeenkomt met de opslagklasse in de vorige stap hebt gemaakt.
+Maak een bestand met de naam `azure-file-pvc.yaml` en kopieer de volgende YAML. Zorg ervoor dat de `storageClassName` overeenkomt met de opslagklasse in de vorige stap hebt gemaakt.
 
 ```yaml
 apiVersion: v1
@@ -104,9 +104,9 @@ Zodra de voltooid, kunt u de bestandsshare wordt gemaakt. Een geheim Kubernetes 
 
 ## <a name="using-the-persistent-volume"></a>Met behulp van de permanente volume
 
-Het volgende manifest maakt een schil die gebruikmaakt van de claim permanente volume `azurefile` koppelen van de Azure-bestandsshare op de `/mnt/azure` pad.
+De volgende YAML maakt een schil die gebruikmaakt van de claim permanente volume `azurefile` koppelen van de Azure-bestandsshare op de `/mnt/azure` pad.
 
-Maak een bestand met de naam `azure-pvc-files.yaml`, en kopieer het volgende manifest. Zorg ervoor dat de `claimName` overeenkomt met het PVC in de vorige stap hebt gemaakt.
+Maak een bestand met de naam `azure-pvc-files.yaml`, en kopieer de volgende YAML. Zorg ervoor dat de `claimName` overeenkomt met het PVC in de vorige stap hebt gemaakt.
 
 ```yaml
 kind: Pod
@@ -146,7 +146,7 @@ Standaardwaarden fileMode en dirMode verschillen tussen versies Kubernetes zoals
 | v1.9.0 | 0700 |
 | V1.9.1 of hoger | 0755 |
 
-Als u een cluster van versie 1.8.5 of hoger, koppelpunt opties kunnen worden opgegeven op het opslagobject klasse. Het volgende voorbeeld wordt `0777`.
+Als u een cluster van versie 1.8.5 of hoger en dynamisch maken van het volume persistant met een opslagklasse, koppelpunt opties kunnen worden opgegeven op het opslagobject klasse. Het volgende voorbeeld wordt `0777`.
 
 ```yaml
 kind: StorageClass
@@ -163,6 +163,29 @@ parameters:
   skuName: Standard_LRS
 ```
 
+Als u een cluster van versie 1.8.5 of hoger en statisch maken van het object van de volume persistant, koppelpunt opties moeten worden opgegeven voor de `PersistentVolume` object. Zie voor meer informatie over het maken van een volume persistant statisch [statische permanente Volumes][pv-static].
+
+```yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: azurefile
+spec:
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteMany
+  azureFile:
+    secretName: azure-secret
+    shareName: azurefile
+    readOnly: false
+  mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=1000
+  - gid=1000
+  ```
+
 Als u een cluster van versie 1.8.0 - 1.8.4, een beveiligingscontext kan worden opgegeven met de `runAsUser` waarde ingesteld op `0`. Zie voor meer informatie over schil beveiligingscontext [configureren van een beveiligingscontext][kubernetes-security-context].
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -173,7 +196,7 @@ Meer informatie over Kubernetes permanente volumes met behulp van Azure-bestande
 > [Kubernetes-invoegtoepassing voor Azure-bestanden][kubernetes-files]
 
 <!-- LINKS - external -->
-[access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
+[access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-describe]: https://kubernetes-v1-4.github.io/docs/user-guide/kubectl/kubectl_describe/
 [kubernetes-files]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_file/README.md
@@ -181,6 +204,7 @@ Meer informatie over Kubernetes permanente volumes met behulp van Azure-bestande
 [kubernetes-security-context]: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/#azure-file
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
+[pv-static]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#static
 
 <!-- LINKS - internal -->
 [az-group-create]: /cli/azure/group#az_group_create
