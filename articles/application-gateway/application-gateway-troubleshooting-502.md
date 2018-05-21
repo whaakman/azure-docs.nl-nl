@@ -5,7 +5,7 @@ services: application-gateway
 documentationcenter: na
 author: amitsriva
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 1d431ead-d318-47d8-b3ad-9c69f7e08813
 ms.service: application-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: e0099734a81cd8b1edf5cf80cb56b5c322a5feee
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 4eca6a588d2c95189f0ba995b8db195907e9dc39
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Ongeldige gateway-probleemoplossing in Application Gateway
 
@@ -89,10 +89,10 @@ Indien aanwezig, zorg ervoor dat de DNS-server kunnen omzetten van lid back-end-
 
 * Zorg ervoor dat een standaard-site is geconfigureerd en luistert naar de 127.0.0.1.
 * Als BackendHttpSetting is opgegeven voor een andere poort dan 80, moet u de standaardsite geconfigureerd om te luisteren op poort.
-* De aanroep van http://127.0.0.1:port moet de resultaatcode van een HTTP 200 retourneren. Dit moet worden geretourneerd binnen de time-outperiode van 30 seconden.
+* De aanroep van http://127.0.0.1:port de resultaatcode van een HTTP 200 moet retourneren. Dit moet worden geretourneerd binnen de time-outperiode van 30 seconden.
 * Zorg ervoor dat poort geconfigureerd open is en dat er zijn geen firewallregels of Azure-Netwerkbeveiligingsgroepen, dit blokkeren van binnenkomend of uitgaand verkeer op de poort die is geconfigureerd.
 * Als Azure classic VM's of een Cloudservice met de FQDN-naam of het openbare IP-adres wordt gebruikt, zorg ervoor dat de bijbehorende [eindpunt](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) wordt geopend.
-* Als de virtuele machine via Azure Resource Manager is geconfigureerd en buiten het VNet waar Application Gateway wordt geïmplementeerd ligt, [Netwerkbeveiligingsgroep](../virtual-network/virtual-networks-nsg.md) moet worden geconfigureerd voor toegang op de gewenste poort.
+* Als de virtuele machine via Azure Resource Manager is geconfigureerd en buiten het VNet waar Application Gateway wordt geïmplementeerd ligt, [Netwerkbeveiligingsgroep](../virtual-network/security-overview.md) moet worden geconfigureerd voor toegang op de gewenste poort.
 
 ## <a name="problems-with-custom-health-probe"></a>Problemen met aangepaste health test
 
