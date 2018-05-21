@@ -1,8 +1,8 @@
 ---
 title: Azure Cloud Services-naam Def. WorkerRole Schema | Microsoft Docs
+services: cloud-services
 ms.custom: ''
 ms.date: 04/14/2015
-ms.prod: azure
 ms.reviewer: ''
 ms.service: cloud-services
 ms.suite: ''
@@ -13,11 +13,11 @@ caps.latest.revision: 55
 author: thraka
 ms.author: adegeo
 manager: timlt
-ms.openlocfilehash: 0171c7254db5855f0eccd19ae9938249d8966edd
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 96131a0bb928da7e22f3e26449c8b2279457d03f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-cloud-services-definition-workerrole-schema"></a>Azure Cloud Services-definitie WorkerRole Schema
 De functie Azure worker is een rol die is nuttig voor algemene ontwikkeling en achtergrondverwerking voor een Webrol kan uitvoeren.
@@ -113,7 +113,7 @@ Het servicedefinitiebestand bevat deze elementen, uitgebreid beschreven in de vo
 
 [Certificaten](#Certificates)
 
-[Certificate](#Certificate)
+[Certificaat](#Certificate)
 
 [Invoer](#Imports)
 
@@ -195,7 +195,7 @@ Invoer- en interne eindpunten worden afzonderlijk toegewezen. Een service kan ee
 > [!NOTE]
 >  Elke rol geïmplementeerd vereist één exemplaar per rol. De standaardwaarde voor een abonnement ingericht is beperkt tot 20 kernen en dus is beperkt tot 20 exemplaren van een rol. Als uw toepassing meer exemplaren vereist dan is standaard ingericht Zie [facturering, beheer van abonnementen en Quota ondersteuning](https://azure.microsoft.com/support/options/) voor meer informatie over het verhogen van uw quotum.
 
-##  <a name="InputEndpoint"></a> InputEndpoint
+##  <a name="InputEndpoint"></a> Invoereindpunt
 De `InputEndpoint` -element worden beschreven van een extern eindpunt naar een werkrol.
 
 U kunt meerdere eindpunten die deel uitmaken van een combinatie van HTTP, HTTPS, UDP en TCP-eindpunten definiëren. U kunt een ander poortnummer dat u voor een invoereindpunt kiest opgeven, maar de poortnummers die is opgegeven voor elke rol in de service moeten uniek zijn. Bijvoorbeeld, als u opgeeft dat een rol maakt gebruik van poort 80 voor HTTP en poort 443 voor HTTPS, kan vervolgens u een tweede rol poort 8080 voor HTTP en poort 8043 gebruikt voor HTTPS.
@@ -348,7 +348,7 @@ De volgende tabel beschrijft de kenmerken van de `NetFxEntryPoint` element.
 
 | Kenmerk | Type | Beschrijving |
 | --------- | ---- | ----------- |
-|assemblyName|tekenreeks|Vereist. Het pad en de naam van de assembly met het toegangspunt. Het pad is ten opzichte van de map  **\\%ROLEROOT%\Approot** (Geef geen  **\\%ROLEROOT%\Approot** in `commandLine`, wordt ervan uitgegaan). **% ROLEROOT %** een omgevingsvariabele blijft door Azure en de locatie van de basismap voor uw rol vertegenwoordigt. De  **\\%ROLEROOT%\Approot** map vertegenwoordigt de toepassingsmap voor uw rol.|
+|AssemblyName|tekenreeks|Vereist. Het pad en de naam van de assembly met het toegangspunt. Het pad is ten opzichte van de map  **\\%ROLEROOT%\Approot** (Geef geen  **\\%ROLEROOT%\Approot** in `commandLine`, wordt ervan uitgegaan). **% ROLEROOT %** een omgevingsvariabele blijft door Azure en de locatie van de basismap voor uw rol vertegenwoordigt. De  **\\%ROLEROOT%\Approot** map vertegenwoordigt de toepassingsmap voor uw rol.|
 |targetFrameworkVersion|tekenreeks|Vereist. De versie van .NET framework waarop de assembly is gebouwd. Bijvoorbeeld `targetFrameworkVersion="v4.0"`.|
 
 ##  <a name="ProgramEntryPoint"></a> ProgramEntryPoint

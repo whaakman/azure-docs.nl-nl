@@ -6,25 +6,25 @@ documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 17fe2bc467acc5542d021961a066940dbecf6120
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 725bc41f96359d4bf0d9d570f73f91dba5da2cab
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Implementatie-functies voor Azure Resource Manager-sjablonen 
 
 Resource Manager biedt de volgende functies voor het ophalen van waarden van de secties van de sjabloon en de waarden die betrekking hebben op de implementatie:
 
-* [implementatie](#deployment)
+* [Implementatie](#deployment)
 * [parameters](#parameters)
 * [variabelen](#variables)
 
@@ -160,7 +160,7 @@ Retourneert een parameterwaarde. De opgegeven parameternaam moet worden gedefini
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| parameterName |Ja |Tekenreeks |De naam van de parameter om terug te keren. |
+| parameterName |Ja |tekenreeks |De naam van de parameter om terug te keren. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -247,11 +247,11 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| stringOutput | Tekenreeks | Optie 1 |
-| intOutput | int | 1 |
+| stringOutput | Reeks | Optie 1 |
+| intOutput | Int | 1 |
 | objectOutput | Object | {"een": "a", "twee": "b"} |
 | arrayOutput | Matrix | [1, 2, 3] |
-| crossOutput | Tekenreeks | Optie 1 |
+| crossOutput | Reeks | Optie 1 |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 
@@ -276,7 +276,7 @@ Retourneert de waarde van variabele. De opgegeven naam van de variabele moet wor
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| Variabelenaam |Ja |Tekenreeks |De naam van de variabele retourneren. |
+| Variabelenaam |Ja |Reeks |De naam van de variabele retourneren. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -350,9 +350,9 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| exampleOutput1 | Tekenreeks | myVariable |
+| exampleOutput1 | Reeks | myVariable |
 | exampleOutput2 | Matrix | [1, 2, 3, 4] |
-| exampleOutput3 | Tekenreeks | myVariable |
+| exampleOutput3 | Reeks | myVariable |
 | exampleOutput4 |  Object | {{'1': 'value1', 'eigenschap 2': 'waarde2'} |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:

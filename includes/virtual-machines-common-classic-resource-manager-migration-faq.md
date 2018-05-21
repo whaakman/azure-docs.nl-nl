@@ -1,3 +1,19 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: virtual-machines
+author: jpconnock
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 05/18/2018
+ms.author: jeconnoc
+ms.custom: include file
+ms.openlocfilehash: 15cbfb9babe38ba6acaf4312735ab839af3f2d99
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 05/20/2018
+---
 # <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>Veelgestelde vragen over de migratie van klassiek naar Azure Resource Manager
 
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>Is dit migratieplan van invloed op mijn bestaande services en toepassingen die worden uitgevoerd op virtuele Azure-machines? 
@@ -32,14 +48,24 @@ Nee. Recent is het [verplaatsen van ExpressRoute-circuits van het klassieke naar
 
 Tijdens de migratie worden de klassieke resources Resource Manager-resources. Daarom is het raadzaam om de RBAC-beleidsupdates die moeten worden uitgevoerd in te plannen ná de migratie.
 
-## <a name="i-backed-up-my-classic-vms-in-a-backup-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Ik heb in een Backup-kluis een back-up gemaakt van mijn klassieke virtuele machines. Kan ik mijn virtuele machines migreren van de klassieke modus naar de Resource Manager-modus en ze beschermen in een Recovery Services-kluis?
+## <a name="i-backed-up-my-classic-vms-in-a-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Ik een back-up Mijn klassieke virtuele machines in een kluis. Kan ik mijn virtuele machines migreren van de klassieke modus naar de Resource Manager-modus en ze beschermen in een Recovery Services-kluis?
 
-<a name="vault">Klassieke</a> herstelpunten van de virtuele machine in een back-upkluis niet automatisch kunnen worden gemigreerd naar een Recovery Services-kluis wanneer u de virtuele machine van klassiek naar Resource Manager-modus verplaatsen. Volg deze stappen om de back-ups van uw virtuele machine over te dragen:
+<a name="vault">Wanneer</a> u een virtuele machine verplaatsen van klassiek naar Resource Manager-modus, back-ups die vóór de migratie niet naar de onlangs gemigreerde Resource Manager-VM wordt gemigreerd. Als u houden van uw back-ups van klassieke virtuele machines wilt, volgt u deze stappen vóór de migratie. 
 
-1. Ga in de Backup-kluis naar het tabblad **Beveiligde items** en selecteer de virtuele machine. Klik op [Beveiliging stoppen](../articles/backup/backup-azure-manage-vms.md#stop-protecting-virtual-machines). Laat de optie *Gekoppelde back-upgegevens verwijderen* **uitgeschakeld**.
-2. Verwijder de back-up-/momentopname-extensie uit de VM.
-3. Migreer de virtuele machines van de klassieke modus naar de Resource Manager-modus. Zorg ervoor dat de opslagruimte en de netwerkgegevens die corresponderen met de virtuele machine, ook naar de Resource Manager-modus worden gemigreerd.
-4. Maak een Recovery Services-kluis en configureer de back-up op de gemigreerde virtuele machine met behulp van de actie **Back-up** bovenaan in het dashboard van de kluis. Zie het artikel [Virtuele Azure-machines beveiligen met een Recovery Services-kluis](../articles/backup/backup-azure-vms-first-look-arm.md) voor meer informatie over het maken van back-ups van virtuele machines naar een Recovery Services-kluis.
+1. In de Recovery Services-kluis, gaat u naar de **beveiligde Items** tabblad en selecteer de virtuele machine. 
+2. Klik op [Beveiliging stoppen](../articles/backup/backup-azure-manage-vms.md#stop-protecting-virtual-machines). Laat de optie *Gekoppelde back-upgegevens verwijderen* **uitgeschakeld**.
+
+> [!NOTE]
+> U brengt back-exemplaar kosten tot behoud van gegevens. Back-ups worden verwijderd volgens de bewaartermijn. Laatste back-up is echter altijd bewaard totdat u back-upgegevens expliciet verwijderen. Dit is het raadzaam om te controleren van de bewaartermijn van de virtuele machine en de trigger 'Verwijderen van back-upgegevens' op het beveiligde item in de kluis zodra de bewaartermijn via is. 
+>
+>
+
+De virtuele machine te migreren naar de modus Resource Manager, 
+
+1. Verwijder de back-up-/momentopname-extensie uit de VM.
+2. Migreer de virtuele machines van de klassieke modus naar de Resource Manager-modus. Zorg ervoor dat de opslagruimte en de netwerkgegevens die corresponderen met de virtuele machine, ook naar de Resource Manager-modus worden gemigreerd.
+
+Bovendien als u back-up van de gemigreerde virtuele machine wilt, gaat u naar de blade van de virtuele Machine management aan [back-up inschakelen](../articles/backup/quick-backup-vm-portal.md#enable-backup-on-a-vm).
 
 ## <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-migration"></a>Kan ik mijn abonnement of resources valideren om te ontdekken of ze geschikt zijn voor migratie? 
 

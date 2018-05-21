@@ -6,39 +6,39 @@ documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 7d040fe55cb46665c97668a76ccbc66adc002f89
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb24535956140632da73807364b6f3ff7b91a416
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Matrix en object-functies voor Azure Resource Manager-sjablonen 
 
 Resource Manager biedt een aantal functies voor het werken met matrices en objecten.
 
 * [matrix](#array)
-* [coalesce](#coalesce)
+* [Coalesce](#coalesce)
 * [concat](#concat)
-* [bevat](#contains)
+* [Bevat](#contains)
 * [createArray](#createarray)
 * [leeg](#empty)
 * [eerste](#first)
 * [snijpunt](#intersection)
-* [JSON](#json)
+* [json](#json)
 * [laatste](#last)
 * [lengte](#length)
-* [maximale](#max)
+* [max](#max)
 * [min](#min)
 * [bereik](#range)
-* [overslaan](#skip)
+* [skip](#skip)
 * [duren](#take)
 * [Union](#union)
 
@@ -192,8 +192,8 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| stringOutput | Tekenreeks | Standaard |
-| intOutput | int | 1 |
+| stringOutput | Reeks | standaardinstelling |
+| intOutput | Int | 1 |
 | objectOutput | Object | {{'eerste': 'standaard'} |
 | arrayOutput | Matrix | [1] |
 | emptyOutput | BOOL | True |
@@ -310,7 +310,7 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| concatOutput | Tekenreeks | voorvoegsel 5yj4yjf5mbg72 |
+| concatOutput | Reeks | prefix-5yj4yjf5mbg72 |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 
@@ -326,7 +326,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="contains" />
 
-## <a name="contains"></a>Bevat
+## <a name="contains"></a>bevat
 `contains(container, itemToFind)`
 
 Controleert of een matrix een waarde bevat, een object een sleutel bevat of een tekenreeks een subtekenreeks bevat.
@@ -500,7 +500,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="empty" />
 
-## <a name="empty"></a>leeg
+## <a name="empty"></a>Leeg
 
 `empty(itemToTest)`
 
@@ -627,8 +627,8 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| arrayOutput | Tekenreeks | een |
-| stringOutput | Tekenreeks | O |
+| arrayOutput | Reeks | één |
+| stringOutput | Reeks | O |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 
@@ -721,7 +721,7 @@ Voor het implementeren van deze voorbeeldsjabloon met PowerShell gebruiken:
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
 ```
 
-## <a name="json"></a>JSON
+## <a name="json"></a>json
 `json(arg1)`
 
 Retourneert een JSON-object.
@@ -730,7 +730,7 @@ Retourneert een JSON-object.
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| Arg1 |Ja |Tekenreeks |De waarde niet converteren naar JSON. |
+| Arg1 |Ja |tekenreeks |De waarde niet converteren naar JSON. |
 
 
 ### <a name="return-value"></a>Retourwaarde
@@ -765,7 +765,7 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
 | jsonOutput | Object | {"a": "b"} |
-| nullOutput | Booleaanse waarde | True |
+| nullOutput | Boole-waarde | True |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 
@@ -829,8 +829,8 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| arrayOutput | Tekenreeks | drie |
-| stringOutput | Tekenreeks | E |
+| arrayOutput | Reeks | drie |
+| stringOutput | Reeks | E |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 
@@ -901,8 +901,8 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| arrayLength | int | 3 |
-| stringLength | int | 13 |
+| arrayLength | Int | 3 |
+| stringLength | Int | 13 |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 
@@ -929,7 +929,7 @@ Zie voor meer informatie over het gebruik van deze functie met een matrix [maken
 
 <a id="max" />
 
-## <a name="max"></a>Maximum aantal
+## <a name="max"></a>max
 `max(arg1)`
 
 Retourneert de maximumwaarde van een matrix van gehele getallen of een door komma's gescheiden lijst met gehele getallen zijn.
@@ -976,8 +976,8 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| arrayOutput | int | 5 |
-| intOutput | int | 5 |
+| arrayOutput | Int | 5 |
+| intOutput | Int | 5 |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 
@@ -1040,8 +1040,8 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| arrayOutput | int | 0 |
-| intOutput | int | 0 |
+| arrayOutput | Int | 0 |
+| intOutput | Int | 0 |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 
@@ -1186,7 +1186,7 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
 | arrayOutput | Matrix | ["drie"] |
-| stringOutput | Tekenreeks | twee drie |
+| stringOutput | Reeks | twee drie |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 
@@ -1267,7 +1267,7 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
 | arrayOutput | Matrix | ['een', 'twee'] |
-| stringOutput | Tekenreeks | op |
+| stringOutput | Reeks | op |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 

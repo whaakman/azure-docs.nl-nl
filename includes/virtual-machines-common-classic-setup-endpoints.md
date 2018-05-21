@@ -1,4 +1,19 @@
-
+---
+title: bestand opnemen
+description: bestand opnemen
+services: virtual-machines-windows
+author: cynthn
+ms.service: virtual-machines-windows
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: cfe675ca269a69c7c2bfa67638acd0afbcd1c8ea
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 05/20/2018
+---
 Elk eindpunt heeft een *openbare poort* en een *particuliere poort*:
 
 * De openbare poort wordt gebruikt door de Azure load balancer te luisteren naar binnenkomende verkeer aan de virtuele machine vanaf het Internet.
@@ -6,7 +21,7 @@ Elk eindpunt heeft een *openbare poort* en een *particuliere poort*:
 
 Standaardwaarden voor de IP-protocol en TCP of UDP-poorten voor bekende netwerk protocollen beschikbaar zijn wanneer u eindpunten met de Azure-portal maken. Voor aangepaste eindpunten moet u het juiste IP-protocol (TCP of UDP) en de openbare en particuliere poort opgeven. Als u wilt willekeurige binnenkomend verkeer verdelen over meerdere virtuele machines, moet u een set met gelijke taakverdeling die bestaan uit meerdere eindpunten maken.
 
-Nadat u een eindpunt hebt gemaakt, kunt u een toegangsbeheerlijst (ACL) voor het definiëren van regels voor toestaan of weigeren van het binnenkomende verkeer naar de openbare poort van het eindpunt op basis van de bron-IP-adres. Als de virtuele machine zich in een Azure-netwerk, moet u in plaats daarvan een netwerkbeveiligingsgroepen gebruiken. Zie voor meer informatie [over netwerkbeveiligingsgroepen](../articles/virtual-network/virtual-networks-nsg.md).
+Nadat u een eindpunt hebt gemaakt, kunt u een toegangsbeheerlijst (ACL) voor het definiëren van regels voor toestaan of weigeren van het binnenkomende verkeer naar de openbare poort van het eindpunt op basis van de bron-IP-adres. Als de virtuele machine zich in een Azure-netwerk, moet u in plaats daarvan een netwerkbeveiligingsgroepen gebruiken. Zie voor meer informatie [over netwerkbeveiligingsgroepen](../articles/virtual-network/security-overview.md).
 
 > [!NOTE]
 > Firewall-configuratie voor virtuele machines in Azure gebeurt automatisch voor de poorten die zijn gekoppeld aan externe connectiviteit-eindpunten die Azure automatisch ingesteld. Er is geen configuratie wordt voor poorten die zijn opgegeven voor alle andere eindpunten, automatisch uitgevoerd aan de firewall van de virtuele machine. Wanneer u een eindpunt voor de virtuele machine maakt, moet u ervoor te zorgen dat de firewall van de virtuele machine ook het verkeer voor het protocol en particuliere poort overeenkomt met de eindpuntconfiguratie toestaat. Zie de documentatie of de online help voor het besturingssysteem op de virtuele machine configureren van de firewall.
@@ -39,7 +54,7 @@ Als u definieert de set van computers die verkeer kunnen verzenden, kunt de ACL 
 >
 >
 
-Als de virtuele machine zich in een Azure-netwerk, raden wij aan netwerkbeveiligingsgroepen in plaats van ACL's. Zie voor meer informatie [over netwerkbeveiligingsgroepen](../articles/virtual-network/virtual-networks-nsg.md).
+Als de virtuele machine zich in een Azure-netwerk, raden wij aan netwerkbeveiligingsgroepen in plaats van ACL's. Zie voor meer informatie [over netwerkbeveiligingsgroepen](../articles/virtual-network/security-overview.md).
 
 1. Als u dit nog niet hebt gedaan, aanmelding bij de Azure-portal.
 2. Klik op **virtuele Machines**, en klik vervolgens op de naam van de virtuele machine die u wilt configureren.

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 042dd4876a63e5881e67456b449570b01cb967a5
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 4fb0eb3dd3349bd901850d6b9dd0f3e33ee2e0d7
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS-bescherming: Best practices en verwijzen naar architecturen
 
@@ -86,8 +86,8 @@ Voor [Azure App Service](../app-service/app-service-value-prop-what-is.md), sele
 
 Het idee achter gedegen is het risico's beheren met behulp van diverse defensive strategieën. Stapelen beveiligingen in een toepassing vermindert de kans op een geslaagde aanval. Het is raadzaam dat u veilig ontwerpen voor uw toepassingen implementeren met behulp van de ingebouwde mogelijkheden van het Azure-platform.
 
-Bijvoorbeeld, het risico van aanvallen verhoogd met de grootte (*oppervlak*) van de toepassing. U kunt het oppervlak verkleinen door whitelisting te sluiten blootgestelde IP-adresruimte en poorten die niet nodig op de load balancers zijn luisteren ([Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md) en [Azure Application Gateway](../application-gateway/application-gateway-create-probe-portal.md)). [Netwerkbeveiligingsgroepen (nsg's)](../virtual-network/virtual-networks-nsg.md) zijn van een andere manier om de kwetsbaarheid te beperken.
-Kunt u [service labels](/virtual-network/security-overview.md) en [toepassing beveiligingsgroepen](/virtual-network/security-overview.md) complexiteit voor het maken van de beveiligingsregels voor verbindingen en netwerkbeveiliging configureren als een natuurlijke extensie van de structuur van een toepassing te minimaliseren.
+Bijvoorbeeld, het risico van aanvallen verhoogd met de grootte (*oppervlak*) van de toepassing. U kunt het oppervlak verkleinen door whitelisting te sluiten blootgestelde IP-adresruimte en poorten die niet nodig op de load balancers zijn luisteren ([Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md) en [Azure Application Gateway](../application-gateway/application-gateway-create-probe-portal.md)). [Netwerkbeveiligingsgroepen (nsg's)](../virtual-network/security-overview.md) zijn van een andere manier om de kwetsbaarheid te beperken.
+Kunt u [service labels](/virtual-network/security-overview.md#service-tags) en [toepassing beveiligingsgroepen](/virtual-network/security-overview.md#application-security-groups) complexiteit voor het maken van de beveiligingsregels voor verbindingen en netwerkbeveiliging configureren als een natuurlijke extensie van de structuur van een toepassing te minimaliseren.
 
 U moet Azure services implementeren in een [virtueel netwerk](../virtual-network/virtual-networks-overview.md) indien mogelijk. Op deze manier kunt serviceresources te communiceren via privé IP-adressen. Verkeer van de Azure-service van een virtueel netwerk wordt standaard openbare IP-adressen gebruikt als bron-IP-adressen. Met behulp van [service-eindpunten](../virtual-network/virtual-network-service-endpoints-overview.md) netwerkverkeer voor de service voor het gebruik van virtueel netwerk particuliere adressen als de bron-IP-adressen wanneer ze toegang de Azure-service van een virtueel netwerk tot je wordt overgeschakeld.
 

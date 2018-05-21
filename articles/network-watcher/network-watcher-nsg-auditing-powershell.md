@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 0c9450099ad3561611796a9b45157932f9ac85a9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 227ea446a75c167be27128b15de1d3c216e6856d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Automatiseren NSG controle met Azure-Watcher netwerkbeveiliging groep weergeven
 
 Klanten zijn vaak moeten de beveiligingsstatus van hun infrastructuur te controleren. Deze uitdaging gaat niet anders zijn voor hun virtuele machines in Azure. Het is belangrijk om een soortgelijke beveiligingsprofiel op basis van de Netwerkbeveiligingsgroep (NSG) regels toegepast. De weergave van de groep beveiliging gebruikt, krijgt u nu de lijst met regels voor een virtuele machine binnen een NSG wordt toegepast. U kunt definiëren van een gouden NSG-beveiligingsprofiel en beveiliging groepsweergave een wekelijkse uitgebracht initiëren en vergelijken van de uitvoer naar het gouden profiel en een rapport maken. Op deze manier kunt u identificeren met gemak alle virtuele machines die niet met het voorgeschreven beveiligingsprofiel overeen komen.
 
-Als u niet bekend met Netwerkbeveiligingsgroepen bent, gaat u naar [beveiligingsoverzicht van het netwerk](../virtual-network/virtual-networks-nsg.md)
+Als u niet bekend met Netwerkbeveiligingsgroepen bent, Zie [netwerk beveiligingsoverzicht](../virtual-network/security-overview.md).
 
 ## <a name="before-you-begin"></a>Voordat u begint
 

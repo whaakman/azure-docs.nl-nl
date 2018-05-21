@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: 48fe35006ca9ca5ac48e6b2d2a207576426e814d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8fb75484537d577cb19b04fa091bab69d6723c9b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Verbinding maken met Azure ITSM hulpprogramma IT Service Management-Connector
 
@@ -229,7 +229,7 @@ ServiceDeskWorkItemType_s="Incident"
 **Velden**
 
 - ServiceDeskConnectionName
-- Helpdesk-service-ID
+- Servicedesk-id
 - Status
 - Urgentie
 - Impact
@@ -256,7 +256,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 **Velden**
 - ServiceDeskConnectionName
-- Helpdesk-service-ID
+- Servicedesk-id
 - Gemaakt door
 - Gesloten door
 - Bron
@@ -333,10 +333,10 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 ## <a name="troubleshoot-itsm-connections"></a>ITSM verbindingen oplossen
 1.  Als de verbinding is mislukt door de gebruikersinterface van de verbonden bron met een **fout bij het opslaan van de verbinding** bericht wordt weergegeven, voert de volgende stappen uit:
-- Voor ServiceNow, Cherwell en Provance-verbindingen  
+ - Voor ServiceNow, Cherwell en Provance-verbindingen  
     - Zorg ervoor dat u de gebruikersnaam, wachtwoord, client-ID en clientgeheim correct voor elk van de verbindingen ingevoerd.  
     - Controleer of u voldoende rechten hebt in het bijbehorende ITSM product de verbinding te maken.  
-- Voor Service Manager-verbindingen  
+ - Voor Service Manager-verbindingen  
     - Zorg ervoor dat de Web-app is geïmplementeerd en hybride verbinding is gemaakt. Om te controleren of de verbinding is tot stand gebracht met de Service Manager on-premises machine, gaat u naar de Web-app-URL zoals beschreven in de documentatie voor de [hybride verbinding](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
 
 2.  Als u gegevens van ServiceNow is niet ophalen die zijn gesynchroniseerd met Log Analytics, zorg ervoor dat het ServiceNow exemplaar zich niet in de slaapstand. ServiceNow Dev exemplaren gaat soms slaapstand bij inactiviteit gedurende een lange periode. Anders Meld het probleem.

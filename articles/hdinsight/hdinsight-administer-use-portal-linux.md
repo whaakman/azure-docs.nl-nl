@@ -12,13 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/14/2018
+ms.date: 05/18/2018
 ms.author: jgao
-ms.openlocfilehash: cd61aa4a69a5bed8de9874eebad059b54118ab63
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 90261e090f87a5ca0d92b86c33addce2449cfd24
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hadoop-clusters in HDInsight beheren met behulp van de Azure-portal
 
@@ -125,7 +125,7 @@ Als u de fout NoRegisteredProviderFound of de fout MissingSubscriptionRegistrati
    * **Standaardgegevensbron**: het standaardbestandssysteem voor het cluster.
    * **De grootte van de worker-knooppunten**: het geselecteerde VM-grootte van de worker-knooppunten.
    * **De grootte van knooppunt HEAD**: het geselecteerde VM-grootte van de hoofdknooppunten.
-   * **Virtueel netwerk**: de naam van het virtuele netwerk en het subnet waarop het cluster is geïmplementeerd als een is geselecteerd tijdens de implementatie.
+   * **Virtueel netwerk**: de naam van het virtuele netwerk dat het cluster wordt geïmplementeerd als een is geselecteerd tijdens de implementatie.
 
 ## <a name="delete-clusters"></a>Clusters verwijderen
 Verwijderen van een cluster wordt niet verwijderd en het standaardopslagaccount ook alle gekoppelde opslagaccounts weergegeven. U kunt het cluster opnieuw maken met behulp van de dezelfde storage-accounts en de dezelfde metastores. U kunt het beste een standaard Blob-container gebruikt wanneer u het cluster opnieuw maakt.
