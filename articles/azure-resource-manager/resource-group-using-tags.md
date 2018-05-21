@@ -11,14 +11,14 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
-ms.topic: article
-ms.date: 01/19/2018
+ms.topic: conceptual
+ms.date: 05/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5da8c747fb8f89ff627cad74bacf0753bb3484ad
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
-ms.translationtype: HT
+ms.openlocfilehash: 6f9b2b04c3bdfc02065e2a01e1975d734a5f53ac
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Tags gebruiken om uw Azure-resources te organiseren
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 05/14/2018
 
 ## <a name="powershell"></a>PowerShell
 
-De voorbeelden in dit artikel moet versie 3.0 of hoger van Azure PowerShell. Als u nog geen versie 3.0 of hoger, [werk uw versie](/powershell/azureps-cmdlets-docs/) met behulp van PowerShell Gallery of Web Platform Installer.
+De voorbeelden in dit artikel moet versie 6.0 of hoger van Azure PowerShell. Als u nog geen versie 6.0 of hoger, [werk uw versie](/powershell/azure/install-azurerm-ps).
 
 Gebruik het volgende om de bestaande tags van een *resourcegroep* te bekijken:
 
@@ -48,7 +48,7 @@ Environment                    Test
 Gebruik het volgende om de bestaande tags te bekijken van een *resource met een opgegeven bron-id*:
 
 ```powershell
-(Get-AzureRmResource -ResourceId {resource-id}).Tags
+(Get-AzureRmResource -ResourceId /subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>).Tags
 ```
 
 Of gebruik het volgende om de bestaande tags te bekijken van een *resource met een opgegeven naam en resourcegroep*:
@@ -60,13 +60,19 @@ Of gebruik het volgende om de bestaande tags te bekijken van een *resource met e
 Gebruik het volgende om de *resourcegroepen met een specifieke tag* op te halen:
 
 ```powershell
-(Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name
+(Get-AzureRmResourceGroup -Tag @{ Dept="Finance" }).ResourceGroupName
 ```
 
 Gebruik het volgende om de *resources met een specifieke tag* op te halen:
 
 ```powershell
-(Find-AzureRmResource -TagName Dept -TagValue Finance).Name
+(Get-AzureRmResource -Tag @{ Dept="Finance"}).Name
+```
+
+Ophalen van *resources met naam van een specifieke tag een*, gebruiken:
+
+```powershell
+(Get-AzureRmResource -TagName Dept).Name
 ```
 
 Wanneer u tags op een resource of resourcegroep toepast, overschrijft u de bestaande tags van die resource of resourcegroep. Als u een resource of resourcegroep hebt met bestaande tags, gaat u anders te werk dan wanneer dat niet het geval is.
@@ -81,7 +87,7 @@ Als u tags wilt toevoegen aan een *resourcegroep met bestaande tags*, haalt u de
 
 ```powershell
 $tags = (Get-AzureRmResourceGroup -Name examplegroup).Tags
-$tags += @{Status="Approved"}
+$tags.Add("Status", "Approved")
 Set-AzureRmResourceGroup -Tag $tags -Name examplegroup
 ```
 
@@ -96,7 +102,7 @@ Gebruik het volgende om tags toe te voegen aan een *resource met bestaande tags*
 
 ```powershell
 $r = Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup
-$r.tags += @{Status="Approved"}
+$r.Tags.Add("Status", "Approved") 
 Set-AzureRmResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
 ```
 
@@ -106,7 +112,7 @@ Gebruik het volgende script als u alle tags van een resourcegroep op de bijbehor
 $groups = Get-AzureRmResourceGroup
 foreach ($g in $groups)
 {
-    Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force }
+    Get-AzureRmResource -ResourceGroupName $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force }
 }
 ```
 
@@ -115,16 +121,21 @@ Gebruik het volgende script als u alle tags van een resourcegroep op de bijbehor
 ```powershell
 $group = Get-AzureRmResourceGroup "examplegroup"
 if ($group.Tags -ne $null) {
-    $resources = $group | Find-AzureRmResource
+    $resources = Get-AzureRmResource -ResourceGroupName $group.ResourceGroupName
     foreach ($r in $resources)
     {
         $resourcetags = (Get-AzureRmResource -ResourceId $r.ResourceId).Tags
-        foreach ($key in $group.Tags.Keys)
+        if ($resourcetags)
         {
-            if (($resourcetags) -AND ($resourcetags.ContainsKey($key))) { $resourcetags.Remove($key) }
+            foreach ($key in $group.Tags.Keys)
+            {
+                if (-not($resourcetags.ContainsKey($key)))
+                {
+                    $resourcetags.Add($key, $group.Tags[$key])
+                }
+            }
+            Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
         }
-        $resourcetags += $group.Tags
-        Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
     }
 }
 ```
@@ -134,7 +145,6 @@ Geef een lege hash-tabel door om alle tags te verwijderen:
 ```powershell
 Set-AzureRmResourceGroup -Tag @{} -Name examplegroup
 ```
-
 
 ## <a name="azure-cli"></a>Azure-CLI
 
@@ -257,7 +267,7 @@ Wanneer u het gebruik van CSV voor services die ondersteuning bieden voor tags m
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* U kunt beperkingen en conventies met behulp van aangepaste beleidsregels toepassen voor uw abonnement. Een beleid dat u definieert mogelijk dat alle resources voor een bepaald label een waarde hebben. Zie [Wat is Azure Policy?](../azure-policy/azure-policy-introduction.md) voor meer informatie.
+* U kunt beperkingen en conventies met behulp van aangepaste beleidsregels toepassen voor uw abonnement. Een beleid dat u definieert mogelijk dat alle resources voor een bepaald label een waarde hebben. Zie voor meer informatie [wat is Azure beleid?](../azure-policy/azure-policy-introduction.md)
 * Zie voor een inleiding tot Azure PowerShell gebruiken wanneer u resources implementeert, [Azure PowerShell gebruiken met Azure Resource Manager](powershell-azure-resource-manager.md).
 * Zie voor een inleiding tot de Azure CLI gebruiken wanneer u resources implementeert, [met de Azure CLI voor Mac, Linux en Windows Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 * Zie voor een inleiding tot de portal, [met behulp van de Azure-portal voor het beheren van uw Azure-resources](resource-group-portal.md).  

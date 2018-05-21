@@ -61,12 +61,10 @@
           href: virtual-networks-acl.md
 - name: Handleidingen
   items:
-    - name: Plannen en ontwerpen
+    - name: Plannen
       items:
         - name: Virtuele netwerken
           href: virtual-network-vnet-plan-design-arm.md
-        - name: Netwerkbeveiligingsgroepen
-          href: virtual-networks-nsg.md
     - name: Implementeren
       items:
         - name: Netwerkbeveiligingsgroepen

@@ -10,16 +10,16 @@ editor: tysonn
 keywords: Fout in de implementatie, azure-implementatie implementeren in azure
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: support-article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 01cc75c522b85f7b4a4b38c92f42cb113d016b73
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3ecc1a9557c7854a0771decb3cc7f7597bcd87dd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Veelvoorkomende fouten voor Azure-implementatie met Azure Resource Manager oplossen
 
@@ -73,8 +73,8 @@ In dit artikel beschrijft een aantal veelvoorkomende fouten Azure-implementatie 
 | ResourceNotFound | Uw implementatie verwijst naar een resource die niet kan worden omgezet. Controleer uw gebruik van de **verwijzing** functie bevat de vereiste parameters voor uw scenario. | [Verwijzingen oplossen](resource-manager-not-found-errors.md) |
 | ResourceQuotaExceeded | De implementatie is bij het maken van resources die groter is dan het quotum voor het abonnement, resourcegroep of regio. Indien mogelijk uw infrastructuur om te blijven binnen de quota herzien. Overweeg anders de aanvragen van een wijziging in uw quota's. | [Quota's oplossen](resource-manager-quota-errors.md) |
 | SkuNotAvailable | Selecteer de SKU (zoals VM-grootte) die beschikbaar is voor de locatie die u hebt geselecteerd. | [SKU oplossen](resource-manager-sku-not-available-errors.md) |
-| StorageAccountAlreadyExists | Geef een unieke naam voor het opslagaccount. | [Naam van het opslagaccount oplossen](resource-manager-storage-account-name-errors.md)  |
-| StorageAccountAlreadyTaken | Geef een unieke naam voor het opslagaccount. | [Naam van het opslagaccount oplossen](resource-manager-storage-account-name-errors.md) |
+| StorageAccountAlreadyExists | Geef een unieke naam op voor het opslagaccount. | [Naam van het opslagaccount oplossen](resource-manager-storage-account-name-errors.md)  |
+| StorageAccountAlreadyTaken | Geef een unieke naam op voor het opslagaccount. | [Naam van het opslagaccount oplossen](resource-manager-storage-account-name-errors.md) |
 | StorageAccountNotFound | Controleer het abonnement, de resourcegroep en de naam van het opslagaccount dat u probeert te gebruiken. | |
 | SubnetsNotInSameVnet | Een virtuele machine kan slechts één virtueel netwerk hebben. Bij het implementeren van meerdere NIC's, zorg er dan voor dat ze deel uitmaken van hetzelfde virtuele netwerk. | [Meerdere NIC 's](../virtual-machines/windows/multiple-nics.md) |
 | TemplateResourceCircularDependency | Verwijder overbodige afhankelijkheden. | [Circulaire afhankelijkheden moeten worden opgelost](resource-manager-invalid-template-errors.md#circular-dependency) |
