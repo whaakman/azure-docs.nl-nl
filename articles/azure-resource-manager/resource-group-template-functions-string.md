@@ -6,29 +6,29 @@ documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: eeb3e46d9b8a5822b1aea3cc62bb214f3c3fec43
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 33a49a9fb66240382b0bb4e0bedbb07b8d78a763
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Tekenreeks-functies voor Azure Resource Manager-sjablonen
 
 Resource Manager biedt de volgende functies voor het werken met tekenreeksen:
 
-* [Base64](#base64)
+* [base64](#base64)
 * [base64ToJson](#base64tojson)
 * [base64ToString](#base64tostring)
 * [concat](#concat)
-* [bevat](#contains)
+* [Bevat](#contains)
 * [dataUri](#datauri)
 * [dataUriToString](#datauritostring)
 * [leeg](#empty)
@@ -41,15 +41,15 @@ Resource Manager biedt de volgende functies voor het werken met tekenreeksen:
 * [lengte](#length)
 * [padLeft](#padleft)
 * [vervangen](#replace)
-* [overslaan](#skip)
+* [skip](#skip)
 * [split](#split)
-* [startsWith](resource-group-template-functions-string.md#startswith)
-* [tekenreeks](#string)
+* [StartsWith](resource-group-template-functions-string.md#startswith)
+* [Tekenreeks](#string)
 * [de subtekenreeks](#substring)
 * [duren](#take)
 * [toLower](#tolower)
 * [toUpper](#toupper)
-* [Trim](#trim)
+* [trim](#trim)
 * [uniqueString](#uniquestring)
 * [URI](#uri)
 * [uriComponent](resource-group-template-functions-string.md#uricomponent)
@@ -66,7 +66,7 @@ Retourneert de base64-weergave van de invoertekenreeks.
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| inputString |Ja |Tekenreeks |De waarde moet worden geretourneerd als een base64-weergave. |
+| inputString |Ja |tekenreeks |De waarde moet worden geretourneerd als een base64-weergave. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -117,8 +117,8 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| base64Output | Tekenreeks | b25lLCB0d28sIHRocmVl |
-| toStringOutput | Tekenreeks | Een twee drie |
+| base64Output | Reeks | b25lLCB0d28sIHRocmVl |
+| toStringOutput | Reeks | Een twee drie |
 | toJsonOutput | Object | {"een": "a", "twee": "b"} |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
@@ -144,7 +144,7 @@ Converteert een base64-weergave naar een JSON-object.
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| base64Value |Ja |Tekenreeks |De weergave base64 converteren naar een JSON-object. |
+| base64Value |Ja |tekenreeks |De weergave base64 converteren naar een JSON-object. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -195,8 +195,8 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| base64Output | Tekenreeks | b25lLCB0d28sIHRocmVl |
-| toStringOutput | Tekenreeks | Een twee drie |
+| base64Output | Reeks | b25lLCB0d28sIHRocmVl |
+| toStringOutput | Reeks | Een twee drie |
 | toJsonOutput | Object | {"een": "a", "twee": "b"} |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
@@ -222,7 +222,7 @@ Converteert een base64-weergave naar een tekenreeks.
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| base64Value |Ja |Tekenreeks |De weergave base64 converteren naar een tekenreeks. |
+| base64Value |Ja |tekenreeks |De weergave base64 converteren naar een tekenreeks. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -273,8 +273,8 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| base64Output | Tekenreeks | b25lLCB0d28sIHRocmVl |
-| toStringOutput | Tekenreeks | Een twee drie |
+| base64Output | Reeks | b25lLCB0d28sIHRocmVl |
+| toStringOutput | Reeks | Een twee drie |
 | toJsonOutput | Object | {"een": "a", "twee": "b"} |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
@@ -301,7 +301,7 @@ Combineert meerdere tekenreekswaarden en retourneert de samengevoegde tekenreeks
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
 | Arg1 |Ja |tekenreeks of matrix |De eerste waarde voor de samenvoeging. |
-| Extra argumenten |Nee |Tekenreeks |Aanvullende waarden in opeenvolgende volgorde voor de samenvoeging. |
+| Extra argumenten |Nee |tekenreeks |Aanvullende waarden in opeenvolgende volgorde voor de samenvoeging. |
 
 ### <a name="return-value"></a>Retourwaarde
 Een tekenreeks of matrix met samengevoegde waarden.
@@ -334,7 +334,7 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| concatOutput | Tekenreeks | voorvoegsel 5yj4yjf5mbg72 |
+| concatOutput | Reeks | prefix-5yj4yjf5mbg72 |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 
@@ -403,7 +403,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="contains" />
 
-## <a name="contains"></a>Bevat
+## <a name="contains"></a>bevat
 `contains (container, itemToFind)`
 
 Controleert of een matrix een waarde bevat, een object een sleutel bevat of een tekenreeks een subtekenreeks bevat.
@@ -506,7 +506,7 @@ Converteert een waarde met een gegevens-URI.
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| stringToConvert |Ja |Tekenreeks |De waarde converteren naar een gegevens-URI. |
+| stringToConvert |Ja |tekenreeks |De waarde converteren naar een gegevens-URI. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -548,8 +548,8 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| dataUriOutput | Tekenreeks | gegevens: tekst / onbewerkte; charset = utf8; base64, SGVsbG8 = |
-| toStringOutput | Tekenreeks | Hallo mensen! |
+| dataUriOutput | Reeks | gegevens: tekst / onbewerkte; charset = utf8; base64, SGVsbG8 = |
+| toStringOutput | Reeks | Hallo mensen! |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 
@@ -574,7 +574,7 @@ Een gegevens-URI converteert geformatteerd waarde naar een tekenreeks.
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| dataUriToConvert |Ja |Tekenreeks |De gegevens-URI-waarde te converteren. |
+| dataUriToConvert |Ja |tekenreeks |De gegevens-URI-waarde te converteren. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -616,8 +616,8 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| dataUriOutput | Tekenreeks | gegevens: tekst / onbewerkte; charset = utf8; base64, SGVsbG8 = |
-| toStringOutput | Tekenreeks | Hallo mensen! |
+| dataUriOutput | Reeks | gegevens: tekst / onbewerkte; charset = utf8; base64, SGVsbG8 = |
+| toStringOutput | Reeks | Hallo mensen! |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 
@@ -633,7 +633,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="empty" /> 
 
-## <a name="empty"></a>leeg
+## <a name="empty"></a>Leeg
 `empty(itemToTest)`
 
 Hiermee wordt bepaald of een matrix, een object of een tekenreeks leeg is.
@@ -720,8 +720,8 @@ Hiermee wordt bepaald of een tekenreeks met een waarde eindigt. De vergelijking 
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Ja |Tekenreeks |De waarde die het item vinden bevat. |
-| stringToFind |Ja |Tekenreeks |De waarde om te zoeken. |
+| stringToSearch |Ja |tekenreeks |De waarde die het item vinden bevat. |
+| stringToFind |Ja |tekenreeks |De waarde om te zoeken. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -838,8 +838,8 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| arrayOutput | Tekenreeks | een |
-| stringOutput | Tekenreeks | O |
+| arrayOutput | Reeks | één |
+| stringOutput | Reeks | O |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 
@@ -863,8 +863,8 @@ Maakt een waarde in de indeling van een globally unique identifier op basis van 
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| baseString |Ja |Tekenreeks |De waarde die wordt gebruikt in de hash-functie voor het maken van de GUID. |
-| extra parameters indien nodig |Nee |Tekenreeks |U kunt toevoegen die nodig zijn voor het maken van de waarde die het niveau van de uniekheid van tekenreeksen. |
+| baseString |Ja |tekenreeks |De waarde die wordt gebruikt in de hash-functie voor het maken van de GUID. |
+| extra parameters indien nodig |Nee |tekenreeks |U kunt toevoegen die nodig zijn voor het maken van de waarde die het niveau van de uniekheid van tekenreeksen. |
 
 ### <a name="remarks"></a>Opmerkingen
 
@@ -947,8 +947,8 @@ Retourneert de eerste positie van een waarde in een tekenreeks. De vergelijking 
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Ja |Tekenreeks |De waarde die het item vinden bevat. |
-| stringToFind |Ja |Tekenreeks |De waarde om te zoeken. |
+| stringToSearch |Ja |tekenreeks |De waarde die het item vinden bevat. |
+| stringToFind |Ja |tekenreeks |De waarde om te zoeken. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -992,11 +992,11 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| firstT | int | 0 |
-| lastT | int | 3 |
-| firstString | int | 2 |
-| lastString | int | 0 |
-| notFound | int | -1 |
+| firstT | Int | 0 |
+| lastT | Int | 3 |
+| firstString | Int | 2 |
+| lastString | Int | 0 |
+| notFound | Int | -1 |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 
@@ -1060,8 +1060,8 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| arrayOutput | Tekenreeks | drie |
-| stringOutput | Tekenreeks | E |
+| arrayOutput | Reeks | drie |
+| stringOutput | Reeks | E |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 
@@ -1086,8 +1086,8 @@ Retourneert de laatste positie van een waarde in een tekenreeks. De vergelijking
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Ja |Tekenreeks |De waarde die het item vinden bevat. |
-| stringToFind |Ja |Tekenreeks |De waarde om te zoeken. |
+| stringToSearch |Ja |tekenreeks |De waarde die het item vinden bevat. |
+| stringToFind |Ja |tekenreeks |De waarde om te zoeken. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -1131,11 +1131,11 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| firstT | int | 0 |
-| lastT | int | 3 |
-| firstString | int | 2 |
-| lastString | int | 0 |
-| notFound | int | -1 |
+| firstT | Int | 0 |
+| lastT | Int | 3 |
+| firstString | Int | 2 |
+| lastString | Int | 0 |
+| notFound | Int | -1 |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 
@@ -1206,8 +1206,8 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| arrayLength | int | 3 |
-| stringLength | int | 13 |
+| arrayLength | Int | 3 |
+| stringLength | Int | 13 |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 
@@ -1270,7 +1270,7 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| stringOutput | Tekenreeks | 0000000123 |
+| stringOutput | Reeks | 0000000123 |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 
@@ -1295,9 +1295,9 @@ Retourneert een nieuwe tekenreeks met alle exemplaren van de ene tekenreeks verv
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| originalString |Ja |Tekenreeks |De waarde die is van alle exemplaren van de ene tekenreeks vervangen door een andere tekenreeks. |
-| oldString |Ja |Tekenreeks |De tekenreeks die moet worden verwijderd uit de oorspronkelijke reeks. |
-| met de newString |Ja |Tekenreeks |De tekenreeks om toe te voegen in plaats van de verwijderde tekenreeks. |
+| originalString |Ja |tekenreeks |De waarde die is van alle exemplaren van de ene tekenreeks vervangen door een andere tekenreeks. |
+| oldString |Ja |tekenreeks |De tekenreeks die moet worden verwijderd uit de oorspronkelijke reeks. |
+| met de newString |Ja |tekenreeks |De tekenreeks om toe te voegen in plaats van de verwijderde tekenreeks. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -1335,8 +1335,8 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| firstOutput | Tekenreeks | 1231231234 |
-| secodeOutput | Tekenreeks | 123-123-xxxx |
+| firstOutput | Reeks | 1231231234 |
+| secodeOutput | Reeks | 123-123-xxxx |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 
@@ -1417,7 +1417,7 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
 | arrayOutput | Matrix | ["drie"] |
-| stringOutput | Tekenreeks | twee drie |
+| stringOutput | Reeks | twee drie |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 
@@ -1442,7 +1442,7 @@ Retourneert een matrix met tekenreeksen die de subtekenreeksen de invoerreeks di
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| inputString |Ja |Tekenreeks |De tekenreeks om op te splitsen. |
+| inputString |Ja |tekenreeks |De tekenreeks om op te splitsen. |
 | Scheidingsteken |Ja |tekenreeks of matrix met tekenreeksen |Het scheidingsteken moet worden gebruikt voor het splitsen van de tekenreeks. |
 
 ### <a name="return-value"></a>Retourwaarde
@@ -1514,8 +1514,8 @@ Hiermee wordt bepaald of een tekenreeks met een waarde begint. De vergelijking i
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Ja |Tekenreeks |De waarde die het item vinden bevat. |
-| stringToFind |Ja |Tekenreeks |De waarde om te zoeken. |
+| stringToSearch |Ja |tekenreeks |De waarde die het item vinden bevat. |
+| stringToFind |Ja |tekenreeks |De waarde om te zoeken. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -1584,7 +1584,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="string" />
 
-## <a name="string"></a>Tekenreeks
+## <a name="string"></a>tekenreeks
 `string(valueToConvert)`
 
 De opgegeven waarde converteert naar een tekenreeks.
@@ -1650,9 +1650,9 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| objectOutput | Tekenreeks | {{'valueA': 10, 'valueB': "Voorbeeldtekst"} |
-| arrayOutput | Tekenreeks | ["a", "b", "c"] |
-| intOutput | Tekenreeks | 5 |
+| objectOutput | Reeks | {{'valueA': 10, 'valueB': "Voorbeeldtekst"} |
+| arrayOutput | Reeks | ["a", "b", "c"] |
+| intOutput | Reeks | 5 |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 
@@ -1677,7 +1677,7 @@ Retourneert een subtekenreeks die begint bij de opgegeven tekenpositie en het op
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| stringToParse |Ja |Tekenreeks |De oorspronkelijke tekenreeks weer waaruit de subtekenreeks wordt opgehaald. |
+| stringToParse |Ja |tekenreeks |De oorspronkelijke tekenreeks weer waaruit de subtekenreeks wordt opgehaald. |
 | startIndex |Nee |int |De op nul gebaseerde beginpositie voor de subtekenreeks. |
 | lengte |Nee |int |Het aantal tekens voor de subtekenreeks. Moet verwijzen naar een locatie binnen de tekenreeks. |
 
@@ -1726,7 +1726,7 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| substringOutput | Tekenreeks | twee |
+| substringOutput | Reeks | twee |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 
@@ -1807,7 +1807,7 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
 | arrayOutput | Matrix | ['een', 'twee'] |
-| stringOutput | Tekenreeks | op |
+| stringOutput | Reeks | op |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 
@@ -1832,7 +1832,7 @@ De opgegeven tekenreeks converteren naar kleine letters.
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Ja |Tekenreeks |De waarde te converteren naar kleine letters. |
+| stringToChange |Ja |tekenreeks |De waarde te converteren naar kleine letters. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -1870,8 +1870,8 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| toLowerOutput | Tekenreeks | Een twee drie |
-| toUpperOutput | Tekenreeks | EEN TWEE DRIE |
+| toLowerOutput | Reeks | Een twee drie |
+| toUpperOutput | Reeks | EEN TWEE DRIE |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 
@@ -1896,7 +1896,7 @@ De opgegeven tekenreeks die wordt omgezet in hoofdletters.
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Ja |Tekenreeks |De waarde converteren naar hoofdletters. |
+| stringToChange |Ja |tekenreeks |De waarde converteren naar hoofdletters. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -1934,8 +1934,8 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| toLowerOutput | Tekenreeks | Een twee drie |
-| toUpperOutput | Tekenreeks | EEN TWEE DRIE |
+| toLowerOutput | Reeks | Een twee drie |
+| toUpperOutput | Reeks | EEN TWEE DRIE |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 
@@ -1960,7 +1960,7 @@ Verwijdert alle voorloop- en volgspaties spatietekens bestaan uit de opgegeven t
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| stringToTrim |Ja |Tekenreeks |De waarde trim. |
+| stringToTrim |Ja |tekenreeks |De waarde trim. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -1994,7 +1994,7 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| retourneren | Tekenreeks | Een twee drie |
+| retourneren | Reeks | Een twee drie |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 
@@ -2019,8 +2019,8 @@ Maakt een deterministische hash-tekenreeks op basis van de waarden als parameter
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| baseString |Ja |Tekenreeks |De waarde die wordt gebruikt in de hash-functie voor het maken van een unieke tekenreeks. |
-| extra parameters indien nodig |Nee |Tekenreeks |U kunt toevoegen die nodig zijn voor het maken van de waarde die het niveau van de uniekheid van tekenreeksen. |
+| baseString |Ja |tekenreeks |De waarde die wordt gebruikt in de hash-functie voor het maken van een unieke tekenreeks. |
+| extra parameters indien nodig |Nee |tekenreeks |U kunt toevoegen die nodig zijn voor het maken van de waarde die het niveau van de uniekheid van tekenreeksen. |
 
 ### <a name="remarks"></a>Opmerkingen
 
@@ -2099,7 +2099,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="uri" />
 
-## <a name="uri"></a>URI
+## <a name="uri"></a>uri
 `uri (baseUri, relativeUri)`
 
 Maakt een absolute URI door baseUri en de tekenreeks relativeUri te combineren.
@@ -2108,8 +2108,8 @@ Maakt een absolute URI door baseUri en de tekenreeks relativeUri te combineren.
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| baseUri |Ja |Tekenreeks |De basis-uri-tekenreeks. |
-| relativeUri |Ja |Tekenreeks |De relatieve uri-tekenreeks om toe te voegen aan de basis-uri-tekenreeks. |
+| baseUri |Ja |tekenreeks |De basis-uri-tekenreeks. |
+| relativeUri |Ja |tekenreeks |De relatieve uri-tekenreeks om toe te voegen aan de basis-uri-tekenreeks. |
 
 De waarde voor de **baseUri** parameter kan een specifiek bestand bevatten, maar alleen het basispad wordt gebruikt bij het maken van de URI. Bijvoorbeeld, doorgeven `http://contoso.com/resources/azuredeploy.json` als de resultaten van de parameter baseUri in een basis-URI van `http://contoso.com/resources/`.
 
@@ -2158,9 +2158,9 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| uriOutput | Tekenreeks | http://contoso.com/resources/Nested/azuredeploy.JSON |
-| componentOutput | Tekenreeks | HTTP%3a%2f%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.JSON |
-| toStringOutput | Tekenreeks | http://contoso.com/resources/Nested/azuredeploy.JSON |
+| uriOutput | Reeks | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | Reeks | HTTP%3a%2f%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.JSON |
+| toStringOutput | Reeks | http://contoso.com/resources/nested/azuredeploy.json |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 
@@ -2185,7 +2185,7 @@ Codeert een URI.
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| stringToEncode |Ja |Tekenreeks |De waarde voor het coderen. |
+| stringToEncode |Ja |tekenreeks |De waarde voor het coderen. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -2226,9 +2226,9 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| uriOutput | Tekenreeks | http://contoso.com/resources/Nested/azuredeploy.JSON |
-| componentOutput | Tekenreeks | HTTP%3a%2f%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.JSON |
-| toStringOutput | Tekenreeks | http://contoso.com/resources/Nested/azuredeploy.JSON |
+| uriOutput | Reeks | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | Reeks | HTTP%3a%2f%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.JSON |
+| toStringOutput | Reeks | http://contoso.com/resources/nested/azuredeploy.json |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 
@@ -2253,7 +2253,7 @@ Retourneert dat een tekenreeks van een URI-gecodeerde waarde.
 
 | Parameter | Vereist | Type | Beschrijving |
 |:--- |:--- |:--- |:--- |
-| uriEncodedString |Ja |Tekenreeks |De URI gecodeerde waarde converteren naar een tekenreeks. |
+| uriEncodedString |Ja |tekenreeks |De URI gecodeerde waarde converteren naar een tekenreeks. |
 
 ### <a name="return-value"></a>Retourwaarde
 
@@ -2294,9 +2294,9 @@ De uitvoer van het vorige voorbeeld met de standaardwaarde is:
 
 | Naam | Type | Waarde |
 | ---- | ---- | ----- |
-| uriOutput | Tekenreeks | http://contoso.com/resources/Nested/azuredeploy.JSON |
-| componentOutput | Tekenreeks | HTTP%3a%2f%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.JSON |
-| toStringOutput | Tekenreeks | http://contoso.com/resources/Nested/azuredeploy.JSON |
+| uriOutput | Reeks | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | Reeks | HTTP%3a%2f%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.JSON |
+| toStringOutput | Reeks | http://contoso.com/resources/nested/azuredeploy.json |
 
 Voor het implementeren van deze voorbeeldsjabloon met Azure CLI gebruiken:
 

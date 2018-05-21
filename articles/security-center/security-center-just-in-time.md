@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2018
 ms.author: terrylan
-ms.openlocfilehash: 4f0afe48c37c6cb5dc8c1658f0a7beed4f0e6140
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e293f085eb6c4c90b26ac6035d50d74f5cdd7269
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Virtuele machine toegang met behulp van in de tijd beheren
 
@@ -33,7 +33,7 @@ Alleen bij tijd virtuele machine (VM) kan toegang worden gebruikt vergrendelen b
 
 Brute force-aanvallen vaak doelpoorten management als een manier toegang te krijgen tot een virtuele machine. Als dit lukt, kan een aanvaller besturen van de virtuele machine en een voet achter de deur tot stand brengen in uw omgeving.
 
-Een manier om te beperken van blootstelling aan een beveiligingsaanval is om te beperken van de hoeveelheid tijd die een poort geopend is. Beheerpoorten hoeven niet te allen tijde geopend te zijn. Ze hoeven alleen geopend te zijn wanneer u bent verbonden met de VM, bijvoorbeeld om beheer- of onderhoudstaken uit te voeren. Wanneer u in de tijd is ingeschakeld, wordt gebruikt door Security Center [Netwerkbeveiligingsgroep](../virtual-network/virtual-networks-nsg.md) (NSG) regels, die toegang tot beheerpoorten beperken zodat ze niet worden gericht door aanvallers.
+Een manier om te beperken van blootstelling aan een beveiligingsaanval is om te beperken van de hoeveelheid tijd die een poort geopend is. Beheerpoorten hoeven niet te allen tijde geopend te zijn. Ze hoeven alleen geopend te zijn wanneer u bent verbonden met de VM, bijvoorbeeld om beheer- of onderhoudstaken uit te voeren. Wanneer u in de tijd is ingeschakeld, wordt gebruikt door Security Center [netwerkbeveiligingsgroep](../virtual-network/security-overview.md#security-rules) (NSG) regels, die toegang tot beheerpoorten beperken zodat ze niet worden gericht door aanvallers.
 
 ![Alleen bij tijd scenario][1]
 

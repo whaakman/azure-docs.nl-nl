@@ -6,14 +6,14 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/28/2017
+ms.date: 05/18/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c94652017216bd9c8ff319e0b19fa3597c75e81c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5d4c2b3bc55b94b08287a06125e15ac61013834a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Implementeren van Azure Stream Analytics als een module van de rand van de IoT - voorbeeld
 
@@ -51,21 +51,21 @@ In deze zelfstudie leert u het volgende:
 
 In deze sectie maakt u een Azure Stream Analytics-taak voor het nemen van gegevens uit uw IoT-hub, telemetriegegevens verzonden van uw apparaat opvragen en doorsturen naar de resultaten uitgevoerd naar een Azure Blob storage-container. Zie voor meer informatie de sectie 'Overzicht' van de [Stream Analytics-documentatie][azure-stream]. 
 
-### <a name="create-a-storage-account"></a>Een opslagaccount maken
+### <a name="create-a-storage-account"></a>Create a storage account
 
 Een Azure Storage-account is vereist voor het bieden van een eindpunt moet worden gebruikt als uitvoer in uw Azure Stream Analytics-taak. Het voorbeeld in deze sectie wordt het type Blob-opslag. Zie voor meer informatie de sectie 'Blobs' van de [documentatie bij Azure Storage][azure-storage].
 
 1. In de Azure portal, gaat u naar **maken van een resource**, voer **opslagaccount** in het zoekvak en selecteer vervolgens **opslagaccount - blob, bestand, tabel, wachtrij**.
 
-2. In de **storage-account maken** deelvenster Voer een naam voor uw storage-account, selecteert u dezelfde locatie waar uw IoT-hub is opgeslagen en selecteer vervolgens **maken**. Noteer de naam voor later gebruik.
+2. In de **storage-account maken** deelvenster Voer een naam voor uw opslagaccount, selecteert u dezelfde locatie waar uw IoT-hub is opgeslagen, dezelfde resourcegroep als uw IoT-hub te selecteren en selecteer vervolgens **maken**. Noteer de naam voor later gebruik.
 
-    ![Een opslagaccount maken][1]
+    ![Create a storage account][1]
 
 3. Ga naar het opslagaccount dat u zojuist hebt gemaakt en selecteer vervolgens **bladeren blobs**. 
 
 4. Maak een nieuwe container voor de Azure Stream Analytics-module voor het opslaan van gegevens, stelt u de toegang op **Container**, en selecteer vervolgens **OK**.
 
-    ![instellingen voor de opslag][10]
+    ![Opslaginstellingen][10]
 
 ### <a name="create-a-stream-analytics-job"></a>Een Stream Analytics-taak maken
 
@@ -84,32 +84,25 @@ Een Azure Storage-account is vereist voor het bieden van een eindpunt moet worde
 
 3. Selecteer **Maken**.
 
-4. In de gemaakte taak onder **taak topologie**, selecteer **invoer**, en selecteer vervolgens **toevoegen**.
-
-5. In de **nieuwe invoer** deelvenster de volgende handelingen uit:
-
-    a. In de **invoer alias** Voer **temperatuur**.
-    
-    b. In de **brontype** de optie **gegevensstroom**.
-    
-    c. Gebruik de standaardwaarden in de resterende velden.
+4. In de gemaakte taak onder **taak topologie**Open **invoer**.
 
    ![Azure Stream Analytics-invoer](./media/tutorial-deploy-stream-analytics/asa_input.png)
 
-6. Selecteer **Maken**.
+5. Selecteer **Stroominvoer toevoegen**, selecteer daarna **rand Hub**.
 
-7. Onder **taak topologie**, selecteer **uitvoer**, en selecteer vervolgens **toevoegen**.
+5. In de **nieuwe invoer** deelvenster Voer **temperatuur** als de ingevoerde alias. 
 
-8. In de **nieuwe uitvoer** deelvenster de volgende handelingen uit:
+6. Selecteer **Opslaan**.
 
-    a. In de **uitvoeraliassen** in het vak **waarschuwing**.
-    
-    b. Gebruik de standaardwaarden in de resterende velden. 
-    
-    c. Selecteer **Maken**.
+7. Onder **taak topologie**Open **uitvoer**.
 
    ![Azure Stream Analytics-uitvoer](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
+8. Selecteer **toevoegen**, selecteer daarna **rand Hub**.
+
+8. In de **nieuwe uitvoer** deelvenster Voer **waarschuwing** als de uitvoeralias. 
+
+9. Selecteer **Maken**.
 
 9. Onder **taak topologie**, selecteer **Query**, en vervang de standaardtekst door de volgende query:
 
@@ -135,7 +128,7 @@ U bent nu klaar om te implementeren, de Azure Stream Analytics-taak op het appar
 2. Selecteer **Modules instellen**.  
     Als u de module tempSensor op dit apparaat hebt geïmplementeerd, kan deze automatisch invullen. Als dit niet het geval is, voegt u de module als volgt:
 
-   a. Selecteer **IoT rand Module toevoegen**.
+   a. Selecteer **IoT Edge-module toevoegen**.
 
    b. Typ de naam **tempSensor**.
     

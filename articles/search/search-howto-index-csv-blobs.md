@@ -9,26 +9,23 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 12/28/2017
 ms.author: eugenesh
-ms.openlocfilehash: dfb1bd48a47e45363e8761a3d79901e5171b37d1
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: bf65ab7858ba792418e325e7a025ee1bd88bbb27
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Indexeren van CSV-blobs met Azure Search blob indexeerfunctie
-Standaard [Azure Search-indexeerfunctie voor blob](search-howto-indexing-azure-blob-storage.md) parseert gescheiden tekst blobs als een enkel deel van de tekst. Echter met blobs met CSV-gegevens, wilt u meestal op dezelfde manier behandelen elke regel in de blob als een afzonderlijk document. Bijvoorbeeld, krijgt de volgende gescheiden tekst: 
+Standaard [Azure Search-indexeerfunctie voor blob](search-howto-indexing-azure-blob-storage.md) parseert gescheiden tekst blobs als een enkel deel van de tekst. Echter met blobs met CSV-gegevens, wilt u meestal op dezelfde manier behandelen elke regel in de blob als een afzonderlijk document. Bijvoorbeeld de volgende gescheiden tekst gezien, raadzaam parseren in twee documenten elk die 'id', 'datePublished' en 'labels' velden bevat: 
 
     id, datePublished, tags
     1, 2016-01-12, "azure-search,azure,cloud" 
     2, 2016-07-07, "cloud,mobile" 
 
-u kunt deze parseren tot 2 documenten elk die 'id', 'datePublished' en 'labels' velden bevat.
-
 In dit artikel leert u hoe CSV BLOB's met een Azure Search-indexeerfunctie blob parseren. 
 
 > [!IMPORTANT]
-> Deze functionaliteit is momenteel in preview. Dit is alleen beschikbaar in de REST-API met versie **2015-02-28-Preview**. Maak onthouden, preview-API's zijn bedoeld voor testen en evalueren en mag niet worden gebruikt in een productieomgeving. 
-> 
+> Deze functionaliteit is momenteel in de openbare preview en mag niet worden gebruikt in een productieomgeving. Zie voor meer informatie [REST api-version = 2017-11-11-Preview](search-api-2017-11-11-preview.md). 
 > 
 
 ## <a name="setting-up-csv-indexing"></a>Instellen van het CSV-indexeren
@@ -52,10 +49,10 @@ U kunt het scheidingsteken teken met behulp van de `delimitedTextDelimiter` conf
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextDelimiter" : "|" } }
 
 > [!NOTE]
-> Op dit moment wordt wordt alleen de UTF-8-codering ondersteund. Als u ondersteuning nodig voor andere coderingen, laat ons weten op [onze UserVoice-site](https://feedback.azure.com/forums/263029-azure-search).
+> Op dit moment wordt wordt alleen de UTF-8-codering ondersteund. Als u ondersteuning nodig voor andere coderingen hebt, stemmen voor op [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 > [!IMPORTANT]
-> Wanneer u het tekstbestand met scheidingstekens bij het parseren van modus gebruikt, Azure Search wordt ervan uitgegaan dat alle blobs in de gegevensbron zal CSV. Als u nodig hebt voor de ondersteuning van een combinatie van CSV en niet-CSV blobs in dezelfde gegevensbron, laat ons weten op [onze UserVoice-site](https://feedback.azure.com/forums/263029-azure-search).
+> Wanneer u het tekstbestand met scheidingstekens bij het parseren van modus gebruikt, Azure Search wordt ervan uitgegaan dat alle blobs in de gegevensbron zal CSV. Als u een combinatie van CSV en niet-CSV blobs in dezelfde gegevensbron ondersteunen moet, moet stemmen voor op [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 > 
 > 
 
@@ -64,7 +61,7 @@ Als dit alle samen Hier vindt u de volledige nettolading voorbeelden.
 
 Gegevensbron: 
 
-    POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11-Preview
     Content-Type: application/json
     api-key: [admin key]
 
@@ -77,7 +74,7 @@ Gegevensbron:
 
 Indexeerfunctie:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11-Preview
     Content-Type: application/json
     api-key: [admin key]
 
@@ -89,5 +86,5 @@ Indexeerfunctie:
     }
 
 ## <a name="help-us-make-azure-search-better"></a>Help ons Azure Search te verbeteren
-Als u functieaanvragen of suggesties voor verbeteringen hebt, kunt contact met ons op onze [UserVoice site](https://feedback.azure.com/forums/263029-azure-search/).
+Als u functie-aanvragen of suggesties voor verbeteringen hebt, geeft u uw invoer op [UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 

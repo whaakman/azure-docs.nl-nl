@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: rli; v-deasim
-ms.openlocfilehash: 4c0a68fd7b6cdf96bb495f6b447299bdbc5772f7
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 66032a68634be5b52bbfa544d0a3bcd3d1090652
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Dynamische site-versnelling via Azure CDN
 
 Met de explosie van sociale media, elektronische transacties en het web hyper persoonlijke snel toenemende percentage van de inhoud aangeboden aan eindgebruikers gegenereerd in realtime. Gebruikers verwachten dat een snelle, betrouwbare en persoonlijke webervaring, onafhankelijk van hun browser, locatie, apparaat of netwerk. De zeer vernieuwingen waaruit deze dus ook bezighouden ervaringen trage pagina downloads en de risico voor de kwaliteit van de consumer-ervaring. 
 
-Standaard content delivery network (CDN) mogelijkheid omvat de mogelijkheid om cachebestanden dichter voor eindgebruikers te versnellen levering van statische bestanden. Echter met dynamische webtoepassingen die inhoud op rand locaties opslaan in cache is niet mogelijk omdat de server de inhoud in reactie op gebruikersgedrag genereert. Versnellen van de levering van deze inhoud is complexer dan traditionele edge cache en een end-to-end-oplossing die geoptimaliseerd voor elk element in het hele gegevenspad van begin tot levering vereist. Met optimalisatie van Azure CDN dynamische site-versnelling (DSA), is de prestaties van webpagina's met dynamische inhoud aantoonbaar verbeterd.
+Standaard content delivery network (CDN) mogelijkheid omvat de mogelijkheid om cachebestanden dichter voor eindgebruikers te versnellen levering van statische bestanden. Echter met dynamische webtoepassingen die inhoud op rand locaties opslaan in cache is niet mogelijk omdat de server de inhoud in reactie op gebruikersgedrag genereert. Versnellen van de levering van deze inhoud is complexer dan traditionele edge cache en een end-to-end-oplossing die geoptimaliseerd voor elk element in het hele gegevenspad van begin tot levering vereist. Met optimalisatie van Azure CDN dynamische site-versnelling (DSA), is de prestaties van de leeftijd web met dynamische inhoud aantoonbaar verbeterd.
 
 **Azure CDN van Akamai** en **Azure CDN van Verizon** bieden een DSA optimalisatie via de **geoptimaliseerd voor** menu tijdens het maken van het eindpunt.
 
@@ -33,7 +33,7 @@ Standaard content delivery network (CDN) mogelijkheid omvat de mogelijkheid om c
 >   
 > Voor **Azure CDN van Verizon** profielen, u niet wijzigen de optimalisatie van een CDN-eindpunt nadat deze is gemaakt.
 
-## <a name="configuring-cdn-endpoint-to-accelerate-delivery-of-dynamic-files"></a>CDN-eindpunt om te versnellen levering van dynamische bestanden configureren
+## <a name="cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files"></a>CDN-eindpuntconfiguratie te versnellen levering van dynamische bestanden
 
 Voor het configureren van een CDN-eindpunt voor het optimaliseren van de levering van dynamische bestanden, kunt u de Azure-portal, de REST API's of een van de client-SDK's ofwel gebruik voor hetzelfde programmatisch. 
 

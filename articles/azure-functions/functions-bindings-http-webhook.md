@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tdykstra
-ms.openlocfilehash: 422563f6a4e85884f4512d797d666e470835e2d2
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: d15c5556325284dd3b0b6f11a080c9abc263286c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP- en webhook bindingen
 
@@ -43,7 +43,7 @@ De HTTP-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs.Extensions.Http]
 
 De HTTP-trigger kunt u een functie met een HTTP-aanvraag worden aangeroepen. U kunt een HTTP-trigger gebruiken om te bouwen zonder Server API's en reageren op webhooks. 
 
-Standaard wordt een HTTP-trigger op de aanvraag met een HTTP 200 OK-statuscode en een lege hoofdtekst reageert. Configureren voor het wijzigen van het antwoord een [HTTP uitvoer binding](#http-output-binding).
+Standaard een HTTP-trigger HTTP 200 OK retourneert met een lege hoofdtekst in functies 1.x of HTTP 204 geen inhoud met een lege hoofdtekst in functies 2.x. Configureren voor het wijzigen van het antwoord een [HTTP uitvoer binding](#http-output-binding).
 
 ## <a name="trigger---example"></a>Trigger - voorbeeld
 
@@ -56,7 +56,7 @@ Zie het voorbeeld taalspecifieke:
 
 ### <a name="trigger---c-example"></a>Trigger - C#-voorbeeld
 
-Het volgende voorbeeld wordt een [C#-functie](functions-dotnet-class-library.md) die zoekt naar een `name` parameter in de query-tekenreeks of de hoofdtekst van de HTTP-aanvraag.
+Het volgende voorbeeld wordt een [C#-functie](functions-dotnet-class-library.md) die zoekt naar een `name` parameter in de query-tekenreeks of de hoofdtekst van de HTTP-aanvraag. U ziet dat de retourwaarde wordt gebruikt voor het binden van uitvoer, maar een retourwaarde-kenmerk is niet vereist.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -87,15 +87,29 @@ public static async Task<HttpResponseMessage> Run(
 
 Het volgende voorbeeld ziet u een trigger-binding in een *function.json* bestand en een [C# scriptfunctie](functions-reference-csharp.md) die gebruikmaakt van de binding. De functie zoekt een `name` parameter in de query-tekenreeks of de hoofdtekst van de HTTP-aanvraag.
 
-Dit zijn de bindingsgegevens de *function.json* bestand:
+Hier volgt de *function.json* bestand:
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+    "disabled": false,
+    "bindings": [
+        {
+            "authLevel": "function",
+            "name": "req",
+            "type": "httpTrigger",
+            "direction": "in",
+            "methods": [
+                "get",
+                "post"
+            ]
+        },
+        {
+            "name": "$return",
+            "type": "http",
+            "direction": "out"
+        }
+    ]
+}
 ```
 
 De [configuratie](#trigger---configuration) sectie wordt uitgelegd deze eigenschappen.
@@ -147,15 +161,25 @@ public class CustomObject {
 
 Het volgende voorbeeld ziet u een trigger-binding in een *function.json* bestand en een [F # functie](functions-reference-fsharp.md) die gebruikmaakt van de binding. De functie zoekt een `name` parameter in de query-tekenreeks of de hoofdtekst van de HTTP-aanvraag.
 
-Dit zijn de bindingsgegevens de *function.json* bestand:
+Hier volgt de *function.json* bestand:
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+  "bindings": [
+    {
+      "authLevel": "function",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "res",
+      "type": "http",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 De [configuratie](#trigger---configuration) sectie wordt uitgelegd deze eigenschappen.
@@ -203,15 +227,25 @@ U moet een `project.json` bestand met NuGet om te verwijzen naar de `FSharp.Inte
 
 Het volgende voorbeeld ziet u een trigger-binding in een *function.json* bestand en een [JavaScript-functie](functions-reference-node.md) die gebruikmaakt van de binding. De functie zoekt een `name` parameter in de query-tekenreeks of de hoofdtekst van de HTTP-aanvraag.
 
-Dit zijn de bindingsgegevens de *function.json* bestand:
+Hier volgt de *function.json* bestand:
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+    "disabled": false,    
+    "bindings": [
+        {
+            "authLevel": "function",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "req"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "res"
+        }
+    ]
+}
 ```
 
 De [configuratie](#trigger---configuration) sectie wordt uitgelegd deze eigenschappen.
@@ -224,7 +258,7 @@ module.exports = function(context, req) {
 
     if (req.query.name || (req.body && req.body.name)) {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: "Hello " + (req.query.name || req.body.name)
         };
     }
@@ -263,15 +297,25 @@ public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Anonymous,
 
 Het volgende voorbeeld ziet u een webhook trigger binding in een *function.json* bestand en een [C# scriptfunctie](functions-reference-csharp.md) die gebruikmaakt van de binding. De functie Logboeken GitHub probleem opmerkingen.
 
-Dit zijn de bindingsgegevens de *function.json* bestand:
+Hier volgt de *function.json* bestand:
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 De [configuratie](#trigger---configuration) sectie wordt uitgelegd deze eigenschappen.
@@ -303,15 +347,25 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 
 Het volgende voorbeeld ziet u een webhook trigger binding in een *function.json* bestand en een [F # functie](functions-reference-fsharp.md) die gebruikmaakt van de binding. De functie Logboeken GitHub probleem opmerkingen.
 
-Dit zijn de bindingsgegevens de *function.json* bestand:
+Hier volgt de *function.json* bestand:
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 De [configuratie](#trigger---configuration) sectie wordt uitgelegd deze eigenschappen.
@@ -347,11 +401,21 @@ Dit zijn de bindingsgegevens de *function.json* bestand:
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 De [configuratie](#trigger---configuration) sectie wordt uitgelegd deze eigenschappen.
@@ -386,7 +450,6 @@ Zie voor een compleet voorbeeld [Trigger - C#-voorbeeld](#trigger---c-example).
 ## <a name="trigger---configuration"></a>Trigger - configuratie
 
 De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt in de *function.json* bestand en de `HttpTrigger` kenmerk.
-
 
 |de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
 |---------|---------|----------------------|
@@ -472,13 +535,13 @@ module.exports = function (context, req) {
 
     if (!id) {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: "All " + category + " items were requested."
         };
     }
     else {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: category + " item with id = " + id + " was requested."
         };
     }
@@ -549,35 +612,24 @@ De [host.json](functions-host-json.md) bestand bevat instellingen voor HTTP-trig
 
 ## <a name="output"></a>Uitvoer
 
-Gebruik de uitvoer van de HTTP-binding om te reageren op de afzender van HTTP-aanvraag. Deze binding vereist een HTTP-trigger en Hiermee kunt u het antwoord is gekoppeld aan de aanvraag van de trigger aanpassen. Als een HTTP-uitvoer binding is niet opgegeven, wordt een HTTP-trigger retourneert HTTP 200 OK met een lege hoofdtekst. 
+Gebruik de uitvoer van de HTTP-binding om te reageren op de afzender van HTTP-aanvraag. Deze binding vereist een HTTP-trigger en Hiermee kunt u het antwoord is gekoppeld aan de aanvraag van de trigger aanpassen. Als een HTTP-uitvoer binding is niet opgegeven, wordt een HTTP-trigger retourneert HTTP 200 OK met een lege hoofdtekst in functies 1.x of HTTP 204 geen inhoud met een lege hoofdtekst in functies 2.x.
 
 ## <a name="output---configuration"></a>Output - configuratie
 
-Voor klasse C#-bibliotheken zijn er geen binding van de uitvoer-specifieke configuratie-eigenschappen. Voor het verzenden van een HTTP-antwoord moet de functie retourtype `HttpResponseMessage` of `Task<HttpResponseMessage>`.
-
-Voor andere talen uitvoer een HTTP binding wordt gedefinieerd als een JSON-object in de `bindings` matrix van function.json, zoals wordt weergegeven in het volgende voorbeeld:
-
-```json
-{
-    "name": "res",
-    "type": "http",
-    "direction": "out"
-}
-```
-
-De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt in de *function.json* bestand.
+De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt in de *function.json* bestand. Voor klasse C#-bibliotheken er zijn geen kenmerkeigenschappen die met deze overeenkomen *function.json* eigenschappen. 
 
 |Eigenschap  |Beschrijving  |
 |---------|---------|
 | **type** |moet worden ingesteld op `http`. |
 | **direction** | moet worden ingesteld op `out`. |
-|**Naam** | De naam van de variabele in functiecode gebruikt voor het antwoord. |
+|**Naam** | De naam van de variabele in functiecode gebruikt voor het antwoord of `$return` de geretourneerde waarde gebruiken. |
 
 ## <a name="output---usage"></a>Output - gebruik
 
-U kunt de uitvoerparameter gebruiken om te reageren op de aanroeper HTTP- of webhook. U kunt ook de patronen language standaard antwoord gebruiken. Bijvoorbeeld reacties, Zie de [trigger voorbeeld](#trigger---example) en de [webhook voorbeeld](#trigger---webhook-example).
+Gebruik de patronen language standaard antwoord voor het verzenden van een HTTP-antwoord. In C# of C# script, moet u de functie retourtype `HttpResponseMessage` of `Task<HttpResponseMessage>`. In C# niet een retourwaarde-kenmerk vereist.
+
+Bijvoorbeeld reacties, Zie de [trigger voorbeeld](#trigger---example) en de [webhook voorbeeld](#trigger---webhook-example).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-> [!div class="nextstepaction"]
-> [Meer informatie over Azure functions triggers en bindingen](functions-triggers-bindings.md)
+[Meer informatie over Azure functions triggers en bindingen](functions-triggers-bindings.md)

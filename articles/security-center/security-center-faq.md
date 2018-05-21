@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/14/2018
 ms.author: terrylan
-ms.openlocfilehash: e46c2ad30b578b0642ee7b541ea003ed67c6a7f5
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d5a9f2ba68574ba8cb99b01ce426ec77a5eecd3d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Veelgestelde vragen over Azure Security Center
 Deze Veelgestelde vragen over de antwoorden op vragen over Azure Security Center, een service waarmee u detecteren, voorkomen van en reageren op bedreigingen dankzij een verhoogde zichtbaarheid van en controle over de beveiliging van uw Microsoft Azure-resources.
@@ -88,8 +88,8 @@ Zie voor meer informatie over het configureren van een beveiligingsbeleid, [beve
 ### <a name="what-is-a-security-recommendation"></a>Wat is een beveiligingsaanbeveling?
 Azure Security Center analyseert de beveiligingsstatus van uw Azure-resources. Als mogelijke beveiligingsproblemen worden geïdentificeerd, worden aanbevelingen gemaakt. De aanbevelingen leiden u door het configuratieproces van het vereiste besturingselement. Voorbeelden zijn:
 
-* Inrichting van antimalware om te identificeren en verwijderen van schadelijke software
-* Configureren van [Netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md) en regels voor het verkeer voor beheer voor virtuele machines
+* Het inrichten van anti-malware om te identificeren en verwijderen van schadelijke software
+* [Netwerkbeveiligingsgroepen](../virtual-network/security-overview.md) en regels voor het verkeer voor beheer voor virtuele machines
 * Het inrichten van web application firewall om te beschermen tegen aanvallen die gericht is op uw webtoepassingen
 * Implementatie van ontbrekende systeemupdates
 * Aanpassing van besturingssysteemconfiguraties die niet overeenkomen met de aanbevolen basislijnen

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 51674f80e918f28febf0e854caa72c0da43c589c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 767d08c7a148db3e8a6d8b53bd88b154139d981d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
 ---
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
@@ -41,9 +41,13 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
     Hoe een client verbinding maakt met Azure Cosmos DB heeft belangrijke gevolgen voor de prestaties, met name in termen van waargenomen-clientzijde latentie. Er zijn twee belangrijke configuratie-instellingen beschikbaar zijn voor het configureren van client verbindingsbeleid – de verbinding *modus* en de [verbinding *protocol*](#connection-protocol).  De twee modi beschikbaar zijn:
 
    1. Gateway-modus (standaard)
+      
+      Gateway-modus wordt ondersteund op alle platforms van de SDK en de geconfigureerde standaardwaarde is. Als uw toepassing wordt uitgevoerd binnen een bedrijfsnetwerk met strikte firewallbeperkingen, is Gateway-modus de beste keuze, omdat maakt gebruik van de standaard HTTPS-poort en één eindpunt. De verhouding prestaties is echter dat Gateway modus betrekking heeft op een extra netwerk-hop telkens wanneer gegevens worden gelezen of geschreven naar Azure Cosmos DB. Daarom biedt directe modus betere prestaties vanwege minder netwerkhops.
+
    2. Directe modus
 
-      Gateway-modus wordt ondersteund op alle platforms van de SDK en de geconfigureerde standaardwaarde is.  Als uw toepassing wordt uitgevoerd binnen een bedrijfsnetwerk met strikte firewallbeperkingen, is Gateway-modus de beste keuze, omdat maakt gebruik van de standaard HTTPS-poort en één eindpunt. De verhouding prestaties is echter dat Gateway modus betrekking heeft op een extra netwerk-hop telkens wanneer gegevens worden gelezen of geschreven naar Azure Cosmos DB. Daarom biedt directe modus betere prestaties vanwege minder netwerkhops.
+     Directe modus ondersteunt verbindingen via TCP- en HTTPS-protocollen. Direct wordt momenteel ondersteund in .NET Standard 2.0 voor Windows-platform.
+      
 <a id="use-tcp"></a>
 2. **Verbindingsbeleid: gebruiken het TCP-protocol**
 

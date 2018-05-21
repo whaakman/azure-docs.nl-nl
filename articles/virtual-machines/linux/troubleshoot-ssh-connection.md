@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 77effb7892e6d59087d07109958f4682886f12db
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e5d9fb76f66ffb98addab24e9e8bf8b82a82af7a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Problemen met SSH-verbindingen met een Azure Linux VM die is mislukt, fouten, of wordt geweigerd
 Er zijn diverse redenen dat u op problemen Secure Shell (SSH), SSH verbindingsfouten stuit, of SSH wordt geweigerd wanneer u probeert verbinding maken met virtuele Linux-machine (VM). Dit artikel helpt u bij het vinden en los de problemen. U kunt de Azure-portal, Azure CLI of uitbreiding van de VM-toegang voor Linux kunt oplossen van problemen met de verbinding.
@@ -34,7 +34,7 @@ Probeer opnieuw verbinding te maken met de virtuele machine na elke stap.
 
 1. De SSH-configuratie opnieuw instellen.
 2. Stel de referenties voor de gebruiker opnieuw in.
-3. Controleer of de [Netwerkbeveiligingsgroep](../../virtual-network/virtual-networks-nsg.md) regels SSH-verkeer toestaan.
+3. Controleer of de [netwerkbeveiligingsgroep](../../virtual-network/security-overview.md) regels SSH-verkeer toestaan.
    * Zorg ervoor dat een Netwerkbeveiligingsgroep-regel bestaat voor de SSH-verkeer toestaan (standaard TCP-poort 22).
    * U kunt geen poortomleiding gebruiken / toewijzen zonder gebruik van een Azure load balancer.
 4. Controleer de [VM resourcestatus](../../resource-health/resource-health-overview.md). 
@@ -77,7 +77,7 @@ Gebruik [IP-stroom controleren](../../network-watcher/network-watcher-check-ip-f
 
 Gebruik van netwerk-Watcher [volgende hop](../../network-watcher/network-watcher-check-next-hop-portal.md) mogelijkheid om te bevestigen dat een route is niet zo wordt voorkomen verkeer dat worden gerouteerd naar of vanuit een virtuele machine. U kunt ook effectieve routes om te zien alle effectieve routes voor een netwerkinterface bekijken. Zie voor meer informatie [effectieve routes gebruiken om op te lossen VM verkeer stroom](../../virtual-network/virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow).
 
-## <a name="use-the-azure-cli-20"></a>De Azure CLI 2.0 gebruiken
+## <a name="use-the-azure-cli-20"></a>Azure CLI 2.0 gebruiken
 Als u nog niet gedaan hebt, installeert u de nieuwste [Azure CLI 2.0](/cli/azure/install-az-cli2) en meld u aan op een Azure-account met [az aanmelding](/cli/azure/reference-index#az_login).
 
 Als u hebt gemaakt en de installatiekopie van een aangepaste Linux-schijf geüpload, controleert u of de [Microsoft Azure Linux Agent](../extensions/agent-windows.md) versie 2.0.5 of hoger is geïnstalleerd. VM's zijn gemaakt met behulp van afbeeldingen, is deze uitbreiding voor toegang tot al geïnstalleerd en geconfigureerd voor u.

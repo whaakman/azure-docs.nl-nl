@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 843ff1adddcb4c1165ead3f484ad74a503410852
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: fbd589aedb955ee4bd61dc0ec754d8713a98179a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-network-security-overview"></a>Overzicht van Azure-netwerk-beveiliging
 Azure omvat een robuuste netwerkinfrastructuur ter ondersteuning van uw toepassing en de vereisten voor service-connectiviteit. Verbinding met het netwerk mogelijk is tussen bronnen in Azure, tussen on-premises en Azure gehoste bronnen, en naar en van het internet en Azure.
@@ -57,7 +57,7 @@ Als u moet Basisnetwerk toegangsbeheer op gebruikersniveau (op basis van IP-adre
 
 Meer informatie:
 
-* [Netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md)
+* [Netwerkbeveiligingsgroepen](../virtual-network/security-overview.md)
 
 ### <a name="route-control-and-forced-tunneling"></a>Besturingselement routeren en geforceerde tunneling
 De mogelijkheid om te bepalen de werking van de routering op uw virtuele netwerken is essentieel. Als routering onjuist is geconfigureerd, toepassingen en services die worden gehost op de virtuele machine mogelijk verbinding met niet-geautoriseerde apparaten, zoals systemen die eigendom zijn van en beheerd door potentiële aanvallers.
