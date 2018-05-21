@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 1d1cdee7373b949456032aff3c808cc233aaa1cc
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: f74a44ed1b26458ad77e5de43a67a961aee70ec1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindingen voor Azure Functions
 
@@ -773,7 +773,7 @@ In C# en C# script, kunt u binden aan de volgende typen blobs schrijven:
 * `CloudPageBlob`<sup>2</sup>
 * `CloudAppendBlob`<sup>2</sup>
 
-<sup>1</sup> 'in' binding vereist `direction` in *function.json* of `FileAccess.Read` in een C#-klassenbibliotheek.
+<sup>1</sup> 'in' binding vereist `direction` in *function.json* of `FileAccess.Read` in een C#-klassenbibliotheek. U kunt echter het containerobject dat de runtime biedt voor het schrijven van bewerkingen, zoals het uploaden van BLOB's naar de container gebruiken.
 
 <sup>2</sup> vereist 'inout' binding `direction` in *function.json* of `FileAccess.ReadWrite` in een C#-klassenbibliotheek.
 

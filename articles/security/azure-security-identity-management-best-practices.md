@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: af01676276232f4dba5a11c219a3b83259945dfb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6632ab962f3df0cfee8d28d7dad40bad8baf3f50
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure voor identiteits- en toegang beheren best practices voor beveiliging
 
@@ -64,7 +64,7 @@ Zie het artikel voor meer informatie over Azure AD-synchronisatie [uw on-premise
 
 Wanneer u meerdere mappen voor het beheren van hebt, dit wordt een administratieve probleem niet alleen voor IT, maar ook voor eindgebruikers die meerdere wachtwoorden onthouden. Met behulp van [SSO](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) u uw gebruikers de mogelijkheid van dezelfde set referenties aanmelden en toegang tot de bronnen die ze nodig hebben, ongeacht waar deze resource zich lokaal is of in de cloud gebruiken bieden.
 
-Via eenmalige aanmelding waarmee gebruikers toegang krijgen tot hun [SaaS-toepassingen](../active-directory/active-directory-appssoaccess-whatis.md) op basis van hun organisatieaccount in Azure AD. Dit geldt niet alleen voor Microsoft SaaS-apps, maar ook met andere apps, zoals [Google Apps](../active-directory/active-directory-saas-google-apps-tutorial.md) en [Salesforce](../active-directory/active-directory-saas-salesforce-tutorial.md). Uw toepassing kan worden geconfigureerd voor het gebruik van Azure AD als een [SAML gebaseerde identiteit](../active-directory/fundamentals-identity.md) provider. Als een beveiligingscontrole geeft Azure AD geen token van een zodat ze zich aanmeldt bij de toepassing, tenzij ze gebruikmaken van Azure AD toegang hebben gekregen. U kunt toegang verlenen rechtstreeks of via een groep dat ze lid van zijn.
+Via eenmalige aanmelding waarmee gebruikers toegang krijgen tot hun [SaaS-toepassingen](../active-directory/manage-apps/what-is-single-sign-on.md) op basis van hun organisatieaccount in Azure AD. Dit geldt niet alleen voor Microsoft SaaS-apps, maar ook met andere apps, zoals [Google Apps](../active-directory/active-directory-saas-google-apps-tutorial.md) en [Salesforce](../active-directory/active-directory-saas-salesforce-tutorial.md). Uw toepassing kan worden geconfigureerd voor het gebruik van Azure AD als een [SAML gebaseerde identiteit](../active-directory/fundamentals-identity.md) provider. Als een beveiligingscontrole geeft Azure AD geen token van een zodat ze zich aanmeldt bij de toepassing, tenzij ze gebruikmaken van Azure AD toegang hebben gekregen. U kunt toegang verlenen rechtstreeks of via een groep dat ze lid van zijn.
 
 > [!NOTE]
 > de beslissing om te gebruiken van eenmalige aanmelding heeft invloed op hoe u uw on-premises directory integreren met uw clouddirectory. Als u wilt dat eenmalige aanmelding, moet u Federatie, gebruiken omdat adreslijstsynchronisatie alleen leveren [dezelfde ervaring voor eenmalige aanmelding](../active-directory/active-directory-aadconnect.md).

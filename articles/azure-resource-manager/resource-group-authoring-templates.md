@@ -9,16 +9,16 @@ editor: tysonn
 ms.assetid: 19694cb4-d9ed-499a-a2cc-bcfc4922d7f5
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3b70817f973f0bfbdcec2aa8c76a431eec308bcf
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4fa610f144277b73bb6d555d46e63a01c413e07e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Overzicht van de structuur en de syntaxis van Azure Resource Manager-sjablonen
 In dit artikel beschrijft de structuur van een Azure Resource Manager-sjabloon. Dit geeft de verschillende secties van een sjabloon en de eigenschappen die beschikbaar in deze secties zijn. De sjabloon bestaat uit JSON en uitdrukkingen die u gebruiken kunt om waarden voor uw implementatie samen te stellen. Zie voor een stapsgewijze zelfstudie over het maken van een sjabloon, [maken van uw eerste Azure Resource Manager-sjabloon](resource-manager-create-first-template.md).
@@ -45,7 +45,7 @@ In de meest eenvoudige structuur bevat een sjabloon voor de volgende elementen:
 | parameters |Nee |De waarden die beschikbaar zijn wanneer de implementatie wordt uitgevoerd voor het aanpassen van de resource-implementatie. |
 | variabelen |Nee |De waarden die worden gebruikt als JSON-fragmenten in de sjabloon voor sjabloontaalexpressies vereenvoudigen. |
 | functions |Nee |Gebruiker gedefinieerde functies die beschikbaar in de sjabloon zijn. |
-| resources |Ja |Brontypen die worden geïmplementeerd of bijgewerkt in een resourcegroep. |
+| bronnen |Ja |Brontypen die worden geïmplementeerd of bijgewerkt in een resourcegroep. |
 | uitvoer |Nee |De waarden die na de implementatie worden geretourneerd. |
 
 Elk element bevat eigenschappen die u kunt instellen. Het volgende voorbeeld bevat de volledige syntaxis van een sjabloon:

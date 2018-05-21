@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: jeedes
-ms.openlocfilehash: 55e99b2dd566dbf5a3bcb86974210c0399584e72
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1725ebd39a5d976fee061ed92ddcc686fa7a1acd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-soonr-workplace"></a>Zelfstudie: Azure Active Directory-integratie met Soonr werkplek
 
@@ -29,7 +29,7 @@ Soonr werkplek integreren met Azure AD biedt de volgende voordelen:
 - U kunt uw gebruikers automatisch ophalen aangemeld bij Soonr werkplek (Single Sign-On) inschakelen met hun Azure AD-accounts
 - U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -110,9 +110,9 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/active-directory-saas-soonr-tutorial/tutorial_soonr_url.png)
 
-    a. In de **id** textbox, typ een URL met het volgende patroon volgen:`https://<servername>.soonr.com/singlesignon/saml/metadata`
+    a. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<servername>.soonr.com/singlesignon/saml/metadata`
 
-    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen:`https://<servername>.soonr.com/singlesignon/saml/SSO`
+    b. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<servername>.soonr.com/singlesignon/saml/SSO`
 
 4. Op de **Soonr werkplek domein en de URL's** sectie als u wilt configureren van de toepassing in **SP geïnitieerd modus**, voer de volgende stappen uit:
     
@@ -120,7 +120,7 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     a. Klik op de **weergeven geavanceerde instellingen voor URL**.
 
-    b. In de **aanmelding op URL** textbox, typ een URL met het volgende patroon volgen:`https://<servername>.soonr.com/singlesignon/saml/SSO`
+    b. In de **aanmelding op URL** textbox, typ een URL met het volgende patroon volgen: `https://<servername>.soonr.com/singlesignon/saml/SSO`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke-id en meld u aan bij de URL en antwoord. Neem contact op met [Soonr werkplek ondersteuningsteam](https://awp.autotask.net/help/) ophalen van deze waarden.
@@ -217,10 +217,10 @@ Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding conf
 
 Als u op de tegel Soonr werkplek in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Soonr werkplek.
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

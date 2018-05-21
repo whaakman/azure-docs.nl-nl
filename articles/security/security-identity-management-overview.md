@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: d07ad69b3a1f6023cf70bb0b9a82cd54defc5c49
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 46e4466085200bf9042c4342ea5e6b37fd2fb701
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-identity-management-security-overview"></a>Overzicht van Azure identity management-beveiliging
 Microsoft identiteits- en toegangsbeheer management oplossingen zorgen ervoor dat IT beveiligen toegang tot toepassingen en bronnen in het zakelijke datacenter en in de cloud, extra niveaus van validatie van de multi-factor authentication en voorwaardelijke toegang inschakelen beleid. Bewaking verdachte activiteiten via geavanceerde beveiliging rapportage, controle en waarschuwingen helpt bij het verminderen mogelijke beveiligingsproblemen. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) biedt eenmalige aanmelding tot duizenden cloud-apps (SaaS) en toegang tot web-apps die u on-premises uitgevoerd.
@@ -56,7 +56,7 @@ Niet alleen gebruikers hoeven niet te beheren van meerdere sets met gebruikersna
 Meer informatie:
 
 * [Overzicht van eenmalige aanmelding](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../active-directory/active-directory-appssoaccess-whatis.md)
+* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../active-directory/manage-apps/what-is-single-sign-on.md)
 * [Eenmalige aanmelding Azure Active Directory integreren met SaaS-apps](../active-directory/active-directory-enterprise-apps-manage-sso.md)
 
 ## <a name="reverse-proxy"></a>Omgekeerde proxy
