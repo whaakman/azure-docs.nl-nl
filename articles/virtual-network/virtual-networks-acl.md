@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 0f22bae1e1e40d3ea735861b9a633ae46eae5c33
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f532ed9ad1254aa8082f212b8190f83bb71767e9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="what-is-an-endpoint-access-control-list"></a>Wat is er een eindpunt-ACL's?
 
 > [!IMPORTANT]
 > Azure heeft twee verschillende [implementatiemodellen](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor het maken en werken met resources: Resource Manager en classic. Dit artikel gaat over het gebruik van het klassieke implementatiemodel. Microsoft raadt aan dat de meeste nieuwe implementaties het Resource Manager-implementatiemodel gebruiken. 
 
-Een eindpunt toegangsbeheerlijst (ACL) is een beveiligingsverbetering beschikbaar voor uw Azure-implementatie. Een ACL biedt de mogelijkheid om selectief toestaan of weigeren van verkeer voor het eindpunt van een virtuele machine. Deze pakketten filteren mogelijkheid biedt een extra beveiligingslaag. U kunt de netwerk-ACL's voor eindpunten alleen opgeven. U kunt een ACL voor een virtueel netwerk of een specifiek subnet opgenomen in een virtueel netwerk niet opgeven. Het is raadzaam netwerkbeveiligingsgroepen (nsg's) gebruiken in plaats van ACL's, indien mogelijk. Zie voor meer informatie over het nsg's, [netwerk beveiligingsoverzicht van groep](virtual-networks-nsg.md)
+Een eindpunt toegangsbeheerlijst (ACL) is een beveiligingsverbetering beschikbaar voor uw Azure-implementatie. Een ACL biedt de mogelijkheid om selectief toestaan of weigeren van verkeer voor het eindpunt van een virtuele machine. Deze pakketten filteren mogelijkheid biedt een extra beveiligingslaag. U kunt de netwerk-ACL's voor eindpunten alleen opgeven. U kunt een ACL voor een virtueel netwerk of een specifiek subnet opgenomen in een virtueel netwerk niet opgeven. Het is raadzaam netwerkbeveiligingsgroepen (nsg's) gebruiken in plaats van ACL's, indien mogelijk. Zie voor meer informatie over het nsg's, [netwerk beveiligingsoverzicht van groep](security-overview.md)
 
 ACL's kunnen worden geconfigureerd met behulp van PowerShell of de Azure-portal. Zie voor meer informatie over het configureren van een ACL-netwerk met behulp van PowerShell [toegangsbeheerlijsten voor eindpunten met behulp van PowerShell beheren](virtual-networks-acl-powershell.md). Zie voor meer informatie over het configureren van een ACL-netwerk met behulp van de Azure-portal [het instellen van eindpunten aan een virtuele machine](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
