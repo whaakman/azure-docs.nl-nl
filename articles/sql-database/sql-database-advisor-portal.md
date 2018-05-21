@@ -3,17 +3,17 @@ title: Toepassen van aanbevelingen voor prestaties - Azure SQL Database | Micros
 description: De Azure portal gebruiken om te zoeken prestaties aanbevelingen die u kunnen de prestaties van uw Azure SQL Database optimaliseren.
 services: sql-database
 author: stevestein
-manager: jhubbard
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 92a7b46469bad56af2e08de98a1f79b4b8059eda
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3361519c260fe842ae362814cbee62aa9257b9f8
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Zoeken en toepassen van aanbevelingen voor prestaties
 
@@ -98,7 +98,11 @@ U kunt de Azure SQL Database voor het implementeren van aanbevelingen automatisc
     ![Advisor-instellingen](./media/sql-database-advisor-portal/settings.png)
 2. Selecteer de acties die voor het automatiseren van:
    
-    ![Aanbevolen indexen](./media/sql-database-advisor-portal/automation.png)
+    ![Aanbevolen indexen](./media/sql-database-automatic-tuning-enable/server.png)
+
+> [!NOTE]
+> Houd er rekening mee dat **DROP_INDEX** optie op dit moment is niet compatibel met toepassingen die gebruikmaken van partitie schakelen en de index-hints en in dergelijke gevallen niet worden ingeschakeld.
+>
 
 ### <a name="manually-run-the-recommended-t-sql-script"></a>Voer handmatig het aanbevolen T-SQL-script
 Selecteer elke aanbeveling en klik op **script weergeven**. Dit script wordt uitgevoerd in de database naar de aanbeveling handmatig toe te passen.

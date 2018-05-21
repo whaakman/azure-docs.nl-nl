@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: c41a1057bb87c70362477d221b69ca3f5137dec4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a2e2075a735b63588352f3bcdc97e2d6410660fe
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Een virtueel netwerk (klassiek) maken met meerdere subnetten
 
@@ -162,7 +162,6 @@ U een virtueel netwerk (klassiek) kunt maken met behulp van de [Azure-portal](#p
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie voor meer informatie over alle virtueel netwerk en subnetinstellingen, [virtuele netwerken beheren](manage-virtual-network.md) en [beheren van virtueel netwerksubnetten](virtual-network-manage-subnet.md). U beschikt over verschillende opties voor het gebruik van virtuele netwerken en subnetten in een productieomgeving om te voldoen aan verschillende vereisten.
-- Van binnenkomende en uitgaande subnetverkeer filteren, maken en toepassen [netwerkbeveiligingsgroepen](virtual-networks-nsg.md) aan subnetten.
 - Maak een [Windows](../virtual-machines/windows/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of een [Linux](../virtual-machines/linux/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtuele machine en maak verbinding met een bestaand virtueel netwerk.
 - Voor verbinding twee virtuele netwerken in dezelfde Azure-locatie, maak een [virtueel netwerk peering](create-peering-different-deployment-models.md) tussen de virtuele netwerken. U kunt een virtueel netwerk (Resource Manager) peer met een virtueel netwerk (klassiek), maar u kunt geen maken een peering tussen twee virtuele netwerken (klassiek).
 - Het virtuele netwerk verbinding met een on-premises netwerk via een [VPN-Gateway](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) of [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json) circuit.

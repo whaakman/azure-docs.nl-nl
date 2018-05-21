@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: jroth
-ms.openlocfilehash: b91638b6b76675711150323bee4aa9ad9d9a73d1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: bba9f62a78dea4db1d88f877029796739b023e46
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Veiligheidsoverwegingen voor SQL Server in Azure Virtual Machines
 
@@ -46,7 +46,7 @@ Wanneer u een virtuele machine van SQL Server met een afbeelding maakt, de **SQL
 
 Kies voor de beste beveiliging, de meest beperkende optie voor uw scenario. Bijvoorbeeld, als u een toepassing die toegang heeft tot SQL Server op dezelfde virtuele machine vervolgens **lokale** is de veiligste optie. Als u werkt met een Azure-toepassing waarvoor toegang tot de SQL Server, klikt u vervolgens **persoonlijke** beveiligt communicatie naar SQL Server binnen de opgegeven [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md). Als u nodig hebt **openbare** (internet) toegang tot de SQL Server-VM en zorg ervoor dat u Volg de aanbevolen procedures in dit onderwerp om te beperken van het oppervlak aanval.
 
-De geselecteerde opties in de portal gebruiken inkomende beveiligingsregels voor verbindingen op de virtuele machines [Netwerkbeveiligingsgroep](../../../virtual-network/virtual-networks-nsg.md) (NSG) wilt toestaan of weigeren van netwerkverkeer naar de virtuele machine. U kunt wijzigen of nieuwe regels voor binnenkomende NSG zodat verkeer naar de SQL Server-poort (standaard 1433) te maken. U kunt ook bepaalde IP-adressen die zijn toegestaan om te communiceren via deze poort opgeven.
+De geselecteerde opties in de portal gebruiken inkomende beveiligingsregels voor verbindingen op de VM [netwerkbeveiligingsgroep](../../../virtual-network/security-overview.md) (NSG) wilt toestaan of weigeren van netwerkverkeer naar de virtuele machine. U kunt wijzigen of nieuwe regels voor binnenkomende NSG zodat verkeer naar de SQL Server-poort (standaard 1433) te maken. U kunt ook bepaalde IP-adressen die zijn toegestaan om te communiceren via deze poort opgeven.
 
 ![Regels voor netwerkbeveiligingsgroepen](./media/virtual-machines-windows-sql-security/sql-vm-network-security-group-rules.png)
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: larryfr
-ms.openlocfilehash: cb005549fcd9a5850c990d8ef8acb724443f9908
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3df32c39152c8dda24fd5d0796f8074af8ce8a1a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight met behulp van een Azure-netwerk uitbreiden
 
@@ -93,7 +93,7 @@ Gebruik de stappen in deze sectie om te ontdekken hoe u een nieuwe HDInsight toe
         Zie voor meer informatie de [netwerkbeveiligingsgroepen oplossen](../virtual-network/virtual-network-nsg-troubleshoot-portal.md) document.
 
         > [!IMPORTANT]
-        > Netwerkbeveiligingsgroepen worden toegepast in volgorde op basis van Regelprioriteit. De eerste regel die overeenkomt met het patroon verkeer wordt toegepast en geen andere voor dat verkeer wordt toegepast. Volgorde van de regels van meest strikte op minimaal. Zie voor meer informatie de [filteren van netwerkverkeer met netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md) document.
+        > Netwerkbeveiligingsgroepen worden toegepast in volgorde op basis van Regelprioriteit. De eerste regel die overeenkomt met het patroon verkeer wordt toegepast en geen andere voor dat verkeer wordt toegepast. Volgorde van de regels van meest strikte op minimaal. Zie voor meer informatie de [filteren van netwerkverkeer met netwerkbeveiligingsgroepen](../virtual-network/security-overview.md) document.
 
     * Door de gebruiker gedefinieerde routes
 
@@ -214,7 +214,7 @@ Voor verbinding met Ambari en andere webpagina's via het virtuele netwerk, gebru
 
 Netwerkverkeer in een virtuele Azure-netwerken kan worden beheerd met behulp van de volgende methoden:
 
-* **Netwerkbeveiligingsgroepen** (NSG) kunt u binnenkomend en uitgaand verkeer op het netwerk te filteren. Zie voor meer informatie de [filteren van netwerkverkeer met netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md) document.
+* **Netwerkbeveiligingsgroepen** (NSG) kunt u binnenkomend en uitgaand verkeer op het netwerk te filteren. Zie voor meer informatie de [filteren van netwerkverkeer met netwerkbeveiligingsgroepen](../virtual-network/security-overview.md) document.
 
     > [!WARNING]
     > HDInsight biedt geen ondersteuning voor uitgaand verkeer te beperken.
@@ -242,7 +242,7 @@ Als u gebruiken wilt **netwerkbeveiligingsgroepen** of **gebruiker gedefinieerde
 
 Zie de volgende documentatie voor meer informatie over netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes:
 
-* [Netwerkbeveiligingsgroep](../virtual-network/virtual-networks-nsg.md)
+* [Netwerkbeveiligingsgroep](../virtual-network/security-overview.md)
 
 * [Gebruiker gedefinieerde routes](../virtual-network/virtual-networks-udr-overview.md)
 
@@ -666,6 +666,6 @@ Na het voltooien van deze stappen kunt u verbinding maken met resources in het v
 * Zie voor het configureren van HBase geo-replicatie [HBase-cluster-replicatie in virtuele netwerken in Azure instellen](hbase/apache-hbase-replication.md).
 * Zie voor meer informatie over virtuele netwerken in Azure, de [Azure Virtual Network-overzicht](../virtual-network/virtual-networks-overview.md).
 
-* Zie voor meer informatie over netwerkbeveiligingsgroepen [Netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md).
+* Zie voor meer informatie over netwerkbeveiligingsgroepen [Netwerkbeveiligingsgroepen](../virtual-network/security-overview.md).
 
 * Zie voor meer informatie over de gebruiker gedefinieerde routes, [gebruiker gedefinieerde routes en doorsturen via IP](../virtual-network/virtual-networks-udr-overview.md).
