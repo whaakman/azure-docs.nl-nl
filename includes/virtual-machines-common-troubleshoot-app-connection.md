@@ -1,3 +1,19 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: virtual-machines-windows
+author: cynthn
+ms.service: virtual-machines-windows
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 23abf13aca84bde3a9e4a82722051689cc177a2b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 05/20/2018
+---
 Er zijn diverse redenen wanneer u mag niet beginnen of verbinding maken met een toepassing die wordt uitgevoerd op Azure een virtuele machine (VM). Oorzaken zijn onder meer de toepassing niet actief of luistert op de verwachte poorten, de luisterpoort geblokkeerd of netwerken regels niet goed doorgeven verkeer naar de toepassing. Dit artikel wordt beschreven methodische wijze om te zoeken en los het probleem.
 
 Als u verbinding maakt met uw virtuele machine met behulp van RDP of SSH problemen ondervindt, raadpleegt u een van de volgende artikelen eerst:
@@ -99,7 +115,7 @@ Als u geen toegang de toepassing tot, controleert u of de volgende instellingen:
   
   * Controleer of dat de binnenkomende NAT-regelconfiguratie voor de virtuele machine het binnenkomende verkeer, met name het protocol (TCP of UDP) en de openbare en persoonlijke poortnummers toestaat.
   * Controleer of dat Netwerkbeveiligingsgroepen bieden de mogelijkheid de binnenkomende aanvraag en antwoord uitgaand verkeer.
-  * Zie voor meer informatie [Wat is een netwerkbeveiligingsgroep (NSG)?](../articles/virtual-network/virtual-networks-nsg.md)
+  * Zie voor meer informatie [wat is er een netwerkbeveiligingsgroep?](../articles/virtual-network/security-overview.md)
 
 Als de virtuele machine of het eindpunt lid is van een set met gelijke taakverdeling is:
 
@@ -117,7 +133,7 @@ Als u toegang hebt tot de toepassing, zorg ervoor dat uw randapparaat Internet t
 
 Zie voor meer informatie [Azure-netwerk bewakingsoverzicht](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
-## <a name="additional-resources"></a>Aanvullende bronnen
+## <a name="additional-resources"></a>Aanvullende resources
 [Problemen met extern bureaublad-verbindingen naar een op basis van Windows Azure virtuele Machine](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)
 
 [Secure Shell (SSH)-verbindingen met een op basis van Linux virtuele machine van Azure oplossen](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md)

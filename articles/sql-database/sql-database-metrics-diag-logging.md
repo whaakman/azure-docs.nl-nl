@@ -10,11 +10,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vvasic
-ms.openlocfilehash: c63429e80b2e38e9e5c08c6b589afa0086e7171d
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: c18d4d175bace79fefedc09fb887e707b8c066d9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database metrische gegevens en logboekregistratie van diagnostische gegevens 
 Azure SQL Database kunt verzenden metrische gegevens en diagnostische logboeken voor het bewaken van eenvoudiger. U kunt SQL Database configureren voor het opslaan van resourcegebruik, werkrollen en sessies, en connectiviteit in een van deze Azure-resources:
@@ -155,7 +155,7 @@ U kunt deze parameters zodat meerdere uitvoeropties combineren.
 
 ### <a name="rest-api"></a>REST-API
 
-Meer informatie over het [diagnostische instellingen wijzigen met behulp van de REST-API van Azure Monitor](https://msdn.microsoft.com/library/azure/dn931931.aspx). 
+Meer informatie over het [diagnostische instellingen wijzigen met behulp van de REST-API van Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings). 
 
 ### <a name="resource-manager-template"></a>Resource Manager-sjabloon
 
@@ -275,7 +275,7 @@ Meer informatie over hoe [metrische gegevens en diagnostische logboeken download
 |Type|Altijd: AzureDiagnostics|
 |ResourceProvider|Naam van de resourceprovider. Altijd: MICROSOFT. SQL|
 |Category|De naam van de categorie. Altijd: QueryStoreRuntimeStatistics|
-|OperationName|De naam van de bewerking. Altijd: QueryStoreRuntimeStatisticsEvent|
+|OperationName|Naam van de bewerking. Altijd: QueryStoreRuntimeStatisticsEvent|
 |Resource|De naam van de resource.|
 |ResourceType|Naam van het brontype. Altijd: SERVERS/DATABASES|
 |SubscriptionId|Abonnement-GUID die de database behoort.|
@@ -326,8 +326,8 @@ Meer informatie over [gegevens Query Store runtime-statistieken](https://docs.mi
 |Type|Altijd: AzureDiagnostics|
 |ResourceProvider|Naam van de resourceprovider. Altijd: MICROSOFT. SQL|
 |Category|De naam van de categorie. Altijd: QueryStoreWaitStatistics|
-|OperationName|De naam van de bewerking. Altijd: QueryStoreWaitStatisticsEvent|
-|Resource|Naam van de resource|
+|OperationName|Naam van de bewerking. Altijd: QueryStoreWaitStatisticsEvent|
+|Resource|De naam van de resource|
 |ResourceType|Naam van het brontype. Altijd: SERVERS/DATABASES|
 |SubscriptionId|Abonnement-GUID die de database behoort.|
 |ResourceGroup|Naam van de resourcegroep die de database behoort.|
@@ -364,8 +364,8 @@ Meer informatie over [Query Store wacht statistiekgegevens](https://docs.microso
 |Type|Altijd: AzureDiagnostics|
 |ResourceProvider|Naam van de resourceprovider. Altijd: MICROSOFT. SQL|
 |Category|De naam van de categorie. Altijd: fouten|
-|OperationName|De naam van de bewerking. Altijd: ErrorEvent|
-|Resource|Naam van de resource|
+|OperationName|Naam van de bewerking. Altijd: ErrorEvent|
+|Resource|De naam van de resource|
 |ResourceType|Naam van het brontype. Altijd: SERVERS/DATABASES|
 |SubscriptionId|Abonnement-GUID die de database behoort.|
 |ResourceGroup|Naam van de resourcegroep die de database behoort.|
@@ -376,7 +376,7 @@ Meer informatie over [Query Store wacht statistiekgegevens](https://docs.microso
 |Bericht|Foutbericht als tekst zonder opmaak.|
 |user_defined_b|De gebruiker gedefinieerde fout bit is.|
 |error_number_d|Foutcode.|
-|Ernst|Ernst van de fout.|
+|Severity|Ernst van de fout.|
 |state_d|Status van de fout.|
 |query_hash_s|Query-hash van de mislukte query, indien beschikbaar.|
 |query_plan_hash_s|Query plan hash van de mislukte query, indien beschikbaar.|
@@ -393,8 +393,8 @@ Meer informatie over [SQL Server-foutberichten](https://msdn.microsoft.com/libra
 |Type|Altijd: AzureDiagnostics|
 |ResourceProvider|Naam van de resourceprovider. Altijd: MICROSOFT. SQL|
 |Category|De naam van de categorie. Altijd: DatabaseWaitStatistics|
-|OperationName|De naam van de bewerking. Altijd: DatabaseWaitStatisticsEvent|
-|Resource|Naam van de resource|
+|OperationName|Naam van de bewerking. Altijd: DatabaseWaitStatisticsEvent|
+|Resource|De naam van de resource|
 |ResourceType|Naam van het brontype. Altijd: SERVERS/DATABASES|
 |SubscriptionId|Abonnement-GUID die de database behoort.|
 |ResourceGroup|Naam van de resourcegroep die de database behoort.|
@@ -422,8 +422,8 @@ Meer informatie over [wacht statistieken van de database](https://docs.microsoft
 |Type|Altijd: AzureDiagnostics|
 |ResourceProvider|Naam van de resourceprovider. Altijd: MICROSOFT. SQL|
 |Category|De naam van de categorie. Altijd: time-outs|
-|OperationName|De naam van de bewerking. Altijd: TimeoutEvent|
-|Resource|Naam van de resource|
+|OperationName|Naam van de bewerking. Altijd: TimeoutEvent|
+|Resource|De naam van de resource|
 |ResourceType|Naam van het brontype. Altijd: SERVERS/DATABASES|
 |SubscriptionId|Abonnement-GUID die de database behoort.|
 |ResourceGroup|Naam van de resourcegroep die de database behoort.|
@@ -445,8 +445,8 @@ Meer informatie over [wacht statistieken van de database](https://docs.microsoft
 |Type|Altijd: AzureDiagnostics|
 |ResourceProvider|Naam van de resourceprovider. Altijd: MICROSOFT. SQL|
 |Category|De naam van de categorie. Altijd: blokken|
-|OperationName|De naam van de bewerking. Altijd: BlockEvent|
-|Resource|Naam van de resource|
+|OperationName|Naam van de bewerking. Altijd: BlockEvent|
+|Resource|De naam van de resource|
 |ResourceType|Naam van het brontype. Altijd: SERVERS/DATABASES|
 |SubscriptionId|Abonnement-GUID die de database behoort.|
 |ResourceGroup|Naam van de resourcegroep die de database behoort.|

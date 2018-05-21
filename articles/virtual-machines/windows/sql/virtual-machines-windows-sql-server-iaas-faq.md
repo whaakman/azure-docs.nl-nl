@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/20/2018
 ms.author: v-shysun
-ms.openlocfilehash: 42a82a59d0cf786e80b93f124cbe04007b2a4704
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e0254cd16c27597c3d52aed19b4c4ece49bac765
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/20/2018
 ---
-# <a name="frequently-asked-questions-for-sql-server-on-windows-azure-virtual-machines"></a>Veelgestelde vragen over SQL Server op Windows Azure Virtual Machines
+# <a name="frequently-asked-questions-for-sql-server-running-on-windows-azure-virtual-machines"></a>Veelgestelde vragen over SQL Server wordt uitgevoerd op Windows Azure Virtual Machines
 
 > [!div class="op_single_selector"]
 > * [Windows](virtual-machines-windows-sql-server-iaas-faq.md)
@@ -125,7 +125,7 @@ In dit artikel vindt u antwoorden op enkele veelgestelde vragen over het uitvoer
 
 ## <a name="resources"></a>Resources
 
-**Windows VMs**:
+**Windows-VM's**:
 
 * [Overzicht van SQL Server op een Windows VM](virtual-machines-windows-sql-server-iaas-overview.md).
 * [Inrichten van een SQL Server Windows VM](virtual-machines-windows-portal-sql-server-provision.md)
@@ -139,4 +139,4 @@ In dit artikel vindt u antwoorden op enkele veelgestelde vragen over het uitvoer
 * [Overzicht van SQL Server op een virtuele Linux-machine](../../linux/sql/sql-server-linux-virtual-machines-overview.md)
 * [Een SQL Server virtuele Linux-machine inrichten](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
 * [Veelgestelde vragen (Linux)](../../linux/sql/sql-server-linux-faq.md)
-* [SQL Server op Linux-documentatie](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
+* [Documentatie voor SQL Server op Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)

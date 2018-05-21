@@ -3,10 +3,10 @@ title: Gedetailleerde SSH voor probleemoplossing voor een virtuele machine in Az
 description: Gedetailleerde probleemoplossing voor problemen die verbinding maken met een virtuele machine van Azure SSH
 keywords: SSH verbinding geweigerd, ssh fout, azure ssh, SSH-verbinding is mislukt
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: b8e8be5f-e8a6-489d-9922-9df8de32e839
 ms.service: virtual-machines-linux
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 66fc8bac46decacdd2214475e94980c447045935
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 88f3ca3202359f9f45f5b9a5054ab95b40558520
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Gedetailleerde SSH probleemoplossing voor problemen die verbinding maken met een Linux VM in Azure
 Er zijn veel mogelijke oorzaken waardoor de SSH-client mogelijk niet bereiken van de SSH-service op de virtuele machine. Als u hebt gevolgd door de meer [algemene SSH stappen voor probleemoplossing](troubleshoot-ssh-connection.md), moet u het probleem verder op te lossen. In dit artikel begeleidt u bij de gedetailleerde stappen voor probleemoplossing om te bepalen waar de SSH-verbinding is mislukt en het probleem te verhelpen.
@@ -39,7 +39,7 @@ De volgende stappen helpen u de bron van de fout te isoleren en oplossingen of t
 
 2. Selecteer **instellingen** onderzoeken eindpunten, IP-adressen, beveiligingsgroepen en andere instellingen.
 
-   De virtuele machine moet een eindpunt dat is gedefinieerd voor de SSH-verkeer dat u kunt bekijken in **eindpunten** of  **[netwerkbeveiligingsgroep](../../virtual-network/virtual-networks-nsg.md)**. Eindpunten in virtuele machines die zijn gemaakt met Resource Manager worden opgeslagen in een netwerkbeveiligingsgroep. Controleer of de regels zijn toegepast op de netwerkbeveiligingsgroep en wordt verwezen in het subnet.
+   De virtuele machine moet een eindpunt dat is gedefinieerd voor de SSH-verkeer dat u kunt bekijken in **eindpunten** of  **[netwerkbeveiligingsgroep](../../virtual-network/security-overview.md)**. Eindpunten in virtuele machines die zijn gemaakt met Resource Manager worden opgeslagen in een netwerkbeveiligingsgroep. Controleer of de regels zijn toegepast op de netwerkbeveiligingsgroep en wordt verwezen in het subnet.
 
 Om te controleren of verbinding met het netwerk, de geconfigureerde eindpunten en controleert u of u verbinding met de virtuele machine via een ander protocol, zoals HTTP- of een andere service maken kunt.
 
@@ -70,8 +70,8 @@ Tijdelijk uitschakelen van de software als een van deze voorwaarden van toepassi
 
 Als u verificatie via certificaat gebruikt, controleert u of deze machtigingen te hebben tot de SSH-map in de basismap:
 
-* Chmod 700 ~/.ssh
-* Chmod 644 ~/.ssh/\*.pub
+* Type chmod 700 ~/.ssh
+* Type chmod 644 ~/.ssh/\*.pub
 * Type chmod 600 ~/.ssh/id_rsa (of andere bestanden die opgeslagen in deze persoonlijke sleutels zijn)
 * Type chmod 644 ~/.ssh/known_hosts (bevat hosts die u via SSH verbinding hebt gemaakt)
 
@@ -111,7 +111,7 @@ Het eindpunt als bron van het probleem te voorkomen, verwijder het eindpunt van 
 
 ## <a name="source-4-network-security-groups"></a>Bron 4: Netwerkbeveiligingsgroepen
 Netwerkbeveiligingsgroepen kunnen u meer gedetailleerde controle over de toegestane binnenkomend en uitgaand verkeer. U kunt regels die subnetten omvatten en cloudservices in een Azure-netwerk maken. Controleer uw netwerkbeveiligingsgroepen om ervoor te zorgen dat SSH verkeer van en naar Internet is toegestaan.
-Zie voor meer informatie [over netwerkbeveiligingsgroepen](../../virtual-network/virtual-networks-nsg.md).
+Zie voor meer informatie [over netwerkbeveiligingsgroepen](../../virtual-network/security-overview.md).
 
 U kunt IP-controleren ook gebruiken om het NSG-configuratie te valideren. Zie voor meer informatie [Azure-netwerk bewakingsoverzicht](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 

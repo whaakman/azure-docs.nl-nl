@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 5a4e19f232abce8701e6d2e12a876c55079b91a2
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: c87d4f07a01fa42ceb2582b974feb4e802b3e03f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-multiple-nics-using-the-azure-cli-10"></a>Een virtuele Linux-machine maken met meerdere NIC's met behulp van de Azure CLI 1.0
 U kunt een virtuele machine (VM) maken in Azure met meerdere virtuele netwerkinterfaces (NIC's) is gekoppeld. Een veelvoorkomend scenario is om verschillende subnetten voor front-end en back-end-verbinding of een netwerk dat is toegewezen aan een oplossing met bewaking of back-up. In dit artikel biedt een snelle opdrachten voor het maken van een virtuele machine met meerdere NIC's die zijn gekoppeld. Andere [VM-grootten](sizes.md) ondersteunen een verschillend aantal NIC's, dus het formaat van uw virtuele machine dienovereenkomstig.
@@ -104,7 +104,7 @@ azure network nic create \
     --subnet-name mySubnetBackEnd
 ```
 
-Maakt u gewoonlijk ook een [Netwerkbeveiligingsgroep](../../virtual-network/virtual-networks-nsg.md) of [netwerktaakverdeler](../../load-balancer/load-balancer-overview.md) om te beheren en distribueren van verkeer tussen uw virtuele machines. Het volgende voorbeeld wordt een Netwerkbeveiligingsgroep met de naam *myNetworkSecurityGroup*:
+Maakt u gewoonlijk ook een [netwerkbeveiligingsgroep](../../virtual-network/security-overview.md) of [netwerktaakverdeler](../../load-balancer/load-balancer-overview.md) om te beheren en distribueren van verkeer tussen uw virtuele machines. Het volgende voorbeeld wordt een Netwerkbeveiligingsgroep met de naam *myNetworkSecurityGroup*:
 
 ```azurecli
 azure network nsg create \
