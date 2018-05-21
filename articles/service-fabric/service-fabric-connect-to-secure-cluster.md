@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/10/2018
+ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 055b2cdadf48c31635183b73f214f2215477c9d7
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f2a181fbae8ab1e08669021c42c5b4be08f66172
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="connect-to-a-secure-cluster"></a>Verbinding maken met een beveiligd cluster
 
@@ -115,6 +115,27 @@ Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveInterval
     -FindValue $certCN `
     -StoreLocation CurrentUser `
     -StoreName My 
+```
+
+#### <a name="connect-using-certificate-thumbprint"></a>Verbinding maken met behulp van de vingerafdruk van certificaat
+Geef de vingerafdruk van het cluster-certificaat en de vingerafdruk van het clientcertificaat dat voor Clusterbeheer machtigingen heeft. De details van het certificaat moeten overeenkomen met een certificaat op de clusterknooppunten.
+
+```powershell
+Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `  
+          -KeepAliveIntervalInSec 10 `  
+          -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `  
+          -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `  
+          -StoreLocation CurrentUser -StoreName My
+```
+
+*ServerCertThumbprint* is de vingerafdruk van het certificaat van de server geïnstalleerd op de clusterknooppunten. *FindValue* de vingerafdruk van het clientcertificaat voor de beheerder.  Als de parameters zijn ingevuld, wordt de opdracht ziet eruit als in het volgende voorbeeld:
+
+```powershell
+Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azure.com:19000 `  
+          -KeepAliveIntervalInSec 10 `  
+          -X509Credential -ServerCertThumbprint A8136758F4AB8962AF2BF3F27921BE1DF67F4326 `  
+          -FindType FindByThumbprint -FindValue 71DE04467C9ED0544D021098BCD44C71E183414E `  
+          -StoreLocation CurrentUser -StoreName My 
 ```
 
 ### <a name="connect-to-a-secure-cluster-using-windows-active-directory"></a>Verbinding maken met een beveiligde cluster met behulp van Windows Active Directory

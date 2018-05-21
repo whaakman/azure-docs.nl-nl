@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
-ms.openlocfilehash: dbd9d01a00522a0a55828284cd6c0e78a26d9102
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: cadd771a516270faf23f18a36f54fa9a1541e6d5
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>Het verzenden van E-mail via SendGrid met Java
 Deze handleiding wordt uitgelegd hoe u algemene programmeertaken met de SendGrid-e-mailservice uitvoert op Azure. De voorbeelden zijn geschreven in Java. De scenario's worden behandeld: **construeren e**, **verzenden van e-mail**, **bijlagen toevoegen**, **met filters**, en **eigenschappen bijwerken**. Zie voor meer informatie over SendGrid en verzenden van e-mail, de [Vervolgstappen](#next-steps) sectie.
@@ -158,7 +158,7 @@ SendGrid biedt extra e-mailfunctionaliteit met behulp van *filters*. Dit zijn de
           {\"enable\":1}}}}");
 
 ## <a name="how-to-update-email-properties"></a>Procedure: e-eigenschappen bijwerken
-Sommige eigenschappen van de e-mail kunnen worden overschreven met **ingesteld * eigenschap*** of toegevoegd met behulp van **toevoegen*eigenschap ***.
+Sommige eigenschappen van de e-mail kunnen worden overschreven met **eigenschap** of toegevoegd met behulp van **eigenschap toevoegen**.
 
 Bijvoorbeeld, om op te geven **ReplyTo** adressen, gebruikt u de volgende:
 

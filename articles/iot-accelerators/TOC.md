@@ -47,48 +47,48 @@
 ### [De oplossingsversneller voor Predictief onderhoud doorlopen](../iot-suite/iot-suite-predictive-walkthrough.md)
 
 ## Verbonden Factory
-### [Wat is Verbonden Factory?](../iot-suite/iot-suite-connected-factory-features.md)
-### [Overzicht van de oplossing voor Verbonden Factory](../iot-suite/iot-suite-connected-factory-overview.md)
-### [Kennismaken met de oplossing voor Verbonden Factory](../iot-suite/iot-suite-connected-factory-sample-walkthrough.md)
+### [Wat is Verbonden Factory?](iot-accelerators-connected-factory-features.md)
+### [Overzicht van de oplossing voor Verbonden Factory](iot-accelerators-connected-factory-overview.md)
+### [Kennismaken met de oplossing voor Verbonden Factory](iot-accelerators-connected-factory-sample-walkthrough.md)
 
 ## Apparaatsimulatie
-### [Apparaatsimulatie implementeren](../iot-suite/iot-suite-device-simulation-deploy.md)
-### [Apparaatsimulatie verkennen](../iot-suite/iot-suite-device-simulation-explore.md)
+### [Apparaatsimulatie implementeren](iot-accelerators-device-simulation-deploy.md)
+### [Apparaatsimulatie verkennen](iot-accelerators-device-simulation-explore.md)
 
 # Handleidingen
 ## Externe bewaking
-### [Geavanceerde bewaking uitvoeren](../iot-suite/iot-suite-remote-monitoring-monitor.md)
+### [Geavanceerde bewaking uitvoeren](iot-accelerators-remote-monitoring-monitor.md)
 ### [Regels gebruik voor het detecteren van problemen](iot-accelerators-remote-monitoring-automate.md)
-### [SIM-gegevens integreren](../iot-suite/iot-suite-remote-monitoring-telefonica-sim.md)
-### [Uw apparaten beheren](../iot-suite/iot-suite-remote-monitoring-manage.md)
-### [Problemen met een apparaat oplossen](../iot-suite/iot-suite-remote-monitoring-maintain.md)
-### [Het schema van het apparaatmodel begrijpen](../iot-suite/iot-suite-remote-monitoring-device-schema.md)
-### [Het gedrag van het apparaatmodel begrijpen](../iot-suite/iot-suite-remote-monitoring-device-behavior.md)
-### [Een nieuw gesimuleerd apparaat maken](../iot-suite/iot-suite-remote-monitoring-test.md)
-### [Visualiseren met Power BI](../iot-suite/iot-suite-integrate-data-powerbi.md)
+### [SIM-gegevens integreren](iot-accelerators-remote-monitoring-telefonica-sim.md)
+### [Uw apparaten beheren](iot-accelerators-remote-monitoring-manage.md)
+### [Problemen met een apparaat oplossen](iot-accelerators-remote-monitoring-maintain.md)
+### [Het schema van het apparaatmodel begrijpen](iot-accelerators-remote-monitoring-device-schema.md)
+### [Het gedrag van het apparaatmodel begrijpen](iot-accelerators-remote-monitoring-device-behavior.md)
+### [Een nieuw gesimuleerd apparaat maken](iot-accelerators-remote-monitoring-test.md)
+### [Visualiseren met Power BI](iot-accelerators-integrate-data-powerbi.md)
 ### [De gebruikersinterface van de oplossing aanpassen](iot-accelerators-remote-monitoring-customize.md)
-### [Een microservice aanpassen en opnieuw implementeren](../iot-suite/iot-suite-microservices-example.md)
+### [Een microservice aanpassen en opnieuw implementeren](iot-accelerators-microservices-example.md)
 ### [Implementeren met behulp van de CLI](iot-accelerators-remote-monitoring-deploy-cli.md)
 ### [Lokaal implementeren](iot-accelerators-remote-monitoring-deploy-local.md)
 ### [Gegevens visualiseren met Time Series Insights](../iot-suite/iot-suite-time-series-insights.md)
-### [Met Data Lake Store integreren](../iot-suite/iot-suite-integrate-data-lake.md)
+### [Met Data Lake Store integreren](iot-accelerators-integrate-data-lake.md)
 ### Een fysiek apparaat verbinden
-#### [C op Windows](../iot-suite/iot-suite-connecting-devices.md)
-#### [C op Linux](../iot-suite/iot-suite-connecting-devices-linux.md)
-#### [Node.js (algemeen)](../iot-suite/iot-suite-connecting-devices-node.md)
-#### [Node.js op Raspberry Pi](../iot-suite/iot-suite-connecting-pi-node.md)
-#### [C op Raspberry Pi](../iot-suite/iot-suite-connecting-pi-c.md)
+#### [C op Windows](iot-accelerators-connecting-devices.md)
+#### [C op Linux](iot-accelerators-connecting-devices-linux.md)
+#### [Node.js (algemeen)](iot-accelerators-connecting-devices-node.md)
+#### [Node.js op Raspberry Pi](iot-accelerators-connecting-pi-node.md)
+#### [C op Raspberry Pi](iot-accelerators-connecting-pi-c.md)
 #### [MX Chip AZ3166 DevKit](../iot-suite/iot-suite-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md)
 
 ### Concepten
-#### [Implementatiegegevens van Externe bewaking](../iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md)
+#### [Implementatiegegevens van Externe bewaking](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 #### [Architectuurkeuzes voor Externe bewaking](iot-accelerators-remote-monitoring-architectural-choices.md)
 
 ## Verbonden Factory
-### [Een gateway implementeren voor Verbonden Factory](../iot-suite/iot-suite-connected-factory-gateway-deployment.md)
-### [Verbonden Factory aanpassen](../iot-suite/iot-suite-connected-factory-customize.md)
+### [Een gateway implementeren voor Verbonden Factory](iot-accelerators-connected-factory-gateway-deployment.md)
+### [Verbonden Factory aanpassen](iot-accelerators-connected-factory-customize.md)
 ### [De OPC-uitgever voor Verbonden Factory gebruiken](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
-### [Verbonden Factory configureren](../iot-suite/iot-suite-connected-factory-configure.md)
+### [Verbonden Factory configureren](iot-accelerators-connected-factory-configure.md)
 ## [Machtigingen op azureiotsuite.com](../iot-suite/iot-suite-permissions.md)
 
 # Naslaginformatie
@@ -118,8 +118,8 @@
 
 # Resources
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
-## [Veelgestelde vragen](../iot-suite/iot-suite-faq.md)
-## [Veelgestelde vragen over Externe bewaking](../iot-suite/iot-suite-faq-rm-v2.md)
-## [Veelgestelde vragen over Verbonden Factory](../iot-suite/iot-suite-faq-cf.md)
+## [Veelgestelde vragen](iot-accelerators-faq.md)
+## [Veelgestelde vragen over Externe bewaking](iot-accelerators-faq-rm-v2.md)
+## [Veelgestelde vragen over Verbonden Factory](iot-accelerators-faq-cf.md)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-suite)
 ## [Leertraject voor IoT-oplossingsversnellers](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)

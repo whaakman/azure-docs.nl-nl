@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: e518799fb4144093e5c3caf0524254a098e4b9cc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3efc351861a7d5b3c02c08b96494e83a3ccb99f6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-machine-learning-model-management-account-api-reference"></a>Naslaginformatie over Azure Machine Learning-Model Management Account API
 
@@ -71,13 +71,13 @@ De model-registratiestap registreert uw Machine Learning-model met de Azure-Mode
 
 | Methode | Aanvraag-URI |
 |------------|------------|
-| VERZENDEN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / modellen 
+| POST |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / modellen 
  |
 ### <a name="description"></a>Beschrijving
 Registreert een model.
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | pad | Azure-abonnement-ID. | Ja | tekenreeks |
 | resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | tekenreeks |
@@ -91,19 +91,19 @@ Registreert een model.
 | Code | Beschrijving | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | OK. De modelregistratie is voltooid. | [Model](#model) |
-| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
+| standaardinstelling | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
 
 ## <a name="query-the-list-of-models-in-an-account"></a>Query uitvoeren op de lijst met modellen in een account
 ### <a name="request"></a>Aanvraag
 | Methode | Aanvraag-URI |
 |------------|------------|
-| TOEVOEGEN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / modellen 
+| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / modellen 
  |
 ### <a name="description"></a>Beschrijving
 De lijst met modellen in een account een query. U kunt de lijst met resultaten op label en naam filteren. Als geen filter wordt doorgegeven, bevat de query alle modellen in het account. De geretourneerde lijst is gepagineerd en het aantal items in elke pagina is een optionele parameter.
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | pad | Azure-abonnement-ID. | Ja | tekenreeks |
 | resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | tekenreeks |
@@ -119,20 +119,20 @@ De lijst met modellen in een account een query. U kunt de lijst met resultaten o
 | Code | Beschrijving | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Geslaagd. | [PaginatedModelList](#paginatedmodellist) |
-| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
+| standaardinstelling | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
 
 ## <a name="get-model-details"></a>Modeldetails van het ophalen
 ### <a name="request"></a>Aanvraag
 | Methode | Aanvraag-URI |
 |------------|------------|
-| TOEVOEGEN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /models/ {id}  
+| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /models/ {id}  
  |
 
 ### <a name="description"></a>Beschrijving
 Een model met id opgehaald
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | pad | Azure-abonnement-ID. | Ja | tekenreeks |
 | resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | tekenreeks |
@@ -145,20 +145,20 @@ Een model met id opgehaald
 | Code | Beschrijving | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Geslaagd. | [Model](#model) |
-| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
+| standaardinstelling | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
 
 ## <a name="register-a-manifest-with-the-registered-model-and-all-dependencies"></a>Een manifest te registreren met het geregistreerde model en alle afhankelijkheden
 
 ### <a name="request"></a>Aanvraag
 | Methode | Aanvraag-URI |
 |------------|------------|
-| VERZENDEN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / manifesten | 
+| POST |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / manifesten | 
 
 ### <a name="description"></a>Beschrijving
 Registreert een manifest met het geregistreerde model en de afhankelijkheden ervan.
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | pad | Azure-abonnement-ID. | Ja | tekenreeks |
 | resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | tekenreeks |
@@ -171,20 +171,20 @@ Registreert een manifest met het geregistreerde model en de afhankelijkheden erv
 | Code | Beschrijving | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Manifest registratie is gelukt. | [Manifest](#manifest) |
-| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
+| standaardinstelling | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
 
 ## <a name="query-the-list-of-manifests-in-an-account"></a>Query uitvoeren op de lijst van de manifesten in een account
 
 ### <a name="request"></a>Aanvraag
 | Methode | Aanvraag-URI |
 |------------|------------|
-| TOEVOEGEN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / manifesten | 
+| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / manifesten | 
 
 ### <a name="description"></a>Beschrijving
 De lijst van de manifesten in een account met een query. U kunt het resultatenlijst filteren op model-ID en naam manifest. Als geen filter wordt doorgegeven, bevat de query de manifesten in het account. De geretourneerde lijst is gepagineerd en het aantal items in elke pagina is een optionele parameter.
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | pad | Azure-abonnement-ID. | Ja | tekenreeks |
 | resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | tekenreeks |
@@ -200,20 +200,20 @@ De lijst van de manifesten in een account met een query. U kunt het resultatenli
 | Code | Beschrijving | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Geslaagd. | [PaginatedManifestList](#paginatedmanifestlist) |
-| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
+| standaardinstelling | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
 
 ## <a name="get-manifest-details"></a>Details van het manifest ophalen
 
 ### <a name="request"></a>Aanvraag
 | Methode | Aanvraag-URI |
 |------------|------------|
-| TOEVOEGEN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /manifests/ {id} | 
+| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /manifests/ {id} | 
 
 ### <a name="description"></a>Beschrijving
 Haalt het manifest van-ID.
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | pad | Azure-abonnement-ID. | Ja | tekenreeks |
 | resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | tekenreeks |
@@ -226,20 +226,20 @@ Haalt het manifest van-ID.
 | Code | Beschrijving | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Geslaagd. | [Manifest](#manifest) |
-| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
+| standaardinstelling | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
 
 ## <a name="create-an-image"></a>Een installatiekopie maken
 
 ### <a name="request"></a>Aanvraag
 | Methode | Aanvraag-URI |
 |------------|------------|
-| VERZENDEN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / installatiekopieën | 
+| POST |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / installatiekopieën | 
 
 ### <a name="description"></a>Beschrijving
 Hiermee maakt u een installatiekopie van het als een Docker-installatiekopie in Azure Container register.
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | pad | Azure-abonnement-ID. | Ja | tekenreeks |
 | resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | tekenreeks |
@@ -252,20 +252,20 @@ Hiermee maakt u een installatiekopie van het als een Docker-installatiekopie in 
 | Code | Beschrijving | Headers | Schema |
 |--------------------|--------------------|--------------------|--------------------|
 | 202 | Asynchrone bewerking locatie-URL. Een GET-aanroep ziet u de status van de installatiekopie van het maken van taak. | Locatie van de bewerking |
-| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
+| standaardinstelling | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
 
 ## <a name="query-the-list-of-images-in-an-account"></a>Query uitvoeren op de lijst met afbeeldingen in een account
 
 ### <a name="request"></a>Aanvraag
 | Methode | Aanvraag-URI |
 |------------|------------|
-| TOEVOEGEN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / installatiekopieën | 
+| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / installatiekopieën | 
 
 ### <a name="description"></a>Beschrijving
 De lijst met afbeeldingen in een account een query. U kunt de lijst met resultaten door de manifest-ID en naam filteren. Als geen filter wordt doorgegeven, bevat de query de afbeeldingen in het account. De geretourneerde lijst is gepagineerd en het aantal items in elke pagina is een optionele parameter.
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | pad | Azure-abonnement-ID. | Ja | tekenreeks |
 | resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | tekenreeks |
@@ -281,20 +281,20 @@ De lijst met afbeeldingen in een account een query. U kunt de lijst met resultat
 | Code | Beschrijving | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Geslaagd. | [PaginatedImageList](#paginatedimagelist) |
-| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
+| standaardinstelling | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
 
 ## <a name="get-image-details"></a>Details van de installatiekopie ophalen
 
 ### <a name="request"></a>Aanvraag
 | Methode | Aanvraag-URI |
 |------------|------------|
-| TOEVOEGEN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /images/ {id} | 
+| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /images/ {id} | 
 
 ### <a name="description"></a>Beschrijving
 Een installatiekopie met id opgehaald
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | pad | Azure-abonnement-ID. | Ja | tekenreeks |
 | resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | tekenreeks |
@@ -307,7 +307,7 @@ Een installatiekopie met id opgehaald
 | Code | Beschrijving | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Geslaagd. | [Installatiekopie](#image) |
-| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
+| standaardinstelling | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
 
 
 ## <a name="create-a-service"></a>Een service maken
@@ -315,13 +315,13 @@ Een installatiekopie met id opgehaald
 ### <a name="request"></a>Aanvraag
 | Methode | Aanvraag-URI |
 |------------|------------|
-| VERZENDEN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / services | 
+| POST |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / services | 
 
 ### <a name="description"></a>Beschrijving
 Maakt een service van een installatiekopie.
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | pad | Azure-abonnement-ID. | Ja | tekenreeks |
 | resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | tekenreeks |
@@ -335,20 +335,20 @@ Maakt een service van een installatiekopie.
 |--------------------|--------------------|--------------------|--------------------|
 | 202 | Asynchrone bewerking locatie-URL. Een GET-aanroep ziet u de status van de taak service maken. | Locatie van de bewerking |
 | 409 | Er bestaat al een service met de opgegeven naam. |
-| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
+| standaardinstelling | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
 
 ## <a name="query-the-list-of-services-in-an-account"></a>Query uitvoeren op de lijst met services in een account
 
 ### <a name="request"></a>Aanvraag
 | Methode | Aanvraag-URI |
 |------------|------------|
-| TOEVOEGEN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / services | 
+| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / services | 
 
 ### <a name="description"></a>Beschrijving
 De lijst met services in een account een query. U kunt het resultatenlijst filteren op naam-/ ID model, manifest naam-ID, afbeeldings-ID, servicenaam of Machine Learning compute resource-ID. Als geen filter wordt doorgegeven, bevat de query alle services in het account. De geretourneerde lijst is gepagineerd en het aantal items in elke pagina is een optionele parameter.
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | pad | Azure-abonnement-ID. | Ja | tekenreeks |
 | resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | tekenreeks |
@@ -369,20 +369,20 @@ De lijst met services in een account een query. U kunt het resultatenlijst filte
 | Code | Beschrijving | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Geslaagd. | [PaginatedServiceList](#paginatedservicelist) |
-| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
+| standaardinstelling | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse) |
 
 ## <a name="get-service-details"></a>Servicedetails van ophalen
 
 ### <a name="request"></a>Aanvraag
 | Methode | Aanvraag-URI |
 |------------|------------|
-| TOEVOEGEN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} | 
+| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} | 
 
 ### <a name="description"></a>Beschrijving
 Een service met id opgehaald
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | pad | Azure-abonnement-ID. | Ja | tekenreeks |
 | resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | tekenreeks |
@@ -395,20 +395,20 @@ Een service met id opgehaald
 | Code | Beschrijving | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Geslaagd. | [ServiceResponse](#serviceresponse) |
-| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse)
+| standaardinstelling | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse)
 
 ## <a name="update-a-service"></a>Een service bijwerken
 
 ### <a name="request"></a>Aanvraag
 | Methode | Aanvraag-URI |
 |------------|------------|
-| PLAATSEN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} | 
+| PUT |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} | 
 
 ### <a name="description"></a>Beschrijving
 Een bestaande service-updates.
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | pad | Azure-abonnement-ID. | Ja | tekenreeks |
 | resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | tekenreeks |
@@ -423,20 +423,20 @@ Een bestaande service-updates.
 |--------------------|--------------------|--------------------|--------------------|
 | 202 | Asynchrone bewerking locatie-URL. Een GET-aanroep ziet u de status van de taak van de service-update. | Locatie van de bewerking |
 | 404 | De service met de opgegeven ID bestaat niet. |
-| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse)
+| standaardinstelling | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse)
 
 ## <a name="delete-a-service"></a>Een service verwijderen
 
 ### <a name="request"></a>Aanvraag
 | Methode | Aanvraag-URI |
 |------------|------------|
-| VERWIJDEREN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} | 
+| DELETE |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} | 
 
 ### <a name="description"></a>Beschrijving
 Hiermee verwijdert u een service.
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | pad | Azure-abonnement-ID. | Ja | tekenreeks |
 | resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | tekenreeks |
@@ -450,20 +450,20 @@ Hiermee verwijdert u een service.
 |--------------------|--------------------|--------------------|
 | 200 | Geslaagd. |  |
 | 204 | De service met de opgegeven ID bestaat niet. |
-| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse)
+| standaardinstelling | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse)
 
 ## <a name="get-service-keys"></a>Service-sleutels ophalen
 
 ### <a name="request"></a>Aanvraag
 | Methode | Aanvraag-URI |
 |------------|------------|
-| TOEVOEGEN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} / sleutels | 
+| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} / sleutels | 
 
 ### <a name="description"></a>Beschrijving
 Sleutels service opgehaald.
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | pad | Azure-abonnement-ID. | Ja | tekenreeks |
 | resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | tekenreeks |
@@ -476,20 +476,20 @@ Sleutels service opgehaald.
 | Code | Beschrijving | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Geslaagd. | [AuthKeys](#authkeys)
-| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse)
+| standaardinstelling | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse)
 
 ## <a name="regenerate-service-keys"></a>Opnieuw genereren van sleutels service
 
 ### <a name="request"></a>Aanvraag
 | Methode | Aanvraag-URI |
 |------------|------------|
-| VERZENDEN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} / sleutels | 
+| POST |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /services/ {id} / regenerateKeys | 
 
 ### <a name="description"></a>Beschrijving
 Service sleutels genereert en vrijgegeven, gaan ze.
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | pad | Azure-abonnement-ID. | Ja | tekenreeks |
 | resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | tekenreeks |
@@ -503,20 +503,20 @@ Service sleutels genereert en vrijgegeven, gaan ze.
 | Code | Beschrijving | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Geslaagd. | [AuthKeys](#authkeys)
-| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse)
+| standaardinstelling | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse)
 
 ## <a name="query-the-list-of-deployments-in-an-account"></a>Query uitvoeren op de lijst met implementaties in een account
 
 ### <a name="request"></a>Aanvraag
 | Methode | Aanvraag-URI |
 |------------|------------|
-| TOEVOEGEN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / implementaties | 
+| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} / implementaties | 
 
 ### <a name="description"></a>Beschrijving
 De lijst met implementaties in een account een query. U kunt de lijst met resultaten door de service-ID, die alleen de implementaties die zijn gemaakt voor de desbetreffende service retourneert filteren. Als geen filter wordt doorgegeven, bevat de query alle implementaties in het account.
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | pad | Azure-abonnement-ID. | Ja | tekenreeks |
 | resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | tekenreeks |
@@ -529,20 +529,20 @@ De lijst met implementaties in een account een query. U kunt de lijst met result
 | Code | Beschrijving | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Geslaagd. | [DeploymentList](#deploymentlist) |
-| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse)
+| standaardinstelling | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse)
 
 ## <a name="get-deployment-details"></a>Implementatiedetails ophalen
 
 ### <a name="request"></a>Aanvraag
 | Methode | Aanvraag-URI |
 |------------|------------|
-| TOEVOEGEN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /deployments/ {id} | 
+| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /deployments/ {id} | 
 
 ### <a name="description"></a>Beschrijving
 Opgehaald van de implementatie van-ID.
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | pad | Azure-abonnement-ID. | Ja | tekenreeks |
 | resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | tekenreeks |
@@ -555,20 +555,20 @@ Opgehaald van de implementatie van-ID.
 | Code | Beschrijving | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Geslaagd. | [Implementatie](#deployment) |
-| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse)
+| standaardinstelling | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse)
 
 ## <a name="get-operation-details"></a>Bewerkingsdetails van de ophalen
 
 ### <a name="request"></a>Aanvraag
 | Methode | Aanvraag-URI |
 |------------|------------|
-| TOEVOEGEN |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /operations/ {id} | 
+| GET |  /API/subscriptions / {subscriptionId} /resourceGroups/ {resourceGroupName} /accounts/ {accountName} /operations/ {id} | 
 
 ### <a name="description"></a>Beschrijving
 Met deze eigenschap wordt de status van de asynchrone bewerking door de bewerking-ID.
 
 ### <a name="parameters"></a>Parameters
-| Naam | Zich in | Beschrijving | Vereist | Schema
+| Naam | In | Beschrijving | Vereist | Schema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | pad | Azure-abonnement-ID. | Ja | tekenreeks |
 | resourceGroupName | pad | Naam van de resourcegroep waarin de Model-Management-account zich bevindt. | Ja | tekenreeks |
@@ -581,7 +581,7 @@ Met deze eigenschap wordt de status van de asynchrone bewerking door de bewerkin
 | Code | Beschrijving | Schema |
 |--------------------|--------------------|--------------------|
 | 200 | Geslaagd. | [OperationStatus](#asyncoperationstatus) |
-| standaard | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse)
+| standaardinstelling | Foutbericht waarin wordt beschreven waarom de bewerking is mislukt. | [ErrorResponse](#errorresponse)
 
 
 
