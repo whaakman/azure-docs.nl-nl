@@ -9,18 +9,21 @@ ms.devlang: rest-api
 ms.topic: reference
 ms.date: 04/18/2018
 ms.author: nateko
-ms.openlocfilehash: 8eae54c912711a11c015737903b6898b98fd5159
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e5cd7fcd0c853f03dbafb4d95b8459dcc83aecdf
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-search-service-rest-api-version-2016-09-01-preview"></a>Azure Search Service REST-API: 2016-versie-09-01-Preview
-Dit artikel is de documentatie bij `api-version=2016-09-01-Preview`. Deze preview breidt de huidige versie van de algemeen beschikbaar [api-version = 2016-09-01](https://docs.microsoft.com/rest/api/searchservice), door de volgende experimentele functies:
+Dit artikel bevat een overzicht van de preview-functies `api-version=2016-09-01-Preview`. Deze preview breidt de vorige versie van de algemeen beschikbaar [api-version = 2016-09-01](https://docs.microsoft.com/rest/api/searchservice), door de volgende experimentele functies:
 
-* [`moreLikeThis` queryparameter](search-more-like-this.md) om documenten die relevant voor een bepaald document zijn te vinden.
+* [`moreLikeThis` queryparameter](search-more-like-this.md) om documenten die relevant voor een bepaald document zijn te vinden. Deze functie is al in de eerdere previews. Als u deze API met een eerdere api-versie bellen, kunt u blijven gebruiken die versie.
 
-Zorg ervoor dat voor het doel van de preview-API-versie `api-version=2016-09-01-Preview` om te proberen deze experimentele functies. Het volgende voorbeeld ziet u hoe de preview-api-versie is opgegeven bij het maken van een meer achtige deze query.
+
+## <a name="how-to-call-a-preview-api"></a>Het aanroepen van een preview-API
+
+Het volgende voorbeeld ziet u hoe de preview-api-versie is opgegeven bij het maken van een meer achtige deze query.
 
     GET https://[service name].search.windows.net/indexes/[index name]/docs?moreLikeThis=a1&api-version=2016-09-01-Preview
 

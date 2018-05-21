@@ -5,7 +5,7 @@ services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: terrylan
-ms.openlocfilehash: 2cb4a1c944d6893ca7913eef4e93620059f2a839
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 72070f46309adb526901192752fe421a3846398b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Aanbevelingen voor beveiliging in Azure Security Center beheren
 Dit document begeleidt u bij het gebruik van de aanbevelingen in Azure Security Center voor hulp bij het beveiligen van uw Azure-resources.
@@ -39,7 +39,7 @@ In [beveiligingsbeleid instellen in Azure Security Center](security-center-polic
 * Schakel gegevensverzameling.
 * Kies welke aanbevelingen om te zien als onderdeel van uw beveiligingsbeleid.
 
-Huidige beleid aanbevelingen center rond systeemupdates, basislijnregels, antimalwareprogramma's [netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md) op subnetten en netwerkinterfaces, SQL database auditing transparent data encryption voor SQL-database en web application firewalls.  [Beveiligingsbeleid instellen](security-center-policies.md) bevat een beschrijving van elke optie aanbeveling.
+Huidige beleid aanbevelingen center rond systeemupdates, basislijnregels, antimalwareprogramma's [netwerkbeveiligingsgroepen](../virtual-network/security-overview.md) op subnetten en netwerkinterfaces, SQL database auditing, transparent data encryption voor SQL-database, en web application firewalls.  [Beveiligingsbeleid instellen](security-center-policies.md) bevat een beschrijving van elke optie aanbeveling.
 
 ### <a name="monitor-recommendations"></a>Monitor aanbevelingen
 Nadat er een beveiligingsbeleid is ingesteld, wordt met Security Center de beveiligingsstatus van de Azure-resources geanalyseerd om potentiële beveiligingsproblemen op te sporen. De **aanbevelingen** tegel onder **overzicht** kunt u het totale aantal geïdentificeerd door Security Center aanbevelingen weten.
@@ -75,7 +75,7 @@ Gebruik de onderstaande tabel als referentie om te begrijpen van de beschikbare 
 | [Gegevensverzameling voor abonnementen inschakelen](security-center-enable-data-collection.md) |Raadt aan dat u het verzamelen van gegevens in het beveiligingsbeleid voor elk van uw abonnementen en alle virtuele Azure-machines (VM's) en niet-Azure computers inschakelen. |
 | [Beveiligingsconfiguraties herstellen](security-center-remediate-os-vulnerabilities.md) |Raadt aan dat u uw besturingssysteemconfiguraties met de aanbevolen configuratie beveiligingsregels, bijvoorbeeld uitlijnen, niet toestaan dat wachtwoorden worden opgeslagen. |
 | [Systeemupdates toepassen](security-center-apply-system-updates.md) |Raadt aan dat u ontbrekende system beveiligingsupdates en essentiële updates op uw Windows- en Linux-machines en computers implementeren. |
-| [Toepassen van een Just-In-Time netwerk toegangsbeheer](security-center-just-in-time.md) | Adviseert toe te passen alleen bij het VM-time-toegang. De just-in tijd functie in preview is en beschikbaar zijn op de prijscategorie Standard van Security Center. Zie [prijzen](security-center-pricing.md) voor meer informatie over Security Center de prijscategorie. |
+| [Toepassen van een Just-In-Time netwerk toegangsbeheer](security-center-just-in-time.md) | Adviseert toe te passen alleen bij het VM-time-toegang. De just-in tijd functie in preview is en beschikbaar zijn op de prijscategorie Standard van Security Center. Bekijk de pagina [Prijzen](security-center-pricing.md) voor meer informatie over de tariefopties van Security Center. |
 | [Opnieuw opstarten na systeemupdates](security-center-apply-system-updates.md#reboot-after-system-updates) |Hiermee wordt aanbevolen om een VM opnieuw op te starten om het proces van het toepassen van systeemupdates te voltooien. |
 | [Een firewall voor webtoepassingen toevoegen](security-center-add-web-application-firewall.md) |Raadt aan dat u een web application firewall (WAF) voor web-eindpunten implementeert. Een WAF aanbeveling wordt voor een openbare internetgerichte IP (exemplaar niveau IP- of Load Balanced IP) met een gekoppelde netwerkbeveiligingsgroep met poorten voor inkomend web openen (80,443) weergegeven. </br>Security Center raadt aan dat u een WAF om te helpen beschermen tegen aanvallen die gericht is op uw webtoepassingen op virtuele machines en op App Service-omgeving inrichten. Een as-omgeving (App Service omgeving) is een [Premium](https://azure.microsoft.com/pricing/details/app-service/) service-plan optie van Azure App Service die een volledig geïsoleerde en toegewezen omgeving biedt voor het veilig uitvoeren van Azure App Service-apps. Zie voor meer informatie over het as-omgeving, de [documentatie van App Service-omgeving](../app-service/environment/intro.md).</br>U kunt meerdere webtoepassingen in Security Center beveiligen door deze toepassingen toevoegen aan uw bestaande WAF-implementaties. |
 | [Toepassingsbeveiliging voltooien](security-center-add-web-application-firewall.md#finalize-application-protection) |Voor het voltooien van de configuratie van een WAF moet verkeer worden gerouteerd naar het toestel WAF. Deze aanbeveling te volgen, voltooit de benodigde installatiebestanden wijzigingen. |

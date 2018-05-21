@@ -5,7 +5,7 @@ author: muralikk
 manager: syadav
 editor: syadav
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 8b886e83-6148-4149-9d0f-5d48ec822475
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: d373d2a0e601f2796719fc5efb8761f276ab24d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a80d2169f346238f997c727f0e9d82666897b608
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Maken van een import-taak voor de service Azure Import/Export
 
@@ -62,7 +62,7 @@ Voorbereiden van de schijf omvat:
 
 ## <a name="obtaining-your-shipping-location"></a>Het verkrijgen van de locatie van uw back-ups
 
-Voordat u een import-taak maakt, moet u een back-upfunctie locatienaam en adres ophalen door het aanroepen van de [lijst locaties](/rest/api/storageimportexport/listlocations) bewerking. `List Locations`retourneert een lijst met locaties en hun e-mailadressen. U kunt een locatie in de geretourneerde lijst selecteren en de harde schijven naar dit adres verzenden. U kunt ook de `Get Location` bewerking rechtstreeks verkrijgen van het adres van de back-upfunctie voor een specifieke locatie.
+Voordat u een import-taak maakt, moet u een back-upfunctie locatienaam en adres ophalen door het aanroepen van de [lijst locaties](/rest/api/storageimportexport/listlocations) bewerking. `List Locations` retourneert een lijst met locaties en hun e-mailadressen. U kunt een locatie in de geretourneerde lijst selecteren en de harde schijven naar dit adres verzenden. U kunt ook de `Get Location` bewerking rechtstreeks verkrijgen van het adres van de back-upfunctie voor een specifieke locatie.
 
  Volg onderstaande stappen voor het verkrijgen van de locatie van de back-ups:
 
@@ -77,7 +77,7 @@ Aanroepen voor het maken van de import-taak, de [taak plaatsen](/rest/api/storag
 
 -   Een naam voor de taak.
 
--   Naam van het opslagaccount.
+-   De naam van het opslagaccount.
 
 -   De back-upfunctie locatienaam, uit de vorige stap hebt verkregen.
 
@@ -103,6 +103,8 @@ U moet uw schijven naar het adres dat u hebt ontvangen van de vorige stap verzen
 
 ## <a name="updating-the-import-job-with-your-shipping-information"></a>De import-taak wordt bijgewerkt met uw back-upfunctie informatie
 Nadat u het volgnummer hebt, roept u de [taakeigenschappen bijwerken](/api/storageimportexport/jobs#Jobs_Update) bewerking voor het bijwerken van de naam van de provider, het volgnummer voor de taak en nummer van de provider voor back-ups van return. Desgewenst kunt u het aantal stations en ook de datum van de back-upfunctie.
+
+[!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

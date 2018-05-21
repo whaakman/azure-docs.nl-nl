@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: d0443128064332a37c95d5c39cd73b759a002cca
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a908c242b5d41d5cd61d8775bdbe53f3cdddd3ec
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="getting-started-with-microsoft-azure-security"></a>Aan de slag met de beveiliging in Microsoft Azure
 
@@ -136,7 +136,7 @@ U kunt uw virtuele machines naar plaatsen [virtuele netwerken van Azure](https:/
 
 U kunt de volgende Azure Virtual Network-technologieën om beveiligde communicatie in het virtuele netwerk te gebruiken:
 
-* [**Netwerkbeveiligingsgroepen (nsg's)**](../virtual-network/virtual-networks-nsg.md). U kunt een NSG aan verkeer voor beheer op een of meer exemplaren van virtuele machine gebruiken in uw virtuele netwerk. Een netwerkbeveiligingsgroep bevat toegangsbeheerregels waarmee verkeer wordt toegestaan of geweigerd op basis van verkeersrichting, protocol, bronadres en poort en doeladres en poort.
+* [**Netwerkbeveiligingsgroepen (nsg's)**](../virtual-network/security-overview.md). U kunt een NSG aan verkeer voor beheer op een of meer exemplaren van virtuele machine gebruiken in uw virtuele netwerk. Een netwerkbeveiligingsgroep bevat toegangsbeheerregels waarmee verkeer wordt toegestaan of geweigerd op basis van verkeersrichting, protocol, bronadres en poort en doeladres en poort.
 * [**Gebruiker gedefinieerde routering**](../virtual-network/virtual-networks-udr-overview.md). U kunt bepalen de routering van pakketten via een virtueel apparaat door maken gebruiker gedefinieerde routes die de volgende hop voor pakketten naar een specifiek subnet naar een virtueel netwerkapparaat beveiliging opgeeft.
 * [**Doorsturen via IP**](../virtual-network/virtual-networks-udr-overview.md). Een apparaat voor de beveiliging van een virtueel netwerk moet in staat zijn om binnenkomend verkeer te ontvangen dat niet aan dat netwerk zelf is geadresseerd. Als u een virtuele machine voor het ontvangen verkeer dat is geadresseerd aan andere bestemmingen, schakelt u doorsturen via IP voor de virtuele machine.
 * [**Geforceerde tunneling**](../vpn-gateway/vpn-gateway-about-forced-tunneling.md). Geforceerde tunneling kunt u omleiden of alle internetverkeer gegenereerd door uw virtuele machines in een virtueel netwerk ' force' terug naar uw on-premises locatie via een site-naar-site VPN-tunnel voor inspectie en controle

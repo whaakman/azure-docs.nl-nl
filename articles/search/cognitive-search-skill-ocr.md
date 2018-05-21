@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 84988c815759a726abe93d931f73c284d771a5ba
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 48253b68a329d17f213369e8e4ee2e06bdf17992
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="ocr-cognitive-skill"></a>OCR cognitieve kwalificatie
 
@@ -50,7 +50,7 @@ Parameters zijn hoofdlettergevoelig.
 ## <a name="skill-outputs"></a>Kwalificatie uitvoer
 | Naam voor uitvoer     | Beschrijving                   |
 |---------------|-------------------------------|
-| Tekst          | De tekst zonder opmaak is geëxtraheerd uit de afbeelding.   |
+| tekst          | De tekst zonder opmaak is geëxtraheerd uit de afbeelding.   |
 | layoutText    | Complex type dat beschrijft de uitgepakte tekst, evenals de locatie waar de tekst is gevonden.|
 
 
@@ -185,16 +185,14 @@ Het volgende voorbeeld vaardigheden maakt een *merged_text* veld bevat de teksti
 Het bovenstaande vaardigheden voorbeeld wordt ervan uitgegaan dat een veld genormaliseerd installatiekopieën bestaat. Als dit veld worden gegenereerd, stel de *imageAction* configuratie in de definitie van de indexeerfunctie *generateNormalizedImages* zoals hieronder wordt weergegeven:
 
 ```json
-{
-  //...rest of your indexer definition goes here ...
-  "parameters":
-  {
-    "configuration": 
-    {
-        "dataToExtract": "contentAndMetadata",
-        "imageAction": "generateNormalizedImages"
-        }
-  }
+{  
+   //...rest of your indexer definition goes here ... 
+  "parameters":{  
+      "configuration":{  
+         "dataToExtract":"contentAndMetadata",
+         "imageAction":"generateNormalizedImages"
+      }
+   }
 }
 ```
 
@@ -202,3 +200,4 @@ Het bovenstaande vaardigheden voorbeeld wordt ervan uitgegaan dat een veld genor
 + [Vooraf gedefinieerde vaardigheden](cognitive-search-predefined-skills.md)
 + [TextMerger kwalificatie](cognitive-search-skill-textmerger.md)
 + [Het definiëren van een vaardigheden](cognitive-search-defining-skillset.md)
++ [Maak indexeerfunctie (REST)](ref-create-indexer.md)
