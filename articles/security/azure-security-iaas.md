@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 2498c8b1acff79d50f34c703af77c555a00fd1a2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1a6ff01274c4a47730ffe45275aed9d122994260
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Aanbevolen beveiligingsprocedures voor IaaS-workloads in Azure
 
@@ -106,7 +106,7 @@ Kan zonder extra kosten is gekoppeld aan het gebruik van DevTest Labs. Het maken
 
 Labs of productiesystemen in Azure hosten, betekent dat uw systemen moeten toegankelijk zijn vanaf Internet. Standaard een nieuwe Windows virtuele machine heeft de RDP-poort die toegankelijk is vanaf het Internet en een virtuele Linux-machine heeft de SSH-poort openen. Doen om met limiet blootgesteld eindpunten is nodig om te voorkomen dat onbevoegde toegang.
 
-Technologieën in Azure kunt u de toegang tot deze administratieve eindpunten te beperken. In Azure, kunt u [netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md) (nsg's). Wanneer u Azure Resource Manager voor implementatie gebruikt, beperkt nsg's de toegang van alle netwerken tot alleen de eindpunten voor beheer (RDP of SSH). Als u nsg's nadenkt, beschouw router ACL's. U kunt ze beheren de netwerkcommunicatie tussen verschillende segmenten van uw Azure-netwerken. Dit is vergelijkbaar met het maken van netwerken in het perimeternetwerk of andere geïsoleerde netwerken. Ze doen het verkeer niet controleren, maar ze helpen bij netwerksegmentering.
+Technologieën in Azure kunt u de toegang tot deze administratieve eindpunten te beperken. In Azure, kunt u [netwerkbeveiligingsgroepen](../virtual-network/security-overview.md) (nsg's). Wanneer u Azure Resource Manager voor implementatie gebruikt, beperkt nsg's de toegang van alle netwerken tot alleen de eindpunten voor beheer (RDP of SSH). Als u nsg's nadenkt, beschouw router ACL's. U kunt ze beheren de netwerkcommunicatie tussen verschillende segmenten van uw Azure-netwerken. Dit is vergelijkbaar met het maken van netwerken in het perimeternetwerk of andere geïsoleerde netwerken. Ze doen het verkeer niet controleren, maar ze helpen bij netwerksegmentering.
 
 
 In Azure, configureert u een [site-naar-site VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) van uw on-premises netwerk. Een site-naar-site VPN breidt uw on-premises netwerk naar de cloud. Hierdoor kunt u een andere u NSGs, omdat u kunt ook het nsg's niet om toegang te verlenen vanaf ergens anders dan het lokale netwerk wijzigen. Vervolgens kunt u vereisen dat het beheer wordt uitgevoerd door de eerste verbinding te maken met het Azure-netwerk via VPN.

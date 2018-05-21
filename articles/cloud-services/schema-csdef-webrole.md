@@ -2,7 +2,7 @@
 title: Azure Cloud Services-naam Def. WebRole Schema | Microsoft Docs
 ms.custom: ''
 ms.date: 04/14/2015
-ms.prod: azure
+services: cloud-services
 ms.reviewer: ''
 ms.service: cloud-services
 ms.suite: ''
@@ -13,11 +13,11 @@ caps.latest.revision: 60
 author: thraka
 ms.author: adegeo
 manager: timlt
-ms.openlocfilehash: b2873f61dcab9a14089949f27f40ca5bedaf14ee
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6db3edef937dc0b5cdd805d0045897e02b985e7b
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-cloud-services-definition-webrole-schema"></a>Azure Cloud Services-definitie WebRole Schema
 De Azure-web-rol is een functie die is aangepast voor het programmeren van web application ondersteund door IIS 7, zoals ASP.NET, PHP, Windows Communication Foundation en FastCGI.
@@ -119,7 +119,7 @@ Het servicedefinitiebestand bevat deze elementen, uitgebreid beschreven in de vo
 
 [Certificaten](#Certificates)
 
-[Certificate](#Certificate)
+[Certificaat](#Certificate)
 
 [Invoer](#Imports)
 
@@ -135,7 +135,7 @@ Het servicedefinitiebestand bevat deze elementen, uitgebreid beschreven in de vo
 
 [NetFxEntryPoint](#NetFxEntryPoint)
 
-[Sites](#Sites)
+[sites](#Sites)
 
 [Site](#Site)
 
@@ -209,7 +209,7 @@ Invoer- en interne eindpunten worden afzonderlijk toegewezen. Een service kan ee
 > [!NOTE]
 >  Elke rol geïmplementeerd vereist één exemplaar per rol. De standaardwaarde voor een abonnement ingericht is beperkt tot 20 kernen en dus is beperkt tot 20 exemplaren van een rol. Als uw toepassing meer exemplaren vereist dan is standaard ingericht Zie [facturering, beheer van abonnementen en Quota ondersteuning](https://azure.microsoft.com/support/options/) voor meer informatie over het verhogen van uw quotum.
 
-##  <a name="InputEndpoint"></a> InputEndpoint  
+##  <a name="InputEndpoint"></a> Invoereindpunt  
 De `InputEndpoint` element wordt een extern eindpunt naar een Webrol beschreven.
 
 U kunt meerdere eindpunten die deel uitmaken van een combinatie van HTTP, HTTPS, UDP en TCP-eindpunten definiëren. U kunt een ander poortnummer dat u voor een invoereindpunt kiest opgeven, maar de poortnummers die is opgegeven voor elke rol in de service moeten uniek zijn. Bijvoorbeeld, als u opgeeft dat een Webrol poort 80 voor HTTP en poort 443 voor HTTPS gebruikmaakt, kan vervolgens u een tweede Webrol poort 8080 voor HTTP en poort 8043 gebruikt voor HTTPS.
@@ -362,7 +362,7 @@ De volgende tabel beschrijft de kenmerken van de `NetFxEntryPoint` element.
 
 | Kenmerk | Type | Beschrijving |  
 | --------- | ---- | ----------- |  
-|assemblyName|tekenreeks|Vereist. Het pad en de naam van de assembly met het toegangspunt. Het pad is ten opzichte van de map  **\\%ROLEROOT%\Approot** (Geef geen  **\\%ROLEROOT%\Approot** in `commandLine`, wordt ervan uitgegaan). **% ROLEROOT %** een omgevingsvariabele blijft door Azure en de locatie van de basismap voor uw rol vertegenwoordigt. De  **\\%ROLEROOT%\Approot** map vertegenwoordigt de toepassingsmap voor uw rol.<br /><br /> Voor rollen HWC het pad is altijd relatief de  **\\%ROLEROOT%\Approot\bin** map.<br /><br /> Voor volledige IIS en IIS Express web-rollen, als de assembly kan niet worden gevonden relatief  **\\%ROLEROOT%\Approot** map, de  **\\%ROLEROOT%\Approot\bin** wordt gezocht.<br /><br /> Deze terugvallen gedrag voor volledige IIS is niet aanbevolen best practice en mogelijk verwijderd uit toekomstige versies.|  
+|AssemblyName|tekenreeks|Vereist. Het pad en de naam van de assembly met het toegangspunt. Het pad is ten opzichte van de map  **\\%ROLEROOT%\Approot** (Geef geen  **\\%ROLEROOT%\Approot** in `commandLine`, wordt ervan uitgegaan). **% ROLEROOT %** een omgevingsvariabele blijft door Azure en de locatie van de basismap voor uw rol vertegenwoordigt. De  **\\%ROLEROOT%\Approot** map vertegenwoordigt de toepassingsmap voor uw rol.<br /><br /> Voor rollen HWC het pad is altijd relatief de  **\\%ROLEROOT%\Approot\bin** map.<br /><br /> Voor volledige IIS en IIS Express web-rollen, als de assembly kan niet worden gevonden relatief  **\\%ROLEROOT%\Approot** map, de  **\\%ROLEROOT%\Approot\bin** wordt gezocht.<br /><br /> Deze terugvallen gedrag voor volledige IIS is niet aanbevolen best practice en mogelijk verwijderd uit toekomstige versies.|  
 |targetFrameworkVersion|tekenreeks|Vereist. De versie van .NET framework waarop de assembly is gebouwd. Bijvoorbeeld `targetFrameworkVersion="v4.0"`.|  
 
 ##  <a name="Sites"></a> sites  

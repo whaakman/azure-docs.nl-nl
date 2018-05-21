@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2018
 ms.author: kumud
-ms.openlocfilehash: 5cff443ac3bbd89a2245e7adb21458ecc62fd494
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 14dc28bdca9b1c3cfa78c8120a68f7e2a16fbea1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="outbound-connections-in-azure"></a>Uitgaande verbindingen in Azure
 
@@ -235,9 +235,9 @@ Met behulp van de opdracht nslookup, kunt u een DNS-query voor de naam myip.open
     nslookup myip.opendns.com resolver1.opendns.com
 
 ## <a name="preventoutbound"></a>Zo wordt voorkomen dat uitgaande verbinding
-Soms is het ongewenste voor een virtuele machine moet worden toegestaan voor het maken van een uitgaande stroom. Mogelijk is er een vereiste voor het beheren van welke doelen kunnen worden bereikt met uitgaande stromen of welke bestemmingen inkomende stromen kunnen beginnen. In dit geval kunt u [netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md) voor het beheren van de doelen die de virtuele machine kan bereiken. U kunt nsg's ook gebruiken om te beheren welke openbare bestemming inkomende stromen kan initiëren. 
+Soms is het ongewenste voor een virtuele machine moet worden toegestaan voor het maken van een uitgaande stroom. Mogelijk is er een vereiste voor het beheren van welke doelen kunnen worden bereikt met uitgaande stromen of welke bestemmingen inkomende stromen kunnen beginnen. In dit geval kunt u [netwerkbeveiligingsgroepen](../virtual-network/security-overview.md) voor het beheren van de doelen die de virtuele machine kan bereiken. U kunt nsg's ook gebruiken om te beheren welke openbare bestemming inkomende stromen kan initiëren.
 
-Wanneer u een NSG aan een VM taakverdeling toepast, moet u aandacht schenken aan de [standaard labels](../virtual-network/virtual-networks-nsg.md#default-tags) en [regels standaard](../virtual-network/virtual-networks-nsg.md#default-rules). U moet ervoor zorgen dat de virtuele machine van Azure Load Balancer health test aanvragen kan ontvangen. 
+Wanneer u een NSG aan een VM taakverdeling toepast, moet u aandacht schenken aan de [service labels](../virtual-network/security-overview.md#service-tags) en [beveiligingsregels standaard](../virtual-network/security-overview.md#default-security-rules). U moet ervoor zorgen dat de virtuele machine van Azure Load Balancer health test aanvragen kan ontvangen. 
 
 Als een NSG health test aanvragen van het label van de standaard AZURE_LOADBALANCER blokkeert, uw VM health test mislukt en de virtuele machine niet actief is gemarkeerd. Load Balancer reageert nieuwe stromen verzenden naar die virtuele machine.
 
@@ -249,5 +249,5 @@ Als een NSG health test aanvragen van het label van de standaard AZURE_LOADBALAN
 
 - Meer informatie over [Load Balancer](load-balancer-overview.md).
 - Meer informatie over [Standard Load Balancer](load-balancer-standard-overview.md).
-- Meer informatie over [netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md).
+- Meer informatie over [netwerkbeveiligingsgroepen](../virtual-network/security-overview.md).
 - Informatie over een aantal van de andere sleutel [netwerkmogelijkheden](../networking/networking-overview.md) in Azure.
