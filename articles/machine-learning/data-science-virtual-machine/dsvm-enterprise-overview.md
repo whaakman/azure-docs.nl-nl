@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 911d6484421cc9fddad0530bf8d9ab4f01d48bf8
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 6a755ef4d933046377a6a25be76655b44f4bf508
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Gegevens wetenschappelijke virtuele Machine op basis van Team Analytics en AI-omgeving 
 De [gegevens wetenschappelijke virtuele Machine](overview.md) (DSVM) biedt een uitgebreide omgeving op de Azure-Cloud met vooraf gemaakte software voor analyses AI en gegevens. Traditioneel de DSVM is gebruikt als afzonderlijke analytics bureaublad en afzonderlijke gegevenswetenschappers productiviteit met deze gedeelde begrip van hun omgeving vooraf samengestelde analytics krijgen. Als grote analytics teams hun gegevenswetenschappers en ontwikkelaars AI hun omgeving analytics plannen, een van de terugkerende thema's is voor een gedeelde analytics ontwikkeling en experimenteren infrastructuur die wordt beheerd in overeenstemming met de IT-onderneming beleid die ook kunt u samenwerking en consistentie in de hele gegevenswetenschap / analytics teams. Een gedeelde infrastructuur kan ook IT beter gebruikmaken van de omgeving analytics. De gegevens op basis van een team wetenschap / analytics infrastructuur wordt ook wel aangeduid door sommige organisaties als 'Analytics Sandbox' waarmee de gegevenswetenschappers tot snel inzicht in gegevens, experimenten uitvoeren, hypothese valideren, voorspellende modellen maken op een veilige manier zonder enige impact op de productieomgeving en toegang hebben tot verschillende gegevensassets. 
@@ -32,6 +32,17 @@ Enkele van de belangrijkste bouwstenen van een bedrijfsomgeving voor team analyt
 * [Toepassingen automatisch geschaald van gegevens wetenschappelijke Virtual Machines](dsvm-pools.md)
 * [Gemeenschappelijke identiteit en toegang tot de werkruimte uit een van de DSVMs in de groep](dsvm-common-identity.md)
 * [Veilige toegang tot gegevensbronnen](dsvm-secure-access-keys.md)
-* Bestuur en detectie van bedrijfs- en open gegevenssets
 
-In deze serie artikelen, richtlijnen en aanwijzers vindt u in elk van deze aspecten. De [Azure architectuur center](https://docs.microsoft.com/en-us/azure/architecture/) voorziet in gedetailleerde architectuur van de end-to-end voor uw infrastructuur analytics.  
+
+In deze serie artikelen, richtlijnen en aanwijzers vindt u in elk van deze aspecten. Natuurlijk, er zijn enkele aanvullende overwegingen en behoeften bij het implementeren van DSVM in grote ondernemingen configuraties waarop geen nog rechtstreeks in deze serie artikelen. Hier zijn enkele van de andere overwegingen en koppelingen naar algemene Azure documentatie die gemakkelijk kan worden gebruikt tijdens de uitvoering ervan op de exemplaren DSVM in uw onderneming. 
+
+* [Netwerkbeveiliging](https://docs.microsoft.com/azure/security/azure-network-security)
+* [Bewaking](https://docs.microsoft.com/azure/virtual-machines/windows/monitor) en [Management](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates)
+* [Logboekregistratie en controle](https://docs.microsoft.com/azure/security/azure-log-audit)
+* [Op rollen gebaseerd toegangsbeheer](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Beleidsinstelling en afdwingen](https://docs.microsoft.com/azure/azure-policy/azure-policy-introduction)
+* [Anti-malware](https://docs.microsoft.com/azure/security/azure-security-antimalware)
+* [Versleuteling](https://docs.microsoft.com/azure/virtual-machines/windows/encrypt-disks)
+* [Detectie van gegevens en toezicht](https://docs.microsoft.com/azure/data-catalog/)
+
+De [Azure architectuur center](https://docs.microsoft.com/en-us/azure/architecture/) is ook een zeer waardevolle resource die voorziet in gedetailleerde end-to-end-architectuur en patronen voor het maken en beheren van uw cloudinfrastructuur op basis analytics. 

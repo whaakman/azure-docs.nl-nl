@@ -1,12 +1,12 @@
 ---
 title: Aanpassen van vooraf geconfigureerde oplossingen | Microsoft Docs
 description: Biedt richtlijnen voor het aanpassen van de vooraf geconfigureerde Azure IoT Suite-oplossingen.
-services: 
+services: ''
 suite: iot-suite
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4653ae53-4110-4a10-bd6c-7dc034c293a8
 ms.service: iot-suite
 ms.devlang: dotnet
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: ba965b9bc23b96adb2b1b7c9306cb7f508f820bf
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: cb5955111cb3954f71f11602042b5153ccee3473
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="customize-a-preconfigured-solution"></a>Een vooraf geconfigureerde oplossing aanpassen
 
@@ -50,7 +50,7 @@ U kunt deze taken om de logica alter rechtstreeks te bewerken of voeg specifieke
 5. Bewerk de invoer-, query- en uitvoer.
    
     Een eenvoudige wijziging wordt gewijzigd van de query voor de **regels** taak voor het gebruik van een **' < '** in plaats van een **' > '**. Nog steeds weergegeven in de oplossingsportal **' > '** wanneer u een regel voor het bewerken, maar u ziet hoe het gedrag als gevolg van de wijziging in de onderliggende taak wordt gespiegeld.
-6. Start de taak
+6. Taak starten
 
 > [!NOTE]
 > Het dashboard voor externe controle, is afhankelijk van wat u specifieke gegevens dus wijzigen van de taken leiden het dashboard tot kan mislukken.
@@ -252,4 +252,4 @@ Zie voor meer informatie over de opties voor het aanpassen van de vooraf geconfi
 [lnk-telemetry-api-controller-02]: https://github.com/Azure/azure-iot-remote-monitoring/blob/e7003339f73e21d3930f71ceba1e74fb5c0d9ea0/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L25 
 [lnk-sample-device-factory]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Common/Factory/SampleDeviceFactory.cs#L40
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
-[lnk-cf-customize]: iot-suite-connected-factory-customize.md
+[lnk-cf-customize]:../iot-accelerators/iot-accelerators-connected-factory-customize.md
