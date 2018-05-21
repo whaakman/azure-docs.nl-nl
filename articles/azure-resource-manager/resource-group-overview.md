@@ -9,16 +9,16 @@ editor: tysonn
 ms.assetid: 76df7de1-1d3b-436e-9b44-e1b3766b3961
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: a7e3d817923b0f9a691d5acaba606bdcd0012e60
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bff67bc617a0dfba10b3150aaa8bae92e84304b8
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-resource-manager-overview"></a>Overzicht van Azure Resource Manager
 De infrastructuur voor uw toepassing bestaat meestal uit veel onderdelen, zoals een virtuele machine, een opslagaccount en een virtueel netwerk, of een webtoepassing, database, databaseserver en services van derden. Deze onderdelen moet u niet zien als afzonderlijke entiteiten, maar als onderdelen die één entiteit vormen en aan elkaar zijn gerelateerd en afhankelijk zijn van elkaar. U implementeert, beheert en bewaakt deze onderdelen als groep. Met Azure Resource Manager kunt u met de resources als groep in uw oplossing werken. U kunt alle resources voor uw oplossing implementeren, bijwerken of verwijderen in een enkele, gecoördineerde bewerking. Voor implementatie gebruikt u een sjabloon. Deze sjabloon kan voor verschillende omgevingen worden gebruikt, zoals testen, faseren en productie. Resource Manager biedt beveiliging, controle en tagfuncties die u na de implementatie helpen bij het beheren van uw resources. 

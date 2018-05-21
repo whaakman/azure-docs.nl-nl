@@ -1,11 +1,11 @@
 ---
 title: Inschakelen van Netwerkbeveiligingsgroepen in Azure Security Center | Microsoft Docs
-description: Dit document ziet u hoe de aanbeveling Azure Security Center implementeren ** inschakelen netwerk beveiliging groepen **.
+description: Dit document ziet u hoe u de aanbeveling Azure Security Center implementeert **Netwerkbeveiligingsgroepen inschakelen**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: f53ed853-ffaf-4530-a019-1906ba6f341b
 ms.service: security-center
 ms.devlang: na
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 1e034d59d8847f237fa0d4c772344d45cd618576
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c0ad4a0e1a5f4f2fd6def4f29599e2e55eb1a9d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="enable-network-security-groups-in-azure-security-center"></a>Inschakelen van Netwerkbeveiligingsgroepen in Azure Security Center
-Azure Security Center raadt aan dat u een netwerkbeveiligingsgroep (NSG) inschakelen als een nog niet is ingeschakeld. Nsg's bevatten een lijst met regels voor lijst ACL (Access Control) toestaan of weigeren van netwerkverkeer naar uw VM-exemplaren in een virtueel netwerk. NSG's kunnen worden gekoppeld aan subnetten of afzonderlijke VM-exemplaren in dat subnet. Als een NSG is gekoppeld aan een subnet, zijn de ACL-regels van toepassing op alle VM-exemplaren in dat subnet. Bovendien het verkeer naar een afzonderlijke virtuele machine kan worden beperkt door een NSG rechtstreeks aan die VM koppelen verdere. Voor meer informatie over [wat is er een Netwerkbeveiligingsgroep (NSG)?](../virtual-network/virtual-networks-nsg.md)
+Azure Security Center raadt aan dat u een netwerkbeveiligingsgroep (NSG) inschakelen als een nog niet is ingeschakeld. Nsg's bevatten een lijst met regels voor lijst ACL (Access Control) toestaan of weigeren van netwerkverkeer naar uw VM-exemplaren in een virtueel netwerk. NSG's kunnen worden gekoppeld aan subnetten of afzonderlijke VM-exemplaren in dat subnet. Als een NSG is gekoppeld aan een subnet, zijn de ACL-regels van toepassing op alle VM-exemplaren in dat subnet. Bovendien het verkeer naar een afzonderlijke virtuele machine kan worden beperkt door een NSG rechtstreeks aan die VM koppelen verdere. Voor meer informatie over [wat is er een Netwerkbeveiligingsgroep (NSG)?](../virtual-network/security-overview.md)
 
 Als u geen nsg's is ingeschakeld, Security Center twee aanbevelingen worden aan u gepresenteerd: schakelen van Netwerkbeveiligingsgroepen op subnetten en inschakelen van Netwerkbeveiligingsgroepen op virtuele machines. U kiezen welke niveau, subnet of virtuele machine toe te passen nsg's.
 
@@ -47,8 +47,8 @@ Als u een NSG maakt, volg de stappen in [het nsg's met de Azure portal beheren](
 ## <a name="see-also"></a>Zie ook
 In dit artikel hebt u geleerd u hoe de aanbeveling Security Center 'Netwerkbeveiligingsgroepen inschakelen' voor subnetten of virtuele machines te implementeren. Zie de volgende onderwerpen voor meer informatie over het nsg's inschakelen:
 
-* [Wat is een netwerkbeveiligingsgroep (NSG)?](../virtual-network/virtual-networks-nsg.md)
-* [Het nsg's met de Azure portal beheren](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+* [Wat is een netwerkbeveiligingsgroep (NSG)?](../virtual-network/security-overview.md)
+* [Een netwerkbeveiligingsgroep beheren](../virtual-network/manage-network-security-group.md)
 
 Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 

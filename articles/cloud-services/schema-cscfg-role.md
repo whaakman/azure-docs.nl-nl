@@ -1,23 +1,23 @@
 ---
 title: Azure Cloud Services-rol Schema | Microsoft Docs
-ms.custom: 
+ms.custom: ''
 ms.date: 12/07/2016
-ms.prod: azure
-ms.reviewer: 
+services: cloud-services
+ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: 
-ms.tgt_pltfrm: 
+ms.suite: ''
+ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: e4fbffc1-98eb-449c-971c-de415e45ab34
-caps.latest.revision: "12"
+caps.latest.revision: 12
 author: thraka
 ms.author: adegeo
 manager: timlt
-ms.openlocfilehash: c25e7d139c7b7fd7c5da6bde8cfb9050eec8a88e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f5c657bb80ad0788bcc3dd19d962b3f21afa4a8
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-cloud-services-config-role-schema"></a>Azure Cloud Services-Schema van de rol van de configuratie
 
@@ -25,7 +25,7 @@ De `Role` element in het configuratiebestand geeft het aantal rolinstanties impl
 
 Zie voor meer informatie over het configuratieschema van Azure Service [Cloudservice (klassiek) configuratieschema](schema-cscfg-file.md). Zie voor meer informatie over het Schema van Azure Service definitie [Cloudservice (klassiek) definitie Schema](schema-csdef-file.md).
 
-##  <a name="Role"></a>Element Role
+##  <a name="Role"></a> Element Role
 Het volgende voorbeeld wordt de `Role` -element en de onderliggende elementen.
 
 ```xml 

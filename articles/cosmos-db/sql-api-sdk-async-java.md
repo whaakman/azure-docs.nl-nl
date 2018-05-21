@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 05/18/2018
 ms.author: sngun
-ms.openlocfilehash: 25a84c42430c76d296e12d3f83040fa18febdcb1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9dae401bc007b78d8ee3c6993735650e3b26b9d1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK voor SQL-API: releaseopmerkingen en resources
 > [!div class="op_single_selector"]
@@ -55,6 +55,18 @@ De SQL-API asynchrone Java SDK verschilt van de SQL-API Java SDK dankzij de asyn
 
 ## <a name="release-notes"></a>Releaseopmerkingen
 
+### <a name="a-name102102"></a><a name="1.0.2"/>1.0.2
+* Ondersteuning toegevoegd voor unieke Index beleid.
+* Ondersteuning toegevoegd voor het beperken van de reactie voortzetting token grootte in de feed opties.
+* Ondersteuning toegevoegd voor de partitie splitsen in Partitiequery Cross.
+* Een bug in Json-serialisatie voor tijdstempel vaste ([github #32](https://github.com/Azure/azure-cosmosdb-java/issues/32)).
+* Heeft een fout in de Json-serialisatie voor enum.
+* Een fout bij het beheren van documenten met een grootte van 2MB vaste ([github #33](https://github.com/Azure/azure-cosmosdb-java/issues/33)).
+* Afhankelijkheid com.fasterxml.jackson.core:jackson-databind bijgewerkt naar 2.9.5 vanwege een fout ([jackson databind: github #1599](https://github.com/FasterXML/jackson-databind/issues/1599))
+* Afhankelijkheid van een upgrade uitgevoerd naar 0.8.0.17 vanwege een fout rxjava-extra's ([rxjava-extra's: github #30](https://github.com/davidmoten/rxjava-extras/issues/30)).
+* De beschrijving van de metagegevens in pom bestand bijgewerkt om te worden inline met de rest van de documentatie.
+* Syntaxis van de gebruikerservaring ([github #41](https://github.com/Azure/azure-cosmosdb-java/issues/41)), ([github #40](https://github.com/Azure/azure-cosmosdb-java/issues/40)).
+
 ### <a name="a-name101101"></a><a name="1.0.1"/>1.0.1
 * Toegevoegde ondersteuning voor back-druk in de query.
 * Ondersteuning toegevoegd voor de partitie-id sleutel bereik in de query.
@@ -79,6 +91,7 @@ Elk verzoek aan de Cosmos-database met behulp van een buiten gebruik gestelde SD
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
+| [1.0.2](#1.0.2) |18 mei 2018|--- |
 | [1.0.1](#1.0.1) |20 april 2018|--- |
 | [1.0.0](#1.0.0) |27 februari, 2018|--- |
 

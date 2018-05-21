@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2018
 ms.author: kumud
-ms.openlocfilehash: 648d96bbb18186524cfad4d3df1f61e98062fcb4
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 9e1f2f3e8fea771fb38b984dad1d8e73d723cb2c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Overzicht van Azure Load Balancer standaard
 
@@ -119,7 +119,7 @@ Bekijk [gedetailleerde bespreking van de HA-poorten](load-balancer-ha-ports-over
 
 Standaard Load Balancer is volledig vrijgegeven aan het virtuele netwerk.  Het virtuele netwerk is een particulier netwerk gesloten.  Omdat standaard Load Balancers en de standaard openbare IP-adressen zo dat dit virtuele netwerk ontworpen zijn toegankelijk van buiten het virtuele netwerk, standaard deze resources nu gesloten, tenzij u ze opent. Dit betekent Netwerkbeveiligingsgroepen (nsg's) worden nu gebruikt om expliciet toestaan en geaccepteerde verkeer toegestaan.  U kunt uw gehele virtuele Datacenter maken en via het NSG bepalen wat en wanneer deze beschikbaar moet zijn.  Als u een NSG op een subnet of NIC van de bron van de virtuele machine niet hebt, wordt er verkeer naar het bereiken van deze bron niet is toegestaan.
 
-Zie voor meer informatie over nsg's en hoe u deze wilt toepassen voor uw scenario, [Netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md).
+Zie voor meer informatie over nsg's en hoe u deze wilt toepassen voor uw scenario, [Netwerkbeveiligingsgroepen](../virtual-network/security-overview.md).
 
 ### <a name="outbound"></a> Uitgaande verbindingen
 
@@ -237,7 +237,7 @@ Standaard Load Balancer is een bedrag product op basis van het aantal load balan
 - Meer informatie over [standaard Load Balancer met taakverdelingsregels HA poorten](load-balancer-ha-ports-overview.md)
 - Meer informatie over het gebruik van [Load Balancer met meerdere Frontends](load-balancer-multivip-overview.md)
 - Meer informatie over [virtuele netwerken](../virtual-network/virtual-networks-overview.md).
-- Meer informatie over [Netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md).
+- Meer informatie over [Netwerkbeveiligingsgroepen](../virtual-network/security-overview.md).
 - Meer informatie over [VNet Service-eindpunten](../virtual-network/virtual-network-service-endpoints-overview.md)
 - Informatie over een aantal van de andere sleutel [netwerkmogelijkheden](../networking/networking-overview.md) in Azure.
 - Meer informatie over [Load Balancer](load-balancer-overview.md).

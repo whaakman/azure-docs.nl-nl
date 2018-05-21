@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 461490a312cbcfda50f4b2e9db39c40250d716fd
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: f3583b27b2fb9959e65a9c66a75c1174ebf3e238
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="detect-issues-using-threshold-based-rules"></a>Problemen met behulp van regels op basis van drempelwaarden detecteren
 
@@ -151,8 +151,8 @@ Deze zelfstudie hebt u geleerd hoe naar:
 
 U hebt geleerd hoe u problemen met regels op basis van drempelwaarden detecteren, de voorgestelde volgende stappen zijn voor meer informatie over hoe:
 
-* [Uw apparaten beheren en configureren](./../iot-suite/iot-suite-remote-monitoring-manage.md).
-* [Problemen oplossen en het oplossen van problemen met apparaat](./../iot-suite/iot-suite-remote-monitoring-maintain.md).
-* [Testen van uw oplossing met gesimuleerde apparaten](../iot-suite/iot-suite-remote-monitoring-test.md).
+* [Uw apparaten beheren en configureren](iot-accelerators-remote-monitoring-manage.md).
+* [Problemen oplossen en het oplossen van problemen met apparaat](iot-accelerators-remote-monitoring-maintain.md).
+* [Testen van uw oplossing met gesimuleerde apparaten](iot-accelerators-remote-monitoring-test.md).
 
 <!-- Next tutorials in the sequence -->

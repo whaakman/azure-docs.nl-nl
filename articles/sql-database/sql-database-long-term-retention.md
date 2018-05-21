@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 05/17/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 51f00984a8f0d750bdb478ae4bc8093adad8108e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ce78201e3f87b9687ced181f90d352d73aa29431
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Azure SQL Database back-ups voor maximaal tien jaar opslaan
 
@@ -30,7 +30,7 @@ Lange bewaartermijn van de back-up maakt gebruik van de [automatische back-ups v
 
 Voorbeelden:
 
--  W=0, M=0, Y=5, WeekOfYear=3
+-  W = 0, WeekOfYear M = 0, Y = 5, 3 =
 
    De 3e volledige back-up van elk jaar worden voor 5 jaar behouden.
 
@@ -42,7 +42,7 @@ Voorbeelden:
 
    Elke wekelijkse volledige back-up worden voor 12 weken behouden.
 
-- W=6, M=12, Y=10, WeekOfYear=16
+- W = 6, M = 12, Y = 10 WeekOfYear = 16
 
    Elke wekelijkse volledige back-up worden voor 6 weken behouden. Behalve de eerste volledige back-up van elke maand, die worden bewaard gedurende 12 maanden. Met uitzondering van de volledige back-up op 16de week van jaar, die gehouden tien jaar. 
 
@@ -54,8 +54,13 @@ W = 12 weken (84 dagen), M = 12 maanden (365 dagen), Y = 10 jaar (3650 dagen), W
 
 
  
-Als u zou de bovenstaande beleid wijzigen en set W = 0 (geen wekelijkse back-ups), de frequentie van back-ups als veranderen zou weergegeven in de bovenstaande tabel op de gemarkeerde Data. De opslagruimte die nodig zijn voor deze back-ups behouden zou dienovereenkomstig verminderen. Opmerking: De LTR exemplaren worden gemaakt door Azure storage-service, zodat het kopieerproces geen invloed op de prestaties op de bestaande database heeft.
-Als u een database herstellen uit de opslag LTR, kunt u een specifieke back-up op basis van de timestamp.   De database kan worden hersteld met een bestaande server onder hetzelfde abonnement als de oorspronkelijke database. 
+Als u zou de bovenstaande beleid wijzigen en set W = 0 (geen wekelijkse back-ups), de frequentie van back-ups als veranderen zou weergegeven in de bovenstaande tabel op de gemarkeerde Data. De opslagruimte die nodig zijn voor deze back-ups behouden zou dienovereenkomstig verminderen. 
+
+> [!NOTE]
+1. De exemplaren LTR worden gemaakt door Azure storage-service, zodat het kopieerproces geen invloed op de prestaties op de bestaande database heeft.
+2. Het beleid geldt voor de toekomstige back-ups. Bijvoorbeeld Als de opgegeven WeekOfYear in het verleden wanneer het beleid is geconfigureerd is, wordt de eerste back-up LTR volgende jaar gemaakt. 
+3. Als u een database herstellen uit de opslag LTR, kunt u een specifieke back-up op basis van de timestamp.   De database kan worden hersteld met een bestaande server onder hetzelfde abonnement als de oorspronkelijke database. 
+> 
 
 ## <a name="configure-long-term-backup-retention"></a>Langetermijnretentie van back-ups configureren
 

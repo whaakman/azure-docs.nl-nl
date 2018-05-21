@@ -1,11 +1,11 @@
 ---
 title: Beperken van toegang via internetgerichte eindpunten in Azure Security Center | Microsoft Docs
-description: Dit document ziet u hoe de aanbeveling Azure Security Center implementeren ** toegang via Internetgericht eindpunt ** beperken.
+description: Dit document ziet u hoe u de aanbeveling Azure Security Center implementeert **beperken van toegang via Internetgericht eindpunt**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 727d88c9-163b-4ea0-a4ce-3be43686599f
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2017
 ms.author: terrylan
-ms.openlocfilehash: f7309c617f1705205e2c9f1b1b48d141391d45da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92906d31f4db21f37094f192dadd080e28cc6e8e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>Beperken van toegang via internetgerichte eindpunten in Azure Security Center
 Azure Security Center wordt aanbevolen dat u de toegang via internetgerichte eindpunten beperken als een van uw Netwerkbeveiligingsgroepen (nsg's) heeft een of meer regels voor binnenkomende verbindingen die toegankelijk is vanaf 'alle' IP-bronadressen. Toegang tot 'een' te openen, is het mogelijk maken aanvallers voor toegang tot uw resources. Security Center beveelt aan dat u deze regels voor binnenkomende verbindingen om toegang te beperken in bron-IP-adressen die daadwerkelijk toegang nodig bewerken.
@@ -44,18 +44,18 @@ Deze aanbeveling is voor elke niet--poort dat 'een' als bron gegenereerd.
 
    ![Inkomende beveiligingsregels][4]
 
-   Opmerking: u kunt ook selecteren **regels standaard** om te zien van de set met standaardregels die zijn opgenomen in alle nsg's. De standaardregels kunnen niet worden verwijderd, maar omdat ze een lagere prioriteit worden toegewezen, kunnen ze worden overschreven door de regels die u maakt. Meer informatie over [regels standaard](../virtual-network/virtual-networks-nsg.md#default-rules).
+   Opmerking: u kunt ook selecteren **regels standaard** om te zien van de set met standaardregels die zijn opgenomen in alle nsg's. De standaardregels kunnen niet worden verwijderd, maar omdat ze een lagere prioriteit worden toegewezen, kunnen ze worden overschreven door de regels die u maakt. Meer informatie over [regels standaard](../virtual-network/security-overview.md#default-security-rules).
 
    ![Standaardregels][5]
-5. Op de **AllowWeb** blade, bewerk de eigenschappen van de binnenkomende regel zodat de **bron** is een IP-adres of een blok IP-adressen. Zie voor meer informatie over de eigenschappen van de binnenkomende regel, [NSG-regels](../virtual-network/virtual-networks-nsg.md#nsg-rules).
+5. Op de **AllowWeb** blade, bewerk de eigenschappen van de binnenkomende regel zodat de **bron** is een IP-adres of een blok IP-adressen. Zie voor meer informatie over de eigenschappen van de binnenkomende regel, [NSG-regels](../virtual-network/security-overview.md#security-rules).
 
    ![Regel voor binnenkomende bewerken][6]
 
 ## <a name="see-also"></a>Zie ook
 In dit artikel hebt u geleerd hoe u implementeert de aanbeveling Security Center 'Toegang beperken tot en met een internetgericht eindpunt'. Zie de volgende onderwerpen voor meer informatie over het inschakelen van regels en nsg's:
 
-* [Wat is een netwerkbeveiligingsgroep (NSG)?](../virtual-network/virtual-networks-nsg.md)
-* [Het nsg's met de Azure portal beheren](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+* [Wat is een netwerkbeveiligingsgroep (NSG)?](../virtual-network/security-overview.md)
+* [Een netwerkbeveiligingsgroep beheren](../virtual-network/manage-network-security-group.md)
 
 Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:
 

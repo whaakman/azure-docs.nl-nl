@@ -1,6 +1,6 @@
 ---
 title: Variabelen van Azure Resource Manager-sjabloon | Microsoft Docs
-description: "Beschrijft hoe variabelen definiëren in een Azure Resource Manager-sjablonen met behulp van declaratieve JSON-syntaxis."
+description: Beschrijft hoe variabelen definiëren in een Azure Resource Manager-sjablonen met behulp van declaratieve JSON-syntaxis.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -8,16 +8,16 @@ manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: 8d9f227ad1f450cf6cdfca1dafb1b51bc6f6c9f9
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 08728a3c0b4d4578939004e2d1b1ee2d30a682ab
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="variables-section-of-azure-resource-manager-templates"></a>Sectie met sjabloonvariabelen van Azure Resource Manager-sjablonen
 In het gedeelte variabelen kunt u waarden die kunnen worden gebruikt in uw sjabloon opstellen. U hoeft geen variabelen definiëren, maar ze vaak uw sjabloon vereenvoudigen doordat complexe expressies.

@@ -17,17 +17,18 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b18f568fdeead10fadad0e403ce0ca7fe4b3213a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: e57e3898c5e843dcc130746a10e78b0681303670
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Downloaden of uw Azure-factuur en de dagelijkse gebruiksgegevens weergeven
 U kunt downloaden via uw factuur van de [Azure-portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) of wordt verzonden in e-mailbericht. Het gebruik van uw dagelijkse downloaden, gaat u naar de [Azure-Accountcentrum](https://account.azure.com/Subscriptions). Alleen bepaalde functies gemachtigd factuur en informatie over het gebruik, zoals de accountbeheerder. Zie voor meer informatie over het verkrijgen van toegang tot factureringsgegevens, [beheren van toegang tot Azure-facturering rollen](billing-manage-access.md).
 
->[!NOTE]
->In dit artikel geldt niet voor klanten met Enterprise Agreement (EA). Als u een EA-klant bent, worden uw facturen rechtstreeks naar de beheerders inschrijving verzonden.
+In dit artikel geldt niet voor klanten met Enterprise Agreement (EA). Als u een EA-klant bent, worden uw facturen rechtstreeks naar de beheerders inschrijving verzonden.
+
+[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="get-your-invoice-in-email-pdf"></a>Uw factuur ophalen in e-mailbericht (PDF)
 U kunt aanmelden en configureren van extra ontvangers voor het ontvangen van uw Azure factuur in een e-mailbericht. Deze functie is mogelijk niet beschikbaar voor bepaalde abonnementen zoals ondersteuning biedt, Enterprise overeenkomsten of Azure in Open.

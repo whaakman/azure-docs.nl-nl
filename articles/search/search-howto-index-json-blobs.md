@@ -9,11 +9,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: 64d16182ce1992ec312ad1620d9d5cf11e0ddea8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 752df29200a5e020ccf10f511ae2f02c0d72bd48
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexeren van JSON-blobs met Azure Search blob indexeerfunctie
 In dit artikel laat zien hoe een Azure Search blob indexeerfunctie om uit te pakken gestructureerde inhoud uit JSON-blobs in Azure Blob-opslag configureren.
@@ -23,7 +23,7 @@ JSON-blobs in Azure Blob storage zijn meestal één JSON-document of een JSON-ma
 | JSON-document | parsingMode | Beschrijving | Beschikbaarheid |
 |--------------|-------------|--------------|--------------|
 | Een per blob | `json` | JSON-blobs worden geparseerd als een enkel deel van de tekst. Elke blob JSON wordt een Azure Search-document. | Algemeen beschikbaar zijn in zowel [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) en [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) API's. |
-| Meerdere per blob | `jsonArray` | Parseert een JSON-matrix in de blob, waarbij elk element van de matrix een afzonderlijk Azure Search-document wordt.  | In het voorbeeld in [REST api-version =`2016-09-01-Preview` ](search-api-2016-09-01-preview.md) en [.NET SDK Preview](https://aka.ms/search-sdk-preview). |
+| Meerdere per blob | `jsonArray` | Parseert een JSON-matrix in de blob, waarbij elk element van de matrix een afzonderlijk Azure Search-document wordt.  | In het voorbeeld in [REST api-version =`2017-11-11-Preview` ](search-api-2017-11-11-preview.md) en [.NET SDK Preview](https://aka.ms/search-sdk-preview). |
 
 > [!Note]
 > Preview-API's zijn bedoeld voor testen en evalueren en mag niet worden gebruikt in een productieomgeving.
@@ -116,7 +116,7 @@ U kunt ook kiezen voor de preview-functie van de JSON-matrix. Deze functie is nu
 
 Voor een JSON-matrix de indexeerfunctie aanvraag maakt gebruik van de preview-API en de `jsonArray` parser. Dit zijn de slechts twee matrix-specifieke vereisten voor indexering van JSON-blobs.
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01-Preview
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11-Preview
     Content-Type: application/json
     api-key: [admin key]
 
@@ -129,6 +129,8 @@ Voor een JSON-matrix de indexeerfunctie aanvraag maakt gebruik van de preview-AP
     }
 
 Let weer veld-verwijzingen zijn niet vereist. Uitgaande van een index met velden 'id' en 'text', kan de blob-indexeerfunctie de juiste toewijzing zonder een lijst met velden toewijzing afleiden.
+
+<a name="nested-json-arrays"></a>
 
 ### <a name="nested-json-arrays"></a>Geneste matrices van JSON
 Wat gebeurt er als u wilt een matrix van JSON-objecten, maar dat matrix index ergens is genest binnen het document? U kunt kiezen welke eigenschap bevat de matrix met behulp van de `documentRoot` configuratie-eigenschap. Als bijvoorbeeld uw blobs moeten uitzien:

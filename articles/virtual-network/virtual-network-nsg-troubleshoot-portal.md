@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: be400d674068d89f60d3c999006bc9291944ab1c
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 67ffe826ba13576578e8f09e36f84128f4ceb0f2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Netwerkbeveiligingsgroepen met de Azure Portal oplossen
 > [!div class="op_single_selector"]
@@ -30,9 +30,9 @@ ms.lasthandoff: 05/14/2018
 
 Als u Netwerkbeveiligingsgroepen (nsg's) geconfigureerd op de virtuele machine (VM) en problemen met de netwerkverbinding van de VM ondervinden, is dit artikel bevat een overzicht van diagnostische gegevens mogelijkheden voor het nsg's om op te lossen verder.
 
-Nsg's kunnen u bepalen welke typen verkeer stromen en naar uw virtuele machines (VM's). Nsg's kunnen worden toegepast op subnetten in een Azure-netwerk (VNet), netwerkinterfaces (NIC) of beide. De effectieve regels toegepast op een NIC zijn een aggregatie van de regels die zijn opgenomen in het nsg's toegepast op een NIC en het is verbonden met subnet. Regels in deze nsg's kunnen soms met elkaar conflicteren en invloed van een virtuele machine netwerkverbinding.  
+Nsg's kunnen u bepalen welke typen verkeer stromen en naar uw virtuele machines (VM's). Nsg's kunnen worden toegepast op subnetten in een Azure-netwerk (VNet), netwerkinterfaces (NIC) of beide. De effectieve regels toegepast op een NIC zijn een aggregatie van de regels die zijn opgenomen in het nsg's toegepast op een NIC en het is verbonden met subnet. Regels in deze nsg's kunnen soms met elkaar conflicteren en invloed van een virtuele machine netwerkverbinding.
 
-U kunt de effectieve beveiligingsregels weergeven van uw nsg's, zoals toegepast op de NIC's van de VM. Dit artikel ziet het oplossen van problemen met de virtuele machine netwerkverbinding met deze regels in het Azure Resource Manager-implementatiemodel. Als u niet bekend met concepten VNet en NSG bent, leest u de [virtueel netwerk](virtual-networks-overview.md) en [Netwerkbeveiligingsgroepen](virtual-networks-nsg.md) overzicht artikelen.
+U kunt de effectieve beveiligingsregels weergeven van uw nsg's, zoals toegepast op de NIC's van de VM. Dit artikel ziet het oplossen van problemen met de virtuele machine netwerkverbinding met deze regels in het Azure Resource Manager-implementatiemodel. Als u niet bekend met concepten VNet en NSG bent, Zie [Virtual network-overzicht](virtual-networks-overview.md) en [netwerk groep beveiligingsoverzicht](security-overview.md).
 
 ## <a name="using-effective-security-rules-to-troubleshoot-vm-traffic-flow"></a>Effectieve beveiligingsregels voor verbindingen gebruiken bij het oplossen van VM-netwerkverkeer
 De volgende scenario is een voorbeeld van een veelvoorkomend verbindingsprobleem:
@@ -66,7 +66,7 @@ U kunt de volledige lijst van de regels voor een effectieve beveiligingsmethode 
    * **Bereik:** ingesteld op *VM1*, de virtuele machine in stap 3 hebt geselecteerd.
    * **Netwerkinterface:** *VM1 NIC1* is geselecteerd. Een virtuele machine kan meerdere netwerkinterfaces (NIC) hebben. Elke NIC kan unieke effectieve Beveiligingsregels hebben. Wanneer het oplossen van problemen moet u mogelijk een effectieve beveiligingsmethode regels bekijken voor elke NIC.
    * **Gekoppelde nsg's:** nsg's kunnen worden toegepast op zowel de NIC en het subnet met de NIC is verbonden. In de afbeelding is op de NIC en het subnet dat is verbonden met een NSG toegepast. U kunt klikken op de namen van de NSG regels in het nsg's rechtstreeks wijzigen.
-   * **Tabblad VM1 nsg:** de lijst met regels die worden weergegeven in de afbeelding is voor de NSG naar de NIC. toegepast Verschillende standaardregels worden gemaakt door Azure wanneer er een NSG wordt gemaakt. U kunt de standaardregels niet verwijderen, maar u kunt deze overschrijft met regels met een hogere prioriteit. Lees voor meer informatie over standaardregels voor de [NSG overzicht](virtual-networks-nsg.md#default-rules) artikel.
+   * **Tabblad VM1 nsg:** de lijst met regels die worden weergegeven in de afbeelding is voor de NSG naar de NIC. toegepast Verschillende standaardregels worden gemaakt door Azure wanneer er een NSG wordt gemaakt. U kunt de standaardregels niet verwijderen, maar u kunt deze overschrijft met regels met een hogere prioriteit. Meer informatie over [standaard beveiligingsregels](security-overview.md#default-security-rules).
    * **Doelkolom:** sommige regels tekst in de kolom hebben, terwijl anderen adresvoorvoegsels hebben. De tekst is de naam van de standaardlabels die worden toegepast op de beveiligingsregel wanneer deze is gemaakt. De labels zijn systeem-id's die meerdere voorvoegsels vertegenwoordigen. Selecteren van een regel met een label, zoals *AllowInternetOutBound*, geeft een lijst van de voorvoegsels in de **adres voorvoegsels** blade.
    * **Download:** de lijst met regels lang kan zijn. U kunt een CSV-bestand van de regels voor offline-analyse downloaden door te klikken op **downloaden** en opslaan van het bestand.
    * **AllowRDP** binnenkomende regel: met deze regel kunnen RDP-verbindingen naar de virtuele machine.

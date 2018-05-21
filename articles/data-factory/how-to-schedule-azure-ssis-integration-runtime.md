@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: article
-ms.date: 05/03/2018
+ms.date: 05/18/2018
 ms.author: douglasl
-ms.openlocfilehash: 4f7806e1155a0129d67f8848b9ba8c4d07cb126d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: dfb54aeeff1b1f1640609be708e1b9d767a18c3a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Het starten en stoppen van de runtime van een Azure SSIS-integratie plannen 
 Met een Azure-SSIS (SQL Server Integration Services)-integratie-runtime heeft (IR) een kosten die gekoppeld. Daarom wilt u de IR alleen uitvoeren als u wilt SSIS-pakketten in Azure uitvoeren en stop de toepassing wanneer u deze niet nodig. U kunt de Data Factory-gebruikersinterface of Azure PowerShell om te gebruiken [handmatig starten of stoppen van een Azure SSIS-IR](manage-azure-ssis-integration-runtime.md)). Dit artikel wordt beschreven hoe u plant starten en stoppen van een Azure-SSIS-integratie runtime (IR) met behulp van Azure Automation en Azure Data Factory. Hier volgen de stappen op hoog niveau beschreven in dit artikel:
@@ -70,9 +70,6 @@ Als u een Azure Automation-account niet hebt, maakt u een door de instructies in
 ### <a name="import-data-factory-modules"></a>Data Factory-modules importeren
 
 1. Selecteer **Modules** in de **gedeelde bronnen** sectie in het menu links en controleer of u hebt **AzureRM.Profile** en **AzureRM.DataFactoryV2** in de lijst met modules.
-
-    > [!IMPORTANT]
-    > Op dit moment kunt u alleen gebruiken **AzureRM.DataFactoryV2 0.5.2** en **AzureRM.Profile 4.5.0** modules.
 
     ![Controleer of de vereiste modules](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image1.png)
 
