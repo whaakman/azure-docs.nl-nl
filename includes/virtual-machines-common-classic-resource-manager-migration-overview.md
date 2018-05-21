@@ -1,3 +1,19 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: virtual-machines
+author: jpconnock
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 05/18/2018
+ms.author: jeconnoc
+ms.custom: include file
+ms.openlocfilehash: 8b007c4658d3ca168c4c1a86a72a737c75ca33db
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 05/20/2018
+---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Migratie van IaaS resources van klassieke in Azure Resource Manager-platform ondersteund
 In dit artikel wordt beschreven hoe we de migratie van infrastructuur als een dienst (IaaS) resources van het klassieke naar het Resource Manager-implementatiemodel bent inschakelen. U kunt meer lezen over [Azure Resource Manager-functies en voordelen](../articles/azure-resource-manager/resource-group-overview.md). We beschreven hoe u resources van de twee implementatiemodellen die naast elkaar worden gebruikt in uw abonnement met behulp van de virtuele netwerkgateways voor site-naar-site verbindt.
 
@@ -93,7 +109,7 @@ De volgende configuraties zijn momenteel niet ondersteund.
 | Compute | Cloudservices met web/werkrollen | Dit wordt momenteel niet ondersteund. |
 | Compute | Cloudservices met meer dan één beschikbaarheid instellen of meerdere beschikbaarheidssets. |Dit wordt momenteel niet ondersteund. Verplaats de virtuele Machines naar dezelfde beschikbaarheidsset voordat u migreert. |
 | Compute | Virtuele machine met de extensie Azure Security Center | Azure Security Center installeert automatisch extensies op uw virtuele Machines om te controleren van de beveiliging en waarschuwingen worden gegeven. Deze uitbreidingen ophalen meestal automatisch geïnstalleerd als het Azure Security Center-beleid is ingeschakeld op het abonnement. Schakel het beveiligingsbeleid center voor het abonnement waarbij het Beveiligingscentrum bewaking van de uitbreiding van de virtuele Machines wordt verwijderd voor het migreren van de virtuele Machines. |
-| Compute | Virtuele machine met de extensie voor back-up of momentopname | Deze uitbreidingen worden geïnstalleerd op een virtuele Machine geconfigureerd met de Azure Backup-service. Volg de instructies voor het migreren van deze virtuele Machines [hier](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq#vault).  |
+| Compute | Virtuele machine met de extensie voor back-up of momentopname | Deze uitbreidingen worden geïnstalleerd op een virtuele Machine geconfigureerd met de Azure Backup-service. Tijdens de migratie van deze virtuele machines wordt niet ondersteund, volgt u de instructies [hier](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq#vault) te houden van back-ups die zijn uitgevoerd vóór de migratie.  |
 | Netwerk |Virtuele netwerken die virtuele machines en web/werkrollen bevatten |Dit wordt momenteel niet ondersteund. Verplaats de rollen Web/Worker met hun eigen virtuele netwerk voordat u migreert. Zodra de klassiek virtueel netwerk wordt gemigreerd, wordt het gemigreerde virtuele netwerk voor Azure Resource Manager kunt brengen met het klassieke virtuele netwerk te bereiken vergelijkbare configuratie als voorheen.|
 | Netwerk | Klassieke Express Route-circuits |Dit wordt momenteel niet ondersteund. Deze circuits moeten in Azure Resource Manager worden gemigreerd vóór de migratie van IaaS. Voor meer informatie over deze Zie [verplaatsen van ExpressRoute-circuits van het klassieke naar het Resource Manager-implementatiemodel](../articles/expressroute/expressroute-move.md).|
 | Azure App Service |Virtuele netwerken met App Service-omgevingen |Dit wordt momenteel niet ondersteund. |

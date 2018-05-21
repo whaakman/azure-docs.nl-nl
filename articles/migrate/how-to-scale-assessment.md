@@ -4,13 +4,13 @@ description: Beschrijft hoe vast te stellen van grote aantallen lokale machines 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 05/18/2018
 ms.author: raynew
-ms.openlocfilehash: e0bd62710c47cfdf81535470ef96bad2ab675bb0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: c8943aec1c81abb34b646180df48bcc55764ca24
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Een grote VMware-omgeving ontdekken en beoordelen
 
@@ -33,13 +33,13 @@ Plan uw detecties en beoordelingen op basis van de volgende beperkingen:
 | Detectie  | 1,500             |
 | Evaluatie | 1,500             |
 
-<!-- 
-- If you have fewer than 400 machines to discover and assess, you need a single project and a single discovery. Depending on your requirements, you can either assess all the machines in a single assessment or split the machines into multiple assessments. 
+<!--
+- If you have fewer than 400 machines to discover and assess, you need a single project and a single discovery. Depending on your requirements, you can either assess all the machines in a single assessment or split the machines into multiple assessments.
 - If you have 400 to 1,000 machines to discover, you need a single project with a single discovery. But you will need multiple assessments to assess these machines, because a single assessment can hold up to 400 machines.
 - If you have 1,001 to 1,500 machines, you need a single project with two discoveries in it.
 - If you have more than 1,500 machines, you need to create multiple projects, and perform multiple discoveries, according to your requirements. For example:
     - If you have 3,000 machines, you can set up two projects with two discoveries, or three projects with a single discovery.
-    - If you have 5,000 machines, you can set up four projects: three with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one. 
+    - If you have 5,000 machines, you can set up four projects: three with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one.
       -->
 
 ## <a name="plan-multiple-discoveries"></a>Meerdere detecties plannen
@@ -88,6 +88,14 @@ Controleer dat het bestand eicellen beveiligd is voordat u deze implementeert:
 
 3. Zorg ervoor dat de gegenereerde hash overeenkomt met de volgende instellingen.
 
+    Voor eicellen versie 1.0.9.8
+
+    **Algoritme** | **Hash-waarde**
+    --- | ---
+    MD5 | b5d9f0caf15ca357ac0563468c2e6251
+    SHA1 | d6179b5bfe84e123fabd37f8a1e4930839eeb0e5
+    SHA256 | 09c68b168719cb93bd439ea6a5fe21a3b01beec0e15b84204857061ca5b116ff
+
     Voor OVA-versie 1.0.9.7
 
     **Algoritme** | **Hash-waarde**
@@ -112,30 +120,6 @@ Controleer dat het bestand eicellen beveiligd is voordat u deze implementeert:
     SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
     SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
 
-    Voor OVA-versie 1.0.8.59
-
-    **Algoritme** | **Hash-waarde**
-    --- | ---
-    MD5 | 71139e24a532ca67669260b3062c3dad
-    SHA1 | 1bdf0666b3c9c9a97a07255743d7c4a2f06d665e
-    SHA256 | 6b886d23b24c543f8fc92ff8426cd782a77efb37750afac397591bda1eab8656  
-
-    Voor OVA-versie 1.0.8.49
-
-    **Algoritme** | **Hash-waarde**
-    --- | ---
-    MD5 | cefd96394198b92870d650c975dbf3b8
-    SHA1 | 4367a1801cf79104b8cd801e4d17b70596481d6f
-    SHA256 | fda59f076f1d7bd3ebf53c53d1691cc140c7ed54261d0dc4ed0b14d7efef0ed9
-
-    Voor OVA-versie 1.0.8.40:
-
-    **Algoritme** | **Hash-waarde**
-    --- | ---
-    MD5 |afbae5a2e7142829659c21fd8a9def3f
-    SHA1 | 1751849c1d709cdaef0b02a7350834a754b0e71d
-    SHA256 | d093a940aebf6afdc6f616626049e97b1f9f70742a094511277c5f59eacc41ad
-
 ## <a name="create-the-collector-vm"></a>De collector-VM maken
 
 Het gedownloade bestand importeren in de vCenter-Server:
@@ -149,7 +133,7 @@ Het gedownloade bestand importeren in de vCenter-Server:
 4. Geef in **Host/Cluster** de host of het cluster op waarop de collector-VM wordt uitgevoerd.
 5. Geef in de opslag de opslaglocatie voor de collector-VM op.
 6. Geef in **Schijfindeling** het schijftype en de schijfgrootte op.
-7. Geef in **Netwerktoewijzing** het netwerk op waarmee de collector-VM verbinding maakt. Het netwerk moet een internetverbinding naar metagegevens wilt verzenden naar Azure. 
+7. Geef in **Netwerktoewijzing** het netwerk op waarmee de collector-VM verbinding maakt. Het netwerk moet een internetverbinding naar metagegevens wilt verzenden naar Azure.
 8. Controleer en Bevestig de instellingen en selecteer vervolgens **voltooien**.
 
 ## <a name="identify-the-id-and-key-for-each-project"></a>Identificeren van de ID en sleutel voor elk project
@@ -157,13 +141,13 @@ Het gedownloade bestand importeren in de vCenter-Server:
 Als u meerdere projecten hebt, moet u voor het identificeren van de ID en sleutel voor elk criterium. U moet de sleutel tijdens het uitvoeren van de collector voor het detecteren van de virtuele machines.
 
 1. Selecteer in het project **aan de slag** > **Discover & schatten** > **Machines detecteren**.
-2. In **project referenties kopiëren**, kopieert u de ID en sleutel voor het project. 
+2. In **project referenties kopiëren**, kopieert u de ID en sleutel voor het project.
     ![Referenties project kopiëren](./media/how-to-scale-assessment/copy-project-credentials.png)
 
 ## <a name="set-the-vcenter-statistics-level"></a>Het niveau van de vCenter-statistieken instellen
-Hieronder volgt de lijst met prestatiemeteritems die worden verzameld tijdens de detectie. De prestatiemeteritems zijn standaard beschikbaar op verschillende niveaus in de vCenter-Server. 
+Hieronder volgt de lijst met prestatiemeteritems die worden verzameld tijdens de detectie. De prestatiemeteritems zijn standaard beschikbaar op verschillende niveaus in de vCenter-Server.
 
-U wordt aangeraden dat u algemene optimale (3) voor het niveau van de statistieken zo instellen dat alle items correct zijn verzameld. Als u ingesteld op een lager niveau vCenter hebt, kunnen alleen enkele items volledig worden verkregen met de rest ingesteld op 0. De beoordeling mogelijk onvolledig gegevens vervolgens weer. 
+U wordt aangeraden dat u algemene optimale (3) voor het niveau van de statistieken zo instellen dat alle items correct zijn verzameld. Als u ingesteld op een lager niveau vCenter hebt, kunnen alleen enkele items volledig worden verkregen met de rest ingesteld op 0. De beoordeling mogelijk onvolledig gegevens vervolgens weer.
 
 De volgende tabel bevat ook de resultaten van de beoordeling die worden beïnvloed als een bepaald item is niet verzameld.
 
@@ -203,7 +187,7 @@ Voor elke detectie dat u wilt uitvoeren, moet u de collector voor het detecteren
 5.  Doe het volgende in **vCenter Server-details opgeven**:
     - Geef de FQDN-naam of IP-adres van de vCenter-Server.
     - In **gebruikersnaam** en **wachtwoord**, geef de alleen-lezen accountreferenties die door de collector wordt gebruikt voor het detecteren van virtuele machines in de vCenter-Server.
-    - Selecteer in **Select scope** een bereik voor VM-detectie. De collector kan alleen virtuele machines binnen het opgegeven bereik worden gedetecteerd. U kunt het bereik instellen op een specifieke map, een datacenter of een cluster. Deze mag niet meer dan 1000 virtuele machines bevatten. 
+    - Selecteer in **Select scope** een bereik voor VM-detectie. De collector kan alleen virtuele machines binnen het opgegeven bereik worden gedetecteerd. U kunt het bereik instellen op een specifieke map, een datacenter of een cluster. Deze mag niet meer dan 1000 virtuele machines bevatten.
 
 6.  In **Geef migratieproject**, geeft u de ID en sleutel voor het project. Als u deze niet kopiëren, opent u de Azure-portal van de collector VM. Op het project **overzicht** pagina **Machines detecteren** en kopieer de waarden.  
 7.  In **verzameling voortgang**, het detectieproces bewaken en controleren van metagegevens verzameld van de virtuele machines zijn binnen het bereik. De collector geeft aan hoe lang de detectie ongeveer zal duren.
@@ -211,7 +195,7 @@ Voor elke detectie dat u wilt uitvoeren, moet u de collector voor het detecteren
 
 ### <a name="verify-vms-in-the-portal"></a>VM's verifiëren in de portal
 
-De detectietijd is afhankelijk van het aantal virtuele machines dat u detecteert. Normaal gesproken voor 100 virtuele machines, detectie is voltooid rond een uur nadat de collector is voltooid. 
+De detectietijd is afhankelijk van het aantal virtuele machines dat u detecteert. Normaal gesproken voor 100 virtuele machines, detectie is voltooid rond een uur nadat de collector is voltooid.
 
 1. Selecteer in het project migratie Planner **beheren** > **Machines**.
 2. Controleer of de virtuele machines die u wilt detecteren in de portal worden weergegeven.

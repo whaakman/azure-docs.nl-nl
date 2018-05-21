@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 832f842aeae53e9c089a9889bf064918de417ed5
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
-ms.translationtype: HT
+ms.openlocfilehash: e0c823982bb799e324dc6fb0fb811fd9ace37878
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Aanbevolen procedures voor beveiliging van de virtuele machine in Azure
 
@@ -68,7 +68,7 @@ Als uw virtuele machine wordt uitgevoerd voor kritieke toepassingen die moeten e
 
 [Azure Load Balancer](../load-balancer/load-balancer-overview.md) vereist ook dat netwerktaakverdeling virtuele machines deel uitmaken van dezelfde beschikbaarheidsset. Als deze virtuele machines moeten worden geopend via Internet, moet u een [Internet gerichte load balancer](../load-balancer/load-balancer-internet-overview.md).
 
-Bij virtuele machines worden blootgesteld aan Internet, is het belangrijk dat u [netwerkverkeer met netwerkbeveiligingsgroepen (nsg's) bepalen](../virtual-network/virtual-networks-nsg.md). Omdat nsg's kunnen worden toegepast op subnetten, kunt u het aantal nsg's minimaliseren door uw resources groeperen per subnet en nsg's vervolgens naar de subnetten toe te passen. De bedoeling is om het maken van een laag van netwerkisolatie, u doen kunt door het instellen van de [netwerkbeveiliging](../best-practices-network-security.md) mogelijkheden in Azure.
+Bij virtuele machines worden blootgesteld aan Internet, is het belangrijk dat u [netwerkverkeer met netwerkbeveiligingsgroepen (nsg's) bepalen](../virtual-network/security-overview.md). Omdat nsg's kunnen worden toegepast op subnetten, kunt u het aantal nsg's minimaliseren door uw resources groeperen per subnet en nsg's vervolgens naar de subnetten toe te passen. De bedoeling is om het maken van een laag van netwerkisolatie, u doen kunt door het instellen van de [netwerkbeveiliging](../best-practices-network-security.md) mogelijkheden in Azure.
 
 U kunt ook de functie voor just-in-time-(Just in time) VM-toegang van Azure Security Center gebruiken om te bepalen wie externe toegang tot een specifieke virtuele machine en hoe lang is.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 0aaf49aaa31a022e040fc7019a2f115f92555010
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 5ebeadd9c0805ac5f6ac543a49cb9ff63d8ded3f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-network-security-best-practices"></a>Aanbevolen beveiligingsprocedures voor Azure-netwerk
 Microsoft Azure kunt u virtuele machines en apparaten verbinding maken met andere apparaten in het netwerk door ze te plaatsen op Azure Virtual Networks. Een Azure-netwerk is een constructie waarmee u virtuele netwerkinterfacekaarten verbinden met een virtueel netwerk om een TCP/IP-basis communicatie tussen netwerkapparaten. Azure virtuele Machines die zijn verbonden met een Azure-netwerk kan verbinding maken met apparaten op de dezelfde Azure Virtual Network, verschillende virtuele netwerken van Azure, op het Internet of zelfs op uw eigen on-premises netwerken.
@@ -56,7 +56,7 @@ Vergelijkbaar met wat u lokaal uitvoeren, moet u een grotere adresruimte segment
 
 Routering tussen subnetten gebeurt automatisch en u hoeft niet te routeringstabellen handmatig configureren. De standaardinstelling is echter dat er geen toegang tot netwerk besturingselementen zijn tussen de subnetten die u op het virtuele netwerk van Azure maakt. Om het netwerk toegang besturingselementen tussen subnetten maakt, moet u een object tussen de subnetten gezet.
 
-Een van de dingen die u kunt deze taak is een [Netwerkbeveiligingsgroep](../virtual-network/virtual-networks-nsg.md) (NSG). Nsg's zijn eenvoudige stateful packet inspection apparaten die gebruikmaken van de 5-tuple (de bron-IP, bronpoort, doel-IP, doelpoort en het protocol van laag 4) benadering voor het toestaan/weigeren maken van regels voor netwerkverkeer. U kunt toestaan of weigeren van verkeer van en naar één IP-adres naar en van meerdere IP-adressen of zelfs naar en van volledige subnetten.
+Een van de dingen die u kunt deze taak is een [Netwerkbeveiligingsgroep](../virtual-network/security-overview.md) (NSG). Nsg's zijn eenvoudige stateful packet inspection apparaten die gebruikmaken van de 5-tuple (de bron-IP, bronpoort, doel-IP, doelpoort en het protocol van laag 4) benadering voor het toestaan/weigeren maken van regels voor netwerkverkeer. U kunt toestaan of weigeren van verkeer van en naar één IP-adres naar en van meerdere IP-adressen of zelfs naar en van volledige subnetten.
 
 Met nsg's voor network access control tussen subnetten kunt u resources die bij de rol op hun eigen subnetten of dezelfde beveiligingszone horen plaatsen. Bijvoorbeeld, een eenvoudige 3-laagse toepassing met een weblaag, een toepassing logicalaag en een databaselaag zien. U plaatsen virtuele machines die deel uitmaken van elk van deze lagen in hun eigen subnetten. U kunt vervolgens nsg's gebruiken waarmee verkeer tussen de subnetten:
 
@@ -64,7 +64,7 @@ Met nsg's voor network access control tussen subnetten kunt u resources die bij 
 * Toepassing logica virtuele machines kunnen alleen verbindingen met databaselaag initiëren en accepteert alleen verbindingen van de weblaag
 * Database-laag virtuele machines verbinding met iets buiten hun eigen subnet kan niet starten en accepteert alleen verbindingen van de logische laag van de toepassing
 
-Zie voor meer informatie over Netwerkbeveiligingsgroepen en hoe u ze kunt gebruiken bij het segmenteren van uw Azure Virtual Networks logisch, [wat is er een Netwerkbeveiligingsgroep](../virtual-network/virtual-networks-nsg.md) (NSG).
+Zie voor meer informatie over Netwerkbeveiligingsgroepen en hoe u ze kunt gebruiken bij het segmenteren van uw Azure Virtual Networks logisch, [wat is er een Netwerkbeveiligingsgroep](../virtual-network/security-overview.md) (NSG).
 
 ## <a name="control-routing-behavior"></a>Het gedrag van routering bepalen
 Als u een virtuele machine op een Azure Virtual Network plaatst, zult u merken dat de virtuele machine verbinding met een andere virtuele machine op de dezelfde Azure Virtual Network maken kunt, zelfs als de andere virtuele machines op verschillende subnetten. Dit komt mogelijk doordat er is een verzameling van systeemroutes die standaard zijn ingeschakeld waardoor dit type communicatie. Deze standaardroutes zodat virtuele machines op de dezelfde Azure Virtual Network verbindingen met elkaar en met het Internet (voor uitgaande communicatie met Internet alleen) te initiëren.
