@@ -5,14 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: overview
-ms.date: 04/23/2018
+ms.date: 05/16/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2a2818be8ef609946e53f585aadb0a5b4ac0f3a9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 27b394a6b2d2f85afeb809fcad3b88564f3054e7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34193812"
 ---
 # <a name="what-is-azure-analysis-services"></a>Wat is Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -57,7 +58,7 @@ U kunt een Azure Analysis Services-server maken in de volgende [Azure-regio's](h
 
 | Noord- en Zuid-Amerika | Europa | Azië en Stille Oceaan |
 |----------|--------|--------------|
-|  Brazilië - zuid<br> Canada - midden<br> VS - oost 2<br> Noord-centraal VS<br> Zuid-centraal VS<br> West-centraal VS<br> VS - west | Noord-Europa<br> Verenigd Koninkrijk Zuid<br> West-Europa |   Australië - zuidoost<br> Japan - oost<br> Zuidoost-Azië<br> West-India  |
+|  Brazilië - zuid<br> Canada - midden<br> VS - oost<br> VS - oost 2<br> Noord-centraal VS<br> VS - midden<br> Zuid-centraal VS<br> West-centraal VS<br> VS - west<br> VS - west 2 | Noord-Europa<br> Verenigd Koninkrijk Zuid<br> West-Europa |   Australië - zuidoost<br> Japan - oost<br> Zuidoost-Azië<br> West-India  |
 
 Er worden voortdurend nieuwe regio's toegevoegd. Mogelijk is deze lijst daarom onvolledig. U kiest uw locatie tijdens het maken van uw server in Azure Portal of met behulp van een Azure Resource Manager-sjabloon. Voor optimale prestaties moet u een locatie kiezen die zich zo dicht mogelijk bij uw grootste gebruikersgroep bevindt. Een [hoge beschikbaarheid](analysis-services-bcdr.md) garandeert u door uw modellen op redundante servers in meerdere regio's te implementeren.
 

@@ -13,6 +13,7 @@ ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34300948"
 ---
 # <a name="create-and-route-custom-events-with-azure-powershell-and-event-grid"></a>Aangepaste gebeurtenissen maken en routeren met behulp van Azure PowerShell en Event Grid
 

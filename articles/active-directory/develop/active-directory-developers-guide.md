@@ -16,11 +16,12 @@ ms.date: 04/30/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f0f577e2ff18645cfa93763f2345ef4230907e09
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 6f3c0e93b20bbc570f4715318a49b502549ff295
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257546"
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory voor ontwikkelaars
 
@@ -55,7 +56,6 @@ Deze handleidingen behandelen een paar van de meest voorkomende taken in Azure A
 |[Een toepassing registreren](active-directory-integrating-applications.md)           | Een toepassing registreren in Azure AD. |
 |[Toepassingen voor meerdere tenants](active-directory-devhowto-multi-tenant-overview.md)    | Aanmelden bij een Microsoft-werkaccount. |
 |[OAuth- en OpenID Connect-protocollen](active-directory-protocols-openid-connect-code.md)| Het aanmelden van gebruikers en aanroepen van web-API's met de Microsoft-verificatieprotocollen. |
-|[Aanvullende handleidingen](active-directory-developers-guide-index.md#guides)        |  Een lijst met handleidingen die beschikbaar zijn voor Azure AD. |
 |  |  |
 
 ## <a name="reference-topics"></a>Onderwerpen met naslaginformatie
@@ -66,7 +66,6 @@ De volgende artikelen bieden gedetailleerde informatie over API's, protocolberic
 | [Verificatiebibliotheken (ADAL)](active-directory-authentication-libraries.md)   | Een overzicht van de bibliotheken en SDK's die worden geleverd door Azure AD. |
 | [Codevoorbeelden](active-directory-code-samples.md)                                  | Een lijst met alle Azure AD-codevoorbeelden. |
 | [Woordenlijst](active-directory-dev-glossary.md)                                      | Termen en definities van woorden die in deze documenten worden gebruikt. |
-| [Aanvullende onderwerpen met naslaginformatie](active-directory-developers-guide-index.md#reference)| Een lijst met onderwerpen met naslaginformatie die beschikbaar zijn voor Azure AD. |
 |  |  |
 
 

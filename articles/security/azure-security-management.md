@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: f8e9a2fbf28ace78b4ad2d361358bd394ac69ac7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f5630c8cb9c0ca13210c62652f8d7f2e98f94438
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366644"
 ---
 # <a name="security-management-in-azure"></a>Beveiligingsbeheer in Azure
 Azure-abonnees kunnen hun cloudomgevingen beheren vanaf meerdere apparaten, waaronder beheerwerkstations, de pc's van ontwikkelaars en zelfs apparaten van bevoegde eindgebruikers met taakspecifieke rechten. In sommige gevallen worden beheerfuncties uitgevoerd via op het web gebaseerde consoles, zoals de [Azure Portal](https://azure.microsoft.com/features/azure-portal/). In andere gevallen zijn er mogelijk rechtstreekse verbindingen naar Azure vanaf on-premises systemen via virtuele particuliere netwerken (VPN), Terminal Services, protocollen van clienttoepassingen of de Azure Service Management API (SMAPI) (via een programma). Clienteindpunten kunnen bovendien zowel in een domein zijn samengevoegd als op zichzelf staand en niet-beheerd zijn, zoals tablets en smartphones.
@@ -111,7 +112,7 @@ Een Extern bureaublad-gateway is een op beleid gebaseerde RDP-proxyservice die b
 * Configureer [verificatiebeleid voor clientverbindingen](http://technet.microsoft.com/library/cc753324.aspx), zodat de Extern bureaublad-gateway controleert of de naam van het clientapparaat geldig is (lid is van een domein) en toegang heeft tot Azure Portal.
 * Gebruik IPsec voor [Azure-VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) om beheerverkeer extra te beschermen tegen afluisteren en diefstal van tokens, of breng een geïsoleerde internetkoppeling tot stand via [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
 * Schakel Multi-Factor Authentication (via [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)) of smartcardverificatie in voor beheerders die zich via de Extern bureaublad-gateway aanmelden.
-* Configureer in Azure [IP-adresbeperkingen](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) voor bronnen of [Netwerkbeveiligingsgroepen](../virtual-network/virtual-networks-nsg.md) om het aantal toegestane eindpunten voor beheer te minimaliseren.
+* Configureer in Azure [IP-adresbeperkingen](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) voor bronnen of [Netwerkbeveiligingsgroepen](../virtual-network/security-overview.md) om het aantal toegestane eindpunten voor beheer te minimaliseren.
 
 ## <a name="security-guidelines"></a>Richtlijnen voor beveiliging
 In het algemeen sluit het beveiligen van werkstations van beheerders voor gebruik met de cloud aan bij de uitgangspunten die gelden voor elk ander on-premises werkstation, zoals een minimale build en beperkte machtigingen. Sommige unieke aspecten van cloudbeheer lijken meer op extern beheer of out-of-band-enterprise-beheer. Hierbij horen het gebruiken en controleren van referenties, verbeterde beveiliging van externe toegang, en bedreigingsdetectie en -respons.

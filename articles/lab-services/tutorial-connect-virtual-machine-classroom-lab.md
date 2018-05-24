@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/09/2018
+ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: b0b6883abe738791e2f20c7fb0e6cbf696e0ffc1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5201c15e8aad5542e01859f1a65173bf4b10b6e6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34361230"
 ---
 # <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>Zelfstudie: toegang tot een leslokaallab in Azure Lab Services
 In deze zelfstudie maakt u als student verbinding met een virtuele machine (VM) in een leslokaallab. 
@@ -42,7 +43,7 @@ In deze zelfstudie voert u de volgende acties uit:
 
 2. Selecteer **Verbinding maken** op de tegel van de virtuele machine van het lab dat u wilt openen. 
 3. Sla het RDP-bestand op de harde schijf op en open het. 
-4. Gebruik de **gebruikersnaam** en **het wachtwoord** dat u van uw docent hebt gekregen om zich aan te melden bij de computer. 
+4. Gebruik de **gebruikersnaam** en het **wachtwoord** dat u van uw docent hebt gekregen om zich aan te melden bij de computer. 
 
 ## <a name="next-steps"></a>Volgende stappen
 In deze zelfstudie hebt u een leslokaallab geopend met behulp van de registratiekoppeling die u van uw docent krijgt. 
