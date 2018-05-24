@@ -1,11 +1,11 @@
 ---
-title: Aan de slag met hybride Relay-verbindingen van Azure in .NET | Microsoft Docs
-description: Een consoletoepassing in C# schrijven voor hybride Relay-verbindingen van Azure.
+title: Aan de slag met websockets voor hybride verbindingen in Azure Relay in .NET | Microsoft Docs
+description: Schrijf een consoletoepassing in C# voor websockets voor hybride verbindingen van Azure Relay.
 services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d1386900-b942-4abf-acfc-38d2ef826253
 ms.service: service-bus-relay
 ms.devlang: tbd
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/15/2017
 ms.author: sethm
-ms.openlocfilehash: 3667d7f4a74ac7c43f8f443aed2beacafd909dbd
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 5b900f70721f8642e27daf242295fbda77d7df6f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 05/08/2018
 ---
-# <a name="get-started-with-relay-hybrid-connections"></a>Aan de slag met hybride Relay-verbindingen
+# <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>Aan de slag met websockets voor hybride verbindingen in Azure Relay in .NET |
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
 Deze zelfstudie bevat een inleiding tot [Hybride verbindingen van Azure Relay](relay-what-is-it.md#hybrid-connections). Hier vindt u informatie over hoe u met Microsoft .NET een clienttoepassing kunt maken die berichten naar een bijbehorende listener-toepassing verzendt. 

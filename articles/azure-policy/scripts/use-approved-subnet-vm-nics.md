@@ -1,29 +1,29 @@
 ---
-title: Azure beleid json-voorbeeld - gebruik goedgekeurd subnet voor VM-netwerkinterfaces | Microsoft Docs
-description: Dit beleid json-voorbeeld moet netwerkinterfaces gebruiken een goedgekeurde subnet.
+title: Json-voorbeeld Azure Policy - goedgekeurd subnet gebruiken voor VM-netwerkinterfaces | Microsoft Docs
+description: Dit json-voorbeeldbeleid vereist dat netwerkinterfaces een goedgekeurd subnet gebruiken.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 2ea6e2f69001cf328f37625b116afea2e88b5734
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: MT
+ms.openlocfilehash: 126a32402487ce742ba90b89e9f16fb77a125dba
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="use-approved-subnet-for-vm-network-interfaces"></a>Gebruik goedgekeurde subnet voor VM-netwerkinterfaces
+# <a name="use-approved-subnet-for-vm-network-interfaces"></a>Goedgekeurd subnet gebruiken voor VM-netwerkinterfaces
 
-Dit beleid vereist dat netwerkinterfaces een goedgekeurde subnet gebruiken. U opgeven de ID van de goedgekeurde subnet.
+Dit beleid vereist dat netwerkinterfaces een goedgekeurd subnet gebruiken. U geeft de id op van het goedgekeurde subnet.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,7 +31,7 @@ Dit beleid vereist dat netwerkinterfaces een goedgekeurde subnet gebruiken. U op
 
 [!code-json[main](../../../policy-templates/samples/Network/vm-creation-in-approved-subnet/azurepolicy.json "Use approved subnet for VM network interfaces")]
 
-U kunt implementeren met behulp van deze sjabloon de [Azure-portal](#deploy-with-the-portal), met [PowerShell](#deploy-with-powershell) of met de [Azure CLI](#deploy-with-azure-cli).
+U kunt deze sjabloon implementeren met behulp van [Azure Portal](#deploy-with-the-portal), met [PowerShell](#deploy-with-powershell) of met de [Azure CLI](#deploy-with-azure-cli).
 
 ## <a name="deploy-with-the-portal"></a>Implementeren met portal
 
@@ -48,9 +48,9 @@ $assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope> 
 $assignment
 ```
 
-### <a name="clean-up-powershell-deployment"></a>Opschonen van de PowerShell-implementatie
+### <a name="clean-up-powershell-deployment"></a>PowerShell-implementatie opschonen
 
-Voer de volgende opdracht om de resourcegroep, VM en alle gerelateerde resources te verwijderen.
+Gebruik de volgende opdracht om de resourcegroep, VM, en alle gerelateerde resources te verwijderen.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -66,9 +66,9 @@ az policy definition create --name 'vm-creation-in-approved-subnet' --display-na
 az policy assignment create --name <assignmentname> --scope <scope> --policy "vm-creation-in-approved-subnet"
 ```
 
-### <a name="clean-up-azure-cli-deployment"></a>Opschonen van de implementatie van Azure CLI
+### <a name="clean-up-azure-cli-deployment"></a>Implementatie van Azure CLI opschonen
 
-Voer de volgende opdracht om de resourcegroep, VM en alle gerelateerde resources te verwijderen.
+Gebruik de volgende opdracht om de resourcegroep, VM, en alle gerelateerde resources te verwijderen.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes
@@ -76,4 +76,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Voorbeelden van de sjabloon extra Azure-beleid, lopen [sjablonen voor Azure beleid](../json-samples.md).
+- Meer Azure Policy-voorbeeldsjablonen zijn te vinden op [Sjablonen voor Azure Policy](../json-samples.md).

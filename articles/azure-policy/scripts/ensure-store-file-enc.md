@@ -1,29 +1,29 @@
 ---
-title: Azure beleid json steekproef - versleuteling voor opslag-bestand | Microsoft Docs
-description: Dit json-voorbeeld-beleid vereist dat versleuteling is ingeschakeld voor de storage-accounts.
+title: Json-voorbeeld Azure Policy - opslagbestandsversleuteling vereisen | Microsoft Docs
+description: Dit json-voorbeeldbeleid vereist dat bestandsversleuteling is ingeschakeld voor opslagaccounts.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 922f9f6bf5bd8a84b2265fb0ea9c3b021bbe1621
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: MT
+ms.openlocfilehash: 9a60fcf83f609570540d6dd9d68500e658ac8dab
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="ensure-storage-file-encryption"></a>Zorg ervoor dat de bestandscodering voor opslag
+# <a name="ensure-storage-file-encryption"></a>Opslagbestandsversleuteling vereisen
 
-Dit beleid vereist dat versleuteling is ingeschakeld voor de storage-accounts.
+Dit beleid vereist dat bestandsversleuteling is ingeschakeld voor opslagaccounts.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,7 +31,7 @@ Dit beleid vereist dat versleuteling is ingeschakeld voor de storage-accounts.
 
 [!code-json[main](../../../policy-templates/samples/Storage/storage-account-file-encryption/azurepolicy.json "Ensure storage file encryption")]
 
-U kunt implementeren met behulp van deze sjabloon de [Azure-portal](#deploy-with-the-portal), met [PowerShell](#deploy-with-powershell) of met de [Azure CLI](#deploy-with-azure-cli).
+U kunt deze sjabloon implementeren met behulp van [Azure Portal](#deploy-with-the-portal), met [PowerShell](#deploy-with-powershell) of met de [Azure CLI](#deploy-with-azure-cli).
 
 ## <a name="deploy-with-the-portal"></a>Implementeren met portal
 
@@ -48,9 +48,9 @@ $assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope> 
 $assignment
 ```
 
-### <a name="clean-up-powershell-deployment"></a>Opschonen van de PowerShell-implementatie
+### <a name="clean-up-powershell-deployment"></a>PowerShell-implementatie opschonen
 
-Voer de volgende opdracht om de resourcegroep, VM en alle gerelateerde resources te verwijderen.
+Gebruik de volgende opdracht om de resourcegroep, VM, en alle gerelateerde resources te verwijderen.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -66,9 +66,9 @@ az policy definition create --name 'storage-account-file-encryption' --display-n
 az policy assignment create --name <assignmentname> --scope <scope> --policy "storage-account-file-encryption"
 ```
 
-### <a name="clean-up-azure-cli-deployment"></a>Opschonen van de implementatie van Azure CLI
+### <a name="clean-up-azure-cli-deployment"></a>Implementatie van Azure CLI opschonen
 
-Voer de volgende opdracht om de resourcegroep, VM en alle gerelateerde resources te verwijderen.
+Gebruik de volgende opdracht om de resourcegroep, VM, en alle gerelateerde resources te verwijderen.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes
@@ -76,4 +76,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Voorbeelden van de sjabloon extra Azure-beleid, lopen [sjablonen voor Azure beleid](../json-samples.md).
+- Meer Azure Policy-voorbeeldsjablonen zijn te vinden op [Sjablonen voor Azure Policy](../json-samples.md).

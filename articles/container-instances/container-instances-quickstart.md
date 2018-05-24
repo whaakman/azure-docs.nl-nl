@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 03/19/2018
+ms.date: 05/11/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 57961cf1cb64f90cec7d2be90f3fbfe33344467d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b68468cd8174d658d04d8e67433a8f18884493bd
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Snelstart: Uw eerste container maken in Azure Container Instances
 
@@ -64,19 +64,21 @@ FQDN                               ProvisioningState
 aci-demo.eastus.azurecontainer.io  Succeeded
 ```
 
-Als de container de status **Voltooid** heeft, kunt u deze in uw browser openen door naar de FQDN-naam ervan te gaan:
+Als de container de status **Voltooid** heeft, gaat u naar de FQDN-naam in de browser:
 
 ![Schermafbeelding van browser met toepassing die wordt uitgevoerd in een exemplaar van een Azure-container][aci-app-browser]
 
 ## <a name="pull-the-container-logs"></a>De containerlogboeken ophalen
 
-U kunt de logboeken voor de container die u hebt gemaakt ophalen met de opdracht [az container logs][az-container-logs]:
+Het weergeven van de logboeken voor een exemplaar van de container is handig bij het oplossen van problemen met de container of de toepassing die wordt uitgevoerd.
+
+Haal de logboeken van de container op met de opdracht [az container logs][az-container-logs]:
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer
 ```
 
-Als het goed is, ziet de uitvoer er ongeveer als volgt uit:
+De uitvoer geeft de logboeken voor de container weer, evenals de HTTP GET-aanvragen die worden gegenereerd wanneer u de toepassing in uw browser weergeeft.
 
 ```console
 $ az container logs --resource-group myResourceGroup -n mycontainer
@@ -113,9 +115,9 @@ listening on port 80
 ::ffff:10.240.255.107 - - [15/Mar/2018:21:18:47 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36"
 ```
 
-## <a name="delete-the-container"></a>De container verwijderen
+## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer u klaar bent met de container, kunt u deze verwijderen met behulp van de opdracht [az container delete][az-container-delete]:
+Wanneer u klaar bent met de container, verwijdert u deze met de opdracht [az container delete][az-container-delete]:
 
 ```azurecli-interactive
 az container delete --resource-group myResourceGroup --name mycontainer
@@ -131,19 +133,19 @@ De container **mycontainer** mag dan niet worden weergegeven in de uitvoer van d
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Alle code voor de container die in deze Quick Start wordt gebruikt, is beschikbaar [op GitHub][app-github-repo], samen met het bijbehorende Dockerfile. Als u wilt proberen om deze zelf te bouwen en te implementeren in Azure Container Instances met behulp van het Azure Container Registry, gaat u verder met de zelfstudie van Azure Container Instances.
+In deze snelstart hebt u een Azure-containerinstantie van een installatiekopie gemaakt in een openbaar Docker Hub-regiser. Als u zelf een containerinstallatiekopie wilt bouwen en deze wilt implementeren in Azure Container Instances met behulp van privé Azure Container Registry, gaat u verder met de zelfstudie voor Azure Container Instances.
 
 > [!div class="nextstepaction"]
-> [Zelfstudies voor Azure Container Instances](./container-instances-tutorial-prepare-app.md)
+> [Zelfstudie voor Azure Container Instances](./container-instances-tutorial-prepare-app.md)
 
-Zie de Quick Start [Service Fabric] [ service-fabric] of [Azure Container Service (AKS)] [ container-service] als u opties wilt uitproberen voor het uitvoeren van containers in een orchestration-systeem op Azure.
+Zie de snelstart [Service Fabric][service-fabric] of [Azure Kubernetes Service (AKS)][container-service] als u opties wilt uitproberen voor het uitvoeren van containers in een orchestration-systeem op Azure.
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
 
 <!-- LINKS - External -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git
-[azure-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
+[azure-account]: https://azure.microsoft.com/free/
 [node-js]: http://nodejs.org
 
 <!-- LINKS - Internal -->

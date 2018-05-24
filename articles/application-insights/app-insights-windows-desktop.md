@@ -1,6 +1,6 @@
 ---
 title: Gebruik en prestaties bewaken voor Windows-bureaublad-apps
-description: Analyseer het gebruik en de prestaties van uw Windows-bureaublad-app met HockeyApp en Application Insights.
+description: Analyseer het gebruik en de prestaties van uw Windows-bureaublad-app met Application Insights.
 services: application-insights
 documentationcenter: windows
 author: mrbullwinkle
@@ -11,25 +11,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/26/2016
+ms.date: 04/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3b91996c12a27847befcacf6daf14457a0e066aa
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 5b325fd4326f2594a7386c65dea17a3da19abde8
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="monitoring-usage-and-performance-in-windows-desktop-apps"></a>Gebruik en prestaties bewaken in Windows-bureaublad-apps
 
-
-Met [Azure Application Insights](app-insights-overview.md) en [HockeyApp](https://hockeyapp.net) kunt u het gebruik en de prestaties van uw geïmplementeerde toepassing bewaken.
-
-> [!IMPORTANT]
-> We raden [HockeyApp](https://hockeyapp.net) aan voor het distribueren en bewaken van bureaublad- en apparaat-apps. Met HockeyApp kunt u distributie, livetesten en feedback van gebruikers beheren en gebruiks- en foutrapporten bewaken. U kunt ook [uw telemetrie exporteren en query’s hierop uitvoeren met Analytics](app-insights-hockeyapp-bridge-app.md).
-> 
-> Hoewel telemetrie kan worden verzonden naar Application Insights vanuit een bureaubladtoepassing, is dit vooral handig voor foutopsporing en experimenten.
-> 
-> 
+Hoewel telemetrie kan worden verzonden naar Application Insights vanuit een bureaubladtoepassing, is dit vooral handig voor foutopsporing en experimenten.
 
 ## <a name="to-send-telemetry-to-application-insights-from-a-windows-application"></a>Telemetrie verzenden naar Application Insights vanuit een Windows-toepassing
 1. Maak in de [Azure Portal](https://portal.azure.com) [een Application Insights-resource](app-insights-create-new-resource.md). Kies ASP.NET-app als het toepassingstype.

@@ -1,6 +1,6 @@
 ---
-title: LEMP implementeren op een virtuele Linux-machine in Azure | Microsoft Docs
-description: 'Zelfstudie: de LEMP-stack installeren op een Linux-VM in Azure'
+title: 'Zelfstudie: LEMP implementeren op een virtuele Linux-machine in Azure | Microsoft Docs'
+description: In deze zelfstudie leert u hoe de LEMP-stack installeert op een virtuele Linux-machine in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: dlepow
@@ -15,13 +15,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 11/27/2017
 ms.author: danlep
-ms.openlocfilehash: f907b468a409135d4b45e76297fc7cd86eeead78
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 1f4c74ab96fc9494d1b3c7dd626265516533330b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="install-a-lemp-web-server-on-an-azure-vm"></a>Een LEMP-webserver installeren op een Azure-VM
+# <a name="tutorial-install-a-lemp-web-server-on-a-linux-virtual-machine-in-azure"></a>Zelfstudie: Een LEMP-webserver installeren op een virtuele Linux-machine in Azure
+
 Dit artikel begeleidt u bij de implementatie van een NGINX-webserver, MySQL en PHP (de LEMP-stack) op een Ubuntu-VM in Azure. De LEMP-stack is een alternatief voor de populaire [LAMP-stack](tutorial-lamp-stack.md), die u ook in Azure kunt installeren. Als u de LEMP-server in actie wilt zien, kunt u eventueel een WordPress-site installeren en configureren. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
@@ -31,12 +32,11 @@ Dit artikel begeleidt u bij de implementatie van een NGINX-webserver, MySQL en P
 > * Installatie en configuratie verifiëren
 > * WordPress op de LEMP-server installeren
 
-
 Deze installatie is voor snelle tests en het testen van het concept.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze zelfstudie Azure CLI 2.0.4 of nieuwer uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u Azure CLI 2.0.30 of hoger gebruiken voor deze zelfstudie. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
 
 [!INCLUDE [virtual-machines-linux-tutorial-stack-intro.md](../../../includes/virtual-machines-linux-tutorial-stack-intro.md)]
 

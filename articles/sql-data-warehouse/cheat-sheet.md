@@ -10,11 +10,11 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: 172780512dd179d91300459987ad0ba683727859
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a22aadff2d58ace60a980a138035e30a638b08fa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Tips voor Azure SQL Data Warehouse
 Dit overzicht biedt nuttige tips en best practices voor het maken van uw Azure SQL Data Warehouse-oplossingen. Voordat u begint, kunt u gedetailleerde informatie over elke stap lezen in [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns) (Patronen en anti-patronen voor workloads van Microsoft Azure SQL Data Warehouse), waarin wordt uitgelegd wat SQL Data Warehouse is.
@@ -34,7 +34,7 @@ Als u de typen bewerkingen van tevoren kent, kunt u het ontwerp van uw tabellen 
 
 ## <a name="data-migration"></a>Gegevensmigratie
 
-Laad uw gegevens eerst in [Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-data-lake-store) of Azure Blob-opslag. Gebruik vervolgens PolyBase om uw gegevens in SQL Data Warehouse in een faseringstabel te laden. Gebruik de volgende configuratie:
+Laad uw gegevens eerst in [Azure Data Lake Store](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) of Azure Blob-opslag. Gebruik vervolgens PolyBase om uw gegevens in SQL Data Warehouse in een faseringstabel te laden. Gebruik de volgende configuratie:
 
 | Ontwerp | Aanbeveling |
 |:--- |:--- |
@@ -43,7 +43,7 @@ Laad uw gegevens eerst in [Azure Data Lake Store](https://docs.microsoft.com/en-
 | Partitionering | Geen |
 | Resourceklasse | largerc of xlargerc |
 
-Meer informatie over [gegevensmigratie], [gegevens laden], en het [ELT-proces (extraheren, laden en transformeren)](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/design-elt-data-loading). 
+Meer informatie over [gegevensmigratie], [gegevens laden], en het [ELT-proces (extraheren, laden en transformeren)](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading). 
 
 ## <a name="distributed-or-replicated-tables"></a>Gedistribueerde of gerepliceerde tabellen
 
@@ -78,7 +78,7 @@ Indexeren is handig voor het snel lezen van tabellen. Er bestaat een unieke reek
 **Tips:**
 * Mogelijk wilt u boven op een geclusterde index een niet-geclusterde index toevoegen aan een kolom die veel wordt gebruikt voor filteren. 
 * Wees voorzichtig met hoe u het geheugen van een tabel met CCI beheert. Wanneer u gegevens laadt, wilt u dat de gebruiker (of de query) profiteert van een grote resourceklasse. Voorkom bijsnijden en het maken van veel kleine gecomprimeerde rijgroepen.
-* Geoptimaliseerd voor berekenlaagrotsen met CCI.
+* Bij Gen2 worden CCI-tabellen lokaal in de cache op de rekenknooppunten opgeslagen om de prestaties te maximaliseren.
 * Bij CCI kunnen trage prestaties optreden vanwege slechte compressie van de rijgroepen. Als dit het geval is, herbouwt u uw CCI of ordent u deze opnieuw. U hebt ten minste 100.000 rijen per gecomprimeerde rijgroepen nodig. Ideaal is 1 miljoen rijen in een rijgroep.
 * Afhankelijk van de frequentie en grootte van incrementeel laden, wilt u automatiseren wanneer u uw indexen opnieuw indeelt of herbouwt. Een lenteschoonmaak is altijd handig.
 * Ga strategisch te werk bij het inkorten van een rijgroep. Hoe groot zijn de open rijgroepen? Hoeveel gegevens verwacht u dat er in de komende dagen worden geladen?
@@ -111,7 +111,7 @@ SQL Data Warehouse gebruikt resourcegroepen om geheugen toe te wijzen aan queryâ
 
 Als u merkt dat query's te lang duren, controleert u of uw gebruikers niet in grote resourceklassen worden uitgevoerd. Grote resourceklassen nemen veel gelijktijdigheidssleuven in beslag. Ze kunnen ervoor zorgen dat andere query's in de wachtrij komen.
 
-Ten slotte wordt met behulp van de laag die is geoptimaliseerd voor berekenen 2,5 keer zoveel geheugen gebruikt als met de laag geoptimaliseerd voor elastisch.
+Door het gebruik van Gen2 van SQL Data Warehouse krijgt iedere resourceklasse uiteindelijk 2,5 keer zoveel geheugen als Gen1.
 
 Meer informatie over het werken met [resourceklassen en gelijktijdigheid].
 

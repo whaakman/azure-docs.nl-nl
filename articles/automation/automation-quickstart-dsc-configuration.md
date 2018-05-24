@@ -2,6 +2,8 @@
 title: 'Azure-quickstart: een virtuele machine met DSC configureren | Microsoft Docs'
 description: Een LAMP-stack op een virtuele Linux-machine met Desired State Configuration configureren
 services: automation
+ms.service: automation
+ms.component: dsc
 keywords: dsc, configuratie, automatiseren
 author: KrisBash
 ms.author: krbash
@@ -9,11 +11,11 @@ ms.date: 12/17/2017
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 7f35acc0d8d553a3f5d1576ae18cbafd1dcbb225
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 959171963bcdc721c81823fcf4f9769174b32636
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>Een virtuele Linux-machine met Desired State Configuration configureren
 
@@ -21,14 +23,14 @@ Door Desired State Configuration (DSC) in te schakelen, kunt u de configuraties 
 
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt het volgende nodig om deze snelstartgids te voltooien:
+U hebt het volgende nodig om deze quickstart te voltooien:
 
 * Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, [maak dan een gratis account](https://azure.microsoft.com/free/).
 * Een Azure Automation-account. Zie [Azure Uitvoeren-als-account](automation-sec-configure-azure-runas-account.md) voor instructies over het maken van een Azure Automation Uitvoeren-als-account.
 * Een virtuele Azure Resource Manager-machine (niet Klassiek) waarop Red Hat Enterprise Linux, CentOS of Oracle Linux wordt uitgevoerd. Zie [Uw eerste virtuele Linux-machine maken met behulp van Azure Portal](../virtual-machines/linux/quick-create-portal.md) voor instructies voor het maken van een VM.
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
-Meld u aan bij Azure via https://portal.azure.com.
+Aanmelden bij Azure op https://portal.azure.com
 
 ## <a name="onboard-a-virtual-machine"></a>Een virtuele machine onboarden
 Er zijn veel verschillende methoden voor het uitvoeren van onboarding op een machine en om Desired State Configuration in te schakelen. Deze quickstart bevat informatie over onboarding via een Automation-account. Lees het artikel over [onboarding](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding) voor meer informatie over de verschillende methoden voor de onboarding van uw machines naar Desired State Configuration.

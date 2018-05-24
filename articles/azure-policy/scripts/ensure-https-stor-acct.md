@@ -1,29 +1,29 @@
 ---
-title: 'Azure beleid json steekproef: Zorg ervoor dat https-verkeer alleen voor storage-account | Microsoft Docs'
-description: Dit beleid json-voorbeeld vereist storage-accounts gebruiken HTTPS-verkeer.
+title: Json-voorbeeld Azure Policy - https-verkeer voor opslagaccounts vereisen | Microsoft Docs
+description: Dit json-voorbeeldbeleid vereist dat opslagaccounts HTTPS-verkeer gebruiken.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 278cb86aba2b365f8192d5418dede33d8f6bfa92
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: MT
+ms.openlocfilehash: cc816d74d370b32330221c267d2cc9c5b8561d47
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="ensure-https-traffic-only-for-storage-account"></a>Zorg ervoor dat https-verkeer alleen voor storage-account
+# <a name="ensure-https-traffic-only-for-storage-account"></a>Https-verkeer voor opslagaccounts vereisen
 
-Dit beleid vereist storage-accounts gebruiken HTTPS-verkeer.
+Dit beleid vereist dat opslagaccounts HTTPS-verkeer gebruiken.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,11 +31,11 @@ Dit beleid vereist storage-accounts gebruiken HTTPS-verkeer.
 
 [!code-json[main](../../../policy-templates/samples/Storage/https-traffic-only/azurepolicy.json "Ensure https traffic only for storage account")]
 
-U kunt implementeren met behulp van deze sjabloon de [Azure-portal](#deploy-with-the-portal), met [PowerShell](#deploy-with-powershell) of met de [Azure CLI](#deploy-with-azure-cli).
+U kunt deze sjabloon implementeren met behulp van [Azure Portal](#deploy-with-the-portal), met [PowerShell](#deploy-with-powershell) of met de [Azure CLI](#deploy-with-azure-cli).
 
 ## <a name="deploy-with-the-portal"></a>Implementeren met portal
 
-[![Implementeren in Azure](http://azuredeploy.net/deploybutton.png)](http://azuredeploy.net/deploybutton.png)] (https://portal.azure.com/?feature.customportal=false & microsoft_azure_policy = true & microsoft_azure_policy_policyinsights = true & feature.microsoft_azure_security_policy=true & microsoft_ azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FStorage%2Fhttps-traffic-only%2Fazurepolicy.json)
+[![Implementeren in Azure](http://azuredeploy.net/deploybutton.png)](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FStorage%2Fhttps-traffic-only%2Fazurepolicy.json)
 
 ## <a name="deploy-with-powershell"></a>Implementeren met PowerShell
 
@@ -48,9 +48,9 @@ $assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope> 
 $assignment
 ```
 
-### <a name="clean-up-powershell-deployment"></a>Opschonen van de PowerShell-implementatie
+### <a name="clean-up-powershell-deployment"></a>PowerShell-implementatie opschonen
 
-Voer de volgende opdracht om de resourcegroep, VM en alle gerelateerde resources te verwijderen.
+Gebruik de volgende opdracht om de resourcegroep, VM, en alle gerelateerde resources te verwijderen.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -66,9 +66,9 @@ az policy definition create --name 'https-traffic-only' --display-name 'Ensure h
 az policy assignment create --name <assignmentname> --scope <scope> --policy "https-traffic-only"
 ```
 
-### <a name="clean-up-azure-cli-deployment"></a>Opschonen van de implementatie van Azure CLI
+### <a name="clean-up-azure-cli-deployment"></a>Implementatie van Azure CLI opschonen
 
-Voer de volgende opdracht om de resourcegroep, VM en alle gerelateerde resources te verwijderen.
+Gebruik de volgende opdracht om de resourcegroep, VM, en alle gerelateerde resources te verwijderen.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes
@@ -76,4 +76,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Voorbeelden van de sjabloon extra Azure-beleid, lopen [sjablonen voor Azure beleid](../json-samples.md).
+- Meer Azure Policy-voorbeeldsjablonen zijn te vinden op [Sjablonen voor Azure Policy](../json-samples.md).

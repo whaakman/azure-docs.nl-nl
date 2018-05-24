@@ -1,29 +1,29 @@
 ---
-title: Json-voorbeeld Azure beleid - meerdere bestandsnaampatronen | Microsoft Docs
-description: Dit beleid json-voorbeeld vereist die resource overeenkomen met een van de opgegeven naam patronen.
+title: Json-voorbeeld Azure Policy - meerdere naampatronen  | Microsoft Docs
+description: Dit json-voorbeeld vereist dat de bron overeenkomt met een van de opgegeven naampatronen.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 11/13/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 7de79f131925ffdbbe2c403563ba3aca1087f79c
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
-ms.translationtype: MT
+ms.openlocfilehash: 8c39216f4375c8af3a1fbf6293a587d8cf3196ff
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="allow-multiple-name-patterns"></a>Meerdere bestandsnaampatronen toestaan
+# <a name="allow-multiple-name-patterns"></a>Meerdere naampatronen toestaan
 
-Toestaan dat een groot aantal bestandsnaampatronen moet worden gebruikt voor resources. Geef de naam van de toegestane patronen in de beleidsregel.
+Toestaan dat verschillende naampatronen mogen worden gebruikt voor resources. Geef de toegestane naampatronen op in de beleidsregel.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,7 +31,7 @@ Toestaan dat een groot aantal bestandsnaampatronen moet worden gebruikt voor res
 
 [!code-json[main](../../../policy-templates/samples/TextPatterns/allow-multiple-name-patterns/azurepolicy.json "allow multiple name patterns")]
 
-U kunt implementeren met behulp van deze sjabloon de [Azure-portal](#deploy-with-the-portal), met [PowerShell](#deploy-with-powershell) of met de [Azure CLI](#deploy-with-azure-cli).
+U kunt deze sjabloon implementeren met behulp van [Azure Portal](#deploy-with-the-portal), met [PowerShell](#deploy-with-powershell) of met de [Azure CLI](#deploy-with-azure-cli).
 
 ## <a name="deploy-with-the-portal"></a>Implementeren met portal
 
@@ -48,9 +48,9 @@ $assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope> 
 $assignment
 ```
 
-### <a name="clean-up-powershell-deployment"></a>Opschonen van de PowerShell-implementatie
+### <a name="clean-up-powershell-deployment"></a>PowerShell-implementatie opschonen
 
-Voer de volgende opdracht om de resourcegroep, VM en alle gerelateerde resources te verwijderen.
+Gebruik de volgende opdracht om de resourcegroep, VM, en alle gerelateerde resources te verwijderen.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -66,9 +66,9 @@ az policy definition create --name 'allow-multiple-name-patterns' --display-name
 az policy assignment create --name <assignmentname> --scope <scope> --policy "allow-multiple-name-patterns" 
 ```
 
-### <a name="clean-up-azure-cli-deployment"></a>Opschonen van de implementatie van Azure CLI
+### <a name="clean-up-azure-cli-deployment"></a>Implementatie van Azure CLI opschonen
 
-Voer de volgende opdracht om de resourcegroep, VM en alle gerelateerde resources te verwijderen.
+Gebruik de volgende opdracht om de resourcegroep, VM, en alle gerelateerde resources te verwijderen.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes
@@ -76,4 +76,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Voorbeelden van de sjabloon extra Azure-beleid, lopen [sjablonen voor Azure beleid](../json-samples.md).
+- Meer Azure Policy-voorbeeldsjablonen zijn te vinden op [Sjablonen voor Azure Policy](../json-samples.md).

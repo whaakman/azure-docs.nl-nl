@@ -1,6 +1,6 @@
 ---
-title: Windows-VM's maken en beheren met de Azure PowerShell-module | Microsoft Docs
-description: "Zelfstudie: Windows-VM's maken en beheren met de Azure PowerShell-module"
+title: "Zelfstudie: Windows-VM's maken en beheren met de Azure PowerShell | Microsoft Docs"
+description: In deze zelfstudie leert u hoe u Azure PowerShell gebruikt voor het maken en beheren van virtuele Windows-machines in Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: cce3fd003888c76490cb402b658f5c3aa76ab11e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8eeba3b38e4a78bc33b995ee06f76116601c4d12
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="create-and-manage-windows-vms-with-the-azure-powershell-module"></a>Windows-VM's maken en beheren met de Azure PowerShell-module
+# <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Zelfstudie: Windows-VM's maken en beheren met Azure PowerShell
 
 Virtuele machines in Azure bieden een volledig geconfigureerde en flexibele computeromgeving. Deze zelfstudie bevat informatie over basisconcepten voor het implementeren van virtuele Azure-machines, zoals het selecteren van een VM-grootte, het selecteren van een VM-installatiekopie en het implementeren van een virtuele machine. In deze zelfstudie leert u procedures om het volgende te doen:
 
@@ -33,10 +33,9 @@ Virtuele machines in Azure bieden een volledig geconfigureerde en flexibele comp
 > * De grootte van een virtuele machine wijzigen
 > * De status van een virtuele machine weergeven en begrijpen
 
-
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Als u PowerShell lokaal wilt installeren en gebruiken, is voor deze zelfstudie moduleversie 5.3 of later van Azure PowerShell vereist. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure. 
+Als u PowerShell lokaal wilt installeren en gebruiken, hebt u voor deze zelfstudie moduleversie 5.7.0 of hoger van Azure PowerShell nodig. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
 
 ## <a name="create-resource-group"></a>Een resourcegroep maken
 
@@ -90,15 +89,15 @@ Gebruik de volgende opdracht op uw lokale machine om een sessie met een extern b
 mstsc /v:<publicIpAddress>
 ```
 
-Selecteer in het venster **Windows-beveiliging** **Meer opties** en vervolgens **Een ander account gebruiken**. Typ de gebruikersnaam die en het wachtwoord dat u hebt gemaakt voor de virtuele machine en klik vervolgens op **OK**.
+Selecteer in het venster **Windows-beveiliging** **Meer opties** en vervolgens **Een ander account gebruiken**. Typ de gebruikersnaam en het wachtwoord die u hebt gemaakt voor de virtuele machine en klik vervolgens op **OK**.
 
 ## <a name="understand-vm-images"></a>Inzicht in VM-installatiekopieën
 
-Azure Marketplace bevat veel installatiekopieën van virtuele machines die kunnen worden gebruikt voor het maken van een nieuwe virtuele machine. In de vorige stappen is een virtuele machine gemaakt met behulp van de Windows Server 2016-Datacenter-installatiekopie. In deze stap wordt de PowerShell-module gebruikt om op de Marketplace te zoeken naar andere Windows-installatiekopieën, die ook als basis voor nieuwe virtuele machines kunnen worden gebruikt. Dit proces bestaat uit het vinden van de uitgever, aanbieding, SKU en eventueel een versienummer om de installatiekopie te [identificeren](cli-ps-findimage.md#terminology). 
+Azure Marketplace bevat veel installatiekopieën van virtuele machines die kunnen worden gebruikt voor het maken van een nieuwe virtuele machine. In de vorige stappen is een virtuele machine gemaakt met behulp van de Windows Server 2016 Datacenter-installatiekopie. In deze stap wordt de PowerShell-module gebruikt om op de Marketplace te zoeken naar andere Windows-installatiekopieën, die ook als basis voor nieuwe virtuele machines kunnen worden gebruikt. Dit proces bestaat uit het vinden van de uitgever, aanbieding, SKU en eventueel een versienummer om de installatiekopie te [identificeren](cli-ps-findimage.md#terminology). 
 
 Gebruik de opdracht [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) om een lijst met uitgevers van installatiekopieën te retourneren:
 
-```powersehll
+```powershell
 Get-AzureRmVMImagePublisher -Location "EastUS"
 ```
 
@@ -157,7 +156,7 @@ New-AzureRmVm `
     -AsJob
 ```
 
-Door de parameter `-AsJob` wordt de VM gemaakt als achtergrondtaak, zodat u weer terugkeert naar de PowerShell-prompts. U kunt details van achtergrondtaken bekijken met de cmdlet `Job`.
+Door de parameter `-AsJob` wordt de VM gemaakt als achtergrondtaak, zodat u weer terugkeert naar de PowerShell-prompts. U kunt details van achtergrondtaken bekijken met de cmdlet `Get-Job`.
 
 
 ## <a name="understand-vm-sizes"></a>Inzicht in VM-grootten

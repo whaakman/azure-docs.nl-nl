@@ -1,6 +1,6 @@
 ---
-title: Virtuele Linux-machines maken en beheren met de Azure CLI | Microsoft Docs
-description: 'Zelfstudie: virtuele Linux-machines maken en beheren met de Azure CLI'
+title: 'Zelfstudie: Virtuele Linux-machines maken en beheren met de Azure CLI | Microsoft Docs'
+description: In deze zelfstudie leert u hoe u Azure CLI 2.0 gebruikt voor het maken en beheren van virtuele Linux-machines in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a3826db21d2e4ed447e1ef8d4016ff1dbbf75b1c
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 4e8be3af81ce74b033b2a15ceaf857540c1d9a6e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Virtuele Linux-machines maken en beheren met de Azure CLI
+# <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli-20"></a>Zelfstudie: Virtuele Linux-machines maken en beheren met de Azure CLI 2.0
 
 Virtuele machines in Azure bieden een volledig geconfigureerde en flexibele computeromgeving. Deze zelfstudie bevat informatie over basisconcepten voor het implementeren van virtuele Azure-machines, zoals het selecteren van een VM-grootte, het selecteren van een VM-installatiekopie en het implementeren van een virtuele machine. In deze zelfstudie leert u procedures om het volgende te doen:
 
@@ -33,10 +33,9 @@ Virtuele machines in Azure bieden een volledig geconfigureerde en flexibele comp
 > * De grootte van een virtuele machine wijzigen
 > * De status van een virtuele machine weergeven en begrijpen
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze zelfstudie Azure CLI 2.0.4 of nieuwer uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u Azure CLI 2.0.30 of hoger gebruiken voor deze zelfstudie. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
 
 ## <a name="create-resource-group"></a>Een resourcegroep maken
 
@@ -85,7 +84,7 @@ Het maken van de virtuele machine kan een paar minuten duren. Wanneer de virtuel
 U kunt nu verbinding maken met de virtuele machine met SSH in de Azure Cloud Shell of vanaf uw lokale computer. Vervang het voorbeeld van een IP-adres door het `publicIpAddress` dat u in de vorige stap hebt genoteerd.
 
 ```bash
-ssh 52.174.34.95
+ssh azureuser@52.174.34.95
 ```
 
 Nadat u bent aangemeld bij de virtuele machine, kunt u toepassingen gaan installeren en configureren. Wanneer u klaar bent, sluit u de SSH-sessie af zoals gebruikelijk:

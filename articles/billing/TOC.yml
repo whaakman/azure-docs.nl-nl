@@ -16,8 +16,21 @@
       href: billing-use-existing-azure-account-for-office-365-subscription.md
     - name: Resources organiseren met beheergroepen
       href: billing-enterprise-mgmt-group-overview.md
-    - name: Geld besparen met gereserveerde VM-instanties
+    - name: Opslaan met Azure Reserved Instances
       href: billing-save-compute-costs-reservations.md
+      items:
+        - name: Vooruitbetalen voor virtuele machines met gereserveerde instanties
+          href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+        - name: Gereserveerde instanties beheren
+          href: billing-manage-reserved-vm-instance.md
+        - name: De toepassing van korting op gereserveerde instanties begrijpen
+          href: billing-understand-vm-reservation-charges.md
+        - name: Het gebruik van gereserveerde instanties voor betalen per gebruik begrijpen
+          href: billing-understand-reserved-instance-usage.md
+        - name: Het gebruik van gereserveerde instanties voor Enterprise begrijpen
+          href: billing-understand-reserved-instance-usage-ea.md
+        - name: Windows-kosten voor gereserveerde instanties
+          href: billing-reserved-instance-windows-software-costs.md
     - name: Limieten en quota
       href: ../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
 - name: Procedures
@@ -38,20 +51,12 @@
           href: billing-understand-your-azure-marketplace-charges.md
         - name: Gratis servicemetertoewijzing begrijpen
           href: billing-understand-free-service-meter-mapping.md
-        - name: Windows-kosten VM-exemplaren reserveren
-          href: billing-reserved-instance-windows-software-costs.md
-        - name: De toepassing van korting op gereserveerde VM-instanties begrijpen
-          href: billing-understand-vm-reservation-charges.md
         - name: De bestedingslimiet begrijpen
           href: billing-spending-limit.md
         - name: Meldingen voor facturering instellen
           href: billing-set-up-alerts.md
         - name: Verschuldigd bedrag betalen
           href: billing-azure-subscription-past-due-balance.md
-        - name: Het gebruik van gereserveerde instanties voor betalen per gebruik begrijpen
-          href: billing-understand-reserved-instance-usage.md
-        - name: Het gebruik van gereserveerde instanties voor Enterprise begrijpen
-          href: billing-understand-reserved-instance-usage-ea.md
     - name: Abonnementen beheren
       items:
         - name: Abonnements- of beheergroep zoeken
@@ -82,8 +87,6 @@
           href: billing-partner-admin-link-started.md
         - name: Factureringsaccounts weergeven
           href: billing-view-all-accounts.md
-    - name: Gereserveerde VM-instanties beheren
-      href: billing-manage-reserved-vm-instance.md
     - name: Problemen oplossen
       items:
         - name: Registratieproblemen

@@ -1,145 +1,101 @@
 ---
-title: Inleiding tot Azure-netwerk-Watcher | Microsoft Docs
-description: Deze pagina bevat een overzicht van de netwerk-Watcher-service voor bewaking en visualiseren netwerk verbonden bronnen in Azure
+title: Azure Network Watcher | Microsoft Docs
+description: Hier vindt u meer informatie over de mogelijkheden van Azure Network Watcher voor controle, diagnostische gegevens, metrische gegevens en logboekregistratie voor resources in een virtueel netwerk.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
 editor: ''
+Customer intent: As someone with basic Azure network experience, I want to understand how Azure Network Watcher can help me resolve some of the network-related problems I've encountered and provide insight into how I use Azure networking.
 ms.assetid: 14bc2266-99e3-42a2-8d19-bd7257fec35e
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/11/2017
+ms.date: 04/24/2018
 ms.author: jdial
-ms.openlocfilehash: a546296749ba9373355cfe2b857b83d8af94d5a1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.custom: mvc
+ms.openlocfilehash: 6b01a4c88f3dbb4d24566e514fd5989cda11005a
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/12/2018
 ---
-# <a name="azure-network-monitoring-overview"></a>Bewaking Azure network-overzicht
+# <a name="what-is-azure-network-watcher"></a>Wat is Azure Network Watcher?
 
-Een end-to-end-netwerk in Azure opbouwen klanten door te organiseren en samenstellen van verschillende afzonderlijke netwerkbronnen zoals VNet, ExpressRoute, Application Gateway, Load balancers en meer. Bewaking is beschikbaar op elk van de netwerkbronnen. We verwijzen naar deze bewaking als resource niveau bewaking.
+Azure Network Watcher biedt hulpprogramma's voor het controleren, diagnosticeren en weergeven van metrische gegevens en het in- of uitschakelen van logboekregistratie voor resources in een virtueel Azure-netwerk.
 
-Het end-to-end-netwerk kunt complexe configuraties en interacties tussen resources, het maken van complexe scenario's die bewaking op basis van een scenario via netwerk-Watcher nodig hebben.
+## <a name="monitoring"></a>Bewaking
 
-In dit artikel bevat informatie over scenario en Broncontrole niveau. Netwerkbewaking in Azure is uitgebreid en bevat informatie over twee hoofdcategorieën:
+### <a name = "connection-monitor"></a>De communicatie tussen een virtuele machine en een eindpunt bewaken
 
-* [**Netwerk-Watcher** ](#network-watcher) -bewaking op basis van een Scenario met de functies in netwerk-Watcher is opgegeven. Deze service omvat pakketopname, volgende hop, IP-stroom controleren, groep beveiligingsweergave, NSG stroom Logboeken. Scenario niveau bewaking biedt een complete weergave van netwerkbronnen in tegenstelling tot afzonderlijke resource netwerkbewaking.
-* [**Broncontrole** ](#network-resource-level-monitoring) -niveau Broncontrole bestaat uit vier onderdelen, diagnostische logboeken, metrische gegevens, het oplossen van problemen en resourcestatus. Al deze functies zijn gebouwd op het niveau van de resource.
+Eindpunten kunnen een andere virtuele machine (VM), een volledig gekwalificeerde domeinnaam (FQDN), een uniform resource identifier (URI) of een IPv4-adres zijn. De *verbindingsmonitor* controleert regelmatig de communicatie en informeert u over wijzigingen in bereikbaarheid, latentie en de netwerktopologie tussen de virtuele machine en het eindpunt. U hebt bijvoorbeeld een webserver-VM die communiceert met een databaseserver-VM. Iemand in uw organisatie kan zonder dat u het weet een aangepaste route of netwerkbeveiligingsregel toepassen op de webserver- of databaseserver-VM of het subnet.
 
-## <a name="network-watcher"></a>Network Watcher
+Als een eindpunt onbereikbaar wordt, wordt u geïnformeerd over de reden. Mogelijke oorzaken zijn een probleem met de DNS-naamomzetting, de CPU, het geheugen of de firewall binnen het besturingssysteem van een virtuele machine of het hoptype van een aangepaste route of beveiligingsregel voor de virtuele machine of een subnet van de uitgaande verbinding. Meer informatie over [beveiligingsregels](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#security-rules) en [hoptypen van routes](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) in Azure.
 
-Netwerk-Watcher is een regionale service waarmee u kunt bewaken en onderzoeken van de voorwaarden op een netwerk scenario niveau in, en naar Azure. Netwerkcontrole en visualisatie hulpprogramma's beschikbaar met de netwerk-Watcher kunnen u begrijpen, diagnoses stellen en Verkrijg inzicht in uw netwerk in Azure.
+De verbindingsmonitor biedt ook de minimale, gemiddelde en maximale latentie waargenomen gedurende een bepaalde periode. Nadat u de latentie voor een verbinding hebt vernomen, kunt u de latentie misschien verminderen door uw Azure-resources te verplaatsen naar andere Azure-regio's. Meer informatie over het bepalen van [relatieve latenties tussen Azure-regio's en internetproviders](#determine-relative-latencies-between-azure- regions-and-internet-service-providers) en het controleren van de communicatie tussen een virtuele machine en een eindpunt met [verbindingsmonitor](connection-monitor.md). Als u liever een verbinding test op een bepaald tijdstip in plaats van in de loop van de tijd (wat u doet met een verbindingsmonitor), gebruikt u in plaats hiervan de functionaliteit voor het [oplossen van verbindingsproblemen](#connection-troubleshoot).
 
-Netwerk-Watcher heeft momenteel de volgende mogelijkheden:
+### <a name="view-resources-in-a-virtual-network-and-their-relationships"></a>Resources in een virtueel netwerk en hun relaties weergeven
 
-* **[Topologie](network-watcher-topology-overview.md)**  -biedt een netwerk niveau weergave voor de verschillende verbindingskabels en koppelingen tussen netwerkbronnen in een resourcegroep.
-* **[Variabele pakketopname](network-watcher-packet-capture-overview.md)**  -pakketgegevens naar en vanuit een virtuele machine worden vastgelegd. Geavanceerde filteropties en verfijnd besturingselementen zoals kunnen tijd instellen en de grootte van beperkingen bieden veelzijdigheid. De pakketgegevens kunnen worden opgeslagen in een blob-opslag of op de lokale schijf in de CAP-indeling.
-* **[IP-stroom controleren](network-watcher-ip-flow-verify-overview.md)**  -controleert of een pakket wordt toegestaan of geweigerd op basis van stroom informatie 5-tuple pakket parameters (doel-IP, bron-IP, doelpoort, bronpoort en Protocol). Als het pakket is geweigerd door een beveiligingsgroep, wordt de regel en de groep die het pakket geweigerd geretourneerd.
-* **[Volgende hop](network-watcher-next-hop-overview.md)**  -bepaalt de volgende hop voor pakketten worden gerouteerd in de Azure-netwerk Fabric, zodat u voor het vaststellen van een gebruiker gedefinieerde routes onjuist geconfigureerd.
-* **[Groep beveiligingsweergave](network-watcher-security-group-view-overview.md)**  -opgehaald van de effectieve en toegepaste beveiligingsregels voor verbindingen die worden toegepast op een virtuele machine.
-* **[Logboekregistratie NSG Flow](network-watcher-nsg-flow-logging-overview.md)**  -stroom in de logboeken voor Netwerkbeveiligingsgroepen kunt u de logboeken die betrekking hebben op het verkeer dat wordt toegestaan of geweigerd door de beveiligingsregels voor verbindingen in de groep opnemen. De stroom wordt gedefinieerd door de gegevens van een 5-tuple: bron-IP, doel-IP, bronpoort, doelpoort en -Protocol.
-* **[Virtuele netwerkgateway en verbinding probleemoplossing](network-watcher-troubleshoot-manage-rest.md)**  -biedt de mogelijkheid om op te lossen virtuele netwerkgateways en verbindingen.
-* **[Netwerk-abonnementen](#network-subscription-limits)**  -Hiermee kunt u gebruik van netwerkbronnen op basis van limieten weergeven.
-* **[Configureren van diagnostische gegevens logboek](#diagnostic-logs)**  – biedt één of diagnostische logboeken voor netwerkbronnen in een resourcegroep uit te schakelen.
-* **[Problemen met verbinding](network-watcher-connectivity-overview.md)**  -controleert of de mogelijkheid tot stand brengen van een directe TCP-verbinding van een virtuele machine naar een opgegeven eindpunt verrijkt met Azure context.
-* **[Monitor voor verbinding](connection-monitor.md)**  -problemen met latentie en configuratie tussen Azure een virtuele machine en een IP-adres, bron- en doel-IP-adres en poort bewaken.
+Wanneer resources worden toegevoegd aan een virtueel netwerk, kan het moeilijker worden om te weten welke resources zich in een virtueel netwerk bevinden en wat hun relatie is met elkaar. Met de *topologiefunctie* kunt u een visueel diagram van de resources in een virtueel netwerk en de relaties tussen de resources genereren. In de volgende afbeelding ziet u een voorbeeld van topologiediagram voor een virtueel netwerk met drie subnetten, twee virtuele machines, netwerkinterfaces, openbare IP-adressen, netwerkbeveiligingsgroepen, routetabellen en de relaties tussen de resources:
 
-### <a name="role-based-access-control-rbac-in-network-watcher"></a>Op rollen gebaseerde toegangsbeheer (RBAC) in de netwerk-Watcher
+![Topologieweergave](./media/network-watcher-monitoring-overview/topology.png)
 
-Netwerk-watcher gebruikt de [gebaseerd toegangsbeheer (RBAC) model](../role-based-access-control/overview.md). De volgende machtigingen zijn vereist voor de netwerk-Watcher. Het is belangrijk om ervoor te zorgen dat de rol die wordt gebruikt voor het initiëren van netwerk-Watcher-API's of het gebruik van netwerk-Watcher van de portal de vereiste toegang heeft.
+U kunt een bewerkbare versie van de afbeelding in SVG-indeling downloaden. Meer informatie over [topologieweergave](view-network-topology.md).
 
-|Resource| Machtiging|
-|---|---| 
-|Microsoft.Storage/ |Lezen|
-|Microsoft.Authorization/| Lezen| 
-|Microsoft.Resources/subscriptions/resourceGroups/| Lezen|
-|Microsoft.Storage/storageAccounts/listServiceSas/ | Bewerking|
-|Microsoft.Storage/storageAccounts/listAccountSas/ |Bewerking|
-|Microsoft.Storage/storageAccounts/listKeys/ | Bewerking|
-|Microsoft.Compute/virtualMachines/ |Lezen|
-|Microsoft.Compute/virtualMachines/ |Schrijven|
-|Microsoft.Compute/virtualMachineScaleSets/ |Lezen|
-|Microsoft.Compute/virtualMachineScaleSets/ |Schrijven|
-|Microsoft.Network/networkWatchers/packetCaptures/ |Lezen|
-|Microsoft.Network/networkWatchers/packetCaptures/| Schrijven|
-|Microsoft.Network/networkWatchers/packetCaptures/| Verwijderen|
-|Microsoft.Network/networkWatchers/ |Schrijven |
-|Microsoft.Network/networkWatchers/| Lezen |
-|Microsoft.Insights/alertRules/ |*|
-|Microsoft.Support/ | *|
+## <a name="diagnostics"></a>Diagnostiek
 
-### <a name="network-subscription-limits"></a>Netwerk-abonnementen
+### <a name="diagnose-network-traffic-filtering-problems-to-or-from-a-vm"></a>Problemen diagnosticeren met het filteren van netwerkverkeer naar of vanaf een VM
 
-Netwerk-abonnementen bieden u meer informatie over het gebruik van elk van de netwerkbron in een abonnement in een regio op basis van het maximum aantal bronnen die beschikbaar zijn.
+Wanneer u een VM implementeert, past Azure standaard beveiligingsregels toe op de VM, die verkeer naar of van de VM toestaan of weigeren. U kunt Azure-standaardregels overschrijven of zelf extra regels maken. Op een bepaald moment kan een VM mogelijk niet meer communiceren met andere resources vanwege een beveiligingsregel. De functie *IP-stroom controleren* biedt u de mogelijkheid een bron- en bestemmings-IPv4-adres, een poort, een protocol (TCP of UDP) en een verkeersrichting (inkomend of uitgaand) op te geven. IP-stroomcontrole test vervolgens de communicatie en informeert u als de verbinding slaagt of mislukt. Als de verbinding mislukt, laat de functie IP-stroom controleren u weten welke beveiligingsregel de communicatie heeft toegestaan of geweigerd, zodat u het probleem kunt oplossen. Meer informatie over [IP-stroom controleren](network-watcher-ip-flow-verify-overview.md).
 
-![limiet van het abonnement][nsl]
+### <a name="diagnose-network-routing-problems-from-a-vm"></a>Problemen met netwerkroutering vanaf een VM diagnosticeren
 
-## <a name="network-resource-level-monitoring"></a>Resource niveau netwerkbewaking
+Wanneer u een virtueel netwerk maakt, maakt Azure verschillende standaard uitgaande routes voor netwerkverkeer. Het uitgaande verkeer van alle resources, zoals virtuele machines, geïmplementeerd in een virtueel netwerk worden gerouteerd op basis van de Azure-standaardroutes. U kunt Azure-standaardroutes overschrijven of zelf extra routes maken. Het is mogelijk dat een VM niet meer met andere resources kan communiceren vanwege een specifieke route. Met de mogelijkheid *Volgende hop* kunt u een IPv4-adres van een bron en een bestemming opgeven. Volgende hop test vervolgens de communicatie en informeert u welk type volgende hop wordt gebruikt voor het routeren van verkeer. U kunt vervolgens een route verwijderen, wijzigen of toevoegen om een routeringsprobleem op te lossen. Meer informatie over de mogelijkheid [Volgende hop](network-watcher-next-hop-overview.md?).
 
-De volgende functies zijn beschikbaar voor bewaking van niveau resource:
+### <a name="connection-troubleshoot"></a>Problemen met uitgaande verbindingen vanaf een VM diagnosticeren
 
-### <a name="audit-log"></a>Auditlogboek
+Met *Verbindingsproblemen oplossen* kunt u een verbinding tussen een VM en een andere VM, een FQDN-naam, een URI of een IPv4-adres testen. De test retourneert vergelijkbare gegevens als bij het gebruik van de [verbindingsmonitor](#connection-monitor), maar test de verbinding op een bepaald tijdstip in plaats van de verbinding in de loop van de tijd te controleren, zoals het geval is bij de verbindingsmonitor. Meer informatie over het oplossen van verbindingen met [Verbindingsproblemen oplossen](network-watcher-connectivity-overview.md).
 
-Bewerkingen die worden uitgevoerd als onderdeel van de configuratie van netwerken worden geregistreerd. Deze logboeken kunnen worden weergegeven in de Azure-portal of opgehaald met behulp van Microsoft-hulpprogramma's zoals Power BI of hulpprogramma's van derden. Controlelogboeken zijn beschikbaar via de portal, PowerShell, CLI en Rest-API. Zie voor meer informatie over controlelogboeken [bewerkingen met Resource Manager controleren](../resource-group-audit.md)
+### <a name="capture-packets-to-and-from-a-vm"></a>Pakketten van en naar een VM vastleggen
 
-Controlelogboeken zijn beschikbaar voor bewerkingen die op alle netwerkbronnen.
+Geavanceerde filteropties en verfijnde besturingselementen, zoals de mogelijkheid om tijd- en groottebeperkingen in te stellen, bieden flexibiliteit. De vastgelegde gegevens kunnen worden opgeslagen in Azure Storage, op de schijf van de VM of beide. Vervolgens kunt u het opnamebestand analyseren met verschillende standaardtools voor het analyseren van vastgelegde gegevens. Meer informatie over [pakketopname](network-watcher-packet-capture-overview.md).
 
-### <a name="metrics"></a>Metrische gegevens
+### <a name="diagnose-problems-with-an-azure-virtual-network-gateway-and-connections"></a>Problemen met een Azure Virtual Network-gateway en -verbindingen diagnosticeren
 
-Metrische gegevens zijn metingen van de prestaties en prestatiemeteritems die gedurende een periode worden verzameld. Metrische gegevens zijn momenteel beschikbaar voor de toepassingsgateway. Metrische gegevens kan worden gebruikt voor het activeren van waarschuwingen op basis van de drempelwaarde. Zie [Application Gateway Diagnostics](../application-gateway/application-gateway-diagnostics.md) om weer te geven hoe metrische gegevens kunnen worden gebruikt om waarschuwingen te maken.
+Virtuele netwerkgateways bieden connectiviteit tussen on-premises resources en virtuele netwerken in Azure. Het bewaken van gateways en hun verbindingen is essentieel om te zorgen dat de communicatie niet wordt vebroken. *Diagnostische gegevens van VPN* biedt de mogelijkheid om gateways en verbindingen te diagnosticeren. Diagnostische gegevens van VPN analyseert de status van de gateway of gatewayverbinding en leet u weten of een gateway en gatewayverbindingen beschikbaar zijn. Als de gateway of de verbinding niet beschikbaar is, wordt u geïnformeerd over de reden zodat u het probleem kunt oplossen. Meer informatie over [Diagnostische gegevens van VPN](network-watcher-troubleshoot-overview.md).
 
-![metrische gegevens weergeven][metrics]
+### <a name="determine-relative-latencies-between-azure-regions-and-internet-service-providers"></a>Relatieve latenties tussen Azure-regio's en internetproviders bepalen
 
-### <a name="diagnostic-logs"></a>Diagnostische logboeken
+U kunt via Network Watcher informatie opvragen over latentie tussen Azure-regio's en van internetproviders. Als u de latenties tussen Azure-regio's en van serviceproviders weet, kunt u Azure-resources implementeren om de reactietijd van het netwerk te optimaliseren. Meer informatie over [relatieve latenties](view-relative-latencies.md).
 
-Periodieke en eigen initiatief gebeurtenissen zijn gemaakt door netwerkbronnen en storage-accounts, verzonden naar een Event Hub of Log Analytics aangemeld. Deze logboeken bieden inzicht in de status van een resource. Deze logboeken kunnen worden weergegeven in de hulpprogramma's, zoals Power BI en Log Analytics. Als u wilt weten hoe u logboeken met diagnostische gegevens bekijken, gaat u naar [logboekanalyse](../log-analytics/log-analytics-azure-networking-analytics.md).
+### <a name="view-security-rules-for-a-network-interface"></a>Beveiligingsregels voor een netwerkinterface weergeven
 
-Diagnostische logboeken beschikbaar zijn voor [Load Balancer](../load-balancer/load-balancer-monitor-log.md), [Netwerkbeveiligingsgroepen](../virtual-network/virtual-network-nsg-manage-log.md), Routes, en [Application Gateway](../application-gateway/application-gateway-diagnostics.md).
+De effectieve beveiligingsregels voor een netwerkinterface zijn een combinatie van alle beveiligingsregels die worden toegepast op de netwerkinterface en het subnet waarin de netwerkinterface zich bevindt.  De *beveiligingsgroepweergave* toont u alle regels die zijn toegepast op de netwerkinterface, het subnet waarin de netwerkinterface zich bevindt, en het totaal van beide. Wanneer u weet welke regels worden toegepast op een netwerkinterface, kunt u regels toevoegen, verwijderen of wijzigen als deze verkeer toestaan of weigeren en u dit wilt wijzigen. Meer informatie over [beveiligingsgroepweergave](network-watcher-security-group-view-overview.md).
 
-Netwerk-Watcher biedt dat een diagnostische logboeken weergeven. Deze weergave bevat alle netwerkresources die ondersteuning bieden voor diagnostische gegevens vastleggen. U kunt in deze weergave inschakelen en uitschakelen van netwerkresources snel en gemakkelijk.
+## <a name="metrics"></a>Metrische gegevens
 
-![logboeken][logs]
+Er gelden [limieten](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#azure-resource-manager-virtual-networking-limits) voor het aantal netwerkresources dat u binnen een Azure-abonnement en -regio kunt maken. Als u deze limieten bereikt, kunt u geen resources meer maken binnen het Azure-abonnement of de Azure-regio. De *Abonnementslimiet voor netwerk* laat zien hoeveel van elke netwerkresource u hebt geïmplementeerd in een abonnement en regio en wat de limiet voor de resource is. In de volgende afbeelding ziet u de gedeeltelijke uitvoer voor netwerkbronnen die zijn geïmplementeerd in de regio VS-Oost voor een voorbeeldabonnement:
 
-### <a name="troubleshooting"></a>Problemen oplossen
+![Abonnementslimieten](./media/network-watcher-monitoring-overview/subscription-limit.png)
 
-De probleemoplossing blade een ervaring in de portal is op netwerkbronnen vandaag op te sporen veelvoorkomende problemen die zijn gekoppeld aan een afzonderlijke resource opgegeven. Deze ervaring is beschikbaar voor de volgende resources van netwerk - ExpressRoute, VPN-Gateway, Application Gateway, netwerk-beveiligingslogboeken, Routes, DNS, Load Balancer en Traffic Manager. Voor meer informatie over probleemoplossing van niveau resource, gaat u naar [diagnosticeren en oplossen van problemen bij het oplossen van Azure](https://azure.microsoft.com/blog/azure-troubleshoot-diagonse-resolve-issues/)
+De informatie is nuttig bij het plannen van toekomstige implementaties.
 
-![informatie over probleemoplossing][TS]
+## <a name="logs"></a>Logboeken
 
-### <a name="resource-health"></a>Status van resources
+### <a name="analyze-traffic-to-or-from-a-network-security-group"></a>Verkeer naar of van een netwerkbeveiligingsgroep analyseren
 
-De status van een netwerkbron wordt periodiek verstrekt. Deze bronnen omvatten VPN-Gateway en VPN-tunnel. De resourcestatus is toegankelijk is op de Azure-portal. Voor meer informatie over de resourcestatus, gaat u naar [bron Health-overzicht](../resource-health/resource-health-overview.md)
+Netwerkbeveiligingsgroepen (NSG) kunnen inkomend of uitgaand verkeer naar een netwerkinterface in een virtuele machine toestaan of weigeren. Met het *NSG-stroomlogboek* kunt u het IP-adres van de bron en de bestemming, de poort en het protocol vastleggen, en of er verkeer is toegestaan of geweigerd door een NSG. U kunt de logboeken met een aantal hulpprogramma's, zoals Power BI, en met de functie *Verkeersanalyse* analyseren. Verkeersanalyse biedt uitgebreide visualisaties van gegevens die naar NSG-stroomlogboeken worden geschreven. In de volgende afbeelding ziet u enkele gegevens en visualisaties die verkeersanalyse van de gegevens in het NSG-stroomlogboek laat zien:
+
+![Verkeersanalyse](./media/network-watcher-monitoring-overview/traffic-analytics.png)
+
+Meer informatie over [NSG-stroomlogboeken](network-watcher-nsg-flow-logging-overview.md) en [verkeersanalyse](traffic-analytics.md).
+
+### <a name="view-diagnostic-logs-for-network-resources"></a>Diagnostische logboeken voor netwerkresources weergeven
+
+U kunt registratie in diagnoselogboek inschakelen voor Azure-netwerkresources, zoals netwerkbeveiligingsgroepen, openbare IP-adressen, load balancers, gateways van virtuele netwerken en toepassingsgateways. *Registratie in diagnoselogboek* biedt één interface voor het inschakelen en uitschakelen van diagnostische logboeken voor netwerkresources voor elke bestaande netwerkresource die een diagnoselogboek genereert. U kunt de logboeken met diagnostische gegevens weergeven met behulp van hulpprogramma's zoals Microsoft Power BI en Azure Log Analytics. Zie [Azure-netwerkoplossingen in logboekanalyse](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) voor meer informatie over het analyseren van diagnostische logboeken van Azure-netwerk.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Na het leren over de netwerk-Watcher leert u:
-
-Voer een pakketopname op de virtuele machine in via [variabele pakketopname in de Azure portal](network-watcher-packet-capture-manage-portal.md)
-
-Proactieve controle en diagnostische gegevens met behulp van [waarschuwing geactiveerd pakketopname](network-watcher-alert-triggered-packet-capture.md).
-
-Beveiligingsproblemen met detecteren [pakketopname met Wireshark analyseren](network-watcher-deep-packet-inspection.md), met open-source hulpprogramma's.
-
-Informatie over enkele van de andere belangrijke [netwerkmogelijkheden](../networking/networking-overview.md) van Azure.
-
-<!--Image references-->
-[TS]: ./media/network-watcher-monitoring-overview/troubleshooting.png
-[logs]: ./media/network-watcher-monitoring-overview/logs.png
-[metrics]: ./media/network-watcher-monitoring-overview/metrics.png
-[nsl]: ./media/network-watcher-monitoring-overview/nsl.png
-
-
-
-
-
-
-
-
-
-
-
+U hebt nu een overzicht van Azure Network Watcher. Diagnosticeer een veelvoorkomend communicatieprobleem naar en van een virtuele machine met IP-stroom controleren om te beginnen met het gebruik van Network Watcher. Zie de snelstart [Diagnose uitvoeren voor een probleem met netwerkverkeersfilters op een virtuele machine](diagnose-vm-network-traffic-filtering-problem.md) om te leren hoe u dit doet.

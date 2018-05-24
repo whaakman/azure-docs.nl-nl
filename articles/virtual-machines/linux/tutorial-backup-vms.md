@@ -1,6 +1,6 @@
 ---
-title: Back-ups maken van Azure Linux-VM’s | Microsoft Docs
-description: Beveilig uw Linux-VM’s door back-ups te maken met behulp van Azure Backup.
+title: Zelfstudie - Back-ups maken van virtuele Linux-machines in Azure Portal | Microsoft Docs
+description: In deze zelfstudie leert u hoe u Azure Portal gebruikt om uw virtuele Linux-machines te beschermen met Azure Backup.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,22 +16,20 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4bd532a570a978715ba61880047f3a7e49b446ba
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c91e2b1380e5048fa1dfb7a0e028c88e589cbaa4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="back-up-linux--virtual-machines-in-azure"></a>Back-ups maken van virtuele Linux-machines in Azure
+# <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Zelfstudie: Back-ups maken en bestanden herstellen voor virtuele Linux-machines in Azure
 
-U kunt uw gegevens beschermen door regelmatig back-ups te maken. Azure Backup maakt herstelpunten die worden opgeslagen in geografisch redundante Recovery Services-kluizen. Wanneer u vanaf een herstelpunt herstelt, kunt u de hele VM of alleen specifieke bestanden herstellen. In dit artikel wordt uitgelegd hoe u een enkel bestand herstelt naar een Linux-VM waarop nginx wordt uitgevoerd. Als u nog geen VM hebt om te gebruiken, kunt u er een maken met behulp van de [Linux-quickstart](quick-create-cli.md). In deze zelfstudie leert u het volgende:
+U kunt uw gegevens beschermen door regelmatig back-ups te maken. Azure Backup maakt herstelpunten die worden opgeslagen in geografisch redundante Recovery Services-kluizen. Wanneer u vanaf een herstelpunt herstelt, kunt u de hele VM of specifieke bestanden herstellen. In dit artikel wordt uitgelegd hoe u een enkel bestand herstelt naar een Linux-VM waarop nginx wordt uitgevoerd. Als u nog geen VM hebt om te gebruiken, kunt u er een maken met behulp van de [Linux-quickstart](quick-create-cli.md). In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Een back-up maken van een VM
 > * Een dagelijkse back-up plannen
 > * Een bestand herstellen vanaf een back-up
-
-
 
 ## <a name="backup-overview"></a>Overzicht van Backup
 
@@ -43,7 +41,7 @@ Wanneer de gegevensoverdracht is voltooid, wordt de momentopname verwijderd en w
 
 
 ## <a name="create-a-backup"></a>Een back-up maken
-U plant als volgt een eenvoudige dagelijkse back-up naar een Recovery Services-kluis. 
+U plant als volgt een dagelijkse back-up naar een Recovery Services-kluis:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Selecteer **Virtuele machines** in het menu aan de linkerkant. 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2018
+ms.date: 05/02/2018
 ms.author: billmath
-ms.openlocfilehash: 14d2a29e65bf2f3a974f2713f36d9b9fa497ee1c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d7d1beff419ed2bf4c58f0646cd6c8aacf8e5e7b
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Custom installation of Azure AD Connect (Engelstalig)
 Voor meer opties voor de installatie gaat u naar **Aangepaste instellingen**. Deze instellingen gebruikt u wanneer u meerdere forests hebt of als u optionele functies wilt configureren die niet in de snelle installatie voorkomen. De aangepaste instellingen worden gebruikt in alle gevallen waarin de optie [**snelle installatie**](active-directory-aadconnect-get-started-express.md) niet aan uw implementatie of topologie voldoet.
@@ -45,13 +45,14 @@ Wanneer u de synchronisatieservices installeert, kunt de optie voor optionele co
 ### <a name="user-sign-in"></a>Gebruikersaanmelding
 Nadat de vereiste onderdelen zijn geïnstalleerd, wordt u gevraagd een eenmalige aanmeldmethode voor uw gebruikers te selecteren. In de volgende tabel staan de beschikbare opties kort beschreven. Zie voor een volledige beschrijving van de aanmeldmethodes [User sign-in](active-directory-aadconnect-user-signin.md).
 
-![Aanmelding door een gebruiker](./media/active-directory-aadconnect-get-started-custom/usersignin2.png)
+![Aanmelding door een gebruiker](./media/active-directory-aadconnect-get-started-custom/usersignin4.png)
 
 | Optie voor eenmalige aanmelding | Beschrijving |
 | --- | --- |
 | Wachtwoordhashsynchronisatie |Gebruikers kunnen zich bij Microsoft-cloudservices, zoals Office 365, aanmelden met hetzelfde wachtwoord als ze in hun on-premises netwerk gebruiken. De wachtwoorden van gebruikers worden gesynchroniseerd naar Azure AD als een wachtwoord-hash en verificatie vindt plaats in de cloud. Zie [Wachtwoordhashsynchronisatie](active-directory-aadconnectsync-implement-password-hash-synchronization.md) voor meer informatie. |
 |Pass-through-verificatie|Gebruikers kunnen zich bij Microsoft-cloudservices, zoals Office 365, aanmelden met hetzelfde wachtwoord als ze in hun on-premises netwerk gebruiken.  Het wachtwoord van de gebruiker wordt doorgegeven aan de on-premises Active Directory-domeincontroller voor validatie.
 | Federatie met AD FS |Gebruikers kunnen zich bij Microsoft-cloudservices, zoals Office 365, aanmelden met hetzelfde wachtwoord als ze in hun on-premises netwerk gebruiken.  De gebruikers worden omgeleid naar hun on-premises AD FS-exemplaar om zich aan te melden en de verificatie vindt plaats on-premises. |
+| Federatie met PingFederate|Gebruikers kunnen zich bij Microsoft-cloudservices, zoals Office 365, aanmelden met hetzelfde wachtwoord als ze in hun on-premises netwerk gebruiken.  De gebruikers worden omgeleid naar hun on-premises exemplaar van PingFederate om zich aan te melden en de verificatie vindt on-premises plaats. |
 | Niet configureren |Er is geen functie voor gebruikersaanmelding geïnstalleerd en geconfigureerd. Kies deze optie als u al een federatieserver van derden of een andere bestaande oplossing heeft. |
 |Eenmalige aanmelding inschakelen|Deze optie is beschikbaar bij zowel wachtwoordsynchronisatie als Pass-through-verificatie en biedt een eenmalige aanmelding voor desktopgebruikers binnen het bedrijfsnetwerk. Zie [Eenmalige aanmelding](active-directory-aadconnect-sso.md) voor meer informatie. </br>Deze optie is niet beschikbaar voor AD FS-klanten omdat AD FS hetzelfde niveau van eenmalige aanmelding biedt.</br>
 
@@ -301,6 +302,39 @@ Wanneer u het te federeren domein selecteert, geeft Azure AD Connect u de inform
 >
 >
 
+## <a name="configuring-federation-with-pingfederate"></a>Federatie configureren met PingFederate
+PingFederate is heel eenvoudig met een paar muisklikken met Azure AD Connect te configureren. Voorafgaand aan de configuratie is het volgende vereist.  Er moet echter wel aan de volgende voorwaarden worden voldaan.
+- PingFederate 8.4 of hoger.  Zie het Engelstalige artikel [PingFederate Integration with Azure Active Directory and Office 365](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html) voor meer informatie.
+- Een SSL-certificaat voor de Federation Service-naam die u wilt gebruiken (bijvoorbeeld sts.contoso.com)
+
+### <a name="verify-the-domain"></a>Het domein verifiëren
+Nadat u Federatie met PingFederate hebt geselecteerd, wordt u gevraagd om het domein te verifiëren dat u wilt federeren.  Selecteer het domein in de vervolgkeuzelijst.
+
+![Domein verifiëren](./media/active-directory-aadconnect-get-started-custom/ping1.png)
+
+### <a name="export-the-pingfederate-settings"></a>De PingFederate-instellingen exporteren
+
+
+PingFederate moet voor elk federatief Azure-domein worden geconfigureerd als de federatieserver.  Klik op de knop Instellingen exporteren en deel deze informatie met de beheerder van PingFederate.  De beheerder van de federatieserver zal de configuratie bijwerken, waarna u de URL en het poortnummer van de PingFederate-server krijgt zodat Azure AD Connect de metagegevensinstellingen kan verifiëren.  
+
+![Domein verifiëren](./media/active-directory-aadconnect-get-started-custom/ping2.png)
+
+Neem contact op met de beheerder van PingFederate als er validatieproblemen zijn.  Hier volgt een voorbeeld van een PingFederate-server die geen geldige vertrouwensrelatie heeft met Azure:
+
+![Vertrouwen](./media/active-directory-aadconnect-get-started-custom/ping5.png)
+
+
+
+
+### <a name="verify-federation-connectivity"></a>Federatieve connectiviteit verifiëren
+Azure AD Connect probeert om de verificatie-eindpunten te valideren die zijn opgehaald uit de PingFederate-metagegevens in de vorige stap.  Azure AD Connect zal eerst proberen om de eindpunten om te zetten met behulp van de lokale DNS-servers.  Vervolgens wordt geprobeerd om de eindpunten om te zetten via een externe DNS-provider.  Neem contact op met de beheerder van PingFederate als er validatieproblemen zijn.  
+
+![Connectiviteit verifiëren](./media/active-directory-aadconnect-get-started-custom/ping3.png)
+
+### <a name="verify-federation-login"></a>Federatieve aanmelding verifiëren
+Ten slotte kunt u de zojuist geconfigureerde federatieve aanmeldingsstroom verifiëren door u aan te melden bij het federatieve domein. Als dit is gelukt, is de federatie met PingFederate juist geconfigureerd.
+![Aanmelding verifiëren](./media/active-directory-aadconnect-get-started-custom/ping4.png)
+
 ## <a name="configure-and-verify-pages"></a>Configureer en verifieer pagina 's
 De configuratie wordt op deze pagina uitgevoerd.
 
@@ -308,6 +342,7 @@ De configuratie wordt op deze pagina uitgevoerd.
 > Als u de federatie heeft geconfigureerd, zorg dan dat u, voordat u doorgaat met de installatie, de [Naamomzetting voor federatieservers](active-directory-aadconnect-prerequisites.md#name-resolution-for-federation-servers) heeft geconfigureerd.
 >
 >
+
 
 ![Klaar om te configureren](./media/active-directory-aadconnect-get-started-custom/readytoconfigure2.png)
 
@@ -336,8 +371,9 @@ Azure AD Connect verifieert de DNS-instellingen voor u wanneer u op Verifiëren 
 
 ![Verifiëren](./media/active-directory-aadconnect-get-started-custom/adfs7.png)
 
-Voer daarnaast de volgende verificatiestappen uit:
+Als u wilt controleren of end-to-end-verificatie is gelukt, voert u een of meer van de volgende tests handmatig uit:
 
+* Als de synchronisatie is voltooid, gebruikt u de aanvullende taak Federatieve aanmelding verifiëren in Azure AD Connect om de verificatie voor een on-premises gebruikersaccount naar keuze te controleren.
 * Controleer of u zich kunt aanmelden met een browser op een computer op het intranet die aan het domein is gekoppeld: Maak verbinding met https://myapps.microsoft.com en controleer de aanmelding met uw aangemelde account. Het ingebouwde beheerdersaccount van AD DS wordt niet gesynchroniseerd en kan niet worden gebruikt voor verificatie.
 * Controleer of u zich kunt aanmelden met een apparaat vanaf het extranet. Maak op een computer thuis of op een mobiel apparaat verbinding met https://myapps.microsoft.com en voer uw referenties in.
 * Aanmelding uitgebreide client controleren. Maak verbinding met https://testconnectivity.microsoft.com, kies het tabblad **Office 365** en vervolgens **Office 365 Test Eenmalige aanmelding**.

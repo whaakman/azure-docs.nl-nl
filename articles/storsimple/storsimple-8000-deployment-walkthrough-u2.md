@@ -4,21 +4,21 @@ description: Hier vindt u de stappen en aanbevolen procedures voor de implementa
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
-editor: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/28/2017
+ms.date: 04/23/2018
 ms.author: alkohli
-ms.openlocfilehash: dc021d2277c419dd5a892aacd7bff0707e5564fa
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 85a493e05fb87292f303bccdcef65d119223bc76
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Een on-premises StorSimple-apparaat implementeren (Update 3 en hoger)
 
@@ -33,7 +33,7 @@ Bij de informatie in deze zelfstudies wordt ervan uitgegaan dat u de voorzorgsma
 U hebt beheerdersbevoegdheden nodig om het installatie- en configuratieproces uit te voeren. U wordt geadviseerd om de configuratiecontrolelijst te raadplegen voordat u begint. Het implementatie- en configuratieproces kan enige tijd duren.
 
 > [!NOTE]
-> De StorSimple-implementatiegegevens die zijn gepubliceerd op de website van Microsoft Azure zijn alleen van toepassing op apparaten uit de StorSimple 8000-serie. Voor volledige informatie over apparaten uit de 7000-serie gaat u naar: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Raadpleeg de [Introductiehandleiding van het StorSimple-systeem](http://onlinehelp.storsimple.com/111_Appliance/) voor informatie over de implementatie van de 7000-serie. 
+> De StorSimple-implementatiegegevens die zijn gepubliceerd op de website van Microsoft Azure zijn alleen van toepassing op apparaten uit de StorSimple 8000-serie. Ga voor volledige informatie over apparaten uit de 7000-serie naar: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Raadpleeg de [Introductiehandleiding van het StorSimple-systeem](http://onlinehelp.storsimple.com/111_Appliance/) voor informatie over de implementatie van de 7000-serie. 
 
 
 ## <a name="deployment-steps"></a>Implementatiestappen
@@ -195,6 +195,19 @@ Voer de volgende stappen uit om de IQN (iSCSI Qualified Name) van een Windows-ho
 Voer de volgende stappen uit in Azure Portal als u voor één volume op het StorSimple-apparaat een handmatige back-up op aanvraag wilt maken.
 
 [!INCLUDE [Create a manual backup](../../includes/storsimple-8000-create-manual-backup.md)]
+
+## <a name="view-the-pinout-diagram-for-serial-cable-for-storsimple"></a>Het pin-outdiagram weergeven voor de seriële kabel voor StorSimple
+Het volgende pin-outdiagram kan worden gebruikt voor de seriële consolekabel van StorSimple.
+
+Hier is de DB9 vrouwelijke connector P1 is en is de connector van 3,5 mm P2.
+
+![Pin-out diagram 1 voor seriële consolekabel van StorSimple](./media/storsimple-8000-deployment-walkthrough-u2/pinout-diagram1.png)
+
+De punt van de stereoaansluiting wordt beschouwd als PIN 3 RX, de middelste is PIN 2 TX is en de basis is PIN 1 GND, zoals wordt weergegeven in het volgende diagram.
+
+![Pin-out diagram 2 voor seriële consolekabel van StorSimple](./media/storsimple-8000-deployment-walkthrough-u2/pinout-diagram2.png)
+
+
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Een StorSimple-cloudapparaat configureren](storsimple-8000-cloud-appliance-u2.md).

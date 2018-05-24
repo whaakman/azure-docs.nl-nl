@@ -1,6 +1,6 @@
 ---
-title: Een ontwikkelingspijplijn maken in Azure met Jenkins | Microsoft Docs
-description: Leer hoe u een virtuele Jenkins-machine maakt in Azure die bij elke doorvoercode gegevens ophaalt vanuit GitHub en een nieuwe Docker-container compileert voor het uitvoeren van uw app
+title: Zelfstudie - Een ontwikkelingspijplijn maken in Azure met Jenkins | Microsoft Docs
+description: Zelfstudie - In deze zelfstudie leert u hoe u een virtuele Jenkins-machine maakt in Azure die bij elke codedoorvoer gegevens ophaalt vanuit GitHub en een nieuwe Docker-container compileert voor het uitvoeren van uw app.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,13 +16,14 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9250e40c491257b554333f4606cbf0b476d8db21
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 0bb5db0d0569cbd8a2f5aa1651522dfd117868eb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Een infrastructuur voor ontwikkeling maken op een Linux-VM in Azure met Jenkins, GitHub en Docker
+# <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Zelfstudie: Een infrastructuur voor ontwikkeling maken op een virtuele Linux-machine in Azure met Jenkins, GitHub en Docker
+
 U kunt een CI/CD-pijplijn (continue integratie en implementatie) gebruiken voor het automatiseren van de compilatie- en testfase van de app-ontwikkeling. In deze zelfstudie maakt u een CI/CD-pijplijn op een virtuele machine in Azure. U leert onder andere:
 
 > [!div class="checklist"]
@@ -33,10 +34,9 @@ U kunt een CI/CD-pijplijn (continue integratie en implementatie) gebruiken voor 
 > * Een Docker-kopie van uw app maken
 > * Controleren of de GitHub-doorvoeracties een nieuwe Docker-installatiekopie bouwen en de lopende app bijwerken
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze zelfstudie Azure CLI 2.0.22 of later uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u Azure CLI 2.0.30 of hoger gebruiken voor deze zelfstudie. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
 
 ## <a name="create-jenkins-instance"></a>Een Jenkins-instantie maken
 In een vorige zelfstudie over [Het aanpassen van een virtuele Linux-machine bij de eerste keer opstarten](tutorial-automate-vm-deployment.md), hebt u geleerd hoe u de aanpassing van de virtuele machine met cloud-init moet automatiseren. Deze zelfstudie gebruikt een cloud-init-bestand om Jenkins en een Docker te installeren op een virtuele machine. Jenkins, een populaire open-source automatiseringsserver, integreert naadloos met Azure, wat continue integratie (CI) en continue levering (CD) mogelijk maakt. Voor meer zelfstudies over het gebruik van Jenkins bekijkt u [Jenkins in Azure hub](https://docs.microsoft.com/azure/jenkins/).

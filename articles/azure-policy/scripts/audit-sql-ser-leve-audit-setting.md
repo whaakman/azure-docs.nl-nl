@@ -1,29 +1,29 @@
 ---
-title: Json-voorbeeld Azure beleid - SQL Server Audit-niveau controle-instelling | Microsoft Docs
-description: Dit beleid json-voorbeeld audits SQL server audit-instellingen als deze instellingen komen niet overeen met een opgegeven waarde.
+title: Json-voorbeeld Azure Policy - auditinstellingsniveau SQL Server controleren| Microsoft Docs
+description: Dit json-voorbeeldbeleid controleert of het auditinstellingsniveau van de SQL Server overeenkomt met een opgegeven waarde.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: e00e920bbb2b44d8e1e96423b5b40ca55867401f
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: MT
+ms.openlocfilehash: b7df0b20dd8118cac5f77366af1666d16fd03f0b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="audit-sql-server-level-audit-setting"></a>Instelling van SQL Server audit niveau controleren
+# <a name="audit-sql-server-level-audit-setting"></a>Auditinstellingsniveau SQL Server controleren
 
-Dit beleid kunnen SQL server audit-instellingen worden opgeslagen als deze instellingen komen niet overeen met een opgegeven waarde. U een waarde die aangeeft of controle-instellingen moeten worden ingeschakeld of uitgeschakeld.
+Dit beleid controleert of het auditinstellingsniveau van de SQL Server overeenkomt met een opgegeven waarde. U geeft een waarde op die aangeeft of de auditinstellingen moeten worden ingeschakeld of uitgeschakeld.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,7 +31,7 @@ Dit beleid kunnen SQL server audit-instellingen worden opgeslagen als deze inste
 
 [!code-json[main](../../../policy-templates/samples/SQL/audit-sql-server-auditing/azurepolicy.json "Audit SQL Server Level Audit Setting")]
 
-U kunt implementeren met behulp van deze sjabloon de [Azure-portal](#deploy-with-the-portal), met [PowerShell](#deploy-with-powershell) of met de [Azure CLI](#deploy-with-azure-cli).
+U kunt deze sjabloon implementeren met behulp van [Azure Portal](#deploy-with-the-portal), met [PowerShell](#deploy-with-powershell) of met de [Azure CLI](#deploy-with-azure-cli).
 
 ## <a name="deploy-with-the-portal"></a>Implementeren met portal
 
@@ -48,9 +48,9 @@ $assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope> 
 $assignment
 ```
 
-### <a name="clean-up-powershell-deployment"></a>Opschonen van de PowerShell-implementatie
+### <a name="clean-up-powershell-deployment"></a>PowerShell-implementatie opschonen
 
-Voer de volgende opdracht om de resourcegroep, VM en alle gerelateerde resources te verwijderen.
+Gebruik de volgende opdracht om de resourcegroep, VM, en alle gerelateerde resources te verwijderen.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -66,9 +66,9 @@ az policy definition create --name 'audit-sql-server-auditing' --display-name 'A
 az policy assignment create --name <assignmentname> --scope <scope> --policy "audit-sql-server-auditing"
 ```
 
-### <a name="clean-up-azure-cli-deployment"></a>Opschonen van de implementatie van Azure CLI
+### <a name="clean-up-azure-cli-deployment"></a>Implementatie van Azure CLI opschonen
 
-Voer de volgende opdracht om de resourcegroep, VM en alle gerelateerde resources te verwijderen.
+Gebruik de volgende opdracht om de resourcegroep, VM, en alle gerelateerde resources te verwijderen.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes
@@ -76,4 +76,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Voorbeelden van de sjabloon extra Azure-beleid, lopen [sjablonen voor Azure beleid](../json-samples.md).
+- Meer Azure Policy-voorbeeldsjablonen zijn te vinden op [Sjablonen voor Azure Policy](../json-samples.md).

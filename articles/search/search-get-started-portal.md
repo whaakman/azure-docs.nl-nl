@@ -7,13 +7,13 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 12/04/2017
+ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: f24777fe5bb482eb74aba4acbd7313665f22c38b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9ee88b254131b40fdf1e01b771afa92127734e18
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Een Azure Search-index in de portal maken, filteren en er een query op uitvoeren
 
@@ -110,7 +110,7 @@ U hebt nu een zoekindex die gereed is om op te vragen. **Search explorer** is ee
 
    ![Index- en API-opdrachten][6]
 
-3. Klik in de opdrachtbalk op **API-versie instellen** om te zien welke REST API's beschikbaar zijn. Met voorbeeld-API's hebt u toegang tot nieuwe functies die nog niet algemeen zijn uitgebracht. Gebruik voor onderstaande query’s de algemeen beschikbare versie (01-09-2016) tenzij u andere instructies krijgt. 
+3. Klik in de opdrachtbalk op **API-versie instellen** om te zien welke REST API's beschikbaar zijn. Met voorbeeld-API's hebt u toegang tot nieuwe functies die nog niet algemeen zijn uitgebracht. Gebruik voor onderstaande query’s de algemeen beschikbare versie (11-11-2017) tenzij u andere instructies krijgt. 
 
     > [!NOTE]
     > [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) en de [.NET-bibliotheek](search-howto-dotnet-sdk.md#core-scenarios) zijn volledig equivalent, maar **Search Explorer** is alleen uitgerust om REST-oproepen te verwerken. Er wordt syntaxis geaccepteerd voor [eenvoudige querysyntaxis](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) en [volledige Lucene-queryparser](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), plus alle zoekparameters die beschikbaar zijn in bewerkingen voor [Document doorzoeken](https://docs.microsoft.com/rest/api/searchservice/search-documents).

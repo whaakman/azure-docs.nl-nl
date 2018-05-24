@@ -1,29 +1,29 @@
 ---
-title: "Json-voorbeeld Azure beleid - goedgekeurd VM-installatiekopieën | Microsoft Docs"
-description: "Dit json-voorbeeld-beleid vereist dat alleen goedgekeurde aangepaste installatiekopieën in uw omgeving zijn geïmplementeerd."
+title: Json-voorbeeld Azure Policy - Goedgekeurde VM-installatiekopieën  | Microsoft Docs
+description: Dit json-voorbeeldbeleid vereist dat alleen goedgekeurde aangepaste installatiekopieën in uw omgeving zijn geïmplementeerd.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: dcf43b5b820b41ec8722d843f1484c1607cfbde8
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
-ms.translationtype: MT
+ms.openlocfilehash: f20fc596783e348805977e2a8dceb29cd5cf6fb8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="approved-vm-images"></a>Goedgekeurde VM-installatiekopieën
 
-Dit beleid vereist dat alleen goedgekeurde aangepaste installatiekopieën in uw omgeving zijn geïmplementeerd. U opgeven een matrix van goedgekeurde afbeelding id's.
+Dit beleid vereist dat alleen goedgekeurde aangepaste installatiekopieën in uw omgeving zijn geïmplementeerd. U geeft een matrix van goedgekeurde installatiekopie-id’s op.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,7 +31,7 @@ Dit beleid vereist dat alleen goedgekeurde aangepaste installatiekopieën in uw 
 
 [!code-json[main](../../../policy-templates/samples/compute/allowed-custom-images/azurepolicy.json "Approved VM images")]
 
-U kunt implementeren met behulp van deze sjabloon de [Azure-portal](#deploy-with-the-portal), met [PowerShell](#deploy-with-powershell) of met de [Azure CLI](#deploy-with-azure-cli).
+U kunt deze sjabloon implementeren met behulp van [Azure Portal](#deploy-with-the-portal), met [PowerShell](#deploy-with-powershell) of met de [Azure CLI](#deploy-with-azure-cli).
 
 ## <a name="deploy-with-the-portal"></a>Implementeren met portal
 
@@ -48,9 +48,9 @@ $assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope> 
 $assignment
 ```
 
-### <a name="clean-up-powershell-deployment"></a>Opschonen van de PowerShell-implementatie
+### <a name="clean-up-powershell-deployment"></a>PowerShell-implementatie opschonen
 
-Voer de volgende opdracht om de resourcegroep, VM en alle gerelateerde resources te verwijderen.
+Gebruik de volgende opdracht om de resourcegroep, VM, en alle gerelateerde resources te verwijderen.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -66,9 +66,9 @@ az policy definition create --name 'allowed-custom-images' --display-name 'Appro
 az policy assignment create --name <assignmentname> --scope <scope> --policy "allowed-custom-images"
 ```
 
-### <a name="clean-up-azure-cli-deployment"></a>Opschonen van de implementatie van Azure CLI
+### <a name="clean-up-azure-cli-deployment"></a>Implementatie van Azure CLI opschonen
 
-Voer de volgende opdracht om de resourcegroep, VM en alle gerelateerde resources te verwijderen.
+Gebruik de volgende opdracht om de resourcegroep, VM, en alle gerelateerde resources te verwijderen.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes
@@ -76,4 +76,5 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Voorbeelden van de sjabloon extra Azure-beleid, lopen [sjablonen voor Azure beleid](../json-samples.md).
+- Meer Azure Policy-sjablonen zijn te vinden op [Sjablonen voor Azure Policy](../json-samples.md)
+- Meer Azure Policy-sjablonen voor virtuele Machines op [Beleid toepassen op Windows-VM's](/azure/virtual-machines/windows/policy)

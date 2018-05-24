@@ -5,7 +5,7 @@ author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 613d480b-a8ef-4b28-8f54-54174d59b3f4
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 70f74b685f4d5b902b6f6780f7c1de4d357164b8
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 3fb3f2af5e5cebcac21f4372bc9d9dc9ee837202
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Een exporttaak voor de Azure Import/Export-service maken
 Maken van een taak voor het exporteren van de Microsoft Azure Import/Export-service met de REST API omvat de volgende stappen:
@@ -53,7 +53,7 @@ Maken van een taak voor het exporteren van de Microsoft Azure Import/Export-serv
  Zie voor meer informatie over het opgeven van BLOB's om te exporteren, de [taak plaatsen](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) bewerking.
 
 ## <a name="obtaining-your-shipping-location"></a>Het verkrijgen van de locatie van uw back-ups
-Voordat u maakt een taak voor het exporteren, moet u een back-upfunctie locatienaam en adres ophalen door het aanroepen van de [locatie ophalen](https://portal.azure.com) of [lijst locaties](/rest/api/storageimportexport/listlocations) bewerking. `List Locations`retourneert een lijst met locaties en hun e-mailadressen. U kunt een locatie in de geretourneerde lijst selecteren en de harde schijven naar dit adres verzenden. U kunt ook de `Get Location` bewerking rechtstreeks verkrijgen van het adres van de back-upfunctie voor een specifieke locatie.
+Voordat u maakt een taak voor het exporteren, moet u een back-upfunctie locatienaam en adres ophalen door het aanroepen van de [locatie ophalen](https://portal.azure.com) of [lijst locaties](/rest/api/storageimportexport/listlocations) bewerking. `List Locations` retourneert een lijst met locaties en hun e-mailadressen. U kunt een locatie in de geretourneerde lijst selecteren en de harde schijven naar dit adres verzenden. U kunt ook de `Get Location` bewerking rechtstreeks verkrijgen van het adres van de back-upfunctie voor een specifieke locatie.
 
 Volg onderstaande stappen voor het verkrijgen van de locatie van de back-ups:
 
@@ -68,7 +68,7 @@ Volg onderstaande stappen voor het verkrijgen van de locatie van de back-ups:
 
 -   Een naam voor de taak.
 
--   Naam van het opslagaccount.
+-   De naam van het opslagaccount.
 
 -   De back-upfunctie locatienaam, in de vorige stap hebt verkregen.
 
@@ -91,6 +91,8 @@ Volg onderstaande stappen voor het verkrijgen van de locatie van de back-ups:
 
 ## <a name="receiving-the-package"></a>Het pakket wordt ontvangen
  Nadat de taak voor het exporteren is verwerkt, wordt de stations voor u met uw versleutelde gegevens geretourneerd. U kunt de BitLocker-sleutel voor elk van de stations ophalen door het aanroepen van de [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) bewerking. U kunt vervolgens het station met de sleutel te ontgrendelen. Het manifestbestand van de schijf op elk station bevat de lijst met bestanden op het station, evenals het oorspronkelijke blobadres voor elk bestand.
+
+[!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -2,35 +2,29 @@
 title: Azure AD SSPR vanuit het aanmeldingsscherm van Windows 10 | Microsoft Docs
 description: Azure AD-wachtwoordherstel vanuit het aanmeldingsscherm van Windows 10 configureren en Ik ben mijn pincode vergeten
 services: active-directory
-keywords: ''
-documentationcenter: ''
+ms.service: active-directory
+ms.component: authentication
+ms.topic: get-started-article
+ms.date: 04/27/2018
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.assetid: ''
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 01/11/2018
-ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: a85cb6aea1027d657d38007a397321de10e16d07
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 701ab041eb603a1a06025d5bb43964880353ada9
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>Azure AD-wachtwoord opnieuw instellen vanuit het aanmeldingsscherm
 
 U hebt self-service voor wachtwoordherstel (SSPR) voor Azure AD al geïmplementeerd, maar uw gebruikers bellen nog steeds met de helpdesk wanneer ze hun wachtwoord zijn vergeten. Ze bellen de helpdesk omdat ze geen toegang hebben tot een webbrowser om toegang te krijgen tot SSPR.
 
-Met de nieuwe Windows 10 Fall Creators Update zien gebruikers met apparaten die zijn toegevoegd aan Azure AD, de koppeling 'Wachtwoord opnieuw instellen' op hun aanmeldingsscherm. Wanneer ze op deze koppeling klikken, worden ze omgeleid naar dezelfde selfservice voor wachtwoordherstel (SSPR) als waarmee ze al bekend zijn.
+Met de nieuwe Windows-update van 10 april 2018 zien gebruikers met apparaten die zijn toegevoegd aan **Azure Active Directory** of **hybride Azure Active Directory**, de koppeling 'Wachtwoord opnieuw instellen' op hun aanmeldingsscherm. Wanneer ze op deze koppeling klikken, worden ze omgeleid naar dezelfde selfservice voor wachtwoordherstel (SSPR) als waarmee ze al bekend zijn.
 
 Als u wilt dat gebruikers hun Azure AD-wachtwoord opnieuw kunnen instellen via het aanmeldingsscherm van Windows 10, moet aan de volgende vereisten worden voldaan:
 
-* Windows 10, versie 1709, of nieuwere client die is [toegevoegd aan Azure AD](../device-management-azure-portal.md).
+* Windows-update van 10 april 2018 of nieuwere client die [lid is van Azure Active Directory](../device-management-azure-portal.md) of [die lid is van hybride Azure Active Directory](../device-management-hybrid-azuread-joined-devices-setup.md).
 * Self-service voor wachtwoordherstel voor Azure AD moet zijn ingeschakeld.
 * U kunt de instelling die de koppeling 'Wachtwoord opnieuw instellen' inschakelt, configureren en implementeren met een van de volgende methoden:
    * [Intune-apparaatconfiguratieprofiel](tutorial-sspr-windows.md#configure-reset-password-link-using-intune)
@@ -66,7 +60,7 @@ Als u wilt dat gebruikers hun Azure AD-wachtwoord opnieuw kunnen instellen via h
 
 1. Meld u aan bij de [Azure-portal](https://portal.azure.com) en klik op **Azure Active Directory**.
 2. Blader naar **Gebruikers en groepen** > **Alle groepen** > **Nieuwe groep**
-3. Geef een naam op voor de groep en kies onder **Type lidmaatschap** de optie **Toegewezen** 
+3. Geef een naam op voor de groep en kies onder **Type lidmaatschap** de optie **Toegewezen**
    * Kies onder **Leden** de aan Azure AD toegevoegde Windows 10-apparaten waarop u het beleid wilt toepassen.
    * Klik op **Selecteren**.
 4. Klik op **Maken**.
@@ -117,6 +111,7 @@ Wanneer u deze functie test met Extern bureaublad, wordt de koppeling 'Wachtwoor
 * Wachtwoordherstel wordt momenteel niet ondersteund vanaf een extern bureaublad.
 
 ## <a name="next-steps"></a>Volgende stappen
+
 De volgende koppelingen bieden aanvullende informatie over wachtwoordherstel met behulp van Azure AD
 
 * [Hoe kan ik SSPR implementeren?](howto-sspr-deployment.md)

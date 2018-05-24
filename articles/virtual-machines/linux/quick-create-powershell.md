@@ -1,6 +1,6 @@
 ---
-title: Azure Quick Start - Een VM PowerShell maken | Microsoft Docs
-description: Ontdek snel hoe u virtuele Linux-machines maakt met PowerShell
+title: 'Snelstart: Een virtuele Linux-machine maken met Azure PowerShell | Microsoft Docs'
+description: In deze snelstart leert u hoe u Azure PowerShell gebruikt om een virtuele Linux-machine te maken
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -13,98 +13,91 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/13/2017
+ms.date: 04/24/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 8c032cdbf3549cdce435c8179777083d653fb058
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e910ced35738fcba27a8a1d7f2f010b2cd42e55d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-a-linux-virtual-machine-with-powershell"></a>Een virtuele Linux-machine maken met PowerShell
+# <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>Snelstart: Een virtuele Linux-machine maken in Azure met PowerShell
 
-De Azure PowerShell-module wordt gebruikt voor het maken en beheren van Azure-resources vanaf de PowerShell-opdrachtregel of in scripts. In deze Quick Start vindt u informatie over het gebruik van de Azure PowerShell-module om een virtuele machine te implementeren waarop Ubuntu Server wordt uitgevoerd. Zodra de server is geïmplementeerd, wordt een SSH-verbinding gemaakt en een NGINX-webserver geïnstalleerd.
+De Azure PowerShell-module wordt gebruikt voor het maken en beheren van Azure-resources vanaf de PowerShell-opdrachtregel of in scripts. In deze snelstart wordt beschreven hoe u de Azure PowerShell-module gebruikt voor het implementeren van een virtuele Linux-machine (VM) in Azure waarop Ubuntu wordt uitgevoerd. Om uw virtuele machine in actie te zien, voert u SSH voor de virtuele machine uit en installeert u de NGINX-webserver.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-Voor deze Quick Start is moduleversie 3.6 of hoger van Azure PowerShell vereist. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+
+Als u ervoor kiest om PowerShell lokaal te installeren en te gebruiken, moet u moduleversie 5.7.0 of hoger van Azure PowerShell gebruiken voor deze zelfstudie. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
 
 Tot slot moet er een openbare SSH-sleutel met de naam *id_rsa.pub* worden opgeslagen in de map *.ssh* van uw Windows-gebruikersprofiel. Zie [SSH-sleutels maken voor Azure](ssh-from-windows.md) voor gedetailleerde informatie over het maken en gebruiken van SSH-sleutels.
 
+## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
+Maak een Azure-resourcegroep met de opdracht [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd:
 
-Meld u aan bij uw Azure-abonnement met de opdracht `Connect-AzureRmAccount` en volg de instructies op het scherm.
-
-```powershell
-Connect-AzureRmAccount
+```azurepowershell-interactive
+New-AzureRmResourceGroup -Name "myResourceGroup" -Location "EastUS"
 ```
 
-## <a name="create-resource-group"></a>Een resourcegroep maken
+## <a name="create-virtual-network-resources"></a>Virtuele netwerkresources aanmaken
 
-Maak een Azure-resourcegroep met de opdracht [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
+Maak een virtueel netwerk, subnet en een openbaar IP-adres. Deze resources worden gebruikt voor netwerkconnectiviteit met de virtuele machine en om deze te verbinden met internet:
 
-```powershell
-New-AzureRmResourceGroup -Name myResourceGroup -Location eastus
-```
-
-## <a name="create-networking-resources"></a>Netwerkresources maken
-
-Maak een virtueel netwerk, subnet en een openbaar IP-adres. Deze resources worden gebruikt voor netwerkconnectiviteit met de virtuele machine en om verbinding met internet te maken.
-
-```powershell
+```azurepowershell-interactive
 # Create a subnet configuration
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
+$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnet" -AddressPrefix 192.168.1.0/24
 
 # Create a virtual network
-$vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Location eastus `
--Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
+$vnet = New-AzureRmVirtualNetwork -ResourceGroupName "myResourceGroup" -Location "EastUS" `
+-Name "myVNET" -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
 
 # Create a public IP address and specify a DNS name
-$pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location eastus `
+$pip = New-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" -Location "EastUS" `
 -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "mypublicdns$(Get-Random)"
 ```
 
-Maak een netwerkbeveiligingsgroep en een regel voor de netwerkbeveiligingsgroep. De netwerkbeveiligingsgroep beveiligt de virtuele machine met binnenkomende en uitgaande regels. In dit geval is er een binnenkomende regel gemaakt voor poort 22, waarmee binnenkomende SSH-verbindingen worden toegestaan. We willen ook een regel maken voor poort 80, de poort voor binnenkomend webverkeer.
+Maak een Azure-netwerkbeveiligingsgroep en verkeersregel. De netwerkbeveiligingsgroep beveiligt de virtuele machine met binnenkomende en uitgaande regels. In het volgende voorbeeld wordt een binnenkomende regel gemaakt voor TCP-poort 22, die SSH-verbindingen toestaat. Er wordt ook een binnenkomende regel voor TCP-poort 80 gemaakt om binnenkomend verkeer toe te staan.
 
-```powershell
+```azurepowershell-interactive
 # Create an inbound network security group rule for port 22
-$nsgRuleSSH = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleSSH  -Protocol Tcp `
--Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
--DestinationPortRange 22 -Access Allow
+$nsgRuleSSH = New-AzureRmNetworkSecurityRuleConfig -Name "myNetworkSecurityGroupRuleSSH"  -Protocol "Tcp" `
+-Direction "Inbound" -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+-DestinationPortRange 22 -Access "Allow"
 
 # Create an inbound network security group rule for port 80
-$nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleWWW  -Protocol Tcp `
--Direction Inbound -Priority 1001 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
--DestinationPortRange 80 -Access Allow
+$nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig -Name "myNetworkSecurityGroupRuleWWW"  -Protocol "Tcp" `
+-Direction "Inbound" -Priority 1001 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+-DestinationPortRange 80 -Access "Allow"
 
 # Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Location eastus `
--Name myNetworkSecurityGroup -SecurityRules $nsgRuleSSH,$nsgRuleWeb
+$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName "myResourceGroup" -Location "EastUS" `
+-Name "myNetworkSecurityGroup" -SecurityRules $nsgRuleSSH,$nsgRuleWeb
 ```
 
-Maak een netwerkkaart met [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) voor de virtuele machine. De netwerkkaart verbindt de virtuele machine met een subnet, netwerkbeveiligingsgroep en openbaar IP-adres.
+Maak een virtuele netwerkinterfacekaart (NIC) met [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface). De virtuele NIC verbindt de virtuele machine met een subnet, netwerkbeveiligingsgroep en openbaar IP-adres.
 
-```powershell
+```azurepowershell-interactive
 # Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGroup -Location eastus `
+$nic = New-AzureRmNetworkInterface -Name "myNic" -ResourceGroupName "myResourceGroup" -Location "EastUS" `
 -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 ```
 
-## <a name="create-virtual-machine"></a>Virtuele machine maken
+## <a name="create-a-virtual-machine"></a>Een virtuele machine maken
 
-Maak een virtuele-machineconfiguratie. Deze configuratie bevat de instellingen die worden gebruikt bij het implementeren van de virtuele machine, zoals een installatiekopie van de virtuele machine, de grootte en de verificatieconfiguratie.
+De configuratie van een virtuele machine bevat de instellingen die worden gebruikt bij het implementeren van de virtuele machine, zoals een installatiekopie van de virtuele machine, de grootte en verificatieopties. Definieer de SSH-referenties, besturingssysteeminformatie en grootte van de virtuele machine als volgt:
 
-```powershell
+```azurepowershell-interactive
 # Define a credential object
 $securePassword = ConvertTo-SecureString ' ' -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PSCredential ("azureuser", $securePassword)
 
 # Create a virtual machine configuration
-$vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_D1 | `
-Set-AzureRmVMOperatingSystem -Linux -ComputerName myVM -Credential $cred -DisablePasswordAuthentication | `
-Set-AzureRmVMSourceImage -PublisherName Canonical -Offer UbuntuServer -Skus 16.04-LTS -Version latest | `
+$vmConfig = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_D1" | `
+Set-AzureRmVMOperatingSystem -Linux -ComputerName "myVM" -Credential $cred -DisablePasswordAuthentication | `
+Set-AzureRmVMSourceImage -PublisherName "Canonical" -Offer "UbuntuServer" -Skus "16.04-LTS" -Version "latest" | `
 Add-AzureRmVMNetworkInterface -Id $nic.Id
 
 # Configure SSH Keys
@@ -112,60 +105,61 @@ $sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
 Add-AzureRmVMSshPublicKey -VM $vmconfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
 ```
 
-Maak de virtuele machine met [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
+Combineer nu de vorige configuratiedefinities met [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm):
 
-```powershell
-New-AzureRmVM -ResourceGroupName myResourceGroup -Location eastus -VM $vmConfig
+```azurepowershell-interactive
+New-AzureRmVM -ResourceGroupName "myResourceGroup" -Location eastus -VM $vmConfig
 ```
 
 ## <a name="connect-to-virtual-machine"></a>Verbinding maken met de virtuele machine
 
-Wanneer de implementatie is voltooid, maakt u een SSH-verbinding met de virtuele machine.
+Maak nadat de implementatie is voltooid via SSH verbinding met de virtuele machine. Om uw virtuele machine in actie te zien, wordt vervolgens de NGINX-webserver geïnstalleerd.
 
-Gebruik de opdracht [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) om het openbare IP-adres van de virtuele machine te retourneren.
+Gebruik de cmdlet [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) om het openbare IP-adres van de virtuele machine te bekijken:
 
-```powershell
-Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
+```azurepowershell-interactive
+Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
 ```
 
-Op een systeem waarop SSH is geïnstalleerd, gebruikt u de volgende opdracht om verbinding te maken met de virtuele machine. Als u in Windows werkt, kan [Putty](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-ssh-from-windows?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-private-key-for-putty) worden gebruikt om de verbinding tot stand te brengen. 
+Gebruik een SSH-client om verbinding maken met de virtuele machine. U kunt de Azure Cloud Shell vanuit een webbrowser gebruiken, of als u Windows gebruikt, kunt u [Putty](ssh-from-windows.md) of het [Windows-subsysteem voor Linux](/windows/wsl/install-win10) gebruiken. Geef het openbare IP-adres van uw VM op:
 
-```bash 
-ssh <Public IP Address>
+```bash
+ssh azureuser@IpAddress
 ```
 
-Als u hierom wordt gevraagd, is de gebruikersnaam voor het aanmelden *azureuser*. Als er een wachtwoordzin is opgegeven bij het maken van SSH-sleutels, moet u deze ook invoeren.
+Als u hierom wordt gevraagd, is de gebruikersnaam voor het aanmelden *azureuser*. Als een wachtwoordzin met uw SSH-sleutels wordt gebruikt, moet u deze invoeren wanneer u daarom wordt gevraagd.
 
+## <a name="install-web-server"></a>Webserver installeren
 
-## <a name="install-nginx"></a>NGINX installeren
+Als u uw virtuele machine in actie wilt zien, installeert u de NGINX-webserver. Gebruik de volgende opdrachten vanuit uw SSH-sessie om pakketbronnen bij te werken en het meest recente NGINX-pakket te installeren:
 
-Gebruik de volgende opdrachten om pakketbronnen bij te werken en het meest recente NGINX-pakket te installeren. 
-
-```bash 
-# update package source
+```bash
+# update packages
 sudo apt-get -y update
 
 # install NGINX
 sudo apt-get -y install nginx
 ```
 
-## <a name="view-the-nginx-welcome-page"></a>De welkomstpagina van NGINX weergeven
+`exit` de SSH-sessie als u klaar bent
 
-Nu NGINX is geïnstalleerd en poort 80 op de virtuele machine is geopend voor toegang vanaf internet, kunt u een webbrowser van uw keuze gebruiken om de standaardwelkomstpagina van NGINX weer te geven. Zorg ervoor dat u de standaardpagina bezoekt met het openbare IP-adres dat u hierboven hebt gedocumenteerd. 
+## <a name="view-the-web-server-in-action"></a>De webserver in actie zien
 
-![Standaardsite van NGINX](./media/quick-create-cli/nginx.png) 
+Nu NGINX is geïnstalleerd en poort 80 op de virtuele machine is geopend voor toegang vanaf internet, kunt u een webbrowser van uw keuze gebruiken om de standaardwelkomstpagina van NGINX weer te geven. Gebruik het openbare IP-adres van uw virtuele machine dat is verkregen in een vorige stap. In het volgende voorbeeld ziet u de NGINX-standaardwebsite:
+
+![Standaardsite van NGINX](./media/quick-create-cli/nginx.png)
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-U kunt de opdracht [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) gebruiken om de resourcegroep, de VM en alle gerelateerde resources te verwijderen wanneer u ze niet meer nodig hebt.
+U kunt de cmdlet [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) gebruiken om de resourcegroep, de VM en alle gerelateerde resources te verwijderen wanneer u ze niet meer nodig hebt:
 
-```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+```azurepowershell-interactive
+Remove-AzureRmResourceGroup -Name "myResourceGroup"
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze Snel starten hebt u een eenvoudige virtuele machine geïmplementeerd, een netwerkbeveiligingsgroepregel gemaakt en een webserver geïnstalleerd. Voor meer informatie over virtuele machines in Azure, gaat u verder met de zelfstudie voor virtuele Linux-machines.
+In deze snelstart hebt u een eenvoudige virtuele machine geïmplementeerd, een netwerkbeveiligingsgroep en -regel gemaakt en een eenvoudige webserver geïnstalleerd. Voor meer informatie over virtuele machines in Azure, gaat u verder met de zelfstudie voor virtuele Linux-machines.
 
 > [!div class="nextstepaction"]
 > [Zelfstudies over virtuele Linux-machines](./tutorial-manage-vm.md)

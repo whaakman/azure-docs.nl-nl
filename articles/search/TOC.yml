@@ -212,8 +212,8 @@
     - name: REST
       href: /rest/api/searchservice
       items:
-        - name: 01-09-2016-preview
-          href: search-api-2016-09-01-preview.md
+        - name: 11-11-2017-preview
+          href: search-api-2017-11-11-preview.md
     - name: REST (beheer)
       href: /rest/api/searchmanagement
     - name: Cognitief zoeken (preview)

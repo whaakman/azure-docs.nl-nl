@@ -91,7 +91,7 @@
 ### [Een virtueel netwerk maken met Azure Portal](../../virtual-network/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Een virtueel netwerk maken met behulp van Azure PowerShell](../../virtual-network/quick-create-powershell.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Een virtueel netwerk maken met de Azure CLI](../../virtual-network/quick-create-cli.md#create-a-virtual-network?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Netwerkverkeer filteren met netwerkbeveiligingsgroepen](../../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Netwerkverkeer filteren met netwerkbeveiligingsgroepen](../../virtual-network/security-overview.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### Zelfstudies over virtuele netwerken
 #### [Taakverdelingen maken voor virtuele machines](../../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [Een computer verbinden met een virtueel netwerk](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)

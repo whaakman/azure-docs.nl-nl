@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 12/12/2017
+ms.date: 05/11/2018
 ms.author: jroth
-ms.openlocfilehash: 080fecc7e89d9a76a9b160ba2ff4ba9dc31d0925
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: aeeee58242a5f6ea41b9ba354efc4f5d5087151c
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Snelstartgids: Een virtuele SQL Server 2017-machine voor Windows maken in Azure Portal
 
@@ -72,11 +72,9 @@ Geef op de pagina **Basisbeginselen** de volgende gegevens op:
 
 ## <a name="choose-virtual-machine-size"></a>De grootte van de virtuele machine kiezen
 
-In de stap **Grootte** kiest u de grootte van uw virtuele machine. Dit doet u in het venster **Een grootte kiezen**. Het venster bevat in eerste instantie aanbevolen grootten voor de machine op basis van de geselecteerde installatiekopie. 
+1. In de stap **Grootte** kiest u de grootte van uw virtuele machine. Dit doet u in het venster **Een grootte kiezen**.
 
-1. Klik op **Alles weergeven** voor een overzicht van alle beschikbare machinegrootten.
-
-1. Selecteer **D2S_V3** voor deze quickstart. In de portal worden de geschatte maandelijkse kosten voor continu gebruik van de machine weergegeven (dit is exclusief de kosten voor de SQL Server-licentie). Opmerking: voor gebruik van de Developer Edition zijn geen extra licentiekosten voor SQL Server verschuldigd. Raadpleeg de pagina met [prijzen](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) voor uitgebreidere prijsinformatie.
+   Selecteer **D2S_V3** voor deze quickstart. In de portal worden de geschatte maandelijkse kosten voor continu gebruik van de machine weergegeven (dit is exclusief de kosten voor de SQL Server-licentie). Opmerking: voor gebruik van de Developer Edition zijn geen extra licentiekosten voor SQL Server verschuldigd. Raadpleeg de pagina met [prijzen](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) voor uitgebreidere prijsinformatie.
 
    > [!TIP]
    > De machinegrootte **D2S_V3** bespaart u geld bij het testen. Voor de aanbevolen machinegrootten en -configuratie voor productieworkloads raadpleegt u [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md) (Best practices voor optimale prestaties van SQL Server in Azure Virtual Machines).
@@ -85,7 +83,14 @@ In de stap **Grootte** kiest u de grootte van uw virtuele machine. Dit doet u in
 
 ## <a name="configure-optional-features"></a>Optionele kenmerken configureren
 
-Klik in het venster **Instellingen** op **OK** om de standaardwaarden te accepteren.
+1. Selecteer in het venster **Instellingen** de **RDP (3389)**-poort in de lijst **Openbare poorten voor inkomend verkeer selecteren** als u via extern bureaublad verbinding met de VM wilt maken.
+
+   ![Poorten voor inkomend verkeer](./media/quickstart-sql-vm-create-portal/inbound-ports.png)
+
+   > [!NOTE]
+   > U kunt de poort **MS SQL (1433)** selecteren voor externe toegang tot SQL Server. Dit is echter niet nodig, omdat de **SQL Server-instellingen**-stap ook in deze optie voorziet. Als u poort 1433 bij deze stap selecteert, wordt deze geopend ongeacht uw selecties in de stap **SQL Server-instellingen**.
+
+1. Klik op **OK** om uw wijzigingen op te slaan.
 
 ## <a name="sql-server-settings"></a>SQL Server-instellingen
 

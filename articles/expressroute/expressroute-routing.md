@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2018
 ms.author: ganesr
-ms.openlocfilehash: 8bf1381ad089b9db41a3ef9f6fd3b9521a16da7e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b0c8be546b40b36746224ca43c7766ac310fd7ee
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="expressroute-routing-requirements"></a>Routeringsvereisten voor ExpressRoute
 Als u ExpressRoute wilt gebruiken om verbinding te maken met Microsoft Cloud-services, moet u routering instellen en beheren. Sommige connectiviteitsproviders bieden het instellen en beheren van routering aan als een beheerde service. Neem contact op met uw connectiviteitsprovider om na te gaan of ze deze service leveren. Als dat niet het geval is, moet u voldoen aan de volgende vereisten:
@@ -183,10 +183,11 @@ U kunt meer dan één ExpressRoute-circuit per geopolitieke regio aanschaffen. H
 | Japan - oost | 12076:51012 |
 | Japan - west | 12076:51013 |
 | **Australië** | |
-| Australië - centraal | 12076:51032 |
-| Australië - centraal 2 | 12076:51033 |
 | Australië - oost | 12076:51015 |
 | Australië - zuidoost | 12076:51016 |
+| **Australië - overheid** | |
+| Australië - centraal | 12076:51032 |
+| Australië - centraal 2 | 12076:51033 |
 | **India** | |
 | India - zuid | 12076:51019 |
 | India - west | 12076:51018 |

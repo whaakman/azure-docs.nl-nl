@@ -5,18 +5,18 @@ services: virtual-machines-linux
 author: rothja
 ms.author: jroth
 manager: jhubbard
-ms.date: 10/25/2017
+ms.date: 05/11/2018
 ms.topic: hero-article
 tags: azure-service-management
 ms.devlang: na
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.technology: database-engine
-ms.openlocfilehash: 4105e0b4038f5dc09c503ac90ba7ad67c2fd93b8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b86dd47c112c38bc65c045158787d19b470899a0
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Een virtuele SQL Server-machine inrichten in Azure Portal
 
@@ -71,7 +71,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 1. Klik op **OK**.
 
-1. Kies in het venster **Grootte** de grootte voor een machine. Selecteer **Alles bekijken** om de andere grootten te zien. Zie [Linux VM-grootten](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes) voor meer informatie over de grootte van VM-machines.
+1. Kies in het venster **Grootte** de grootte voor een machine. Zie [Linux VM-grootten](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes) voor meer informatie over de grootte van VM-machines.
 
     ![Een VM-grootte kiezen](./media/provision-sql-server-linux-virtual-machine/vmsizes.png)
 
@@ -80,9 +80,11 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 1. Klik op **Selecteren**.
 
-1. In het venster **Instellingen** kunt u wijzigingen aanbrengen in de instellingen, of u kunt de standaardinstellingen behouden.
+1. Selecteer in het venster **Instellingen** de **SSH (22)**-poort in de lijst **Openbare poorten voor inkomend verkeer selecteren**. Dit is nodig in deze snelstart om verbinding te maken en de SQL Server-configuratie te voltooien. Als u op afstand verbinding wilt maken met SQL Server, selecteert u ook **MS SQL (1433)** om poort 1433 voor verbindingen via internet te openen.
 
-1. Klik op **OK**.
+   ![Poorten voor inkomend verkeer](./media/provision-sql-server-linux-virtual-machine/port-settings.png)
+
+1. U kunt wijzigingen aanbrengen in andere instellingen of de standaardinstellingen behouden. Klik vervolgens op **OK**.
 
 1. Klik op de pagina **Samenvatting** op **Kopen** om de virtuele machine te maken.
 
@@ -145,7 +147,10 @@ Meerdere SQL-Server-[pakketten](sql-server-linux-virtual-machines-overview.md#pa
 
 ## <a id="remote"></a> Voor externe verbindingen configureren
 
-Als u op afstand verbinding wilt maken met SQL Server op de virtuele Azure-machine, moet u een inkomende regel configureren in de netwerkbeveiligingsgroep. De regel staat verkeer op de poort toe waarop door SQL Server wordt geluisterd (standaard is dat 1433). De volgende stappen laten zien hoe Azure Portal voor deze stap kan worden gebruikt. 
+Als u op afstand verbinding wilt maken met SQL Server op de virtuele Azure-machine, moet u een inkomende regel configureren in de netwerkbeveiligingsgroep. De regel staat verkeer op de poort toe waarop door SQL Server wordt geluisterd (standaard is dat 1433). De volgende stappen laten zien hoe Azure Portal voor deze stap kan worden gebruikt.
+
+> [!TIP]
+> Als u de binnenkomende poort **MS SQL (1433)** hebt geselecteerd in de instellingen tijdens het inrichten, zijn deze wijzigingen voor u aangebracht. U kunt verder met de volgende sectie over het configureren van de firewall.
 
 1. Selecteer in de portal **Virtuele machines** en selecteer de virtuele SQL Server-machine.
 

@@ -1,113 +1,163 @@
 ---
-title: Netwerk groep stroom beveiligingslogboeken met Azure-netwerk-Watcher beheren | Microsoft Docs
-description: Deze pagina wordt uitgelegd hoe u voor het beheren van Netwerkbeveiligingsgroep stroom Logboeken in Azure-netwerk-Watcher
+title: 'Zelfstudie: Logboekregistratie van netwerkstroom naar en van een VM - Azure Portal | Microsoft Docs'
+description: Informatie over de logboekregistratie van netwerkstromen naar en van een VM met behulp van de NSG-stroomlogboeken van Network Watcher.
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: ''
+tags: azure-resource-manager
+Customer intent: I need to log the network traffic to and from a VM so I can analyze it for anomalies.
 ms.assetid: 01606cbf-d70b-40ad-bc1d-f03bb642e0af
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 04/30/2018
 ms.author: jdial
-ms.openlocfilehash: cb41781c5ac8fb759cecea01402c08dd716bf7d7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
-ms.translationtype: MT
+ms.custom: mvc
+ms.openlocfilehash: f010bebcf1130b3061c60987ffbd4e706a030773
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="manage-network-security-group-flow-logs-in-the-azure-portal"></a>Netwerk groep stroom beveiligingslogboeken in de Azure portal beheren
+# <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Zelfstudie: Logboekregistratie van netwerkverkeer naar en van een virtuele machine met de Azure Portal
 
-> [!div class="op_single_selector"]
-> - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
-> - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
-> - [CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-nsg-flow-logging-cli.md)
-> - [REST API](network-watcher-nsg-flow-logging-rest.md)
+Met een NSG (netwerkbeveiligingsgroep) kunt u inkomend verkeer naar en uitgaand verkeer van een VM (virtuele machine) filteren. U kunt netwerkverkeer dat via een NSG stroomt, vastleggen in een NSG-stroomlogboek van Network Watcher. In deze zelfstudie leert u het volgende:
 
-Groep netwerk-stroom beveiligingslogboeken zijn een functie van netwerk-Watcher waarmee u informatie bekijken over inkomende en uitgaande IP-verkeer via een netwerkbeveiligingsgroep. Deze stroom logboeken zijn geschreven in JSON-indeling en belangrijke informatie bevatten met inbegrip van: 
+> [!div class="checklist"]
+> * Een VM met een netwerkbeveiligingsgroep maken
+> * Network Watcher inschakelen en de provider Microsoft.Insights registreren
+> * Een verkeersstroomlogboek voor een NSG inschakelen met behulp van het stroomlogboek van Network Watcher
+> * Logboekgegevens downloaden
+> * Logboekgegevens weergeven
 
-- Binnenkomende en uitgaande stromen per regel op basis van een.
-- De NIC die de stroom is van toepassing op.
-- 5-tuple informatie over de stroom (bron/het doel-IP-poort van de bron/het doel, protocol).
-- Informatie over of verkeer is toegestaan of geweigerd.
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-## <a name="before-you-begin"></a>Voordat u begint
+## <a name="create-a-vm"></a>Een virtuele machine maken
 
-Voor het voltooien van de stappen in dit artikel hebt u al in de volgende bronnen:
+1. Selecteer **+ Een resource maken** in de linkerbovenhoek van Azure Portal.
+2. Selecteer **Compute** en selecteer vervolgens **Windows Server 2016 Datacenter** of **Ubuntu Server 17.10 VM**.
+3. Voer de volgende informatie in of selecteer deze, accepteer de standaardwaarden voor de overige instellingen en selecteer **OK**:
 
-- Een bestaande netwerk-Watcher. Zie het maken van een netwerk-Watcher [maken van een exemplaar van de netwerk-Watcher](network-watcher-create.md).
-- Een bestaande resourcegroep met een geldige virtuele machine. Als u een virtuele machine geen hebt, raadpleegt u maken een [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) of [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) virtuele machine.
+    |Instelling|Waarde|
+    |---|---|
+    |Naam|myVm|
+    |Gebruikersnaam| Voer een gebruikersnaam naar keuze in.|
+    |Wachtwoord| Voer een wachtwoord naar keuze in. Het wachtwoord moet minstens 12 tekens lang zijn en moet voldoen aan de [gedefinieerde complexiteitsvereisten](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Abonnement| Selecteer uw abonnement.|
+    |Resourcegroep| Selecteer **Nieuwe maken** en voer **myResourceGroup** in.|
+    |Locatie| Selecteer **VS Oost**|
 
-## <a name="register-insights-provider"></a>Insights provider registreren
+4. Selecteer een grootte voor de virtuele machine en selecteer **Selecteren**.
+5. Accepteer onder **Instellingen** alle standaardwaarden en selecteer **OK**.
+6. Selecteer onder **Maken** bij **Samenvatting** de optie **Maken** om de implementatie van de virtuele machine te starten. Het implementeren van de VM duurt een paar minuten. Wacht tot de VM is geïmplementeerd voordat u doorgaat met de resterende stappen.
 
-Voor verkeersstroom logboekregistratie om te werken, de **Microsoft.Insights** provider moet worden geregistreerd. Voor het registreren van de provider, moet u de volgende stappen uitvoeren: 
+Het maken van de virtuele machine duurt een paar minuten. Ga pas verder met de resterende stappen wanneer de virtuele machine is gemaakt. Terwijl de VM in de portal wordt gemaakt, wordt er ook een netwerkbeveiligingsgroep met de naam **myVm-nsg** gemaakt en aan de netwerkinterface van de VM gekoppeld.
 
-1. Ga naar **abonnementen**, en selecteer vervolgens het abonnement waarvoor u wilt inschakelen Logboeken van de stroom. 
-2. Op de **abonnement** blade Selecteer **Resourceproviders**. 
-3. Bekijk de lijst met providers en controleer of de **microsoft.insights** provider is geregistreerd. Zo niet, selecteer vervolgens **registreren**.
+## <a name="enable-network-watcher"></a>Network Watcher inschakelen
 
-![Weergave-providers][providers]
+Als u al een netwerk-watcher hebt ingeschakeld in de regio VS - oost, ga dan verder met [Insights-provider registreren](#register-insights-provider).
 
-## <a name="enable-flow-logs"></a>Stroom Logboeken inschakelen
+1. Selecteer in de portal de optie **Alle services**. Typ *Network Watcher* in het vak **Filteren**. Selecteer **Network Watcher** in de resultaten.
+2. Selecteer **Regio's** om dit item uit te vouwen en selecteer vervolgens **...** rechts van **VS - oost**, zoals wordt weergegeven in de volgende afbeelding:
 
-Deze stappen gaat u door het proces van het inschakelen van Logboeken van de stroom op een netwerkbeveiligingsgroep.
+    ![Network Watcher inschakelen](./media/network-watcher-nsg-flow-logging-portal/enable-network-watcher.png)
 
-### <a name="step-1"></a>Stap 1
+3. Selecteer **Network Watcher inschakelen**.
 
-Ga naar een netwerk-Watcher-exemplaar en selecteer vervolgens **NSG stromen logboeken**.
+## <a name="register-insights-provider"></a>Insights-provider registreren
 
-![Overzicht van de stroom-Logboeken][1]
+Voor NSG-stroomlogboekregistratie is de **Microsoft.Insights**-provider vereist. Voer de volgende stappen uit om de provider te registreren:
 
-### <a name="step-2"></a>Stap 2
+1. Selecteer in de linkerbovenhoek van de portal de optie **Alle services**. Typ *Abonnementen* in het vak Filter. Wanneer **Abonnementen** in de zoekresultaten wordt weergegeven, selecteert u deze optie.
+2. Selecteer in de lijst met abonnementen het abonnement waarvoor u de provider wilt inschakelen.
+3. Selecteer **Resourceproviders** onder **Instellingen**.
+4. Controleer of de provider **microsoft.insights**de **STATUS** **Geregistreerd** heeft, zoals wordt weergegeven in de volgende afbeelding. Als de status **Niet geregistreerd** is, selecteer dan **Registreren**, rechts van de provider.
 
-Selecteer een netwerkbeveiligingsgroep in de lijst.
+    ![Provider registreren](./media/network-watcher-nsg-flow-logging-portal/register-provider.png)
 
-![Overzicht van de stroom-Logboeken][2]
+## <a name="enable-nsg-flow-log"></a>NSG-stroomlogboek inschakelen
 
-### <a name="step-3"></a>Stap 3 
+1. NSG-stroomlogboekgegevens worden naar een Azure Storage-account geschreven. Om een Azure Storage-account te maken, selecteert u **+ Een resource maken** in de linkerbovenhoek van de portal.
+2. Selecteer **Storage** en vervolgens **Storage-account - blob, file, table, queue**.
+3. Typ of selecteer de volgende informatie, accepteer de overige standaardwaarden en selecteer **Maken**.
 
-Op de **stroom logboeken instellingen** blade zet de status op **op**, en configureer vervolgens een opslagaccount. Selecteer een bestaand opslagaccount met **alle netwerken** (standaard) geselecteerd onder **Firewalls en virtuele netwerken**onder de **instellingen** voor het opslagaccount. Wanneer u een opslagaccount hebt geselecteerd, selecteer **OK**, en selecteer vervolgens **opslaan**.
+    | Instelling        | Waarde                                                        |
+    | ---            | ---   |
+    | Naam           | Mag 3 tot 24 tekens lang zijn, mag alleen kleine letters en cijfers bevatten en moet uniek zijn binnen alle Azure Storage-accounts.                                                               |
+    | Locatie       | Selecteer **VS Oost**                                           |
+    | Resourcegroep | Selecteer **Bestaande gebruiken** en vervolgens **myResourceGroup** |
 
-![Overzicht van de stroom-Logboeken][3]
+    Het maken van het opslagaccount kan ongeveer een minuut duren. Ga pas verder met de resterende stappen wanneer het opslagaccount is gemaakt. Als u een bestaand opslagaccount wilt gebruiken in plaats van er een te maken, zorg er dan voor dat u een opslagaccount selecteert waarvoor **Alle netwerken** (standaard) is geselecteerd voor **Firewalls en virtuele netwerken**, onder de **Instellingen** voor het opslagaccount.
+4. Selecteer in de linkerbovenhoek van de portal de optie **Alle services**. Typ *Network Watcher* in het vak **Filteren**. Selecteer **Network Watcher** in de zoekresultaten.
+5. Selecteer onder **LOGBOEKEN** de optie **NSG-stroomlogboeken**, zoals wordt weergegeven in de volgende afbeelding:
 
-## <a name="download-flow-logs"></a>Stroom logboeken downloaden
+    ![NSG's](./media/network-watcher-nsg-flow-logging-portal/nsgs.png)
 
-Stroom logboeken worden opgeslagen in een opslagaccount. Download uw logboeken stroom om ze te bekijken.
+6. Selecteer de NSG met de naam **myVm-nsg**.
+7. Selecteer onder **Instellingen voor stroomlogboeken** de optie **Aan**.
+8. Selecteer het opslagaccount dat u in stap 3 hebt gemaakt.
+9. Stel **Bewaartermijn (dagen)** in op 5 en selecteer **Opslaan**.
 
-### <a name="step-1"></a>Stap 1
+## <a name="download-flow-log"></a>Stroomlogboek downloaden
 
-Stroom logboeken downloaden, selecteer **kunt u stroom logboeken downloaden van de geconfigureerde opslagaccounts**. Deze stap gaat u naar de weergave van een storage-account waarin u kunt kiezen welke logboeken te downloaden.
+1. Selecteer in de portal van Network Watcher de optie **NSG-stroomlogboeken** onder **LOGBOEKEN**.
+2. Selecteer **U kunt u stroomlogboeken downloaden van geconfigureerde opslagaccounts**, zoals wordt weergegeven in de volgende afbeelding:
 
-![Instellingen voor stroomlogboeken][4]
+  ![Stroomlogboeken downloaden](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
-### <a name="step-2"></a>Stap 2
+3. Selecteer het opslagaccount dat u hebt geconfigureerd in stap 2 van [NSG-stroomlogboek inschakelen](#enable-nsg-flow-log).
+4. Selecteer **Containers** onder **BLOB-SERVICE** en selecteer vervolgens de container **insights-logs-networksecuritygroupflowevent**, zoals wordt weergegeven in de volgende afbeelding:
 
-Ga naar het juiste storage-account. Selecteer vervolgens **Containers** > **insights-log-networksecuritygroupflowevent**.
+    ![Container selecteren](./media/network-watcher-nsg-flow-logging-portal/select-container.png)
+5. Navigeer door de maphiërarchie totdat het bestand PT1H.json wordt weergegeven, zoals in de volgende afbeelding:
 
-![Instellingen voor stroomlogboeken][5]
+    ![Logboekbestand](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
 
-### <a name="step-3"></a>Stap 3
+    Logboekbestanden worden geschreven naar een maphiërarchie die de volgende naamconventie volgt: https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 
-Ga naar de locatie van het logboek stroom, selecteert u deze en selecteer vervolgens **downloaden**.
+6. Selecteer **...**  rechts van het bestand PT1H.json en selecteer **Downloaden**.
 
-![Instellingen voor stroomlogboeken][6]
+## <a name="view-flow-log"></a>Stroomlogboek weergeven
 
-Voor informatie over de structuur van het logboek, gaat u naar [netwerk groep stroom logboek beveiligingsoverzicht](network-watcher-nsg-flow-logging-overview.md).
+De volgende json is een voorbeeld van wat u in het bestand PT1H.json ziet voor elke stroom waarvoor gegevens worden geregistreerd:
+
+```json
+{
+    "time": "2018-05-01T15:00:02.1713710Z",
+    "systemId": "<Id>",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/<Id>/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/MYVM-NSG",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+        "Version": 1,
+        "flows": [{
+            "rule": "UserRule_default-allow-rdp",
+            "flows": [{
+                "mac": "000D3A170C69",
+                "flowTuples": ["1525186745,192.168.1.4,10.0.0.4,55960,3389,T,I,A"]
+            }]
+        }]
+    }
+}
+```
+
+De waarde voor **mac** in de vorige uitvoer is het MAC-adres van de netwerkinterface die is gemaakt toen de VM werd gemaakt. De door komma's gescheiden informatie voor **flowTuples** bevat het volgende:
+
+| Voorbeeldgegevens | Wat de gegevens voorstellen   | Uitleg                                                                              |
+| ---          | ---                    | ---                                                                                      |
+| 1525186745   | Tijdstempel             | Het tijdstempel van wanneer de stroom heeft plaatsgevonden, in de indeling UNIX-EPOCHE. In het vorige voorbeeld is de datum omgezet in 1 mei 2018 op 2:59:05 PM GMT.                                                                                    |
+| 192.168.1.4  | IP-adres van bron      | Het IP-adres van de bron waaruit de stroom afkomstig is.
+| 10.0.0.4     | IP-adres van doel | Het IP-adres van het doel waarvoor de stroom is bestemd. 10.0.0.4 is het privé-IP-adres van de VM die u hebt gemaakt in [Een virtuele machine maken](#create-a-vm).                                                                                 |
+| 55960        | Bronpoort            | De bronpoort waaruit de stroom afkomstig is.                                           |
+| 3389         | Doelpoort       | De doelpoort waarvoor de stroom is bestemd. Aangezien het verkeer was bestemd voor poort 3389, is de stroom verwerkt door de regel met de naam **UserRule_default-allow-rdp** in het logboekbestand.                                                |
+| T            | Protocol               | Hiermee wordt aangegeven of het protocol van de stroom TCP (T) of UDP (U).                                  |
+| I            | Richting              | Hiermee wordt aangegeven of het verkeer inkomend (I) of uitgaand (O) was.                                     |
+| A            | Bewerking                 | Hiermee wordt aangegeven of het verkeer was toegelaten (A) of geweigerd (D).                                           |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over hoe [visualiseren van uw NSG stroom logboeken met Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
-
-<!-- Image references -->
-[1]: ./media/network-watcher-nsg-flow-logging-portal/figure1.png
-[2]: ./media/network-watcher-nsg-flow-logging-portal/figure2.png
-[3]: ./media/network-watcher-nsg-flow-logging-portal/figure3.png
-[4]: ./media/network-watcher-nsg-flow-logging-portal/figure4.png
-[5]: ./media/network-watcher-nsg-flow-logging-portal/figure5.png
-[6]: ./media/network-watcher-nsg-flow-logging-portal/figure6.png
-[providers]: ./media/network-watcher-nsg-flow-logging-portal/providers.png
+In deze zelfstudie hebt u geleerd hoe u NSG-stroomlogboekregistratie inschakelt voor een NSG. U hebt ook geleerd hoe u gegevens die zijn geregistreerd in een bestand, downloadt en bekijkt. De onbewerkte gegevens in het json-bestand zijn soms lastig te interpreteren. Als u de gegevens wilt visualiseren, kunt u [verkeersanalyse](traffic-analytics.md) van Network Watcher, Microsoft [PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md) of een ander hulpprogramma gebruiken.

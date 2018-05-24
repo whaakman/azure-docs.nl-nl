@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: negat
-ms.openlocfilehash: ec11a2d66530129fb61d97681e6882b887c8654c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 4dd13f1feedf53255daa351bd087845ec5cc845a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Virtuele-machineschaalsets in Azure en gekoppelde gegevensschijven
 Voor het uitbreiden van uw beschikbare opslag bieden [virtuele-machineschaalsets](/azure/virtual-machine-scale-sets/) in Azure ondersteuning voor VM-instanties met gekoppelde gegevensschijven. U kunt gegevensschijven koppelen wanneer de schaalset wordt gemaakt of aan een bestaande schaalset.
@@ -91,21 +91,12 @@ Als u de gegevensschijven automatisch wilt voorbereiden in een Linux-cluster, vo
 ```
 
 
-## <a name="adding-pre-populated-data-disks-to-an-existent-scale-set"></a>Vooraf gevulde gegevensschijven toevoegen aan een bestaande schaalset 
-> Wanneer u schijven toevoegt aan een bestaand model met een schaalset, wordt standaard altijd een lege schijf gemaakt. Dit scenario geldt ook voor nieuwe exemplaren die met de schaalset worden gemaakt. De reden voor dit gedrag is dat de definitie van de schaalset een lege gegevensschijf bevat. Om in deze situatie vooraf gevulde gegevensschijven te maken voor een bestaand model met een schaalset, kunt u kiezen voor een van de volgende twee opties:
-
-* Gegevens kopiëren van de VM met het exemplaar 0 naar een of meer gegevensschijven in de andere VM's door het uitvoeren van een aangepast script.
-* Een beheerde installatiekopie maken van de besturingssysteemschijf plus de gegevensschijf (met de vereiste gegevens) en vervolgens een nieuwe schaalset maken aan de hand van de installatiekopie. Op deze manier beschikt elke nieuwe VM over een gegevensschijf die is opgegeven in de definitie van de schaalset. Aangezien in deze definitie wordt verwezen naar een installatiekopie met een gegevensschijf die aangepaste gegevens bevat, zijn deze wijzigingen automatisch beschikbaar op elke virtuele machine in de schaalset.
-
-> De instructies voor het maken van een aangepaste installatiekopie vindt u hier: [Create a managed image of a generalized VM in Azure](/azure/virtual-machines/windows/capture-image-resource/) (Een beheerde installatiekopie maken van een gegeneraliseerde VM in Azure). 
-
-> De gebruiker moet de VM met het exemplaar 0 vastleggen omdat daar de vereiste gegevens op staan en vervolgens die VHD gebruiken voor de definitie van de installatiekopie.
+## <a name="adding-pre-populated-data-disks-to-an-existing-scale-set"></a>Vooraf gevulde gegevensschijven toevoegen aan een bestaande schaalset
+Gegevensschijven die zijn opgegeven in het schaalsetmodel, zijn altijd leeg. U kunt echter een bestaande gegevensschijf koppelen aan een specifieke virtuele machine in een schaalset. Deze functie is in de preview-versie. Voorbeelden vindt u op [github](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk). Als u gegevens wilt doorvoeren naar alle virtuele machines in de schaalset, kunt u de gegevensschijf dupliceren en deze koppelen aan elke virtuele machine in de schaalset. U kunt ook een aangepaste installatiekopie maken die de gegevens bevat en de schaalset inrichten vanaf deze aangepaste installatiekopie. Of u kunt Azure Files of een vergelijkbaar product voor gegevensopslag gebruiken.
 
 
 ## <a name="additional-notes"></a>Aanvullende opmerkingen
 Er is ondersteuning voor Azure Managed Disks en aan schaalsets gekoppelde gegevensschijven beschikbaar in API [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json) of hoger van de Microsoft.Compute API.
-
-Bij de eerste implementatie van ondersteuning voor gekoppelde schijven voor schaalsets, kunt u geen gegevensschijven koppelen aan of loskoppelen van afzonderlijke virtuele machines in een schaalset.
 
 De ondersteuning in Azure Portal voor gekoppelde gegevensschijven in schaalsets is oorspronkelijk beperkt. Afhankelijk van uw vereisten kunt u Azure-sjablonen, CLI, PowerShell, SDK's en REST API gebruiken voor het beheren van gekoppelde schijven.
 

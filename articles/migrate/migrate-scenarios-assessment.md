@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 04/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 33e31c47a6125ac363410a9a78e9c9310c74d51e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: fb102cc43c6e1d17afaa78a2833ae447600a96af
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="scenario-1-assess-on-premises-workloads-for-migration-to-azure"></a>Scenario 1: On-premises workloads evalueren voor migratie naar Azure
 
 Omdat Contoso migratie naar Azure overweegt, wil het bedrijf een technische en financiële evaluatie uitvoeren om na te gaan of hun on-premises werkbelastingen wel geschikt voor migratie naar de cloud. Ze willen met name de machine- en databasecompatibiliteit evalueren voor migratie en een schatting maken van de capaciteit en kosten voor het uitvoeren van hun resources in Azure.
 
-Om praktijkervaring op te doen en meer inzicht te krijgen in de betreffende technologieën, gaan ze een kleine on-premises reis-app evalueren en migreren. Het is een app met twee lagen, waarbij een web-app wordt uitgevoerd op één virtuele machine en een SQL Server-database wordt uitgevoerd op de tweede virtuele machine. De toepassing wordt geïmplementeerd in VMware en de omgeving wordt beheerd door een vCenter Server. Ze gaan de beoordeling uitvoeren met behulp van de DMA (Data Migration Assistant) en de Azure Migrate-service.
+Om praktijkervaring op te doen en meer inzicht te krijgen in de betreffende technologieën, gaan ze een kleine on-premises reis-app evalueren en migreren. Het is een app met twee lagen, waarbij een web-app wordt uitgevoerd op één virtuele machine en een SQL Server-database wordt uitgevoerd op de tweede virtuele machine. De toepassing wordt geïmplementeerd in VMware en de omgeving wordt beheerd door een vCenter Server. Ze gaan de beoordeling uitvoeren met behulp van de DMA (Data Migration Assistant) en de Azure Migrate-service. Als u dit scenario wilt uitproberen met deze reis-app, kunt u de app downloaden van [github](https://github.com/Microsoft/SmartHotel360).
 
 **Technologie** | **Beschrijving** | **Kosten**
 --- | --- | ---
@@ -33,11 +33,11 @@ In dit scenario downloaden we DMA en voeren we het uit om de on-premises SQL Ser
 
 ## <a name="architecture"></a>Architectuur
 
-In dit scenario gaan we het volgende instellen 
 
- ![Beoordelingsarchitectuur voor migratie](./media/migrate-scenarios-assessment/migration-assessment-architecture.png)
+![Beoordelingsarchitectuur voor migratie](./media/migrate-scenarios-assessment/migration-assessment-architecture.png)
 
 In dit scenario geldt het volgende:
+- Contoso is een fictieve naam voor een gemiddelde onderneming. Contoso wil de eigen on-premises reis-app beoordelen en migreren. De app is gelaagd over twee VM's.
 - Contoso heeft een on-premises datacenter (**contoso-datacenter**) met een on-premises domeincontroller (**contosodc1**).
 - De interne reis-app is gelaagd over twee virtuele machines, **WEBVM** en **SQLVM**, en bevindt zich op VMware ESXi-host **contosohost1.contoso.com**.
 - De VMware-omgeving wordt beheerd door vCenter Server (**vcenter.contoso.com**) die wordt uitgevoerd op een virtuele machine.
@@ -489,7 +489,7 @@ In dit scenario hebben we het volgende gedaan:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-We gaan nu verder met het volgende scenario, om een lift-and-shift-migratie van de on-premises VM's naar Azure uit te voeren.
+We gaan nu verder met het volgende scenario, om een [lift-and-shift-migratie](migrate-scenarios-lift-and-shift.md) van de on-premises VM's en database naar Azure uit te voeren.
 
 
 

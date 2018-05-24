@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: jdial
-ms.openlocfilehash: dcb46c7127590f1986fe1fd66c2f6ac4fd8b107d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 24d739e45ddaa7669fe1836eea53f0b091383d1e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="virtual-network-peering"></a>Peering op virtueel netwerk
 
@@ -64,7 +64,7 @@ Wanneer virtuele netwerken zijn gekoppeld in dezelfde regio, kunt u ook de gatew
 
 ![doorvoer bij peering van virtuele netwerken](./media/virtual-networks-peering-overview/figure04.png)
 
-Gatewaydoorvoer wordt niet ondersteund in de peeringrelatie tussen virtuele netwerken die zijn gemaakt met verschillende implementatiemodellen of in verschillende regio's. Beide virtuele netwerken in de peeringrelatie moeten zijn gemaakt via Resource Manager en moeten zich in dezelfde regio bevinden om ervoor te zorgen dat de doorvoer via een gateway werkt.
+Gateway-doorvoer wordt niet ondersteund in de peeringrelatie tussen virtuele netwerken die in verschillende regio’s zijn gemaakt. Beide virtuele netwerken in de peeringrelatie moeten zich in dezelfde regio bevinden om ervoor te zorgen dat de doorvoer via een gateway werkt. Gateway-doorvoer tussen virtuele netwerken die zijn gemaakt via verschillende implementatiemodellen (Resource Manager en classic) wordt alleen ondersteund als de gateway zich in het virtuele netwerk (Resource Manager) bevindt. Zie voor meer informatie over het gebruik van een gateway voor de doorvoer, [Een VPN-gateway configureren voor de doorvoer in een virtueel netwerkpeering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Wanneer virtuele netwerken die één Azure ExpressRoute-verbinding delen, worden gekoppeld, gaat het verkeer tussen de twee netwerken via de peering-relatie (dat wil zeggen, via het backbone-netwerk van Azure). U kunt nog steeds in elk virtueel netwerk lokale gateways gebruiken om verbinding te maken met het on-premises circuit. U kunt ook een gedeelde gateway gebruiken en de doorvoer voor on-premises connectiviteit configureren.
 

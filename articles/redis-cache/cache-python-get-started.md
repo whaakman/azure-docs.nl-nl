@@ -1,26 +1,27 @@
 ---
-title: Azure Redis-cache gebruiken met behulp van Python | Microsoft Docs
-description: Aan de slag met Azure Redis-cache met behulp van Python
+title: Snelstart om een Python-app te maken die gebruikmaakt van Azure Redis Cache | Microsoft Docs
+description: In deze snelstart leert u een Python-app te maken die gebruikmaakt van Azure Redis Cache
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
 editor: v-lincan
 ms.assetid: f186202c-fdad-4398-af8c-aee91ec96ba3
 ms.service: cache
 ms.devlang: python
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 02/10/2017
+ms.date: 05/11/2018
 ms.author: wesmc
-ms.openlocfilehash: 17a22dc7a18931e368c7f2e61c563e0d99c3a7ac
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.custom: mvc
+ms.openlocfilehash: b66df55043e4fd29f352c6e9ec3b8674800bc4be
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="how-to-use-azure-redis-cache-with-python"></a>Azure Redis-cache gebruiken met behulp van Python
+# <a name="quickstart-use-azure-redis-cache-with-python"></a>Snelstart: Azure Redis Cache gebruiken met Python
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 > * [ASP.NET](cache-web-app-howto.md)
@@ -30,33 +31,109 @@ ms.lasthandoff: 01/19/2018
 > 
 > 
 
-In dit onderwerp wordt beschreven hoe u aan de slag kunt met Azure Redis-cache met behulp van Python.
+## <a name="introduction"></a>Inleiding
+
+Deze snelstart toont hoe u verbinding maakt met een Azure Redis Cache met Python om te lezen en schrijven naar een cache. 
+
+![Python-test voltooid](./media/cache-python-get-started/cache-python-completed.png)
+
+Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
-Installeer [redis-py](https://github.com/andymccurdy/redis-py).
+
+* [Python 2- of Python 3-omgeving](https://www.python.org/downloads/) geïnstalleerd met [pip](https://pypi.org/project/pip/). 
 
 ## <a name="create-a-redis-cache-on-azure"></a>Een Redis-cache maken op Azure
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-## <a name="retrieve-the-host-name-and-access-keys"></a>De hostnaam en toegangssleutels ophalen
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
-## <a name="enable-the-non-ssl-endpoint"></a>Het eindpunt zonder SSL-beveiliging inschakelen
-Sommige Redis-clients bieden geen ondersteuning voor SSL. De [poort zonder SSL-beveiliging is standaard uitgeschakeld voor nieuwe exemplaren van Azure Redis-cache](cache-configure.md#access-ports). Op het moment van publicatie van dit artikel biedt de [redis-py](https://github.com/andymccurdy/redis-py) geen ondersteuning voor SSL. 
+## <a name="install-redis-py"></a>Redis-py installeren
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
+[Redis-py](https://github.com/andymccurdy/redis-py) is een Python-interface met Redis Cache. Gebruik het hulpprogramma voor Python-pakketten, *pip*, om het redis-py-pakket te installeren. 
 
-## <a name="add-something-to-the-cache-and-retrieve-it"></a>Iets toevoegen aan de cache en dit ophalen
-    >>> import redis
-    >>> r = redis.StrictRedis(host='<name>.redis.cache.windows.net',
-          port=6380, db=0, password='<key>', ssl=True)
-    >>> r.set('foo', 'bar')
-    True
-    >>> r.get('foo')
-    b'bar'
+Het volgende voorbeeld gebruikt *pip3* voor Python3 om het redis-py-pakket te installeren op Windows 10 met behulp van een Visual Studio 2017 Developer-opdrachtprompt die wordt uitgevoerd met verhoogde Administrator-bevoegdheden.
+
+    pip3 install redis
+
+![Redis-py installeren](./media/cache-python-get-started/cache-python-install-redis-py.png)
 
 
-Vervang `<name>` door de cachenaam en `key` door uw toegangssleutel.
+## <a name="read-and-write-to-the-cache"></a>Lezen en schrijven naar de cache
+
+Voer Python uit en test met behulp van de cache vanaf de opdrachtregel. Vervang `<Your Host Name>` en `<Your Access Key>` met de waarden voor uw Redis Cache. 
+
+```python
+>>> import redis
+>>> r = redis.StrictRedis(host='<Your Host Name>.redis.cache.windows.net',
+        port=6380, db=0, password='<Your Access Key>', ssl=True)
+>>> r.set('foo', 'bar')
+True
+>>> r.get('foo')
+b'bar'
+```
+
+## <a name="create-a-python-script"></a>Een Python-script maken
+
+Maak een nieuw script-tekstbestand met de naam *PythonApplication1.py*.
+
+Voer het volgende script voor *PythonApplication1.py* uit en sla het bestand op. Dit script zal de toegang tot de cache testen. Vervang `<Your Host Name>` en `<Your Access Key>` met de waarden voor uw Redis Cache. 
+
+```python
+import redis
+
+myHostname = "<Your Host Name>.redis.cache.windows.net"
+myPassword = "<Your Access Key>"
+
+r = redis.StrictRedis(host=myHostname, port=6380,password=myPassword,ssl=True)
+
+result = r.ping()
+print("Ping returned : " + str(result))
+
+result = r.set("Message", "Hello!, The cache is working with Python!")
+print("SET Message returned : " + str(result))
+
+result = r.get("Message")
+print("GET Message returned : " + result.decode("utf-8"))
+
+result = r.client_list()
+print("CLIENT LIST returned : ") 
+for c in result:
+    print("id : " + c['id'] + ", addr : " + c['addr'])
+```
+
+Voer het script uit met behulp van Python.
+
+![Python-test voltooid](./media/cache-python-get-started/cache-python-completed.png)
+
+
+## <a name="clean-up-resources"></a>Resources opschonen
+
+Als u verder wilt gaan met de volgende zelfstudie, kunt u de resources die in deze snelstart zijn gemaakt behouden en opnieuw gebruiken.
+
+Als u niet verder wilt met de snelstart, kunt u de Azure-resources verwijderen die in deze snelstart zijn gemaakt om kosten te voorkomen. 
+
+> [!IMPORTANT]
+> Houd er rekening mee dat het verwijderen van een resourcegroep niet ongedaan kan worden gemaakt, en dat de resourcegroep en alle bijbehorende resources permanent worden verwijderd. Zorg ervoor dat u niet per ongeluk de verkeerde resourcegroep of resources verwijdert. Als u de resources voor het hosten van dit voorbeeld in een bestaande resourcegroep hebt gemaakt en deze groep ook resources bevat die u wilt behouden, kunt u elke resource afzonderlijk verwijderen via hun respectievelijke blades.
+>
+
+Meld u aan bij de [Azure-portal](https://portal.azure.com) en klik op **Resourcegroepen**.
+
+Typ de naam van de resourcegroep in het tekstvak **Filteren op naam...**. In de instructies voor dit artikel is een resourcegroep met de naam *TestResources* gebruikt. Klik in de resourcegroep in de lijst met resultaten op **...** en vervolgens op **Resourcegroep verwijderen**.
+
+![Verwijderen](./media/cache-web-app-howto/cache-delete-resource-group.png)
+
+U wordt gevraagd om het verwijderen van de resourcegroep te bevestigen. Typ de naam van de resourcegroep en klik op **Verwijderen**.
+
+Na enkele ogenblikken worden de resourcegroep en alle resources in de groep verwijderd.
+
+
+## <a name="next-steps"></a>Volgende stappen
+
+> [!div class="nextstepaction"]
+> [Maak een eenvoudige ASP.NET-web-app die gebruikmaakt van Azure Redis Cache.](./cache-web-app-howto.md)
+
+
 
 <!--Image references-->
 [1]: ./media/cache-python-get-started/redis-cache-new-cache-menu.png

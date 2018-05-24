@@ -1,11 +1,11 @@
 ---
 title: Next generation firewall toevoegen in Azure Security Center | Microsoft Docs
-description: Dit document ziet u hoe de Azure Security Center aanbevelingen implementeren ** toevoegen een volgende generatie Firewall ** en ** Route traffice via NGFW alleen **.
+description: Dit document ziet u hoe de Azure Security Center aanbevelingen implementeren **Next Generation Firewall toevoegen** en **Route traffice via NGFW alleen**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 48b99015-4db8-4ce8-85e4-b544c0fa203e
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 30589d0a943517c03394a3aae7c03c8094e78c1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f70cb03a26fd5bea7e1e034c653ece8e0b8c349
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Next Generation Firewall toevoegen in Azure Security Center
 Azure Security Center kan aanbevelen next generation firewall (NGFW) toe te voegen uit een Microsoft-partner te verhogen uw beveiligingsinstellingen. Dit document vindt u via een voorbeeld van hoe u dit doet.
@@ -42,14 +42,14 @@ Azure Security Center kan aanbevelen next generation firewall (NGFW) toe te voeg
 6. De **virtuele machine maken** blade wordt geopend. Hier kunt u met een virtuele machine (VM) die wordt uitgevoerd de NGFW ronddraaien vereiste informatie. Volg de stappen en geef de vereiste informatie op NGFW. Klik op OK om toe te passen.
    ![Virtuele machine om uit te voeren NGFW maken][6]
 
-## <a name="route-traffic-through-ngfw-only"></a>Het verkeer alleen via de NGFW leiden
+## <a name="route-traffic-through-ngfw-only"></a>Verkeer alleen via NGFW sturen
 Ga terug naar de **aanbevelingen** blade. Een nieuwe vermelding is gegenereerd nadat u een NGFW via Security Center, aangeroepen toegevoegd **routeren van verkeer via NGFW**. Deze aanbeveling wordt alleen gemaakt als u uw NGFW door Security Center geïnstalleerd. Als u internetgerichte eindpunten hebt, raadt Security Center aan de Netwerkbeveiligingsgroep regels waarmee binnenkomend verkeer naar uw virtuele machine via uw NGFW forceren te configureren.
 
 1. In de **blade aanbevelingen**, selecteer **routeren van verkeer via NGFW**.
    ![Verkeer alleen via NGFW sturen][7]
 2. Hiermee opent u de blade **routeren van verkeer via NGFW**, die een lijst met virtuele machines die u kunt het verkeer naar versturen. Selecteer een virtuele machine in de lijst.
    ![Selecteer een virtuele machine][8]
-3. Een blade voor de geselecteerde virtuele machine met de bijbehorende regels voor binnenkomende verbindingen wordt geopend. Een beschrijving biedt u meer informatie over het mogelijk de volgende stappen. Selecteer **binnenkomende regels bewerken** om door te gaan met het bewerken van een inkomende regel. De verwachting is dat **bron** niet is ingesteld op **eventuele** voor de internetgerichte eindpunten gekoppeld aan de NGFW. Zie voor meer informatie over de eigenschappen van de binnenkomende regel, [NSG-regels](../virtual-network/virtual-networks-nsg.md#nsg-rules).
+3. Een blade voor de geselecteerde virtuele machine met de bijbehorende regels voor binnenkomende verbindingen wordt geopend. Een beschrijving biedt u meer informatie over het mogelijk de volgende stappen. Selecteer **binnenkomende regels bewerken** om door te gaan met het bewerken van een inkomende regel. De verwachting is dat **bron** niet is ingesteld op **eventuele** voor de internetgerichte eindpunten gekoppeld aan de NGFW. Zie voor meer informatie over de eigenschappen van de binnenkomende regel, [beveiligingsregels](../virtual-network/security-overview.md#security-rules).
    ![Configureer regels om toegang te beperken][9]
    ![binnenkomende regel bewerken][10]
 

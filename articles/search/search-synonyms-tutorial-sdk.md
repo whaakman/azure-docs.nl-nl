@@ -1,27 +1,27 @@
 ---
-title: Zelfstudie over de synoniemenpreview in Azure Search | Microsoft Docs
-description: Voeg de synoniemenpreviewfunctie toe aan een index in Azure Search.
+title: Zelfstudie over synoniemen in Azure Search | Microsoft Docs
+description: Voeg de synoniemenfunctie toe aan een index in Azure Search.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 03/31/2017
+ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: 0f082397f832883b272a2ca38850a340b618adde
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5482185a4a4cc8b76c1094ce12a7ac52985ec57c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="synonym-preview-c-tutorial-for-azure-search"></a>Synoniemenzelfstudie (preview, C#) voor Azure Search
+# <a name="synonym-c-tutorial-for-azure-search"></a>C#-zelfstudie over synoniemen voor Azure Search
 
 Met synoniemen breidt u een query uit door termen te gebruiken die semantisch overeenkomen met de ingevoerde term. Mogelijk wilt u bijvoorbeeld dat met 'auto' ook documenten worden geretourneerd met de termen 'voertuig' of 'cabrio'.
 
 In Azure Search worden synoniemen gedefinieerd in een *synoniementoewijzing* op basis van *toewijzingsregels* waarmee equivalente termen worden gekoppeld. U kunt meerdere synoniementoewijzingen maken en deze als algemene serviceresource beschikbaar maken voor alle indexen. Daarna kunt u op veldniveau aangeven welke u wilt gebruiken. Bij het uitvoeren van query's doorzoekt Azure Search niet alleen een index, maar wordt er ook in een synoniementoewijzing gekeken als er een is opgegeven in de velden die voor de query zijn gebruikt.
 
 > [!NOTE]
-> De synoniemenfunctie is momenteel beschikbaar als preview en wordt alleen ondersteund in de meest recente preview-API- en SDK-versies (API-versie 2016-09-01-Preview, SDK-versie 4.x-preview). Azure Portal biedt er momenteel geen ondersteuning voor. Preview-API's vallen niet onder een SLA en de previewfuncties kunnen veranderen. Daarom raden we u af om deze in productietoepassingen te gebruiken.
+> De synoniemenfunctie wordt ondersteund in de nieuwste API- en SDK-versie (API-versie=2017-11-11, SDK-versie 5.0.0). Azure Portal biedt er momenteel geen ondersteuning voor. Als u graag Azure Portal-ondersteuning voor synoniemen wilt, kunt u hieronder feedback verzenden via [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -29,7 +29,7 @@ Voor de zelfstudie gelden de volgende vereisten:
 
 * [Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure Search-service](search-create-service-portal.md)
-* [Preview-versie van de .NET-bibliotheek Microsoft.Azure.Search](https://aka.ms/search-sdk-preview)
+* [Microsoft.Azure.Search .NET-bibliotheek](https://aka.ms/search-sdk)
 * [Weten hoe u Azure Search gebruikt via een .NET-toepassing](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 ## <a name="overview"></a>Overzicht

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4b3a7425f383e1fa8145bac016aa2881d806c545
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 0be54c47965c6a27c3506fd37a7bf67e4b2b7924
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="application-insights-overview-dashboard-preview"></a>Application Insights-Overzichtsdashboard (preview)
 
@@ -56,6 +56,9 @@ Als dit de eerste keer wordt toegang tot het dashboard deze gestart een standaar
 ![Dashboardweergave](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-06.png)
 
 Terwijl u de standaardweergave wilt behouden, als u deze toe, kunt u toevoegen en verwijderen van het dashboard om op de beste afhankelijk van de behoeften van uw team.
+
+> [!NOTE]
+> Alle gebruikers met toegang tot de Application Insights-resource delen dezelfde toepassing dashboard ervaring. Wijzigingen die zijn aangebracht door een gebruiker past u de weergave voor alle gebruikers.
 
 Als u wilt navigeren weer aan de ervaring overzicht gewoon selecteren:
 

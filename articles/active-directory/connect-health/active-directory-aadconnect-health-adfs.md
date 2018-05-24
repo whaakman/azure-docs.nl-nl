@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/18/2017
+ms.date: 04/26/2018
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d416c8953f1e41c04a39141c79e0b1568c1dccb3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5b17b4e8581daa5b19aaafd911765d843a9f3fe4
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>AD FS bewaken met Azure AD Connect Health
 De volgende documentatie is specifiek voor het bewaken van uw Azure AD FS-infrastructuur met Azure AD Connect Health. Zie [Using Azure AD Connect Health for Sync](active-directory-aadconnect-health-sync.md) (Engelstalig) voor informatie over het bewaken van Azure AD Connect (synchronisatie) met Azure AD Connect Health. Zie ook [Azure AD Connect Health gebruiken met AD DS](active-directory-aadconnect-health-adds.md) voor informatie over het bewaken van Active Directory Domain Services met Azure AD Connect Health.
@@ -116,7 +116,7 @@ Dit rapport bevat de volgende informatie:
 >
 >
 
-## <a name="risky-ip-report"></a>Rapport over riskante IP-adressen 
+## <a name="risky-ip-report-public-preview"></a>Rapport van riskante IP (openbare preview)
 AD FS-klanten kunnen eindpunten voor wachtwoordverificatie op internet beschikbaar maken om verificatieservices te bieden aan eindgebruikers zodat ze toegang hebben tot SaaS-toepassingen zoals Office 365. In dat geval kunnen criminelen aanmeldpogingen uitvoeren op uw AD FS-systeem om het wachtwoord van een eindgebruiker te achterhalen en toegang te krijgen tot toepassingsresources. AD FS biedt de extranetfunctionaliteit voor accountvergrendeling om dergelijke aanvallen te voorkomen vanaf AD FS in Windows Server 2012 R2. Als u een lagere versie gebruikt, raden we u ten zeerste aan uw AD FS-systeem naar Windows Server 2016 te upgraden. <br />
 Daarnaast is het mogelijk dat vanaf één IP-adres meerdere aanmeldpogingen voor meerdere gebruikers worden uitgevoerd. In dit soort gevallen is het aantal pogingen per gebruiker mogelijk lager dan de drempel voor beveiliging met accountvergrendeling in AD FS. Azure AD Connect Health biedt nu het rapport Riskant IP-adres dat deze gebeurtenis detecteert en beheerders hierover waarschuwt. De belangrijkste voordelen van dit rapport zijn: 
 - Detectie van IP-adressen die een drempel voor mislukte aanmeldingen op basis van wachtwoord overschrijden
@@ -152,10 +152,12 @@ Het onderstaande rapportitem geeft bijvoorbeeld aan dat in het tijdvenster van 1
 > - Dit waarschuwingsrapport geeft geen Exchange-IP-adressen of privé-IP-adressen weer. Ze worden wel opgenomen in de exportlijst. 
 >
 
-
 ![Portal voor Azure AD Connect Health](./media/active-directory-aadconnect-health-adfs/report4c.png)
 
-### <a name="download-risky-ip-report"></a>Rapport Riskant IP-adres downloaden
+### <a name="load-balancer-ip-addresses-in-the-list"></a>IP-adressen van load balancer in de lijst
+Load balancer verzamelt mislukte aanmeldactiviteiten en bereikt de drempelwaarde voor waarschuwingen. Als u load balancer IP-adressen ziet, is het zeer waarschijnlijk dat uw externe load balancer het client-IP-adres niet verzendt wanneer deze de aanvraag naar de proxyserver van de webtoepassing doorstuurt. Configureer de load balancer op een juiste manier om het client-IP-adres door te schakelen. 
+
+### <a name="download-risky-ip-report"></a>Rapport Riskant IP-adres downloaden 
 Met behulp van de functie **Downloaden** kan de volledige lijst met riskante IP-adressen van de afgelopen 30 dagen worden geëxporteerd vanuit de Connect Health-portal. De export bevat alle mislukte AD FS-aanmeldactiviteiten in elke detectieperiode, zodat u de filters na het exporteren kunt aanpassen. De export geeft naast de gemarkeerde aggregaties in de portal ook meer informatie over mislukte aanmeldactiviteiten per IP-adres weer:
 
 |  Rapportitem  |  Beschrijving  | 
@@ -196,12 +198,14 @@ Als u load balancer IP-adressen ziet, is het zeer waarschijnlijk dat uw externe 
 
 3. Hoe kan ik een IP-adres blokkeren?  <br />
 Voeg geïdentificeerde schadelijke IP-adressen toe aan de firewall of blokkeer deze in Exchange.   <br />
-Met AD FS 2016 + 1803.C+ QFE kunt u het IP-adres rechtstreeks in AD FS blokkeren. 
 
 4. Waarom zie ik geen items in dit rapport? <br />
    - Het aantal mislukte aanmeldactiviteiten is lager dan de ingestelde drempelwaarde. 
    - Zorg ervoor dat er geen melding als 'Health-service is niet up-to-date' actief is in de AD FS-serverlijst.  Lees meer informatie over [het oplossen van deze waarschuwing](active-directory-aadconnect-health-data-freshness.md).
    - Controles zijn niet ingeschakeld in AD FS-farms.
+ 
+5. Waarom krijg ik geen toegang tot het rapport?  <br />
+Voor toegang is een machtiging als Globale beheerder of [Beveiligingslezer](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader) vereist. Neem contact op met uw globale beheerder om toegang te krijgen.
 
 
 ## <a name="related-links"></a>Verwante koppelingen

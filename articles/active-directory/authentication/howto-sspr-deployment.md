@@ -2,35 +2,31 @@
 title: Implementatiegids Selfservice voor wachtwoordherstel - Azure Active Directory
 description: Tips voor een geslaagde implementatie van Azure AD-self-service voor wachtwoordherstel
 services: active-directory
-keywords: ''
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro;seohack1
-ms.openlocfilehash: e34bf6ec106976c1c3aab0f2b5c4ebf4b6ccc54b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 4d3e07c6c395645ef34b1707f33a4e37a20bf05d
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Selfservice voor wachtwoordherstel implementeren
 
 De meeste klanten voeren de volgende stappen uit voor een goede implementatie van de functionaliteit van de selfservice voor wachtwoordherstel (SSPR) van Azure Active directory (Azure AD):
 
+> [!VIDEO https://www.youtube.com/embed/OZn5btP6ZXw]
+
 1. [Schakel wachtwoordherstel in in uw directory](quickstart-sspr.md).
 2. [Configureer on-premises Active Directory-machtigingen voor write-back van wachtwoord](howto-sspr-writeback.md#active-directory-permissions).
 3. [Configureer write-back van wachtwoord](howto-sspr-writeback.md#configure-password-writeback) om wachtwoorden van Azure AD terug te schrijven naar uw on-premises directory.
 4. [Wijs de vereiste licenties toe en verifieer ze](concept-sspr-licensing.md).
-5. Bepaal of u een geleidelijke implementatie wilt uitvoeren. Als u selfservice voor wachtwoordherstel geleidelijk wilt implementeren, kunt u de toegang beperken tot bepaalde gebruikers, zodat u het programma met een specifieke groep kunt testen. Voor implementatie in een specifieke groep stelt u de schakeloptie **Selfservice voor wachtwoordherstel is ingeschakeld** in op **Geselecteerd** en selecteert u de beveiligingsgroep waarvoor u wachtwoordherstel mogelijk wilt maken. 
+5. Bepaal of u een geleidelijke implementatie wilt uitvoeren. Als u selfservice voor wachtwoordherstel geleidelijk wilt implementeren, kunt u de toegang beperken tot bepaalde gebruikers, zodat u het programma met een specifieke groep kunt testen. Voor implementatie in een specifieke groep stelt u de schakeloptie **Selfservice voor wachtwoordherstel is ingeschakeld** in op **Geselecteerd** en selecteert u de beveiligingsgroep waarvoor u wachtwoordherstel mogelijk wilt maken.  Het nesten van beveiligingsgroepen wordt hier ondersteund.
 6. Vul de [verificatiegegevens](howto-sspr-authenticationdata.md) in die uw gebruikers nodig hebben om zich te kunnen registreren, zoals hun zakelijke telefoonnummer, mobiele telefoonnummer en een alternatief e-mailadres.
 7. [Pas de Azure Active Directory-aanmeldingservaring aan met de huisstijl van uw bedrijf](concept-sspr-customization.md).
 8. Leer uw gebruikers hoe ze de selfservice voor wachtwoordherstel moeten gebruiken. Geef ze instructies voor hoe ze zich kunnen registreren en hun wachtwoord kunnen herstellen.
@@ -66,6 +62,10 @@ Veel klanten kiezen ervoor een webpagina te hosten en een DNS-basisvermelding te
 * Overige organisatiespecifieke informatie
 
 In e-mailberichten of flyers die u verstuurt, kunt u een in huisstijl opgemaakte, gemakkelijk te onthouden URL opnemen die gebruikers kunnen raadplegen wanneer ze de services moeten gebruiken. We hebben een [voorbeeldpagina voor wachtwoordherstel](https://github.com/ajamess/password-reset-page) gemaakt die u kunt gebruiken en aanpassen aan de behoeften van uw organisatie.
+
+## <a name="step-by-step-deployment-plan"></a>Stapsgewijs implementatieplan
+
+De Azure Active Directory-productgroep heeft een [stapsgewijs implementatieplan](https://aka.ms/SSPRDeploymentPlan) gemaakt, dat organisaties in combinatie met de documentatie kunnen gebruiken die te vinden is op deze site om een bedrijfsscenario te maken en de implementatie te plannen van selfservice voor wachtwoordherstel.
 
 ## <a name="use-enforced-registration"></a>Gedwongen registratie gebruiken
 

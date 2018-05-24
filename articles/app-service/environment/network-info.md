@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: ccompy
-ms.openlocfilehash: 54257ae3e02a00c5097aa7880fa356da3bc0ecce
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: d099163cdc34624afd8f01b8f1978c5ee902d1ff
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Overwegingen voor een App-serviceomgeving netwerken #
 
@@ -87,8 +87,8 @@ Voor uitgaande toegang is een as-omgeving afhankelijk van meerdere externe syste
 |-----|------|----|
 | Azure Storage | As-omgeving subnet | Table.Core.Windows.NET, blob.core.windows.net, queue.core.windows.net, file.core.windows.net: 80, 443, 445 (445 is alleen nodig voor ASEv1.) |
 | Azure SQL Database | As-omgeving subnet | database.Windows.NET: 1433, 11000 11999, 14000 14999 (Zie voor meer informatie [SQL Database V12 Poortgebruik](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).)|
-| Azure management | As-omgeving subnet | management.core.windows.net, management.azure.com: 443 
-| Verificatie van SSL-certificaat |  As-omgeving subnet            |  ocsp.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443
+| Azure management | As-omgeving subnet | Management.Core.Windows.NET, management.azure.com: 443 
+| Verificatie van SSL-certificaat |  As-omgeving subnet            |  OCSP.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443
 | Azure Active Directory        | As-omgeving subnet            |  Internet: 443
 | App Service-beheer        | As-omgeving subnet            |  Internet: 443
 | Azure DNS                     | As-omgeving subnet            |  Internet: 53
@@ -109,7 +109,7 @@ Als het VNet is geconfigureerd met een klant DNS op de andere zijde van een VPN,
 Naast de functionele afhankelijkheden van de as-omgeving zijn er enkele extra artikelen die betrekking hebben op de ervaring van de portal. Enkele van de functies in de Azure-portal afhankelijk zijn van directe toegang tot _SCM site_. Er zijn twee URL's voor elke app in Azure App Service. De eerste URL is toegang tot uw app. De URL van de tweede is voor toegang tot de site SCM, ook wel genoemd de _Kudu-console_. Functies die gebruikmaken van de site SCM:
 
 -   Webtaken
--   Functies
+-   Functions
 -   Logboekstreaming
 -   Kudu
 -   Extensies
@@ -224,7 +224,7 @@ Als Service-eindpunten in een subnet met een Azure SQL-exemplaar is ingeschakeld
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/virtual-networks-nsg.md
+[NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md

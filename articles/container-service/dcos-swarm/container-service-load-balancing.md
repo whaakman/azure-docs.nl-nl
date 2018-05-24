@@ -1,64 +1,64 @@
 ---
-title: Load balance containers in Azure DC/OS-cluster
-description: Verdelen over meerdere containers in een Azure Container Service DC/OS-cluster.
+title: Taakverdelingscontainers in Azure DC/OS-cluster
+description: Verdeel taken over meerdere containers in een DC/OS-cluster in Azure Container Service.
 services: container-service
 author: rgardler
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 6f5467d0fbcc577a548f1100ed6e4d380fe38759
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: 62967636a4d80f72f731a666947d5d4d5e47f7e5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>Load balance containers in een Azure Container Service DC/OS-cluster
+# <a name="load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>Taken over containers verdelen in een DC/OS-cluster in Azure Container Service
 
-In dit artikel wordt besproken voor het maken van een interne load balancer in een DC/OS beheerd-Azure Containerservice met behulp van Marathon-Taakverdeling. Deze configuratie kunt u uw toepassingen horizontaal schalen. Ook kunt u profiteren van de openbare en persoonlijke agent clusters door het plaatsen van uw netwerktaakverdelers op het openbare als uw toepassingscontainers op het persoonlijke cluster. In deze zelfstudie hebt u:
+In dit artikel wordt beschreven hoe een interne load balancer in een met DC/OS beheerde Azure Container Service wordt gemaakt met Marathon-LB. Met deze configuratie kunt u uw toepassingen horizontaal schalen. U kunt hiermee ook gebruikmaken van de clusters met openbare en persoonlijke agents door de load balancers in het openbare cluster en uw toepassingscontainers in het persoonlijke cluster te plaatsen. In deze zelfstudie hebt u:
 
 > [!div class="checklist"]
-> * Een Load Balancer van Marathon configureren
-> * Implementeer een toepassing met behulp van de load balancer
-> * Configureren en de Azure load balancer
+> * Een Marathon Load Balancer configureren
+> * Een toepassing implementeren met behulp van de load balancer
+> * Een Azure Load Balancer configureren
 
-U moet een ACS-DC/OS-cluster de stappen in deze zelfstudie. Indien nodig, [dit voorbeeldscript](./../kubernetes/scripts/container-service-cli-deploy-dcos.md) kunt maken voor u.
+U hebt een ACS DC/OS-cluster nodig om de stappen in deze zelfstudie te kunnen uitvoeren. Zo nodig kan [dit voorbeeldscript](./../kubernetes/scripts/container-service-cli-deploy-dcos.md) er een voor u maken.
 
 Voor deze zelfstudie is versie 2.0.4 of hoger van de Azure CLI vereist. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="load-balancing-overview"></a>Overzicht van netwerktaakverdeling
+## <a name="load-balancing-overview"></a>Overzicht van taakverdeling
 
-Er zijn twee lagen voor taakverdeling in een Azure Container Service DC/OS-cluster: 
+Er zijn twee taakverdelingslagen in het Azure Container Service DC/OS-cluster: 
 
-**Azure Load Balancer** biedt openbare invoerpunten (de waarden die eindgebruikers toegang). Een Azure LB automatisch wordt geleverd met Azure Container Service en is standaard geconfigureerd om poort 80 en 443 van 8080 weer te geven.
+**De Azure Load Balancer** biedt openbare toegangspunten (voor de eindgebruikers). Een Azure LB wordt automatisch aangeboden door de Azure Container Service en is standaard geconfigureerd om poorten 80 en 443 van 8080 open te stellen.
 
-**De Marathon-taakverdeling (marathon-taakverdeling)** routes binnenkomende aanvragen naar containerexemplaren die aanvragen voor deze service. De marathon-taakverdeling wordt dynamisch aangepast geschaald de containers bieden onze webservice. Deze load balancer is niet opgegeven in uw Containerservice standaard, maar het is eenvoudig te installeren.
+**De Marathon Load Balancer (marathon-lb)** routeert binnenkomende aanvragen naar de containerinstanties die deze aanvragen bedienen. Als we de containers schalen met onze webservice, past de marathon-lb zich dynamisch aan. Deze taakverdeling is geen standaardvoorziening in uw Container Service, maar is gemakkelijk te installeren.
 
-## <a name="configure-marathon-load-balancer"></a>Marathon-taakverdeling configureren
+## <a name="configure-marathon-load-balancer"></a>Marathon Load Balancer configureren
 
-Marathon Load Balancer herconfigureert zichzelf dynamisch op basis van de containers die u hebt geïmplementeerd. Het is ook aan het verlies van een container of agent - als dit het geval is, Apache Mesos elders in de container opnieuw is opgestart en marathon-taakverdeling past zich.
+Marathon Load Balancer herconfigureert zichzelf dynamisch op basis van de containers die u hebt geïmplementeerd. De Load Balancer past zich ook aan het verlies van een container of agent aan. Als dit gebeurt, wordt de container door Apache Mesos elders opnieuw gestart en wordt marathon-lb aangepast.
 
-Voer de volgende opdracht voor het installeren van de marathon-taakverdeling op de openbare agent-cluster.
+Voer de volgende opdracht uit om de marathon-taakverdeling op het cluster van de openbare agent te installeren.
 
 ```azurecli-interactive
 dcos package install marathon-lb
 ```
 
-## <a name="deploy-load-balanced-application"></a>Taakverdeling toepassing implementeren
+## <a name="deploy-load-balanced-application"></a>Een toepassing met taakverdeling implementeren
 
 Nu we het Marathon-LB-pakket hebben, kunnen we een toepassingscontainer implementeren waarvan we de taken willen verdelen. 
 
-De FQDN-naam van de agents die openbaar blootgestelde eerst worden opgehaald.
+Haal eerst de FQDN op van de agents die openbaar beschikbaar worden gesteld.
 
 ```azurecli-interactive
 az acs list --resource-group myResourceGroup --query "[0].agentPoolProfiles[0].fqdn" --output tsv
 ```
 
-Maak vervolgens een bestand met de naam *hello web.json* en kopieer de volgende inhoud. De `HAPROXY_0_VHOST` label moet worden bijgewerkt met de FQDN van de DC/OS-agents. 
+Maak vervolgens een bestand met de naam *hello-web.json* en kopieer de volgende inhoud naar het bestand. Het `HAPROXY_0_VHOST`-label moet worden bijgewerkt met de FQDN van de DC/OS-agents. 
 
 ```json
 {
@@ -94,32 +94,32 @@ Maak vervolgens een bestand met de naam *hello web.json* en kopieer de volgende 
 }
 ```
 
-Gebruik de DC/OS CLI de toepassing uit te voeren. Standaard Marathon implementeert het de toepassing naar de persoonlijke cluster. Dit betekent dat de bovenstaande implementatie alleen toegankelijk via de load balancer is, dit is meestal het gewenste gedrag.
+Gebruik de DC/OS CLI om de toepassing uit te voeren. Marathon implementeert de toepassing standaard in het persoonlijke cluster. Dit betekent dat de bovenstaande implementatie alleen toegankelijk is via de load balancer (dit is meestal het gewenste gedrag).
 
 ```azurecli-interactive
 dcos marathon app add hello-web.json
 ```
 
-Zodra de toepassing is geïmplementeerd, blader naar de FQDN-naam van het cluster agent taakverdeling toepassing weergeven.
+Wanneer de toepassing is geïmplementeerd, bladert u naar de FQDN van het agentcluster om de toepassing met taakverdeling weer te geven.
 
-![Afbeelding van taakverdeling toepassing](./media/container-service-load-balancing/lb-app.png)
+![Afbeelding van een toepassing met taakverdeling](./media/container-service-load-balancing/lb-app.png)
 
 ## <a name="configure-azure-load-balancer"></a>Azure Load Balancer configureren
 
-Standaard stelt de Azure Load Balancer poorten 80, 8080 en 443 open. Als u een van deze drie poorten gebruikt (zoals we dit in het bovenstaande voorbeeld doen), dan hoeft u niets te doen. U moet kunnen om de load balancer-uw agent FQDN en telkens wanneer die u vernieuwt u een van de drie webservers op een wijze round robin hebt bereikt. 
+Standaard stelt de Azure Load Balancer poorten 80, 8080 en 443 open. Als u een van deze drie poorten gebruikt (zoals we dit in het bovenstaande voorbeeld doen), dan hoeft u niets te doen. U moet de FQDN van de load balancer van uw agent kunnen bereiken en telkens wanneer u vernieuwt, bereikt u één van de drie webservers volgens round-robin. 
 
-Als u een andere poort gebruikt, moet u een round-robinregel en een test toevoegen op de load balancer voor de poort die u gebruikt. Dit kan vanuit de [Azure CLI](../../azure-resource-manager/xplat-cli-azure-resource-manager.md), met de opdrachten `azure network lb rule create` en `azure network lb probe create`.
+Als u echter een andere poort gebruikt, moet u een round-robinregel en een probe toevoegen aan de load balancer voor de gebruikte poort. Dit kan vanuit de [Azure CLI](../../azure-resource-manager/xplat-cli-azure-resource-manager.md), met de opdrachten `azure network lb rule create` en `azure network lb probe create`.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd over taakverdeling in ACS aan het Marathon- en Azure load balancers met inbegrip van de volgende acties:
+In deze zelfstudie hebt u geleerd over taakverdeling in ACS met zowel de Marathon- als de Azure-load balancer, met inbegrip van de volgende acties:
 
 > [!div class="checklist"]
-> * Een Load Balancer van Marathon configureren
-> * Implementeer een toepassing met behulp van de load balancer
-> * Configureren en de Azure load balancer
+> * Een Marathon Load Balancer configureren
+> * Een toepassing implementeren met behulp van de load balancer
+> * Een Azure Load Balancer configureren
 
-Ga naar de volgende zelfstudie voor meer informatie over de integratie van Azure-opslag met DC/OS in Azure.
+Ga naar de volgende zelfstudie om te leren over de integratie van Azure-opslag met DC/OS in Azure.
 
 > [!div class="nextstepaction"]
-> [De bestandsshare koppelen Azure in DC/OS-cluster](container-service-dcos-fileshare.md)
+> [De Azure-bestandsshare koppelen in DC/OS-cluster](container-service-dcos-fileshare.md)

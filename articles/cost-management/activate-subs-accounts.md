@@ -1,109 +1,109 @@
 ---
-title: Azure-abonnementen en accounts activeren | Microsoft Docs
-description: Toegang met Azure Resource Manager-API's voor nieuwe en bestaande accounts en oplossen van algemene problemen van het account.
+title: Azure-abonnementen en -accounts activeren | Microsoft Docs
+description: Toegang met Azure Resource Manager-API's mogelijk maken voor nieuwe en bestaande accounts en oplossen van algemene accountproblemen.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/01/2018
-ms.topic: article
+ms.date: 04/26/2018
+ms.topic: quickstart
 ms.service: cost-management
-manager: carmonm
+manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: dbbbc7ee87d53f65d51b20fd5b8ffcb6c4930f15
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 6a42f4b5b54056424bc3e2d865408ad6711403e0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Azure-abonnementen en accounts met Azure kosten Management activeren
+# <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Azure-abonnementen en -accounts activeren met Azure Cost Management
 
-Toevoegen of bijwerken van de referenties van uw Azure Resource Manager kunt Azure kostenbeheer voor het detecteren van de accounts en -abonnementen binnen uw Azure-Tenant. Als u ook Azure Diagnostics-extensie is ingeschakeld op uw virtuele machines hebt, kan Azure kosten Management uitgebreide metrische gegevens zoals CPU en geheugen verzamelen. Dit artikel wordt beschreven hoe u toegang met behulp van Azure Resource Manager-API's voor nieuwe en bestaande accounts. Ook wordt beschreven hoe algemene account problemen kunt oplossen.
+Door het toevoegen of bijwerken van uw referenties van Azure Resource Manager kan Azure Cost Management alle accounts en abonnementen binnen uw Azure-Tenant detecteren. Als ook uw Azure Diagnostics-extensie is ingeschakeld op uw virtuele machines, kan Azure Cost Management uitgebreide metrische gegevens zoals CPU en geheugen verzamelen. In dit artikel wordt beschreven hoe u toegang met Azure Resource Manager-API's mogelijk maakt voor nieuwe en bestaande accounts. Ook wordt beschreven hoe u algemene accountproblemen kunt oplossen.
 
-Azure Kostenbeheer heeft geen toegang tot de meeste van de gegevens van uw Azure-abonnement wanneer het abonnement _niet-geactiveerde_. U moet bewerken _niet-geactiveerde_ accounts zodat Azure kosten Management er toegang toe hebben.
+Azure Cost Management heeft geen toegang tot de meeste gegevens van uw Azure-abonnement wanneer het abonnement _niet geactiveerd_ is. U moet _niet-geactiveerde_ accounts bewerken zodat Azure Cost Management er toegang toe heeft.
 
 ## <a name="required-azure-permissions"></a>Vereiste machtigingen voor Azure
 
-Specifieke machtigingen nodig zijn om de procedures in dit artikel te voltooien. U of uw tenantbeheerder moet hebben beide van de volgende machtigingen:
+Er zijn specifieke machtigingen nodig om de procedures in dit artikel te voltooien. U of uw tenantbeheerder moet beide volgende machtigingen hebben:
 
 - Machtiging voor het registreren van de toepassing CloudynCollector bij uw Azure AD-tenant.
-- De mogelijkheid om de toepassing toewijzen aan een rol in uw Azure-abonnementen.
+- De mogelijkheid om de toepassing toe te wijzen aan een rol in uw Azure-abonnementen.
 
-Uw Azure-abonnementen uw accounts moeten hebben `Microsoft.Authorization/*/Write` toegang tot de toepassing CloudynCollector toewijzen. Deze actie wordt verleend via de [eigenaar](../role-based-access-control/built-in-roles.md#owner) rol of [beheerder voor gebruikerstoegang](../role-based-access-control/built-in-roles.md#user-access-administrator) rol.
+Uw Azure-abonnementen moeten uw accounts `Microsoft.Authorization/*/Write` toegang hebben om de toepassing CloudynCollector toe te wijzen. Deze toegang wordt verleend via de rol [Eigenaar](../role-based-access-control/built-in-roles.md#owner) of [Administrator voor gebruikerstoegang](../role-based-access-control/built-in-roles.md#user-access-administrator).
 
-Als uw account is toegewezen aan de **Inzender** rol, u hebt niet voldoende machtiging voor het toewijzen van de toepassing. U ontvangt een fout opgetreden bij een poging de CloudynCollector toepassing toewijzen aan uw Azure-abonnement.
+Als uw account is toegewezen aan de rol **Inzender**, hebt u niet voldoende machtiging voor het toewijzen van de toepassing. U ontvangt een fout bij een poging de CloudynCollector-toepassing toe te wijzen aan uw Azure-abonnement.
 
-### <a name="check-azure-active-directory-permissions"></a>Controleer de machtigingen voor Azure Active Directory
+### <a name="check-azure-active-directory-permissions"></a>Machtigingen voor Azure Active Directory controleren
 
 1. Meld u aan bij de [Azure-portal](https://portal.azure.com).
 2. Selecteer in de Azure-portal **Azure Active Directory**.
-3. Selecteer in Azure Active Directory, **gebruikersinstellingen**.
-4. Controleer de **App registraties** optie.
-    - Als deze is ingesteld op **Ja**, en vervolgens de niet-beheerders kunnen zich registreren AD-apps. Deze instelling betekent dat elke gebruiker in de Azure AD-tenant een app kunt registreren. U kunt doorgaan met machtigingen voor vereist Azure-abonnement.  
+3. Selecteer in Azure Active Directory, **Gebruikersinstellingen**.
+4. Controleer de optie **App-registraties**.
+    - Als deze is ingesteld op **Ja**, kunnen de niet-beheerders AD-apps registreren. Deze instelling betekent dat elke gebruiker in de Azure AD-tenant een app kan registreren. U kunt doorgaan met vereiste machtigingen voor Azure-abonnementen.  
     ![App-registraties](./media/activate-subs-accounts/app-register.png)
-    - Als de **App registraties** optie is ingesteld op **Nee**, en vervolgens alleen tenant administratieve gebruikers zich apps in Azure Active Directory registreren kunnen. Uw tenantbeheerder moet de toepassing CloudynCollector registreren.
+    - Als de optie **App-registraties** is ingesteld op **Nee**, kunnen alleen tenantbeheerders apps in Azure Active Directory registreren. Uw tenantbeheerder moet de toepassing CloudynCollector registreren.
 
 
-## <a name="add-an-account-or-update-a-subscription"></a>Toevoegen van een account of een abonnement bijwerken
+## <a name="add-an-account-or-update-a-subscription"></a>Een account toevoegen of een abonnement bijwerken
 
-Wanneer u een account update een abonnement toevoegt, kunt u Azure kosten Management toegang verlenen tot uw Azure-gegevens.
+Wanneer u een account updatet een abonnement toevoegt, verleent u Azure Cost Management toegang tot uw Azure-gegevens.
 
-### <a name="add-a-new-account-subscription"></a>Een nieuwe account (abonnement) toevoegt
+### <a name="add-a-new-account-subscription"></a>Een nieuwe account toevoegen (abonnement)
 
-1. In de beheerportal van Azure kosten op het symbool tandwielpictogram in de rechterbovenhoek en selecteer **Accounts in de Cloud**.
-2. Klik op **nieuwe account toevoegt** en de **nieuwe account toevoegt** verschijnt. Geef de vereiste informatie.  
-    ![Het nieuwe account toevoegen](./media/activate-subs-accounts//add-new-account.png)
+1. Klik in de Azure Cost Management-portal rechtsboven op het tandwielsymbool en selecteer **Cloud-accounts**.
+2. Klik op **Nieuw account toevoegen** en het vak **Nieuw account toevoegen** verschijnt. Voer vereiste gegevens in.  
+    ![Vak Nieuw account toevoegen](./media/activate-subs-accounts//add-new-account.png)
 
 ### <a name="update-a-subscription"></a>Een abonnement bijwerken
 
-1. Als u wilt bijwerken een _niet-geactiveerde_ abonnement dat al voorkomt in Azure kostenbeheer in beheer van Accounts, klikt u op het symbool bewerken Pen rechts van de bovenliggende _tenant-GUID_. Abonnementen zijn gegroepeerd onder een bovenliggende-tenant, dus Vermijd abonnementen afzonderlijk activeren.
+1. Als u een _niet-geactiveerd_ abonnement wilt bijwerken dat al voorkomt in Azure Cost Management in Account-beheer, klikt u op het potloodsymbool bewerken rechts van de bovenliggende _tenant-GUID_. Abonnementen zijn gegroepeerd onder een bovenliggende tenant, dus vermijd het afzonderlijk activeren van abonnementen.
     ![Abonnementen opnieuw detecteren](./media/activate-subs-accounts/existing-sub.png)
-2. Indien nodig, de Tenant-ID invoeren. Als u uw Tenant-ID niet weet, gebruikt u de volgende stappen uit te vinden:
+2. Voer, indien nodig, de Tenant-ID in. Als u uw Tenant-ID niet weet, gebruikt u de volgende stappen om die te vinden:
     1. Meld u aan bij de [Azure-portal](https://portal.azure.com).
     2. Selecteer in de Azure-portal **Azure Active Directory**.
     3. Haal de tenant-id op door **Eigenschappen** voor uw Azure AD-tenant te selecteren.
-    4. Kopieer de map-ID-GUID. Deze waarde is uw tenant-id.
-    Zie voor meer informatie [tenant-ID ophalen](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
-3. Indien nodig, selecteert u uw snelheid. Als u niet dat uw tarief-ID weet, gebruikt u de volgende stappen uit te vinden.
-    1. In de rechterbovenhoek van de Azure portal uw gebruikersgegevens op en klik op **weergeven van mijn factuur**.
-    2. Onder **factureringsaccount**, klikt u op **abonnementen**.
-    3. Onder **abonnementen**, selecteer het abonnement.
-    4. De snelheid van de ID die wordt weergegeven onder **bieden ID**. Kopieer de ID bieden voor het abonnement.
-4. In het nieuwe account toevoegen (of een abonnement bewerken) in het vak **opslaan** (of **volgende**). U wordt omgeleid naar de Azure-portal.
-5. Aanmelden bij de portal. Klik op **accepteren** autoriseren Azure kosten Management Collector toegang heeft tot uw Azure-account.
+    4. Kopieer de map-id-GUID. Deze waarde is uw tenant-id.
+    Zie [Tenant-id ophalen](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id) voor meer informatie.
+3. Selecteer, indien nodig, uw Tarief-id. Als u uw Tenant-id niet weet, gebruikt u de volgende stappen om die te vinden.
+    1. Klik in de rechterbovenhoek van de Azure-portal op uw gebruikersgegevens en klik vervolgens op **Mijn factuur weergeven**.
+    2. Onder **Factureringsaccount**, klikt u op **Abonnementen**.
+    3. Onder **Mijn abonnementen**, selecteert u het abonnement.
+    4. De Tarief-id wordt weergegeven onder **Aanbiedings-id**. Kopieer de aanbiedings-id voor het abonnement.
+4. Klik in het vak Nieuw account toevoegen (of Abonnement bewerken) op **Opslaan** (of **Volgende**). U wordt omgeleid naar de Azure-portal.
+5. Meld u aan bij de portal. Klik op **Accepteren** om Azure Cost Management Collector toegang te geven tot uw Azure-account.
 
-    U bent omgeleid naar de pagina Azure kosten Management Accounts beheren en uw abonnement is bijgewerkt met **active** accountstatus. Een groen vinkje symbool onder de Resource Manager-kolom moet worden weergegeven.
+    U bent omgeleid naar de Azure Cost Management-pagina Accounts beheren en uw abonnement wordt bijgewerkt met **actieve** accountstatus. Er moet een groen vinkje worden weergegeven onder de kolom Resource Manager.
 
-    Als er geen een groen vinkje voor een of meer van de abonnementen, betekent dit dat u bent niet gemachtigd om de reader-app (CloudynCollector) voor het abonnement te maken. Herhaal dit proces moet een gebruiker met hogere machtigingen voor het abonnement.
+    Als u geen groen vinkje ziet voor een of meer van de abonnementen, betekent dit dat u niet bent gemachtigd om de lezer-app (CloudynCollector) te maken voor het abonnement. Een gebruiker met hogere machtigingen voor het abonnement moet dit proces herhalen.
 
-Bekijk de [verbinding te maken in Azure Resource Manager met Azure kosten Management](https://youtu.be/oCIwvfBB6kk) video die bij het proces helpt.
+Bekijk de video [Verbinding maken in Azure Resource Manager met Azure Cost Management](https://youtu.be/oCIwvfBB6kk) die bij het proces helpt.
 
 >[!VIDEO https://www.youtube.com/embed/oCIwvfBB6kk?ecver=1]
 
-## <a name="resolve-common-indirect-enterprise-set-up-problems"></a>Oplossen van algemene problemen van de indirecte enterprise installeren
+## <a name="resolve-common-indirect-enterprise-set-up-problems"></a>Oplossen van algemene indirecte installatieproblemen van ondernemingen
 
-Wanneer u de beheerportal van Azure kosten voor het eerst gebruikt, ziet u mogelijk de volgende berichten te zien als u een Enterprise Agreement of Cloud Solution Provider (CSP) gebruiker:
+Wanneer u de beheerportal van Azure Cost Management voor het eerst gebruikt, ziet u mogelijk de volgende berichten als u een Enterprise Agreement- of Cloud Solution Provider-gebruiker (CSP) bent:
 
-- *De opgegeven API-sleutel is geen sleutel bovenste niveau inschrijving* weergegeven in de **instellen van Azure kosten Management** wizard.
-- *Directe inschrijving – niet* weergegeven in de Enterprise Agreement-portal.
-- *Er is geen gebruiksgegevens gevonden voor de afgelopen 30 dagen. Neem contact op met uw leverancier om te controleren of de opmaak is ingeschakeld voor uw Azure-account* weergegeven in de beheerportal van Azure kosten.
+- *De opgegeven API-sleutel is geen inschrijvingssleutel van het hoogste niveau* weergegeven in de wizard **Instellen van Azure Cost Management**.
+- *Directe inschrijving – Nee* weergegeven in de Enterprise Agreement-portal.
+- *Er zijn geen gebruiksgegevens gevonden voor de afgelopen 30 dagen. Neem contact op met uw leverancier om te controleren of de markering is ingeschakeld voor uw Azure-account* weergegeven in de Azure Cost Management-portal.
 
-De voorgaande berichten geven aan dat u een Enterprise Agreement voor Azure via een wederverkoper of CSP hebt aangeschaft. Uw wederverkoper of CSP moet inschakelen _markup_ voor uw Azure-account zodat u kunt uw gegevens weergeven in Azure kosten Management.
+De voorgaande berichten geven aan dat u een Azure Enterprise Agreement via een wederverkoper of CSP hebt aangeschaft. Uw wederverkoper of CSP moet _markeren_ inschakelen voor uw Azure-account zodat u uw gegevens kunt weergeven in Azure Cost Management.
 
-Ga als volgt de problemen op te lossen:
+Los de problemen als volgt op:
 
-1. Uw reseller nodig heeft om in te schakelen _markup_ voor uw account. Voor instructies raadpleegt u de [indirecte Onboarding-handleiding voor klant](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
-2. U de Enterprise Agreement voor Azure-sleutel voor gebruik met Azure kosten Management genereren. Zie voor instructies [registreren van een Enterprise Agreement voor Azure en de weergave kostengegevens](https://docs.microsoft.com/en-us/azure/cost-management/quick-register-ea).
+1. Uw wederverkoper moet _markeren_ voor uw account inschakelen. Raadpleeg de [Onboarding-handleiding voor indirecte klanten](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide) voor meer instructies.
+2. U genereert de Azure Enterprise Overeenkomst-sleutel om Azure Cost Management te gebruiken. Raadpleeg [Een Azure Enterprise Overeenkomst-sleutel registreren en kostengegevens weergeven](https://docs.microsoft.com/azure/cost-management/quick-register-ea) voor meer instructies.
 
-Alleen een beheerder van de Azure-service kunt kostenbeheer inschakelen. U hebt onvoldoende beheerdersmachtigingen voor CO.
+Alleen een Azure-servicebeheerder kan Cost Management inschakelen. U hebt onvoldoende co-beheerdersmachtigingen.
 
-Voordat u de Azure Enterprise Agreement API-sleutel voor het instellen van Azure kosten Management genereren kunt, moet u de Azure-facturering API inschakelen door de instructies op:
+Voordat u de Azure Enterprise Agreement API-sleutel voor het instellen van Azure Cost Management kunt genereren, moet u de Azure-facturerings-API inschakelen door de instructies te volgen op:
 
-- [Overzicht van de rapportage-API's voor Enterprise-klanten](../billing/billing-enterprise-api.md)
-- [Microsoft Azure enterprise portal rapportage-API](https://ea.azure.com/helpdocs/reportingAPI) onder **gegevenstoegang tot de API inschakelen**
+- [Overzicht van Rapportage-API's voor Enterprise-klanten](../billing/billing-enterprise-api.md)
+- [Microsoft Azure enterprise portal rapportage-API](https://ea.azure.com/helpdocs/reportingAPI) onder **Gegevenstoegang tot de API inschakelen**
 
-U moet wellicht ook geven afdeling beheerders, account eigenaars en enterprise-administrators machtigingen voor _kosten weergeven_ met de API voor facturering.
+U moet wellicht ook afdelingsbeheerders, accounteigenaars en enterprise-administrators machtigingen geven voor _Kosten weergeven_ met de facturerings-API.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Als u nog niet de eerste zelfstudie hebt voltooid voor het beheer van kosten, leest u op het [gebruik en kosten bekijken](tutorial-review-usage.md).
+- Als u de eerste zelfstudie voor het Cost Management nog niet hebt voltooid, leest u die op [Gebruik en kosten bekijken](tutorial-review-usage.md).

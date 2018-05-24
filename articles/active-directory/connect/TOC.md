@@ -29,7 +29,11 @@
 ## [Azure AD Connect beheren](active-directory-aadconnect-whats-next.md)
 ### [Certificaten vernieuwen voor O365 en Azure AD](active-directory-aadconnect-o365-certs.md)
 ### [Het SSL-certificaat voor een Active Directory Federation Services (AD FS)-farm bijwerken](active-directory-aadconnectfed-ssl-update.md)
-### [Write-back van apparaat inschakelen](active-directory-aadconnect-feature-device-writeback.md)
+
+### [Apparaatopties](active-directory-azure-ad-connect-device-options.md)
+#### [Write-back van apparaat inschakelen](active-directory-aadconnect-feature-device-writeback.md)
+#### [Taken na de configuratie van Hybrid Azure AD Join](active-directory-azure-ad-connect-hybrid-azure-ad-join-post-config-tasks.md)
+
 ### [Aanmeldingsopties voor gebruiker](active-directory-aadconnect-user-signin.md)
 #### [Naadloze eenmalige aanmelding](active-directory-aadconnect-sso.md)
 ##### [Snel starten](active-directory-aadconnect-sso-quick-start.md)

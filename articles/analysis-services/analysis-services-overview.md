@@ -5,21 +5,21 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: overview
-ms.date: 04/12/2018
+ms.date: 04/23/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: da2ab7b0d8b83238def346790362b680cd8eda23
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2a2818be8ef609946e53f585aadb0a5b4ac0f3a9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="azure-analysis-services-overview"></a>Wat is Azure Analysis Services
+# <a name="what-is-azure-analysis-services"></a>Wat is Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
 Azure Analysis Services biedt een krachtige, cloudgebaseerde oplossing voor het modelleren van gegevens. Het is een volledig beheerd Platform as a Service (PaaS), geïntegreerd met de Azure Data Platform-services. 
 
-Met Analysis Services kunt u gegevens uit meerdere bronnen verfijnen en combineren, metrische gegevens definiëren, en de gegevens beveiligen in één vertrouwd semantisch gegevensmodel. Het gegevensmodel biedt een gemakkelijkere en snellere manier om door enorme hoeveelheden gegevens te bladeren met behulp van clienttoepassingen zoals Power BI, Excel, Reporting Services, apps van derden en aangepaste apps.
+Met Analysis Services kunt u gegevens uit meerdere gegevensbronnen verfijnen en combineren, metrische gegevens definiëren, en de gegevens beveiligen in één vertrouwd semantisch gegevensmodel. Het gegevensmodel biedt een gemakkelijkere en snellere manier om door enorme hoeveelheden gegevens te bladeren met behulp van clienttoepassingen zoals Power BI, Excel, Reporting Services, apps van derden en aangepaste apps.
 
 ![Gegevensbronnen](./media/analysis-services-overview/aas-overview-data-sources.png)
 
@@ -134,4 +134,5 @@ Hebt u suggesties of functieverzoeken? Uw [feedback voor Azure Analysis Services
 Hebt u suggesties over de documentatie? U kunt met behulp van Livefyre onderaan elk artikel opmerkingen toevoegen.
 
 ## <a name="next-steps"></a>Volgende stappen
-U weet nu in grote lijnen wat Azure Analysis Services is en dus is het tijd om echt aan de slag te gaan. Leer nu [hoe u een server maakt](analysis-services-create-server.md) in Azure. Wanneer uw server klaar is, doorloopt u de [Adventure Works-zelfstudie](tutorials/aas-adventure-works-tutorial.md) voor informatie over hoe u een volledig functioneel tabellair model maakt en dit op uw server implementeert.
+Leer nu [hoe u een server maakt](analysis-services-create-server.md) in Azure.   
+Voeg zodra u een server hebt gemaakt, [een voorbeeld-model toe](analysis-services-create-sample-model.md).   

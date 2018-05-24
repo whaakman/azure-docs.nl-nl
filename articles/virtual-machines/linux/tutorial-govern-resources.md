@@ -1,6 +1,6 @@
 ---
-title: Azure virtuele machines met Azure CLI reguleren | Microsoft Docs
-description: Zelfstudie - virtuele machines in Azure beheren door toe te passen RBAC, beleidsregels, vergrendelingen en labels met Azure CLI
+title: 'Zelfstudie: Virtuele Azure-machines beheren met Azure CLI 2.0 | Microsoft Docs'
+description: In deze zelfstudie leert u hoe u de Azure CLI 2.0 gebruikt voor het beheren van virtuele Azure-machines door RBAC, beleid, vergrendelingen en tags toe te passen
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -10,30 +10,31 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: a7d44e421162cf5784dde58f757e235d12b63cba
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.custom: mvc
+ms.openlocfilehash: 4ce2b133ed4266028f1d99151939538fb8ce60f5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="virtual-machine-governance-with-azure-cli"></a>Beheer van de virtuele machine met Azure CLI
+# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli-20"></a>Zelfstudie: Meer informatie over het beheren van virtuele Linux-machines met Azure CLI 2.0
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u wilt installeren en gebruiken van de CLI lokaal, Zie [2.0 voor Azure CLI installeren](/cli/azure/install-azure-cli).
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u Azure CLI 2.0.30 of hoger gebruiken voor deze zelfstudie. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
 
-## <a name="understand-scope"></a>Bereik begrijpen
+## <a name="understand-scope"></a>Reikwijdte
 
 [!INCLUDE [Resource Manager governance scope](../../../includes/resource-manager-governance-scope.md)]
 
-In deze zelfstudie maakt u alle management instellingen toepassen op een resourcegroep zodat u deze instellingen wanneer u klaar bent eenvoudig kunt verwijderen.
+In deze zelfstudie past u alle beheerinstellingen toe op een resourcegroep zodat u deze instellingen eenvoudig kunt verwijderen wanneer u klaar bent.
 
-We maken die resourcegroep.
+We gaan nu de resourcegroep maken.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "East US"
@@ -43,31 +44,31 @@ De resourcegroep is momenteel leeg.
 
 ## <a name="role-based-access-control"></a>Op rollen gebaseerd toegangsbeheer
 
-U wilt controleren of gebruikers in uw organisatie hebben het juiste niveau van toegang tot deze bronnen. U niet wilt onbeperkte toegang verlenen aan gebruikers, maar moet u ook om ervoor te zorgen dat ze hun werk te kunnen doen. [Toegangsbeheer op basis van rollen](../../role-based-access-control/overview.md) kunt u beheren welke gebruikers hebben een machtiging voor het voltooien van specifieke acties op een scope.
+U wilt er zeker van zijn dat gebruikers in uw organisatie het juiste toegangsniveau tot deze resources hebben. U wilt gebruikers geen onbeperkte toegang verlenen, maar u moet er ook voor zorgen dat ze hun werk kunnen doen. Met [toegangsbeheer op basis van rollen](../../role-based-access-control/overview.md) kunt u beheren welke gebruikers gemachtigd zijn specifieke acties binnen een bepaald bereik uit te voeren.
 
-Als u wilt maken en verwijderen van roltoewijzingen, moeten gebruikers hebben `Microsoft.Authorization/roleAssignments/*` toegang. Deze toegang wordt verleend door middel van de eigenaar of beheerder voor gebruikerstoegang rollen.
+Om roltoewijzingen te maken en te verwijderen, moeten gebruikers `Microsoft.Authorization/roleAssignments/*`-toegang hebben. Deze toegang wordt verleend via de rol Eigenaar of Administrator voor gebruikerstoegang.
 
-Voor het beheren van virtuele machine oplossingen, zijn er drie resourcespecifieke rollen die vaak nodig toegang bieden:
+Voor het beheren van virtuele machine-oplossingen zijn er drie resourcespecifieke rollen die toegang bieden die gewoonlijk nodig is:
 
-* [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Inzender voor virtuele machines](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 * [Inzender voor netwerken](../../role-based-access-control/built-in-roles.md#network-contributor)
-* [Storage-Account Inzender](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
+* [Inzender voor opslagaccounts](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-In plaats van de rollen toewijzen aan individuele gebruikers, is het vaak eenvoudiger [een Azure Active Directory-groep maken](../../active-directory/active-directory-groups-create-azure-portal.md) voor gebruikers hoeven vergelijkbare acties te ondernemen. Vervolgens die groep toewijzen aan de juiste rol. Om te vereenvoudigen in dit artikel, moet u een Azure Active Directory-groep zonder leden maken. U kunt deze groep nog steeds toewijzen aan een rol voor een scope. 
+In plaats van de rollen toe te wijzen aan individuele gebruikers, is het vaak eenvoudiger [een Azure Active Directory-groep te maken](../../active-directory/active-directory-groups-create-azure-portal.md) voor gebruikers die vergelijkbare acties moeten ondernemen. U wijst dan de juiste rol aan die groep toe. Ter vereenvoudiging van dit artikel maakt u een Azure Active Directory-groep zonder leden. U kunt aan deze groep wel een rol voor een bereik toewijzen. 
 
-Het volgende voorbeeld wordt een Azure Active Directory-groep met de naam *VMDemoContributors* met een e-mail bijnaam van *vmDemoGroup*. De mail-bijnaam fungeert als een alias voor de groep.
+In het volgende voorbeeld wordt een Azure Active Directory-groep met de naam *VMDemoContributors* gemaakt met de e-mailbijnaam *vmDemoGroup*. De e-mailbijnaam fungeert als een alias voor de groep.
 
 ```azurecli-interactive
 adgroupId=$(az ad group create --display-name VMDemoContributors --mail-nickname vmDemoGroup --query objectId --output tsv)
 ```
 
-Het duurt even na de opdrachtprompt voor de groep worden doorgegeven in Azure Active Directory als resultaat geven. Gebruik na een wachttijd van 20 of 30 seconden, de [az roltoewijzing maken](/cli/azure/role/assignment#az_role_assignment_create) opdracht voor het toewijzen van de nieuwe Azure Active Directory-groep aan de rol Inzender van de virtuele Machine voor de resourcegroep.  Als u de volgende opdracht uitvoeren voordat deze is doorgegeven, ontvangt u een foutbericht waarin wordt gemeld **Principal <guid> bestaat niet in de map**. Probeer de opdracht opnieuw uit te voeren.
+Nadat de opdrachtprompt is teruggekeerd, duurt het even voordat de groep is doorgegeven in Azure Active Directory. Gebruik nadat u 20 of 30 seconden hebt gewacht de opdracht [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) om de nieuwe Azure Active Directory-groep toe te wijzen aan de rol Inzender voor virtuele machines voor de resourcegroep.  Als u de volgende opdracht uitvoert voordat deze is doorgegeven, ontvangt u een foutbericht met de melding dat de **principal <guid> niet in de map bestaat**. Probeer de opdracht opnieuw uit te voeren.
 
 ```azurecli-interactive
 az role assignment create --assignee-object-id $adgroupId --role "Virtual Machine Contributor" --resource-group myResourceGroup
 ```
 
-Normaal gesproken u het proces voor herhalen *Network Contributor* en *Storage Account Inzender* om ervoor te zorgen dat gebruikers worden toegewezen aan het geïmplementeerde resources beheren. In dit artikel kunt u deze stappen overslaan.
+Normaal gesproken herhaalt u het proces voor *Inzender voor netwerken* en *Inzender voor opslagaccounts* om ervoor te zorgen dat gebruikers worden toegewezen om de geïmplementeerde resources te beheren. In dit artikel kunt u deze stappen overslaan.
 
 ## <a name="azure-policies"></a>Azure-beleid
 
@@ -75,19 +76,19 @@ Normaal gesproken u het proces voor herhalen *Network Contributor* en *Storage A
 
 ### <a name="apply-policies"></a>Beleid toepassen
 
-Uw abonnement al heeft meerdere beleidsdefinities. Als de beleidsdefinities beschikbaar weergeven, gebruikt de [az definitie beleidslijst](/cli/azure/policy/definition#az_policy_definition_list) opdracht:
+Uw abonnement heeft al meerdere beleidsdefinities. Als u de beschikbare beleidsdefinities wilt bekijken, gebruikt u de opdracht [az policy definition list](/cli/azure/policy/definition#az_policy_definition_list):
 
 ```azurecli-interactive
 az policy definition list --query "[].[displayName, policyType, name]" --output table
 ```
 
-Ziet u de bestaande beleidsdefinities. Het type beleid dat is **BuiltIn** of **aangepaste**. Bekijk de definities voor apparaten die worden beschreven van een voorwaarde die u wilt toewijzen. In dit artikel leert toewijzen u beleid die:
+U ziet de bestaande beleidsdefinities. Het type beleid is **Ingebouwd** of **Aangepast**. Bekijk de definities voor beleid waarin een voorwaarde wordt beschreven die u wilt toewijzen. In dit artikel wijst u beleid toe waarmee:
 
 * De locaties voor alle resources worden beperkt.
-* De SKU's voor virtuele machines beperkt.
-* Virtuele machines die geen van beheerde schijven gebruikmaken controleren.
+* De SKU's voor virtuele machines worden beperkt.
+* Controleer virtuele machines die niet gebruikmaken van beheerde schijven.
 
-In het volgende voorbeeld moet u drie beleidsdefinities op basis van de weergavenaam ophalen. U gebruikt de [az beleidstoewijzing maken](/cli/azure/policy/assignment#az_policy_assignment_create) opdracht deze definities toewijzen aan de resourcegroep. Voor sommige beleidsregels, kunt u parameterwaarden om op te geven van de toegestane waarden opgeven.
+In het volgende voorbeeld haalt u drie beleidsdefinities op basis van de weergavenaam op. U gebruikt de opdracht [az policy assignment create](/cli/azure/policy/assignment#az_policy_assignment_create) om deze definities toe te wijzen aan de resourcegroep. Voor sommige beleidsregels kunt u parameterwaarden opgeven om de toegestane waarden te specificeren.
 
 ```azurecli-interactive
 # Get policy definitions for allowed locations, allowed SKUs, and auditing VMs that don't use managed disks
@@ -127,29 +128,29 @@ az policy assignment create --name "Audit unmanaged disks" \
   --policy $auditDefinition
 ```
 
-Het voorgaande voorbeeld wordt ervan uitgegaan dat u al weet dat de parameters voor een beleid. Als u de parameters weergeven moet, gebruikt:
+In het voorgaande voorbeeld wordt ervan uitgegaan dat u al weet wat de parameters voor een beleid zijn. Als u de parameters moet weergeven, gebruikt u:
 
 ```azurecli-interactive
 az policy definition show --name $locationDefinition --query parameters
 ```
 
-## <a name="deploy-the-virtual-machine"></a>Implementeer de virtuele machine
+## <a name="deploy-the-virtual-machine"></a>De virtuele machine implementeren
 
-U kunt functies en het beleid hebt toegewezen, zodat u klaar bent om uw oplossing implementeren. De standaardgrootte is Standard_DS1_v2, namelijk een van de toegestane SKU's. De opdracht maakt u SSH-sleutels als ze niet bestaan op de standaardlocatie.
+U hebt rollen en beleid hebt toegewezen. U bent nu dus klaar om uw oplossing te implementeren. De standaardgrootte is Standard_DS1_v2. Dit is een van de toegestane SKU's. Met de opdracht maakt u SSH-sleutels als deze niet bestaan op een standaardlocatie.
 
 ```azurecli-interactive
 az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys
 ```
 
-Nadat de implementatie is voltooid, kunt u meer instellingen toepassen op de oplossing.
+Nadat de implementatie is voltooid, kunt u meer beheerinstellingen toepassen op de oplossing.
 
 ## <a name="lock-resources"></a>Resources vergrendelen
 
-[Resource vergrendelingen](../../azure-resource-manager/resource-group-lock-resources.md) te voorkomen dat gebruikers in uw organisatie per ongeluk worden kritieke bronnen wijzigen of verwijderen. In tegenstelling tot toegangsbeheer op basis van functie toepassen resource vergrendelingen een beperking voor alle gebruikers en rollen. U kunt de vergrendeling op instellen *CanNotDelete* of *ReadOnly*.
+Met [resourcevergrendelingen](../../azure-resource-manager/resource-group-lock-resources.md) voorkomt u dat gebruikers in uw organisatie per ongeluk kritieke bronnen wijzigen of verwijderen. In tegenstelling tot toegangsbeheer op basis van rollen wordt met resourcevergrendelingen een beperking toegepast op alle gebruikers en rollen. U kunt de vergrendeling instellen op *CanNotDelete* of *ReadOnly*.
 
-Als u wilt maken of verwijderen van management vergrendelingen, u moet toegang hebben tot `Microsoft.Authorization/locks/*` acties. Van de ingebouwde rollen alleen **eigenaar** en **beheerder voor gebruikerstoegang** deze acties worden verleend.
+Als u beheervergrendelingen wilt maken of verwijderen, moet u toegang hebben tot `Microsoft.Authorization/locks/*`-acties. Van de ingebouwde rollen worden deze acties alleen toegekend aan **Eigenaar** en **Administrator voor gebruikerstoegang**.
 
-Als u wilt vergrendelen op de virtuele machine en de netwerkbeveiligingsgroep, gebruiken de [az vergrendeling maken](/cli/azure/lock#az_lock_create) opdracht:
+Als u de virtuele machine en de netwerkbeveiligingsgroep wilt vergrendelen, gebruikt u de opdracht [az lock create](/cli/azure/lock#az_lock_create):
 
 ```azurecli-interactive
 # Add CanNotDelete lock to the VM
@@ -167,21 +168,21 @@ az lock create --name LockNSG \
   --resource-type Microsoft.Network/networkSecurityGroups
 ```
 
-Als u wilt testen vergrendelingen zijn opgegeven, probeert de volgende opdracht uit te voeren:
+Voer de volgende opdracht uit om de vergrendelingen te testen:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
 
-Er is een fout die aangeeft dat de delete-bewerking kan niet worden uitgevoerd vanwege een vergrendeling. De resourcegroep kan alleen worden verwijderd als u de vergrendelingen specifiek verwijdert. Deze stap wordt weergegeven in [resources opschonen](#clean-up-resources).
+Er wordt een fout weergegeven met de melding dat de verwijderbewerking niet kan worden uitgevoerd vanwege een vergrendeling. De resourcegroep kan alleen worden verwijderd als u de vergrendelingen specifiek verwijdert. Deze stap wordt weergegeven in [Resources opschonen](#clean-up-resources).
 
-## <a name="tag-resources"></a>Tag resources
+## <a name="tag-resources"></a>Resources taggen
 
-U hebt toegepast [labels](../../azure-resource-manager/resource-group-using-tags.md) voor uw Azure-resources aan een logische manier te organiseren in categorieën. Elke tag bestaat uit een naam en een waarde. U kunt de naam Omgeving en de waarde Productie bijvoorbeeld toepassen op alle resources in de productie.
+U past [tags](../../azure-resource-manager/resource-group-using-tags.md) toe op uw Azure-resources om deze logisch te ordenen in categorieën. Elke tag bestaat uit een naam en een waarde. U kunt de naam Omgeving en de waarde Productie bijvoorbeeld toepassen op alle resources in de productie.
 
 [!INCLUDE [Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
 
-Gebruiken om tags toepassen op een virtuele machine, de [az resource tag](/cli/azure/resource#az_resource_tag) opdracht. Eventuele bestaande labels op de bron blijven niet behouden.
+Voor het toepassen van tags op een virtuele machine gebruikt u de opdracht [az resource tag](/cli/azure/resource#az_resource_tag). Eventuele bestaande tags in de resource blijven niet behouden.
 
 ```azurecli-interactive
 az resource tag -n myVM \
@@ -190,27 +191,27 @@ az resource tag -n myVM \
   --resource-type "Microsoft.Compute/virtualMachines"
 ```
 
-### <a name="find-resources-by-tag"></a>Resources zoeken op label
+### <a name="find-resources-by-tag"></a>Resources zoeken op tag
 
-Gebruiken om resources te zoeken met een naam en waarde, de [az resourcelijst](/cli/azure/resource#az_resource_list) opdracht:
+Als u naar resources met een tagnaam en -waarde wilt zoeken, gebruikt u de opdracht [az resource list](/cli/azure/resource#az_resource_list):
 
 ```azurecli-interactive
 az resource list --tag Environment=Test --query [].name
 ```
 
-U kunt de geretourneerde waarden gebruiken voor beheertaken zoals alle virtuele machines met een tagwaarde wordt gestopt.
+U kunt de geretourneerde waarden gebruiken voor beheertaken zoals het stoppen van alle virtuele machines met een tagwaarde.
 
 ```azurecli-interactive
 az vm stop --ids $(az resource list --tag Environment=Test --query "[?type=='Microsoft.Compute/virtualMachines'].id" --output tsv)
 ```
 
-### <a name="view-costs-by-tag-values"></a>Kosten weergeven door labelwaarden
+### <a name="view-costs-by-tag-values"></a>Kosten weergeven op tagwaarden
 
 [!INCLUDE [Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-De vergrendelde netwerkbeveiligingsgroep kan niet worden verwijderd nadat de vergrendeling wordt verwijderd. Voor het verwijderen van de vergrendeling ophalen van de id's van de vergrendelingen en bieden ze de [az vergrendeling verwijderen](/cli/azure/lock#az_lock_delete) opdracht:
+De vergrendelde netwerkbeveiligingsgroep kan pas worden verwijderd nadat de vergrendeling is verwijderd. Als u de vergrendelingen wilt verwijderen, haalt u de id van de vergrendelingen op en voert u er de opdracht [az lock delete](/cli/azure/lock#az_lock_delete) voor uit:
 
 ```azurecli-interactive
 vmlock=$(az lock show --name LockVM \
@@ -236,12 +237,12 @@ az group delete --name myResourceGroup
 In deze zelfstudie hebt u een aangepaste installatiekopie voor een virtuele machine gemaakt. U hebt geleerd hoe u:
 
 > [!div class="checklist"]
-> * Gebruikers toewijzen aan een rol
-> * Beleidsregels die standaarden afdwingen
-> * Kritieke bronnen met vergrendelingen beveiligen
-> * Tag-resources voor facturering en -beheer
+> * Gebruikers toewijst aan een rol
+> * Beleidsregels toepast die standaarden afdwingen
+> * Kritieke resources beveiligt met vergrendelingen
+> * Resources tagt voor facturering en beheer
 
-Ga naar de volgende zelfstudie voor meer informatie over hoe maximaal beschikbare virtuele machines.
+Ga door met de volgende zelfstudie voor meer informatie over virtuele machines met hoge beschikbaarheid.
 
 > [!div class="nextstepaction"]
 > [Virtuele machines bewaken](tutorial-monitoring.md)

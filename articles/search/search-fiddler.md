@@ -7,13 +7,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 01/04/2018
+ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: 6108e0061c4a8de3000de7f7a07cca313803e80d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: eba41086da645c2ff5cee65f9395267227cb1c11
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="explore-azure-search-rest-apis-using-fiddler-or-postman"></a>REST API's voor Azure Search verkennen met Fiddler of Postman
 
@@ -48,14 +48,14 @@ REST-aanroepen hebben voor elke aanvraag de service-URL en een toegangssleutel n
 
 Elk hulpprogramma bewaart informatie over aanvraagheaders voor de sessie, wat betekent dat u het URL-eindpunt, de API-versie, de API-sleutel en het inhoudstype maar één keer hoeft in te voeren.
 
-De volledige URL moet lijken op het onderstaande voorbeeld, alleen moet in uw geval de naam van de tijdelijke aanduiding **`my-app`** zijn vervangen door een geldige waarde:`https://my-app.search.windows.net/indexes/hotels?api-version=2016-09-01`
+De volledige URL moet lijken op het onderstaande voorbeeld, alleen moet in uw geval de naam van de tijdelijke aanduiding **`my-app`** zijn vervangen door een geldige waarde:`https://my-app.search.windows.net/indexes/hotels?api-version=2017-11-11`
 
 De service-URL bestaat uit de volgende elementen:
 
 + HTTPS-voorvoegsel.
 + Service-URL, verkregen via de portal.
 + Resource, een bewerking die een object in uw service maakt. In deze stap is dit een index met de naam hotels.
-+ api-version, een vereiste tekenreeks in kleine letters die wordt opgegeven als '?api-version=2016-09-01' voor de huidige versie. [API-versies](search-api-versions.md) worden regelmatig bijgewerkt. Als u de API-versie toevoegt aan elke aanvraag, kunt u precies bepalen welke versie wordt gebruikt.  
++ api-version, een vereiste tekenreeks in kleine letters die wordt opgegeven als '?api-version=2017-11-11' voor de huidige versie. [API-versies](search-api-versions.md) worden regelmatig bijgewerkt. Als u de API-versie toevoegt aan elke aanvraag, kunt u precies bepalen welke versie wordt gebruikt.  
 
 De aanvraagheader bestaat uit twee elementen, inhoudstype (content-type) en de API-sleutel (api-key) die in het vorige gedeelte werd beschreven:
 
@@ -124,7 +124,7 @@ Kopieer de indexdefinitie naar het hoofdgedeelte van de aanvraag, zoals in de vo
 De index maken en de index vullen zijn afzonderlijke stappen. In Azure Search bevat de index alle doorzoekbare gegevens die u kunt aanleveren als JSON-documenten. Als u de API voor deze bewerking wilt bekijken, raadpleegt u [Add, update, or delete documents (REST)](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) (Documenten toevoegen, bijwerken of verwijderen (REST)).
 
 + Wijzig de bewerking voor deze stap in **POST**.
-+ Wijzig het eindpunt zodat dit `/docs/index` bevat. De volledige URL moet er dan als volgt uitzien: `https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2016-09-01`.
++ Wijzig het eindpunt zodat dit `/docs/index` bevat. De volledige URL moet er dan als volgt uitzien: `https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11`.
 + Laat de aanvraagheaders ongewijzigd. 
 
 De aanvraagtekst bevat vier documenten die moeten worden toegevoegd aan de index hotels.
@@ -213,7 +213,7 @@ Wijzig de bewerking in **POST**. Wijzig de URL zodat deze `/docs/index` bevat. K
 Nu er een index en documenten zijn geladen, kunt u hier query's op uitvoeren. Zie [Search Documents (REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) (Documenten zoeken (REST)) voor meer informatie over deze API.  
 
 + Wijzig de bewerking voor deze stap in **GET**.
-+ Verander het eindpunt zodat dit queryparameters bevat, waaronder zoekreeksen. Een query-URL ziet er bijvoorbeeld uit als `https://my-app.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2016-09-01`.
++ Verander het eindpunt zodat dit queryparameters bevat, waaronder zoekreeksen. Een query-URL ziet er bijvoorbeeld uit als `https://my-app.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`.
 + Laat de aanvraagheaders ongewijzigd.
 
 Deze query zoekt de term 'motel' en retourneert het aantal documenten in de zoekresultaten. De aanvraag en de reactie moeten eruitzien als in de volgende schermopname voor Postman nadat u op **Send** hebt geklikt. De statuscode moet 200 zijn.
@@ -222,18 +222,18 @@ Deze query zoekt de term 'motel' en retourneert het aantal documenten in de zoek
 
 ### <a name="tips-for-running-our-sample-queries-in-fiddler"></a>Tips voor het uitvoeren van onze voorbeeldquery's in Fiddler
 
-De volgende voorbeeldquery is afkomstig uit het artikel [Search Index operation (Azure Search API)](http://msdn.microsoft.com/library/dn798927.aspx) (Zoekindexbewerkingen (Azure Search API)). Veel van de voorbeeldquery's in dit artikel bevatten spaties. Deze zijn niet toegestaan in Fiddler. Vervang elke spatie door een plusteken (+) voordat u de queryreeks in Fiddler plakt en uitvoert.
+De volgende voorbeeldquery is afkomstig uit het artikel [Zoekindex (Azure Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Veel van de voorbeeldquery's in dit artikel bevatten spaties. Deze zijn niet toegestaan in Fiddler. Vervang elke spatie door een plusteken (+) voordat u de queryreeks in Fiddler plakt en uitvoert.
 
 **Voordat de spaties zijn vervangen (in lastRenovationDate desc):**
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2016-09-01
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2017-11-11
 
 **Nadat de spaties zijn vervangen door + (in lastRenovationDate+desc):**
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2016-09-01
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2017-11-11
 
 ## <a name="query-index-properties"></a>Query toepassen op indexeigenschappen
-U kunt ook een query toepassen op systeemgegevens om het aantal documenten en het opslagverbruik op te vragen: `https://my-app.search.windows.net/indexes/hotels/stats?api-version=2016-09-01`
+U kunt ook een query toepassen op systeemgegevens om het aantal documenten en het opslagverbruik op te vragen: `https://my-app.search.windows.net/indexes/hotels/stats?api-version=2017-11-11`
 
 In Postman moet uw aanvraag er ongeveer als volgt uitzien en bevat de reactie het aantal documenten en de gebruikte ruimte in bytes.
 

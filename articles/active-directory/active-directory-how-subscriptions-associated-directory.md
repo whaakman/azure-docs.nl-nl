@@ -6,21 +6,19 @@ documentationcenter: ''
 author: curtand
 manager: mtillman
 editor: ''
-ms.assetid: bc4773c2-bc4a-4d21-9264-2267065f0aea
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: get-started-article
 ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 1e258473614e01ca35eaa5970d02544844da6972
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6664a2b9bb6375314090bf4dae9190c7d52565d2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Een Azure-abonnement koppelen of toevoegen aan Azure Active Directory
 
@@ -53,6 +51,8 @@ Alle gebruikers hebben één basisdirectory waarmee ze worden geverifieerd, maar
 
     ![Schermafbeelding van de wisselaar](./media/active-directory-how-subscriptions-associated-directory/directory-switcher.PNG)
 
+
+Alle Azure-sleutelkluizen die u hebt, worden ook beïnvloed door de verplaatsing van een abonnement. [Wijzig daarom de tenant-ID van de sleutelkluis](../key-vault/key-vault-subscription-move-fix.md) voordat u nieuwe bewerkingen uitvoert.
 
 Het wijzigen van de abonnementsdirectory is een bewerking op serviceniveau. Dit heeft geen invloed op het eigendom van het abonnement. De accountbeheerder kan de servicebeheerder nog steeds wijzigen met behulp van het [Account-centrum](https://account.azure.com/subscriptions). Als u de originele directory wilt verwijderen, moet u het eigendom van het abonnement overdragen op een nieuwe accountbeheerder. Zie [Eigendom van een Azure-abonnement naar een ander account overdragen](../billing/billing-subscription-transfer.md) voor meer informatie over het overdragen van het eigendom. 
 

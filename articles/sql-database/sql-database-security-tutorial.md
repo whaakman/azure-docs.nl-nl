@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,security
 ms.topic: tutorial
-ms.date: 04/01/2018
+ms.date: 04/24/2018
 ms.author: daredis
-ms.openlocfilehash: 68a2a61dd5821470d30e3735ea6a2df89360cbb2
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 54ec3c1386d6ce2023106367a6af1915e754948f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="secure-your-azure-sql-database"></a>Uw Azure SQL-database beveiligen
 
@@ -60,7 +60,7 @@ De veiligste configuratie is om 'Toegang tot Azure services toestaan' in te stel
 Volg deze stappen voor het maken van een [firewallregel op serverniveau voor uw SQL-database](sql-database-firewall-configure.md) voor uw server om verbindingen vanaf een specifiek IP-adres toe te staan. 
 
 > [!NOTE]
-> Als u in een van de eerdere zelfstudies of snelstarts een voorbeelddatabase hebt gemaakt in Azure en u deze zelfstudie volgt op een computer met het IP-adres dat ook aan de computer was toegewezen op het moment van de eerdere zelfstudie, kunt u deze stap overslaan omdat u al een firewallregel op serverniveau hebt gemaakt.
+> Als u in een van de eerdere zelfstudies of snelstartgidsen een voorbeelddatabase hebt gemaakt in Azure en u deze zelfstudie volgt op een computer met het IP-adres dat ook aan de computer was toegewezen op het moment van de eerdere zelfstudie, kunt u deze stap overslaan omdat u al een firewallregel op serverniveau hebt gemaakt.
 >
 
 1. Klik in het linkermenu op **SQL-databases** en klik vervolgens op de database waarvoor u een firewallregel op serverniveau wilt configureren op de pagina **SQL-databases**. De overzichtspagina voor de database wordt geopend, met de volledig gekwalificeerde servernaam (bijvoorbeeld **mynewserver-20170313.database.windows.net**) en opties voor verdere configuratie.
@@ -106,7 +106,7 @@ Om een beveiligde, gecodeerde verbinding tot stand te brengen tussen een clientt
 - Vraag een versleutelde verbinding aan, en
 - Vertrouw het servercertificaat niet. 
 
-Er wordt dan verbinding gemaakt via TLS (Transport Layer Security) waardoor het risico op man-in-the-middle-aanvallen afneemt. U kunt correct geconfigureerde verbindingsreeksen voor uw SQL-database voor ondersteunde clientstuurprogramma's opvragen in Azure Portal, zoals hier weergegeven voor ADO.NET.
+Er wordt dan verbinding gemaakt via TLS (Transport Layer Security) waardoor het risico op man-in-the-middle-aanvallen afneemt. U kunt correct geconfigureerde verbindingsreeksen voor uw SQL-database voor ondersteunde clientstuurprogramma's opvragen in Azure Portal, zoals hier weergegeven voor ADO.NET. Voor informatie over TLS en connectiviteit, zie [TLS-overwegingen](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity).
 
 1. Selecteer **SQL-databases** in het menu links en klik op uw database op de pagina **SQL-databases**.
 

@@ -1,30 +1,30 @@
 ---
-title: "Overzicht van prijscategorieën voor Azure Service Bus Premium en Standard Messaging | Microsoft Docs"
-description: "Prijscategorieën voor Service Bus Premium en Standard Messaging"
+title: Overzicht van prijscategorieën voor Azure Service Bus Premium en Standard Messaging | Microsoft Docs
+description: Prijscategorieën voor Service Bus Premium en Standard Messaging
 services: service-bus-messaging
 documentationcenter: .net
 author: djrosanova
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e211774d-821c-4d79-8563-57472d746c58
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/10/2017
+ms.date: 04/30/2018
 ms.author: sethm
-ms.openlocfilehash: 613bb074063e436cdbd54fe5aee9c49109a2d8f2
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 1b2c9b3a0b7565e7de40d4dc0e623a62313b79db
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Prijscategorieën voor Service Bus Premium en Standard Messaging
 
 Service Bus Messaging, dat entiteiten zoals wachtrijen en onderwerpen omvat, combineert functies voor bedrijfsberichten met krachtige semantiek voor publiceren/abonneren in de cloud. Service Bus Messaging wordt gebruikt als de communicatie-backbone voor veel geavanceerde cloudoplossingen.
 
-De *Premium*-laag van de Service Bus Messaging-service zorgt voor de afhandeling van algemene klantaanvragen met betrekking tot de schaal, prestaties en beschikbaarheid van essentiële toepassingen. Hoewel de functiesets bijna identiek zijn, zijn deze twee lagen van de Service Bus Messaging-service ontworpen voor verschillende gebruiksscenario’s.
+De *Premium*-laag van de Service Bus Messaging-service zorgt voor de afhandeling van algemene klantaanvragen met betrekking tot de schaal, prestaties en beschikbaarheid van essentiële toepassingen. Voor productiescenario's wordt de laag Premium aanbevolen. Hoewel de functiesets bijna identiek zijn, zijn deze twee lagen van de Service Bus Messaging-service ontworpen voor verschillende gebruiksscenario’s.
 
 In de volgende tabel worden enkele belangrijke verschillen uitgelicht.
 
@@ -46,11 +46,7 @@ In de volgende secties wordt een aantal verschillen besproken tussen Premium en 
 
 ### <a name="partitioned-queues-and-topics"></a>Gepartitioneerde wachtrijen en onderwerpen
 
-Gepartitioneerde wachtrijen en onderwerpen worden ondersteund in Premium Messaging. Deze entiteiten worden altijd gepartitioneerd (en kunnen niet worden uitgeschakeld). Gepartitioneerde wachtrijen en onderwerpen in Premium werken niet hetzelfde als in de Standard-laag van Service Bus Messaging. Premium Messaging gebruikt geen SQL als gegevensarchief en biedt niet meer de mogelijke concurrentie voor resources die hoort bij een gedeeld platform. Partitioneren is daardoor niet nodig om prestaties te verbeteren. Daarnaast is het aantal partities gewijzigd van 16 partities in de Standard-laag naar twee partities in Premium. Het hebben van twee partities garandeert beschikbaarheid. Dit aantal is beter geschikt voor de Premium-runtime-omgeving. 
-
-Als u bij Premium Messaging de grootte van een entiteit opgeeft met [MaxSizeInMegabytes](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxsizeinmegabytes#Microsoft_ServiceBus_Messaging_QueueDescription_MaxSizeInMegabytes), wordt de grootte evenredig verdeeld over de twee partities. Bij [Standard-gepartitioneerde entiteiten](service-bus-partitioning.md#standard) is de totale grootte daarentegen 16 keer de opgegeven grootte. 
-
-Zie [Gepartitioneerde wachtrijen en onderwerpen](service-bus-partitioning.md) voor meer informatie over partitioneren.
+Gepartitioneerde wachtrijen en onderwerpen worden niet ondersteund in Premium Messaging. Zie [Gepartitioneerde wachtrijen en onderwerpen](service-bus-partitioning.md) voor meer informatie over partitioneren.
 
 ### <a name="express-entities"></a>Express-entiteiten
 
@@ -64,7 +60,7 @@ U kunt snel aan de slag met Premium Messaging. Het proces is vergelijkbaar met d
 
 ![maken-premium-naamruimte][create-premium-namespace]
 
-U kunt ook [Premium-naamruimtes maken met behulp van Azure Resource Manager-sjablonen](https://azure.microsoft.com/en-us/resources/templates/101-servicebus-pn-ar/).
+U kunt ook [Premium-naamruimtes maken met behulp van Azure Resource Manager-sjablonen](https://azure.microsoft.com/resources/templates/101-servicebus-pn-ar/).
 
 ## <a name="next-steps"></a>Volgende stappen
 

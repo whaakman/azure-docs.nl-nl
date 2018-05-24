@@ -2,25 +2,19 @@
 title: Snelstartgids Selfservice voor wachtwoordherstel - Azure Active Directory
 description: Wachtwoorden snel opnieuw instellen voor Azure AD via self-service
 services: active-directory
-keywords: ''
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: bde8799f-0b42-446a-ad95-7ebb374c3bec
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro;seohack1
-ms.openlocfilehash: 6add6e71c9acf6d63858ea921ec85924b4e6c60f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 856ae994e49f809ca2ef906ba6cdc7f8624dd201
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Snelle implementatie van Azure AD-selfservice voor wachtwoordherstel
 
@@ -33,11 +27,13 @@ In deze handleiding wordt ervan uitgegaan dat u een werkende proefversie hebt va
 
 ## <a name="enable-sspr-for-your-azure-ad-tenant"></a>SSPR inschakelen voor uw Azure Active Directory-tenant
 
+> [!VIDEO https://www.youtube.com/embed/Pa0eyqjEjvQ]
+
 1. Selecteer vanuit uw bestaande Azure AD-tenant in **Azure Portal** onder **Azure Active Directory** de optie **Wachtwoord opnieuw instellen**.
 
 2. Op de pagina **Eigenschappen** kiest u onder **Selfservice voor wachtwoord opnieuw instellen is ingeschakeld** een van de volgende opties:
    * **Geen**: niemand kan de SSPR-functionaliteit gebruiken.
-   * **Geselecteerd**: alleen leden van een specifieke Azure Active Directory-groep die u kiest kunnen de SSPR-functionaliteit gebruiken. Het is raadzaam om een groep gebruikers te definiëren en deze instelling te gebruiken wanneer u deze functionaliteit implementeert voor het testen van een concept.
+   * **Geselecteerd**: alleen leden van een specifieke Azure Active Directory-groep die u kiest kunnen de SSPR-functionaliteit gebruiken. Het is raadzaam om een groep gebruikers te definiëren en deze instelling te gebruiken wanneer u deze functionaliteit implementeert voor het testen van een concept. Het nesten van beveiligingsgroepen wordt hier ondersteund.
    * **Iedereen**: alle gebruikers met een account in uw Azure Active Directory-tenant kunnen de SSPR-functionaliteit gebruiken. U wordt aangeraden deze instelling te gebruiken wanneer u klaar bent voor het implementeren van deze functionaliteit in uw hele tenant nadat u het testen van een concept hebt voltooid.
 
    > [!IMPORTANT]

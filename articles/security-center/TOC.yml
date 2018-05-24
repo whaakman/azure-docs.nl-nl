@@ -109,8 +109,6 @@
           href: security-center-just-in-time.md
         - name: Adaptieve toepassingsbesturingselementen
           href: security-center-adaptive-application.md
-        - name: Bestandsintegriteit controleren
-          href: security-center-file-integrity-monitoring.md
     - name: Beveiligingsoplossingen beheren
       href: security-center-partner-integration.md
       items:

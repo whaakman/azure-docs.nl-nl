@@ -45,13 +45,13 @@
           href: delete-cluster.md
     - name: Gegevensvolumes configureren
       items:
-        - name: Dynamische inrichting van AzureDisk
+        - name: Azure Disk - dynamisch
           href: azure-disks-dynamic-pv.md
-        - name: Statische inrichting van AzureDisk
+        - name: Azure Disk - statisch
           href: azure-disk-volume.md
-        - name: Dynamische inrichting van AzureFile
+        - name: Azure Files - dynamisch
           href: azure-files-dynamic-pv.md
-        - name: Statische inrichting van AzureFile
+        - name: Azure Files - statisch
           href: azure-files-volume.md
     - name: Netwerk configureren
       items:

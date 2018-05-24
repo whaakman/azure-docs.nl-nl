@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/07/2018
+ms.date: 05/04/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: fc95077ada75ef5447e80a5252bebe3ed95dc167
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 001aadc3dee03a9868a2a78e8dfc280d504633e1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="virtual-network-service-endpoints"></a>Service-eindpunten voor virtueel netwerk
 
@@ -27,14 +27,12 @@ Met service-eindpunten van Virtual Network (VNet) kunt u de privé-adresruimte v
 
 Deze functie is beschikbaar voor de volgende Azure-services en regio's:
 
-- **Azure Storage**: algemeen verkrijgbaar. Alle regio's in de openbare cloud van Azure en Azure Government.
-- **Azure SQL Database**: algemeen verkrijgbaar in alle Azure-regio's. 
-- **Azure SQL Data Warehouse**: Preview. Alle regio's in de openbare cloud van Azure.
+- **Azure Storage**: algemeen verkrijgbaar in alle Azure-regio's
+- **Azure SQL Database**: algemeen verkrijgbaar in alle Azure-regio's
+- **Azure Cosmos DB**: algemeen verkrijgbaar in alle Azure-regio's voor openbare cloud 
+- **Azure SQL Data Warehouse**: preview in alle Azure-regio's voor openbare cloud
 
-Voor recente updates over de preview kijkt u op de pagina [Azure Virtual Network Updates](https://azure.microsoft.com/updates/?product=virtual-network) (Updates voor Azure Virtual Network).
-
->[!NOTE]
-> Tijdens de preview heeft de functie mogelijk niet dezelfde beschikbaarheid en betrouwbaarheid als functies die al algemeen beschikbaar zijn. Zie [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews (Microsoft Azure Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie.
+Voor recente updates kijkt u op de pagina [Azure Virtual Network Updates](https://azure.microsoft.com/updates/?product=virtual-network) (Updates voor Azure Virtual Network).
 
 ## <a name="key-benefits"></a>Belangrijkste voordelen
 
@@ -50,7 +48,7 @@ Service-eindpunten bieden de volgende voordelen:
 
 - De functie is alleen beschikbaar voor virtuele netwerken die zijn geïmplementeerd met behulp van het Azure Resource Manager-implementatiemodel.
 - Eindpunten worden ingeschakeld in subnetten die zijn geconfigureerd in virtuele Azure-netwerken. Eindpunten kunnen niet worden gebruikt voor verkeer vanaf uw on-premises netwerk naar Azure-services. Zie [Toegang tot Azure-service vanaf on-premises beveiligen](#securing-azure-services-to-virtual-networks) voor meer informatie
-- Een service-eindpunt geldt alleen voor Azure-serviceverkeer binnen de regio van een virtueel netwerk. Ter ondersteuning van RA-GRS- en GRS-verkeer voor Azure Storage worden eindpunten uitgebreid voor opname van gekoppelde regio's waar het virtuele netwerk is geïmplementeerd. Meer informatie over [gekoppelde gebieden in Azure](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
+- Voor Azure SQL geldt een service-eindpunt alleen voor Azure-serviceverkeer binnen de regio van een virtueel netwerk. Voor Azure Storage worden eindpunten ter ondersteuning van RA-GRS- en GRS-verkeer ook uitgebreid voor opname van gekoppelde regio's waar het virtuele netwerk is geïmplementeerd. Meer informatie over [gekoppelde regio's in Azure](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
 
 ## <a name="securing-azure-services-to-virtual-networks"></a>Azure-services aan virtuele netwerken koppelen
 
@@ -68,7 +66,7 @@ Service-eindpunten bieden de volgende voordelen:
 
 - Service-eindpunten worden geconfigureerd in een subnet van een virtueel netwerk. Eindpunten werken met alle soorten rekenprocessen die worden uitgevoerd in dat subnet.
 - U kunt meerdere service-eindpunten voor alle ondersteunde Azure-services (bijvoorbeeld Azure Storage of Azure SQL Database) in een subnet configureren.
-- Virtuele netwerken moeten zich in dezelfde regio bevinden als de Azure-serviceresource. Als u Azure Storage-accounts voor GRS en RA-GRS gebruikt, moet het hoofdaccount zich in dezelfde regio bevinden als het virtuele netwerk.
+- Voor Azure SQL moeten virtuele netwerken zich in dezelfde regio bevinden als de Azure-serviceresource. Als u Azure Storage-accounts voor GRS en RA-GRS gebruikt, moet het hoofdaccount zich in dezelfde regio bevinden als het virtuele netwerk. Voor alle andere services kunnen Azure-serviceresources aan een virtueel netwerk in elke regio worden gekoppeld. 
 - Het virtuele netwerk waar het eindpunt is geconfigureerd, kan zich in hetzelfde abonnement bevinden als de Azure-serviceresource, maar ook in een ander abonnement. Zie [Inrichten](#Provisioning) voor meer informatie over de benodigde machtigingen voor het instellen van eindpunten en het koppelen van Azure-services.
 - Voor ondersteunde services kunt u nieuwe of bestaande resources koppelen aan virtuele netwerken met behulp van service-eindpunten.
 
@@ -112,7 +110,7 @@ Virtuele netwerken en Azure-serviceresources kunnen binnen hetzelfde abonnement 
 
 ## <a name="pricing-and-limits"></a>Prijzen en beperkingen
 
-Er worden geen extra kosten berekend voor het gebruik van de service-eindpunten. Het huidige prijsmodel voor Azure-services (Azure Storage, Azure SQL Database) is van toepassing.
+Er worden geen extra kosten berekend voor het gebruik van de service-eindpunten. Het huidige prijsmodel voor Azure-services (Azure Storage, Azure SQL Database enzovoort) is van toepassing.
 
 Er geldt geen limiet voor het totale aantal service-eindpunten in een virtueel netwerk.
 

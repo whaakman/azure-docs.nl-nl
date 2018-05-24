@@ -1,6 +1,6 @@
 ---
-title: Beheerde Service-identiteit (MSI) voor Azure Active Directory
-description: Een overzicht van beheerde Service-identiteit voor Azure-resources.
+title: Wat is Managed Service Identity (MSI) voor Azure-resources?
+description: Een overzicht van Managed Service Identity (MSI) voor Azure-resources.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -8,107 +8,116 @@ manager: mtillman
 editor: ''
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
 ms.service: active-directory
+ms.component: msi
 ms.devlang: ''
-ms.topic: article
-ms.tgt_pltfrm: ''
-ms.workload: identity
-ms.date: 12/19/2017
-ms.author: skwan
-ms.openlocfilehash: e4f9d9e4e0f84610ad072d889abf68b62c0dd41f
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
-ms.translationtype: MT
+ms.topic: overview
+ms.custom: mvc
+ms.date: 03/28/2018
+ms.author: daveba
+ms.openlocfilehash: 3493c726b600c1fd70e0c6041ec57c8f0ba01c38
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
-#  <a name="managed-service-identity-msi-for-azure-resources"></a>Managed Service-identiteit (MSI) voor Azure-resources
+#  <a name="what-is-managed-service-identity-msi-for-azure-resources"></a>Wat is Managed Service Identity (MSI) voor Azure-resources?
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Een algemene uitdaging bij het bouwen van cloud-toepassingen is het beheren van de referenties die moeten worden in uw code voor verificatie bij de cloud-services. Deze referenties veilig te houden, is een belangrijke taak. In het ideale geval ze nooit worden weergegeven op ontwikkelaars werkstations of ophalen ingecheckt in broncodebeheer. Azure Sleutelkluis biedt een manier voor het veilig opslaan van referenties en andere sleutels en geheimen, maar uw code moet worden geverifieerd voor Sleutelkluis om op te halen ze. Beheerde Service-identiteit (MSI) maakt het oplossen van dit probleem eenvoudiger door middel van een identiteit automatisch beheerde Azure-services in Azure Active Directory (Azure AD). U kunt deze identiteit gebruiken om alle services die ondersteuning biedt voor Azure AD-verificatie, met inbegrip van de Sleutelkluis, zonder dat u geen referenties hoeft in uw code te verifiëren.
+Een veelvoorkomende uitdaging bij het bouwen van cloud-apps is het beheren van de referenties die in uw code moeten worden opgenomen voor verificatie bij cloudservices. Het is belangrijk dat deze referenties veilig worden verwerkt. In het ideale geval worden ze nooit weergegeven op werkstations van ontwikkelaars of ingecheckt in broncodebeheer. Azure Key Vault biedt een manier voor het veilig opslaan van referenties en andere sleutels en geheimen, maar uw code moet worden geverifieerd voor Key Vault om ze op te halen. Managed Service Identity (MSI) levert Azure-services met een automatisch beheerde identiteit in Azure Active Directory (Azure AD), waarmee dit probleem eenvoudiger kan worden opgelost. U kunt deze identiteit gebruiken voor verificatie bij alle services die ondersteuning bieden voor Azure AD-verificatie, inclusief Key Vault, zonder dat u referenties in uw code hoeft te hebben.
 
 ## <a name="how-does-it-work"></a>Hoe werkt het?
 
-Wanneer u een beheerde Service-identiteit op een Azure-service inschakelt, maakt Azure automatisch een identiteit voor het service-exemplaar in de Azure AD-tenant die wordt gebruikt door uw Azure-abonnement.  Achter de richt Azure de referenties voor de identiteit op het service-exemplaar.  Uw code kunt vervolgens lokale aanvraag toegangstokens ophalen voor services die ondersteuning bieden voor Azure AD-verificatie aanbrengen.  Azure zorgt voor het implementeren van de referenties die worden gebruikt door het service-exemplaar.  Als het service-exemplaar wordt verwijderd, ruimt Azure automatisch de referenties en de identiteit in Azure AD.
+Er zijn twee soorten Managed Service-identiteiten: **door het systeem toegewezen** en **door de gebruiker toegewezen**.
 
-Hier volgt een voorbeeld van hoe de Service-identiteit beheerd met Azure Virtual Machines werkt.
+- Een **door het systeem toegewezen identiteit** wordt rechtstreeks op een Azure Service-exemplaar ingeschakeld. Wanneer dit is ingeschakeld, wordt een identiteit voor het service-exemplaar in de Azure AD-tenant gemaakt, dat wordt vertrouwd door het abonnement van het service-exemplaar. Zodra de identiteit is gemaakt, worden de referenties ingericht op het service-exemplaar. De levenscyclus van een door het systeem toegewezen identiteit is rechtstreeks gekoppeld aan het Azure Service-exemplaar waarop de identiteit is ingeschakeld. Als het service-exemplaar wordt verwijderd, ruimt Azure automatisch de referenties en de identiteit in Azure AD op.
+- Een **door de gebruiker toegewezen identiteit** (openbare preview) wordt gemaakt als een zelfstandige Azure-resource. Via een productieproces maakt Azure een identiteit in de Azure AD-tenant, die wordt vertrouwd door het abonnement dat wordt gebruikt. Nadat de identiteit is gemaakt, kan deze worden toegewezen aan een of meer Azure Service-exemplaren. De levenscyclus van een door de gebruiker toegewezen identiteit wordt afzonderlijk beheerd van de levenscyclus van de Azure Service-exemplaren waaraan de identiteit is toegewezen.
 
-![Voorbeeld van de MSI van de virtuele Machine](../media/msi-vm-example.png)
+Als gevolg hiervan kan uw code een door het systeem of door de gebruiker toegewezen identiteit gebruiken om toegangstokens aan te vragen voor services die ondersteuning bieden voor Azure AD-verificatie. Azure zorgt voor het implementeren van de referenties die worden gebruikt door het service-exemplaar.
 
-1. Azure Resource Manager ontvangt een bericht MSI op een virtuele machine inschakelen.
-2. Azure Resource Manager maakt een Service-Principal in Azure AD om weer te geven van de identiteit van de virtuele machine. De Service-Principal gemaakt in de Azure AD-tenant die wordt vertrouwd door dit abonnement.
-3. Azure Resource Manager configureert de details van de Service-Principal in de VM-extensie van de MSI van de virtuele machine.  Deze stap omvat het configureren van client-ID en certificaat dat wordt gebruikt door de uitbreiding toegangstokens ophalen uit Azure AD.
-4. Nu dat de identiteit van de virtuele machine van de Service-Principal bekend is, is het kan dat deze toegang tot Azure-resources worden verleend.  Bijvoorbeeld, als uw code aan te roepen Azure Resource Manager, wilt u toewijzen van de VM-Service-Principal de juiste rol met behulp van op rollen gebaseerde toegangsbeheer (RBAC) in Azure AD.  Als uw code aan te roepen Sleutelkluis, kunt u uw code toegang tot het specifiek geheim of de sleutel in de Sleutelkluis wilt verlenen.
-5. Uw code die wordt uitgevoerd op de virtuele machine vraagt een token van een lokaal eindpunt dat wordt gehost door de MSI-VM-extensie: http://localhost:50342/oauth2/token.  De resourceparameter geeft u de service die het token wordt verzonden. Bijvoorbeeld, als u wilt dat uw code te verifiëren voor Azure Resource Manager, gebruikt u resource =https://management.azure.com/.
-6. De VM-extensie MSI maakt gebruik van de geconfigureerde client-ID en certificaat voor het aanvragen van een toegangstoken van Azure AD.  Azure AD retourneert een toegangstoken JSON Web Token (JWT).
-7. Uw code verzendt het toegangstoken op een aanroep van een service die Azure AD-verificatie ondersteunt.
+Hier volgt een voorbeeld van hoe door het systeem toegewezen identiteiten werken met Azure-VM's:
 
-Elke Azure-service die ondersteuning biedt voor Service-identiteit beheerd heeft een eigen methode voor uw code verkrijgen van een toegangstoken. Bekijk de zelfstudies voor elke service om erachter te komen de specifieke methode voor het ophalen van een token.
+![Voorbeeld van Virtual Machine MSI](overview/msi-vm-vmextension-imds-example.png)
 
-## <a name="try-managed-service-identity"></a>Probeer beheerde Service-identiteit
+1. Azure Resource Manager ontvangt een aanvraag voor het inschakelen van de door het systeem toegewezen identiteit op een VM.
+2. Azure Resource Manager maakt een Service-principal in Azure AD die de identiteit van de virtuele machine voorstelt. De Service-principal wordt gemaakt in de Azure AD-tenant die wordt vertrouwd door dit abonnement.
+3. Azure Resource Manager configureert de identiteit op de VM:
+    - Het Azure Instance Metadata Service-eindpunt voor identiteit wordt bijgewerkt met de client-id en het certificaat van de Service-principal.
+    - De MSI VM-extensie wordt ingericht en de client-id en het certificaat van de Service-principal wordt toegevoegd. (Wordt afgeschaft.)
+4. Nu de VM een identiteit heeft, gebruiken we de informatie van de Service-principal om de virtuele machine toegang te verlenen tot Azure-resources. Als uw code bijvoorbeeld Azure Resource Manager moet aanroepen, zou u de Service-principal van de VM de juiste rol toewijzen  met behulp van op rollen gebaseerd toegangsbeheer (RBAC) in Azure AD. Als uw code Key Vault moet aanroepen, zou u uw code toegang verlenen tot het specifieke geheim of de specifieke sleutel in Key Vault.
+5. De code die wordt uitgevoerd op de virtuele machine, kan een token aanvragen vanaf twee eindpunten die alleen toegankelijk zijn vanuit de virtuele machine:
 
-Probeer een Service-identiteit beheerd-zelfstudie voor meer informatie over de end-to-end-scenario's voor toegang tot verschillende Azure-resources:
+    - IMDS-eindpunt voor identiteit (Azure Instance Metadata Service): http://169.254.169.254/metadata/identity/oauth2/token (aanbevolen)
+        - De resourceparameter specificeert de service waarnaar het token wordt verzonden. Als u bijvoorbeeld wilt dat uw code wordt geverifieerd voor Azure Resource Manager, gebruikt u resource=https://management.azure.com/.
+        - De API-versieparameter specificeert de IMDS-versie, gebruik api-version=2018-02-01 of hoger.
+    - Eindpunt voor MSI VM-extensie: http://localhost:50342/oauth2/token (wordt afgeschaft)
+        - De resourceparameter specificeert de service waarnaar het token wordt verzonden. Als u bijvoorbeeld wilt dat uw code wordt geverifieerd voor Azure Resource Manager, gebruikt u resource=https://management.azure.com/.
+
+6. Er wordt een aanroep uitgevoerd naar Azure AD om een toegangstoken aan te vragen zoals beschreven in stap 5, met behulp van de client-id en het certificaat geconfigureerd in stap 3. Azure AD retourneert een JWT-toegangstoken (JSON Web Token).
+7. Uw code verzendt het toegangstoken bij een aanroep naar een service die Azure AD-verificatie ondersteunt.
+
+Hier is (met gebruikmaking van hetzelfde diagram) een voorbeeld van hoe een door de gebruiker toegewezen MSI met Azure Virtual Machines werkt.
+
+1. Azure Resource Manager ontvangt een aanvraag voor het maken van een door de gebruiker toegewezen identiteit.
+2. Azure Resource Manager maakt een Service-principal in Azure AD die de identiteit van de door de gebruiker toegewezen identiteit voorstelt. De Service-principal wordt gemaakt in de Azure AD-tenant die wordt vertrouwd door dit abonnement.
+3. Azure Resource Manager ontvangt een aanvraag voor het configureren van de door de gebruiker toegewezen identiteit op een VM.
+    - Het Azure Instance Metadata Service-eindpunt voor identiteit wordt bijgewerkt met de client-id en het certificaat van de Service-principal voor de door de gebruiker toegewezen identiteit.
+    - De MSI VM-extensie wordt ingericht en de client-id en het certificaat van de Service-principal voor de door de gebruiker toegewezen identiteit wordt toegevoegd (wordt afgeschaft).
+4. Nu de door de gebruiker toegewezen identiteit is gemaakt, gebruiken we de informatie van de Service-principal om de identiteit toegang te verlenen tot Azure-resources. Als uw code bijvoorbeeld Azure Resource Manager moet aanroepen, zou u de Service-principal van de door de gebruiker toegewezen identiteit de juiste rol toewijzen  met behulp van op rollen gebaseerd toegangsbeheer (RBAC) in Azure AD. Als uw code Key Vault moet aanroepen, zou u uw code toegang verlenen tot het specifieke geheim of de specifieke sleutel in Key Vault. Opmerking: deze stap kan ook vóór stap 3 worden uitgevoerd.
+5. De code die wordt uitgevoerd op de virtuele machine, kan een token aanvragen vanaf twee eindpunten die alleen toegankelijk zijn vanuit de virtuele machine:
+
+    - IMDS-eindpunt voor identiteit (Azure Instance Metadata Service): http://169.254.169.254/metadata/identity/oauth2/token (aanbevolen)
+        - De resourceparameter specificeert de service waarnaar het token wordt verzonden. Als u bijvoorbeeld wilt dat uw code wordt geverifieerd voor Azure Resource Manager, gebruikt u resource=https://management.azure.com/.
+        - Client-id-parameter bevat de identiteit waarvoor het token wordt aangevraagd. Dit is vereist om ambiguïteit op te heffen wanneer meer dan een door de gebruiker toegewezen identiteiten aanwezig is op een enkele virtuele machine.
+        - De API-versieparameter specificeert de IMDS-versie, gebruik api-version=2018-02-01 of hoger.
+
+    - Eindpunt voor MSI VM-extensie: http://localhost:50342/oauth2/token (wordt afgeschaft)
+        - De resourceparameter specificeert de service waarnaar het token wordt verzonden. Als u bijvoorbeeld wilt dat uw code wordt geverifieerd voor Azure Resource Manager, gebruikt u resource=https://management.azure.com/.
+        - Client-id-parameter bevat de identiteit waarvoor het token wordt aangevraagd. Dit is vereist om ambiguïteit op te heffen wanneer meer dan een door de gebruiker toegewezen identiteiten aanwezig is op een enkele virtuele machine.
+6. Er wordt een aanroep uitgevoerd naar Azure AD om een toegangstoken aan te vragen zoals beschreven in stap 5, met behulp van de client-id en het certificaat geconfigureerd in stap 3. Azure AD retourneert een JWT-toegangstoken (JSON Web Token).
+7. Uw code verzendt het toegangstoken bij een aanroep naar een service die Azure AD-verificatie ondersteunt.
+     
+## <a name="try-managed-service-identity"></a>Managed Service Identity proberen
+
+Volgt een zelfstudie over Managed Service Identity om complete scenario's te leren kennen voor het krijgen van toegang tot verschillende Azure-resources:
 <br><br>
-| MSI-functionaliteit-bron | Procedures voor |
+| Vanaf een voor MSI ingeschakelde resource | Leer hoe u het volgende doet: |
 | ------- | -------- |
-| Azure VM (Windows) | [Toegang tot Azure Data Lake Store met een Windows-VM beheerde Service-identiteit](tutorial-windows-vm-access-datalake.md) |
-|                    | [Toegang tot Azure Resource Manager met een Windows VM beheerde Service-identiteit](tutorial-windows-vm-access-arm.md) |
-|                    | [Toegang tot Azure SQL met een Windows VM beheerde Service-identiteit](tutorial-windows-vm-access-sql.md) |
-|                    | [Toegang tot Azure Storage via toegangssleutel met een Windows VM beheerde Service-identiteit](tutorial-windows-vm-access-storage.md) |
-|                    | [Toegang tot Azure Storage via SAS met een Windows VM beheerde Service-identiteit](tutorial-windows-vm-access-storage-sas.md) |
-|                    | [Toegang tot een niet-Azure AD-resource met een Windows VM beheerde Service-identiteit en Azure Sleutelkluis](tutorial-windows-vm-access-nonaad.md) |
-| Azure virtuele machine (Linux)   | [Toegang tot Azure Data Lake Store met een virtuele Linux-machine beheerde Service-identiteit](tutorial-linux-vm-access-datalake.md) |
-|                    | [Toegang tot Azure Resource Manager met een virtuele Linux-machine beheerde Service-identiteit](tutorial-linux-vm-access-arm.md) |
-|                    | [Toegang tot Azure Storage via toegangssleutel met een Linux VM beheerde Service-identiteit](tutorial-linux-vm-access-storage.md) |
-|                    | [Toegang tot Azure Storage via SAS met een virtuele Linux-machine beheerde Service-identiteit](tutorial-linux-vm-access-storage-sas.md) |
-|                    | [Toegang tot een niet-Azure AD-resource met een Linux VM beheerde Service-identiteit en Azure Sleutelkluis](tutorial-linux-vm-access-nonaad.md) |
-| Azure App Service  | [Beheerde Service-identiteit gebruiken met Azure App Service- of Azure-functies](/azure/app-service/app-service-managed-service-identity) |
-| Azure Functions    | [Beheerde Service-identiteit gebruiken met Azure App Service- of Azure-functies](/azure/app-service/app-service-managed-service-identity) |
-| Azure Service Bus  | [Beheerde Service-identiteit gebruiken met Azure Servicebus](../../service-bus-messaging/service-bus-managed-service-identity.md) |
-| Azure Event Hubs   | [Beheerde Service-identiteit gebruiken met Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md) |
+| Azure VM (Windows) | [Toegang krijgen tot Azure Data Lake Store met een Managed Service Identity voor Windows-VM](tutorial-windows-vm-access-datalake.md) |
+|                    | [Toegang krijgen tot Azure Resource Manager met een Managed Service Identity voor Windows-VM](tutorial-windows-vm-access-arm.md) |
+|                    | [Toegang krijgen tot Azure SQL met een Managed Service Identity voor Windows-VM](tutorial-windows-vm-access-sql.md) |
+|                    | [Toegang krijgen tot Azure Storage via toegangssleutel met een Managed Service Identity voor Windows-VM](tutorial-windows-vm-access-storage.md) |
+|                    | [Toegang krijgen tot Azure Storage via SAS met een Managed Service Identity voor Windows-VM](tutorial-windows-vm-access-storage-sas.md) |
+|                    | [Toegang krijgen tot een niet-Azure AD-resource met een Managed Service Identity voor Windows-VM en Azure Key Vault](tutorial-windows-vm-access-nonaad.md) |
+| Azure VM (Linux)   | [Toegang krijgen tot Azure Data Lake Store met een Managed Service Identity voor Linux-VM](tutorial-linux-vm-access-datalake.md) |
+|                    | [Toegang krijgen tot Azure Resource Manager met een Managed Service Identity voor Linux-VM](tutorial-linux-vm-access-arm.md) |
+|                    | [Toegang krijgen tot Azure Storage via toegangssleutel met een Managed Service Identity voor Linux-VM](tutorial-linux-vm-access-storage.md) |
+|                    | [Toegang krijgen tot Azure Storage via SAS met een Managed Service Identity voor Linux-VM](tutorial-linux-vm-access-storage-sas.md) |
+|                    | [Toegang tot een niet-Azure AD-resource met een Managed Service Identity voor Linux-VM en Azure Key Vault](tutorial-linux-vm-access-nonaad.md) |
+| Azure App Service  | [Managed Service Identity gebruiken met Azure App Service of Azure Functions](/azure/app-service/app-service-managed-service-identity) |
+| Azure Functions    | [Managed Service Identity gebruiken met Azure App Service of Azure Functions](/azure/app-service/app-service-managed-service-identity) |
+| Azure Service Bus  | [Managed Service Identity gebruiken met Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md) |
+| Azure Event Hubs   | [Managed Service Identity gebruiken met Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md) |
 
-## <a name="which-azure-services-support-managed-service-identity"></a>Welke Azure-services ondersteuning bieden voor Service-identiteiten beheerd?
+## <a name="which-azure-services-support-managed-service-identity"></a>Welke Azure-services ondersteunen Managed Service Identity?
 
-Azure-services die ondersteuning bieden voor Service-identiteit beheerd kunnen MSI te verifiëren bij services die ondersteuning bieden voor Azure AD-verificatie gebruiken.  We zijn bezig het MSI- en Azure AD authentication integreren in Azure.  Controleer regelmatig of er updates.
+Beheerde identiteiten kunnen worden gebruikt voor verificatie bij services die ondersteuning bieden voor Azure AD-verificatie. Raadpleeg het volgende artikel voor een lijst met Azure-services die ondersteuning bieden voor Managed Service Identity:
+- [Services die Managed Service Identity ondersteunen](services-support-msi.md)
 
-### <a name="azure-services-that-support-managed-service-identity"></a>Azure-services die ondersteuning bieden voor Service-identiteit beheerd
+## <a name="how-much-does-managed-service-identity-cost"></a>Wat kost Managed Service Identity?
 
-De volgende Azure-services ondersteuning bieden voor Service-identiteiten beheerd.
-
-| Service | Status | Date | Configureren | Een token ophalen |
-| ------- | ------ | ---- | --------- | ----------- |
-| Azure Virtual Machines | Preview | September 2017 | [Azure Portal](qs-configure-portal-windows-vm.md)<br>[PowerShell](qs-configure-powershell-windows-vm.md)<br>[Azure-CLI](qs-configure-cli-windows-vm.md)<br>[Azure Resource Manager-sjablonen](qs-configure-template-windows-vm.md) | [REST](how-to-use-vm-token.md#get-a-token-using-http)<br>[.NET](how-to-use-vm-token.md#get-a-token-using-c)<br>[Bash/Curl](how-to-use-vm-token.md#get-a-token-using-curl)<br>[Go](how-to-use-vm-token.md#get-a-token-using-go)<br>[PowerShell](how-to-use-vm-token.md#get-a-token-using-azure-powershell) |
-| Azure App Service | Preview | September 2017 | [Azure Portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager-sjabloon](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
-| Azure Functions<sup>1</sup> | Preview | September 2017 | [Azure Portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager-sjabloon](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
-| Azure Data Factory V2 | Preview | November 2017 | [Azure Portal](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
-
-<sup>1</sup> azure Functions ondersteunt gebruikerscode voor het gebruik van een identiteit, maar triggers en bindingen mogelijk nog steeds verbindingsreeksen.
-
-### <a name="azure-services-that-support-azure-ad-authentication"></a>Azure-services die ondersteuning voor Azure AD-verificatie
-
-De volgende services ondersteuning bieden voor Azure AD-verificatie en getest met clientservices die gebruikmaken van beheerde Service-identiteit.
-
-| Service | Resource-id | Status | Date | Toegang toewijzen |
-| ------- | ----------- | ------ | ---- | ------------- |
-| Azure Resource Manager | https://management.azure.com | Beschikbaar | September 2017 | [Azure Portal](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[Azure-CLI](howto-assign-access-CLI.md) |
-| Azure Key Vault | https://vault.azure.net | Beschikbaar | September 2017 | |
-| Azure Data Lake | https://datalake.azure.net | Beschikbaar | September 2017 | |
-| Azure SQL | https://database.windows.net | Beschikbaar | Oktober 2017 | |
-| Azure Event Hubs | https://eventhubs.azure.net | Beschikbaar | December 2017 | |
-| Azure Service Bus | https://servicebus.azure.net | Beschikbaar | December 2017 | |
-
-## <a name="how-much-does-managed-service-identity-cost"></a>Wat kost Service-identiteit beheerd?
-
-Beheerde Service-identiteit die wordt geleverd met Azure Active Directory vrij, dit is de standaardoptie voor Azure-abonnementen.  Er is geen extra kosten voor Service-identiteit beheerd.
+Managed Service Identity wordt gratis geleverd bij Azure Active Directory. Dit is de standaardoptie voor Azure-abonnementen. Er zijn geen extra kosten voor Managed Service Identity.
 
 ## <a name="support-and-feedback"></a>Ondersteuning en feedback
 
-We graag horen van u!
+We horen graag van u.
 
-* Hoe kan ik vragen stellen op de Stack Overflow met het label [azure msi](http://stackoverflow.com/questions/tagged/azure-msi).
-* Functie aanvragen of feedback geven over de [forum met feedback van Azure AD voor ontwikkelaars](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences).
+* Stel vragen over de werking van Stack Overflow met de tag [azure-msi](http://stackoverflow.com/questions/tagged/azure-msi).
+* Vraag functies aan of geef feedback op het [Azure AD-feedbackforum voor ontwikkelaars](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences).
 
+## <a name="next-steps"></a>Volgende stappen
 
+Ga aan de slag met Azure Managed Service Identity met de volgende snelstartgidsen:
 
-
-
-
+* [Een Managed Service identiteit (MSI) voor Windows-VM gebruiken voor toegang tot Resource Manager - Windows-VM](tutorial-windows-vm-access-arm.md)
+* [Een Managed Service identiteit (MSI) voor Linux-VM gebruiken voor toegang tot Resource Manager - Linux-VM](tutorial-linux-vm-access-arm.md)

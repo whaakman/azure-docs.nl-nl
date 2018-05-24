@@ -1,11 +1,11 @@
 ---
-title: CI/CD van Jenkins voor virtuele machines in Azure met teamservices | Microsoft Docs
-description: Continue integratie (CI) en continue implementatie (CD) van een Node.js-app instellen met behulp van Jenkins virtuele Azure-machines van Release Management in Visual Studio Team Services of Microsoft Team Foundation Server
+title: Zelfstudie - CI/CD van Jenkins voor Azure VM's met Team Services | Microsoft Docs
+description: In deze zelfstudie leert u hoe u continue integratie (CI) en continue implementatie (CD) van een Node.js-app kunt instellen met Jenkins voor Azure VM's vanuit Release Management in Visual Studio Team Services of Microsoft Team Foundation Server
 author: ahomer
 manager: douge
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
@@ -14,174 +14,172 @@ ms.workload: infrastructure
 ms.date: 10/19/2017
 ms.author: ahomer
 ms.custom: mvc
-ms.openlocfilehash: bfda0475b58556db1236c8b051c59393384720f7
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: fc301edf13f8e6874f0b77440e2b0dc01b2a55fc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="deploy-your-app-to-linux-vms-by-using-jenkins-and-team-services"></a>Uw app implementeren op Linux VM's met behulp van Jenkins en Team Services
+# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-visual-studio-team-services"></a>Zelfstudie: Uw app implementeren voor Linux Virtual Machines in Azure met Jenkins en Visual Studio Team Services
 
-Continue integratie (CI) en continue implementatie (CD) vormen een pijplijn waarmee u kunt bouwen, vrijgeven en implementeer uw code. Visual Studio Team Services biedt een complete, volledig functionele aantal CI/CD automation-hulpprogramma's voor implementatie naar Azure. Jenkins is een populair van derden CI/CD servergebaseerde hulpprogramma dat ook CI/CD automation biedt. U kunt Team Services en Jenkins samen gebruiken om aan te passen hoe u uw cloud-app of service leveren.
+Continue integratie en continue implementatie vormen een pijplijn waarmee u uw code kunt maken, vrijgeven en implementeren. Visual Studio Team Services bevat een volledige set met CI/CD automatiseringsfuncties voor de implementatie naar Azure. Jenkins is een populair extern CI/CD-serverhulpprogramma dat ook CI/CD-automatisering bevat. U kunt Team Services en Jenkins samen gebruiken als u de manier waarop u uw cloud-app of -service levert, wilt aanpassen.
 
-In deze zelfstudie maakt u Jenkins gebruiken voor het bouwen van een Node.js-web-app. U Team Services of Team Foundation Server vervolgens te implementeren om te gebruiken een [implementatiegroep](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) die virtuele Linux-machines (VM's) bevat.
-
-U gaat het volgende doen:
+In deze zelfstudie gebruikt u Jenkins om een Node.js-web-app te maken. Vervolgens gebruikt u Team Services of Team Foundation Server om deze te implementeren in een [implementatiegroep](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) met virtuele Linux-machines (VM's). In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
-> * Haal de voorbeeld-app.
-> * Configureer Jenkins invoegtoepassingen.
-> * Configureer een project Jenkins Freestyle voor Node.js.
-> * Jenkins configureren voor integratie met Team Services.
-> * Maak een Jenkins service-eindpunt.
-> * Maak een implementatiegroep voor de virtuele machines in Azure.
-> * Een definitie van de release Team Services maken.
-> * Handmatige en CI geactiveerd implementaties uitvoeren.
+> * De voorbeeld-app downloaden.
+> * Jenkins-invoegtoepassingen configureren.
+> * Een Jenkins Freestyle-project configureren voor Node.js.
+> * Jenkins configureren voor de integratie met Team Services.
+> * Een Jenkins-service-eindpunt maken.
+> * Een implementatiegroep voor de virtuele Azure-machines maken.
+> * Een Team Services-releasedefinitie maken.
+> * Handmatige en door CI geactiveerde implementaties uitvoeren.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-* U moet toegang tot een Jenkins-server. Als u een server Jenkins nog geen hebt gemaakt, raadpleegt u [maken van een model Jenkins op een virtuele machine van Azure](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template). 
+* U hebt toegang nodig tot een Jenkins-server. Zie [Een Jenkins-hoofdserver maken op een virtuele Azure-machine](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template) als u nog geen Jenkins-server hebt gemaakt. 
 
-* Aanmelden bij uw Team Services-account (**https://{youraccount}.visualstudio.com**). 
-  U krijgt een [gratis account Team Services](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
+* Aanmelden bij uw Team Services-account (**https://{uwaccount}.visualstudio.com**). 
+  U kunt een [gratis Team Services-account](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308) krijgen.
 
   > [!NOTE]
-  > Zie voor meer informatie [verbinding maken met het Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
+  > Zie [Verbinding maken met Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services) voor meer informatie.
 
-*  U moet een virtuele Linux-machine voor het implementatiedoel van een.  Zie voor meer informatie [maken en beheren van virtuele Linux-machines met de Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm).
+*  U hebt een virtuele Linux-machine nodig voor een implementatiedoel.  Zie [Virtuele Linux-machines maken en beheren met de Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm) voor meer informatie.
 
-*  Open de binnenkomende poort 80 voor uw virtuele machine. Zie voor meer informatie [netwerkbeveiligingsgroepen met de Azure portal maken](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
+*  Open de binnenkomende poort 80 voor uw virtuele machine. Zie [Netwerkbeveiligingsgroepen maken met Azure Portal](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal) voor meer informatie.
 
-## <a name="get-the-sample-app"></a>De voorbeeldapp downloaden
+## <a name="get-the-sample-app"></a>De voorbeeld-app downloaden
 
-U moet een app te implementeren en opgeslagen in een Git-opslagplaats.
-Voor deze zelfstudie wordt aangeraden dat u [deze voorbeeldapp beschikbaar is via GitHub](https://github.com/azooinmyluggage/fabrikam-node). Deze zelfstudie bevat een voorbeeldscript dat wordt gebruikt voor het installeren van Node.js en een toepassing. Als u werken met uw eigen opslagplaats wilt, moet u een voorbeeld van een vergelijkbare configureren.
+U hebt een app, die is opgeslagen in een Git-opslagplaats, nodig voor het implementeren.
+Voor deze zelfstudie raden we u aan gebruik te maken van [deze voorbeeld-app die beschikbaar is via GitHub](https://github.com/azooinmyluggage/fabrikam-node). Deze zelfstudie bevat een voorbeeldscript dat wordt gebruikt voor het installeren van Node.js en een toepassing. Als u met uw eigen opslagplaats wilt werken, moet u een vergelijkbaar voorbeeld configureren.
 
-Maak een fork van deze app en noteer de locatie (URL) voor gebruik in latere stappen van deze zelfstudie. Zie voor meer informatie [een opslagplaats vertakken](https://help.github.com/articles/fork-a-repo/).    
+Maak een fork van deze app en noteer de locatie (URL) voor gebruik in latere stappen van deze zelfstudie. Zie [Een fork van een opslagplaats maken](https://help.github.com/articles/fork-a-repo/) voor meer informatie.    
 
 > [!NOTE]
-> De app is gemaakt met [Yeoman](http://yeoman.io/learning/index.html). Snelle en bower knorvis wordt gebruikt. En sommige pakketten npm als afhankelijkheden heeft.
-> Het voorbeeld bevat ook een script dat Nginx ingesteld en de app wordt geïmplementeerd. Deze wordt uitgevoerd op de virtuele machines. In het bijzonder het script:
-> 1. Knooppunt, Nginx en PM2 installeert.
-> 2. Hiermee configureert u Nginx en PM2.
-> 3. Start de app knooppunt.
+> De app is gemaakt met [Yeoman](http://yeoman.io/learning/index.html). Hierin is gebruikgemaakt van Express, Bower en Grunt. Daarnaast bevat deze een aantal npm-pakketten als afhankelijkheden.
+> Het voorbeeld bevat ook een script waarmee Nginx wordt ingesteld en de app wordt geïmplementeerd. Deze wordt uitgevoerd op de virtuele machines. Met name met het script:
+> 1. Worden Node, Nginx en PM2 geïnstalleerd.
+> 2. Worden Nginx en PM2 geconfigureerd.
+> 3. Wordt de Node-app gestart.
 
-## <a name="configure-jenkins-plug-ins"></a>Jenkins invoegtoepassingen configureren
+## <a name="configure-jenkins-plug-ins"></a>Jenkins-invoegtoepassingen configureren
 
-Eerst moet u twee Jenkins invoegtoepassingen configureren: **NodeJS** en **continue implementatie van VS Team Services**.
+Eerst moet u twee Jenkins-invoegtoepassingen configureren: **NodeJS** en **Continue implementatie van VS Team Services**.
 
-1. Open uw account Jenkins en selecteer **Jenkins beheren**.
-2. Op de **beheren Jenkins** pagina **invoegtoepassingen beheren**.
-3. Filter de lijst vinden de **NodeJS** invoegtoepassing en selecteer de **installeren zonder opnieuw opstarten** optie.
-    ![De invoegtoepassing NodeJS toe te voegen aan Jenkins](media/tutorial-build-deploy-jenkins/jenkins-nodejs-plugin.png)
-4. Filter de lijst vinden de **tegenover Team Services continue implementatie** invoegtoepassing en selecteer de **installeren zonder opnieuw opstarten** optie.
-5. Ga terug naar de Jenkins dashboard en selecteer **Jenkins beheren**.
-6. Selecteer **globale hulpprogramma configuratie**. Zoeken naar **NodeJS** en selecteer **NodeJS installaties**.
-7. Selecteer de **automatisch installeren** optie en voer vervolgens een **naam** waarde.
+1. Open uw Jenkins-account en selecteer **Jenkins beheren**.
+2. Selecteer op de pagina **Jenkins beheren** de optie **Invoegtoepassingen beheren**.
+3. Filter de lijst om de invoegtoepassing **NodeJS** te zoeken en selecteer de optie **installeren zonder opnieuw opstarten**.
+    ![De invoegtoepassing NodeJS toevoegen aan Jenkins](media/tutorial-build-deploy-jenkins/jenkins-nodejs-plugin.png)
+4. Filter de lijst om de invoegtoepassing **Continue implementatie van VS Team Services** te zoeken en selecteer de optie **Installeren zonder opnieuw opstarten**.
+5. Ga terug naar het Jenkins-dashboard en selecteer **Jenkins beheren**.
+6. Selecteer **Configuratie van globaal hulpprogramma**. Zoek naar **NodeJS** en selecteer **NodeJS-installaties**.
+7. Selecteer de optie **Automatisch installeren** en geef een waarde voor **Naam** op.
 8. Selecteer **Opslaan**.
 
-## <a name="configure-a-jenkins-freestyle-project-for-nodejs"></a>Configureren van een project Jenkins Freestyle voor Node.js
+## <a name="configure-a-jenkins-freestyle-project-for-nodejs"></a>Een Jenkins Freestyle-project configureren voor Node.js
 
-1. Selecteer **Nieuw Item**. Voer de itemnaam van een.
-2. Selecteer **Freestyle project**. Selecteer **OK**.
-3. Op de **Source Code Management** tabblad **Git** en voer de details van de opslagplaats en de vertakking die uw app-code bevatten.    
+1. Selecteer **Nieuw Item**. Geef een itemnaam op.
+2. Selecteer **Freestyle-project**. Selecteer **OK**.
+3. Selecteer op het tabblad **Broncodebeheer** de optie **Git** en geef de details op van de opslagplaats en de vertakking met uw app-code.    
     ![Een opslagplaats toevoegen aan uw build](media/tutorial-build-deploy-jenkins/jenkins-git.png)
-4. Op de **bouwen Triggers** tabblad **Poll SCM** en voert u de planning `H/03 * * * *` voor het pollen van de Git-opslagplaats voor wijzigingen elke drie minuten. 
-5. Op de **bouwen omgeving** tabblad **bieden knooppunt &amp; npm bin / map pad** en selecteer de **NodeJS installatie** waarde. Laat **npmrc bestand** ingesteld op **system standaard**.
-6. Op de **bouwen** tabblad **shell uitvoeren** en voer de opdracht `npm install` om ervoor te zorgen dat alle afhankelijkheden moeten worden bijgewerkt.
+4. Selecteer op het tabblad **Triggers maken** de optie **SCM pollen** en geef het schema `H/03 * * * *` op om de Git-opslagplaats om de drie minuten op wijzigingen te pollen. 
+5. Selecteer op het tabblad **Omgeving maken** de optie **Knooppunt opgeven &amp;npm bin/mappad** en selecteer de waarde **NodeJS-installatie**. Laat **npmrc-bestand** ingesteld op **systeemstandaard gebruiken**.
+6. Selecteer op de tabblad **Maken** de optie **Shell uitvoeren** en typ de opdracht `npm install` om ervoor te zorgen dat alle afhankelijkheden worden bijgewerkt.
 
 
-## <a name="configure-jenkins-for-team-services-integration"></a>Jenkins configureren voor integratie met Team Services
+## <a name="configure-jenkins-for-team-services-integration"></a>Jenkins configureren voor de integratie met Team Services
 
 > [!NOTE]
-> Zorg ervoor dat het persoonlijke toegangstoken (PAT) u voor de volgende stappen gebruikt bevat de *Release* (lezen, schrijven, uitvoeren en beheren) toestemming in Team Services.
+> Zorg ervoor dat het persoonlijke toegangstoken (PAT) dat u gebruikt voor de volgende stappen, de machtiging *Release* (lezen, schrijven, uitvoeren en beheren) in Team Services bevat.
  
-1.  Maak een PAT in uw Team Services-account als u er nog geen hebt. Jenkins vereist dat deze gegevens voor toegang tot uw Team Services-account. Zorg ervoor dat de token informatie opgeslagen voor toekomstige stappen in deze sectie.
+1.  Maak een PAT in uw Team Services-account als u dit nog niet hebt. In Jenkins is deze informatie vereist om toegang te krijgen tot uw Team Services-account. Zorg ervoor dat u de tokengegevens opslaat voor latere stappen in deze sectie.
   
-    Lees meer informatie over het genereren van een token, [hoe maak ik een persoonlijk toegangstoken voor VSTS en TFS?](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate).
-2. In de **na build acties** tabblad **na build actie toevoegen**. Selecteer **archiveren van de artefacten**.
-3. Voor **bestanden te archiveren**, voer `**/*` alle bestanden opnemen.
-4. Voor het maken van een andere actie selecteert **na build actie toevoegen**.
-5. Selecteer **activeren release in TFS/Team Services**. Voer de URI voor uw account Team Services, zoals **https://{your-account-name}.visualstudio.com**.
-6. Voer de **teamproject** naam.
-7. Kies een naam voor de release-definitie. (U maakt deze release-definitie later in Team Services.)
-8. Kies de referenties voor verbinding met uw Team Services of Team Foundation Server-omgeving:
-   - Laat **gebruikersnaam** leeg als u Team Services gebruikt. 
-   - Voer een gebruikersnaam en wachtwoord in als u een on-premises versie van Team Foundation Server.    
-   ![Jenkins na build acties configureren](media/tutorial-build-deploy-jenkins/trigger-release-from-jenkins.png)
-5. Het project Jenkins opslaan.
+    Lees [Hoe maak ik een persoonlijk toegangstoken voor VSTS en TFS?](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate) voor meer informatie over het genereren van een token.
+2. Selecteer op het tabblad **Acties na maken** de optie **Actie na maken toevoegen**. Selecteer **De artefacten archiveren**.
+3. Geef voor **Te archiveren bestanden** de optie `**/*` op om alle bestanden op te nemen.
+4. Selecteer **Actie na maken toevoegen** als u nog een actie wilt maken.
+5. Selecteer **Release activeren in TFS/Team Services**. Geef de URI voor uw Team Services-account op, zoals **https://{uwaccountnaam}.visualstudio.com**.
+6. Geef de naam van het **teamproject** op.
+7. Kies een naam voor de releasedefinitie. (U maakt deze releasedefinitie later in Team Services.)
+8. Kies de referenties om verbinding te maken met uw Team Services of Team Foundation Server-omgeving:
+   - Laat **Gebruikersnaam** leeg als u Team Services gebruikt. 
+   - Geef een gebruikersnaam en wachtwoord op als u een on-premises versie van Team Foundation Server gebruikt.    
+   ![Jenkins-acties na maken configureren](media/tutorial-build-deploy-jenkins/trigger-release-from-jenkins.png)
+5. Sla het Jenkins-project op.
 
 
-## <a name="create-a-jenkins-service-endpoint"></a>Een Jenkins service-eindpunt maken
+## <a name="create-a-jenkins-service-endpoint"></a>Een Jenkins-service-eindpunt maken
 
-Een service-eindpunt kunt Team Services verbinding maken met Jenkins.
+Via een service-eindpunt kan Team Services verbinding maken met Jenkins.
 
-1. Open de **Services** pagina in een Team Services, open de **nieuwe Service-eindpunt** lijst, en selecteer **Jenkins**.
-   ![Een eindpunt Jenkins toevoegen](media/tutorial-build-deploy-jenkins/add-jenkins-endpoint.png)
-2. Voer een naam voor de verbinding.
-3. Voer de URL van uw server Jenkins en selecteer de **accepteren van niet-vertrouwde certificaten voor SSL** optie. Een voorbeeld-URL is **http://{YourJenkinsURL}.westcentralus.cloudapp.azure.com**.
-4. Geef de gebruikersnaam en wachtwoord voor uw account Jenkins.
-5. Selecteer **verbinding controleren** om te controleren of de informatie juist is.
-6. Selecteer **OK** om de service-eindpunt te maken.
+1. Open de pagina **Services** in Team Services, open de lijst **Nieuw service-eindpunt** en selecteer **Jenkins**.
+   ![Een Jenkins-eindpunt toevoegen](media/tutorial-build-deploy-jenkins/add-jenkins-endpoint.png)
+2. Geef een naam voor de verbinding op.
+3. Geef de URL van uw Jenkins-server op en selecteer de optie **Niet-vertrouwde SSL-certificaten accepteren**. Een voorbeeld-URL is **http://{UwJenkinsURL}.westcentralus.cloudapp.azure.com**.
+4. Geef de gebruikersnaam en het wachtwoord voor uw Jenkins-account op.
+5. Selecteer **Verbinding verifiëren** om te controleren of de informatie juist is.
+6. Selecteer **OK** om het service-eindpunt te maken.
 
-## <a name="create-a-deployment-group-for-azure-virtual-machines"></a>Maak een implementatiegroep voor Azure virtual machines
+## <a name="create-a-deployment-group-for-azure-virtual-machines"></a>Een implementatiegroep voor de virtuele Azure-machines maken
 
-U moet een [implementatiegroep](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) de Team Services-agent registreren zodat de definitie van de versie kan worden geïmplementeerd met uw virtuele machine. Implementatiegroepen maakt het eenvoudig om logische groepen doelmachines voor implementatie te definiëren en de vereiste agent installeren op elke machine.
+U hebt een [implementatiegroep](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) nodig om de Team Services-agent te registreren, zodat de releasedefinitie kan worden geïmplementeerd op uw virtuele machine. Met implementatiegroepen kunt u eenvoudig logische groepen met doelmachines voor implementatie definiëren en de vereiste agent installeren op elke machine.
 
    > [!NOTE]
-   > In de volgende procedure moet u voor het installeren van de vereisten en *het script niet uitvoeren met sudo-machtigingen.*
+   > In de volgende procedure moet u ervoor zorgen dat u de vereiste onderdelen hebt geïnstalleerd en *moet u het script niet uitvoeren met sudo-bevoegdheden.*
 
-1. Open de **Releases** tabblad van de **bouwen &amp; Release** hub, open **implementatiegroepen**, en selecteer **+ nieuw**.
-2. Voer een naam voor de implementatiegroep en een optionele beschrijving. Selecteer vervolgens **Maken**.
-3. Kies het besturingssysteem voor de virtuele doelmachine van uw implementatie. Selecteer bijvoorbeeld **Ubuntu 16.04 +**.
-4. Selecteer **gebruiken een persoonlijk toegangstoken in het script voor verificatie**.
-5. Selecteer de **systeemvereisten** koppeling. De vereisten voor het besturingssysteem installeren.
-6. Selecteer **script kopiëren naar Klembord** kopiëren van het script.
-7. Aanmelden bij uw implementatie doel-virtuele machine en voer het script. Het script niet worden uitgevoerd met sudo-bevoegdheden.
-8. Na de installatie wordt u gevraagd voor implementatie group-tags. Accepteer de standaardinstellingen.
-9. Schakel in het Team Services voor uw zojuist geregistreerde virtuele machine in **doelen** onder **Implementatiegroepen**.
+1. Open het tabblad **Releases** van de hub **Release&amp; maken**, open **Implementatiegroepen** en selecteer **+ nieuw**.
+2. Geef een naam voor de implementatiegroep en een optionele beschrijving op. Selecteer vervolgens **Maken**.
+3. Kies het besturingssysteem voor de virtuele machine van uw implementatiedoel. Selecteer bijvoorbeeld **Ubuntu 16.04+**.
+4. Selecteer **Een persoonlijk toegangstoken in het script gebruiken voor verificatie**.
+5. Selecteer de koppeling **Systeemvereisten**. Installeer de vereisten voor uw besturingssysteem.
+6. Selecteer **Script kopiëren naar Klembord** om het script te kopiëren.
+7. Meld u aan bij uw virtuele machine van uw implementatiedoel en voer het script uit. Voer het script niet uit met sudo-bevoegdheden.
+8. Na de installatie wordt u gevraagd om implementatiegroepstags. Accepteer de standaardwaarden.
+9. Controleer in Team Services uw zojuist geregistreerde virtuele machine in **Doelen** onder **Implementatiegroepen**.
 
-## <a name="create-a-team-services-release-definition"></a>Een definitie van de release Team Services maken
+## <a name="create-a-team-services-release-definition"></a>Een Team Services-releasedefinitie maken
 
-De definitie van een release Hiermee geeft u het proces dat Team Services gebruikt om de app te implementeren. In dit voorbeeld moet u een shell-script uitvoeren.
+Met een releasedefinitie geeft u het proces op dat in Team Services wordt gebruikt om de app te implementeren. In dit voorbeeld voert u een shellscript uit.
 
-De definitie van de release in Team Services maken:
+Een releasedefinitie in Team Services maken:
 
-1. Open de **Releases** tabblad van de **bouwen &amp; Release** hub en selecteer **maken release definitie**. 
-2. Selecteer de **leeg** sjabloon door te beginnen met kiezen een **leeg proces**.
-3. In de **artefacten** sectie **+ artefacten toevoegen** en kies **Jenkins** voor **gegevensbrontype**. Selecteer uw verbinding Jenkins service-eindpunt. Selecteer de taak van de bron Jenkins en schakel **toevoegen**.
-4. Schakel de drie puntjes naast **omgeving 1**. Selecteer **toevoegen groep implementatiefase**.
+1. Open het tabblad **Releases** van de hub **Release &amp; maken** en selecteer **Releasedefinitie maken**. 
+2. Selecteer de sjabloon **Leeg** door eerst een **Leeg proces** te kiezen.
+3. Selecteer in de sectie **Artefacten** de optie **+ artefacten toevoegen** en kies **Jenkins** voor **Brontype**. Selecteer de verbinding voor uw Jenkins-service-eindpunt. Selecteer vervolgens de Jenkins-brontaak en selecteer **Toevoegen**.
+4. Selecteer het beletselteken naast **Omgeving 1**. Selecteer **Implementatiegroepsfase toevoegen**.
 5. Kies uw implementatiegroep.
-5. Selecteer  **+**  toevoegen van een taak voor het **groep implementatiefase**.
-6. Selecteer de **Shell-Script** taak en selecteer **toevoegen**. De **Shell-Script** taak bevat de configuratie voor een script uit te voeren op elke server om te installeren van Node.js en de app te starten.
-8. Voor **scriptpad**, voer **$(System.DefaultWorkingDirectory)/Fabrikam-Node/deployscript.sh**.
-9. Selecteer **Geavanceerd**, en schakel vervolgens **werkmap opgeven**.
-10. Voor **werkmap**, voer **$(System.DefaultWorkingDirectory) / Fabrikam knooppunt**.
-11. Bewerk de naam van de definitie van de versie in de naam die u hebt opgegeven op de **na build acties** tabblad van de build in Jenkins. Jenkins vereist deze naam kunnen voor het activeren van een nieuwe release wanneer de bron-artefacten zijn bijgewerkt.
-12. Selecteer **opslaan** en selecteer **OK** om op te slaan de release-definitie.
+5. Selecteer **+** als u een taak wilt toevoegen aan **Implementatiegroepsfase**.
+6. Selecteer de taak **Shellscript** en selecteer **Toevoegen**. De taak **Shellscript** bevat de configuratie voor een script dat moet worden uitgevoerd op elke server om Node.js te installeren en de app te starten.
+8. Voor **Scriptpad** typt u **$(System.DefaultWorkingDirectory)/Fabrikam-Node/deployscript.sh**.
+9. Selecteer **Geavanceerd**, en schakel vervolgens **Werkmap opgeven** in.
+10. Voor **Werkmap** typt u **$(System.DefaultWorkingDirectory)/Fabrikam-Node**.
+11. Wijzig de naam van de releasedefinitie in de naam die u hebt opgegeven op het tabblad **Acties na maken** van de build in Jenkins. In Jenkins is deze naam vereist om een nieuwe release te activeren wanneer de bronartefacten zijn bijgewerkt.
+12. Selecteer **Opslaan** en selecteer **OK** om de releasedefinitie op te slaan.
 
-## <a name="execute-manual-and-ci-triggered-deployments"></a>Handmatige en CI geactiveerd implementaties uitvoeren
+## <a name="execute-manual-and-ci-triggered-deployments"></a>Handmatige en door CI geactiveerde implementaties uitvoeren
 
-1. Selecteer **+ Release** en selecteer **maken Release**.
-2. Selecteer de versie die u hebt voltooid in de gemarkeerde vervolgkeuzelijst en selecteer **wachtrij**.
-3. Kies de release-koppeling in het pop-upbericht. Bijvoorbeeld: ' Release **Release 1** is gemaakt. "
-4. Open de **logboeken** tabblad bekijkt u de uitvoer van de release-console.
-5. Open de URL van een van de servers die u hebt toegevoegd aan de implementatiegroep van uw in uw browser. Voer bijvoorbeeld **http://{your-server-ip-address}**.
-6. Ga naar de bron Git-opslagplaats en wijzigen van de inhoud van de **h1** in de kop van het bestand app/views/index.jade met gewijzigde tekst.
-7. Uw wijzigingen worden doorgevoerd.
-8. Na een paar minuten ziet u een nieuwe release gemaakt op de **Releases** pagina van het Team Services of Team Foundation Server. Open de release voor de implementatie plaatsvinden. Gefeliciteerd.
+1. Selecteer **+ release** en selecteer **Release maken**.
+2. Selecteer de build die u hebt voltooid in de gemarkeerde vervolgkeuzelijst en selecteer **Wachtrij**.
+3. Kies de releasekoppeling in het pop-upbericht. Bijvoorbeeld: 'Release **Release 1** is gemaakt'.
+4. Open het tabblad **Logboeken** om de uitvoer van de releaseconsole te bekijken.
+5. Open in uw browser de URL van een van de servers die u hebt toegevoegd aan de implementatiegroep. Typ bijvoorbeeld **http://{ip-adres-van-uw-server}**.
+6. Ga naar de Git-bronopslagplaats en wijzig de inhoud van de kop **h1** in het bestand app/views/index.jade met gewijzigde tekst.
+7. Voer uw wijziging door.
+8. Na een paar minuten ziet u dat er een nieuwe release is gemaakt op de pagina **Releases** van Team Services of Team Foundation Server. Open de release om te zien welke implementatie wordt uitgevoerd. Gefeliciteerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie maakt u de implementatie van een app in Azure met behulp van Jenkins voor samenstellen en Team Services voor release geautomatiseerd. U hebt geleerd hoe u:
+In deze zelfstudie hebt u de implementatie van een app in Azure geautomatiseerd met Jenkins voor de build en Team Services voor de release. U hebt geleerd hoe u:
 
 > [!div class="checklist"]
-> * Uw app in Jenkins maken.
-> * Jenkins configureren voor integratie met Team Services.
-> * Maak een implementatiegroep voor de virtuele machines in Azure.
-> * Maak de definitie van een versie die u configureert u de virtuele machines en de app wordt geïmplementeerd.
+> * Uw app maakt in Jenkins.
+> * Jenkins configureert voor de integratie met Team Services.
+> * Een implementatiegroep maakt voor de virtuele Azure-machines.
+> * Een releasedefinitie maakt waarmee u de virtuele machines configureert en de app wordt geïmplementeerd.
 
-Voor meer informatie over het implementeren van een licht (Linux, Apache, MySQL en PHP) stapelen, Ga naar de volgende zelfstudie.
+Ga naar de volgende zelfstudie voor meer informatie over het implementeren van een LAMP-stack (Linux, Apache, MySQL en PHP).
 
 > [!div class="nextstepaction"]
 > [LAMP-stack implementeren](tutorial-lamp-stack.md)

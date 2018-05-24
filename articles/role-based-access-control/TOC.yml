@@ -17,13 +17,11 @@
           href: role-assignments-powershell.md
         - name: REST
           href: role-assignments-rest.md
-    - name: Roldefinities begrijpen
-      href: role-definitions.md
     - name: Ingebouwde rollen
       href: built-in-roles.md
     - name: Aangepaste rollen
       href: custom-roles.md
-    - name: Roltoewijzingen voor externe gebruikers beheren
+    - name: Aangepaste rollen toewijzen voor interne en externe gebruikers
       href: role-assignments-external-users.md
     - name: Activiteitenlogboeken
       href: change-history-report.md

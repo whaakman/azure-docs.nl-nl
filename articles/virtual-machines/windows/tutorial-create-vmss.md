@@ -1,46 +1,46 @@
 ---
-title: Maken van een virtuele-Machineschaalsets voor Windows in Azure | Microsoft Docs
-description: Maken en implementeren van een maximaal beschikbare toepassing op Windows-VM's met behulp van een virtuele-machineschaalset
+title: 'Zelfstudie: Een virtuele-machineschaalset maken voor Windows in Azure | Microsoft Docs'
+description: In deze zelfstudie leert u hoe u Azure PowerShell gebruikt om een maximaal beschikbare toepassing te maken en implementeren op virtuele Windows-machines met behulp van een virtuele-machineschaalset
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
 editor: ''
-tags: ''
+tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: ''
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/29/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a4a2d8d616a503a2b200627a52103b78e573f767
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 49754fd4409b1fbc6b15577d37e216290582ef2b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows"></a>Een virtuele-Machineschaalset maken en implementeren van een maximaal beschikbare app in Windows
+# <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows-with-azure-powershell"></a>Zelfstudie: Een virtuele-machineschaalset maken en een toepassing met hoge beschikbaarheid implementeren in Windows met Azure PowerShell
 Met een virtuele-machineschaalset kunt u een reeks identieke virtuele machines met automatisch schalen implementeren en beheren. U kunt het aantal VM’s in de schaalset handmatig schalen of regels voor automatisch schalen definiëren op basis van resourcegebruik zoals CPU, vraag naar geheugen, of netwerkverkeer. In deze zelfstudie implementeert u een virtuele-machineschaalset in Azure. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
-> * De extensie voor aangepaste scripts gebruiken voor het definiëren van een IIS-site om te schalen
-> * Een load balancer voor uw scale set maken
+> * De aangepaste scriptextensie gebruiken om een eenvoudige IIS-site op schaal te maken
+> * Een load balancer voor uw schaalset maken
 > * Een virtuele-machineschaalset maken
 > * Het aantal instanties in een schaalset vergroten of verkleinen
 > * Regels voor automatisch schalen maken
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Als u wilt installeren en gebruiken van de PowerShell lokaal, wordt in deze zelfstudie Azure PowerShell moduleversie 5,6 of hoger vereist. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
+Als u ervoor kiest om PowerShell lokaal te installeren en te gebruiken, moet u moduleversie 5.7.0 of hoger van Azure PowerShell gebruiken voor deze zelfstudie. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
 
 
 ## <a name="scale-set-overview"></a>Overzicht van schaalsets
 Met een virtuele-machineschaalset kunt u een reeks identieke virtuele machines met automatisch schalen implementeren en beheren. Virtuele machines in een schaalset worden verdeeld over logische fout- en updatedomeinen in een of meer *plaatsingsgroepen*. Dit zijn groepen van op soortgelijke wijze geconfigureerde virtuele machines, vergelijkbaar met [beschikbaarheidssets](tutorial-availability-sets.md).
 
-Virtuele machines worden in een schaalset gemaakt als dat nodig is. U definieert regels voor automatisch schalen om te bepalen hoe en wanneer virtuele machines worden toegevoegd of verwijderd uit de schaalset. Deze regels kunnen activeren op basis van metrische gegevens zoals CPU-belasting, geheugengebruik of netwerkverkeer.
+Virtuele machines worden in een schaalset gemaakt als dat nodig is. U definieert regels voor automatisch schalen om te bepalen hoe en wanneer virtuele machines worden toegevoegd of verwijderd uit de schaalset. Deze regels kunnen worden geactiveerd op basis van de metrische gegevens zoals CPU-belasting, geheugengebruik of netwerkverkeer.
 
 Schaalsets bieden ondersteuning voor maximaal 1000 VM’s wanneer u een Azure-platforminstallatiekopie gebruikt. Voor werkbelastingen met aanzienlijke installatie- of VM-aanpassingsvereisten wilt u mogelijk [een aangepaste VM-installatiekopie maken](tutorial-custom-images.md). U kunt maximaal 300 virtuele machines in een schaalset maken wanneer u een aangepaste installatiekopie gebruikt.
 
@@ -97,7 +97,7 @@ Update-AzureRmVmss `
 
 
 ## <a name="test-your-scale-set"></a>Uw schaalset testen
-Om te zien van de schaal in actie is ingesteld, wordt het openbare IP-adres van de load balancer met [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). Het volgende voorbeeld verkrijgt het IP-adres voor *myPublicIP* gemaakt als onderdeel van de schaal is ingesteld:
+Als u de schaalset in actie wilt zien, achterhaalt u het openbare IP-adres van de load balancer met [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). In het volgende voorbeeld wordt het IP-adres voor *myPublicIP* opgehaald, dat is gemaakt als onderdeel van de schaalset:
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIPAddress `
@@ -105,7 +105,7 @@ Get-AzureRmPublicIPAddress `
     -Name "myPublicIPAddress" | select IpAddress
 ```
 
-Voer in een webbrowser het openbare IP-adres in. De web-app wordt weergegeven, inclusief de hostnaam van de virtuele machine die de load balancer verkeer naar gedistribueerde:
+Voer in een webbrowser het openbare IP-adres in. De web-app wordt weergegeven, inclusief de hostnaam van de virtuele machine waarnaar de load balancer verkeer heeft verdeeld:
 
 ![Actieve IIS-site](./media/tutorial-create-vmss/running-iis-site.png)
 
@@ -113,7 +113,7 @@ Als u de schaalset in actie wilt zien, kunt u vernieuwing van uw webbrowser afdw
 
 
 ## <a name="management-tasks"></a>Beheertaken
-Tijdens de levenscyclus van de schaalset moet u mogelijk een of meer beheertaken uitvoeren. Bovendien wilt u misschien scripts maken die verschillende levenscyclustaken automatiseren. Azure PowerShell biedt een snelle manier om deze taken. Hier volgen enkele algemene taken.
+Tijdens de levenscyclus van de schaalset moet u mogelijk een of meer beheertaken uitvoeren. Bovendien wilt u misschien scripts maken die verschillende levenscyclustaken automatiseren. Azure PowerShell biedt een snelle manier om deze taken uit te voeren. Hier volgen enkele algemene taken.
 
 ### <a name="view-vms-in-a-scale-set"></a>Virtuele machines weergeven in een schaalset
 Als u een overzicht wilt zien van de VM-exemplaren in een schaalset, gebruikt u [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm) als volgt:
@@ -139,7 +139,7 @@ Get-AzureRmVmssVM -ResourceGroupName "myResourceGroupScaleSet" -VMScaleSetName "
 
 
 ### <a name="increase-or-decrease-vm-instances"></a>VM-instanties vergroten of verkleinen
-Als het aantal exemplaren dat u momenteel in een schaalset hebt wilt weergeven, gebruikt [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) en query's uitvoeren op *sku.capacity*:
+Als u het aantal instanties wilt weergeven dat zich momenteel in een schaalset bevindt, gebruikt u [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) en voert u een query uit op *sku.capacity*:
 
 ```azurepowershell-interactive
 Get-AzureRmVmss -ResourceGroupName "myResourceGroupScaleSet" `
@@ -147,7 +147,7 @@ Get-AzureRmVmss -ResourceGroupName "myResourceGroupScaleSet" `
     Select -ExpandProperty Sku
 ```
 
-U kunt vervolgens handmatig vergroten of verkleinen het aantal virtuele machines in de schaal in te stellen [Update AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss). In het volgende voorbeeld wordt het aantal VM's in uw schaal ingesteld op *3*:
+U kunt vervolgens het aantal virtuele machines in de schaalset handmatig vergroten of verkleinen met [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss). In het volgende voorbeeld wordt het aantal VM's in uw schaal ingesteld op *3*:
 
 ```azurepowershell-interactive
 # Get current scale set
@@ -162,11 +162,11 @@ Update-AzureRmVmss -ResourceGroupName "myResourceGroupScaleSet" `
     -VirtualMachineScaleSet $scaleset
 ```
 
-Als duurt een paar minuten bijwerken van het opgegeven aantal exemplaren in uw scale is ingesteld.
+Het bijwerken van het opgegeven aantal instanties in uw schaalset duurt een paar minuten.
 
 
 ### <a name="configure-autoscale-rules"></a>Regels voor automatisch schalen configureren
-In plaats van het aantal exemplaren handmatig schalen in uw scale is ingesteld, kunt u regels voor automatisch schalen definiëren. Deze regels bewaken de instanties in uw schaalset en reageren hierop op basis van metrische gegevens en drempels die u definieert. In het volgende voorbeeld wordt het aantal instanties opgeschaald met één wanneer de gemiddelde CPU-belasting gedurende een periode van 5 minuten hoger is dan 60%. Als de gemiddelde CPU-belasting vervolgens onder 30% gedurende een periode van 5 minuten, worden de instanties geschaald in door één exemplaar:
+In plaats van het aantal instanties in uw schaalset handmatig te schalen, definieert u regels voor automatisch schalen. Deze regels bewaken de instanties in uw schaalset en reageren hierop op basis van metrische gegevens en drempels die u definieert. In het volgende voorbeeld wordt het aantal instanties opgeschaald met één wanneer de gemiddelde CPU-belasting gedurende een periode van 5 minuten hoger is dan 60%. Als de gemiddelde CPU-belasting vervolgens gedurende een periode van 5 minuten onder de 30% komt, worden de instanties omlaag geschaald met één instantie:
 
 ```azurepowershell-interactive
 # Define your scale set information
@@ -226,8 +226,8 @@ Zie [aanbevolen procedures voor automatisch schalen](/azure/architecture/best-pr
 In deze zelfstudie hebt u een virtuele-machineschaalset gemaakt. U hebt geleerd hoe u:
 
 > [!div class="checklist"]
-> * De extensie voor aangepaste scripts gebruiken voor het definiëren van een IIS-site om te schalen
-> * Een load balancer voor uw scale set maken
+> * De aangepaste scriptextensie gebruiken om een eenvoudige IIS-site op schaal te maken
+> * Een load balancer voor uw schaalset maken
 > * Een virtuele-machineschaalset maken
 > * Het aantal instanties in een schaalset vergroten of verkleinen
 > * Regels voor automatisch schalen maken

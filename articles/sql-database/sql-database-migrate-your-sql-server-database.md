@@ -1,6 +1,6 @@
 ---
-title: SQL Server-database migreren naar Azure SQL Database met behulp van DMS | Microsoft Docs
-description: Meer informatie over hoe u een SQL Server-database kunt migreren naar Azure SQL Database met behulp van DMS.
+title: SQL Server DB migreren naar Azure SQL Database met behulp van DMA | Microsoft Docs
+description: Meer informatie over het migreren van SQL Server DB naar Azure SQL Database met behulp van DMA.
 services: sql-database
 author: CarlRabeler
 manager: craigg
@@ -9,13 +9,13 @@ ms.custom: mvc,migrate
 ms.topic: tutorial
 ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: 36548e4d088b809f4fb16d89aaa3ef0a802d6d5c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e714667183704670807fd2f62767b75f62978a38
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dms"></a>Een SQL Server-database migreren naar Azure SQL Database met behulp van DMS
+# <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dma"></a>Uw SQL Server-database migreren naar Azure SQL Database met behulp van DMA
 
 Het verplaatsen van een SQL Server-database naar een enkele Azure SQL-database is erg eenvoudig. U maakt een lege SQL-database in Azure en importeert deze database vervolgens in Azure met behulp van [DMA](https://www.microsoft.com/download/details.aspx?id=53595) (Data Migration Assistant). Zie [Migrate your database to Azure SQL Database](sql-database-cloud-migrate.md) (Uw database migreren naar Azure SQL Database) voor aanvullende migratieopties.
 
@@ -46,7 +46,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-database"></a>Een lege SQL-database maken
 
-Een Azure SQL-database wordt gemaakt met een gedefinieerde set [reken- en opslagresources](sql-database-service-tiers.md). De database is gemaakt in een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) en in een [logische Azure SQL Database-server](sql-database-features.md). 
+Een Azure SQL-database wordt gemaakt met een gedefinieerde set [reken- en opslagresources](sql-database-service-tiers-dtu.md). De database is gemaakt in een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) en in een [logische Azure SQL Database-server](sql-database-features.md). 
 
 Volg deze stappen om een lege SQL-database te maken. 
 
@@ -87,9 +87,9 @@ Volg deze stappen om een lege SQL-database te maken.
 8. Accepteer de gebruiksvoorwaarden voor de preview om de optie **Extra opslag** te gebruiken. 
 
    > [!IMPORTANT]
-   > \* Opslagruimten groter dan de hoeveelheid inbegrepen opslagruimte zijn in preview en hiervoor gelden extra kosten. Zie [de prijsinformatie voor SQL Database](https://azure.microsoft.com/pricing/details/sql-database/) voor meer informatie. 
+   > - Opslagruimten groter dan de hoeveelheid inbegrepen opslagruimte zijn in preview en hiervoor gelden extra kosten. Zie [de prijsinformatie voor SQL Database](https://azure.microsoft.com/pricing/details/sql-database/) voor meer informatie. 
    >
-   >\* In de Premium-laag is momenteel ruim 1 TB opslag beschikbaar voor de volgende regio's: Brazilië - zuid, Canada - centraal, Canada - oost, VS - midden, Frankrijk - centraal, Duitsland - centraal, Japan - oost, Japan - west, Korea - centraal, VS Noord-Centraal, Noord-Europa, VS Zuid-Centraal, Zuidoost-Azië, UK - zuid, UK - west, VS - oost2, VS - west, VS (overheid) - Virginia, en West-Europa. Zie [P11-P15: huidige beperkingen](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > - In de Premium-laag is momenteel ruim 1 TB opslag beschikbaar voor de volgende regio's: Brazilië - zuid, Canada - centraal, Canada - oost, VS Centraal, Frankrijk - centraal, Duitsland - centraal, Japan - oost, Japan - west, Korea - centraal, VS Noord-Centraal, Noord-Europa, VS Zuid-Centraal, Zuidoost-Azië, UK - zuid, UK - west, VS Oost2, VS West, US Gov - Virginia en West-Europa. Zie [P11-P15: huidige beperkingen](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Als u de servicelaag, het aantal DTU's en de hoeveelheid opslagruimte hebt geselecteerd, klikt u op **Toepassen**.  

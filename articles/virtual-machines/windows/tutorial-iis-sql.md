@@ -1,6 +1,6 @@
 ---
-title: Virtuele machines met een SQL&#92;IIS&#92;.NET-stack maken in Azure | Microsoft Docs
-description: Zelfstudie - Een Azure SQL, IIS, .NET-stack installeren op virtuele Windows-machines.
+title: 'Zelfstudie: Virtuele machines met een SQL&#47;IIS&#47;.NET-stack maken in Azure | Microsoft Docs'
+description: In deze zelfstudie leert u hoe de Azure SQL, IIS, .NET-stack installeert op een virtuele Windows-machine in Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -15,15 +15,15 @@ ms.workload: infrastructure
 ms.date: 02/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ac6038f7600d6eb4c8d021998f9cfc40bd369332
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f9fea933dd664955a0bc6f47db775fbc469fd684
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="install-a-sql92iis92net-stack-in-azure"></a>Een SQL&#92;IIS&#92;.NET-stack installeren in Azure
+# <a name="tutorial-install-the-sql47iis47net-stack-in-a-windows-vm-with-azure-powershell"></a>Zelfstudie: De SQL&#47;IIS&#47;.NET-stack installeren op een Windows-VM met Azure PowerShell
 
-In deze zelfstudie installeren we een SQL&#92;IIS&#92;.NET-stack met Azure PowerShell. Deze stack bestaat uit twee virtuele machines met Windows Server 2016, waarvan een met IIS en .NET en een met SQL Server.
+In deze zelfstudie installeren we een SQL&#47;IIS&#47;.NET-stack met Azure PowerShell. Deze stack bestaat uit twee virtuele machines met Windows Server 2016, waarvan een met IIS en .NET en een met SQL Server.
 
 > [!div class="checklist"]
 > * Een virtuele machine maken 
@@ -33,7 +33,7 @@ In deze zelfstudie installeren we een SQL&#92;IIS&#92;.NET-stack met Azure Power
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Als u PowerShell lokaal wilt installeren en gebruiken, is voor deze zelfstudie moduleversie 4.3.1 of hoger van AzureRM.Compute vereist. Voer `Get-Module -ListAvailable AzureRM.Compute` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
+Als u PowerShell lokaal wilt installeren en gebruiken, is voor deze zelfstudie moduleversie 5.7.0 of hoger van AzureRM.Compute vereist. Voer `Get-Module -ListAvailable AzureRM.Compute` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
 
 ## <a name="create-a-iis-vm"></a>Een virtuele IIS-machine maken 
 

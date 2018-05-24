@@ -159,6 +159,8 @@
       items:
         - name: Runbook-galerie
           href: automation-runbook-gallery.md
+        - name: Runbooks bewaken met activiteitenlogboeken
+          href: automation-alert-activity-log.md
         - name: Een runbook starten vanuit een Azure-waarschuwing
           href: automation-create-alert-triggered-runbook.md
         - name: Een Amazon Web Service-VM maken

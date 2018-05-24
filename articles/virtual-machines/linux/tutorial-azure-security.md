@@ -1,12 +1,12 @@
 ---
-title: Azure Security Center en virtuele Linux-machines in Azure | Microsoft Docs
-description: Meer informatie over de beveiliging van uw virtuele Linux-machine in Azure met Azure Security Center.
+title: Zelfstudie - Azure Security Center gebruiken voor virtuele Linux-machines in Azure | Microsoft Docs
+description: In deze zelfstudie krijgt u informatie over de functies van Azure Security Center die helpen uw virtuele Linux-machines in Azure te beschermen en te beveiligen.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
-tags: azure-service-management
+tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 05/07/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 41fb802dd8f5dd7bec2c481f3719f304b0c8d0ac
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: e049bed6336f87d8077726843bbc870be90c633f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="monitor-virtual-machine-security-by-using-azure-security-center"></a>De beveiliging van virtuele machines bewaken met behulp van Azure Security Center
+# <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Zelfstudie: Azure Security Center gebruiken om virtuele Linux-machines te controleren
 
 Met Azure Security Center kunt u meer inzicht krijgen in de beveiliging van uw Azure-resources. Security Center biedt geïntegreerde beveiligingsbewaking. De service kan bedreigingen detecteren die anders misschien onopgemerkt blijven. In deze zelfstudie krijgt u meer informatie over Azure Security Center en leert u het volgende te doen:
  
@@ -30,7 +30,7 @@ Met Azure Security Center kunt u meer inzicht krijgen in de beveiliging van uw A
 > * Gegevensverzameling instellen
 > * Beveiligingsbeleid kunt instellen
 > * Problemen met de configuratiestatus kunt weergeven en oplossen
-> * Gedetecteerde bedreigingen kunt controleren  
+> * Gedetecteerde bedreigingen kunt controleren
 
 ## <a name="security-center-overview"></a>Overzicht van Security Center
 

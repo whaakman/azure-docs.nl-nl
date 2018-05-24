@@ -3,10 +3,10 @@ title: Active Directory Federation Services in Azure | Microsoft Docs
 description: In dit document leert u hoe u AD FS implementeert in Azure voor hoge beschikbaarheid.
 keywords: AD FS implementeren in azure, azure adfs implementeren, azure adfs, azure ad fs, adfs implementeren, ad fs implementeren, adfs in azure, adfs implementeren in azure, AD FS implementeren in azure, adfs azure, introductie tot AD FS, Azure, AD FS in Azure, iaas, ADFS, adfs verplaatsen naar azure
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: anandyadavmsft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ba14244a3f5786ebcd667aa090d0245ce45f741d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 76ed05d55389e2c05b38fe1f2c239f544c6a5d38
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Active Directory Federation Services in Azure implementeren
 AD FS biedt vereenvoudigde, beveiligde identiteitsfederatie en mogelijkheden voor eenmalige webaanmelding (SSO of Single Sign-on). Federatie met Azure AD of O365 biedt gebruikers de mogelijkheid om zich te verifiëren met on-premises referenties en toegang te krijgen tot alle bronnen in de cloud. Daarom is het echter wel heel belangrijk dat u beschikt over een maximaal beschikbare AD FS-infrastructuur voor toegang tot zowel on-premises resources als resources in de cloud. De implementatie van AD FS in Azure kan helpen met minimale inspanningen de vereiste hoge beschikbaarheid te bewerkstelligen.
@@ -214,7 +214,7 @@ U moet ervoor zorgen dat de webtoepassingsproxyservers de AD FS-servers achter d
 
 **7.2. De webtoepassingsproxyrol installeren**
 
-Nadat u ervoor hebt gezorgd dat de webtoepassingsproxyservers de AD FS-servers achter de ILB kunnen bereiken, kunt u de webtoepassingsproxyservers installeren. Webtoepassingsproxyservers hoeven niet te worden toegevoegd aan het domein. Installeer de webtoepassingsproxyrollen op de twee webtoepassingsproxyservers door de rol Externe toegang te selecteren. Serverbeheer leidt u door de WAP-installatie.
+Nadat u ervoor hebt gezorgd dat de webtoepassingsproxyservers de AD FS-servers achter de ILB kunnen bereiken, kunt u de webtoepassingsproxyservers installeren. Proxyservers voor webtoepassingen hoeven niet te worden toegevoegd aan het domein. Installeer de webtoepassingsproxyrollen op de twee webtoepassingsproxyservers door de rol Externe toegang te selecteren. Serverbeheer leidt u door de WAP-installatie.
 Zie [De webtoepassingsproxyserver installeren en configureren](https://technet.microsoft.com/library/dn383662.aspx) voor meer informatie over het implementeren van WAP.
 
 ### <a name="8--deploying-the-internet-facing-public-load-balancer"></a>8.  De internetgerichte (openbare) load balancer implementeren
@@ -303,7 +303,7 @@ De gemakkelijkste manier om AD FS te testen, is met de pagina IdpInitiatedSignon
 
 1. Voer onderstaande cmdlet met PowerShell uit op de AD FS-server om deze in te schakelen.
    Set-AdfsProperties -EnableIdPInitiatedSignonPage $true 
-2. Ga vanaf een externe computer naar https://adfs.thecloudadvocate.com/adfs/ls/IdpInitiatedSignon.aspx  
+2. Van elke toegang vanaf externe computers https://adfs.thecloudadvocate.com/adfs/ls/IdpInitiatedSignon.aspx  
 3. De volgende AD FS-pagina moet worden weergegeven:
 
 ![Aanmeldingspagina testen](./media/active-directory-aadconnect-azure-adfs/test1.png)

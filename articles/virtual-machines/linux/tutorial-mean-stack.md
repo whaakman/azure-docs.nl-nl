@@ -1,6 +1,6 @@
 ---
-title: Een MEAN-stack maken op een virtuele Linux-machine in Azure | Microsoft Docs
-description: Informatie over het maken van een MongoDB-, Express-, AngularJS- en Node.js- (MEAN-)stack op een virtuele Linux-machine in Azure.
+title: Zelfstudie - Een MEAN-stack maken op een virtuele Linux-machine in Azure | Microsoft Docs
+description: In deze zelfstudie leert u hoe u een MongoDB-, Express-, AngularJS- en Node.js- (MEAN-)stack maakt op een virtuele Linux-machine in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 2bd89bf25f619caef07ae099232add55dbe0cda7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6a9adcd03c5f75b4065273c4ccf657b01bc3d96d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-vm-in-azure"></a>Een MongoDB-, Express-, AngularJS- en Node.js- (MEAN-)stack op een virtuele Linux-machine in Azure maken
+# <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Zelfstudie: Een MongoDB-, Express-, AngularJS- en Node.js- (MEAN-)stack maken op een virtuele Linux-machine in Azure
 
-In deze zelfstudie leert u hoe u een MongoDB-, Express-, AngularJS- en Node.js- (MEAN-)stack op een virtuele Linux-machine in Azure implementeert. Met de door u gemaakt MEAN-stack kunt u boeken aan een database toevoegen, eruit verwijderen of erin vermelden. Procedures voor:
+In deze zelfstudie leert u hoe u een MongoDB-, Express-, AngularJS- en Node.js- (MEAN-)stack op een virtuele Linux-machine implementeert in Azure. Met de door u gemaakt MEAN-stack kunt u boeken aan een database toevoegen, eruit verwijderen of erin vermelden. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
 > * Een Linux-VM maken
@@ -36,7 +36,7 @@ In deze zelfstudie leert u hoe u een MongoDB-, Express-, AngularJS- en Node.js- 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze zelfstudie Azure CLI 2.0.4 of nieuwer uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u Azure CLI 2.0.30 of hoger gebruiken voor deze zelfstudie. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
 
 
 ## <a name="create-a-linux-vm"></a>Een Linux-VM maken

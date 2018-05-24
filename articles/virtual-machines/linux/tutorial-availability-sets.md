@@ -1,6 +1,6 @@
 ---
-title: Zelfstudie over beschikbaarheidssets voor Linux-VM’s in Azure | Microsoft Docs
-description: Meer informatie over de beschikbaarheidssets voor virtuele Linux-machines in Azure.
+title: 'Zelfstudie: Hoge beschikbaarheid voor virtuele Linux-machines in Azure | Microsoft Docs'
+description: In deze zelfstudie leert u hoe u de Azure CLI 2.0 gebruikt om maximaal beschikbare virtuele machines in beschikbaarheidssets te implementeren
 documentationcenter: ''
 services: virtual-machines-linux
 author: cynthn
@@ -16,14 +16,13 @@ ms.topic: tutorial
 ms.date: 10/05/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d317ec8136ad7a36381239593c3a53c40f897845
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: dc6fba89571515d0d2d7ed3ecc35c3065405056b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="how-to-use-availability-sets"></a>Beschikbaarheidssets gebruiken
-
+# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli-20"></a>Zelfstudie: Virtuele machines met hoge beschikbaarheid maken en implementeren met de Azure CLI 2.0
 
 In deze zelfstudie leert u hoe u de beschikbaarheid en betrouwbaarheid van uw Virtual Machine-oplossingen op Azure kunt verhogen met behulp van beschikbaarheidssets. Beschikbaarheidssets zorgen ervoor dat de VM's die u op Azure implementeert, verdeeld worden over meerdere geïsoleerde hardwareclusters. Dit zorgt ervoor dat als er zich binnen Azure een hardware- of softwarestoring voordoet, er slechts een subset van uw VM's wordt beïnvloed en dat uw totale oplossing beschikbaar en operationeel blijft.
 
@@ -34,10 +33,9 @@ In deze zelfstudie leert u het volgende:
 > * Een VM maken in een beschikbaarheidsset
 > * Beschikbare VM-grootten controleren
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze zelfstudie Azure CLI 2.0.4 of nieuwer uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u Azure CLI 2.0.30 of hoger gebruiken voor deze zelfstudie. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
 
 ## <a name="availability-set-overview"></a>Overzicht beschikbaarheidsset
 
@@ -50,16 +48,13 @@ Gebruik beschikbaarheidssets wanneer u betrouwbare VM-oplossingen wilt implement
 
 ## <a name="create-an-availability-set"></a>Een beschikbaarheidsset maken
 
-U kunt een beschikbaarheidsset maken met behulp van [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create). In dit voorbeeld stellen we het aantal update- en foutdomeinen in op *2* voor de beschikbaarheidsset met de naam *myAvailabilitySet* in de resourcegroep *ResourceGroupAvailability*.
+U kunt een beschikbaarheidsset maken met behulp van [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create). In dit voorbeeld is het aantal update- en foutdomeinen ingesteld op *2* voor de beschikbaarheidsset met de naam *myAvailabilitySet* in de resourcegroep *ResourceGroupAvailability*.
 
-Maak een resourcegroep.
+Maak eerst een resourcegroep met [az group create](/cli/azure/group#az-group-create) en maak daarna de beschikbaarheidsset:
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroupAvailability --location eastus
-```
 
-
-```azurecli-interactive 
 az vm availability-set create \
     --resource-group myResourceGroupAvailability \
     --name myAvailabilitySet \
@@ -67,44 +62,44 @@ az vm availability-set create \
     --platform-update-domain-count 2
 ```
 
-Met beschikbaarheidssets kunt u bronnen isoleren tussen foutdomeinen en domeinen bijwerken. Een **foutdomein** vertegenwoordigt een geïsoleerde verzameling van server- plus netwerk- en opslagresources. In het voorgaande voorbeeld geven we aan dat we willen dat onze beschikbaarheidsset wordt verdeeld over minstens twee foutdomeinen wanneer onze VM's worden geïmplementeerd. We geven ook aan dat we onze beschikbaarheidsset willen verdelen over twee **updatedomeinen**.  Twee update-domeinen zorgen ervoor dat wanneer er Azure software-updates worden uitgevoerd, onze VM-resources geïsoleerd worden, zodat wordt voorkomen dat alle software onder onze VM tegelijkertijd wordt bijgewerkt.
+Met beschikbaarheidssets kunt u bronnen isoleren tussen foutdomeinen en domeinen bijwerken. Een **foutdomein** vertegenwoordigt een geïsoleerde verzameling van server- plus netwerk- en opslagresources. In het voorgaande voorbeeld wordt de beschikbaarheidsset verdeeld over minstens twee foutdomeinen wanneer de VM's worden geïmplementeerd. De beschikbaarheidsset is ook verdeeld over twee **updatedomeinen**. Twee updatedomeinen zorgen ervoor dat wanneer er software-updates worden uitgevoerd op Azure, de VM-resources worden geïsoleerd, zodat wordt voorkomen dat alle software onder de VM tegelijk wordt bijgewerkt.
 
 
 ## <a name="create-vms-inside-an-availability-set"></a>VM's maken in een beschikbaarheidsset
 
-VM's moeten worden gemaakt binnen de beschikbaarheidsset om ervoor te zorgen dat ze correct over de hardware worden verdeeld. U kunt geen bestaande VM toevoegen aan een beschikbaarheidsset nadat deze is gemaakt. 
+VM's moeten worden gemaakt binnen de beschikbaarheidsset om ervoor te zorgen dat ze correct over de hardware worden verdeeld. U kunt een bestaande VM niet toevoegen aan een beschikbaarheidsset nadat deze is gemaakt.
 
-Wanneer u een VM maakt met behulp van [az vm create](/cli/azure/vm#az_vm_create), geeft u de naam van de beschikbaarheidsset op met behulp van de parameter `--availability-set`.
+Wanneer er een VM is gemaakt met [az vm create](/cli/azure/vm#az_vm_create), gebruikt u de parameter `--availability-set` om de naam van de beschikbaarheidsset op te geven.
 
-```azurecli-interactive 
+```azurecli-interactive
 for i in `seq 1 2`; do
    az vm create \
      --resource-group myResourceGroupAvailability \
      --name myVM$i \
      --availability-set myAvailabilitySet \
      --size Standard_DS1_v2  \
-     --image Canonical:UbuntuServer:14.04.4-LTS:latest \
+     --image UbuntuLTS \
      --admin-username azureuser \
      --generate-ssh-keys \
      --no-wait
-done 
+done
 ```
 
-Nu hebben we twee virtuele machines in onze nieuwe beschikbaarheidsset. Omdat ze zich in dezelfde beschikbaarheidsset bevinden, zorgt Azure ervoor dat de virtuele machines en alle bijbehorende resources (inclusief gegevensschijven) worden gedistribueerd over geïsoleerde fysieke hardware. Deze verdeling helpt zorgen voor een veel hogere beschikbaarheid van de algehele VM-oplossing.
+De beschikbaarheidsset bevat nu twee virtuele machines. Omdat ze zich in dezelfde beschikbaarheidsset bevinden, zorgt Azure ervoor dat de virtuele machines en alle bijbehorende resources (inclusief gegevensschijven) worden gedistribueerd over geïsoleerde fysieke hardware. Door deze verdeling is de beschikbaarheid van de algehele VM-oplossing veel hoger.
 
-Als u de beschikbaarheidsset in de portal bekijkt door naar Resource Groups > myResourceGroupAvailability > myAvailabilitySet te gaan, ziet u hoe de VM's zijn verdeeld over de twee fout- en updatedomeinen.
+U kunt de verdeling van de beschikbaarheidsset bekijken in de portal door te gaan naar Resourcegroepen > myResourceGroupAvailability > myAvailabilitySet. De VM's zijn verdeeld over de twee fout- en updatedomeinen, zoals wordt weergegeven in het volgende voorbeeld:
 
 ![Beschikbaarheidsset in de portal](./media/tutorial-availability-sets/fd-ud.png)
 
-## <a name="check-for-available-vm-sizes"></a>Beschikbare VM-grootten controleren 
+## <a name="check-for-available-vm-sizes"></a>Beschikbare VM-grootten controleren
 
-U kunt later meer VM's toevoegen aan de beschikbaarheidsset, maar u moet weten welke VM-grootten beschikbaar zijn op de hardware.  Gebruik [az vm availability-set list-sizes](/cli/azure/availability-set#az_availability_set_list_sizes) om een lijst weer te geven met alle beschikbare grootten voor de beschikbaarheidsset op de hardwarecluster.
+Extra VM's kunnen later worden toegevoegd aan de beschikbaarheidsset, als VM-grootten beschikbaar zijn op de hardware. Gebruik [az vm availability-set list-sizes](/cli/azure/availability-set#az_availability_set_list_sizes) om een lijst weer te geven met alle beschikbare grootten voor de beschikbaarheidsset op de hardwarecluster:
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm availability-set list-sizes \
      --resource-group myResourceGroupAvailability \
      --name myAvailabilitySet \
-     --output table  
+     --output table
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -120,4 +115,3 @@ Ga naar de volgende zelfstudie voor meer informatie over virtuele-machineschaals
 
 > [!div class="nextstepaction"]
 > [Een virtuele-machineschaalset maken](tutorial-create-vmss.md)
-

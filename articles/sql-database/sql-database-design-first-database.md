@@ -1,5 +1,5 @@
 ---
-title: Uw eerste Azure SQL database ontwerpen met SSMS | Microsoft Docs
+title: 'Zelfstudie: Uw eerste Azure SQL database ontwerpen met SSMS | Microsoft Docs'
 description: Lees hier alles over het ontwerpen van uw eerste Azure SQL database met SQL Server Management Studio.
 services: sql-database
 author: CarlRabeler
@@ -7,28 +7,30 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop databases
 ms.topic: tutorial
-ms.date: 04/04/2018
+ms.date: 04/23/2018
 ms.author: carlrab
-ms.openlocfilehash: 1415edf8ea70b3835e99daa1691d278fe833b950
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ba14208e971d712184052e7470757ce48ac26879
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="design-your-first-azure-sql-database-using-ssms"></a>Uw eerste Azure SQL-database ontwerpen met SSMS
+# <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>Zelfstudie: Uw eerste Azure SQL-database ontwerpen met SSMS
 
 Azure SQL Database is een relationele DBaaS (database-as-a-service) in de Microsoft Cloud (Azure). In deze zelfstudie leert u hoe u met Azure Portal en [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) de volgende taken uitvoert: 
 
 > [!div class="checklist"]
-> * Een database maken in Azure Portal
+> * Een database maken in Azure Portal*
 > * Een serverfirewallregel instellen in Azure Portal
 > * Verbinding maken met de database via SSMS
 > * Tabellen maken met SSMS
 > * Gegevens bulksgewijs laden met BCP
 > * Query uitvoeren op die gegevens met SSMS
-> * De database [herstellen naar een eerder tijdstip](sql-database-recovery-using-backups.md#point-in-time-restore) in Azure Portal
 
 Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
+
+   >[!NOTE]
+   > Voor deze zelfstudie gebruiken we het [aankoopmodel op basis van DTU](sql-database-service-tiers-dtu.md), maar u kunt desgewenst ook het [aankoopmodel op basis van vCore (preview)](sql-database-service-tiers-vcore.md) kiezen. 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -42,13 +44,13 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-database"></a>Een lege SQL-database maken
 
-Een Azure SQL-database wordt gemaakt met een gedefinieerde set [reken- en opslagresources](sql-database-service-tiers.md). De database is gemaakt in een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) en in een [logische Azure SQL Database-server](sql-database-features.md). 
+Een Azure SQL-database wordt gemaakt met een gedefinieerde set [reken- en opslagresources](sql-database-service-tiers-dtu.md). De database is gemaakt in een [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) en in een [logische Azure SQL Database-server](sql-database-features.md). 
 
 Volg deze stappen om een lege SQL-database te maken. 
 
 1. Klik in de linkerbovenhoek van Azure Portal op **Een resource maken**.
 
-2. Selecteer **Databases** op de pagina **Nieuw** en selecteer **Maken** onder **SQL-database** op de pagina **Nieuw**.
+2. Selecteer op de pagina **Nieuw** **Databases** in de sectie Azure Marketplace en klik vervolgens op **SQL Database** in de sectie **Aanbevolen**.
 
    ![lege database maken](./media/sql-database-design-first-database/create-empty-database.png)
 
@@ -74,7 +76,7 @@ Volg deze stappen om een lege SQL-database te maken.
 
 5. Klik op **Selecteren**.
 
-6. Klik op **Prijscategorie** om de servicelaag, het aantal DTU's of vCores en de hoeveelheid opslag op te geven. Bekijk de opties voor de hoeveelheid DTU's en opslag die voor elke servicelaag beschikbaar zijn. 
+6. Klik op **Prijscategorie** om de servicelaag, het aantal DTU's of vCores en de hoeveelheid opslag op te geven. Bekijk de opties voor de hoeveelheid DTU's en opslag die voor elke servicelaag beschikbaar zijn. Voor deze zelfstudie gebruiken we het [aankoopmodel op basis van DTU](sql-database-service-tiers-dtu.md), maar u kunt desgewenst ook het [aankoopmodel op basis van vCore (preview)](sql-database-service-tiers-vcore.md) kiezen. 
 
 7. Voor deze zelfstudie selecteert u de servicelaag **Standard** en gebruikt u vervolgens de schuifregelaar om **100 DTU's (S3)** en **400** GB aan opslagruimte te selecteren.
 
@@ -83,10 +85,9 @@ Volg deze stappen om een lege SQL-database te maken.
 8. Accepteer de gebruiksvoorwaarden voor de preview om de optie **Extra opslag** te gebruiken. 
 
    > [!IMPORTANT]
-   > \* Opslagruimten groter dan de hoeveelheid inbegrepen opslagruimte zijn in preview en hiervoor gelden extra kosten. Zie [de prijsinformatie voor SQL Database](https://azure.microsoft.com/pricing/details/sql-database/) voor meer informatie. 
-   >
-   >\* In de Premium-laag is momenteel ruim 1 TB opslag beschikbaar voor de volgende regio's: Australië - oost, Australië - zuidoost, Brazilië - zuid, Canada - centraal, Canada - oost, VS - midden, Frankrijk - centraal, Duitsland - centraal, Japan - oost, Japan - west, Korea - centraal, VS Noord-Centraal, Noord-Europa, VS Zuid-Centraal, Zuidoost-Azië, UK - zuid, UK - west, VS - oost2, VS - west, VS (overheid) - Virginia, en West-Europa. Zie [P11-P15: huidige beperkingen](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-   > 
+   > -  Opslagruimten groter dan de hoeveelheid inbegrepen opslagruimte zijn in preview en hiervoor gelden extra kosten. Zie [de prijsinformatie voor SQL Database](https://azure.microsoft.com/pricing/details/sql-database/) voor meer informatie. 
+   >-  In de Premium-laag is momenteel ruim 1 TB opslag beschikbaar voor de volgende regio's: Australië - oost, Australië - zuidoost, Brazilië - zuid, Canada - centraal, Canada - oost, VS - midden, Frankrijk - centraal, Duitsland - centraal, Japan - oost, Japan - west, Korea - centraal, VS Noord-Centraal, Noord-Europa, VS Zuid-Centraal, Zuidoost-Azië, UK - zuid, UK - west, VS - oost2, VS - west, VS (overheid) - Virginia, en West-Europa. Zie [P11-P15: huidige beperkingen](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+
 
 9. Als u de servicelaag, het aantal DTU's en de hoeveelheid opslagruimte hebt geselecteerd, klikt u op **Toepassen**.  
 
@@ -108,7 +109,7 @@ De service SQL Database maakt een firewall op serverniveau die voorkomt dat exte
 
 1. Wanneer de implementatie is voltooid, klikt u op **SQL Databases** in het menu aan de linkerkant. Klik vervolgens op de pagina **SQL Databases** op **mySampleDatabase**. De overzichtspagina voor uw database wordt geopend, met de volledig gekwalificeerde servernaam (zoals **mynewserver20170824.database.windows.net**) en opties voor verdere configuratie. 
 
-2. Kopieer deze volledig gekwalificeerde servernaam om in volgende snelstarts verbinding te maken met de server en de bijbehorende databases. 
+2. Kopieer deze volledig gekwalificeerde servernaam om in volgende zelfstudies en snelstarts verbinding te maken met de server en de bijbehorende databases. 
 
    ![servernaam](./media/sql-database-get-started-portal/server-name.png) 
 
@@ -147,7 +148,7 @@ Gebruik [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-s
 
    | Instelling       | Voorgestelde waarde | Beschrijving | 
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | Servertype | Database-engine | Deze waarde is verplicht. |
+   | Servertype | Database-engine | Deze waarde is verplicht |
    | Servernaam | De volledig gekwalificeerde servernaam | De naam moet er ongeveer als volgt uitzien: **mynewserver20170824.database.windows.net**. |
    | Verificatie | SQL Server-verificatie | SQL-verificatie is het enige verificatietype dat we in deze zelfstudie hebben geconfigureerd. |
    | Aanmelden | Het beheerdersaccount voor de server | Dit is het account dat u hebt opgegeven tijdens het maken van de server. |
@@ -297,26 +298,6 @@ Voer de volgende query's uit om gegevens op te halen uit de databasetabellen. Zi
    AND person.LastName = 'Coleman'
    ```
 
-## <a name="restore-a-database-to-a-previous-point-in-time"></a>Een database herstellen naar een eerder tijdstip
-
-Stel dat u een tabel per ongeluk hebt verwijderd. Dit is iets wat u niet eenvoudig kunt herstellen. In Azure SQL Database kunt u echter gedurende een periode van maximaal 35 dagen teruggaan naar een bepaald tijdstip om vanaf dat moment de gegevens te herstellen in een nieuwe database. U kunt deze database vervolgens gebruiken om de verwijderde gegevens terug te halen. Met de volgende stappen wordt de voorbeelddatabase hersteld naar een punt voordat de tabellen zijn toegevoegd.
-
-1. Klik op de pagina SQL-database voor uw database op **Restore** op de werkbalk. De**gelijknamige**pagina wordt geopend.
-
-   ![De pagina Restore](./media/sql-database-design-first-database/restore.png)
-
-2. Vul in het formulier **Restore** de vereiste gegevens in:
-    * Databasenaam: voer een naam in voor de database 
-    * Point-in-time: selecteer het tabblad **Point-in-time** van het formulier Restore 
-    * Restore point: selecteer een tijdstip voorafgaand aan het moment waarop de database is gewijzigd
-    * Target server: u kunt deze waarde niet wijzigen als u een database gaat herstellen 
-    * Elastic database pool: selecteer **None**  
-    * Pricing tier: select **20 DTUs** en **40 GB** opslag.
-
-   ![herstelpunt](./media/sql-database-design-first-database/restore-point.png)
-
-3. Klik op **OK** om de database te [herstellen naar een eerder tijdstip](sql-database-recovery-using-backups.md#point-in-time-restore), voordat de tabellen werden toegevoegd. Als u een database herstelt naar een eerder tijdstip, wordt er op de server van de oorspronkelijke database een database gemaakt met de inhoud zoals die aanwezig was op het tijdstip dat u opgeeft. Dit tijdstip moet wel binnen de bewaarperiode liggen die wordt gehanteerd voor uw [servicelaag](sql-database-service-tiers.md).
-
 ## <a name="next-steps"></a>Volgende stappen 
 In deze zelfstudie hebt u kennisgemaakt met eenvoudige databasetaken, zoals het maken van een database en tabellen, het laden en opvragen van gegevens, en het herstellen van een database naar een eerder tijdstip. U hebt geleerd hoe u:
 > [!div class="checklist"]
@@ -326,7 +307,6 @@ In deze zelfstudie hebt u kennisgemaakt met eenvoudige databasetaken, zoals het 
 > * Tabellen maken
 > * Bulksgewijs gegevens laden
 > * Een query uitvoeren op deze gegevens
-> * De database herstellen naar een eerder tijdstip met behulp van [SQL-Database](sql-database-recovery-using-backups.md#point-in-time-restore)
 
 Ga naar de volgende zelfstudie als u alles wilt weten over het ontwerpen van een database met Visual Studio en C#.
 

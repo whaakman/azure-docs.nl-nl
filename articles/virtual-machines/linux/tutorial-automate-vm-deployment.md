@@ -1,13 +1,13 @@
 ---
-title: Een Linux-VM aanpassen bij de eerste keer opstarten in Azure | Microsoft Docs
-description: Meer informatie over het gebruik van cloud-init en Key Vault voor het aanpassen van Linux VM's als ze de eerste keer worden opgestart in Azure
+title: Zelfstudie - Een virtuele Linux-machine met cloud-init aanpassen in Azure | Microsoft Docs
+description: In deze zelfstudie leert u hoe u cloud-init en Key Vault gebruikt voor het aanpassen van virtuele Linux-machines als ze de eerste keer worden opgestart in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
@@ -16,13 +16,14 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 79d87b5d332597f2c0faf3c585eee49aba3e03bc
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e3c1c0552b379ff99f27053d8f0ca8a76766a016
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>Een virtuele Linux-machine aanpassen bij de eerste keer opstarten
+# <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Zelfstudie - Cloud-init gebruiken voor het aanpassen van een virtuele Linux-machine in Azure bij de eerste keer dat die wordt opgestart
+
 In een vorige zelfstudie hebt u geleerd hoe u een virtuele machine (VM) via SSH kunt verbinden en NGINX handmatig kunt installeren. Als u virtuele machines op een snelle en consistente manier wilt maken, is een vorm van automatisering doorgaans gewenst. Een veelgebruikte manier voor het aanpassen van een virtuele machine bij de eerste keer opstarten is het gebruik van [cloud-init](https://cloudinit.readthedocs.io). In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
@@ -32,12 +33,9 @@ In een vorige zelfstudie hebt u geleerd hoe u een virtuele machine (VM) via SSH 
 > * Key Vault gebruiken voor het veilig opslaan van certificaten
 > * Beveiligde implementaties van NGINX automatiseren met cloud-init
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze zelfstudie Azure CLI 2.0.4 of nieuwer uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).  
-
-
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u Azure CLI 2.0.30 of hoger gebruiken voor deze zelfstudie. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
 
 ## <a name="cloud-init-overview"></a>Overzicht van cloud-init
 [Cloud-init](https://cloudinit.readthedocs.io) is een veelgebruikte benadering voor het aanpassen van een Linux-VM als deze voor de eerste keer wordt opgestart. U kunt cloud-init gebruiken voor het installeren van pakketten en schrijven van bestanden, of om gebruikers en beveiliging te configureren. Als de initialisatie van de cloud-init wordt uitgevoerd tijdens het opstartproces, zijn er geen extra stappen of agents vereist om uw configuratie toe te passen.

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2017
+ms.date: 05/02/2017
 ms.author: jdial
-ms.openlocfilehash: d50333888592d2d3e13c40c07a7e58f8676df075
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 30bed569887ce4b25d0b464e9f14a1491c38c736
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP-adrestypen en toewijzingsmethoden in Azure
 
@@ -53,11 +53,15 @@ Openbare IP-adressen worden gemaakt met een IPv4- of IPv6-adres. Openbare IPv6-a
 
 Openbare IP-adressen worden gemaakt met een van de volgende SKU's:
 
+>[!IMPORTANT]
+> Er moeten overeenkomende SKU's worden gebruikt voor resources van de load balancer en openbare IP-adressen. Het is niet mogelijk om een combinatie van resources uit de Basic-SKU en Standard-SKU te gebruiken. Het is evenmin mogelijk om zelfstandige virtuele machines, virtuele machines in een resource van een beschikbaarheidsset of resources uit schaalset met virtuele machines op beide SKU's tegelijk in te stellen.  In nieuwe ontwerpen is het raadzaam om resources uit de Standard-SKU te gebruiken.  Raadpleeg [Overzicht van load balancer uit Standard-SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie.
+
 #### <a name="basic"></a>Basic
 
 Alle openbare IP-adressen die zijn gemaakt vóór de introductie van SKU's zijn openbare IP-adressen van de basis-SKU. Door de introductie van SKU's kunt u opgeven welke SKU het openbare IP-adres is. Basis-SKU-adressen:
 
 - Worden toegewezen met de statische of dynamische toewijzingsmethode.
+- Zijn standaard geopend.  Netwerkbeveiligingsgroepen worden aanbevolen, maar zijn optioneel voor het beperken van binnenkomend of uitgaand verkeer.
 - Worden toegewezen aan een Azure-resource waaraan een openbaar IP-adres kan worden toegewezen, zoals netwerkinterfaces, VPN-gateways, toepassingsgateways en internetgerichte load balancers.
 - Kunnen worden toegewezen aan een specifieke zone.
 - Zijn niet zone-redundant. Zie [Overzicht van beschikbaarheidszones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie over beschikbaarheidszones.
@@ -67,17 +71,18 @@ Alle openbare IP-adressen die zijn gemaakt vóór de introductie van SKU's zijn 
 Openbare IP-adressen van de standaard-SKU:
 
 - Worden uitsluitend toegewezen met de statische toewijzingsmethode.
-- Worden toegewezen aan netwerkinterfaces of standaard internetgerichte load balancers. Zie [Standaard-SKU's van Azure Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie over SKU's van Azure Load Balancer.
-- Zijn standaard zone-redundant. Kunnen zonegebonden worden gemaakt en gegarandeerd in een bepaalde beschikbaarheidszone. Zie [Overzicht van beschikbaarheidszones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie over beschikbaarheidszones.
+- Zijn standaard veilig en gesloten voor binnenkomend verkeer. U moet toegestaan binnenkomend verkeer met behulp van een [netwerkbeveiligingsgroep](security-overview.md#network-security-groups) expliciet opnemen in een whitelist.
+- Worden toegewezen aan netwerkinterfaces of openbare Standard-load balancers. Zie [Overzicht van load balancer uit Standard-SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie over Standard-load balancers van Azure.
+- Zijn standaard zone-redundant. Kunnen zonegebonden worden gemaakt en gegarandeerd in een bepaalde beschikbaarheidszone. Zie [Overzicht van beschikbaarheidszones in Azure](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) en [Standard-load balancer en beschikbaarheidszones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json) voor meer informatie over beschikbaarheidszones.
  
 > [!NOTE]
-> Als u een openbaar IP-adres van een standaard-SKU toewijst aan een netwerkinterface van een virtuele machine, moet u het bedoelde verkeer expliciet toestaan met een [netwerkbeveiligingsgroep](security-overview.md#network-security-groups). Communicatie met de resource mislukt totdat u een netwerkbeveiligingsgroep maakt en koppelt en het gewenste verkeer expliciet toestaat.
+> Communicatie met een resource uit de Standard-SKU mislukt totdat u een [netwerkbeveiligingsgroep](security-overview.md#network-security-groups) maakt en koppelt en het gewenste binnenkomende verkeer expliciet toestaat.
 
 ### <a name="allocation-method"></a>Toewijzingsmethode
 
-Er zijn twee methoden voor het toewijzen van een IP-adres aan een openbare IP-adresresource: *dynamisch* en *statisch*. De standaardtoewijzingsmethode is *dynamisch*, waarbij het IP-adres **niet** wordt toegewezen op het tijdstip van aanmaak. In plaats daarvan wordt het openbare IP-adres pas toegewezen wanneer u de gekoppelde resource (zoals een virtuele machine of load balancer) start (of maakt). Het IP-adres wordt weer vrijgegeven wanneer u de resource stopt (of verwijdert). Nadat het IP-adres vanaf resource A is vrijgegeven, kan het worden toegewezen aan een andere resource. Als het IP-adres wordt toegewezen aan een andere resource terwijl resource A is gestopt, wordt een ander IP-adres toegewezen als u resource A opnieuw start.
+Openbare IP-adressen uit de Basic- en Standard-SKU ondersteunen de *statische* toewijzingsmethode.  De resource krijgt een IP-adres op het moment dat de resource wordt gemaakt en het IP-adres wordt vrijgegeven wanneer de resource wordt verwijderd.
 
-Als u wilt dat het IP-adres voor de gekoppelde resource hetzelfde blijft, kunt u de toewijzingsmethode expliciet instellen op *statisch*. Een statisch IP-adres wordt onmiddellijk toegewezen. Het adres wordt alleen vrijgegeven wanneer u de resource verwijdert of de toewijzingsmethode wijzigt in *dynamisch*.
+Openbare IP-adressen uit de Basic-SKU ondersteunen ook een *dynamische* toewijzingsmethode, wat de standaard is als er geen toewijzingsmethode is opgegeven.  Als u de *dynamische* toewijzingsmethode selecteert voor een resource met een openbaar IP-adres uit de Basic-SKU, betekent dit dat het IP-adres **niet** wordt toegewezen op het moment van het maken van de resource.  Het openbare IP-adres wordt toegewezen wanneer u het openbare IP-adres koppelt aan een virtuele machine of wanneer u het eerste exemplaar van de virtuele machine in de back-endpool van een Basic-load balancer plaatst.   Het IP-adres wordt weer vrijgegeven wanneer u de resource stopt (of verwijdert).  Nadat het IP-adres vanaf resource A is vrijgegeven, kan het worden toegewezen aan een andere resource. Als het IP-adres wordt toegewezen aan een andere resource terwijl resource A is gestopt, wordt een ander IP-adres toegewezen als u resource A opnieuw start. Als u de toewijzingsmethode van een resource met een openbaar IP-adres uit de Basic-SKU wijzigt van *statisch* in *dynamisch*, wordt het adres vrijgegeven. Als u wilt dat het IP-adres voor de gekoppelde resource hetzelfde blijft, kunt u de toewijzingsmethode expliciet instellen op *statisch*. Een statisch IP-adres wordt onmiddellijk toegewezen.
 
 > [!NOTE]
 > Ook als u de toewijzingsmethode instelt op *statisch*, kunt u het IP-adres dat aan de openbare IP-adresresource wordt toegewezen, echter niet zelf opgeven. Azure wijst het IP-adres toe vanuit een pool van beschikbare IP-adressen op de Azure-locatie waarin de resource is gemaakt.
@@ -95,7 +100,7 @@ Statische openbare IP-adressen worden vaak gebruikt in de volgende scenario's:
 >
 
 ### <a name="dns-hostname-resolution"></a>DNS-hostnaamomzetting
-U kunt voor een openbare IP-resource een DNS-domeinnaamlabel opgeven, zodat *domeinnaamlabel*.*locatie*. cloudapp.azure.com verwijst naar het openbare IP-adres op de door Azure beheerde DNS-servers. Als u bijvoorbeeld een openbare IP-resource maakt met **contoso** als *domeinnaamlabel* op de Azure*-locatie* **VS - west**, wordt de FQDN-naam (Fully Qualified Domain Name) **contoso.westus.cloudapp.azure.com** omgezet in het openbare IP-adres van de resource. U kunt de FDQN gebruiken voor het maken van een aangepaste domein-CNAME-record die verwijst naar het openbare IP-adres in Azure. In plaats van of naast het gebruik van het DNS-naamlabel met het standaardachtervoegsel, kunt u de Azure DNS-service gebruiken om een DNS-naam met een aangepast achtervoegsel te configureren dat wordt omgezet naar het openbare IP-adres. Zie [Azure DNS gebruiken met een openbaar IP-adres van Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) voor meer informatie.
+U kunt voor een openbare IP-resource een DNS-domeinnaamlabel opgeven, zodat *domeinnaamlabel*.*locatie*. cloudapp.azure.com verwijst naar het openbare IP-adres op de door Azure beheerde DNS-servers. Als u bijvoorbeeld een openbare IP-resource maakt met **contoso** als *domeinnaamlabel* op de Azure *-locatie* **VS - west**, wordt de FQDN-naam (Fully Qualified Domain Name) **contoso.westus.cloudapp.azure.com** omgezet in het openbare IP-adres van de resource. U kunt de FDQN gebruiken voor het maken van een aangepaste domein-CNAME-record die verwijst naar het openbare IP-adres in Azure. In plaats van of naast het gebruik van het DNS-naamlabel met het standaardachtervoegsel, kunt u de Azure DNS-service gebruiken om een DNS-naam met een aangepast achtervoegsel te configureren dat wordt omgezet naar het openbare IP-adres. Zie [Azure DNS gebruiken met een openbaar IP-adres van Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) voor meer informatie.
 
 > [!IMPORTANT]
 > Elk domeinnaamlabel dat wordt gemaakt, moet uniek zijn binnen de Azure-locatie.  
@@ -111,11 +116,11 @@ U kunt een openbaar IP-adres dat met een willekeurige [SKU](#SKU) is gemaakt kop
 
 ### <a name="vpn-gateways"></a>VPN-gateways
 
-Een [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) koppelt een virtueel Azure-netwerk aan andere virtuele Azure-netwerken of aan een on-premises netwerk. Een openbaar IP-adres wordt toegewezen aan de VPN-gateway om communicatie met het externe netwerk mogelijk te maken. U kunt alleen een *dynamisch* openbaar IP-adres toewijzen aan een VPN-gateway.
+Een [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) koppelt een virtueel Azure-netwerk aan andere virtuele Azure-netwerken of aan een on-premises netwerk. Een openbaar IP-adres wordt toegewezen aan de VPN-gateway om communicatie met het externe netwerk mogelijk te maken. U kunt alleen een *dynamisch* openbaar IP-adres uit de Basic-SKU toewijzen aan een VPN-gateway.
 
 ### <a name="application-gateways"></a>Toepassingsgateways
 
-U kunt een openbaar IP-adres koppelen aan een Azure-[toepassingsgateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) door het toe te wijzen aan de **front-end**-configuratie van de gateway. Dit openbare IP-adres doet dienst als een VIP met taakverdeling. U kunt alleen een *dynamisch* openbaar IP-adres toewijzen aan de front-end-configuratie van een toepassingsgateway.
+U kunt een openbaar IP-adres koppelen aan een Azure-[toepassingsgateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) door het toe te wijzen aan de **front-end**-configuratie van de gateway. Dit openbare IP-adres doet dienst als een VIP met taakverdeling. U kunt alleen een *dynamisch* openbaar IP-adres uit de Basic-SKU toewijzen aan de front-end-configuratie van een toepassingsgateway.
 
 ### <a name="at-a-glance"></a>In een oogopslag
 De volgende tabel toont de specifieke eigenschap waarmee een openbaar IP-adres kan worden gekoppeld aan een resource op het hoogste niveau, evenals de mogelijke toewijzingsmethoden (dynamisch of statisch) die kunnen worden gebruikt.

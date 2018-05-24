@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 02/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 656ba02401d9ba610d0ebe33a683164af0b871f0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 3e82983ff171e638415d6e7cafe0cb034dd978af
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>On-premises machines migreren naar Azure
 
@@ -32,7 +32,7 @@ Deze zelfstudie laat u zien hoe u on-premises VM's en fysieke servers naar Azure
 Dit is de derde zelfstudie in een reeks. In deze zelfstudie wordt ervan uitgegaan dat u de taken in de vorige zelfstudies al hebt voltooid:
 
 1. [Azure voorbereiden](tutorial-prepare-azure.md)
-2. On-premises [VMware](vmware-azure-tutorial-prepare-on-premises.md) of Hyper-V-servers voorbereiden.
+2. Bereid de on-premises [VMware](vmware-azure-tutorial-prepare-on-premises.md)- of [Hyper-V] (hyper-v-prepare-on-premises-tutorial.md)-servers voor.
 
 Voordat u begint, is het handig om de architectuur voor noodherstel van [VMware](vmware-azure-architecture.md) of [Hyper-V](hyper-v-azure-architecture.md) te bekijken.
 

@@ -1,6 +1,6 @@
 ---
-title: Windows virtuele Machines en virtuele netwerken in Azure | Microsoft Docs
-description: Zelfstudie - virtuele Azure-netwerken en virtuele Machines van Windows met Azure PowerShell beheren
+title: Zelfstudie - Virtuele Azure-netwerken voor virtuele Windows-machines maken en beheren | Microsoft Docs
+description: In deze zelfstudie leert u hoe u Azure PowerShell gebruikt voor het maken en beheren van virtuele Azure-netwerken voor virtuele Windows-machines
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -10,19 +10,19 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: feaef679a3090491b64c69ac69bf22153c281d31
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: MT
+ms.openlocfilehash: a13163949a52503f42642c109a4fd4c1dedd837f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="manage-azure-virtual-networks-and-windows-virtual-machines-with-azure-powershell"></a>Virtuele Azure-netwerken en virtuele Machines van Windows met Azure PowerShell beheren
+# <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>Zelfstudie: Virtuele Azure-netwerken voor virtuele Windows-machines maken en beheren met Azure PowerShell
 
 Virtuele Azure-machines maken gebruik van Azure-netwerken voor interne en externe communicatie. In deze zelfstudie wordt uitgelegd hoe u twee virtuele machines implementeert en Azure-netwerken configureert voor deze virtuele machines. In de voorbeelden in deze zelfstudie wordt ervan uitgegaan dat de virtuele machines een webtoepassing met een databaseback-end hosten, maar er wordt geen toepassing geïmplementeerd in de zelfstudie. In deze zelfstudie leert u het volgende:
 
@@ -33,9 +33,9 @@ Virtuele Azure-machines maken gebruik van Azure-netwerken voor interne en extern
 > * Netwerkverkeer beveiligen
 > * Een back-end virtuele machine maken
 
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-
-Voor deze zelfstudie is module versie 4.3.1 of hoger van AzureRM.Compute vereist. Voer `Get-Module -ListAvailable AzureRM.Compute` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
+Als u PowerShell lokaal wilt installeren en gebruiken, hebt u voor deze zelfstudie moduleversie 5.7.0 of hoger van Azure PowerShell nodig. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
 
 ## <a name="vm-networking-overview"></a>Overzicht van VM-netwerken
 
@@ -53,14 +53,14 @@ Tijdens het volgen van deze zelfstudie worden de volgende resources gemaakt:
 - *myBackendNSG*: de netwerkbeveiligingsgroep waardoor de communicatie tussen de *myFrontendVM* en *myBackendVM* wordt bepaald.
 - *myBackendSubnet*: het subnet dat is gekoppeld aan *myBackendNSG* en door de back-endresources wordt gebruikt.
 - *myBackendNic*: de netwerkinterface die wordt gebruikt door *myBackendVM* om te communiceren met *myFrontendVM*.
-- *myBackendVM* -de virtuele machine die poort 1433 gebruikt om te communiceren met *myFrontendVM*.
+- *myBackendVM*: de virtuele machine die gebruikmaakt van poort 1433 om te communiceren met *myFrontendVM*.
 
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Een virtueel netwerk en een subnet maken
 
 Voor deze zelfstudie wordt één virtueel netwerk met twee subnetten gemaakt. Een front-endsubnet voor het hosten van een webtoepassing en een back-endsubnet voor het hosten van een databaseserver.
 
-Voordat u een virtueel netwerk maken kunt, maakt u een resource-groep met [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Het volgende voorbeeld wordt een resourcegroep met de naam *myRGNetwork* in de *EastUS* locatie:
+Voordat u een virtueel netwerk kunt maken, moet u eerst een resourcegroep maken met [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). In het volgende voorbeeld wordt een resourcegroep met de naam *myRGNetwork* gemaakt op de locatie *EastUS*:
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -ResourceGroupName myRGNetwork -Location EastUS
@@ -68,7 +68,7 @@ New-AzureRmResourceGroup -ResourceGroupName myRGNetwork -Location EastUS
 
 ### <a name="create-subnet-configurations"></a>Subnetconfiguraties maken
 
-Maken van de subnetconfiguratie van een met de naam *myFrontendSubnet* met [nieuw AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig):
+Maak een subnetconfiguratie genaamd *myFrontendSubnet* met [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig):
 
 ```azurepowershell-interactive
 $frontendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
@@ -76,7 +76,7 @@ $frontendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
   -AddressPrefix 10.0.0.0/24
 ```
 
-Maken van de subnetconfiguratie van een met de naam *myBackendSubnet*:
+En maak een subnetconfiguratie genaamd *myBackendSubnet*:
 
 ```azurepowershell-interactive
 $backendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
@@ -86,7 +86,7 @@ $backendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
 
 ### <a name="create-virtual-network"></a>Virtueel netwerk maken
 
-Maak een VNET met de naam *myVNet* met *myFrontendSubnet* en *myBackendSubnet* met [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork):
+Maak een VNET genaamd *myVNet* met *myFrontendSubnet* en *myBackendSubnet* met [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork):
 
 ```azurepowershell-interactive
 $vnet = New-AzureRmVirtualNetwork `
@@ -105,7 +105,7 @@ Met een openbaar IP-adres kunnen Azure-resources toegankelijk zijn via internet.
 
 De toewijzingsmethode kan worden ingesteld op statisch. Dit zorgt ervoor dat het IP-adres aan een virtuele machine toegewezen blijft, zelfs bij een status waarin de toewijzing ongedaan is gemaakt. Wanneer u een statisch toegewezen IP-adres gebruikt, kan het IP-adres zelf niet worden opgegeven. Dit wordt toegewezen uit een groep met beschikbare adressen.
 
-Maken van een openbaar IP-adres met de naam *myPublicIPAddress* met [nieuw AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress):
+Maak een openbaar IP-adres met de naam *myPublicIPAddress* met behulp van [New-AzureRmPublicIpAddres](/powershell/module/azurerm.network/new-azurermpublicipaddress):
 
 ```azurepowershell-interactive
 $pip = New-AzureRmPublicIpAddress `
@@ -115,11 +115,11 @@ $pip = New-AzureRmPublicIpAddress `
   -Name myPublicIPAddress
 ```
 
-U kunt de parameter - AllocationMethod wijzigen `Static` statisch openbaar IP-adres toewijzen.
+U kunt de parameter - AllocationMethod wijzigen in `Static` om een statisch openbaar IP-adres toe te wijzen.
 
 ## <a name="create-a-front-end-vm"></a>Een front-end virtuele machine maken
 
-Voor een virtuele machine om te communiceren in een virtueel netwerk, moet de virtuele netwerkinterface (NIC). Maak een NIC met [nieuw AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface):
+Voor communicatie in een virtueel netwerk heeft een VM een virtuele netwerkinterface (NIC) nodig. Maak een NIC met [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface):
 
 ```azurepowershell-interactive
 $frontendNic = New-AzureRmNetworkInterface `
@@ -130,13 +130,13 @@ $frontendNic = New-AzureRmNetworkInterface `
   -PublicIpAddressId $pip.Id
 ```
 
-Stel de gebruikersnaam en wachtwoord nodig voor het beheerdersaccount op de virtuele machine met behulp [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential). U gebruikt deze referenties verbinding maken met de virtuele machine in extra stappen uitvoeren:
+Stel met [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) de gebruikersnaam en het wachtwoord in die nodig zijn voor het beheerdersaccount op de VM. U gebruikt deze referenties om verbinding te maken met de VM met extra stappen:
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Maken van de virtuele machines met [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
+Maak de VM's met [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
 
 ```azurepowershell-interactive
 New-AzureRmVM `
@@ -166,7 +166,7 @@ Alle NSG's bevatten een set met standaardregels. De standaardregels kunnen niet 
 
 ### <a name="create-network-security-groups"></a>Netwerkbeveiligingsgroepen maken
 
-Maken van een inkomende regel met de naam *myFrontendNSGRule* waarmee inkomend webverkeer op *myFrontendVM* met [nieuw AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig):
+Maak een regel voor inkomend verkeer genaamd *myFrontendNSGRule* om inkomend webverkeer op *myFrontendVM* toe te staan met [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig):
 
 ```azurepowershell-interactive
 $nsgFrontendRule = New-AzureRmNetworkSecurityRuleConfig `
@@ -181,7 +181,7 @@ $nsgFrontendRule = New-AzureRmNetworkSecurityRuleConfig `
   -Access Allow
 ```
 
-U kunt interne verkeer beperkt tot *myBackendVM* alleen *myFrontendVM* door het maken van een NSG voor het subnet voor back-end. Het volgende voorbeeld wordt een NSG regel voor licentiecontrole *myBackendNSGRule*:
+U kunt het interne verkeer beperken tot *myBackendVM* vanaf uitsluitend *myFrontendVM* door een NSG te maken voor de back-endsubnet. In het volgende voorbeeld wordt een NSG-regel met de naam *myBackendNSGRule* gemaakt:
 
 ```azurepowershell-interactive
 $nsgBackendRule = New-AzureRmNetworkSecurityRuleConfig `
@@ -196,7 +196,7 @@ $nsgBackendRule = New-AzureRmNetworkSecurityRuleConfig `
   -Access Allow
 ```
 
-Toevoegen van een netwerkbeveiligingsgroep met de naam *myFrontendNSG* met [nieuw AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup):
+Voeg een netwerkbeveiligingsgroep toe genaamd *myFrontendNSG* met [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup):
 
 ```azurepowershell-interactive
 $nsgFrontend = New-AzureRmNetworkSecurityGroup `
@@ -206,7 +206,7 @@ $nsgFrontend = New-AzureRmNetworkSecurityGroup `
   -SecurityRules $nsgFrontendRule
 ```
 
-Voeg nu een netwerkbeveiligingsgroep met de naam *myBackendNSG* met behulp van New-AzureRmNetworkSecurityGroup:
+Voeg nu een netwerkbeveiligingsgroep toe genaamd *myBackendNSG* met New-AzureRmNetworkSecurityGroup:
 
 ```azurepowershell-interactive
 $nsgBackend = New-AzureRmNetworkSecurityGroup `
@@ -216,7 +216,7 @@ $nsgBackend = New-AzureRmNetworkSecurityGroup `
   -SecurityRules $nsgBackendRule
 ```
 
-De netwerkbeveiligingsgroepen toevoegen aan de subnetten:
+Voeg de netwerkbeveiligingsgroepen toe aan de subnetten:
 
 ```azurepowershell-interactive
 $vnet = Get-AzureRmVirtualNetwork `
@@ -239,7 +239,7 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 ## <a name="create-a-back-end-vm"></a>Een back-end virtuele machine maken
 
-De eenvoudigste manier om de back-end virtuele machine maken voor deze zelfstudie is met een installatiekopie van SQL Server. Deze zelfstudie alleen de virtuele machine maakt met de database-server, maar geen biedt informatie over het openen van de database.
+De eenvoudigste manier om de back-end-VM te maken voor deze zelfstudie is met een installatiekopie van SQL Server. In deze zelfstudie wordt alleen de VM gemaakt met de databaseserver, maar er wordt geen informatie gegeven over het krijgen van toegang tot de database.
 
 Maak *myBackendNic*:
 
@@ -251,7 +251,7 @@ $backendNic = New-AzureRmNetworkInterface `
   -SubnetId $vnet.Subnets[1].Id
 ```
 
-De gebruikersnaam en wachtwoord nodig voor het beheerdersaccount op de virtuele machine met Get-Credential instellen:
+Stel met Get-Credential de gebruikersnaam en het wachtwoord in die nodig zijn voor het beheerdersaccount op de VM:
 
 ```azurepowershell-interactive
 $cred = Get-Credential
@@ -266,11 +266,11 @@ New-AzureRmVM `
    -ImageName "MicrosoftSQLServer:SQL2016SP1-WS2016:Enterprise:latest" `
    -ResourceGroupName myRGNetwork `
    -Location "EastUS" `
-   -SubnetName myFrontendSubnet `
+   -SubnetName MyBackendSubnet `
    -VirtualNetworkName myVNet
 ```
 
-De afbeelding die wordt gebruikt SQL Server is geïnstalleerd, maar niet in deze zelfstudie wordt gebruikt. Het is opgenomen om weer te geven hoe u een virtuele machine voor het afhandelen van webverkeer en een virtuele machine voor het afhandelen van database-beheer kunt configureren.
+Op de installatiekopie die wordt gebruikt is SQL Server geïnstalleerd, maar dit wordt niet in deze zelfstudie gebruikt. Het is opgenomen om u te laten zien hoe u een VM kunt configureren voor het verwerken van webverkeer en een VM voor het afhandelen van databasebeheer.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -283,7 +283,7 @@ In deze zelfstudie hebt u Azure-netwerken met betrekking tot virtuele machines g
 > * Netwerkverkeer beveiligen
 > * Een back-end virtuele machine maken
 
-Ga naar de volgende zelfstudie voor meer informatie over het controleren van het beveiligen van gegevens op virtuele machines met behulp van Azure backup.
+Ga naar de volgende zelfstudie voor meer informatie over het bewaken en beveiligen van gegevens op virtuele machines met behulp van Azure Backup.
 
 > [!div class="nextstepaction"]
-> [Back-up van Windows virtuele machines in Azure](./tutorial-backup-vms.md)
+> [Back-ups maken van virtuele Windows-machines in Azure](./tutorial-backup-vms.md)

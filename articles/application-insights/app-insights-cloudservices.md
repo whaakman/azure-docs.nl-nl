@@ -2,7 +2,7 @@
 title: Application Insights voor Azure Cloud Services | Microsoft Docs
 description: Controleer uw web- en werkrollen op een effectieve manier met Application Insights
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 keywords: WAD2AI, Azure Diagnostics
 author: mrbullwinkle
 manager: carmonm
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.workload: tbd
 ms.date: 05/05/2017
 ms.author: mbullwin
-ms.openlocfilehash: dd35ef2239469be6ecf478f44a7e97389e5c5dd3
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: f36a9e21478d2629d705d90179a6db5175c78299
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights voor Azure Cloud Services
 [Microsoft Azure Cloud-service-apps](https://azure.microsoft.com/services/cloud-services/) kunnen met [Application Insights][start] worden gecontroleerd op beschikbaarheid, prestaties, fouten en gebruik door gegevens uit de Application Insights-SDK's te combineren met [Azure Diagnotics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)-gegevens uit uw cloudservices. Op basis van de feedback die u krijgt over de prestaties en de effectiviteit van uw app tijdens het gebruik, kunt u weldoordachte beslissingen nemen over de richting van het ontwerp in elke fase van de ontwikkelingslevenscyclus.
@@ -223,7 +223,7 @@ Als u een totaalbeeld van uw systeem wilt krijgen, kunt u de belangrijkste contr
 
 Als u in uw systeem andere Azure-services gebruikt, zoals Stream Analytics, kunt u ook de controlegrafieken daarvan weergeven. 
 
-Als u een mobiele app voor clients hebt, voegt u code in om aangepaste gebeurtenissen te verzenden bij belangrijke gebruikersbewerkingen en maakt u een [HockeyApp Bridge](app-insights-hockeyapp-bridge-app.md). Maak query’s in [Analytics](app-insights-analytics.md) om de aantallen gebeurtenissen weer te geven en aan het dashboard vast te maken.
+Als u een mobiele client-app hebt, gebruikt u [App Center](app-insights-mobile-center-quickstart.md). Maak query’s in [Analytics](app-insights-analytics.md) om de aantallen gebeurtenissen weer te geven en aan het dashboard vast te maken.
 
 ## <a name="example"></a>Voorbeeld
 In [het voorbeeld](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) wordt een service gecontroleerd die een webrol en twee werkrollen heeft.

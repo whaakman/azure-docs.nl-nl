@@ -14,36 +14,71 @@ metadata:
   ms.topic: landing-page
   ms.date: 04-21-2018
   ms.author: juliako
-  ms.openlocfilehash: 6bee2f17db6d1f79dd2ba84a278ff6a82b871a9e
-  ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+  ms.openlocfilehash: 781cd8eb2796062b3cebb6b848ee5f1fe204f460
+  ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
   ms.translationtype: HT
   ms.contentlocale: nl-NL
-  ms.lasthandoff: 05/07/2018
+  ms.lasthandoff: 05/20/2018
 abstract:
-  description: Azure Media Services is een cloudgebaseerd platform waarmee u oplossingen bouwt voor het creëren van videostreaming van broadcast-kwaliteit, het verbeteren van toegankelijkheid en distributie, het analyseren van inhoud en nog veel meer.
+  description: Azure Media Services is een cloudgebaseerd platform waarmee u oplossingen bouwt die videostreaming van broadcast-kwaliteit mogelijk maken, de toegankelijkheid en distributie verbeteren, inhoud analyseren en nog veel meer.
 sections:
-- title: 
-  items:
+- items:
   - type: list
     style: cards
-    className: cardsA
+    className: cardsM
+    columns: 2
     items:
-    - html: <a href="/azure/media-services/latest/"> <br><strong>Azure Media Services v3 (preview-versie)</strong></a> <p>Informatie over streamen op aanvraag, live uitzenden en het analyseren van uw video's met Media Services v3.</p>
-    - html: <a href="/azure/media-services/previous/"> <br><strong>Azure Media Services v2 (GA)</strong></a> <p>Informatie over streamen op aanvraag, live uitzenden en het analyseren van uw video's met Media Services v2.</p>
+    - href: /azure/media-services/latest/
+      html: <p>Leer hoe u uw video's codeert, op aanvraag streamt, live uitzendt en analyseert met Media Services v3.</p>
+      image:
+        src: media/index/media-services-v3.png
+      title: Azure Media Services v3 (preview-versie)
+    - href: /azure/media-services/previous/
+      html: <p>Leer hoe u uw video's codeert, op aanvraag streamt en live uitzendt met Media Services v2.</p>
+      image:
+        src: media/index/media-services-v2.png
+      title: Azure Media Services v2 (GA)
 - title: QuickStarts van vijf minuten
   items:
   - type: paragraph
-    text: "Informatie over hoe u een Media Services-account maakt, uw video's codeert en Azure Media Player gebruikt om video's af te spelen:"
-  - type: list
-    style: ordered
-    items:
-    - html: Bestanden streamen&#58; <a href="/azure/media-services/latest/stream-files-dotnet-quickstart">v3</a> | <a href="/azure/media-services/previous/media-services-portal-vod-get-started">v2</a>
+    text: 'Leer hoe u live en op aanvraag streamt met Media Services:'
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/stream.png
+      title: Live streamen
+    - image:
+        src: media/index/stream.png
+      title: Files streamen
+    rows:
+    - title: Media Services v3
+      values:
+      - href: https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live
+      - href: /azure/media-services/latest/stream-files-dotnet-quickstart
+    - title: Media Services v2
+      values:
+      - href: /azure/media-services/previous/media-services-portal-live-passthrough-get-started
+      - href: /azure/media-services/previous/media-services-portal-vod-get-started
 - title: Zelfstudies met stapsgewijze instructies
   items:
   - type: paragraph
-    text: "Informatie over streamen op aanvraag en het analyseren van uw video's met Media Services:"
-  - type: list
-    style: ordered
-    items:
-    - html: Video's uploaden, coderen, streamen&#58; <a href="/azure/media-services/latest/stream-files-tutorial-with-api">v3</a> | <a href="/azure/media-services/previous/media-services-dotnet-get-started">v2</a>
-    - html: Video's analyseren&#58; <a href="/azure/media-services/latest/analyze-videos-tutorial-with-api">v3</a> | <a href="/azure/media-services/previous/media-services-analytics-overview">v2</a>
+    text: "Leer hoe u bestanden streamt en uw video's analyseert met Media Services:"
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/encode.png
+      title: Coderen en streamen
+    - image:
+        src: media/index/analyze.png
+      title: Video's analyseren
+    rows:
+    - title: Media Services v3
+      values:
+      - href: /azure/media-services/latest/stream-files-tutorial-with-api
+      - href: /azure/media-services/latest/analyze-videos-tutorial-with-api
+    - title: Media Services v2
+      values:
+      - href: /azure/media-services/previous/media-services-dotnet-get-started
+      - href: 

@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5b94092d1fbcb76210f132d4b08d131533e25397
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: be19130f7a2f45049cd7e08bb961ac6cb5aa14ff
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referentie voor auditactiviteiten van Azure AD
 
@@ -547,7 +547,7 @@ In dit artikel worden de auditactiviteiten vermeld die in uw auditlogboeken kunn
 
 
 
-## <a name="self-service-group-management"></a>Self-service voor groepsbeheer
+## <a name="self-service-group-management"></a>Groepsbeheer via selfservice
 
 |Controlecategorie|Activiteit|
 |---|---|
@@ -562,7 +562,7 @@ In dit artikel worden de auditactiviteiten vermeld die in uw auditlogboeken kunn
 |Groepsbeheer|Beheerder genereert een tijdelijk wachtwoord|
 
 
-## <a name="self-service-password-management"></a>Selfservice voor wachtwoordbeheer
+## <a name="self-service-password-management"></a>Wachtwoordbeheer via selfservice
 
 |Controlecategorie|Activiteit|
 |---|---|

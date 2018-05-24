@@ -14,3 +14,4 @@
 ### [Aanmelden via uw telefoon](microsoft-authenticator-app-phone-signin-faq.md)
 ### [Back-up en herstel van accountreferenties](microsoft-authenticator-app-backup-and-recovery.md)
 ### [Veelgestelde vragen](microsoft-authenticator-app-faq.md)
+### [Updates in de aanmeldingservaring](sign-in-experience-updates.md)

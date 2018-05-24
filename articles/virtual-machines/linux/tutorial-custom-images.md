@@ -1,6 +1,6 @@
 ---
-title: Aangepaste installatiekopieën voor virtuele machines maken met de Azure CLI | Microsoft Docs
-description: 'Zelfstudie: aangepaste installatiekopieën voor virtuele machines maken met de Azure CLI.'
+title: 'Zelfstudie: Aangepaste installatiekopieën voor virtuele machines maken met de Azure CLI | Microsoft Docs'
+description: In deze zelfstudie leert u hoe u Azure CLI 2.0 gebruikt om een aangepaste installatiekopie van een virtuele machine te maken in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 911bb639402fb4577eb5bc3ff5b3096c66806378
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 766e247775e61d7427b658b66948aa6699a7241a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="create-a-custom-image-of-an-azure-vm-using-the-cli"></a>Een aangepaste installatiekopie van een virtuele Azure- machine maken met de CLI
+# <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli-20"></a>Zelfstudie: Een aangepaste installatiekopie van een Azure-VM maken met Azure CLI 2.0
 
 Aangepaste installatiekopieën zijn soortgelijk aan Marketplace-installatiekopieën, maar u kunt deze zelf maken. Aangepaste installatiekopieën kunnen worden gebruikt voor het opstarten van configuraties, zoals het vooraf laden van toepassingen, toepassingsconfiguraties en andere besturingssysteemconfiguraties. In deze zelfstudie maakt u uw eigen aangepaste installatiekopie van een virtuele Azure-machine. In deze zelfstudie leert u procedures om het volgende te doen:
 
@@ -33,10 +33,9 @@ Aangepaste installatiekopieën zijn soortgelijk aan Marketplace-installatiekopie
 > * Alle installatiekopieën in uw abonnement weergeven
 > * Een aangepaste installatiekopie verwijderen
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze zelfstudie Azure CLI 2.0.4 of nieuwer uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u Azure CLI 2.0.30 of hoger gebruiken voor deze zelfstudie. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -52,7 +51,7 @@ Voor het maken van een installatiekopie van een virtuele machine moet u de virtu
 
 Met het ongedaan maken van de inrichting wordt de virtuele machine gegeneraliseerd omdat machinespecifieke informatie wordt verwijderd. Dankzij deze generalisatie kunnen meerdere virtuele machines worden geïmplementeerd op basis van één installatiekopie. Tijdens het ongedaan maken van de inrichting wordt de naam van de host opnieuw ingesteld op *localhost.localdomain*. SSH-hostsleutels, naamserverconfiguraties hoofdwachtwoord en in de cache geplaatste DHCP-leases worden ook verwijderd.
 
-Voor het ongedaan maken van de inrichting van de virtuele machine gebruikt u de Azure VM-agent (waagent). De Azure VM-agent is geïnstalleerd op de virtuele machine en beheert de inrichting en interactie met de Azure-infrastructuurcontroller. Zie de [Gebruikershandleiding voor Azure Linux Agent](agent-user-guide.md) voor meer informatie.
+Voor het ongedaan maken van de inrichting van de virtuele machine gebruikt u de Azure VM-agent (waagent). De Azure VM-agent is geïnstalleerd op de virtuele machine en beheert de inrichting en interactie met de Azure-infrastructuurcontroller. Zie de [Gebruikershandleiding voor Azure Linux Agent](../extensions/agent-linux.md) voor meer informatie.
 
 Maak verbinding met uw virtuele machine via SSH en voer de opdracht voor het ongedaan maken van de inrichting van de virtuele machine uit. Met het argument `+user` worden de laatste ingerichte gebruikersaccount en alle bijbehorende gegevens ook verwijderd. Vervang het IP-voorbeeldadres door het openbare IP-adres van de virtuele machine.
 
