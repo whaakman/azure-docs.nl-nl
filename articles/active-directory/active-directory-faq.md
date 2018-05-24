@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: e12487c519a927b18574310b7af04a1811befd38
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 285961279a35d2770f05eb66b961f64e6781d9df
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34336548"
 ---
 # <a name="azure-active-directory-faq"></a>Veelgestelde vragen over Azure Active Directory
 Azure Active Directory (Azure AD) is een uitgebreide IDaaS-oplossing (Identity as a Service) waarin alle aspecten van identiteit, toegangsbeheer en beveiliging zijn opgenomen.
@@ -175,7 +176,7 @@ Zie voor meer informatie:
 * Directe aanmelding bij federatieve apps
 * Dieptekoppelingen naar federatieve apps, op basis van wachtwoorden, of bestaande apps
 
-Zie [Deploying Azure AD integrated applications to users)](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) (Geïntegreerde Azure AD-toepassingen implementeren voor gebruikers) voor meer informatie.
+Zie [Deploying Azure AD integrated applications to users)](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users) (Geïntegreerde Azure AD-toepassingen implementeren voor gebruikers) voor meer informatie.
 
 - - -
 **V: Op welke manieren kunnen met behulp van Azure AD verificatie en eenmalige aanmelding worden ingesteld voor toepassingen?**
@@ -186,7 +187,7 @@ Zie voor meer informatie:
 
 * [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md) (Verificatiescenario's voor Azure AD)
 * [Verificatie- en autorisatieprotocollen](https://msdn.microsoft.com/library/azure/dn151124.aspx)
-* [How does single sign-on with Azure Active Directory work?](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work) (Hoe werkt eenmalige aanmelding met Azure Active Directory?)
+* [How does single sign-on with Azure Active Directory work?](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work) (Hoe werkt eenmalige aanmelding met Azure Active Directory?)
 
 - - -
 **V: Kan ik toepassingen toevoegen die ik on-premises uitvoer?**

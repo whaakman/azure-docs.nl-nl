@@ -10,11 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 4/27/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 23e3fdc168b2337b142f3cba554073bad1f5eb4a
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: c50a97add735138c295aeb7bf5759f7d5ec54600
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34355981"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Zelfstudie: Een toepassingsgateway maken met een omleiding op basis van een URL-pad met behulp van Azure CLI
 
@@ -23,7 +24,7 @@ U kunt Azure CLI gebruiken om [op een URL-pad gebaseerde routeringsregels](appli
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Netwerk instellen
+> * Het netwerk instellen
 > * Een toepassingsgateway maken
 > * Listeners en routeringsregels toevoegen
 > * Schaalsets voor virtuele machines voor back-endpools maken
@@ -42,7 +43,7 @@ Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor 
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Maak een resourcegroep maken met [az group create](/cli/azure/group#create).
+Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Maak een resourcegroep met de opdracht [az group create](/cli/azure/group#create).
 
 In het volgende voorbeeld wordt de resourcegroep *myResourceGroupAG* gemaakt op de locatie *eastus*.
 
@@ -52,7 +53,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Netwerkbronnen maken 
 
-Maak het virtuele netwerk *myVNet* en de subset *myAGSubnet* met [az network vnet create](/cli/azure/network/vnet#az_net). Vervolgens kunt u het subnet *myBackendSubnet*, dat voor de back-endservers vereist is, toevoegen met [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Maak het openbare IP-adres*myAGPublicIPAddress* met [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create).
+Maak het virtuele netwerk *myVNet* en het subnet *myAGSubnet* met [az network vnet create](/cli/azure/network/vnet#az_net). Vervolgens kunt u het subnet *myBackendSubnet*, dat voor de back-endservers vereist is, toevoegen met [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Maak het openbare IP-adres*myAGPublicIPAddress* met [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -97,9 +98,9 @@ az network application-gateway create \
  Het kan enkele minuten duren voordat de toepassingsgateway is gemaakt. Nadat de toepassingsgateway is gemaakt, ziet u de volgende nieuwe functies:
 
 - *appGatewayBackendPool*: een toepassingsgateway moet ten minste één back-endadresgroep hebben.
-- *appGatewayBackendHttpSettings*: hiermee wordt opgegeven dat poort 80 en een HTTP-protocol voor de communicatie worden gebruikt.
+- *appGatewayBackendHttpSettings*: hiermee wordt aangegeven dat voor de communicatie poort 80 en een HTTP-protocol worden gebruikt.
 - *appGatewayHttpListener*: de standaard-listener die aan *appGatewayBackendPool* is gekoppeld.
-- *appGatewayFrontendIP* : hiermee wordt *myAGPublicIPAddress* toegewezen aan *appGatewayHttpListener*.
+- *appGatewayFrontendIP*: hiermee wordt *myAGPublicIPAddress* aan *appGatewayHttpListener* toegewezen.
 - *rule1*: de standaardrouteringsregel die aan *appGatewayHttpListener* is gekoppeld.
 
 
@@ -232,7 +233,7 @@ az network application-gateway rule create \
 
 ## <a name="create-virtual-machine-scale-sets"></a>Schaalsets voor virtuele machines maken
 
-In dit voorbeeld maakt u drie schaalsets voor virtuele machines die ondersteuning bieden voor de drie back-end-pools die u hebt gemaakt. De schaalsets die u maakt, hebben de namen *myvmss1*, *myvmss2* en *myvmss3*. Elke schaalset bevat twee exemplaren van virtuele machines waarop u NGINX installeert.
+In dit voorbeeld maakt u drie virtuele-machineschaalsets die ondersteuning bieden voor de drie back-endpools die u hebt gemaakt. De schaalsets die u maakt, hebben de namen *myvmss1*, *myvmss2* en *myvmss3*. Elke schaalset bevat twee exemplaren van virtuele machines waarop u NGINX installeert.
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -275,14 +276,14 @@ for i in `seq 1 3`; do
     --name CustomScript \
     --resource-group myResourceGroupAG \
     --vmss-name myvmss$i \
-    --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
+    --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
 
 done
 ```
 
 ## <a name="test-the-application-gateway"></a>De toepassingsgateway testen
 
-Gebruik [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) om het openbare IP-adres van de toepassingsgateway op te halen. Kopieer het openbare IP-adres en plak het in de adresbalk van de browser. Bijvoorbeeld *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm*, *http://40.121.222.19:8080/video/test.htm* of *http://40.121.222.19:8081/images/test.htm*.
+Gebruik [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) om het openbare IP-adres van de toepassingsgateway op te halen. Kopieer het openbare IP-adres en plak het in de adresbalk van de browser. Zoals *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm*, *http://40.121.222.19:8080/video/test.htm* of *http://40.121.222.19:8081/images/test.htm*.
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -302,7 +303,7 @@ Wijzig de URL in http://&lt;ip-address&gt;: 8080/video/test.html, waarbij u &lt;
 
 ![Video-URL testen in de toepassingsgateway](./media/tutorial-url-redirect-cli/application-gateway-nginx-video.png)
 
-Wijzig nu de URL in http://&lt;ip-address&gt;:8081/images/test.htm, waarbij u &lt;ip-address&gt; vervangt door uw eigen IP-adres. U ziet dat het verkeer terug wordt omgeleid naar de back-endpool met afbeeldingen op http://&lt;ip-address&gt;:8080/images.
+Wijzig nu de URL in http://&lt;IP-adres&gt;:8081/images/test.htm, waarbij u &lt;IP-adres&gt; vervangt door uw eigen IP-adres. U ziet dat het verkeer terug wordt omgeleid naar de back-endpool met afbeeldingen op http://&lt;IP-adres&gt;:8080/images.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
@@ -316,7 +317,7 @@ az group delete --name myResourceGroupAG --location eastus
 In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
-> * Netwerk instellen
+> * Het netwerk instellen
 > * Een toepassingsgateway maken
 > * Listeners en routeringsregels toevoegen
 > * Schaalsets voor virtuele machines voor back-endpools maken

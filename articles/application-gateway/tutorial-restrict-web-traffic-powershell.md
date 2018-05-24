@@ -11,11 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 3/22/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 2e0179de980d130dcbbb2bacac244d5dc61a5e0e
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: a3bd3e772c6c80bb86af7f6aac6a578e857a3f2d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34356270"
 ---
 # <a name="restrict-web-traffic-with-a-web-application-firewall-using-azure-powershell"></a>Webverkeer beperken met een firewall voor webtoepassingen met Azure PowerShell
 
@@ -80,7 +81,7 @@ In deze sectie maakt u resources die de toepassingsgateway ondersteunen. Ten slo
 - *Standaardpool*: alle toepassingsgateways moeten ten minste één back-endpool met servers hebben.
 - *Standaard-listener en regel*: de standaard-listener luistert naar verkeer op de poort die is toegewezen en de standaardregel verzendt verkeer naar de standaardpool.
 
-### <a name="create-the-ip-configurations-and-frontend-port"></a>De IP-configuraties en de front-endpoort maken
+### <a name="create-the-ip-configurations-and-frontend-port"></a>IP-configuraties en front-endpoort maken
 
 Koppel *myAGSubnet* dat u eerder hebt gemaakt aan de toepassingsgateway met behulp van [New-AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration). Wijs *myAGPublicIPAddress* toe aan de toepassingsgateway met behulp van [New-AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig).
 
@@ -104,7 +105,7 @@ $frontendport = New-AzureRmApplicationGatewayFrontendPort `
   -Port 80
 ```
 
-### <a name="create-the-backend-pool-and-settings"></a>De back-endpool en instellingen maken
+### <a name="create-the-backend-pool-and-settings"></a>Back-endpool en instellingen maken
 
 Maak de back-endpool met de naam *appGatewayBackendPool* voor de toepassingsgateway met behulp van [New-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool). Configureer de instellingen voor de back-end-adrespools met behulp van [New-AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings).
 
@@ -224,7 +225,7 @@ New-AzureRmVmss `
 ### <a name="install-iis"></a>IIS installeren
 
 ```azurepowershell-interactive
-$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/vhorne/samplescripts/master/appgatewayurl.ps1"); 
+$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1"); 
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
 
 $vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss

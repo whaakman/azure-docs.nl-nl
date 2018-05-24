@@ -15,14 +15,15 @@ ms.workload: NA
 ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: b85c3030984758a0c425fb526a32fcd8eff974c9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0f07bb9a245b9f38fd734c97fe9a3dca836c28d9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34367229"
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Zelfstudie: een Windows Service Fabric-cluster implementeren in een virtueel Azure-netwerk
-Deze zelfstudie is deel één van een serie. U leert hoe u een Service Fabric-cluster met Windows in een [virtueel Azure-netwerk (VNET)](../virtual-network/virtual-networks-overview.md) en een [netwerkbeveiligingsgroep](../virtual-network/virtual-networks-nsg.md) implementeert met behulp van PowerShell en een sjabloon. Wanneer u klaar bent, wordt er in de cloud een cluster uitgevoerd waarin u toepassingen kunt implementeren.  Zie [Een beveiligd Linux-cluster maken in Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) als u een Linux-cluster wilt maken met behulp van Azure CLI.
+Deze zelfstudie is deel één van een serie. U leert hoe u een Service Fabric-cluster met Windows in een [virtueel Azure-netwerk (VNET)](../virtual-network/virtual-networks-overview.md) en een [netwerkbeveiligingsgroep](../virtual-network/security-overview.md) implementeert met behulp van PowerShell en een sjabloon. Wanneer u klaar bent, wordt er in de cloud een cluster uitgevoerd waarin u toepassingen kunt implementeren.  Zie [Een beveiligd Linux-cluster maken in Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) als u een Linux-cluster wilt maken met behulp van Azure CLI.
 
 In deze zelfstudie wordt een productiescenario beschreven.  Zie [een testcluster met drie knooppunten maken](./scripts/service-fabric-powershell-create-test-cluster.md) als u snel een klein cluster wilt maken voor testdoeleinden.
 

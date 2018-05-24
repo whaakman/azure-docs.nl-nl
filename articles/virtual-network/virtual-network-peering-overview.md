@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: jdial
-ms.openlocfilehash: 24d739e45ddaa7669fe1836eea53f0b091383d1e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f2dddb6e9a933c1dc1eb4ccbf7ace6757d546fc8
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34367103"
 ---
 # <a name="virtual-network-peering"></a>Peering op virtueel netwerk
 
@@ -44,7 +45,7 @@ De netwerklatentie tussen virtuele machines in gekoppelde virtuele netwerken in 
 Het verkeer tussen virtuele machines in gekoppelde virtuele netwerken wordt rechtstreeks doorgestuurd via de Microsoft-backbone-infrastructuur, niet via een gateway of via het openbare internet.
 
 Netwerkbeveiligingsgroepen kunnen worden toegepast in elk virtueel netwerk om, indien gewenst, de toegang tot andere virtuele netwerken of subnetten te blokkeren.
-Bij het configureren van peering in virtuele netwerken kunt u de netwerkbeveiligingsgroepen tussen de virtuele netwerken openen of sluiten. Als u besluit om de volledige connectiviteit tussen gelijkwaardige virtuele netwerken open te zetten (dit is de standaardoptie), kunt u vervolgens netwerkbeveiligingsgroepen op specifieke subnetten of virtuele machines gebruiken voor het blokkeren of weigeren van specifieke toegang. Zie [Overzicht van netwerkbeveiligingsgroepen](virtual-networks-nsg.md) voor meer informatie over netwerkbeveiligingsgroepen.
+Bij het configureren van peering in virtuele netwerken kunt u de netwerkbeveiligingsgroepen tussen de virtuele netwerken openen of sluiten. Als u besluit om de volledige connectiviteit tussen gelijkwaardige virtuele netwerken open te zetten (dit is de standaardoptie), kunt u vervolgens netwerkbeveiligingsgroepen op specifieke subnetten of virtuele machines gebruiken voor het blokkeren of weigeren van specifieke toegang. Zie [Overzicht van netwerkbeveiligingsgroepen](security-overview.md) voor meer informatie over netwerkbeveiligingsgroepen.
 
 ## <a name="service-chaining"></a>Servicechaining
 

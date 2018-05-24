@@ -2,18 +2,19 @@
 title: Azure Policy gebruiken om beleidsregels te maken en beheren voor het afdwingen van organisatorische naleving
 description: Azure Policy gebruiken om standaarden af te dwingen, te voldoen aan wettelijke vereisten voor naleving en audits, kosten te beheren, consistente beveiliging en prestaties te houden en bedrijfsbrede ontwerpprincipes op te leggen.
 services: azure-policy
-keywords: ''
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 05/07/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 2e04e08d22890246e2b68a55d79e82864201ef9d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+manager: carmonm
+ms.openlocfilehash: 1d13c5c0099b8e4c9ed83221edf6a2ee92fc3c8e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34194866"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Beleidsregels voor het afdwingen van naleving maken en beheren
 
