@@ -9,11 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 3/22/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 677ebb129835b7680f6e771c52705ee42a393524
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 5e6b3d8630268d68691a68eee6c3aadc408b78f4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34356100"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-azure-powershell"></a>Een toepassingsgateway maken waarop meerdere websites worden gehost met behulp van Azure PowerShell
 
@@ -22,7 +23,7 @@ U kunt Azure Powershell gebruiken om [het hosten van meerdere websites te config
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Netwerk instellen
+> * Het netwerk instellen
 > * Een toepassingsgateway maken
 > * Back-endlisteners maken
 > * Routeringsregels maken
@@ -247,7 +248,7 @@ for ($i=1; $i -le 2; $i++)
 ### <a name="install-iis"></a>IIS installeren
 
 ```azurepowershell-interactive
-$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/vhorne/samplescripts/master/appgatewayurl.ps1"); 
+$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1"); 
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
 
 for ($i=1; $i -le 2; $i++)
@@ -301,7 +302,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroupAG
 In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
-> * Netwerk instellen
+> * Het netwerk instellen
 > * Een toepassingsgateway maken
 > * Back-endlisteners maken
 > * Routeringsregels maken
