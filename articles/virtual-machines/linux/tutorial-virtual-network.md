@@ -1,6 +1,6 @@
 ---
-title: Virtuele Azure-netwerken en virtuele Linux-machines | Microsoft Docs
-description: 'Zelfstudie: virtuele Azure-netwerken en virtuele Linux-machines beheren met de Azure CLI'
+title: Zelfstudie - Virtuele Azure-netwerken voor virtuele Linux-machines maken en beheren | Microsoft Docs
+description: In deze zelfstudie leert u hoe u Azure CLI 2.0 gebruikt voor het maken en beheren van virtuele Azure-netwerken voor virtuele Linux-machines
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4fc6779472a0c680c53d7f25e6fe412ab386fc32
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 306d33dd5b5910e990caf80dae4c37fee020f7a1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="manage-azure-virtual-networks-and-linux-virtual-machines-with-the-azure-cli"></a>Virtuele Azure-netwerken en virtuele Linux-machines beheren met de Azure CLI
+# <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli-20"></a>Zelfstudie: Virtuele Azure-netwerken voor virtuele Linux-machines maken en beheren met Azure CLI 2.0
 
 Virtuele Azure-machines maken gebruik van Azure-netwerken voor interne en externe communicatie. In deze zelfstudie wordt uitgelegd hoe u twee virtuele machines implementeert en Azure-netwerken configureert voor deze virtuele machines. In de voorbeelden in deze zelfstudie wordt ervan uitgegaan dat de virtuele machines een webtoepassing met een databaseback-end hosten, maar er wordt geen toepassing geïmplementeerd in de zelfstudie. In deze zelfstudie leert u het volgende:
 
@@ -33,7 +33,15 @@ Virtuele Azure-machines maken gebruik van Azure-netwerken voor interne en extern
 > * Netwerkverkeer beveiligen
 > * Een back-end virtuele machine maken
 
-Tijdens het volgen van deze zelfstudie worden de volgende resources gemaakt:
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u Azure CLI 2.0.30 of hoger gebruiken voor deze zelfstudie. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
+
+## <a name="vm-networking-overview"></a>Overzicht van VM-netwerken
+
+Virtuele Azure-netwerken maken beveiligde netwerkverbindingen mogelijk tussen virtuele machines, internet en andere Azure-services zoals Azure SQL database. Virtuele netwerken zijn onderverdeeld in logische segmenten die subnetten worden genoemd. Subnetten worden gebruikt om de netwerkstroom te beheersen, en als een beveiligingsgrens. Wanneer een virtuele machine wordt geïmplementeerd, omvat deze doorgaans een virtuele netwerkinterface, die is gekoppeld aan een subnet.
+
+Wanneer u de zelfstudie voltooit, worden de volgende virtuele-netwerkbronnen gemaakt:
 
 ![Virtueel netwerk met twee subnetten](./media/tutorial-virtual-network/networktutorial.png)
 
@@ -46,15 +54,6 @@ Tijdens het volgen van deze zelfstudie worden de volgende resources gemaakt:
 - *myBackendSubnet*: het subnet dat is gekoppeld aan *myBackendNSG* en door de back-endresources wordt gebruikt.
 - *myBackendNic*: de netwerkinterface die wordt gebruikt door *myBackendVM* om te communiceren met *myFrontendVM*.
 - *myBackendVM*: de virtuele machine die gebruikmaakt van poort 22 en 3306 om te communiceren met *myFrontendVM*.
-
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze zelfstudie Azure CLI 2.0.4 of nieuwer uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
-
-## <a name="vm-networking-overview"></a>Overzicht van VM-netwerken
-
-Virtuele Azure-netwerken maken beveiligde netwerkverbindingen mogelijk tussen virtuele machines, internet en andere Azure-services zoals Azure SQL database. Virtuele netwerken zijn onderverdeeld in logische segmenten die subnetten worden genoemd. Subnetten worden gebruikt om de netwerkstroom te beheersen, en als een beveiligingsgrens. Wanneer een virtuele machine wordt geïmplementeerd, omvat deze doorgaans een virtuele netwerkinterface, die is gekoppeld aan een subnet.
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Een virtueel netwerk en een subnet maken
 

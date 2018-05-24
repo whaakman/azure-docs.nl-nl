@@ -1,27 +1,28 @@
 ---
-title: Overzicht van Azure Policy | Microsoft Docs
+title: Overzicht van Azure-beleid
 description: Azure Policy is een service in Azure die u gebruikt om beleidsdefinities in uw Azure-omgeving te maken, toe te wijzen en te beheren.
 services: azure-policy
-keywords: ''
 author: DCtheGeek
 ms.author: dacoulte
-ms.reviewer: nini
-ms.date: 04/18/2018
+ms.date: 05/07/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 886026f8548cf3d7416b5034995399368de8c419
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3f14c547c072e012d44350706f08548208fbb544
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="what-is-azure-policy"></a>Wat is Azure Policy?
 
 IT-beheer zorgt voor duidelijkheid tussen zakelijke doelstellingen en IT-projecten. Goed IT-beheer omvat het plannen van uw initiatieven en het stellen van prioriteiten op strategisch niveau. Ondervindt uw bedrijf een significant aantal IT-problemen die nooit lijken te worden opgelost? Door beleidsregels te implementeren kunt u deze problemen beter beheren en voorkomen. Voor het implementeren van beleidsregels gebruikt u Azure Policy.
 
-Azure Policy is een service in Azure die u gebruikt om beleidsdefinities te maken, toe te wijzen en te beheren. Met beleidsdefinities worden verschillende regels en acties afgedwongen voor uw resources, zodat deze resources voldoen aan de standaarden en SLA’s (Service Level Agreement) in uw bedrijf. Er wordt met Azure Policy een evaluatie uitgevoerd voor de resources, waarbij wordt gezocht naar resources die niet voldoen aan uw beleidsdefinities. U kunt bijvoorbeeld beleid hebben op basis waarvan alleen bepaalde typen virtuele machines zijn toegestaan. Terwijl op basis van ander beleid is vereist dat alle resources een bepaald label hebben. Deze beleidsregels worden vervolgens geëvalueerd bij het maken en bijwerken van resources.
+Azure Policy is een service in Azure die u gebruikt om beleidsdefinities te maken, toe te wijzen en te beheren. Met beleidsdefinities worden verschillende regels en effecten afgedwongen voor uw resources, zodat deze resources voldoen aan de standaarden en SLA's (Service Level Agreement) in uw bedrijf. Er wordt met Azure Policy een evaluatie uitgevoerd voor de resources, waarbij wordt gezocht naar resources die niet voldoen aan uw beleidsdefinities. U kunt bijvoorbeeld beleid hebben op basis waarvan alleen bepaalde typen virtuele machines zijn toegestaan. Terwijl op basis van ander beleid is vereist dat alle resources een bepaald label hebben. Deze beleidsregels worden vervolgens geëvalueerd bij het maken en bijwerken van resources.
+
+> [!IMPORTANT]
+> Evaluatie van de naleving van Azure Policy is nu beschikbaar voor alle toewijzingen, ongeacht de prijscategorie. Als uw toewijzingen de nalevingsgegevens niet weergeven, controleert u of het abonnement is geregistreerd bij de resourceprovider Microsoft.PolicyInsights.
 
 ## <a name="how-is-it-different-from-rbac"></a>Wat is het verschil met RBAC?
 
@@ -34,20 +35,18 @@ Als u beleid wilt gebruiken, moet u eerst worden geverifieerd via RBAC. Uw accou
 - `Microsoft.Authorization/policySetDefinitions/write`-machtiging voor het definiëren van een initiatief.
 - `Microsoft.Authorization/policyassignments/write`-machtiging voor het toewijzen van een initiatief.
 
-
 Deze machtigingen zijn niet opgenomen in de rol **Inzender**.
-
 
 ## <a name="policy-definition"></a>Beleidsdefinitie
 
-Elke beleidsdefinitie heeft voorwaarden voor het afdwingen ervan. En er is een bijbehorende actie die wordt uitgevoerd, als aan de voorwaarden wordt voldaan.
+Elke beleidsdefinitie heeft voorwaarden voor het afdwingen ervan. En er is een bijbehorend effect dat wordt uitgevoerd als aan de voorwaarden wordt voldaan.
 
 In Azure Policy wordt een aantal ingebouwde beleidsregels geboden die u standaard tot uw beschikking hebt. Bijvoorbeeld:
 
-- **SQL Server 12.0 vereisen**: deze beleidsdefinitie bevat voorwaarden/regels om ervoor te zorgen dat alle SQL-servers gebruikmaken van versie 12.0. De bijbehorende actie is om alle servers te weigeren die niet voldoen aan deze criteria.
-- **SKU’s voor opslagaccount toegestaan**: deze beleidsdefinitie bevat een set voorwaarden/regels die bepalen of een opslagaccount dat wordt geïmplementeerd, zich binnen een set SKU-grootten bevindt. De bijbehorende actie is om alle servers te weigeren die niet in overeenstemming zijn met de gedefinieerde SKU-grootten.
-- **Resourcetype toegestaan**: deze beleidsdefinitie bevat een set voorwaarden/regels om de resourcetypen op te geven die kunnen worden geïmplementeerd in uw organisatie. De bijbehorende actie is om alle resources te weigeren die geen deel uitmaken van deze gedefinieerde lijst.
-- **Locaties toegestaan**: op basis van dit beleid kunt u de locaties beperken die uw organisatie kan opgeven tijdens het implementeren van resources. De bijbehorende actie wordt gebruikt om uw geografisch nalevingsvereisten af te dwingen.
+- **SQL Server 12.0 vereisen**: deze beleidsdefinitie bevat voorwaarden/regels om ervoor te zorgen dat alle SQL-servers gebruikmaken van versie 12.0. Het bijbehorende effect is om alle servers te weigeren die niet voldoen aan deze criteria.
+- **SKU’s voor opslagaccount toegestaan**: deze beleidsdefinitie bevat een set voorwaarden/regels die bepalen of een opslagaccount dat wordt geïmplementeerd, zich binnen een set SKU-grootten bevindt. Het bijbehorende effect is om alle servers te weigeren die niet in overeenstemming zijn met de gedefinieerde SKU-grootten.
+- **Resourcetype toegestaan**: deze beleidsdefinitie bevat een set voorwaarden/regels om de resourcetypen op te geven die kunnen worden geïmplementeerd in uw organisatie. Het bijbehorende effect is om alle resources te weigeren die geen deel uitmaken van deze gedefinieerde lijst.
+- **Locaties toegestaan**: op basis van dit beleid kunt u de locaties beperken die uw organisatie kan opgeven tijdens het implementeren van resources. Het bijbehorende effect wordt gebruikt om uw geografisch nalevingsvereisten af te dwingen.
 - **SKU’s voor virtuele machines toegestaan**: op basis van dit beleid kunt u een set SKU's voor virtuele machines opgeven die kunnen worden geïmplementeerd in uw organisatie.
 - **Label en bijbehorende standaardwaarde toepassen**: op basis van dit beleid wordt een vereist label en de bijbehorende standaardwaarde toegepast, indien dit niet is opgegeven door de gebruiker.
 - **Label en bijbehorende waarde afdwingen**: op basis van dit beleid wordt een vereist label en de bijbehorende waarde afgedwongen voor een resource.
@@ -55,7 +54,7 @@ In Azure Policy wordt een aantal ingebouwde beleidsregels geboden die u standaar
 
 U kunt elk van deze typen beleid toewijzen via Azure Portal, PowerShell of Azure CLI. Nadat u wijzigingen in een beleidsdefinitie hebt aangebracht, wordt het beleid ongeveer eens per uur opnieuw geëvalueerd.
 
-Raadpleeg het artikel [Structuur van beleidsdefinities](policy-definition.md) voor meer informatie over de structuur van beleidsdefinities.
+Raadpleeg [Structuur van beleidsdefinities](policy-definition.md) voor meer informatie over de structuur van beleidsdefinities.
 
 ## <a name="policy-assignment"></a>Beleidstoewijzing
 
@@ -73,45 +72,40 @@ Beleidsparameters helpen uw beleidsbeheer te vereenvoudigen door het aantal bele
 
 Parameters worden gedefinieerd/gemaakt bij het maken van een beleidsdefinitie. Als een parameter wordt gedefinieerd, krijgt deze een naam en optioneel een waarde. U kunt bijvoorbeeld een parameter definiëren voor een beleid met de naam *locatie*. Vervolgens kunt u deze verschillende waarden toekennen, zoals *EastUS* of *WestUS* bij het toewijzen van beleid.
 
-<!--
-Next link should point to new Concept page for Parameters
--->
 Zie [Overzicht van resourcebeleid - parameters](policy-definition.md#parameters) voor meer informatie over beleidsparameters.
 
 ## <a name="initiative-definition"></a>Initiatiefdefinitie
+
 Een initiatiefdefinitie is een verzameling beleidsdefinities die zijn aangepast voor het bereiken van één overkoepelend doel. Initiatiefdefinities maken het beheren en toewijzen van beleidsdefinities eenvoudiger. Dit gebeurt door het groeperen van een reeks beleidsregels als één item. U kunt bijvoorbeeld een initiatief maken met de titel **Controleren inschakelen in Azure Security Center** met als doel om alle beschikbare beveiligingsaanbevelingen in uw Azure Security Center te controleren.
 
 Onder dit initiatief vallen beleidsdefinities zoals:
 
-1. **Niet-versleutelde SQL-database controleren in Security Center** – Voor het controleren van niet-versleutelde SQL-databases en -servers.
-2. **OS-kwetsbaarheden controleren in Security Center** – Voor het controleren van servers die niet voldoen aan de geconfigureerde uitgangswaarde.
-3. **Ontbrekende Endpoint Protection controleren in Security Center** – Voor het controleren van servers zonder een geïnstalleerde Endpoint Protection-agent.
-
-<!--
-For more information about initiative definitions, see Initiative Definitions.+ (instead of linking to this, link out to Concept page on Initiative Definitions)
--->
+- **Niet-versleutelde SQL-database controleren in Security Center** – Voor het controleren van niet-versleutelde SQL-databases en -servers.
+- **OS-kwetsbaarheden controleren in Security Center** – Voor het controleren van servers die niet voldoen aan de geconfigureerde uitgangswaarde.
+- **Ontbrekende Endpoint Protection controleren in Security Center** – Voor het controleren van servers zonder een geïnstalleerde Endpoint Protection-agent.
 
 ## <a name="initiative-assignment"></a>Initiatieftoewijzing
+
 Net zoals een beleidstoewijzing is een initiatieftoewijzing een initiatiefdefinitie die is toegewezen aan een bepaald bereik. Initiatieftoewijzingen verminderen de noodzaak om verschillende initiatiefdefinities te maken voor elk bereik. Dit bereik kan ook variëren van een beheergroep tot een resourcegroep.
 
 Het initiatief **Controleren inschakelen in Azure Security Center** uit het vorige voorbeeld kan worden toegewezen aan verschillende bereiken. Eén toewijzing kan bijvoorbeeld worden toegewezen aan **subscriptionA**. Een andere toewijzing kan worden toegewezen aan **subscriptionB**.
 
 ## <a name="initiative-parameters"></a>Initiatiefparameters
+
 Net zoals beleidsparameters helpen initiatiefparameters om initiatiefbeheer te vereenvoudigen door redundantie te verminderen. Initiatiefparameters vormen in feite de lijst met parameters die wordt gebruikt voor de beleidsdefinities binnen het initiatief.
 
 Neem bijvoorbeeld een scenario waarin u een initiatiefdefinitie **initiativeC** hebt, met twee beleidsdefinities. Elke beleidsdefinitie heeft één gedefinieerde parameter:
 
-| Beleid | naam van parameter |Type parameter  |Opmerking |
+| Beleid | Naam van parameter |Type parameter  |Opmerking |
 |---|---|---|---|
 | policyA | allowedLocations | matrix  |Op basis van deze parameter wordt een lijst met tekenreeksen verwacht voor een waarde, omdat het parametertype is gedefinieerd als een matrix |
 | policyB | allowedSingleLocation |tekenreeks |Op basis van deze parameter wordt één woord verwacht voor een waarde, omdat het parametertype is gedefinieerd als een tekenreeks |
 
 In dit scenario hebt u, bij het definiëren van de initiatiefparameters voor **initiativeC**, drie opties:
 
-1. Gebruik de parameters van de beleidsdefinities binnen dit initiatief: in dit voorbeeld worden *allowedLocations* en *allowedSingleLocation* initiatiefparameters voor **initiativeC** .
-2. Geef waarden op voor de parameters van de beleidsdefinities binnen deze initiatiefdefinitie. In dit voorbeeld kunt u een lijst met locaties opgeven naar **parameter van policyA – allowedLocations** en **parameter van policyB – allowedSingleLocation**.
-U kunt ook waarden opgeven bij het toewijzen van dit initiatief.
-3. Geef een lijst met *waarde*opties op die kunnen worden gebruikt bij het toewijzen van dit initiatief. Als u dit initiatief toewijst, kunnen de overgenomen parameters van de beleidsdefinities binnen het initiatief, alleen waarden hebben uit de opgegeven lijst.
+- Gebruik de parameters van de beleidsdefinities binnen dit initiatief: in dit voorbeeld worden *allowedLocations* en *allowedSingleLocation* initiatiefparameters voor **initiativeC** .
+- Geef waarden op voor de parameters van de beleidsdefinities binnen deze initiatiefdefinitie. In dit voorbeeld kunt u een lijst met locaties opgeven naar **parameter van policyA – allowedLocations** en **parameter van policyB – allowedSingleLocation**. U kunt ook waarden opgeven bij het toewijzen van dit initiatief.
+- Geef een lijst met *waarde*opties op die kunnen worden gebruikt bij het toewijzen van dit initiatief. Als u dit initiatief toewijst, kunnen de overgenomen parameters van de beleidsdefinities binnen het initiatief, alleen waarden hebben uit de opgegeven lijst.
 
 U kunt bijvoorbeeld een lijst met waardeopties maken in een initiatiefdefinitie met *EastUS*, *WestUS*, *CentralUS* en *WestEurope*. Als u dit doet, kunt u tijdens de initiatieftoewijzing geen andere waarde (bijvoorbeeld *Southeast Asia*) invoeren, omdat deze waarde niet voorkomt in de lijst.
 
@@ -121,15 +115,16 @@ Hier volgen enkele aanwijzingen die u kunt opvolgen tijdens het maken en beheren
 
 - Als u beleidsdefinities in uw omgeving maakt, raden we u aan om te beginnen met een controleactie in plaats van een weigeractie. Op deze manier kunt u de impact van de beleidsdefinitie op de resources in uw omgeving bijhouden. Als u al actieve scripts hebt voor het automatisch omhoog schalen van uw toepassingen, kan het instellen van een weigeractie een belemmering vormen voor deze automatische taken die u al hebt geïmplementeerd.
 - Het is belangrijk dat u bij het maken van definities en toewijzingen rekening houdt met organisatiehiërarchieën. We raden u aan om definities op een hoger niveau te maken, bijvoorbeeld op het niveau van de beheergroep of het abonnement, en om toewijzingen op het eerstvolgende onderliggende niveau te maken. Als u bijvoorbeeld een beleidsdefinitie op groepsbeheerniveau maakt, kan een beleidstoewijzing van deze definitie een niveau lager plaatsvinden op abonnementsniveau binnen deze beheergroep.
-- Het gebruik van de standaardprijscategorie wordt aanbevolen voor een beter begrip van de nalevingsstatus van uw omgeving. Bekijk de [prijzen](https://azure.microsoft.com/pricing/details/azure-policy) voor meer informatie over onze prijsmodellen en wat elk model te bieden heeft.
 - We raden u aan altijd initiatiefdefinities te gebruiken in plaats van beleidsdefinities, zelfs als u slechts één beleid wilt instellen. Voorbeeld: u hebt een beleidsdefinitie, *policyDefA*, en deze maakt u onder de initiatiefdefinitie *initiativeDefC*. Als u later besluit om nog een beleidsdefinitie voor *policyDefB* te maken met doelen die vergelijkbaar zijn met die van *policyDefA*, kunt u deze toevoegen onder *initiativeDefC*. Op deze manier kunt u ze beter bijhouden.
 
    Onthoud dat wanneer u eenmaal een initiatieftoewijzing hebt gemaakt van een initiatiefdefinitie, alle nieuwe beleidsdefinities die worden toegevoegd aan deze initiatiefdefinitie, automatisch worden geïmplementeerd onder de initiatieftoewijzing(en) onder deze initiatiefdefinitie. Als er echter een nieuwe parameter in de nieuwe beleidsdefinitie wordt geïntroduceerd, moet u de initiatiefdefinitie en -toewijzingen bijwerken door de initiatiefdefinitie of -toewijzing te bewerken.
+
+   Houd er rekening mee dat zodra een initiatieftoewijzing wordt geactiveerd, alle beleidsregels binnen het initiatief ook worden geactiveerd. Als u echter een beleidsregel afzonderlijk wilt uitvoeren, is het beter deze regel niet op te nemen in een initiatief.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Nu u een overzicht hebt van Azure Policy en enkele van de belangrijkste geïntroduceerde concepten, zijn dit de voorgestelde volgende stappen:
 
-- [Een beleidsdefinitie toewijzen](./assign-policy-definition.md)
-- [Een beleidsdefinitie toewijzen met behulp van Azure CLI](./assign-policy-definition-cli.md)
-- [Een beleidsdefinitie toewijzen met behulp van PowerShell](./assign-policy-definition-ps.md)
+- [Een beleidsdefinitie toewijzen](assign-policy-definition.md)
+- [Een beleidsdefinitie toewijzen met behulp van Azure CLI](assign-policy-definition-cli.md)
+- [Een beleidsdefinitie toewijzen met behulp van PowerShell](assign-policy-definition-ps.md)

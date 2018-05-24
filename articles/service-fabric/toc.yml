@@ -543,6 +543,8 @@
               href: service-fabric-cluster-delete.md
             - name: Extern verbinding maken met de VM die het clusterknooppunt vormt
               href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
+            - name: VMSS-SKU upgraden/migreren
+              href: service-fabric-update-vmss-sku.md
         - name: Zelfstandige clusters
           items:
             - name: Maken
@@ -656,6 +658,17 @@
       href: service-fabric-cluster-fabric-settings.md
     - name: XML-schema van servicemodel
       href: service-fabric-service-model-schema.md
+      items:
+        - name: Elementen
+          href: service-fabric-service-model-schema-elements.md
+        - name: Complexe typen
+          href: service-fabric-service-model-schema-complex-types.md
+        - name: Kenmerkgroepen
+          href: service-fabric-service-model-schema-attribute-groups.md
+        - name: Eenvoudige typen
+          href: service-fabric-service-model-schema-simple-types.md
+        - name: Elementgroepen
+          href: service-fabric-service-model-schema-element-groups.md
     - name: Omgevingsvariabelen
       href: service-fabric-environment-variables-reference.md
 - name: Resources

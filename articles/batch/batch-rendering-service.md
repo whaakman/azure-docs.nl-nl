@@ -6,17 +6,17 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: hero-article
-ms.date: 09/14/2017
+ms.date: 05/10/2018
 ms.author: danlep
-ms.openlocfilehash: f1aa8de26afd8b54746c706047a6b6b21cbf311c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: df1b2da7628e6c3f9f4bcbb02a936c33aad49698
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="get-started-with-the-batch-rendering-service"></a>Aan de slag met de Batch Rendering-service
 
-De Azure Batch Rendering-service biedt mogelijkheden voor rendering in de cloud op basis van betalen per gebruik. De Batch Rendering-service verwerkt taakplanning en wachtrijen, beheert fouten en nieuwe pogingen, en automatische schaling voor uw renderingtaak. De Batch Rendering-service ondersteunt [Autodesk Maya](https://www.autodesk.com/products/maya/overview), [3ds Max](https://www.autodesk.com/products/3ds-max/overview), [Arnold](https://www.autodesk.com/products/arnold/overview) en [V-Ray](https://www.chaosgroup.com/vray/maya). Met de Batch-invoegtoepassing voor Maya 2017 kunt u gemakkelijk vanaf uw bureaublad een renderingtaak starten in Azure.
+De Azure Batch Rendering-service biedt mogelijkheden voor rendering in de cloud op basis van betalen per gebruik. De Batch Rendering-service verwerkt taakplanning en wachtrijen, beheert fouten en nieuwe pogingen, en automatische schaling voor uw renderingtaak. De Batch Rendering-service ondersteunt rendering-apps zoals [Autodesk Maya](https://www.autodesk.com/products/maya/overview), [3ds Max](https://www.autodesk.com/products/3ds-max/overview), [Arnold](https://www.autodesk.com/products/arnold/overview) en [V-Ray](https://www.chaosgroup.com/vray/maya). Met de Batch-invoegtoepassing voor Maya 2017 kunt u gemakkelijk vanaf uw bureaublad een renderingtaak starten in Azure.
 
 Met Maya en 3ds Max kunt u taken uitvoeren met behulp van de bureaubladtoepassing [BatchLabs](https://github.com/Azure/BatchLabs) of de [Batch Templates-CLI](batch-cli-templates.md). Met de Azure Batch-CLI kunt u Batch-taken uitvoeren zonder code te schrijven. In plaats daarvan kunt u sjabloonbestanden gebruiken om Batch-pools, -jobs en -taken te maken. Zie [Use Azure Batch CLI Templates and File Transfer](batch-cli-templates.md) (Azure Batch CLI-sjablonen en -bestandsoverdracht gebruiken) voor meer informatie.
 
@@ -25,16 +25,35 @@ Met Maya en 3ds Max kunt u taken uitvoeren met behulp van de bureaubladtoepassin
 
 De Batch Rendering-service ondersteunt momenteel de volgende toepassingen:
 
-•   Autodesk Maya I/O 2017 Update 4 (version 17.4.5459) •   Autodesk 3ds Max I/O 2018 Update 1 (versie 20.1.0.238) •   Autodesk Arnold for Maya (versie 5.0.1.1) •   Autodesk Arnold for 3ds Max (versie 1.0.836) •   Chaos Group V-Ray for Maya (versie 3.52.03) •   Chaos Group V-Ray for 3ds Max (versie 3.60.02)
+Over knooppunten voor CentOS 7-rendering:
+- Autodesk Maya I/O 2017 Update 5 (cut 201708032230)
+- Autodesk Maya I/O 2018 Update 2 cut 201711281015
+- Autodesk Arnold for Maya 2017 (Arnold version 5.0.1.1) MtoA-2.0.1.1-2017
+- Autodesk Arnold for Maya 2018 (Arnold version 5.0.1.4) MtoA-2.1.0.3-2018
+- Chaos Group V-Ray for Maya 2017 (version 3.60.04) 
+- Chaos Group V-Ray for Maya 2018 (version 3.60.04) 
+- Blender (2.68)
+
+Over Windows Server 2016 rendering-knooppunten:
+- Autodesk Maya I/O 2017 Update 5 (version 17.4.5459) 
+- Autodesk Maya I/O 2018 Update 2 (version 18.2.0.6476) 
+- Autodesk 3ds Max I/O 2018 Update 4 (version 20.4.0.4254) 
+- Autodesk Arnold for Maya (Arnold version 5.0.1.1) MtoA-2.0.1.1-2017
+- Autodesk Arnold for Maya (Arnold version 5.0.1.4) MtoA-2.0.2.3-2018
+- Autodesk Arnold for 3ds Max (Arnold version 5.0.2.4 )(version 1.2.926) 
+- Chaos Group V-Ray for Maya (version 3.52.03) 
+- Chaos Group V-Ray for 3ds Max (version 3.60.02)
+- Blender (2.79)
 
 
 ## <a name="prerequisites"></a>Vereisten
 
 Voor het gebruik van de Batch Rendering-service hebt u het volgende nodig:
 
-- Een [Azure-account](https://azure.microsoft.com/free/).
-- **Een Azure Batch-account.** Zie [Een Batch-account maken in Azure Portal](batch-account-create-portal.md) voor instructies over het maken van een Batch-account in Azure Portal.
-- Een **Azure Storage-account.** De assets die worden gebruikt voor uw renderingtaak worden opgeslagen in Azure Storage. U kunt automatisch een opslagaccount maken bij het instellen van uw Batch-account. U kunt ook een bestaand opslagaccount gebruiken. Zie [Een opslagaccount in Azure Portal maken, beheren of verwijderen](https://docs.microsoft.com/azure/storage/storage-create-storage-account) voor meer informatie over opslagaccounts.
+- [Azure-account](https://azure.microsoft.com/free/).
+- **Azure Batch-account.** Zie [Een Batch-account maken in Azure Portal](batch-account-create-portal.md) voor instructies over het maken van een Batch-account in Azure Portal.
+- **Azure Storage-account.** De assets die worden gebruikt voor uw renderingtaak worden opgeslagen in Azure Storage. U kunt automatisch een opslagaccount maken bij het instellen van uw Batch-account. U kunt ook een bestaand opslagaccount gebruiken. Zie voor opslagaccountopties in Batch het [Overzicht van Batch-functies](batch-api-basics.md#azure-storage-account).
+- **Omgevingsvariabelen.** Als uw oplossing omgevingsvariabelen wijzigt, zorgt u ervoor dat de waarden van `AZ_BATCH_ACCOUNT_URL` en `AZ_BATCH_SOFTWARE_ENTITLEMENT_TOKEN` intact en aanwezig blijven wanneer een van de bovenstaande gelicentieerde toepassingen wordt aangeroepen. Anders zult u waarschijnlijk activeringsproblemen met de software ervaren.
 - **BatchLabs** (optioneel). [BatchLabs](https://azure.github.io/BatchLabs) is een gratis, uitgebreid, zelfstandig clienthulpprogramma voor het maken en bewaken van en opsporen van fouten in Azure Batch-toepassingen. Hoewel het gebruik van de Rendering-service niet vereist is, is het een handige optie om uw Batch-oplossingen te ontwikkelen en te testen.
 
 Voor het gebruik van de Batch-invoegtoepassing voor Maya, hebt u het volgende nodig:
@@ -72,18 +91,11 @@ In Azure Portal en in BatchLabs kunt u een van de VM-installatiekopieën met de 
 
 ![Type installatiekopie selecteren voor het Batch-account](./media/batch-rendering-service/add-pool.png)
 
-Schuif naar beneden en klik op **Licentieverlening voor grafische afbeeldingen en weergaven** om de blade **Licenties kiezen** te openen. Selecteer vervolgens een of meer van de volgende softwarelicenties:
+Schuif omlaag en klik onder **Licentieverlening voor afbeeldingen en rendering** op **Software en prijzen selecteren**. Kies een of meer van de licenties voor software:
 
 ![Licentie voor grafische afbeeldingen en weergaven voor de pool selecteren](./media/batch-rendering-service/graphics-licensing.png)
 
-De specifieke licentieversies die worden verstrekt, zijn de volgende:
-
-- Maya 2017
-- 3ds Max 2018
-- Arnold for Maya 5.0.1.1
-- Arnold for 3ds Max 1.0.836
-- V-Ray for Maya 3.52.03
-- V-Ray for 3ds Max 3.60.01
+De opgegeven specifieke licentieversies komen overeen met de versies in de sectie 'Ondersteunde toepassingen' hierboven.
 
 ### <a name="custom-images"></a>Aangepaste installatiekopieën
 
@@ -175,12 +187,12 @@ U kunt het type installatiekopie van het besturingssysteem opgeven dat moet word
 
 |Besturingssysteem  |Installatiekopie  |
 |---------|---------|
-|Linux     |Batch CentOS Preview |
-|Windows     |Batch Windows Preview |
+|Linux     |Batch CentOS |
+|Windows     |Batch Windows |
 
 #### <a name="choose-a-vm-size"></a>Een VM-grootte kiezen
 
-U kunt de VM-grootte opgeven op het tabblad **Env**. Zie [Linux VM-grootten in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes) en [Windows VM-grootten in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) voor meer informatie over beschikbare VM-grootten. 
+U kunt de VM-grootte opgeven op het tabblad **Env**. Zie [Linux VM-grootten in Azure](../virtual-machines/linux/sizes.md) en [Windows VM-grootten in Azure](../virtual-machines/windows/sizes.md) voor meer informatie over beschikbare VM-grootten. 
 
 ![De installatiekopie van het besturingssysteem en grootte opgeven voor de VM op het tabblad Env](./media/batch-rendering-service/environment.png)
 

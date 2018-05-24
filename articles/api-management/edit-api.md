@@ -1,11 +1,11 @@
 ---
-title: Bewerken van een API met de Azure portal | Microsoft Docs
-description: Deze zelfstudie ziet u het gebruik van API Management (APIM) voor het bewerken van een API.
+title: Een API bewerken met Azure Portal | Microsoft Docs
+description: Deze zelfstudie laat u zien hoe u een API Management (APIM) moet gebruiken om een API te bewerken.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,51 +13,51 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/08/2017
 ms.author: apimpm
-ms.openlocfilehash: 362c36181da706e3fe0a27cc5ab262271c2a1e57
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: MT
+ms.openlocfilehash: b39259fcfc93cb0a2a1a2dc600e5235da8cc6930
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="edit-an-api"></a>Een API bewerken
 
-De stappen in deze zelfstudie ziet u het gebruik van API Management (APIM) voor het bewerken van een API. 
+Deze zelfstudie laat u zien hoe u een API Management (APIM) moet gebruiken om een API te bewerken. 
 
-+ U kunt dit doen door toevoegen, verwijderen, wijzigen van bewerkingen in het exemplaar APIM. 
-+ U kunt uw API swagger bewerken.
++ U kunt dit doen door het toevoegen, verwijderen, wijzigen van bewerkingen in het APIM-exemplaar. 
++ U kunt de swagger van uw API bewerken.
 
 ## <a name="prerequisites"></a>Vereisten
 
-+ [Exemplaar van Azure API Management maken](get-started-create-service-instance.md)
-+ [Importeren en publiceren van uw eerste API](import-and-publish.md)
++ [Een Azure API Management-exemplaar maken](get-started-create-service-instance.md)
++ [Uw eerste API importeren en publiceren](import-and-publish.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="edit-an-api-in-apim"></a>Een API in APIM bewerken
 
-![Een api bewerken](./media/edit-api/edit-api001.png)
+![Een API bewerken](./media/edit-api/edit-api001.png)
 
-1. Klik op de **API's** tabblad.
+1. Klik op het tabblad **API's**.
 2. Selecteer een van de API's die u eerder hebt geïmporteerd.
-3. Selecteer de **ontwerp** tabblad.
+3. Selecteer het tabblad **Ontwerpen**.
 4. Selecteer een bewerking die u wilt bewerken.
-5. Wijzig de naam van de bewerking, selecteer een **pen** in de **Frontend** venster.
+5. Om de naam van de bewerking te wijzigen, selecteert u een **potlood** in het **Front-end**-venster.
 
-## <a name="update-the-swagger"></a>Bijwerken van de swagger
+## <a name="update-the-swagger"></a>Werk de swagger bij
 
-U kunt uw backbend API van de Azure-portal bijwerken met de volgende stappen:
+U kunt uw back-end-API van Azure Portal bijwerken met de volgende stappen:
 
-1. Selecteer **alle bewerkingen**
-2. Klik op pen in de **Frontend** venster.
+1. Selecteer **Alle bewerkingen**
+2. Klik op het potlood in het **Front-end**-venster.
 
-    ![Een api bewerken](./media/edit-api/edit-api002.png)
+    ![Een API bewerken](./media/edit-api/edit-api002.png)
 
     Uw API swagger wordt weergegeven.
 
-    ![Een api bewerken](./media/edit-api/edit-api003.png)
+    ![Een API bewerken](./media/edit-api/edit-api003.png)
 
-3. De swagger bijwerken.
-4. Druk op **opslaan**.
+3. Werk de swagger bij.
+4. Klik op **Opslaan**.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
@@ -65,4 +65,4 @@ U kunt uw backbend API van de Azure-portal bijwerken met de volgende stappen:
 
 > [!div class="nextstepaction"]
 > [Voorbeelden van APIM beleid](policy-samples.md)
-> [transformeren en een gepubliceerde API beveiligen](transform-api.md)
+> [Een gepubliceerde API beveiligen transformeren en beveiligen](transform-api.md)

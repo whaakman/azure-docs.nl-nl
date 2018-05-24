@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
+ms.date: 05/02/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 47894f0a3d7b74c8d0e271afb7d2657ce7d3be0c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ebad9304c38333173cec66c6b5574a9b45b17cd1
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Foutcodes voor aanmeldactiviteitenrapporten in Azure Active Directory Portal
 
@@ -67,14 +67,21 @@ De volgende sectie biedt een volledig overzicht van alle mogelijke fouten en de 
 |50058|Er is in de opgegeven referenties geen informatie over de identiteit van de gebruiker gevonden, de gebruiker kan niet worden gevonden in de tenant of er is een aanmeldverzoek op de achtergrond verzonden, maar er is geen gebruiker aangemeld of de service kan de gebruiker niet verifiëren.|
 |50072|Gebruiker moet zich registreren voor verificatie met een tweede factor (interactief)|
 |50074|Gebruiker heeft de MFA-controle niet doorstaan.|
+|50076|De gebruiker heeft de MFA-controle niet doorstaan (niet-interactief)|
 |50079|Gebruiker moet zich registreren voor verificatie met een tweede factor.|
 |50089|Validatie van stroomtoken is mislukt omdat stroomtoken is verlopen.|
 |50097|Apparaat is niet geverifieerd.|
 |50105|De aangemelde gebruiker is niet toegewezen aan een rol voor deze toepassing.|
+|50125|Het aanmelden is onderbroken vanwege het opnieuw instellen van een wachtwoord of een nieuwe wachtwoordregistratie-invoer|
 |50126|Gebruikersnaam of wachtwoord is ongeldig of on-premises gebruikersnaam of wachtwoord is ongeldig.|
+|50127|De gebruiker moet een broker-app installeren om toegang te krijgen tot zijn inhoud.|
+|50129|Het apparaat is niet toegevoegd aan de werkplek: aan werkplek toevoegen is vereist om het apparaat te registreren.|
 |50131|Wordt gebruikt voor verschillende fouten voor voorwaardelijke toegang. Bijvoorbeeld bij slechte Windows-apparaatstatus, geblokkeerde aanvraag vanwege verdachte activiteit, beslissingen voor toegangsbeleid en beveiligingsbeleid.|
 |50133|Sessie is ongeldig omdat het wachtwoord is verlopen of recent is gewijzigd.|
+|50140|De gebruiker geeft toestemming gevraagd om aangemeld te blijven op het apparaat|
 |50144|Het Active Directory-wachtwoord van de gebruiker is verlopen.|
+|53000|Voor beleid voor voorwaardelijke toegang is een compatibel apparaat vereist. Het apparaat is niet compatibel.|
+|53003|Toegang is geblokkeerd vanwege beleid voor voorwaardelijke toegang.|
 |65001|Toepassing X heeft geen toegangsmachtiging voor toepassing Y of de machtiging is ingetrokken. Of de gebruiker of beheerder heeft niet toegestaan dat de toepassing wordt gebruikt met id X. Stuur een interactieve autorisatieaanvraag voor deze gebruiker en resource. Of de gebruiker of beheerder heeft niet toegestaan dat de toepassing wordt gebruikt met id X. Stuur een autorisatieaanvraag naar uw tenant-beheerder uit naam van toepassing Y voor resource Z.|
 |65005|De voor de toepassing vereiste resourcetoegangslijst bevat geen toepassingen die kunnen worden gedetecteerd door de resource, de clienttoepassing heeft toegang aangevraagd tot een resource die niet is opgegeven in de vereiste resourcetoegangslijst, de Graph-service heeft een onjuiste aanvraag geretourneerd of de resource is niet gevonden.|
 |70001|De toepassing X is niet gevonden in de tenant Y. Dit kan gebeuren als de toepassing niet is geïnstalleerd door de beheerder van de tenant of er geen toestemming voor is verleend door een gebruiker in de tenant. Mogelijk hebt u de verificatieaanvraag naar de verkeerde tenant verzonden.|
@@ -98,8 +105,7 @@ De volgende sectie biedt een volledig overzicht van alle mogelijke fouten en de 
 |81013|Kan gebruikersobject niet vinden op basis van de informatie in het Kerberos-ticket van de gebruiker.|
 |90014|Wordt gebruikt in verschillende gevallen waarbij een verwacht veld niet aanwezig is in de referentie.|
 |90093|De grafiek is geretourneerd met een niet-toegestane foutcode voor de aanvraag.|
-
-
+|90094|Toestemming van de beheerder is nodig.|
 ## <a name="next-steps"></a>Volgende stappen
 
 Raadpleeg [Aanmeldactiviteitenrapporten in Azure Active Directory Portal](active-directory-reporting-activity-sign-ins.md) voor meer informatie.

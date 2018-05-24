@@ -16,11 +16,11 @@ f1_keywords:
 - sql13.swb.windowsazurestorage.connect.f1
 ms.date: 10/11/2017
 ms.author: tamram
-ms.openlocfilehash: dde2ec3b68f5951e268c32b1c6551641f22a0511
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: ce561c61d25946a508df3e92c461f1c8e889a07e
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="about-azure-storage-accounts"></a>Over Azure-opslagaccounts
 
@@ -62,7 +62,7 @@ De URL voor het openen van een object in een opslagaccount wordt samengesteld do
 U kunt ook een aangepaste domeinnaam configureren voor gebruik met uw opslagaccount. Zie [Een aangepaste domeinnaam configureren voor het eindpunt voor Blob Storage](../blobs/storage-custom-domain-name.md) voor meer informatie. U kunt dit ook configureren met PowerShell. Zie de cmdlet [Set AzureRmStorageAccount](/powershell/module/azurerm.storage/set-azurermstorageaccount) voor meer informatie.  
 
 
-## <a name="create-a-storage-account"></a>Een opslagaccount maken
+## <a name="create-a-storage-account"></a>Create a storage account
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Vouw in Azure Portal het menu links open om het menu met services te openen en kies **Meer services**. Schuif vervolgens omlaag naar **Opslag** en kies **Opslagaccounts**. Kies in het venster **Opslagaccounts** dat wordt weergegeven de optie **Toevoegen**.
 3. Voer een naam in voor het opslagaccount. Zie [Eindpunten van opslagaccounts](#storage-account-endpoints) voor meer informatie over hoe de naam van het opslagaccount wordt gebruikt om uw objecten in Azure Storage te adresseren.
@@ -141,7 +141,7 @@ Als u een opslagaccount wilt verwijderen dat u niet langer gebruikt, gaat u in [
 > Het is niet mogelijk om een verwijderd opslagaccount te herstellen of om inhoud terug te halen die het account vóór verwijdering bevatte. Zorg ervoor dat u een back-up maakt van alles dat u wilt opslaan, voordat u het account verwijdert. Dit geldt ook voor alle resources in het account: als u blobs, tabellen, wachtrijen of bestanden verwijdert, worden deze permanent verwijderd.
 > 
 
-Als u probeert een opslagaccount te verwijderen dat is gekoppeld aan een virtuele machine van Azure, ziet u mogelijk een foutbericht dat het account nog in gebruik is. Zie [Troubleshoot errors when you delete Azure storage accounts, containers, or VHDs](../common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md) (Fouten oplossen met het verwijderen van Azure-opslagaccounts, containers of VHD's) voor informatie over het oplossen van deze fout.
+Als u probeert een opslagaccount te verwijderen dat is gekoppeld aan een virtuele machine van Azure, ziet u mogelijk een foutbericht dat het account nog in gebruik is. Zie [Troubleshoot disks attached to Azure VMs](../blobs/storage-troubleshoot-vhds.md) (Problemen met schijven zijn gekoppeld aan Azure VM's oplossen) voor informatie over het oplossen van deze fout.
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) is een gratis, zelfstandige app van Microsoft waarmee u visueel met Azure Storage-gegevens kunt werken in Windows, macOS en Linux.
