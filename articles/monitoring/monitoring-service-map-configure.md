@@ -14,41 +14,41 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 5fa5c6708f3b0b0319bd669be7f9c897f095b6e4
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: aa85f06355ad5afc8e67ff4bace3b0ed471dc703
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configure-service-map-in-azure"></a>Serviceoverzicht configureren in Azure
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. U kunt deze gebruiken om weer te geven van uw servers, zoals u ze--beschouwen als onderling verbonden systemen die essentiële services leveren. Service-kaart toont de verbindingen tussen servers, processen en poorten via een TCP-verbinding architectuur waarvoor geen configuratie vereist, behalve de installatie van een agent.
 
 Dit artikel worden de details van het Serviceoverzicht en voorbereiding agents configureren. Zie voor meer informatie over het gebruik van Serviceoverzicht [gebruik van de oplossing Serviceoverzicht in Azure]( monitoring-service-map.md).
 
-## <a name="dependency-agent-downloads"></a>Agent voor afhankelijkheden gedownload
+## <a name="dependency-agent-downloads"></a>Downloads agent voor afhankelijkheden
 | File | OS | Versie | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.5.0 | 8B8FE0F6B0A9F589C4B7B52945C2C25DF008058EB4D4866DC45EE2485062C9D7 |
-| [InstallDependencyAgent Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.5.1 | 09D56EF43703A350FF586B774900E1F48E72FE3671144B5C99BB1A494C201E9E |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.5.1 | 09D56EF43703A350FF586B774900E1F48E72FE3671144B5C99BB1A494C201E9E |
 
 
 ## <a name="connected-sources"></a>Verbonden bronnen
-Serviceoverzicht afkomstig zijn uit de Microsoft-Agent voor afhankelijkheden. De Agent voor afhankelijkheden, is afhankelijk van de OMS-Agent voor de verbindingen met logboekanalyse. Dit betekent dat een server moet zijn geïnstalleerd en geconfigureerd eerst de OMS-Agent en vervolgens de Agent voor afhankelijkheden kunnen worden geïnstalleerd. De volgende tabel beschrijft de verbonden bronnen die ondersteuning biedt voor de oplossing Serviceoverzicht.
+Serviceoverzicht afkomstig zijn uit de Microsoft-Agent voor afhankelijkheden. De agent voor afhankelijkheden is afhankelijk van de OMS-agent voor zijn verbindingen met Log Analytics. Dit betekent dat een server moet zijn geïnstalleerd en geconfigureerd eerst de OMS-Agent en vervolgens de Agent voor afhankelijkheden kunnen worden geïnstalleerd. De volgende tabel beschrijft de verbonden bronnen die ondersteuning biedt voor de oplossing Serviceoverzicht.
 
 | Verbonden bron | Ondersteund | Beschrijving |
 |:--|:--|:--|
-| Windows-agents | Ja | Serviceoverzicht analyseert en verzamelt gegevens van agent-Windows-computers. <br><br>Naast de [OMS-Agent](../log-analytics/log-analytics-windows-agent.md), Windows-agents Microsoft afhankelijkheid Agent vereist. Zie de [ondersteunde besturingssystemen](#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
-| Linux-agents | Ja | Serviceoverzicht analyseert en verzamelt gegevens van Linux-agent-computers. <br><br>Naast de [OMS-Agent](../log-analytics/log-analytics-linux-agents.md), Linux-agents Microsoft afhankelijkheid Agent vereist. Zie de [ondersteunde besturingssystemen](#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
-| Beheergroep System Center Operations Manager | Ja | Serviceoverzicht analyseert en verzamelt gegevens van Windows en Linux-agents in een verbonden [System Center Operations Manager-beheergroep](../log-analytics/log-analytics-om-agents.md). <br><br>Een directe verbinding van de System Center Operations Manager agent-computer met logboekanalyse is vereist. Gegevens uit de beheergroep doorgestuurd naar de werkruimte voor logboekanalyse.|
+| Windows-agents | Ja | Serviceoverzicht analyseert en verzamelt gegevens van agent-Windows-computers. <br><br>Naast de [OMS-Agent](../log-analytics/log-analytics-windows-agent.md) hebben Windows-agents de Microsoft-agent voor afhankelijkheden nodig. Zie de [ondersteunde besturingssystemen](#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
+| Linux-agents | Ja | Serviceoverzicht analyseert en verzamelt gegevens van Linux-agent-computers. <br><br>Naast de [OMS-agent](../log-analytics/log-analytics-linux-agents.md) hebben Linux-agents de Microsoft-agent voor afhankelijkheden nodig. Zie de [ondersteunde besturingssystemen](#supported-operating-systems) voor een volledige lijst met versies van besturingssystemen. |
+| Beheergroep System Center Operations Manager | Ja | Serviceoverzicht analyseert en verzamelt gegevens van Windows en Linux-agents in een verbonden [System Center Operations Manager-beheergroep](../log-analytics/log-analytics-om-agents.md). <br><br>Er is een directe verbinding van de System Center Operations Manager-agentcomputer naar Log Analytics vereist. Gegevens uit de beheergroep doorgestuurd naar de werkruimte voor logboekanalyse.|
 | Azure Storage-account | Nee | Serviceoverzicht verzamelt gegevens van computers die door agents, dus er zijn geen gegevens te verzamelen van Azure Storage. |
 
 Serviceoverzicht ondersteunt alleen 64-bits-platforms.
 
-In Windows, Microsoft Monitoring Agent (MMA) wordt gebruikt door zowel System Center Operations Manager en logboekanalyse voor het verzamelen en verzenden bewakingsgegevens. (Deze agent heet de System Center Operations Manager-Agent, OMS-Agent, Log Analytics-Agent, MMA of Direct Agent, afhankelijk van de context.) System Center Operations Manager en Log Analytics bieden verschillende out van het vak versies van de MMA. Deze versies kunnen elk rapport naar System Center Operations Manager, met logboekanalyse of naar beide.  
+In Windows, Microsoft Monitoring Agent (MMA) wordt gebruikt door zowel System Center Operations Manager en logboekanalyse voor het verzamelen en verzenden bewakingsgegevens. (Deze agent heet de System Center Operations Manager-Agent, OMS-Agent, Log Analytics-Agent, MMA of Direct Agent, afhankelijk van de context.) System Center Operations Manager en Log Analytics bieden verschillende out van het vak versies van de MMA. Deze versies kunnen beide rapporteren aan System Center Operations Manager, aan Log Analytics of aan beide.  
 
 Op Linux, de OMS-Agent voor Linux Hiermee en verzendt het bewaken van gegevens met logboekanalyse. U kunt Serviceoverzicht gebruiken op servers met OMS Direct Agents of op servers die zijn gekoppeld aan logboekanalyse via System Center Operations Manager-beheergroepen.  
 
-In dit artikel, verwijzen we naar alle agents--of Linux- of Windows, of verbonden met een beheergroep van System Center Operations Manager of rechtstreeks met logboekanalyse--als de "OMS-Agent." We gebruiken de naam van de specifieke implementatie van de agent alleen indien nodig voor context.
+In dit artikel, verwijzen we naar alle agents--of Linux- of Windows, of verbonden met een beheergroep van System Center Operations Manager of rechtstreeks met logboekanalyse--als de "OMS-Agent." We gebruiken de specifieke implementatienaam van de agent alleen als dat nodig is binnen de context.
 
 De agent Serviceoverzicht stuurt de gegevens zelf geen en vereist geen wijzigingen in de firewalls en poorten. De gegevens in het Serviceoverzicht worden altijd verzonden door de OMS-Agent met Log Analytics, rechtstreeks of via de OMS-Gateway.
 
@@ -62,45 +62,45 @@ Als u een klant System Center Operations Manager met een beheergroep die is verb
 Als u de directe OMS-Agent gebruikt, moet u de OMS-Agent zichzelf worden verbonden met logboekanalyse of met uw Gateway OMS configureren. De OMS-Gateway kan worden gedownload vanaf de [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
 
 ### <a name="management-packs"></a>Management packs
-Wanneer het Serviceoverzicht in een werkruimte voor logboekanalyse is geactiveerd, wordt een 300 KB management pack verzonden naar de Windows-servers in deze werkruimte. Als u System Center Operations Manager-agents in een [verbonden beheergroep](../log-analytics/log-analytics-om-agents.md), het Serviceoverzicht management pack van System Center Operations Manager is geïmplementeerd. Als de agents rechtstreeks verbonden zijn, levert logboekanalyse het management pack.
+Wanneer het Serviceoverzicht in een werkruimte voor logboekanalyse is geactiveerd, wordt een 300 KB management pack verzonden naar de Windows-servers in deze werkruimte. Als u System Center Operations Manager-agents in een [verbonden beheergroep](../log-analytics/log-analytics-om-agents.md), het Serviceoverzicht management pack van System Center Operations Manager is geïmplementeerd. Als de agents rechtstreeks verbonden zijn, levert Log Analytics het management pack.
 
 De naam van het management pack is Microsoft.IntelligencePacks.ApplicationDependencyMonitor. Deze worden naar %Programfiles%\Microsoft bewaking Agent\Agent\Health Service State\Management Packs\ geschreven. De gegevensbron die gebruikmaakt van het management pack is % Program files%\Microsoft bewaking Agent\Agent\Health Service State\Resources\<AutoGeneratedID > \ Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
 
 ## <a name="installation"></a>Installatie
 ### <a name="install-the-dependency-agent-on-microsoft-windows"></a>Installeer de Agent afhankelijkheid op Microsoft Windows
-Er zijn beheerdersbevoegdheden vereist om te installeren of verwijderen van de agent.
+Er zijn beheerdersbevoegdheden vereist om de agent te installeren of verwijderen.
 
-De afhankelijkheid-Agent is geïnstalleerd op Windows-computers via InstallDependencyAgent Windows.exe. Als u dit uitvoerbare bestand zonder opties uitvoert, wordt er een wizard waarmee u volgen kunt om u interactief installeren gestart.  
+De afhankelijkheid-Agent is geïnstalleerd op Windows-computers via InstallDependencyAgent Windows.exe. Als u dit uitvoerbare bestand zonder opties uitvoert, wordt er een wizard gestart die u kunt volgen om interactief te installeren.  
 
 Gebruik de volgende stappen voor het installeren van de Agent voor afhankelijkheden op elke Windows-computer:
 
 1.  De OMS-Agent installeren met behulp van de instructies op de [verbinding maken met Windows-computers naar de Log Analytics-service in Azure](../log-analytics/log-analytics-windows-agent.md).
 2.  De Windows-agent downloaden en uitvoeren met behulp van de volgende opdracht: <br>`InstallDependencyAgent-Windows.exe`
 3.  Volg de wizard om de agent te installeren.
-4.  Als de Agent voor afhankelijkheden niet start, controleert u de logboeken voor uitgebreide foutinformatie. Op Windows-agents is de logboekmap %Programfiles%\Microsoft Agent\logs afhankelijkheid. 
+4.  Als de agent voor afhankelijkheden niet start, controleert u de logboeken voor uitgebreide foutinformatie. Op Windows-agents is de logboekmap %Programfiles%\Microsoft Agent\logs afhankelijkheid. 
 
 #### <a name="windows-command-line"></a>Windows-opdrachtregel
-Opties van de volgende tabel gebruiken om te installeren vanaf een opdrachtregel. Een overzicht van de vlaggen voor de installatie kunt u het installatieprogramma uitvoeren met behulp van de /? markering als volgt.
+Gebruik opties uit de volgende tabel om de agent te installeren vanaf een opdrachtregel. Een overzicht van de vlaggen voor de installatie kunt u het installatieprogramma uitvoeren met behulp van de /? markering als volgt.
 
     InstallDependencyAgent-Windows.exe /?
 
 | Vlag | Beschrijving |
 |:--|:--|
-| /? | Een lijst van de opdrachtregelopties ophalen. |
-| /S | Een installatie zonder vragen van de gebruiker op de achtergrond uitvoeren. |
+| /? | Een lijst met de opdrachtregelopties ophalen. |
+| /S | Een installatie op de achtergrond uitvoeren zonder gebruikersvragen. |
 
-Bestanden voor de Windows-Agent voor afhankelijkheden worden standaard in C:\Program Files\Microsoft afhankelijkheid Agent geplaatst.
+Bestanden voor de Windows-agent voor afhankelijkheden worden standaard geplaatst in C:\Program Files\Microsoft Dependency Agent.
 
-### <a name="install-the-dependency-agent-on-linux"></a>De afhankelijkheid-Agent installeren op Linux
-Toegang tot de hoofdmap is vereist voor het installeren of configureren van de agent.
+### <a name="install-the-dependency-agent-on-linux"></a>De agent voor afhankelijkheden installeren op Linux
+Toegang tot de hoofdmap is vereist om de agent te installeren of configureren.
 
-De afhankelijkheid-Agent is geïnstalleerd op Linux-computers via InstallDependencyAgent-Linux64.bin, een shell-script met een zichzelf uitpakkend binaire waarde. U kunt het bestand uit te voeren met behulp van servicel of toevoegen schrijfrechten hebben voor het bestand zelf.
+De agent voor afhankelijkheden wordt geïnstalleerd op Linux-computers via InstallDependencyAgent-Linux64.bin, een shell-script met een zelfuitpakkend binair bestand. U kunt het bestand uit te voeren met behulp van servicel of toevoegen schrijfrechten hebben voor het bestand zelf.
  
-Gebruik de volgende stappen voor het installeren van de Agent voor afhankelijkheden op elke Linux-computer:
+Gebruik de volgende stappen voor het installeren van de agent voor afhankelijkheden op elke Linux-computer:
 
 1.  De OMS-Agent installeren met behulp van de instructies op de [verzamelen en beheren van gegevens van Linux-computers](https://technet.microsoft.com/library/mt622052.aspx).
 2.  De afhankelijkheid van Linux-agent als hoofdmap installeren met behulp van de volgende opdracht:<br>`sh InstallDependencyAgent-Linux64.bin`
-3.  Als de Agent voor afhankelijkheden niet start, controleert u de logboeken voor uitgebreide foutinformatie. Op Linux-agents is de logboekmap /var/opt/microsoft/dependency-agent/log.
+3.  Als de agent voor afhankelijkheden niet start, controleert u de logboeken voor uitgebreide foutinformatie. Op Linux-agents is de logboekmap /var/opt/microsoft/dependency-agent/log.
 
 Voor een overzicht van de vlaggen voor installatie, voer de installatie programma dankzij - vlag als volgt.
 
@@ -108,24 +108,24 @@ Voor een overzicht van de vlaggen voor installatie, voer de installatie programm
 
 | Vlag | Beschrijving |
 |:--|:--|
-| -help | Een lijst van de opdrachtregelopties ophalen. |
-| -s | Een installatie zonder vragen van de gebruiker op de achtergrond uitvoeren. |
-| --controleren | Controleer de machtigingen en het besturingssysteem, maar moet u de agent niet installeren. |
+| -help | Een lijst met de opdrachtregelopties ophalen. |
+| -s | Een installatie op de achtergrond uitvoeren zonder gebruikersvragen. |
+| --controleren | Controleer machtigingen en het besturingssysteem, maar installeer niet de agent. |
 
-Bestanden voor de Agent voor afhankelijkheden worden geplaatst in de volgende mappen:
+Bestanden voor de agent voor afhankelijkheden worden in de volgende mappen geplaatst:
 
 | Bestanden | Locatie |
 |:--|:--|
-| Core-bestanden | /Opt/Microsoft/Dependency-agent |
-| Logboekbestanden | /var/opt/Microsoft/Dependency-agent/log |
-| De config-bestanden | /etc/opt/Microsoft/Dependency-agent/config |
-| Uitvoerbare bestanden voor service | /Opt/Microsoft/Dependency-agent/bIn/Microsoft-Dependency-agent<br>/Opt/Microsoft/Dependency-agent/bIn/Microsoft-Dependency-Agent-Manager |
-| Binaire opslag-bestanden | /var/opt/Microsoft/Dependency-agent/Storage |
+| Kernbestanden | /opt/microsoft/dependency-agent |
+| Logboekbestanden | /var/opt/microsoft/dependency-agent/log |
+| Configuratiebestanden | /etc/opt/microsoft/dependency-agent/config |
+| Uitvoerbare bestanden van de service | /opt/microsoft/dependency-agent/bin/microsoft-dependency-agent<br>/opt/microsoft/dependency-agent/bin/microsoft-dependency-agent-manager |
+| Binaire opslagbestanden | /var/opt/microsoft/dependency-agent/storage |
 
-## <a name="installation-script-examples"></a>Voorbeelden van scripts voor installatie
-Als u wilt eenvoudig in één keer de afhankelijkheid-Agent op veel servers implementeert, is het nuttig om een script gebruiken. U kunt de volgende scriptvoorbeelden downloaden en installeren van de Agent voor afhankelijkheden op Windows of Linux.
+## <a name="installation-script-examples"></a>Voorbeelden van installatiescript
+Als u de agent voor afhankelijkheden op een groot aantal servers tegelijk wilt implementeren, is het handig om een script gebruiken. U kunt de volgende scriptvoorbeelden gebruiken om de agent voor afhankelijkheden op Windows of Linux te downloaden en installeren.
 
-### <a name="powershell-script-for-windows"></a>Windows PowerShell-script
+### <a name="powershell-script-for-windows"></a>PowerShell-script voor Windows
 ```PowerShell
 Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDependencyAgent-Windows.exe
 
@@ -188,7 +188,7 @@ Een zeer eenvoudige wijze om te controleren of de Agent voor afhankelijkheden op
 
 
 ## <a name="desired-state-configuration"></a>Desired State Configuration
-Voor het implementeren van de Agent voor afhankelijkheden via Desired State Configuration, kunt u de module xPSDesiredStateConfiguration en een deel van de code als volgt:
+Voor het implementeren van de agent voor afhankelijkheden via Desired State Configuration kunt u de module xPSDesiredStateConfiguration en een stukje code zoals dit gebruiken:
 ```
 configuration ServiceMap {
 
@@ -222,12 +222,12 @@ Node localhost
 ```
 
 ## <a name="uninstallation"></a>Verwijderen
-### <a name="uninstall-the-dependency-agent-on-windows"></a>Verwijder de Agent afhankelijkheid in Windows
-Een beheerder kan de afhankelijkheid Agent voor Windows via het Configuratiescherm kunt verwijderen.
+### <a name="uninstall-the-dependency-agent-on-windows"></a>De agent voor afhankelijkheden verwijderen op Windows
+Een beheerder kan de Windows-agent voor afhankelijkheden verwijderen via het Configuratiescherm.
 
-Een beheerder kan ook uitvoeren %Programfiles%\Microsoft afhankelijkheid Agent\Uninstall.exe de afhankelijkheid-Agent verwijderen.
+Een beheerder kan ook %Programfiles%\Microsoft Dependency Agent\Uninstall.exe uitvoeren om de agent te verwijderen.
 
-### <a name="uninstall-the-dependency-agent-on-linux"></a>Verwijder de Agent afhankelijkheid op Linux
+### <a name="uninstall-the-dependency-agent-on-linux"></a>De agent voor afhankelijkheden verwijderen op Linux
 U kunt de Agent voor afhankelijkheden van Linux verwijderen met de volgende opdracht.
 <br>RHEL, CentOs of Oracle:
 ```
@@ -292,7 +292,7 @@ Serviceoverzicht is momenteel beschikbaar in de volgende Azure-regio's:
 
 
 ## <a name="supported-operating-systems"></a>Ondersteunde besturingssystemen
-De volgende secties worden de ondersteunde besturingssystemen voor de Agent afhankelijkheid. Serviceoverzicht biedt geen ondersteuning voor 32-bits architecturen voor elk besturingssysteem.
+In de volgende secties worden de ondersteunde besturingssystemen voor de agent voor afhankelijkheden vermeld. Serviceoverzicht biedt geen ondersteuning voor 32-bits architecturen voor elk besturingssysteem.
 
 ### <a name="windows-server"></a>Windows Server
 - Windows Server 2016
@@ -306,12 +306,12 @@ De volgende secties worden de ondersteunde besturingssystemen voor de Agent afha
 - Windows 8
 - Windows 7
 
-### <a name="red-hat-enterprise-linux-centos-linux-and-oracle-linux-with-rhel-kernel"></a>Red Hat Enterprise Linux-, CentOS Linux- en Oracle Linux (met RHEL Kernel)
-- Alleen standaard en SMP Linux kernel-versies worden ondersteund.
-- Niet-standaard kernel versies, zoals PAE en Xen, worden niet ondersteund voor een Linux-distributie. Bijvoorbeeld, wordt een systeem met de release tekenreeks '2.6.16.21-0.8-xen' niet ondersteund.
-- Aangepaste kernels, met inbegrip van hercompilaties van standaard kernels worden niet ondersteund.
-- CentOSPlus kernel wordt niet ondersteund.
-- Oracle Unbreakable Enterprise Kernel (UEK) wordt in verderop in dit artikel beschreven.
+### <a name="red-hat-enterprise-linux-centos-linux-and-oracle-linux-with-rhel-kernel"></a>Red Hat Enterprise Linux, CentOS Linux en Oracle Linux (met RHEL Kernel)
+- Alleen standaard- en SMP Linux kernelversies worden ondersteund.
+- Niet-standaard kernelversies, zoals PAE en Xen, worden voor geen enkele Linux-distributie ondersteund. Bijvoorbeeld, wordt een systeem met de release tekenreeks '2.6.16.21-0.8-xen' niet ondersteund.
+- Aangepaste kernels, met inbegrip van hercompilaties van standaardkernels, worden niet ondersteund.
+- CentOSPlus-kernel wordt niet ondersteund.
+- Oracle Unbreakable Enterprise Kernel (UEK) wordt verderop in dit artikel beschreven.
 
 
 #### <a name="red-hat-linux-7"></a>Red Hat Linux 7
@@ -322,6 +322,7 @@ De volgende secties worden de ondersteunde besturingssystemen voor de Agent afha
 | 7.2 | 3.10.0-327 |
 | 7.3 | 3.10.0-514 |
 | 7.4 | 3.10.0-693 |
+| 7.5 | 3.10.0-862 |
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 | Besturingssysteemversie | Kernelversie |
@@ -346,7 +347,7 @@ De volgende secties worden de ondersteunde besturingssystemen voor de Agent afha
 | 5.11 | 2.6.18-398<br>2.6.18-400<br>2.6.18-402<br>2.6.18-404<br>2.6.18-406<br>2.6.18-407<br>2.6.18-408<br>2.6.18-409<br>2.6.18-410<br>2.6.18-411<br>2.6.18-412<br>2.6.18-416<br>2.6.18-417<br>2.6.18-419<br>2.6.18-420 |
 
 ### <a name="ubuntu-server"></a>Ubuntu Server
-- Aangepaste kernels, met inbegrip van hercompilaties van standaard kernels worden niet ondersteund.
+- Aangepaste kernels, met inbegrip van hercompilaties van standaardkernels, worden niet ondersteund.
 
 | Besturingssysteemversie | Kernelversie |
 |:--|:--|
@@ -380,7 +381,7 @@ De volgende secties worden de ondersteunde besturingssystemen voor de Agent afha
 | 11 SP4 | 3.0.101-65 |
 
 
-## <a name="diagnostic-and-usage-data"></a>Diagnostische gegevens en gebruiksgegevens
+## <a name="diagnostic-and-usage-data"></a>Diagnostische en gebruiksgegevens
 Microsoft verzamelt automatisch gebruiks- en via uw gebruik van de service Serviceoverzicht. Microsoft gebruikt deze gegevens te bieden en de kwaliteit, beveiliging en integriteit van de service Serviceoverzicht te verbeteren. Gegevens omvatten informatie over de configuratie van uw software, zoals het besturingssysteem en versie. Dit omvat ook IP-adres, de DNS-naam en de Werkstationnaam zodat nauwkeurige en efficiënte mogelijkheden voor probleemoplossing. Er worden geen namen, adressen of andere contactgegevens verzameld.
 
 Zie voor meer informatie over het verzamelen van gegevens en gebruiksgegevens het [privacyverklaring van Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
