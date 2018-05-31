@@ -15,16 +15,17 @@ ms.workload: NA
 ms.date: 11/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: e41a7754e6e170dda7818bceadab7858a9d9fa76
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 6c84b60018ec03b7f9bc572db9181b8a47a0c595
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365402"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-application-to-azure"></a>Snelstart: een Java Spring Boot-toepassing in Azure implementeren
 Azure Service Fabric is een platform voor gedistribueerde systemen voor het implementeren en distribueren van microservices en containers. 
 
-Deze snelstart laat zien hoe u een Spring Boot-toepassing implementeert in Service Fabric. Deze quickstart gebruikt het [Aan de slag](https://spring.io/guides/gs/spring-boot/)-voorbeeld van de Spring-website. Met gebruik van vertrouwde opdrachtregelprogramma’s wordt u in deze quickstart stapsgewijs begeleid bij het implementeren van het Spring Boot-voorbeeld als een Service Fabric-toepassing. Als u klaar bent, werkt het Spring Boot Aan de slag-voorbeeld in Service Fabric. 
+In deze snelstart ziet u hoe u een Spring Boot-toepassing implementeert in Service Fabric met een Mac- of Linux-ontwikkelaarscomputer. Deze quickstart gebruikt het [Aan de slag](https://spring.io/guides/gs/spring-boot/)-voorbeeld van de Spring-website. Met gebruik van vertrouwde opdrachtregelprogramma’s wordt u in deze quickstart stapsgewijs begeleid bij het implementeren van het Spring Boot-voorbeeld als een Service Fabric-toepassing. Als u klaar bent, werkt het Spring Boot Aan de slag-voorbeeld in Service Fabric. 
 
 ![Schermafbeelding van de toepassing](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 
@@ -38,16 +39,36 @@ In deze snelstartgids leert u de volgende zaken:
 
 ## <a name="prerequisites"></a>Vereisten
 Dit zijn de vereisten voor het voltooien van deze Quickstart:
-1. [Service Fabric-SDK en Service Fabric CLI (opdrachtregelinterface) installeren](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
+1. Service Fabric-SDK en Service Fabric CLI (opdrachtregelinterface) installeren
+
+    a. [Mac](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cli#cli-mac)
+    
+    b. [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
+
 2. [Git installeren](https://git-scm.com/)
-3. [Yeoman installeren](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
-4. [Java-omgeving instellen](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development)
+3. Yeoman installeren
+
+    a. [Mac](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
+
+    b. [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
+4. Java-omgeving instellen
+
+    a. [Mac](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
+    
+    b.  [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development)
 
 ## <a name="download-the-sample"></a>Het voorbeeld downloaden
 Voer in een terminalvenster de volgende opdracht uit om het Spring Boot Aan de slag-voorbeeld te klonen op de lokale computer.
 ```bash
 git clone https://github.com/spring-guides/gs-spring-boot.git
 ```
+
+## <a name="build-the-spring-boot-application"></a>De Spring Boot-toepassing compileren 
+1. Voer in de directory `gs-spring-boot/complete` de onderstaande opdracht uit om de toepassing te compileren 
+
+    ```bash
+    ./gradlew build
+    ``` 
 
 ## <a name="package-the-spring-boot-application"></a>De Spring Boot-toepassing inpakken 
 1. Voer in de `gs-spring-boot`-map van uw kloon de opdracht `yo azuresfguest` uit. 
@@ -56,7 +77,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 
     ![Yeoman-vermeldingen](./media/service-fabric-quickstart-java-spring-boot/yeomanspringboot.png)
 
-3. Maak in de map `SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/code` een bestand met de naam `entryPoint.sh`. Voeg het volgende toe aan het bestand. 
+3. Maak in de map `SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/code` een bestand met de naam `entryPoint.sh`. Voeg het volgende toe aan het bestand `entryPoint.sh`. 
 
     ```bash
     #!/bin/bash
@@ -65,14 +86,60 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
     java -jar gs-spring-boot-0.1.0.jar
     ```
 
+4. Voeg de resource **Eindpunten** toe aan het bestand `gs-spring-boot/SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/ServiceManifest.xml`
+
+    ```xml 
+        <Resources>
+          <Endpoints>
+            <Endpoint Name="WebEndpoint" Protocol="http" Port="8080" />
+          </Endpoints>
+       </Resources>
+    ```
+
+    De **ServiceManifest.xml** ziet er nu als volgt uit: 
+
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <ServiceManifest Name="SpringGettingStartedPkg" Version="1.0.0"
+                     xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+       <ServiceTypes>
+          <StatelessServiceType ServiceTypeName="SpringGettingStartedType" UseImplicitHost="true">
+       </StatelessServiceType>
+       </ServiceTypes>
+
+       <CodePackage Name="code" Version="1.0.0">
+          <EntryPoint>
+             <ExeHost>
+                <Program>entryPoint.sh</Program>
+                <Arguments></Arguments>
+                <WorkingFolder>CodePackage</WorkingFolder>
+             </ExeHost>
+          </EntryPoint>
+       </CodePackage>
+        <Resources>
+          <Endpoints>
+            <Endpoint Name="WebEndpoint" Protocol="http" Port="8080" />
+          </Endpoints>
+       </Resources>
+     </ServiceManifest>
+    ```
+
 In dit stadium hebt u een Service Fabric-toepassing voor het Spring Boot Aan de slag-voorbeeld gemaakt die u kunt implementeren in Service Fabric.
 
 ## <a name="run-the-application-locally"></a>De toepassing lokaal uitvoeren
-1. Start het lokale cluster door de volgende opdracht uit te voeren:
+1. Start het lokale cluster op Ubuntu-computers door de volgende opdracht uit te voeren:
 
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
+
+    Als u een Mac gebruikt, start u het lokale cluster vanuit de Docker-installatiekopie (hierbij wordt verondersteld dat is voldaan aan de [vereisten](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-mac#create-a-local-container-and-set-up-service-fabric) voor het instellen van het lokale cluster voor Mac). 
+
+    ```bash
+    docker run --name sftestcluster -d -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 -p 8080:8080 mysfcluster
+    ```
+
     Het starten van het lokale cluster kan enige tijd duren. Open Service Fabric Explorer op **http://localhost:19080** om te controleren of het cluster volledig naar behoren functioneert. Als de vijf knooppunten in orde zijn, is het lokale cluster actief. 
     
     ![Lokaal cluster is in orde](./media/service-fabric-quickstart-java-spring-boot/sfxlocalhost.png)
@@ -120,9 +187,9 @@ In deze snelstart gebruikt u de Service Fabric CLI en Service Fabric Explorer.
 
 Om de CLI te kunnen gebruiken, moet u een PEM-bestand maken op basis van het PFX-bestand dat u hebt gedownload. Als u het bestand wilt converteren, gebruikt u de volgende opdracht. (Voor party-clusters kunt u een voor uw PFX-bestand specifieke opdracht uit de instructies op de pagina **Leesmij** kopiëren.)
 
-    ```bash
-    openssl pkcs12 -in party-cluster-1486790479-client-cert.pfx -out party-cluster-1486790479-client-cert.pem -nodes -passin pass:1486790479
-    ``` 
+```bash
+openssl pkcs12 -in party-cluster-1486790479-client-cert.pfx -out party-cluster-1486790479-client-cert.pem -nodes -passin pass:1486790479
+``` 
 
 Als u Service Fabric Explorer wilt gebruiken, moet u het PFX-certificaatbestand dat u hebt gedownload van de Party Cluster-website importeren in uw certificaatarchief (Windows of Mac) of in de browser zelf (Ubuntu). U hebt het wachtwoord voor uw persoonlijke PFX-sleutel nodig, die te vinden is op-de pagina **Leesmij**.
 
@@ -140,12 +207,6 @@ Nu de toepassing en het cluster gereed zijn, kunt u deze rechtstreeks vanuit de 
 
 1. Navigeer naar de map `gs-spring-boot/SpringServiceFabric`.
 2. Voer de volgende opdracht uit om verbinding te maken met het Azure-cluster. 
-
-    ```bash
-    sfctl cluster select --endpoint http://<ConnectionIPOrURL>:19080
-    ```
-    
-    Als het cluster is beveiligd met een zelfondertekend certificaat, is dit de opdracht die u uitvoert: 
 
     ```bash
     sfctl cluster select --endpoint https://<ConnectionIPOrURL>:19080 --pem <path_to_certificate> --no-verify
@@ -182,7 +243,7 @@ Voer de volgende stappen uit om de web-front-endservice te schalen:
 
     ```bash 
     # Connect to your local cluster
-    sfctl cluster select --endpoint http://localhost:19080
+    sfctl cluster select --endpoint https://<ConnectionIPOrURL>:19080 --pem <path_to_certificate> --no-verify
 
     # Run Bash command to scale instance count for your service
     sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted` --instance-count 3 --stateless 
