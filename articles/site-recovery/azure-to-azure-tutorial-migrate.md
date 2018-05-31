@@ -5,14 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/24/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 8de067ece55e13d32af6822e114cb9dab000bdff
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 0460d595bc70ec09d492221485749ece32ec07df
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209705"
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Virtuele Azure-machines migreren naar een andere regio
 
@@ -102,7 +103,7 @@ De nieuwe kluis wordt toegevoegd op het **Dashboard** onder **Alle resources** e
 ## <a name="select-the-source"></a>De bron selecteren
 
 1. Klik in Recovery Services-kluizen op **ConsotoVMVault** > **+Repliceren**.
-2. Bij **Bron** selecteert u **Azure - PREVIEW**.
+2. Bij **Bron** selecteert u **Azure**.
 3. Bij **Bronlocatie** selecteert u de Azure-bronregio waar uw VM’s momenteel worden uitgevoerd.
 4. Selecteer het Resource Manager-implementatiemodel. Selecteer vervolgens de **resourcegroep van de bron**.
 5. Klik op **OK** om de instellingen op te slaan.
@@ -115,7 +116,7 @@ In Site Recovery wordt een lijst opgehaald van de virtuele machines die zijn gek
 
 1. Klik in Azure Portal op **Virtuele machines**.
 2. Selecteer de virtuele machine die u wilt migreren. Klik vervolgens op **OK**.
-3. Klik in **Instellingen** op **Herstel na noodgeval (preview)**.
+3. Klik bij **Instellingen** op **Herstel na noodgeval**.
 4. Selecteer in **Noodherstel configureren** > **Doelregio** de doelregio waarnaar u wilt repliceren.
 5. Accepteer voor deze zelfstudie de overige standaardinstellingen.
 6. Klik op **Replicatie inschakelen**. Hierdoor wordt een taak gestart voor het inschakelen van replicatie voor de VM.

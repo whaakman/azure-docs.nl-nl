@@ -3,7 +3,8 @@ title: "Problemen oplossen: 'Active Directory' item is ontbreekt of is niet besc
 description: Wat te doen wanneer de menuopdracht Active Directory niet wordt weergegeven in de Azure-beheerportal.
 services: active-directory
 documentationcenter: na
-author: bryanla
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: mtillman
 editor: ''
 ms.assetid: 3383020d-6397-43ea-b7aa-c6a9d6a1e3df
@@ -13,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
-ms.author: bryanla
-ms.openlocfilehash: c6e8557ec66db51df0bb463a9511b0cdc94811d4
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8996eaf1d780f957445c63eac96cf9a343b9ef90
+ms.sourcegitcommit: c306be629977f6bc22bb7aefd0522a30ed591ff3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34181534"
 ---
 # <a name="troubleshooting-active-directory-item-is-missing-or-not-available"></a>Problemen oplossen: 'Active Directory' item is ontbreekt of is niet beschikbaar
 Veel van de instructies voor het gebruik van Azure Active Directory-functies en services beginnen met ' Ga naar de Azure-beheerportal en klik **Active Directory**. " Wat doet u als het Active Directory-extensie of menu-item niet wordt weergegeven of als deze is gemarkeerd, maar **niet beschikbaar**? Dit onderwerp is bedoeld om u te helpen. Beschrijft de omstandigheden waaronder **Active Directory** niet wordt weergegeven of is niet beschikbaar en wordt uitgelegd hoe u om door te gaan.

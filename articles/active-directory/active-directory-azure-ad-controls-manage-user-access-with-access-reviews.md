@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 05/16/2018
 ms.author: billmath
-ms.openlocfilehash: b11f0b2032a102501de1da8315e80df88bfd57d5
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 2b80a09bc84166b65a731f1bd544e1cb40ff2eef
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34192486"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Gebruikerstoegang beheren met Azure AD-toegangsbeoordelingen
 
@@ -30,7 +31,11 @@ Met Azure Active Directory (Azure AD) kunt u eenvoudig zorgen dat gebruikers de 
 
 ## <a name="prerequisites"></a>Vereisten 
 
+
+Toegangsbeoordelingen zijn beschikbaar met de Premium P2-editie van Azure AD, die deel uitmaakt van Microsoft Enterprise Mobility + Security, E5. Zie [Azure Active Directory-edities](active-directory-editions.md) voor meer informatie. Elke gebruiker die deze functie gebruikt (waaronder het maken van een beoordeling, het invullen van een beoordeling of het bevestigen van de toegang), heeft een licentie nodig. 
+
 Toegangsbeoordelingen zijn beschikbaar met de Premium P2-editie van Azure AD, die deel uitmaakt van Microsoft Enterprise Mobility + Security, E5. Zie [Azure Active Directory-edities](active-directory-whatis.md) voor meer informatie. Elke gebruiker die deze functie gebruikt - bijvoorbeeld voor het maken van een beoordeling, het openen van een beoordeling of het toepassen van een beoordeling - heeft een licentie nodig.
+
 
 
 ## <a name="create-and-perform-an-access-review"></a>Een toegangscontrole uitvoeren
