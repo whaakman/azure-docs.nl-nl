@@ -5,14 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/16/2018
+ms.date: 05/18/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: fb102cc43c6e1d17afaa78a2833ae447600a96af
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0d8ef36e001aaf417b84efaf99a992fd64f01b6f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366338"
 ---
 # <a name="scenario-1-assess-on-premises-workloads-for-migration-to-azure"></a>Scenario 1: On-premises workloads evalueren voor migratie naar Azure
 
@@ -22,9 +23,9 @@ Om praktijkervaring op te doen en meer inzicht te krijgen in de betreffende tech
 
 **Technologie** | **Beschrijving** | **Kosten**
 --- | --- | ---
-[DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | DMA evalueert en detecteert compatibiliteitsproblemen die invloed kunnen hebben op de databasefunctionaliteit in Azure. Daarnaast wordt met DMA de functiepariteit tussen uw SQL Server-bron en -doel geëvalueerd en worden er aanbevelingen gedaan voor prestatie- en betrouwbaarheidsverbeteringen van de doelomgeving. | Het is een gratis hulpprogramma dat kan worden gedownload. 
+[DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | DMA evalueert en detecteert compatibiliteitsproblemen die invloed kunnen hebben op de databasefunctionaliteit in Azure. Daarnaast wordt met DMA de functiepariteit tussen uw SQL Server-bron en -doel geëvalueerd en worden er aanbevelingen gedaan voor prestatie- en betrouwbaarheidsverbeteringen van de doelomgeving. | Het is een gratis hulpprogramma dat kan worden gedownload.
 [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-overview) | De service helpt u bij de evaluatie van on-premises computers voor migratie naar Azure. De service evalueert de geschiktheid voor migratie van de machines en biedt formaat- en kostenramingen voor de uitvoering in Azure. Op dit moment kunt u de service Azure Migrate gebruiken om on-premises VMware-VM's te evalueren voor migratie naar Azure. | Momenteel (april 2018) zijn er geen kosten verbonden aan het gebruik van deze service.
-[Serviceoverzicht](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | Azure Migrate maakt gebruik van Servicetoewijzing om afhankelijkheden weer te geven tussen de computers die u wilt migreren. |  Servicetoewijzing is een onderdeel van Azure Log Analytics. Het kan momenteel gedurende 180 dagen kosteloos worden gebruikt. 
+[Serviceoverzicht](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | Azure Migrate maakt gebruik van Servicetoewijzing om afhankelijkheden weer te geven tussen de computers die u wilt migreren. |  Servicetoewijzing is een onderdeel van Azure Log Analytics. Het kan momenteel gedurende 180 dagen kosteloos worden gebruikt.
 
 In dit scenario downloaden we DMA en voeren we het uit om de on-premises SQL Server-database voor onze reis-app te evalueren. We gebruiken Azure Migrate met afhankelijkheidstoewijzing om de VM's voor de app te evalueren voordat we ze migreren naar Azure.
 
@@ -50,7 +51,7 @@ In dit scenario geldt het volgende:
 U hebt het volgende nodig om dit scenario te implementeren:
 
 - Een on-premises vCenter-server waarop versie 5.5, 6.0 of 6.5 wordt uitgevoerd.
-- Een alleen-lezen-account op de vCenter-server of machtigingen om er een te maken. 
+- Een alleen-lezen-account op de vCenter-server of machtigingen om er een te maken.
 - Machtigingen om een virtuele machine te maken op de vCenter-server met behulp van een OVA-sjabloon.
 - Ten minste één ESXi-host waarop versie 5.0 of hoger wordt uitgevoerd.
 - Ten minste twee on-premises virtuele VMware-machines, en op één daarvan moet een SQL Server-database worden uitgevoerd.
@@ -106,15 +107,15 @@ Voer een evaluatie uit om uw bron-SQL Server-exemplaar te evalueren ten aanzien 
       Op dit moment biedt DMA geen ondersteuning voor evaluatie voor migratie naar een SQL beheerd exemplaar. Als tijdelijke oplossing gebruiken we voor de evaluatie SQL Server op Azure VM als ons veronderstelde doel.
 
 1.  Geef in **Doelversie selecteren** de doelversie van SQL Server op die u in Azure wilt uitvoeren en wat u in de evaluatie wilt detecteren:
-    - In **Compatibiliteitsproblemen** vindt u informatie over de wijzigingen die de migratie kunnen verstoren, of over kleine aanpassingen die vóór de migratie zijn vereist. U vindt hier ook informatie over functies die u momenteel gebruikt en die zijn afgeschaft. Problemen zijn op compatibiliteitsniveau ingedeeld. 
-    - In **Aanbeveling voor nieuwe functies** vindt u informatie over nieuwe functies op het SQL Server-doelplatform die u na de migratie voor uw database kunt gebruiken. Deze zijn ingedeeld in Prestaties, Beveiliging en Opslag. 
+    - In **Compatibiliteitsproblemen** vindt u informatie over de wijzigingen die de migratie kunnen verstoren, of over kleine aanpassingen die vóór de migratie zijn vereist. U vindt hier ook informatie over functies die u momenteel gebruikt en die zijn afgeschaft. Problemen zijn op compatibiliteitsniveau ingedeeld.
+    - In **Aanbeveling voor nieuwe functies** vindt u informatie over nieuwe functies op het SQL Server-doelplatform die u na de migratie voor uw database kunt gebruiken. Deze zijn ingedeeld in Prestaties, Beveiliging en Opslag.
 
     ![Doel selecteren](./media/migrate-scenarios-assessment/dma-assessment-2.png)
 
 2. Geef in **Verbinding maken met een server** de naam op van de computer waarop het SQL Server-exemplaar wordt uitgevoerd, het verificatietype en de verbindingsgegevens. Klik vervolgens op **Verbinden**.
 
     ![Doel selecteren](./media/migrate-scenarios-assessment/dma-assessment-3.png)
-    
+
 3. Selecteer in **Bron toevoegen** de database die u wilt evalueren en klik op **Toevoegen**.
 4. Er wordt een evaluatie met de opgegeven naam gemaakt.
 
@@ -126,7 +127,7 @@ Voer een evaluatie uit om uw bron-SQL Server-exemplaar te evalueren ten aanzien 
 
 ### <a name="analyze-the-database-assessment"></a>De evaluatie van de database analyseren
 
-Resultaten worden in de assistent weergegeven zodra ze beschikbaar zijn. 
+Resultaten worden in de assistent weergegeven zodra ze beschikbaar zijn.
 
 1. Controleer in rapport **Compatibiliteitsproblemen** op elk compatibiliteitsniveau of uw database problemen heeft en zo ja, hoe u deze kunt oplossen. Compatibiliteitsniveaus worden als volgt aan SQL Server-versies toegewezen:
     - 100: SQL Server 2008/Azure SQL Database
@@ -141,7 +142,7 @@ Resultaten worden in de assistent weergegeven zodra ze beschikbaar zijn.
 
     ![Functieaanbevelingen](./media/migrate-scenarios-assessment/dma-assessment-6.png)
 
-3. Als u eventuele problemen hebt opgelost, klikt u op **Evaluatie opnieuw starten** om deze opnieuw uit te voeren. 
+3. Als u eventuele problemen hebt opgelost, klikt u op **Evaluatie opnieuw starten** om deze opnieuw uit te voeren.
 4. Klik op **Rapport exporteren** om het evaluatierapport in JSON- of CSV-indeling te converteren.
 
 Als u een evaluatie op grotere schaal uitvoert:
@@ -182,8 +183,8 @@ Voordat u de implementatie start, moet u de instellingen voor statistieken voor 
     - Voor opslag wordt door Azure Migrate een standaardschijf in Azure aanbevolen die even groot is als de on-premises schijf.
     - Voor netwerken wordt voor elke on-premises netwerkadapter een netwerkadapter in Azure aanbevolen.
     - Voor rekencapaciteit kijkt Azure Migrate naar de VM-kernen en de geheugengrootte en wordt een Azure-VM met dezelfde configuratie aanbevolen. Als er meer Azure VM-grootten in aanmerking komen, wordt de grootte met de laagste kosten aanbevolen.
-   
-    
+
+
 [Meer informatie](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#sizing) over groottebepaling op niveau 3.
 
 Stel het niveau als volgt in:
@@ -215,7 +216,7 @@ Maak een Azure Migrate-project en download en installeer de collector-VM. Voer d
     ![Azure Migrate](./media/migrate-scenarios-assessment/project-1.png)
 
 
-    
+
 
 ### <a name="download-the-collector-appliance"></a>Het collector-apparaat downloaden
 
@@ -225,7 +226,7 @@ Azure Migrate maakt een on-premises virtuele machine die het collector-apparaat 
 2. Klik in **Machines detecteren** op **Downloaden** om het .OVA-bestand te downloaden.
 3. Kopieer de project-id en -sleutel uit **Projectreferenties kopiëren**. U hebt deze nodig tijdens de configuratie van collector.
 
-    ![.OVA-bestand downloaden](./media/migrate-scenarios-assessment/download-ova.png) 
+    ![.OVA-bestand downloaden](./media/migrate-scenarios-assessment/download-ova.png)
 
 ### <a name="verify-the-collector-appliance"></a>Het collector-apparaat verifiëren
 
@@ -235,14 +236,14 @@ Controleer of het .OVA-bestand veilig is voordat u het implementeert.
 2. Gebruik de volgende opdracht om de hash voor het OVA-bestand te genereren:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Gebruiksvoorbeeld: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. De gegenereerde hash moet overeenkomen met deze instellingen (versie 1.0.9.7)
-    
+3. De gegenereerde hash moet overeenkomen met deze instellingen (versie 1.0.9.8)
+
     **Algoritme** | **Hash-waarde**
     --- | ---
-    MD5 | d5b6a03701203ff556fa78694d6d7c35
-    SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
-    SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
-    
+    MD5 | b5d9f0caf15ca357ac0563468c2e6251
+    SHA1 | d6179b5bfe84e123fabd37f8a1e4930839eeb0e5
+    SHA256 | 09c68b168719cb93bd439ea6a5fe21a3b01beec0e15b84204857061ca5b116ff
+
 
 ### <a name="create-the-collector-appliance"></a>Het collector-apparaat maken
 
@@ -250,14 +251,14 @@ Importeer het gedownloade bestand naar de vCenter Server.
 
 1. Klik in de Client vSphere-console op **Bestand** > **OVF-sjabloon implementeren**.
 
-    ![OVF implementeren](./media/migrate-scenarios-assessment/vcenter-wizard.png) 
+    ![OVF implementeren](./media/migrate-scenarios-assessment/vcenter-wizard.png)
 
 2. Geef in de wizard voor het implementeren van OVF-sjablonen > **Source** de locatie van het OVA-bestand op en klik op **Next**.
 3. Klik in **OVF Template Details** op **Next**. Klik in **End User License Agreement** op **Accept** om de overeenkomst te accepteren en klik op **Next**.
 4. Geef in **Name and Location** een beschrijvende naam op voor de collector-VM en het inventarisobject waarin de virtuele machine wordt gehost en klik op **Next**. Geef de host of het cluster op waarop de collector-VM wordt uitgevoerd.
 5. Geef in **Storage** op waar u bestanden voor de VM wilt opslaan en klik op **Next**.
 6. Geef in **Disk Format** op hoe u de opslag wilt inrichten.
-7. Geef in **Netwerktoewijzing** het netwerk op waarmee de collector-VM verbinding maakt. Het netwerk moet verbinding hebben met internet om metagegevens te kunnen verzenden naar Azure. 
+7. Geef in **Netwerktoewijzing** het netwerk op waarmee de collector-VM verbinding maakt. Het netwerk moet verbinding hebben met internet om metagegevens te kunnen verzenden naar Azure.
 8. Controleer de instellingen in **Ready to Complete**, selecteer **Power on after deployment** en klik op **Finish**.
 
 Nadat het apparaat is gemaakt, wordt een bericht weergegeven dat alles met succes is voltooid.
@@ -270,22 +271,22 @@ Opmerking vóór u begint: de collector ondersteunt alleen 'Engels (Verenigde St
 2. Geef de voorkeursinstellingen voor de taal, de tijdzone en wachtwoorden op voor het apparaat.
 3. Klik op het bureaublad op de snelkoppeling **Collector uitvoeren**.
 
-    ![Snelkoppeling naar collector](./media/migrate-scenarios-assessment/collector-shortcut.png) 
-    
+    ![Snelkoppeling naar collector](./media/migrate-scenarios-assessment/collector-shortcut.png)
+
 4. Open in de Azure Migrate Collector het onderdeel **Vereisten instellen**.
     - Accepteer de licentievoorwaarden en lees de informatie van derden.
-    - De collector controleert of de virtuele machine toegang heeft tot internet, of de tijd wordt gesynchroniseerd en of de collectorservice wordt uitgevoerd (deze is standaard op de virtuele machine geïnstalleerd). De collector controleert ook of VMWare PowerCLI is geïnstalleerd. 
-    
+    - De collector controleert of de virtuele machine toegang heeft tot internet, of de tijd wordt gesynchroniseerd en of de collectorservice wordt uitgevoerd (deze is standaard op de virtuele machine geïnstalleerd). De collector controleert ook of VMWare PowerCLI is geïnstalleerd.
+
     > [!NOTE]
     > We gaan ervan uit dat de virtuele machine rechtstreeks toegang heeft tot internet, zonder een proxy.
 
     ![Vereisten verifiëren](./media/migrate-scenarios-assessment/collector-verify-prereqs.png)
-    
+
 
 5. Doe het volgende in **vCenter Server-details opgeven**:
     - Geef de naam (FQDN) of het IP-adres op van de vCenter Server.
     - Geef voor **User name** en **Password** de referenties op voor het alleen-lezen-account dat de collector gebruikt om virtuele machines op de vCenter Server te detecteren.
-    - Selecteer in **Select scope** een bereik voor VM-detectie. De collector kan alleen virtuele machines detecteren binnen het opgegeven bereik. U kunt het bereik instellen op een specifieke map, een datacenter of een cluster. Deze mag niet meer dan 1500 virtuele machines bevatten. 
+    - Selecteer in **Select scope** een bereik voor VM-detectie. De collector kan alleen virtuele machines detecteren binnen het opgegeven bereik. U kunt het bereik instellen op een specifieke map, een datacenter of een cluster. Deze mag niet meer dan 1500 virtuele machines bevatten.
 
     ![Verbinding maken met vCenter](./media/migrate-scenarios-assessment/collector-connect-vcenter.png)
 
@@ -296,7 +297,7 @@ Opmerking vóór u begint: de collector ondersteunt alleen 'Engels (Verenigde St
 7. In **View collection progress** bekijkt u de detectie en controleert u of metagegevens die vanuit de virtuele machines worden verzameld, zich binnen het bereik bevinden. De collector geeft aan hoe lang de detectie ongeveer zal duren.
 
     ![Bezig met verzamelen](./media/migrate-scenarios-assessment/collector-collection-process.png)
-   
+
 
 
 ### <a name="verify-vms-in-the-portal"></a>VM's verifiëren in de portal
@@ -309,7 +310,7 @@ Wanneer de verzameling is voltooid, controleert u of de virtuele machines worden
     ![Gedetecteerde computers](./media/migrate-scenarios-assessment/discovery-complete.png)
 
 3. Let wel: op de VM's zijn momenteel geen Azure Migrate-agents geïnstalleerd. Deze moeten worden geïnstalleerd om afhankelijkheden te kunnen weergeven.
-    
+
     ![Gedetecteerde computers](./media/migrate-scenarios-assessment/machines-no-agent.png)
 
 
@@ -322,7 +323,7 @@ Om de afhankelijkheden te bekijken tussen virtuele machines die we willen evalue
 
 Als u een kopie wilt maken van de virtuele machine voordat u deze wijzigt, maakt u een momentopname voordat u de agents installeert.
 
-![Momentopname van VM](./media/migrate-scenarios-assessment/snapshot-vm.png) 
+![Momentopname van VM](./media/migrate-scenarios-assessment/snapshot-vm.png)
 
 
 ### <a name="download-and-install-the-vm-agents"></a>De VM-agents downloaden en installeren
@@ -331,7 +332,7 @@ Als u een kopie wilt maken van de virtuele machine voordat u deze wijzigt, maakt
 2.  Op de pagina **Machines detecteren** van elke virtuele machine downloadt en installeert u de MMA (Microsoft Monitoring Agent) en de agent voor afhankelijkheden.
 3.  Kopieer de werkruimte-id en -sleutel. U hebt deze nodig tijdens de installatie van de MMA.
 
-    ![Agent downloaden](./media/migrate-scenarios-assessment/download-agents.png) 
+    ![Agent downloaden](./media/migrate-scenarios-assessment/download-agents.png)
 
 
 
@@ -339,12 +340,12 @@ Als u een kopie wilt maken van de virtuele machine voordat u deze wijzigt, maakt
 
 1. Dubbelklik op de gedownloade agent.
 2. Klik op de pagina **Welkom** op **Volgende**. Klik op de pagina **Licentievoorwaarden** op **Akkoord** om de licentie te accepteren.
-3. Behoud in **Doelmap** de standaardinstallatiemap > **Volgende**. 
-4. Selecteer in **Installatieopties voor agent** de optie **De agent verbinden met Azure Log Analytics** > **Volgende**. 
+3. Behoud in **Doelmap** de standaardinstallatiemap > **Volgende**.
+4. Selecteer in **Installatieopties voor agent** de optie **De agent verbinden met Azure Log Analytics** > **Volgende**.
 
-    ![MMA-installatie](./media/migrate-scenarios-assessment/mma-install.png) 
+    ![MMA-installatie](./media/migrate-scenarios-assessment/mma-install.png)
 5. In **Azure Log Analytics** plakt u de werkruimte-id en -sleutel die u in de portal hebt gekopieerd. Klik op **Volgende**.
-    ![MMA-installatie](./media/migrate-scenarios-assessment/mma-install2.png) 
+    ![MMA-installatie](./media/migrate-scenarios-assessment/mma-install2.png)
 
 6. Installeer de MMA in **Gereed voor installatie**.
 
@@ -356,10 +357,10 @@ Als u een kopie wilt maken van de virtuele machine voordat u deze wijzigt, maakt
 2.  Klik op de pagina **Licentievoorwaarden** op **Akkoord** om de licentie te accepteren.
 3.  Wacht tijdens het **installeren** totdat de installatie is voltooid. Klik op **Volgende**.
 
-    ![Agent voor afhankelijkheden](./media/migrate-scenarios-assessment/dependency-agent.png) 
+    ![Agent voor afhankelijkheden](./media/migrate-scenarios-assessment/dependency-agent.png)
 
 
-       
+
 ## <a name="step-7-run-and-analyze-the-vm-assessment"></a>Stap 7: De evaluatie van de VM uitvoeren en analyseren
 
 Controleer VM-afhankelijkheden en maak een groep. Voer daarna de evaluatie uit.
@@ -368,7 +369,7 @@ Controleer VM-afhankelijkheden en maak een groep. Voer daarna de evaluatie uit.
 
 1.  Klik op de pagina **Machines** voor de virtuele machines die u wilt analyseren op **Afhankelijkheden weergeven**.
 
-    ![Machineafhankelijkheden weergeven](./media/migrate-scenarios-assessment/view-machine-dependencies.png) 
+    ![Machineafhankelijkheden weergeven](./media/migrate-scenarios-assessment/view-machine-dependencies.png)
 
 2. Voor de SQLVM bevat de afhankelijkheidskaart de volgende details:
 
@@ -376,8 +377,8 @@ Controleer VM-afhankelijkheden en maak een groep. Voer daarna de evaluatie uit.
     - Inkomende (client) en uitgaande (server) TCP-verbindingen naar en van alle afhankelijke machines.
     - Afhankelijke machines waarop de Azure Migrate-agents zijn geïnstalleerd, worden als afzonderlijke vakken weergegeven
     - Voor machines waarop geen agents zijn geïnstalleerd, worden poort en IP-adres weergegeven.
-    
- 3. Voor machines waarop de agent is geïnstalleerd (WEBVM) klikt u op het VM-vak om meer informatie weer te geven, zoals de FQDN-naam, het besturingssysteem of het MAC-adres. 
+
+ 3. Voor machines waarop de agent is geïnstalleerd (WEBVM) klikt u op het VM-vak om meer informatie weer te geven, zoals de FQDN-naam, het besturingssysteem of het MAC-adres.
 
     ![Groepsafhankelijkheden weergeven](./media/migrate-scenarios-assessment/sqlvm-dependencies.png)
 
@@ -385,7 +386,7 @@ Controleer VM-afhankelijkheden en maak een groep. Voer daarna de evaluatie uit.
 5. Klik op **Groep maken** en geef een naam op (smarthotelapp).
 
 > [!NOTE]
-    > Voor gedetailleerdere afhankelijkheden kunt u het tijdsbereik uitbreiden. U kunt een specifieke duur of begin- en einddatums selecteren. 
+    > Voor gedetailleerdere afhankelijkheden kunt u het tijdsbereik uitbreiden. U kunt een specifieke duur of begin- en einddatums selecteren.
 
 
 ### <a name="run-an-assessment"></a>Een evaluatie uitvoeren
@@ -409,7 +410,7 @@ Voor deze zelfstudie zijn de standaardevaluatie-instellingen gebruikt, maar u ku
     **Instelling** | **Details** | **Standaard**
     --- | --- | ---
     **Doellocatie** | De Azure-locatie waarnaar u wilt migreren | Geen standaard.
-    **Opslagredundantie** | Het type opslagredundantie dat na de migratie door de virtuele Azure-machines wordt gebruikt. | De standaardwaarde is [Lokaal redundante opslag (LRS)](../storage/common/storage-redundancy-lrs.md). Azure Migrate ondersteunt alleen evaluaties op basis van beheerde schijven en beheerde schijven ondersteunen alleen LRS. Vandaar de optie LRS. 
+    **Opslagredundantie** | Het type opslagredundantie dat na de migratie door de virtuele Azure-machines wordt gebruikt. | De standaardwaarde is [Lokaal redundante opslag (LRS)](../storage/common/storage-redundancy-lrs.md). Azure Migrate ondersteunt alleen evaluaties op basis van beheerde schijven en beheerde schijven ondersteunen alleen LRS. Vandaar de optie LRS.
     **Criterium voor het aanpassen van de grootte** | Het door Azure Migrate te gebruiken criterium om VM's op de juiste grootte te maken voor Azure. U kunt de grootte bepalen *op basis van prestaties* of de grootte van de virtuele machines *als on-premises* bepalen, zonder rekening te houden de prestatiegeschiedenis. | Groottebepaling op basis van prestaties is de standaardoptie.
     **Prestatiegeschiedenis** | De duur die in overweging moet worden genomen voor de evaluatie van de prestaties van de virtuele machines. Deze eigenschap is alleen toepasbaar als het criterium voor groottebepaling *Groottebepaling op basis van prestaties* is. | De standaardoptie is één dag.
     **Percentiel gebruik** | De percentielwaarde van de prestatievoorbeeldset waarmee rekening moet worden gehouden voor een juiste groottebepaling. Deze eigenschap is alleen toepasbaar als het criterium voor groottebepaling *Groottebepaling op basis van prestaties* is.  | De standaardwaarde is 95e percentiel.
@@ -425,7 +426,7 @@ Voor deze zelfstudie zijn de standaardevaluatie-instellingen gebruikt, maar u ku
 
 ### <a name="analyze-the-vm-assessment"></a>De evaluatie van de VM analyseren
 
-Een Azure Migrate-evaluatie bevat de volgende informatie: of de on-premises VM's compatibel zijn met Azure, wat de voorgestelde juiste grootte voor elke Azure-VM is en wat de geschatte maandelijkse kosten voor Azure zijn. 
+Een Azure Migrate-evaluatie bevat de volgende informatie: of de on-premises VM's compatibel zijn met Azure, wat de voorgestelde juiste grootte voor elke Azure-VM is en wat de geschatte maandelijkse kosten voor Azure zijn.
 
 ![Evaluatierapport](./media/migrate-scenarios-assessment/assessment-overview.png)
 
@@ -470,12 +471,12 @@ Het evaluatierapport toont de informatie die in de tabel is samengevat. Azure Mi
 
 #### <a name="review-monthly-cost-estimates"></a>Schatting van maandelijkse kosten controleren
 
-Deze weergave toont de totale compute- en opslagkosten om de virtuele machines in Azure uit te voeren, evenals de details per VM. 
+Deze weergave toont de totale compute- en opslagkosten om de virtuele machines in Azure uit te voeren, evenals de details per VM.
 
-![Gereedheid evalueren](./media/migrate-scenarios-assessment/azure-costs.png) 
+![Gereedheid evalueren](./media/migrate-scenarios-assessment/azure-costs.png)
 
 - Kostenschattingen worden berekend aan de hand van de aanbevelingen voor de grootte voor een machine.
-- Geschatte maandelijkse kosten voor computing en opslag worden samengevoegd voor alle virtuele machines in de groep. 
+- Geschatte maandelijkse kosten voor computing en opslag worden samengevoegd voor alle virtuele machines in de groep.
 
 
 ## <a name="conclusion"></a>Conclusie
@@ -490,6 +491,3 @@ In dit scenario hebben we het volgende gedaan:
 ## <a name="next-steps"></a>Volgende stappen
 
 We gaan nu verder met het volgende scenario, om een [lift-and-shift-migratie](migrate-scenarios-lift-and-shift.md) van de on-premises VM's en database naar Azure uit te voeren.
-
-
-

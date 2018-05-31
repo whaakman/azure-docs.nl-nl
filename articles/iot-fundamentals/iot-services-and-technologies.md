@@ -14,31 +14,32 @@ ms.workload: na
 ms.date: 03/30/2018
 ms.author: bryanla; v-clay
 ms.custom: ''
-ms.openlocfilehash: 04b4079038ab0ef3f87cfceea521a1424e93cce1
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 56410b040ac14a2a46927cac8ed41218fc709888
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33886192"
 ---
 # <a name="azure-iot-technologies-and-solutions-paas-and-saas"></a>Azure IoT-technologieën en -oplossingen: PaaS en SaaS
 
 Microsoft heeft een portfolio gebouwd die ondersteuning biedt voor de behoeften van alle klanten, waardoor iedereen toegang heeft tot de voordelen van digitale transformatie. De Azure IoT-productportofolio is een overzicht van de beschikbare PaaS-/SaaS-technologieën en -oplossingen. Het geeft twee beschikbare paden weer voor het bouwen van uw eigen oplossing:
-- PaaS (Platform as a Service): bouw de toepassing met behulp van de [Azure IoT Suite](https://www.azureiotsuite.com/), een verzameling vooraf geconfigureerde oplossingen op bedrijfsniveau die u in staat stellen de ontwikkeling van aangepaste IoT-oplossingen te versnellen.
+- PaaS (Platform as a Service): bouw de toepassing met behulp van de [Azure IoT-oplossingsversnellers](https://www.azureiotsuite.com/). Dit is een verzameling vooraf geconfigureerde oplossingen op bedrijfsniveau die u in staat stellen de ontwikkeling van aangepaste IoT-oplossingen te versnellen.
 - SaaS (Software as a Service): ga snel aan de slag met [Azure IoT Central](https://azure.microsoft.com/services/iot-central/), de nieuwe SaaS-oplossing voor het ontwikkelen van IoT-toepassingen, zonder de complexiteit van de IoT-oplossing. Als uw organisatie niet beschikt over de resources voor het bouwen van uw eigen IoT-oplossing, is Azure IoT Central de beste keuze. Dit is een IoT-oplossing zonder code waarmee u in enkele minuten modellen, dashboards en regels kunt maken.
 
-![De meest uitgebreide portfolio met technologieën en oplossingen in de branche][img-paas-saas-technologies-solutions]
+![Azure IoT-technologieën en -oplossingen][img-paas-saas-technologies-solutions]
 
 ## <a name="solutions"></a>Oplossingen
 
-Ga snel aan de slag met aanbiedingen van Azure IoT Suite en SaaS. Kies uit vooraf geconfigureerde oplossingen die algemene IoT-scenario’s mogelijk maken, zoals extern beheren, voorspeld onderhoud en verbonden factory, om een volledig aanpasbare oplossing te maken. Of gebruik Azure IoT Central, een volledig beheerde end-to-endoplossing die krachtige IoT-scenario’s mogelijk maakt, zonder dat kennis op het gebied van cloudoplossingen is vereist.
+Snel aan de slag met oplossingsversnellers en SaaS-aanbiedingen. Kies uit vooraf geconfigureerde oplossingen die algemene IoT-scenario’s mogelijk maken, zoals extern beheren, voorspeld onderhoud en verbonden factory, om een volledig aanpasbare oplossing te maken. Of gebruik Azure IoT Central, een volledig beheerde end-to-endoplossing die krachtige IoT-scenario’s mogelijk maakt, zonder dat kennis op het gebied van cloudoplossingen is vereist.
 
-### <a name="azure-iot-suite-paas"></a>Azure IoT Suite (PaaS)
+### <a name="azure-iot-solution-accelerators-paas"></a>Azure IoT-oplossingsversnellers (PaaS)
 
-Azure IoT Suite is een verzameling op bedrijfsniveau met aanpasbare PaaS-oplossingen die een hoge mate van beheer van de IoT-oplossing bieden. Als IoT in uw bedrijf wordt geïmplementeerd voor verbonden bewerkingen of als er aanpasbare vereisten zijn voor verbonden producten, biedt Azure IoT het beheer dat u nodig hebt. 
+Azure IoT-oplossingsversnellers zijn aanpasbare PaaS-oplossingen die een hoge mate van beheer van de IoT-oplossing bieden. Als IoT in uw bedrijf wordt geïmplementeerd voor verbonden bewerkingen of als er aanpasbare vereisten zijn voor verbonden producten, bieden Azure IoT-oplossingsversnellers het beheer dat u nodig hebt. 
 
-Organisaties met een groot aantal apparaten of apparaatmodellen, en fabrikanten die op zoek zijn naar verbonden factory-oplossingen, zijn voorbeelden van bedrijven die hun voordeel kunnen doen met Azure IoT-oplossingen. Door het maken van zeer aanpasbare oplossingen die op maat zijn gemaakt voor complexe behoeften, biedt IoT:
+Organisaties met een groot aantal apparaten of apparaatmodellen, en fabrikanten die op zoek zijn naar verbonden factory-oplossingen, zijn voorbeelden van bedrijven die hun voordeel kunnen doen met IoT-oplossingsversnellers. Door het maken van zeer aanpasbare oplossingen die op maat zijn gemaakt voor complexe behoeften, bieden IoT-oplossingsversnellers: 
 
-- Vooraf geconfigureerde oplossingen
+- Vooraf gemaakte oplossingen
     - Externe bewaking
     - Verbonden factory
     - Voorspellend onderhoud
@@ -58,26 +59,26 @@ Organisaties met minder apparaatmodellen, meer voorspelbare modellen, en beperkt
 - Configureerbaar aan uw behoeften
 - Ideaal voor eenvoudige IoT-behoeften
 
-### <a name="compare-azure-iot-suite-and-azure-iot-central"></a>Azure IoT Suite vergelijken met Azure IoT Central
+### <a name="compare-azure-iot-solution-accelerators-and-azure-iot-central"></a>Azure IoT-oplossingsversnellers en Azure IoT Central vergelijken
 
-Azure IoT biedt verschillende opties als u een typische [IoT-oplossingsarchitectuur](/azure/iot-fundamentals/iot-introduction#iot-solution-architecture) wilt implementeren, [Azure IoT Suite](/azure/iot-suite) en [AZure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions). Beide zijn geschikt voor verschillende sets vereisten van klanten.
+Azure IoT biedt verschillende opties als u een typische [IoT-oplossingsarchitectuur](/azure/iot-fundamentals/iot-introduction#iot-solution-architecture) wilt implementeren, [Azure IoT-oplossingsversnellers](/azure/iot-suite) en [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions). Beide zijn geschikt voor verschillende sets vereisten van klanten.
 
-[Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) is de belangrijkste Azure PaaS waarvan zowel Azure IoT Central als Azure IoT Suite gebruikmaken. IoT Hub maakt stabiele en veilige tweerichtingscommunicatie tussen miljoenen IoT-apparaten en een cloudoplossing mogelijk. Met IoT Hub kunt u de uitdagingen van IoT-implementatie aan, zoals:
+[Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) is de kern-PaaS van Azure waarvan zowel Azure IoT Central als Azure IoT-oplossingsversnellers gebruikmaken. IoT Hub maakt stabiele en veilige tweerichtingscommunicatie tussen miljoenen IoT-apparaten en een cloudoplossing mogelijk. Met IoT Hub kunt u de uitdagingen van IoT-implementatie aan, zoals:
 
 * Connectiviteit en beheer van grote volumes aan apparaten.
 * Telemetrieopname van groot volume.
 * Opdracht en besturing van apparaten.
 * Afdwinging van apparaatbeveiliging.
 
-Het kiezen van uw Azure IoT-product is een belangrijk onderdeel van het plannen van uw IoT-oplossing. IoT Hub is een afzonderlijke Azure-service die zelfstandig geen volledige IoT-oplossing biedt. IoT Hub kan worden gebruikt als startpunt voor elke IoT-oplossing. Bovendien hebt u hiervoor Azure IoT Suite of Azure IoT Central niet nodig. Zowel Azure IoT Suite als Azure IoT Central maken gebruik van IoT Hub, samen met andere Azure-services. In de volgende tabel worden de belangrijkste verschillen tussen Azure IoT Suite en Azure IoT Central weergegeven om u te helpen de beste optie voor uw vereisten te kiezen:
+Het kiezen van uw Azure IoT-product is een belangrijk onderdeel van het plannen van uw IoT-oplossing. IoT Hub is een afzonderlijke Azure-service die zelfstandig geen volledige IoT-oplossing biedt. IoT Hub kan worden gebruikt als uitgangspunt voor elke IoT-oplossing. U hoeft hiervoor niet Azure IoT-oplossingsversnellers of Azure IoT Central te gebruiken. Zowel Azure IoT-oplossingsversnellers als Azure IoT Central maken gebruik van IoT Hub, samen met andere Azure-services. De volgende tabel geeft een overzicht van de belangrijkste verschillen tussen Azure IoT-oplossingsversnellers en Azure IoT Central, om u te helpen de juiste oplossing voor uw vereisten te kiezen:
 
-|                        | Azure IoT Suite | Azure IoT Central |
+|                        | Azure IoT-oplossingsversnellers | Azure IoT Central |
 | ---------------------- | --------- | ----------- |
 | Primair gebruik | Snellere ontwikkeling van een aangepaste IoT-oplossing die maximale flexibiliteit nodig heeft. | Kortere time-to-market voor eenvoudige IoT-oplossingen waarvoor geen uitgebreide serviceaanpassing is vereist. |
 | Toegang tot onderliggende PaaS-services          | U hebt toegang tot de onderliggende Azure-services om deze te beheren of indien nodig te vervangen. | SaaS. Volledig beheerde oplossing; de onderliggende services worden niet weergegeven. |
 | Flexibiliteit            | Hoog. De code voor de microservices is open-source en u kunt deze op elke gewenste manier wijzigen. Daarnaast kunt u de implementatie-infrastructuur aanpassen.| Gemiddeld. U kunt de ingebouwde browsergebaseerde gebruikerservaring gebruiken om het oplossingsmodel en aspecten van de gebruikersinterface aan te passen. De infrastructuur kan niet worden aangepast, omdat de verschillende onderdelen niet worden weergegeven.|
 | Kennisniveau                 | Gemiddeld-hoog. U heeft ervaring met Java of .NET nodig om de back-end van de oplossing aan te passen. U heeft ervaring met JavaScript nodig om de visualisatie aan te passen. | Laag. U heeft modelleerervaring nodig om de oplossing aan te passen. Ervaring met codering is niet vereist. |
-| Opstartervaring | Vooraf geconfigureerde oplossingen implementeren algemene IoT-scenario's. Kan in enkele minuten worden geïmplementeerd. | Toepassingssjablonen en apparaatsjablonen bieden vooraf gebouwde modellen. Kan in enkele minuten worden geïmplementeerd. |
+| Opstartervaring | Oplossingsversnellers implementeren algemene IoT-scenario's. Kan in enkele minuten worden geïmplementeerd. | Toepassingssjablonen en apparaatsjablonen bieden vooraf gebouwde modellen. Kan in enkele minuten worden geïmplementeerd. |
 | Prijzen                | U kunt de services afstellen om de kosten te beperken. | Eenvoudige, voorspelbare prijsstructuur. |
 
 Uw keuze voor welk product u wilt gebruiken om uw IoT-oplossing te maken, wordt uiteindelijk bepaald door:
