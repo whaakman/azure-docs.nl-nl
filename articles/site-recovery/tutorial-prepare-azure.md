@@ -5,14 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/02/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 852c854de9feb9bcc98fc89aa9340b93f2c4e8d3
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 95d6673acaf3cbac2098ac7ae30114696f477045
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212786"
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Azure-resources voorbereiden voor replicatie van lokale machines
 
@@ -47,7 +48,7 @@ U kunt deze taken alleen uitvoeren als aan uw account de ingebouwde rol van Inze
 Installatiekopieën van gerepliceerde machines worden bewaard in Azure Storage. Azure VM's worden gemaakt vanuit de opslag wanneer u een failover van on-premises naar Azure uitvoert.
 
 1. Selecteer in het menu van [Azure Portal](https://portal.azure.com) **Nieuw** > **Opslag** > **Opslagaccount**.
-2. Voer in **Opslagaccount maken** een naam voor het account in. Voor deze zelfstudies gebruiken we de naam **contosovmsacct1910171607**. De naam moet uniek zijn in Azure, tussen de 3 en 24 tekens lang zijn en mag alleen cijfers en kleine letters bevatten.
+2. Voer in **Opslagaccount maken** een naam voor het account in. Voor deze zelfstudies gebruiken we **contosovmsacct1910171607**. De naam die u selecteert moet uniek zijn in Azure, tussen de 3 en 24 tekens lang zijn en mag alleen cijfers en kleine letters bevatten.
 3. Selecteer bij **implementatiemodel** **Resource Manager**.
 4. Selecteer bij **Soort account** **Algemeen gebruik**. Selecteer bij **Prestaties** **Standard**. Selecteer niet blob-opslag.
 5. Selecteer bij **Replicatie** de standaardoptie **Geografisch redundante opslag met leestoegang** voor opslagredundantie.
@@ -62,7 +63,7 @@ Installatiekopieën van gerepliceerde machines worden bewaard in Azure Storage. 
 ## <a name="create-a-vault"></a>Een kluis maken
 
 1. Selecteer in Azure Portal **Een resource maken** > **Controle en beheer** > **Backup en Site Recovery**.
-2. Voer in **Naam** een beschrijvende naam in om de kluis aan te duiden. Gebruik voor deze zelfstudie **ContosoVMVault**.
+2. Voer in **Naam** een beschrijvende naam in om de kluis aan te duiden. Voor deze reeks zelfstudies gebruiken we **ContosoVMVault**.
 3. Selecteer bij **Resourcegroep** de bestaande resourcegroep met de naam **contosoRG**.
 4. Geef bij **Locatie** de Azure-regio **West-Europa** op, die we in deze reeks zelfstudies gebruiken.
 5. Voor snelle toegang tot de kluis vanuit het dashboard, selecteert u **Aan dashboard vastmaken** > **Maken**.
