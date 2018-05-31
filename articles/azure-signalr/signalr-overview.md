@@ -12,13 +12,16 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 04/17/2018
 ms.author: wesmc
-ms.openlocfilehash: e24091b017a1c6c82cfe8d12873223b98c165c63
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: bc144fb1d7db9251871e7e181b012417a32de7e6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33868106"
 ---
 # <a name="what-is-azure-signalr-service"></a>Wat is de service Azure SignalR
+
+De Microsoft Azure SignalR-service is momenteel beschikbaar in de [openbare preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 De service Azure SignalR is een Azure-service op basis van [ASP.NET Core SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction). ASP.NET Core SignalR is een [open-source-bibliotheek](https://github.com/aspnet/signalr) die het proces van het toevoegen van realtime webfunctionaliteit aan toepassingen via HTTP vereenvoudigt. Met deze functionaliteit kan bijgewerkte inhoud op de webserver in realtime naar verbonden clients worden gepusht. Zo worden clients bijgewerkt zonder de server te hoeven pollen of nieuwe HTTP-bijwerkaanvragen te hoeven verzenden.
 
@@ -37,7 +40,7 @@ In SignalR wordt een aantal verschillende technieken gebruikt voor het bouwen va
 
 ## <a name="developing-signalr-apps"></a>SignalR-apps ontwikkelen
 
-Er zijn momenteel twee versies van SignalR die u kunt gebruiken voor uw webtoepassingen: SignalR voor ASP.NET en ASP.NET Core SignalR, de nieuwste versie. De service Azure SignalR, ook wel de *service SignalR* genoemd, is een beheerde Azure-service op basis van ASP.NET Core SignalR. 
+Er zijn momenteel twee versies van SignalR die u kunt gebruiken voor uw webtoepassingen: SignalR voor ASP.NET en ASP.NET Core SignalR, de nieuwste versie. De service Azure SignalR is een beheerde Azure-service op basis van ASP.NET Core SignalR. 
 
 ASP.NET Core SignalR is gebaseerd op de vorige versie, maar is herschreven. ASP.NET Core SignalR is daardoor niet achterwaarts compatibel met de oudere versie van SignalR. De API's en het gedrag ervan zijn anders. De SDK van ASP.NET Core SignalR is .NET Standard zodat u deze nog steeds kunt gebruiken in combinatie met .NET Framework. U moet dan wel de nieuwe API's gebruiken in plaats van de oude. Als u SignalR gebruikt en wilt overstappen op ASP.NET Core SignalR of de service Azure SignalR, moet u uw programmacode aanpassen aan de verschillen in de API's.
 
