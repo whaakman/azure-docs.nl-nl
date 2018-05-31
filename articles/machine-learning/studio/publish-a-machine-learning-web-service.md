@@ -19,15 +19,16 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "30185200"
 ---
 # <a name="deploy-an-azure-machine-learning-web-service"></a>Een Azure Machine Learning-webservice implementeren
 Azure Machine Learning kunt u bouwen, testen en implementeren van voorspellende analytische oplossingen.
 
 Dit is van een punt-van-overzichtsweergave gedaan in drie stappen:
 
-* **[Maken van een trainingsexperiment]**  -Azure Machine Learning Studio is een gezamenlijke visual ontwikkelomgeving die u gebruikt om te trainen en testen van een predictive analytics-model met trainingsgegevens die u opgeeft.
+* **[Een trainingsexperiment maken]**  -Azure Machine Learning Studio is een gezamenlijke visual ontwikkelomgeving die u gebruikt om te trainen en testen van een predictive analytics-model met trainingsgegevens die u opgeeft.
 * **[Converteren naar een Voorspellend experiment]**  -nadat uw model is getraind met bestaande gegevens en u kunt gebruiken voor het beoordelen van nieuwe gegevens, u voorbereidt en uw experiment voor voorspellingen stroomlijnen.
-* **[Als een webservice implementeren]**  -u kunt uw Voorspellend experiment als een [nieuwe] of [klassieke] Azure-web-service. Gebruikers kunnen gegevens verzenden naar het model en ontvangen van uw model voorspellingen.
+* **[Als een webservice implementeren]**  -u kunt uw Voorspellend experiment als een [Nieuw] of [klassieke] Azure-web-service. Gebruikers kunnen gegevens verzenden naar het model en ontvangen van uw model voorspellingen.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
@@ -182,11 +183,11 @@ Omdat u dit experiment voordat hebt geïmplementeerd, wordt u gevraagd of u wilt
 Een optie voor het bijwerken van uw web-service is voor het model programmatisch opnieuw trainen. Zie [Machine Learning-modellen programmatisch opnieuw trainen](retrain-models-programmatically.md) voor meer informatie.
 
 <!-- internal links -->
-[Maken van een trainingsexperiment]: #create-a-training-experiment
+[Een trainingsexperiment maken]: #create-a-training-experiment
 [Converteren naar een Voorspellend experiment]: #convert-the-training-experiment-to-a-predictive-experiment
 [Als een webservice implementeren]: #deploy-it-as-a-web-service
-[nieuwe]: #deploy-the-predictive-experiment-as-a-new-Web-service
-[klassieke]: #deploy-the-predictive-experiment-as-a-new-Web-service
+[Nieuw]: #deploy-the-predictive-experiment-as-a-new-Web-service
+[Klassieke]: #deploy-the-predictive-experiment-as-a-new-Web-service
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal
 [Update]: #update-the-Web-service

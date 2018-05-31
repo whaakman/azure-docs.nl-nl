@@ -15,6 +15,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33866888"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>Verificatie in twee stappen voor een gebruiker of groep vereisen
 
@@ -23,7 +24,7 @@ U kunt een van twee methoden voor het vereisen van verificatie in twee stappen t
 >[!TIP] 
 >Kies een van deze methoden om te vereisen verificatie in twee stappen, niet beide. Een gebruiker inschakelen voor Azure multi-factor Authentication overschrijft alle beleidsregels voor voorwaardelijke toegang.
 
-## <a name="which-option-is-right-for-you"></a>Welke optie geschikt is voor u?
+## <a name="which-option-is-right-for-you"></a>Welke optie is geschikt voor u?
 
 **Azure multi-factor Authentication inschakelen door het wijzigen van de status van gebruikers** de traditionele aanpak voor het vereisen van verificatie in twee stappen. De Tool werkt voor zowel Azure MFA in de cloud en Azure MFA-Server. Alle gebruikers die u in staat stellen uitvoeren verificatie in twee stappen telkens wanneer ze zich aanmelden. Alle beleidsregels voor voorwaardelijke toegang die mogelijk gevolgen hebben voor die gebruiker inschakelen van een gebruiker worden onderdrukt. 
 
