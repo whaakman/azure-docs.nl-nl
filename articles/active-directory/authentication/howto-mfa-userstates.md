@@ -18,7 +18,7 @@ ms.lasthandoff: 05/08/2018
 ---
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>Verificatie in twee stappen voor een gebruiker of groep vereisen
 
-Er zijn twee manieren voor verificatie in twee stappen. De eerste mogelijkheid is het inschakelen van MFA voor een gebruiker. Wanneer gebruikers afzonderlijk zijn ingeschakeld, worden ze gevraagd zich the authenticeren met behulp van hun tweede stap telkens wanneer ze zich aanmelden (met enkele uitzonderingen, zoals wanneer ze zich van vertrouwde-IP-adressen of wanneer de _onthouden dit apparaat_-functie is ingeschakeld). De tweede optie is het instellen van een beleid voor voorwaardelijke toegang waarvoor verificatie in twee stappen is vereist onder bepaalde omstandigheden.
+Er zijn twee manieren voor verificatie in twee stappen. De eerste mogelijkheid is het inschakelen van MFA voor een gebruiker. Wanneer gebruikers afzonderlijk zijn ingeschakeld, worden ze gevraagd zich te authenticeren met behulp van hun tweede stap telkens wanneer ze zich aanmelden (met enkele uitzonderingen, zoals wanneer ze zich vanaf vertrouwde-IP-adressen aanmelden of wanneer de functie _dit apparaat onhouden_ is ingeschakeld). De tweede optie is het instellen van een beleid voor voorwaardelijke toegang waarvoor verificatie in twee stappen is vereist onder bepaalde omstandigheden.
 
 >[!TIP] 
 >Kies een van deze methoden om te vereisen verificatie in twee stappen, niet beide. Een gebruiker inschakelen voor Azure multi-factor Authentication overschrijft alle beleidsregels voor voorwaardelijke toegang.
@@ -43,11 +43,11 @@ Gebruikersaccounts in Azure multi-factor Authentication hebben de volgende drie 
 
 De status van een gebruiker geeft weer of een beheerder hen heeft ingeschreven in Azure MFA en of ze het registratieproces hebben voltooid.
 
-Alle gebruikers beginnen *uitgeschakeld*. Als u een gebruiker inschrijft via Azure MFA, wordt de status gewijzigd naar *ingeschakeld*. Zodra ze het registratieproces hebben voltooid, wordt de status ingesteld op *afgedwongen*.
+Alle gebruikers beginnen *Uitgeschakeld*. Als u een gebruiker zich inschrijft via Azure MFA, wordt zijn of haar status gewijzigd naar *Ingeschakeld*. Zodra de ingeschakelde gebruiker zich heeft aangemeld en het registratieproces heeft voltooid, wordt de status ingesteld op *Afgedwongen*.
 
 ### <a name="view-the-status-for-a-user"></a>De status voor een gebruiker weergeven
 
-Gebruik de volgende stappen om de status van een gebruiker te bekijken:
+Gebruik de volgende stappen om de pagina te openen waar u de status van een gebruiker kunt bekijken en beheren:
 
 1. Meld u als beheerder aan bij [Azure Portal](https://portal.azure.com).
 2. Ga naar **Azure Active Directory** > **gebruikers en groepen** > **alle gebruikers**.
@@ -61,12 +61,12 @@ Gebruik de volgende stappen om de status van een gebruiker te bekijken:
 1. Gebruik de voorgaande stappen om toegang te krijgen tot de Azure MFA **gebruikers**-pagina.
 2. Zoek de gebruiker die u wilt inschakelen voor Azure MFA. Mogelijk moet u de weergave bovenaan wijzigen. 
    ![Zoek de gebruiker - schermafbeelding](./media/howto-mfa-userstates/enable1.png)
-3. Klik op het selectievakje naast de naam van de gebruikers waarvoor u tweefactorauthenticatie wilt in- of uitschakelen.
+3. Schakel het selectievakje naast de naam van de gebruiker in.
 4. Aan de rechterkant, onder **snelle stappen**, kiest u **inschakelen** of **uitschakelen**.
    ![Inschakelen van de geselecteerde gebruiker - schermafbeelding](./media/howto-mfa-userstates/user1.png)
 
    >[!TIP]
-   >*Ingeschakeld* gebruikers worden automatisch omgezet naar *afgedwongen* zodra ze zich geregistreerd hebben. U kunt dit ook handmatig doen, maar dit zorgt ervoor dat de gebruiker de toegang verliest tot apps waarvoor een appwachtwoord ingesteld moet worden zonder verdere kennisgeving.
+   >*Ingeschakelde* gebruikers worden automatisch omgezet naar *Afgedwongen* zodra ze zich registreren voor Azure MFA. Wijzig de status van de gebruiker niet handmatig in *Afgedwongen*.
 
 5. Bevestig uw selectie in het pop-upvenster dat wordt geopend. 
 
@@ -79,9 +79,9 @@ Status van de gebruiker te wijzigen met behulp van [Azure AD PowerShell](/powers
 * Afgedwongen
 * Uitgeschakeld  
 
-Verplaats gebruikers niet rechtstreeks naar de *afgedwongen* status. Als u dit doet, verliest de gebruiker toegang tot niet-op-browser gebaseerde apps en de gebruiker heeft dan nog geen [app-wachtwoorden](howto-mfa-mfasettings.md#app-passwords) aangemaakt.
+Verplaats gebruikers niet rechtstreeks naar de status *Afgedwongen*. Als u dit doet, werken apps die niet op een browser zijn gebaseerd niet meer, omdat de gebruiker het registratieproces voor Azure MFA niet heeft doorlopen en dus geen [app-wachtwoord](howto-mfa-mfasettings.md#app-passwords) heeft opgehaald.
 
-Het inschakelen met behulp van PowerShell is een goede optie, zeker wanneer u gebruikers bulksgewijs wilt inschakelen voor MFA. Maak een PowerShell-script waarmee gebruikers ingeschakeld worden voor MFA:
+Het inschakelen met behulp van PowerShell is een goede optie, wanneer u gebruikers bulksgewijs wilt inschakelen. Maak een PowerShell-script waarmee een lijst met gebruikers wordt doorgelopen en ingeschakeld:
 
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
         $st.RelyingParty = "*"
@@ -103,7 +103,7 @@ Het volgende script is een voorbeeld:
 
 ## <a name="enable-azure-mfa-with-a-conditional-access-policy"></a>Azure MFA met beleid voor voorwaardelijke toegang inschakelen
 
-_Voorwaardelijke toegang_ is een betaald onderdeel van Azure Active Directory met veel configuratie-opties. Deze stappen doorlopen die een manier om een beleid te maken. Lees voor meer informatie over [voorwaardelijke toegang in Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
+_Voorwaardelijke toegang_ is een betaalde functie van Azure Active Directory met veel configuratieopties. Deze stappen tonen u een van de manier om een beleid te maken. Raadpleeg [voorwaardelijke toegang in Azure Active Directory](../active-directory-conditional-access-azure-portal.md) voor meer informatie.
 
 1. Meld u als beheerder aan bij [Azure Portal](https://portal.azure.com).
 2. Ga naar **Azure Active Directory** > **voorwaardelijke toegang**.
