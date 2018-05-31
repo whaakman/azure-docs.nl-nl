@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 263cb6e588c9714504a5bb5d9a064f5c4be73e9d
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 6c7a9bd83af5d23bdc9e6dd8c910dbf64a6efd6f
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304916"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Snelstart: Een openbare load balancer maken om taken van VM's te verdelen met Azure CLI 2.0
 
@@ -61,7 +62,7 @@ In deze sectie wordt beschreven hoe u de volgende onderdelen van de load balance
 
 ### <a name="create-the-load-balancer"></a>Load balancer maken
 
-Maak met [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) een openbare Azure-load balancer met de naam **myLoadBalancer** die een front-endgroep bevat met de naam **myFrontEndPool**, een back-endgroep met de naam **myBackEndPool**, die wordt gekoppeld aan het openbare IP-adres **myPublicIP** dat u in de vorige stap hebt gemaakt.
+Maak met [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) een openbare Azure-load balancer met de naam **myLoadBalancer** die een front-endgroep bevat met de naam **myFrontEndPool** en een back-endgroep met de naam **myBackEndPool** die wordt gekoppeld aan het openbare IP-adres **myPublicIP** dat u in de vorige stap hebt gemaakt.
 
 ```azurecli-interactive
   az network lb create \
@@ -262,4 +263,7 @@ U kunt de opdracht [az group delete](/cli/azure/group#az_group_delete) gebruiken
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze snelstart hebt u een load balancer gemaakt, VM's aan de load balancer gekoppeld, een regel voor het load balancer-verkeer geconfigureerd, een statustest gemaakt en vervolgens de load balancer getest. Als u meer wilt weten over load balancers en de bijbehorende resources, gaat u door naar de artikelen met procedures.
+In deze snelstartgids hebt u een eenvoudige load balancer gemaakt, VM's aan de load balancer gekoppeld, een regel voor het load balancer-verkeer geconfigureerd, een statustest gemaakt en vervolgens de load balancer getest. Voor meer informatie over Azure Load Balancer gaat u verder met de zelfstudies voor Azure Load Balancer.
+
+> [!div class="nextstepaction"]
+> [Zelfstudies voor Azure Load Balancer](tutorial-load-balancer-basic-internal-portal.md)

@@ -1,166 +1,167 @@
 ---
-title: Wijzigingen van de virtuele machine - Azure gebeurtenis raster & Logic Apps | Microsoft Docs
-description: Controleren op wijzigingen van de configuratie in virtuele machines (VM's) met behulp van Azure Event raster en Logic Apps
-keywords: Logic apps, gebeurtenis rasters, virtuele machine, VM
+title: Wijzigingen in virtuele machines bewaken met Azure Event Grid en Logic Apps | Microsoft Docs
+description: Hier leert u hoe u met behulp van Azure Event Grid en Logic Apps kunt controleren of de configuratie van virtuele machines (VM's) is gewijzigd
+keywords: logische apps, gebeurtenisrasters, virtuele machine, VM
 services: logic-apps
 author: ecfan
 manager: anneta
-ms.assetid: 
+ms.assetid: ''
 ms.workload: logic-apps
 ms.service: logic-apps
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/30/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 3d99dabe778b9b9234db9fe130ba503cd8b57834
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: MT
+ms.openlocfilehash: ea3063b5c445dab85a7ef1e5663c40efc34f961e
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34303110"
 ---
-# <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Wijzigingen van de virtuele machine met Azure Event raster en Logic Apps bewaken
+# <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Wijzigingen in virtuele machines bewaken met Azure Event Grid en Logic Apps
 
-U kunt een geautomatiseerde starten [logic app werkstroom](../logic-apps/logic-apps-overview.md) wanneer specifieke gebeurtenissen plaatsvinden in Azure-resources of resources van derden. Deze resources kunnen publiceren die gebeurtenissen naar een [Azure event raster](../event-grid/overview.md). Op zijn beurt het raster voor de gebeurtenis die gebeurtenissen verstuurd naar abonnees waarvoor webhooks, wachtrijen of [event hubs](../event-hubs/event-hubs-what-is-event-hubs.md) als eindpunten. Als een abonnee kan uw logische app die gebeurtenissen uit het raster gebeurtenis wacht voordat het uitvoeren van geautomatiseerde werkstromen voor het uitvoeren van taken - zonder dat u code schrijven.
+U kunt een geautomatiseerde [werkstroom van een logische app](../logic-apps/logic-apps-overview.md) starten wanneer specifieke gebeurtenissen plaatsvinden in Azure-resources of in resources van derden. Deze resources kunnen die gebeurtenissen publiceren naar een [Azure-gebeurtenisraster](../event-grid/overview.md). Het gebeurtenisraster verstuurt die gebeurtenissen vervolgens naar abonnees die webhooks, wachtrijen of [gebeurtenishubs](../event-hubs/event-hubs-what-is-event-hubs.md) als eindpunt hebben. Als een abonnee kan uw logische app wachten op die gebeurtenissen uit het gebeurtenisraster voordat geautomatiseerde werkstromen worden gestart voor het uitvoeren van taken, zonder dat u hiervoor code hoeft te schrijven.
 
-Dit zijn bijvoorbeeld sommige gebeurtenissen die uitgevers naar abonnees via de service Azure gebeurtenis raster verzenden kunnen:
+Dit zijn enkele voorbeelden van gebeurtenissen die uitgevers naar abonnees kunnen versturen via de service Azure Event Grid:
 
-* Maken, lezen, bijwerken of verwijderen van een resource. U kunt bijvoorbeeld de wijzigingen die mogelijk kosten op uw Azure-abonnement en van invloed zijn op uw factuur bewaken. 
-* Toevoegen of verwijderen van een persoon van een Azure-abonnement.
-* Uw app in uitvoert een bepaalde actie.
-* Een nieuw bericht wordt weergegeven in een wachtrij.
+* Maken, lezen, bijwerken of verwijderen van een resource. U kunt bijvoorbeeld controleren op wijzigingen die extra kosten op uw Azure-abonnement tot gevolg kunnen hebben en dus van invloed zijn op de hoogte van uw factuur. 
+* Toevoegen of verwijderen van een persoon uit een Azure-abonnement.
+* Uitvoeren van een bepaalde actie door uw app.
+* Nieuw bericht in een wachtrij.
 
-Deze zelfstudie maakt een logische app waarmee wijzigingen aan een virtuele machine bewaakt en e-mailberichten over deze wijzigingen worden verzonden. Wanneer u een logische app met een gebeurtenisabonnement voor een Azure-resource maakt, wordt de status van gebeurtenissen stromen van die bron via een raster gebeurtenis aan de logische app. De zelfstudie leert u deze logische app bouwen:
+In deze zelfstudie maakt u een logische app waarmee u controleert op wijzigingen van een virtuele machine en e-mailberichten verstuurt over deze wijzigingen. Wanneer u een logische app maakt met een gebeurtenisabonnement voor een Azure-resource, worden gebeurtenissen vanuit die resource via een gebeurtenisraster naar de logische app geleid. In de zelfstudie gaat u deze logische app bouwen:
 
-![Overzicht - monitor voor virtuele machine met de gebeurtenis raster en logic app](./media/monitor-virtual-machine-changes-event-grid-logic-app/monitor-virtual-machine-event-grid-logic-app-overview.png)
+![Overzicht - wijzigingen in virtuele machines bewaken met een gebeurtenisraster en een logische app](./media/monitor-virtual-machine-changes-event-grid-logic-app/monitor-virtual-machine-event-grid-logic-app-overview.png)
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Maak een logische app die u gebeurtenissen vanuit een raster gebeurtenis bewaakt.
-> * Een voorwaarde die specifiek op wijzigingen van de virtuele machine controleert toevoegen.
-> * E-mail verzenden wanneer de virtuele machine wordt gewijzigd.
+> * Een logische app maken die gebeurtenissen uit een gebeurtenisraster bewaakt.
+> * Een voorwaarde toevoegen die specifiek controleert op wijzigingen van de virtuele machine.
+> * Een e-mail verzenden wanneer de virtuele machine wordt gewijzigd.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een e-mailaccount van [elke e-provider wordt ondersteund door Azure Logic Apps](../connectors/apis-list.md), zoals Outlook van Office 365, Outlook.com of Gmail, voor het verzenden van meldingen. In deze zelfstudie wordt Office 365 Outlook gebruikt.
+* Een e-mailaccount van [een e-mailprovider die door Azure Logic Apps wordt ondersteund](../connectors/apis-list.md) voor het verzenden van meldingen, bijvoorbeeld Office 365 Outlook, Outlook.com of Gmail. In deze zelfstudie wordt Office 365 Outlook gebruikt.
 
-* Een [virtuele machine](https://azure.microsoft.com/services/virtual-machines). Als u dit nog niet hebt gedaan, maakt u een virtuele machine via een [maken van een VM-zelfstudie](https://docs.microsoft.com/azure/virtual-machines/). Aan de virtuele machine publiceren van gebeurtenissen, u [hoeft niet te doen iets anders](../event-grid/overview.md).
+* Een [virtuele machine](https://azure.microsoft.com/services/virtual-machines). Als u dit nog niet hebt gedaan, maakt u een virtuele machine aan de hand van de [documentatie voor virtuele machines](https://docs.microsoft.com/azure/virtual-machines/). U [hoeft verder niets te doen](../event-grid/overview.md) om gebeurtenissen te laten publiceren door de virtuele machine.
 
-## <a name="create-a-logic-app-that-monitors-events-from-an-event-grid"></a>Een logische app die u gebeurtenissen vanuit een raster gebeurtenis bewaakt maken
+## <a name="create-a-logic-app-that-monitors-events-from-an-event-grid"></a>Een logische app maken die gebeurtenissen uit een gebeurtenisraster bewaakt
 
-Eerst een logische app maken en toevoegen van een trigger voor de gebeurtenis raster dat de resourcegroep voor uw virtuele machine bewaakt. 
+U gaat eerst een logische app maken en een trigger voor Event Grid toevoegen die de resourcegroep voor uw virtuele machine bewaakt. 
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com). 
 
-2. Kies in de linkerbovenhoek van het Azure hoofdmenu **maken van een resource** > **Enterprise Integration** > **logische App**.
+2. Kies in de linkerbovenhoek van het hoofdmenu van Azure **Een resource maken** > **Bedrijfsintegratie** > **Logische app**.
 
    ![Logische app maken](./media/monitor-virtual-machine-changes-event-grid-logic-app/azure-portal-create-logic-app.png)
 
-3. Maak uw logische app met de instellingen die zijn opgegeven in de volgende tabel:
+3. Maak de logische app aan de hand van de instellingen in de volgende tabel:
 
    ![Gegevens van logische app opgeven](./media/monitor-virtual-machine-changes-event-grid-logic-app/create-logic-app-for-event-grid.png)
 
    | Instelling | Voorgestelde waarde | Beschrijving | 
    | ------- | --------------- | ----------- | 
-   | **Naam** | *{your-logic-app-name}* | Geef een unieke naam voor de logische app op. | 
-   | **Abonnement** | *{your-Azure-subscription}* | Selecteer de dezelfde Azure-abonnement voor alle services in deze zelfstudie. | 
-   | **Resourcegroep** | *{your-Azure-resource-group}* | Selecteer de dezelfde Azure-resourcegroep voor alle services in deze zelfstudie. | 
-   | **Locatie** | *{your-Azure-region}* | Selecteer de dezelfde regio voor alle services in deze zelfstudie. | 
+   | **Naam** | *{naam-van-uw-logische-app}* | Geef een unieke naam voor de logische app op. | 
+   | **Abonnement** | *{uw-Azure-abonnement}* | Selecteer hetzelfde Azure-abonnement voor alle services in deze zelfstudie. | 
+   | **Resourcegroep** | *{uw-Azure-resourcegroep}* | Selecteer dezelfde resourcegroep voor alle services in deze tutorial. | 
+   | **Locatie** | *{uw Azure-regio}* | Selecteer dezelfde regio voor alle services in deze tutorial. | 
    | | | 
 
-4. Wanneer u klaar bent, selecteert u **vastmaken aan dashboard**, en kies **maken**.
+4. Als u klaar bent, selecteert u **Vastmaken aan dashboard** en kiest u **Maken**.
 
    U hebt nu een Azure-resource voor uw logische app gemaakt. 
    Nadat de logische app is geïmplementeerd, toont de ontwerper van logische apps sjablonen voor algemene patronen, zodat u sneller aan de slag kunt.
 
    > [!NOTE] 
-   > Wanneer u selecteert **vastmaken aan dashboard**, uw logische app automatisch wordt geopend in Logic Apps Designer. U kunt anders handmatig zoeken en open uw logische app.
+   > Als u **Vastmaken aan Dashboard** selecteert, wordt de logische app automatisch geopend in de functie Ontwerper van logische apps. Anders kunt u de logische app handmatig zoeken en openen.
 
-5. Kies nu een sjabloon voor logic Apps. Onder **sjablonen**, kies **lege logische App** zodat u uw logische app maken.
+5. Kies nu een sjabloon voor de logische app. Kies onder **Sjablonen** de optie **Lege logische app**, zodat u de logische app helemaal zelf kunt ontwerpen.
 
    ![Sjabloon voor logische app kiezen](./media/monitor-virtual-machine-changes-event-grid-logic-app/choose-logic-app-template.png)
 
-   De ontwerpfunctie van Logic Apps ziet u nu [ *connectors* ](../connectors/apis-list.md) en [ *triggers* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) dat u gebruiken kunt om te beginnen met uw logische app, en ook acties die u kunt toevoegen na een trigger taken uit te voeren. Een trigger is een gebeurtenis die een logic app-exemplaar gemaakt en gestart van uw logische app-werkstroom. 
-   Uw logische app moet een trigger als het eerste item.
+   U ziet nu [*connectors*](../connectors/apis-list.md) en [*triggers*](../logic-apps/logic-apps-overview.md#logic-app-concepts) die u gebruiken kunt om te beginnen met uw logische app, en ook acties die u kunt toevoegen na een trigger om taken uit te voeren. Een trigger is een gebeurtenis die een exemplaar van een logic app maakt en de werkstroom van uw logische app start. 
+   Het eerste item van een logische app moet een trigger zijn.
 
-6. Voer in het zoekvak 'gebeurtenis raster' als filter. Selecteer deze trigger: **Azure gebeurtenis raster - op een gebeurtenis**
+6. Typ 'event grid' als filter in het zoekvak. Selecteer deze trigger: **Azure Event Grid - Wanneer een Event Grid-resourcegebeurtenis optreedt**.
 
-   ![Selecteer deze trigger: 'Azure gebeurtenis raster - op een gebeurtenis'](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger.png)
+   ![Selecteer deze trigger: Azure Event Grid - Wanneer een Event Grid-resourcegebeurtenis optreedt](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger.png)
 
-7. Wanneer u wordt gevraagd, aanmelden bij Azure gebeurtenis raster met uw Azure-referenties.
+7. Wanneer dat wordt gevraagd, meldt u zich aan bij Azure Event Grid met uw Azure-referenties.
 
-   ![Meld u aan met uw Azure-referenties](./media/monitor-virtual-machine-changes-event-grid-logic-app/sign-in-event-grid.png)
+   ![Aanmelden met uw Azure-referenties](./media/monitor-virtual-machine-changes-event-grid-logic-app/sign-in-event-grid.png)
 
    > [!NOTE]
-   > Als u bent aangemeld met een persoonlijk Microsoft-account, zoals @outlook.com of @hotmail.com, de trigger gebeurtenis raster mogelijk niet correct weergegeven. Als tijdelijke oplossing kiezen [verbinding maken met de Service-Principal](../azure-resource-manager/resource-group-create-service-principal-portal.md), of als lid van de Azure Active Directory die is gekoppeld aan uw Azure-abonnement, bijvoorbeeld verifiëren *gebruikersnaam*@emailoutlook.onmicrosoft.com.
+   > Als u zich aanmeldt met een persoonlijk Microsoft-account, zoals @outlook.com of @hotmail.com, wordt de trigger voor het gebeurtenisraster mogelijk niet juist weergegeven. Als tijdelijke oplossing kunt u [Verbinding maken met service-principal](../azure-resource-manager/resource-group-create-service-principal-portal.md) kiezen of verifiëren als een lid van de Azure Active Directory die is gekoppeld aan uw Azure-abonnement, bijvoorbeeld *gebruikersnaam*@emailoutlook.onmicrosoft.com.
 
-8. Nu uw logische app publisher gebeurtenissen abonneren. Geef details voor uw abonnement op gebeurtenissen die zijn opgegeven in de volgende tabel:
+8. U gaat de logische app nu abonneren op gepubliceerde gebeurtenissen. Geef de details voor uw gebeurtenisabonnement op zoals deze worden beschreven in de volgende tabel:
 
-   ![Informatie opgeven voor een gebeurtenisabonnement](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details-generic.png)
+   ![Details opgeven voor gebeurtenisabonnement](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details-generic.png)
 
    | Instelling | Voorgestelde waarde | Beschrijving | 
    | ------- | --------------- | ----------- | 
-   | **Abonnement** | *{virtual-machine-Azure-subscription}* | Selecteer de gebeurtenisuitgever Azure-abonnement. Selecteer het Azure-abonnement voor uw virtuele machine voor deze zelfstudie. | 
-   | **Resourcetype** | Microsoft.Resources.resourceGroups | Selecteer het brontype van de gebeurtenisuitgever. Voor deze zelfstudie selecteert u de opgegeven waarde zodat uw logische app alleen resourcegroepen bewaakt. | 
-   | **Resourcenaam** | *{virtual-machine-resource-group-name}* | Selecteer de resourcenaam van de uitgever. Selecteer de naam van de resourcegroep voor uw virtuele machine voor deze zelfstudie. | 
-   | Kies voor optionele instellingen **geavanceerde opties weergeven**. | *{Zie beschrijvingen}* | * **Filter het voorvoegsel**: voor deze zelfstudie laat u deze instelling leeg. Het standaardgedrag komt overeen met alle waarden. U kunt echter de voorvoegseltekenreeks opgeven als een filter, bijvoorbeeld een pad en een parameter voor een specifieke bron. <p>* **Filter achtervoegsel**: voor deze zelfstudie laat u deze instelling leeg. Het standaardgedrag komt overeen met alle waarden. U kunt echter een achtervoegseltekenreeks opgeven als een filter, bijvoorbeeld een bestandsnaamextensie, als u wilt dat alleen bepaalde bestandstypen.<p>* **De naam van abonnement**: Geef een unieke naam voor uw gebeurtenisabonnement. |
+   | **Abonnement** | *{Azure-abonnement-virtuele-machine}* | Selecteer het Azure-abonnement van de gebeurtenisuitgever. Selecteer voor deze zelfstudie het Azure-abonnement voor uw virtuele machine. | 
+   | **Resourcetype** | Microsoft.Resources.resourceGroups | Selecteer het resourcetype van de gebeurtenisuitgever. Selecteer voor deze zelfstudie de opgegeven waarde, zodat uw logische app alleen resourcegroepen bewaakt. | 
+   | **Resourcenaam** | *{naam-van-resourcegroep-virtuele-machine}* | Selecteer de resourcenaam van de uitgever. Selecteer voor deze zelfstudie de naam van de resourcegroep voor uw virtuele machine. | 
+   | Kies **Geavanceerde opties weergeven** om optionele instellingen op te geven. | *{zie de beschrijvingen}* | * **Voorvoegselfilter**: laat deze instelling leeg voor deze zelfstudie. Het standaardgedrag komt overeen met alle waarden. U kunt echter een voorvoegseltekenreeks opgeven als een filter, bijvoorbeeld een pad en een parameter voor een specifieke resource. <p>* **Achtervoegselfilter**: laat deze instelling leeg voor deze zelfstudie. Het standaardgedrag komt overeen met alle waarden. U kunt echter een achtervoegseltekenreeks opgeven als een filter, bijvoorbeeld een bestandsnaamextensie, als u alleen bepaalde bestandstypen wilt gebruiken.<p>* **Abonnementsnaam**: geef een unieke naam op voor het gebeurtenisabonnement. |
    | | | 
 
-   Wanneer u bent klaar, de gebeurtenis raster trigger als volgt uitzien in dit voorbeeld:
+   Als u klaar bent, ziet de trigger voor het gebeurtenisraster er mogelijk zo uit:
    
-   ![Raster voorbeeld-trigger Gebeurtenisdetails](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details.png)
+   ![Voorbeeld van gegevens voor trigger voor gebeurtenisraster](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details.png)
 
-9. Sla uw logische app op. Kies **Opslaan** op de werkbalk van de ontwerper. Om samen te vouwen en een actie-gegevens in uw logische app verbergen, kies de titelbalk van de actie.
+9. Sla uw logische app op. Kies **Opslaan** op de werkbalk van de ontwerper. Kies de titelbalk van de actie om de details van een actie in uw logische app samen te vouwen en te verbergen.
 
    ![Uw logische app opslaan](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-save.png)
 
-   Wanneer u uw logische app met een gebeurtenis raster trigger opslaat, maakt Azure automatisch een gebeurtenisabonnement voor uw logische app aan de geselecteerde resource. Wanneer de bron een gebeurtenis aan het raster gebeurtenis publiceert, die gebeurtenis raster ook de gebeurtenis aan uw logische app automatisch duwt. Deze gebeurtenis geactiveerd uw logische app, en vervolgens maakt en een exemplaar van de werkstroom die u in deze volgende stappen definieert uitvoert.
+   Wanneer u uw logische app met een trigger voor het gebeurtenisraster opslaat, maakt Azure automatisch een gebeurtenisabonnement voor uw logische app voor de geselecteerde resource. Wanneer de resource nu een gebeurtenis naar het gebeurtenisraster publiceert, wordt die gebeurtenis automatisch door het raster naar de logische app verstuurd. Deze gebeurtenis triggert de logische app, en maakt vervolgens een exemplaar van de werkstroom die u in de volgende stappen definieert. Ten slotte wordt de werkstroom uitgevoerd.
 
-Uw logische app is nu live en luistert naar gebeurtenissen uit het raster gebeurtenis, maar geen reactie totdat u acties aan de werkstroom toevoegt. 
+Uw logische app is nu live en luistert naar gebeurtenissen uit het gebeurtenisraster, maar kan verder nog niks totdat u acties aan de werkstroom toevoegt. 
 
-## <a name="add-a-condition-that-checks-for-virtual-machine-changes"></a>Een voorwaarde waarmee wordt gecontroleerd op wijzigingen van de virtuele machine toevoegen
+## <a name="add-a-condition-that-checks-for-virtual-machine-changes"></a>Een voorwaarde toevoegen die controleert op wijzigingen van de virtuele machine
 
-Toevoegen als u wilt uw logische app werkstroom alleen uitgevoerd als een bepaalde gebeurtenis gebeurt, een voorwaarde waarmee wordt gecontroleerd of voor de virtuele machine 'schrijfbewerkingen'. Bij deze voorwaarde waar is, wordt uw logische app verzendt dat u een e-mail met meer informatie over de bijgewerkte virtuele machine.
+Als u de werkstroom van de logische app alleen wilt uitvoeren uitgevoerd als er een bepaalde gebeurtenis optreedt, voegt u een voorwaarde toe waarmee wordt gecontroleerd op 'schrijfbewerkingen' naar de virtuele machine. Als aan deze voorwaarde wordt voldaan (is Waar), verstuurt de logische app een e-mail met meer gegevens van de bijgewerkte virtuele machine.
 
-1. In Logic App Designer onder de trigger van het raster gebeurtenis kiezen **nieuwe stap** > **een voorwaarde toevoegen**.
+1. Kies in Ontwerper van logische apps onder de trigger voor het gebeurtenisraster **+ Nieuwe stap** > **Een actie toevoegen**.
 
    ![Een voorwaarde toevoegen aan uw logische app](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-add-condition-step.png)
 
-   De Logic App-ontwerper voegt een lege voorwaarde voor uw werkstroom, inclusief de actie paden te volgen op basis of de voorwaarde waar of ONWAAR is.
+   Er wordt een lege voorwaarde voor uw werkstroom toegevoegd, inclusief de te volgen actiepaden wanneer de voorwaarde Waar of Onwaar is.
 
    ![Lege voorwaarde](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-add-empty-condition.png)
 
-2. In de **voorwaarde** Kies **bewerken in de geavanceerde modus**.
-Typ deze expressie:
+2. Kies **Bewerken in geavanceerde modus** in het vak **Voorwaarde**.
+Voer deze expressie in:
 
    `@equals(triggerBody()?['data']['operationName'], 'Microsoft.Compute/virtualMachines/write')`
 
-   De voorwaarde is nu ziet eruit als in dit voorbeeld:
+   Uw voorwaarde ziet er nu uit als in dit voorbeeld:
 
    ![Lege voorwaarde](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-expression.png)
 
-   Deze expressie controleert de gebeurtenis `body` voor een `data` object waar de `operationName` eigenschap is de `Microsoft.Compute/virtualMachines/write` bewerking. 
-   Meer informatie over [gebeurtenis raster gebeurtenis schema](../event-grid/event-schema.md).
+   Deze expressie controleert de gebeurtenis `body` op een `data`-object waar de eigenschap `operationName` is ingesteld op `Microsoft.Compute/virtualMachines/write`. 
+   Lees hier meer over het [gebeurtenisschema van Event Grid](../event-grid/event-schema.md).
 
-3. Voor een beschrijving voor de voorwaarde, kies de **weglatingstekens** (**...** ) knop op de voorwaardeshape en kies vervolgens **naam**.
+3. Als u een beschrijving wilt opgeven voor de voorwaarde, kiest u het **beletselteken** (**...** ) op de vorm voor de voorwaarde en kiest u vervolgens **Naam wijzigen**.
 
    > [!NOTE] 
-   > Later in de voorbeelden in deze zelfstudie bieden ook beschrijvingen voor de stappen in de logic app-werkstroom.
+   > De voorbeelden verderop in deze zelfstudie bevatten ook beschrijvingen voor de stappen in de werkstroom van de logische app.
 
-4. Nu kiezen **bewerken in de standaardmodus** zodat de expressie wordt automatisch opgelost zoals wordt weergegeven:
+4. Kies nu **Bewerken in basismodus**, zodat de expressie automatisch wordt opgelost zoals hier wordt weergegeven:
 
-   ![Logic app voorwaarde](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-1.png)
+   ![Voorwaarde van logische app](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-1.png)
 
 5. Sla uw logische app op.
 
-## <a name="send-email-when-your-virtual-machine-changes"></a>E-mail verzenden wanneer de virtuele machine wordt gewijzigd
+## <a name="send-email-when-your-virtual-machine-changes"></a>Een e-mail verzenden wanneer de virtuele machine wordt gewijzigd
 
-Voeg nu een [ *actie* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) zodat u een e-mail krijgt wanneer de opgegeven voorwaarde voldaan wordt.
+U gaat nu een [*actie*](../logic-apps/logic-apps-overview.md#logic-app-concepts) toevoegen, zodat u een e-mail krijgt wanneer aan de opgegeven voorwaarde wordt voldaan.
 
-1. In de toestand **als de waarde true** Kies **een actie toevoegen**.
+1. Kies **Een actie toevoegen** in het vak **Indien waar** van de voorwaarde.
 
-   ![Actie voor wanneer de voorwaarde waar is toevoegen](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-2.png)
+   ![Actie toevoegen voor wanneer de voorwaarde waar is](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-2.png)
 
-2. Voer in het zoekvak 'e' als filter. Zoek en selecteer de bijbehorende connector op basis van uw e-mailprovider. Selecteer vervolgens de actie 'e-mail verzenden' voor de connector. Bijvoorbeeld: 
+2. Typ 'e-mail' als filter in het zoekvak. Zoek en selecteer de bijbehorende connector op basis van uw e-mailprovider. Selecteer vervolgens de actie 'e-mail verzenden' voor de connector. Bijvoorbeeld: 
 
    * Selecteer voor een werk- of schoolaccount van Azure de Office 365 Outlook-connector. 
    * Selecteer voor een persoonlijk Microsoft-account de Outlook.com-connector. 
@@ -169,72 +170,72 @@ Voeg nu een [ *actie* ](../logic-apps/logic-apps-overview.md#logic-app-concepts)
    Hier wordt doorgegaan met de Office 365 Outlook-connector. 
    Als u een andere provider gebruikt, blijven de stappen gelijk, maar uw gebruikersinterface kan er anders uitzien. 
 
-   ![Selecteer actie 'e-mail verzenden'](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-send-email.png)
+   ![De actie 'Een e-mail verzenden' selecteren](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-send-email.png)
 
-3. Als u nog een verbinding voor uw e-mailprovider hebt, aanmelden bij uw e-mailaccount wanneer er voor de verificatie wordt gevraagd.
+3. Als u nog geen verbinding voor uw e-mailprovider hebt, meldt u zich aan bij uw e-mailaccount wanneer er om verificatie wordt gevraagd.
 
-4. Informatie opgeven voor het e-mailbericht zoals opgegeven in de volgende tabel:
+4. Geef informatie op voor het e-mailbericht zoals wordt aangegeven in de volgende tabel:
 
-   ![Lege e-mail actie](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-empty-email-action.png)
+   ![Lege e-mailactie](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-empty-email-action.png)
 
    > [!TIP]
-   > Klik om te selecteren in uw werkstroom beschikbare velden, in een invoervak zodat die de **dynamische inhoud** lijst wordt geopend, of kies **dynamische inhoud toevoegen**. Voor meer velden kiezen **Zie voor meer informatie** voor elke sectie in de lijst. Sluit de **dynamische inhoud** Kies **dynamische inhoud toevoegen**.
+   > Als u een keuze wilt maken uit de beschikbare velden in de werkstroom, klikt u in een invoervak zodat de lijst **Dynamische inhoud** wordt geopend. U kunt ook **Dynamische inhoud toevoegen** kiezen. Als u meer velden wilt zien, kiest u **Meer weergeven** voor elke sectie in de lijst. U sluit de lijst **Dynamische inhoud** door **Dynamische inhoud toevoegen** te kiezen.
 
    | Instelling | Voorgestelde waarde | Beschrijving | 
    | ------- | --------------- | ----------- | 
-   | **Aan** | *{recipient-email-address}* |Voer het e-mailadres van de ontvanger in. Voor testdoeleinden kunt u uw eigen e-mailadres gebruiken. | 
-   | **Onderwerp** | Resource bijgewerkt: **onderwerp**| Voer de inhoud van het onderwerp van de e-mail in. Voor deze zelfstudie, voer de voorgestelde tekst en selecteert u de gebeurtenis **onderwerp** veld. Hier bevat uw e-onderwerp de naam voor de bijgewerkte resource (virtuele machine). | 
-   | **Hoofdtekst** | Resourcegroep: **onderwerp** <p>Gebeurtenistype: **gebeurtenistype**<p>Gebeurtenis-ID: **ID**<p>Tijd: **tijd van gebeurtenis** | Voer de inhoud voor de hoofdtekst van de e-mail in. Voor deze zelfstudie, voer de voorgestelde tekst en selecteert u de gebeurtenis **onderwerp**, **gebeurtenistype**, **ID**, en **gebeurtenistijd** velden zodat uw e-mailbericht de naam van een resourcegroep, gebeurtenistype, tijdstempel van gebeurtenis en gebeurtenis-ID voor de update bevat. <p>Als u wilt toevoegen lege regels in de inhoud, drukt u op Shift + Enter. | 
+   | **Aan** | *{e-mailadres-geadresseerde}* |Voer het e-mailadres van de ontvanger in. Voor testdoeleinden kunt u uw eigen e-mailadres gebruiken. | 
+   | **Onderwerp** | Resource updated: **Onderwerp**| Voer de inhoud van het onderwerp van de e-mail in. Voor deze zelfstudie voert u de voorgestelde tekst in en selecteert u het veld **Onderwerp** van de gebeurtenis. Hier bevat het onderwerp van de e-mail de naam voor de bijgewerkte resource (virtuele machine). | 
+   | **Hoofdtekst** | Resourcegroep: **Onderwerp** <p>Gebeurtenistype: **Gebeurtenistype**<p>Gebeurtenis-id: **Id**<p>Tijd: **Tijd van gebeurtenis** | Voer de inhoud voor de hoofdtekst van de e-mail in. Voor deze zelfstudie voert u de voorgestelde tekst in en selecteert u de velden **Onderwerp**, **Gebeurtenistype**, **Id** en **Tijd van gebeurtenis** van de gebeurtenis, zodat uw e-mailbericht de naam van de resourcegroep bevat, evenals het type gebeurtenis, het tijdstempel van de gebeurtenis en de gebeurtenis-id voor de update. <p>U kunt lege regels toevoegen aan de inhoud door op Shift+Enter te drukken. | 
    | | | 
 
    > [!NOTE] 
-   > Als u een veld dat een matrix vertegenwoordigt, de designer voegt automatisch een **voor elk** lus rond de actie die verwijst naar de matrix. Op die manier wordt de actie uitgevoerd voor elk matrixitem.
+   > Als u een veld selecteert dat een matrix vertegenwoordigt, wordt in de ontwerpfunctie automatisch een lus **Voor elke** toegevoegd rond de actie die naar de matrix verwijst. Op die manier wordt de actie uitgevoerd voor elk matrixitem.
 
-   Nu uw e-mail in te grijpen als volgt uitzien in dit voorbeeld:
+   De e-mailactie ziet er nu ongeveer uit zoals in dit voorbeeld:
 
-   ![Selecteer uitvoer wilt opnemen in e-mailbericht](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-send-email-details.png)
+   ![Velden selecteren voor opname in e-mailbericht](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-send-email-details.png)
 
-   En uw klaar logische app kan eruitzien als in dit voorbeeld:
+   De voltooide logische app ziet er dan ongeveer zo uit:
 
    ![Voltooide logische app](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-completed.png)
 
-5. Sla uw logische app op. Om samen te vouwen en details van elke actie in uw logische app verbergen, kies de titelbalk van de actie.
+5. Sla uw logische app op. Kies de titelbalk van een actie om de details van die actie in uw logische app samen te vouwen en te verbergen.
 
    ![Uw logische app opslaan](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-save-completed.png)
 
-   Uw logische app is nu live, maar er wordt gewacht op wijzigingen in uw virtuele machine voordat u actie uitvoert. 
+   Uw logische app is nu live, maar er wordt gewacht op wijzigingen van de virtuele machine voordat er iets gebeurt. 
    Ga door naar de volgende sectie als u de logische app nu wilt testen.
 
-## <a name="test-your-logic-app-workflow"></a>Testen van uw logische app-werkstroom
+## <a name="test-your-logic-app-workflow"></a>De werkstroom van uw logische app testen
 
-1. Om te controleren dat de opgegeven gebeurtenissen is het ophalen van uw logische app, werk de virtuele machine. 
+1. Om te controleren of uw logische app de opgegeven gebeurtenissen ontvangt, moet u de virtuele machine bijwerken. 
 
-   Bijvoorbeeld, u kunt de grootte van de virtuele machine in de Azure portal of [vergroten of verkleinen van uw virtuele machine met Azure PowerShell](../virtual-machines/windows/resize-vm.md). 
+   U kunt bijvoorbeeld de grootte van de virtuele machine aanpassen in Azure Portal of [met Azure PowerShell](../virtual-machines/windows/resize-vm.md). 
 
-   Na enkele ogenblikken krijgt u een e-mailbericht. Bijvoorbeeld:
+   Binnen enkele ogenblikken moet u dan een e-mailbericht krijgen. Bijvoorbeeld:
 
-   ![Stuur een e-mail over de update van virtuele machine](./media/monitor-virtual-machine-changes-event-grid-logic-app/email.png)
+   ![E-mail over update van virtuele machine](./media/monitor-virtual-machine-changes-event-grid-logic-app/email.png)
 
-2. Om te bekijken van de wordt uitgevoerd en activeren van de geschiedenis voor uw logische app, op uw logische app-menu kiezen **overzicht**. Als u meer details over een run wilt bekijken, kiest u de rij voor die run.
+2. Als u de uitvoerings- en triggergeschiedenis van de logische app wilt bekijken, kiest u **Overzicht** in het menu van de logische app. Als u meer details over een run wilt bekijken, kiest u de rij voor die run.
 
-   ![Logische app geschiedenis wordt uitgevoerd](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-run-history.png)
+   ![Uitvoeringsgeschiedenis van logische app](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-run-history.png)
 
 3. Als u de in- en uitvoer van elke stap wilt bekijken, vouwt u de stap uit die u wilt bekijken. Aan de hand van deze gegevens kunt u problemen met de logische app vaststellen en oplossen.
  
-   ![Logische app-geschiedenisdetails uitvoeren](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-run-history-details.png)
+   ![Details van uitvoeringsgeschiedenis van logische app](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-run-history-details.png)
 
-Gefeliciteerd, u hebt gemaakt en uitvoeren van een logische app die resource gebeurtenissen tot en met een raster gebeurtenis bewaakt en u e-mailberichten wanneer deze gebeurtenissen optreden. U hebt ook geleerd hoe eenvoudig kunt u werkstromen die processen automatiseren en het integreren van systemen en cloudservices.
+U hebt nu een logische app gemaakt en uitgevoerd die resourcegebeurtenissen controleert met behulp van een gebeurtenisraster en u een e-mailbericht stuurt wanneer deze gebeurtenissen optreden. Daarnaast hebt u geleerd hoe eenvoudig het is om werkstromen te maken voor het automatiseren van processen en hoe u systemen en cloudservices kunt integreren.
 
-U kunt bijvoorbeeld andere configuratiewijzigingen met gebeurtenis rasters en logische apps bewaken:
+U kunt andere configuratiewijzigingen bewaken met gebeurtenisrasters en logische apps, zoals:
 
-* Een virtuele machine opgehaald toegangsgroepen op basis van rechten voor toegangsbeheer (RBAC).
-* Wijzigingen zijn aangebracht aan een netwerkbeveiligingsgroep (NSG) op de netwerkinterface (NIC).
+* Een virtuele machine krijgt rechten voor toegangsbeheer op basis van rollen (RBAC).
+* Een netwerkbeveiligingsgroep (NSG) op een netwerkinterface (NIC) wordt gewijzigd.
 * Schijven voor een virtuele machine worden toegevoegd of verwijderd.
-* Een openbaar IP-adres is toegewezen aan een virtuele machine NIC.
+* Er wordt een openbaar IP-adres toegewezen aan de NIC van een virtuele machine.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Deze zelfstudie maakt gebruik van bronnen en acties uitvoert die op uw Azure-abonnement kosten. Dus wanneer u met de zelfstudie bent klaar en testen, zorg ervoor dat u uitschakelen of verwijderen van alle resources waarop u niet wilt worden kosten in rekening.
+In deze zelfstudie worden resources gebruikt en acties uitgevoerd die kosten voor uw Azure-abonnement met zich mee kunnen brengen. Als u klaar bent met de zelfstudie en het testen, denkt u er dan aan dat u resources waarvoor u geen kosten wilt maken, uitschakelt of verwijdert.
 
 * Als u uw logische app niet meer wilt uitvoeren, maar uw werk niet wilt verwijderen, schakelt u uw app uit. Kies **Overzicht** in het menu van de logische app. Kies **Uitschakelen** op de werkbalk.
 
@@ -243,8 +244,8 @@ Deze zelfstudie maakt gebruik van bronnen en acties uitvoert die op uw Azure-abo
   > [!TIP]
   > Als u het menu van de logische app niet ziet, probeer dan terug te gaan naar het Azure-dashboard. Open uw logische app dan opnieuw.
 
-* Kies als permanent wilt verwijderen uw logische app, in het menu logic app **overzicht**. Kies **Verwijderen** op de werkbalk. Bevestig dat u uw logische app wilt verwijderen en kies vervolgens **Verwijderen**.
+* Als u de logische app permanent wilt verwijderen, kiest u **Overzicht** in het menu van de logische app. Kies **Verwijderen** op de werkbalk. Bevestig dat u uw logische app wilt verwijderen en kies vervolgens **Verwijderen**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Maken en aangepaste gebeurtenissen met de gebeurtenis raster routeren](../event-grid/custom-event-quickstart.md)
+* [Aangepaste gebeurtenissen maken en routeren met behulp van Event Grid](../event-grid/custom-event-quickstart.md)

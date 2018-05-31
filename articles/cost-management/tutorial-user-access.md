@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 05/17/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: c1be4d649bf4b69a9f749003b5c66142006b78e0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3ceed8b88b9c81954c967d3d7ddd964c532867ab
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34301604"
 ---
 # <a name="tutorial-assign-access-to-cost-management-data"></a>Zelfstudie: toegang tot gegevens van Cost Management beheren
 
@@ -27,7 +28,8 @@ Op het moment dat u uw Azure overeenkomst of -account registreert, wordt er een 
 > [!div class="checklist"]
 > * Een gebruiker met beheerderstoegang maken
 > * Een gebruiker met gebruikerstoegang maken
-> * Entiteiten maken
+> * Entiteiten maken en beheren
+
 
 Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) voordat u begint.
 
@@ -56,11 +58,11 @@ Meestal is het zo dat gebruikers die toegang nodig hebben tot gegevens van Cost 
 
 Als u een Engelstalige zelfstudievideo wilt bekijken over het toevoegen van gebruikers, gaat u naar [Adding Users to Azure Cost Management](https://youtu.be/Nzn7GLahx30).
 
-## <a name="create-entities"></a>Entiteiten maken
+## <a name="create-and-manage-entities"></a>Entiteiten maken en beheren
 
-Wanneer u de hiërarchie met kostenentiteiten definieert, wordt het aanbevolen om de structuur van uw organisatie te volgen.
+Wanneer u de hiërarchie met kostenentiteiten definieert, wordt het aanbevolen om de structuur van uw organisatie te volgen. Entiteiten maken het mogelijk om uitgaven te segmenteren op individuele accounts of abonnementen. U definieert kostenentiteiten om logische groepen te maken voor het beheren en controleren van uitgaven. Bepaal tijdens het samenstellen van de structuur hoe u de kosten van entiteiten wilt of moet toerekenen aan bedrijfsonderdelen, kostenplaatsen, omgevingen en verkoopafdelingen. De entiteitsstructuur in Cloudyn is flexibel vanwege de overname van entiteiten.
 
-Bepaal tijdens het samenstellen van de structuur hoe u de kosten van entiteiten wilt of moet toerekenen aan bedrijfsonderdelen, kostenplaatsen, omgevingen en verkoopafdelingen. De entiteitsstructuur in Cloudyn is flexibel vanwege de overname van entiteiten. Afzonderlijke abonnementen voor uw cloudaccounts worden gekoppeld aan specifieke entiteiten. Dit betekent dat entiteiten meerdere tenants kunnen hebben. Met behulp van entiteiten kunt u specifieke gebruikers alleen toegang geven tot hun segment van uw bedrijf. Hierdoor blijven gegevens geïsoleerd, zelfs in grote delen van een bedrijf zoals dochterondernemingen. Bovendien helpt gegevensisolatie bij governance.  
+Afzonderlijke abonnementen voor uw cloudaccounts worden gekoppeld aan specifieke entiteiten. U kunt een entiteit koppelen aan een account of abonnement van een cloudserviceprovider. Dit betekent dat entiteiten meerdere tenants kunnen hebben. Met behulp van entiteiten kunt u specifieke gebruikers alleen toegang geven tot hun segment van uw bedrijf. Hierdoor blijven gegevens geïsoleerd, zelfs in grote delen van een bedrijf zoals dochterondernemingen. Bovendien helpt gegevensisolatie bij governance.  
 
 Op het moment dat u uw Azure overeenkomst of -account registreert bij Cloudyn, worden er allerlei gegevens naar uw Cloudyn-account gekopieerd. Denk hierbij aan gegevens van uw Azure-resources, zoals gegevens over het gebruik, de prestaties, facturering en tags uit uw abonnementen. De entiteitsstructuur moet u echter handmatig maken. Als u de registratie bij Azure Resource Manager hebt overgeslagen, zijn er alleen factureringsgegevens en enkele asset-rapporten beschikbaar in de portal van Cloudyn.
 
@@ -74,6 +76,23 @@ Klik naast **Entities** op **Add Entity**. Voer gegevens in van de persoon of af
 
 Sla de wijzigingen op met **Save** als u klaar bent.
 
+### <a name="entity-access-levels"></a>Toegangsniveaus voor entiteiten
+
+Door toegangsniveaus voor entiteiten te combineren met de toegang van een gebruiker kunt u definiëren wat voor soort acties er beschikbaar zijn in de Cloudyn-portal.
+
+- **Enterprise**: biedt de mogelijkheid om onderliggende kostenentiteiten te maken en beheren.
+- **Enterprise + Cost Allocation**: biedt de mogelijkheid om onderliggende kostenentiteiten te maken en beheren, met inbegrip van kostentoewijzing voor geconsolideerde accounts.
+- **Enterprise, Cost based on parent cost allocation**: biedt de mogelijkheid om onderliggende kostenentiteiten te maken en beheren. Kosten voor het account worden gebaseerd op het model voor kostentoewijzing van het bovenliggende item.
+- **Custom Dashboards Only**: biedt de gebruiker de mogelijkheid om alleen vooraf gedefinieerde aangepaste dashboards te zien.
+- **Dashboards Only**: biedt de gebruiker de mogelijkheid om alleen dashboards te zien.
+
+### <a name="create-a-cost-entity-hierarchy"></a>Een hiërarchie met kostenentiteiten maken
+
+U hebt een account met de toegangsmachtiging Enterprise of Enterprise + Cost Allocation nodig voor het maken van een hiërarchie met kostenentiteiten.
+
+Klik in de Cloudyn-portal rechtsboven op het tandwielsymbool en selecteer **Cloud Accounts** . De structuur **Entities** wordt in het linkerdeelvenster weergegeven. Vouw de structuur indien nodig uit, zodat u de entiteit kunt zien die u wilt koppelen aan een account.  De accounts van uw cloudserviceprovider vindt u terug op de tabbladen in het rechterdeelvenster. Selecteer een tabblad en sleep vervolgens een account of abonnement naar de entiteit. In het vak **Move** ziet u een bericht dat het account is verplaatst. Klik op **OK**.
+
+U kunt ook meerdere accounts aan een entiteit koppelen. Selecteer de accounts en klik vervolgens op **Move**. Selecteer in het vak Move Accounts de entiteit waarnaar u het account wilt verplaatsen en klik vervolgens op **Save**. U wordt gevraagd te bevestigen dat u de accounts wilt verplaatsen. Klik op **Yes** en daarna op **OK**.
 
 Als u een Engelstalige zelfstudievideo wilt bekijken over het maken van een hiërarchie voor entiteitskosten, gaat u naar [Creating a Cost Entity Hierarchy in Azure Cost Management](https://youtu.be/dAd9G7u0FmU).
 
@@ -86,7 +105,8 @@ In deze zelfstudie heeft u het volgende geleerd:
 > [!div class="checklist"]
 > * Een gebruiker met beheerderstoegang maken
 > * Een gebruiker met gebruikerstoegang maken
-> * Entiteiten maken
+> * Entiteiten maken en beheren
+
 
 Als u Azure Resource Manager API-toegang nog niet hebt ingeschakeld voor uw accounts, gaat u verder met het volgende artikel.
 
