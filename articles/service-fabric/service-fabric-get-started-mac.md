@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: saysa
-ms.openlocfilehash: f6813d98782d31dc780da21f78aafbbfdfc5e688
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3046e944726bf049b7a6771d626fea357a5abf30
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305198"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Uw ontwikkelomgeving instellen in Mac OS X
 > [!div class="op_single_selector"]
@@ -123,6 +124,11 @@ Als u een lokale Docker-container wilt instellen en daarop een Service Fabric-cl
     docker rm -f sftestcluster
     ```
 
+### <a name="known-limitations"></a>Bekende beperkingen 
+ 
+ Hier volgen bekende beperkingen van het uitvoeren van het lokale cluster in een container voor Mac-computers: 
+ 
+ * DNS-service kan niet worden uitgevoerd en wordt niet ondersteund [Probleem #132](https://github.com/Microsoft/service-fabric/issues/132)
 
 ## <a name="set-up-the-service-fabric-cli-sfctl-on-your-mac"></a>De Service Fabric-CLI (sfctl) instellen op een Mac
 
