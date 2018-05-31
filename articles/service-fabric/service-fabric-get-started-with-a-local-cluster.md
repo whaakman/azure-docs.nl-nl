@@ -5,7 +5,7 @@ services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 60a1f6a5-5478-46c0-80a8-18fe62da17a8
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -13,12 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/03/2017
-ms.author: ryanwi;mikhegn
-ms.openlocfilehash: 9d547039491f6b0c0d308c64d11e9c54b4b4e3d5
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.author: ryanwi
+ms.openlocfilehash: ca19b70e3651f72d6fe87fcb3cd2ace2eecf3402
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205243"
 ---
 # <a name="get-started-with-deploying-and-upgrading-applications-on-your-local-cluster"></a>Aan de slag met het implementeren en bijwerken van toepassingen op uw lokale cluster
 De Azure Service Fabric SDK bevat een volledig lokale ontwikkelingsomgeving  waarmee u snel uw toepassingen kunt implementeren en beheren op een lokaal cluster. In dit artikel maakt u een lokaal cluster, implementeert u een bestaande toepassing en werkt u de toepassing bij naar een nieuwe versie vanuit Windows PowerShell.
@@ -85,7 +86,7 @@ In deze zelfstudie gebruiken we een bestaande voorbeeldtoepassing (WordCount gen
     Als het goed is, wordt de volgende uitvoer weergegeven:
    
     ![Een toepassing implementeren in het lokale cluster][deploy-app-to-local-cluster]
-7. Ga naar [http://localhost:8081/wordcount/index.html](http://localhost:8081/wordcount/index.html) om de toepassing te zien. U ziet het volgende:
+7. Start de browser en navigeer naar [http://localhost:8081/wordcount/index.html](http://localhost:8081/wordcount/index.html) om de toepassing in actie te zien. U ziet het volgende:
    
     ![De UI van de geïmplementeerde toepassing][deployed-app-ui]
    
@@ -124,7 +125,7 @@ Nu de toepassing is geïmplementeerd, gaan we de details van de app in Power She
    
     De reeks opdrachten die u hebt gebruikt, zoals alle Service Fabric PowerShell-opdrachten, zijn beschikbaar voor elk cluster waarmee u verbinding zou kunnen maken, lokaal of op afstand.
    
-    U kunt de interactie met het cluster visueel weergeven met het Service Fabric Explorer-webhulpprogramma door te navigeren naar [http://localhost:19080/Explorer](http://localhost:19080/Explorer) in de browser.
+    U kunt de interactie met het cluster visueel weergeven met het Service Fabric Explorer-webhulpprogramma door in de browser naar [http://localhost:19080/Explorer](http://localhost:19080/Explorer) te navigeren.
    
     ![Toepassingdetails weergeven in Service Fabric Explorer][sfx-service-overview]
    
