@@ -16,6 +16,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31425971"
 ---
 # <a name="restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>Een back-up van de database herstellen voor een beheerd exemplaar voor Azure SQL Database
 
@@ -56,7 +57,7 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/#create/Microsoft.SQLMana
    |**Type account**|Blob Storage||
    |**Prestaties**|Standard of Premium|Magnetische schijven of SSD's|
    |**Replicatie**|Lokaal redundante opslag||
-   |**Opslaglaag (standaard)|Statisch of dynamisch||
+   |\*\*Opslaglaag (standaard)|Statisch of dynamisch||
    |**Veilige overdracht vereist**|Uitgeschakeld||
    |**Abonnement**|Uw abonnement|Zie [Abonnementen](https://account.windowsazure.com/Subscriptions) voor meer informatie over uw abonnementen.|
    |**Resourcegroep**|De resourcegroep die u eerder hebt gemaakt|| 
