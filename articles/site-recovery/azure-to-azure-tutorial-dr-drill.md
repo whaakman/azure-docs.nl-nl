@@ -1,21 +1,22 @@
 ---
-title: "Een DR-herstelanalyse uitvoeren van Azure-VM’s naar een secundaire Azure-regio met Azure Site Recovery (preview)"
-description: "Leer hoe u DR-herstelanalyse kunt uitvoeren van Azure-VM’s naar een secundaire Azure-regio met behulp van de Azure Site Recovery-service."
+title: Een DR-herstelanalyse uitvoeren van Azure-VM’s naar een secundaire Azure-regio met Azure Site Recovery
+description: Leer hoe u DR-herstelanalyse kunt uitvoeren van Azure-VM’s naar een secundaire Azure-regio met behulp van de Azure Site Recovery-service.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/07/2018
+ms.date: 05/15/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 66ad4f782917d41a0fd1fbbe5ce50de0dda4589e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: fb1c41e6fe254fbcbee8cb91a177777ed4e37fbb
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208971"
 ---
-# <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region-preview"></a>Een DR-herstelanalyse uitvoeren van Azure-VM’s naar een secundaire Azure-regio (preview)
+# <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>Een DR-herstelanalyse uitvoeren van Azure-VM’s naar een secundaire Azure-regio
 
 De [Azure Site Recovery](site-recovery-overview.md) service draagt bij aan uw strategie voor zakelijke continuïteit en noodherstel (BCDR) door te zorgen dat uw zakelijke apps beschikbaar blijven tijdens geplande en ongeplande uitval. Site Recovery beheert en orkestreert noodherstel van on-premises machines en virtuele Azure-machines (VM's), met inbegrip van replicatie, failover en herstel.
 
@@ -24,6 +25,8 @@ Deze tutorial laat zien hoe u een DR-herstelanalyse kunt uitvoeren voor een Azur
 > [!div class="checklist"]
 > * Vereisten controleren
 > * Een testfailover uitvoeren voor één VM
+
+Replicatie van Azure naar Azure is momenteel in preview.
 
 ## <a name="prerequisites"></a>Vereisten
 

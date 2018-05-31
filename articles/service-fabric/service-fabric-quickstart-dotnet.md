@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 276c6bf1a476e5c74c5e75e4906f451154becf31
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 001488a8c7e22db595cd9f929bc0f3d631da0715
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207203"
 ---
 # <a name="quickstart-create-a-net-service-fabric-application-in-azure"></a>Quickstart: een .NET-Service Fabric-toepassing maken in Azure
 Azure Service Fabric is een platform voor gedistribueerde systemen waarmee u schaalbare en betrouwbare microservices en containers implementeert en beheert. 
@@ -109,6 +110,7 @@ Als u wilt zien wat er in de code gebeurt, moet u de volgende stappen uitvoeren:
     - Tot slot wordt het antwoord van de back-endservice naar de client geretourneerd **(3)**.
 
 4. Druk op **F5** om door te gaan
+    - Als u hierom wordt gevraagd door de browser, verleent u ServiceFabricAllowedUsers rechten voor het lezen en uitvoeren van groepen voor de foutopsporingsmodus.
     - U bent nu op het onderbrekingspunt in de back-endservice aanbeland.
     
     ![Back-endservice Vote toevoegen](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
@@ -175,13 +177,15 @@ Nu de toepassing klaar is, kunt u deze rechtstreeks vanuit Visual Studio impleme
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Toepassingen en services voor schalen in een cluster
 Service Fabric-services kunnen eenvoudig worden geschaald in een cluster om een wijziging in de belasting voor de services aan te kunnen. U schaalt een service door het aantal exemplaren te wijzigen dat wordt uitgevoerd in het cluster. Er zijn meerdere manieren waarop u uw services kunt schalen. U kunt daarvoor scripts of opdrachten van PowerShell of Service Fabric-CLI (sfctl) gebruiken. Gebruik voor dit voorbeeld Service Fabric Explorer.
 
-Service Fabric Explorer kan worden uitgevoerd in alle Service Fabric-clusters en is toegankelijk door vanuit een browser naar de HTTP-beheerpoort (19080) te bladeren, bijvoorbeeld `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
+Service Fabric Explorer kan worden uitgevoerd in alle Service Fabric-clusters en is toegankelijk door vanuit een browser naar de HTTP-beheerpoort (19080) te bladeren, bijvoorbeeld `https://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
 
-U kunt een waarschuwing van de browser krijgen dat de locatie niet wordt vertrouwd. Dat komt omdat het certificaat zelfondertekend is. U kunt de waarschuwing negeren en doorgaan. Selecteer het geïnstalleerde certificaat om verbinding te maken indien u daarom wordt gevraagd. 
+U kunt een waarschuwing van de browser krijgen dat de locatie niet wordt vertrouwd. Dat komt omdat het certificaat zelfondertekend is. U kunt de waarschuwing negeren en doorgaan.
+1. Selecteer het geïnstalleerde certificaat om verbinding te maken indien u daarom wordt gevraagd. Het certificaat van het cluster van derden dat u in de lijst selecteert, moet overeenkomen met het cluster van derden dat u probeert te openen. Bijvoorbeeld: win243uja6w62r.westus.cloudapp.azure.com.
+2. Als u hierom wordt gevraagd door de browser, verleent u toegang tot uw persoonlijke sleutel voor CryptoAPI voor deze sessie.
 
 Voer de volgende stappen uit om de web-front-endservice te schalen:
 
-1. Open Service Fabric Explorer in het cluster - bijvoorbeeld: `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
+1. Open Service Fabric Explorer in het cluster - bijvoorbeeld: `https://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
 2. In de structuurweergave vouwt u **Toepassingen**->**VotingType**->**fabric:/Voting** uit. Klik op het beletselteken (drie punten) naast het knooppunt **fabric:/Voting/VotingWeb** in de structuurweergave en kies **Service schalen**.
 
     ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)
