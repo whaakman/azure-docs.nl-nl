@@ -1,24 +1,21 @@
 ---
-title: Aan de slag met Azure Data Lake Analytics met Azure Portal | Microsoft Docs
-description: 'Informatie over het gebruik van Azure Portal voor het maken van een Data Lake Analytics-account, het maken van een Data Lake Analytics-taak met U-SQL, en het verzenden van de taak. '
+title: Aan de slag met Azure Data Lake Analytics en Azure Portal
+description: Informatie over het gebruik van Azure Portal voor het maken van een Data Lake Analytics-account, het maken van een Data Lake Analytics-taak met U-SQL, en het verzenden van de taak.
 services: data-lake-analytics
-documentationcenter: ''
 author: saveenr
+ms.author: saveenr
 manager: kfile
-editor: cgronlun
 ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
 ms.service: data-lake-analytics
-ms.devlang: na
 ms.topic: hero-article
-ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
-ms.author: saveenr
-ms.openlocfilehash: 34967a9853f907c61494e72229d75af1c625ea8f
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 63fc4272dc4b26e9eb4846118bc57cd6aa5bf361
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358282"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-portal"></a>Aan de slag met Azure Data Lake Analytics met Azure Portal
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -64,11 +61,11 @@ OUTPUT @a
 
 ## <a name="submit-a-u-sql-job"></a>Een U-SQL-taak verzenden
 
-1. Klik in het Data Lake Analytics-account op **New Job**.
-2. Plak de tekst van het hierboven weergegeven U-SQL-script. 
-3. Klik op **Taak verzenden**.   
-4. Wacht tot de taakstatus verandert in **Succeeded**.
-5. Klik op het tabblad **Output** en klik vervolgens op `data.csv`. 
+1. Selecteer **New Job** vanuit het Data Lake Analytics-account.
+2. Plak de tekst van het bovenstaande U-SQL-script. Geef een naam op voor de taak. 
+3. Selecteer **Submit** om de taak te starten.   
+4. Controleer de **status** van de taak en wacht totdat de taak de status **Succeeded** heeft.
+5. Selecteer het tabblad **Data** en vervolgens het tabblad **Output**. Selecteer het uitvoerbestand met de naam `data.csv` en bekijk de uitvoergegevens.
 
 ## <a name="see-also"></a>Zie ook
 

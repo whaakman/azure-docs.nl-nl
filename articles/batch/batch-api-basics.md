@@ -15,11 +15,12 @@ ms.workload: big-compute
 ms.date: 04/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3423103de774faaf9e7884626a9a1a102e351b68
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: add8e184db102d48275bd8d3faa42def63918c19
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360486"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Grootschalige parallelle rekenoplossingen ontwikkelen met Batch
 
@@ -82,7 +83,7 @@ Batch biedt ondersteuning voor de volgende Azure Storage-[accountopties](../stor
 
 * Accounts voor algemeen gebruik v2 (GPv2-accounts) 
 * Accounts voor algemeen gebruik v1 (GPv1-accounts)
-* Blob Storage-accounts
+* Blob-opslagaccounts (momenteel ondersteund voor toepassingen in de configuratie van de virtuele machine)
 
 U kunt een opslagaccount koppelen aan uw Batch-account. Dit kunt u doen tijdens het maken van het Batch-account of later. Denk bij het kiezen van een opslagaccount aan de kosten- en prestatievereisten. Het GPv2-account en het Blob Storage-account bieden, vergeleken met een GPv1-account, bijvoorbeeld hogere [limieten voor capaciteit en schaalbaarheid](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/). (Neem contact op met Azure-ondersteuning om een hogere opslaglimiet aan te vragen.) Met deze accountopties kunnen de prestaties worden verbeterd van Batch-oplossingen die een groot aantal parallelle taken bevatten die worden gelezen of geschreven vanuit het opslagaccount.
 

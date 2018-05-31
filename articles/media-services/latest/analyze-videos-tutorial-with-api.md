@@ -12,11 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/09/2018
 ms.author: juliako
-ms.openlocfilehash: 54c49645722b6545d8ae872151b9b82674d44523
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 0fdc8c6dc9fae96a79e2ab2b05b7db3012834c1e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34362291"
 ---
 # <a name="tutorial-analyze-videos-with-azure-media-services"></a>Zelfstudie: Video's analyseren met Azure Media Services 
 
@@ -66,7 +67,7 @@ Als u wilt starten met Media Services API's met .NET, moet u een **AzureMediaSer
 
 ### <a name="create-an-output-asset-to-store-the-result-of-a-job"></a>Een uitvoerasset maken voor het opslaan van het resultaat van een taak 
 
-Met de uitvoerasset slaat u het resultaat van de taak op. Het project definieert de functie **DownloadResults** die de resultaten van deze uitvoerasset naar de uitvoermap downloadt zodat u kunt zien wat u hebt gekregen.
+In de [uitvoerasset](https://docs.microsoft.com/rest/api/media/assets) wordt het resultaat van de taak opgeslagen. Het project definieert de functie **DownloadResults** die de resultaten van deze uitvoerasset naar de uitvoermap downloadt zodat u kunt zien wat u hebt gekregen.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateOutputAsset)]
 
@@ -76,7 +77,7 @@ Bij het coderen of verwerken van inhoud in Media Services is het een gangbaar pa
 
 #### <a name="transform"></a>Transformeren
 
-Bij het maken van een nieuw **transformatie**-exemplaar, moet u opgeven wat u als uitvoer wilt maken. De vereiste parameter is een **TransformOutput**-object, zoals weergegeven in de bovenstaande code. Elke **transformatie-uitvoer** bevat een **voorinstelling**. **Voorinstelling** bevat stapsgewijze instructies van de video- en/of audioverwerkingen die moeten worden gebruikt voor het genereren van de gewenste **TransformOutput**. In dit voorbeeld wordt de voorinstelling **VideoAnalyzerPreset** gebruikt en de taal ('en-US') wordt doorgegeven aan de constructor. Met deze voorinstelling kunt u meerdere audio- en video-inzichten uit een video extraheren. U kunt de voorinstelling **AudioAnalyzerPreset** gebruiken als u meerdere audio-inzichten wilt extraheren uit een video. 
+Bij het maken van een nieuw [transformatie](https://docs.microsoft.com/rest/api/media/transforms)-exemplaar, moet u opgeven wat u als uitvoer wilt maken. De vereiste parameter is een **TransformOutput**-object, zoals weergegeven in de bovenstaande code. Elke **transformatie-uitvoer** bevat een **voorinstelling**. **Voorinstelling** bevat stapsgewijze instructies van de video- en/of audioverwerkingen die moeten worden gebruikt voor het genereren van de gewenste **TransformOutput**. In dit voorbeeld wordt de voorinstelling **VideoAnalyzerPreset** gebruikt en de taal ('en-US') wordt doorgegeven aan de constructor. Met deze voorinstelling kunt u meerdere audio- en video-inzichten uit een video extraheren. U kunt de voorinstelling **AudioAnalyzerPreset** gebruiken als u meerdere audio-inzichten wilt extraheren uit een video. 
 
 Bij het maken van een **transformatie** moet u controleren of er al een bestaat met de methode **Ophalen** zoals weergegeven in de volgende code.  In Media Services-v3 retourneert de methode **Ophalen** van entiteiten **null** als de entiteit (een hoofdlettergevoelige controle van de naam).
 
@@ -84,7 +85,7 @@ Bij het maken van een **transformatie** moet u controleren of er al een bestaat 
 
 #### <a name="job"></a>Job
 
-Zoals eerder vermeld, is het **transformatie**-object het recept en is de **taak** de werkelijke aanvraag bij Media Services om deze **transformatie** toe te passen op een bepaalde invoervideo of audio-inhoud. De **taak** bevat informatie zoals de locatie van de invoervideo en de locatie voor de uitvoer. U kunt de locatie van uw video opgeven met: HTTPS-URL's, SAS-URL's of assets die zich in uw Media Service-account bevinden. 
+Zoals eerder vermeld, is het [transformatie](https://docs.microsoft.com/rest/api/media/transforms)-object het recept en is de [taak](https://docs.microsoft.com/en-us/rest/api/media/jobs) de werkelijke aanvraag bij Media Services om deze **transformatie** toe te passen op een bepaalde invoervideo of audio-inhoud. De **taak** bevat informatie zoals de locatie van de invoervideo en de locatie voor de uitvoer. U kunt de locatie van uw video opgeven met: HTTPS-URL's, SAS-URL's of assets die zich in uw Media Service-account bevinden. 
 
 In dit voorbeeld is de taakinvoer een lokale video.  
 
@@ -92,7 +93,7 @@ In dit voorbeeld is de taakinvoer een lokale video.
 
 ### <a name="wait-for-the-job-to-complete"></a>Wacht tot de taak is voltooid
 
-De taak neemt enige tijd in beslag en wanneer dit het geval is, wordt u hiervan op de hoogte gesteld. Er zijn verschillende opties om op de hoogte te worden gesteld van de voltooiing van de taak. De eenvoudigste optie (die hier wordt getoond) is het gebruik van polling. 
+De taak neemt enige tijd in beslag en wanneer dit het geval is, wordt u hiervan op de hoogte gesteld. U kunt op verschillende manieren een melding ontvangen over de voltooiing van de [taak](https://docs.microsoft.com/en-us/rest/api/media/jobs). De eenvoudigste optie (die hier wordt getoond) is het gebruik van polling. 
 
 Polling is geen aanbevolen best practice voor productietoepassingen vanwege mogelijke latentie. Polling kan worden beperkt bij een te intensief gebruik op een account. Ontwikkelaars moeten in plaats daarvan Event Grid gebruiken.
 
@@ -104,7 +105,7 @@ De **taak** doorloopt meestal de volgende statussen: **gepland**, **in wachtrij*
 
 ### <a name="download-the-result-of-the-job"></a>Het resultaat van de taak downloaden
 
-Met de volgende functie downloadt u de resultaten van de uitvoerasset naar de uitvoermap zodat u de resultaten van de taak kunt bekijken. 
+Met de volgende functie worden de resultaten van de [uitvoerasset](https://docs.microsoft.com/rest/api/media/assets) gedownload naar de uitvoermap, zodat u de resultaten van de taak kunt bekijken. 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#DownloadResults)]
 
