@@ -6,14 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 173e31e3b1f855d488f7f8baf6659b1521ea7aa5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 2a96655c26e2df2534f420239b56ef0c3959319a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212871"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Herstel van on-premises VMware-VM’s naar Azure na een noodgeval instellen
 
@@ -35,7 +36,7 @@ Voordat u begint, is het handig om [de architectuur](vmware-azure-architecture.m
 
 ## <a name="select-a-replication-goal"></a>Een replicatiedoel selecteren
 
-1. Selecteer in **Recovery Services-kluizen** de kluisnaam, **ContosoVMVault**.
+1. Selecteer de naam van de kluis in **Recovery Services-kluizen**. We gebruiken **ContosoVMVault** voor dit scenario.
 2. Selecteer in **Aan de slag** Site Recovery. Selecteer vervolgens **Infrastructuur voorbereiden**.
 3. In **Beveiligingsdoel** > **Waar bevinden de machines zich**, selecteert u **On-premises**.
 4. In **Waarnaartoe wilt u de machines repliceren** selecteert u **Naar Azure**.
@@ -139,7 +140,7 @@ Selecteer en controleer doelbronnen.
 1. Open [Azure Portal](https://portal.azure.com) en selecteer **Alle resources**.
 2. Selecteer de Recovery Service-kluis met de naam **ContosoVMVault**.
 3. Selecteer **Infrastructuur voor Site Recovery** > **Herstelbeleid** > **+Herstelbeleid** om een replicatiebeleid te maken.
-4. Voer in **Replicatiebeleid maken** de beleidsnaam **VMwareRepPolicy** in.
+4. Voer bij **Replicatiebeleid maken** de naam van het beleid in. We gebruiken **VMwareRepPolicy** voor dit scenario.
 5. Gebruik in **RPO-drempelwaarde** de standaardwaarde van 60 minuten. Deze waarde bepaalt hoe vaak herstelpunten worden gemaakt. Wanneer de continue replicatie deze limiet overschrijdt, wordt er een waarschuwing gegenereerd.
 6. Gebruik in **Bewaarperiode van het herstelpunt** de standaardwaarde van 24 uur als de bewaarperiode voor elk herstelpunt. Gebruik voor deze zelfstudie 72 uur. Gerepliceerde VM’s kunnen worden hersteld naar een willekeurig punt in een tijdvenster.
 7. Gebruik in **Frequentie van de app-consistente momentopname** de standaardwaarde van 60 minuten voor de frequentie waarmee app-consistente momentopnamen worden gemaakt. Selecteer **OK** om het beleid te maken.

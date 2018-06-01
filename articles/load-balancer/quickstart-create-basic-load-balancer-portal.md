@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 610aa8d5652b89f36aeb2a6ae517d378c5bfa666
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 49fa4cf9b24c432b0956f930a1429e1cdf827f1b
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304875"
 ---
 # <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Snelstart: Een openbare Basic Load Balancer maken met behulp van de Azure Portal
 
@@ -96,7 +97,7 @@ In deze sectie maakt u NSG-regels om inkomende verbindingen via HTTP en RDP toe 
    - **TCP** bij **Protocol**
    - **Allow** bij **Actie**
    - **100** bij **Prioriteit**
-   - **myHTTPRule** bij **Naam**
+   - **myHTTPRule** als **Name**
    - **Allow HTTP** bij **Beschrijving**
  
    ![Een NSG-regel maken](./media/load-balancer-get-started-internet-portal/8-load-balancer-nsg-rules.png)
@@ -194,4 +195,7 @@ U kunt de resourcegroep, de load balancer en alle gerelateerde resources verwijd
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstart hebt u een resourcegroep, netwerkresources en back-endservers gemaakt. U hebt die bronnen vervolgens gebruikt om een load balancer te maken. Als u meer wilt weten over load balancers en de bijbehorende resources, gaat u door naar de zelfstudie-artikelen.
+In deze snelstart hebt u een resourcegroep, netwerkresources en back-endservers gemaakt. U hebt die bronnen vervolgens gebruikt om een load balancer te maken. Voor meer informatie over Azure Load Balancer gaat u verder met de zelfstudies voor Azure Load Balancer.
+
+> [!div class="nextstepaction"]
+> [Zelfstudies voor Azure Load Balancer](tutorial-load-balancer-basic-internal-portal.md)
