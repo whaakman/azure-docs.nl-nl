@@ -1,65 +1,66 @@
 ---
-title: Overzicht van Azure Event raster
-description: Beschrijving van Azure Event raster en de concepten.
+title: Overzicht van Azure Event Grid
+description: Beschrijving van Azure Event Grid en de concepten ervan.
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
-ms.topic: article
+ms.topic: overview
 ms.date: 04/27/2018
 ms.author: babanisa
-ms.openlocfilehash: 0be2952dc39064eaf2814806e81f16e882a6a6fe
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: MT
+ms.openlocfilehash: f1d235fe431cfe14019ffef7c043dfbc367bb2bc
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34303974"
 ---
-# <a name="an-introduction-to-azure-event-grid"></a>Een inleiding tot Azure gebeurtenis raster
+# <a name="an-introduction-to-azure-event-grid"></a>Een inleiding tot Azure Event Grid
 
-Azure Event raster kunt u eenvoudig om toepassingen te bouwen met architectuur op basis van gebeurtenissen. U selecteert de Azure resource die u wilt abonneren op en geef de gebeurtenis-handler of WebHook-eindpunt om de gebeurtenis te verzenden. Gebeurtenis raster bevat ingebouwde ondersteuning voor gebeurtenissen die afkomstig zijn van de Azure-services, zoals de storage-blobs en resourcegroepen. Gebeurtenis raster heeft ook aangepaste ondersteuning voor de toepassing en gebeurtenissen van derden, met behulp van aangepaste onderwerpen en aangepaste webhooks. 
+Met Azure Event Grid kunt u eenvoudig toepassingen bouwen met op gebeurtenissen gebaseerde architecturen. U selecteert de Azure resource waarop u zich wilt abonneren en geeft de gebeurtenis-handler of het WebHook-eindpunt op waarnaar de gebeurtenis moet worden verzonden. Event Grid bevat ingebouwde ondersteuning voor gebeurtenissen die afkomstig zijn van Azure-services, zoals storage-blobs en resourcegroepen. Event Grid biedt ook aangepaste ondersteuning voor toepassingen en gebeurtenissen van derden, met behulp van aangepaste onderwerpen en aangepaste webhooks. 
 
-U kunt filters gebruiken voor het doorsturen van specifieke gebeurtenissen naar verschillende eindpunten, multicast bij meerdere eindpunten en zorg ervoor dat uw gebeurtenissen op betrouwbare wijze worden bezorgd. Gebeurtenis raster ook met ingebouwde ondersteuning voor aangepaste en derden gebeurtenissen.
+U kunt filters gebruiken voor het doorsturen van specifieke gebeurtenissen naar verschillende eindpunten, multicasting uitvoeren naar meerdere eindpunten en ervoor zorgen dat uw gebeurtenissen op betrouwbare wijze worden bezorgd. Event Grid biedt ook ingebouwde ondersteuning voor aangepaste gebeurtenissen en gebeurtenissen van derden.
 
-Op dit moment ondersteunt raster gebeurtenis de volgende gebieden:
+Op dit moment ondersteunt Event Grid de volgende regio's:
 
-* Azië (zuidoost)
-* Azië en Stille Oceaan Oost
+* Azië - zuidoost
+* Azië - oost
 * Australië - oost
 * Australië - zuidoost
 * VS - midden
 *   VS - oost
 *   VS - oost 2
-* Europa (west)
-* Europa (noord)
+* Europa - west
+* Europa - noord
 * Japan - oost
 * Japan - west
 *   West-centraal VS
 *   VS - west
 *   VS - west 2
 
-Dit artikel bevat een overzicht van Azure Event raster. Als u aan de slag met Event raster wilt, Zie [maken en route aangepaste gebeurtenissen met Azure Event raster](custom-event-quickstart.md). De volgende afbeelding toont hoe gebeurtenis raster bronnen en handlers verbinding maakt, maar biedt geen een uitgebreide lijst met ondersteunde opties.
+In dit artikel vindt u een overzicht van Azure Event Grid. Zie [Aangepaste gebeurtenissen maken en routeren met behulp van Azure Event Grid](custom-event-quickstart.md) als u aan de slag wilt met Azure Event Grid. De volgende afbeelding laat zien hoe Event Grid bronnen en handlers verbindt, maar biedt geen uitgebreide lijst met ondersteunde opties.
 
-![Gebeurtenis raster functionele model](./media/overview/functional-model.png)
+![Functioneel model Event Grid](./media/overview/functional-model.png)
 
-## <a name="event-sources"></a>Bronnen van gebeurtenissen
+## <a name="event-sources"></a>Gebeurtenisbronnen
 
-Op dit moment ondersteunen de volgende Azure-services te gebeurtenis raster verzenden gebeurtenissen:
+Op dit moment ondersteunen de volgende Azure-services het verzenden van gebeurtenissen naar Event Grid:
 
 * Azure-abonnementen (beheerbewerkingen)
-* Aangepaste-onderwerpen
+* Aangepaste onderwerpen
 * Event Hubs
 * IoT Hub
 * Media Services
 * Resourcegroepen (beheerbewerkingen)
 * Service Bus
-* Storage-Blob
-* Opslag voor algemene doeleinden v2 (GPv2)
+* Storage Blob
+* Storage voor algemene doeleinden v2 (GPv2)
 
-Zie voor koppelingen naar artikelen waarin wordt aangegeven hoe elke gebeurtenisbron [bronnen van gebeurtenissen in Azure gebeurtenis raster](event-sources.md).
+Zie [Gebeurtenisbronnen in Azure Event Grid](event-sources.md) voor koppelingen naar artikelen waarin wordt aangegeven hoe u elke gebeurtenisbron gebruikt.
 
-## <a name="event-handlers"></a>Gebeurtenis-handlers
+## <a name="event-handlers"></a>Event Handlers
 
-Op dit moment ondersteunen de volgende Azure-services verwerking van gebeurtenissen van gebeurtenis raster: 
+Op dit moment ondersteunen de volgende Azure-services handling-gebeurtenissen uit Event Grid: 
 
 * Azure Automation
 * Azure Functions
@@ -70,72 +71,72 @@ Op dit moment ondersteunen de volgende Azure-services verwerking van gebeurtenis
 * Queue Storage
 * WebHooks
 
-Wanneer u Azure Functions als de handler, gebruikt u de trigger gebeurtenis raster in plaats van de algemene HTTP-triggers. Functie-triggers van Event Grid worden namelijk automatisch gevalideerd. Bij gebruik van algemene HTTP-triggers moet u een [validatie-antwoord](security-authentication.md#webhook-event-delivery) implementeren.
+Wanneer u Azure Functions als de handler gebruikt, gebruikt u de Event Grid-trigger in plaats van algemene HTTP-triggers. Functie-triggers van Event Grid worden namelijk automatisch gevalideerd. Bij gebruik van algemene HTTP-triggers moet u een [validatie-antwoord](security-authentication.md#webhook-event-delivery) implementeren.
 
-Zie voor koppelingen naar artikelen waarin wordt aangegeven hoe elke gebeurtenis-handler [gebeurtenis-handlers in Azure gebeurtenis raster](event-handlers.md).
+Zie [Gebeurtenis-handlers in Azure Event Grid](event-handlers.md) voor koppelingen naar artikelen waarin wordt aangegeven hoe u elke gebeurtenis-handler gebruikt.
 
 ## <a name="concepts"></a>Concepten
 
-Er zijn vijf concepten in Azure gebeurtenis raster waarmee u aan de slag:
+Azure Event Grid bevat vijf concepten waarmee u aan de slag kunt:
 
-* **Gebeurtenissen** -wat is er gebeurd.
-* **Gebeurtenisuitgevers bronnen** - waar de gebeurtenis heeft plaatsgevonden.
-* **Onderwerpen over** -het eindpunt waar de gebeurtenissen voor het verzenden van uitgevers.
-* **Abonnementen voor gebeurtenissen** -eindpunt of de ingebouwde mechanisme route gebeurtenissen, soms aan meerdere handlers. Abonnementen worden ook gebruikt door handlers op intelligente wijze binnenkomende om gebeurtenissen te filteren.
-* **Gebeurtenis-handlers** -de app of de service reageert op de gebeurtenis.
+* **Gebeurtenissen**: wat er is gebeurd.
+* **Gebeurtenisbronnen/-uitgevers**: waar de gebeurtenis heeft plaatsgevonden.
+* **Onderwerpen**: het eindpunt waarnaar uitgevers gebeurtenissen verzenden.
+* **Gebeurtenisabonnementen**: het eindpunt of ingebouwde mechanisme voor het routeren van gebeurtenissen, soms naar meerdere handlers. Abonnementen worden ook gebruikt door handlers om binnenkomende gebeurtenissen op een slimme manier te filteren.
+* **Gebeurtenis-handlers**: de app of de service die op de gebeurtenis reageert.
 
-Zie voor meer informatie over deze concepten [concepten in Azure gebeurtenis raster](concepts.md).
+Zie [Concepten in Azure Event Grid](concepts.md) voor meer informatie over deze concepten.
 
 ## <a name="capabilities"></a>Functionaliteit
 
-Hier volgen enkele van de belangrijkste functies van Azure Event raster:
+Hier volgt een aantal essentiële functies van Azure Event Grid:
 
-* **Eenvoud** -punt en klik op om de gebeurtenissen van uw Azure-resource met een gebeurtenis-handler of het eindpunt.
-* **Geavanceerde filters** -Filter op de gebeurtenis type of gebeurtenis publicatiepad om te controleren of gebeurtenis-handlers alleen relevante gebeurtenissen ontvangen.
-* **Fan-out** -abonneren meerdere eindpunten op dezelfde gebeurtenis kopieën van de gebeurtenis verzenden naar plaatsen waar nodig.
-* **Betrouwbaarheid** -gebruikmaken van 24 uur opnieuw proberen met exponentieel uitstel om te controleren gebeurtenissen worden geleverd.
-* **Betalen per gebeurtenis** : betaal alleen voor het bedrag u gebeurtenis raster.
-* **Hoge doorvoersnelheid** -hoog volume werkbelastingen voor gebeurtenis raster bouwen met ondersteuning voor miljoenen gebeurtenissen per seconde.
-* **Ingebouwde gebeurtenissen** - slag snel gebruiksklaar met ingebouwde gebeurtenissen resource gedefinieerd.
-* **Aangepaste gebeurtenissen** -gebeurtenis raster route, filter en betrouwbaar afleveren aangepaste gebeurtenissen in uw app gebruiken.
+* **Eenvoud**: wijs en klik om gebeurtenissen uit uw Azure-resource te richten op een gebeurtenis-handler of eindpunt.
+* **Geavanceerde filters**: filter op gebeurtenistype of gebeurtenispublicatiepad om ervoor te zorgen dat gebeurtenis-handlers alleen relevante gebeurtenissen ontvangen.
+* **Fanout**: abonneer u op meerdere eindpunten op dezelfde gebeurtenis om kopieën van de gebeurtenis te verzenden naar zoveel plaatsen als nodig is.
+* **Betrouwbaarheid**: maak gebruik van na 24 uur opnieuw proberen met exponentieel uitstel om er zeker van te zijn dat gebeurtenissen zijn bezorgd.
+* **Betalen per gebeurtenis**: betaal alleen voor het bedrag waarvoor u Event Grid gebruikt.
+* **Hoge doorvoer**: maak workloads met een hoog volume in Event Grid met ondersteuning voor miljoenen gebeurtenissen per seconde.
+* **Ingebouwde gebeurtenissen**: ga snel aan de slag met voor resources gedefinieerde ingebouwde gebeurtenissen.
+* **Aangepaste gebeurtenissen**: gebruik Event Grid om aangepaste gebeurtenissen op een betrouwbare manier te routeren, filteren en af te leveren.
 
-Zie voor een vergelijking van gebeurtenis raster, Event Hubs en Service Bus [Kies tussen Azure-services die berichten bezorgen](compare-messaging-services.md).
+Zie [Een keuze maken tussen Azure-services die berichten bezorgen](compare-messaging-services.md) voor een vergelijking van Event Grid, Event Hubs en Service Bus.
 
-## <a name="what-can-i-do-with-event-grid"></a>Wat kan ik doen met gebeurtenis raster
+## <a name="what-can-i-do-with-event-grid"></a>Wat kan ik doen met Event Grid?
 
-Azure Event raster biedt verschillende mogelijkheden die aanzienlijk zonder server verbeteren, ops automatisering en integratie werk: 
+Azure Event Grid biedt verschillende mogelijkheden die serverloos, automatisering van bewerkingen en integratiewerkzaamheden aanzienlijk verbeteren: 
 
 ### <a name="serverless-application-architectures"></a>Architecturen voor serverloze toepassingen
 
-![Toepassing zonder server](./media/overview/serverless_web_app.png)
+![Serverloze toepassing](./media/overview/serverless_web_app.png)
 
 Event Grid verbindt gegevensbronnen en gebeurtenis-handlers. Gebruik Event Grid bijvoorbeeld om direct een serverloze functie te triggeren voor het uitvoeren van beeldanalyse zodra er een nieuwe foto wordt toegevoegd aan de container voor blob-opslag. 
 
-### <a name="ops-automation"></a>OPS Automation
+### <a name="ops-automation"></a>Automatisering van bewerkingen
 
-![Ops-automatisering](./media/overview/Ops_automation.png)
+![Automatisering van bewerkingen](./media/overview/Ops_automation.png)
 
-Met Event Grid kunt u sneller automatiseren en makkelijker beleid afdwingen. Zo kan Event Grid een melding sturen naar Azure Automation wanneer er een virtuele machine is gemaakt of wanneer er een SQL-database in gebruik wordt genomen. Deze gebeurtenissen kunnen worden gebruikt om automatisch te controleren of serviceconfiguraties compatibel zijn, metagegevens aan te bieden aan tools voor bewerkingen, virtuele machines te taggen of werkitems te archiveren.
+Met Event Grid kunt u sneller automatiseren en gemakkelijker beleid afdwingen. Zo kan Event Grid een melding sturen naar Azure Automation wanneer er een virtuele machine is gemaakt of wanneer er een SQL-database in gebruik wordt genomen. Deze gebeurtenissen kunnen worden gebruikt om automatisch te controleren of serviceconfiguraties compatibel zijn, metagegevens aan te bieden aan tools voor bewerkingen, virtuele machines te taggen of werkitems te archiveren.
 
 ### <a name="application-integration"></a>Integratie van toepassingen
 
 ![Integratie van toepassingen](./media/overview/app_integration.png)
 
-Event Grid verbindt uw app met andere services. Bijvoorbeeld, een eigen onderwerp om uw app gebeurtenisgegevens verzenden naar Event raster en te profiteren van de betrouwbare levering, geavanceerde routering, maken en directe integratie met Azure. U kunt Event Grid ook gebruiken met Logic Apps om op elke locatie gegevens te verwerken, zonder dat u hiervoor code hoeft te schrijven. 
+Event Grid verbindt uw app met andere services. Maak bijvoorbeeld een aangepast onderwerp om de gebeurtenisgegevens van uw app naar Event Grid te versturen en zo uw voordeel te doen met de betrouwbare bezorging, geavanceerde routering en directe integratie met Azure. U kunt Event Grid ook gebruiken met Logic Apps om op elke locatie gegevens te verwerken, zonder dat u hiervoor code hoeft te schrijven. 
 
-## <a name="how-much-does-event-grid-cost"></a>Wat kost gebeurtenis raster?
+## <a name="how-much-does-event-grid-cost"></a>Wat kost Event Grid?
 
-Azure gebeurtenis raster maakt gebruik van een prijsmodel voor betalen per gebeurtenis, zodat u alleen betaalt voor wat u gebruikt. De eerste 100.000 bewerkingen per maand zijn gratis. Bewerkingen worden gedefinieerd als gebeurtenis inkomend, geavanceerde overeen, levering poging en management aanroepen. Zie voor meer informatie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/event-grid/).
+Azure Event Grid maakt gebruik van een prijsmodel voor betalen per gebeurtenis, zodat u alleen betaalt voor wat u gebruikt. De eerste 100.000 bewerkingen per maand zijn gratis. Bewerkingen worden gedefinieerd als ingangsgebeurtenissen, geavanceerde matching, bezorgingspogingen en beheeraanroepen. Zie de [prijzenpagina](https://azure.microsoft.com/pricing/details/event-grid/) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Route Storage-Blob-gebeurtenissen](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)  
-  Reageer op gebeurtenissen die storage blob met behulp van de gebeurtenis raster.
-* [Maken en zich abonneren op aangepaste gebeurtenissen](custom-event-quickstart.md)  
-  Beginnen met het verzenden van uw eigen aangepaste gebeurtenissen naar een willekeurig eindpunt met behulp van de Azure gebeurtenis raster Quick Start gaan.
-* [Met Logic Apps als een gebeurtenis-Handler](monitor-virtual-machine-changes-event-grid-logic-app.md)  
-  Een zelfstudie over het bouwen van een app met Logic Apps om te reageren op gebeurtenissen die door gebeurtenis raster gepusht.
+* [Storage Blob-gebeurtenissen routeren](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)  
+  Reageer op Storage Blob-gebeurtenissen met Event Grid.
+* [Aangepaste gebeurtenissen maken en u er op abonneren](custom-event-quickstart.md)  
+  Begin meteen met het verzenden van uw eigen aangepaste gebeurtenissen naar een willekeurig eindpunt met behulp van de Azure Event Grid-quickstart.
+* [Logic Apps als een gebeurtenis-handler gebruiken](monitor-virtual-machine-changes-event-grid-logic-app.md)  
+  Een zelfstudie over het bouwen van een app met Logic Apps om te reageren op gebeurtenissen die door Event Grid zijn gepusht.
 * [Big data streamen naar een datawarehouse](event-grid-event-hubs-integration.md)  
-  Een zelfstudie die gebruikmaakt van Azure Functions stroom gegevens uit Event Hubs met SQL Data Warehouse.
-* [Gebeurtenis raster REST API-referentiemateriaal](/rest/api/eventgrid)  
-  Biedt meer technische informatie over het raster Azure-gebeurtenis en een referentie voor het beheer van abonnementen, doorsturen en filteren.
+  Een zelfstudie die gebruikmaakt van Azure Functions om gegevens uit Event Hubs te streamen naar SQL Data Warehouse.
+* [Naslaginformatie over de REST-API voor Event Grid](/rest/api/eventgrid)  
+  Biedt meer technische informatie over Azure Event Grid en naslaginformatie voor het beheren van gebeurtenisabonnementen, routering en filtering.
