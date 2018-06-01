@@ -1,75 +1,76 @@
 ---
-title: Overzicht van Azure beheerde toepassingen | Microsoft Docs
-description: Beschrijft de concepten voor Azure beheerde toepassingen
+title: Overzicht van Azure Managed Applications | Microsoft Docs
+description: Beschrijft de concepten van Azure Managed Applications
 services: managed-applications
 author: tfitzmac
 manager: timlt
 ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.date: 04/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 35e30700270fb5757a80c4a6b8f231042f7640f3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: MT
+ms.openlocfilehash: 643998921ec2ae4ec6737dc4ab88160e85007867
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304994"
 ---
-# <a name="azure-managed-applications-overview"></a>Overzicht van door Azure beheerde toepassingen
+# <a name="azure-managed-applications-overview"></a>Overzicht van Azure Managed Applications
 
-Beheerde Azure-toepassingen kunnen u cloudoplossingen bieden die gemakkelijk voor consumenten te implementeren en te gebruiken. U implementeert de infrastructuur en blijvende ondersteuning. Als u een beheerde toepassing beschikbaar voor alle klanten, deze te publiceren in de Azure marketplace. Om deze beschikbaar te maken alleen gebruikers in uw organisatie, kunt u het publiceren naar een interne catalogus. 
+Met Azure Managed Applications kunt cloudoplossingen bieden die consumenten eenvoudig kunnen implementeren en gebruiken. U implementeert de infrastructuur en biedt blijvende ondersteuning. Als u een beheerde toepassing beschikbaar wilt stellen voor alle klanten, publiceert u de toepassing in de Azure Marketplace. Als u de toepassing alleen beschikbaar wilt stellen voor gebruikers in uw organisatie, publiceert u de toepassing in een interne catalogus. 
 
-Een beheerde toepassing is vergelijkbaar met een oplossingssjabloon in de Marketplace, met één belangrijk verschil. In een beheerde toepassing de bronnen aan een resourcegroep die wordt beheerd door de uitgever van de app ingericht. De resourcegroep is aanwezig in de consument abonnement, maar een identiteit in de publisher tenant toegang heeft tot de resourcegroep. Als de uitgever in geeft u de kosten voor ondersteuning van de oplossing.
+Een beheerde toepassing is vergelijkbaar met een oplossingssjabloon in de Microsoft Azure Marketplace, met één belangrijk verschil. In een beheerde toepassing worden de resources ingericht vanuit een resourcegroep die wordt beheerd door de uitgever van de app. De resourcegroep is opgenomen in het abonnement van de consument, maar een identiteit in de tenant van de uitgever heeft toegang tot de resourcegroep. De uitgever bepaalt de kosten voor de voortdurende ondersteuning van de oplossing.
 
 ## <a name="advantages-of-managed-applications"></a>Voordelen van beheerde toepassingen
 
-Beheerde toepassingen de barrières voor consumenten via uw oplossingen. Ze hoeft geen kennis in de cloudinfrastructuur voor uw oplossing gebruiken. Gebruikers hebben beperkte toegang tot kritieke bronnen. Ze hoeft niet te hoeven maken over het maken van een fout bij het beheren van deze. 
+Beheerde toepassingen verminderen de barrières voor consumenten om uw oplossingen te gebruiken. Ze hebben geen kennis van de cloudinfrastructuur nodig om uw oplossing te kunnen gebruiken. Gebruikers hebben beperkte toegang tot kritieke bronnen. Het is niet erg als er een fout wordt gemaakt in het beheer ervan. 
 
-Beheerde toepassingen kunnen u een continue relatie tot stand brengen met uw consumenten. Definieert u de voorwaarden voor het beheren van de toepassing en alle kosten worden afgehandeld via de Azure-facturering.
+Met beheerde toepassingen kunt u een langdurige relatie tot stand brengen met uw consumenten. U bepaalt de voorwaarden voor het beheer van de toepassing en alle kosten worden afgehandeld via Azure Billing.
 
-Hoewel klanten deze beheerde toepassingen in hun abonnementen implementeren, zijn ze om onderhouden, bijwerken of deze service. U kunt ervoor zorgen dat alle klanten die van goedgekeurde versies gebruikmaken. Klanten hoeven toepassingsspecifieke domein kennis om deze toepassingen te beheren. Klanten wordt automatisch toepassingsupdates zonder de noodzaak zorgen over het oplossen van problemen en het onderzoeken van problemen met de toepassingen te verkrijgen. 
+Hoewel klanten deze beheerde toepassingen implementeren in hun abonnementen, hoeven ze deze niet te onderhouden of bij te werken. U kunt ervoor zorgen dat alle klanten goedgekeurde versies gebruiken. Klanten hoeven geen toepassingsspecifieke domeinkennis te ontwikkelen om deze toepassingen te beheren. Klanten verkrijgen automatisch toepassingsupdates en hoeven zich geen zorgen te maken over probleemoplossing en diagnoseproblemen met de toepassingen. 
 
-Voor IT-teams kunnen beheerde toepassingen u vooraf goedgekeurde oplossingen aan te bieden voor gebruikers in de organisatie. U ervoor zorgen deze oplossingen die compatibel zijn met organisatie-standaarden.
+Met beheerde toepassingen kunnen IT-teams de gebruikers in hun organisatie vooraf goedgekeurde oplossingen aanbieden. U zorgt ervoor dat deze oplossingen voldoen aan de organisatiestandaarden.
 
-## <a name="types-of-managed-applications"></a>Typen van beheerde toepassingen
+## <a name="types-of-managed-applications"></a>Soorten beheerde toepassingen
 
-U kunt uw beheerde toepassing publiceren extern of intern.
+U kunt uw beheerde toepassing zowel extern als intern publiceren.
 
 ![Intern of extern publiceren](./media/overview/manage_app_options.png)
 
 ### <a name="service-catalog"></a>Servicecatalogus
 
-De Servicecatalogus is een interne catalogus van de goedgekeurde oplossingen voor gebruikers in een organisatie. U kunt de catalogus gebruiken om ervoor te zorgen dat bepaalde organisatie normen terwijl ze bieden van oplossingen voor de organisaties. De catalogus werknemers gebruiken voor het detecteren van de uitgebreide set toepassingen die zijn aanbevolen en goedgekeurd door hun IT-afdelingen eenvoudig. Ze zien dat de beheerde toepassingen die andere personen in hun organisatie met hen delen.
+De servicecatalogus is een interne catalogus van goedgekeurde oplossingen voor gebruikers in een organisatie. U gebruikt de catalogus om naleving van bepaalde organisatiestandaarden te garanderen en tegelijkertijd oplossingen voor de organisaties te bieden. Werknemers gebruiken de catalogus om eenvoudig de uitgebreide set toepassingen te bekijken die worden aanbevolen en zijn goedgekeurd door hun IT-afdelingen. Ze zien welke beheerde toepassingen andere personen in hun organisatie met hen delen.
 
-Zie voor meer informatie over het publiceren van een Servicecatalogus beheerde toepassing [-catalogus-servicetoepassing maken](publish-service-catalog-app.md).
+Zie [Een beheerde toepassing voor intern verbruik publiceren](publish-service-catalog-app.md) voor meer informatie over het publiceren van beheerde toepassing in een servicecatalogus.
 
 ### <a name="marketplace"></a>Marketplace
 
-Leveranciers willen factureren voor hun services kunnen beheerde toepassingen beschikbaar maken via de Azure marketplace. Nadat de leverancier van een toepassing publiceert, is beschikbaar voor gebruikers buiten de organisatie. Met deze benadering, beheerde serviceproviders (MSPs), onafhankelijke softwareleveranciers (ISV's) en system kunnen SI's (SIs) hun oplossingen aanbieden aan alle Azure-klanten.
+Leveranciers die voor hun services betaald willen krijgen, kunnen een beheerde toepassing beschikbaar maken via de Azure Marketplace. Nadat de leverancier een toepassing heeft gepubliceerd, is deze beschikbaar voor gebruikers buiten de organisatie. Op deze manier kunnen MSP's (providers van beheerde services), ISV's (onafhankelijke softwareleveranciers) en SI's (systeemintegrators) hun oplossingen aanbieden aan alle Azure-klanten.
 
-Zie voor meer informatie over het publiceren van een beheerde toepassing in de Marketplace [marketplace-toepassing maken](publish-marketplace-app.md).
+Zie [Marketplace-toepassing maken](publish-marketplace-app.md) voor meer informatie over het publiceren van beheerde toepassingen in de Microsoft Azure Marketplace.
 
 ## <a name="resource-groups-for-managed-applications"></a>Resourcegroepen voor beheerde toepassingen
 
-De resources voor een beheerde toepassing zich doorgaans in twee resourcegroepen bevinden. De consument beheert een resourcegroep en de uitgever van de resourcegroep beheert. Bij het definiëren van de beheerde toepassing geeft de uitgever de toegangsniveaus. De volgende afbeelding toont een scenario waarbij de uitgever verzoekt om de rol van eigenaar voor de beheerde resourcegroep. De uitgever wordt een alleen-lezen-vergrendeling op deze resourcegroep geplaatst voor de consument. De publisher identiteiten die toegang tot de beheerde resourcegroep krijgen zijn uitgesloten van de vergrendeling.
+De resources voor een beheerde toepassing bevinden zich doorgaans in twee resourcegroepen. De consument beheert één resourcegroep en de uitgever beheert de andere. Bij het definiëren van de beheerde toepassing bepaalt de uitgever de toegangsniveaus. In de volgende afbeelding ziet u een scenario waarbij de uitgever de rol van eigenaar voor de beheerde resourcegroep aanvraagt. De uitgever plaatst een alleen-lezen-vergrendeling op deze resourcegroep voor de consument. De uitgeversidentiteiten die toegang tot de beheerde resourcegroep krijgen, zijn uitgesloten van de vergrendeling.
 
-![Toegang tot bedrijfsbronnen-groep](./media/overview/access.png)
+![Toegang tot resourcegroep](./media/overview/access.png)
 
-### <a name="application-resource-group"></a>Groep van toepassingen resource
+### <a name="application-resource-group"></a>Resourcegroep van toepassing
 
-Deze resourcegroep bevat een exemplaar van de beheerde toepassing. Deze resourcegroep mag slechts één resource bevatten. Het brontype van de beheerde toepassing is **Microsoft.Solutions/applications**.
+Deze resourcegroep bevat het exemplaar van de beheerde toepassing. Deze resourcegroep mag maar één resource bevatten. Het resourcetype van de beheerde toepassing is **Microsoft.Solutions/applications**.
 
-De consument heeft volledige toegang tot de resourcegroep en gebruikt voor het beheren van de levenscyclus van de beheerde toepassing.
+De consument heeft volledige toegang tot de resourcegroep en gebruikt deze om de levenscyclus van de beheerde toepassing te beheren.
 
 ### <a name="managed-resource-group"></a>Beheerde resourcegroep
 
-Deze resourcegroep bevat alle resources die voor de beheerde toepassing vereist zijn. Deze resourcegroep bevat bijvoorbeeld de virtuele machines, opslagaccounts en virtuele netwerken voor de oplossing. De consument heeft toegang tot deze resourcegroep beperkt, omdat de consument de afzonderlijke resources voor de beheerde toepassing niet wordt beheerd. De uitgever toegang tot deze resourcegroep overeenkomt met de rol die is opgegeven in de definitie van beheerde toepassingsservices. De uitgever kan bijvoorbeeld verzoeken om de rol van eigenaar of bijdrager voor deze resourcegroep.
+Deze resourcegroep bevat alle resources die de beheerde toepassing nodig heeft. Deze resourcegroep bevat bijvoorbeeld de virtuele machines, opslagaccounts en virtuele netwerken voor de oplossing. De consument heeft beperkte toegang tot deze resourcegroep omdat de consument de afzonderlijke resources voor de beheerde toepassing niet beheert. De toegang van de uitgever tot deze resourcegroep komt overeen met de rol die is opgegeven in de definitie van de beheerde toepassing. De uitgever kan bijvoorbeeld de rol van eigenaar of bijdrager voor deze resourcegroep aanvragen.
 
-Wanneer de gebruiker de beheerde toepassing verwijdert, wordt de beheerde resourcegroep ook verwijderd.
+Wanneer de gebruiker de beheerde toepassing verwijdert, wordt ook de beheerde resourcegroep verwijderd.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Voor een inleiding te definiëren en implementeren van beheerde toepassingen, Zie [maken en implementeren van een Azure beheerde toepassing met Azure CLI](managed-apps-quickstart-cli.md)
-* Zie voor meer informatie over het publiceren van een interne applicatie [-catalogus-servicetoepassing maken](publish-service-catalog-app.md).
-* Zie voor meer informatie over het uitgeven van beheerde toepassingen op de markt [marketplace-toepassing maken](publish-marketplace-app.md).
+* Voor een inleiding tot het definiëren en implementeren van beheerde toepassingen raadpleegt u [Een beheerde Azure-toepassing maken en implementeren met Azure CLI](managed-apps-quickstart-cli.md)
+* Zie [Een beheerde toepassing voor intern verbruik publiceren](publish-service-catalog-app.md) voor meer informatie over het publiceren van een interne toepassing.
+* Zie [Marketplace-toepassing maken](publish-marketplace-app.md) voor meer informatie over het uitgeven van beheerde toepassingen in de marketplace.

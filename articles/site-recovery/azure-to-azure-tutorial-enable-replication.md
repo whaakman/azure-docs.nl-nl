@@ -1,21 +1,22 @@
 ---
-title: Herstel na noodgevallen instellen van Azure-VM’s naar een secundaire Azure-regio met Azure Site Recovery (preview)
+title: Herstel na noodgevallen instellen van Azure-VM’s naar een secundaire Azure-regio met Azure Site Recovery
 description: Leer hoe u herstel na noodgevallen van Azure-VM’s naar een andere Azure-regio kunt instellen met de Azure Site Recovery-service.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/02/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ca1f8fcd3a69e3f2e287c3d627f41c0f493bea1f
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: d707122f79b37dd6b979be09693011dead988156
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211664"
 ---
-# <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Herstel na noodgevallen instellen van Azure-VM’s naar een secundaire Azure-regio (preview)
+# <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Herstel na noodgevallen instellen van Azure-VM’s naar een secundaire Azure-regio
 
 De [Azure Site Recovery](site-recovery-overview.md)-service draagt bij aan uw strategie voor herstel na noodgevallen door de replicatie, failover en failback van on-premises machines en virtuele Azure-machines te beheren en in te delen.
 
@@ -27,6 +28,7 @@ Deze zelfstudie laat zien hoe u herstel na noodgevallen in een secundaire Azure-
 > * Uitgaande toegang instellen voor VM’s
 > * Replicatie inschakelen voor een VM
 
+Replicatie van Azure naar Azure is momenteel in preview.
 ## <a name="prerequisites"></a>Vereisten
 
 Vereisten voor het voltooien van deze zelfstudie:
@@ -109,7 +111,7 @@ Meer informatie over [ingebouwde Azure RBAC-rollen](../role-based-access-control
 ### <a name="select-the-source"></a>De bron selecteren
 
 1. Klik in Recovery Services-kluizen op de kluisnaam > **+Repliceren**.
-2. Bij **Bron** selecteert u **Azure - PREVIEW**.
+2. Bij **Bron** selecteert u **Azure**.
 3. Bij **Bronlocatie** selecteert u de Azure-bronregio waar uw VM’s momenteel worden uitgevoerd.
 4. Selecteer het **Azure virtual machine-implementatiemodel** voor VM’s: **Resourcemanager** of **Klassiek**.
 5. Selecteer de **Bronresourcegroep** voor Resourcemanager-VM's of **cloudservice** voor klassieke VM’s.

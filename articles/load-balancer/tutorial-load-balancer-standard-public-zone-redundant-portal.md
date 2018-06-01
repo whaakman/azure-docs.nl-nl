@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2018
+ms.date: 05/17/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 9ff0b53f6c6f10a2e97bd3158f874fa5cfe33bb6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5ec1cc42a0c932e47c08493fa632495426abc4c7
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304457"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Zelfstudie: Met behulp van Azure Portal taakverdeling uitvoeren van virtuele machines over beschikbaarheidszones met een standaard Load Balancer
 
@@ -37,6 +38,8 @@ Taakverdeling zorgt voor een hogere beschikbaarheid door binnenkomende aanvragen
 > * Een load balancer in actie zien
 
 Zie [Standard Load Balancer en beschikbaarheidszones](load-balancer-standard-availability-zones.md) voor meer informatie over het gebruik van beschikbaarheidszones met Standard Load Balancer.
+
+U kunt deze zelfstudie desgewenst volgen met behulp van de [Azure CLI](load-balancer-standard-public-zone-redundant-cli.md).
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint. 
 
@@ -141,18 +144,21 @@ Maak virtuele machines in verschillende zones (zone 1, zone 2 en zone 3) voor de
 1. Klik in het linkermenu op **Alle resources** en klik in de lijst met resources op **myVM1**, die zich in de resourcegroep *myResourceGroupLBAZ* bevindt.
 2. Klik op de pagina **Overzicht** op **Verbinding maken** om extern verbinding te maken met de VM.
 3. Meld u aan bij de VM met gebruikersnaam *azureuser*.
-4. Ga op de serverdesktop naar **Windows Systeembeheer**>**Serverbeheer**.
-5. Klik op de snelstartpagina Serverbeheer op **Functies en onderdelen toevoegen**.
-
-   ![Toevoegingen doen aan de back-endadresgroep ](./media/load-balancer-standard-public-availability-zones-portal/servermanager.png)    
-
-1. Gebruik in de **wizard Rollen en functies toevoegen** de volgende waarden:
-    - Klik op de pagina **Type installatie selecteren** op **Installatie die op de functie of het onderdeel is gebaseerd**.
-    - Klik op de pagina **De doelserver selecteren** op **myVM1**.
-    - Klik op de pagina **Een serverfunctie selecteren** op **Webserver (IIS)**.
-    - Volg de aanwijzingen om de rest van de wizard uit te voeren.
-2. Sluit de RDP-sessie met de virtuele machine *myVM1*.
-3. Herhaal stap 1 tot en met 7 om IIS te installeren op de VM's *myVM2* en *myVM3*.
+4. Ga op de serverdesktop naar **Windows Systeembeheer**>**Windows Powershell**.
+5. Voer in het venster PowerShell de volgende opdrachten uit om de IIS-server te installeren, het standaardbestand iisstart.htm te verwijderen en een nieuw bestand iisstart.htm toe te voegen dat de naam van de VM weergeeft:
+   ```azurepowershell-interactive
+    
+    # install IIS server role
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    
+    # remove default htm file
+     remove-item  C:\inetpub\wwwroot\iisstart.htm
+    
+    # Add a new htm file that displays server name
+     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from" + $env:computername)
+   ```
+6. Sluit de RDP-sessie met *myVM1*.
+7. Herhaal stappen 1 tot en met 6 om IIS en het bijgewerkte bestand iisstart.htm te installeren op *myVM2* en *myVM3*.
 
 ## <a name="create-load-balancer-resources"></a>Resources voor load balancer maken
 
@@ -215,7 +221,7 @@ Een load balancer-regel wordt gebruikt om de verdeling van het verkeer over de V
 
 2. Kopieer het openbare IP-adres en plak het in de adresbalk van de browser. De standaardpagina van IIS-webserver wordt weergegeven in de browser.
 
-      ![IIS-webserver](./media/load-balancer-standard-public-availability-zones-portal/9-load-balancer-test.png)
+      ![IIS-webserver](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 
 Als u wilt zien hoe de load balancer verkeer distribueert naar de VM's die zijn gedistribueerd in de zone, kunt u vernieuwing van uw webbrowser afdwingen.
 
