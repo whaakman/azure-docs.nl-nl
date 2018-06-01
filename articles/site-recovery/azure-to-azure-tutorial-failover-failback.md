@@ -1,21 +1,22 @@
 ---
-title: Een failover en failback uitvoeren van virtuele Azure-machines die zijn gerepliceerd naar een secundaire Azure-regio met Azure Site Recovery (preview)
+title: Een failover en failback uitvoeren van virtuele Azure-machines die zijn gerepliceerd naar een secundaire Azure-regio met Azure Site Recovery
 description: Informatie over hoe u een failover en failback uitvoert van virtuele Azure-machines die zijn gerepliceerd naar een secundaire Azure-regio met Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/08/2018
+ms.date: 05/15/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: dc7ead9e7d55d1b22118774e98c741991e8af2d9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 4a27142f9110fd26daa8ea0ebd151a67769e6568
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209270"
 ---
-# <a name="fail-over-and-fail-back-azure-vms-between-azure-regions-preview"></a>Een failover en failback uitvoeren tussen Azure-regio's voor Azure-VM's (preview)
+# <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Failover en failback tussen Azure-regio's voor Azure-VM's
 
 De [Azure Site Recovery](site-recovery-overview.md)-service draagt bij aan uw strategie voor herstel na noodgevallen door de replicatie, failover en failback van on-premises machines en virtuele Azure-machines te beheren en in te delen.
 
@@ -26,6 +27,8 @@ In deze zelfstudie wordt beschreven hoe u een failover van één virtuele Azure-
 > * De secundaire virtuele Azure-machine opnieuw beveiligen, zodat deze wordt gerepliceerd naar de primaire regio
 > * Een failback uitvoeren van de secundaire virtuele machine
 > * De primaire virtuele machine opnieuw beveiligen naar de secundaire regio
+
+Replicatie van Azure naar Azure is momenteel in preview.
 
 ## <a name="prerequisites"></a>Vereisten
 

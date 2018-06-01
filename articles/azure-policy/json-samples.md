@@ -1,88 +1,82 @@
 ---
-title: Voorbeelden van beleid voor sjabloon
-description: JSON-voorbeelden voor Azure-beleid
+title: Voorbeelden van beleidssjablonen
+description: JSON-voorbeelden voor Azure Policy
 services: azure-policy
-documentationcenter: ''
 author: DCtheGeek
 manager: carmonm
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: na
-ms.topic: samples
-ms.tgt_pltfrm: ''
-ms.workload: ''
+ms.topic: sample
 ms.date: 01/17/2018
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 458ce4fb77f501d5feba4cf732fe3ce9a49f9c21
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
-ms.translationtype: MT
+ms.openlocfilehash: 4b9096c1fb0d9ee74849e259a6e0af2486c5d29b
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195121"
 ---
-# <a name="templates-for-azure-policy"></a>Sjablonen voor Azure-beleid
+# <a name="templates-for-azure-policy"></a>Sjablonen voor Azure Policy
 
-De volgende tabel bevat koppelingen naar json-sjablonen voor Azure-beleid. Deze voorbeelden vindt u in de [Azure beleid voorbeelden opslagplaats](https://github.com/Azure/azure-policy).
+De volgende tabel bevat links naar voorbeeldsjablonen voor Azure Policy. Deze voorbeelden staan in [de opslagplaats met voorbeelden voor Azure Policy](https://github.com/Azure/azure-policy).
 
 | | |
 |---|---|
 |**Compute**||
-| [Goedgekeurde VM-installatiekopieën](scripts/allowed-custom-images.md) | Vereist dat alleen goedgekeurde aangepaste installatiekopieën in uw omgeving zijn geïmplementeerd. U opgeven een matrix van goedgekeurde afbeelding id's. |
-| [Audit wanneer VM niet beheerd schijf](scripts/create-vm-managed-disk.md) | Audits wanneer een virtuele machine die wordt gemaakt, gebruikt geen beheerde schijven.|
-| [Audit als uitbreiding niet bestaat](scripts/audit-ext-not-exist.md) | Audits als een uitbreiding niet met een virtuele machine wordt geïmplementeerd. Geeft u de uitgever van de extensie en het type om te controleren of deze is geïmplementeerd. |
-| [Aangepaste VM-installatiekopie van een resourcegroep toestaan](scripts/allow-custom-vm-image.md) |  Vereist dat aangepaste installatiekopieën afkomstig van een goedgekeurde resourcegroep zijn. U opgeven de naam van de goedgekeurde resourcegroep. |
-| [Hybride gebruik voordeel weigeren](scripts/deny-hybrid-use.md) | Verbiedt gebruik van Azure hybride gebruiken voordeel (AHUB). Gebruik deze optie wanneer u niet wilt toestaan van gebruik van on-premises-licenties. |
-| [VM-extensies toegestaan niet](scripts/not-allowed-vm-ext.md) | Het gebruik van de opgegeven extensies verbiedt. U opgeven een matrix met de extensietypen niet-toegestane. |
-| [Alleen een bepaalde VM platforminstallatiekopie toestaan](scripts/allow-certain-vm-image.md) | Moeten virtuele machines met een specifieke versie van UbuntuServer. |
-| [Virtuele machine maken met beheerde-schijf](scripts/use-managed-disk-vm.md) | Vereist dat virtuele machines gebruikmaken van beheerde schijven.|
-|**Bewaking**||
-| [De diagnostische instelling audit](scripts/audit-diag-setting.md) | Audits als diagnostische instellingen niet ingeschakeld voor brontypen die is opgegeven. U een matrix van resourcetypen om te controleren of de diagnostische instellingen zijn ingeschakeld. |
-|**Naam en de tekst conventies**||
-| [Meerdere bestandsnaampatronen toestaan](scripts/allow-multiple-name-patterns.md) | Toestaan dat een groot aantal bestandsnaampatronen moet worden gebruikt voor resources. |
-| [Vereisen zoals patroon](scripts/enforce-like-pattern.md) | Zorg ervoor dat resourcenamen voldoen aan de voorwaarde like voor een patroon. |
-| [Vereisen-matchpatroon](scripts/enforce-match-pattern.md) | Zorg ervoor dat de resourcenamen overeenkomen met het naamgevingspatroon. |
-| [Vereist label-matchpatroon](scripts/enforce-tag-match-pattern.md) | Zorg ervoor dat een tagwaarde overeenkomt met een tekstpatroon. |
+| [Goedgekeurde VM-installatiekopieën](scripts/allowed-custom-images.md) | Zorgt ervoor dat alleen goedgekeurde aangepaste installatiekopieën kunnen worden geïmplementeerd in uw omgeving. U geeft een matrix van goedgekeurde installatiekopie-id’s op. |
+| [Controle of VM geen beheerde schijf gebruikt](scripts/create-vm-managed-disk.md) | Controleert of een virtuele machine wordt gemaakt die geen beheerde schijven gebruikt.|
+| [Controleert of uitbreiding bestaat](scripts/audit-ext-not-exist.md) | Controleert of er niet een uitbreiding met een virtuele machine wordt geïmplementeerd. U geeft de uitgever van de uitbreiding op en het type om te controleren of deze zijn geïmplementeerd. |
+| [Aangepaste VM-installatiekopie van een resourcegroep toestaan](scripts/allow-custom-vm-image.md) |  Zorgt ervoor dat aangepaste installatiekopieën alleen afkomstig kunnen zijn uit een goedgekeurde resourcegroep. U geeft de naam op van de goedgekeurde resourcegroep. |
+| [Azure Hybrid Use Benefit weigeren](scripts/deny-hybrid-use.md) | Verbiedt gebruik van Azure Hybrid Use Benefit (AHUB). Gebruik dit beleid wanneer u gebruik van on-premises licenties niet wilt toestaan. |
+| [Niet-toegestane VM-extensies](scripts/not-allowed-vm-ext.md) | Verbiedt het gebruik van de opgegeven extensies. U geeft een matrix op met de verboden extensietypen. |
+| [Alleen een bepaalde VM-platforminstallatiekopie toestaan](scripts/allow-certain-vm-image.md) | Vereist dat virtuele machines een specifieke versie van UbuntuServer uitvoeren. |
+| [Virtuele machine met beheerde schijf maken](scripts/use-managed-disk-vm.md) | Vereist dat virtuele machines beheerde schijven gebruiken.|
+|**Controle**||
+| [Audit diagnostic setting](scripts/audit-diag-setting.md) (Diagnostische instelling voor controleren) | Controleert of er geen diagnostische instellingen zijn ingeschakeld voor de opgegeven resourcetypen. U geeft een matrix van resourcetypen op waarvoor u wilt controleren of er diagnostische instellingen zijn ingeschakeld. |
+|**Naam- en tekstconventies**||
+| [Allow multiple name patterns](scripts/allow-multiple-name-patterns.md) (Meerdere naamgevingspatronen toestaan) | Toestaan dat verschillende naamgevingspatronen mogen worden gebruikt voor resources. |
+| [Require like pattern](scripts/enforce-like-pattern.md) (Like-patroon vereisen) | Resourcenamen moeten voldoen aan de voorwaarde like voor een patroon. |
+| [Require match pattern](scripts/enforce-match-pattern.md) (Match-patroon vereisen) | Resourcenamen moeten overeenkomen met het opgegeven naamgevingspatroon. |
+| [Require tag match pattern](scripts/enforce-tag-match-pattern.md) (Tag-match-patroon vereisen) | Een tagwaarde moet overeenkomen met een tekstpatroon. |
 |**Netwerk**||
-| [Application Gateway-SKU's toegestaan](scripts/allowed-app-gate-sku.md) | Moet Toepassingsgateways gebruiken een goedgekeurde SKU. U opgeven een matrix van goedgekeurde SKU's. |
-| [Audit als netwerk-Watcher niet is ingeschakeld voor de regio](scripts/net-watch-not-enabled.md) | Audits als netwerk-watcher niet is ingeschakeld voor een opgegeven regio. U de naam van de regio waarin u wilt controleren of de netwerk-watcher is ingeschakeld. |
-| [NSG X op elke NIC](scripts/nsg-on-nic.md) | Vereist dat een specifieke netwerkbeveiligingsgroep wordt gebruikt voor elke virtuele netwerkinterface. U de ID van de netwerkbeveiligingsgroep te gebruiken. |
-| [NSG X in elk subnet](scripts/nsg-on-subnet.md) | Vereist dat een specifieke netwerkbeveiligingsgroep voor elk virtueel subnet wordt gebruikt. U de ID van de netwerkbeveiligingsgroep te gebruiken. |
-| [Toegestane Express Route-bandbreedte](scripts/allowed-er-band.md) | Moeten snelle routes met een opgegeven set met bandbreedten. U opgeven een matrix van SKU's die kunnen worden opgegeven voor Express Route. |
-| [Peeringlocatie voor Express Route toegestaan](scripts/allowed-peering-er.md) | Alleen een Express Routes gebruik peeringlocaties opgegeven. U opgeven een matrix van toegestane peeringlocaties. |
-| [Toegestane Express Route-SKU 's](scripts/allowed-er-skus.md) | Moet Routes Express gebruiken een goedgekeurde SKU. U opgeven een matrix van toegestane SKU's. |
-| [SKU's van Load Balancer toegestaan](scripts/allowed-lb-skus.md) | Moet netwerktaakverdelers gebruiken een goedgekeurde SKU. U opgeven een matrix van toegestane SKU's. |
-| [Geen netwerk met ER netwerk-peering](scripts/no-peering-er-net.md) | Voorkomt dat een netwerk-peering van wordt gekoppeld aan een netwerk in een opgegeven resourcegroep. Gebruiken om te voorkomen dat de verbinding met de centraal beheerde netwerkinfrastructuur. U opgeven de naam van de resourcegroep om te voorkomen dat de koppeling. |
-| [Er is geen gebruiker gedefinieerde Route-tabel](scripts/no-user-def-route-table.md)  |Verhindert dat virtuele netwerken worden geïmplementeerd met een door de gebruiker gedefinieerde routetabel. |
-| [Virtual Network Gateway-SKU's toegestaan](scripts/allowed-vn-gate-sku.md) | Moet virtuele netwerkgateways gebruiken een goedgekeurde SKU en Gatewaytype-type. Geef een matrix van goedgekeurde SKU's en een matrix van goedgekeurde gatewaytypen. |
-| [Gebruik goedgekeurde subnet voor VM-netwerkinterfaces](scripts/use-approved-subnet-vm-nics.md) | Moet netwerkinterfaces gebruiken een goedgekeurde subnet. U opgeven de ID van de goedgekeurde subnet. |
-| [Goedgekeurde vNet gebruiken voor VM-netwerkinterfaces](scripts/use-approved-vnet-vm-nics.md) | Vereist dat netwerkinterfaces een goedgekeurde virtueel netwerk gebruiken. U opgeven de ID van de goedgekeurde virtueel netwerk. |
+| [Toegestane Application Gateway-SKU’s](scripts/allowed-app-gate-sku.md) | Zorgt ervoor dat toepassingsgateways een goedgekeurde SKU gebruiken. U geeft een matrix van goedgekeurde SKU’s op. |
+| [Controleren of Network Watcher is ingeschakeld voor de regio](scripts/net-watch-not-enabled.md) | Controleert of Network Watcher is ingeschakeld voor een bepaalde regio. U geeft de naam op van de regio waarin u wilt controleren of Network Watcher is ingeschakeld. |
+| [NSG X on every NIC](scripts/nsg-on-nic.md) (NSG X op elke NIC) | Vereist dat een specifieke netwerkbeveiligingsgroep wordt gebruikt met elke interface van een virtueel netwerk. U geeft de id op van de netwerkbeveiligingsgroep die u wilt gebruiken. |
+| [NSG X on every subnet](scripts/nsg-on-subnet.md) (NSG X in elk subnet) | Vereist dat een specifieke netwerkbeveiligingsgroep wordt gebruikt met elk virtueel subnet. U geeft de id op van de netwerkbeveiligingsgroep die u wilt gebruiken. |
+| [Toegestane Express Route-bandbreedten](scripts/allowed-er-band.md) | Zorgt ervoor dat Express Routes een goedgekeurde set bandbreedten gebruikt. U geeft een matrix op van bandbreedten die kunnen worden opgegeven voor Express Route. |
+| [Toegestane peeringlocatie voor Express Route](scripts/allowed-peering-er.md) | Zorgt ervoor dat Express Routes opgegeven peeringlocaties gebruikt. U geeft een matrix op van toegestane peeringlocaties. |
+| [Toegestane Express Route-SKU's](scripts/allowed-er-skus.md) | Zorgt ervoor dat Express Routes een goedgekeurde SKU gebruikt. U geeft een matrix op van toegestane SKU's. |
+| [Toegestane load balancer-SKU's](scripts/allowed-lb-skus.md) | Zorgt ervoor dat load balancers een goedgekeurde SKU gebruiken. U geeft een matrix op van toegestane SKU's. |
+| [Geen netwerkpeering naar ER-netwerk](scripts/no-peering-er-net.md) | Voorkomt de koppeling van een netwerkpeering aan een netwerk in een opgegeven brongroep. Gebruiken om de verbinding met centraal beheerde netwerkinfrastructuur te voorkomen. U geeft de naam op van de brongroep die niet gekoppeld mag worden. |
+| [Geen door de gebruiker gedefinieerde routetabellen](scripts/no-user-def-route-table.md)  |Voorkomt dat virtuele netwerken worden geïmplementeerd met een door de gebruiker gedefinieerde routetabel. |
+| [Toegestane gateway-SKU’s van virtueel netwerk](scripts/allowed-vn-gate-sku.md) | Zorgt ervoor dat gateways van virtuele netwerken een goedgekeurde SKU en gateway-type gebruiken. U geeft een matrix op van goedgekeurde SKU's en een matrix van goedgekeurde gateway-typen. |
+| [Use approved subnet for VM network interfaces](scripts/use-approved-subnet-vm-nics.md) (Goedgekeurd subnet gebruiken voor VM-netwerkinterfaces) | Vereist dat netwerkinterfaces een goedgekeurd subnet gebruiken. U geeft de id op van het goedgekeurde subnet. |
+| [Use approved vNet for VM network interfaces](scripts/use-approved-vnet-vm-nics.md) (Goedgekeurd vNet gebruiken voor VM-netwerkinterfaces) | Vereist dat netwerkinterfaces een goedgekeurd virtueel netwerk gebruiken. U geeft de id op van het goedgekeurde virtuele netwerk. |
 |**Tags**||
-| [Facturering labels beleid initiatief](scripts/billing-tags-policy-init.md) | Opgegeven labelwaarden vereist voor de naam van de center en het product van de kosten. Er wordt gebruikgemaakt van ingebouwde beleidsregels om vereiste tags toe te passen en af te dwingen. U geeft de vereiste waarden voor de tags op.  |
-| [Afdwingen van code en de waarde ervan over resourcegroepen](scripts/enforce-tag-rg.md) | Vereist een label en de waarde van een resourcegroep. U opgeven de naam van het vereiste label en waarde.  |
+| [Billing Tags Policy Initiative](scripts/billing-tags-policy-init.md) (Beleidsinitiatief voor factureringstags) | Vereist opgegeven tagwaarden voor kostenplaats en productnaam. Er wordt gebruikgemaakt van ingebouwde beleidsregels om vereiste tags toe te passen en af te dwingen. U geeft de vereiste waarden voor de tags op.  |
+| [Enforce tag and its value on resource groups](scripts/enforce-tag-rg.md) (Tag met de bijbehorende waarde afdwingen voor resourcegroepen) | Vereist een tag en waarde voor een resourcegroep. U geeft de vereiste naam en waarde voor de tag op.  |
 |**SQL**||
-| [Controle van SQL DB niveau instelling controleren](scripts/audit-sql-db-audit-setting.md) | Hiermee kunt u controle-instellingen voor SQL-database als deze instellingen komen niet overeen met een opgegeven waarde. U een waarde die aangeeft of controle-instellingen moeten worden ingeschakeld of uitgeschakeld.  |
-| [Transparent data encryption status controleren](scripts/audit-trans-data-enc-status.md) | Audits transparent data encryption voor SQL-database als deze niet is ingeschakeld.  |
-| [DB niveau threat detectie instelling controleren](scripts/audit-db-threat-det-setting.md) | Audits waarschuwing beleidsregels voor de beveiliging van SQL database als deze beleidsregels zijn niet ingesteld op de opgegeven status. U een waarde die aangeeft of de detectie van dreigingen is ingeschakeld of uitgeschakeld.  |
-| [Niveau van de SQL Server audit instelling controleren](scripts/audit-sql-ser-leve-audit-setting.md) | Hiermee kunt u SQL server audit-instellingen als deze instellingen komen niet overeen met een opgegeven waarde. U een waarde die aangeeft of controle-instellingen moeten worden ingeschakeld of uitgeschakeld. |
-| [Detectie-serverinstelling niveau threat controleren](scripts/audit-sql-ser-threat-det-setting.md) | Audits waarschuwing beleidsregels voor de beveiliging van SQL database als deze beleidsregels zijn niet ingesteld op de opgegeven status. U een waarde die aangeeft of de detectie van dreigingen is ingeschakeld of uitgeschakeld.  |
-| [Er is geen beheerder van Azure Active Directory controleren](scripts/audit-no-aad-admin.md) | Audit wanneer er geen Azure Active Directory-beheerder die is toegewezen aan de SQL-server. |
-| [SQL DB-SKU's toegestaan](scripts/allowed-sql-db-skus.md) | Vereist SQL-databases gebruiken een goedgekeurde SKU. U opgeven een matrix van toegestane SKU-id's of een matrix van toegestane SKU-namen. |
+| [Auditinstellingsniveau SQL DB controleren](scripts/audit-sql-db-audit-setting.md) | Controleert of het auditinstellingsniveau van de SQL-database overeenkomt met een opgegeven waarde. U geeft een waarde op die aangeeft of de auditinstellingen moeten worden ingeschakeld of uitgeschakeld.  |
+| [Controlestatus van transparante gegevensversleuteling](scripts/audit-trans-data-enc-status.md) | Controleert of transparante gegevensversleuteling voor SQL-database is ingeschakeld.  |
+| [Instelling dreigingsdetectieniveau DB controleren](scripts/audit-db-threat-det-setting.md) | Controleert of het beveiligingsmeldingenbeleid van SQL-databases is ingesteld op de specifieke status. U geeft een waarde op die aangeeft of de detectie van dreigingen is ingeschakeld of uitgeschakeld.  |
+| [Auditinstellingsniveau SQL Server controleren](scripts/audit-sql-ser-leve-audit-setting.md) | Controleert of het auditinstellingsniveau van de SQL Server overeenkomt met een opgegeven waarde. U geeft een waarde op die aangeeft of de auditinstellingen moeten worden ingeschakeld of uitgeschakeld. |
+| [Instelling dreigingsdetectieniveau server controleren](scripts/audit-sql-ser-threat-det-setting.md) | Controleert of het beveiligingsmeldingenbeleid van SQL-databases is ingesteld op de specifieke status. U geeft een waarde op die aangeeft of de detectie van dreigingen is ingeschakeld of uitgeschakeld.  |
+| [Op een Azure Active Directory-beheerder controleren](scripts/audit-no-aad-admin.md) | Controleert of er een Azure Active Directory-beheerder is toegewezen aan de SQL Server. |
+| [Toegestane SQL DB-SKU's](scripts/allowed-sql-db-skus.md) | Zorgt ervoor dat SQL-databases een goedgekeurde SKU gebruiken. U geeft een matrix op van toegestane SKU-id's of een matrix van toegestane SKU-namen. |
 |**Storage**||
-| [Toegestane SKU's voor virtuele Machines en Opslagaccounts](scripts/allowed-skus-storage.md) | Vereist dat virtuele machines en opslagaccounts goedgekeurde SKU's gebruiken. Maakt gebruik van ingebouwde beleid om ervoor te zorgen goedgekeurd SKU's. U geeft een matrix van goedgekeurde virtuele machines SKU's en een matrix van goedgekeurde opslagaccount SKU's. |
-| [Zorg ervoor dat https-verkeer alleen voor storage-account](scripts/ensure-https-stor-acct.md) | Storage-accounts gebruiken HTTPS-verkeer vereist.  |
-| [Cool toegang lagen voor opslagaccounts weigeren](scripts/deny-cool-access-tiering.md) | Verbiedt het gebruik van cool toegang lagen voor blob storage-accounts.  |
-| [Zorg ervoor dat de bestandscodering voor opslag](scripts/ensure-store-file-enc.md) | Vereist dat versleuteling is ingeschakeld voor de storage-accounts.  |
-|**Ingebouwde beleid**||
-| [Toegestane locaties](scripts/allowed-locs.md) | Vereist dat alle resources voor de goedgekeurde locaties worden geïmplementeerd. U opgeven een matrix van goedgekeurde locaties.  |
-| [Toegestane brontypen](scripts/allowed-res-types.md) | Zorgt ervoor dat alleen goedgekeurde brontypen die zijn geïmplementeerd. U een matrix met brontypen die zijn toegestaan.  |
-| [Storage-account SKU's toegestaan](scripts/allowed-stor-acct-skus.md) | Moet een goedgekeurde SKU storage-accounts gebruiken. U opgeven een matrix van goedgekeurde SKU's. |
-| [Label en de standaardwaarde toepassen](scripts/apply-tag-def-val.md) | Voegt een bepaalde tagnaam en waarde, als dat label is niet opgegeven. U de tagnaam en waarde toe te passen.  |
-| [Versleuteling van de SQL-Database controleren](scripts/sql-database-encryption-audit.md) | Audits als SQL-database geen transparante gegevensversleuteling is ingeschakeld heeft. |
-| [Controle-instellingen van SQL Server audit](scripts/sql-server-audit.md) | Hiermee kunt u SQL server op basis van of de controle-instellingen zijn ingeschakeld. |
-| [Versleuteling van Data Lake Store afdwingen](scripts/enforce-datalakestore-encryption.md) | Geen Data Lake Store-accounts die geen versleuteling ingeschakeld weigert. |
-| [Afdwingen van code en de bijbehorende waarde](scripts/enforce-tag-val.md) | Vereist een bepaalde tagnaam en waarde. U de tagnaam en waarde af te dwingen.  |
-| [Brontypen die toegestaan niet](scripts/not-allowed-res-type.md) | Hierdoor worden de implementatie van de opgegeven brontypen. U een matrix van de volgende resourcetypen moeten worden geblokkeerd.  |
-| [SQL Server versie 12.0 vereisen](scripts/req-sql-12.md) | SQL-servers te gebruiken versie 12.0 vereist.  |
-| [Storage-accountversleuteling vereisen](scripts/req-store-acct-enc.md) | Storage-account gebruiken blob versleuteling vereist.  |
+| [Toegestane SKU's voor opslagaccounts en virtuele machines](scripts/allowed-skus-storage.md) | Zorgt ervoor dat opslagaccounts en virtuele machines gebruikmaken van goedgekeurde SKU's. Gebruik ingebouwde beleidsregels om verzekerd te zijn van goedgekeurde SKU's. U geeft een reeks goedgekeurde SKU's voor virtuele machines op en een reeks goedgekeurde SKU's voor opslagaccounts. |
+| [Https-verkeer voor opslagaccounts vereisen](scripts/ensure-https-stor-acct.md) | Zorgt ervoor dat opslagaccounts HTTPS-verkeer gebruiken.  |
+| [Statische toegangslaag voor opslagaccounts weigeren](scripts/deny-cool-access-tiering.md) | Voorkomt het gebruik van statische toegangslagen voor blob-opslagaccounts.  |
+| [Opslagbestandsversleuteling vereisen](scripts/ensure-store-file-enc.md) | Zorgt ervoor dat bestandsversleuteling is ingeschakeld voor opslagaccounts.  |
+|**Ingebouwd beleid**||
+| [Allowed locations](scripts/allowed-locs.md) (Toegestane locaties) | Vereist dat alle resources worden geïmplementeerd naar de goedgekeurde locaties. U geeft een matrix van goedgekeurde locaties op.  |
+| [Allowed resource types](scripts/allowed-res-types.md) (Toegestane resourcetypen) | Zorgt ervoor dat alleen goedgekeurde resourcetypen worden geïmplementeerd. U geeft een matrix met resourcetypen op die zijn toegestaan.  |
+| [Toegestane opslagaccount-SKU's](scripts/allowed-stor-acct-skus.md) | Zorgt ervoor dat opslagaccounts een goedgekeurde SKU gebruiken. U geeft een matrix van goedgekeurde SKU’s op. |
+| [Apply tag and its default value](scripts/apply-tag-def-val.md) (Tag met standaardwaarde toepassen) | Hiermee voegt u de opgegeven naam en waarde voor een tag toe, als die tag niet is opgegeven. U geeft de tagnaam en -waarde op die moet worden toegepast.  |
+| [Versleuteling van SQL-database controleren](scripts/sql-database-encryption-audit.md) | Controleert of transparante gegevensversleuteling voor SQL-database is ingeschakeld. |
+| [Auditinstellingen SQL Server controleren](scripts/sql-server-audit.md) | Controleert SQL Server op basis van of de auditinstellingen zijn ingeschakeld. |
+| [Data Lake Store-versleuteling vereisen](scripts/enforce-datalakestore-encryption.md) | Weigert alle Data Lake Store-accounts waarvoor geen versleuteling is ingeschakeld. |
+| [Enforce tag and its value](scripts/enforce-tag-val.md) (Tag en waarde afdwingen) | Vereist een opgegeven naam en waarde voor de tag. U geeft de tagnaam en -waarde op die moet worden afgedwongen.  |
+| [Not allowed resource types](scripts/not-allowed-res-type.md) (Niet-toegestane resourcetypen) | Voorkomt de implementatie van de opgegeven resourcetypen. U geeft een matrix met brontypen op die niet zijn toegestaan.  |
+| [SQL Server-versie 12.0 vereisen](scripts/req-sql-12.md) | Vereist dat SQL Server-versie 12.0 wordt gebruikt.  |
+| [Opslagaccountversleuteling vereisen](scripts/req-store-acct-enc.md) | Zorgt ervoor dat het opslagaccount blob-versleuteling gebruikt.  |
