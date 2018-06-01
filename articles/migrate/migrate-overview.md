@@ -4,14 +4,15 @@ description: Biedt een overzicht van de service Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 05/03/2018
+ms.date: 05/15/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 869d426bc76d725cead9bedc73800a20531bb9ed
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5c63d74158087d2011478d038d41fc1bae44190e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34202844"
 ---
 # <a name="about-azure-migrate"></a>Over Azure Migrate
 
@@ -78,7 +79,7 @@ De tabel geeft een overzicht van de poorten die nodig zijn voor communicatie met
 |Onderdeel          |Voor communicatie met     |Vereiste poort  |Reden   |
 |-------------------|------------------------|---------------|---------|
 |Collector          |Azure Migrate-service   |TCP 443        |De collector maakt verbinding met de service via SSL-poort 443|
-|Collector          |vCenter Server          |Standaard 9443   | Standaard maakt de collector verbinding met de vCenter-server op poort 9443. Als de server op een andere poort luistert, moet deze worden geconfigureerd als uitgaande poort in de collector-VM. |
+|Collector          |vCenter Server          |Standaard 443   | Standaard maakt de collector verbinding met de VMware vCenter Server op poort 443. Als de server op een andere poort luistert, moet deze worden geconfigureerd als uitgaande poort in de collector-VM. |
 |On-premises VM     | Log Analytics-werkruimte          |[TCP 443](../log-analytics/log-analytics-windows-agent.md) |De MMA-agent gebruikt TCP 443 om verbinding te maken met Log Analytics. U hebt deze poort alleen nodig als u de functie voor visualisatie van afhankelijkheden gebruikt en de Microsoft Monitoring Agent-agent (MMA) installeert. |
 
 
