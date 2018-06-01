@@ -30,7 +30,7 @@ Er zijn twee manieren voor verificatie in twee stappen. De eerste mogelijkheid i
 
 **Azure multi-factor Authentication inschakelen met een beleid voor voorwaardelijke toegang** is een flexibelere benadering voor het vereisen van verificatie in twee stappen. Deze functie werkt alleen voor Azure MFA in de cloud en _voorwaardelijke toegang_ is een [functie van Azure Active Directory Premium](https://www.microsoft.com/cloud-platform/azure-active-directory-features). U kunt een beleid voor voorwaardelijke toegang voor zowel afzonderlijke gebruikers als groepen maken. U kunt bijvoorbeeld een hoog risico-groep en een laag risico-groep maken, waarbij verificatie in twee stappen alleen nodig is voor cloud-apps met een hoog risico. 
 
-Beide opties gebruikers vragen om te registreren voor Azure multi-factor Authentication de eerste keer dat ze zich aanmelden nadat de vereisten hebt ingeschakeld. Beide opties werken ook met de configureerbare [Azure multi-factor Authentication-instellingen](howto-mfa-mfasettings.md).
+Beide opties vragen gebruikers om zich te registreren voor Azure multi-factor Authentication de eerste keer dat ze zich aanmelden nadat u de vereisten hebt ingeschakeld. Beide opties werken ook met de configureerbare [Azure multi-factor Authentication-instellingen](howto-mfa-mfasettings.md).
 
 ## <a name="enable-azure-mfa-by-changing-user-status"></a>Azure MFA inschakelen door het wijzigen van de gebruikersstatus
 
