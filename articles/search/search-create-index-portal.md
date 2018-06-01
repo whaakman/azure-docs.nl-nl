@@ -9,22 +9,18 @@ ms.devlang: NA
 ms.topic: quickstart
 ms.date: 06/20/2017
 ms.author: heidist
-ms.openlocfilehash: ea05cd34e5ba3f55b2f5400f1252f729401c5d6a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 722f1eb989fb8c160def4024b1aa967a47b87697
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203866"
 ---
 # <a name="create-an-azure-search-index-using-the-azure-portal"></a>Een Azure Search-index maken met Azure Portal
-> [!div class="op_single_selector"]
-> * [Overzicht](search-what-is-an-index.md)
-> * [Portal](search-create-index-portal.md)
-> * [.NET](search-create-index-dotnet.md)
-> * [REST](search-create-index-rest-api.md)
-> 
-> 
 
 Gebruik de ingebouwde indexdesigner in Azure Portal om een prototype van een zoekindex of een echte [zoekindex](search-what-is-an-index.md) te maken die in uw Azure Search-service kan worden uitgevoerd. 
+
+U kunt ook een index maken met behulp van de API's [.NET](search-create-index-dotnet.md) of [REST](search-create-index-rest-api.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
