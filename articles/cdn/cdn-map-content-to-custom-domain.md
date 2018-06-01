@@ -4,21 +4,22 @@ description: In deze zelfstudie kunt u Azure CDN-eindpuntinhoud toewijzen aan ee
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.service: cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/06/2018
+ms.date: 05/15/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: f57cfe19fd2eee0952a20fabcaa0d73ca96894ef
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d20dca9a1248cfb2915ebbc456fba80aadcf81f5
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196501"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Zelfstudie: Een aangepast domein toevoegen aan uw Azure CDN-eindpunt
 Deze zelfstudie laat zien hoe u een aangepast domein toevoegt aan een Azure CDN-eindpunt (Content Delivery Network). Wanneer u een CDN-eindpunt gebruikt voor het leveren van inhoud, is een aangepast domein nodig als u wilt dat uw eigen domeinnaam zichtbaar is in de URL van uw CDN. Een zichtbare domeinnaam kan handig zijn voor uw klanten en nuttig zijn voor branding-doelen. 
@@ -112,19 +113,28 @@ Nadat u uw aangepaste domein hebt geregistreerd, kunt u dit toevoegen aan uw CDN
     
 2. Op de **CDN-profiel**pagina, selecteert u het CDN-eindpunt dat u wilt koppelen aan het aangepaste domein.
 
-    De **Eindpunt**-pagina wordt geopend.
+   De **Eindpunt**-pagina wordt geopend.
     
 3. Selecteer **Aangepast domein**. 
 
    ![Knop Aangepast CDN-domein](./media/cdn-map-content-to-custom-domain/cdn-custom-domain-button.png)
 
-4. Voer voor **Aangepaste hostnaam**, uw aangepaste domein in, met inbegrip van het subdomein. Bijvoorbeeld: www.contoso.com of cdn.contoso.com. Gebruik niet de naam van het cdnverify-subdomein.
+   De pagina **Een aangepast domein toevoegen** wordt geopend.
+
+4. Bij **Hostnaam van het eindpunt** wordt automatisch de naam ingevuld van de host die wordt gebruikt als het doeldomein van uw CNAME-record. Deze naam wordt afgeleid van de URL van uw CDN-eindpunt: *&lt;hostnaam van eindpunt&gt;*. azureedge.net. De naam kan niet worden gewijzigd.
+
+5. Bij **Aangepaste hostnaam** voert u de naam van uw aangepaste domein in, inclusief het subdomein, om dit te gebruiken als het brondomein van uw CNAME-record. Bijvoorbeeld: www.contoso.com of cdn.contoso.com. Gebruik niet de naam van het cdnverify-subdomein.
 
    ![Dialoog Aangepast CDN-domein](./media/cdn-map-content-to-custom-domain/cdn-add-custom-domain.png)
 
-5. Selecteer **Toevoegen**.
+6. Selecteer **Toevoegen**.
 
-   Azure controleert of het CNAME-record bestaat dat u voor de domeinnaam hebt ingevoerd. Als de CNAME juist is, wordt uw aangepaste domein gevalideerd. Het even kan duren voordat het CNAME-record is doorgeven aan de naamservers. Als uw domein niet meteen wordt gevalideerd, controleer of het CNAME-record klopt, wacht dan een paar minuten en probeer het opnieuw. Voor **Azure CDN from Verizon**-eindpunten kan het tot 90 minuten duren voordat aangepaste domeininstellingen zijn doorgegeven aan alle CDN edge-knooppunten.  
+   Azure controleert of het CNAME-record bestaat dat u voor de domeinnaam hebt ingevoerd. Als de CNAME juist is, wordt uw aangepaste domein gevalideerd. 
+
+   Het kan even duren voordat de nieuwe instellingen van het aangepaste domein zijn doorgegeven aan alle CDN-edge-knooppunten: 
+    - Voor profielen van **Azure CDN Standard van Microsoft** is het doorgeven gewoonlijk binnen 10 minuten voltooid. 
+    - Profielen van **Azure CDN Standard van Akamai** worden doorgaans binnen één minuut doorgegeven. 
+    - Profielen van **Azure CDN Standard van Verizon** en **Azure CDN Premium van Verizon** worden doorgaans binnen 90 minuten doorgegeven, maar in sommige gevallen kan dit langer duren.   
 
 
 ## <a name="verify-the-custom-domain"></a>Het aangepaste domein verifiëren
@@ -133,7 +143,7 @@ Nadat u de registratie van uw aangepaste domein hebt voltooid, controleert u of 
  
 1. Zorg ervoor dat u op het eindpunt openbare inhoud hebt die in cache is opgeslagen. Bijvoorbeeld, als uw CDN-eindpunt is gekoppeld aan een opslagaccount, zal Azure CDN de inhoud in cache opslaan in een openbare container. Controleer of de container is ingesteld voor openbare toegang en ten minste één bestand bevat om het aangepaste domein te testen.
 
-2. Ga naar het adres van het bestand met behulp van het aangepaste domein in uw browser. Bijvoorbeeld, als uw aangepaste domein cdn.contoso.com is, moet de URL naar het bestand in de cache moet vergelijkbaar zijn met de volgende URL: http:\//cdn.contoso.com/my-public-container/my-file.jpg.
+2. Ga naar het adres van het bestand met behulp van het aangepaste domein in uw browser. Bijvoorbeeld, als uw aangepaste domein cdn.contoso.com is, moet de URL naar het bestand in de cache moet vergelijkbaar zijn met de volgende URL: http:\//cdn.contoso.com/my-public-container/my-file.jpg. Controleer of het resultaat overeenkomt met het resultaat dat u ziet wanneer u het CDN-eindpunt rechtstreeks benadert op *&lt;hostnaam van eindpunt&gt;*.azureedge.net.
 
 
 ## <a name="map-the-permanent-custom-domain"></a>Permanent aangepast domein toewijzen

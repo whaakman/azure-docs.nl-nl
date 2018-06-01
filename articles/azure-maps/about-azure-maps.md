@@ -12,14 +12,15 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: e84580c4023be87ebfc1988c631af0b76e213987
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4882eadb8db5137d6fcf75c6d80c34ae050d3a6d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34193948"
 ---
 # <a name="an-introduction-to-azure-maps"></a>Een inleiding tot Azure Maps
-Azure Maps is een portfolio met georuimtelijke services die onder andere service-API's omvat voor kaarten, zoeken, routes, verkeer en tijdzones. Met behulp van de portfolio met Azure OneAPI-compatibele services kunt u gebruikmaken van vertrouwde hulpprogramma's om snel oplossingen te ontwikkelen en schalen waarmee locatiegegevens worden geïntegreerd in Azure-oplossingen. Azure Maps biedt ontwikkelaars uit alle branches krachtige georuimtelijke mogelijkheden, vol nieuwe kaartgegevens die onmisbaar zijn om mobiele applicaties en webapplicaties te voorzien van geografische context. Azure Maps bestaat uit een set REST API's en een webgebaseerd JavaScript-besturingselement die ontwikkeltaken voor meerdere mediums gemakkelijk, flexibel en mobiel maken. 
+Azure Maps is een portfolio met georuimtelijke services die onder andere service-API's omvat voor kaarten, zoeken, routes, verkeer en tijdzones. Met behulp van de portfolio met services kunt u gebruikmaken van vertrouwde hulpprogramma's om snel oplossingen te ontwikkelen en schalen waarmee locatiegegevens worden geïntegreerd in Azure-oplossingen. Azure Maps biedt ontwikkelaars uit alle branches krachtige georuimtelijke mogelijkheden, vol nieuwe kaartgegevens die onmisbaar zijn om mobiele applicaties en webapplicaties te voorzien van geografische context. Azure Maps bestaat uit een set REST API's en een webgebaseerd JavaScript-besturingselement die ontwikkeltaken voor meerdere mediums gemakkelijk, flexibel en mobiel maken. 
 
 De volgende video introduceert Azure Maps:
 
@@ -87,7 +88,7 @@ Het doel van Microsoft is om de ontwikkelaarscommunity keuze te bieden op het ge
 | Scenario | Gebruik Azure Maps wanneer... | Gebruik Bing Kaarten wanneer... |
 | ------------- | ------------- | ------------- |
 | Ontwikkelomgeving | Bouwen in of coördinatie met andere Azure-services | Een cloud van derden of andere ontwikkelomgeving gebruiken |
-| Ontwikkelingsfase  | Omdat Azure Maps momenteel een openbare preview-versie is, is deze geoptimaliseerd voor vroege testdoeleinden en Testen-van-concept-ontwikkeling | Voor een productieomgeving is een SLA op zakelijk niveau vereist |
+| Ontwikkelingsfase  | Azure Maps is geoptimaliseerd voor vroege testdoeleinden en Testen-van-concept-ontwikkeling | Voor een productieomgeving is een SLA op zakelijk niveau vereist |
 | Prijsopties | Voorlopige prijsopties voor ontwikkelaars zijn voldoende | Voor zakelijk gebruik zijn aangepaste prijzen vereist |
 | Caseomgeving gebruiken | In-vehicle-gebruik is vereist | In-vehicle-gebruik is niet vereist |
 | Geografische dekking | India, China, Japan en Zuid-Korea zijn niet vereist | Kaarten voor India, China, Japan en Zuid-Korea zijn vereist |
