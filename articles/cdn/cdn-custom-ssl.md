@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 95f73dd702b3fffcefbdea28d58ad36bf8eb7eb5
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 86b20e0f317a14db415feff68b17aa99e1e42cb4
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258428"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Zelfstudie: HTTPS op een aangepast Azure CDN-domein configureren
 
@@ -52,9 +53,15 @@ Voordat u de stappen in deze zelfstudie kunt voltooien, moet u eerst een CDN-pro
 
 Daarnaast moet u een aangepast Azure CDN-domein koppelen aan uw CDN-eindpunt. Zie [Zelfstudie: Een aangepast domein toevoegen aan uw Azure CDN-eindpunt](cdn-map-content-to-custom-domain.md) voor meer informatie
 
-## <a name="option-1-default-enable-the-https-feature-with-a-cdn-managed-certificate"></a>Optie 1 (standaard): de HTTPS-functie met een CDN-beheerd certificaat inschakelen  
+---
 
-Met deze optie wordt de aangepaste HTTPS-functie ingeschakeld met een paar klikken. Azure CDN verwerkt volledige certificaatbeheertaken, zoals aanschaf en vernieuwing. Zodra u de functie hebt ingeschakeld, wordt de procedure onmiddellijk gestart. Als het aangepaste domein al is toegewezen aan het CDN-eindpunt, is geen verdere actie vereist. Azure CDN verwerkt de stappen en voltooit uw aanvraag automatisch. Als uw aangepaste domein echter elders is toegewezen, moet u e-mail gebruiken om uw domeinbezit te valideren.
+## <a name="ssl-certificates"></a>SSL-certificaten
+Als u het HTTPS-protocol wilt inschakelen voor het veilig leveren van inhoud aan een aangepast Azure CDN-domein, moet u een SSL-certificaat gebruiken. U kunt ervoor kiezen om een certificaat te gebruiken dat wordt beheerd door Azure CDN of uw eigen certificaat gebruiken.
+
+
+# <a name="option-1-default-enable-https-with-a-cdn-managed-certificatetaboption-1-default-enable-https-with-a-cdn-managed-certificate"></a>[Optie 1 (standaard): HTTPS met een door CDN beheerd certificaat inschakelen](#tab/option-1-default-enable-https-with-a-cdn-managed-certificate)
+
+Wanneer u een door CDN beheerd certificaat gebruikt, kan de HTTPS-functie met een paar muisklikken worden ingeschakeld. Azure CDN verwerkt volledige certificaatbeheertaken, zoals aanschaf en vernieuwing. Zodra u de functie hebt ingeschakeld, wordt de procedure onmiddellijk gestart. Als het aangepaste domein al is toegewezen aan het CDN-eindpunt, is geen verdere actie vereist. Azure CDN verwerkt de stappen en voltooit uw aanvraag automatisch. Als uw aangepaste domein echter elders is toegewezen, moet u e-mail gebruiken om uw domeinbezit te valideren.
 
 Volg deze stappen om HTTPS in te schakelen in een aangepast domein:
 
@@ -81,22 +88,21 @@ Volg deze stappen om HTTPS in te schakelen in een aangepast domein:
 6. Ga door naar [Domein valideren](#validate-the-domain).
 
 
-## <a name="option-2-enable-the-https-feature-with-your-own-certificate"></a>Optie 2: de functie HTTPS met uw eigen certificaat inschakelen 
+# <a name="option-2-enable-https-with-your-own-certificatetaboption-2-enable-https-with-your-own-certificate"></a>[Optie 2: HTTPS met uw eigen certificaat inschakelen](#tab/option-2-enable-https-with-your-own-certificate)
 
 > [!IMPORTANT]
-> Deze functie is alleen beschikbaar met profielen van het type **Azure CDN Standard van Microsoft**. 
+> Deze optie is alleen beschikbaar met profielen van het type **Azure CDN Standard van Microsoft**. 
 >
  
+U kunt uw eigen certificaat gebruiken voor het inschakelen van de HTTPS-functie. Dit proces verloopt via een integratie met Azure Key Vault, waarmee u uw certificaten veilig kunt opslaan. Azure CDN maakt gebruik van dit beveiligde mechanisme om uw certificaat op te vragen en er zijn maar een paar extra stappen nodig.
 
-U kunt uw eigen certificaat op Azure CDN gebruiken voor het leveren van inhoud via HTTPS. Dit proces vindt plaats door integratie met Azure Key Vault. Met Azure Key Vault kunnen klanten hun certificaten veilig opslaan. Azure CDN-service maakt gebruik van dit beveiligde mechanisme om het certificaat op te halen. Voor het gebruik van uw eigen certificaat zijn een paar extra stappen vereist.
-
-### <a name="step-1-prepare-your-azure-key-vault-account-and-certificate"></a>Stap 1: voorbereiden van uw Azure Key Vault-account en -certificaat
+### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Voorbereiden van uw Azure Key Vault-account en -certificaat
  
 1. Azure Key Vault: u moet een Azure Key Vault-account hebben onder hetzelfde abonnement als het Azure CDN-profiel en de CDN-eindpunten die u wilt inschakelen voor aangepaste HTTPS. Maak een Azure Key Vault-account, als u dit niet hebt.
  
 2. Azure Key Vault-certificaten: als u al in het bezit bent van een certificaat, kunt u dit rechtstreeks uploaden naar uw Azure Key Vault-account of u kunt via Azure Key Vault direct een certificaat maken bij een van de partner Certificeringsinstanties (CA) waarmee Azure Key Vault-certificaten worden geïntegreerd. 
 
-### <a name="step-2-register-azure-cdn"></a>Stap 2: Azure CDN registreren
+### <a name="register-azure-cdn"></a>Azure CDN registreren
 
 Registreer Azure CDN als een app in Azure Active Directory via PowerShell.
 
@@ -109,7 +115,7 @@ Registreer Azure CDN als een app in Azure Active Directory via PowerShell.
     ![Azure CDN registreren in PowerShell](./media/cdn-custom-ssl/cdn-register-powershell.png)
               
 
-### <a name="step-3-grant-azure-cdn-access-to-your-key-vault"></a>Stap 3: Azure CDN toegang verlenen tot uw sleutelkluis
+### <a name="grant-azure-cdn-access-to-your-key-vault"></a>Azure CDN toegang verlenen tot uw sleutelkluis
  
 Geef Azure CDN toegang tot de certificaten (geheimen) in uw Azure Key Vault-account.
 
@@ -127,7 +133,7 @@ Geef Azure CDN toegang tot de certificaten (geheimen) in uw Azure Key Vault-acco
 
     Azure CDN heeft nu toegang tot deze sleutelkluis en de certificaten (geheimen) die in deze sleutelkluis zijn opgeslagen.
  
-### <a name="step-4-select-the-certificate-for-azure-cdn-to-deploy"></a>Stap 4: Het certificaat selecteren voor implementatie door Azure CDN
+### <a name="select-the-certificate-for-azure-cdn-to-deploy"></a>Het certificaat voor implementatie door Azure CDN selecteren
  
 1. Ga terug naar de Azure CDN-portal en selecteer het profiel en CDN-eindpunt voor het inschakelen van aangepaste HTTPS. 
 
@@ -150,6 +156,7 @@ Geef Azure CDN toegang tot de certificaten (geheimen) in uw Azure Key Vault-acco
   
 6. Wanneer u uw eigen certificaat gebruikt, is domeinvalidatie niet nodig. Ga verder met [Wachten op doorgifte](#wait-for-propagation).
 
+---
 
 ## <a name="validate-the-domain"></a>Het domein valideren
 

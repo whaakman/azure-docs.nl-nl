@@ -15,11 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 87e548dcca655436c00b84b440b72e01ad575338
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 926f256de0974112c1571fe4d1d48b6e7f530362
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211793"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routering van verkeer in virtuele netwerken
 
@@ -123,7 +124,7 @@ Een on-premises netwerkgateway kan via BGP (Border Gateway Protocol) routes uitw
 
 Wanneer u routes met Azure uitwisselt via BGP, wordt er voor elk geadverteerd voorvoegsel een afzonderlijke route toegevoegd aan de routetabel van alle subnetten in een virtueel netwerk. De route wordt toegevoegd met *Gateway van virtueel netwerk* als de bron en het 'volgende hoptype'. 
 
-Doorgifte van BGP-route kan worden uitgeschakeld op een subnet met behulp van een eigenschap in een routetabel. Wanneer u routes uitwisselt met Azure via BGP, worden er geen routes toegevoegd aan de routetabel van alle subnetten waarvoor BGP-doorgifte is uitgeschakeld. Connectiviteit met VPN-verbindingen wordt bereikt met behulp van aangepaste routes](#custom-routes) met een volgend hoptype van VPN. Zie [Doorgifte van BGP-routes uitschakelen](manage-route-table.md#create-a-route-table) voor meer informatie.
+Doorgifte van BGP-route kan worden uitgeschakeld op een subnet met behulp van een eigenschap in een routetabel. Wanneer u routes uitwisselt met Azure via BGP, worden er geen routes toegevoegd aan de routetabel van alle subnetten waarvoor BGP-doorgifte is uitgeschakeld. Connectiviteit met VPN-verbindingen wordt bereikt met behulp van [aangepaste routes](#custom-routes) met een volgend hoptype van VPN. Zie [Doorgifte van BGP-routes uitschakelen](manage-route-table.md#create-a-route-table) voor meer informatie.
 
 ## <a name="how-azure-selects-a-route"></a>Hoe Azure een route selecteert
 
