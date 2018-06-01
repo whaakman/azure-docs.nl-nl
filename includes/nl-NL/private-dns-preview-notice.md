@@ -1,5 +1,0 @@
-> [!IMPORTANT]
-> De functie Azure persoonlijke DNS-Zone wordt momenteel een beheerde voorbeeld en moet u zich aanmelden voor ter verkrijging van de Preview-versie van Powershell-module/SDK. Als u wilt aanmelden voor deze preview, e- [ AzureDNS-PrivateZone@microsoft.com ](mailto:AzureDNS-PrivateZone@microsoft.com) met de details van uw abonnement. De voorbeelden in dit artikel wordt ervan uitgegaan dat u al hebt aangemeld voor de Preview-versie en de Preview-versie van Powershell-module/SDK hebt ontvangen. Met de huidige module van de openbare Powershell werkt niet voor deze preview-functie.
-
-Dit voorbeeld wordt geleverd zonder een service level agreement, en mag niet worden gebruikt voor productieworkloads. Bepaalde functies worden mogelijk niet ondersteund, zijn mogelijk beperkt of zijn mogelijk niet beschikbaar in alle Azure-locaties. Raadpleeg voor meer informatie de [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-

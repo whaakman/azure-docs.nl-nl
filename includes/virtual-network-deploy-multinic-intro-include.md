@@ -1,2 +1,0 @@
-U kunt virtuele machines (VM's) in Azure maken en koppelen van meerdere netwerkinterfaces (NIC's) naar elk van uw virtuele machines. Meerdere NIC's zijn vereist voor veel virtuele netwerkapparaten, zoals toepassingen en optimalisatie van WAN-oplossingen. Meerdere NIC's bieden ook meer network verkeer beheerfunctionaliteit, met inbegrip van isolatie van verkeer tussen een front-NIC en back-end bekabelen of scheiden van verkeer dat gegevens vlak van beheer vlak van verkeer.
-
