@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/29/2018
+ms.date: 05/15/2018
 ms.author: billmath
-ms.openlocfilehash: ea68bad3a2c5e905ccf705404dff0049b451268e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 428d70474ba928a9e0c774aeb16395ef6a4cea2e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34192952"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Functie Azure Active Directory Gebruiksrechtovereenkomst
 Azure AD Gebruiksrechtovereenkomst is een eenvoudige methode waarmee organisaties gegevens kunnen presenteren aan eindgebruikers.  Deze presentatie zorgt ervoor dat gebruikers relevante disclaimers voor juridische vereisten of nalevingsvereisten te zien krijgen.
@@ -56,7 +57,7 @@ Wanneer u uw gebruiksrechtovereenkomst hebt voltooid, gebruikt u de volgende pro
 4. Voer de **Weergavenaam** in.  Gebruikers krijgen de koptekst te zien wanneer ze zich aanmelden.
 5. **Blader** naar de PDF met uw voltooide gebruiksrechtovereenkomst en selecteer deze.  De aanbevolen tekengrootte is 24.
 6. **Selecteer** een taal voor de gebruiksvoorwaarden.  Via de taaloptie kunt u meerdere gebruiksvoorwaarden uploaden, elk met een andere taal.  Welke versie van de gebruiksvoorwaarden aan een eindgebruiker wordt weergegeven, is gebaseerd op de browservoorkeuren.
-7. Schakel de optie **Gebruikers verplichten de gebruiksvoorwaarden uit te vouwen** in of uit.  Als deze optie is ingeschakeld, moeten eindgebruikers de gebruiksvoorwaarden bekijken alvorens deze te accepteren.
+7. Schakel de optie **Gebruikers verplichten de gebruiksvoorwaarden uit te vouwen** in of uit.  Als deze instelling is ingeschakeld, moeten eindgebruikers de gebruiksvoorwaarden bekijken alvorens ze deze accepteren.
 8. In **Voorwaardelijke toegang** kunt u de geüploade gebruiksrechtovereenkomst **afdwingen** door in de vervolgkeuzelijst een sjabloon of beleid voor aangepaste voorwaardelijke toegang te selecteren.  Met een beleid voor aangepaste voorwaardelijke toegang kunt u een gedetailleerde gebruiksrechtovereenkomst opgeven voor een specifieke cloudtoepassing of groep gebruikers.  Zie [Een voorwaardelijk toegangsbeleid configureren](active-directory-conditional-access-best-practices.md) voor meer informatie
 9. Klik op **Create**.
 10. Als u een sjabloon voor aangepaste voorwaardelijke toegang hebt geselecteerd, kunt u in een volgend scherm het CA-beleid aanpassen.
@@ -120,6 +121,13 @@ Gebruikers kunnen de gebruiksvoorwaarden die ze hebben geaccepteerd, controleren
 
 4.  Vanaf hier kunt u de gebruiksrechtovereenkomst bekijken die u hebt geaccepteerd. 
 
+## <a name="removing-users-from-an-active-terms-of-use"></a>Gebruikers verwijderen uit een actieve gebruiksrechtovereenkomst
+
+[!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
+
+Standaard geldt dat een verwijderde gebruiker gedurende dertig dagen in Azure AD aanwezig blijft met de status Verwijderd. In deze periode kan de gebruiker eventueel door een beheerder worden teruggezet.  Na dertig dagen wordt die gebruiker definitief verwijderd.  Daarnaast kan een hoofdbeheerder via de Azure Active Directory-portal expliciet [een recentelijk verwijderde gebruiker definitief verwijderen](active-directory-users-restore.md) voordat de dertig dagen zijn verstreken.  Als een gebruiker definitief is verwijderd, worden gegevens over die gebruiker vervolgens uit de gebruiksrechtovereenkomst verwijderd.  Controle-informatie over verwijderde gebruikers blijft in het auditlogboek aanwezig.
+
+
 
 ## <a name="additional-information"></a>Aanvullende informatie
 Hier volgt informatie waarvan u zich bewust moet zijn en die nuttig kan zijn bij het gebruik van een gebruiksrechtovereenkomst.
@@ -138,7 +146,7 @@ Hier volgt informatie waarvan u zich bewust moet zijn en die nuttig kan zijn bij
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
 **V: Hoe kan ik zien wanneer/of een gebruiker een gebruiksrechtovereenkomst heeft geaccepteerd?**</br>
-A: Klik gewoon op het nummer onder geaccepteerd naast de gebruiksrechtovereenkomst.  Zie [Huidige gebruikersstatus weergeven](#viewing-current-user-status) voor meer informatie.  En als een gebruiker de gebruiksrechtovereenkomst heeft geaccepteerd, wordt dit in het auditlogboek opgenomen. U kunt het auditlogboek van Azure AD doorzoeken om de resultaten te bekijken.  
+A: Klik op het nummer onder geaccepteerd naast de gebruiksrechtovereenkomst.  Zie [Huidige gebruikersstatus weergeven](#viewing-current-user-status) voor meer informatie.  En als een gebruiker de gebruiksrechtovereenkomst heeft geaccepteerd, wordt dit in het auditlogboek opgenomen. U kunt het auditlogboek van Azure AD doorzoeken om de resultaten te bekijken.  
 
 **V: Als de gebruiksrechtovereenkomst wordt gewijzigd, moeten gebruikers deze dan opnieuw accepteren?**</br>
 A: Ja, een beheerder kan de voorwaarden van de gebruiksrechtovereenkomst wijzigen. In dat geval moeten de nieuwe voorwaarden opnieuw worden geaccepteerd.
