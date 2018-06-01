@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2018
+ms.date: 05/17/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 9067ea350997ed0c4fc5c65dccb72f403adfa774
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 52d0aeabab173caf4460827ca0d5984070688f0e
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304722"
 ---
 # <a name="tutorialload-balance-vms-within-an-availability-zone-with-a-standard-load-balancer-using-the-azure-portal"></a>Zelfstudie: Met behulp van Azure Portal taakverdeling uitvoeren van virtuele machines binnen een beschikbaarheidszone met een standaard Load Balancer
 
@@ -139,7 +140,7 @@ In deze sectie maakt u NSG-regels om inkomende verbindingen via HTTP en RDP toe 
 2. Klik op de pagina **Overzicht** op **Verbinding maken** om extern verbinding te maken met de VM.
 3. Meld u aan met de gebruikersnaam en het wachtwoord die u bij het maken van de VM hebt opgegeven (mogelijk moet u **Meer opties** en **Een ander account gebruiken** selecteren om de aanmeldingsgegevens op te geven die u hebt ingevoerd tijdens het maken van de virtuele machine) en selecteer **OK**. Er wordt mogelijk een certificaatwaarschuwing weergegeven tijdens het aanmelden. Selecteer **Ja** om door te gaan met de verbinding.
 4. Ga op de serverdesktop naar **Windows Systeembeheer**>**Windows Powershell**.
-6. In het venster PowerShell voert u de volgende opdrachten uit om de IIS-server te installeren, het bestand default.htm te verwijderen en een nieuw bestand default.htm toe te voegen die de naam van de VM weergeeft:
+6. Voer in het venster PowerShell de volgende opdrachten uit om de IIS-server te installeren, het standaardbestand iisstart.htm te verwijderen en een nieuw bestand iisstart.htm toe te voegen dat de naam van de VM weergeeft:
 
    ```azurepowershell-interactive
     # install IIS server role
@@ -147,10 +148,10 @@ In deze sectie maakt u NSG-regels om inkomende verbindingen via HTTP en RDP toe 
     # remove default htm file
      remove-item  C:\inetpub\wwwroot\iisstart.htm
     # Add a new htm file that displays server name
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello from" + $env:computername)
+     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from" + $env:computername)
    ```
-8. Sluit de RDP-sessie met *myVM1*
-9. Herhaal stap 1 tot en met 8 om IIS te installeren op *myVM2*.
+7. Sluit de RDP-sessie met *myVM1*
+8. Herhaal stappen 1 tot en met 7 om IIS te installeren op *myVM2*.
 
 ## <a name="create-load-balancer-resources"></a>Resources voor load balancer maken
 

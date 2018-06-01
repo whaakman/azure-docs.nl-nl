@@ -11,15 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/30/2018
+ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 3b2fd59444f50f4ac5da6bf569cb0247f3a36943
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 22a1c90dd1a1ca305431d91a801e5293a6d08703
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34361179"
 ---
-# <a name="compare-managed-and-custom-labs-in-azure-lab-services"></a>Beheerde en aangepaste labs in Azure Lab Services vergelijken
+# <a name="compare-managed-and-devtest-labs-in-azure-lab-services"></a>Beheerde en DevTest-labs in Azure Lab Services vergelijken
 U kunt twee soorten labs maken: **beheerde labs** met Azure Lab Services en **aangepaste labs** met Azure DevTest Labs. Als u alleen wilt invoeren wat u nodig hebt in een lab en de service de voor het lab vereiste infrastructuur wilt laten instellen, dient u een van de **beheerde labs** te kiezen. Op dit moment is het **leslokaallab** het enige type beheerde Lab dat u met Azure Lab-Services kunt maken. Als u uw eigen infrastructuur wilt beheren, maakt u een **aangepaste lab** met behulp van Azure DevTest Labs.
 
 De volgende secties bevatten meer informatie over deze labs. 
@@ -37,10 +38,10 @@ Hier volgen enkele van de **gebruikscases voor beheerde labs**:
 - Richt snel een lab met virtuele machines in voor het hosten van een hackathon. Verwijder het lab met één muisklik als u klaar bent. 
 
 
-## <a name="custom-labs"></a>Aangepaste labs
+## <a name="devtest-labs"></a>DevTest-labs
 Mogelijk hebt u scenario's waarin u alle infrastructuur en configuratie zelf wilt beheren binnen uw eigen abonnement. Hiervoor kunt u een aangepast lab maken met Azure DevTest Labs in de Azure-portal. Voor deze labs hoeft u geen lab-account te maken. Deze labs worden niet weergegeven in het lab-account (wat voor de beheerde labs bestaat).  
 
-Hier volgen enkele van de **gebruikscases voor het gebruiken van aangepaste labs**: 
+Hier volgen enkele **gebruikscases van DevTest-labs**: 
 
 - Richt snel een lab met virtuele machines in voor het hosten van een hackathon of een praktische sessie op een conferentie. Verwijder het lab met één muisklik als u klaar bent. 
 - Maak een pool met virtuele machines die zijn geconfigureerd met uw toepassing en laat uw team eenvoudig gebruikmaken van een virtuele machine voor bug-bashes.  
@@ -50,10 +51,10 @@ Hier volgen enkele van de **gebruikscases voor het gebruiken van aangepaste labs
 - Bied uw klanten trainingssessies aan met een lab dat is geconfigureerd met de nieuwste versie van uw product. Geef elke klant een beperkt aantal uren voor het gebruik van het lab. 
 
 
-## <a name="managed-labs-vs-custom-labs"></a>Beheerde labs versus aangepaste labs
+## <a name="managed-labs-vs-devtest-labs"></a>Beheerde labs versus DevTest-labs
 In de volgende tabel worden twee soorten testlaboratoria vergeleken die worden ondersteund door Azure Lab Services: 
 
-| Functies | Beheerde labs | aangepaste labs |
+| Functies | Beheerde labs | DevTest-labs |
 | -------- | ----------------  | ---------- |
 | Beheer van Azure-infrastructuur in het lab. |  Automatisch beheerd door de service | U beheert zelf  |
 | Ingebouwde tolerantie voor problemen in de infrastructuur | Automatisch afgehandeld door de service | U beheert zelf  |
