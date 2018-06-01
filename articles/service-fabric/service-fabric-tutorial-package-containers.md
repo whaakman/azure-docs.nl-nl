@@ -2,13 +2,13 @@
 title: Een Service Fabric-containertoepassing verpakken en implementeren | Microsoft Docs
 description: In deze zelfstudie leert u hoe u een Azure Service Fabric-toepassingsdefinitie kunt genereren met behulp van Yeoman en de toepassing verpakken.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: suhuruli
 manager: timlt
 editor: suhuruli
 tags: servicefabric
 keywords: Docker, containers, Microservices, Service Fabric, Azure
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
@@ -16,11 +16,12 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 6e3200676807bbd9a15c5c7b19312a2e0c18d77a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: fc589b79cf91dcbe24e6d99da44aeee883b58e5f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365364"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application"></a>Zelfstudie: containers verpakken en implementeren als een Service Fabric-toepassing
 
@@ -45,7 +46,8 @@ Service Fabric biedt hulpprogramma's waarmee u vanuit de terminal toepassingen k
 1. Installeer nodejs en NPM op uw computer. Houd er rekening mee dat Mac OSX-gebruikers het pakketbeheerprogramma Homebrew moeten gebruiken
 
     ```bash
-    sudo apt-get install npm && sudo apt install nodejs-legacy
+    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
+    sudo apt-get install -y nodejs 
     ```
 2. De Yeoman-sjabloongenerator op uw computer installeren vanuit NPM 
 
@@ -251,7 +253,7 @@ Open een browser en ga naar Service Fabric Explorer op http://lin4hjim3l4.westus
 
 ![Service Fabric Explorer][sfx]
 
-Om verbinding te maken met de actieve toepassing opent u een webbrowser en gaat u naar de cluster-URL: bijvoorbeeld http://lin0823ryf2he.cloudapp.azure.com:80. U ziet nu de stemtoepassing in de webgebruikersinterface.
+Om verbinding te maken met de actieve toepassing, opent u een webbrowser en gaat u naar de URL van het cluster: bijvoorbeeld http://lin0823ryf2he.cloudapp.azure.com:80. U ziet nu de stemtoepassing in de webgebruikersinterface.
 
 ![stemapp][votingapp]
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33886802"
 ---
 # <a name="logic-apps-workflow-definitions-with-the-workflow-definition-language-schema"></a>Logic Apps werkstroomdefinities met het schema van de werkstroom Definition Language
 
@@ -153,8 +154,8 @@ Deze voorbeelden laten zien hoe expressies worden geëvalueerd:
 |------------|--------| 
 | 'Sophia Owen' | Resultaat van deze tekens bevatten: 'Sophia Owen' |
 | "array [1]" | Resultaat van deze tekens bevatten: 'array [1]' |
-| "@@" | Deze tekens worden geretourneerd als een tekenreeks met één teken: ' @' |   
-| " @" | Deze tekens worden geretourneerd als een tekenreeks van twee tekens: ' @' |
+| "\@\@" | Deze tekens worden geretourneerd als een tekenreeks met één teken: '\@' |   
+| " \@" | Deze tekens worden geretourneerd als een tekenreeks van twee tekens: ' \@' |
 |||
 
 Stel dat u 'myBirthMonth' gelijk is aan 'Januari' en 'myAge' gelijk aan het aantal 42 definiëren voor deze voorbeelden:  
