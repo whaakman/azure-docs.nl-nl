@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: a442b6c3c8e2b8a781ee54f41a2e0db5b44b7395
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 1843e37d9baf1ab264db96109eb5ffd0704e35b7
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271286"
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB: ontwikkelen met de Graph-API in .NET
 Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de globale distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB. 
@@ -168,13 +169,13 @@ foreach (KeyValuePair<string, string> gremlinQuery in gremlinQueries)
 
 ## <a name="add-vertices-and-edges"></a>Hoekpunten en randen toevoegen
 
-Laten we de Gremlin-instructies uit de voorgaande secties eens nader bekijken. Eerste maken we enkele hoekpunten met behulp van de `addV`-methode van Gremlin. In het volgende fragment wordt bijvoorbeeld een hoekpunt ‘Thomas Andersen’ van het type ‘Persoon’ gemaakt, met eigenschappen voor voornaam, achternaam en leeftijd.
+Laten we de Gremlin-instructies uit de voorgaande secties eens nader bekijken. Eerste voegen we enkele hoekpunten toe met behulp van de methode `addV` van Gremlin. In het volgende fragment wordt bijvoorbeeld een hoekpunt ‘Thomas Andersen’ van het type ‘Persoon’ gemaakt, met eigenschappen voor voornaam en leeftijd.
 
 ```cs
 // Create a vertex
 IDocumentQuery<Vertex> createVertexQuery = client.CreateGremlinQuery<Vertex>(
     graphCollection, 
-    "g.addV('person').property('firstName', 'Thomas')");
+    "g.addV('person').property('firstName', 'Thomas').property('age', 44)");
 
 while (createVertexQuery.HasMoreResults)
 {
