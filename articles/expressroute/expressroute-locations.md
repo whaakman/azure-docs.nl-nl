@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/11/2018
+ms.date: 05/15/2018
 ms.author: pareshmu
-ms.openlocfilehash: f448f1d7d669aa2c006169c53d8a239360fd16b8
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 8d17c8dee89bf0ea2a4683c3b41d2eed50c65e2c
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34303691"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partners en peeringlocaties voor ExpressRoute
 
@@ -79,7 +80,7 @@ De volgende tabel toont de locaties per serviceprovider. Als u alle beschikbare 
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** |Ondersteund |Ondersteund |Amsterdam, Hongkong, Londen, Silicon Valley, Singapore, Sydney, Tokio, Washington DC |
 | **[C3ntro](https://c3ntro.com/)** |Binnenkort beschikbaar |Binnenkort beschikbaar |Miami |
 | **CDC** | Ondersteund | Ondersteund | Canberra, Canberra2 |
-| **[CenturyLink Cloud Connect](http://www.centurylink.com/cloudconnect)** |Ondersteund |Ondersteund |Las Vegas, New York, San Antonio, Tokyo, Toronto |
+| **[CenturyLink Cloud Connect](http://www.centurylink.com/cloudconnect)** |Ondersteund |Ondersteund |Las Vegas, New York, San Antonio, Silicon Valley, Tokio, Toronto |
 | **China Telecom Global** |Ondersteund |Niet ondersteund |Hongkong |
 | **[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** |Ondersteund |Ondersteund |Dallas, Montreal, Toronto |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Ondersteund |Ondersteund |Amsterdam, Dublin, Londen, Parijs, Tokio |
@@ -98,7 +99,7 @@ De volgende tabel toont de locaties per serviceprovider. Als u alle beschikbare 
 | **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Ondersteund |Ondersteund |Amsterdam, Dublin, Londen, Parijs |
 | **[IX Reach](https://www.ixreach.com/services/cloud-connectivity/microsoft-azure/)**|Ondersteund |Ondersteund | Silicon Valley, Toronto |
 | **Jisc** |Ondersteund |Ondersteund |Londen |
-| **KINX** |Ondersteund |Ondersteund |Seoul |
+| **[KINX](https://www.kinx.net/service/network/cloudhub/ms-expressroute/?lang=en)** |Ondersteund |Ondersteund |Seoul |
 | **[KPN](http://www.kpn.com/cloudconnect)** | Ondersteund | Ondersteund | Amsterdam | 
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Ondersteund |Ondersteund |Amsterdam, Chicago, Dallas, Londen, Newport, Sao Paulo, Seattle, Silicon Valley, Singapore, Washington DC |
 | **LG CNS** |Ondersteund |Ondersteund |Busan, Seoul |
@@ -108,12 +109,13 @@ De volgende tabel toont de locaties per serviceprovider. Als u alle beschikbare 
 | **[Next Generation Data](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Ondersteund |Ondersteund |Newport (Wales) |
 | **NEXTDC** |Ondersteund |Ondersteund |Melbourne, Sydney |
 | **[NTT Communications](http://www.ntt.com/en/services/network/virtual-private-network.html)** |Ondersteund |Ondersteund |Amsterdam, Hongkong, Londen, Los Angeles, Osaka, Singapore, Sydney, Tokio, Washington DC |
+| **[NTT EAST](https://flets.com/cloudgateway/crossconnect/)** |Ondersteund |Ondersteund |Tokio |
 | **[NTT SmartConnect](http://cloud.nttsmc.com/cxc/azure.html)** |Ondersteund |Ondersteund |Osaka |
 | **[Optus](https://www.optus.com.au/enterprise/networking/network-connectivity/express-link)** |Ondersteund |Ondersteund |Melbourne+, Sydney |
 | **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** |Ondersteund |Ondersteund |Amsterdam, Hong Kong, Londen, Parijs, Silicon Valley, Singapore, Sydney, Washington DC |
 | **[PacketFabric](https://www.packetfabric.com/packetcor/microsoft-azure/)** |Ondersteund |Ondersteund |Chicago, Silicon Valley |
 | **PCCW Global Limited** |Ondersteund |Ondersteund |Hongkong |
-| **Sejong Telecom** |Ondersteund |Ondersteund |Seoul |
+| **[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)** |Ondersteund |Ondersteund |Seoul |
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Ondersteund |Ondersteund |Chennai, Mumbai |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |Ondersteund |Ondersteund |Singapore, Singapore2 |
 | **[Softbank](http://www.softbank.jp/biz/cloud/cloud_access/direct_access_for_az/)** |Ondersteund |Ondersteund |Osaka, Tokio |
@@ -123,7 +125,7 @@ De volgende tabel toont de locaties per serviceprovider. Als u alle beschikbare 
 | **[Telefonica](https://www.business-solutions.telefonica.com/es/enterprise/solutions/efficient-infrastructure/managed-voice-data-connectivity/)** |Ondersteund |Ondersteund |Amsterdam, Sao Paulo |
 | **[Telehouse - KDDI](http://www.telehouse.net/solutions/cloud-services/cloud-link)** |Ondersteund |Ondersteund |Londen |
 | **Telenor** |Ondersteund |Ondersteund |Amsterdam, Londen |
-| **Telia Carrier** | Ondersteund | Ondersteund |Londen, Washington DC |
+| **[Telia Carrier](https://www.teliacarrier.com/our-services/Connectivity/Cloud-Connect.html?title=Cloud%20Connect)** | Ondersteund | Ondersteund |Londen, Washington DC |
 | **Telmex Uninet**| Binnenkort beschikbaar | Binnenkort beschikbaar | Dallas+ |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |Ondersteund |Ondersteund |Melbourne, Sydney |
 | **[Telus](http://www.telus.com)** |Ondersteund |Ondersteund |Montreal, Toronto |

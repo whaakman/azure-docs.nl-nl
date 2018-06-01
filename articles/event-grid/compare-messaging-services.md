@@ -1,97 +1,98 @@
 ---
-title: Vergelijking van Azure messaging-services
-description: Vergelijkt Azure Event raster, Event Hubs en Servicebus. Raadt u aan welke service moet worden gebruikt voor verschillende scenario's.
+title: Vergelijking van Azure-berichtenservices
+description: Vergelijking van Azure Event Grid, Event Hubs en Servicebus. Geeft een aanbeveling over welke service voor verschillende scenario's het meest geschikt is.
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
-ms.topic: article
+ms.topic: overview
 ms.date: 03/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 30bbe7442cac96a1dcf6959cac2abedd61454a29
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
-ms.translationtype: MT
+ms.openlocfilehash: 1437916e62e7c2987c0a1d8c3a5ac4a5f332134d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34303552"
 ---
-# <a name="choose-between-azure-services-that-deliver-messages"></a>Kiezen tussen Azure-services die berichten te leveren
+# <a name="choose-between-azure-services-that-deliver-messages"></a>Kiezen tussen Azure-services die berichten bezorgen
 
-Azure biedt drie services die u helpen met het leveren van de event-berichten in een oplossing. Deze services zijn:
+Azure beschikt over drie services die u helpen met het bezorgen van de gebeurtenisberichten binnen een oplossing. Deze services zijn:
 
-* [Gebeurtenis raster](/azure/event-grid/)
+* [Event Grid](/azure/event-grid/)
 * [Event Hubs](/azure/event-hubs/)
 * [Service Bus](/azure/service-bus-messaging/)
 
-Hoewel ze een aantal overeenkomsten hebben, wordt elke service is ontworpen voor bepaalde scenario's. Dit artikel worden de verschillen tussen deze services en geeft die u inzicht te kiezen voor uw toepassing. In veel gevallen worden de messaging-services zijn aanvullende en kunnen samen worden gebruikt.
+Hoewel ze een aantal overeenkomsten hebben, is elke service ontworpen voor specifieke scenario's. In dit artikel worden de verschillen tussen deze services beschreven en wordt uitgelegd welke voor uw toepassing het meest geschikt is. In veel gevallen zijn de berichtenservices aanvullend en kunnen ze samen worden gebruikt.
 
-## <a name="event-vs-message-services"></a>Gebeurtenis versus bericht services
+## <a name="event-vs-message-services"></a>Gebeurtenis- versus berichtenservices
 
-Er is een belangrijk verschil tussen services kunnen een gebeurtenis bieden en services die ervoor zorgen dat een bericht gemeld.
+Er is een belangrijk verschil tussen services die een gebeurtenis bezorgen en services die een bericht bezorgen.
 
 ### <a name="event"></a>Gebeurtenis
 
-Een gebeurtenis is een lichtgewicht melding van een voorwaarde of een statuswijziging. De uitgever van de gebeurtenis heeft geen verwachting over hoe de gebeurtenis wordt verwerkt. De consument van de gebeurtenis besluit wat te doen met de melding. Gebeurtenissen kunnen afzonderlijke eenheden of deel uitmaken van een reeks zijn.
+Een gebeurtenis is een lichtgewicht melding van een voorwaarde of een statuswijziging. De uitgever van de gebeurtenis heeft geen verwachting over hoe de gebeurtenis wordt afgehandeld. De consument van de gebeurtenis bepaalt wat er met de melding gebeurt. Gebeurtenissen kunnen afzonderlijke eenheden zijn of deel uitmaken van een reeks.
 
-Afzonderlijke gebeurtenissen statuswijziging rapporteren en zijn actie worden uitgevoerd. Als u wilt de volgende stap, moet de consument alleen te weten dat er iets is er gebeurd. De gebeurtenisgegevens bevat informatie over wat er gebeurd is, maar heeft geen gegevens waarvoor de gebeurtenis. Bijvoorbeeld, een gebeurtenis ontvangt een melding consumenten of een bestand is gemaakt. Deze algemene informatie over het bestand mogelijk, maar het bevat niet het bestand zelf. Afzonderlijke gebeurtenissen zijn ideaal voor zonder server oplossingen die moeten worden uitgebreid.
+Afzonderlijke gebeurtenissen melden statuswijzigingen naar aanleiding waarvan acties kunnen worden uitgevoerd. Om de volgende stap te zetten, hoeft de consument alleen te weten dat er iets is gebeurd. De gebeurtenisgegevens bevatten informatie over wat er is gebeurd, maar bevatten niet de gegevens die de gebeurtenis hebben geactiveerd. Zo kan een gebeurtenis consumenten ervan op de hoogte stellen dat er een bestand is gemaakt. De gebeurtenis kan algemene informatie over het bestand bevatten, maar niet het bestand zelf. Afzonderlijke gebeurtenissen zijn ideaal voor serverloze oplossingen die moeten worden geschaald.
 
-Reeks gebeurtenissen rapporteert een voorwaarde en analyzable zijn. De gebeurtenissen zijn tijd besteld en met elkaar verbonden. De consument moet de geordende reeks gebeurtenissen voor het analyseren van wat is er gebeurd.
+Reeksgebeurtenissen rapporteren een voorwaarde en zijn analyseerbaar. De gebeurtenissen zijn chronologisch geordend en zijn met elkaar verbonden. De consument heeft de geordende reeks gebeurtenissen nodig om te kunnen analyseren wat is er gebeurd.
 
 ### <a name="message"></a>Bericht
 
-Een bericht is onbewerkte gegevens geproduceerd door de service moet worden gebruikt of elders opgeslagen. Het bericht bevat de gegevens waarmee de pijplijn bericht is geactiveerd. De uitgever van het bericht heeft een verwachting over hoe de consument omgaat met het bericht. Er bestaat een overeenkomst tussen de twee partners. Bijvoorbeeld, de uitgever verzendt een bericht met de onbewerkte gegevens en verwacht van de consument te maken van een bestand van die gegevens en verzenden van een antwoord wanneer het werk wordt uitgevoerd.
+Een bericht bestaat uit onbewerkte gegevens die zijn geproduceerd door een service en die moeten worden gebruikt of elders worden opgeslagen. Het bericht bevat de gegevens die de berichtenpijplijn hebben geactiveerd. De uitgever van het bericht heeft een verwachting over hoe de consument omgaat met het bericht. Er bestaat een overeenkomst tussen de twee zijden. Bijvoorbeeld, de uitgever verzendt een bericht met de onbewerkte gegevens en verwacht van de consument dat deze een bestand van die gegevens maakt en een antwoord terugstuurt wanneer dit is gebeurd.
 
 ## <a name="comparison-of-services"></a>Vergelijking van services
 
 | Service | Doel | Type | Wanneer gebruikt u dit? |
 | ------- | ------- | ---- | ----------- |
-| Event Grid | Reactieve programmering | Gebeurtenisdistributie (apart) | Reageren op statuswijzigingen |
-| Event Hubs | BIG data-pipeline | Gebeurtenis streaming (-serie) | Telemetrie- en gedistribueerde gegevensstromen |
-| Service Bus | Berichtenverzending voor bedrijven in hoogwaardige | Bericht | Verwerking en financiële transacties |
+| Event Grid | Reactieve programmering | Gebeurtenisdistributie (discreet) | Reageren op statuswijzigingen |
+| Event Hubs | Big Data-pijplijn | Gebeurtenisstromen (reeks) | Telemetrie- en gedistribueerde gegevensstromen |
+| Service Bus | Hoogwaardige bedrijfsberichten | Bericht | Orderverwerking en financiële transacties |
 
 ### <a name="event-grid"></a>Event Grid
 
-Gebeurtenis raster is een eventing backplane waarmee gebeurtenisafhankelijke, reactieve programmering. Hierbij publiceren-abonneren model. Uitgevers verzenden van gebeurtenissen, maar hebben geen verwachting over welke gebeurtenissen worden verwerkt. Abonnees bepalen welke gebeurtenissen te verwerken.
+Event Grid is een gebeurtenisbackplane die gebeurtenisafhankelijke en reactieve programmering mogelijk maakt. Hiervoor wordt een Publiceren-Abonneren-model gebruikt. Uitgevers verzenden gebeurtenissen, maar hebben geen verwachting over welke gebeurtenissen worden afgehandeld. Abonnees bepalen welke gebeurtenissen ze willen afhandelen.
 
-Gebeurtenis raster is nauw geïntegreerd met Azure-services en kan worden geïntegreerd met services van derden. Het vereenvoudigt het verbruik van de gebeurtenis en verlaagt de kosten door hoeft u de constante polling. Gebeurtenis raster routeert efficiënt en betrouwbaar gebeurtenissen van Azure en niet-Azure-resources. Deze distribueert gebeurtenissen aan geregistreerde abonneeserver eindpunten. Het gebeurtenisbericht bevat informatie die u nodig hebt om te reageren op wijzigingen in de services en toepassingen. Raster gebeurtenis is niet een gegevens-pijplijn en levert niet het werkelijke object dat is bijgewerkt.
+Event Grid is in grote mate geïntegreerd met Azure-services en kan worden geïntegreerd met services van derden. Het vereenvoudigt het verbruik van gebeurtenissen en verlaagt de kosten omdat constante polling niet nodig is. Event Grid routeert op efficiënte en betrouwbare wijze gebeurtenissen van Azure- en niet-Azure-resources. Het distribueert gebeurtenissen aan eindpunten van geregistreerde abonnees. Het gebeurtenisbericht bevat de informatie die u nodig hebt om te reageren op wijzigingen in services en toepassingen. Event Grid is geen gegevenspijplijn en levert niet het werkelijke object dat is bijgewerkt.
 
-Deze heeft de volgende kenmerken:
+Het heeft de volgende kenmerken:
 
-* dynamisch schaalbare
-* Lage kosten
-* Zonder server
+* dynamisch schaalbaar
+* lage kosten
+* serverloos
 
 ### <a name="event-hubs"></a>Event Hubs
 
-Azure Event Hubs is een big data-pijplijn. Dit vereenvoudigt de vastleggen, bewaren en replay van Telemetrie en gebeurtenis stroomgegevens. De gegevens kunnen afkomstig zijn van veel gelijktijdige bronnen. Event Hubs kunnen Telemetrie en gebeurtenis gegevens worden voor tal van stroom verwerking infrastructuren en analyses services beschikbaar worden gesteld. Het is beschikbaar als gegevensstromen of gebundelde gebeurtenis batches. Deze service biedt één oplossing waarmee u snel gegevens ophalen voor realtime verwerking, evenals herhaalde replay van opgeslagen onbewerkte gegevens. Dit kan de streaming gegevens vastgelegd in een bestand voor verwerking en analyse.
+Azure Event Hubs is een Big Data-pijplijn. Het vereenvoudigt het vastleggen, bewaren en opnieuw afspelen van telemetrie- en gebeurtenisstroomgegevens. De gegevens kunnen afkomstig zijn van veel gelijktijdige bronnen. Dankzij Event Hubs kunnen telemetrie- en gebeurtenisgegevens beschikbaar worden gesteld aan diverse stroomverwerkingsinfrastructuren en analyseservices. De gegevens zijn beschikbaar als gegevensstromen of gebundelde gebeurtenisbatches. Deze service biedt één oplossing waarmee u snel gegevens kunt ophalen voor realtime verwerking, maar ook voor het herhaaldelijk afspelen van opgeslagen onbewerkte gegevens. Hiermee kunnen de streaminggegevens voor verwerking en analyse worden vastgelegd in een bestand.
 
-Deze heeft de volgende kenmerken:
+Het heeft de volgende kenmerken:
 
 * lage latentie
-* kunnen worden ontvangen en verwerken van miljoenen gebeurtenissen per seconde
+* kan miljoenen gebeurtenissen per seconde ontvangen en verwerken
 
 ### <a name="service-bus"></a>Service Bus
 
-Service Bus is bedoeld voor traditionele bedrijfstoepassingen. Deze bedrijfstoepassingen vereisen transacties, rangschikken, detectie van duplicaten en onmiddellijk consistentie. Service Bus kunnen cloud-systeemeigen toepassingen bieden betrouwbare statusbeheer overgang voor bedrijfsprocessen. Gebruik Azure Service Bus bij de verwerking van hoge waarde berichten die kunnen worden verbroken en kan worden gedupliceerd. Service Bus ook kunt u maximaal beveiligde communicatie in hybride cloud-oplossingen en verbinding maken met bestaande on-premises systemen naar cloudoplossingen.
+Service Bus is bedoeld voor traditionele bedrijfstoepassingen. Deze bedrijfstoepassingen hebben transacties, bestellingen, detectie van duplicaten en onmiddellijk consistentie nodig. Met Service Bus kunnen cloudsysteemeigen toepassingen betrouwbaar statusovergangsbeheer bieden voor bedrijfsprocessen. Gebruik Azure Service Bus bij de afhandeling van hoogwaardige berichten die niet verloren mogen gaan of gedupliceerd mogen worden. Service Bus vergemakkelijkt ook uitermate beveiligde communicatie tussen hybride cloudoplossingen en kan bestaande on-premises systemen verbinden met cloudoplossingen.
 
-Service Bus is een brokered messaging-systeem. Opgeslagen berichten in een 'broker' (bijvoorbeeld een wachtrij) totdat de verbruikende partij gereed is om de berichten te ontvangen.
+Service Bus is een Brokered Messaging-systeem. Het slaat berichten op in een 'broker' (bijvoorbeeld een wachtrij) tot de ontvangende partij gereed is om ze te ontvangen.
 
-Deze heeft de volgende kenmerken:
+Het heeft de volgende kenmerken:
 
-* betrouwbare asynchrone levering van berichten (enterprise messaging als een service) waarvoor u polling
-* geavanceerde-functies, zoals FIFO-principe, batchverwerking/sessies, transacties, verwerking van onbestelbare berichten, tijdelijke controle, doorsturen en filteren en detectie van duplicaten
+* betrouwbare asynchrone levering van berichten (enterprise messaging als een service) waarvoor polling is vereist
+* geavanceerde berichtfuncties, zoals FIFO, batchverwerking/sessies, transacties, verwerking van onbestelbare berichten, tijdelijke controle, doorsturen en filteren en detectie van duplicaten
 
 ## <a name="use-the-services-together"></a>De services samen gebruiken
 
-In sommige gevallen kunt u de services naast elkaar gebruiken om te voldoen aan verschillende rollen. Een e-commerce-site kunt Service Bus bijvoorbeeld gebruiken voor het verwerken van de volgorde, Event Hubs om vast te leggen telemetrie van de site en gebeurtenis raster om te reageren op gebeurtenissen, zoals een item is verzonden.
+In sommige gevallen kunt u de services naast elkaar gebruiken om verschillende rollen te kunnen vervullen. Zo kan een e-commerce-site Service Bus gebruiken om orders te verwerken, Event Hubs om telemetrie van de site vast te leggen en Event Grid om te reageren op gebeurtenissen, bijvoorbeeld een artikel dat is verzonden.
 
-In andere gevallen wordt koppelen u zodat ze samen vormen een pijplijn gebeurtenis en gegevens. U gebeurtenis raster gebruiken om te reageren op gebeurtenissen in de andere services. Zie voor een voorbeeld van het gebruik van gebeurtenis raster met Event Hubs om gegevens te migreren naar een datawarehouse [Stream big data in een datawarehouse](event-grid-event-hubs-integration.md). De volgende afbeelding ziet u de werkstroom voor het streamen van de gegevens.
+In andere gevallen kunt u ze koppelen om een gebeurtenis- en gegevenspijplijn te vormen. U gebruikt Event Grid om te reageren op gebeurtenissen in de andere services. Zie [Stream big data into a data warehouse](event-grid-event-hubs-integration.md) (Big Data streamen naar een data warehouse) voor een voorbeeld van het gebruik van Event Grid met Event Hubs om gegevens te migreren naar een datawarehouse. In de volgende afbeelding ziet u de werkstroom voor het streamen van de gegevens.
 
-![Overzicht van de gegevensstroom](./media/compare-messaging-services/overview.png)
+![Overzicht van gegevensstroom](./media/compare-messaging-services/overview.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Voor meer informatie over de Azure-services, Zie het blogbericht [gebeurtenissen, gegevenspunten en berichten - rechts Azure messaging-service voor uw gegevens kiezen](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/).
-* Zie voor een inleiding tot gebeurtenis raster, [over gebeurtenis raster](overview.md).
-* Als u wilt beginnen met de gebeurtenis raster, Zie [maken en route aangepaste gebeurtenissen met Azure Event raster](custom-event-quickstart.md).
-* Om aan de slag met Event Hubs, Zie [een Event Hubs-naamruimte en een event hub met de Azure portal maken](../event-hubs/event-hubs-create.md).
-* Als u wilt beginnen met de Service Bus, Zie [maken van een Service Bus-naamruimte met behulp van de Azure-portal](../service-bus-messaging/service-bus-create-namespace-portal.md).
+* Voor meer informatie over de berichtenservices van Azure leest u het blogbericht [Events, Data Points, and Messages - Choosing the right Azure messaging service for your data](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/) (Gebeurtenissen, gegevenspunten en berichten - De juiste Azure-berichtenservice kiezen voor uw gegevens).
+* Zie [Een inleiding tot Event Grid](overview.md) voor een inleiding tot Event Grid.
+* Zie [Aangepaste gebeurtenissen maken en routeren met behulp van Azure Event Grid](custom-event-quickstart.md) om aan de slag te gaan met Event Grid.
+* Zie [Create an Event Hubs namespace and an event hub using the Azure portal](../event-hubs/event-hubs-create.md) (Een Event Hubs-naamruimte en een Event Hub maken met Azure Portal) om aan de slag te gaan met Event Hubs.
+* Zie [Een Service Bus-naamruimte maken met Azure Portal](../service-bus-messaging/service-bus-create-namespace-portal.md) om aan de slag te gaan met Service Bus.

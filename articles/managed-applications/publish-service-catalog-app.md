@@ -1,42 +1,43 @@
 ---
-title: Maken en publiceren van een Azure-service catalogus beheerde toepassing | Microsoft Docs
+title: Door Azure beheerde toepassing in servicecatalogus maken en publiceren | Microsoft Docs
 description: In dit artikel leest u hoe u een beheerde Azure-toepassing maakt die is bedoeld voor leden van uw organisatie.
 services: managed-applications
 author: tfitzmac
 manager: timlt
 ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 05/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 57821e9c7ed1ca04aa7442f089268c5e89a017c3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b7f8bbcad39000e7e71149824535a6a82b26c758
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305307"
 ---
-# <a name="publish-a-managed-application-for-internal-consumption"></a>Een beheerde toepassing voor intern verbruik publiceren
+# <a name="publish-a-managed-application-for-internal-consumption"></a>Een beheerde toepassing publiceren voor intern gebruik
 
-U kunt maken en publiceren van Azure [beheerde toepassingen](overview.md) die bestemd zijn voor leden van uw organisatie. Een IT-afdeling kan bijvoorbeeld beheerde toepassingen die ervoor zorgen aan de organisatie-standaarden dat publiceren. Deze beheerde toepassingen zijn beschikbaar via de Servicecatalogus, niet de Azure marketplace.
+U kunt door Azure [beheerde toepassingen](overview.md) maken en publiceren die bedoeld zijn voor leden van uw organisatie. Zo kan een IT-afdeling beheerde toepassingen publiceren die zorgen voor naleving van organisatiestandaarden. Deze beheerde toepassingen zijn beschikbaar via de servicecatalogus, niet Azure Marketplace.
 
-Voor het publiceren van een beheerde toepassingsservices voor de Servicecatalogus, moet u het volgende doen:
+U moet het volgende doen om een beheerde toepassing te publiceren voor de servicecatalogus:
 
-* Maak een sjabloon die de resources te implementeren met de beheerde toepassing definieert.
-* Definieer de gebruikersinterface-elementen voor de portal bij het implementeren van de beheerde toepassing.
-* Een ZIP-pakket met de vereiste sjabloon-bestanden maken.
-* Bepaal welke gebruiker, groep of toepassing moet toegang tot de resourcegroep in het abonnement van de gebruiker.
-* De definitie van de beheerde toepassing die verwijst naar het ZIP-pakket en aanvragen van toegang voor de identiteit maken.
+* Een sjabloon maken die de resources definieert die met de beheerde toepassing moeten worden geïmplementeerd.
+* De elementen van de gebruikersinterface voor de portal definiëren bij het implementeren van de beheerde toepassing.
+* Een ZIP-pakket met de vereiste sjabloonbestanden maken.
+* Bepalen welke gebruiker, groep of toepassing toegang moet hebben tot de resourcegroep in het abonnement van de gebruiker.
+* De definitie van de beheerde toepassing maken die verwijst naar het ZIP-pakket en toegang voor de identiteit aanvraagt.
 
-Voor dit artikel bevat de beheerde toepassing alleen een opslagaccount. Het is bedoeld ter illustratie van de stappen voor het publiceren van een beheerde toepassing. Zie voor voorbeelden van volledige [voorbeeldprojecten voor Azure beheerde toepassingen](sample-projects.md).
+Voor deze zelfstudie bevat de beheerde toepassing alleen een opslagaccount. De zelfstudie is namelijk alleen bedoeld om de stappen voor het publiceren van een beheerde toepassing te laten zien. Zie [Voorbeeldprojecten voor door Azure beheerde toepassingen](sample-projects.md) voor uitgebreide voorbeelden.
 
-## <a name="create-the-resource-template"></a>De resource-sjabloon maken
+## <a name="create-the-resource-template"></a>De resourcesjabloon maken
 
-De definitie van elke beheerde toepassing bevat een bestand met de naam **mainTemplate.json**. In deze definieert u de Azure-resources te richten. De sjabloon is niet anders dan een reguliere Resource Manager-sjabloon.
+De definitie van een beheerde toepassing bevat altijd een bestand met de naam **mainTemplate.json**. Hierin definieert u de Azure-resources die u wilt inrichten. De sjabloon is niet anders dan een reguliere Resource Manager-sjabloon.
 
 Maak een bestand met de naam **mainTemplate.json**. De naam is hoofdlettergevoelig.
 
-De volgende JSON toevoegen aan uw bestand. Definieert de parameters voor het maken van een opslagaccount, en geeft de eigenschappen voor het opslagaccount.
+Voeg de volgende JSON-code toe aan uw bestand. Hiermee definieert u de parameters voor het maken van een opslagaccount, en geeft u de eigenschappen voor het opslagaccount op.
 
 ```json
 {
@@ -79,15 +80,15 @@ De volgende JSON toevoegen aan uw bestand. Definieert de parameters voor het mak
 }
 ```
 
-Sla het bestand mainTemplate.json.
+Sla het bestand mainTemplate.json op.
 
-## <a name="create-the-user-interface-definition"></a>De gebruiker interfacedefinitie maken
+## <a name="create-the-user-interface-definition"></a>Definitie van gebruikersinterface maken
 
-De Azure portal maakt gebruik van de **createUiDefinition.json** bestand voor het genereren van de gebruikersinterface voor gebruikers die de beheerde toepassing maken. U definiëren hoe gebruikers de gegevens voor elke parameter opgeven. U kunt opties kunt gebruiken, zoals een vervolgkeuzelijst, in het tekstvak, wachtwoord en andere hulpprogramma's voor invoer. Zie [Aan de slag met CreateUiDefinition](create-uidefinition-overview.md) voor meer informatie over het maken van een UI-definitiebestand voor een beheerde toepassing.
+Azure Portal gebruikt het bestand **createUiDefinition.json** om de gebruikersinterface te genereren voor gebruikers die de beheerde toepassing maken. U definieert hoe gebruikers invoer opgeven voor elke parameter. U kunt opties gebruiken zoals een vervolgkeuzelijst, tekstvak, wachtwoordvak en andere invoermethoden. Zie [Aan de slag met CreateUiDefinition](create-uidefinition-overview.md) voor meer informatie over het maken van een UI-definitiebestand voor een beheerde toepassing.
 
 Maak een bestand met de naam **createUiDefinition.json**. De naam is hoofdlettergevoelig.
 
-De volgende JSON toevoegen aan het bestand.
+Voeg de volgende JSON-code toe aan het bestand.
 
 ```json
 {
@@ -138,13 +139,13 @@ De volgende JSON toevoegen aan het bestand.
 }
 ```
 
-Sla het bestand createUiDefinition.json.
+Sla het bestand createUiDefinition.json op.
 
-## <a name="package-the-files"></a>De bestanden van het pakket
+## <a name="package-the-files"></a>De bestanden verpakken
 
-De twee bestanden toevoegen aan een ZIP-bestand met de naam app.zip. De twee bestanden moeten zich op het hoogste niveau van het ZIP-bestand. Als u opslaan in een map, ontvangt u een fout opgetreden bij het maken van de definitie van de beheerde toepassing waarin wordt vermeld dat de vereiste bestanden zijn niet aanwezig. 
+Voeg de twee bestanden toe aan een ZIP-bestand met de naam app.zip. De twee bestanden moeten zich in de hoofdmap van het ZIP-bestand bevinden. Als u ze in een map opslaat, treedt er een fout op bij het maken van de definitie van de beheerde toepassing met de mededeling dat de vereiste bestanden niet zijn gevonden. 
 
-Het uploaden van het pakket naar een toegankelijke locatie vanaf waar deze kan worden gebruikt. 
+Upload het pakket naar een toegankelijke locatie vanaf waar het pakket kan worden gebruikt. 
 
 ```powershell
 New-AzureRmResourceGroup -Name storageGroup -Location eastus
@@ -166,19 +167,19 @@ Set-AzureStorageBlobContent -File "D:\myapplications\app.zip" `
 
 ## <a name="create-the-managed-application-definition"></a>De definitie van de beheerde toepassing maken
 
-### <a name="create-an-azure-active-directory-user-group-or-application"></a>Een groep voor Azure Active Directory-gebruiker of toepassing maken
+### <a name="create-an-azure-active-directory-user-group-or-application"></a>Een Azure Active Directory-gebruikersgroep of -toepassing maken
 
-De volgende stap is het selecteren van een, gebruikersgroep of toepassing voor het beheren van bronnen namens de klant. Deze, gebruikersgroep of toepassing kunt u de juiste machtigingen heeft op de beheerde resourcegroep volgens de rol die is toegewezen. De rol kan ingebouwde rollen gebaseerd toegangsbeheer (RBAC)-functie zoals eigenaar of bijdrager zijn. Ook kunt u machtigen een afzonderlijke gebruiker om de resources te beheren, maar doorgaans u deze machtiging toewijzen aan een gebruikersgroep. Voor het maken van een nieuwe Active Directory-gebruikersgroep, Zie [een groep maken en leden toevoegen in Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md).
+De volgende stap is het selecteren van een gebruikersgroep of toepassing om de resources namens de klant te beheren. Deze gebruikersgroep of toepassing heeft machtigingen voor de beheerde resourcegroep overeenkomstig de toegewezen rol. De rol kan elke ingebouwde rol van op rollen gebaseerd toegangsbeheer (RBAC) zijn, zoals Eigenaar of Inzender. U kunt ook een afzonderlijke gebruiker toestemming geven om de resources te beheren, maar meestal wijst u deze machtiging toe aan een gebruikersgroep. Zie [Een groep maken en leden toevoegen in Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md) voor instructies voor het maken van een nieuwe Active Directory-gebruikersgroep.
 
-U moet de object-ID van de gebruikersgroep moet worden gebruikt voor het beheren van de resources. 
+U hebt de object-id van de gebruikersgroep nodig om de resources te beheren. 
 
 ```powershell
 $groupID=(Get-AzureRmADGroup -DisplayName mygroup).Id
 ```
 
-### <a name="get-the-role-definition-id"></a>De roldefinitie-ID ophalen
+### <a name="get-the-role-definition-id"></a>De roldefinitie-id opvragen
 
-Vervolgens moet u de roldefinitie-ID van de ingebouwde RBAC-rol die u toegang wilt verlenen aan de gebruiker, groep of toepassing. Meestal gebruikt u de rol van eigenaar of bijdrager of lezer. In de volgende opdracht ziet u hoe u de roldefinitie-id ophaalt voor de rol van eigenaar:
+Vervolgens hebt u de roldefinitie-id nodig van de ingebouwde RBAC-rol waarmee u toegang wilt verlenen aan de gebruiker, gebruikersgroep of toepassing. Meestal gebruikt u de rol van eigenaar, inzender of lezer. In de volgende opdracht ziet u hoe u de roldefinitie-id ophaalt voor de rol van eigenaar:
 
 ```powershell
 $ownerID=(Get-AzureRmRoleDefinition -Name Owner).Id
@@ -186,7 +187,7 @@ $ownerID=(Get-AzureRmRoleDefinition -Name Owner).Id
 
 ### <a name="create-the-managed-application-definition"></a>De definitie van de beheerde toepassing maken
 
-Als u nog geen een resourcegroep voor het opslaan van de definitie van de beheerde toepassing, maakt u een nu:
+Als u nog geen resourcegroep hebt voor het opslaan van de definitie van de beheerde toepassing, maakt u er nu een:
 
 ```powershell
 New-AzureRmResourceGroup -Name appDefinitionGroup -Location westcentralus
@@ -210,11 +211,11 @@ New-AzureRmManagedApplicationDefinition `
 
 ## <a name="create-the-managed-application"></a>De beheerde toepassing maken
 
-U kunt de beheerde toepassing via de portal, PowerShell of Azure CLI kunt implementeren.
+U kunt de beheerde toepassing implementeren via de portal, PowerShell of Azure CLI.
 
 ### <a name="powershell"></a>PowerShell
 
-Eerst laten we PowerShell gebruiken om de beheerde toepassing te implementeren.
+We gebruiken eerst PowerShell om de beheerde toepassing te implementeren.
 
 ```powershell
 # Create resource group
@@ -234,44 +235,44 @@ New-AzureRmManagedApplication `
   -Parameter "{`"storageAccountNamePrefix`": {`"value`": `"demostorage`"}, `"storageAccountType`": {`"value`": `"Standard_LRS`"}}"
 ```
 
-Uw beheerde toepassing en de beheerde infrastructuur nu aanwezig in het abonnement.
+Uw beheerde toepassing en de beheerde infrastructuur zijn nu aanwezig in het abonnement.
 
 ### <a name="portal"></a>Portal
 
-Nu gaan we de portal gebruiken om de beheerde toepassing te implementeren. Ziet u de gebruikersinterface die u hebt gemaakt in het pakket.
+Vervolgens gebruiken we de portal om de beheerde toepassing te implementeren. U ziet de gebruikersinterface die u in het pakket hebt gemaakt.
 
-1. Ga naar de Azure-portal. Selecteer **+ maken van een resource** en zoek naar **Servicecatalogus**.
+1. Ga naar Azure Portal. Selecteer **+ Een resource maken** en zoek naar **servicecatalogus**.
 
-   ![Servicecatalogus zoeken](./media/publish-service-catalog-app/create-new.png)
+   ![Zoeken naar servicecatalogus](./media/publish-service-catalog-app/create-new.png)
 
-1. Selecteer **Servicecatalogus beheerde toepassing**.
+1. Selecteer **Beheerde toepassing voor de servicecatalogus**.
 
-   ![Selecteer de Servicecatalogus](./media/publish-service-catalog-app/select-service-catalog-managed-app.png)
+   ![Servicecatalogus selecteren](./media/publish-service-catalog-app/select-service-catalog-managed-app.png)
 
 1. Selecteer **Maken**.
 
-   ![Selecteer maken](./media/publish-service-catalog-app/select-create.png)
+   ![Selecteer Maken](./media/publish-service-catalog-app/select-create.png)
 
-1. Zoek de beheerde toepassing die u wilt maken in de lijst met beschikbare oplossingen en selecteert u deze. Selecteer **Maken**.
+1. Zoek de beheerde toepassing die u wilt maken in de lijst met beschikbare oplossingen en selecteer de toepassing. Selecteer **Maken**.
 
-   ![De beheerde toepassing zoeken](./media/publish-service-catalog-app/find-application.png)
+   ![De beheerde toepassing vinden](./media/publish-service-catalog-app/find-application.png)
 
-1. Geef algemene informatie die is vereist voor de beheerde toepassing. Geef het abonnement en een nieuwe resourcegroep op de beheerde toepassing bevat. Selecteer **West-Centraal VS** voor de locatie. Selecteer **Ok** wanneer u gereed bent.
+1. Geef basisgegevens op die vereist zijn voor de beheerde toepassing. Geef het abonnement en een nieuwe resourcegroep op voor de beheerde toepassing. Selecteer **West-centraal VS** als de locatie. Selecteer **Ok** wanneer u gereed bent.
 
-   ![Geef parameters op beheerde toepassing](./media/publish-service-catalog-app/add-basics.png)
+   ![Parameters voor beheerde toepassing opgeven](./media/publish-service-catalog-app/add-basics.png)
 
-1. Geef de waarde die specifiek voor de resources in de beheerde toepassing zijn. Selecteer **Ok** wanneer u gereed bent.
+1. Geef waarden op die specifiek zijn voor de resources in de beheerde toepassing. Selecteer **Ok** wanneer u gereed bent.
 
-   ![Geef Resourceparameters op die](./media/publish-service-catalog-app/add-storage-settings.png)
+   ![Resourceparameters opgeven](./media/publish-service-catalog-app/add-storage-settings.png)
 
-1. De sjabloon valideert de waarden die u hebt opgegeven. Als de validatie slaagt, selecteert u **OK** implementatie te starten.
+1. De sjabloon valideert de waarden die u hebt opgegeven. Als de validatie is gelukt, selecteert u **OK** om de implementatie te starten.
 
-   ![Valideren van de beheerde toepassing](./media/publish-service-catalog-app/view-summary.png)
+   ![Beheerde toepassing valideren](./media/publish-service-catalog-app/view-summary.png)
 
-Nadat de implementatie is voltooid, wordt de beheerde toepassing in een resourcegroep met de naam applicationGroup bestaat. Het opslagaccount bestaat in een resourcegroep met de naam applicationGroup plus een hash string-waarde.
+Als de implementatie is voltooid, maakt de beheerde toepassing deel uit van een resourcegroep met de naam applicationGroup. Het opslagaccount bevindt zich in een resourcegroep met de naam applicationGroup plus een gehashte tekenreekswaarde.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * Zie [Overzicht van beheerde toepassingen](overview.md) voor een inleiding tot beheerde toepassingen.
-* Bijvoorbeeld projecten, Zie [voorbeeldprojecten voor Azure beheerde toepassingen](sample-projects.md).
+* Zie [Voorbeeldprojecten voor door Azure beheerde toepassingen](sample-projects.md) voor voorbeeldprojecten.
 * Zie [Aan de slag met CreateUiDefinition](create-uidefinition-overview.md) voor meer informatie over het maken van een UI-definitiebestand voor een beheerde toepassing.
