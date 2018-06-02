@@ -205,17 +205,9 @@
     - name: Problemen oplossen
       items:
         - name: Netwerkbeveiligingsgroepen
-          items:
-            - name: Azure Portal
-              href: virtual-network-nsg-troubleshoot-portal.md
-            - name: Azure PowerShell
-              href: virtual-network-nsg-troubleshoot-powershell.md
+          href: diagnose-network-traffic-filter-problem.md
         - name: Routes
-          items:
-            - name: Azure Portal
-              href: virtual-network-routes-troubleshoot-portal.md
-            - name: Azure PowerShell
-              href: virtual-network-routes-troubleshoot-powershell.md
+          href: diagnose-network-routing-problem.md
         - name: Doorvoer testen
           href: virtual-network-bandwidth-testing.md
         - name: Kan virtuele netwerken niet verwijderen

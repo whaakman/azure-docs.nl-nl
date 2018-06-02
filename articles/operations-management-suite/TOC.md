@@ -23,13 +23,12 @@
 ### [Overzicht van Site Recovery](../site-recovery/site-recovery-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 ## Beveiligen
-### [Resources controleren](oms-security-monitoring-resources.md)
-### [Reageren op beveiligingswaarschuwingen](oms-security-responding-alerts.md)
-### [Basislijnevaluatie](oms-security-baseline.md)
-### [Malware-evaluatie](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-### [Systeemupdate-evaluatie](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-### [Verbinding maken met beveiligingsproducten](oms-security-connect-products.md)
-### [Evaluatie van de webbasislijn](oms-security-web-baseline-assessment.md)
+### [Resources bewaken](../security-center/security-center-monitoring.md)
+### [Reageren op beveiligingswaarschuwingen](../security-center/security-center-managing-and-responding-alerts.md)
+### [Basislijnevaluatie](../security-center/security-center-customize-os-security-config.md)
+### [Malware-evaluatie](../security-center/security-center-install-endpoint-protection.md)
+### [Verbinding maken met beveiligingsproducten](../security-center/quick-security-solutions.md)
+### [Evaluatie van de webbasislijn](../security-center/security-center-customize-os-security-config.md)
 
 ## Oplossingen gebruiken
 ### [Beheeroplossingen](../monitoring/monitoring-solutions.md)
