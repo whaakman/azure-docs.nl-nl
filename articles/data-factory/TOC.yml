@@ -1,5 +1,7 @@
 - name: Documentatie over Data Factory V2
   href: index.yml
+- name: Ga naar documentatie voor versie 1
+  href: v1/data-factory-introduction.md
 - name: Overzicht
   items:
     - name: Inleiding tot Data Factory
@@ -374,6 +376,8 @@
       items:
         - name: Azure-SSIS-integratie-runtime aan een VNet koppelen
           href: join-azure-ssis-integration-runtime-virtual-network.md
+        - name: Azure AD-verificatie inschakelen voor Azure SSIS-integratieruntime
+          href: enable-aad-authentication-azure-ssis-ir.md
         - name: Hoge prestaties configureren voor Azure-SSIS-integratieruntime
           href: configure-azure-ssis-integration-runtime-performance.md
         - name: Enterprise-editie voor Azure-SSIS-integratie-runtime inrichten
@@ -382,9 +386,9 @@
           href: how-to-configure-azure-ssis-ir-custom-setup.md
         - name: Gelicentieerde onderdelen voor Azure SSIS-integratieruntime implementeren
           href: how-to-develop-azure-ssis-ir-licensed-components.md
-        - name: SSIS-pakketten uitvoeren met SSIS-activiteit
+        - name: SSIS-pakketten uitvoeren met de activiteit SSIS-pakket uitvoeren
           href: how-to-invoke-ssis-package-ssis-activity.md
-        - name: SSIS-pakketten uitvoeren met opgeslagen procedureactiviteit
+        - name: SSIS-pakketten uitvoeren met de activiteit Opgeslagen procedure
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
         - name: Azure-SSIS-integratie-runtime plannen
           href: how-to-schedule-azure-ssis-integration-runtime.md

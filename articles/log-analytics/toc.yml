@@ -137,24 +137,20 @@
           href: log-analytics-powerbi.md
     - name: Waarschuwingen maken
       items:
-        - name: Informatie over waarschuwingen
-          href: log-analytics-alerts.md
-        - name: Waarschuwingsacties
-          href: log-analytics-alerts-actions.md
-        - name: Waarschuwingsregels maken
-          items:
-            - name: OMS-portal
-              href: log-analytics-alerts-creating.md
-            - name: REST-API
-              href: log-analytics-api-alerts.md
-            - name: Resource Manager-sjabloon
-              href: ../monitoring/monitoring-solutions-resources-searches-alerts.md
-        - name: Voorbeeld van webhookactie
-          href: log-analytics-alerts-webhooks.md
-        - name: Waarschuwingenbeheeroplossing
-          href: log-analytics-solution-alert-management.md
+        - name: Informatie over logboekwaarschuwingen
+          href: ../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md
+        - name: Logboekwaarschuwing maken
+          href: ../monitoring-and-diagnostics/monitor-alerts-unified-usage.md
+        - name: Webhookacties voor logboekwaarschuwingen
+          href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md
+        - name: Een waarschuwing voor een logboek maken met een Resource Manager-sjabloon
+          href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-template.md
+        - name: Waarschuwingen van Log Analytics kopiëren naar Azure Alerts
+          href: ../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md
     - name: Beheren
       items:
+        - name: Persoonlijke gegevens verwerken
+          href: log-analytics-personal-data-mgmt.md
         - name: Agents beheren
           href: log-analytics-agent-manage.md
         - name: De kosten voor werkruimtes beheren
@@ -218,8 +214,6 @@
               href: ../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json
             - name: Aangepast volgschema Logische apps B2B
               href: ../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Malware-evaluatie
-          href: log-analytics-malware.md
         - name: Networking Analytics
           href: log-analytics-azure-networking-analytics.md
         - name: Netwerkprestatiemeter
@@ -239,7 +233,7 @@
         - name: SCOM-statuscontrole
           href: log-analytics-scom-assessment.md
         - name: Beveiligingscontrole
-          href: ../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json
+          href: ../security-center/security-center-intro.md
         - name: Service Fabric met Azure PowerShell
           href: log-analytics-service-fabric.md
           items:

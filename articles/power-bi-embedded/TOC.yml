@@ -1,0 +1,66 @@
+- name: Documentatie over Power BI Embedded
+  href: index.md
+- name: Overzicht
+  items:
+    - name: Wat is Power BI Embedded?
+      href: what-is-power-bi-embedded.md
+- name: Aan de slag
+  items:
+    - name: Aan de slag met Power BI Embedded
+      href: get-started.md
+    - name: Aan de slag met een voorbeeld
+      href: 'https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/'
+- name: Procedures
+  items:
+    - name: Capaciteit beheren
+      items:
+        - name: Capaciteit maken
+          href: create-capacity.md
+        - name: Schaal van capaciteit aanpassen
+          href: scale-capacity.md
+        - name: Capaciteit onderbreken en starten
+          href: pause-start.md
+    - name: Een Azure AD-app registreren
+      href: 'https://powerbi.microsoft.com/documentation/powerbi-developer-register-app/'
+    - name: Uw Power BI-inhoud insluiten
+      href: 'https://powerbi.microsoft.com/documentation/powerbi-developer-embedding-content/'
+    - name: Migreren
+      items:
+        - name: Power BI-werkruimteverzamelingen migreren
+          href: migrate-from-power-bi-workspace-collections.md
+        - name: Hulpprogramma voor migratie
+          href: migrate-tool.md
+        - name: Codefragmenten voor migratie
+          href: migrate-code-snippets.md
+- name: Voorbeelden
+  items:
+    - name: Codevoorbeelden
+      href: 'https://github.com/Microsoft/PowerBI-Developer-Samples'
+    - name: Walkthrough voor voorbeeld
+      href: 'https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/'
+    - name: Voorbeeld van ingesloten JavaScript
+      href: 'https://microsoft.github.io/PowerBI-JavaScript/demo/'
+- name: Naslaginformatie
+  items:
+    - name: API's
+      items:
+        - name: REST API's voor Azure Resource Management
+          href: 'https://docs.microsoft.com/rest/api/power-bi-embedded/'
+        - name: REST-API's voor Power BI
+          href: 'https://msdn.microsoft.com/library/mt147898.aspx'
+- name: Resources
+  items:
+    - name: Power BI-community
+      href: 'http://community.powerbi.com/t5/Developer/bd-p/Developer'
+    - name: .NET SDK downloaden
+      href: 'https://www.nuget.org/packages/Microsoft.PowerBI.Api/'
+    - name: JavaScript SDK downloaden
+      href: 'https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/'
+    - name: Prijscalculator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: GitHub-opslagplaatsen
+      items:
+        - name: .NET voor Power BI
+          href: 'https://github.com/Microsoft/PowerBI-CSharp'
+        - name: JavaScript voor Power BI
+          href: 'https://github.com/Microsoft/PowerBI-JavaScript'
