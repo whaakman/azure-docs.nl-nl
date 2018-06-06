@@ -14,15 +14,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 523ef25fe0d3227d526acbdee2c7cf2660fc4f25
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 1dd5d0f11a063d013142948c7c87a98aefe02749
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725221"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Code en Azure Functions lokaal testen
 
-Terwijl de [Azure-portal] biedt een volledige set hulpprogramma's voor het ontwikkelen en testen Azure Functions, veel ontwikkelaars de voorkeur aan een lokale ontwikkeling biedt. Azure Functions kunt eenvoudig uw favoriete code-editor en lokale ontwikkelingsprogramma's gebruiken om te ontwikkelen en testen van uw functies op uw lokale computer. Uw functies kunnen activeren van gebeurtenissen in Azure en u kunt fouten opsporen in uw C#- en JavaScript-functies op uw lokale computer. 
+Terwijl de [Azure Portal] biedt een volledige set hulpprogramma's voor het ontwikkelen en testen Azure Functions, veel ontwikkelaars de voorkeur aan een lokale ontwikkeling biedt. Azure Functions kunt eenvoudig uw favoriete code-editor en lokale ontwikkelingsprogramma's gebruiken om te ontwikkelen en testen van uw functies op uw lokale computer. Uw functies kunnen activeren van gebeurtenissen in Azure en u kunt fouten opsporen in uw C#- en JavaScript-functies op uw lokale computer. 
 
 Als u een Azure-functies van Visual Studio C# ontwikkelaar, ook bent [kan worden geïntegreerd met Visual Studio 2017](functions-develop-vs.md).
 
@@ -95,14 +96,14 @@ De volgende stappen uitvoeren om [APT](https://wiki.debian.org/Apt) Core hulppro
   sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
   ```
 
-2.  Instellen van het pakket feeds vervangen `<version>` in de volgende opdracht met de naam van de juiste versie van de tabel:
+2.  Controleer of dat uw Ubuntu server wordt uitgevoerd een van de juiste versies van de onderstaande tabel. De apt als bron wilt toevoegen, voert u het:
 
   ```bash
-  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-<version>-prod <version> main" > /etc/apt/sources.list.d/dotnetdev.list'
+  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
   sudo apt-get update
   ```
 
-  | Linux-distributie | `<version>` |
+  | Linux-distributie | Versie |
   | --------------- | ----------- |
   | Ubuntu 17.10    | `artful`    |
   | Ubuntu 17.04    | `zesty`     |
@@ -151,7 +152,7 @@ Gebruik voor het maken van het project zonder een lokale Git-opslagplaats de `--
 
 ## <a name="register-extensions"></a>Extensies registreren
 
-In versie 2.x van de Azure Functions-runtime, moet u expliciet registreren de [binding extensies](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) die u in de functie-app gebruiken. 
+In versie 2.x van de Azure Functions-runtime, hebt u expliciet de binding-uitbreidingen (bindingstypen) die u in de functie-app gebruikt te registreren.
 
 [!INCLUDE [Register extensions](../../includes/functions-core-tools-install-extension.md)]
 
@@ -275,7 +276,7 @@ Job host started
 Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
 
-### <a name="debug-in-vs-code-or-visual-studio"></a>Fouten opsporen in VS-Code of Visual Studio
+### <a name="vs-debug"></a>Fouten opsporen in VS-Code of Visual Studio
 
 Als u wilt een foutopsporingsprogramma koppelen, geeft de `--debug` argument. Gebruik voor foutopsporing JavaScript-functies, Visual Studio Code. Voor C#, Visual Studio te gebruiken.
 
@@ -388,7 +389,7 @@ U kunt de volgende opties gebruiken:
 
 Met deze opdracht publiceert naar een bestaande functie-app in Azure. Een fout optreedt wanneer de `<FunctionAppName>` bestaat niet in uw abonnement. Zie voor informatie over het maken van een functie-app vanuit de opdrachtprompt of terminalvenster met de Azure CLI, [maken van een functie-App voor uitvoering zonder server](./scripts/functions-cli-create-serverless.md).
 
-De `publish` opdracht wordt de inhoud van de projectmap functies geüpload. Als u bestanden lokaal, verwijdert de `publish` opdracht ze niet verwijdert uit Azure. U kunt bestanden in Azure verwijderen met behulp van de [Kudu hulpprogramma](functions-how-to-use-azure-function-app-settings.md#kudu) in de [Azure-portal].  
+De `publish` opdracht wordt de inhoud van de projectmap functies geüpload. Als u bestanden lokaal, verwijdert de `publish` opdracht ze niet verwijdert uit Azure. U kunt bestanden in Azure verwijderen met behulp van de [Kudu hulpprogramma](functions-how-to-use-azure-function-app-settings.md#kudu) in de [Azure Portal].  
 
 >[!IMPORTANT]  
 > Wanneer u een functie-app in Azure maakt, wordt versie 1.x van de functie runtime standaard. Om te maken van de functie app-gebruik versie 2.x van de runtime de toepassingsinstelling toevoegen `FUNCTIONS_EXTENSION_VERSION=beta`.  
@@ -407,5 +408,5 @@ Fout of het onderdeel aanvragen [opent u een probleem met de GitHub](https://git
 <!-- LINKS -->
 
 [Azure Functions kernonderdelen]: https://www.npmjs.com/package/azure-functions-core-tools
-[Azure-portal]: https://portal.azure.com 
+[Azure Portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
